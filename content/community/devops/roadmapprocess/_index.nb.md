@@ -17,6 +17,9 @@ Denne opprettes av produkteierene basert på følgende muligheter
 
 - Feature requests i backlog som er meldt inn av team eller eksterne
 - Identifiserte behov
+
+
+Ansvarlig: Produkteiere
   
 
 ## Product feature epic
@@ -35,12 +38,15 @@ Denne featuren epic vil ligge i produktbackloggen hvor den mest naturlig hører 
 
 Det vil være naturlig at man itererer over denne mange ganger før den er klar til feature refinement.
 
+Ansvarlig: Produkteiere
 
 ## Product Backlog issues
 
 Dette er detaljerte oppgaver som er knyttet til epic. Kan være analyse oppgaver eller rene implementasjonsoppgave.
 
 Issue tilknyttet en produkt feature epic trenger ikke å ligge i samme backlog som epic. 
+
+Ansvarlig: Devops team
 
 ## Roadmap refinement
 
