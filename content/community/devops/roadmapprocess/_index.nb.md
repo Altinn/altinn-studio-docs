@@ -7,7 +7,16 @@ description: Hvordan jobber vi med vår roadmap
 
 Dette dokumentet beskriver artifakter og prosesser tilknyttet hvordan roadmap administreres og feature refines.
 
-## Roadmap feature
+## Artifakter
+
+Arbeidet med Altinn 3 krever en del artifakter.
+
+
+![Backlogs](roadmap.drawio.svg "Artifakter")
+[Fullscreen](roadmap.drawio.svg)
+
+
+### Roadmap feature
 
 Denne beskriver overordnet hvilken funksjonalitet feature dekker og overordnet egenskapene med funksjonaliteten.
 
@@ -21,8 +30,7 @@ Denne opprettes av produkteierene basert på følgende muligheter
 
 Ansvarlig: Produkteiere
   
-
-## Product feature epic
+### Product feature epic
 
 Kilden til denne kan være roadmap features eller opprettes i sammeheng med identifiserte behov.  Denne oppstår i stor grad før roadmap feature.
 
@@ -40,17 +48,30 @@ Det vil være naturlig at man itererer over denne mange ganger før den er klar 
 
 Ansvarlig: Produkteiere
 
-## Product Backlog issues
+### Product Backlog issues
 
 Dette er detaljerte oppgaver som er knyttet til epic. Kan være analyse oppgaver eller rene implementasjonsoppgave.
 
 Issue tilknyttet en produkt feature epic trenger ikke å ligge i samme backlog som epic. 
 
+Disse tas inn i sprinter som del av sprint planning
+
 Ansvarlig: Devops team
+
+
+# Prosess
+
+Følgende prosess følges med artifakten
+
+![Backlogs](roadmapprocess.drawio.svg "Roadmap process")
+[Fullscreen](roadmapprocess.drawio.svg)
+
 
 ## Roadmap refinement
 
-Dette er arbeidet som produkteierne utfører for å skape elementer i roadmap backloggen
+Dette er arbeidet som produkteierne utfører for å skape elementer i roadmap backloggen. 
+
+Arbeidet starter typisk basert på en feature request som eksterne, team aller produkteiere har identifisert.
 
 Avhengig av feature kan dette arbeidet inkludere
 
@@ -60,6 +81,9 @@ Avhengig av feature kan dette arbeidet inkludere
 - UX Analyse og design
 
 Dette arbeidet dokumenteres i baclog epics eller underliggende backlog issues og oppsummeres i selve roadmap features når løsning er definert.
+
+Detaljeringsgraden på dette arbeidet må tilfredstille **Defintion of ready** for å kunne tas videre og man iterer over
+artifaktene til dette er tilfelle.
 
 ## Feature refinement
 
@@ -75,14 +99,9 @@ Resultatet av feature refinement kan være at produkteiere må tilbake til "tegn
 
 For saker hvor produkteiere mener alt er avklart trenger man ikke å ta dette til feature refinement. Disse kan tas rett til planning.
 
-![Backlogs](roadmapprocess.drawio.svg "Roadmap process")
-[Fullscreen](roadmapprocess.drawio.svg)
 
 
 
 
-
-![Backlogs](roadmap.drawio.svg "Backlogs and teams")
-[Fullscreen](roadmap.drawio.svg)
 
 {{<children>}}
