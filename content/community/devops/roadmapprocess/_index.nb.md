@@ -27,6 +27,7 @@ Denne opprettes av produkteierene basert på følgende muligheter
 - Feature requests i backlog som er meldt inn av team eller eksterne
 - Identifiserte behov
 
+Vi ønsker å legge oss på detaljnivået til [Github Roadmap](https://github.com/orgs/github/projects/4247) for roadmap features
 
 Ansvarlig: Produkteiere
   
@@ -84,6 +85,8 @@ Dette arbeidet dokumenteres i baclog epics eller underliggende backlog issues og
 
 Detaljeringsgraden på dette arbeidet må tilfredstille **Defintion of ready** for å kunne tas videre og man iterer over
 artifaktene til dette er tilfelle.
+
+
 
 ## Feature refinement
 
