@@ -4,6 +4,10 @@ description: Oversikt over endringer som ble introdusert i v3 av app frontend.
 toc: true
 ---
 
+## 3.33.1 (2022-03-23) - Fikset feil med dynamiske options
+Fikset en feil hvor kun den første option ble hentet om man hadde definert to komponenter med samme optionId men ulik mapping.
+Issue [#8292](https://github.com/Altinn/altinn-studio/issues/8292).
+
 ## 3.33.0 (2022-03-18) - Oppdatert tekst i bekreftelsessteg + mulighet til å overstyre
 Ny tekst for `confirm.sender` i bekreftelsessteget. Nå også mulighet til å overstyre denne.
 Issue [#8243](https://github.com/Altinn/altinn-studio/issues/8243).
