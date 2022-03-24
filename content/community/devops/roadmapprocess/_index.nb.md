@@ -5,13 +5,15 @@ description: Hvordan jobber vi med vår roadmap
 
 ## DRAFT!!!!
 
+Dette dokumentet beskriver artifakter og prosesser tilknyttet hvordan roadmap administreres og feature refines.
+
 ## Roadmap feature
 
 Denne beskriver overordnet hvilken funksjonalitet feature dekker og overordnet egenskapene med funksjonaliteten.
 
-Målet er at interessenter skal kunne lese denne uten å lese noe annet for å få en god forståelse hvilken funksjonalitet denne gir.
+Målet er at interessenter skal kunne lese denne uten å lese noe annet for å få en god forståelse hvilken funksjonalitet denne gir. 
 
-Denne opprettes av produkteierene basert på følgende mulighetr
+Denne opprettes av produkteierene basert på følgende muligheter
 
 - Feature requests i backlog som er meldt inn av team eller eksterne
 - Identifiserte behov
@@ -19,7 +21,7 @@ Denne opprettes av produkteierene basert på følgende mulighetr
 
 ## Product feature epic
 
-Kilden til denne kan være roadmap features eller opprettes i sammeheng med identifiserte behov. 
+Kilden til denne kan være roadmap features eller opprettes i sammeheng med identifiserte behov.  Denne oppstår i stor grad før roadmap feature.
 
 Denne vil inneholde detaljert beskrivelse av feature samt referer til underoppgaver som f.eks
 
@@ -29,11 +31,14 @@ Denne vil inneholde detaljert beskrivelse av feature samt referer til underoppga
 
 Det er produkteierne som i utgangspunktet eier denne, men får hjelp av teamarkitekter, utviklere, jurister og andre som trengs for å spesifisere disse
 
+Denne featuren epic vil ligge i produktbackloggen hvor den mest naturlig hører hjemme. 
+
 
 ## Product Backlog issues
 
-Dette er detaljerte oppgaver som er knyttet til epic. Kan være analyse oppgaver eller 
+Dette er detaljerte oppgaver som er knyttet til epic. Kan være analyse oppgaver eller rene implementasjonsoppgave.
 
+Issue tilknyttet en produkt feature epic trenger ikke å ligge i samme backlog som epic. 
 
 ## Roadmap refinement
 
@@ -53,11 +58,14 @@ Dette arbeidet dokumenteres i baclog epics eller underliggende backlog issues og
 Feature refinement er behandling av Backlog epic med underliggende issues.
 
 Målet med feature refinement er å detaljere issue til et nivå at team kan ta oppgavene inn i sprinter. 
+
 - Viktige teknologi valg må være analysert
 - Bør være mulig å identifisere oppgaver å dele opp i egne issues
 - Være detaljert nok til at man kan si noe om omfang. 
 
+Resultatet av feature refinement kan være at produkteiere må tilbake til "tegnebordet" for finne ut av problemstillinger som ble identifisert av devopsteam.
 
+For saker hvor produkteiere mener alt er avklart trenger man ikke å ta dette til feature refinement. Disse kan tas rett til planning.
 
 ![Backlogs](roadmap.drawio.svg "Backlogs and teams")
 [Fullscreen](roadmap.drawio.svg)
