@@ -4,6 +4,10 @@ description: Oversikt over endringer som ble introdusert i v3 av app frontend.
 toc: true
 ---
 
+## 3.33.2 (2022-03-24) - Justert høyde for inputfelter og datovelger
+Høyden på disse feltene var feil. Det har blitt rettet til 36px høyde.
+Issue [#7377](https://github.com/Altinn/altinn-studio/issues/7377).
+
 ## 3.33.1 (2022-03-23) - Fikset feil med dynamiske options
 Fikset en feil hvor kun den første option ble hentet om man hadde definert to komponenter med samme optionId men ulik mapping.
 Issue [#8292](https://github.com/Altinn/altinn-studio/issues/8292).
