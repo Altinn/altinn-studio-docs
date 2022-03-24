@@ -75,6 +75,13 @@ Resultatet av feature refinement kan være at produkteiere må tilbake til "tegn
 
 For saker hvor produkteiere mener alt er avklart trenger man ikke å ta dette til feature refinement. Disse kan tas rett til planning.
 
+![Backlogs](roadmapprocess.drawio.svg "Roadmap process")
+[Fullscreen](roadmapprocess.drawio.svg)
+
+
+
+
+
 ![Backlogs](roadmap.drawio.svg "Backlogs and teams")
 [Fullscreen](roadmap.drawio.svg)
 
