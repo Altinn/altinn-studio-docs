@@ -33,6 +33,8 @@ Det er produkteierne som i utgangspunktet eier denne, men får hjelp av teamarki
 
 Denne featuren epic vil ligge i produktbackloggen hvor den mest naturlig hører hjemme. 
 
+Det vil være naturlig at man itererer over denne mange ganger før den er klar til feature refinement.
+
 
 ## Product Backlog issues
 
