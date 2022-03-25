@@ -13,10 +13,10 @@ The Studio team is responsible for the following Altinn 3 products:
 This includes building new features, bugfixing, documentation, build and release pipelines, infrastructure and availability and of course making sure it runs in production.
 
 ## Altinn Studio
-[Altinn Studio](https://github.com/Altinn/altinn-studio)
+[Altinn Studio](https://github.com/Altinn/altinn-studio)\
 [Kubernetes Wrapper](https://github.com/Altinn/app-kubernetes-wrapper)]
 ## Altinn App 
-[Frontend](https://github.com/Altinn/app-frontend)
+[Frontend](https://github.com/Altinn/app-frontend)\
 [AppTemplate](https://github.com/Altinn/app-template-dotnet)
 
 {{<children>}}
