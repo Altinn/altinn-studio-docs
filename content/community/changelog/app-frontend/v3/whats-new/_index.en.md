@@ -4,6 +4,10 @@ description: Overview of changes introduced in v3 of app frontend.
 toc: true
 ---
 
+## 3.33.3 (2022-03-25) - Support for defining row or columns for checkbox and radio
+Added support for defining row or columns layout for radio and checkbox.
+Issue [#5730](https://github.com/Altinn/altinn-studio/issues/5730).
+
 ## 3.33.2 (2022-03-24) - Adjusted height of inputfields and date picker
 The height of these fields was incorrect. They are now set to 36px height.
 Issue [#7377](https://github.com/Altinn/altinn-studio/issues/7377).
