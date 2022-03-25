@@ -3,7 +3,7 @@ title: Studio
 description: Team Studio works mainly on products related to building and developing Altinn 3 applications.
 ---
 
-## Arbeidsområde
+## Responsibilities 
 The Studio team is responsible for the following Altinn 3 products:
 * Studio Designer
 * Altinn App 
