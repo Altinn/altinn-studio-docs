@@ -4,6 +4,90 @@ description: Oversikt over endringer som ble introdusert i versjon 4.
 toc: true
 tags: [translate-to-norwegian]
 ---
+
+## 4.33.0 (15.03.2022) - Støtte for å slå av PDF generering for skjema
+
+- Denne releasen gjør det mulig å slå av PDF generering for enkeltskjema i en applikasjon. 
+
+Dette gjøres ved å sette flag i application metadata på en gitt datatype. Standard er true
+
+Eksempel.
+
+```json
+{
+      "id": "melding",
+      "allowedContentTypes": [ "application/xml" ],
+      "maxCount": 1,
+      "appLogic": {
+        "autoCreate": false,
+        "ClassRef": "App.IntegrationTestsRef.Data.apps.dibk.nabovarsel.Melding"
+      },
+      "taskId": "Task_1",
+      "enablePdfCreation" : false
+    }
+
+```
+
+
+## 4.32.0 (14.03.2022) - Person oppslagstjeneste
+Register applikasjonen i platform har blitt oppdatert med et nytt endepunkt som kan brukes til å verifisere et personnummer. Denne versjonen av NuGet pakkene til en app har fått implementert en oppslagstjeneste som kan brukes til å gjøre oppslag mot dette nye endepunktet i Register.
+
+
+## 4.31.1 (10.03.2022) - Fikset bug relatert til prefill og berriket instance events med personnumer
+
+- Denne releasen løser en bug der prefill av samme verdi til mer enn ett felt kaster en _duplicate key exception_.
+- Personnummer legges nå til i platformUser objektet for instance events.
+  
+## 4.30.0 (07.03.2022) - Støtte for readiness og livenessprober
+Det er nå lagt til et endepunkt for helsesjekk i applikasjonen. 
+Dette benyttes blant annet av Kubernetes til å vite når en applikasjonsinstans er klar til å settes inn i last. 
+
+For alle applikasjon opprettet før 16.03.2022 må det gjøres manuelle endringer
+for å aktivere readiness og liveness probene.
+
+1. I  `App/Startup.cs`
+   1.  Legg til linjen `using Altinn.App.Core.Health;` blant de andre _using_-referansene øverst i filen.
+
+   2. I metoden `ConfigureServices` legger du til linjen 
+
+      ```cs
+      services.AddHealthChecks().AddCheck<HealthCheck>("default_health_check");
+      ```
+   3. I metoden `Configure` legger du til linjen
+
+      ```cs
+      app.UseHealthChecks("/health");
+      ```
+2. I `deployment/Chart.yaml` skal referansen til Studio helm charten oppdateres til versjon `2.1.0`
+   
+   Endelig resultat bør likne på dette: 
+
+   ```yaml
+   apiVersion: v1
+   description: A Helm chart for Kubernetes
+   name: deployment
+   version: 1.1.0
+
+   dependencies:
+   - name: deployment
+      repository: https://charts.altinn.studio/
+      version: 2.1.0
+   ```
+
+3. I `deployment/values.yaml` legger du til 
+
+   ```yaml
+   readiness:
+     enabled: true
+
+   liveness:
+     enabled: true
+   ```
+
+**MERK** antall innrykk er viktig i filen. `readiness` og `liveness` skal stå på nivået under `deployment` 
+og på samme nivå som `volumeMounts` og `volumes`
+
+
 ## 4.27.0 (23.02.2022) - Sikre kodelister
 Lagt til støtte for sikre kodelister
 Rettet url og parameter logik i GetInstanceEvents
@@ -115,26 +199,26 @@ public class Skjema {
 ```
 Denne endringen må foreløpig bli utført manuelt i både gamle og nye modeller. Modeleditoren i altinn.studio har ikke blitt oppdatert til å gjøre det automatisk.
 
-## 4.13.0 (2021-09-03) - Event for changed substatus on instance
-Changing the substatus of an instance triggers an event `app.instance.substatus.changed` which can be subscribed to in the event component.
+## 4.13.0 (2021-09-03) - Hendelse for endring av substatus
+Det å endre substatus på en instanse trigger nå en event av typen `app.instance.substatus.changed`. Dette kan eksterne systemer abonnere på via Events tjenesten.
 
-This solves issue [#6691](https://github.com/Altinn/altinn-studio/issues/6691)
+Dette løser sak [#6691](https://github.com/Altinn/altinn-studio/issues/6691)
 
-## 4.12.0 (2021-08-27) - Identity data is included in the request telemetry for all requests
-In Application Insights we now register the properties listed below enabling linking of an entity to a specific request received by the application.
+## 4.12.0 (2021-08-27) - Identitetsdata inkludert i request telemetri
+Logging av requests til Application Insights nå inkluderer et lite set med identifiserende data for å mer effektivt kunne spore kilden til uvanlige requester. Følgende data punkter blir registrert:
 
 - partyId
 - authentication level
 - userId 
 - organisationNumber
 
-This solves issue [#5983](https://github.com/Altinn/altinn-studio/issues/5983)
+Dette løser sak [#5983](https://github.com/Altinn/altinn-studio/issues/5983)
 
 
-## 4.11.1 (2021-08-26) - No longer possible to cache response from stateless apps
-Caching of the stateless data responses is no longer possible.
+## 4.11.1 (2021-08-26) - Hindre caching av data for apps uten "state"
+Det er lagt inn kode som gir hint til nettleser om å ikke cache data som blir brukt i apps uten state.
 
-This solves issue [#6532](https://github.com/Altinn/altinn-studio/issues/6532)
+Dette løser [#6532](https://github.com/Altinn/altinn-studio/issues/6532)
 
 ## 4.11.0 (2021-08-03) - Support for disabling reportee selection in Altinn Portal
 Apps now support adding query parameter `DontChooseReportee=true` to disable the reportee selection when an unauthorized user accesses an app. 

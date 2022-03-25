@@ -79,11 +79,11 @@ List<string> pageOrder = new List<string>();
 
 if (string.IsNullOrEmpty(layoutSetId))
 {
-    pageOrder = _appResources.GetLayoutSettings().Pages.Order;
+    pageOrder = _appResourcesService.GetLayoutSettings().Pages.Order;
 }
 else
 {
-    pageOrder = _appResources.GetLayoutSettingsForSet(layoutSetId).Pages.Order;
+    pageOrder = _appResourcesService.GetLayoutSettingsForSet(layoutSetId).Pages.Order;
 }
 ```
 
@@ -93,13 +93,13 @@ Da servicen allerede dependency injectes inn i klasen er det kun to steg som kre
 1. Opprett en privat variabel i staten av klassen.
 
 ```cs
-private readonly IAppResources _appResources;
+private readonly IAppResources _appResourcesService;
 ```
 
 2. Definer den nye private variabelen lik servicen som sendes med i konstruktøren til App.cs
 
 ```cs
- _appResources = appResourcesService;
+ _appResourcesService = appResourcesService;
 ```
 
 - *CurrentPage* Siden man ønsker å navigere fra vil være spesifisert i denne parameteren.

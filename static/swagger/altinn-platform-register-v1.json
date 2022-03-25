@@ -28,9 +28,7 @@
             "description": "The organization number to retrieve information about.",
             "required": true,
             "schema": {
-              "type": "string",
-              "description": "The organization number to retrieve information about.",
-              "nullable": true
+              "type": "string"
             }
           }
         ],
@@ -65,7 +63,6 @@
             "required": true,
             "schema": {
               "type": "integer",
-              "description": "The party id.",
               "format": "int32"
             }
           }
@@ -116,6 +113,56 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Party"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/persons": {
+      "get": {
+        "tags": [
+          "Persons"
+        ],
+        "summary": "Gets the Altinn.Platform.Register.Models.Person with the given national identity number.",
+        "description": "This endpoint can be used to retrieve the person object for an identified person. The service\r\nwill track the number of failed lookup attempts and block further requests if the number of failed\r\nlookups have exceeded a configurable number. The user will be prevented from performing new searches\r\nfor a configurable number of seconds.",
+        "parameters": [
+          {
+            "name": "X-Ai-NationalIdentityNumber",
+            "in": "header",
+            "description": "The unique national identity number of the person.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Ai-LastName",
+            "in": "header",
+            "description": "The last name of the person. This must match the last name of the identified person.\r\nThe value is assumed to be base64 encoded from an UTF-8 string.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Person"
                 }
               }
             }
@@ -182,6 +229,74 @@
             "nullable": true
           },
           "businessPostalCity": {
+            "type": "string",
+            "nullable": true
+          },
+          "unitStatus": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Party": {
+        "type": "object",
+        "properties": {
+          "partyId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "partyTypeName": {
+            "$ref": "#/components/schemas/PartyType"
+          },
+          "orgNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "ssn": {
+            "type": "string",
+            "nullable": true
+          },
+          "unitType": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "isDeleted": {
+            "type": "boolean"
+          },
+          "onlyHierarchyElementWithNoAccess": {
+            "type": "boolean"
+          },
+          "person": {
+            "$ref": "#/components/schemas/Person"
+          },
+          "organization": {
+            "$ref": "#/components/schemas/Organization"
+          },
+          "childParties": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Party"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PartyLookup": {
+        "type": "object",
+        "properties": {
+          "ssn": {
+            "pattern": "^[0-9]{11}$",
+            "type": "string",
+            "nullable": true
+          },
+          "orgNo": {
+            "pattern": "^[0-9]{9}$",
             "type": "string",
             "nullable": true
           }
@@ -267,70 +382,6 @@
             "nullable": true
           },
           "addressCity": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "Party": {
-        "type": "object",
-        "properties": {
-          "partyId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "partyTypeName": {
-            "$ref": "#/components/schemas/PartyType"
-          },
-          "orgNumber": {
-            "type": "string",
-            "nullable": true
-          },
-          "ssn": {
-            "type": "string",
-            "nullable": true
-          },
-          "unitType": {
-            "type": "string",
-            "nullable": true
-          },
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "isDeleted": {
-            "type": "boolean"
-          },
-          "onlyHierarchyElementWithNoAccess": {
-            "type": "boolean"
-          },
-          "person": {
-            "$ref": "#/components/schemas/Person"
-          },
-          "organization": {
-            "$ref": "#/components/schemas/Organization"
-          },
-          "childParties": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Party"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "PartyLookup": {
-        "type": "object",
-        "properties": {
-          "ssn": {
-            "pattern": "^[0-9]{11}$",
-            "type": "string",
-            "nullable": true
-          },
-          "orgNo": {
-            "pattern": "^[0-9]{9}$",
             "type": "string",
             "nullable": true
           }

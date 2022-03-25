@@ -4,13 +4,58 @@ description: Overview of changes introduced in v3 of app frontend.
 toc: true
 ---
 
-# 3.32.2 (2022-03-01) - Run frontend rules on backend calculations
+## 3.33.2 (2022-03-24) - Adjusted height of inputfields and date picker
+The height of these fields was incorrect. They are now set to 36px height.
+Issue [#7377](https://github.com/Altinn/altinn-studio/issues/7377).
+
+## 3.33.1 (2022-03-23) - Bugfix for dynamic options
+Fixed bug where only fist options fetched when two components reference same optionId but with different mapping.
+Issue [#8292](https://github.com/Altinn/altinn-studio/issues/8292).
+
+## 3.33.0 (2022-03-18) - New text in Confirm view + possible to customize
+New text for `confirm.sender` in confirm view. Now also possible to override this text.
+Issue [#8243](https://github.com/Altinn/altinn-studio/issues/8243).
+
+## 3.32.10 (2022-03-18) - Bugfix for Datepicker
+Fixed a bug where malformed dates would not display any validation message.
+Issue [#8121](https://github.com/Altinn/altinn-studio/issues/8121).
+
+## 3.32.9 (2022-03-10) - Bugfix for attachments in LocalTest
+Attachments are now possible to download in LocalTest.
+Pull request [#7925](https://github.com/Altinn/altinn-studio/pull/7925).
+
+## 3.32.8 (2022-03-04) - Bugfix for Dropdown-component in repeating groups
+Fixed bug where a dropdown component in a repeating group would result in an unknown error.
+Issue [#8169](https://github.com/Altinn/altinn-studio/issues/8169).
+
+## 3.32.7 (2022-03-04) - Dependency patching
+Patching of external dependencies for week 9 of 2022.
+Issue [#8137](https://github.com/Altinn/altinn-studio/issues/8137).
+
+## 3.32.6 (2022-03-02) - Fixes validation on multiple tracks
+Fixed page validation on apps with multiple tracks.
+Issue [#8145](https://github.com/Altinn/altinn-studio/issues/8145).
+
+## 3.32.5 (2022-03-02) - Fixes for text elements
+Multiple fixes for texts and support for markdown in header component.
+Issue [#7874](https://github.com/Altinn/altinn-studio/issues/7874).
+Issue [#7571](https://github.com/Altinn/altinn-studio/issues/7571).
+
+## 3.32.4 (2022-03-01) - UX fixes for mobile view
+Fixed modal header padding in mobile view.
+Issue [#8143](https://github.com/Altinn/altinn-studio/issues/8143).
+
+# 3.32.3 (2022-03-01) - Run frontend rules on backend calculations
 Fixed a bug where frontend rules did not get triggered when a backend calculation has updated a connected field.
 Issue [#8054](https://github.com/Altinn/altinn-studio/issues/8054).
 
-# 3.32.1 (2022-02-28) - Bugfix for address component
+# 3.32.2 (2022-02-28) - Bugfix for address component
 Fixed a bug where address component could get in a bad state and not fetch post place based on zip code.
 Issue [#8130](https://github.com/Altinn/altinn-studio/issues/8130).
+
+# 3.32.1 (2022-02-25) - Bugfix for handling layout name
+Fixed app loading with layout name as data.
+Issue [#8125](https://github.com/Altinn/altinn-studio/issues/8125).
 
 ## 3.32.0 (2022-02-23) - Secure options
 Now possible to setup secure options.
