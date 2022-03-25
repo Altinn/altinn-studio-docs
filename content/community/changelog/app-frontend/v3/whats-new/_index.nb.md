@@ -4,6 +4,10 @@ description: Oversikt over endringer som ble introdusert i v3 av app frontend.
 toc: true
 ---
 
+## 3.33.3 (2022-03-25) - Støtte for å definere rad eller kolonne for checkbox og radio
+Lagt til støtte for å definere om radio/checkbox skal vises på en rad eller i kolonne.
+Issue [#5730](https://github.com/Altinn/altinn-studio/issues/5730).
+
 ## 3.33.2 (2022-03-24) - Justert høyde for inputfelter og datovelger
 Høyden på disse feltene var feil. Det har blitt rettet til 36px høyde.
 Issue [#7377](https://github.com/Altinn/altinn-studio/issues/7377).
