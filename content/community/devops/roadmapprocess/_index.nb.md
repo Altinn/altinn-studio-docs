@@ -47,6 +47,8 @@ Denne featuren epic vil ligge i produktbackloggen hvor den mest naturlig hører 
 
 Det vil være naturlig at man itererer over denne mange ganger før den er klar til feature refinement.
 
+[Eksempel 1 - funksjonel signering](https://github.com/Altinn/app-template-dotnet/issues/16)
+
 Ansvarlig: Produkteiere
 
 ### Product Backlog issues
