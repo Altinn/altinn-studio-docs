@@ -72,6 +72,26 @@ finnes her:
 OED: https://github.com/Altinn/oed/issues/442\
 T3.0: https://github.com/Altinn/altinn-studio/issues/6880
 
+### Vedlikehold av subapps
+Det er laget en egen solution for felles vedlikehold av hovedapp og subapps.
+Denne ligger i repoet til hovedapp - SubApps/SubAppsMaster.sln. Sln'en
+refererer både hovedapp og alle subapps. Eventuelle nye subapps må også
+linkes inn her. Multi-repo git operasjoner kan gjøres via ny funksjonalitet
+i VS2022.
+
+Scrptet SubApps/SyncItems.ps1 synkroniserer filer som vedlikeholdes i
+felles maler til de forskjellige subapp'ene. Følgende er p.t. implementert:
+
+- SubApps/SubAppsMaster.csproj kopieres til App.csproj
+- SubApps/Policy.xml kopieres til subapps etter nødvendig substituering av navn
+
+Følende må gjøres når man lager en ny subapp:
+
+- Subapp må lenkes inn i SubAppsMaster.sln
+- SubApps/SyncItems.ps1 må kjøres
+- Appsettings.development.json må oppdateres i Kestrel seksjonen slik at portnummeret blir unikt på tvers av alle OED apps
+
+
 ## Grensesnitt mot Domstolene
 
 Grensesnittet for å motta data fra Domstolene er definert av Domstolene
@@ -339,3 +359,14 @@ driftes og overvåkes. Viktige momenter vil være:
     avklares om Altinn Forvaltning skal benyttes i denne sammenheng.
 -   Analyse av feillogger
 -   Sanering av data
+
+## Utviklingsmiljø
+
+Man kan benytte et standard utviklingsmiljø for Tjenester 3.0 med
+følgende utvidelser:
+
+- Installere digdir virksomhetssertifikat for test lokalt
+- Kopiere serialisert sertifikat inn i App/secrets.json
+- Oppdatere passord i App/secrets.json
+
+Sertifikat og passord kan ikke inkluderes i denne dokumentasjonen.
