@@ -99,7 +99,7 @@ The RunAppEvent method is a old construct for hooking into various application e
 
 The process to update is:
 
-1. Add the DataProcessing folder and DataProcessingHandler class from our [app template](https://github.com/Altinn/altinn-studio/tree/master/src/Altinn.Apps/AppTemplates/AspNet/App/logic) to your app.
+1. Add the DataProcessing folder and DataProcessingHandler class from our [app template](https://github.com/Altinn/app-template-dotnet/blob/main/src/App/logic) to your app.
 2. Update App.cs. Add a class field for DataProcessingHandler and copy new methods (RunProcessDataRead and RunProcessDataWrite) from [App.cs](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Apps/AppTemplates/AspNet/App/logic/App.cs)
 3. Move logic from calculation handler to DataProcessingHandler
 4. Remove RunCalculation method from App.cs

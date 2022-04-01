@@ -1,118 +1,107 @@
 ---
 title: Breaking changes
-description: Oversikt over breaking changes introdusert i App Nuget-pakker i v4.0.0.
-tags: [translate-to-norwegian]
+description: Overview of breaking changes introduced into app nuget packages in v5.0.0.
 ---
 
-Altinn.App.* librarires target .Net 5 now, which requires that the application does the same.
+## 1. PDF generation implementation moved out from AppBase/IAltinnApp
+All code related the generation of Pdf has been extracted from AppBase.cs and moved into PdfService.cs which in turn implements IPdfService. This opens up and allows us as service developers to replace the default Pdf implementation entirely.
 
-In addition, all references to app and platform services have been moved from Startup.cs and should be replaced with 
-two method calls.
+If you have implemented custom code to control Pdf generation, and depending on how you have done this, you have a couple options when it comes to what you need to do to resolve the breaking change. However the end result should be the same.
 
-Follow the instructions below to ensure that the app is compatible with version 4 of the Altinn.App.* packages.
+1. **Custom code in PdfHandler.cs**  
+   This is when you have added custom code in PdfHandler.cs. You should continue to use this class but it needs to implement an interface by following the steps below:
 
+   1. Make sure the PdfHandler class implements the ICustomPdfHandler interface.  
+    Navigate to PdfHandler.cs and add `: ICustomPdfHandler` after the class name. The class should allready have the method defined in the interface.
 
-1. Update target framework and package dependencies
+        ```csharp
+        /// <summary>
+        /// Handler for formatting PDF.
+        /// </summary>
+        public class PdfHandler : ICustomPdfHandler
+        {
+            /// <summary>
+            /// Method to format PDF dynamic
+            /// </summary>
+            /// <example>
+            ///     if (data.GetType() == typeof(Skjema)
+            ///     {
+            ///     // need to create object if not there
+            ///     layoutSettings.Components.ExcludeFromPdf.Add("a23234234");
+            ///     }
+            /// </example>
+            /// <param name="layoutSettings">the layoutsettings</param>
+            /// <param name="data">data object</param>
+            public async Task<LayoutSettings> FormatPdf(LayoutSettings layoutSettings, object data)
+            {
+                // Your code here
+                return await Task.FromResult(layoutSettings);
+            }
+        }
+        ```
+    2. Register the PdfHandler implementation in Startup.cs  
+        Add the following line
+        ```csharp
+        services.AddTransient<ICustomPdfHandler, PdfHandler>();
+        ```
+        You should add it above the registration of your application
+        ```csharp
+        services.AddTransient<ICustomPdfHandler, PdfHandler>();
+        // Altinn App implementation service (The concrete implementation of logic from Application repository)
+        services.AddTransient<IAltinnApp, AppLogic.App>();
+        ```
 
-    Navigate to you application repository and find `App.csproj` in the `App` folder. 
+    3. Your custom implementation will now be injected into the PdfService implementation and be called during the Pdf generation process.
 
-    Update target framework to .Net 5 by replacing 
+2. **Custom code in FormatPdf method**  
+  This the old way when you have your code directly in the overridden FormatPdf method in App.cs in your application.
 
-    ```xml
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    ```csharp
+    public override async Task<LayoutSettings> FormatPdf(LayoutSettings layoutSettings, object data)
+    {
+        // You have code here...
+    }
     ```
-    with 
+    1. Create a new class PdfHandler.cs and have it implement the ICustomPdfHandler interface
+    2. Move your custom code to the FormatPdf method of the new class. You should then have a implementation similar to the example in step 1.1 above:
 
-    ```xml
-    <TargetFramework>net5.0</TargetFramework>
-    ```
-    In the same file, update the Altinn.App.* package references to version 4.0.0.  
-
-    ```xml
-    <PackageReference Include="Altinn.App.Api" Version="4.0.0">
-      <CopyToOutputDirectory>lib\$(TargetFramework)\*.xml</CopyToOutputDirectory>
-    </PackageReference>
-    <PackageReference Include="Altinn.App.Common" Version="4.0.0" />
-    <PackageReference Include="Altinn.App.PlatformServices" Version="4.0.0" />
-    ```
-
-    The changes in the file should match the image below:
-
-    ![Changes in App.csproj](appproj-changes.png "Changes in App.csproj")
-
-2. Update Dockerfile to use .Net 5 images
-
-    The Dockerfile can be found in the root folder of the application repository.
-
-    Update build image by replacing 
-
-    ```Dockerfile
-    FROM mcr.microsoft.com/dotnet/core/sdk:3.1-alpine AS build
-    ```
-
-    with 
-
-    ```Dockerfile
-    FROM mcr.microsoft.com/dotnet/sdk:5.0-alpine AS build
-    ```
-
-    And update the runtime image by replacing 
-
-    ```Dockerfile
-    FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-alpine AS final
-    ```
-
-    with 
-
-    ```Dockerfile
-    FROM mcr.microsoft.com/dotnet/aspnet:5.0-alpine AS final
-    ```
-    The changes in the file should match the image below:
-
-    ![Changes in the Dockerfile](dockerfile-updates.png "Changes in the Dockerfile")
-
-3. Replace references to services with call to extension method
-
-    In the `App` folder you will also find `Startup.cs`
-
-    Several lines of code will be removed and replaced with the two lines below. 
-
-    ```cs
-    services.AddAppServices(Configuration, _env);
-    services.AddPlatformServices(Configuration, _env);      
-    ```
-
-    The code that should be removed from the file is marked in pink in the pictures below, 
-    which cover one section of the file each.
-
-    Depending on how many custom changes you have made in your file the line numbers might not match.
-    Do not worry, the services should still be grouped togheter roughly as shown in the picture.
-    The application will run even if not all services are removed, so just do your best.
-
-    Start by removing referenes to the Altinn App services.
-
-    ![Remove app services](remove-app-services.png "Remove app services.")
-
-    Remove references to all the Altinn Platform services.
-
-    ![Remove platform services](remove-platform-services.png "Remove platform services")
-
-    Remove all loading of configuration files.
-
-    ![Remove add configuration](remove-config-reading.png "Remove add configuration")
-
-    Remove logic to configure Application insights.
-
-    ![Remove add appication insights](remove-add-ai.png "Remove add appication insights")
-
-    Remove private method for retrieving the key for Application Insights.
     
-    ![Remove application insights help method](remove-ai-help-method.png "Remove application insights help method")
+        ```csharp
+        public class PdfHandler : ICustomPdfHandler
+        {
+            public async Task<LayoutSettings> FormatPdf(LayoutSettings layoutSettings, object data)
+            {
+                // Your code here
+                return await Task.FromResult(layoutSettings);
+            }
+        }
+        ```
 
-    As previously stated the removed references are now replaced by calls to two new methods 
-    that will load all existing and future platform and app services into your application.
+## 2. Obsolete method GetOptionId removed from App/AppBase/IAltinnApp
+In [version 4.24.0](../../v4/whats-new/_index.en.md) we introduced a new way of supporting dynamic options making the GetOptionId methods in obsolete. The methods have now been removed and you should use the new way of implementing options as described [in the documentation](../../../../../app/development/data/options/_index.en.md)
 
-    `services.AddPlatformServices(Configuration, _env);`  loads all configurations and services that the app requires to use Altinn Platform functionality, 
-    and `services.AddAppServices(Configuration, _env);` loads all remaining configurations and services that the app requires such as Authorization and Prefill services.
-    
-    Ensure that these lines are added withing the `ConfigureServices` fuction.
+## 3. Obsolete method RunAppEvent removed from App/AppBase/IAltinnApp
+The RunAppEvent method is a old construct for hooking into various application events. This have been made obsolete by having concrete method overrides for each type of event as [described in the documentation](../../../../../technology/architecture/components/application/construction/altinn-apps/app/app-backend/applogic-events/_index.md). The RunAppEvent method was passed in an `AppEventType` enum which specified the type of event that was fired. You would then need to have code checking the type and performing the logic needed. The table below shows the old enum values and their corresponding new methods that should be used instead.
+
+| Enum                      |Corresponding method                       |
+| ---                       | ---                                       |
+| Calculation               | RunProcessDataRead or RunProcessDataWrite |
+| Instantiation             | RunDataCreation                           |
+| ValidateInstantiation     | RunInstantiationValidation                |
+| Validation                | RunDataValidation                         |
+| DataRetrieval             | RunProcessDataRead                        |
+| BeforeProcessChange       | OnStartProcess                            |
+| AfterProcessChange        | OnEndProcess                              |
+| AppModelCreation          | CreateNewAppModel                         |
+
+## 4. Obsolete methods RunCalculation removed from AppBase/IAltinnApp
+[In version 4.7.0](../../../../../community/changelog/app-nuget/_index.en.md) the RunCalculation method was replaced with the methods RunProcessDataRead and RunProcessDataWrite. RunCalculation has now been removed and those that have code in this method needs to move this to either RunProcessDataRead or RunProcessDataWrite.
+
+The process to update is:
+
+1. Add the DataProcessing folder and DataProcessingHandler class from our [app template](https://github.com/Altinn/app-template-dotnet/blob/main/src/App/logic) to your app.
+2. Update App.cs. Add a class field for DataProcessingHandler and copy new methods (RunProcessDataRead and RunProcessDataWrite) from [App.cs](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Apps/AppTemplates/AspNet/App/logic/App.cs)
+3. Move logic from calculation handler to DataProcessingHandler
+4. Remove RunCalculation method from App.cs
+5. Remove CalculationHandler when code has been moved to DataProcessingHandler.
+6. Compile and test your app. 
