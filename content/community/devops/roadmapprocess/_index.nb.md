@@ -55,9 +55,22 @@ Roadmap features finnes i [Roadmap repository](https://github.com/Altinn/altinn-
 Vi ønsker å legge oss på detaljnivået til [Github Roadmap](https://github.com/orgs/github/projects/4247) for roadmap features
 
 Ansvarlig: Produkteiere
+Utførene: Alle
 
+### Analyse tasks 
 
-### Product issues
+Analyse task er github issues som utføres i sammenheng med roadmap refinement prosessen hvor man prøver å analysere behovene i sammenheng med en feature request. 
+
+Dette kan f.eks være
+
+- Juridisk vurdering av feature
+- UX analyse med prototype av feature Eksempel: [Tabell](https://github.com/Altinn/altinn-studio/issues/7750)
+- POC av funksjonalitet for å verifisere et teknisk konsept
+
+Ansvarlig: Produkteiere
+Utførende: Alle
+
+### Development task
 
 Dette er detaljerte oppgaver som er knyttet til epic. Kan være analyse oppgaver eller rene implementasjonsoppgave.
 
@@ -66,6 +79,7 @@ Issue tilknyttet en produkt feature epic trenger ikke å ligge i samme backlog s
 Disse tas inn i sprinter som del av sprint planning
 
 Ansvarlig: Devops team
+Utførende: Devops team
 
 # Prosess
 
