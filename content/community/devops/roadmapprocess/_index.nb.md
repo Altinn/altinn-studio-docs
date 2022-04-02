@@ -2,38 +2,29 @@
 title: Roadmap prosess
 description: Hvordan jobber vi med vår roadmap
 ---
-
-## DRAFT!!!!
-
-Dette dokumentet beskriver artifakter og prosesser tilknyttet hvordan roadmap administreres og feature refines.
+Dette dokumentet beskriver hvordan vi jobber med features for Altinn 3 plattformen.
 
 ## Artifakter
 
 Arbeidet med Altinn 3 krever en del artifakter.
 
-
 ![Backlogs](roadmap.drawio.svg "Artifakter")
 [Fullscreen](roadmap.drawio.svg)
 
+### Feature request
 
-### Roadmap feature
+En feature request er en forespørsel om ønsket funksjonalitet i Altinn 3 plattformen. Den opprettes enten av eksterne
+som bruker plattformen, eller av andre som har identifsert et behov.
 
-Denne beskriver overordnet hvilken funksjonalitet feature dekker og overordnet egenskapene med funksjonaliteten.
+Feature request opprettes i de forsjellige produktbackloggene.
 
-Målet er at interessenter skal kunne lese denne uten å lese noe annet for å få en god forståelse hvilken funksjonalitet denne gir. 
+- [Altinn Studio](https://github.com/Altinn/altinn-studio/labels/kind%2Ffeature-request)
+- [Altinn Platform](https://github.com/Altinn/altinn-platform/labels/kind%2Ffeature-request)
+- [App Template](https://github.com/Altinn/app-template-dotnet/issues?page=2&q=is%3Aissue+is%3Aopen)
 
-Denne opprettes av produkteierene basert på følgende muligheter
+### Product epic
 
-- Feature requests i backlog som er meldt inn av team eller eksterne
-- Identifiserte behov
-
-Vi ønsker å legge oss på detaljnivået til [Github Roadmap](https://github.com/orgs/github/projects/4247) for roadmap features
-
-Ansvarlig: Produkteiere
-  
-### Product feature epic
-
-Kilden til denne kan være roadmap features eller opprettes i sammeheng med identifiserte behov.  Denne oppstår i stor grad før roadmap feature.
+Kilden til denne er typisk en feature request. 
 
 Denne vil inneholde detaljert beskrivelse av feature samt referer til underoppgaver som f.eks
 
@@ -51,7 +42,22 @@ Det vil være naturlig at man itererer over denne mange ganger før den er klar 
 
 Ansvarlig: Produkteiere
 
-### Product Backlog issues
+### Roadmap feature
+
+Denne beskriver overordnet hvilken funksjonalitet feature dekker og overordnet egenskapene med funksjonaliteten.
+
+Målet er at interessenter skal kunne lese denne uten å lese noe annet for å få en god forståelse hvilken funksjonalitet en slik feature dekker. 
+
+Denne opprettes av produkteierene basert på enke feature request eller product epics etter en feature er nødvendig analysert til å kunne ta inn i roadmap.
+
+Roadmap features finnes i [Roadmap repository](https://github.com/Altinn/altinn-roadmap/issues).
+
+Vi ønsker å legge oss på detaljnivået til [Github Roadmap](https://github.com/orgs/github/projects/4247) for roadmap features
+
+Ansvarlig: Produkteiere
+
+
+### Product issues
 
 Dette er detaljerte oppgaver som er knyttet til epic. Kan være analyse oppgaver eller rene implementasjonsoppgave.
 
@@ -60,7 +66,6 @@ Issue tilknyttet en produkt feature epic trenger ikke å ligge i samme backlog s
 Disse tas inn i sprinter som del av sprint planning
 
 Ansvarlig: Devops team
-
 
 # Prosess
 
