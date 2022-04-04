@@ -41,14 +41,11 @@ Ansvarlig: Produkteiere
 
 ### Roadmap feature
 
-Denne beskriver overordnet hvilken funksjonalitet feature dekker og overordnet egenskapene med funksjonaliteten.
+Denne beskriver overordnet hvilken funksjonalitet feature dekker og egenskapene ved funksjonaliteten.
+Først og fremst er målet at eksterne interessenter skal kunne lese denne uten å lese noe annet for å få en god forståelse hvilken funksjonalitet en slik feature dekker og når den kommer.
 
-Målet er at interessenter skal kunne lese denne uten å lese noe annet for å få en god forståelse hvilken funksjonalitet en slik feature dekker. 
-
-Denne opprettes av produkteierene basert på enke feature request eller product epics etter en feature er nødvendig analysert til å kunne ta inn i roadmap.
-
+Denne opprettes av produkteierene basert på enkle feature request eller product epics etter en feature er nødvendig analysert til å kunne ta inn i roadmap.
 Roadmap features finnes i [Roadmap repository](https://github.com/Altinn/altinn-roadmap/issues).
-
 Vi ønsker å legge oss på detaljnivået til [Github Roadmap](https://github.com/orgs/github/projects/4247) for roadmap features
 
 Ansvarlig: Produkteiere
