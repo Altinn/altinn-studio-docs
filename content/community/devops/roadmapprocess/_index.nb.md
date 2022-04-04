@@ -15,7 +15,7 @@ En feature request er en forespørsel om ønsket funksjonalitet i Altinn 3 platt
 som bruker plattformen, eller av andre som har identifsert et behov.
 
 Feature request opprettes i de forsjellige produktbackloggene.
-- [Altinn Apps](https://github.com/Altinn/app-template-dotnet/issues?page=2&q=is%3Aissue+is%3Aopen)
+- [Altinn Apps](https://github.com/Altinn/apps-backlog/issues/issues?page=2&q=is%3Aissue+is%3Aopen)
 - [Altinn Studio](https://github.com/Altinn/altinn-studio/labels/kind%2Ffeature-request)
 - [Altinn Platform](https://github.com/Altinn/altinn-platform/labels/kind%2Ffeature-request)
 
