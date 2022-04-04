@@ -27,6 +27,7 @@ Denne vil inneholde detaljert beskrivelse av feature samt referer til underoppga
 - Juridiske vurderinger
 - Sikkerhets vurderinger
 - Kostnad/finansierings betraktninger
+- (Oversikt over hvilke apper som har dette behovet?)
 
 Det er produkteierne som i utgangspunktet eier denne, men får hjelp av teamarkitekter, utviklere, jurister og andre som trengs for å spesifisere disse
 Denne featuren epic vil ligge i produktbackloggen hvor den mest naturlig hører hjemme. 
