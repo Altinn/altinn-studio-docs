@@ -22,9 +22,8 @@ Feature request opprettes i de forsjellige produktbackloggene.
 ### Product epic
 Kilden til denne er typisk en feature request. 
 Denne vil inneholde detaljert beskrivelse av feature samt referer til underoppgaver som f.eks
-- Funksjonelle beskrivelser
+- Funksjonelle beskrivelser og tekniske analyser
 - User Experience og Interaction design hensyn
-- Teknisk analyse
 - Juridiske vurderinger
 - Sikkerhets vurderinger
 - Kostnad/finansierings betraktninger
