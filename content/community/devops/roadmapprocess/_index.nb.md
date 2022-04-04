@@ -48,8 +48,9 @@ Vi ønsker å legge oss på detaljnivået til [Github Roadmap](https://github.co
 Ansvarlig: Produkteiere
 Utførene: Alle
 
-### Analyse tasks 
-Analyse task er github issues som utføres i sammenheng med roadmap refinement prosessen hvor man prøver å analysere behovene i sammenheng med en feature request. 
+### Analyse issues
+
+Analyse issue er github issues som utføres i sammenheng med roadmap refinement prosessen hvor man prøver å analysere behovene i sammenheng med en feature request. 
 
 Dette kan f.eks være
 
@@ -60,7 +61,8 @@ Dette kan f.eks være
 Ansvarlig: Produkteiere
 Utførende: Alle
 
-### Development task
+### Development issue
+
 Dette er detaljerte oppgaver som er knyttet til epic. Kan være analyse oppgaver eller rene implementasjonsoppgave.
 
 Issue tilknyttet en produkt feature epic trenger ikke å ligge i samme backlog som epic. 
