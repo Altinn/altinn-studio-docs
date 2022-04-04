@@ -5,14 +5,12 @@ description: Hvordan jobber vi med vår roadmap
 Dette dokumentet beskriver hvordan vi jobber med features for Altinn 3 plattformen.
 
 ## Artifakter
-
 Arbeidet med Altinn 3 krever en del artifakter.
 
 ![Backlogs](roadmap.drawio.svg "Artifakter")
 [Fullscreen](roadmap.drawio.svg)
 
 ### Feature request
-
 En feature request er en forespørsel om ønsket funksjonalitet i Altinn 3 plattformen. Den opprettes enten av eksterne
 som bruker plattformen, eller av andre som har identifsert et behov.
 
@@ -22,7 +20,6 @@ Feature request opprettes i de forsjellige produktbackloggene.
 - [Altinn Platform](https://github.com/Altinn/altinn-platform/labels/kind%2Ffeature-request)
 
 ### Product epic
-
 Kilden til denne er typisk en feature request. 
 Denne vil inneholde detaljert beskrivelse av feature samt referer til underoppgaver som f.eks
 - Funksjonelle beskrivelser
@@ -40,7 +37,6 @@ Det vil være naturlig at man itererer over denne mange ganger før den er klar 
 Ansvarlig: Produkteiere
 
 ### Roadmap feature
-
 Denne beskriver overordnet hvilken funksjonalitet feature dekker og egenskapene ved funksjonaliteten.
 Først og fremst er målet at eksterne interessenter skal kunne lese denne uten å lese noe annet for å få en god forståelse hvilken funksjonalitet en slik feature dekker og når den kommer.
 
@@ -52,7 +48,6 @@ Ansvarlig: Produkteiere
 Utførene: Alle
 
 ### Analyse tasks 
-
 Analyse task er github issues som utføres i sammenheng med roadmap refinement prosessen hvor man prøver å analysere behovene i sammenheng med en feature request. 
 
 Dette kan f.eks være
@@ -65,7 +60,6 @@ Ansvarlig: Produkteiere
 Utførende: Alle
 
 ### Development task
-
 Dette er detaljerte oppgaver som er knyttet til epic. Kan være analyse oppgaver eller rene implementasjonsoppgave.
 
 Issue tilknyttet en produkt feature epic trenger ikke å ligge i samme backlog som epic. 
@@ -76,7 +70,6 @@ Ansvarlig: Devops team
 Utførende: Devops team
 
 # Prosess
-
 Følgende prosess følges med artifakten
 
 ![Backlogs](roadmapprocess.drawio.svg "Roadmap process")
@@ -84,7 +77,6 @@ Følgende prosess følges med artifakten
 
 
 ## Roadmap refinement
-
 Dette er arbeidet som produkteierne utfører for å skape elementer i roadmap backloggen. 
 
 Arbeidet starter typisk basert på en feature request som eksterne, team aller produkteiere har identifisert.
@@ -104,7 +96,6 @@ artifaktene til dette er tilfelle.
 
 
 ## Feature refinement
-
 Feature refinement er behandling av Backlog epic med underliggende issues.
 
 Målet med feature refinement er å detaljere issue til et nivå at team kan ta oppgavene inn i sprinter. 
