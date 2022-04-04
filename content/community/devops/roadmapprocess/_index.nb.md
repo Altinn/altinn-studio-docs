@@ -24,17 +24,15 @@ Feature request opprettes i de forsjellige produktbackloggene.
 ### Product epic
 
 Kilden til denne er typisk en feature request. 
-
 Denne vil inneholde detaljert beskrivelse av feature samt referer til underoppgaver som f.eks
-
-- Juridisk analyse av oppgaver
+- Funksjonelle beskrivelser
 - Teknisk analyse
-- Funksjonell analyse
+- Juridiske vurderinger
+- Sikkerhets vurderinger
+- Kostnad/finansierings betraktninger
 
 Det er produkteierne som i utgangspunktet eier denne, men får hjelp av teamarkitekter, utviklere, jurister og andre som trengs for å spesifisere disse
-
 Denne featuren epic vil ligge i produktbackloggen hvor den mest naturlig hører hjemme. 
-
 Det vil være naturlig at man itererer over denne mange ganger før den er klar til feature refinement.
 
 [Eksempel 1 - funksjonel signering](https://github.com/Altinn/app-template-dotnet/issues/16)
