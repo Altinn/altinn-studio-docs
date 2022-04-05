@@ -66,6 +66,8 @@ Aktører
 - Ansvarlig: Produkteiere
 - Utførende: Diverse premissgivere
 
+Eksempel
+- [UX Analyse tabell](https://github.com/Altinn/altinn-studio/issues/7750)
 
 ### Development issue
 Dette er detaljerte oppgaver som er knyttet til epic og kan være analyse oppgaver eller rene implementasjonsoppgave.
