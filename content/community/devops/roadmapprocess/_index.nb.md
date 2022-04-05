@@ -50,7 +50,7 @@ Dette kan altså f.eks være
 - Kostnad/finansierings betraktninger
 
 Ansvarlig: Produkteiere
-Utførende: Diverse premissgivere
+-Utførende: Diverse premissgivere
 
 
 ### Development issue
@@ -59,7 +59,7 @@ Issue tilknyttet en produkt feature epic trenger ikke å ligge i samme backlog s
 Disse tas inn i sprinter som del av sprint planning
 
 Ansvarlig: Devops team
-Utførende: Devops team
+-Utførende: Devops team
 
 
 ### Roadmap feature
@@ -72,7 +72,7 @@ Roadmap features finnes i [Roadmap repository](https://github.com/Altinn/altinn-
 Vi ønsker å legge oss på detaljnivået til [Github Roadmap](https://github.com/orgs/github/projects/4247) for roadmap features
 
 Ansvarlig: Produkteier
-Utførene: Produkteier
+-Utførene: Produkteier
 
 # Prosess
 Følgende prosess følges med artifakten
@@ -85,7 +85,7 @@ Dette er arbeidet som produkteierne utfører, sammen med andre ressurser, for å
 En oppsummering av et slikt element vil kunne ende opp som et road map feature.
 
 Ansvarlig: Produkteier
-Søtte: Forretningsutviklere, Arkitekter, UX, Jurister, Sikkerhet, Forretning, Leverandørstyrere, samt andre produkteiere.
+-Søtte: Forretningsutviklere, Arkitekter, UX, Jurister, Sikkerhet, Forretning, Leverandørstyrere, samt andre produkteiere.
 
 ## Product refinement
 Dette er en behandling med utgangspunkt i produkt epics med hensikt om å definere underliggende development issues.
