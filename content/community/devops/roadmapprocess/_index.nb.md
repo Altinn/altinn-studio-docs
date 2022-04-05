@@ -49,6 +49,7 @@ Dette kan altså f.eks være
 - Sikkerhets vurderinger
 - Kostnad/finansierings betraktninger
 
+Aktører
 - Ansvarlig: Produkteiere
 - Utførende: Diverse premissgivere
 
