@@ -19,6 +19,7 @@ Feature request opprettes i de forsjellige produktbackloggene.
 - [Altinn Studio](https://github.com/Altinn/altinn-studio/labels/kind%2Ffeature-request)
 - [Altinn Platform](https://github.com/Altinn/altinn-platform/labels/kind%2Ffeature-request)
 
+
 ### Product epic
 Kilden til denne er typisk en feature request. 
 Denne vil inneholde detaljert beskrivelse av feature samt referer til underoppgaver som f.eks
@@ -37,40 +38,41 @@ Det vil være naturlig at man itererer over denne mange ganger i product planing
 
 Ansvarlig: Produkteiere
 
+
 ### Analyse issues
+Analyse issue er github issues som typisk er lenket til product epic. 
+Dette vil være premissgiveres vurderinger til videre realisering av epicen. 
 
-Analyse issue er github issues som utføres i sammenheng med roadmap refinement prosessen hvor man prøver å analysere behovene i sammenheng med en feature request. 
-
-Dette kan f.eks være
-
-- Juridisk vurdering av feature
-- UX analyse med prototype av feature Eksempel: [Tabell](https://github.com/Altinn/altinn-studio/issues/7750)
-- POC av funksjonalitet for å verifisere et teknisk konsept
+Dette kan altså f.eks være
+- User Experience og Interaction design hensyn
+- Juridiske vurderinger
+- Sikkerhets vurderinger
+- Kostnad/finansierings betraktninger
 
 Ansvarlig: Produkteiere
-Utførende: Alle
+Utførende: Diverse premissgivere
+
 
 ### Development issue
-
-Dette er detaljerte oppgaver som er knyttet til epic. Kan være analyse oppgaver eller rene implementasjonsoppgave.
-
+Dette er detaljerte oppgaver som er knyttet til epic og kan være analyse oppgaver eller rene implementasjonsoppgave.
 Issue tilknyttet en produkt feature epic trenger ikke å ligge i samme backlog som epic. 
-
 Disse tas inn i sprinter som del av sprint planning
 
 Ansvarlig: Devops team
 Utførende: Devops team
 
+
 ### Roadmap feature
 Denne beskriver overordnet hvilken funksjonalitet feature dekker og egenskapene ved funksjonaliteten.
-Først og fremst er målet at eksterne interessenter skal kunne lese denne uten å lese noe annet for å få en god forståelse hvilken funksjonalitet en slik feature dekker og når den kommer.
+Formålet er at eksterne interessenter skal kunne lese denne uten å lese noe annet for å få en god forståelse hvilken funksjonalitet en slik feature dekker og når den kommer.
 
-Denne opprettes av produkteierene basert på enkle feature request eller product epics etter en feature er nødvendig analysert til å kunne ta inn i roadmap.
+Denne opprettes av produkteierene. 
+Vanligvis basert på product epics, etter at den er nødvendig analysert og kan tas inn i roadmap.
 Roadmap features finnes i [Roadmap repository](https://github.com/Altinn/altinn-roadmap/issues).
 Vi ønsker å legge oss på detaljnivået til [Github Roadmap](https://github.com/orgs/github/projects/4247) for roadmap features
 
-Ansvarlig: Produkteiere
-Utførene: Alle
+Ansvarlig: Produkteier
+Utførene: Produkteier
 
 # Prosess
 Følgende prosess følges med artifakten
@@ -79,21 +81,15 @@ Følgende prosess følges med artifakten
 [Fullscreen](roadmapprocess.drawio.svg)
 
 ## Product planing
-Dette er arbeidet som produkteierne utfører for å skape elementer i produkt backloggen.
+Dette er arbeidet som produkteierne utfører, sammen med andre ressurser, for å skape og jobbe med epics i produkt backloggen og tilhørende analyse issues.
 En oppsummering av et slikt element vil kunne ende opp som et road map feature.
 
-Arbeidet starter typisk basert på en feature request som eksterne, team aller produkteiere har identifisert.
-
-Avhengig av feature kan dette arbeidet inkludere
-- Analysere funksjonelle behov
-- Analysere tekniske behov og muligheter
-- Vurdere alternativ løsningsformer på funksjonelt behov
-- UX Analyse og design
-
-Dette arbeidet dokumenteres i baclog epics eller underliggende backlog issues og oppsummeres i selve roadmap features når løsning er definert.
+Ansvarlig: Produkteier
+Søtte: Forretningsutviklere, Arkitekter, UX, Jurister, Sikkerhet, Forretning, Leverandørstyrere, samt andre produkteiere.
 
 ## Product refinement
-Dette er en behandling av Backlog epic med underliggende issues.
+Dette er en behandling med utgangspunkt i produkt epics med hensikt om å definere underliggende development issues.
+Altså gjøre klart for sprintplaning, eventuelt sende det tilbake til produkt planing.
 
 Målet med feature refinement er å detaljere issue til et nivå at team kan ta oppgavene inn i sprinter. 
 
@@ -101,13 +97,9 @@ Målet med feature refinement er å detaljere issue til et nivå at team kan ta 
 - Bør være mulig å identifisere oppgaver å dele opp i egne issues
 - Være detaljert nok til at man kan si noe om omfang. 
 
-Resultatet av feature refinement kan være at produkteiere må tilbake til "tegnebordet" for finne ut av problemstillinger som ble identifisert av devopsteam.
+## Sprint planing
+DevOps teamet tar inn development issues i en (eller flere) sprinter basert på kapasitet. 
 
-For saker hvor produkteiere mener alt er avklart trenger man ikke å ta dette til feature refinement. Disse kan tas rett til planning.
-
-
-Detaljeringsgraden på dette arbeidet må tilfredstille **Defintion of ready** for å kunne tas videre og man iterer over
-artifaktene til dette er tilfelle.
 
 
 
