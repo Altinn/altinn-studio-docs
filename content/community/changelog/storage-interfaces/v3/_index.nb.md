@@ -5,7 +5,11 @@ toc: true
 weight: 90
 ---
 
-## 3.8.0 Utvidet ProcessHistoryItem _performedBy_ egenskap
+## 3.9.0 Utvidet EFormidlingContract med _DPFShipmentType_ Utvidet
+- `EFormidlingContract` modellen har blitt utvidet med en ny egenskap `DPFShipmentType`. 
+Verdien er en streng som representeres forsendelsestype hvis servicen er DPF.
+
+## 3.8.0 Utvidet ProcessHistoryItem med _performedBy_ Utvidet
 - `ProcessHistoryItem` modellen har blitt utvidet med en ny egenskap `performedBy`. 
 Verdien er en streng og kan inneholde personnummer eller organisasjonsnummer som representerer
 entiteten som trigget eventet.
