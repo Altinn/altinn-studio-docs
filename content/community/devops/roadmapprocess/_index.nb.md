@@ -31,7 +31,7 @@ Denne vil inneholde detaljert beskrivelse av feature samt referer til underoppga
 
 Det er produkteierne som i utgangspunktet eier denne, men får hjelp av teamarkitekter, utviklere, jurister og andre som trengs for å spesifisere disse
 Denne featuren epic vil ligge i produktbackloggen hvor den mest naturlig hører hjemme. 
-Det vil være naturlig at man itererer over denne mange ganger før den er klar til feature refinement.
+Det vil være naturlig at man itererer over denne mange ganger i product planing, før den er klar til product refinement.
 
 [Eksempel 1 - funksjonel signering](https://github.com/Altinn/app-template-dotnet/issues/16)
 
@@ -78,8 +78,21 @@ Følgende prosess følges med artifakten
 ![Backlogs](roadmapprocess.drawio.svg "Roadmap process")
 [Fullscreen](roadmapprocess.drawio.svg)
 
+## Product planing
+Dette er arbeidet som produkteierne utfører for å skape elementer i produkt backloggen.
+En oppsummering av et slikt element vil kunne ende opp som et road map feature.
 
-## Feature refinement
+Arbeidet starter typisk basert på en feature request som eksterne, team aller produkteiere har identifisert.
+
+Avhengig av feature kan dette arbeidet inkludere
+- Analysere funksjonelle behov
+- Analysere tekniske behov og muligheter
+- Vurdere alternativ løsningsformer på funksjonelt behov
+- UX Analyse og design
+
+Dette arbeidet dokumenteres i baclog epics eller underliggende backlog issues og oppsummeres i selve roadmap features når løsning er definert.
+
+## Product refinement
 Dette er en behandling av Backlog epic med underliggende issues.
 
 Målet med feature refinement er å detaljere issue til et nivå at team kan ta oppgavene inn i sprinter. 
@@ -92,19 +105,6 @@ Resultatet av feature refinement kan være at produkteiere må tilbake til "tegn
 
 For saker hvor produkteiere mener alt er avklart trenger man ikke å ta dette til feature refinement. Disse kan tas rett til planning.
 
-## Roadmap refinement
-Dette er arbeidet som produkteierne utfører for å skape elementer i roadmap backloggen. 
-
-Arbeidet starter typisk basert på en feature request som eksterne, team aller produkteiere har identifisert.
-
-Avhengig av feature kan dette arbeidet inkludere
-
-- Analysere funksjonelle behov
-- Analysere tekniske behov og muligheter
-- Vurdere alternativ løsningsformer på funksjonelt behov
-- UX Analyse og design
-
-Dette arbeidet dokumenteres i baclog epics eller underliggende backlog issues og oppsummeres i selve roadmap features når løsning er definert.
 
 Detaljeringsgraden på dette arbeidet må tilfredstille **Defintion of ready** for å kunne tas videre og man iterer over
 artifaktene til dette er tilfelle.
