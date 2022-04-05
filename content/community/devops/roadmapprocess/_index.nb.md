@@ -36,7 +36,7 @@ Det vil være naturlig at man itererer over denne mange ganger i product planing
 
 [Eksempel 1 - funksjonel signering](https://github.com/Altinn/app-template-dotnet/issues/16)
 
-Ansvarlig: Produkteiere
+- Ansvarlig: Produkteiere
 
 
 ### Analyse issues
@@ -49,8 +49,8 @@ Dette kan altså f.eks være
 - Sikkerhets vurderinger
 - Kostnad/finansierings betraktninger
 
-Ansvarlig: Produkteiere
-Utførende: Diverse premissgivere
+- Ansvarlig: Produkteiere
+- Utførende: Diverse premissgivere
 
 
 ### Development issue
@@ -58,8 +58,8 @@ Dette er detaljerte oppgaver som er knyttet til epic og kan være analyse oppgav
 Issue tilknyttet en produkt feature epic trenger ikke å ligge i samme backlog som epic. 
 Disse tas inn i sprinter som del av sprint planning
 
-Ansvarlig: Devops team
-Utførende: Devops team
+- Ansvarlig: Devops team
+- Utførende: Devops team
 
 
 ### Roadmap feature
@@ -71,8 +71,8 @@ Vanligvis basert på product epics, etter at den er nødvendig analysert og kan 
 Roadmap features finnes i [Roadmap repository](https://github.com/Altinn/altinn-roadmap/issues).
 Vi ønsker å legge oss på detaljnivået til [Github Roadmap](https://github.com/orgs/github/projects/4247) for roadmap features
 
-Ansvarlig: Produkteier
-Utførene: Produkteier
+- Ansvarlig: Produkteier
+- Utførene: Produkteier
 
 # Prosess
 Følgende prosess følges med artifakten
@@ -99,11 +99,5 @@ Målet med feature refinement er å detaljere issue til et nivå at team kan ta 
 
 ## Sprint planing
 DevOps teamet tar inn development issues i en (eller flere) sprinter basert på kapasitet. 
-
-
-
-
-
-
 
 {{<children>}}
