@@ -14,11 +14,24 @@ Arbeidet med Altinn 3 krever en del artifakter.
 En feature request er en forespørsel om ønsket funksjonalitet i Altinn 3 plattformen. Den opprettes enten av eksterne
 som bruker plattformen, eller av andre som har identifsert et behov.
 
-Feature request opprettes i de forsjellige produktbackloggene.
-- [Altinn Apps](https://github.com/Altinn/apps-backlog/issues/issues?page=2&q=is%3Aissue+is%3Aopen)
+Feature request opprettes i de forsjellige produkt eller team backloggene.
 - [Altinn Studio](https://github.com/Altinn/altinn-studio/labels/kind%2Ffeature-request)
+- [App Template Dotnet](https://github.com/Altinn/app-template-dotnet/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc)
+- [App Frontend React](https://github.com/Altinn/app-frontend-react/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc)
 - [Altinn Platform](https://github.com/Altinn/altinn-platform/labels/kind%2Ffeature-request)
+- [Altinn Authorization](https://github.com/Altinn/altinn-authorization/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc)
+- [Altinn Authentication](https://github.com/Altinn/altinn-authentication/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc)
+- [Altinn Notifications](https://github.com/Altinn/altinn-notifications/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc)
+- [Altinn Storage](https://github.com/Altinn/altinn-storage/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc)
+- [Altinn Profile](https://github.com/Altinn/altinn-profile/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc)
+- [Altinn PDF](https://github.com/Altinn/altinn-pdf/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc)
+- [Altinn Events](https://github.com/Altinn/altinn-events/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc)
 
+En del av disse vil ha bakgrunn fra [Altinn Apps](https://github.com/Altinn/apps-backlog/issues/issues?page=2&q=is%3Aissue+is%3Aopen) backloggen hvor man finner backlog for apper som utvikles.
+
+Eksempler
+- [Removing data from the stored receipt](https://github.com/Altinn/altinn-studio/issues/7839)
+- [Behov for alternativ visning av repeterende gruppe](https://github.com/Altinn/altinn-studio/issues/7602)
 
 ### Product epic
 Kilden til denne er typisk en feature request. 
