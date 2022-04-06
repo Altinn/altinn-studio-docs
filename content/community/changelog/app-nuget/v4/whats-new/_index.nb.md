@@ -5,6 +5,19 @@ toc: true
 tags: [translate-to-norwegian]
 ---
 
+## 4.34.0 (06.04.2022) - Støtte for forsendelsestype på eFormidling forsendelse
+
+Denne releasen muliggjør spesifisering av forsendelsestype. 
+
+Utvid `eFormidling`-seksjonen i applicationmetadata.json med den nye egenskapen `dpfShipmentType` som vist nedenfor.
+
+```json
+  "eFormidling": {
+    ...
+    "dpfShipmentType": "altinn3.skjema"
+  }
+```
+
 ## 4.33.0 (15.03.2022) - Støtte for å slå av PDF generering for skjema
 
 - Denne releasen gjør det mulig å slå av PDF generering for enkeltskjema i en applikasjon. 
