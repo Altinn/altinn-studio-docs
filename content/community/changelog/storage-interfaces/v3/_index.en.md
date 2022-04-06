@@ -5,6 +5,10 @@ toc: true
 weight: 90
 ---
 
+## 3.9.0 Extended EFormidlingContract with _DPFShipmentType_ property
+- The `EFormidlingContract` model has been expanded with a new property `DPFShipmentType` to hold the DPF shipment type.
+Property is included to make routing easier for receiver, when included in the _Arkivmelding_.
+
 ## 3.8.0 Extended ProcessHistoryItem with _performedBy_ property
 - The `ProcessHistoryItem` model has been expanded with a new property `performedBy` to hold an identification string
 for the entity that triggered the process event. This string can contain organisation number og person identification 

@@ -121,17 +121,18 @@ Filen finner du i repoet under mappen _App/config_.
 
 Opprett seksjonen `eFormidling` og fyll ut verdier for følgende parametre.
 
-| Id              | Beskrivelse                                                                                                |
-| --------------- | ---------------------------------------------------------------------------------------------------------- |
+| Id              | Beskrivelse                                                                                                 |
+| --------------- | ----------------------------------------------------------------------------------------------------------  |
 | serviceId       | Id som spesifiserer type forsendelse [DPO](https://samarbeid.digdir.no/eformidling/offentlige-virksomheter-dpo/149), [DPV](https://samarbeid.digdir.no/eformidling/private-virksomheter-dpv/150), [DPI](https://samarbeid.digdir.no/eformidling/innbyggere-dpi/152) eller [DPF*](https://samarbeid.digdir.no/eformidling/kommunar-dpf/151) |
-| process         | Id som settes på scopet i StandardBusinessDocumentHeader**                                                 |
-| dataTypes       | Liste av data typer som automatisk skal legges ved forsendelsen                                            |
-| sendAfterTaskId | Id på tasken som skal avsluttes før forsendelsen sendes. Det er anbefalt at dette er et confirmation steg  |
-| receiver        | Organisasjonsnummer til mottaker. Støtter kun norske virksomheter. Kan sløyfes og defineres i applogikken |
-| standard        | DocumentIdentification standard                                                                            |
-| type            | Id på [meldingstypen](https://docs.digdir.no/eformidling_nm_message.html#meldingstypene)                   |
-| typeVersion     | Versjon av meldingstypen                                                                                   |
-| securityLevel   | Sikkerhetsnivå som settes på StandardBusinessDocument                                                      |
+| dpfShipmentType | Forsendelsestype som benyttes til routing på mottakersiden                                                  |
+| process         | Id som settes på scopet i StandardBusinessDocumentHeader**                                                  |
+| dataTypes       | Liste av data typer som automatisk skal legges ved forsendelsen                                             |
+| sendAfterTaskId | Id på tasken som skal avsluttes før forsendelsen sendes. Det er anbefalt at dette er et confirmation steg   |
+| receiver        | Organisasjonsnummer til mottaker. Støtter kun norske virksomheter. Kan sløyfes og defineres i applogikken   |
+| standard        | DocumentIdentification standard                                                                             |
+| type            | Id på [meldingstypen](https://docs.digdir.no/eformidling_nm_message.html#meldingstypene)                    |
+| typeVersion     | Versjon av meldingstypen                                                                                    |
+| securityLevel   | Sikkerhetsnivå som settes på StandardBusinessDocument                                                       |
 
 \* per Januar 2022 støttes kun DPF.
 
@@ -143,6 +144,7 @@ Et eksempel for en konfigurasjon i application metadata:
 ```json
 "eFormidling": {
     "serviceId": "DPF",
+    "dpfShipmentType": "altinn3.skjema",
     "process": "urn:no:difi:profile:arkivmelding:administrasjon:ver1.0",
     "dataTypes": [ "ref-data-as-pdf" ],
     "sendAfterTaskId": "Task_2",

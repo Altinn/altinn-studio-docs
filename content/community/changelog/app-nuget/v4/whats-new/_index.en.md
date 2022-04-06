@@ -4,6 +4,18 @@ description: Overview of changes introduced in version 4.
 toc: true
 ---
 
+## 4.34.0 (06.04.2022) - Support for specifying shipment type for eFormidling shipment
+
+This release makes it possible to specify the shipment type for an eFormidling shipment. 
+
+Extend the `eFormidling` section i applicationmetadata.json with the new property `dpfShipmentType` as shown below.
+
+```json
+  "eFormidling": {
+    ...
+    "dpfShipmentType": "altinn3.skjema"
+  }
+```
 ## 4.33.0 (15.03.2022) - Support for turning off PDF generation
 
 This release makes it possible to turn of PDF generation for a given form
