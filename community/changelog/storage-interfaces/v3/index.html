@@ -1039,6 +1039,7 @@ if(host != "localhost")
           </div><div id="body-inner"><h1 class="a-fontBold">v3</h1>
               <p class="a-leadText" id="leadText">Overview of changes introduced in v3 of the Altinn.Platform.Storage.Interface package.</p><h2>On this page:</h2><nav id="TableOfContents">
   <ul>
+    <li><a href="#390-extended-eformidlingcontract-with-_dpfshipmenttype_-property">3.9.0 Extended EFormidlingContract with <em>DPFShipmentType</em> property</a></li>
     <li><a href="#380-extended-processhistoryitem-with-_performedby_-property">3.8.0 Extended ProcessHistoryItem with <em>performedBy</em> property</a></li>
     <li><a href="#370-extended-platformuser-with-national-identity-number-property">3.7.0 Extended PlatformUser with national identity number property</a></li>
     <li><a href="#360-extended-instanceowner-with-username-property">3.6.0 Extended InstanceOwner with username property</a></li>
@@ -1054,6 +1055,11 @@ if(host != "localhost")
 
 
 
+<h2 id="390-extended-eformidlingcontract-with-_dpfshipmenttype_-property">3.9.0 Extended EFormidlingContract with <em>DPFShipmentType</em> property</h2>
+<ul>
+<li>The <code>EFormidlingContract</code> model has been expanded with a new property <code>DPFShipmentType</code> to hold the DPF shipment type.
+Property is included to make routing easier for receiver, when included in the <em>Arkivmelding</em>.</li>
+</ul>
 <h2 id="380-extended-processhistoryitem-with-_performedby_-property">3.8.0 Extended ProcessHistoryItem with <em>performedBy</em> property</h2>
 <ul>
 <li>The <code>ProcessHistoryItem</code> model has been expanded with a new property <code>performedBy</code> to hold an identification string

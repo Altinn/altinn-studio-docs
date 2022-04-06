@@ -618,6 +618,10 @@ Filen finner du i repoet under mappen _App/config_.</p>
 <td>Id som spesifiserer type forsendelse <a href="https://samarbeid.digdir.no/eformidling/offentlige-virksomheter-dpo/149">DPO</a>, <a href="https://samarbeid.digdir.no/eformidling/private-virksomheter-dpv/150">DPV</a>, <a href="https://samarbeid.digdir.no/eformidling/innbyggere-dpi/152">DPI</a> eller <a href="https://samarbeid.digdir.no/eformidling/kommunar-dpf/151">DPF*</a></td>
 </tr>
 <tr>
+<td>dpfShipmentType</td>
+<td>Forsendelsestype som benyttes til routing på mottakersiden</td>
+</tr>
+<tr>
 <td>process</td>
 <td>Id som settes på scopet i StandardBusinessDocumentHeader**</td>
 </tr>
@@ -656,6 +660,7 @@ Filen finner du i repoet under mappen _App/config_.</p>
 <p>Et eksempel for en konfigurasjon i application metadata:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#f1fa8c">&#34;eFormidling&#34;</span>: {
     <span style="color:#ff79c6">&#34;serviceId&#34;</span>: <span style="color:#f1fa8c">&#34;DPF&#34;</span>,
+    <span style="color:#ff79c6">&#34;dpfShipmentType&#34;</span>: <span style="color:#f1fa8c">&#34;altinn3.skjema&#34;</span>,
     <span style="color:#ff79c6">&#34;process&#34;</span>: <span style="color:#f1fa8c">&#34;urn:no:difi:profile:arkivmelding:administrasjon:ver1.0&#34;</span>,
     <span style="color:#ff79c6">&#34;dataTypes&#34;</span>: [ <span style="color:#f1fa8c">&#34;ref-data-as-pdf&#34;</span> ],
     <span style="color:#ff79c6">&#34;sendAfterTaskId&#34;</span>: <span style="color:#f1fa8c">&#34;Task_2&#34;</span>,
