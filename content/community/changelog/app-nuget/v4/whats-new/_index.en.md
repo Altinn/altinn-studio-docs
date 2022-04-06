@@ -4,7 +4,7 @@ description: Overview of changes introduced in version 4.
 toc: true
 ---
 
-## 4.34.0 (06.04.2022) - Support for specifying shipment type for eFormidling shipment
+## 4.34.1 (06.04.2022) - Support for specifying shipment type for eFormidling shipment
 
 This release makes it possible to specify the shipment type for an eFormidling shipment. 
 

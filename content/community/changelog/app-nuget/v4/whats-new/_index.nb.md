@@ -5,7 +5,7 @@ toc: true
 tags: [translate-to-norwegian]
 ---
 
-## 4.34.0 (06.04.2022) - Støtte for forsendelsestype på eFormidling forsendelse
+## 4.34.1 (06.04.2022) - Støtte for forsendelsestype på eFormidling forsendelse
 
 Denne releasen muliggjør spesifisering av forsendelsestype. 
 
