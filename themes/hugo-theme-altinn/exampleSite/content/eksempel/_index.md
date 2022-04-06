@@ -26,7 +26,7 @@ Og en punktliste:
 
 {{% panel %}}
 **Develop digital services using our tools and APIs**<br>
-Looking for technical guidance on how to build your own services with our products? Go to [Altinn Digital - Development](https://altinn.github.io/docs/")
+Looking for technical guidance on how to build your own services with our products? Go to [Altinn Digital - Development](https://altinn.github.io/docs/)
 {{% /panel %}}<br>
 
 Eksempel på bilde:
