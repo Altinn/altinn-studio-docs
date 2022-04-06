@@ -6,6 +6,38 @@ description: Overview of breaking changes introduced into app nuget packages in 
 ## 1. PDF generation implementation moved out from AppBase/IAltinnApp
 All code related the generation of Pdf has been extracted from AppBase.cs and moved into PdfService.cs which in turn implements IPdfService. This opens up and allows us as service developers to replace the default Pdf implementation entirely.
 
+Since App.cs passes parameteres to AppBase.cs you need to remove thos no longer in use in the call to `base(...)` in the cosntructor:
+* processService
+* settings
+* textService
+  
+Your App constructor should then look something like this:
+
+```csharp
+ public App(
+            IAppResources appResourcesService,
+            ILogger<App> logger,
+            IData dataService,
+            IProcess processService,
+            IPdfService pdfService,
+            IProfile profileService,
+            IRegister registerService,
+            IPrefill prefillService,
+            IInstance instanceService,
+            IOptions<GeneralSettings> settings,
+            IText textService,
+            IHttpContextAccessor httpContextAccessor) : base(
+                appResourcesService,
+                logger,
+                dataService,
+                pdfService,
+                prefillService,
+                instanceService,
+                httpContextAccessor)
+```
+It might be that you don't use any of the removed services in you app code either, then you should remove those from the App constructor as well.
+
+
 If you have implemented custom code to control Pdf generation, and depending on how you have done this, you have a couple options when it comes to what you need to do to resolve the breaking change. However the end result should be the same.
 
 1. **Custom code in PdfHandler.cs**  
@@ -39,7 +71,7 @@ If you have implemented custom code to control Pdf generation, and depending on 
             }
         }
         ```
-    2. Register the PdfHandler implementation in Startup.cs  
+    1. Register the PdfHandler implementation in Startup.cs  
         Add the following line
         ```csharp
         services.AddTransient<ICustomPdfHandler, PdfHandler>();
@@ -51,7 +83,7 @@ If you have implemented custom code to control Pdf generation, and depending on 
         services.AddTransient<IAltinnApp, AppLogic.App>();
         ```
 
-    3. Your custom implementation will now be injected into the PdfService implementation and be called during the Pdf generation process.
+    2. Your custom implementation will now be injected into the PdfService implementation and be called during the Pdf generation process.
 
 2. **Custom code in FormatPdf method**  
   This the old way when you have your code directly in the overridden FormatPdf method in App.cs in your application.
@@ -80,6 +112,17 @@ If you have implemented custom code to control Pdf generation, and depending on 
 ## 2. Obsolete method GetOptionId removed from App/AppBase/IAltinnApp
 In [version 4.24.0](../../v4/whats-new/_index.en.md) we introduced a new way of supporting dynamic options making the GetOptionId methods in obsolete. The methods have now been removed and you should use the new way of implementing options as described [in the documentation](../../../../../app/development/data/options/_index.en.md)
 
+When you update you app you should then remove the following from App.cs as this method is removed from AppBase.cs:
+```csharp
+        /// <inheritdoc />
+#pragma warning disable CS0672 // Member overrides obsolete member
+        public override Task<AppOptions> GetOptions(string id, AppOptions options)
+#pragma warning restore CS0672 // Member overrides obsolete member
+        {
+            return Task.FromResult(options);
+        }
+```
+
 ## 3. Obsolete method RunAppEvent removed from App/AppBase/IAltinnApp
 The RunAppEvent method is a old construct for hooking into various application events. This have been made obsolete by having concrete method overrides for each type of event as [described in the documentation](../../../../../technology/architecture/components/application/construction/altinn-apps/app/app-backend/applogic-events/_index.md). The RunAppEvent method was passed in an `AppEventType` enum which specified the type of event that was fired. You would then need to have code checking the type and performing the logic needed. The table below shows the old enum values and their corresponding new methods that should be used instead.
 
@@ -93,6 +136,32 @@ The RunAppEvent method is a old construct for hooking into various application e
 | BeforeProcessChange       | OnStartProcess                            |
 | AfterProcessChange        | OnEndProcess                              |
 | AppModelCreation          | CreateNewAppModel                         |
+
+The AppEventType.cs has been removed. This was referenced and used in App.cs - both the using reference and usage needs to be removed.
+
+Delete the following:
+```csharp
+using Altinn.App.Common.Enums;
+```
+and  
+
+```csharp
+/// <summary>
+/// Run app event
+/// </summary>
+/// <remarks>DEPRECATED METHOD, USE EVENT SPECIFIC METHOD INSTEAD</remarks>
+/// <param name="appEvent">The app event type</param>
+/// <param name="model">The service model</param>
+/// <param name="modelState">The model state</param>
+/// <returns>True if the event was handled</returns>
+public override async Task<bool> RunAppEvent(AppEventType appEvent, object model, ModelStateDictionary modelState = null)
+{
+    _logger.LogInformation($"RunAppEvent {appEvent}");
+
+    return await Task.FromResult(true);
+}
+```
+The `RunAppEvent`method should be replaced with the appropriate methods as described above.
 
 ## 4. Obsolete methods RunCalculation removed from AppBase/IAltinnApp
 [In version 4.7.0](../../../../../community/changelog/app-nuget/_index.en.md) the RunCalculation method was replaced with the methods RunProcessDataRead and RunProcessDataWrite. RunCalculation has now been removed and those that have code in this method needs to move this to either RunProcessDataRead or RunProcessDataWrite.
