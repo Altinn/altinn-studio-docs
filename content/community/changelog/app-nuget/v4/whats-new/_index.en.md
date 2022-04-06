@@ -273,7 +273,7 @@ Issue [#6418](https://github.com/Altinn/altinn-studio/issues/6418)
 
 ## 4.9.0 (2021-06-29) - Support for marking a single field validation error as fixed
 It is now possible to mark a previous validation error as fixed by using the prefix `*FIXED*` in front of the original error. 
-[documentation on how to implement the functionality](https://altinn.github.io/docs/altinn-studio/app-creation/logic/validation/#spesifisere-at-valideringsfeil-er-fikset) (in Norwegian )
+[documentation on how to implement the functionality](../../../../../app/development/logic/validation/#spesifisere-at-valideringsfeil-er-fikset) (in Norwegian )
 
 
 ## 4.8.0 (2021-06-22) - Application version number available in AppSettings
@@ -299,11 +299,11 @@ The process to update is
 5. Remove CalculationHandler when code has been moved to DataProcessingHandler.
 6. Compile and test your app. 
 
-See details about data processing [here](https://altinn.github.io/docs/altinn-studio/app-creation/logic/dataprocessing/)
+See details about data processing [here](../../../../../app/development/logic/dataprocessing/)
 
 ## 4.6.2 (2021-06-01) - Duplicate keys in options causing crash
 
-This release has a fix for a crash related to PDF rendering when an app have [options](https://altinn.github.io/docs/altinn-studio/app-creation/data/options/) with duplicate entries. [#5887](https://github.com/Altinn/altinn-studio/issues/5887)
+This release has a fix for a crash related to PDF rendering when an app have [options](../../../../../app/development/data/options/) with duplicate entries. [#5887](https://github.com/Altinn/altinn-studio/issues/5887)
 
 ## 4.6.1. (2021-05-21) Changed alternative subject
 
@@ -313,7 +313,7 @@ Altinn Apps now uses org instead of organization as subject when publishing even
 Altinn Apps now support data fields.
 Data fields allows for adding data values, from either form fields or a custom source, to the instance object.
 Form data can be added by configuring data fields in `applicationmetadata.json` while custom sources require coding.
-Documentation on how to add data values to an instance can be found [here](https://altinn.github.io/docs/altinn-studio/app-creation/configuration/datafields/).
+Documentation on how to add data values to an instance can be found [here](../../../../../app/development/configuration/datafields/).
 
 
 ## 4.5.2 (2021-05-04) - Endpoints for stateless data elements exposed through app. Bug stopping local testing fixed
@@ -337,7 +337,7 @@ Improved performance.
 Altinn Apps now support presentation fields. 
 By specifying presentation fields in `applicationmetadata.json`, speficied data values from the form data
 will be stored on the instance in order to show them along with the app title in the Altinn messagebox. 
-Further documentation on how to configure presentation fields is found [here](https://altinn.github.io/docs/altinn-studio/app-creation/configuration/presentationfields/).
+Further documentation on how to configure presentation fields is found [here](../../../../../app/development/configuration/presentationfields/).
 
 This change is related to [this epic](https://app.zenhub.com/workspace/o/altinn/altinn-studio/issues/594).
 
