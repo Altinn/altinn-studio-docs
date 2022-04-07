@@ -407,3 +407,10 @@ For example if you want to change the help text, you can add this to the `config
 The image below shows which key controls which text in the UI
 
 ![Texts and text keys](archive-receipt-texts.png "Texts and text keys")
+
+**Note:** These text changes will **not** be visible in your local test environment, they will only be visible in the test environment **TT02**. To see the changes you must navigate from the Archive and press the "See submitted form". As of now the modified text will not be used while submitting your form.
+
+![image](https://user-images.githubusercontent.com/42466346/159927471-088aab00-3e82-4851-b94f-712bdc4094c9.png)
+
+
+
