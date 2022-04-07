@@ -11,7 +11,7 @@ It is integrated with Altinn Platform making it easy to utilize the functionalit
 [authorization](/solutions/altinn-platform/authorization/) and other components.
 
 For web applications that need a web based UI, it has a [React](https://reactjs.org/) based frontend that can be
-[configured in Altinn Studio](https://altinn.github.io/docs/altinn-studio/app-creation/ui-editor/).
+[configured in Altinn Studio](../../../../../../app/getting-started/navigation/designer/ui-editor/).
 
 [ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/?view=aspnetcore-3.0) is a cross-platform, high performance,
 open-source framework for building modern cloud-based, Internet-connected application.
