@@ -5,35 +5,40 @@ titleSup: NEW
 weight: 800
 ---
 
+## April 2022
+
+- Nasjonalt arbeidstidsregister (STAMI).  
+  [Info](https://aip.stami.no/url/atid-om-registeret) | [Repo](https://altinn.studio/repos/stami/atid-databehandler-2022) | [App](https://stami.apps.altinn.no/stami/atid-databehandler-2022/)
+
 ## March 2022
 
-- Transportløyvegarantier (Statens vegvesen)  
+- Transportløyvegarantier (Statens vegvesen).  
   [Info](https://www.altinn.no/skjemaoversikt/statens-vegvesen/transportloyvegarantier/) | [Repo](https://altinn.studio/repos/svv/transportloyvegarantier) | [App](https://svv.apps.altinn.no/svv/transportloyvegarantier/)
-
+- Bestilling av tilgang til Medarbeiderundersøkelsen i staten (STAMI).  
+  [Info](https://stami.no/prosjekt/medarbeiderundersokelsen-i-staten-must/) | [Repo](https://altinn.studio/repos/stami/mu-bestilling-2021) | [App](https://stami.apps.altinn.no/stami/mu-bestilling-2021/)
+- Avtalevilkår for Medarbeiderundersøkelsen i Staten (STAMI).  
+  [Info](https://stami.no/prosjekt/medarbeiderundersokelsen-i-staten-must/) | [Repo](https://altinn.studio/repos/stami/mu-databehandler-2021) | [App](https://stami.apps.altinn.no/stami/mu-databehandler-2021/)
+- Mva-meldingen (Skatteetaten).  
+  [Info](https://skatteetaten.github.io/mva-meldingen/) | [Repo](https://altinn.studio/repos/skd/mva-melding-innsending-v1)
+- Skattemeldingen (Skatteetaten).  
+  [Info](https://github.com/Skatteetaten/skattemeldingen) | [Repo](https://altinn.studio/repos/skd/formueinntekt-skattemelding-v2)
 ## February 2022
 
-- Algeskjema (Havforskningsinstituttet)  
+- Algeskjema (Havforskningsinstituttet).  
   [Info](https://www.altinn.no/skjemaoversikt/havforskningsinstituttet/algeskjema/) | [Repo](https://altinn.studio/repos/hi/algeskjema) | [App](https://hi.apps.altinn.no/hi/algeskjema/)
-- Søk om tillatelse til å arbeide med asbest (Arbeidstilsynet)  
+- Søk om tillatelse til å arbeide med asbest (Arbeidstilsynet).  
   [Info](https://www.altinn.no/skjemaoversikt/arbeidstilsynet/soknad-om-tillatelse-til-a-arbeide-med-asbest/) | [Repo](https://altinn.studio/repos/dat/asbest-soknad) | [App](https://dat.apps.altinn.no/dat/asbest-soknad/)
 
 ## January 2022
 
-- Behovskartlegging for opprettelse av vergemål (Statens sivilrettsforvaltning)  
+- Behovskartlegging for opprettelse av vergemål (Statens sivilrettsforvaltning).  
   [Info](https://www.altinn.no/skjemaoversikt/statens-sivilrettsforvaltning/behovskartlegging-for-opprettelse-av-vergemal/) | [Repo](https://altinn.studio/repos/srf/fufinn-behovskartlegging) | [App](https://srf.apps.altinn.no/srf/fufinn-behovskartlegging/)
-- Forespørsel om endring av vergefullmakt (Statens sivilrettsforvaltning)  
+- Forespørsel om endring av vergefullmakt (Statens sivilrettsforvaltning).  
   [Info](https://www.altinn.no/skjemaoversikt/statens-sivilrettsforvaltning/foresporsel-om-endring-av-vergefullmakt/) | [Repo](https://altinn.studio/repos/srf/fufinn-behovsendring) | [App](https://srf.apps.altinn.no/srf/fufinn-behovsendring/)
-
-## November 2021
-
-- Bestilling av tilgang til Medarbeiderundersøkelsen i staten (STAMI).  
-_Official launch at a later time. Thus info and links are not yet available._
-- Avtalevilkår for Medarbeiderundersøkelsen i Staten (STAMI).  
-_Official launch at a later time. Thus info and links are not yet available._
 
 ## August 2021
 
-- Valgkort (Valgdirektoratet)  
+- Valgkort (Valgdirektoratet).  
   [Info](https://www.valg.no/for-velgere/stortingsvalget-2021/valgkort/) | [Repo](https://altinn.studio/repos/valg/valgkort) | [App](https://valg.apps.altinn.no/valg/valgkort/)
 
 ## June 2021
