@@ -263,6 +263,8 @@ Explanation:
 - **label** - a reference to a text id to be used as the label for each iteration of the group, see more below.
 - **value** - a reference to a field in the group that should be used as the option value. Notice that we set up this `[{0}]` syntax. Here the `{0}` will be replaced by each index of the group.
 
+Notice that the **value** field must be unique for each element. If the repeating group does not contain a field which is unique for each item it is recommended to add a field to the data model that can be used as identificator, for instance a GUID.
+
 As for the **label** property, we have to define a text resource that can be used as a label for each repetition of the group.
 This follows similar syntax as the **value**, and will also be familiar if you have used [variables in text](../../ux/texts).
 

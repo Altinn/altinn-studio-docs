@@ -266,6 +266,8 @@ Forklaring:
 - **label** - en referanse til en text id som brukes som label for hver iterasjon av gruppen. Se mer under.
 - **value** - en referanse til det feltet i gruppen som skal bruke som option verdi. Legg merke til `[{0}]` syntaxen. Her vil `{0}` bli erstattet med den aktuelle indeksen for hvert element i gruppen.
 
+Merk at **value** feltet må være unikt for hvert element. Om man ikke har et felt som er unik anbefales det å legge på et ekstra felt i datamodellen som kan benyttes som identifikator f.eks en GUID eller liknende.
+
 For **label** feltet må vi definere en tekst ressurs som kan bli brukt som label for hver repetisjon av gruppen.
 Dette følger samme syntax som **value**, og vil være kjent for deg om du har brukt [variabler i tekst](../../ux/texts).
 
