@@ -1043,6 +1043,7 @@ if(host != "localhost")
     <li><a href="#dynamic-codelists-generated-runtime">Dynamic codelists generated runtime</a></li>
     <li><a href="#connect-the-component-to-options-code-list">Connect the component to options (code list)</a></li>
     <li><a href="#pass-query-parameters-when-fetching-options">Pass query parameters when fetching options</a></li>
+    <li><a href="#options-based-on-repeating-groups-from-redux">Options based on repeating groups from Redux</a></li>
   </ul>
 </nav>
 
@@ -1227,6 +1228,54 @@ We currently has a weakness where mapping paramteres not are included in this re
             }
 </code></pre></div><p>Notice that this wil result in the option value and not the label being present as the end users answer.</p>
 </div>
+<h2 id="options-based-on-repeating-groups-from-redux">Options based on repeating groups from Redux</h2>
+<p>Traditional options are based on resources fetched from the backend. 
+This approach differs a bit from this, as it enables setting up a direct connection from the options to the form data that is stored in app frontend. 
+A use case here would typically be if the user fills out a repeating list of data that should later be selected in a dropdown/checkbox/radiobutton.</p>
+<h3 id="configuration">Configuration</h3>
+<p>To set up options from redux we have set up a new property on <code>RadioButtons</code>, <code>Checkboxes</code>, and <code>Dropdown</code>-components called <code>source</code>. 
+This property contains the fields <code>group</code>, <code>label</code>, and <code>value</code>. Example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">      {
+        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;dropdown-component-id&#34;</span>,
+        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Dropdown&#34;</span>,
+        ...
+        <span style="color:#ff79c6">&#34;source&#34;</span>: {
+          <span style="color:#ff79c6">&#34;group&#34;</span>: <span style="color:#f1fa8c">&#34;some.group&#34;</span>,
+          <span style="color:#ff79c6">&#34;label&#34;</span>: <span style="color:#f1fa8c">&#34;dropdown.label&#34;</span>,
+          <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;some.group[{0}].someField&#34;</span>
+        }
+      },
+</code></pre></div><p>Explanation:</p>
+<ul>
+<li><strong>group</strong> - the group field in the data model to base the options on</li>
+<li><strong>label</strong> - a reference to a text id to be used as the label for each iteration of the group, see more below.</li>
+<li><strong>value</strong> - a reference to a field in the group that should be used as the option value. Notice that we set up this <code>[{0}]</code> syntax. Here the <code>{0}</code> will be replaced by each index of the group.</li>
+</ul>
+<p>Notice that the <strong>value</strong> field must be unique for each element. If the repeating group does not contain a field which is unique for each item it is recommended to add a field to the data model that can be used as identificator, for instance a GUID.</p>
+<p>As for the <strong>label</strong> property, we have to define a text resource that can be used as a label for each repetition of the group.
+This follows similar syntax as the <strong>value</strong>, and will also be familiar if you have used <a href="../../ux/texts">variables in text</a>.</p>
+<p>Example text resource connected:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#ff79c6">&#34;language&#34;</span>: <span style="color:#f1fa8c">&#34;nb&#34;</span>,
+  <span style="color:#ff79c6">&#34;resources&#34;</span>: [
+    {
+      <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;dropdown.label&#34;</span>,
+      <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;Person: {0}, Age: {1}&#34;</span>,
+      <span style="color:#ff79c6">&#34;variables&#34;</span>: [
+        {
+          <span style="color:#ff79c6">&#34;key&#34;</span>: <span style="color:#f1fa8c">&#34;some.group[{0}].name&#34;</span>,
+          <span style="color:#ff79c6">&#34;dataSource&#34;</span>: <span style="color:#f1fa8c">&#34;dataModel.default&#34;</span>
+        },
+        {
+          <span style="color:#ff79c6">&#34;key&#34;</span>: <span style="color:#f1fa8c">&#34;some.group[{0}].age&#34;</span>,
+          <span style="color:#ff79c6">&#34;dataSource&#34;</span>: <span style="color:#f1fa8c">&#34;dataModel.default&#34;</span>
+        }
+      ]
+    }
+  ]
+}
+</code></pre></div><p>In the example above we have two parameters in the text which is referencing fields in the group. 
+We also recognize the <code>[{0}]</code> syntax in the <code>key</code> prop which enables the usage of this label for each index in the group.</p>
 
 
 <footer class=" footline" >

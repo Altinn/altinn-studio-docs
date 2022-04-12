@@ -525,6 +525,7 @@ if(host != "localhost")
     <li><a href="#dynamisk-kodeliste-generert-runtime">Dynamisk kodeliste generert runtime</a></li>
     <li><a href="#koble-en-komponent-til-kodeliste">Koble en komponent til kodeliste</a></li>
     <li><a href="#sende-med-query-parametere-ved-henting-av-options">Sende med query parametere ved henting av options</a></li>
+    <li><a href="#options-basert-på-repeterende-grupper-i-redux">Options basert på repeterende grupper i Redux</a></li>
   </ul>
 </nav>
 
@@ -711,6 +712,54 @@ Vi har foreløpig en svakhet ved at eventuelle mapping-parametere ikke blir inkl
             }
 </code></pre></div><p>Merk at dette vil resultere i at PDF vil vise verdien valgt og ikke label som sluttbrukers svar.</p>
 </div>
+<h2 id="options-basert-på-repeterende-grupper-i-redux">Options basert på repeterende grupper i Redux</h2>
+<p>Tradisjonelle options baserer seg på ressurser hentet fra backend.
+Denne måten å gjøre ting på endrer seg litt på dette, da det muliggjør å sette opp en direkte kobling fra komponent til skjemadata som ligger lagret i app frontend.
+Et typisk bruksområde for dette er om brukeren fyller ut en liste med data som man senere i skjema ønsker å kunne velge mellom i en nedtrekksliste eller liknende.</p>
+<h3 id="konfigurasjon">Konfigurasjon</h3>
+<p>For å sette opp options fra redux har vu laget en nytt objekt som kan brukes på komponentene <code>RadioButtons</code>, <code>Checkboxes</code> og <code>Dropdown</code> som vi har kalt <code>source</code>.
+Dette nye objektet inneholder feltene <code>group</code>, <code>label</code> og <code>value</code>. Eksempel:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">      {
+        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;dropdown-component-id&#34;</span>,
+        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Dropdown&#34;</span>,
+        ...
+        <span style="color:#ff79c6">&#34;source&#34;</span>: {
+          <span style="color:#ff79c6">&#34;group&#34;</span>: <span style="color:#f1fa8c">&#34;some.group&#34;</span>,
+          <span style="color:#ff79c6">&#34;label&#34;</span>: <span style="color:#f1fa8c">&#34;dropdown.label&#34;</span>,
+          <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;some.group[{0}].someField&#34;</span>
+        }
+      },
+</code></pre></div><p>Forklaring:</p>
+<ul>
+<li><strong>group</strong> - gruppen i datamodellen man baserer options på.</li>
+<li><strong>label</strong> - en referanse til en text id som brukes som label for hver iterasjon av gruppen. Se mer under.</li>
+<li><strong>value</strong> - en referanse til det feltet i gruppen som skal bruke som option verdi. Legg merke til <code>[{0}]</code> syntaxen. Her vil <code>{0}</code> bli erstattet med den aktuelle indeksen for hvert element i gruppen.</li>
+</ul>
+<p>Merk at <strong>value</strong> feltet må være unikt for hvert element. Om man ikke har et felt som er unik anbefales det å legge på et ekstra felt i datamodellen som kan benyttes som identifikator f.eks en GUID eller liknende.</p>
+<p>For <strong>label</strong> feltet må vi definere en tekst ressurs som kan bli brukt som label for hver repetisjon av gruppen.
+Dette følger samme syntax som <strong>value</strong>, og vil være kjent for deg om du har brukt <a href="../../ux/texts">variabler i tekst</a>.</p>
+<p>Eksempel:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#ff79c6">&#34;language&#34;</span>: <span style="color:#f1fa8c">&#34;nb&#34;</span>,
+  <span style="color:#ff79c6">&#34;resources&#34;</span>: [
+    {
+      <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;dropdown.label&#34;</span>,
+      <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;Person: {0}, Age: {1}&#34;</span>,
+      <span style="color:#ff79c6">&#34;variables&#34;</span>: [
+        {
+          <span style="color:#ff79c6">&#34;key&#34;</span>: <span style="color:#f1fa8c">&#34;some.group[{0}].name&#34;</span>,
+          <span style="color:#ff79c6">&#34;dataSource&#34;</span>: <span style="color:#f1fa8c">&#34;dataModel.default&#34;</span>
+        },
+        {
+          <span style="color:#ff79c6">&#34;key&#34;</span>: <span style="color:#f1fa8c">&#34;some.group[{0}].age&#34;</span>,
+          <span style="color:#ff79c6">&#34;dataSource&#34;</span>: <span style="color:#f1fa8c">&#34;dataModel.default&#34;</span>
+        }
+      ]
+    }
+  ]
+}
+</code></pre></div><p>I dette eksempelet har vi satt opp to parametere i teksten som refererer til felter i gruppen.
+Vi kjenner også igjen <code>[{0}]</code> syntaksen i <code>key</code> feltet som muliggjør gjenbruk av labelen for hver index i gruppen.</p>
 
 
 <footer class=" footline" >
