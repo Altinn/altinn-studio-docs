@@ -4,6 +4,18 @@ description: Overview of changes introduced in v3 of app frontend.
 toc: true
 ---
 
+## 3.34.0 (2022-04-11) - Options from Redux
+Added possibility to setup options from repeating groupes in Redux. Read more on [docs.](https://docs.altinn.studio/app/development/data/options/#options-based-on-repeating-groups-from-redux)
+Issue [#7626](https://github.com/Altinn/altinn-studio/issues/7626). 
+
+## 3.33.5 (2022-04-11) - External dependency patching
+Patched external dependency to fix security issue.
+Pull request [#8371](https://github.com/Altinn/altinn-studio/pull/8371).
+
+## 3.33.4 (2022-03-31) - Webpack 5 + depenency patching
+App frontend is now bundles with webpack 5. Also patched some external dependencies.
+Issue [#5073](https://github.com/Altinn/altinn-studio/issues/5073).
+
 ## 3.33.3 (2022-03-25) - Support for defining row or columns for checkbox and radio
 Added support for defining row or columns layout for radio and checkbox.
 Issue [#5730](https://github.com/Altinn/altinn-studio/issues/5730).
