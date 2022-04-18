@@ -12,8 +12,8 @@ Issue [#7626](https://github.com/Altinn/altinn-studio/issues/7626).
 Patched external dependency to fix security issue.
 Pull request [#8371](https://github.com/Altinn/altinn-studio/pull/8371).
 
-## 3.33.4 (2022-03-31) - Webpack 5 + depenency patching
-App frontend is now bundles with webpack 5. Also patched some external dependencies.
+## 3.33.4 (2022-03-31) - Webpack 5 + dependency patching
+App frontend is now bundled with webpack 5. Also patched some external dependencies.
 Issue [#5073](https://github.com/Altinn/altinn-studio/issues/5073).
 
 ## 3.33.3 (2022-03-25) - Support for defining row or columns for checkbox and radio
