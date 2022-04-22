@@ -1,6 +1,7 @@
 ---
 title: Breaking changes
 description: Overview of breaking changes introduced into app nuget packages in v5.0.0.
+tags: [translate-to-norwegian]
 ---
 
 ## 1. PDF generation implementation moved out from AppBase/IAltinnApp
