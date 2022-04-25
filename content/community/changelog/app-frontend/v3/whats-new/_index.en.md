@@ -4,6 +4,11 @@ description: Overview of changes introduced in v3 of app frontend.
 toc: true
 ---
 
+## 3.34.1 (2022-04-22) - Fixed invalid HTML attribute in ImageComponent
+The `width` attributte on `img` element can only be [a number that represents px](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-width). We have support for other units, f.ex %. 
+The width declaration was moved to inline styling instead to resolve this issue.
+Issue [#14](https://github.com/Altinn/app-frontend-react/issues/14). 
+
 ## 3.34.0 (2022-04-11) - Options from Redux
 Added possibility to setup options from repeating groupes in Redux. Read more on [docs.](https://docs.altinn.studio/app/development/data/options/#options-based-on-repeating-groups-from-redux)
 Issue [#7626](https://github.com/Altinn/altinn-studio/issues/7626). 
