@@ -4,6 +4,11 @@ description: Oversikt over endringer som ble introdusert i v3 av app frontend.
 toc: true
 ---
 
+## 3.34.2 (2022-04-25) - Fikset kantfarger for checkbox og radio
+Kantfargene for disse komponentene fulgte ikke kontrastkravene fra WCAG 2.1.
+Fargene på disse har blitt endret til å følge en standardfarge.
+Issue [#11](https://github.com/Altinn/app-frontend-react/issues/11).
+
 ## 3.34.1 (2022-04-22) - Fikset ugyldig HTML attributt i ImageComponent
 `width` attributt på `img` elementer kan kun være [tallverdi som representerer px](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-width). Vi støtter å definere width med andre måleenheter, som f.ex %. 
 Width deklarasjonen ble flyttet til inline styling for å løse problemet.
