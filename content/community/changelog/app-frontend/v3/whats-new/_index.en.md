@@ -4,6 +4,11 @@ description: Overview of changes introduced in v3 of app frontend.
 toc: true
 ---
 
+## 3.34.2 (2022-04-25) - Fixed colors in radio and checkbox
+The colors for radio and checkbox borders were not adhering to accessibility requirements from WCAG 2.1.
+These colors have been adjusted slightly to follow standard theme colors.
+Issue [#11](https://github.com/Altinn/app-frontend-react/issues/11).
+
 ## 3.34.1 (2022-04-22) - Fixed invalid HTML attribute in ImageComponent
 The `width` attributte on `img` element can only be [a number that represents px](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-width). We have support for other units, f.ex %. 
 The width declaration was moved to inline styling instead to resolve this issue.
