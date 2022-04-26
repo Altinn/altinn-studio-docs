@@ -22,11 +22,6 @@ git clone https://github.com/Altinn/altinn-studio.git
 
 The tests on altinn studio are run from an azure devops pipeline and the results are recorded in cypress dashboard with tag: _altinn-studio_.
 
-[documentation]: https://docs.cypress.io/guides/core-concepts/introduction-to-cypress.html
-[github actions]: https://github.com/Altinn/altinn-studio/actions/workflows/cypress-altinn-app-frontend.yml
-[read me]: https://github.com/Altinn/altinn-studio/tree/master/src/test/cypress
-
-
 #### Folder structure
 1. Test files are under *src/test/cypress/e2e/integration*.
 2. Static files are under *src/test/cypress/e2e/fixtures*.
@@ -51,8 +46,7 @@ Read cypress [documentation] for more information on writing tests
 
 #### Run tests locally and debug
 1. Make sure all the solutions are running according to the readme file for the solution to be tested.
-2. Open cypress by running `yarn run cy:open -e environment=local,component=studio`. 
-   `yarn run cy:open -e environment=local,component=studio` for studio.
+2. Open cypress by running `yarn run cy:open -e environment=local`.
 3. Choose the browser and the test.js file that has to be run.
 4. Use *cy.log()* for checking runtime values. And Cypress by default starts the test again when there is a change in the files.
 5. Use console in the browser developer tools where Cypress prints results from a cypress command.
@@ -92,8 +86,11 @@ Read cypress [documentation] for more information on writing tests
 
 #### Run tests locally and debug
 1. Make sure all the solutions are running according to the readme file for the solution to be tested.
-2. Open cypress by running `yarn run cy:open -e environment=local,component=appfrontend`. 
-   `yarn run cy:open -e environment=local,component=studio` for studio.
+2. Open cypress by running `yarn run cy:open -e environment=local`. 
 3. Choose the browser and the test.js file that has to be run.
 4. Use *cy.log()* for checking runtime values. And Cypress by default starts the test again when there is a change in the files.
 5. Use console in the browser developer tools where Cypress prints results from a cypress command.
+
+[documentation]: https://docs.cypress.io/guides/core-concepts/introduction-to-cypress.html
+[github actions]: https://github.com/Altinn/app-frontend-react/blob/main/.github/workflows/cypress-altinn-app-frontend.yml
+[read me]: https://github.com/Altinn/altinn-studio/tree/master/src/test/cypress
