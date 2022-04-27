@@ -4,7 +4,7 @@ description: Overview of changes introduced in v3 of app frontend.
 toc: true
 ---
 
-## 3.35.0 (2022-04-20) - Marking required fields
+## 3.35.0 (2022-04-27) - Marking required fields
 Changed default behaviour of marking optional fields to now mark required fields with * as default.
 Optional fields have no marking as default behaviour, but this can be configured using the `labelSettings`
 property of the field, see [here](https://docs.altinn.studio/app/development/ux/fields/settings/).
