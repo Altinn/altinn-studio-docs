@@ -13,22 +13,7 @@ weight: 11
   ```
   from `altinn-studio/src/studio` before proceeding with the instructions linked above.
 
-2. In the app that will be running locally, edit the `<path-to-app>/App/views/Home/Index.cshtml` file, and replace the javascript reference from:
-```
-  <script src="https://altinncdn.no/toolkits/altinn-app-frontend/3/altinn-app-frontend.js"></script>
-```
-to:
-```
-  <script src="http://localhost:8080/altinn-app-frontend.js"></script>
-```
-And Replace the reference to the CSS-file from:
-```
-  <link rel="stylesheet" type="text/css" href="https://altinncdn.no/toolkits/altinn-app-frontend/3/altinn-app-frontend.css">
-```
-to:
-```
-  <link rel="stylesheet" type="text/css" href="http://localhost:8080/altinn-app-frontend.css">
-```
+2. Follow the steps in [app-frontend-react repository](https://github.com/Altinn/app-frontend-react#developing-app-frontend) for how to serve app-frontend locally.
 
 3. Run the app (from `<path-to-app>/App/`):
 ```
@@ -36,19 +21,7 @@ dotnet run
 ```
 or run it directly from VS Code.
 
-4. Install frontend dependencies if this has not been done (or dependencies have been updated) (from `src/Altinn.Apps/AppFrontend/react`):
-```
-yarn --immutable
-```
-
-5. Run the app frontend (from `src/Altinn.Apps/AppFrontend/react`):
-```
-cd altinn-app-frontend
-yarn start
-```
-This serves altinn-app-frontend at localhost:8080. The command `yarn start` runs the application with _hot reload_, which rebuilds the application any time a new change is saved. The page should refresh automatically.
-
-6. Start the app in a browser by going to [altinn3local.no](http://altinn3local.no)!
+4. Start the app in a browser by going to [altinn3local.no](http://altinn3local.no)!
 
 ## Altinn Studio Designer
 1. Follow the instructions in the Altinn Studio [README](https://github.com/Altinn/altinn-studio/blob/master/src/studio/README.md) to set up Altinn Studio locally.

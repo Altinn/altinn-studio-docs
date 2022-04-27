@@ -9,6 +9,16 @@ Endret standard visning av felter til at påkrevde felter markeres med en *, men
 ikke har noen markering. Valgfrie felter kan settes opp til å markeres med `(Valgfri)` via `labelSettings`-property
 på feltet i form layout. Se [her](https://docs.altinn.studio/app/development/ux/fields/settings/).
 
+## 3.34.2 (2022-04-25) - Fikset kantfarger for checkbox og radio
+Kantfargene for disse komponentene fulgte ikke kontrastkravene fra WCAG 2.1.
+Fargene på disse har blitt endret til å følge en standardfarge.
+Issue [#11](https://github.com/Altinn/app-frontend-react/issues/11).
+
+## 3.34.1 (2022-04-22) - Fikset ugyldig HTML attributt i ImageComponent
+`width` attributt på `img` elementer kan kun være [tallverdi som representerer px](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-width). Vi støtter å definere width med andre måleenheter, som f.ex %. 
+Width deklarasjonen ble flyttet til inline styling for å løse problemet.
+Issue [#14](https://github.com/Altinn/app-frontend-react/issues/14). 
+
 ## 3.34.0 (2022-04-11) - Options fra Redux
 La til støtte for å sette opp options (kodelister) fra repeterende grupper i Redux staten. Les mer på [docs.](https://docs.altinn.studio/app/development/data/options/#options-based-on-repeating-groups-from-redux)
 Issue [#7626](https://github.com/Altinn/altinn-studio/issues/7626). 
