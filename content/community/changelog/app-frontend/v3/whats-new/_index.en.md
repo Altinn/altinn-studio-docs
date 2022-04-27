@@ -4,6 +4,11 @@ description: Overview of changes introduced in v3 of app frontend.
 toc: true
 ---
 
+## 3.35.0 (2022-04-20) - Marking required fields
+Changed default behaviour of marking optional fields to now mark required fields with * as default.
+Optional fields have no marking as default behaviour, but this can be configured using the `labelSettings`
+property of the field, see [here](https://docs.altinn.studio/app/development/ux/fields/settings/).
+
 ## 3.34.0 (2022-04-11) - Options from Redux
 Added possibility to setup options from repeating groupes in Redux. Read more on [docs.](https://docs.altinn.studio/app/development/data/options/#options-based-on-repeating-groups-from-redux)
 Issue [#7626](https://github.com/Altinn/altinn-studio/issues/7626). 

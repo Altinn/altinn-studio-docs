@@ -4,6 +4,11 @@ description: Oversikt over endringer som ble introdusert i v3 av app frontend.
 toc: true
 ---
 
+## 3.35.0 (2022-04-27) - Merke påkrevde felter
+Endret standard visning av felter til at påkrevde felter markeres med en *, mens felter som er valgfrie
+ikke har noen markering. Valgfrie felter kan settes opp til å markeres med `(Valgfri)` via `labelSettings`-property
+på feltet i form layout. Se [her](https://docs.altinn.studio/app/development/ux/fields/settings/).
+
 ## 3.34.0 (2022-04-11) - Options fra Redux
 La til støtte for å sette opp options (kodelister) fra repeterende grupper i Redux staten. Les mer på [docs.](https://docs.altinn.studio/app/development/data/options/#options-based-on-repeating-groups-from-redux)
 Issue [#7626](https://github.com/Altinn/altinn-studio/issues/7626). 
