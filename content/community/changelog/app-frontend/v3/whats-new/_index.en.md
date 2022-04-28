@@ -4,7 +4,7 @@ description: Overview of changes introduced in v3 of app frontend.
 toc: true
 ---
 
-## 3.34.5 (2022-04-28) - Dependency patching
+## 3.35.1 (2022-04-28) - Dependency patching
 Patching of external dependencies for week 17 of 2022.
 
 ## 3.34.3 (2022-04-28) - Bugfixes for caching of lasted visited view
