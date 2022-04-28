@@ -9,6 +9,11 @@ Endret standard visning av felter til at påkrevde felter markeres med en *, men
 ikke har noen markering. Valgfrie felter kan settes opp til å markeres med `(Valgfri)` via `labelSettings`-property
 på feltet i form layout. Se [her](https://docs.altinn.studio/app/development/ux/fields/settings/).
 
+## 3.34.4 (2022-04-28) - Fjernet overskrift om vedlegg når det ikke er noen vedlegg
+Under kvitteringen ble det vist en overskrift over listen med vedlegg. Etter det ble mulig å skru av generering av
+PDF ble denne overskriften fortsatt vist, men har nå blitt skjult.
+Issue [#8296](https://github.com/Altinn/altinn-studio/issues/8296).
+
 ## 3.34.3 (2022-04-28) - Fikset feil relatert til caching av sist besøkte side
 Fikser en feil hvor stateless-applikasjoner brukte en delt nøkkel for persistering av sist besøkte side. Fikser også en feil hvor en tom side ville vises til brukeren om den cachede side-nøkkelen ikke lenger fantes.
 Issues [#7897](https://github.com/Altinn/altinn-studio/issues/7897) og [#6975](https://github.com/Altinn/altinn-studio/issues/6975).
