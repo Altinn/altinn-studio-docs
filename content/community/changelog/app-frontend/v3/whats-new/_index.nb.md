@@ -4,7 +4,7 @@ description: Oversikt over endringer som ble introdusert i v3 av app frontend.
 toc: true
 ---
 
-## 3.34.4 (2022-04-28) - Oppdaterte avhengigheter
+## 3.34.5 (2022-04-28) - Oppdaterte avhengigheter
 Oppdaterte eksterne avhengigheter for uke 17 av 2022.
 
 ## 3.34.3 (2022-04-28) - Fikset feil relatert til caching av sist besøkte side
