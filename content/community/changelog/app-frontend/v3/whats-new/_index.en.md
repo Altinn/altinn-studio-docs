@@ -4,6 +4,10 @@ description: Overview of changes introduced in v3 of app frontend.
 toc: true
 ---
 
+## 3.34.3 (2022-04-28) - Bugfixes for caching of lasted visited view
+Fixes a bug where stateless app would use a shared key for persisting the last visited view. Also fixes an issue where an empty page would be displayed if the persisted layout id was no longer present.
+Issues [#7897](https://github.com/Altinn/altinn-studio/issues/7897) and [#6975](https://github.com/Altinn/altinn-studio/issues/6975).
+
 ## 3.34.2 (2022-04-25) - Fixed colors in radio and checkbox
 The colors for radio and checkbox borders were not adhering to accessibility requirements from WCAG 2.1.
 These colors have been adjusted slightly to follow standard theme colors.
