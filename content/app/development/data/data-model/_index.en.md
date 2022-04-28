@@ -1,6 +1,6 @@
 ---
 title: Data model in Altinn Studio
-linktitle: Data model.
+linktitle: Data model
 description: How to import or view the data model in Altinn Studio.
 tags: [translate-to-english]
 weight: 100
