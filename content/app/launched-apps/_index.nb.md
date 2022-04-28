@@ -15,9 +15,9 @@ weight: 800
 - Transportløyvegarantier (Statens vegvesen).  
   [Info](https://www.altinn.no/skjemaoversikt/statens-vegvesen/transportloyvegarantier/) | [Repo](https://altinn.studio/repos/svv/transportloyvegarantier) | [Kjørende tjeneste](https://svv.apps.altinn.no/svv/transportloyvegarantier/)
 - Bestilling av tilgang til Medarbeiderundersøkelsen i staten (STAMI).  
-  [Info](https://stami.no/prosjekt/medarbeiderundersokelsen-i-staten-must/) | [Repo](https://altinn.studio/repos/stami/mu-bestilling-2021) | [Kjørende tjeneste](https://stami.apps.altinn.no/stami/mu-bestilling-2021/)
-- Avtalevilkår for Medarbeiderundersøkelsen i Staten (STAMI).  
-  [Info](https://stami.no/prosjekt/medarbeiderundersokelsen-i-staten-must/) | [Repo](https://altinn.studio/repos/stami/mu-databehandler-2021) | [Kjørende tjeneste](https://stami.apps.altinn.no/stami/mu-databehandler-2021/)
+  [Info](https://aip.stami.no/url/must-om-prosjektet) | [Repo](https://altinn.studio/repos/stami/mu-bestilling-2021) | [Kjørende tjeneste](https://stami.apps.altinn.no/stami/mu-bestilling-2021/)
+- Avtalevilkår for Medarbeiderundersøkelsen i staten (STAMI).  
+  [Info](https://aip.stami.no/url/must-om-prosjektet) | [Repo](https://altinn.studio/repos/stami/mu-databehandler-2021) | [Kjørende tjeneste](https://stami.apps.altinn.no/stami/mu-databehandler-2021/)
 - Mva-meldingen (Skatteetaten).  
   [Info](https://skatteetaten.github.io/mva-meldingen/) | [Repo](https://altinn.studio/repos/skd/mva-melding-innsending-v1)
 - Skattemeldingen (Skatteetaten).  
