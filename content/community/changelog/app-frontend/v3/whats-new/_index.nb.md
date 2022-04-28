@@ -9,6 +9,10 @@ Endret standard visning av felter til at påkrevde felter markeres med en *, men
 ikke har noen markering. Valgfrie felter kan settes opp til å markeres med `(Valgfri)` via `labelSettings`-property
 på feltet i form layout. Se [her](https://docs.altinn.studio/app/development/ux/fields/settings/).
 
+## 3.34.3 (2022-04-28) - Fikset feil relatert til caching av sist besøkte side
+Fikser en feil hvor stateless-applikasjoner brukte en delt nøkkel for persistering av sist besøkte side. Fikser også en feil hvor en tom side ville vises til brukeren om den cachede side-nøkkelen ikke lenger fantes.
+Issues [#7897](https://github.com/Altinn/altinn-studio/issues/7897) og [#6975](https://github.com/Altinn/altinn-studio/issues/6975).
+
 ## 3.34.2 (2022-04-25) - Fikset kantfarger for checkbox og radio
 Kantfargene for disse komponentene fulgte ikke kontrastkravene fra WCAG 2.1.
 Fargene på disse har blitt endret til å følge en standardfarge.
