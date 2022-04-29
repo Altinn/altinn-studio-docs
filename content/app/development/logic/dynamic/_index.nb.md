@@ -164,7 +164,7 @@ var conditionalRuleHandlerHelper = {
 4. Sett opp hvilke(t) felt som skal fungere som _input_ til funksjonen - her er det felt i datamodellen som gjelder.
     ![Konfigurere dynamikk](rules-configure.png)
 5. Sett opp hvilke(t) felt som skal påvirkes av regelen (skal motta beregnet verdi, eller skal vises/skjules) - her er det skjemakomponent som gjelder.
-  - For regler for vis/skjul felt kan man velge flere felter som skal vises/skjules basert på samme regel.
+   - For regler for vis/skjul felt kan man velge flere felter som skal vises/skjules basert på samme regel.
 6. Lagre konfigurasjonen.
 7. Test at det fungerer som forventet.
 
