@@ -7,6 +7,11 @@ toc: true
 ## 3.35.1 (2022-04-28) - Dependency patching
 Patching of external dependencies for week 17 of 2022.
 
+## 3.34.4 (2022-04-28) - Removed out-of-place heading in receipt when there are no attachments
+When PDF generation has been disabled and there are no attachments, the heading indicating there should follow a list
+of attachments has also been hidden.
+Issue [#8296](https://github.com/Altinn/altinn-studio/issues/8296).
+
 ## 3.34.3 (2022-04-28) - Bugfixes for caching of lasted visited view
 Fixes a bug where stateless app would use a shared key for persisting the last visited view. Also fixes an issue where an empty page would be displayed if the persisted layout id was no longer present.
 Issues [#7897](https://github.com/Altinn/altinn-studio/issues/7897) and [#6975](https://github.com/Altinn/altinn-studio/issues/6975).
