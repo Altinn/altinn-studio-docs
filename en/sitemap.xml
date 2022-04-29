@@ -962,6 +962,18 @@
                 href="https://docs.altinn.studio/app/getting-started/navigation/designer/"
                 />
   </url><url>
+    <loc>https://docs.altinn.studio/api/authentication/enterpriseuser/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/api/authentication/enterpriseuser/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/api/authentication/enterpriseuser/"
+                />
+  </url><url>
     <loc>https://docs.altinn.studio/community/contributing/handbook/back-end/error-handling/</loc>
   </url><url>
     <loc>https://docs.altinn.studio/community/contributing/handbook/front-end/error-handling/</loc>
@@ -2422,6 +2434,8 @@
   </url><url>
     <loc>https://docs.altinn.studio/tags/monitoring/</loc>
   </url><url>
+    <loc>https://docs.altinn.studio/tags/needstranslation/</loc>
+  </url><url>
     <loc>https://docs.altinn.studio/technology/architecture/components/infrastructure/network/</loc>
   </url><url>
     <loc>https://docs.altinn.studio/technology/tools/nginx/</loc>
@@ -2691,6 +2705,18 @@
     <loc>https://docs.altinn.studio/technology/solutions/altinn-apps/app/app-api/org-rest/</loc>
   </url><url>
     <loc>https://docs.altinn.studio/community/contributing/handbook/reusable-resources/</loc>
+  </url><url>
+    <loc>https://docs.altinn.studio/community/devops/roadmapprocess/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/community/devops/roadmapprocess/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/community/devops/roadmapprocess/"
+                />
   </url><url>
     <loc>https://docs.altinn.studio/tags/routines/</loc>
   </url><url>

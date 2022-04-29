@@ -349,6 +349,8 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/authentication/"><span>Authentication</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
+        <a href="/api/authentication/enterpriseuser/"><span>Enterprise users</span></a></li>
+      <li class="dd-item">
         <a href="/api/authentication/maskinporten/"><span>Maskinporten</span></a></li>
       <li class="dd-item">
         <a href="/api/authentication/id-porten/"><span>ID-porten</span></a></li>
@@ -580,6 +582,8 @@ if(host != "localhost")
         <a href="/community/roadmap/studio/enduser/"><span>End user</span></a></li></ul></li></ul></li>
       <li class="dd-item">
         <a href="/community/devops/"><span>DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/community/devops/roadmapprocess/"><span>Roadmap prosess</span></a></li>
       <li class="dd-item">
         <a href="/community/devops/teams/"><span>Teams</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -1039,14 +1043,16 @@ if(host != "localhost")
 
 
 <p>Cypress is a next generation front end open-source testing tool built for the modern web. Read more about Cypress <a href="https://docs.cypress.io/guides/overview/why-cypress">here</a>.</p>
-<h3 id="pre-requisite">Pre requisite</h3>
+<h2 id="prerequisite">Prerequisite</h2>
 <ul>
 <li>Cypress lists the requirement for the tests <a href="https://docs.cypress.io/guides/getting-started/installing-cypress#System-requirements">here</a>.</li>
 </ul>
-<h3 id="clone-the-cypress-test-project-from-altinn-studio">Clone the cypress test project from altinn-studio</h3>
+<h2 id="run-the-tests">Run the tests</h2>
+<p>Cypress test project has a simple <a href="https://github.com/Altinn/altinn-studio/tree/master/src/test/cypress">read me</a> which describes how one can install the dependencies, start the solution and run the tests.</p>
+<h3 id="altinn-studio-tests">Altinn Studio tests</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git clone https://github.com/Altinn/altinn-studio.git
-</code></pre></div><p>Cypress test project has a simple <a href="https://github.com/Altinn/altinn-studio/tree/master/src/test/cypress">read me</a> which describes how one can install the dependencies, start the solution and run the tests.</p>
-<h3 id="folder-structure">Folder structure</h3>
+</code></pre></div><p>The tests on altinn studio are run from an azure devops pipeline and the results are recorded in cypress dashboard with tag: <em>altinn-studio</em>.</p>
+<h4 id="folder-structure">Folder structure</h4>
 <ol>
 <li>Test files are under <em>src/test/cypress/e2e/integration</em>.</li>
 <li>Static files are under <em>src/test/cypress/e2e/fixtures</em>.</li>
@@ -1056,7 +1062,7 @@ if(host != "localhost")
 <li>configuration for the different environment are placed under <em>src/test/cypress/e2e/config</em></li>
 <li><em>src/test/cypress/package.json</em> has test dependencies and scripts.</li>
 </ol>
-<h3 id="write-tests">Write tests</h3>
+<h4 id="write-tests">Write tests</h4>
 <ol>
 <li>Identify the test and find the <em>.js</em> file under <em>integration</em> folder where the test must be placed.</li>
 <li>Add the new CSS selectors under <em>pageobjects</em>.</li>
@@ -1064,27 +1070,57 @@ if(host != "localhost")
 <li>Add the static files (response json of XHR, texts) under <em>fixtures</em>.</li>
 </ol>
 <p>Read cypress <a href="https://docs.cypress.io/guides/core-concepts/introduction-to-cypress.html">documentation</a> for more information on writing tests</p>
-<h3 id="linting-og-formatting">Linting og Formatting</h3>
+<h4 id="linting-and-formatting">Linting and Formatting</h4>
 <ol>
 <li>The test projects has scripts for linting og formatting.</li>
 <li>Run <code>yarn run eslint:check</code> and <code>yarn run prettier:check</code> for checking the deviations from config of eslint and prettier.</li>
 <li>Run <code>yarn run eslint:fix</code> and <code>yarn run prettier:format</code> to correct the lint and formatting fails.</li>
 </ol>
-<h3 id="run-tests-locally-and-debug">Run tests locally and debug</h3>
+<h4 id="run-tests-locally-and-debug">Run tests locally and debug</h4>
 <ol>
 <li>Make sure all the solutions are running according to the readme file for the solution to be tested.</li>
-<li>Open cypress by running <code>yarn run cy:open -e environment=local,component=appfrontend</code> for testing appfrontend. 
-<code>yarn run cy:open -e environment=local,component=studio</code> for studio.</li>
+<li>Open cypress by running <code>yarn run cy:open -e environment=local</code>.</li>
 <li>Choose the browser and the test.js file that has to be run.</li>
 <li>Use <em>cy.log()</em> for checking runtime values. And Cypress by default starts the test again when there is a change in the files.</li>
 <li>Use console in the browser developer tools where Cypress prints results from a cypress command.</li>
 </ol>
-<h3 id="altinn-app-frontend-tests">Altinn app-frontend tests</h3>
-<p>The tests on altinn-app-frontend are run from <a href="https://github.com/Altinn/altinn-studio/actions/workflows/cypress-altinn-app-frontend.yml">github actions</a> are triggered when a pull request or changes are merged to the files underer <em>react/shared</em> and <em>react/altinn-app-frontend.</em></p>
-<p>The tests are run on apps deployed to TT02 pointing to localhost app frontend.</p>
-<p>Tests are run in parallel and the recorded in cypress dashboard with tag:<em>altinn-app-frontend</em>.</p>
-<h3 id="altinn-studio-tests">Altinn Studio tests</h3>
-<p>The tests on altinn studio are run from an azure devops pipeline and the results are recorded in cypress dashboard with tag: <em>altinn-studio</em>.</p>
+<h3 id="app-frontend-tests">App-frontend tests</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git clone https://github.com/Altinn/app-frontend-react
+</code></pre></div><p>The tests on altinn-app-frontend are run from <a href="https://github.com/Altinn/app-frontend-react/blob/main/.github/workflows/cypress-altinn-app-frontend.yml">github actions</a> and are triggered when a pull request or changes are merged to the files.
+The tests are run on apps deployed to TT02 pointing to localhost app frontend.
+Tests are run in parallel and the recorded in cypress dashboard with tag:<em>altinn-app-frontend</em>.</p>
+<h4 id="folder-structure-1">Folder structure</h4>
+<ol>
+<li>Test files are under <em>test/cypress/e2e/integration</em>.</li>
+<li>Static files are under <em>test/cypress/e2e/fixtures</em>.</li>
+<li>Pageobjects with the css selector are under <em>test/cypress/e2e/pageobjects</em>.</li>
+<li>Custom cypress commands are under <em>test/cypress/e2e/support</em>.</li>
+<li><em>test/cypress/cypress.json</em> has most of the configuration for the test.</li>
+<li>configuration for the different environment are placed under <em>test/cypress/e2e/config</em></li>
+<li><em>test/cypress/package.json</em> has test dependencies and scripts.</li>
+</ol>
+<h4 id="write-tests-1">Write tests</h4>
+<ol>
+<li>Identify the test and find the <em>.js</em> file under <em>integration</em> folder where the test must be placed.</li>
+<li>Add the new CSS selectors under <em>pageobjects</em>.</li>
+<li>Add custom cypress command under <em>support</em> for reusability across the tests.</li>
+<li>Add the static files (response json of XHR, texts) under <em>fixtures</em>.</li>
+</ol>
+<p>Read cypress <a href="https://docs.cypress.io/guides/core-concepts/introduction-to-cypress.html">documentation</a> for more information on writing tests</p>
+<h4 id="linting-and-formatting-1">Linting and Formatting</h4>
+<ol>
+<li>The test projects has scripts for linting og formatting.</li>
+<li>Run <code>yarn run eslint:check</code> and <code>yarn run prettier:check</code> for checking the deviations from config of eslint and prettier.</li>
+<li>Run <code>yarn run eslint:fix</code> and <code>yarn run prettier:format</code> to correct the lint and formatting fails.</li>
+</ol>
+<h4 id="run-tests-locally-and-debug-1">Run tests locally and debug</h4>
+<ol>
+<li>Make sure all the solutions are running according to the readme file for the solution to be tested.</li>
+<li>Open cypress by running <code>yarn run cy:open -e environment=local</code>.</li>
+<li>Choose the browser and the test.js file that has to be run.</li>
+<li>Use <em>cy.log()</em> for checking runtime values. And Cypress by default starts the test again when there is a change in the files.</li>
+<li>Use console in the browser developer tools where Cypress prints results from a cypress command.</li>
+</ol>
 
 
 <footer class=" footline" >

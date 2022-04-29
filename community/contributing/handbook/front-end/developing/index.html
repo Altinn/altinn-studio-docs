@@ -349,6 +349,8 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/authentication/"><span>Authentication</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
+        <a href="/api/authentication/enterpriseuser/"><span>Enterprise users</span></a></li>
+      <li class="dd-item">
         <a href="/api/authentication/maskinporten/"><span>Maskinporten</span></a></li>
       <li class="dd-item">
         <a href="/api/authentication/id-porten/"><span>ID-porten</span></a></li>
@@ -580,6 +582,8 @@ if(host != "localhost")
         <a href="/community/roadmap/studio/enduser/"><span>End user</span></a></li></ul></li></ul></li>
       <li class="dd-item">
         <a href="/community/devops/"><span>DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/community/devops/roadmapprocess/"><span>Roadmap prosess</span></a></li>
       <li class="dd-item">
         <a href="/community/devops/teams/"><span>Teams</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -1048,31 +1052,16 @@ if(host != "localhost")
 <pre tabindex="0"><code>docker-compose down
 </code></pre><p>from <code>altinn-studio/src/studio</code> before proceeding with the instructions linked above.</p>
 <ol start="2">
-<li>In the app that will be running locally, edit the <code>&lt;path-to-app&gt;/App/views/Home/Index.cshtml</code> file, and replace the javascript reference from:</li>
-</ol>
-<pre tabindex="0"><code>  &lt;script src=&quot;https://altinncdn.no/toolkits/altinn-app-frontend/3/altinn-app-frontend.js&quot;&gt;&lt;/script&gt;
-</code></pre><p>to:</p>
-<pre tabindex="0"><code>  &lt;script src=&quot;http://localhost:8080/altinn-app-frontend.js&quot;&gt;&lt;/script&gt;
-</code></pre><p>And Replace the reference to the CSS-file from:</p>
-<pre tabindex="0"><code>  &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://altinncdn.no/toolkits/altinn-app-frontend/3/altinn-app-frontend.css&quot;&gt;
-</code></pre><p>to:</p>
-<pre tabindex="0"><code>  &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;http://localhost:8080/altinn-app-frontend.css&quot;&gt;
-</code></pre><ol start="3">
-<li>Run the app (from <code>&lt;path-to-app&gt;/App/</code>):</li>
+<li>
+<p>Follow the steps in <a href="https://github.com/Altinn/app-frontend-react#developing-app-frontend">app-frontend-react repository</a> for how to serve app-frontend locally.</p>
+</li>
+<li>
+<p>Run the app (from <code>&lt;path-to-app&gt;/App/</code>):</p>
+</li>
 </ol>
 <pre tabindex="0"><code>dotnet run
 </code></pre><p>or run it directly from VS Code.</p>
 <ol start="4">
-<li>Install frontend dependencies if this has not been done (or dependencies have been updated) (from <code>src/Altinn.Apps/AppFrontend/react</code>):</li>
-</ol>
-<pre tabindex="0"><code>yarn --immutable
-</code></pre><ol start="5">
-<li>Run the app frontend (from <code>src/Altinn.Apps/AppFrontend/react</code>):</li>
-</ol>
-<pre tabindex="0"><code>cd altinn-app-frontend
-yarn start
-</code></pre><p>This serves altinn-app-frontend at localhost:8080. The command <code>yarn start</code> runs the application with <em>hot reload</em>, which rebuilds the application any time a new change is saved. The page should refresh automatically.</p>
-<ol start="6">
 <li>Start the app in a browser by going to <a href="http://altinn3local.no">altinn3local.no</a>!</li>
 </ol>
 <h2 id="altinn-studio-designer">Altinn Studio Designer</h2>

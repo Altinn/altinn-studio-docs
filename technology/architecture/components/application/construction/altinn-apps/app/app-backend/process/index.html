@@ -349,6 +349,8 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/authentication/"><span>Authentication</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
+        <a href="/api/authentication/enterpriseuser/"><span>Enterprise users</span></a></li>
+      <li class="dd-item">
         <a href="/api/authentication/maskinporten/"><span>Maskinporten</span></a></li>
       <li class="dd-item">
         <a href="/api/authentication/id-porten/"><span>ID-porten</span></a></li>
@@ -580,6 +582,8 @@ if(host != "localhost")
         <a href="/community/roadmap/studio/enduser/"><span>End user</span></a></li></ul></li></ul></li>
       <li class="dd-item">
         <a href="/community/devops/"><span>DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/community/devops/roadmapprocess/"><span>Roadmap prosess</span></a></li>
       <li class="dd-item">
         <a href="/community/devops/teams/"><span>Teams</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -1039,7 +1043,6 @@ if(host != "localhost")
     <li><a href="#instance-api">Instance API</a></li>
     <li><a href="#process-service">Process Service</a></li>
     <li><a href="#bpmn-reader">BPMN Reader</a></li>
-    <li><a href="#process-step-app-frontend">Process Step App Frontend</a></li>
     <li><a href="#app-logic">App Logic</a></li>
   </ul>
 </nav>
@@ -1057,9 +1060,6 @@ if(host != "localhost")
 <h2 id="bpmn-reader">BPMN Reader</h2>
 <p>BPMN reader is the component that parses BPMN process in apps.</p>
 <p><a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Apps/AppTemplates/AspNet/Altinn.App.Common/Process/BpmnReader.cs">See github for source code</a>.</p>
-<h2 id="process-step-app-frontend">Process Step App Frontend</h2>
-<p>App frontends as a process step module that verifes current state for an app and present the correct view depending on task a app instance</p>
-<p><a href="https://github.com/Altinn/altinn-studio/tree/master/src/Altinn.Apps/AppFrontend/react/altinn-app-frontend/src/components/process-step">See github for source code</a>.</p>
 <h2 id="app-logic">App Logic</h2>
 <p>When app process changes state app logic is run making it possible for app developers to implements specific app logic.</p>
 <p>See <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Apps/AppTemplates/AspNet/Altinn.App.PlatformServices/Implementation/AppBase.cs">AppBase.cs</a> 
