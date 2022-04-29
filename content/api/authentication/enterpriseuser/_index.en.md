@@ -4,7 +4,7 @@ linktitle: Enterprise users
 description: Description how to use enterprise users in Altinn 3
 toc: true
 weight: 100
---
+---
 
 
 ## Overall description
