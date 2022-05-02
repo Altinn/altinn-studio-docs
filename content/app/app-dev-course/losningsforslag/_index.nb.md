@@ -9,14 +9,14 @@ toc: true
 
 ## Løsingsforslag - Applikasjonskode
 
-- [Bolk 1](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/1)
-- [Bolk 2](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/2)
-- [Bolk 3](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/3)
-- [Bolk 4](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/4)
-- [Bolk 5](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/5)
-- [Bolk 6](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/6)
+- [Modul 1](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/1)
+- [Modul 2](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/2)
+- [Modul 3](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/3)
+- [Modul 4](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/4)
+- [Modul 5](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/5)
+- [Modul 6](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/6)
 
-## Bolk 1 - Forståelsessjekk: Laste opp datamodell
+## Modul 1 - Forståelsessjekk: Laste opp datamodell
 
 ### Hvilken data er det tjenesteeier ønsker å samle inn her?
 
@@ -49,7 +49,7 @@ De nevnte filene er alle generert ut ifra xsd-beskrivelsen av datamodellen. De b
 - `XmlElement.Order` er innført som en dekorasjon på hver property.
   - Dette sørger for at rekkefølgen på elementene alltid vil bli den samme når dataen serialiseres til xml.
 
-## Bolk 1 - Forståelsessjekk: Sette opp komponenter
+## Modul 1 - Forståelsessjekk: Sette opp komponenter
 
 ### Finner du igjen komponenten som er koblet til e-post-feltet?
 
@@ -82,7 +82,7 @@ som vist nedenfor.
 },
 ```
 
-## Bolk 1 - Forståelsessjekk: Redigere tekster
+## Modul 1 - Forståelsessjekk: Redigere tekster
 
 ### Hvordan får du inn engelsk språkstøtte i applikasjonen?
 
@@ -105,7 +105,7 @@ Ifølge [listen over ISO 639-1 koder](https://en.wikipedia.org/wiki/List_of_ISO_
 
 Hvis nevnte tekstnøkkel ikke finnes i tekstressursfilen vil tekstnøkkelen vises i stedet.
 
-## Bolk 2 - Forståelsessjekk: Legge til infoside
+## Modul 2 - Forståelsessjekk: Legge til infoside
 
 ### Hvilken fil i applikasjonsrepoet er det som må justeres på dersom du manuelt ønsker å endre siderekkefølgen på eksisterende sider?
 
@@ -122,19 +122,19 @@ For å justere på siderekkefølgen må listen beskrevet under _pages.order_ end
 
 Alle tekstressurser støtter markdown og dermed html-notasjon, så ved å benytte `<br/>` vil man kunne tvinge tekstbrytning.
 
-## Bolk 2 - Forståelsessjekk: Alternativ arbeidsflyt
+## Modul 2 - Forståelsessjekk: Alternativ arbeidsflyt
 
 ### Hvis en bruker går tilbake og endrer svaret sitt på infosiden, får den da opp datainnsamlingssidene? Hvis ikke. Hvilke endringer kan du gjøre for å støtte dette i din applikasjon?
 
 I `App/logic/App.cs` finnes metoden GetPageOrder. Denne kalles fra frontend når man forlater en komponent som har konfigurert `"triggers": ["calculatePageOrder"]` i layout filen.
 
-Se over løsningsforslaget for bolken for hvordan dette gjøres. Filer av interesse er `App/ui/layouts/info.json` og `App/logic/App.cs`.
+Se over løsningsforslaget for modulen for hvordan dette gjøres. Filer av interesse er `App/ui/layouts/info.json` og `App/logic/App.cs`.
 
 ### Dersom man har sporvalg på et senere tidspunkt i en arbeidsflyt og en sluttbruker endrer et valg. Hva skjer med skjemdataen man tidligere har fylt ut, dersom siden skjules for sluttbrukeren?
 
 Dersom du har denne typen logikk i en applikasjon der man kan fortsette til innsending for flere spor bør dataen på siden(e) som nå blir skjult for bruker nullstilles.
 
-## Bolk 2 - Forståelsessjekk: Preutfylling av personopplysninger
+## Modul 2 - Forståelsessjekk: Preutfylling av personopplysninger
 
 ### Er det mulig å endre en prefillverdi når den først er satt?
 
@@ -177,7 +177,7 @@ public static string GetDOB(string fOrDNumber){
 }
 ```
 
-## Bolk 3 - Forståelsessjekk: Deploye applikasjon
+## Modul 3 - Forståelsessjekk: Deploye applikasjon
 
 ### Er det mulig å ha to versjoner av en applikasjon i TT02 samtidig?
 
@@ -204,7 +204,7 @@ Per mars 2022 er det ikke mulig for en tjenesteeier å selv fjerne en applikasjo
 Da må man kontakte support.
 Det vil i løpet av året bli tilgjengeliggjort funksjonalitet for at tjenesteeier selv kan gjøre denne operasjonen.
 
-## Bolk 4 - Forståelsesssjekk: Innsamling av arbeidsopplysninger
+## Modul 4 - Forståelsesssjekk: Innsamling av arbeidsopplysninger
 
 ### Hva er forskjellen på statiske og dynamiske options?
 
@@ -216,7 +216,7 @@ Dynamiske options hentes ut **runtime** og kan dermed hente verdi basert på tid
 Options er by default åpent tilgjengelige og API'et vil være mulig å nå for personer som ikke er logget inn i appen. Det er heller ingen restriksjoner på roller eller annet.
 For enkelte caser så kan det tenkes at man ønsker å eksponere options som er sensitive. Her kommer sikrede dynamiske options til sin rett hvor man får automatisk verifisering at den som gjør kallet har `Instance.Read` rettigheter.
 
-## Bolk 4 - Forståelsesssjekk: Differensiert datagrunnlag for offentlig og privat sektor
+## Modul 4 - Forståelsesssjekk: Differensiert datagrunnlag for offentlig og privat sektor
 
 ### Om en option-liste er satt opp med en mapping mot datamodellen - hva skjer når det aktuell feltet endrer verdi?
 
@@ -227,7 +227,7 @@ Dette muliggjør å dynamisk vise valg som er skreddersydd til brukerens tidlige
 
 Om brukeren f.eks har valgt kommune fra en nedtrekksliste over kommuner som er satt opp med en mapping på `Fylke`, går tilbake og endrer feltet `Fylke` så vil det valgte svaret i kommune-listen bli fjernet.
 
-## Bolk 4 - Forståelsessjekk: Skreddersydd tilbud for IT-kompetanse
+## Modul 4 - Forståelsessjekk: Skreddersydd tilbud for IT-kompetanse
 
 ### Om du legger til en ny funksjon i `RuleHandlerHelper` - hvor kjøres disse funksjonene? Vil dynamikk fungere uten denne definert?
 
@@ -244,7 +244,7 @@ Dynamikk vil **ikke** fungere uten denne definert.
 `RuleConfiguration.json` er en konfigurasjon som forteller noe om hvilke felter den aktuelle regelen i `RuleHandlerObject` skal treffe og eventuell effekt funksjonen skal ha.
 En funksjon definert i `RuleHandlerObject` kan settes opp flere ganger i `RuleConfiguration.json`. Man kan nesten tenke på det som "instanser" av funksjonen.
 
-## Bolk 5 - Forståelsessjekk: Utvide prosess med et bekreftelsessteg
+## Modul 5 - Forståelsessjekk: Utvide prosess med et bekreftelsessteg
 
 ### Hvilke Altinn-spesifikke egenskaper er satt på hver prosesstask?
 
@@ -258,7 +258,7 @@ Altinn-spesifikke egenskaper vil trolig ikke bli importert eller eksportert når
 
 _SequenceFlow_ i bpmn-filen beskriver kun at flyten går én fei, fra utfylling og til bekreftelse. Flyten vil dermed ikke kunne gå begge veier.
 
-## Bolk 5 - Forståelsessjekk: Legge til autorisasjonsregler for bekreftelsessteget
+## Modul 5 - Forståelsessjekk: Legge til autorisasjonsregler for bekreftelsessteget
 
 ### Hva vil skje når prosessflyten går videre til bekreftelse-steget uten at autoriasjonsreglene er blitt oppdatert?
 
@@ -268,14 +268,14 @@ Applikasjonen vil vise "Ukjent feil" når brukeren trykker på send inn knappen.
 
 Da vil alle brukere, både med og uten roller, har tilattelse til å utføre _confirm_ operasjonen for applikasjonen.
 
-## Bolk 5 - Forståelsessjekk: Validering av innsender
+## Modul 5 - Forståelsessjekk: Validering av innsender
 
 ### Hvilken endring ville du foreslått for kunden for å kunne oppfylle dette kravet uten å legge inn egendefinerte valideringen på dette steget?
 
 Ved å heller endere policy til at kun rollen _PRIV_. som kun delegeres til en privatperson på vegne av en selv, har tilattelse til aksjonen _confirm_
 vil autorisasjonsreglene gjøre sjekken som nå er lagt inn som egen validering automatisk.
 
-## Bolk 6 - Forståelsessjekk: Repeterende grupper
+## Modul 6 - Forståelsessjekk: Repeterende grupper
 
 ### Hvilket felt i datamodellen er det som bestemmer om et element er repeterende?
 
@@ -285,7 +285,7 @@ Feltet `maxOccurs` i xsd-modellen sier noe om et felt er repeterende. Om `maxOcc
 
 Det er tillatt 10 repetisjoner for `TidligereBosteder`.
 
-## Bolk 6 - Forståelsessjekk: Validering
+## Modul 6 - Forståelsessjekk: Validering
 
 ### Når kjøres valideringer serverside?
 
@@ -298,7 +298,7 @@ Klientside-valideringer bør anses som et hjelpemiddel for bedre bruksopplevelse
 Ondsinnede kan komme seg forbi disse valideringene, og klientside-valideringer vil ikke bli kjørt om man f.eks benytter seg av api'ene direkte.
 Derfor bør valideringer som legges på frontend alltid gjenspeiles i logikken backend.
 
-## Bolk 6 - Forståelsessjekk: Dataprosessering
+## Modul 6 - Forståelsessjekk: Dataprosessering
 
 ### Når blir Data processing kjørt?
 

@@ -1,14 +1,14 @@
 ---
-title: Bolk 5
+title: Modul 5
 description: Legge til bekreftelsessteg
-linktitle: Bolk 5
+linktitle: Modul 5
 tags: [apps, training, process, policy, autorisasjon, confirmation, bekreftelsessteg, validering ]
 weight: 20
 ---
 
-I denne bolken skal du legge til et prosessteg i applikasjonen.
+I denne modulen skal du legge til et prosessteg i applikasjonen.
 
-**Temaer som dekkes i denne bolken:**
+**Temaer som dekkes i denne modulen:**
 - Prosess
 - Brekreftelsessteg
 - Autorisasjonsregler
@@ -109,7 +109,7 @@ Før du sender inn vil vi anbefale å se over svarene dine. Du kan ikke endre sv
 
 ## Oppsummering
 
-I denne bolken har du utvided applikasjonen din med et bekreftelsessteg, tilpasset visningen, og lagt til validering og autorisasjonsregler knyttet til prosessteget.
+I denne modulen har du utvided applikasjonen din med et bekreftelsessteg, tilpasset visningen, og lagt til validering og autorisasjonsregler knyttet til prosessteget.
 
 Tjenesten skal kunne kjøres opp på din lokale maskin med local test
 og du skal kunne teste det nye prosessteget og bekrefte at visningen ser ut som ønsket.

@@ -1,15 +1,15 @@
 ---
-title: Bolk 2
+title: Modul 2
 description: Legge til flere sider, sporvalg og prefill
 
-linktitle: Bolk 2
+linktitle: Modul 2
 tags: [apps, training, prefill, sporvalg]
 weight: 20
 ---
 
-I denne bolken skal du videreutvikle applikasjonen du laget i [bolk 1](../bolk1) for å oppfylle flere av [kravene fra Sogndal kommune](../case/#krav-fra-kommunen).
+I denne modulen skal du videreutvikle applikasjonen du laget i [modul 1](../modul1) for å oppfylle flere av [kravene fra Sogndal kommune](../case/#krav-fra-kommunen).
 
-**Temaer som dekkes i denne bolken:**
+**Temaer som dekkes i denne modulen:**
 
 - Flere sider
 - Bildekomponent
@@ -25,7 +25,7 @@ For skjemaer der det samles inn eller gis mye informasjon
 vil det forbedre brukeropplevelsen dersom man deler applikasjonen opp i flere sider.
 
 La oss se nærmere på hvordan man kan opprette en ny side i applikasjonen
-som vises _før_ brukeren kommer til første datainnsamlingsside som ble laget i bolk 1.
+som vises _før_ brukeren kommer til første datainnsamlingsside som ble laget i modul 1.
 
 For å redigere ulike skjemasider i Altinn Studio må du:
 1. Logge inn i Altinn Studio
@@ -230,7 +230,7 @@ private static int CalculateAge(string sosialSecNumber)
 
 ## Oppsummering
 
-I denne bolken har du utvided applikasjonen din med mer funksjonalitet i form av å,
+I denne modulen har du utvided applikasjonen din med mer funksjonalitet i form av å,
 legge til flere sider, sette opp sporvalg for å styre brukerflyten og satt opp preutfylling av skjemafelter
 både med tilgjengelig datakilder i Altinn og custom kode.
 
