@@ -1,14 +1,14 @@
 ---
-title: Bolk 6
+title: Modul 6
 description: Utvidelse av skjema med repeterende gruppe
-linktitle: Bolk 6
+linktitle: Modul 6
 tags: [apps, training, repeterende grupper, validering, dataprosessering, konsumere API  ]
 weight: 20
 ---
 
-I denne bolken skal du utvide applikasjonen du har laget i foregående bolker for å støtte mer av [funksjonaliteten som Sogndal kommune ønsker](../case/#krav-fra-kommunen).
+I denne modulen skal du utvide applikasjonen du har laget i foregående moduler for å støtte mer av [funksjonaliteten som Sogndal kommune ønsker](../case/#krav-fra-kommunen).
 
-**Temaer som dekkes i denne bolken:**
+**Temaer som dekkes i denne modulen:**
 - Repeterende grupper
 - Validering
 - Dataprosessering
@@ -82,7 +82,7 @@ I alle andre tilfeller skal feltet forbli urørt.
 
 
 ## Oppsummering
-I denne bolken har du sett på **repeterende grupper** og hvordan dette konfigureres som en del av brukergrensesnittet.
+I denne modulen har du sett på **repeterende grupper** og hvordan dette konfigureres som en del av brukergrensesnittet.
 Vi har også sett på hvordan man setter opp custom **valideringer** i backend for caser som ikke lar seg definere som en del av restriksjoner i datamodellen.
 Til slutt har vi sett på hvordan man kan sette opp **dataprosessering** som muliggjør manipulering av data runtime.
 

@@ -1,15 +1,15 @@
 ---
-title: Bolk 1
+title: Modul 1
 description: Opprette app i Studio, sette opp lokalt utviklingsmiljø og local test
-linktitle: Bolk 1
+linktitle: Modul 1
 tags: [apps, training, datamodel, localtest, texts]
 weight: 20
 ---
 
-I denne bolken skal du basert på kravene fra Sogndal kommune
+I denne modulen skal du basert på kravene fra Sogndal kommune
 sette opp førstesiden til applikasjonen for tilflyttere og verifisere at ting ser ut som forventet lokalt.
 
-**Temaer som dekkes i denne bolken:**
+**Temaer som dekkes i denne modulen:**
 
 - Opprette ny applikasjon
 - Legge til datamodell og knytte felter
@@ -189,7 +189,7 @@ Videre vil du ønske å teste endringene dine fortløpende i localtest.
 
 ## Oppsummering
 
-I denne bolken har du opprettet en applikasjon i Altinn Studio,
+I denne modulen har du opprettet en applikasjon i Altinn Studio,
 lastet opp en datamodell og satt opp en skjemaside som kobler komponenter til noen av feltene i datamodellen.
 Videre har du klonet repoet lokalt for å kunne videre applikasjonen i ditt lokale utvilkingsmiljø.
 
