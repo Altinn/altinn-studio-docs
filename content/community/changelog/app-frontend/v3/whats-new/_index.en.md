@@ -4,6 +4,11 @@ description: Overview of changes introduced in v3 of app frontend.
 toc: true
 ---
 
+## 3.35.0 (2022-04-28) - Marking required fields
+Changed default behaviour of marking optional fields to now mark required fields with * as default.
+Optional fields have no marking as default behaviour, but this can be configured using the `labelSettings`
+property of the field, see [here](https://docs.altinn.studio/app/development/ux/fields/settings/).
+
 ## 3.34.4 (2022-04-28) - Removed out-of-place heading in receipt when there are no attachments
 When PDF generation has been disabled and there are no attachments, the heading indicating there should follow a list
 of attachments has also been hidden.
