@@ -533,25 +533,30 @@ if(host != "localhost")
 
 
 <div class="notices warning" >
-<p>Dette er helt ny funksjonalitet. Oppsett må gjøres manuelt direkte i form layout inntil videre.</p>
+<p>Oppsett av denne funksjonaliteten må gjøres manuelt direkte i form layout inntil videre.</p>
 <p><strong>MERK:</strong> Denne funksjonaliteten krever app-frontend versjon 3. Se <a href="/nb/community/changelog/app-frontend/v3/breaking-changes/">denne lenken</a>.</p>
 </div>
 <h2 id="indikere-at-felt-er-valgfritt">Indikere at felt er valgfritt</h2>
-<p>Det er mulig å styre om et felt er markert som valgfritt eller ikke. Normal oppførsel er at felt som er valgfrie blir markert som valgfrie.</p>
-<figure><a href="optional.png"><img src="optional.png" alt="Valgfritt" title="Markering av valgfritt felt." /></a><figcaption><h4>Markering av valgfritt felt.</h4></figcaption></figure>
-<p>Normal oppførsel kan overstyres ved hjelp av innstillinger knyttet til feltbeskrivelsen. Dette gjøres via <code>labelSettings</code> på en komponent i form layout.</p>
+<p>Det er mulig å styre om et felt er markert som valgfritt eller ikke. Normal oppførsel er at felt som er påkrevd er markert
+med en *, valgfrie felter har ingen markering.</p>
+<figure><a href="optional-default.png"><img src="optional-default.png" alt="Optional default" title="Normal oppførsel for valgfritt felt (ingen markering)." /></a><figcaption><h4>Normal oppførsel for valgfritt felt (ingen markering).</h4></figcaption></figure>
+<figure><a href="required.png"><img src="required.png" alt="Required default" title="Normal oppførsel for påkrevd felt (markert med *)." /></a><figcaption><h4>Normal oppførsel for påkrevd felt (markert med *).</h4></figcaption></figure>
+<p>Normal oppførsel kan overstyres ved hjelp av innstillinger knyttet til feltbeskrivelsen. Dette gjøres via <code>labelSettings</code> 
+på en komponent i form layout.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   {
     <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;input-felt-1&#34;</span>,
     <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Input&#34;</span>,
     ... 
     <span style="color:#ff79c6">&#34;labelSettings&#34;</span>: {
-      <span style="color:#ff79c6">&#34;optionalIndicator&#34;</span>: <span style="color:#ff79c6">false</span>
+      <span style="color:#ff79c6">&#34;optionalIndicator&#34;</span>: <span style="color:#ff79c6">true</span>
     }
   }
 }
-</code></pre></div><p>Ved å sette <code>optionalIndicator</code> til <code>false</code> vil teksten, som indikerer at feltet er valgfritt, ikke bli vist.
-Det er ikke mulig å tvinge visning av <em>Valgfri</em> teksten på et felt som er obligatorisk. Denne innstillingen styrer ikke feltets faktiske egenskaper.</p>
+</code></pre></div><p>Ved å sette <code>optionalIndicator</code> til <code>true</code> vil teksten <code>(Valgfri)</code> bli vist bak ledeteksten til feltet.</p>
+<figure><a href="optional.png"><img src="optional.png" alt="Valgfritt" title="Markering av valgfritt felt." /></a><figcaption><h4>Markering av valgfritt felt.</h4></figcaption></figure>
+<p>Det er ikke mulig å tvinge visning av <em>Valgfri</em> teksten på et felt som er obligatorisk. 
+Denne innstillingen styrer ikke feltets faktiske egenskaper.</p>
 
 
 <footer class=" footline" >

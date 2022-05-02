@@ -1051,25 +1051,31 @@ if(host != "localhost")
 
 
 <div class="notices warning" >
-<p>Dette er helt ny funksjonalitet. Oppsett må gjøres manuelt direkte i form layout inntil videre.</p>
-<p><strong>MERK:</strong> Denne funksjonaliteten krever app-frontend versjon 3. Se <a href="/community/changelog/app-frontend/v3/breaking-changes/">denne lenken</a>.</p>
+This functionality must be set up manually directly in form layout for now.
+<p><strong>NOTE:</strong> This functionality requires app-frontend v3 or newer. See <a href="/community/changelog/app-frontend/v3/breaking-changes/">this link</a> 
+for more information.</p>
 </div>
-<h2 id="indikere-at-felt-er-valgfritt">Indikere at felt er valgfritt</h2>
-<p>Det er mulig å styre om et felt er markert som valgfritt eller ikke. Normal oppførsel er at felt som er valgfrie blir markert som valgfrie.</p>
-<figure><a href="optional.png"><img src="optional.png" alt="Valgfritt" title="Markering av valgfritt felt." /></a><figcaption><h4>Markering av valgfritt felt.</h4></figcaption></figure>
-<p>Normal oppførsel kan overstyres ved hjelp av innstillinger knyttet til feltbeskrivelsen. Dette gjøres via <code>labelSettings</code> på en komponent i form layout.</p>
+<h2 id="mark-a-field-as-optional">Mark a field as optional</h2>
+<p>It is possible to mark a field as optional. The default is that required fields are marked as required (with <code>*</code>), while
+optional fields have no marking.</p>
+<figure><a href="optional-default.png"><img src="optional-default.png" alt="Optional default" title="Default optional field (no marking)." /></a><figcaption><h4>Default optional field (no marking).</h4></figcaption></figure>
+<figure><a href="required.png"><img src="required.png" alt="Required default" title="Default required field (marked with *)." /></a><figcaption><h4>Default required field (marked with *).</h4></figcaption></figure>
+<p>Default behaviour can be overwritten by changing the settings of the field. This is done in the 
+<code>labelSettings</code> property of a component in the form layout.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   {
     <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;input-felt-1&#34;</span>,
     <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Input&#34;</span>,
     ... 
     <span style="color:#ff79c6">&#34;labelSettings&#34;</span>: {
-      <span style="color:#ff79c6">&#34;optionalIndicator&#34;</span>: <span style="color:#ff79c6">false</span>
+      <span style="color:#ff79c6">&#34;optionalIndicator&#34;</span>: <span style="color:#ff79c6">true</span>
     }
   }
 }
-</code></pre></div><p>Ved å sette <code>optionalIndicator</code> til <code>false</code> vil teksten, som indikerer at feltet er valgfritt, ikke bli vist.
-Det er ikke mulig å tvinge visning av <em>Valgfri</em> teksten på et felt som er obligatorisk. Denne innstillingen styrer ikke feltets faktiske egenskaper.</p>
+</code></pre></div><p>By setting <code>optionalIndicator</code> to <code>true</code>, the text <code>(Optional)</code> will be shown after the field label.</p>
+<figure><a href="optional.png"><img src="optional.png" alt="Optional with marking" title="Optional field with marking." /></a><figcaption><h4>Optional field with marking.</h4></figcaption></figure>
+<p><em>NOTE</em>: It is not possible to force the <em>Optional</em> marking on a field that is required. Changing the 
+<code>optionalIndicator</code> property does not alter or overrule the other properties of the field.</p>
 
 
 <footer class=" footline" >
