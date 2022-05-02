@@ -4,6 +4,9 @@ description: Overview of changes introduced in v3 of app frontend.
 toc: true
 ---
 
+## 3.35.1 (2022-04-28) - Dependency patching
+Patching of external dependencies for week 17 of 2022.
+
 ## 3.35.0 (2022-04-28) - Marking required fields
 Changed default behaviour of marking optional fields to now mark required fields with * as default.
 Optional fields have no marking as default behaviour, but this can be configured using the `labelSettings`
