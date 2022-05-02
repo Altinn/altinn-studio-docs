@@ -4,6 +4,11 @@ description: Oversikt over endringer som ble introdusert i v3 av app frontend.
 toc: true
 ---
 
+## 3.35.2 (2022-05-02) - Fikset validering av tomme felter for skjulte grupper
+Fikser en feil hvor skjuling av en (ikke-repeterende) gruppe med obligatoriske felter kunne føre til valideringsfeil med
+beskjed om at noen usynlige felter ikke var fyllt ut.
+Issue [#6398](https://github.com/Altinn/altinn-studio/issues/6398).
+
 ## 3.35.1 (2022-04-28) - Oppdaterte avhengigheter
 Oppdaterte eksterne avhengigheter for uke 17 av 2022.
 

@@ -4,6 +4,11 @@ description: Overview of changes introduced in v3 of app frontend.
 toc: true
 ---
 
+## 3.35.2 (2022-05-02) - Fix in validation of required field in hidden groups
+Fixes a bug where hiding a non-repeating group with required fields could display a message asking the user to fill
+the invisible required fields.
+Issue [#6398](https://github.com/Altinn/altinn-studio/issues/6398).
+
 ## 3.35.1 (2022-04-28) - Dependency patching
 Patching of external dependencies for week 17 of 2022.
 
