@@ -4,7 +4,7 @@ description: Oversikt over endringer som ble introdusert i v3 av app frontend.
 toc: true
 ---
 
-## 3.36.0 (2022-05-02) - Støtte for dynamikk i nøstede repeterende grupper
+## 3.36.0 (2022-05-03) - Støtte for dynamikk i nøstede repeterende grupper
 La til støtte for dynamikk i nøstede repeterende grupper.
 Issue [#55](https://github.com/Altinn/app-frontend-react/issues/55).
 
