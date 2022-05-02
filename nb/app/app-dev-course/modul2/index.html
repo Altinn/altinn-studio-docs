@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="nb" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Legge til flere sider, sporvalg og prefill">
+
+<title>Modul 2 – Altinn</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+    <link href="/css/nucleus.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/hybrid.css" rel="stylesheet">
+    <link href="/css/horsey.css" rel="stylesheet">
+    <link href="/css/fortawesome.css" rel="stylesheet">
+    <link href="/css/designsystem.css" rel="stylesheet"><link href="/css/theme.css" rel="stylesheet"><script src="/js/jquery-2.x.min.js"></script>
+<link href="/css/custom.css" rel="stylesheet">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114303148-1"></script>
+<script>
+var host = window.location.hostname;
+if(host != "localhost")
+{
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-114303148-1', { 'anonymize_ip': true });
+}
+</script><style>
+      :root #header + #content > #left > #rlblock_left {
+        display:none !important;
+      }
+    </style>
+  </head>
+  <body class="a-page" data-url="/nb/app/app-dev-course/modul2/"><nav class="a-jumpnav">
+  <ul class="no-decoration d-flex">
+    <li><a class="sr-only sr-only-focusable" href="#content">Hopp til hovedinnholdet</a></li>
+    <li><a class="sr-only sr-only-focusable" href="#docsmenu">Hopp til hovedmeny</a></li>
+  </ul>
+</nav>
+
+<header class="a-header ">
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+
+        
+        <nav class="a-globalNav " id="primary-nav">
+          <a href="/nb/" class="a-globalNav-logo">
+            <img src="/images/altinnstudio-logo-white.svg" alt="Altinn Studio logo" class="adocs-logo">
+            <span class="sr-only">Til forsiden</span>
+          </a>
+
+          <button class="navbar-toggler d-md-none" type="button"><span class="sr-only">Vis/skjul meny</span></button>
+          <div class="collapse navbar-toggleable-sm a-globalNav-main" id="exCollapsingNavbar2">
+            <ul id="exCollapsingNavbar">
+              <li class="d-md-none dropdown"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  Language
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle"><a aria-hidden="true" class="dropdown-item" href="/nb/app/app-dev-course/modul2/">
+      <img src="/images/nb.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">Bokmål ✓</span><br><span>Noe innhold er tilgjengelig på bokmål.</span></p>
+    </a></div>
+</li>
+              <li>
+                <a class="a-nav-link a-hvr-underline" href="/nb/app/">apps</a>
+              </li>
+              <li>
+                <a class="a-nav-link a-hvr-underline" href="/nb/api/">api</a>
+              </li>
+              <li>
+                <a class="a-nav-link a-hvr-underline" href="/nb/community/">community</a>
+              </li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/nb/technology/">tech</a>
+              </li>
+            </ul>
+          </div>
+
+        </nav> 
+        <ul class="nav nav-pills a-header-options" id="nav-list">
+          <li class="nav-item dropdown d-none d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  Language
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle"><a aria-hidden="true" class="dropdown-item" href="/nb/app/app-dev-course/modul2/">
+      <img src="/images/nb.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">Bokmål ✓</span><br><span>Noe innhold er tilgjengelig på bokmål.</span></p>
+    </a></div>
+</li>
+        </ul>
+      </div>
+    </div> 
+  </div> 
+</header>
+<div class="container pt-2 pt-md-3 pt-lg-5">
+      <div class="adocs-scrollcontainer">
+        <div class="row">
+            <div class="col-sm-12"><nav id="sidebar" class=""><div class="highlightable">
+    <div id="header-wrapper"><div class="searchbox">
+    <label for="search-by"><i class="fa fa-search"></i></label>
+    <input data-search-input id="search-by" type="text" placeholder="Søk...">
+    <span data-search-clear=""><i class="fa fa-close"></i></span>
+</div>
+<script src="/js/lunr.min.js"></script>
+<script src="/js/horsey.js"></script>
+<script>
+    var baseurl = "https:\/\/docs.altinn.studio\/";
+</script>
+<script src="/js/search.js"></script></div>
+    <ul id="docsmenu" class="topics">
+      <li class="dd-item parent">
+        <a href="/nb/app/"><span>Lage apper</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/"><span>Kom i gang</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/intro/"><span>Introduksjon</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/first-time-setup/"><span>Opprette bruker</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/dashboard/"><span>Dashboard</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/copy-app/"><span>Kopier app</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/create-app/"><span>Opprette app</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/migrate-services/"><span>Migrere tjenester</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/navigation/"><span>Navigasjon</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/navigation/designer/"><span>Designer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/navigation/designer/ui-editor/"><span>UI editor</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/navigation/repos/"><span>Repos</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/navigation/code/"><span>Code</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/access-management/"><span>Tilganger</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/access-management/apps/"><span>Apps</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/access-management/studio/"><span>Studio</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/local-dev/"><span>Lokal utvikling</span></a></li></ul></li>
+      <li class="dd-item parent">
+        <a href="/nb/app/app-dev-course/"><span>Introkurs</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/app-dev-course/case/"><span>Case</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/app-dev-course/modul1/"><span>Modul 1</span></a></li>
+      <li class="dd-item parent active">
+        <a href="/nb/app/app-dev-course/modul2/"><span>Modul 2</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/app-dev-course/modul3/"><span>Modul 3</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/app-dev-course/modul4/"><span>Modul 4</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/app-dev-course/modul5/"><span>Modul 5</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/app-dev-course/modul6/"><span>Modul 6</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/app-dev-course/modul7/"><span>Modul 7</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/app-dev-course/losningsforslag/"><span>Løsningsforslag</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/design/"><span>Design</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/design/insight/"><span>Innsiktsfase</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/design/prototype/"><span>Prototype</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/design/usertest/"><span>Brukertest</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/design/guidelines/"><span>Retningslinjer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/design/guidelines/design-principles/"><span>Designprinsipper</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/design/guidelines/link-to-app/"><span>Inngang til skjema</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/design/guidelines/content/"><span>Innhold i skjema</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/design/guidelines/consistency/"><span>Konsistens</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/design/guidelines/components/"><span>UI-komponenter</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/design/guidelines/components/title-and-paragraph/"><span>Tittel og avsnitt</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/design/guidelines/components/button/"><span>Knapp og lenke</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/design/guidelines/components/input/"><span>Input</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/design/guidelines/components/date/"><span>Dato</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/design/guidelines/components/checkbox/"><span>Avkrysningsboks</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/design/guidelines/components/radiobutton/"><span>Radioknapp</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/design/guidelines/components/select/"><span>Nedtrekksliste</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/design/guidelines/components/helptext/"><span>Hjelpetekst</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/design/guidelines/components/error-message/"><span>Feilmeldinger</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/design/guidelines/components/file-upload/"><span>Filopplasting</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/design/guidelines/components/picture-component/"><span>Bilde</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/design/guidelines/tone-of-voice/"><span>Språk</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/design/guidelines/wcag/"><span>Tilgjengelighet</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/"><span>Utvikling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/development/data/data-model/"><span>Datamodell</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/data/prefill/"><span>Preutfylling</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/data/options/"><span>Kodelister</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/data/attachments/"><span>Vedlegg</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/"><span>Brukergrensesnitt</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/pages/"><span>Sider</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/pages/navigation/"><span>Navigasjon</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/pages/tracks/"><span>Sporvalg</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/pages/summary/"><span>Oppsummering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/pages/layout-sets/"><span>Flere skjema</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/fields/"><span>Felter</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/fields/grouping/"><span>Gruppering</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/fields/grouping/setup/"><span>Oppsett</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/fields/grouping/repeating/"><span>Repeterende</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/fields/grouping/alternatives/"><span>Innstillinger</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/fields/settings/"><span>Innstillinger</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/styling/"><span>Styling</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/images/"><span>Bilder</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/texts/"><span>Tekster</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/pdf/"><span>PDF</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/widgets/"><span>Widgets</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/logic/"><span>Logikk</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/development/logic/generic/"><span>Generelt</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/logic/services/"><span>Tjenester</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/logic/dataprocessing/"><span>Dataprosessering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/logic/dynamic/"><span>Dynamikk</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/logic/instantiation/"><span>Instansiering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/logic/calculation/"><span>Kalkuleringer</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/logic/validation/"><span>Validering</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/"><span>Konfigurasjon</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/messagebox/"><span>Meldingsboks</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/messagebox/presentationfields/"><span>Presentasjonsfelter</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/messagebox/hide_instances/"><span>Skjule instanser</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/authorisation/"><span>Autorisasjon</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/authorisation/rules/"><span>Regelbibliotek</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/partytype/"><span>Aktørtyper</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/datafields/"><span>Datafelter</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/process/"><span>Prosess</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/process/auto-delete/"><span>Automatisk sletting</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/process/message/"><span>Melding</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/process/customize/"><span>Tilpasse visninger</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/secrets/"><span>Secrets</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/eformidling/"><span>eFormidling</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/events/"><span>Events</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/settings/"><span>Settings</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/startup/"><span>Startup</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/stateless/"><span>Stateless</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/deployment/"><span>Deployment</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/api/"><span>API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/development/api/expose/"><span>Eksponere</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/api/instance/"><span>Instans</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/api/consume/"><span>Konsumere</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/testing/"><span>Testing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/testing/local/"><span>Lokalt</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/testing/local/apitests/"><span>API tests</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/testing/local/apitests/org/"><span>Org</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/testing/local/apitests/user/"><span>Sluttbruker</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/testing/local/debug/"><span>Debugging</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/testing/local/testusers/"><span>Testbrukere</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/testing/deploy/"><span>I testmiljø</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/deployment/"><span>Produksjonssetting</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/maintainance/"><span>Vedlikehold</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/maintainance/dependencies/"><span>Avhengigheter</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/launched-apps/"><span>Lanserte tjenester</span><sup>NY</sup><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/launched-apps/digdir/"><span>Digdir</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/launched-apps/digdir/bli-tjenesteeier/"><span>Bli tjenesteeier</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/launched-apps/digdir/godkjenn-bruksvilkaar/"><span>Godkjenn bruksvilkår</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/launched-apps/digdir/oed/"><span>Oppgjør etter dødsfall</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/launched-apps/digdir/be-om-api-nokkel/"><span>Tilgang til REST API</span></a></li></ul></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/api/"><span>API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/api/apps/metadata/"><span>Metadata</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/apps/instances/"><span>Instanser</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/api/apps/data-elements/tags/"><span>Tags</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/api/apps/stateless-data-elements/"><span>Tilstandsløse data</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/apps/process/"><span>Prosess</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/apps/validation/"><span>Validering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/apps/spec/"><span>OpenAPI</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/api/authentication/"><span>Authentication</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/api/authentication/maskinporten/"><span>Maskinporten</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/authentication/enterpriseuser/"><span>Virksomhetsbruker</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/authentication/id-porten/"><span>ID-porten</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/authentication/delegate-scopes/"><span>Delegere API-tilganger</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/authentication/spec/"><span>OpenAPI</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/api/events/"><span>Events</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/api/events/spec/"><span>OpenAPI</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/api/models/"><span>Modeller</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/api/models/app-metadata/"><span>App metadata</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/models/instance/"><span>Instance</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/models/data-element/"><span>DataElement</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/api/scenarios/"><span>Scenarier</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/api/scenarios/authentication/"><span>Autentisering</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/api/storage/"><span>Storage</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/api/storage/instances/"><span>Instanser</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/storage/instance-events/"><span>Instance events</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/storage/spec/"><span>OpenAPI</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/api/studio/"><span>Studio</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/about/"><span>Om</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/about/goals/"><span>Mål</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/"><span>Bidra til utvikling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/propose-component/"><span>Foreslå en ny komponent</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/develop-component/"><span>Utvikle en komponent</span></a></li><li class="dd-item">
+          <a href="/nb/community/contributing/intro/">
+            <span>Intro for utviklere</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/handbook/"><span>Håndbok</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/"><span>Endringslogg</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-frontend/"><span>App frontend</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-frontend/v3/"><span>v3</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-frontend/v3/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-frontend/v3/whats-new/"><span>Hva er nytt?</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-nuget/"><span>App nuget</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-nuget/v5/"><span>v5</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-nuget/v5/breaking-changes/"><span>Breaking changes</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-nuget/v4/"><span>v4</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-nuget/v4/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-nuget/v4/whats-new/"><span>Hva er nytt?</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-nuget/v3/"><span>v3</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-nuget/v3/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-nuget/v3/whats-new/"><span>Hva er nytt?</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/deployment/"><span>Deployment</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/deployment/migration/"><span>Migrering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/deployment/v1/"><span>v1</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/deployment/v1/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/deployment/v1/whats-new/"><span>Hva er nytt</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/deployment/v2/"><span>v2</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/deployment/v2/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/deployment/v2/whats-new/"><span>Hva er nytt</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/storage-interfaces/"><span>Storage Interface</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/storage-interfaces/v3/"><span>v3</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/storage-interfaces/v2/"><span>v2</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/community/roadmap/"><span>Roadmap</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/roadmap/studio/"><span>Studio</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/roadmap/studio/appowner/"><span>App-eier</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/roadmap/studio/enduser/"><span>Sluttbruker</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/community/devops/"><span>DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/devops/roadmapprocess/"><span>Roadmap prosess</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/devops/teams/"><span>Teams</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/devops/teams/apps/"><span>Apps</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/devops/teams/platform/"><span>Platform</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/devops/teams/studio/"><span>Studio</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/community/presentations/"><span>Presentasjoner</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/technology/"><span>Teknologi</span></a></li></ul>
+  </div>
+</nav>
+
+<section id="body">
+          <div id="content" class="adocs-content js-moveChildrenTo">
+        <div id="overlay"></div>
+        <div class="a-text"><div id="top-bar">
+            <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                <span id="sidebar-toggle-span" class="adocs-sidebarToggle">
+                  <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                    <i class="fa fa-bars"></i>
+                    <span class="sr-only">Vis/skjul meny</span>
+                  </a>
+                </span>
+                <span class="links"><a href='/nb/app/'>Lage apper</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/app/app-dev-course/'>Introkurs</a> <span class='adocs-breadcrumb-divider'> / </span> Modul 2</span>
+            </div>
+          </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/apps">apps</a><a class="label label-default" href="https://docs.altinn.studio/tags/training">training</a><a class="label label-default" href="https://docs.altinn.studio/tags/prefill">prefill</a><a class="label label-default" href="https://docs.altinn.studio/tags/sporvalg">sporvalg</a></div><div id="body-inner"><h1 class="a-fontBold">Modul 2</h1>
+              <p class="a-leadText" id="leadText">Legge til flere sider, sporvalg og prefill</p>
+
+
+
+
+<p>I denne modulen skal du videreutvikle applikasjonen du laget i <a href="../modul1">modul 1</a> for å oppfylle flere av <a href="../case/#krav-fra-kommunen">kravene fra Sogndal kommune</a>.</p>
+<p><strong>Temaer som dekkes i denne modulen:</strong></p>
+<ul>
+<li>Flere sider</li>
+<li>Bildekomponent</li>
+<li>Sporvalg</li>
+<li>Prefill</li>
+</ul>
+<h2 id="oppgaver">Oppgaver</h2>
+
+
+<div class="card adocs-expand">
+	<div>
+		<a data-toggle="collapse" href="#legge-til-infoside" role="tab" aria-expanded="false" class="a-collapse-title no-decoration collapsed a-h3">
+			<span class="a-dropdownCircleArrow">
+			<i class="ai ai-expand ai-sm"><span class="sr-only">Vis/skjul innhold</span></i>
+			</span>
+			Legge til infoside
+		</a>
+	</div>
+	<div id="legge-til-infoside" class="a-collapseContent collapse" role="tabpanel">
+		<div class="a-collapseContent-inside">
+			<p>For skjemaer der det samles inn eller gis mye informasjon
+vil det forbedre brukeropplevelsen dersom man deler applikasjonen opp i flere sider.</p>
+<p>La oss se nærmere på hvordan man kan opprette en ny side i applikasjonen
+som vises <em>før</em> brukeren kommer til første datainnsamlingsside som ble laget i modul 1.</p>
+<p>For å redigere ulike skjemasider i Altinn Studio må du:</p>
+<ol>
+<li>Logge inn i Altinn Studio</li>
+<li>Finne applikasjonen din på dashboardet og trykke <em>Rediger app</em></li>
+<li>Navigér til <em>Lage</em>-fanenåpner</li>
+<li>Til høyre finner du området for administrasjon av skjemasider.</li>
+</ol>
+<div class="notices info" ><p>Opprettelse og administrasjon av flere sider kan enkelt gjøres i Altinn Studio,
+men dersom du ønsker å gjøre det manuelt kan dokumentasjonen her være til
+hjelp.</p>
+</div>
+<p>Da er det eneste som gjenstår å sette seg inn i kommunens
+krav til infosiden og komme i gang med utviklingen. Lykke til!</p>
+<h3 id="krav-fra-kommunen">Krav fra kommunen</h3>
+<p>I og med at det skal samles inn en god del data i denne tjenesten,
+er det viktig for Sogndal kommune at det tydelig kommuniseres hvem skjemaet
+er ment for og hva som vil gjøres med dataen som samles inn.
+Noen i kommunen har opprettet en skisse av informasjonssiden.</p>
+<p>Følgende er ønskelig at reflekteres i applikasjonen:</p>
+<ul>
+<li>plassering av bilder</li>
+<li>tekststørrelser</li>
+<li>formatering av tekst</li>
+</ul>
+<p><a href="infoside_tilflyttere.pdf">Skisse på informasjonsside</a></p>
+<p><a href="infoside_tilflyttere.docx">Skisse på informasjonsside (.docx)</a></p>
+<figure><a href="kommune-logo.png"><img src="kommune-logo.png" alt="&ldquo;Sogndal kommunevåpen&rdquo;" title="Et bilde av Sogndals kommunevåpen som kan benyttes i applikasjonen" /></a><figcaption><h4>Et bilde av Sogndals kommunevåpen som kan benyttes i applikasjonen</h4></figcaption></figure>
+<h3 id="nyttig-dokumentasjon">Nyttig dokumentasjon</h3>
+<ul>
+<li><a href="/nb/app/development/ux/texts/#formatering-av-tekster">Formatering av tekst i en applikasjon</a></li>
+<li><a href="/nb/app/development/ux/images/#legge-til-bilder-i-applikasjonen">Hvordan legge til bilder i en applikasjon</a></li>
+<li><a href="/nb/app/development/ux/styling/#sidestilte-komponenter-grid">Sidestilte komponenter</a></li>
+<li><a href="/nb/app/development/ux/pages/#oppsett">Filoppsett ved flere sider</a></li>
+<li><a href="/nb/app/development/ux/pages/navigation/#rekkef%C3%B8lge">Administrere rekkefølge på flere sider</a></li>
+</ul>
+<h3 id="forståelsessjekk">Forståelsessjekk</h3>
+<ul>
+<li>Hvilken fil i applikasjonsrepoet er det som må justeres på dersom du manuelt ønsker å endre siderekkefølgen på eksisterende sider?</li>
+<li>Hvis du ønsker å gi en side et annet navn, men ikke har Altinn Studio tilgjengelig, hvilke filer må oppdateres med det nye filnavnet?</li>
+<li>Hvordan oppnår du at teksten bryter dersom tekststrengen ikke er lang nok til å naturlig brytes?</li>
+</ul>
+
+		</div>
+	</div>
+</div>
+
+
+<div class="card adocs-expand">
+	<div>
+		<a data-toggle="collapse" href="#innfore-sporvalg" role="tab" aria-expanded="false" class="a-collapse-title no-decoration collapsed a-h3">
+			<span class="a-dropdownCircleArrow">
+			<i class="ai ai-expand ai-sm"><span class="sr-only">Vis/skjul innhold</span></i>
+			</span>
+			Alternativ arbeidsflyt (sporvalg)
+		</a>
+	</div>
+	<div id="innfore-sporvalg" class="a-collapseContent collapse" role="tabpanel">
+		<div class="a-collapseContent-inside">
+			<p>I mange tilfeller er det ikke aktuelt å svare på alle spørsmål i et skjema, kanskje fordi svaret sier seg selv, eller fordi det ikke er relevant basert på noe man har svart tidligere i skjemaet. Da kan sporvalg være en god løsning.</p>
+<p>Ved hjelp av sporvalg kan man styre hvilke siden av en applikasjon som er synlige for brukeren.</p>
+<p>I denne oppgaven skal du sette opp sporvalg i applikasjonen basert på kravene fra Sogndal kommune.</p>
+<h3 id="krav-fra-kommunen">Krav fra kommunen</h3>
+<p>En bruker som ikke oppfyller kravene for skjemaet skal stoppes så tidlig som mulig i arbeidsflyten.</p>
+<p>På infosiden er det ønskelig at brukeren skal oppgi om skjemaet gjelder dem eller ikke.</p>
+<p>Hvordan dette gjøres er fritt fram,  og feltet  <code>Innflytter.KanBrukeSkjema</code> i datamodellen er mulig å benytte til dette formålet.</p>
+<p>Basert på svaret skal brukeren sendes videre til <em>Spor 1</em> eller <em>Spor 2</em>.</p>
+<h3 id="spor-1">Spor 1</h3>
+<ul>
+<li>
+<p>Brukeren har ikke svart bekreftende på at skjemaet gjelder deres situasjon</p>
+</li>
+<li>
+<p>Bruker skal sendes til en side med følgende tekst:</p>
+<pre tabindex="0"><code class="language-rich" data-lang="rich">Dette skjemaet er ikke for deg.
+Se en oversikt over andre tilbud i kommunen her.
+</code></pre></li>
+<li>
+<p>Linje 2 i teksten skal være en hyperlenke som peker på:
+<a href="https://www.sogndal.kommune.no/">https://www.sogndal.kommune.no/</a></p>
+</li>
+<li>
+<p>Det skal ikke være mulig å navigere til andre skjemasider etter denne.</p>
+</li>
+</ul>
+<h3 id="spor-2">Spor 2</h3>
+<ul>
+<li>
+<p>Brukeren har svart bekreftende på at skjemaet gjelder deres situasjon</p>
+</li>
+<li>
+<p>Brukeren sendes videre til datainnsamlingssidene.</p>
+</li>
+</ul>
+<h3 id="nyttig-dokumentasjon">Nyttig dokumentasjon</h3>
+<ul>
+<li><a href="/nb/app/development/ux/pages/tracks/">Hvordan sette opp sporvalg</a></li>
+<li><a href="/nb/app/development/ux/texts/#formatering-av-tekster">Formatering av tekst</a></li>
+</ul>
+<h3 id="forståelsessjekk">Forståelsessjekk</h3>
+<ul>
+<li>Hvis en bruker går tilbake og endrer svaret sitt på infosiden, får den da opp datainnsamlingssidene? Hvis ikke. Hvilke endringer kan du gjøre for å støtte dette i din applikasjon?</li>
+<li>Dersom man har sporvalg på et senere tidspunkt i en arbeidsflyt og en sluttbruker endrer et valg. Hva skjer med skjemdataen man tidligere har fylt ut, dersom siden skjules for sluttbrukeren?</li>
+</ul>
+
+		</div>
+	</div>
+</div>
+
+
+<div class="card adocs-expand">
+	<div>
+		<a data-toggle="collapse" href="#prefill-expandable" role="tab" aria-expanded="false" class="a-collapse-title no-decoration collapsed a-h3">
+			<span class="a-dropdownCircleArrow">
+			<i class="ai ai-expand ai-sm"><span class="sr-only">Vis/skjul innhold</span></i>
+			</span>
+			Preutfylling av personopplysninger
+		</a>
+	</div>
+	<div id="prefill-expandable" class="a-collapseContent collapse" role="tabpanel">
+		<div class="a-collapseContent-inside">
+			<p>En av fordelene til Altinn er at man allerede har metadata om både personer og virksomheter tilgjengelig. Ved hjelp av prefill kan man hente ned data om brukeren og presentere denne i en app, slik at de slipper å fylle inn disse feltene. Typiske prefillverdier vil være: navn, adresse, e-post ect.</p>
+<p>Dersom dataen er tilgjengelig i en av Altinns prefillkilder kan dette konfigureres mot et felt i datamodellen og automatisk populeres når skjemaet opprettes. Dersom man har andre behov for prefill kan dette løses med kode i applikasjonen.</p>
+<p>I denne oppgaven flyttes fokus tilbake til den første datainnsamlingssiden, og målet er å preutfylle personopplysninger om sluttbrukeren for å spare brukeren litt tid.</p>
+<h3 id="krav-fra-kommunen">Krav fra kommunen</h3>
+<ul>
+<li>
+<p>Dersom personen som arbeider i skjemaet selv er tilflytter skal følgende verdier preutfylles:</p>
+<ul>
+<li>Fornavn: Innflytter.Fornavn</li>
+<li>Mellomnavn: Innflytter.Mellomnavn</li>
+<li>Etternavn: Innflytter.Etternavn</li>
+<li>E-post: Innflytter.Kontaktinformasjon.Epost</li>
+<li>Telefonnummer: Innflytter.Kontaktinformasjon.Telefonnummer</li>
+<li>Alder: Innflytter.Alder</li>
+</ul>
+</li>
+<li>
+<p>Det skal <strong>ikke</strong> være mulig å endre preutfylt navn og alder</p>
+</li>
+<li>
+<p>Det skal være mulig å endre preutfylt e-post og telefonnummer</p>
+</li>
+</ul>
+<h3 id="nyttig-dokumentasjon">Nyttig dokumentasjon</h3>
+<ul>
+<li><a href="https://altinncdn.no/schemas/json/prefill/prefill.schema.v1.json">Tilgjengelige prefillkilder</a></li>
+<li><a href="/nb/app/development/data/prefill/#prefill-fra-nasjonale-register-og-brukerprofil">Prefill fra nasjonale register og brukerprofil</a></li>
+<li><a href="/nb/app/development/data/prefill/#egendefinert-prefill">Egendefinert prefill</a></li>
+<li><a href="../../../api/models/instance/#instanceowner">Beskrivelse av InstanceOwner-objektet</a></li>
+</ul>
+<h3 id="kodehjelp-beregning-av-alder-fra-personnummer">Kodehjelp: Beregning av alder fra personnummer</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">private</span> <span style="color:#ff79c6">static</span> <span style="color:#8be9fd">int</span> CalculateAge(<span style="color:#8be9fd">string</span> sosialSecNumber)
+{
+    <span style="color:#8be9fd">int</span> MAX_D_NUMBER = <span style="color:#bd93f9">71</span>;
+    <span style="color:#8be9fd">int</span> MIN_D_NUMBER = <span style="color:#bd93f9">41</span>;
+    <span style="color:#8be9fd">int</span> MAX_TEST_NUMBER = <span style="color:#bd93f9">92</span>;
+    <span style="color:#8be9fd">int</span> MIN_TEST_NUMBER = <span style="color:#bd93f9">81</span>;
+    <span style="color:#8be9fd">int</span> START_D_NUMBER = <span style="color:#bd93f9">40</span>;
+    <span style="color:#8be9fd">int</span> START_TEST_NUMBER = <span style="color:#bd93f9">80</span>;
+    <span style="color:#8be9fd">string</span> stringDay = sosialSecNumber.Substring(<span style="color:#bd93f9">0</span>, <span style="color:#bd93f9">2</span>);
+    <span style="color:#8be9fd">string</span> stringMonth = sosialSecNumber.Substring(<span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">2</span>);
+    <span style="color:#8be9fd">string</span> stringYear = sosialSecNumber.Substring(<span style="color:#bd93f9">4</span>, <span style="color:#bd93f9">2</span>);
+    <span style="color:#8be9fd">string</span> stringIndivid = sosialSecNumber.Substring(<span style="color:#bd93f9">6</span>, <span style="color:#bd93f9">3</span>);
+    <span style="color:#8be9fd">int</span> day = <span style="color:#8be9fd">int</span>.Parse(stringDay);
+    <span style="color:#8be9fd">int</span> month = <span style="color:#8be9fd">int</span>.Parse(stringMonth);
+    <span style="color:#8be9fd">int</span> year = <span style="color:#8be9fd">int</span>.Parse(stringYear);
+    <span style="color:#8be9fd">int</span> individ = <span style="color:#8be9fd">int</span>.Parse(stringIndivid);
+    <span style="color:#6272a4">// Get day if D-number
+</span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">if</span> (MAX_D_NUMBER &gt;= day &amp;&amp; MIN_D_NUMBER &lt;= day)
+    {
+        day -= START_D_NUMBER;
+    }
+    <span style="color:#6272a4">// Get month if TestUser-number
+</span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">if</span> (MAX_TEST_NUMBER &gt;= month &amp;&amp; MIN_TEST_NUMBER &lt;= month)
+    {
+        month -= START_TEST_NUMBER;
+    }
+    <span style="color:#6272a4">// find century
+</span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">if</span> (year &gt; <span style="color:#bd93f9">54</span> &amp;&amp; (individ &gt;= <span style="color:#bd93f9">500</span> &amp;&amp; individ &lt; <span style="color:#bd93f9">750</span>))
+    {
+        <span style="color:#6272a4">// 1855-1899
+</span><span style="color:#6272a4"></span>        year += <span style="color:#bd93f9">1800</span>;
+    }
+    <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">if</span> (year &gt; <span style="color:#bd93f9">39</span> &amp;&amp; (individ &gt;= <span style="color:#bd93f9">900</span> &amp;&amp; individ &lt; <span style="color:#bd93f9">1000</span>))
+    {
+        <span style="color:#6272a4">// 1940-1999
+</span><span style="color:#6272a4"></span>        year += <span style="color:#bd93f9">1900</span>;
+    }
+    <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">if</span> (year &lt; <span style="color:#bd93f9">40</span> &amp;&amp; (individ &gt;= <span style="color:#bd93f9">500</span> &amp;&amp; individ &lt; <span style="color:#bd93f9">1000</span>))
+    {
+        <span style="color:#6272a4">// 2000-2039
+</span><span style="color:#6272a4"></span>        year += <span style="color:#bd93f9">2000</span>;
+    }
+    <span style="color:#ff79c6">else</span>
+    {
+        year += <span style="color:#bd93f9">1900</span>;
+    }
+    <span style="color:#6272a4">// calculate age
+</span><span style="color:#6272a4"></span>    <span style="color:#8be9fd">int</span> age = DateTime.Now.Year - year;
+    <span style="color:#ff79c6">if</span> (DateTime.Now.Month &lt; month)
+    {
+        age -= <span style="color:#bd93f9">1</span>;
+    }
+    <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">if</span> (DateTime.Now.Month == month)
+    {
+        <span style="color:#ff79c6">if</span> (DateTime.Now.Day &lt; day)
+        {
+            age -= <span style="color:#bd93f9">1</span>;
+        }
+    }
+    <span style="color:#ff79c6">return</span> age;
+}
+</code></pre></div><h3 id="forståelsessjekk">Forståelsessjekk</h3>
+<ul>
+<li>Er det mulig å endre en prefillverdi når den først er satt?</li>
+<li>Hvordan kan man hindre at en prefillverdi endres av sluttbrukeren?</li>
+<li>Ikke alle norske innbyggere har et personnr,
+noen får tildelt et <a href="https://jusleksikon.no/wiki/F%C3%B8dselsnummer#D-nummer">D-nummer</a>. Hvordan må koden din justeres for å ta hensyn til dette dersom alder skal baseres på et f-nr eller d-nr som sluttbruker selv taster inn?</li>
+</ul>
+
+		</div>
+	</div>
+</div>
+<h2 id="oppsummering">Oppsummering</h2>
+<p>I denne modulen har du utvided applikasjonen din med mer funksjonalitet i form av å,
+legge til flere sider, sette opp sporvalg for å styre brukerflyten og satt opp preutfylling av skjemafelter
+både med tilgjengelig datakilder i Altinn og custom kode.</p>
+<p>Tjenesten skal kunne kjøres opp på din lokale maskin med local test og du skal kunne teste begge brukerflytene og
+bekrefte at riktige felter blir preutfylt.</p>
+<p><strong>Husk å <em>pushe</em> de lokale endringene dine, så de blir tilgjengelig i Altinn Studio når du er fornøyd</strong></p>
+<h3 id="løsningsforslag">Løsningsforslag</h3>
+<p>Dersom du ikke har fått til alle stegene har vi et <a href="https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/2">løsningsforslag</a> som du kan hente inspirasjon fra.</p>
+<figure><a href="infopage-screenshot.png"><img src="infopage-screenshot.png" alt="Skjermbilde av infoside" title="Skjermbilde av infoside" /></a><figcaption><h4>Skjermbilde av infoside</h4></figcaption></figure>
+<figure><a href="data-screenshot.png"><img src="data-screenshot.png" alt="Skjermbilde av preutfylt dataside" title="Skjermbilde av preutfylt dataside" /></a><figcaption><h4>Skjermbilde av preutfylt dataside</h4></figcaption></figure>
+<figure><a href="ikke-for-deg-screenshot.png"><img src="ikke-for-deg-screenshot.png" alt="Skjermbilde av alternativ arbeidsflyt: denne siden er ikke for deg" title="Skjermbilde av alternativ arbeidsflyt: denne siden er ikke for deg" /></a><figcaption><h4>Skjermbilde av alternativ arbeidsflyt: denne siden er ikke for deg</h4></figcaption></figure>
+
+
+<footer class=" footline" >
+	
+</footer>
+
+
+
+
+
+                </div>
+              </div>
+
+              <div id="navigation">
+                  <a class="nav nav-prev" href="/nb/app/app-dev-course/modul1/" title="Modul 1"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/nb/app/app-dev-course/modul3/" title="Modul 3" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+
+            </div><div id="top-github-link">
+                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/app/app-dev-course/modul2/_index.nb.md" target="blank">
+                    <i class="fa fa-code-fork"></i>
+                    Endre denne siden i GitHub
+                  </a>
+                </div></section>
+        </div> 
+      </div> 
+    </div>
+    </div> <footer class="adocs-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <ul>
+                    <li>
+                        <a href="https://www.altinn.no/om-altinn/">Om Altinn</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn/altinn-studio/issues">Backlog</a>
+                    </li>
+                    <li>
+                        <a href="https://altinn.slack.com">Slack</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn/altinn-studio">GitHub</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js"></script>
+    <script src="/js/html5shiv-printshiv.min.js"></script>
+    <script src="/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom.71422.js"></script>
+    <script src="/js/altinninfoportal.js"></script>
+    <script src="/js/altinndocs.js"></script>
+    <script src="/js/altinndocs-learn.js"></script>
+    <script src="/js/stickysidebar/rAF.js"></script>
+    <script src="/js/stickysidebar/ResizeSensor.js"></script>
+    <script src="/js/stickysidebar/sticky-sidebar.js"></script>
+
+    <script>
+      var a = new StickySidebar('#sidebar', {
+        topSpacing: 20,
+        bottomSpacing: 60,
+        containerSelector: '.adocs-scrollcontainer',
+        innerWrapperSelector: '.sidebar__inner',
+        minWidth: 768
+      });
+    </script>
+    <link href="/mermaid/mermaid.css" type="text/css" rel="stylesheet"/>
+    <script src="/mermaid/mermaid.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+<script src="/js/custom.js"></script></body>
+</html>
