@@ -7,21 +7,24 @@ toc: false
 ---
 
 {{%notice warning%}}
+This functionality must be set up manually directly in form layout for now.
 
-Dette er helt ny funksjonalitet. Oppsett må gjøres manuelt direkte i form layout inntil videre.
-
-**MERK:** Denne funksjonaliteten krever app-frontend versjon 3. Se [denne lenken](/community/changelog/app-frontend/v3/breaking-changes/).
+**NOTE:** This functionality requires app-frontend v3 or newer. See [this link](/community/changelog/app-frontend/v3/breaking-changes/) 
+for more information.
 
 {{%/notice%}}
 
-## Indikere at felt er valgfritt
+## Mark a field as optional
 
-Det er mulig å styre om et felt er markert som valgfritt eller ikke. Normal oppførsel er at felt som er valgfrie blir markert som valgfrie.
+It is possible to mark a field as optional. The default is that required fields are marked as required (with `*`), while
+optional fields have no marking. 
 
-![Valgfritt](optional.png "Markering av valgfritt felt.")
+![Optional default](optional-default.png "Default optional field (no marking).")
 
+![Required default](required.png "Default required field (marked with *).")
 
-Normal oppførsel kan overstyres ved hjelp av innstillinger knyttet til feltbeskrivelsen. Dette gjøres via `labelSettings` på en komponent i form layout.
+Default behaviour can be overwritten by changing the settings of the field. This is done in the 
+`labelSettings` property of a component in the form layout.
 
 ```json
 {
@@ -30,11 +33,16 @@ Normal oppførsel kan overstyres ved hjelp av innstillinger knyttet til feltbesk
     "type": "Input",
     ... 
     "labelSettings": {
-      "optionalIndicator": false
+      "optionalIndicator": true
     }
   }
 }
 ```
 
-Ved å sette `optionalIndicator` til `false` vil teksten, som indikerer at feltet er valgfritt, ikke bli vist.
-Det er ikke mulig å tvinge visning av *Valgfri* teksten på et felt som er obligatorisk. Denne innstillingen styrer ikke feltets faktiske egenskaper.
+By setting `optionalIndicator` to `true`, the text `(Optional)` will be shown after the field label.
+
+
+![Optional with marking](optional.png "Optional field with marking.")
+
+*NOTE*: It is not possible to force the *Optional* marking on a field that is required. Changing the 
+`optionalIndicator` property does not alter or overrule the other properties of the field.
