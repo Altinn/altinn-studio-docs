@@ -168,7 +168,7 @@ er det mulig å gjøre enkel testing og verifikasjon av applikasjonen i det loka
 I denne oppgaven skal du få kjørt opp applikasjonen lokalt med støtte fra LocalTest.
 Når du har fått appen opp og kjøre og logget inn med en testbruker, bør du ha et resultat som likner dette:
 
-!["Applikasjonen kjørende lokalt"](app-running-locally.jpeg "Et bilde av applikasjonen kjørende lokalt" )
+!["Applikasjonen kjørende lokalt"](/app/app-dev-course/modul1/app-running-locally.jpeg "Et bilde av applikasjonen kjørende lokalt")
 
 {{% notice info %}}
 Videre vil du ønske å teste endringene dine fortløpende i localtest.
@@ -200,4 +200,4 @@ Tjenesten skal kunne kjøres opp på din lokale maskin med local test og du skal
 ### Løsningsforslag
 Dersom du ikke har fått til alle stegene har vi et [løsningsforslag](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/1) som du kan hente inspirasjon fra.
 
-![Skjermbilde av datainnsamlingsside](data-screenshot.png "Skjermbilde av datainnsamlingsside")
+![Skjermbilde av datainnsamlingsside](/app/app-dev-course/modul1/data-screenshot.png "Skjermbilde av datainnsamlingsside")

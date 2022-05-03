@@ -89,4 +89,4 @@ Til slutt har vi sett på hvordan man kan sette opp **dataprosessering** som mul
 ### Løsningsforslag
 Dersom du ikke har fått til alle stegene har vi et [løsningsforslag](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/6) som du kan hente inspirasjon fra.
 
-![Skjermbilde av datainnsamlingsside med repeterende gruppe](data-rep-grupper-screenshot.png "Skjermbilde av datainnsamlingsside med repeterende gruppe")
+![Skjermbilde av datainnsamlingsside med repeterende gruppe](/app/app-dev-course/modul6/data-rep-grupper-screenshot.png "Skjermbilde av datainnsamlingsside med repeterende gruppe")

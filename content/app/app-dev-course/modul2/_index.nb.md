@@ -54,11 +54,11 @@ Følgende er ønskelig at reflekteres i applikasjonen:
  - tekststørrelser
  - formatering av tekst
 
-[Skisse på informasjonsside](infoside_tilflyttere.pdf)
+[Skisse på informasjonsside](/app/app-dev-course/modul2/infoside_tilflyttere.pdf)
 
-[Skisse på informasjonsside (.docx)](infoside_tilflyttere.docx)
+[Skisse på informasjonsside (.docx)](/app/app-dev-course/modul2/infoside_tilflyttere.docx)
 
-!["Sogndal kommunevåpen"](kommune-logo.png "Et bilde av Sogndals kommunevåpen som kan benyttes i applikasjonen" )
+!["Sogndal kommunevåpen"](/app/app-dev-course/modul2/kommune-logo.png "Et bilde av Sogndals kommunevåpen som kan benyttes i applikasjonen" )
 
 ### Nyttig dokumentasjon
 
@@ -242,8 +242,8 @@ bekrefte at riktige felter blir preutfylt.
 ### Løsningsforslag
 Dersom du ikke har fått til alle stegene har vi et [løsningsforslag](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/2) som du kan hente inspirasjon fra.
 
-![Skjermbilde av infoside](infopage-screenshot.png "Skjermbilde av infoside")
+![Skjermbilde av infoside](/app/app-dev-course/modul2/infopage-screenshot.png "Skjermbilde av infoside")
 
-![Skjermbilde av preutfylt dataside](data-screenshot.png "Skjermbilde av preutfylt dataside")
+![Skjermbilde av preutfylt dataside](/app/app-dev-course/modul2/data-screenshot.png "Skjermbilde av preutfylt dataside")
 
-![Skjermbilde av alternativ arbeidsflyt: denne siden er ikke for deg](ikke-for-deg-screenshot.png "Skjermbilde av alternativ arbeidsflyt: denne siden er ikke for deg")
+![Skjermbilde av alternativ arbeidsflyt: denne siden er ikke for deg](/app/app-dev-course/modul2/ikke-for-deg-screenshot.png "Skjermbilde av alternativ arbeidsflyt: denne siden er ikke for deg")
