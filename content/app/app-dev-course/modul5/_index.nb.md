@@ -22,11 +22,11 @@ I denne modulen skal du legge til et prosessteg i applikasjonen.
 En Altinn App har en prosessflyt som beskriver de ulike stegene i flyten.
 Standardflyten for en nyopprettet applikasjon består av én task, et utfyllingssteg.
 
-![Standard prosessflyt illustrert](default-process.png)
+![Standard prosessflyt illustrert](/app/app-dev-course/modul5/default-process.png)
 
 Din oppgave er å utvide standard prosessflyten med et bekreftelsessteg som illustrert nedenfor.
 
-![Oppdatert prosessflyt illustrert](updated-process.png)
+![Oppdatert prosessflyt illustrert](/app/app-dev-course/modul5/updated-process.png)
 
 {{% notice info %}}
 [Standard prosessflyter er tilgjengelig på GitHub](https://github.com/Altinn/altinn-studio/tree/master/src/Altinn.Apps/AppTemplates/ProcessTemplates).
@@ -119,4 +119,4 @@ og du skal kunne teste det nye prosessteget og bekrefte at visningen ser ut som 
 ### Løsningsforslag
 Dersom du ikke har fått til alle stegene har vi et [løsningsforslag](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/5) som du kan hente inspirasjon fra.
 
-![Skjermbilde av bekreftelsesside](bekreftelsesside-screenshot.png "Skjermbilde av bekreftelsesside")
+![Skjermbilde av bekreftelsesside](/app/app-dev-course/modul5/bekreftelsesside-screenshot.png "Skjermbilde av bekreftelsesside")

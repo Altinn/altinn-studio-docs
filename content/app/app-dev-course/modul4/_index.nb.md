@@ -154,5 +154,5 @@ og du skal kunne validere at komponentene presenterer forventede dataverdier.
 ### Løsningsforslag
 Dersom du ikke har fått til alle stegene har vi et [løsningsforslag](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/4) som du kan hente inspirasjon fra.
 
-![Skjermbilde av innsamling av arbeidsopplysninger for privat sektor](arbeidsopplysninger-privat-screenshot.png "Skjermbilde av innsamling av arbeidsopplysninger for privat sektor")
-![Skjermbilde av innsamling av arbeidsopplysninger for offentlig sektor](arbeidsopplysninger-offentlig-screenshot.png "Skjermbilde av innsamling av arbeidsopplysninger for offentlig sektor")
+![Skjermbilde av innsamling av arbeidsopplysninger for privat sektor](/app/app-dev-course/modul4/arbeidsopplysninger-privat-screenshot.png "Skjermbilde av innsamling av arbeidsopplysninger for privat sektor")
+![Skjermbilde av innsamling av arbeidsopplysninger for offentlig sektor](/app/app-dev-course/modul4/arbeidsopplysninger-offentlig-screenshot.png "Skjermbilde av innsamling av arbeidsopplysninger for offentlig sektor")
