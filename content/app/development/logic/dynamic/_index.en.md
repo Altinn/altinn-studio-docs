@@ -251,7 +251,7 @@ Et eksempel på en regel som er satt opp for repeterende grupper vises under:
 
 ### Nøstede repeterende grupper
 
-Det er også mulig å sette opp dynamikk for nøstede repeterene grupper. Oppsettet likner på repeterende grupper, men man har med et ektra parameter `childGroupId` i `repeatingGroup`-objektet, samt en ekstra indeks-indikator.
+Det er også mulig å sette opp dynamikk for nøstede repeterende grupper. Oppsettet likner på repeterende grupper, men man har med et ektra parameter `childGroupId` i `repeatingGroup`-objektet, samt en ekstra indeks-indikator.
 
 Eksempel: 
 
