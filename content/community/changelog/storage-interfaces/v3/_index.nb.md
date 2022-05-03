@@ -6,7 +6,7 @@ weight: 90
 ---
 
 ## 3.10.0 Extended ApplicationMetadata/AppLogic with _allowAnonymousOnStateless_ property
-- `Application` modellen har blitt utvidet med en ny egenskap `allowAnonymousOnStateless` som åpner for at en data type kan akksesseres anonymt når man kjører i stateless mode. Default er `false` som dagens funksjonalitet og du må eksplisitt sette den til `true` hvis du ønsker å tillatte annonym tilgang.
+- `AppLogic` modellen har blitt utvidet med en ny egenskap `allowAnonymousOnStateless` som åpner for at en data type kan akksesseres anonymt når man kjører i stateless mode. Default er `false` som dagens funksjonalitet og du må eksplisitt sette den til `true` hvis du ønsker å tillatte annonym tilgang.
 
 ## 3.9.0 Utvidet EFormidlingContract med _DPFShipmentType_ Utvidet
 - `EFormidlingContract` modellen har blitt utvidet med en ny egenskap `DPFShipmentType`. 
