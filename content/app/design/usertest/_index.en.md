@@ -37,7 +37,7 @@ For å dele filen med testerne velger du “Share” oppe til høyre i vinduet. 
 ## Gode råd for brukertesting
 
 1. **Test tidlig med reelle brukere** Brukervennligheten kan kun måles om den blir testet på målgruppen til løsningen. 
-Å teste tidlige gjør det billigere å fikse eventuelle problemer som avdekkes.
+Å teste tidlig gjør det billigere å fikse eventuelle problemer som avdekkes.
 1. **Ufarliggjøre testen** Forklar testdeltageren at hensikten ikke er å teste hvor flinke de er, men at hovedfokuset 
 er på å avdekke eventuelle feil med tjenesten, slik at den kan bli enda bedre.
 2. **Be testpersonen om å tenke høyt.** For noen vil det å «tenke høyt» komme av seg selv, mens andre trenger et par 

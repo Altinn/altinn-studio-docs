@@ -32,7 +32,7 @@ til å gå tilbake til den aktuelle komponenten/siden for å gjøre endringer.
 
 Visningen er litt forskjellig avhengig av hva slags skjemakomponent oppsummeringen refererer til.
 
-Merk: PDF-generering støtter ikke oppsummering side, så må den ekskluderes ved å endre `layout/ui/Settings.json`
+Merk: PDF-generering støtter ikke oppsummering side, så må den ekskluderes ved å endre `ui/Settings.json`
 ```json
 "pages": 
       { 
