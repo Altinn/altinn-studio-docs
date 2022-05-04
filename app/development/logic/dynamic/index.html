@@ -205,7 +205,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/app/development/data/data-model/"><span>Data model.</span></a></li>
+        <a href="/app/development/data/data-model/"><span>Data model</span></a></li>
       <li class="dd-item">
         <a href="/app/development/data/prefill/"><span>Prefill</span></a></li>
       <li class="dd-item">
@@ -1079,7 +1079,11 @@ Blant annet bør de håndtere å motta et tomt felt, eller tekst der man forvent
 Dersom dynamikken ikke fungerer som forventet, ta en titt på koden som definerer
 beregninger eller regler for vis/skjul for å se om det er noe feilhåndtering som mangler.
 </div>
-<div class="notices warning" >**MERK**: for å støtte beregning/vis-skjul felter på eldre nettlesere så må man skrive javascript koden man legger i `RuleHandler.js` i den versjonen av ECMA-script som den aktuelle nettleseren støtter. For IE11 vil dette være ECMA-script 5. </div>
+<div class="notices warning" >
+MERK: for å støtte beregning/vis-skjul felter på eldre nettlesere så må man skrive javascript koden man
+legger i RuleHandler.js i den versjonen av ECMA-script som den aktuelle nettleseren støtter. For IE11 vil dette
+være ECMA-script 5.
+</div>
 <h2 id="legg-tilrediger-funksjoner-for-beregninger-eller-visskjul">Legg til/rediger funksjoner for beregninger eller vis/skjul</h2>
 <p>I filen <code>RuleHandler.js</code> er det satt opp 2 javascript-objekter:</p>
 <ul>
@@ -1157,7 +1161,7 @@ beregninger eller regler for vis/skjul for å se om det er noe feilhåndtering s
 <td><code>ruleHandlerObject</code>/<code>ruleHandlerHelper</code></td>
 </tr>
 <tr>
-<td><code>lengthGreaterThan4</code></td>
+<td><code>lengthBiggerThan4</code></td>
 <td>Returnerer <code>true</code> dersom verdien den får inn er lengre enn 4 karakterer lang.</td>
 <td><code>value</code></td>
 <td><code>conditionalRuleHandlerObject</code>/<code>conditionalRuleHandlerHelper</code></td>
@@ -1217,12 +1221,11 @@ har fått inn, og setter verdi til <code>0</code> på den/de parametre som mangl
 <img src="rules-select-rule.png" alt="Velg regel"></li>
 <li>Sett opp hvilke(t) felt som skal fungere som <em>input</em> til funksjonen - her er det felt i datamodellen som gjelder.
 <img src="rules-configure.png" alt="Konfigurere dynamikk"></li>
-<li>Sett opp hvilke(t) felt som skal påvirkes av regelen (skal motta beregnet verdi, eller skal vises/skjules) - her er det skjemakomponent som gjelder.</li>
-</ol>
+<li>Sett opp hvilke(t) felt som skal påvirkes av regelen (skal motta beregnet verdi, eller skal vises/skjules) - her er det skjemakomponent som gjelder.
 <ul>
 <li>For regler for vis/skjul felt kan man velge flere felter som skal vises/skjules basert på samme regel.</li>
 </ul>
-<ol start="6">
+</li>
 <li>Lagre konfigurasjonen.</li>
 <li>Test at det fungerer som forventet.</li>
 </ol>
@@ -1392,7 +1395,7 @@ da ha en regel som sletter verdien i det andre settet med radioknapper dersom ve
 }
 </code></pre></div><h2 id="dynamikk-i-pdf">Dynamikk i PDF</h2>
 <p>Fra versjon 3.0.0 er det også mulig å legge inn dynamikk for PDF. Dette gjøres i PDF Handler. Her kan man ved hjelp av logikk velge å skjulte felter eller sider i print.</p>
-<p>Appen må inkludere <code>layout/ui/Settings.json</code> filen som <a href="../../../../app/development/ux/pages/navigation/#rekkef%C3%B8lge">her</a>.</p>
+<p>Appen må inkludere <code>ui/Settings.json</code> filen som <a href="../../../../app/development/ux/pages/navigation/#rekkef%C3%B8lge">her</a>.</p>
 <p>Teknisk er det veldlig likt hvordan man gjør det for validering.</p>
 <p>Eksempel nedenfor som skjuler et gitt felt basert på innhold. Komponentene er basert på ID som man finner i layouts filene til skjema.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#">        <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;LayoutSettings&gt; FormatPdf(LayoutSettings layoutSettings, <span style="color:#8be9fd">object</span> data)
