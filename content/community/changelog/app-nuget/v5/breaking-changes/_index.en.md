@@ -45,6 +45,7 @@ If you have implemented custom code to control Pdf generation, and depending on 
 
    1. Make sure the PdfHandler class implements the ICustomPdfHandler interface.  
     Navigate to PdfHandler.cs and add `: ICustomPdfHandler` after the class name. The class should allready have the method defined in the interface.
+    When adding the `ICustomPdfHandler`interface you also need to add a using statement `using Altinn.App.PlatformServices.Interface;`.
 
         ```csharp
         /// <summary>
@@ -84,6 +85,7 @@ If you have implemented custom code to control Pdf generation, and depending on 
         ```
 
     2. Your custom implementation will now be injected into the PdfService implementation and be called during the Pdf generation process.
+       When adding a custom PdfHandler you also need the `using Altinn.App.AppLogic.Print;` statement.
 
 2. **Custom code in FormatPdf method**  
   This the old way when you have your code directly in the overridden FormatPdf method in App.cs in your application.
