@@ -529,6 +529,7 @@ if(host != "localhost")
           </div><div id="body-inner"><h1 class="a-fontBold">v3</h1>
               <p class="a-leadText" id="leadText">Oversikt over endringer introdusert i v3 av Altinn.Platform.Storage.Interface.</p><h2>På denne siden:</h2><nav id="TableOfContents">
   <ul>
+    <li><a href="#3100-extended-applicationmetadataapplogic-with-_allowanonymousonstateless_-property">3.10.0 Extended ApplicationMetadata/AppLogic with <em>allowAnonymousOnStateless</em> property</a></li>
     <li><a href="#390-utvidet-eformidlingcontract-med-_dpfshipmenttype_-utvidet">3.9.0 Utvidet EFormidlingContract med <em>DPFShipmentType</em> Utvidet</a></li>
     <li><a href="#380-utvidet-processhistoryitem-med-_performedby_-utvidet">3.8.0 Utvidet ProcessHistoryItem med <em>performedBy</em> Utvidet</a></li>
     <li><a href="#370-utvidet-platformuser-med-nationalidentitynumber-egenskap">3.7.0 Utvidet PlatformUser med <code>nationalIdentityNumber</code> egenskap</a></li>
@@ -545,6 +546,10 @@ if(host != "localhost")
 
 
 
+<h2 id="3100-extended-applicationmetadataapplogic-with-_allowanonymousonstateless_-property">3.10.0 Extended ApplicationMetadata/AppLogic with <em>allowAnonymousOnStateless</em> property</h2>
+<ul>
+<li><code>AppLogic</code> modellen har blitt utvidet med en ny egenskap <code>allowAnonymousOnStateless</code> som åpner for at en data type kan akksesseres anonymt når man kjører i stateless mode. Default er <code>false</code> som dagens funksjonalitet og du må eksplisitt sette den til <code>true</code> hvis du ønsker å tillatte annonym tilgang.</li>
+</ul>
 <h2 id="390-utvidet-eformidlingcontract-med-_dpfshipmenttype_-utvidet">3.9.0 Utvidet EFormidlingContract med <em>DPFShipmentType</em> Utvidet</h2>
 <ul>
 <li><code>EFormidlingContract</code> modellen har blitt utvidet med en ny egenskap <code>DPFShipmentType</code>. 
