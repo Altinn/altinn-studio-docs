@@ -1088,7 +1088,8 @@ This is when you have added custom code in PdfHandler.cs. You should continue to
 <ol>
 <li>
 <p>Make sure the PdfHandler class implements the ICustomPdfHandler interface.<br>
-Navigate to PdfHandler.cs and add <code>: ICustomPdfHandler</code> after the class name. The class should allready have the method defined in the interface.</p>
+Navigate to PdfHandler.cs and add <code>: ICustomPdfHandler</code> after the class name. The class should allready have the method defined in the interface.
+When adding the <code>ICustomPdfHandler</code>interface you also need to add a using statement <code>using Altinn.App.PlatformServices.Interface;</code>.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#6272a4">/// &lt;summary&gt;
 </span><span style="color:#6272a4">/// Handler for formatting PDF.
 </span><span style="color:#6272a4">/// &lt;/summary&gt;
@@ -1123,7 +1124,8 @@ Add the following line</p>
 </span><span style="color:#6272a4"></span>services.AddTransient&lt;IAltinnApp, AppLogic.App&gt;();
 </code></pre></div></li>
 <li>
-<p>Your custom implementation will now be injected into the PdfService implementation and be called during the Pdf generation process.</p>
+<p>Your custom implementation will now be injected into the PdfService implementation and be called during the Pdf generation process.
+When adding a custom PdfHandler you also need the <code>using Altinn.App.AppLogic.Print;</code> statement.</p>
 </li>
 </ol>
 </li>
