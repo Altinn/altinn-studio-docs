@@ -753,7 +753,7 @@
 	"title": "Data model in Altinn Studio",
 	"tags": ["translate-to-english"],
 	"description": "How to import or view the data model in Altinn Studio.",
-	"content": "Det er planlagt datamodelleringsfunksjonalitet inn i Altinn Studio. Den midlertidige funksjonaliteten er derfor svært begrenset.\r\rLaste opp / vise datamodell Datamodellen definerer hvilke data som kan sendes inn via en app, og hvilket format det skal sendes på. Per nå må datamodellen være definert som en XSD i et eksternt verktøy - gjerne Seres Domeneklient.\nDet må lastes opp en datamodell for hver app.\n Åpne appen fra dashboardet Velg fanen Lage, og valget Datamodell i navigasjonsmenyen Klikk på Velg XSD og velg XSD-en i filvelgeren Klikk Last opp  Datamodellen blir da parset, og alle nødvendige filer generert og lagret i app-repositoryet. Disse filene kan vises ved å velge de ulike fanene på datamodellsiden.\n"
+	"content": "Det er planlagt datamodelleringsfunksjonalitet inn i Altinn Studio. Den midlertidige funksjonaliteten er derfor svært begrenset.\r\rLaste opp / vise datamodell Datamodellen definerer hvilke data som kan sendes inn via en app, og hvilket format det skal sendes på. Per nå må datamodellen være definert som en XSD i et eksternt verktøy - gjerne Seres Domeneklient.\nDet må lastes opp en datamodell for hver app.\n Åpne appen fra dashboardet Velg fanen Lage I navigasjonsmenyen velger du Datamodell  Klikk på Velg XSD og velg XSD-en i filvelgeren Klikk Last opp  Datamodellen blir da parset, og alle nødvendige filer generert og lagret i app-repositoryet. Disse filene kan vises ved å velge de ulike fanene på datamodellsiden.\n"
 },
 {
 	"uri": "https://docs.altinn.studio/community/contributing/handbook/deployment/",
