@@ -62,9 +62,6 @@ Det er et ønske om at et eller flere av ordene  "tilflytter" og  "Sogndal" er m
 ### Infoside
 {{% expandlarge id="infoside-expandable" header="Krav" %}}
 
-I og med at det skal samles inn en god del data i denne tjenesten,
-er det viktig for Sogndal kommune at det tydelig kommuniseres hvem skjemaet
-er ment for og hva som vil gjøres med dataen som samles inn.
 Noen i kommunen har opprettet en skisse av informasjonssiden.
 
 Følgende er ønskelig at reflekteres i applikasjonen:
