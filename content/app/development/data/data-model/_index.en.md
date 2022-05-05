@@ -17,9 +17,10 @@ Per nå må datamodellen være definert som en XSD i et eksternt verktøy - gjer
 Det må lastes opp en datamodell for hver app.
 
 1. Åpne appen fra dashboardet
-2. Velg fanen Lage, og valget Datamodell i navigasjonsmenyen
-3. Klikk på _Velg XSD_ og velg XSD-en i filvelgeren
-4. Klikk _Last opp_
+2. Velg fanen Lage
+3. I navigasjonsmenyen velger du Datamodell ![Ikon i navigasjonsmenyen](datamodel-icon.png "Ikon i navigasjonsmenyen")
+4. Klikk på _Velg XSD_ og velg XSD-en i filvelgeren
+5. Klikk _Last opp_
 
 Datamodellen blir da parset, og alle nødvendige filer generert og lagret i app-repositoryet.
 Disse filene kan vises ved å velge de ulike fanene på datamodellsiden.
