@@ -114,7 +114,6 @@ eller manuelt i json-filen som beskriver utseendet til en skjemaside _FormLayout
 
 Basert på kravene fra kommunen klarer du å sette opp den første skjemasiden i Altinn Studio?
 
-
 ### Krav fra kommunen
 
 - Vil ha navn og alder på personen som er tilflytter
