@@ -56,7 +56,7 @@ De nevnte filene er alle generert ut ifra xsd-beskrivelsen av datamodellen. De b
 Det er flere måter å finne igjen et felt i _FormLayout.json_.
 Raskeste veien til mål er ofte å søke etter navnet på feltet som komponenten er koblet til. Dette finner du under dataModelBindigs.
 
-![e-Post i formlayout](epost-i-formlayout.png)
+![e-Post i formlayout](/app/app-dev-course/losningsforslag/epost-i-formlayout.png)
 
 ### Hvilken endring kreves i denne filen dersom e-post-feltet ikke lenger skal være påkrevd?
 
