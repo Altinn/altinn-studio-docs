@@ -13,6 +13,7 @@ En stateless, eller tilstandsløs, applikasjon skiller ser fra standard applikas
 verken skjemadata eller metadata om instanser av applikasjonen. 
 Derfor passer stateless applikasjoner godt som innsynstjenester der en sluttbruker eller et system gjør et oppslag mot en eller annen ressurs
 evt. presenterer data fra en tredjepart basert på hvem brukeren er.
+Det er også mulig å konfigurere en stateless applikasjon til å tillate bruk av anonyme brukere, altså brukere som ikke er pålogget.
 
 
 ## Konfigurasjon
@@ -111,6 +112,55 @@ I eksempelet over så referer layout-settet `stateless` til datamodellen `Statel
 - Knapp 
 
 App frontend vil så skjønne ut fra konfigurasjonen i `applicationmetadata.json` at den ikke skal instansiere, og hente ned de aktuelle layout-filene og den tilkoblede datamodellen og presentere dette til sluttbrukeren.
+
+### Konfigurere tilgang uten innlogging
+
+{{%notice warning%}}
+OBS! Skjemakomponenter som påvirker prosess (knapp for innsending eller instansiering) er ikke støttet for anonyme brukere!
+
+**MERK:** for å benytte denne funksjonaliteten må man versjon >= 5.0.0 av nugetpakkene `Altinn.App.PlatformServices`, `Altinn.App.Common` og `Altinn.App.Api`.
+
+{{%/notice%}}
+
+For å tillate bruk av appen for bruker som ikke er innlogget, må man følge stegene som beskrevet over. _I tillegg_ må man definere at den datatypen som er satt opp
+til å brukes for stateless visningen tillater anonym (ikke innlogget) bruk. Dette gjøres ved å modifisere det aktuelle `dataType`-elementet i `applicationMetadata.json`.
+Datatypen sitt `appLogic`-objekt må få en ny innstilling, `"allowAnonymousOnStateless": true`. Se eksempel under:
+
+```json{hl_lines=[24]}
+{
+  "id": "ttd/stateless-app-demo",
+  "org": "ttd",
+  "title": {
+    "nb": "Stateless App Demo"
+  },
+  "dataTypes": [
+    {
+      "id": "ref-data-as-pdf",
+      "allowedContentTypes": [
+        "application/pdf"
+      ],
+      "maxCount": 0,
+      "minCount": 0
+    },
+    {
+      "id": "Stateless",
+      "allowedContentTypes": [
+        "application/xml"
+      ],
+      "appLogic": {
+        "autoCreate": true,
+        "classRef": "Altinn.App.Models.StatelessV1",
+        "allowAnonymousOnStateless": true,
+      },
+      "taskId": "Task_1",
+      "maxCount": 1,
+      "minCount": 1
+    }
+  ],
+  ...
+  "onEntry": { "show": "stateless" } 
+}
+```
 
 ## Datapopulering
 
