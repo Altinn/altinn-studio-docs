@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Beskrivelse av kommunens krav og ønsker til tjenesten">
+    <meta name="description" content="Beskrivelse av kommunens krav og ønsker til tjenesten.">
 
 <title>Casebeskrivelse – Altinn</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
     <link href="/css/nucleus.css" rel="stylesheet">
@@ -519,14 +519,17 @@ if(host != "localhost")
                 <span class="links"><a href='/nb/app/'>Lage apper</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/app/app-dev-course/'>Introkurs</a> <span class='adocs-breadcrumb-divider'> / </span> Case</span>
             </div>
           </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/apps">apps</a><a class="label label-default" href="https://docs.altinn.studio/tags/case">case</a><a class="label label-default" href="https://docs.altinn.studio/tags/training">training</a></div><div id="body-inner"><h1 class="a-fontBold">Casebeskrivelse</h1>
-              <p class="a-leadText" id="leadText">Beskrivelse av kommunens krav og ønsker til tjenesten</p>
+              <p class="a-leadText" id="leadText">Beskrivelse av kommunens krav og ønsker til tjenesten.</p>
 
 
 
 
-<p>Sogndal kommune trenger sårt flere unge mennesker og ønsker å bli en attraktiv kommune for unge voksne og andre i etableringsfasen.</p>
-<p>I den sammenheng ønsker de å opprette en tjeneste i  Altinn beregnet på personer som skal flytte til Sogndal i løpet av de neste 6 månedene.</p>
-<p>Ved å samle inn data om tilflyttere på et tidlig tidspunkt kan kommunen legge til rette og spisse tilbudene til tilflytterne allerede før første flytteeske er pakket.</p>
+<p>Sogndal kommune trenger sårt flere unge mennesker og ønsker å bli en
+attraktiv kommune for unge voksne og andre i etableringsfasen.</p>
+<p>I den sammenheng ønsker de å opprette en tjeneste i Altinn
+beregnet på personer som skal flytte til Sogndal i løpet av de neste 6 månedene.</p>
+<p>Ved å samle inn data om tilflyttere på et tidlig tidspunkt kan kommunen legge til rette og
+spisse tilbudene til tilflytterne allerede før første flytteeske er pakket.</p>
 <p>De har en del krav til tjenesten som er beskrevet i seksjonene nedenfor.</p>
 <h2 id="krav-fra-kommunen">Krav fra kommunen</h2>
 <h3 id="navngivning">Navngivning</h3>
@@ -614,8 +617,8 @@ så man trenger ikke ta hensyn til årstall i navnet.</p>
 	<div id="tekster-expandable" class="a-collapseContent collapse" role="tabpanel">
 		<div class="a-collapseContent-inside">
 			<ul>
-<li>Alle inputfelter skal ha forklarende labels som beskriver hva som skal fylles inn</li>
-<li>Applikasjonen må være tilgjengelig både på bokmål, nynorsk og engelsk
+<li>Alle inputfelter skal ha forklarende ledetekster (labels) som beskriver hva som skal fylles inn</li>
+<li>Applikasjonen må være tilgjengelig både på bokmål, nynorsk og engelsk.<br>
 I en første versjon er det tilstrekkelig at kun ett av disse språkene støttes</li>
 <li>Det er viktig at applikasjonens visningsnavn klinger godt og er beskrivende for tjenesten</li>
 </ul>
@@ -667,34 +670,22 @@ I en første versjon er det tilstrekkelig at kun ett av disse språkene støttes
 		<div class="a-collapseContent-inside">
 			<p>En bruker som ikke oppfyller kravene for skjemaet skal stoppes så tidlig som mulig i arbeidsflyten.</p>
 <p>På infosiden er det ønskelig at brukeren skal oppgi om skjemaet gjelder dem eller ikke.</p>
-<p>Hvordan dette gjøres er fritt fram,  og feltet  <code>Innflytter.KanBrukeSkjema</code> i datamodellen er mulig å benytte til dette formålet.</p>
+<p>Hvordan dette gjøres er fritt fram, og feltet <code>Innflytter.KanBrukeSkjema</code> i datamodellen er mulig å benytte til dette formålet.</p>
 <p>Basert på svaret skal brukeren sendes videre til <em>Spor 1</em> eller <em>Spor 2</em>.</p>
 <h3 id="spor-1">Spor 1</h3>
 <ul>
-<li>
-<p>Brukeren har ikke svart bekreftende på at skjemaet gjelder deres situasjon</p>
-</li>
-<li>
-<p>Bruker skal sendes til en side med følgende tekst:</p>
-<pre tabindex="0"><code class="language-rich" data-lang="rich">Dette skjemaet er ikke for deg.
+<li>Brukeren har ikke svart bekreftende på at skjemaet gjelder deres situasjon</li>
+<li>Bruker skal sendes til en side med følgende tekst:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-md" data-lang="md">Dette skjemaet er ikke for deg.
 Se en oversikt over andre tilbud i kommunen her.
-</code></pre></li>
-<li>
-<p>Linje 2 i teksten skal være en hyperlenke som peker på:
-<a href="https://www.sogndal.kommune.no/">https://www.sogndal.kommune.no/</a></p>
-</li>
-<li>
-<p>Det skal ikke være mulig å navigere til andre skjemasider etter denne.</p>
-</li>
+</code></pre></div></li>
+<li>Linje 2 i teksten skal være en hyperlenke som peker på <a href="https://www.sogndal.kommune.no/">https://www.sogndal.kommune.no/</a></li>
+<li>Det skal ikke være mulig å navigere til andre skjemasider etter denne.</li>
 </ul>
 <h3 id="spor-2">Spor 2</h3>
 <ul>
-<li>
-<p>Brukeren har svart bekreftende på at skjemaet gjelder deres situasjon</p>
-</li>
-<li>
-<p>Brukeren sendes videre til datainnsamlingssidene.</p>
-</li>
+<li>Brukeren har svart bekreftende på at skjemaet gjelder deres situasjon</li>
+<li>Brukeren sendes videre til datainnsamlingssidene.</li>
 </ul>
 
 		</div>
@@ -715,8 +706,7 @@ Se en oversikt over andre tilbud i kommunen her.
 	<div id="prefill-expandable" class="a-collapseContent collapse" role="tabpanel">
 		<div class="a-collapseContent-inside">
 			<ul>
-<li>
-<p>Dersom personen som arbeider i skjemaet selv er tilflytter skal følgende verdier preutfylles:</p>
+<li>Dersom personen som arbeider i skjemaet selv er tilflytter skal følgende verdier preutfylles:
 <ul>
 <li>Fornavn: Innflytter.Fornavn</li>
 <li>Mellomnavn: Innflytter.Mellomnavn</li>
@@ -726,12 +716,8 @@ Se en oversikt over andre tilbud i kommunen her.
 <li>Alder: Innflytter.Alder</li>
 </ul>
 </li>
-<li>
-<p>Det skal <strong>ikke</strong> være mulig å endre preutfylt navn og alder</p>
-</li>
-<li>
-<p>Det skal være mulig å endre preutfylt e-post og telefonnummer</p>
-</li>
+<li>Det skal <strong>ikke</strong> være mulig å endre preutfylt navn og alder</li>
+<li>Det skal være mulig å endre preutfylt e-post og telefonnummer</li>
 </ul>
 
 		</div>
@@ -777,15 +763,11 @@ basert på hvilken sektor de har krysset av for.</p>
 		<div class="a-collapseContent-inside">
 			<p>Vi ønsker at dersom brukeren velger <code>IKT (data/it)</code> under bransje at det vises en tekst med en lenke til en av våre stillingsutlysninger.</p>
 <ul>
-<li>
-<p>Under bransje-valget skal følgende tekst presenteres</p>
-<pre tabindex="0"><code class="language-rich" data-lang="rich">Vi ser at du besitter kompetanse vi trenger i kommunen.
+<li>Under bransje-valget skal følgende tekst presenteres
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-md" data-lang="md">Vi ser at du besitter kompetanse vi trenger i kommunen.
 Se en oversikt over våre ledige stillinger her.
-</code></pre></li>
-<li>
-<p>Linje 2 i teksten skal være en hyperlenke som peker på:
-<a href="https://sogndal.easycruit.com/index.html">https://sogndal.easycruit.com/index.html</a></p>
-</li>
+</code></pre></div></li>
+<li>Linje 2 i teksten skal være en hyperlenke som peker på <a href="https://sogndal.easycruit.com/index.html">https://sogndal.easycruit.com/index.html</a></li>
 </ul>
 <p>Tekst og lenke skal <strong>kun</strong> vises om man har valgt <code>IKT (data/it)</code> i alle andre tilfeller skal dette være skjult.</p>
 
@@ -821,16 +803,17 @@ og samtykker (indirekte) til dette ved å sende inn skjemaet.</p>
 </ul>
 <h3 id="validering">Validering</h3>
 <ul>
-<li>Det skal kun være mulig for brukeren som eier instansen å sende inn skjemaet, selv om andre måtte inneha de nødendigve rollene</li>
+<li>Det skal kun være mulig for brukeren som eier instansen å sende inn skjemaet, selv om andre måtte inneha de nødendigve rollene.</li>
 </ul>
 <h3 id="tekster">Tekster</h3>
 <p>Vi ønsker at brukeren skal presenteres med følgende tekst før innsending</p>
-<pre tabindex="0"><code class="language-rich" data-lang="rich">Du er nå klar for å sende inn melding om tilflytting til Sogndal kommune.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-md" data-lang="md">Du er nå klar for å sende inn melding om tilflytting til Sogndal kommune.
 
-Ved å sende inn dette skjemaet samtykker du til at dataen du har fylt ut kan lagres og benyttes til å tilpasse kommunens tilbud til deg de neste 18 månedene.
+Ved å sende inn dette skjemaet samtykker du til at dataen du har fylt ut kan lagres og benyttes
+til å tilpasse kommunens tilbud til deg de neste 18 månedene.
 
 Før du sender inn vil vi anbefale å se over svarene dine. Du kan ikke endre svarene etter at du har sendt inn.
-</code></pre>
+</code></pre></div>
 		</div>
 	</div>
 </div>
@@ -849,7 +832,8 @@ Før du sender inn vil vi anbefale å se over svarene dine. Du kan ikke endre sv
 	<div id="bosteder-expandable" class="a-collapseContent collapse" role="tabpanel">
 		<div class="a-collapseContent-inside">
 			<p>For å kunne skreddersy et best mulig tilbud til nye innflyttere ønsker vi oss en oversikt over tidligere bosteder til innflytteren.</p>
-<p>På datasiden ønsker vi at det legges opp til at brukeren kan fylle inn tidligere bosteder. Tidligere bosteder skal inneholde følgende felter:</p>
+<p>På datasiden ønsker vi at det legges opp til at brukeren kan fylle inn tidligere bosteder.
+Tidligere bosteder skal inneholde følgende felter:</p>
 <ul>
 <li>Gateadresse</li>
 <li>Postnummer</li>
@@ -874,10 +858,11 @@ Før du sender inn vil vi anbefale å se over svarene dine. Du kan ikke endre sv
 	</div>
 	<div id="vendetta-expandable" class="a-collapseContent collapse" role="tabpanel">
 		<div class="a-collapseContent-inside">
-			<p>Grunnet en personlig vendetta blant en av Sogndal-kommunes ansatte ønsker vi at om innflytter fyller inn postnummer <code>4619</code> som en av tidligere bosteder
-<strong>IKKE</strong> skal få lov til å flytte inn i Sogndal. Her ønsker vi at det skal dukke opp en feilmelding på det aktuelle feltet med følgende tekst:</p>
-<pre tabindex="0"><code class="language-rich" data-lang="rich">Du er ikke velkommen til vår kommune. Beklager!
-</code></pre>
+			<p>Grunnet en personlig vendetta blant en av Sogndal-kommunes ansatte ønsker vi at om innflytter fyller inn
+postnummer <code>4619</code> som en av tidligere bosteder <strong>IKKE</strong> skal få lov til å flytte inn i Sogndal.</p>
+<p>Her ønsker vi at det skal dukke opp en feilmelding på det aktuelle feltet med følgende tekst:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-md" data-lang="md">Du er ikke velkommen til vår kommune. Beklager!
+</code></pre></div>
 		</div>
 	</div>
 </div>
