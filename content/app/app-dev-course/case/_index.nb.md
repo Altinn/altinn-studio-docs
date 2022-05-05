@@ -111,7 +111,7 @@ Basert på svaret skal brukeren sendes videre til _Spor 1_ eller _Spor 2_.
 ### Preutfylling av personopplysninger
 {{% expandlarge id="prefill-expandable" header="Krav" %}}
 
-- Dersom personen som arbeider i skjemaet selv er tilflytter skal følgende verdier preutfylles:
+- Følgende verdier skal preutfylles for brukeren:
   - Fornavn: Innflytter.Fornavn
   - Mellomnavn: Innflytter.Mellomnavn
   - Etternavn: Innflytter.Etternavn
