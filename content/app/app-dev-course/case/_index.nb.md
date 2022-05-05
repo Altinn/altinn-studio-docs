@@ -62,7 +62,18 @@ Det er et ønske om at et eller flere av ordene  "tilflytter" og  "Sogndal" er m
 ### Infoside
 {{% expandlarge id="infoside-expandable" header="Krav" %}}
 
+Noen i kommunen har opprettet en skisse av informasjonssiden.
 
+Følgende er ønskelig at reflekteres i applikasjonen:
+ - plassering av bilder
+ - tekststørrelser
+ - formatering av tekst
+
+[Skisse på informasjonsside](/app/app-dev-course/modul2/infoside_tilflyttere.pdf)
+
+[Skisse på informasjonsside (.docx)](/app/app-dev-course/modul2/infoside_tilflyttere.docx)
+
+!["Sogndal kommunevåpen"](/app/app-dev-course/modul2/kommune-logo.png "Et bilde av Sogndals kommunevåpen som kan benyttes i applikasjonen" )
 
 {{% /expandlarge %}}
 
