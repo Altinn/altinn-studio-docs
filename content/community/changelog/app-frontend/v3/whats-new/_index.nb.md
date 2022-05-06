@@ -6,7 +6,8 @@ toc: true
 
 ## 3.36.2 (2022-05-06) - Fikset potensiell kræsj etter valideringsfeil fra server
 Fikser en nylig introdusert feil hvor en feilende validering fra serversiden kunne føre til at appen stoppet.
-Issue [#8481](https://github.com/Altinn/altinn-studio/issues/8481).
+Issue [#8481](https://github.com/Altinn/altinn-studio/issues/8481).  
+Oppdaterte eksterne avhengigheter for uke 18 av 2022.
 
 ## 3.36.1 (2022-05-06) - Fikset validering av tomme felter for flerside repeterende grupper
 Fikser en feil hvor påkrevde felter i en flerside repeterende gruppe førte til en feilmelding
