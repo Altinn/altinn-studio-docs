@@ -1,19 +1,19 @@
 ---
-title: Bolk 3
+title: Modul 3
 description: Bygg og deploy applikasjon til testmiljø
-linktitle: Bolk 3
+linktitle: Modul 3
 tags: [apps, training, build, deploy, test ]
 weight: 20
 ---
 {{% notice warning %}}
- Denne bolken krever at du er medlem av en organisasjon som har et etablert testmiljø for Altinn Apps. Dersom dette ikke er tilfellet, går du bare videre til neste bolk.
+ Denne modulen krever at du er medlem av en organisasjon som har et etablert testmiljø for Altinn Apps. Dersom dette ikke er tilfellet, går du bare videre til neste modul.
 {{% /notice %}}
 
 
-I denne bolken skal du bygge og deploye applikasjonen til Altinns testmiljø (TT02) og verifisere at alt fungerer som forventet også der.
+I denne modulen skal du bygge og deploye applikasjonen til Altinns testmiljø (TT02) og verifisere at alt fungerer som forventet også der.
 
 
-**Temaer som dekkes i denne bolken:**
+**Temaer som dekkes i denne modulen:**
 - Sette egendefinerte krav for ressursbruk
 - Bygg av applikasjon
 - Deploy av applikasjon

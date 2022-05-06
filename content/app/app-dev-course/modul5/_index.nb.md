@@ -1,14 +1,14 @@
 ---
-title: Bolk 5
+title: Modul 5
 description: Legge til bekreftelsessteg
-linktitle: Bolk 5
+linktitle: Modul 5
 tags: [apps, training, process, policy, autorisasjon, confirmation, bekreftelsessteg, validering ]
 weight: 20
 ---
 
-I denne bolken skal du legge til et prosessteg i applikasjonen.
+I denne modulen skal du legge til et prosessteg i applikasjonen.
 
-**Temaer som dekkes i denne bolken:**
+**Temaer som dekkes i denne modulen:**
 - Prosess
 - Brekreftelsessteg
 - Autorisasjonsregler
@@ -22,11 +22,11 @@ I denne bolken skal du legge til et prosessteg i applikasjonen.
 En Altinn App har en prosessflyt som beskriver de ulike stegene i flyten.
 Standardflyten for en nyopprettet applikasjon består av én task, et utfyllingssteg.
 
-![Standard prosessflyt illustrert](default-process.png)
+![Standard prosessflyt illustrert](/app/app-dev-course/modul5/default-process.png)
 
 Din oppgave er å utvide standard prosessflyten med et bekreftelsessteg som illustrert nedenfor.
 
-![Oppdatert prosessflyt illustrert](updated-process.png)
+![Oppdatert prosessflyt illustrert](/app/app-dev-course/modul5/updated-process.png)
 
 {{% notice info %}}
 [Standard prosessflyter er tilgjengelig på GitHub](https://github.com/Altinn/altinn-studio/tree/master/src/Altinn.Apps/AppTemplates/ProcessTemplates).
@@ -109,7 +109,7 @@ Før du sender inn vil vi anbefale å se over svarene dine. Du kan ikke endre sv
 
 ## Oppsummering
 
-I denne bolken har du utvided applikasjonen din med et bekreftelsessteg, tilpasset visningen, og lagt til validering og autorisasjonsregler knyttet til prosessteget.
+I denne modulen har du utvided applikasjonen din med et bekreftelsessteg, tilpasset visningen, og lagt til validering og autorisasjonsregler knyttet til prosessteget.
 
 Tjenesten skal kunne kjøres opp på din lokale maskin med local test
 og du skal kunne teste det nye prosessteget og bekrefte at visningen ser ut som ønsket.
@@ -119,4 +119,4 @@ og du skal kunne teste det nye prosessteget og bekrefte at visningen ser ut som 
 ### Løsningsforslag
 Dersom du ikke har fått til alle stegene har vi et [løsningsforslag](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/5) som du kan hente inspirasjon fra.
 
-![Skjermbilde av bekreftelsesside](bekreftelsesside-screenshot.png "Skjermbilde av bekreftelsesside")
+![Skjermbilde av bekreftelsesside](/app/app-dev-course/modul5/bekreftelsesside-screenshot.png "Skjermbilde av bekreftelsesside")

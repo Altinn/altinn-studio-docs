@@ -74,10 +74,10 @@ Eksempel:
 ```
 
 ## Flere sider innad i gruppe-visning
-{{% notice info %}}
-- Denne funksjonaliteten er p.t. kun tilgjengelig for repeterende grupper.
-- Visning av gruppe over flere sider inne i redigerings-flaten til gruppen støttes KUN for grupper på øverste nivå, og støttes ikke for grupper i grupper.
-{{% /notice %}}
+{{% notice info %}} Denne funksjonaliteten er p.t. kun tilgjengelig for repeterende grupper. Visning av gruppe over
+flere sider inne i redigerings-flaten til gruppen støttes KUN for grupper på øverste nivå, og støttes ikke
+for grupper i grupper. {{% /notice %}}
+
 Når man skal legge inn data i en gruppe, kan det være tilfeller der hvert element i gruppen inneholder mange felter, og at det dermed blir mye scrolling
 og uoversiktlig for sluttbruker. For å løse dette er det innført en mulighet til å dele opp utfyllingen over flere visninger, som bruker kan navigere
 frem/tilbake mellom mens de fyller ut gruppe-elementet. Navigeringen her skjer innad i en layout, og oppdaterer

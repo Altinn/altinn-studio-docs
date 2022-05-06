@@ -25,7 +25,7 @@ Dersom dynamikken ikke fungerer som forventet, ta en titt på koden som definere
 beregninger eller regler for vis/skjul for å se om det er noe feilhåndtering som mangler.
 {{% /notice%}}
 
-{{%notice warning%}}**MERK**: for å støtte beregning/vis-skjul felter på eldre nettlesere må man skrive 
+{{%notice warning%}}MERK: for å støtte beregning/vis-skjul felter på eldre nettlesere må man skrive 
 javascript koden man legger i `RuleHandler.js` i den versjonen av ECMA-script som den aktuelle nettleseren støtter. 
 For IE11 vil dette være ECMA-script 5. {{%/notice%}}
 
@@ -99,10 +99,10 @@ var ruleHandlerObject = {
 Noen standard-metoder for beregniner, med hjelpe-objekt, er satt opp automatisk når app'en lages i Altinn Studio. Noen av disse er vist i eksempelet under.
 
 | Method name          | Description                                                      | Parameters              | Defined in object/helper                                      |
-| -------------------- | ---------------------------------------------------------------- | ----------------------- | ------------------------------------------------------------- |
+|----------------------| ---------------------------------------------------------------- | ----------------------- | ------------------------------------------------------------- |
 | `sum`                | Returnerer summen av 2 verdier                        | `value1`, `value2`      | `ruleHandlerObject`/`ruleHandlerHelper`                       |
 | `fullName`           | Returnerer to tekster (fornavn og etternavn) satt sammen med mellomrom mellom. | `firstName`, `lastName` | `ruleHandlerObject`/`ruleHandlerHelper`                       |
-| `lengthGreaterThan4` | Returnerer `true` dersom verdien den får inn er lengre enn 4 karakterer lang.  | `value`                 | `conditionalRuleHandlerObject`/`conditionalRuleHandlerHelper` |
+| `lengthBiggerThan4`  | Returnerer `true` dersom verdien den får inn er lengre enn 4 karakterer lang.  | `value`                 | `conditionalRuleHandlerObject`/`conditionalRuleHandlerHelper` |
 
 
 Regler for dynamikk kjøres dersom det har skjedd en endring i input-parametrene til de forskjellige reglene. 
@@ -164,7 +164,7 @@ var conditionalRuleHandlerHelper = {
 4. Sett opp hvilke(t) felt som skal fungere som _input_ til funksjonen - her er det felt i datamodellen som gjelder.
     ![Konfigurere dynamikk](rules-configure.png)
 5. Sett opp hvilke(t) felt som skal påvirkes av regelen (skal motta beregnet verdi, eller skal vises/skjules) - her er det skjemakomponent som gjelder.
-  - For regler for vis/skjul felt kan man velge flere felter som skal vises/skjules basert på samme regel.
+   - For regler for vis/skjul felt kan man velge flere felter som skal vises/skjules basert på samme regel.
 6. Lagre konfigurasjonen.
 7. Test at det fungerer som forventet.
 
@@ -382,7 +382,7 @@ var conditionalRuleHandlerHelper = {
 
 Fra versjon 3.0.0 er det også mulig å legge inn dynamikk for PDF. Dette gjøres i PDF Handler. Her kan man ved hjelp av logikk velge å skjulte felter eller sider i print.
 
-Appen må inkludere `layout/ui/Settings.json` filen som [her](../../../../app/development/ux/pages/navigation/#rekkefølge).
+Appen må inkludere `ui/Settings.json` filen som [her](../../../../app/development/ux/pages/navigation/#rekkefølge).
 
 Teknisk er det veldlig likt hvordan man gjør det for validering. 
 
