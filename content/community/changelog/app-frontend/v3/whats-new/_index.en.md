@@ -4,6 +4,10 @@ description: Overview of changes introduced in v3 of app frontend.
 toc: true
 ---
 
+## 3.36.2 (2022-05-06) - Fixed a potential crash after failing validation from server
+Fixes a recently introduced bug where some failing validations passed from the server could crash the app instance.
+Issue [#8481](https://github.com/Altinn/altinn-studio/issues/8481).
+
 ## 3.36.1 (2022-05-06) - Fix in validation of required fields in repeating multi-page groups
 Fixes a bug where required fields inside multi-page repeating groups were being marked with
 errors even when no instances of the repeating group had been added.
