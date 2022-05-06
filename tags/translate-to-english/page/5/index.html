@@ -1263,33 +1263,6 @@ Delegering av API-tilganger til leverandør Som en bruker som er nøkkelrolleinn
 	
 	   <article class="post app">
     <header class="post-header">
-        <h2 class="post-title"><a href="/app/development/logic/dynamic/">Dynamics</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Introduksjon Dynamikk er hendelser som skjer på klient-siden. Disse kan deles opp i to kategorier:
- Beregning - kjøre beregninger på klient-side, og oppdatere felter med ny verdi Vis/skjul felter - bestemme om felter skal vises eller skjules basert på verdier i skjema.  Det er to måter å legge til og endre dynamikkregler for en Altinn App.
- Direkte i Altinn Studio under Lage-fanen. Velg Rediger dynamikk i høyre-menyen. I lokalt utviklingsmiljø ved å jobbe i filen RuleHandler. <a class="read-more" href="/app/development/logic/dynamic/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post app">
-    <header class="post-header">
         <h2 class="post-title"><a href="/app/development/api/expose/">Exposing APIs from an app</a></h2>
     </header>
     <section class="post-excerpt">
@@ -1323,6 +1296,32 @@ Nedenfor vises et eksempel fra en API controller som er lagt til i en gitt app. 
         <p>Denne siden er foreløpig ikke fullstendig, mer informasjon vil komme på et senere tidspunkt.
 En instansiert applikasjon vil ha et tilhørende instans-objekt. Dette objektet inneholder metadata om den spesifikke instansen. Om du ønsker å lære mer om instans og api&rsquo;et rundt så kan du lese teknisk dokumentasjon om dette under API.
 Substatus Som app-eier kan man sette en substatus på instansen, dette for å kunne gi sluttbruker ytterligere informasjon om hvilken tilstand instansen befinner seg i. <a class="read-more" href="/app/development/api/instance/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post app">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/app/development/logic/instantiation/">Instantiation</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Introduksjon Applikasjonslogikk knyttet til instansiering kan defineres i InstantiationHandler.cs. For en helt ny app vil det være to funksjoner implementert i denne klassen:
+ RunInstantiationValidation - lag egne sjekker for å avgjøre om en bruker/avgiver får lov til å instansiere. DataCreation - lag tilpasset prefill data.  Egendefinerte valideringsregler for instansiering Som tidligere nevnt, kan sjekker for instansiering defineres i RunInstantiationValidation. Tilgang til Register- og Profile-tjenester er inkludert i InstantiationHandler.cs-filen, som tillater å gjøre sjekker mot disse. <a class="read-more" href="/app/development/logic/instantiation/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          

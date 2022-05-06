@@ -777,6 +777,30 @@ hvert enkelt innslag av den repeterende gruppen.</li>
     }
   }
 }
+</code></pre></div><h3 id="nøstede-repeterende-grupper">Nøstede repeterende grupper</h3>
+<p>Det er også mulig å sette opp dynamikk for nøstede repeterende grupper. Oppsettet likner på repeterende grupper, men man har med et ektra parameter <code>childGroupId</code> i <code>repeatingGroup</code>-objektet, samt en ekstra indeks-indikator.</p>
+<p>Eksempel:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+    <span style="color:#ff79c6">&#34;data&#34;</span>: {
+        <span style="color:#ff79c6">&#34;ruleConnection&#34;</span>: {},
+        <span style="color:#ff79c6">&#34;conditionalRendering&#34;</span>: {
+            <span style="color:#ff79c6">&#34;hide-nested-group-field&#34;</span>: {
+                <span style="color:#ff79c6">&#34;selectedFunction&#34;</span>: <span style="color:#f1fa8c">&#34;shouldHide&#34;</span>,
+                <span style="color:#ff79c6">&#34;inputParams&#34;</span>: {
+<span style="display:block;width:100%;background-color:#3d3f4a">                    <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;someGroup{0}.nestedGroup{1}.someField&#34;</span>
+</span>                },
+                <span style="color:#ff79c6">&#34;selectedAction&#34;</span>: <span style="color:#f1fa8c">&#34;Hide&#34;</span>,
+                <span style="color:#ff79c6">&#34;selectedFields&#34;</span>: {
+<span style="display:block;width:100%;background-color:#3d3f4a">                    <span style="color:#ff79c6">&#34;field&#34;</span>: <span style="color:#f1fa8c">&#34;the-component-id{0}{1}&#34;</span>
+</span>                },
+<span style="display:block;width:100%;background-color:#3d3f4a">                <span style="color:#ff79c6">&#34;repeatingGroup&#34;</span>: {
+</span><span style="display:block;width:100%;background-color:#3d3f4a">                    <span style="color:#ff79c6">&#34;groupId&#34;</span>: <span style="color:#f1fa8c">&#34;mainGroup&#34;</span>,
+</span><span style="display:block;width:100%;background-color:#3d3f4a">                    <span style="color:#ff79c6">&#34;childGroupId&#34;</span>: <span style="color:#f1fa8c">&#34;subGroup&#34;</span>
+</span>                }
+            }
+        }
+    }
+}
 </code></pre></div><h2 id="eksempel-med-mer-kompleks-dynamikk">Eksempel med mer kompleks dynamikk</h2>
 <p>Example with more complex dynamics</p>
 <p>Scenario:
