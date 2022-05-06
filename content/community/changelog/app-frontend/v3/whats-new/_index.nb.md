@@ -4,6 +4,11 @@ description: Oversikt over endringer som ble introdusert i v3 av app frontend.
 toc: true
 ---
 
+## 3.36.1 (2022-05-06) - Fikset validering av tomme felter for flerside repeterende grupper
+Fikser en feil hvor påkrevde felter i en flerside repeterende gruppe førte til en feilmelding
+selv om man ikke hadde lagt til en instans av den repeterende gruppen.
+Issue [#7478](https://github.com/Altinn/altinn-studio/issues/7478).
+
 ## 3.36.0 (2022-05-03) - Støtte for dynamikk i nøstede repeterende grupper
 La til støtte for dynamikk i nøstede repeterende grupper.
 Issue [#55](https://github.com/Altinn/app-frontend-react/issues/55).

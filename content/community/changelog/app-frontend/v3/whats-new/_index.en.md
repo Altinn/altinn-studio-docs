@@ -4,6 +4,11 @@ description: Overview of changes introduced in v3 of app frontend.
 toc: true
 ---
 
+## 3.36.1 (2022-05-06) - Fix in validation of required fields in repeating multi-page groups
+Fixes a bug where required fields inside multi-page repeating groups were being marked with
+errors even when no instances of the repeating group had been added.
+Issue [#7478](https://github.com/Altinn/altinn-studio/issues/7478).
+
 ## 3.36.0 (2022-05-03) - Added support for dynamics in nested repeating groups.
 Added support for dynamics in nested repeating groups.
 Issue [#55](https://github.com/Altinn/app-frontend-react/issues/55).
