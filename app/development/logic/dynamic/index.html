@@ -1049,7 +1049,7 @@ if(host != "localhost")
   <ul>
     <li><a href="#introduction">Introduction</a></li>
     <li><a href="#add-or-edit-functions-for-dynamics">Add or edit functions for dynamics</a></li>
-    <li><a href="#configure-dynamics-for-ui-componentsk">Configure dynamics for UI componentsK</a></li>
+    <li><a href="#configure-dynamics-for-ui-components">Configure dynamics for UI components</a></li>
     <li><a href="#example-usage-of-dynamics-on-an-appe">Example usage of dynamics on an appE</a></li>
     <li><a href="#dynamics-in-repeating-groups">Dynamics in repeating groups</a></li>
     <li><a href="#example-with-more-complex-dynamics">Example with more complex dynamics</a></li>
@@ -1078,9 +1078,9 @@ They should for instance handle empty fields or strings where you expect numbers
 If the dynamic does not work as expected, take a look at the code that defines the dynamic and verify that is handles errors.
 </div>
 <div class="notices warning" >
-**NOTICE**: in order to support dynamics in older browsers the code defined in `RuleHandler.js` must be written in the version of ECMA-script as the given browser supports.
+MERK: in order to support dynamics in older browsers the code defined in `RuleHandler.js` must be written in the version of ECMA-script as the given browser supports.
 For IE11 this is ECMA-script 5.
-{%/notice%}}
+</div>
 <h2 id="add-or-edit-functions-for-dynamics">Add or edit functions for dynamics</h2>
 <p>In the file <code>RuleHandler.js</code> there exists two javascript objects:</p>
 <ul>
@@ -1207,7 +1207,7 @@ To be able to configure dynamics in studio the functions must be defined in the 
     }
   }
 }
-</code></pre></div><h2 id="configure-dynamics-for-ui-componentsk">Configure dynamics for UI componentsK</h2>
+</code></pre></div><h2 id="configure-dynamics-for-ui-components">Configure dynamics for UI components</h2>
 <ol>
 <li>Add the relevant UI components to the layout.</li>
 <li>In the right menu, select <em>Regler for beregninger</em> or <em>Regler for vis/skjul felt</em>.
@@ -1432,7 +1432,6 @@ Here the code hides the component with the id <code>079f205b-c9ea-414d-9983-0d15
             <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">await</span> Task.FromResult(layoutSettings);
         }
         ```
-&lt;/div&gt;
 </code></pre></div>
 
 <footer class=" footline" >
