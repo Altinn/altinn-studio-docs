@@ -250,6 +250,36 @@ Et eksempel på en regel som er satt opp for repeterende grupper vises under:
 }
 ```
 
+### Nøstede repeterende grupper
+
+Det er også mulig å sette opp dynamikk for nøstede repeterende grupper. Oppsettet likner på repeterende grupper, men man har med et ektra parameter `childGroupId` i `repeatingGroup`-objektet, samt en ekstra indeks-indikator.
+
+Eksempel: 
+
+```json {hl_lines=[8,12,14,15,16]}
+{
+    "data": {
+        "ruleConnection": {},
+        "conditionalRendering": {
+            "hide-nested-group-field": {
+                "selectedFunction": "shouldHide",
+                "inputParams": {
+                    "value": "someGroup{0}.nestedGroup{1}.someField"
+                },
+                "selectedAction": "Hide",
+                "selectedFields": {
+                    "field": "the-component-id{0}{1}"
+                },
+                "repeatingGroup": {
+                    "groupId": "mainGroup",
+                    "childGroupId": "subGroup"
+                }
+            }
+        }
+    }
+}
+```
+
 ## Eksempel med mer kompleks dynamikk
 Example with more complex dynamics
 

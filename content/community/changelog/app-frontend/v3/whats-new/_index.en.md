@@ -4,6 +4,10 @@ description: Overview of changes introduced in v3 of app frontend.
 toc: true
 ---
 
+## 3.36.0 (2022-05-03) - Added support for dynamics in nested repeating groups.
+Added support for dynamics in nested repeating groups.
+Issue [#55](https://github.com/Altinn/app-frontend-react/issues/55).
+
 ## 3.35.2 (2022-05-02) - Fix in validation of required field in hidden groups
 Fixes a bug where hiding a non-repeating group with required fields could display a message asking the user to fill
 the invisible required fields.

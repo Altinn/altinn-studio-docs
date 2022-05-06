@@ -4,6 +4,10 @@ description: Oversikt over endringer som ble introdusert i v3 av app frontend.
 toc: true
 ---
 
+## 3.36.0 (2022-05-03) - Støtte for dynamikk i nøstede repeterende grupper
+La til støtte for dynamikk i nøstede repeterende grupper.
+Issue [#55](https://github.com/Altinn/app-frontend-react/issues/55).
+
 ## 3.35.2 (2022-05-02) - Fikset validering av tomme felter for skjulte grupper
 Fikser en feil hvor skjuling av en (ikke-repeterende) gruppe med obligatoriske felter kunne føre til valideringsfeil med
 beskjed om at noen usynlige felter ikke var fyllt ut.
