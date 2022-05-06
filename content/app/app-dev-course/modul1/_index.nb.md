@@ -1,15 +1,15 @@
 ---
-title: Bolk 1
+title: Modul 1
 description: Opprette app i Studio, sette opp lokalt utviklingsmiljø og local test
-linktitle: Bolk 1
+linktitle: Modul 1
 tags: [apps, training, datamodel, localtest, texts]
 weight: 20
 ---
 
-I denne bolken skal du basert på kravene fra Sogndal kommune
+I denne modulen skal du basert på kravene fra Sogndal kommune
 sette opp førstesiden til applikasjonen for tilflyttere og verifisere at ting ser ut som forventet lokalt.
 
-**Temaer som dekkes i denne bolken:**
+**Temaer som dekkes i denne modulen:**
 
 - Opprette ny applikasjon
 - Legge til datamodell og knytte felter
@@ -41,7 +41,7 @@ Det er et ønske om at et eller flere av ordene  "tilflytter" og  "Sogndal" er m
 
 
 {{% expandlarge id="late-opp-datamodel" header="Laste opp datamodell" %}}
-Sogndal kommune har opprettet [en datamodell](datamodel.xsd)
+Sogndal kommune har opprettet [en datamodell](/app/app-dev-course/modul1/datamodel.xsd)
 som representerer data de ønsker å samle inn fra fremtidige innbyggere.
 
 {{% notice info %}}
@@ -52,7 +52,7 @@ redigere den i f.eks. Visual Studio eller et selvvalgt tekstredigeringsprogram.
 {{% /notice %}}
 
 
-1. [Last ned xsd-filen](datamodel.xsd), åpne den i et tekstredigeringsprogram
+1. [Last ned xsd-filen](/app/app-dev-course/modul1/datamodel.xsd), åpne den i et tekstredigeringsprogram
    og ta en nærmere titt på innholdet.
 2. [Last opp datamodellen i Altinn Studio](/nb/app/development/data/data-model/#laste-opp--vise-datamodell)
 3. Push endringene master og ta en nærmere titt på filene i mappen `App/models`
@@ -130,6 +130,7 @@ Basert på kravene fra kommunen klarer du å sette opp den første skjemasiden i
   - Telefon
 
 ### Nyttig dokumentasjon
+- [Hvordan bygge et skjema med UI editor i Altinn Studio](nb/app/getting-started/navigation/designer/ui-editor/)
 - [Tilgjengelige komponenter i Altinn Studio](/technology/solutions/altinn-studio/designer/functional/build-app/ui-designer/components/)
 - [Retningslinjer for bruk av komponenter](/nb/app/design/guidelines/components/)
 
@@ -168,7 +169,7 @@ er det mulig å gjøre enkel testing og verifikasjon av applikasjonen i det loka
 I denne oppgaven skal du få kjørt opp applikasjonen lokalt med støtte fra LocalTest.
 Når du har fått appen opp og kjøre og logget inn med en testbruker, bør du ha et resultat som likner dette:
 
-!["Applikasjonen kjørende lokalt"](app-running-locally.jpeg "Et bilde av applikasjonen kjørende lokalt" )
+!["Applikasjonen kjørende lokalt"](/app/app-dev-course/modul1/app-running-locally.jpeg "Et bilde av applikasjonen kjørende lokalt")
 
 {{% notice info %}}
 Videre vil du ønske å teste endringene dine fortløpende i localtest.
@@ -189,7 +190,7 @@ Videre vil du ønske å teste endringene dine fortløpende i localtest.
 
 ## Oppsummering
 
-I denne bolken har du opprettet en applikasjon i Altinn Studio,
+I denne modulen har du opprettet en applikasjon i Altinn Studio,
 lastet opp en datamodell og satt opp en skjemaside som kobler komponenter til noen av feltene i datamodellen.
 Videre har du klonet repoet lokalt for å kunne videre applikasjonen i ditt lokale utvilkingsmiljø.
 
@@ -200,4 +201,4 @@ Tjenesten skal kunne kjøres opp på din lokale maskin med local test og du skal
 ### Løsningsforslag
 Dersom du ikke har fått til alle stegene har vi et [løsningsforslag](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/1) som du kan hente inspirasjon fra.
 
-![Skjermbilde av datainnsamlingsside](data-screenshot.png "Skjermbilde av datainnsamlingsside")
+![Skjermbilde av datainnsamlingsside](/app/app-dev-course/modul1/data-screenshot.png "Skjermbilde av datainnsamlingsside")

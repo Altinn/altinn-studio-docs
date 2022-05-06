@@ -1,19 +1,19 @@
 ---
-title: Bolk 7
+title: Modul 7
 description: Frittstående utvidelser av appen
-linktitle: Bolk 7
+linktitle: Modul 7
 tags: [apps, training ]
 weight: 20
 ---
 
 {{% notice warning %}}
-MERK: Denne bolken er fortsatt under utvikling. Ta en titt innom på et senere tidspunkt så er den nok blitt enda bedre!
+MERK: Denne modulen er fortsatt under utvikling. Ta en titt innom på et senere tidspunkt så er den nok blitt enda bedre!
 {{% /notice %}}
 
-I denne bolken er det en samling med frittstående utvidelser av applikasjonen. De trenger ikke å løses i rekkefølge.
+I denne modulen er det en samling med frittstående utvidelser av applikasjonen. De trenger ikke å løses i rekkefølge.
 
 
-**Temaer som dekkes i denne bolken:**
+**Temaer som dekkes i denne modulen:**
 - Oppsummmeringsside
 - Stateless applikasjon
 - Variabler i tekst
@@ -60,7 +60,7 @@ møter kriteriene.
 
 {{% expandlarge id="variabler-i-tekst" header="Variabler i tekst" %}}
 ### Krav fra kommunen
-IT-kompetanse er svært ettertraktet. I **Bolk 4** satt vi opp et skreddersydd tilbud til de med IT-kompetanse.
+IT-kompetanse er svært ettertraktet. I **Modul 4** satt vi opp et skreddersydd tilbud til de med IT-kompetanse.
 
 Sogndal kommune har sett på tallene og ser at det genererer for lite trafikk til stillingsutlysningene.
 For å prøve å forbedre dette ønsker vi at tilbudet blir enda litt mer skreddersydd.

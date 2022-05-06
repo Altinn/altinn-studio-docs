@@ -1,14 +1,14 @@
 ---
-title: Bolk 4
+title: Modul 4
 description: Legge til kodelister manuelt, programatisk og dynamisk
-linktitle: Bolk 4
+linktitle: Modul 4
 tags: [apps, training, options, kodelister, dynamikk ]
 weight: 20
 ---
 
-I denne bolken skal du utvide applikasjonen du har laget i foregående bolker for å støtte enda fler av [kravene til Sogndal kommune](../case/#krav-fra-kommunen).
+I denne modulen skal du utvide applikasjonen du har laget i foregående moduler for å støtte enda fler av [kravene til Sogndal kommune](../case/#krav-fra-kommunen).
 
-**Temaer som dekkes i denne bolken:**
+**Temaer som dekkes i denne modulen:**
 
 - Kodelister/Options
 - Dynamikk
@@ -144,7 +144,7 @@ Tekst og lenke skal **kun** vises om man har valgt `IKT (data/it)` i alle andre 
 
 ## Oppsummering
 
-I denne bolken har du satt opp nedtrekksliste, radioknapp og avkrysningsbokser og lagt inn verdier for disse komponentene manuelt, programatisk og dynamisk.
+I denne modulen har du satt opp nedtrekksliste, radioknapp og avkrysningsbokser og lagt inn verdier for disse komponentene manuelt, programatisk og dynamisk.
 
 Tjenesten skal kunne kjøres opp på din lokale maskin med local test
 og du skal kunne validere at komponentene presenterer forventede dataverdier.
@@ -154,5 +154,5 @@ og du skal kunne validere at komponentene presenterer forventede dataverdier.
 ### Løsningsforslag
 Dersom du ikke har fått til alle stegene har vi et [løsningsforslag](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/4) som du kan hente inspirasjon fra.
 
-![Skjermbilde av innsamling av arbeidsopplysninger for privat sektor](arbeidsopplysninger-privat-screenshot.png "Skjermbilde av innsamling av arbeidsopplysninger for privat sektor")
-![Skjermbilde av innsamling av arbeidsopplysninger for offentlig sektor](arbeidsopplysninger-offentlig-screenshot.png "Skjermbilde av innsamling av arbeidsopplysninger for offentlig sektor")
+![Skjermbilde av innsamling av arbeidsopplysninger for privat sektor](/app/app-dev-course/modul4/arbeidsopplysninger-privat-screenshot.png "Skjermbilde av innsamling av arbeidsopplysninger for privat sektor")
+![Skjermbilde av innsamling av arbeidsopplysninger for offentlig sektor](/app/app-dev-course/modul4/arbeidsopplysninger-offentlig-screenshot.png "Skjermbilde av innsamling av arbeidsopplysninger for offentlig sektor")

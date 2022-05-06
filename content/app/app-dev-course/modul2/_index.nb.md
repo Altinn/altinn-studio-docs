@@ -1,15 +1,15 @@
 ---
-title: Bolk 2
+title: Modul 2
 description: Legge til flere sider, sporvalg og prefill
 
-linktitle: Bolk 2
+linktitle: Modul 2
 tags: [apps, training, prefill, sporvalg]
 weight: 20
 ---
 
-I denne bolken skal du videreutvikle applikasjonen du laget i [bolk 1](../bolk1) for å oppfylle flere av [kravene fra Sogndal kommune](../case/#krav-fra-kommunen).
+I denne modulen skal du videreutvikle applikasjonen du laget i [modul 1](../modul1) for å oppfylle flere av [kravene fra Sogndal kommune](../case/#krav-fra-kommunen).
 
-**Temaer som dekkes i denne bolken:**
+**Temaer som dekkes i denne modulen:**
 
 - Flere sider
 - Bildekomponent
@@ -25,7 +25,7 @@ For skjemaer der det samles inn eller gis mye informasjon
 vil det forbedre brukeropplevelsen dersom man deler applikasjonen opp i flere sider.
 
 La oss se nærmere på hvordan man kan opprette en ny side i applikasjonen
-som vises _før_ brukeren kommer til første datainnsamlingsside som ble laget i bolk 1.
+som vises _før_ brukeren kommer til første datainnsamlingsside som ble laget i modul 1.
 
 For å redigere ulike skjemasider i Altinn Studio må du:
 1. Logge inn i Altinn Studio
@@ -54,11 +54,11 @@ Følgende er ønskelig at reflekteres i applikasjonen:
  - tekststørrelser
  - formatering av tekst
 
-[Skisse på informasjonsside](infoside_tilflyttere.pdf)
+[Skisse på informasjonsside](/app/app-dev-course/modul2/infoside_tilflyttere.pdf)
 
-[Skisse på informasjonsside (.docx)](infoside_tilflyttere.docx)
+[Skisse på informasjonsside (.docx)](/app/app-dev-course/modul2/infoside_tilflyttere.docx)
 
-!["Sogndal kommunevåpen"](kommune-logo.png "Et bilde av Sogndals kommunevåpen som kan benyttes i applikasjonen" )
+!["Sogndal kommunevåpen"](/app/app-dev-course/modul2/kommune-logo.png "Et bilde av Sogndals kommunevåpen som kan benyttes i applikasjonen" )
 
 ### Nyttig dokumentasjon
 
@@ -138,7 +138,7 @@ I denne oppgaven flyttes fokus tilbake til den første datainnsamlingssiden, og 
 
 ### Krav fra kommunen
 
-- Dersom personen som arbeider i skjemaet selv er tilflytter skal følgende verdier preutfylles:
+- Følgende verdier skal preutfylles for brukeren:
   - Fornavn: Innflytter.Fornavn
   - Mellomnavn: Innflytter.Mellomnavn
   - Etternavn: Innflytter.Etternavn
@@ -230,7 +230,7 @@ private static int CalculateAge(string sosialSecNumber)
 
 ## Oppsummering
 
-I denne bolken har du utvided applikasjonen din med mer funksjonalitet i form av å,
+I denne modulen har du utvided applikasjonen din med mer funksjonalitet i form av å,
 legge til flere sider, sette opp sporvalg for å styre brukerflyten og satt opp preutfylling av skjemafelter
 både med tilgjengelig datakilder i Altinn og custom kode.
 
@@ -242,8 +242,8 @@ bekrefte at riktige felter blir preutfylt.
 ### Løsningsforslag
 Dersom du ikke har fått til alle stegene har vi et [løsningsforslag](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/2) som du kan hente inspirasjon fra.
 
-![Skjermbilde av infoside](infopage-screenshot.png "Skjermbilde av infoside")
+![Skjermbilde av infoside](/app/app-dev-course/modul2/infopage-screenshot.png "Skjermbilde av infoside")
 
-![Skjermbilde av preutfylt dataside](data-screenshot.png "Skjermbilde av preutfylt dataside")
+![Skjermbilde av preutfylt dataside](/app/app-dev-course/modul2/data-screenshot.png "Skjermbilde av preutfylt dataside")
 
-![Skjermbilde av alternativ arbeidsflyt: denne siden er ikke for deg](ikke-for-deg-screenshot.png "Skjermbilde av alternativ arbeidsflyt: denne siden er ikke for deg")
+![Skjermbilde av alternativ arbeidsflyt: denne siden er ikke for deg](/app/app-dev-course/modul2/ikke-for-deg-screenshot.png "Skjermbilde av alternativ arbeidsflyt: denne siden er ikke for deg")
