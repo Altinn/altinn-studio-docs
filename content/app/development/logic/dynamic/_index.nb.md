@@ -25,7 +25,7 @@ Dersom dynamikken ikke fungerer som forventet, ta en titt på koden som definere
 beregninger eller regler for vis/skjul for å se om det er noe feilhåndtering som mangler.
 {{% /notice%}}
 
-{{%notice warning%}}**MERK**: for å støtte beregning/vis-skjul felter på eldre nettlesere må man skrive 
+{{%notice warning%}}MERK: for å støtte beregning/vis-skjul felter på eldre nettlesere må man skrive 
 javascript koden man legger i `RuleHandler.js` i den versjonen av ECMA-script som den aktuelle nettleseren støtter. 
 For IE11 vil dette være ECMA-script 5. {{%/notice%}}
 
