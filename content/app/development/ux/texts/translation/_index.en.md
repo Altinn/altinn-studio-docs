@@ -6,7 +6,7 @@ weight: 40
 tags: [translate-to-english]
 ---
 
-Selve logikken rundt oversettelse av tekster benytter seg av tekst-ressursfiler. Se [Tekster](../texts/_index.en.md) for mer informasjon om disse filene.
+Selve logikken rundt oversettelse av tekster benytter seg av tekst-ressursfiler. Se [Tekster](../texts) for mer informasjon om disse filene.
 Det er mulig å oversette tekster i applikasjonen ved å legge til flere tekst-ressursfiler. Altså én fil per språk.
 Under kan man se et eksempel på norsk og engelsk:
 
