@@ -25,9 +25,9 @@ If the dynamic does not work as expected, take a look at the code that defines t
 {{% /notice%}}
 
 {{%notice warning%}}
-**NOTICE**: in order to support dynamics in older browsers the code defined in `RuleHandler.js` must be written in the version of ECMA-script as the given browser supports.
+MERK: in order to support dynamics in older browsers the code defined in `RuleHandler.js` must be written in the version of ECMA-script as the given browser supports.
 For IE11 this is ECMA-script 5.
-{%/notice%}}
+{{% /notice%}}
 
 ## Add or edit functions for dynamics
 
@@ -154,7 +154,7 @@ var conditionalRuleHandlerHelper = {
 }
 ```
 
-## Configure dynamics for UI componentsK
+## Configure dynamics for UI components
 
 1. Add the relevant UI components to the layout.
 2. In the right menu, select _Regler for beregninger_ or _Regler for vis/skjul felt_.
