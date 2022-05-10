@@ -4,6 +4,11 @@ description: Overview of changes introduced in v3 of app frontend.
 toc: true
 ---
 
+## 3.36.4 (2022-05-10) - Fix in validation of required field in hidden groups (again)
+After the last fix, released in version 3.35.2, the problem would persist if the fields were hidden individually
+instead of hiding the entire group. This additional vector has now been fixed.
+Issue [#6398](https://github.com/Altinn/altinn-studio/issues/6398).
+
 ## 3.36.3 (2022-05-10) - Only reference description if the field exists
 Fixes a bug where components had defined `aria-describedby` to a element that did not exist.
 Issue [#23](https://github.com/Altinn/app-frontend-react/issues/23).
