@@ -1047,6 +1047,7 @@ if(host != "localhost")
           </div><div id="body-inner"><h1 class="a-fontBold">What&#39;s new</h1>
               <p class="a-leadText" id="leadText">Overview of changes introduced in v3 of app frontend.</p><h2>On this page:</h2><nav id="TableOfContents">
   <ul>
+    <li><a href="#3362-2022-05-06---fixed-a-potential-crash-after-failing-validation-from-server">3.36.2 (2022-05-06) - Fixed a potential crash after failing validation from server</a></li>
     <li><a href="#3361-2022-05-06---fix-in-validation-of-required-fields-in-repeating-multi-page-groups">3.36.1 (2022-05-06) - Fix in validation of required fields in repeating multi-page groups</a></li>
     <li><a href="#3360-2022-05-03---added-support-for-dynamics-in-nested-repeating-groups">3.36.0 (2022-05-03) - Added support for dynamics in nested repeating groups.</a></li>
     <li><a href="#3352-2022-05-02---fix-in-validation-of-required-field-in-hidden-groups">3.35.2 (2022-05-02) - Fix in validation of required field in hidden groups</a></li>
@@ -1225,6 +1226,10 @@ if(host != "localhost")
 
 
 
+<h2 id="3362-2022-05-06---fixed-a-potential-crash-after-failing-validation-from-server">3.36.2 (2022-05-06) - Fixed a potential crash after failing validation from server</h2>
+<p>Fixes a recently introduced bug where some failing validations passed from the server could crash the app instance.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/8481">#8481</a>.<br>
+Patching of external dependencies for week 18 of 2022.</p>
 <h2 id="3361-2022-05-06---fix-in-validation-of-required-fields-in-repeating-multi-page-groups">3.36.1 (2022-05-06) - Fix in validation of required fields in repeating multi-page groups</h2>
 <p>Fixes a bug where required fields inside multi-page repeating groups were being marked with
 errors even when no instances of the repeating group had been added.
