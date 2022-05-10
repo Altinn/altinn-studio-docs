@@ -4,6 +4,10 @@ description: Overview of changes introduced in v3 of app frontend.
 toc: true
 ---
 
+## 3.36.3 (2022-05-10) - Only reference description if the field exists
+Fixes a bug where components had defined `aria-describedby` to a element that did not exist.
+Issue [#23](https://github.com/Altinn/app-frontend-react/issues/23).
+
 ## 3.36.2 (2022-05-06) - Fixed a potential crash after failing validation from server
 Fixes a recently introduced bug where some failing validations passed from the server could crash the app instance.
 Issue [#8481](https://github.com/Altinn/altinn-studio/issues/8481).  

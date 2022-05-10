@@ -4,6 +4,10 @@ description: Oversikt over endringer som ble introdusert i v3 av app frontend.
 toc: true
 ---
 
+## 3.36.3 (2022-05-10) - Kun referere til beskrivelse om denne finnes
+Fikset en feil hvor komponenter hadde satt `aria-describedby` til et element som ikke fantes.
+Issue [#23](https://github.com/Altinn/app-frontend-react/issues/23).
+
 ## 3.36.2 (2022-05-06) - Fikset potensiell kræsj etter valideringsfeil fra server
 Fikser en nylig introdusert feil hvor en feilende validering fra serversiden kunne føre til at appen stoppet.
 Issue [#8481](https://github.com/Altinn/altinn-studio/issues/8481).  
