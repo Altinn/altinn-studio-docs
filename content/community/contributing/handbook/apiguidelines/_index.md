@@ -79,3 +79,6 @@ If not possible a policy enforcment point needs to be implemented and the standa
 
 ## 10. API subscription
 
+
+## 11. Cancelationtoken
+
