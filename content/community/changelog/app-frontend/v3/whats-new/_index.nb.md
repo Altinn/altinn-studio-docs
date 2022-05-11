@@ -4,6 +4,11 @@ description: Oversikt over endringer som ble introdusert i v3 av app frontend.
 toc: true
 ---
 
+## 3.36.4 (2022-05-10) - Fikset validering av tomme felter for skjulte grupper (igjen)
+Etter den forrige fiksen lansert i versjon 3.35.2 ble det oppdaget at problemet vedvarte om man skjulte spesifikke
+felter istedenfor hele gruppen. Dette problemet er nå løst.
+Issue [#6398](https://github.com/Altinn/altinn-studio/issues/6398).
+
 ## 3.36.3 (2022-05-10) - Kun referere til beskrivelse om denne finnes
 Fikset en feil hvor komponenter hadde satt `aria-describedby` til et element som ikke fantes.
 Issue [#23](https://github.com/Altinn/app-frontend-react/issues/23).
