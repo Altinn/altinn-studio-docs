@@ -61,6 +61,10 @@ if(host != "localhost")
       <img src="/images/en.svg" class="a-iconLeft a-flag" alt="" />
       <p>
         <span class="a-h3">English ✓</span><br><span>Most content is available in english.</span></p>
+    </a><a aria-hidden="true" class="dropdown-item" href="/nb/app/development/configuration/queryparameters/">
+      <img src="/images/nb.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">Bokmål</span><br><span>Noe innhold er tilgjengelig på bokmål.</span></p>
     </a></div>
 </li>
               <li>
@@ -87,6 +91,10 @@ if(host != "localhost")
       <img src="/images/en.svg" class="a-iconLeft a-flag" alt="" />
       <p>
         <span class="a-h3">English ✓</span><br><span>Most content is available in english.</span></p>
+    </a><a aria-hidden="true" class="dropdown-item" href="/nb/app/development/configuration/queryparameters/">
+      <img src="/images/nb.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">Bokmål</span><br><span>Noe innhold er tilgjengelig på bokmål.</span></p>
     </a></div>
 </li>
         </ul>
@@ -1048,20 +1056,19 @@ if(host != "localhost")
 <ul>
 <li><code>returnUrl</code> must have a valid URL-format</li>
 <li>The host defined in <code>returnUrl</code> must be the same host as the URL has (see example below).</li>
+<li>The value of <code>returnUrl</code> must be a base64-encoded string</li>
 </ul>
-<p>Example:<br>
+<p>Example without base64-encoded string:<br>
 <a href="https://foo.apps.tt02.altinn.no/foo/bar?returnUrl=https://foo.apps.tt02.altinn.no/foo/foobar">https://foo.apps.tt02.altinn.no/foo/bar?returnUrl=https://foo.apps.tt02.altinn.no/foo/foobar</a></p>
+<p>Example with base64-encoded string:<br>
+<a href="https://foo.apps.tt02.altinn.no/foo/bar?returnUrl=aHR0cHM6Ly9mb28uYXBwcy50dDAyLmFsdGlubi5uby9mb28vZm9vYmFy">https://foo.apps.tt02.altinn.no/foo/bar?returnUrl=aHR0cHM6Ly9mb28uYXBwcy50dDAyLmFsdGlubi5uby9mb28vZm9vYmFy</a></p>
 <p>Here one can see that <code>returnUrl</code> has a valid URL-format and it has the same host name as the app defined in the beginning.</p>
+<p>For readability, the examples below does not use base64-encoded strings.</p>
 <p>One can not link to a different host name, this will not pass query parameter validation:<br>
 <a href="https://foo.apps.tt02.altinn.no/foo/bar?returnUrl=https://foo.apps.altinn.no/foo/foobar">https://foo.apps.tt02.altinn.no/foo/bar?returnUrl=https://foo.apps.altinn.no/foo/foobar</a></p>
 <p>It is important to have the correct order of query parameters and special characters in the URL.
 Here is an example showing a correct URL:<br>
 <a href="https://ttd.apps.at21.altinn.cloud/ttd/level1-app?returnUrl=https%3A%2F%2Fttd.apps.at21.altinn.cloud%2Fttd%2Fapps-test%2F%23%2Finstance%2Finstanceownerid%2Finstanceguid/#/instance/instanceownerid/instanceguid">https://ttd.apps.at21.altinn.cloud/ttd/level1-app?returnUrl=https%3A%2F%2Fttd.apps.at21.altinn.cloud%2Fttd%2Fapps-test%2F%23%2Finstance%2Finstanceownerid%2Finstanceguid/#/instance/instanceownerid/instanceguid</a></p>
-<p>Notice that the value inside <code>returnUrl</code> has been escaped for all special characters. It is not neccessary, however the
-character <code>#</code> must be escaped as explained below.</p>
-<p>If <code>returnUrl</code> contains the character <code>#</code> it is very important to escape that character. All occurences of <code>#</code> within the 
-<code>returnUrl</code> value must be replaced with <code>%23</code>. If the character is not replaced, the app frontend will have trouble 
-figuring out which <code>#</code> it should use for fetching values and navigation.</p>
 
 
 <footer class=" footline" >

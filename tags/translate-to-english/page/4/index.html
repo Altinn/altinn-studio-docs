@@ -1191,8 +1191,10 @@ Configuration Configuration of presentation fields is defined in applicationmeta
     <section class="post-excerpt">
         <p>returnUrl Query parameter returnUrl is used by the app to redirect users to that value when they click the exit-button in the app.
 Rules:
- returnUrl must have a valid URL-format The host defined in returnUrl must be the same host as the URL has (see example below).  Example:
+ returnUrl must have a valid URL-format The host defined in returnUrl must be the same host as the URL has (see example below). The value of returnUrl must be a base64-encoded string  Example without base64-encoded string:
 https://foo.apps.tt02.altinn.no/foo/bar?returnUrl=https://foo.apps.tt02.altinn.no/foo/foobar
+Example with base64-encoded string:
+https://foo.apps.tt02.altinn.no/foo/bar?returnUrl=aHR0cHM6Ly9mb28uYXBwcy50dDAyLmFsdGlubi5uby9mb28vZm9vYmFy
 Here one can see that returnUrl has a valid URL-format and it has the same host name as the app defined in the beginning. <a class="read-more" href="/app/development/configuration/queryparameters/">&raquo;</a></p>
     </section>
     <footer class=" footline" >

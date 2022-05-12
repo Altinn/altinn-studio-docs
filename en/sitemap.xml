@@ -1399,6 +1399,16 @@
                 />
   </url><url>
     <loc>https://docs.altinn.studio/app/development/configuration/queryparameters/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/development/configuration/queryparameters/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/development/configuration/queryparameters/"
+                />
   </url><url>
     <loc>https://docs.altinn.studio/app/getting-started/navigation/repos/</loc>
     <xhtml:link
