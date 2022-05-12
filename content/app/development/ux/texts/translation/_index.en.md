@@ -14,11 +14,21 @@ Under kan man se et eksempel på norsk og engelsk:
 
 ```json
 {
-    "language": "nb",
-    "languageDescription": "Norsk bokmål",
-    "dropdownLabel": "Språk",
-    "resources": [...]
-    ...
+  "language": "nb",
+  "resources": [
+    {
+      "id": "language.selector.label",
+      "value": "Språk"
+    },
+    {
+      "id": "language.full_name.nb",
+      "value": "Norsk bokmål"
+    },
+    {
+      "id": "language.full_name.en",
+      "value": "Engelsk"
+    }
+  ]
 }
 ```
 
@@ -26,18 +36,30 @@ Under kan man se et eksempel på norsk og engelsk:
 
 ```json
 {
-    "language": "en",
-    "languageDescription": "English",
-    "dropdownLabel": "Language",
-    "resources": [...]
-    ...
+  "language": "en",
+  "languageDescription": "English",
+  "dropdownLabel": "Language",
+  "resources": [
+    {
+      "id": "language.selector.label",
+      "value": "Language"
+    },
+    {
+      "id": "language.full_name.nb",
+      "value": "Norwegian bokmål"
+    },
+    {
+      "id": "language.full_name.en",
+      "value": "English"
+    }
+  ]
 }
 ```
 
 ## Aktivere oversettelse
 
 For å kunne utføre oversettelse av tekster i applikasjonen må komponenten aktiveres.
-Ved å legge til feltet `showLanguageDropdown` og sette feletet til `true` i `settings.json` vil en nedtreksmeny være tilgjengelig i applikasjonen.
+Ved å legge til feltet `showLanguageSelector` og sette feletet til `true` i `settings.json` vil en nedtreksmeny være tilgjengelig i applikasjonen.
 
 ```json
 {
@@ -47,7 +69,9 @@ Ved å legge til feltet `showLanguageDropdown` og sette feletet til `true` i `se
     },
     "pages": {
       "order": [...],
-      "showLanguageDropdown": true
+      "showLanguageSelector": true
     }
 }
 ```
+
+Om applikasjonen inneholder flere `layout-sets` og man ønsker muligheten til å oversette alle sider er det viktig at `showLanguageSelector` legges til i alle `Settings.json`.
