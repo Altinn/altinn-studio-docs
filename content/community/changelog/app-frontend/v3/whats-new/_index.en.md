@@ -10,7 +10,7 @@ prefills (or when clicking really fast), the wrong prefills could end up being u
 Issue [#8255](https://github.com/Altinn/altinn-studio/issues/8255).
 
 ## 3.37.0 (2022-05-15) - Support for tracks in stateless apps
-Stateless apps can now utilize tracks. Requires latest updates to nuget packages.
+Stateless apps can now utilize tracks. Requires version 5.1.0 or later of nuget packages.
 Issue [#8347](https://github.com/Altinn/altinn-studio/issues/8347).
 
 ## 3.36.4 (2022-05-10) - Fix in validation of required field in hidden groups (again)
