@@ -95,7 +95,7 @@ eller annen informasjon om sluttbruker til å kalkulere sporvalget.
 
 - *appIdentifier* Inneholder org og app navn for applikasjonen
 
-- *instanceIdentifier* Inneholder InstancePartyOwnerId og InstanceGuid. Hvis applikasjonen er stateless vil dette objectet være blankt (InstanceIdentifier.NoInstance)
+- *instanceIdentifier* Inneholder InstanceOwnerPartyId og InstanceGuid. Hvis applikasjonen er stateless vil dette objektet være blankt (InstanceIdentifier.NoInstance)
 Dersom GetInstanceId kalles på en InstanceIdentifier.NoInstance vil det kastes en Exception.
 
 - *layoutSetId* Dersom appen din definerer flere layout set vil id på det gjeldende layout settet sendes inn.

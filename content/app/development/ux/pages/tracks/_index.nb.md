@@ -55,11 +55,12 @@ For å overstyre standard sporvalg må det gjøres to endringer.
 
 1. Opprette en klasse som implementerer interfacet [IPageOrder](https://github.com/Altinn/app-template-dotnet/blob/main/src/Altinn.App.PlatformServices/Interface/IPageOrder.cs)
 2. Registrere denne klassen som en Transient i Startup.cs
+
 ### Opprette egen klasse for styring av sporvalg
 
-Opprett en ny klasse i din Applikasjon f.eks under mappen App/logic/Pages (mappen er ikke opprettet som standard).
-Denne klassen må implementere Interfacet IPageOrder.
-Interfacet inneholder en metode med navn GetPageOrder. Forventet output fra denne er en sortert liste over navnene på de relevante sidene i applikasjonen.
+Opprett en ny klasse i din applikasjon f.eks under mappen App/logic/Pages (mappen er ikke opprettet som standard).
+Denne klassen må implementere interfacet IPageOrder.
+Interfacet inneholder en metode med navn _GetPageOrder_. Forventet output fra denne er en sortert liste over navnene på de relevante sidene i applikasjonen.
 
 ```cs
 using System;
@@ -93,7 +94,7 @@ eller annen informasjon om sluttbruker til å kalkulere sporvalget.
 
 - *appIdentifier* Inneholder org og app navn for applikasjonen
 
-- *instanceIdentifier* Inneholder InstancePartyOwnerId og InstanceGuid. Hvis applikasjonen er Stateless vil dette objectet være blankt (InstanceIdentifier.NoInstance)
+- *instanceIdentifier* Inneholder InstanceOwnerPartyId og InstanceGuid. Hvis applikasjonen er stateless vil dette objektet være blankt (InstanceIdentifier.NoInstance)
 Dersom GetInstanceId kalles på en InstanceIdentifier.NoInstance vil det kastes en Exception.
 
 - *layoutSetId* Dersom appen din definerer flere layout set vil id på det gjeldende layout settet sendes inn.
