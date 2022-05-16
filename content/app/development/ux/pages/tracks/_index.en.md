@@ -60,7 +60,7 @@ For å overstyre standard sporvalg må det gjøres to endringer.
 ### Opprette egen klasse for styring av sporvalg
 
 Opprett en ny klasse i din applikasjon f.eks under mappen App/logic/Pages (mappen er ikke opprettet som standard).
-Denne klassen må implementere Interfacet IPageOrder.
+Denne klassen må implementere interfacet IPageOrder.
 Interfacet inneholder en metode med navn GetPageOrder. Forventet output fra denne er en sortert liste over navnene på de relevante sidene i applikasjonen.
 
 ```cs
