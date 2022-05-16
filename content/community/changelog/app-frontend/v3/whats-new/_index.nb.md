@@ -11,7 +11,7 @@ kunne feil prefill-verdier bli vist.
 Issue [#8255](https://github.com/Altinn/altinn-studio/issues/8255).
 
 ## 3.37.0 (2022-05-15) - Støtte for sporvalg i tilstandsløse apper
-Tilstandsløse (stateless) apper kan nå benytte sporvalg. Krever siste versjon av nuget-pakker.
+Tilstandsløse (stateless) apper kan nå benytte sporvalg. Krever versjon 5.1.0 eller senere av nuget-pakker.
 Issue [#8347](https://github.com/Altinn/altinn-studio/issues/8347).
 
 ## 3.36.4 (2022-05-10) - Fikset validering av tomme felter for skjulte grupper (igjen)
