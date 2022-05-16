@@ -56,6 +56,7 @@ For å overstyre standard sporvalg må det gjøres to endringer.
 
 1. Opprette en klasse som implementerer interfacet [IPageOrder](https://github.com/Altinn/app-template-dotnet/blob/main/src/Altinn.App.PlatformServices/Interface/IPageOrder.cs)
 2. Registrere denne klassen som en Transient i Startup.cs
+
 ### Opprette egen klasse for styring av sporvalg
 
 Opprett en ny klasse i din Applikasjon f.eks under mappen App/logic/Pages (mappen er ikke opprettet som standard).
