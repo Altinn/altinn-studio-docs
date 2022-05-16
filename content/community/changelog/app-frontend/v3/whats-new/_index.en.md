@@ -4,6 +4,15 @@ description: Overview of changes introduced in v3 of app frontend.
 toc: true
 ---
 
+## 3.37.1 (2022-05-15) - Fix for prefills when using preselectedOptionIndex
+When using `preselectedOptionIndex` on a field which is used to determine later dynamic
+prefills (or when clicking really fast), the wrong prefills could end up being used.
+Issue [#8255](https://github.com/Altinn/altinn-studio/issues/8255).
+
+## 3.37.0 (2022-05-15) - Support for tracks in stateless apps
+Stateless apps can now utilize tracks. Requires latest updates to nuget packages.
+Issue [#8347](https://github.com/Altinn/altinn-studio/issues/8347).
+
 ## 3.36.4 (2022-05-10) - Fix in validation of required field in hidden groups (again)
 After the last fix, released in version 3.35.2, the problem would persist if the fields were hidden individually
 instead of hiding the entire group. This additional vector has now been fixed.
