@@ -34,12 +34,14 @@ Each provider needs a separate setup.
 | AuthorizationEndpoint | Authorization endpoint for issuer |
 | TokenEndpoint | Endpoint where ID-provider generates tokens  |
 | WellKnownConfigEndpoint| Id-provider well known endpoint  |
-| LogoutEndpoint |   |
-| ClientId|    |
-| ExternalIdentityClaim    | Claim that will be used to match the existing user or create a new |
+| LogoutEndpoint | Where to redirect user during logout  |
+| ClientId| Registrated ID |
+| ClientSecret | Registrated secret |
+| Scope | Scopes that will be used when requesting authentication | 
+| ExternalIdentityClaim    | The claim will be used to match the existing user or create a new one. If this ID is the only claim and is not a common identifier like social security number or email address, the user will be anonymous for Altinn.  |
 | UserNamePrefix  |  When generating a new user, this will be the prefix |
 | IncludeIssInRedirectUri  | Identifies if authorization request should cointain ISS in return URL. Needed when IDprovider does not include this |
-| ProviderClaims | Claims that should be copied to Altinn token | 
+| ProviderClaims | Claims that should be copied to Altinn token. This could be identifying users or other properties available in the app code. | 
 
 ```json
 "OidcProviders": {
