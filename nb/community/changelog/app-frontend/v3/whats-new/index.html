@@ -531,6 +531,8 @@ if(host != "localhost")
           </div><div id="body-inner"><h1 class="a-fontBold">Hva er nytt?</h1>
               <p class="a-leadText" id="leadText">Oversikt over endringer som ble introdusert i v3 av app frontend.</p><h2>På denne siden:</h2><nav id="TableOfContents">
   <ul>
+    <li><a href="#3371-2022-05-15---fiks-for-prefill-sammen-med-preselectedoptionindex">3.37.1 (2022-05-15) - Fiks for prefill sammen med preselectedOptionIndex</a></li>
+    <li><a href="#3370-2022-05-15---støtte-for-sporvalg-i-tilstandsløse-apper">3.37.0 (2022-05-15) - Støtte for sporvalg i tilstandsløse apper</a></li>
     <li><a href="#3364-2022-05-10---fikset-validering-av-tomme-felter-for-skjulte-grupper-igjen">3.36.4 (2022-05-10) - Fikset validering av tomme felter for skjulte grupper (igjen)</a></li>
     <li><a href="#3363-2022-05-10---kun-referere-til-beskrivelse-om-denne-finnes">3.36.3 (2022-05-10) - Kun referere til beskrivelse om denne finnes</a></li>
     <li><a href="#3362-2022-05-06---fikset-potensiell-kræsj-etter-valideringsfeil-fra-server">3.36.2 (2022-05-06) - Fikset potensiell kræsj etter valideringsfeil fra server</a></li>
@@ -712,6 +714,14 @@ if(host != "localhost")
 
 
 
+<h2 id="3371-2022-05-15---fiks-for-prefill-sammen-med-preselectedoptionindex">3.37.1 (2022-05-15) - Fiks for prefill sammen med preselectedOptionIndex</h2>
+<p>Om man bruker <code>preselectedOptionIndex</code> på et felt som igjen brukes til å påvirke
+dynamiske prefill-verdier for andre felt (eller om du bare klikker veldig fort),
+kunne feil prefill-verdier bli vist.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/8255">#8255</a>.</p>
+<h2 id="3370-2022-05-15---støtte-for-sporvalg-i-tilstandsløse-apper">3.37.0 (2022-05-15) - Støtte for sporvalg i tilstandsløse apper</h2>
+<p>Tilstandsløse (stateless) apper kan nå benytte sporvalg. Krever versjon 5.1.0 eller senere av nuget-pakker.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/8347">#8347</a>.</p>
 <h2 id="3364-2022-05-10---fikset-validering-av-tomme-felter-for-skjulte-grupper-igjen">3.36.4 (2022-05-10) - Fikset validering av tomme felter for skjulte grupper (igjen)</h2>
 <p>Etter den forrige fiksen lansert i versjon 3.35.2 ble det oppdaget at problemet vedvarte om man skjulte spesifikke
 felter istedenfor hele gruppen. Dette problemet er nå løst.

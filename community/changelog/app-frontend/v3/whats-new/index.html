@@ -1047,6 +1047,8 @@ if(host != "localhost")
           </div><div id="body-inner"><h1 class="a-fontBold">What&#39;s new</h1>
               <p class="a-leadText" id="leadText">Overview of changes introduced in v3 of app frontend.</p><h2>On this page:</h2><nav id="TableOfContents">
   <ul>
+    <li><a href="#3371-2022-05-15---fix-for-prefills-when-using-preselectedoptionindex">3.37.1 (2022-05-15) - Fix for prefills when using preselectedOptionIndex</a></li>
+    <li><a href="#3370-2022-05-15---support-for-tracks-in-stateless-apps">3.37.0 (2022-05-15) - Support for tracks in stateless apps</a></li>
     <li><a href="#3364-2022-05-10---fix-in-validation-of-required-field-in-hidden-groups-again">3.36.4 (2022-05-10) - Fix in validation of required field in hidden groups (again)</a></li>
     <li><a href="#3363-2022-05-10---only-reference-description-if-the-field-exists">3.36.3 (2022-05-10) - Only reference description if the field exists</a></li>
     <li><a href="#3362-2022-05-06---fixed-a-potential-crash-after-failing-validation-from-server">3.36.2 (2022-05-06) - Fixed a potential crash after failing validation from server</a></li>
@@ -1228,6 +1230,13 @@ if(host != "localhost")
 
 
 
+<h2 id="3371-2022-05-15---fix-for-prefills-when-using-preselectedoptionindex">3.37.1 (2022-05-15) - Fix for prefills when using preselectedOptionIndex</h2>
+<p>When using <code>preselectedOptionIndex</code> on a field which is used to determine later dynamic
+prefills (or when clicking really fast), the wrong prefills could end up being used.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/8255">#8255</a>.</p>
+<h2 id="3370-2022-05-15---support-for-tracks-in-stateless-apps">3.37.0 (2022-05-15) - Support for tracks in stateless apps</h2>
+<p>Stateless apps can now utilize tracks. Requires version 5.1.0 or later of nuget packages.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/8347">#8347</a>.</p>
 <h2 id="3364-2022-05-10---fix-in-validation-of-required-field-in-hidden-groups-again">3.36.4 (2022-05-10) - Fix in validation of required field in hidden groups (again)</h2>
 <p>After the last fix, released in version 3.35.2, the problem would persist if the fields were hidden individually
 instead of hiding the entire group. This additional vector has now been fixed.
