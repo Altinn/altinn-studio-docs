@@ -38,7 +38,7 @@ Each provider needs a separate setup.
 | ClientId| Registrated ID |
 | ClientSecret | Registrated secret |
 | Scope | Scopes that will be used when requesting authentication | 
-| ExternalIdentityClaim    | The claim will be used to match the existing user or create a new one. If this ID is the only claim and is not a common identifier like social security number or email address, the user will be anonymous for Altinn.  |
+| ExternalIdentityClaim    | The claim will be used to match the existing user or create a new one. If this ID is the only claim and is not a common identifier like social security number or email address, the user will be anonymous for Altinn. If not set, the expectiont is that there will be a PID claim containing ssn.  |
 | UserNamePrefix  |  When generating a new user, this will be the prefix |
 | IncludeIssInRedirectUri  | Identifies if authorization request should cointain ISS in return URL. Needed when IDprovider does not include this |
 | ProviderClaims | Claims that should be copied to Altinn token. This could be identifying users or other properties available in the app code. | 
