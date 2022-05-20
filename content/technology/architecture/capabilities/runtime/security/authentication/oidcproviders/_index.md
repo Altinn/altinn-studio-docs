@@ -30,7 +30,7 @@ Each provider needs a separate setup.
 
 | Value  | Description
 |----|------|
-|Issuer| The issuer's identification |
+| Issuer| The issuer's identification |
 | AuthorizationEndpoint | Authorization endpoint for issuer |
 | TokenEndpoint | Endpoint where ID-provider generates tokens  |
 | WellKnownConfigEndpoint| Id-provider well known endpoint  |
@@ -41,7 +41,7 @@ Each provider needs a separate setup.
 | ExternalIdentityClaim    | This claim will be used to match the existing user or create a new one. If this ID is the only claim and is not a common identifier like social security number or email address, the user will be anonymous for Altinn. If not set, the expectation is that there will be a PID claim containing ssn.  |
 | UserNamePrefix  |  When generating a new user, this will be the prefix |
 | IncludeIssInRedirectUri  | Identifies if authorization request should cointain ISS in return URL. Needed when IDprovider does not include this |
-| ProviderClaims | Claims that should be copied to Altinn token. This could be identifying users or other properties available in the app code. | 
+| ProviderClaims | Claims that should be copied to Altinn token during exchange process. This could be identifying users or other properties available in the app code. | 
 
 ```json
 "OidcProviders": {
