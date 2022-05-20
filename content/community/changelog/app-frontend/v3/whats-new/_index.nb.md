@@ -4,6 +4,9 @@ description: Oversikt over endringer som ble introdusert i v3 av app frontend.
 toc: true
 ---
 
+## 3.37.2 (2022-05-20) - Oppdaterte avhengigheter
+Oppdaterte eksterne avhengigheter for uke 20 av 2022.
+
 ## 3.37.1 (2022-05-15) - Fiks for prefill sammen med preselectedOptionIndex
 Om man bruker `preselectedOptionIndex` på et felt som igjen brukes til å påvirke
 dynamiske prefill-verdier for andre felt (eller om du bare klikker veldig fort),

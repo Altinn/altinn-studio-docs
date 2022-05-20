@@ -4,6 +4,9 @@ description: Overview of changes introduced in v3 of app frontend.
 toc: true
 ---
 
+## 3.37.2 (2022-05-20) - Dependency patching
+Patching of external dependencies for week 20 of 2022.
+
 ## 3.37.1 (2022-05-15) - Fix for prefills when using preselectedOptionIndex
 When using `preselectedOptionIndex` on a field which is used to determine later dynamic
 prefills (or when clicking really fast), the wrong prefills could end up being used.
