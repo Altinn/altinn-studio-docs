@@ -301,7 +301,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/stateless/"><span>Stateless</span></a></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/deployment/"><span>Deployment</span></a></li></ul></li>
+        <a href="/app/development/configuration/deployment/"><span>Deployment</span></a></li>
+      <li class="dd-item">
+        <a href="/app/development/configuration/authentication/"><span>Autentisering</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/app/development/api/"><span>API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -649,7 +651,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/technology/architecture/capabilities/runtime/security/authentication/authentication-api/"><span>Authentication API</span></a></li>
       <li class="dd-item">
-        <a href="/technology/architecture/capabilities/runtime/security/authentication/jwt-format/"><span>JWT Format</span></a></li></ul></li>
+        <a href="/technology/architecture/capabilities/runtime/security/authentication/jwt-format/"><span>JWT Format</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/capabilities/runtime/security/authentication/oidcproviders/"><span>OIDC Providers</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/technology/architecture/capabilities/runtime/security/authorization/"><span>Authorization</span></a></li>
       <li class="dd-item">
@@ -1070,6 +1074,32 @@ if(host != "localhost")
 </nav>
 
 	</div>
+
+	
+	   <article class="post app">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/app/development/logic/instantiation/">Instantiation</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Introduksjon Applikasjonslogikk knyttet til instansiering kan defineres i InstantiationHandler.cs. For en helt ny app vil det være to funksjoner implementert i denne klassen:
+ RunInstantiationValidation - lag egne sjekker for å avgjøre om en bruker/avgiver får lov til å instansiere. DataCreation - lag tilpasset prefill data.  Egendefinerte valideringsregler for instansiering Som tidligere nevnt, kan sjekker for instansiering defineres i RunInstantiationValidation. Tilgang til Register- og Profile-tjenester er inkludert i InstantiationHandler.cs-filen, som tillater å gjøre sjekker mot disse. <a class="read-more" href="/app/development/logic/instantiation/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
 
 	
 	   <article class="post app">

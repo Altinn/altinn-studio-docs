@@ -1472,6 +1472,18 @@
                 href="https://docs.altinn.studio/nb/app/maintainance/"
                 />
   </url><url>
+    <loc>https://docs.altinn.studio/nb/app/development/configuration/authentication/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/development/configuration/authentication/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/development/configuration/authentication/"
+                />
+  </url><url>
     <loc>https://docs.altinn.studio/nb/app/launched-apps/</loc>
     <xhtml:link
                 rel="alternate"

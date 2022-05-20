@@ -1602,6 +1602,18 @@
                 href="https://docs.altinn.studio/app/maintainance/"
                 />
   </url><url>
+    <loc>https://docs.altinn.studio/app/development/configuration/authentication/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/development/configuration/authentication/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/development/configuration/authentication/"
+                />
+  </url><url>
     <loc>https://docs.altinn.studio/app/launched-apps/</loc>
     <xhtml:link
                 rel="alternate"
@@ -2459,6 +2471,8 @@
     <loc>https://docs.altinn.studio/technology/architecture/requirements/non_functional/</loc>
   </url><url>
     <loc>https://docs.altinn.studio/tags/nuget/</loc>
+  </url><url>
+    <loc>https://docs.altinn.studio/technology/architecture/capabilities/runtime/security/authentication/oidcproviders/</loc>
   </url><url>
     <loc>https://docs.altinn.studio/community/about/open-source/</loc>
     <xhtml:link

@@ -301,7 +301,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/stateless/"><span>Stateless</span></a></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/deployment/"><span>Deployment</span></a></li></ul></li>
+        <a href="/app/development/configuration/deployment/"><span>Deployment</span></a></li>
+      <li class="dd-item">
+        <a href="/app/development/configuration/authentication/"><span>Autentisering</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/app/development/api/"><span>API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -649,7 +651,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/technology/architecture/capabilities/runtime/security/authentication/authentication-api/"><span>Authentication API</span></a></li>
       <li class="dd-item">
-        <a href="/technology/architecture/capabilities/runtime/security/authentication/jwt-format/"><span>JWT Format</span></a></li></ul></li>
+        <a href="/technology/architecture/capabilities/runtime/security/authentication/jwt-format/"><span>JWT Format</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/capabilities/runtime/security/authentication/oidcproviders/"><span>OIDC Providers</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/technology/architecture/capabilities/runtime/security/authorization/"><span>Authorization</span></a></li>
       <li class="dd-item">
@@ -1127,6 +1131,35 @@ Konfigurasjon Dette er helt ny funksjonalitet. Oppsett må gjøres manuelt innti
 	
 	   <article class="post app">
     <header class="post-header">
+        <h2 class="post-title"><a href="/app/development/configuration/authentication/">Konfigurasjon av autentisering</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Autentiseringsnivå Påkrevd autentiseringsnivå settes i XACML Policy som obligation.
+ID-provider Det er mulig å sette at app skal bruke en spesiell ID-provider som ikke er standardvalget. Standarvalg betyr ID-porten / Altinn pålogging.
+De eneste godkjente ID-providerene for øyeblikket er
+ FEIDE UIDP  Bruk av OIDC provider settes i appSettings
+&#34;AppOidcProvider&#34;: &#34;uidp&#34; Les mer om OIDC støtten under arkitektur. <a class="read-more" href="/app/development/configuration/authentication/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post app">
+    <header class="post-header">
         <h2 class="post-title"><a href="/app/development/logic/calculation/">Calculations</a></h2>
     </header>
     <section class="post-excerpt">
@@ -1296,32 +1329,6 @@ Nedenfor vises et eksempel fra en API controller som er lagt til i en gitt app. 
         <p>Denne siden er foreløpig ikke fullstendig, mer informasjon vil komme på et senere tidspunkt.
 En instansiert applikasjon vil ha et tilhørende instans-objekt. Dette objektet inneholder metadata om den spesifikke instansen. Om du ønsker å lære mer om instans og api&rsquo;et rundt så kan du lese teknisk dokumentasjon om dette under API.
 Substatus Som app-eier kan man sette en substatus på instansen, dette for å kunne gi sluttbruker ytterligere informasjon om hvilken tilstand instansen befinner seg i. <a class="read-more" href="/app/development/api/instance/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post app">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/app/development/logic/instantiation/">Instantiation</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Introduksjon Applikasjonslogikk knyttet til instansiering kan defineres i InstantiationHandler.cs. For en helt ny app vil det være to funksjoner implementert i denne klassen:
- RunInstantiationValidation - lag egne sjekker for å avgjøre om en bruker/avgiver får lov til å instansiere. DataCreation - lag tilpasset prefill data.  Egendefinerte valideringsregler for instansiering Som tidligere nevnt, kan sjekker for instansiering defineres i RunInstantiationValidation. Tilgang til Register- og Profile-tjenester er inkludert i InstantiationHandler.cs-filen, som tillater å gjøre sjekker mot disse. <a class="read-more" href="/app/development/logic/instantiation/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          

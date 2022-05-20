@@ -403,7 +403,7 @@
 	"title": "Konfigurasjon",
 	"tags": [],
 	"description": "Konfigurering av ulike aspekter av en app.",
-	"content": "\r\rMeldingsboks\rKonfigurasjon av presentasjon av applikasjonsinstanser i meldingsboksen i Altinn.\n\r\rAutorisasjon\rHvordan definere autorisasjonsregler (tilgangsstyring) for en app.\n\r\rAktørtyper\rHvordan sørge for at kun bestemte typer aktører kan bruke en app.\n\r\rDatafelter på instansobjektet\rKonfigurasjon av datafelter for app.\n\r\rDefinere applikasjonsprosess\rHvordan definere prosessen til en app.\n\r\rQuery parametere\rTilgjengelige query parametere for en app.\n\r\rSecrets\rHow to deal with secrets and sensitive data in an app.\n\r\reFormidling\rHvordan konfigurere eFormidling integrasjon for en app.\n\r\rEvents\rHvordan lage egendefinerte events for en app.\n\r\rSettings og miljøvariabler\rHvordan legge inn konfigurasjon- og miljøspesifikke verdier slik at de er tilgjengelig fra app-koden.\n\r\rKonfigurer appens oppførsel under oppstart\rHvordan konfigurere applikasjonens oppførsel under oppstart av app-frontend\n\r\rStateless applikasjon (innsynstjeneste)\rHvordan legge inn konfigurasjon for å styre oppførsel ved applikasjonens oppstart\n\r\rDeployment\rKonfigurering av deploy og kjøretids oppsett\n\r\r"
+	"content": "\r\rMeldingsboks\rKonfigurasjon av presentasjon av applikasjonsinstanser i meldingsboksen i Altinn.\n\r\rAutorisasjon\rHvordan definere autorisasjonsregler (tilgangsstyring) for en app.\n\r\rAktørtyper\rHvordan sørge for at kun bestemte typer aktører kan bruke en app.\n\r\rDatafelter på instansobjektet\rKonfigurasjon av datafelter for app.\n\r\rDefinere applikasjonsprosess\rHvordan definere prosessen til en app.\n\r\rQuery parametere\rTilgjengelige query parametere for en app.\n\r\rSecrets\rHow to deal with secrets and sensitive data in an app.\n\r\reFormidling\rHvordan konfigurere eFormidling integrasjon for en app.\n\r\rEvents\rHvordan lage egendefinerte events for en app.\n\r\rSettings og miljøvariabler\rHvordan legge inn konfigurasjon- og miljøspesifikke verdier slik at de er tilgjengelig fra app-koden.\n\r\rKonfigurer appens oppførsel under oppstart\rHvordan konfigurere applikasjonens oppførsel under oppstart av app-frontend\n\r\rStateless applikasjon (innsynstjeneste)\rHvordan legge inn konfigurasjon for å styre oppførsel ved applikasjonens oppstart\n\r\rDeployment\rKonfigurering av deploy og kjøretids oppsett\n\r\rKonfigurasjon av autentisering\rNår det gjelder autentisering er det noen konfigurasjoner som kan være aktuell\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/nb/app/development/configuration/messagebox/",
@@ -908,6 +908,13 @@
 	"tags": [],
 	"description": "Applikasjoner i produksjon krever jevnlig vedlikehold og oppdateringer.",
 	"content": "Når applikasjonen er satt i produksjon, vil det oppstå behov for å vedlikeholde applikasjonen. Den vanligste vedlikeholdstypen vil være å oppdatere avhengigheter.\nFor å gjøre en ny versjon av applikasjonen tilgjengelig, produksjonssetter man den på samme måte som vanlig.\nInstanser av appen i brukers innboks vil automatisk oppdateres til å bruke siste versjon av applikasjonen, så det er viktig at man ikke innfører endringer som knekker eksisterende instanser.\n\rOppdatere avhengigheter i app\rHvordan oppdatere avhengigheter i en app.\n\r\r"
+},
+{
+	"uri": "https://docs.altinn.studio/nb/app/development/configuration/authentication/",
+	"title": "Konfigurasjon av autentisering",
+	"tags": [],
+	"description": "Når det gjelder autentisering er det noen konfigurasjoner som kan være aktuell",
+	"content": "Autentiseringsnivå Påkrevd autentiseringsnivå settes i XACML Policy som obligation.\nID-provider Det er mulig å sette at app skal bruke en spesiell ID-provider som ikke er standardvalget. Standarvalg betyr ID-porten / Altinn pålogging.\nDe eneste godkjente ID-providerene for øyeblikket er\n FEIDE UIDP  Bruk av OIDC provider settes i appSettings\n\u0026#34;AppOidcProvider\u0026#34;: \u0026#34;uidp\u0026#34; Les mer om OIDC støtten under arkitektur.\n"
 },
 {
 	"uri": "https://docs.altinn.studio/nb/app/launched-apps/",
