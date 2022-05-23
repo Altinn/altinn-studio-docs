@@ -1761,7 +1761,7 @@
 	"title": "Apps",
 	"tags": [],
 	"description": "Team Apps",
-	"content": "\r\r"
+	"content": "Responsibilities  Roadmap and plans for migration of existing services Mapping out and understand existing service owners services, needs and requirements Follow up and implement migration projects with service owners Specify needs and requirements towards the Studio og Platform teams  \r"
 },
 {
 	"uri": "https://docs.altinn.studio/tags/apps/",
@@ -3559,8 +3559,8 @@
 	"uri": "https://docs.altinn.studio/community/devops/teams/studio/",
 	"title": "Studio",
 	"tags": [],
-	"description": "Team Studio",
-	"content": "\r\r"
+	"description": "Team Studio works mainly on products related to building and developing Altinn 3 applications.",
+	"content": "Responsibilities The Studio team is responsible for the following Altinn 3 products:\n Studio Designer Altinn App  Frontend AppTemplate (backend for Frontend)    This includes building new features, bugfixing, documentation, build and release pipelines, infrastructure and availability and of course making sure it runs in production.\nAltinn Studio Altinn Studio\nKubernetes Wrapper]\nAltinn App Frontend\nAppTemplate\n\r"
 },
 {
 	"uri": "https://docs.altinn.studio/technology/tools/stylecop/",
@@ -3595,7 +3595,7 @@
 	"title": "Teams",
 	"tags": [],
 	"description": "Our DevOps teams",
-	"content": "\r\rApps\rTeam Apps\n\r\rPlatform\rThe Platform DevOps team primarily work on and is responsible for the operations of the Altinn 3 platform applications.\n\r\rStudio\rTeam Studio\n\r\r"
+	"content": "\r\rApps\rTeam Apps\n\r\rPlatform\rThe Platform DevOps team primarily work on and is responsible for the operations of the Altinn 3 platform applications.\n\r\rStudio\rTeam Studio works mainly on products related to building and developing Altinn 3 applications.\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/tags/tech/",
