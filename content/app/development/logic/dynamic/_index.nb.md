@@ -25,7 +25,7 @@ Dersom dynamikken ikke fungerer som forventet, ta en titt på koden som definere
 beregninger eller regler for vis/skjul for å se om det er noe feilhåndtering som mangler.
 {{% /notice%}}
 
-{{%notice warning%}}**MERK**: for å støtte beregning/vis-skjul felter på eldre nettlesere må man skrive 
+{{%notice warning%}}MERK: for å støtte beregning/vis-skjul felter på eldre nettlesere må man skrive 
 javascript koden man legger i `RuleHandler.js` i den versjonen av ECMA-script som den aktuelle nettleseren støtter. 
 For IE11 vil dette være ECMA-script 5. {{%/notice%}}
 
@@ -247,6 +247,36 @@ Et eksempel på en regel som er satt opp for repeterende grupper vises under:
       }
     }
   }
+}
+```
+
+### Nøstede repeterende grupper
+
+Det er også mulig å sette opp dynamikk for nøstede repeterende grupper. Oppsettet likner på repeterende grupper, men man har med et ektra parameter `childGroupId` i `repeatingGroup`-objektet, samt en ekstra indeks-indikator.
+
+Eksempel: 
+
+```json {hl_lines=[8,12,14,15,16]}
+{
+    "data": {
+        "ruleConnection": {},
+        "conditionalRendering": {
+            "hide-nested-group-field": {
+                "selectedFunction": "shouldHide",
+                "inputParams": {
+                    "value": "someGroup{0}.nestedGroup{1}.someField"
+                },
+                "selectedAction": "Hide",
+                "selectedFields": {
+                    "field": "the-component-id{0}{1}"
+                },
+                "repeatingGroup": {
+                    "groupId": "mainGroup",
+                    "childGroupId": "subGroup"
+                }
+            }
+        }
+    }
 }
 ```
 

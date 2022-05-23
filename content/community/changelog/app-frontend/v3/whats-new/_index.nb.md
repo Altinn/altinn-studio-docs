@@ -4,6 +4,42 @@ description: Oversikt over endringer som ble introdusert i v3 av app frontend.
 toc: true
 ---
 
+## 3.37.2 (2022-05-20) - Oppdaterte avhengigheter
+Oppdaterte eksterne avhengigheter for uke 20 av 2022.
+
+## 3.37.1 (2022-05-15) - Fiks for prefill sammen med preselectedOptionIndex
+Om man bruker `preselectedOptionIndex` på et felt som igjen brukes til å påvirke
+dynamiske prefill-verdier for andre felt (eller om du bare klikker veldig fort),
+kunne feil prefill-verdier bli vist.
+Issue [#8255](https://github.com/Altinn/altinn-studio/issues/8255).
+
+## 3.37.0 (2022-05-15) - Støtte for sporvalg i tilstandsløse apper
+Tilstandsløse (stateless) apper kan nå benytte sporvalg. Krever versjon 5.1.0 eller senere av nuget-pakker.
+Issue [#8347](https://github.com/Altinn/altinn-studio/issues/8347).
+
+## 3.36.4 (2022-05-10) - Fikset validering av tomme felter for skjulte grupper (igjen)
+Etter den forrige fiksen lansert i versjon 3.35.2 ble det oppdaget at problemet vedvarte om man skjulte spesifikke
+felter istedenfor hele gruppen. Dette problemet er nå løst.
+Issue [#6398](https://github.com/Altinn/altinn-studio/issues/6398).
+
+## 3.36.3 (2022-05-10) - Kun referere til beskrivelse om denne finnes
+Fikset en feil hvor komponenter hadde satt `aria-describedby` til et element som ikke fantes.
+Issue [#23](https://github.com/Altinn/app-frontend-react/issues/23).
+
+## 3.36.2 (2022-05-06) - Fikset potensiell kræsj etter valideringsfeil fra server
+Fikser en nylig introdusert feil hvor en feilende validering fra serversiden kunne føre til at appen stoppet.
+Issue [#8481](https://github.com/Altinn/altinn-studio/issues/8481).  
+Oppdaterte eksterne avhengigheter for uke 18 av 2022.
+
+## 3.36.1 (2022-05-06) - Fikset validering av tomme felter for flerside repeterende grupper
+Fikser en feil hvor påkrevde felter i en flerside repeterende gruppe førte til en feilmelding
+selv om man ikke hadde lagt til en instans av den repeterende gruppen.
+Issue [#7478](https://github.com/Altinn/altinn-studio/issues/7478).
+
+## 3.36.0 (2022-05-03) - Støtte for dynamikk i nøstede repeterende grupper
+La til støtte for dynamikk i nøstede repeterende grupper.
+Issue [#55](https://github.com/Altinn/app-frontend-react/issues/55).
+
 ## 3.35.2 (2022-05-02) - Fikset validering av tomme felter for skjulte grupper
 Fikser en feil hvor skjuling av en (ikke-repeterende) gruppe med obligatoriske felter kunne føre til valideringsfeil med
 beskjed om at noen usynlige felter ikke var fyllt ut.
