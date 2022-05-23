@@ -4,6 +4,10 @@ description: Oversikt over endringer som ble introdusert i v3 av app frontend.
 toc: true
 ---
 
+{{%notice info%}}
+Endringslogg for versjoner 3.37.3 og nyere ligger [her](https://github.com/Altinn/app-frontend-react/releases).
+{{%/notice%}}
+
 ## 3.37.2 (2022-05-20) - Oppdaterte avhengigheter
 Oppdaterte eksterne avhengigheter for uke 20 av 2022.
 

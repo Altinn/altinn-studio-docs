@@ -4,6 +4,10 @@ description: Overview of changes introduced in v3 of app frontend.
 toc: true
 ---
 
+{{%notice info%}}
+Changelog for versions 3.37.3 and newer can be found [here](https://github.com/Altinn/app-frontend-react/releases).
+{{%/notice%}}
+
 ## 3.37.2 (2022-05-20) - Dependency patching
 Patching of external dependencies for week 20 of 2022.
 
