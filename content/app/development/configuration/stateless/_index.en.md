@@ -118,7 +118,7 @@ App frontend vil så skjønne ut fra konfigurasjonen i `applicationmetadata.json
 {{%notice warning%}}
 OBS! Skjemakomponenter som påvirker prosess (knapp for innsending eller instansiering) er ikke støttet for anonyme brukere!
 
-**MERK:** for å benytte denne funksjonaliteten må man versjon >= 5.0.0 av nugetpakkene `Altinn.App.PlatformServices`, `Altinn.App.Common` og `Altinn.App.Api`.
+**MERK:** for å benytte denne funksjonaliteten må man bruke versjon >= 5.1.0 av nugetpakkene `Altinn.App.PlatformServices`, `Altinn.App.Common` og `Altinn.App.Api`.
 
 {{%/notice%}}
 
