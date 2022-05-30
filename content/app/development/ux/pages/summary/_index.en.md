@@ -70,6 +70,10 @@ Oppsummering støttes også for repeterende grupper _inne i_ repeterende grupper
 grupper i grupper. I dette tilfellet vises oppsummeringen av hvert innslag av gruppen på øverst nivå som en
 egen [kategori](#kategorier), og gruppen på nederste nivå vises på samme måte som vanlige repeterende
 grupper.
+
+For å støtte oppsummeringsvisning av gruppe i gruppe må gjøre følgende oppsett i layout-filen:
+- Referere til _hovedgruppen_ i `componentRef` i Summary-komponenten
+- Sette `"largeGroup": true` på Summary-komponenten 
 ![Oppsummering repeterende grupper i grupper](nested-group-summary.png "Oppsummering repeterende grupper i grupper")
 
 ## Kategorier
