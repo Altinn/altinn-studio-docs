@@ -74,6 +74,63 @@ grupper.
 For å støtte oppsummeringsvisning av gruppe i gruppe må gjøre følgende oppsett i layout-filen:
 - Referere til _hovedgruppen_ i `componentRef` i Summary-komponenten
 - Sette `"largeGroup": true` på Summary-komponenten 
+
+#### Eksempel
+Med følgende oppsett av gruppe i gruppe i layout:
+
+```json
+{
+  "id": "main-group",
+  "type": "Group",
+  "textResourceBindings": {
+    "title": "Hovedgruppe"
+  },
+  "dataModelBindings": {
+    "group": "model.mainGroup"
+  },
+  "children": [
+    "nested-group-1"
+  ],
+  ... // resterende oppsett av komponent
+},
+{
+  "id": "nested-group-1",
+  "type": "Group",
+  "textResourceBindings": {
+    "title": "Undergruppe"
+  },
+  "dataModelBindings": {
+    "group": "model.mainGroup.subGroup"
+  },
+  "children": [
+    "input-field-1"
+  ],
+  ... // resterende oppsett av komponent
+},
+{
+  "id": "input-field-1",
+  "type": "Input",
+  "textResourceBindings": {
+    "title": "Skriv inn noe her"
+  },
+  "dataModelBindings": {
+    "group": "model.mainGroup.subGroup.field1"
+  },
+  ... // resterende oppsett av komponent
+}
+```
+
+Setter man opp oppsummering på følgende måte:
+```json {hl_lines=[6]}
+{
+  "id": "summary-1",
+  "type": "Summary",
+  "componentRef": "main-group",
+  "pageRef": "FormLayout",
+  "largeGroup": true,
+}
+```
+
 ![Oppsummering repeterende grupper i grupper](nested-group-summary.png "Oppsummering repeterende grupper i grupper")
 
 ## Kategorier
