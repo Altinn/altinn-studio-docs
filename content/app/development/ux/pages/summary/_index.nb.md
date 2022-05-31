@@ -7,7 +7,7 @@ weight: 30
 ---
 
 {{%notice warning%}}
-Dette er helt ny funksjonalitet. Oppsett må gjøres manuelt inntil videre. Støtte for oppsett via Altinn Studio kommer snart.
+Dette er helt ny funksjonalitet. Oppsett må gjøres manuelt inntil videre. Støtte for oppsett via Altinn Studio kommer på et senere tidspunkt.
 
 **MERK**: PDF-genereringen har per nå ikke støtte for oppsummerings-komponenten. For at PDF-generering skal fungere må enten alle oppsummerings-komponentene, eller hele oppsummerings-siden(e) ekskluderes fra PDF. Dette gjøres i `Settings.json`-filen knyttet til layout-filene. 
 {{%/notice%}}
@@ -69,6 +69,67 @@ Oppsummering støttes også for repeterende grupper _inne i_ repeterende grupper
 grupper i grupper. I dette tilfellet vises oppsummeringen av hvert innslag av gruppen på øverst nivå som en
 egen [kategori](#kategorier), og gruppen på nederste nivå vises på samme måte som vanlige repeterende
 grupper.
+
+For å støtte oppsummeringsvisning av gruppe i gruppe må gjøre følgende oppsett i layout-filen:
+- Referere til _hovedgruppen_ i `componentRef` i Summary-komponenten
+- Sette `"largeGroup": true` på Summary-komponenten 
+
+#### Eksempel
+Med følgende oppsett av gruppe i gruppe i layout:
+
+```json
+{
+  "id": "main-group",
+  "type": "Group",
+  "textResourceBindings": {
+    "title": "Hovedgruppe"
+  },
+  "dataModelBindings": {
+    "group": "model.mainGroup"
+  },
+  "children": [
+    "nested-group-1"
+  ],
+  ... // resterende oppsett av komponent
+},
+{
+  "id": "nested-group-1",
+  "type": "Group",
+  "textResourceBindings": {
+    "title": "Undergruppe"
+  },
+  "dataModelBindings": {
+    "group": "model.mainGroup.subGroup"
+  },
+  "children": [
+    "input-field-1"
+  ],
+  ... // resterende oppsett av komponent
+},
+{
+  "id": "input-field-1",
+  "type": "Input",
+  "textResourceBindings": {
+    "title": "Skriv inn noe her"
+  },
+  "dataModelBindings": {
+    "group": "model.mainGroup.subGroup.field1"
+  },
+  ... // resterende oppsett av komponent
+}
+```
+
+Setter man opp oppsummering på følgende måte:
+```json {hl_lines=[6]}
+{
+  "id": "summary-1",
+  "type": "Summary",
+  "componentRef": "main-group",
+  "pageRef": "FormLayout",
+  "largeGroup": true,
+}
+```
+
 ![Oppsummering repeterende grupper i grupper](nested-group-summary.png "Oppsummering repeterende grupper i grupper")
 
 ## Kategorier
