@@ -368,7 +368,7 @@
 	"title": "Community",
 	"tags": [],
 	"description": "Building Altinn together, in the open.",
-	"content": "\r\rAbout Altinn 3\rAltinn 3 is the third generation platform for developing and hosting digital services.\n\r\rContribute to the development of Altinn\rDiscover how to contribute to Altinn Studio and the rest of Altinn 3.\n\r\rChangelog\rOverview of changes introduced into Altinn 3.\n\r\rRoadmap for Altinn\rHigh level roadmap and functional description for Altinn.\n\r\rDevOps\rHow we do DevOps\n\r\rPresentations and Altinn Coffee\rThe Altinn-kaffe meeting series is a low threshold meeting series, where app owners (and potential app owners) can learn more about what we\u0026#39;re doing in Altinn 3. It\u0026#39;s also designed to gather information on how Altinn can help app owners realise their Altinn 3 potential. Slides mainly in Norwegian.\n\r\r"
+	"content": "\r\rAbout Altinn 3\rAltinn 3 is the third generation platform for developing and hosting digital services.\n\r\rContribute to the development of Altinn\rDiscover how to contribute to Altinn Studio and the rest of Altinn 3.\n\r\rChangelog\rOverview of changes introduced into Altinn 3.\n\r\rRoadmap for Altinn\rHigh level roadmap and functional description for Altinn.\n\r\rDevOps\rHow we do DevOps.\n\r\rPresentations and Altinn Coffee\rThe Altinn-kaffe meeting series is a low threshold meeting series, where app owners (and potential app owners) can learn more about what we\u0026#39;re doing in Altinn 3. It\u0026#39;s also designed to gather information on how Altinn can help app owners realise their Altinn 3 potential. Slides mainly in Norwegian.\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/app/design/guidelines/",
@@ -2334,8 +2334,8 @@
 	"uri": "https://docs.altinn.studio/community/devops/",
 	"title": "DevOps",
 	"tags": [],
-	"description": "How we do DevOps",
-	"content": "Fullscreen\n\rRoadmap prosess\rHvordan jobber vi med vår roadmap\n\r\rTeams\rOur DevOps teams\n\r\r"
+	"description": "How we do DevOps.",
+	"content": "\r\rFullscreen\n\rRoadmap prosess\rHvordan jobber vi med vår roadmap\n\r\rTeams\rOur DevOps teams\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/tags/devops/",
