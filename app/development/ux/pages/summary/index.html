@@ -1061,7 +1061,7 @@ if(host != "localhost")
 
 
 <div class="notices warning" >
-Dette er helt ny funksjonalitet. Oppsett må gjøres manuelt inntil videre. Støtte for oppsett via Altinn Studio kommer snart.
+Dette er helt ny funksjonalitet. Oppsett må gjøres manuelt inntil videre. Støtte for oppsett via Altinn Studio kommer på et senere tidspunkt..
 <p><strong>MERK</strong>: PDF-genereringen har per nå ikke støtte for oppsummerings-komponenten. For at PDF-generering skal fungere må enten alle oppsummerings-komponentene, eller hele oppsummerings-siden(e) ekskluderes fra PDF. Dette gjøres i <code>Settings.json</code>-filen knyttet til layout-filene.</p>
 </div>
 <h2 id="oppsett">Oppsett</h2>
@@ -1102,8 +1102,62 @@ komponenten.</p>
 <p>Oppsummering støttes også for repeterende grupper <em>inne i</em> repeterende grupper. Vi støtter kun ett nivå av 
 grupper i grupper. I dette tilfellet vises oppsummeringen av hvert innslag av gruppen på øverst nivå som en
 egen <a href="#kategorier">kategori</a>, og gruppen på nederste nivå vises på samme måte som vanlige repeterende
-grupper.
-<img src="nested-group-summary.png" alt="Oppsummering repeterende grupper i grupper" title="Oppsummering repeterende grupper i grupper"></p>
+grupper.</p>
+<p>For å støtte oppsummeringsvisning av gruppe i gruppe må gjøre følgende oppsett i layout-filen:</p>
+<ul>
+<li>Referere til <em>hovedgruppen</em> i <code>componentRef</code> i Summary-komponenten</li>
+<li>Sette <code>&quot;largeGroup&quot;: true</code> på Summary-komponenten</li>
+</ul>
+<h4 id="eksempel">Eksempel</h4>
+<p>Med følgende oppsett av gruppe i gruppe i layout:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;main-group&#34;</span>,
+  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Group&#34;</span>,
+  <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+    <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;Hovedgruppe&#34;</span>
+  },
+  <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {
+    <span style="color:#ff79c6">&#34;group&#34;</span>: <span style="color:#f1fa8c">&#34;model.mainGroup&#34;</span>
+  },
+  <span style="color:#ff79c6">&#34;children&#34;</span>: [
+    <span style="color:#f1fa8c">&#34;nested-group-1&#34;</span>
+  ],
+  ... // resterende oppsett av komponent
+},
+{
+  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;nested-group-1&#34;</span>,
+  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Group&#34;</span>,
+  <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+    <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;Undergruppe&#34;</span>
+  },
+  <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {
+    <span style="color:#ff79c6">&#34;group&#34;</span>: <span style="color:#f1fa8c">&#34;model.mainGroup.subGroup&#34;</span>
+  },
+  <span style="color:#ff79c6">&#34;children&#34;</span>: [
+    <span style="color:#f1fa8c">&#34;input-field-1&#34;</span>
+  ],
+  ... // resterende oppsett av komponent
+},
+{
+  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;input-field-1&#34;</span>,
+  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Input&#34;</span>,
+  <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+    <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;Skriv inn noe her&#34;</span>
+  },
+  <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {
+    <span style="color:#ff79c6">&#34;group&#34;</span>: <span style="color:#f1fa8c">&#34;model.mainGroup.subGroup.field1&#34;</span>
+  },
+  ... // resterende oppsett av komponent
+}
+</code></pre></div><p>Setter man opp oppsummering på følgende måte:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;summary-1&#34;</span>,
+  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Summary&#34;</span>,
+  <span style="color:#ff79c6">&#34;componentRef&#34;</span>: <span style="color:#f1fa8c">&#34;main-group&#34;</span>,
+  <span style="color:#ff79c6">&#34;pageRef&#34;</span>: <span style="color:#f1fa8c">&#34;FormLayout&#34;</span>,
+<span style="display:block;width:100%;background-color:#3d3f4a">  <span style="color:#ff79c6">&#34;largeGroup&#34;</span>: <span style="color:#ff79c6">true</span>,
+</span>}
+</code></pre></div><figure><a href="nested-group-summary.png"><img src="nested-group-summary.png" alt="Oppsummering repeterende grupper i grupper" title="Oppsummering repeterende grupper i grupper" /></a><figcaption><h4>Oppsummering repeterende grupper i grupper</h4></figcaption></figure>
 <h2 id="kategorier">Kategorier</h2>
 <p>Det er mulig å gruppere oppsummeringene i forskjellige kategorier, for å gjøre en ev. oppsummeringsside
 mer oversiktlig. Dette gjøres ved å bruke den eksisterende <em>gruppe</em>-komponenten, uten å sette den opp
