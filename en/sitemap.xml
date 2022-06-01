@@ -3130,6 +3130,18 @@
                 href="https://docs.altinn.studio/community/changelog/app-nuget/v4/whats-new/"
                 />
   </url><url>
+    <loc>https://docs.altinn.studio/community/changelog/app-nuget/v5/whats-new/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/community/changelog/app-nuget/v5/whats-new/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/community/changelog/app-nuget/v5/whats-new/"
+                />
+  </url><url>
     <loc>https://docs.altinn.studio/community/changelog/deployment/v1/whats-new/</loc>
     <xhtml:link
                 rel="alternate"
