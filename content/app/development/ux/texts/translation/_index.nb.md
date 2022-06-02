@@ -57,6 +57,7 @@ Under kan man se et eksempel på norsk og engelsk:
 
 For å kunne utføre oversettelse av tekster i applikasjonen må komponenten aktiveres.
 Ved å legge til feltet `showLanguageSelector` og sette feletet til `true` i `Settings.json` vil en nedtreksmeny være tilgjengelig i applikasjonen.
+I tillegg må tekstene fra eksemplet over være definert for at nedtreksmenyen skal vises.
 
 ```json
 {
