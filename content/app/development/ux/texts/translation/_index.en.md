@@ -37,8 +37,6 @@ Under kan man se et eksempel på norsk og engelsk:
 ```json
 {
   "language": "en",
-  "languageDescription": "English",
-  "dropdownLabel": "Language",
   "resources": [
     {
       "id": "language.selector.label",
