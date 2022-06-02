@@ -2106,6 +2106,8 @@
                 href="https://docs.altinn.studio/app/testing/local/debug/"
                 />
   </url><url>
+    <loc>https://docs.altinn.studio/community/devops/definition-of-ready/</loc>
+  </url><url>
     <loc>https://docs.altinn.studio/api/authentication/delegate-scopes/</loc>
     <xhtml:link
                 rel="alternate"

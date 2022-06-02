@@ -2254,6 +2254,13 @@
 	"content": "Følgende beskrivelse forutsetter at du har clonet applikasjonen fra Altinn Studio Repositories og har filene liggende på lokal harddisk.\nDebugging i Visual Studio Code For å debugge applikasjonen lokalt må du åpne applikasjonsprosjektet i Visual Studio Code. Velg åpne folder og bla deg frem til hvor repostoriet er lagret på din maskin.\nVelg debugging knappen til venstre i vertikal meny.\nDet er to måter å starte debugging av en applikasjon lokalt:\nStarte appen fra Visual Studio Code (.NET Core Launch) Denne metoden er den enkleste. Her vil Visual Studio Code starte applikasjonen og koble seg til i en og samme prosess\nVelg .NET Core Launch og trykk på den grønne \u0026ldquo;play\u0026rdquo; knappen.\nApplikasjonen vil da starte og han vil spørre om du skal starte en browser. Velg bare close.\nÅpne et browservindu og gå til http://altinn3local.no (forutsetter at du har startet lokal utviklingsplattform).\nStarte appen fra commando vindu Dette forutsetter at du har startet applikasjonen allerede. Gå til folderen hvor applikasjonen ligger og kjør kommando for å starte dotnet prosessen.\nI Visual Studio Code ha åpnet folderen med applikasjonsprosjektet. Attach deg til prosessen som heter Altinn.App.exe\nLegg til Breakpoints og analysere kode Sett breakpoints i code der du vil at debugger skal stoppe\nDer debugger stopper kan du analysere lokale verdier på objekter for å finne ut hvordan kode fungerer og eventuelt finne feil.\nLes mer om debugging i Visual Studio Code i dokumentasjonen til code.\n"
 },
 {
+	"uri": "https://docs.altinn.studio/community/devops/definition-of-ready/",
+	"title": "Definition of Ready",
+	"tags": [],
+	"description": "What needs to be in place before a team starts on a user story/issue",
+	"content": "Definition of Ready (DoR) Definition of Ready (DoR) is used to determine whether work on a user stories is ready to be started. It means it\u0026rsquo;s sufficiently well described and understood by the team to a level where they can provide an estimate and what needs to be done in order to complete the story.\nStories at the top of the product backlog that the team will be pulling into the sprint backlog, must be Ready to avoid misunderstandings and wasted time further down the development process. It does not mean it will be described in 100% detail, but good enough - think 80/20 rule.\nThe Product Owner is responsible for putting the features and stories in the backlog. However, the Team must work with the Product Owner during Backlog Refinement to help them get the stories into actionable shape.\nWhile the focus is on user stories, most of these also applies to technical tasks as well, just remove the bullets not needed (user story format, UX, WCAG). Another difference is that the PO is not responsible for bringing the issue to the table, that\u0026rsquo;s on the development team.\nThe following defines our Definition of Ready  Short descriptive title Description  Consider starting with the format As a [role] I [need] in order to [goal] Consider the INVEST qualities when writing the story Add more details to the story description as needed and as the discussion progresses   User experience and other pre-analysis work is done (if big consider this as separate issues) UX/design sketches is provided Security issues discussed and considered WCAG and ELMER requirements are discussed and considered Acceptance criterias is defined and the story is testable Dependecies to other tasks and user stories is considered Discussed with the team Story points added by the team  "
+},
+{
 	"uri": "https://docs.altinn.studio/api/authentication/delegate-scopes/",
 	"title": "Delegate API Access to a Supplier",
 	"tags": ["translate-to-english"],
@@ -2335,7 +2342,7 @@
 	"title": "DevOps",
 	"tags": [],
 	"description": "How we do DevOps.",
-	"content": "\r\rFullscreen\n\rRoadmap prosess\rHvordan jobber vi med vår roadmap\n\r\rTeams\rOur DevOps teams\n\r\r"
+	"content": "\r\rFullscreen\n\rDefinition of Ready\rWhat needs to be in place before a team starts on a user story/issue\n\r\rRoadmap prosess\rHvordan jobber vi med vår roadmap\n\r\rTeams\rOur DevOps teams\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/tags/devops/",
