@@ -550,7 +550,8 @@ if(host != "localhost")
 <p>En stateless, eller tilstandsløs, applikasjon skiller ser fra standard applikasjoner ved at den ikke lagrer noe data,
 verken skjemadata eller metadata om instanser av applikasjonen. 
 Derfor passer stateless applikasjoner godt som innsynstjenester der en sluttbruker eller et system gjør et oppslag mot en eller annen ressurs
-evt. presenterer data fra en tredjepart basert på hvem brukeren er.</p>
+evt. presenterer data fra en tredjepart basert på hvem brukeren er.
+Det er også mulig å konfigurere en stateless applikasjon til å tillate bruk av anonyme brukere, altså brukere som ikke er pålogget.</p>
 <h2 id="konfigurasjon">Konfigurasjon</h2>
 <div class="notices warning" >
 <p>Dette er helt ny funksjonalitet. Oppsett må gjøres manuelt inntil videre.</p>
@@ -629,7 +630,48 @@ I <code>layout-sets.json</code> legger man så inn det aktuelle settet man refer
 <li>Knapp</li>
 </ul>
 <p>App frontend vil så skjønne ut fra konfigurasjonen i <code>applicationmetadata.json</code> at den ikke skal instansiere, og hente ned de aktuelle layout-filene og den tilkoblede datamodellen og presentere dette til sluttbrukeren.</p>
-<h2 id="datapopulering">Datapopulering</h2>
+<h3 id="konfigurere-tilgang-uten-innlogging">Konfigurere tilgang uten innlogging</h3>
+<div class="notices warning" >
+OBS! Skjemakomponenter som påvirker prosess (knapp for innsending eller instansiering) er ikke støttet for anonyme brukere!
+<p><strong>MERK:</strong> for å benytte denne funksjonaliteten må man bruke versjon &gt;= 5.1.0 av nugetpakkene <code>Altinn.App.PlatformServices</code>, <code>Altinn.App.Common</code> og <code>Altinn.App.Api</code>.</p>
+</div>
+<p>For å tillate bruk av appen for bruker som ikke er innlogget, må man følge stegene som beskrevet over. <em>I tillegg</em> må man definere at den datatypen som er satt opp
+til å brukes for stateless visningen tillater anonym (ikke innlogget) bruk. Dette gjøres ved å modifisere det aktuelle <code>dataType</code>-elementet i <code>applicationMetadata.json</code>.
+Datatypen sitt <code>appLogic</code>-objekt må få en ny innstilling, <code>&quot;allowAnonymousOnStateless&quot;: true</code>. Se eksempel under:</p>
+<pre tabindex="0"><code class="language-json{hl_lines=[24]}" data-lang="json{hl_lines=[24]}">{
+  &quot;id&quot;: &quot;ttd/stateless-app-demo&quot;,
+  &quot;org&quot;: &quot;ttd&quot;,
+  &quot;title&quot;: {
+    &quot;nb&quot;: &quot;Stateless App Demo&quot;
+  },
+  &quot;dataTypes&quot;: [
+    {
+      &quot;id&quot;: &quot;ref-data-as-pdf&quot;,
+      &quot;allowedContentTypes&quot;: [
+        &quot;application/pdf&quot;
+      ],
+      &quot;maxCount&quot;: 0,
+      &quot;minCount&quot;: 0
+    },
+    {
+      &quot;id&quot;: &quot;Stateless&quot;,
+      &quot;allowedContentTypes&quot;: [
+        &quot;application/xml&quot;
+      ],
+      &quot;appLogic&quot;: {
+        &quot;autoCreate&quot;: true,
+        &quot;classRef&quot;: &quot;Altinn.App.Models.StatelessV1&quot;,
+        &quot;allowAnonymousOnStateless&quot;: true,
+      },
+      &quot;taskId&quot;: &quot;Task_1&quot;,
+      &quot;maxCount&quot;: 1,
+      &quot;minCount&quot;: 1
+    }
+  ],
+  ...
+  &quot;onEntry&quot;: { &quot;show&quot;: &quot;stateless&quot; } 
+}
+</code></pre><h2 id="datapopulering">Datapopulering</h2>
 <p>Når man benytter en stateless datatype så vil man kunne populere datamodellen i det app-frontend spør om skjemadataen.</p>
 <p>Datapopuleringen skjer i to steg på det initielle kallet fra frontend (GET):</p>
 <ol>
