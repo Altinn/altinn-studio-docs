@@ -836,6 +836,18 @@
                 href="https://docs.altinn.studio/nb/community/changelog/app-nuget/v4/"
                 />
   </url><url>
+    <loc>https://docs.altinn.studio/nb/community/changelog/app-nuget/v6/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/community/changelog/app-nuget/v6/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/community/changelog/app-nuget/v6/"
+                />
+  </url><url>
     <loc>https://docs.altinn.studio/nb/community/changelog/app-nuget/v3/</loc>
     <xhtml:link
                 rel="alternate"
@@ -1696,6 +1708,18 @@
                 href="https://docs.altinn.studio/nb/community/changelog/app-nuget/v5/breaking-changes/"
                 />
   </url><url>
+    <loc>https://docs.altinn.studio/nb/community/changelog/app-nuget/v6/breaking-changes/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/community/changelog/app-nuget/v6/breaking-changes/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/community/changelog/app-nuget/v6/breaking-changes/"
+                />
+  </url><url>
     <loc>https://docs.altinn.studio/nb/community/changelog/deployment/v1/breaking-changes/</loc>
     <xhtml:link
                 rel="alternate"
@@ -1948,6 +1972,18 @@
                 rel="alternate"
                 hreflang="nb"
                 href="https://docs.altinn.studio/nb/community/changelog/app-nuget/v5/whats-new/"
+                />
+  </url><url>
+    <loc>https://docs.altinn.studio/nb/community/changelog/app-nuget/v6/whats-new/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/community/changelog/app-nuget/v6/whats-new/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/community/changelog/app-nuget/v6/whats-new/"
                 />
   </url><url>
     <loc>https://docs.altinn.studio/nb/community/contributing/handbook/</loc>
@@ -2477,6 +2513,16 @@
                 />
   </url><url>
     <loc>https://docs.altinn.studio/nb/tags/translate-to-norwegian/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/tags/translate-to-norwegian/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/tags/translate-to-norwegian/"
+                />
   </url><url>
     <loc>https://docs.altinn.studio/nb/app/getting-started/navigation/designer/ui-editor/</loc>
     <xhtml:link
