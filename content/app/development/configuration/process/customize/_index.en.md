@@ -2,39 +2,38 @@
 title: Customize Views of Step
 linktitle: Customize Views
 description: How to customize views in different steps of a process.
-tags: [translate-to-english]
+tags: []
 toc: true
 ---
 
-En applikasjon vil ha en prosess som brukeren av applikasjonen vil følge. 
-Avhengig av hvilken type steg brukeren er i, vil forskjellige ting vises. 
-Denne siden vil forklare hvordan visningen til de forskjellige stegene kan tilpasses.
+An application wil have a process which the user of the application follows.
+Depending of the type of step the user is in, different views are presented.
+This page explains the different views and how they can be customized.
 
-## Data (tilsvarer utfyllingssteg i Altinn II)
-I denne prosess-task-typen vises skjema som kan fylles ut.  
-Skjema kan redigeres ved bruk av [UI editoren](../../ui-editor) eller ved å endre `FormLayout.json` direkte.
+## Data 
+In this process task a form which the user can fill in data.
+The form can be edited using the [UI editor](../../ui-editor) or by changing `FormLayout.json` manually.
 
-## Bekreftelse (Confirmation)
-I denne prosess-task-typen vises noen standard-tekster, og bruker kan velge å *bekrefte* for å gå videre.
+## Confirmation
+In this process task some standard texts are presented and the user can choose to *confirm* to go forward.
 
-Tekstene kan overstyres, ved at man legger inn tekstnøkkel som hører til hver tekst i språkfilene for appen. Info
-om hvordan dette gjøres finner du [her](../../tekster). Se under for oversikt over de forskjellige tekstnøklene som kan
-overstyres.
+These texts can be overridden by manually adding each defined text keys in the apps text resources. More information about how this is done can be found [here](../../tekster).
+In the following section we will present an overview of the different texts that can be customized.
 
-I tillegg kan man legge inn statiske data som kan presenteres til sluttbruker, markert med *5* i bildet under. 
+![Confirm view](confirm-step.png "Texts that can be customized in the confirm view")
 
-![Bekreftelses-visningen](texts.png "Tekster som kan endres/overstyres i bekreftelses-visningen")
+### Customize texts
 
-### Overstyre tekster
-
-| Tekst nr. (se bilde over) | Tekstnøkkel         |
+| Text # (see image above)  | Text key            |
 | ------------------------- | ------------------- |
 | 1                         | confirm.title       |
-| 2                         | confirm.body        |
-| 3                         | confirm.attachments |
-| 4                         | confirm.button_text |
+| 2                         | confirm.sender      |
+| 3                         | confirm.body        |
+| 4                         | confirm.answers     |
+| 5                         | confirm.attachments |
+| 6                         | confirm.button_text |
 
-Eksempel på overstyrte tekster i filen `resources.nb.json`:
+Example of custom texts in the file  `resources.nb.json`:
 
 ```json
 {
@@ -55,28 +54,28 @@ Eksempel på overstyrte tekster i filen `resources.nb.json`:
 }
 ```
 
-Merk at i eksempelet over har vi brukt html-taggen `<br/>` for å lage linjeskift.
-For lenke og utheving, [benytt markdown](../../tekster#formatering-av-tekster).
+Note that in the example we have used the html-tag `<br/>` to make a line shift.
+For links and formatting [use markdown](../../tekster#formatering-av-tekster).
 
-Dette resulterer i følgende visning:
+This results in the following view:
 
-![Bekreftelses-visningen](overridden.png "Overstyrte tekster på bekreftelses-visningen")
+![Confirm view](confirm-step-custom.png "Overridden texts in the confirm view")
 
-## Tilbakemelding (Feedback)
-Dette er et prosesssteg hvor applikasjonseier vil sjekke utfylte data for å generere en tilbakemelding før alle data kan arkiveres.
+## Feedback
+This is a process step where the application owner can validate the filled data to generate a feedback before the data is archived.
 
-Tekstene på siden kan overstyres ved at man legger inn tekstnøkler som hører til hver tekst i språkfilene for appen. Info om hvordan dette gjøres finner du [her](../../tekster). Se under for oversikt over de forskjellige tekstnøklene som kan overstyres.
+In the following section we will present an overview of the different texts that can be customized.
 
-![Tilbakemelding-visningen](feedback-default.png "Tekster som kan endres/overstyres i tilbakemelding-visningen")
+![Feedback view](feedback-default.png "Texts that can be customized in the feedback view")
 
-### Overstyre tekster
+### Customize texts
 
-| Tekst nr. (se bilde over) | Tekstnøkkel       |
+| Text # (see image above)  | Text key          |
 | ------------------------- | ----------------- |
 | 1                         | feedback.title    |
 | 2                         | feedback.body     |
 
-Eksempel på overstyrte tekster i filen `resources.nb.json`:
+Example of custom texts in the file  `resources.nb.json`:
 
 ```json
 {

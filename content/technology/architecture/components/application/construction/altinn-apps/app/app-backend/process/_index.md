@@ -24,11 +24,6 @@ BPMN reader is the component that parses BPMN process in apps.
 
 [See github for source code](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Apps/AppTemplates/AspNet/Altinn.App.Common/Process/BpmnReader.cs).
 
-## Process Step App Frontend
-App frontends as a process step module that verifes current state for an app and present the correct view depending on task a app instance
-
-[See github for source code](https://github.com/Altinn/altinn-studio/tree/master/src/Altinn.Apps/AppFrontend/react/altinn-app-frontend/src/components/process-step).
-
 ## App Logic
 When app process changes state app logic is run making it possible for app developers to implements specific app logic.
 

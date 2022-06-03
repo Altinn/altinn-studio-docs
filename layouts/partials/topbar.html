@@ -13,7 +13,7 @@
 
         <!-- Begin .a-globalNav -->
         <nav class="a-globalNav " id="primary-nav">
-          <a href="{{ with .Site.GetPage `/`}}{{.URL}}{{end}}" class="a-globalNav-logo">
+          <a href="{{ with .Site.GetPage `/`}}{{.RelPermalink}}{{end}}" class="a-globalNav-logo">
             <img src="/images/altinnstudio-logo-white.svg" alt="Altinn Studio logo" class="adocs-logo">
             <span class="sr-only">{{ T "to-the-frontpage"}}</span>
           </a>
@@ -25,16 +25,16 @@
                 {{- partial "language-switcher.html" . -}}
               </li>
               <li>
-                <a class="a-nav-link a-hvr-underline" href="{{ with .Site.GetPage `/app`}}{{.URL}}{{end}}">apps</a>
+                <a class="a-nav-link a-hvr-underline" href="{{ with .Site.GetPage `/app`}}{{.RelPermalink}}{{end}}">apps</a>
               </li>
               <li>
-                <a class="a-nav-link a-hvr-underline" href="{{ with .Site.GetPage `/api`}}{{.URL}}{{end}}">api</a>
+                <a class="a-nav-link a-hvr-underline" href="{{ with .Site.GetPage `/api`}}{{.RelPermalink}}{{end}}">api</a>
               </li>
               <li>
-                <a class="a-nav-link a-hvr-underline" href="{{ with .Site.GetPage `/community`}}{{.URL}}{{end}}">community</a>
+                <a class="a-nav-link a-hvr-underline" href="{{ with .Site.GetPage `/community`}}{{.RelPermalink}}{{end}}">community</a>
               </li>
               <li>
-                <a class="a-nav-link a-hvr-underline " href="{{ with .Site.GetPage `/technology`}}{{.URL}}{{end}}">tech</a>
+                <a class="a-nav-link a-hvr-underline " href="{{ with .Site.GetPage `/technology`}}{{.RelPermalink}}{{end}}">tech</a>
               </li>
             </ul>
           </div>

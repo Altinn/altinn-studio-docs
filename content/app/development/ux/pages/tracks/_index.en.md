@@ -50,26 +50,53 @@ navigasjonskomponentene man har i applikasjonen, eller legge til en trigger i `S
 
 Om `triggers` er satt på navigasjonskomponenten vil denne overstyre `triggers` som settes i Settings.json, på denne måten er det mulig å styre default-oppførsel på komponentnivå om ønskelig.
 
-## Sette opp sporvalg backend
+## Sette opp sporvalg backend (nuget versjon > 5.0.0)
 
-I App.cs må man overstyre metoden som henter ut den standardrekkefølgen av sider som er definert i `Settings.json`
-Dette gjøres ved å legge til funksjonen nedenfor i App.cs.
-Forventet output fra denne metoden er en stortert liste som inneholder navnet på de relevante sidene i applikasjonen.
+For å overstyre standard sporvalg må det gjøres to endringer.
+
+1. Opprette en klasse som implementerer interfacet [IPageOrder](https://github.com/Altinn/app-template-dotnet/blob/main/src/Altinn.App.PlatformServices/Interface/IPageOrder.cs)
+2. Registrere denne klassen som en Transient i Startup.cs
+
+### Opprette egen klasse for styring av sporvalg
+
+Opprett en ny klasse i din applikasjon f.eks under mappen App/logic/Pages (mappen er ikke opprettet som standard).
+Denne klassen må implementere interfacet IPageOrder.
+Interfacet inneholder en metode med navn _GetPageOrder_. Forventet output fra denne er en sortert liste over navnene på de relevante sidene i applikasjonen.
 
 ```cs
-/// <inheritdoc />
-public override async Task<List<string>> GetPageOrder(string org, string app, int instanceOwnerId, Guid instanceGuid, string layoutSetId, string currentPage, string dataTypeId, object formData)
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using Altinn.App.Models;
+using Altinn.App.Services.Interface;
+using Altinn.App.PlatformServices.Models;
+
+namespace Altinn.App.AppLogic.Pages
 {
-    List<string> pageOrder = new List<string>();
+    public class CustomOrder : IPageOrder
+    {
+        /// <inheritdoc />
+        public async Task<List<string>> GetPageOrder(AppIdentifier appIdentifier, InstanceIdentifier instanceIdentifier, string layoutSetId, string currentPage, string dataTypeId, object formData)
+        {
+            List<string> pageOrder = new List<string>();
+            
+            // Implementer din logikk her.
+            
+            return await Task.FromResult(pageOrder);
+        }
 
-    // Implement your own logic here
+    }
 
-    return pageOrder;
 }
 ```
 
 Funksjonen får inn en rekke parametere som kan være nyttig dersom man skal benytte skjemadata
 eller annen informasjon om sluttbruker til å kalkulere sporvalget.
+
+- *appIdentifier* Inneholder org og app navn for applikasjonen
+
+- *instanceIdentifier* Inneholder InstanceOwnerPartyId og InstanceGuid. Hvis applikasjonen er stateless vil dette objektet være blankt (InstanceIdentifier.NoInstance)
+Dersom GetInstanceId kalles på en InstanceIdentifier.NoInstance vil det kastes en Exception.
 
 - *layoutSetId* Dersom appen din definerer flere layout set vil id på det gjeldende layout settet sendes inn.
 Dersom applikasjonen ikke har layout set vil denne strengen være tom. Basert på denne parameteren kan man hente
@@ -80,27 +107,30 @@ List<string> pageOrder = new List<string>();
 
 if (string.IsNullOrEmpty(layoutSetId))
 {
-    pageOrder = _appResources.GetLayoutSettings().Pages.Order;
+    pageOrder = _appResourcesService.GetLayoutSettings().Pages.Order;
 }
 else
 {
-    pageOrder = _appResources.GetLayoutSettingsForSet(layoutSetId).Pages.Order;
+    pageOrder = _appResourcesService.GetLayoutSettingsForSet(layoutSetId).Pages.Order;
 }
 ```
 
-Dette forutsetter at servicen `IAppResources` gjøres tilgjengelig i App.cs. 
-Da servicen allerede dependency injectes inn i klasen er det kun to steg som kreves. 
+Dette forutsetter at servicen `IAppResources` gjøres tilgjengelig i klassen. 
+Da servicen allerede er tilgjengelig via dependency injectes inn i klasen er det kun to steg som kreves. 
 
 1. Opprett en privat variabel i staten av klassen.
 
 ```cs
-private readonly IAppResources _appResources;
+private readonly IAppResources _appResourcesService;
 ```
 
-2. Definer den nye private variabelen lik servicen som sendes med i konstruktøren til App.cs
+2. Definer en konstruktør som tar inn IAppResources og setter private variabelen som ble opprettet i steg 1.
 
 ```cs
- _appResources = appResourcesService;
+public CustomOrder(IAppResources appResourcesService)
+{
+    _appResourcesService = appResourcesService;
+}
 ```
 
 - *CurrentPage* Siden man ønsker å navigere fra vil være spesifisert i denne parameteren.
@@ -131,13 +161,16 @@ MERK! Kallet til PDF handler, vist nedenfor, må ikke fjernes fra `FormatPDF` me
 return await _pdfHandler.FormatPdf(layoutSettings, data);
 ```
 
-For å unngå å duplisere logikk vil vi anbefale å lage en privat metode som manipulerer siderekkefølgen basert på skjemadata og kalle denne både fra `FormatPdf`og `GetPageOrder`.
-Et kodeeksempel på en slik implementasjon følger.
+For å unngå å duplisere logikk vil vi anbefale å lage en metode som manipulerer siderekkefølgen basert på skjemadata og kalle denne både fra `FormatPdf`og `GetPageOrder`.
+Et kodeeksempel på en slik implementasjon følger. Denne kan for eksempel legges i samme klasse som implementerer interfacet IPageOrder for å holde alle logikk for rekkefølge på samme sted.
+
+I klassen som implementerer logikk for siderekkefølge:
 
 ```cs
-public override async Task<List<string>> GetPageOrder(string org, string app, int instanceOwnerId, Guid instanceGuid, string layoutSetId, string currentPage, string dataTypeId, object formData)
+public async Task<List<string>> GetPageOrder(AppIdentifier appIdentifier, InstanceIdentifier instanceIdentifier, string layoutSetId, string currentPage, string dataTypeId, object formData)
 {
     List<string> pageOrder = new List<string>();
+
     if (string.IsNullOrEmpty(layoutSetId))
     {
         pageOrder = _appResourcesService.GetLayoutSettings().Pages.Order;
@@ -150,12 +183,7 @@ public override async Task<List<string>> GetPageOrder(string org, string app, in
     return pageOrder;
 }
 
-public override async Task<LayoutSettings> FormatPdf(LayoutSettings layoutSettings, object data)
-{
-    UpdatePageOrder(layoutSettings.Pages.Order, (FavorittArtist)data);
-    return await _pdfHandler.FormatPdf(layoutSettings, data);
-}
-private void UpdatePageOrder(List<string> pageOrder, FavorittArtist formdata)
+public void UpdatePageOrder(List<string> pageOrder, FavorittArtist formdata)
 {
     if (formdata.EnGodNrTo.Contains("Tix"))
     {
@@ -166,4 +194,14 @@ private void UpdatePageOrder(List<string> pageOrder, FavorittArtist formdata)
         pageOrder.Remove("Tix");
     }
 }        
+```
+
+Metoden kalles i sin tur fra metoden `FormatPdf` i `App.cs`
+
+```cs
+public override async Task<LayoutSettings> FormatPdf(LayoutSettings layoutSettings, object data)
+{
+    UpdatePageOrder(layoutSettings.Pages.Order, (FavorittArtist)data);
+    return await _pdfHandler.FormatPdf(layoutSettings, data);
+}
 ```

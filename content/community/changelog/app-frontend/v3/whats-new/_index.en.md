@@ -4,6 +4,146 @@ description: Overview of changes introduced in v3 of app frontend.
 toc: true
 ---
 
+Changelog for app-frontend can now be [found on Github Releases](https://github.com/Altinn/app-frontend-react/releases).
+
+For a high-level overview of [upcoming changes, you can check out the roadmap](https://github.com/Altinn/altinn-roadmap/issues).
+
+## 3.37.2 (2022-05-20) - Dependency patching
+Patching of external dependencies for week 20 of 2022.
+
+## 3.37.1 (2022-05-15) - Fix for prefills when using preselectedOptionIndex
+When using `preselectedOptionIndex` on a field which is used to determine later dynamic
+prefills (or when clicking really fast), the wrong prefills could end up being used.
+Issue [#8255](https://github.com/Altinn/altinn-studio/issues/8255).
+
+## 3.37.0 (2022-05-15) - Support for tracks in stateless apps
+Stateless apps can now utilize tracks. Requires version 5.1.0 or later of nuget packages.
+Issue [#8347](https://github.com/Altinn/altinn-studio/issues/8347).
+
+## 3.36.4 (2022-05-10) - Fix in validation of required field in hidden groups (again)
+After the last fix, released in version 3.35.2, the problem would persist if the fields were hidden individually
+instead of hiding the entire group. This additional vector has now been fixed.
+Issue [#6398](https://github.com/Altinn/altinn-studio/issues/6398).
+
+## 3.36.3 (2022-05-10) - Only reference description if the field exists
+Fixes a bug where components had defined `aria-describedby` to a element that did not exist.
+Issue [#23](https://github.com/Altinn/app-frontend-react/issues/23).
+
+## 3.36.2 (2022-05-06) - Fixed a potential crash after failing validation from server
+Fixes a recently introduced bug where some failing validations passed from the server could crash the app instance.
+Issue [#8481](https://github.com/Altinn/altinn-studio/issues/8481).  
+Patching of external dependencies for week 18 of 2022.
+
+## 3.36.1 (2022-05-06) - Fix in validation of required fields in repeating multi-page groups
+Fixes a bug where required fields inside multi-page repeating groups were being marked with
+errors even when no instances of the repeating group had been added.
+Issue [#7478](https://github.com/Altinn/altinn-studio/issues/7478).
+
+## 3.36.0 (2022-05-03) - Added support for dynamics in nested repeating groups.
+Added support for dynamics in nested repeating groups.
+Issue [#55](https://github.com/Altinn/app-frontend-react/issues/55).
+
+## 3.35.2 (2022-05-02) - Fix in validation of required field in hidden groups
+Fixes a bug where hiding a non-repeating group with required fields could display a message asking the user to fill
+the invisible required fields.
+Issue [#6398](https://github.com/Altinn/altinn-studio/issues/6398).
+
+## 3.35.1 (2022-04-28) - Dependency patching
+Patching of external dependencies for week 17 of 2022.
+
+## 3.35.0 (2022-04-28) - Marking required fields
+Changed default behaviour of marking optional fields to now mark required fields with * as default.
+Optional fields have no marking as default behaviour, but this can be configured using the `labelSettings`
+property of the field, see [here](https://docs.altinn.studio/app/development/ux/fields/settings/).
+
+## 3.34.4 (2022-04-28) - Removed out-of-place heading in receipt when there are no attachments
+When PDF generation has been disabled and there are no attachments, the heading indicating there should follow a list
+of attachments has also been hidden.
+Issue [#8296](https://github.com/Altinn/altinn-studio/issues/8296).
+
+## 3.34.3 (2022-04-28) - Bugfixes for caching of lasted visited view
+Fixes a bug where stateless app would use a shared key for persisting the last visited view. Also fixes an issue where an empty page would be displayed if the persisted layout id was no longer present.
+Issues [#7897](https://github.com/Altinn/altinn-studio/issues/7897) and [#6975](https://github.com/Altinn/altinn-studio/issues/6975).
+
+## 3.34.2 (2022-04-25) - Fixed colors in radio and checkbox
+The colors for radio and checkbox borders were not adhering to accessibility requirements from WCAG 2.1.
+These colors have been adjusted slightly to follow standard theme colors.
+Issue [#11](https://github.com/Altinn/app-frontend-react/issues/11).
+
+## 3.34.1 (2022-04-22) - Fixed invalid HTML attribute in ImageComponent
+The `width` attributte on `img` element can only be [a number that represents px](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-width). We have support for other units, f.ex %. 
+The width declaration was moved to inline styling instead to resolve this issue.
+Issue [#14](https://github.com/Altinn/app-frontend-react/issues/14). 
+
+## 3.34.0 (2022-04-11) - Options from Redux
+Added possibility to setup options from repeating groupes in Redux. Read more on [docs.](https://docs.altinn.studio/app/development/data/options/#options-based-on-repeating-groups-from-redux)
+Issue [#7626](https://github.com/Altinn/altinn-studio/issues/7626). 
+
+## 3.33.5 (2022-04-11) - External dependency patching
+Patched external dependency to fix security issue.
+Pull request [#8371](https://github.com/Altinn/altinn-studio/pull/8371).
+
+## 3.33.4 (2022-03-31) - Webpack 5 + dependency patching
+App frontend is now bundled with webpack 5. Also patched some external dependencies.
+Issue [#5073](https://github.com/Altinn/altinn-studio/issues/5073).
+
+## 3.33.3 (2022-03-25) - Support for defining row or columns for checkbox and radio
+Added support for defining row or columns layout for radio and checkbox.
+Issue [#5730](https://github.com/Altinn/altinn-studio/issues/5730).
+
+## 3.33.2 (2022-03-24) - Adjusted height of inputfields and date picker
+The height of these fields was incorrect. They are now set to 36px height.
+Issue [#7377](https://github.com/Altinn/altinn-studio/issues/7377).
+
+## 3.33.1 (2022-03-23) - Bugfix for dynamic options
+Fixed bug where only fist options fetched when two components reference same optionId but with different mapping.
+Issue [#8292](https://github.com/Altinn/altinn-studio/issues/8292).
+
+## 3.33.0 (2022-03-18) - New text in Confirm view + possible to customize
+New text for `confirm.sender` in confirm view. Now also possible to override this text.
+Issue [#8243](https://github.com/Altinn/altinn-studio/issues/8243).
+
+## 3.32.10 (2022-03-18) - Bugfix for Datepicker
+Fixed a bug where malformed dates would not display any validation message.
+Issue [#8121](https://github.com/Altinn/altinn-studio/issues/8121).
+
+## 3.32.9 (2022-03-10) - Bugfix for attachments in LocalTest
+Attachments are now possible to download in LocalTest.
+Pull request [#7925](https://github.com/Altinn/altinn-studio/pull/7925).
+
+## 3.32.8 (2022-03-04) - Bugfix for Dropdown-component in repeating groups
+Fixed bug where a dropdown component in a repeating group would result in an unknown error.
+Issue [#8169](https://github.com/Altinn/altinn-studio/issues/8169).
+
+## 3.32.7 (2022-03-04) - Dependency patching
+Patching of external dependencies for week 9 of 2022.
+Issue [#8137](https://github.com/Altinn/altinn-studio/issues/8137).
+
+## 3.32.6 (2022-03-02) - Fixes validation on multiple tracks
+Fixed page validation on apps with multiple tracks.
+Issue [#8145](https://github.com/Altinn/altinn-studio/issues/8145).
+
+## 3.32.5 (2022-03-02) - Fixes for text elements
+Multiple fixes for texts and support for markdown in header component.
+Issue [#7874](https://github.com/Altinn/altinn-studio/issues/7874).
+Issue [#7571](https://github.com/Altinn/altinn-studio/issues/7571).
+
+## 3.32.4 (2022-03-01) - UX fixes for mobile view
+Fixed modal header padding in mobile view.
+Issue [#8143](https://github.com/Altinn/altinn-studio/issues/8143).
+
+# 3.32.3 (2022-03-01) - Run frontend rules on backend calculations
+Fixed a bug where frontend rules did not get triggered when a backend calculation has updated a connected field.
+Issue [#8054](https://github.com/Altinn/altinn-studio/issues/8054).
+
+# 3.32.2 (2022-02-28) - Bugfix for address component
+Fixed a bug where address component could get in a bad state and not fetch post place based on zip code.
+Issue [#8130](https://github.com/Altinn/altinn-studio/issues/8130).
+
+# 3.32.1 (2022-02-25) - Bugfix for handling layout name
+Fixed app loading with layout name as data.
+Issue [#8125](https://github.com/Altinn/altinn-studio/issues/8125).
+
 ## 3.32.0 (2022-02-23) - Secure options
 Now possible to setup secure options.
 Issue [#7893](https://github.com/Altinn/altinn-studio/issues/7893).

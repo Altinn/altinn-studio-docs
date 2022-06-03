@@ -129,6 +129,7 @@ parameters defined in the table.
 | Id              | Description                                                                                                |
 | --------------- | ---------------------------------------------------------------------------------------------------------- |
 | serviceId       | Id that specifies the shipment type* [DPO](https://samarbeid.digdir.no/eformidling/offentlige-virksomheter-dpo/149), [DPV](https://samarbeid.digdir.no/eformidling/private-virksomheter-dpv/150), [DPI](https://samarbeid.digdir.no/eformidling/innbyggere-dpi/152) or [DPF](https://samarbeid.digdir.no/eformidling/kommunar-dpf/151) |
+| dpfShipmentType | The DPF shipment type used for routing in the receiving system                                             |
 | process         | Id which wil be included in the scope of the StandardBusinessDocumentHeader**                              |
 | dataTypes       | List of data types to automatically include in the shipment                                                |
 | sendAfterTaskId | Id of the task to be completed before the shipment is sent. We recommend this be a confirmation task       |
@@ -148,6 +149,7 @@ An example of a configuration in application metadata:
 ```json
 "eFormidling": {
     "serviceId": "DPF",
+    "dpfShipmentType": "altinn3.skjema",
     "process": "urn:no:difi:profile:arkivmelding:administrasjon:ver1.0",
     "dataTypes": [ "ref-data-as-pdf" ],
     "sendAfterTaskId": "Task_2",

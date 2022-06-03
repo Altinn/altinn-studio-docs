@@ -12,7 +12,7 @@ Checkbox, Dropdown, and RadioButton components will automatically be able to fet
 ## Static codelists from the application repository
 By adding json based option files in the application repository, the application will automatically read the file and expose it through the options api. For this to work, the files must be placed in the `App/options/` folder and be named according to the following conventions `{optionId}.json` for the application to recgonize them. 
 
-For example if you have a list of countries in a file named `countries.json`, the optionId would be `countries`, and would be exposed through the api at `{org}/{app}/api/options/countires`. The static codelists should be in a special format format as shown below:
+For example if you have a list of countries in a file named `countries.json`, the optionId would be `countries`, and would be exposed through the api at `{org}/{app}/api/options/countries`. The static codelists should be in a special format format as shown below:
 
 
 ```json
@@ -234,3 +234,63 @@ A possible workaround here is to return an empty array when the PDF-generator as
 ```
 Notice that this wil result in the option value and not the label being present as the end users answer.
 {{% /notice%}}
+
+## Options based on repeating groups from Redux
+
+Traditional options are based on resources fetched from the backend. 
+This approach differs a bit from this, as it enables setting up a direct connection from the options to the form data that is stored in app frontend. 
+A use case here would typically be if the user fills out a repeating list of data that should later be selected in a dropdown/checkbox/radiobutton.
+
+### Configuration
+To set up options from redux we have set up a new property on `RadioButtons`, `Checkboxes`, and `Dropdown`-components called `source`. 
+This property contains the fields `group`, `label`, and `value`. Example:
+
+```json
+      {
+        "id": "dropdown-component-id",
+        "type": "Dropdown",
+        ...
+        "source": {
+          "group": "some.group",
+          "label": "dropdown.label",
+          "value": "some.group[{0}].someField"
+        }
+      },
+```
+
+Explanation:
+- **group** - the group field in the data model to base the options on
+- **label** - a reference to a text id to be used as the label for each iteration of the group, see more below.
+- **value** - a reference to a field in the group that should be used as the option value. Notice that we set up this `[{0}]` syntax. Here the `{0}` will be replaced by each index of the group.
+
+Notice that the **value** field must be unique for each element. If the repeating group does not contain a field which is unique for each item it is recommended to add a field to the data model that can be used as identificator, for instance a GUID.
+
+As for the **label** property, we have to define a text resource that can be used as a label for each repetition of the group.
+This follows similar syntax as the **value**, and will also be familiar if you have used [variables in text](../../ux/texts).
+
+Example text resource connected:
+
+```json
+{
+  "language": "nb",
+  "resources": [
+    {
+      "id": "dropdown.label",
+      "value": "Person: {0}, Age: {1}",
+      "variables": [
+        {
+          "key": "some.group[{0}].name",
+          "dataSource": "dataModel.default"
+        },
+        {
+          "key": "some.group[{0}].age",
+          "dataSource": "dataModel.default"
+        }
+      ]
+    }
+  ]
+}
+```
+
+In the example above we have two parameters in the text which is referencing fields in the group. 
+We also recognize the `[{0}]` syntax in the `key` prop which enables the usage of this label for each index in the group.

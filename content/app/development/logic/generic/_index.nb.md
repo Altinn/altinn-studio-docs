@@ -19,8 +19,8 @@ Denne folderen inneholder som standard følgende filer:
 ```C#
 🗀 App/
   🗀 logic/
-    🗀 Calculation/
-      🗎 CalculationHandler.cs
+    🗀 DataProcessing/
+      🗎 DataProcessingHandler.cs
     🗀 Print/
       🗎 PdfHandler.cs
     🗀 Validation/

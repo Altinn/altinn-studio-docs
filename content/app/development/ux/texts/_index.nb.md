@@ -413,3 +413,6 @@ Hvis du for eksempel vil overstyre hjelpeteksten, kan du legge dette til i `conf
 Bildet nedenfor viser hvilke tekstnøkler som styrer hvilken del av brukergrensesnittet:
 
 ![Tekster og tekstnøkler](archive-receipt-texts.png "Tekster og tekstnøkler")
+
+**Merk!** Disse tekstendringene vil **ikke** være synlige når du tester appen din lokalt, de synes kun i eksternt testmiljø, f.eks.**TT02**. Du vil se endringene når du åpner et allerede arkivert skjema fra Arkivet ved å trykke på knappen "Se innsendt skjema". Per nå blir ikke disse modifiserte tekstene brukt under selve innsendingen av skjemaet (det ligger en sak på dette på github).
+![image](https://user-images.githubusercontent.com/42466346/159928882-e3268bd4-6057-4ca5-aaf2-f417cffcc0f9.png)

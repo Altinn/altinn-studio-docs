@@ -23,7 +23,7 @@ Se eksempel: [Starte enkeltpersonforetak](dsf).
 
 Brukeren skal slippe å svare på mer enn nødvendig. Dersom brukeren har svart nei på et spørsmål og du dermed kan 
 skjule flere av stegene for ham, kan du gjøre dette med 
-[dynamisk sporvalg](https://altinn.github.io/docs/altinn-studio/app-creation/ux/sporvalg/).
+[dynamisk sporvalg](../../../development/ux/sporvalg/).
 
 ### Disabled
 Ved å vise skjemafelt som disabled forventer man at brukeren skal vite hvorfor de ikke kan bruke elementet, 
