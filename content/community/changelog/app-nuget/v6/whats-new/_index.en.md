@@ -1,11 +1,11 @@
 ---
 title: What's new
-description: Overview of changes introduced in version 5.
+description: Overview of changes introduced in version 6.
 toc: true
 ---
-## 5.0.0 Dot net 6 upgrade 
+## 6.0.0 .Net 6 upgrade 
 
-Upgradeds App to dotnet 6. See Breaking
+Upgrades App to .Net 6. See Breaking
 
 
 See [breaking changes](../breaking-changes) for how to update you app to be compatible with this version.

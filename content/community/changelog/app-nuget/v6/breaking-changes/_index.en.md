@@ -1,6 +1,6 @@
 ---
 title: Breaking changes
-description: Oversikt over breaking changes introdusert i App Nuget-pakker i v5.0.0.
+description: Oversikt over breaking changes introdusert i App Nuget-pakker i v6.0.0.
 tags: [translate-to-norwegian]
 ---
 
@@ -26,14 +26,14 @@ Follow the instructions below to ensure that the app is compatible with version 
     ```xml
     <TargetFramework>net6.0</TargetFramework>
     ```
-    In the same file, update the Altinn.App.* package references to version 5.0.0.  
+    In the same file, update the Altinn.App.* package references to version 6.0.0.  
 
     ```xml
-    <PackageReference Include="Altinn.App.Api" Version="5.0.0">
+    <PackageReference Include="Altinn.App.Api" Version="6.0.0">
       <CopyToOutputDirectory>lib\$(TargetFramework)\*.xml</CopyToOutputDirectory>
     </PackageReference>
-    <PackageReference Include="Altinn.App.Common" Version="5.0.0" />
-    <PackageReference Include="Altinn.App.PlatformServices" Version="5.0.0" />
+    <PackageReference Include="Altinn.App.Common" Version="6.0.0" />
+    <PackageReference Include="Altinn.App.PlatformServices" Version="6.0.0" />
     ```
 
     The changes in the file should match the image below:
