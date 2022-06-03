@@ -536,7 +536,7 @@ if(host != "localhost")
               <p class="a-leadText" id="leadText">Hvordan legge til dynamisk sporvalg i app</p><h2>På denne siden:</h2><nav id="TableOfContents">
   <ul>
     <li><a href="#trigge-kalkulering-av-sporvalg-fra-frontend">Trigge kalkulering av sporvalg fra frontend</a></li>
-    <li><a href="#sette-opp-sporvalg-backend">Sette opp sporvalg backend</a></li>
+    <li><a href="#sette-opp-sporvalg-backend-nuget-versjon--500">Sette opp sporvalg backend (nuget versjon &gt; 5.0.0)</a></li>
     <li><a href="#reflektere-sporvalg-i-kvittering-pdf">Reflektere sporvalg i kvittering (PDF)</a></li>
   </ul>
 </nav>
@@ -576,25 +576,55 @@ navigasjonskomponentene man har i applikasjonen, eller legge til en trigger i <c
   }
 }
 </code></pre></div><p>Om <code>triggers</code> er satt på navigasjonskomponenten vil denne overstyre <code>triggers</code> som settes i Settings.json, på denne måten er det mulig å styre default-oppførsel på komponentnivå om ønskelig.</p>
-<h2 id="sette-opp-sporvalg-backend">Sette opp sporvalg backend</h2>
-<p>I App.cs må man overstyre metoden som henter ut den standardrekkefølgen av sider som er definert i <code>Settings.json</code>
-Dette gjøres ved å legge til funksjonen nedenfor i App.cs.
-Forventet output fra denne metoden er en stortert liste som inneholder navnet på de relevante sidene i applikasjonen.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#6272a4">/// &lt;inheritdoc /&gt;
-</span><span style="color:#6272a4"></span><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">override</span> <span style="color:#ff79c6">async</span> Task&lt;List&lt;<span style="color:#8be9fd">string</span>&gt;&gt; GetPageOrder(<span style="color:#8be9fd">string</span> org, <span style="color:#8be9fd">string</span> app, <span style="color:#8be9fd">int</span> instanceOwnerId, Guid instanceGuid, <span style="color:#8be9fd">string</span> layoutSetId, <span style="color:#8be9fd">string</span> currentPage, <span style="color:#8be9fd">string</span> dataTypeId, <span style="color:#8be9fd">object</span> formData)
-{
-    List&lt;<span style="color:#8be9fd">string</span>&gt; pageOrder = <span style="color:#ff79c6">new</span> List&lt;<span style="color:#8be9fd">string</span>&gt;();
+<h2 id="sette-opp-sporvalg-backend-nuget-versjon--500">Sette opp sporvalg backend (nuget versjon &gt; 5.0.0)</h2>
+<p>For å overstyre standard sporvalg må det gjøres to endringer.</p>
+<ol>
+<li>Opprette en klasse som implementerer interfacet <a href="https://github.com/Altinn/app-template-dotnet/blob/main/src/Altinn.App.PlatformServices/Interface/IPageOrder.cs">IPageOrder</a></li>
+<li>Registrere denne klassen som en Transient i Startup.cs</li>
+</ol>
+<h3 id="opprette-egen-klasse-for-styring-av-sporvalg">Opprette egen klasse for styring av sporvalg</h3>
+<p>Opprett en ny klasse i din applikasjon f.eks under mappen App/logic/Pages (mappen er ikke opprettet som standard).
+Denne klassen må implementere interfacet IPageOrder.
+Interfacet inneholder en metode med navn <em>GetPageOrder</em>. Forventet output fra denne er en sortert liste over navnene på de relevante sidene i applikasjonen.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">using</span> System;
+<span style="color:#ff79c6">using</span> System.Collections.Generic;
+<span style="color:#ff79c6">using</span> System.Threading.Tasks;
+<span style="color:#ff79c6">using</span> Altinn.App.Models;
+<span style="color:#ff79c6">using</span> Altinn.App.Services.Interface;
+<span style="color:#ff79c6">using</span> Altinn.App.PlatformServices.Models;
 
-    <span style="color:#6272a4">// Implement your own logic here
-</span><span style="color:#6272a4"></span>
-    <span style="color:#ff79c6">return</span> pageOrder;
+<span style="color:#ff79c6">namespace</span> Altinn.App.AppLogic.Pages
+{
+    <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">CustomOrder</span> : IPageOrder
+    {
+        <span style="color:#6272a4">/// &lt;inheritdoc /&gt;
+</span><span style="color:#6272a4"></span>        <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;List&lt;<span style="color:#8be9fd">string</span>&gt;&gt; GetPageOrder(AppIdentifier appIdentifier, InstanceIdentifier instanceIdentifier, <span style="color:#8be9fd">string</span> layoutSetId, <span style="color:#8be9fd">string</span> currentPage, <span style="color:#8be9fd">string</span> dataTypeId, <span style="color:#8be9fd">object</span> formData)
+        {
+            List&lt;<span style="color:#8be9fd">string</span>&gt; pageOrder = <span style="color:#ff79c6">new</span> List&lt;<span style="color:#8be9fd">string</span>&gt;();
+            
+            <span style="color:#6272a4">// Implementer din logikk her.
+</span><span style="color:#6272a4"></span>            
+            <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">await</span> Task.FromResult(pageOrder);
+        }
+
+    }
+
 }
 </code></pre></div><p>Funksjonen får inn en rekke parametere som kan være nyttig dersom man skal benytte skjemadata
 eller annen informasjon om sluttbruker til å kalkulere sporvalget.</p>
 <ul>
-<li><em>layoutSetId</em> Dersom appen din definerer flere layout set vil id på det gjeldende layout settet sendes inn.
+<li>
+<p><em>appIdentifier</em> Inneholder org og app navn for applikasjonen</p>
+</li>
+<li>
+<p><em>instanceIdentifier</em> Inneholder InstanceOwnerPartyId og InstanceGuid. Hvis applikasjonen er stateless vil dette objektet være blankt (InstanceIdentifier.NoInstance)
+Dersom GetInstanceId kalles på en InstanceIdentifier.NoInstance vil det kastes en Exception.</p>
+</li>
+<li>
+<p><em>layoutSetId</em> Dersom appen din definerer flere layout set vil id på det gjeldende layout settet sendes inn.
 Dersom applikasjonen ikke har layout set vil denne strengen være tom. Basert på denne parameteren kan man hente
-ut standard siderekkefølge som er definert i applikasjonen:</li>
+ut standard siderekkefølge som er definert i applikasjonen:</p>
+</li>
 </ul>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">List&lt;<span style="color:#8be9fd">string</span>&gt; pageOrder = <span style="color:#ff79c6">new</span> List&lt;<span style="color:#8be9fd">string</span>&gt;();
 
@@ -606,16 +636,19 @@ ut standard siderekkefølge som er definert i applikasjonen:</li>
 {
     pageOrder = <span style="color:#bd93f9">_</span>appResourcesService.GetLayoutSettingsForSet(layoutSetId).Pages.Order;
 }
-</code></pre></div><p>Dette forutsetter at servicen <code>IAppResources</code> gjøres tilgjengelig i App.cs. 
-Da servicen allerede dependency injectes inn i klasen er det kun to steg som kreves.</p>
+</code></pre></div><p>Dette forutsetter at servicen <code>IAppResources</code> gjøres tilgjengelig i klassen. 
+Da servicen allerede er tilgjengelig via dependency injectes inn i klasen er det kun to steg som kreves.</p>
 <ol>
 <li>Opprett en privat variabel i staten av klassen.</li>
 </ol>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">private</span> <span style="color:#ff79c6">readonly</span> IAppResources <span style="color:#bd93f9">_</span>appResourcesService;
 </code></pre></div><ol start="2">
-<li>Definer den nye private variabelen lik servicen som sendes med i konstruktøren til App.cs</li>
+<li>Definer en konstruktør som tar inn IAppResources og setter private variabelen som ble opprettet i steg 1.</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"> <span style="color:#bd93f9">_</span>appResourcesService = appResourcesService;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">public</span> CustomOrder(IAppResources appResourcesService)
+{
+    <span style="color:#bd93f9">_</span>appResourcesService = appResourcesService;
+}
 </code></pre></div><ul>
 <li>
 <p><em>CurrentPage</em> Siden man ønsker å navigere fra vil være spesifisert i denne parameteren.</p>
@@ -638,11 +671,13 @@ I tillegg får man skjemadataen som er knyttet til steget som skal avsluttes. De
 <p>Ved å manipulere <code>layoutSettings.Pages.Order</code> i denne metoden vil man kunne duplisere de sporvalgene som er gjort for sluttbruker.
 MERK! Kallet til PDF handler, vist nedenfor, må ikke fjernes fra <code>FormatPDF</code> metoden dersom du har implementert ytterlig logikk for kvitteringen i <code>PDFHandler.cs</code>.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">return</span> <span style="color:#ff79c6">await</span> <span style="color:#bd93f9">_</span>pdfHandler.FormatPdf(layoutSettings, data);
-</code></pre></div><p>For å unngå å duplisere logikk vil vi anbefale å lage en privat metode som manipulerer siderekkefølgen basert på skjemadata og kalle denne både fra <code>FormatPdf</code>og <code>GetPageOrder</code>.
-Et kodeeksempel på en slik implementasjon følger.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">override</span> <span style="color:#ff79c6">async</span> Task&lt;List&lt;<span style="color:#8be9fd">string</span>&gt;&gt; GetPageOrder(<span style="color:#8be9fd">string</span> org, <span style="color:#8be9fd">string</span> app, <span style="color:#8be9fd">int</span> instanceOwnerId, Guid instanceGuid, <span style="color:#8be9fd">string</span> layoutSetId, <span style="color:#8be9fd">string</span> currentPage, <span style="color:#8be9fd">string</span> dataTypeId, <span style="color:#8be9fd">object</span> formData)
+</code></pre></div><p>For å unngå å duplisere logikk vil vi anbefale å lage en metode som manipulerer siderekkefølgen basert på skjemadata og kalle denne både fra <code>FormatPdf</code>og <code>GetPageOrder</code>.
+Et kodeeksempel på en slik implementasjon følger. Denne kan for eksempel legges i samme klasse som implementerer interfacet IPageOrder for å holde alle logikk for rekkefølge på samme sted.</p>
+<p>I klassen som implementerer logikk for siderekkefølge:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;List&lt;<span style="color:#8be9fd">string</span>&gt;&gt; GetPageOrder(AppIdentifier appIdentifier, InstanceIdentifier instanceIdentifier, <span style="color:#8be9fd">string</span> layoutSetId, <span style="color:#8be9fd">string</span> currentPage, <span style="color:#8be9fd">string</span> dataTypeId, <span style="color:#8be9fd">object</span> formData)
 {
     List&lt;<span style="color:#8be9fd">string</span>&gt; pageOrder = <span style="color:#ff79c6">new</span> List&lt;<span style="color:#8be9fd">string</span>&gt;();
+
     <span style="color:#ff79c6">if</span> (<span style="color:#8be9fd">string</span>.IsNullOrEmpty(layoutSetId))
     {
         pageOrder = <span style="color:#bd93f9">_</span>appResourcesService.GetLayoutSettings().Pages.Order;
@@ -655,12 +690,7 @@ Et kodeeksempel på en slik implementasjon følger.</p>
     <span style="color:#ff79c6">return</span> pageOrder;
 }
 
-<span style="color:#ff79c6">public</span> <span style="color:#ff79c6">override</span> <span style="color:#ff79c6">async</span> Task&lt;LayoutSettings&gt; FormatPdf(LayoutSettings layoutSettings, <span style="color:#8be9fd">object</span> data)
-{
-    UpdatePageOrder(layoutSettings.Pages.Order, (FavorittArtist)data);
-    <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">await</span> <span style="color:#bd93f9">_</span>pdfHandler.FormatPdf(layoutSettings, data);
-}
-<span style="color:#ff79c6">private</span> <span style="color:#ff79c6">void</span> UpdatePageOrder(List&lt;<span style="color:#8be9fd">string</span>&gt; pageOrder, FavorittArtist formdata)
+<span style="color:#ff79c6">public</span> <span style="color:#ff79c6">void</span> UpdatePageOrder(List&lt;<span style="color:#8be9fd">string</span>&gt; pageOrder, FavorittArtist formdata)
 {
     <span style="color:#ff79c6">if</span> (formdata.EnGodNrTo.Contains(<span style="color:#f1fa8c">&#34;Tix&#34;</span>))
     {
@@ -671,6 +701,12 @@ Et kodeeksempel på en slik implementasjon følger.</p>
         pageOrder.Remove(<span style="color:#f1fa8c">&#34;Tix&#34;</span>);
     }
 }        
+</code></pre></div><p>Metoden kalles i sin tur fra metoden <code>FormatPdf</code> i <code>App.cs</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">override</span> <span style="color:#ff79c6">async</span> Task&lt;LayoutSettings&gt; FormatPdf(LayoutSettings layoutSettings, <span style="color:#8be9fd">object</span> data)
+{
+    UpdatePageOrder(layoutSettings.Pages.Order, (FavorittArtist)data);
+    <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">await</span> <span style="color:#bd93f9">_</span>pdfHandler.FormatPdf(layoutSettings, data);
+}
 </code></pre></div>
 
 <footer class=" footline" >
