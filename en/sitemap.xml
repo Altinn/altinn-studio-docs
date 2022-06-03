@@ -2131,6 +2131,16 @@
                 />
   </url><url>
     <loc>https://docs.altinn.studio/community/devops/definition-of-ready/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/community/devops/definition-of-ready/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/community/devops/definition-of-ready/"
+                />
   </url><url>
     <loc>https://docs.altinn.studio/api/authentication/delegate-scopes/</loc>
     <xhtml:link
@@ -2485,6 +2495,16 @@
     <loc>https://docs.altinn.studio/tags/monitoring/</loc>
   </url><url>
     <loc>https://docs.altinn.studio/tags/needstranslation/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/tags/needstranslation/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/tags/needstranslation/"
+                />
   </url><url>
     <loc>https://docs.altinn.studio/technology/architecture/components/infrastructure/network/</loc>
   </url><url>
