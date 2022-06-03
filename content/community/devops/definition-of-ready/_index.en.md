@@ -1,6 +1,6 @@
 ---
 title: Definition of Ready
-description: What needs to be in place before a team starts on a user story/issue
+description: What needs to be in place before a team starts on a user story/issue.
 ---
 
 ## Definition of Ready (DoR)
@@ -19,6 +19,13 @@ While the focus is on user stories, most of these also applies to technical task
   * Consider the [INVEST](https://www.pivotaltracker.com/blog/how-to-invest-in-your-user-stories) qualities when writing the story
   * Add more details to the story description as needed and as the discussion progresses
 * User experience and other pre-analysis work is done (if big consider this as separate issues)
+* Technical considerations evaluated
+  * Performance
+  * Scalability
+  * Cost (licenses, transactions, resource usage)
+  * Data volume
+  * Azure resources needed
+* Monitoring and alarms
 * UX/design sketches is provided
 * Security issues discussed and considered
 * WCAG and ELMER requirements are discussed and considered
