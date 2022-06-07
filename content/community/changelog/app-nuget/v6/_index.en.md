@@ -1,6 +1,6 @@
 ---
-title: v4
-description: Overview of changes introduced in v4 of the Altinn.App.* packages.
+title: v6
+description: Overview of changes introduced in v6 of the Altinn.App.* packages.
 weight: 98
 ---
 
