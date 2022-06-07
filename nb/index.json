@@ -179,7 +179,7 @@
 	"title": "Endringslogg for app nuget pakker",
 	"tags": [],
 	"description": "Oversikt over endringer introdusert i App Nuget-pakker.",
-	"content": "\rv5\rOversikt over endringer introdusert i v5 av Altinn.App.* pakkene.\n\r\rv4\rOversikt over endringer introdusert i v4 av Altinn.App.* pakkene.\n\r\rv4\rOversikt over endringer introdusert i v6 av Altinn.App.* pakkene.\n\r\rv3\rOversikt over endringer som ble introdusert i v3 av Altinn.App.* pakkene.\n\r\r"
+	"content": "\rv5\rOversikt over endringer introdusert i v5 av Altinn.App.* pakkene.\n\r\rv4\rOversikt over endringer introdusert i v4 av Altinn.App.* pakkene.\n\r\rv6\rOversikt over endringer introdusert i v6 av Altinn.App.* pakkene.\n\r\rv3\rOversikt over endringer som ble introdusert i v3 av Altinn.App.* pakkene.\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/nb/community/contributing/",
@@ -547,10 +547,10 @@
 },
 {
 	"uri": "https://docs.altinn.studio/nb/community/changelog/app-nuget/v6/",
-	"title": "v4",
+	"title": "v6",
 	"tags": [],
 	"description": "Oversikt over endringer introdusert i v6 av Altinn.App.* pakkene.",
-	"content": "\rBreaking changes\rOversikt over breaking changes introdusert i App Nuget-pakker i v6.0.0.\n\r\rHva er nytt?\rOversikt over endringer som ble introdusert i versjon 4.\n\r\r"
+	"content": "\rBreaking changes\rOversikt over breaking changes introdusert i App Nuget-pakker i v6.0.0.\n\r\rHva er nytt?\rOversikt over endringer som ble introdusert i versjon 6.\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/nb/community/changelog/app-nuget/v3/",
@@ -1284,7 +1284,7 @@
 	"uri": "https://docs.altinn.studio/nb/community/changelog/app-nuget/v6/whats-new/",
 	"title": "Hva er nytt?",
 	"tags": ["translate-to-norwegian"],
-	"description": "Oversikt over endringer som ble introdusert i versjon 4.",
+	"description": "Oversikt over endringer som ble introdusert i versjon 6.",
 	"content": "6.0.0 .Net 6 oppgradering Oppdaterer App til .Net 6. Se Breaking\nSe breaking changes for hvordan oppdatere app til å bli kompatibel med denne versjonen.\n"
 },
 {

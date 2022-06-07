@@ -305,7 +305,7 @@
 	"title": "Changelog for app nuget packages",
 	"tags": [],
 	"description": "Overview of changes introduced into app nuget packages.",
-	"content": "\rv5\rOverview of changes introduced in v5 of the Altinn.App.* packages.\n\r\rv4\rOverview of changes introduced in v4 of the Altinn.App.* packages.\n\r\rv4\rOverview of changes introduced in v4 of the Altinn.App.* packages.\n\r\rv3\rOverview of changes introduced in v3 of the Altinn.App.* packages.\n\r\rOlder\rOverview of changes introduced into app nuget packages up to (not including) major version 3.\n\r\r"
+	"content": "\rv5\rOverview of changes introduced in v5 of the Altinn.App.* packages.\n\r\rv4\rOverview of changes introduced in v4 of the Altinn.App.* packages.\n\r\rv6\rOverview of changes introduced in v6 of the Altinn.App.* packages.\n\r\rv3\rOverview of changes introduced in v3 of the Altinn.App.* packages.\n\r\rOlder\rOverview of changes introduced into app nuget packages up to (not including) major version 3.\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/community/contributing/",
@@ -631,9 +631,9 @@
 },
 {
 	"uri": "https://docs.altinn.studio/community/changelog/app-nuget/v6/",
-	"title": "v4",
+	"title": "v6",
 	"tags": [],
-	"description": "Overview of changes introduced in v4 of the Altinn.App.* packages.",
+	"description": "Overview of changes introduced in v6 of the Altinn.App.* packages.",
 	"content": "\rBreaking changes\rOversikt over breaking changes introdusert i App Nuget-pakker i v6.0.0.\n\r\rWhat\u0026#39;s new\rOverview of changes introduced in version 6.\n\r\r"
 },
 {
