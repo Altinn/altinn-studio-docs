@@ -413,6 +413,13 @@
 	"content": "\r\rPresentasjonsfelter\rKonfigurasjon av presentasjonsfelter for app.\n\r\rSkjule instanser\rKonfiurasjon for å skjule instanser fra meldingsboksen.\n\r\r"
 },
 {
+	"uri": "https://docs.altinn.studio/nb/app/development/ux/texts/translation/",
+	"title": "Oversettelse av tekster",
+	"tags": [],
+	"description": "Hvordan oversette tekster i applikasjonen.",
+	"content": "Selve logikken rundt oversettelse av tekster benytter seg av tekst-ressursfiler. Se Tekster for mer informasjon om disse filene. Det er mulig å oversette tekster i applikasjonen ved å legge til flere tekst-ressursfiler. Altså én fil per språk. Under kan man se et eksempel på norsk og engelsk:\nresource.nb.json\n{ \u0026#34;language\u0026#34;: \u0026#34;nb\u0026#34;, \u0026#34;resources\u0026#34;: [ { \u0026#34;id\u0026#34;: \u0026#34;language.selector.label\u0026#34;, \u0026#34;value\u0026#34;: \u0026#34;Språk\u0026#34; }, { \u0026#34;id\u0026#34;: \u0026#34;language.full_name.nb\u0026#34;, \u0026#34;value\u0026#34;: \u0026#34;Norsk bokmål\u0026#34; }, { \u0026#34;id\u0026#34;: \u0026#34;language.full_name.en\u0026#34;, \u0026#34;value\u0026#34;: \u0026#34;Engelsk\u0026#34; } ] } resource.en.json\n{ \u0026#34;language\u0026#34;: \u0026#34;en\u0026#34;, \u0026#34;resources\u0026#34;: [ { \u0026#34;id\u0026#34;: \u0026#34;language.selector.label\u0026#34;, \u0026#34;value\u0026#34;: \u0026#34;Language\u0026#34; }, { \u0026#34;id\u0026#34;: \u0026#34;language.full_name.nb\u0026#34;, \u0026#34;value\u0026#34;: \u0026#34;Norwegian bokmål\u0026#34; }, { \u0026#34;id\u0026#34;: \u0026#34;language.full_name.en\u0026#34;, \u0026#34;value\u0026#34;: \u0026#34;English\u0026#34; } ] } Aktivere oversettelse For å kunne utføre oversettelse av tekster i applikasjonen må komponenten aktiveres. Ved å legge til feltet showLanguageSelector og sette feletet til true i Settings.json vil en nedtreksmeny være tilgjengelig i applikasjonen. I tillegg må tekstene fra eksemplet over være definert for at nedtreksmenyen skal vises.\n{ \u0026#34;$schema\u0026#34;: \u0026#34;https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json\u0026#34;, \u0026#34;components\u0026#34;: { \u0026#34;excludeFromPdf\u0026#34;: [...] }, \u0026#34;pages\u0026#34;: { \u0026#34;order\u0026#34;: [...], \u0026#34;showLanguageSelector\u0026#34;: true } } Om applikasjonen inneholder flere layout-sets og man ønsker muligheten til å oversette alle sider er det viktig at showLanguageSelector legges til i alle Settings.json.\n"
+},
+{
 	"uri": "https://docs.altinn.studio/nb/technology/",
 	"title": "Teknologi",
 	"tags": [],

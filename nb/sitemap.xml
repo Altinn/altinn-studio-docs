@@ -620,6 +620,18 @@
                 href="https://docs.altinn.studio/nb/app/development/configuration/messagebox/"
                 />
   </url><url>
+    <loc>https://docs.altinn.studio/nb/app/development/ux/texts/translation/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/development/ux/texts/translation/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/development/ux/texts/translation/"
+                />
+  </url><url>
     <loc>https://docs.altinn.studio/nb/technology/</loc>
     <xhtml:link
                 rel="alternate"
