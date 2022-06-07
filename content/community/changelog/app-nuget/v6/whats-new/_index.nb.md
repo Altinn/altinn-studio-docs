@@ -1,6 +1,6 @@
 ---
 title: Hva er nytt?
-description: Oversikt over endringer som ble introdusert i versjon 4.
+description: Oversikt over endringer som ble introdusert i versjon 6.
 toc: true
 tags: [translate-to-norwegian]
 ---
