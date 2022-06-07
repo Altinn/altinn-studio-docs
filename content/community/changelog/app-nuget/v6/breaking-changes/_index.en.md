@@ -25,13 +25,13 @@ Follow the instructions below to ensure that the app is compatible with version 
     Update target framework to .Net 5 by replacing 
 
     ```xml
-  <TargetFramework>net5.0</TargetFramework>
-    ```
-    with 
+    <TargetFramework>net5.0</TargetFramework>
+    ```  
+    with  
 
     ```xml
     <TargetFramework>net6.0</TargetFramework>
-    ```
+    ```  
     In the same file, update the Altinn.App.* package references to version 6.0.0.  
 
     ```xml

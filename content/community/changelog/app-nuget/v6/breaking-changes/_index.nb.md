@@ -25,7 +25,7 @@ Follow the instructions below to ensure that the app is compatible with version 
     Update target framework to .Net 5 by replacing 
 
     ```xml
-  <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
     ```
     with 
 
