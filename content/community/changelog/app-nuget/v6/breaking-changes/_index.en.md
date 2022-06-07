@@ -42,9 +42,6 @@ Follow the instructions below to ensure that the app is compatible with version 
     <PackageReference Include="Altinn.App.PlatformServices" Version="6.0.0" />
     ```
 
-    The changes in the file should match the image below:
-
-    ![Changes in App.csproj](appproj-changes.png "Changes in App.csproj")
 
 2. Update Dockerfile to use .Net 6 images
 
@@ -59,7 +56,7 @@ Follow the instructions below to ensure that the app is compatible with version 
     with 
 
     ```Dockerfile
-    FROM mcr.microsoft.com/dotnet/sdk:6.0.102-alpine3.14 AS build
+    FROM mcr.microsoft.com/dotnet/sdk:6.0.102-alpine AS build
     ```
 
     And update the runtime image by replacing 
@@ -71,20 +68,14 @@ Follow the instructions below to ensure that the app is compatible with version 
     with 
 
     ```Dockerfile
-    FROM mcr.microsoft.com/dotnet/aspnet:6.0.2-alpine3.14 AS final
+    FROM mcr.microsoft.com/dotnet/aspnet:6.0.2-alpine AS final
     ```
-    The changes in the file should match the image below:
 
-    ![Changes in the Dockerfile](dockerfile-updates.png "Changes in the Dockerfile")
+3. Update program.cs  
+   The structure of program.cs has changed for dot net 6. Copy code from [this file](https://github.com/Altinn/app-template-dotnet/blob/main/src/App/Program.cs). 
 
-3. Update program.cs
+4. Add custom service referances  
+   If you have already added custom services and other changes to startup.cs and program.cs you need to add it to program.vs
 
-The structure of program.cs has changed for dot net 6. Copy code from [this file](https://github.com/Altinn/app-template-dotnet/blob/main/src/App/Program.cs). 
-
-4. Add custom service referances
-
-If you have already added custom services and other changes to startup.cs and program.cs you need to add it to program.vs
-
-5. Delete startup.cs
-   
+5. Delete startup.cs  
 This is no longer needed
