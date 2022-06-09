@@ -567,56 +567,41 @@ two method calls.</p>
 <p>Update target framework and package dependencies</p>
 <p>Navigate to you application repository and find <code>App.csproj</code> in the <code>App</code> folder.</p>
 <p>Update target framework to .Net 5 by replacing</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"></code></pre></div></li>
-</ol>
-<p><TargetFramework>net5.0</TargetFramework>
-```
-with</p>
-<pre><code>```xml
-&lt;TargetFramework&gt;net6.0&lt;/TargetFramework&gt;
-```
-In the same file, update the Altinn.App.* package references to version 6.0.0.  
-
-```xml
-&lt;PackageReference Include=&quot;Altinn.App.Api&quot; Version=&quot;6.0.0&quot;&gt;
-  &lt;CopyToOutputDirectory&gt;lib\$(TargetFramework)\*.xml&lt;/CopyToOutputDirectory&gt;
-&lt;/PackageReference&gt;
-&lt;PackageReference Include=&quot;Altinn.App.Common&quot; Version=&quot;6.0.0&quot; /&gt;
-&lt;PackageReference Include=&quot;Altinn.App.PlatformServices&quot; Version=&quot;6.0.0&quot; /&gt;
-```
-
-The changes in the file should match the image below:
-
-![Changes in App.csproj](appproj-changes.png &quot;Changes in App.csproj&quot;)
-</code></pre>
-<ol start="2">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;TargetFramework&gt;</span>net5.0<span style="color:#ff79c6">&lt;/TargetFramework&gt;</span>
+</code></pre></div><p>with</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;TargetFramework&gt;</span>net6.0<span style="color:#ff79c6">&lt;/TargetFramework&gt;</span>
+</code></pre></div><p>In the same file, update the Altinn.App.* package references to version 6.0.0.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.Api&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;6.0.0&#34;</span><span style="color:#ff79c6">&gt;</span>
+  <span style="color:#ff79c6">&lt;CopyToOutputDirectory&gt;</span>lib\$(TargetFramework)\*.xml<span style="color:#ff79c6">&lt;/CopyToOutputDirectory&gt;</span>
+<span style="color:#ff79c6">&lt;/PackageReference&gt;</span>
+<span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.Common&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;6.0.0&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+<span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.PlatformServices&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;6.0.0&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+</code></pre></div></li>
 <li>
 <p>Update Dockerfile to use .Net 6 images</p>
 <p>The Dockerfile can be found in the root folder of the application repository.</p>
 <p>Update build image by replacing</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Dockerfile" data-lang="Dockerfile"><span style="color:#ff79c6">FROM</span><span style="color:#f1fa8c"> mcr.microsoft.com/dotnet/sdk:5.0-alpine AS build</span>
 </code></pre></div><p>with</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Dockerfile" data-lang="Dockerfile"><span style="color:#ff79c6">FROM</span><span style="color:#f1fa8c"> mcr.microsoft.com/dotnet/sdk:6.0.102-alpine3.14 AS build</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Dockerfile" data-lang="Dockerfile"><span style="color:#ff79c6">FROM</span><span style="color:#f1fa8c"> mcr.microsoft.com/dotnet/sdk:6.0.102-alpine AS build</span>
 </code></pre></div><p>And update the runtime image by replacing</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Dockerfile" data-lang="Dockerfile"><span style="color:#ff79c6">FROM</span><span style="color:#f1fa8c"> mcr.microsoft.com/dotnet/aspnet:5.0-alpine AS final</span>
 </code></pre></div><p>with</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Dockerfile" data-lang="Dockerfile"><span style="color:#ff79c6">FROM</span><span style="color:#f1fa8c"> mcr.microsoft.com/dotnet/aspnet:6.0.2-alpine3.14 AS final</span>
-</code></pre></div><p>The changes in the file should match the image below:</p>
-<figure><a href="dockerfile-updates.png"><img src="dockerfile-updates.png" alt="Changes in the Dockerfile" title="Changes in the Dockerfile" /></a><figcaption><h4>Changes in the Dockerfile</h4></figcaption></figure>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Dockerfile" data-lang="Dockerfile"><span style="color:#ff79c6">FROM</span><span style="color:#f1fa8c"> mcr.microsoft.com/dotnet/aspnet:6.0.2-alpine AS final</span>
+</code></pre></div></li>
+<li>
+<p>Update program.cs<br>
+The structure of program.cs has changed for dot net 6. Copy code from <a href="https://github.com/Altinn/app-template-dotnet/blob/main/src/App/Program.cs">this file</a>.</p>
 </li>
 <li>
-<p>Update program.cs</p>
+<p>Add custom service referances<br>
+If you have already added custom services and other changes to startup.cs and program.cs you need to add it to program.vs</p>
+</li>
+<li>
+<p>Delete startup.cs<br>
+This is no longer needed</p>
 </li>
 </ol>
-<p>The structure of program.cs has changed for dot net 6. Copy code from <a href="https://github.com/Altinn/app-template-dotnet/blob/main/src/App/Program.cs">this file</a>.</p>
-<ol start="4">
-<li>Add custom service referances</li>
-</ol>
-<p>If you have already added custom services and other changes to startup.cs and program.cs you need to add it to program.vs</p>
-<ol start="5">
-<li>Delete startup.cs</li>
-</ol>
-<p>This is no longer needed</p>
 
 
 <footer class=" footline" >
