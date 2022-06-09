@@ -1670,12 +1670,49 @@
           {
             "name": "language",
             "in": "query",
-            "description": "language nb, en, nn-NO",
+            "description": "Language nb, en, nn",
             "schema": {
               "type": "string"
             }
           }
         ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "deprecated": true
+      },
+      "post": {
+        "tags": [
+          "MessageBoxInstances"
+        ],
+        "summary": "Search through instances to find match based on query params.",
+        "requestBody": {
+          "description": "Object with query-params",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/MessageBoxQueryModel"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MessageBoxQueryModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MessageBoxQueryModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/MessageBoxQueryModel"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "Success"
@@ -2364,6 +2401,9 @@
           "schemaRef": {
             "type": "string",
             "nullable": true
+          },
+          "allowAnonymousOnStateless": {
+            "type": "boolean"
           }
         },
         "additionalProperties": false
@@ -2565,6 +2605,9 @@
           "grouping": {
             "type": "string",
             "nullable": true
+          },
+          "enablePdfCreation": {
+            "type": "boolean"
           }
         },
         "additionalProperties": false
@@ -2587,6 +2630,10 @@
         "type": "object",
         "properties": {
           "serviceId": {
+            "type": "string",
+            "nullable": true
+          },
+          "dpfShipmentType": {
             "type": "string",
             "nullable": true
           },
@@ -2879,6 +2926,80 @@
           }
         },
         "additionalProperties": false
+      },
+      "MessageBoxQueryModel": {
+        "required": [
+          "instanceOwnerPartyIdList"
+        ],
+        "type": "object",
+        "properties": {
+          "instanceOwnerPartyIdList": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "description": "List of instance owner party id(s)"
+          },
+          "appId": {
+            "type": "string",
+            "description": "The application id",
+            "nullable": true
+          },
+          "includeActive": {
+            "type": "boolean",
+            "description": "Boolean indicating whether to include active instances."
+          },
+          "includeArchived": {
+            "type": "boolean",
+            "description": "Boolean indicating whether to include archived instances."
+          },
+          "includeDeleted": {
+            "type": "boolean",
+            "description": "Boolean indicating whether to include deleted instances."
+          },
+          "fromLastChanged": {
+            "type": "string",
+            "description": "Gets or sets the from last changed date.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "toLastChanged": {
+            "type": "string",
+            "description": "Gets or sets the to last changed date.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "fromCreated": {
+            "type": "string",
+            "description": "Gets or sets the from created time.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "toCreated": {
+            "type": "string",
+            "description": "Gets or sets the to created time.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "searchString": {
+            "type": "string",
+            "description": "Search string.",
+            "nullable": true
+          },
+          "archiveReference": {
+            "type": "string",
+            "description": "The archive reference.",
+            "nullable": true
+          },
+          "language": {
+            "type": "string",
+            "description": "Language nb, en, nn",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents queryparams for search from messagebox."
       },
       "OnEntryConfig": {
         "type": "object",

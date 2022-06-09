@@ -138,7 +138,7 @@ I denne oppgaven flyttes fokus tilbake til den første datainnsamlingssiden, og 
 
 ### Krav fra kommunen
 
-- Dersom personen som arbeider i skjemaet selv er tilflytter skal følgende verdier preutfylles:
+- Følgende verdier skal preutfylles for brukeren:
   - Fornavn: Innflytter.Fornavn
   - Mellomnavn: Innflytter.Mellomnavn
   - Etternavn: Innflytter.Etternavn

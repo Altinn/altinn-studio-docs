@@ -10,7 +10,7 @@ aliases:
 
 ## Authentication for application owners
 
-Application owners should be authenticated with [Maskinporten](https://difi.github.io/felleslosninger/maskinporten_overordnet.html).
+Application owners should be authenticated with [Maskinporten](https://www.digdir.no/felleslosninger/maskinporten/869).
 
 ### API provisioning in Maskinporten
 

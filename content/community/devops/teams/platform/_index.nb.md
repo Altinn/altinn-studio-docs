@@ -3,7 +3,7 @@ title: Platform
 description: DevOps teamet Platform jobber hovedsaklig med Altinn 3 sine platform applikasjoner og drift av disse.
 ---
 
-## Arbeidsområde
+## Ansvarsområder
 Platform teamet har ansvar for de fleste felles tjenestene for Altinn 3. Dette inkluderer videreutvikling, retting av feil og mangler, infrastruktur og tilgjengelighet.
 
 [Repository](https://github.com/Altinn/altinn-platform)
