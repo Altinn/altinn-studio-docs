@@ -18,10 +18,11 @@ Definerer om tabellen (som viser alle elementene i gruppen) skal vises når et e
 Følgende verdier godtas:
 
 | Verdi       | Beskrivelse                                                                                                  |
-| ----------- | ------------------------------------------------------------------------------------------------------------ |
+|-------------|--------------------------------------------------------------------------------------------------------------|
 | "showTable" | Standard oppførsel om ingenting er satt. Viser tabellen over flaten for redigering av gruppe-element.        |
 | "hideTable" | Skjuler tabellen når et gruppe-element er åpent for redigering.                                              |
 | "showAll"   | Skjuler tabellen. Viser alle elementene i gruppen i redigerings-modus, under hverandre. Lagre-knapp skjules. |
+| "likert"    | Likert visning.                                                                                              |
 
 ### filter
 Støtte for å filtrere elementene i gruppen, slik at kun de elementene som matcher de definerte kriteriene vises.
