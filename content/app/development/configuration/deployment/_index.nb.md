@@ -16,7 +16,7 @@ Når man skal konfigurere hvordan autoskaleringen oppfører seg må man ta hensy
 
 Vi setter noen standard verdier basert på tester vi har utført og erfaringer vi har gjort oss, disse kan endre seg etter hvert som vi får mer erfaringer over tid.
 
-Standrad verdiene kan du se [her](https://github.com/Altinn/altinn-studio-charts/blob/main/charts/deployment/values.yaml)
+Standard verdiene kan du se [her](https://github.com/Altinn/altinn-studio-charts/blob/main/charts/deployment/values.yaml)
 
 Et eksempel på hvordan du overskriver verdier:
 
