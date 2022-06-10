@@ -4,6 +4,12 @@ description: Overview of changes introduced in v3 of the Altinn.Platform.Storage
 toc: true
 weight: 90
 ---
+
+
+## 3.11.0 Extended models with support for markin a data element for automatic deletion
+- `DataElement` model has been extended with a new property _deleteStatus_.
+- `ApplicationMetadata.AppLogic`  has been extended with a new property _autoDeleteOnProcessEnd_.
+
 ## 3.10.0 Extended ApplicationMetadata/AppLogic with _allowAnonymousOnStateless_ property
 - The `AppLogic` model has been expanded with a new property `allowAnonymousOnStateless`to specify if data type can be accessed anonymously when used in stateless mode. Default is `false` as before and you need to opt in if you would like to enable anonymous access.
 
