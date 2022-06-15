@@ -4,6 +4,29 @@ description: Oversikt over endringer som ble introdusert i versjon 5.
 toc: true
 ---
 
+## 5.3.0 (16.06.2022) - Støtte for automatisk sletting av dataelementer
+
+Denne releasen introduserer støtte for automatisk sletting av dataelementer når prosessen avsluttes. 
+Dette er en måte å begrense sluttbrukers tilgang på data etter at prosessen er avsluttet. 
+
+Konfigurasjon gjøres i `applicationmetadata.json`. 
+Legg til `"autodeleteOnProcessEnd":true` i `appLogic`-seksjonen til datatypen.
+
+En ferdigkonfigurert datatype vil kunne se slik ut: 
+
+```json
+{
+  "id": "VedleggB",
+  "taskId": "Task_1",
+  "maxSize": 25,
+  "maxCount": 1,
+  "minCount": 1,
+  "appLogic": {
+    "autoDeleteOnProcessEnd": true
+  }
+}
+```
+
 ## 5.2.0 (07.06.2022) - Api for hvilke språk som er tilgjengelige
 ### Features
 - Denne releasen introduserer nye api endepunkter som gir informasjon om hvilke språk en applikasjon støtter. Ref. kommende funksjonalitet for å [velge språk](../../../../../app/development/ux/texts/translation/)
