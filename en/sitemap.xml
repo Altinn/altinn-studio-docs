@@ -666,6 +666,18 @@
                 href="https://docs.altinn.studio/app/development/ux/pages/layout-sets/"
                 />
   </url><url>
+    <loc>https://docs.altinn.studio/app/development/ux/components/likert/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/development/ux/components/likert/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/development/ux/components/likert/"
+                />
+  </url><url>
     <loc>https://docs.altinn.studio/app/development/configuration/messagebox/</loc>
     <xhtml:link
                 rel="alternate"

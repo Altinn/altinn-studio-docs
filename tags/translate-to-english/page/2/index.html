@@ -217,7 +217,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/ux/components/"><span>Components</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/app/development/ux/components/panel/"><span>Panel</span></a></li></ul></li>
+        <a href="/app/development/ux/components/panel/"><span>Panel</span></a></li>
+      <li class="dd-item">
+        <a href="/app/development/ux/components/likert/"><span>Likert</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/app/development/ux/pages/"><span>Pages</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -1307,12 +1309,12 @@ Sentralt i løsningen er at man har flere layout-sets som består av en eller fl
 	
 	   <article class="post app">
     <header class="post-header">
-        <h2 class="post-title"><a href="/app/development/ux/texts/translation/">Oversettelse av tekster</a></h2>
+        <h2 class="post-title"><a href="/app/development/ux/components/likert/">Likert</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Selve logikken rundt oversettelse av tekster benytter seg av tekst-ressursfiler. Se Tekster for mer informasjon om disse filene. Det er mulig å oversette tekster i applikasjonen ved å legge til flere tekst-ressursfiler. Altså én fil per språk. Under kan man se et eksempel på norsk og engelsk:
-resource.nb.json
-{ &#34;language&#34;: &#34;nb&#34;, &#34;resources&#34;: [ { &#34;id&#34;: &#34;language.selector.label&#34;, &#34;value&#34;: &#34;Språk&#34; }, { &#34;id&#34;: &#34;language.full_name.nb&#34;, &#34;value&#34;: &#34;Norsk bokmål&#34; }, { &#34;id&#34;: &#34;language.full_name.en&#34;, &#34;value&#34;: &#34;Engelsk&#34; } ] } resource. <a class="read-more" href="/app/development/ux/texts/translation/">&raquo;</a></p>
+        <p>Dette er helt ny funksjonalitet. Oppsett må gjøres manuelt inntil videre. Støtte for oppsett via Altinn Studio kommersnart.Merk at Likert-komponenten kun kan benyttes som del av en repeterende gruppe.
+Desktop og mobil visning Likert komponenten vises som en liste ved smale skjermer og som en tabell ved brede skjermer. Likert utnytter seg av samme konsept som repeterende grupper.
+Eksempel Likert komponenten krever at du har en datamodel med en liste. <a class="read-more" href="/app/development/ux/components/likert/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -1334,11 +1336,12 @@ resource.nb.json
 	
 	   <article class="post app">
     <header class="post-header">
-        <h2 class="post-title"><a href="/app/development/ux/widgets/">Widgets</a></h2>
+        <h2 class="post-title"><a href="/app/development/ux/texts/translation/">Oversettelse av tekster</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Hva er en widget? En widget er en kompleks komponent, sammensatt av en eller flere enkle skjemakomponenter - de skjemakomponentene som er tilgjengelige for bruk i Altinn Studio i dag. En widget er et verktøy i Altinn Studio som gjør det lettere å lage og gjenbruke layouts.
-Hvordan bruke widgets Widgets er tilgjengelige i venstre-menyen i skjemaeditoren i Altinn Studio. Den kan dras inn i skjemasiden på samme måte som andre skjemakomponenter. <a class="read-more" href="/app/development/ux/widgets/">&raquo;</a></p>
+        <p>Selve logikken rundt oversettelse av tekster benytter seg av tekst-ressursfiler. Se Tekster for mer informasjon om disse filene. Det er mulig å oversette tekster i applikasjonen ved å legge til flere tekst-ressursfiler. Altså én fil per språk. Under kan man se et eksempel på norsk og engelsk:
+resource.nb.json
+{ &#34;language&#34;: &#34;nb&#34;, &#34;resources&#34;: [ { &#34;id&#34;: &#34;language.selector.label&#34;, &#34;value&#34;: &#34;Språk&#34; }, { &#34;id&#34;: &#34;language.full_name.nb&#34;, &#34;value&#34;: &#34;Norsk bokmål&#34; }, { &#34;id&#34;: &#34;language.full_name.en&#34;, &#34;value&#34;: &#34;Engelsk&#34; } ] } resource. <a class="read-more" href="/app/development/ux/texts/translation/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
