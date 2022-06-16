@@ -47,7 +47,7 @@ Usted to present to users and org.
 
 **Created by:** The application creates the events when events happen
 
-**Storage** This document is stored in a Cosmos DB in a shared collection. Storage components 
+**Storage** This document is stored in a shared Cosmos DB collection through the Storage component.
 
 ### DataElements
 
