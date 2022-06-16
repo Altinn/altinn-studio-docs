@@ -61,7 +61,7 @@ Usted to present to users and org.
 
 **Usage:** The data is any structured or unstructured data that the org receives or send through the app. Size can vary from few bytes to Gigabytes. 
 
-**Created by:** Created by user reporting for reportee or org. 
+**Created by:** Data can be created by both an end user and the application owner.
 
 **Storage**  Store in Azure blob storage in a isolated storage for each org
 
