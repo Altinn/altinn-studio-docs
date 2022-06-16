@@ -184,6 +184,18 @@
                 href="https://docs.altinn.studio/nb/app/getting-started/"
                 />
   </url><url>
+    <loc>https://docs.altinn.studio/nb/app/development/ux/components/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/development/ux/components/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/development/ux/components/"
+                />
+  </url><url>
     <loc>https://docs.altinn.studio/nb/app/design/guidelines/consistency/</loc>
     <xhtml:link
                 rel="alternate"
@@ -218,6 +230,18 @@
                 rel="alternate"
                 hreflang="nb"
                 href="https://docs.altinn.studio/nb/app/development/ux/pages/navigation/"
+                />
+  </url><url>
+    <loc>https://docs.altinn.studio/nb/app/development/ux/components/panel/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/development/ux/components/panel/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/development/ux/components/panel/"
                 />
   </url><url>
     <loc>https://docs.altinn.studio/nb/app/development/ux/pages/</loc>
