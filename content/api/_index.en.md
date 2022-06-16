@@ -1,13 +1,29 @@
 ---
 title: Altinn 3 API
 linktitle: API
-description: Description of the Altinn 3 APIs for end users and application owners.
+description: Description of the Altinn 3 data structures and APIs for both end users and application owners.
 toc: true
 weight: 20
 aliases:
  - /altinn-api/
  - /teknologi/altinnstudio/altinn-api/
 ---
+
+## Primary data structures
+
+This will be an overview and explaination of the primary models used in Altinn 3. This document will not go into details or explain all properties of all models. The primary purpose of this is to form a basic understanding of the models before introducing the APIs.
+
+![Instance](instance.drawio.svg "The relationship between Instance, DataElement and actual data.")
+
+### Instance
+
+The Instance model is the main metadata document in Altinn 3. It is a form of container for all other documents, forms, structured and unstructured binary data collected during an interaction between an end user and the application owner. The number of documents and files being produced will depend on the app. 
+
+In a simple app an end user will fill in a form and submit it to the application owner. This would typically produce a one way interaction where only one or two documents are collected in the instance. In more advanced apps the number of documents and files would extend to multiple forms, attachments, and feedback or validation messages from the application owner. 
+
+### DataElement
+
+The DataElement model is a metadata document for a specific form or file.
 
 ## The APIs
 
