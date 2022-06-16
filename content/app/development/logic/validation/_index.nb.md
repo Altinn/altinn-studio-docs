@@ -361,15 +361,17 @@ private void ValidateFullName(Datamodell model, ModelStateDictionary validationR
 }
 ```
 
-## Myk validering
+## Myke valideringer
 
-Myke valideringer (eller advarsler) er valideringsmeldinger som ikke stopper bruker fra å sende inn eller gå videre til neste steg i prosessen.
-Denne typen valideringer kan f.eks. brukes til å be brukeren om å verifisere input som virker feil eller rart, men som strengt tatt ikke er ugyldig.
+Myke valideringer er valideringsmeldinger som ikke stopper bruker fra å sende inn eller gå videre til neste steg i prosessen, men som benyttes til å gi brukeren ulike former for informasjon.
+Denne typen valideringer kan f.eks. brukes til å be brukeren om å verifisere input som virker feil eller rart, men som strengt tatt ikke er ugyldig, eller gi nyttig informasjon for videre utfylling.  
 
 Meldinger basert på myke validering vil vises en gang, men bruker kan velge å klikke seg videre uten å utføre endringer.
 
 Myke valideringer legges til fra server-siden i validerings-logikken, på samme måte som vanlige validerings-feil. Forskjellen er at valideringsmeldingen
-må prefixes med `*WARNING*`. Dette vil da tolkes som en myk validering. Prefixen `*WARNING*` blir ikke synlig for sluttbruker.
+må prefixes med typen validering man ønker å gi, f.eks `*WARNING*`. Dette vil da tolkes som en myk validering. Prefixen `*WARNING*` blir ikke synlig for sluttbruker.
+
+De tilgjengelige typene myke valideringer er `WARNING`, `INFO` og `SUCCESS`.
 
 **Kodeeksempel**
 
@@ -385,11 +387,28 @@ public async Task ValidateData(object data, ModelStateDictionary modelState)
           "Person.FirstName", 
           "*WARNING*Are you sure your first name contains 1337?");
       }
+
+      if (firstName != null && firstname.Contains("Altinn"))
+      {
+        validationResults.AddModelError(
+          "Person.FirstName", 
+          "*SUCCESS*Altinn is a great name!");
+      }
   }
   
   await Task.CompletedTask;
 }
 ```
+
+Eksempler på visning av de ulike valieringene ser du nedenfor:
+
+!["Informasjonsmelding"](info-message.jpeg "Eksempel på informasjonsmelding (*INFO* - prefix)" )
+
+!["Suksessmelding"](success-message.jpeg "Eksempel på suksessmelding (*SUCCESS* - prefix)"))
+
+!["Informasjonsmelding"](warning-message.jpeg "Eksempel på advarselsmelding (*WARNING* - prefix)" )
+
+Det er også mulig å overstyre tittelen man ser på meldingene ved å legge til nøkklene `soft_validation.info_title`, `soft_validation.warning_title`, og `soft_validation.success_title` i tekstressursene om man ønsker å sette custom tittel.
 
 ## Gruppevalidering
 
