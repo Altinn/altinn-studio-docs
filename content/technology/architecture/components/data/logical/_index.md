@@ -80,7 +80,7 @@ Usted to present to users and org.
 
 **Usage** Used for texts in application. Connected to a given app
 
-**Created by** Application develoepr
+**Created by** Application developer
 
 **Storage** Cosmos DB in a shared collection
 
