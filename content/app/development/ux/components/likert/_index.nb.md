@@ -1,19 +1,21 @@
 ---
 title: Likert
-description: How to use a likert component
+linktitle: Likert
+description: Hvordan ta i bruk en likert komponent
 toc: false
 weight: 40
-tags: [translate-to-english]
 ---
 
 {{%notice warning%}}
 Dette er helt ny funksjonalitet. Oppsett må gjøres manuelt inntil videre. Støtte for oppsett via Altinn Studio kommer
 snart.
+
+Merk at Likert-komponenten kun kan benyttes som del av en repeterende gruppe.
 {{%/notice%}}
 
 ## Desktop og mobil visning
 
-Likert komponenten vises som en liste ved smale skjermer og som en tabell ved brede skjermer.
+Likert komponenten vises som en liste ved smale skjermer og som en tabell ved brede skjermer. 
 Likert utnytter seg av samme konsept som repeterende grupper.
 
 ![Desktop](desktop.png "Likert komponent ved bred (desktop) skjermstørrelse")
