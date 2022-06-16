@@ -34,7 +34,7 @@ See below for details
 ### Instance
 
 **Usage:** The instance is the central metadatadocument for a given "data instance" created by a specific application.
-It contains information about the reportee for the specific instance, which app the instance belongs to and information when it was created and current process status.
+It contains information about the reportee for the specific instance, which app the instance belongs to, information about when it was created, and current process status.
 
 **Created by:** The instance document is created when someone with the needed rights create a new instance for a given app. It could be a user with roles or the org. 
 
@@ -49,6 +49,9 @@ Used to present information to users and org.
 
 **Storage:** This document is stored in a Cosmos DB in a shared collection. Storage components 
 
+**Storage:** This document is stored in a shared Cosmos DB collection through the Storage component.
+
+
 ### DataElements
 
 **Usage:** Contains the metadata about data for an instance. Refer to the physical data file
@@ -61,7 +64,7 @@ Used to present information to users and org.
 
 **Usage:** The data is any structured or unstructured data that the org receives or send through the app. Size can vary from few bytes to Gigabytes. 
 
-**Created by:** Created by user reporting for reportee or org. 
+**Created by:** Data can be created by both an end user and the application owner.
 
 **Storage:**  Store in Azure blob storage in a isolated storage for each org
 
@@ -80,7 +83,8 @@ Used to present information to users and org.
 
 **Usage:** Used for texts in application. Connected to a given app
 
-**Created by:** Application develoepr
+**Created by** Application developer
+
 
 **Storage:** Cosmos DB in a shared collection
 
