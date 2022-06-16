@@ -3,6 +3,9 @@ title: What's new
 description: Overview of changes introduced in version 5.
 toc: true
 ---
+## 5.2.0 (07.06.2022) - Api for supported languages
+### Features
+- This release introduces new api endpoints which gives information about the languages supported in the application. Ref. upcoming feature for [selecting language](../../../../../app/development/ux/texts/translation/)
 
 ## 5.1.0 (23.05.2022) - Support for anonymous stateless apps
 
