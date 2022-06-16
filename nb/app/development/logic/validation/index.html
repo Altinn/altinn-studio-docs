@@ -550,7 +550,7 @@ if(host != "localhost")
     <li><a href="#serverside-validering">Serverside-validering</a></li>
     <li><a href="#hvordan-legge-til-egendefinert-validering">Hvordan legge til egendefinert validering</a></li>
     <li><a href="#enkeltfeltvalidering">Enkeltfeltvalidering</a></li>
-    <li><a href="#myk-validering">Myk validering</a></li>
+    <li><a href="#myke-valideringer">Myke valideringer</a></li>
     <li><a href="#gruppevalidering">Gruppevalidering</a></li>
   </ul>
 </nav>
@@ -900,12 +900,13 @@ Denne prefixen gjør at feilmeldingen som settes fjernes fra det aktuelle feltet
 <span style="display:block;width:100%;background-color:#3d3f4a">      <span style="color:#f1fa8c">&#34;*FIXED*Fullt navn kan ikke være lengre enn 50 tegn.&#34;</span>);
 </span>  }
 }
-</code></pre></div><h2 id="myk-validering">Myk validering</h2>
-<p>Myke valideringer (eller advarsler) er valideringsmeldinger som ikke stopper bruker fra å sende inn eller gå videre til neste steg i prosessen.
-Denne typen valideringer kan f.eks. brukes til å be brukeren om å verifisere input som virker feil eller rart, men som strengt tatt ikke er ugyldig.</p>
+</code></pre></div><h2 id="myke-valideringer">Myke valideringer</h2>
+<p>Myke valideringer er valideringsmeldinger som ikke stopper bruker fra å sende inn eller gå videre til neste steg i prosessen, men som benyttes til å gi brukeren ulike former for informasjon.
+Denne typen valideringer kan f.eks. brukes til å be brukeren om å verifisere input som virker feil eller rart, men som strengt tatt ikke er ugyldig, eller gi nyttig informasjon for videre utfylling.</p>
 <p>Meldinger basert på myke validering vil vises en gang, men bruker kan velge å klikke seg videre uten å utføre endringer.</p>
 <p>Myke valideringer legges til fra server-siden i validerings-logikken, på samme måte som vanlige validerings-feil. Forskjellen er at valideringsmeldingen
-må prefixes med <code>*WARNING*</code>. Dette vil da tolkes som en myk validering. Prefixen <code>*WARNING*</code> blir ikke synlig for sluttbruker.</p>
+må prefixes med typen validering man ønker å gi, f.eks <code>*WARNING*</code>. Dette vil da tolkes som en myk validering. Prefixen <code>*WARNING*</code> blir ikke synlig for sluttbruker.</p>
+<p>De tilgjengelige typene myke valideringer er <code>WARNING</code>, <code>INFO</code> og <code>SUCCESS</code>.</p>
 <p><strong>Kodeeksempel</strong></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task ValidateData(<span style="color:#8be9fd">object</span> data, ModelStateDictionary modelState)
 {
@@ -918,11 +919,23 @@ må prefixes med <code>*WARNING*</code>. Dette vil da tolkes som en myk valideri
           <span style="color:#f1fa8c">&#34;Person.FirstName&#34;</span>, 
           <span style="color:#f1fa8c">&#34;*WARNING*Are you sure your first name contains 1337?&#34;</span>);
       }
+
+      <span style="color:#ff79c6">if</span> (firstName != <span style="color:#ff79c6">null</span> &amp;&amp; firstname.Contains(<span style="color:#f1fa8c">&#34;Altinn&#34;</span>))
+      {
+        validationResults.AddModelError(
+          <span style="color:#f1fa8c">&#34;Person.FirstName&#34;</span>, 
+          <span style="color:#f1fa8c">&#34;*SUCCESS*Altinn is a great name!&#34;</span>);
+      }
   }
   
   <span style="color:#ff79c6">await</span> Task.CompletedTask;
 }
-</code></pre></div><h2 id="gruppevalidering">Gruppevalidering</h2>
+</code></pre></div><p>Eksempler på visning av de ulike valieringene ser du nedenfor:</p>
+<figure><a href="info-message.jpeg"><img src="info-message.jpeg" alt="&ldquo;Informasjonsmelding&rdquo;" title="Eksempel på informasjonsmelding (*INFO* - prefix)" /></a><figcaption><h4>Eksempel på informasjonsmelding (*INFO* - prefix)</h4></figcaption></figure>
+<p><img src="success-message.jpeg" alt="&ldquo;Suksessmelding&rdquo;" title="Eksempel på suksessmelding (*SUCCESS* - prefix)">)</p>
+<figure><a href="warning-message.jpeg"><img src="warning-message.jpeg" alt="&ldquo;Informasjonsmelding&rdquo;" title="Eksempel på advarselsmelding (*WARNING* - prefix)" /></a><figcaption><h4>Eksempel på advarselsmelding (*WARNING* - prefix)</h4></figcaption></figure>
+<p>Det er også mulig å overstyre tittelen man ser på meldingene ved å legge til nøkklene <code>soft_validation.info_title</code>, <code>soft_validation.warning_title</code>, og <code>soft_validation.success_title</code> i tekstressursene om man ønsker å sette custom tittel.</p>
+<h2 id="gruppevalidering">Gruppevalidering</h2>
 <p>Det er mulig å gjøre valideringer på en repeterende gruppe i det brukeren ønsker å lagre en gitt indeks.
 Dette gjøres ved å legge til en trigger på gruppe-komponenten i layoutfilen (f.eks <code>FormLayout.json</code>). Eksempel:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
