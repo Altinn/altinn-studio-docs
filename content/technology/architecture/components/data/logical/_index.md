@@ -34,7 +34,7 @@ See below for details
 ### Instance
 
 **Usage:** The instance is the central metadatadocument for a given "data instance" created by a specific application.
-It contains information about the reportee for the specific instance, which app the instance belongs to and information when it was created and current process status.
+It contains information about the reportee for the specific instance, which app the instance belongs to, information about when it was created, and current process status.
 
 **Created by:** The instance document is created when someone with the needed rights create a new instance for a given app. It could be a user with roles or the org. 
 
