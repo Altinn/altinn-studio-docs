@@ -22,12 +22,12 @@ In addition we use object database to store the raw objects of business data tha
 
 |Entity | Storage | Created by | 
 |-----|------|-------|
-|Instance| Cosmos DB | Reportee/org |
-|InstanceEvent | Cosmos DB | Reportee/org |
-|InstanceData | Cosmos DB | Reportee/org |
-| Data | Blob storage | Reportee/org |
+|Instance| Cosmos DB | user/app owner |
+|InstanceEvent | Cosmos DB | user/app owner |
+|InstanceData | Cosmos DB | user/app owner |
+| Data | Blob storage | user/app owner |
 | Events | PostgreSQL | App | 
-| Applications | Cosmos DB | ORG | 
+| Applications | Cosmos DB | app owner | 
 
 See below for details
 
@@ -43,11 +43,11 @@ It contains information about the reportee for the specific instance, which app 
 ### InstanceEvents
 
 **Usage:** The instanceEvents contains information about events that users or other have performed on the instance. This include times for for it.
-Usted to present to users and org.
+Used to present information to users and org.
 
 **Created by:** The application creates the events when events happen
 
-**Storage** This document is stored in a Cosmos DB in a shared collection. Storage components 
+**Storage:** This document is stored in a Cosmos DB in a shared collection. Storage components 
 
 ### DataElements
 
@@ -63,26 +63,26 @@ Usted to present to users and org.
 
 **Created by:** Created by user reporting for reportee or org. 
 
-**Storage**  Store in Azure blob storage in a isolated storage for each org
+**Storage:**  Store in Azure blob storage in a isolated storage for each org
 
 ### Events
 
 **Usage:** Contains information about app events. Structured as cloud event.  Created to support external consumptions 
 
-**Created by** Applications creates events based on logic or standard events. 
+**Created by:** Applications creates events based on logic or standard events. 
 
-**Storage** Stored in Postgree SQL for 90 days.
+**Storage:** Stored in Postgree SQL for 90 days.
 
 
 ### Applications
 
 ### Texts
 
-**Usage** Used for texts in application. Connected to a given app
+**Usage:** Used for texts in application. Connected to a given app
 
-**Created by** Application develoepr
+**Created by:** Application develoepr
 
-**Storage** Cosmos DB in a shared collection
+**Storage:** Cosmos DB in a shared collection
 
 
 
