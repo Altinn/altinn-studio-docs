@@ -6,3 +6,20 @@ tags: [architecture]
 
 ![Conceptual data model](conceptual_model.svg "Conceptual data model")
 
+
+
+
+## Description
+
+
+### Instance
+
+#### Usage
+
+#### Storage
+
+
+
+
+
+
