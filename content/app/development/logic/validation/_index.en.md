@@ -47,8 +47,67 @@ Det er satt opp standard feilmeldinger for alle valideringene som gjøres på kl
 | maxLength | 'Bruk {0} eller færre tegn'   | 'Bruk {0} eller færre tegn'   | 'Use {0} or fewer characters'         |
 | length    | 'Antall tillatte tegn er {0}' | 'Antall tillatte tegn er {0}' | 'Number of characters allowed is {0}' |
 | pattern   | 'Feil format eller verdi'     | 'Feil format eller verdi'     | 'Wrong format or value'               |
-| required  | 'Feltet er påkrevd'           | 'Feltet er påkrevd'           | 'Field is required'                   |
+| required  | 'Du må fylle ut {0}.'         | 'Du må fylle ut {0}.'         | 'You have to fill out {0}'            |
 | enum      | 'Kun verdiene {0} er tillatt' | 'Kun verdiene {0} er tillatt' | 'Only the values {0} are permitted'   |
+
+### More about error messages for required fields
+The error message for required fields is as defined above, _"You have to fill out {0}"_. The `{0}` symbol is replaced with the field that
+the error message is shown for. This is done in the following way:
+- If `shortName` text is defined for the component, this is used. _This is a new text that is currently used only for this specific error message._
+- If `shortName` text is not defined, the `title` text for the component is used - this is the components label text.
+- In some special cases (Address component) where there are multiple fields within the component, the standard labels for the fields is used.
+
+#### Example: Component with only `title`
+```json
+{
+  "id": "firstName",
+  "type": "Input",
+  "textResourceBindings": {
+    "title": "text-firstName"
+  },
+  ... //etc
+}
+```
+With resource texts:
+
+```json
+...
+{
+  "id": "text-firstName",
+  "value": "First name"
+}
+```
+
+The error message would then be `"You have to fill out First name"`.
+
+#### Example: Component with `shortName`
+```json
+{
+  "id": "firstName",
+  "type": "Input",
+  "textResourceBindings": {
+    "title": "text-firstName",
+    "shortName": "firstName-short",
+  },
+  ... //etc
+}
+```
+
+With resource texts:
+
+```json
+...
+{
+  "id": "text-firstName",
+  "value": "Please type your first name in the field below:"
+},
+{
+  "id": "firstName-short",
+  "value": "your first name"
+}
+```
+
+The error message would then be `"You have to fill out your first name"`.
 
 ### Custom error messages
 It is possible to define custom error messages that will be displayed when a field doesn't pass the validation check. 

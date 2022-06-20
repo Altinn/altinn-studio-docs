@@ -46,8 +46,68 @@ Det er satt opp standard feilmeldinger for alle valideringene som gjøres på kl
 | maxLength | 'Bruk {0} eller færre tegn'   | 'Bruk {0} eller færre tegn'   | 'Use {0} or fewer characters'         |
 | length    | 'Antall tillatte tegn er {0}' | 'Antall tillatte tegn er {0}' | 'Number of characters allowed is {0}' |
 | pattern   | 'Feil format eller verdi'     | 'Feil format eller verdi'     | 'Wrong format or value'               |
-| required  | 'Feltet er påkrevd'           | 'Feltet er påkrevd'           | 'Field is required'                   |
+| required  | 'Du må fylle ut {0}.'         | 'Du må fylle ut {0}.'         | 'You have to fill out {0}'            |
 | enum      | 'Kun verdiene {0} er tillatt' | 'Kun verdiene {0} er tillatt' | 'Only the values {0} are permitted'   |
+
+### Spesielt om standard feilmelding for påkrevde felter
+Feilmeldingen for påkrevde felter er _"Du må fylle ut {0}"_. Her blir `{0}` erstattet med det feltet som feilmeldingen gjelder for.
+Dette gjøres på følgende måte:
+- Bruker feltets `shortName` tekst. Dette er en ny tekst som kan settes opp pr. komponent på samme måte som ledetekst (`title`) settes i dag. _Denne teksten brukes pr nå KUN i forbindelse med feilmeldingen for påkrevde felter._ 
+- Om `shortName` ikke er definert brukes feltets `title` tekst (det som er definert som ledetekst for feltet).
+- I noen spesialtilfeller (Adresse-komponenten) der det er flere felter i ett brukes de standard-tekstene som er definert for feltene i komponenten.
+
+#### Eksempel: Felt med kun `title`
+```json
+{
+  "id": "fornavn",
+  "type": "Input",
+  "textResourceBindings": {
+    "title": "tekst-fornavn"
+  },
+  ... //osv
+}
+```
+Og tekster i ressurs-fil:
+
+```json
+...
+{
+  "id": "tekst-fornavn",
+  "value": "Fornavn"
+}
+```
+
+Da vil valideringmeldingen bli `"Du må fylle ut Fornavn"`.
+
+#### Eksempel: Felt med `shortName`
+Dersom feltets ledetekst er lang eller ikke egner seg til bruk i valideringsmeldingen, kan man legge til en `shortName` tekst som brukes i stedet.
+_Merk at dette kun gjelder for denne spesifikke valideringsmeldingen - `shortName` teksten er ikke i bruk ellers i løsningen pr nå._
+```json
+{
+  "id": "fornavn",
+  "type": "Input",
+  "textResourceBindings": {
+    "title": "tekst-fornavn",
+    "shortName": "fornavn-kort"
+  },
+  ... //osv
+}
+```
+Og tekster i ressurs-fil:
+
+```json
+...
+{
+  "id": "tekst-fornavn",
+  "value": "Her kan du skrive ditt fornavn",
+},
+{
+  "id": "fornavn-kort",
+  "value": "fornavnet ditt",
+}
+```
+
+Da vil valideringmeldingen bli `"Du må fylle ut fornavnet ditt"`.
 
 ### Egendefinerte feilmeldinger
 Det er mulig å definere egne feilmeldinger som skal vises når et felt får valideringsfeil. Dette gjøres ved å legge på en parameter `errorMessage` der 
