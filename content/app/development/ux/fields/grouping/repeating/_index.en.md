@@ -84,6 +84,10 @@ Oppsett i `FormLayout.json` fra eksempelet over:
 
 ## Vedlegg i repeterende grupper
 
+{{%notice warning%}}
+Dette er helt ny funksjonalitet. Oppsett må gjøres manuelt inntil videre.
+{{%/notice%}}
+
 For å sette opp filopplastingskomponenter i repeterende grupper kreves det noe ekstra oppsett.
 
 Når man laster opp vedlegg kan det bli vanskelig å skille hvilket vedlegg som hører til hvilken rad i den repeterende
