@@ -61,6 +61,8 @@ In the examples below, the component with id _image-component-id_ is excluded fr
 
 ### Configuration
 
+Setup in `Settings.json` under `App/ui`:
+
 ```json {linenos=false,hl_lines=["3-5"]}
 {
   "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
