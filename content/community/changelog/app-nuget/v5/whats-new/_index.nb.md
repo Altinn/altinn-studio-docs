@@ -4,7 +4,7 @@ description: Oversikt over endringer som ble introdusert i versjon 5.
 toc: true
 ---
 
-## 5.3.0 (16.06.2022) - Støtte for automatisk sletting av dataelementer
+## 5.3.0 (21.06.2022) - Støtte for automatisk sletting av dataelementer
 
 Denne releasen introduserer støtte for automatisk sletting av dataelementer når prosessen avsluttes. 
 Dette er en måte å begrense sluttbrukers tilgang på data etter at prosessen er avsluttet. 
