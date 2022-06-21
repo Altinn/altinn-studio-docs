@@ -1069,6 +1069,7 @@ if(host != "localhost")
           </div><div id="body-inner"><h1 class="a-fontBold">v3</h1>
               <p class="a-leadText" id="leadText">Overview of changes introduced in v3 of the Altinn.Platform.Storage.Interface package.</p><h2>On this page:</h2><nav id="TableOfContents">
   <ul>
+    <li><a href="#3110-extended-models-with-support-for-markin-a-data-element-for-automatic-deletion">3.11.0 Extended models with support for markin a data element for automatic deletion</a></li>
     <li><a href="#3100-extended-applicationmetadataapplogic-with-_allowanonymousonstateless_-property">3.10.0 Extended ApplicationMetadata/AppLogic with <em>allowAnonymousOnStateless</em> property</a></li>
     <li><a href="#390-extended-eformidlingcontract-with-_dpfshipmenttype_-property">3.9.0 Extended EFormidlingContract with <em>DPFShipmentType</em> property</a></li>
     <li><a href="#380-extended-processhistoryitem-with-_performedby_-property">3.8.0 Extended ProcessHistoryItem with <em>performedBy</em> property</a></li>
@@ -1086,6 +1087,11 @@ if(host != "localhost")
 
 
 
+<h2 id="3110-extended-models-with-support-for-markin-a-data-element-for-automatic-deletion">3.11.0 Extended models with support for markin a data element for automatic deletion</h2>
+<ul>
+<li><code>DataElement</code> model has been extended with a new property <em>deleteStatus</em>.</li>
+<li><code>ApplicationMetadata.AppLogic</code>  has been extended with a new property <em>autoDeleteOnProcessEnd</em>.</li>
+</ul>
 <h2 id="3100-extended-applicationmetadataapplogic-with-_allowanonymousonstateless_-property">3.10.0 Extended ApplicationMetadata/AppLogic with <em>allowAnonymousOnStateless</em> property</h2>
 <ul>
 <li>The <code>AppLogic</code> model has been expanded with a new property <code>allowAnonymousOnStateless</code>to specify if data type can be accessed anonymously when used in stateless mode. Default is <code>false</code> as before and you need to opt in if you would like to enable anonymous access.</li>

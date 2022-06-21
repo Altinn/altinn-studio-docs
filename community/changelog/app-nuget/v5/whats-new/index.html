@@ -1069,6 +1069,7 @@ if(host != "localhost")
           </div><div id="body-inner"><h1 class="a-fontBold">What&#39;s new</h1>
               <p class="a-leadText" id="leadText">Overview of changes introduced in version 5.</p><h2>On this page:</h2><nav id="TableOfContents">
   <ul>
+    <li><a href="#530-21062022---support-for-autodeleting-data-elements">5.3.0 (21.06.2022) - Support for autodeleting data elements</a></li>
     <li><a href="#520-07062022---api-for-supported-languages">5.2.0 (07.06.2022) - Api for supported languages</a></li>
     <li><a href="#510-23052022---support-for-anonymous-stateless-apps">5.1.0 (23.05.2022) - Support for anonymous stateless apps</a></li>
   </ul>
@@ -1077,7 +1078,22 @@ if(host != "localhost")
 
 
 
-<h2 id="520-07062022---api-for-supported-languages">5.2.0 (07.06.2022) - Api for supported languages</h2>
+<h2 id="530-21062022---support-for-autodeleting-data-elements">5.3.0 (21.06.2022) - Support for autodeleting data elements</h2>
+<p>This release introduces support for autodeleting dataelements when the process ends. This is to restrict end user&rsquo;s
+access to data elements after the process has been completed.</p>
+<p>To configure auto deletion include <code>&quot;autodeleteOnProcessEnd&quot;:true</code> in the <code>appLogic</code> section of the dataType in <code>applicationmetadata.json</code>.
+A fully configured data element should look like this</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;VedleggB&#34;</span>,
+  <span style="color:#ff79c6">&#34;taskId&#34;</span>: <span style="color:#f1fa8c">&#34;Task_1&#34;</span>,
+  <span style="color:#ff79c6">&#34;maxSize&#34;</span>: <span style="color:#bd93f9">25</span>,
+  <span style="color:#ff79c6">&#34;maxCount&#34;</span>: <span style="color:#bd93f9">1</span>,
+  <span style="color:#ff79c6">&#34;minCount&#34;</span>: <span style="color:#bd93f9">1</span>,
+  <span style="color:#ff79c6">&#34;appLogic&#34;</span>: {
+    <span style="color:#ff79c6">&#34;autoDeleteOnProcessEnd&#34;</span>: <span style="color:#ff79c6">true</span>
+  }
+}
+</code></pre></div><h2 id="520-07062022---api-for-supported-languages">5.2.0 (07.06.2022) - Api for supported languages</h2>
 <h3 id="features">Features</h3>
 <ul>
 <li>This release introduces new api endpoints which gives information about the languages supported in the application. Ref. upcoming feature for <a href="../../../../../app/development/ux/texts/translation/">selecting language</a></li>

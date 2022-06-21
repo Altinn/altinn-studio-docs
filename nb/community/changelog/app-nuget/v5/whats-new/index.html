@@ -551,6 +551,7 @@ if(host != "localhost")
           </div><div id="body-inner"><h1 class="a-fontBold">Hva er nytt?</h1>
               <p class="a-leadText" id="leadText">Oversikt over endringer som ble introdusert i versjon 5.</p><h2>På denne siden:</h2><nav id="TableOfContents">
   <ul>
+    <li><a href="#530-21062022---støtte-for-automatisk-sletting-av-dataelementer">5.3.0 (21.06.2022) - Støtte for automatisk sletting av dataelementer</a></li>
     <li><a href="#520-07062022---api-for-hvilke-språk-som-er-tilgjengelige">5.2.0 (07.06.2022) - Api for hvilke språk som er tilgjengelige</a></li>
     <li><a href="#510-23052022---support-for-anonymous-stateless-apps">5.1.0 (23.05.2022) - Support for anonymous stateless apps</a></li>
   </ul>
@@ -559,7 +560,23 @@ if(host != "localhost")
 
 
 
-<h2 id="520-07062022---api-for-hvilke-språk-som-er-tilgjengelige">5.2.0 (07.06.2022) - Api for hvilke språk som er tilgjengelige</h2>
+<h2 id="530-21062022---støtte-for-automatisk-sletting-av-dataelementer">5.3.0 (21.06.2022) - Støtte for automatisk sletting av dataelementer</h2>
+<p>Denne releasen introduserer støtte for automatisk sletting av dataelementer når prosessen avsluttes. 
+Dette er en måte å begrense sluttbrukers tilgang på data etter at prosessen er avsluttet.</p>
+<p>Konfigurasjon gjøres i <code>applicationmetadata.json</code>. 
+Legg til <code>&quot;autodeleteOnProcessEnd&quot;:true</code> i <code>appLogic</code>-seksjonen til datatypen.</p>
+<p>En ferdigkonfigurert datatype vil kunne se slik ut:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;VedleggB&#34;</span>,
+  <span style="color:#ff79c6">&#34;taskId&#34;</span>: <span style="color:#f1fa8c">&#34;Task_1&#34;</span>,
+  <span style="color:#ff79c6">&#34;maxSize&#34;</span>: <span style="color:#bd93f9">25</span>,
+  <span style="color:#ff79c6">&#34;maxCount&#34;</span>: <span style="color:#bd93f9">1</span>,
+  <span style="color:#ff79c6">&#34;minCount&#34;</span>: <span style="color:#bd93f9">1</span>,
+  <span style="color:#ff79c6">&#34;appLogic&#34;</span>: {
+    <span style="color:#ff79c6">&#34;autoDeleteOnProcessEnd&#34;</span>: <span style="color:#ff79c6">true</span>
+  }
+}
+</code></pre></div><h2 id="520-07062022---api-for-hvilke-språk-som-er-tilgjengelige">5.2.0 (07.06.2022) - Api for hvilke språk som er tilgjengelige</h2>
 <h3 id="features">Features</h3>
 <ul>
 <li>Denne releasen introduserer nye api endepunkter som gir informasjon om hvilke språk en applikasjon støtter. Ref. kommende funksjonalitet for å <a href="../../../../../app/development/ux/texts/translation/">velge språk</a></li>
