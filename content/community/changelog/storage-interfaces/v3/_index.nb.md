@@ -5,14 +5,19 @@ toc: true
 weight: 90
 ---
 
-## 3.10.0 Extended ApplicationMetadata/AppLogic with _allowAnonymousOnStateless_ property
+## 3.11.0 Utvidet modeller med støtte for automatisk sletting av data element
+- `DataElement`-modellen har blitt utvidet med en ny egenskap _deleteStatus_.
+- I tillegg er `ApplicationMetadata.AppLogic`  utvidet med en ny egenskap _autoDeleteOnProcessEnd_.
+
+
+## 3.10.0 Utvidet ApplicationMetadata/AppLogic med _allowAnonymousOnStateless_ 
 - `AppLogic` modellen har blitt utvidet med en ny egenskap `allowAnonymousOnStateless` som åpner for at en data type kan akksesseres anonymt når man kjører i stateless mode. Default er `false` som dagens funksjonalitet og du må eksplisitt sette den til `true` hvis du ønsker å tillatte annonym tilgang.
 
-## 3.9.0 Utvidet EFormidlingContract med _DPFShipmentType_ Utvidet
+## 3.9.0 Utvidet EFormidlingContract med _DPFShipmentType_ 
 - `EFormidlingContract` modellen har blitt utvidet med en ny egenskap `DPFShipmentType`. 
 Verdien er en streng som representeres forsendelsestype hvis servicen er DPF.
 
-## 3.8.0 Utvidet ProcessHistoryItem med _performedBy_ Utvidet
+## 3.8.0 Utvidet ProcessHistoryItem med _performedBy_ 
 - `ProcessHistoryItem` modellen har blitt utvidet med en ny egenskap `performedBy`. 
 Verdien er en streng og kan inneholde personnummer eller organisasjonsnummer som representerer
 entiteten som trigget eventet.

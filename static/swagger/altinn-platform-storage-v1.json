@@ -354,6 +354,14 @@
               "type": "string",
               "format": "uuid"
             }
+          },
+          {
+            "name": "delay",
+            "in": "query",
+            "description": "A boolean to indicate if the delete should be immediate or delayed following Altinn's business logic",
+            "schema": {
+              "type": "boolean"
+            }
           }
         ],
         "responses": {
@@ -2404,6 +2412,9 @@
           },
           "allowAnonymousOnStateless": {
             "type": "boolean"
+          },
+          "autoDeleteOnProcessEnd": {
+            "type": "boolean"
           }
         },
         "additionalProperties": false
@@ -2499,6 +2510,9 @@
               "type": "string"
             },
             "nullable": true
+          },
+          "deleteStatus": {
+            "$ref": "#/components/schemas/DeleteStatus"
           },
           "created": {
             "type": "string",
@@ -2621,6 +2635,20 @@
               "type": "string",
               "nullable": true
             },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeleteStatus": {
+        "type": "object",
+        "properties": {
+          "isHardDeleted": {
+            "type": "boolean"
+          },
+          "hardDeleted": {
+            "type": "string",
+            "format": "date-time",
             "nullable": true
           }
         },
