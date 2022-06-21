@@ -1086,14 +1086,15 @@ set in the configuraiton file.
 </div>
 <h3 id="exclude-pages">Exclude pages</h3>
 <p>In the examples below, the page with id <em>page2</em> is excluded from the PDF PDF.</p>
-<h3 id="konfigurasjon">Konfigurasjon</h3>
+<h3 id="configuration">Configuration</h3>
+<p>Setup in <code>Settings.json</code> under <code>App/ui</code>:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#ff79c6">&#34;$schema&#34;</span>: <span style="color:#f1fa8c">&#34;https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json&#34;</span>,
 <span style="display:block;width:100%;background-color:#3d3f4a">  <span style="color:#ff79c6">&#34;pages&#34;</span>: {
 </span><span style="display:block;width:100%;background-color:#3d3f4a">    <span style="color:#ff79c6">&#34;excludeFromPdf&#34;</span>: [<span style="color:#f1fa8c">&#34;page2&#34;</span>]
 </span><span style="display:block;width:100%;background-color:#3d3f4a">  }
 </span>}
-</code></pre></div><h3 id="programmatisk">Programmatisk</h3>
+</code></pre></div><h3 id="programmatically">Programmatically</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;LayoutSettings&gt; FormatPdf(LayoutSettings layoutSettings, <span style="color:#8be9fd">object</span> data)
 {
     <span style="color:#ff79c6">if</span> (data.GetType() == <span style="color:#ff79c6">typeof</span>(Skjema))
@@ -1106,14 +1107,15 @@ set in the configuraiton file.
 }
 </code></pre></div><h2 id="exclude-components">Exclude components</h2>
 <p>In the examples below, the component with id <em>image-component-id</em> is excluded from the PDF.</p>
-<h3 id="konfigurasjon-1">Konfigurasjon</h3>
+<h3 id="configuration-1">Configuration</h3>
+<p>Setup in <code>Settings.json</code> under <code>App/ui</code>:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#ff79c6">&#34;$schema&#34;</span>: <span style="color:#f1fa8c">&#34;https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json&#34;</span>,
 <span style="display:block;width:100%;background-color:#3d3f4a">  <span style="color:#ff79c6">&#34;components&#34;</span>: {
 </span><span style="display:block;width:100%;background-color:#3d3f4a">    <span style="color:#ff79c6">&#34;excludeFromPdf&#34;</span>: [<span style="color:#f1fa8c">&#34;image-component-id&#34;</span>]
 </span><span style="display:block;width:100%;background-color:#3d3f4a">  }
 </span>}
-</code></pre></div><h3 id="programmatisk-1">Programmatisk</h3>
+</code></pre></div><h3 id="programmatically-1">Programmatically</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;LayoutSettings&gt; FormatPdf(LayoutSettings layoutSettings, <span style="color:#8be9fd">object</span> data)
 {
     <span style="color:#ff79c6">if</span> (data.GetType() == <span style="color:#ff79c6">typeof</span>(Skjema))
@@ -1124,14 +1126,14 @@ set in the configuraiton file.
     }
     <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">await</span> Task.FromResult(layoutSettings);
 }
-</code></pre></div><h2 id="ekskludere-komponentinnslag-i-en-repeterende-gruppe">Ekskludere komponentinnslag i en repeterende gruppe</h2>
+</code></pre></div><h2 id="exclude-components-in-a-repeating-group">Exclude components in a repeating group</h2>
 <p>If you need to exclude one or more components from an entry in a repeating group, 
 this is done by specifying the index of the group element in addition to the component id.</p>
 <p>The required format is: <code>componentId-&lt;groupIndex&gt;</code>.</p>
 <p>If the component should be excluded for all elements in the repeating group, follow the instructions for the
 section above.</p>
 <p>In the example below, the component with id <em>ownerId</em> in the group element with index 1 is excluded from the PDF.</p>
-<h3 id="programmatisk-2">Programmatisk</h3>
+<h3 id="programmatically-2">Programmatically</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;LayoutSettings&gt; FormatPdf(LayoutSettings layoutSettings, <span style="color:#8be9fd">object</span> data)
     {
         <span style="color:#ff79c6">if</span> (data.GetType() == <span style="color:#ff79c6">typeof</span>(Skjema))
