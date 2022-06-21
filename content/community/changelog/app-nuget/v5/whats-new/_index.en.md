@@ -4,7 +4,7 @@ description: Overview of changes introduced in version 5.
 toc: true
 ---
 
-## 5.3.0 (16.06.2022) - Support for autodeleting data elements
+## 5.3.0 (21.06.2022) - Support for autodeleting data elements
 
 This release introduces support for autodeleting dataelements when the process ends. This is to restrict end user's
 access to data elements after the process has been completed. 
