@@ -2,16 +2,28 @@
 title: Automatic deletion
 linktitle: Automatic deletion
 description: An application can be configured to delete all traces of it when the process is over.
-toc: false
+toc: true
 ---
 
-For some applications, it can be problematic that there are traces of instances in storage, etc. because of security reasons.
+Dersom man ønsker å begrense sluttbrukers tilgang til en instans eller data i etterkant av innsending kan dette gjøres 
+ved å konfigurere automatisk sletting.
+I praksis vil ressursen gjøres utilgjengelig for sluttbruker etter innsending, 
+mens tjenesteeier enda har tilgang i tråd med applikasjonens autorisasjonsregler. 
 
-Therefore, it is possible to set a flag in `applicationmetadata.json` that ensures that the instance is physically deleted when service owner confirms that it is received.
 
-By setting `autoDeleteOnProcessEnd` to `true` you will trigger this functionality.
+Hvis sluttbruker forsøker å aksessere en hard deleted ressurs med en direkte lenke vil de få `404 - Not found` i respons.
+Ressursen vil heller ikke vises i meldingsboks eller listes i API-responser.
 
-Example:
+
+Når tjenesteeier bekrefter at instansen er mottatt på deres side (complete confirmed), 
+så markeres instansen som klar for sletting og vil saneres fra Altinns database i løpet av 7 dager.
+
+Konfigurasjonen for automatisk sletting gjøres i  `applicationmetadata.json` med flagget 
+`"autoDeleteOnProcessEnd": true`.
+
+## Automatisk sletting av instans
+
+Eksempel på konfigurasjon i  `applicationmetadata.json` for instanser:
 
 ```json {linenos=false,hl_lines=[48]}
 {
@@ -63,4 +75,51 @@ Example:
   "lastChangedBy": "someone",
   "autoDeleteOnProcessEnd": true
 }
+```
+
+## Automatic deletion of data
+
+Eksempel på konfigurasjon i  `applicationmetadata.json` for data type:
+
+Her slettes data typene _Skjema_ og _vedleggA_, mens typen _ref-data-as-pdf_ blir værende når prosessen er slutt. 
+
+```json {linenos=false,hl_lines=[11, 35]}
+"dataTypes":[
+	{
+		"id": "Skjema",
+		"allowedContentTypes": [
+			"application/xml"
+		],
+		"appLogic": {
+			"autoCreate": true,
+			"classRef": "Altinn.App.Models.skjema",
+			"allowAnonymousOnStateless": false,
+			"autoDeleteOnProcessEnd": true
+		},
+		"taskId": "Task_1",
+		"maxCount": 1,
+		"minCount": 1,
+		"enablePdfCreation": true
+	},
+	{
+		"id": "ref-data-as-pdf",
+		"allowedContentTypes": [
+			"application/pdf"
+		],
+		"maxCount": 0,
+		"minCount": 0,
+		"enablePdfCreation": true
+	},
+	{
+		"id": "vedleggA",
+		"taskId": "Task_1",
+		"maxSize": 25,
+		"maxCount": 1,
+		"minCount": 1,
+		"enablePdfCreation": true,
+		"appLogic": {
+			"autoDeleteOnProcessEnd": true
+		}
+  }
+]
 ```
