@@ -144,7 +144,7 @@
 	"title": "Components",
 	"tags": [],
 	"description": "",
-	"content": "\r\rPanel\r\n\r\rLikert\rHow to use a likert component\n\r\r"
+	"content": "\r\rPanel\r\n\r\rPrintButton\r\n\r\rLikert\rHow to use a likert component\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/app/",
@@ -243,6 +243,13 @@
 	"tags": [],
 	"description": "",
 	"content": "The panel component can be used to display important information to the user.\nFormLayout.json example\n{ \u0026#34;id\u0026#34;: \u0026#34;panelinfo\u0026#34;, \u0026#34;type\u0026#34;: \u0026#34;Panel\u0026#34;, \u0026#34;textResourceBindings\u0026#34;: { \u0026#34;title\u0026#34;: \u0026#34;Info text\u0026#34;, \u0026#34;body\u0026#34;: \u0026#34;Some important information here\u0026#34; }, \u0026#34;variant\u0026#34;: \u0026#34;info\u0026#34;, \u0026#34;showIcon\u0026#34;: false } variant can be one of the following:\n info success warning  showIcon can be used to hide/show the icon. By default the icon will be shown.\n"
+},
+{
+	"uri": "https://docs.altinn.studio/app/development/ux/components/printbutton/",
+	"title": "PrintButton",
+	"tags": [],
+	"description": "",
+	"content": "The PrintButton component can be added to the form layout where you want an option to open the browsers built-in print dialog. When the button is clicked the print dialog window will pop up. Commonly there is an option to \u0026ldquo;Print to PDF\u0026rdquo; if preferable.\nFormLayout.json example\n{ \u0026#34;id\u0026#34;: \u0026#34;printButtonInfo\u0026#34;, \u0026#34;type\u0026#34;: \u0026#34;PrintButton\u0026#34; } The default text on the PrintButton is \u0026ldquo;Print / Save as PDF\u0026rdquo;. The text can be overridden by setting the text resource key:\n{ \u0026#34;id\u0026#34;: \u0026#34;general.print_button_text\u0026#34;, \u0026#34;value\u0026#34;: \u0026#34;Skriv ut\u0026#34; } The PrintButton supports grid alignment if necessary.\n"
 },
 {
 	"uri": "https://docs.altinn.studio/app/design/guidelines/components/title-and-paragraph/",

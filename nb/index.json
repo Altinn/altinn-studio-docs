@@ -116,7 +116,7 @@
 	"title": "Komponenter",
 	"tags": [],
 	"description": "",
-	"content": "\r\rPanel\r\n\r\rLikert\rHvordan ta i bruk en likert komponent\n\r\r"
+	"content": "\r\rPanel\r\n\r\rPrintButton\r\n\r\rLikert\rHvordan ta i bruk en likert komponent\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/nb/app/design/guidelines/consistency/",
@@ -145,6 +145,13 @@
 	"tags": [],
 	"description": "",
 	"content": "Panelkomponenten kan brukes til å vise viktig informasjon til brukeren.\nFormLayout.json eksempel\n{ \u0026#34;id\u0026#34;: \u0026#34;panelinfo\u0026#34;, \u0026#34;type\u0026#34;: \u0026#34;Panel\u0026#34;, \u0026#34;textResourceBindings\u0026#34;: { \u0026#34;title\u0026#34;: \u0026#34;Infotekst\u0026#34;, \u0026#34;body\u0026#34;: \u0026#34;Her kommer litt viktig informasjon\u0026#34; }, \u0026#34;variant\u0026#34;: \u0026#34;info\u0026#34;, \u0026#34;showIcon\u0026#34;: false } variant kan være en av følgende:\n info success warning  showIcon kan brukes til å skjule/vise ikonet. Ikonet vil vises som standard.\n"
+},
+{
+	"uri": "https://docs.altinn.studio/nb/app/development/ux/components/printbutton/",
+	"title": "PrintButton",
+	"tags": [],
+	"description": "",
+	"content": "PrintButton-komponenten kan legges til i form layout der du vil gi en mulighet til å åpne utskriftsdialogen til nettleseren. I det knappen blir klikket på vil utskriftsdialogen åpne seg. Vanligvis er det en mulighet til å \u0026ldquo;Skrive ut som PDF\u0026rdquo; om ønskelig.\nFormLayout.json eksempel:\n{ \u0026#34;id\u0026#34;: \u0026#34;printButtonInfo\u0026#34;, \u0026#34;type\u0026#34;: \u0026#34;PrintButton\u0026#34; } Standardteksten på PrintButton er \u0026ldquo;Print / Lagre PDF\u0026rdquo;. Teksten kan bli overstyrt ved å endre tekstresurs-nøkkelen:\n{ \u0026#34;id\u0026#34;: \u0026#34;general.print_button_text\u0026#34;, \u0026#34;value\u0026#34;: \u0026#34;Skriv ut\u0026#34; } PrintButton-komponenten støtter også grid-tilpassning om ønskelig.\n"
 },
 {
 	"uri": "https://docs.altinn.studio/nb/app/development/ux/pages/",
