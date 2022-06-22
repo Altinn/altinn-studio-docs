@@ -35,7 +35,7 @@ For denne testapplikasjonen ønsker vi at du skal skalere ned resursbruken til d
 
 Skalering: `replicaCount: 1`
 
-Ressursbruk: Sett _requests_ til `cpu: 50m` og `128Mi`
+Ressursbruk: Sett _requests_ til `cpu: 50m` og `memory: 128Mi`
 
 {{% notice info %}}
 Alle endringer knyttet til skalering og ressursbruk gjøres i `deployment/values.yaml`-filen

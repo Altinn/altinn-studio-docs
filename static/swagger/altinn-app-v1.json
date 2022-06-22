@@ -2,7 +2,7 @@
   "openapi": "3.0.1",
   "info": {
     "title": "Altinn App Api",
-    "description": "**NOTE** This is the latest version of the standard app API. Make sure to refer to the swagger of the application you are integrating with, as there might be differences. Swagger is available at **https://www.{org}.apps.altinn.no/{org}/{app}**",
+    "description": "**NOTE** This is the latest version of the standard app API. Make sure to refer to the swagger of the application you are integrating with, as there might be differences. Swagger is available at **https://{org}.apps.altinn.no/{org}/{app}/swagger**",
     "version": "v1"
   },
   "paths": {
