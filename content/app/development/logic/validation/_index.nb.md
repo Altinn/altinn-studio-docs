@@ -46,7 +46,7 @@ Det er satt opp standard feilmeldinger for alle valideringene som gjøres på kl
 | maxLength | 'Bruk {0} eller færre tegn'   | 'Bruk {0} eller færre tegn'   | 'Use {0} or fewer characters'         |
 | length    | 'Antall tillatte tegn er {0}' | 'Antall tillatte tegn er {0}' | 'Number of characters allowed is {0}' |
 | pattern   | 'Feil format eller verdi'     | 'Feil format eller verdi'     | 'Wrong format or value'               |
-| required  | 'Du må fylle ut {0}.'         | 'Du må fylle ut {0}.'         | 'You have to fill out {0}'            |
+| required  | 'Du må fylle ut {0}'          | 'Du må fylle ut {0}'          | 'You have to fill out {0}'            |
 | enum      | 'Kun verdiene {0} er tillatt' | 'Kun verdiene {0} er tillatt' | 'Only the values {0} are permitted'   |
 
 ### Spesielt om standard feilmelding for påkrevde felter
