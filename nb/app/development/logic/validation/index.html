@@ -636,9 +636,9 @@ input er en tekst med lengde mer enn 4 karakterer.</p>
 </tr>
 <tr>
 <td>required</td>
-<td>&lsquo;Feltet er påkrevd&rsquo;</td>
-<td>&lsquo;Feltet er påkrevd&rsquo;</td>
-<td>&lsquo;Field is required&rsquo;</td>
+<td>&lsquo;Du må fylle ut {0}&rsquo;</td>
+<td>&lsquo;Du må fylle ut {0}&rsquo;</td>
+<td>&lsquo;You have to fill out {0}&rsquo;</td>
 </tr>
 <tr>
 <td>enum</td>
@@ -648,6 +648,53 @@ input er en tekst med lengde mer enn 4 karakterer.</p>
 </tr>
 </tbody>
 </table>
+<h3 id="spesielt-om-standard-feilmelding-for-påkrevde-felter">Spesielt om standard feilmelding for påkrevde felter</h3>
+<p>Feilmeldingen for påkrevde felter er <em>&ldquo;Du må fylle ut {0}&quot;</em>. Her blir <code>{0}</code> erstattet med det feltet som feilmeldingen gjelder for.
+Dette gjøres på følgende måte:</p>
+<ul>
+<li>Bruker feltets <code>shortName</code> tekst. Dette er en ny tekst som kan settes opp pr. komponent på samme måte som ledetekst (<code>title</code>) settes i dag. <em>Denne teksten brukes pr nå KUN i forbindelse med feilmeldingen for påkrevde felter.</em></li>
+<li>Om <code>shortName</code> ikke er definert brukes feltets <code>title</code> tekst (det som er definert som ledetekst for feltet).</li>
+<li>I noen spesialtilfeller (Adresse-komponenten) der det er flere felter i ett brukes de standard-tekstene som er definert for feltene i komponenten.</li>
+</ul>
+<h4 id="eksempel-felt-med-kun-title">Eksempel: Felt med kun <code>title</code></h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;fornavn&#34;</span>,
+  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Input&#34;</span>,
+  <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+    <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;tekst-fornavn&#34;</span>
+  },
+  ... //osv
+}
+</code></pre></div><p>Og tekster i ressurs-fil:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">...
+{
+  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;tekst-fornavn&#34;</span>,
+  <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;Fornavn&#34;</span>
+}
+</code></pre></div><p>Da vil valideringmeldingen bli <code>&quot;Du må fylle ut Fornavn&quot;</code>.</p>
+<h4 id="eksempel-felt-med-shortname">Eksempel: Felt med <code>shortName</code></h4>
+<p>Dersom feltets ledetekst er lang eller ikke egner seg til bruk i valideringsmeldingen, kan man legge til en <code>shortName</code> tekst som brukes i stedet.
+<em>Merk at dette kun gjelder for denne spesifikke valideringsmeldingen - <code>shortName</code> teksten er ikke i bruk ellers i løsningen pr nå.</em></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;fornavn&#34;</span>,
+  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Input&#34;</span>,
+  <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+    <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;tekst-fornavn&#34;</span>,
+    <span style="color:#ff79c6">&#34;shortName&#34;</span>: <span style="color:#f1fa8c">&#34;fornavn-kort&#34;</span>
+  },
+  ... //osv
+}
+</code></pre></div><p>Og tekster i ressurs-fil:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">...
+{
+  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;tekst-fornavn&#34;</span>,
+  <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;Her kan du skrive ditt fornavn&#34;</span>,
+},
+{
+  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;fornavn-kort&#34;</span>,
+  <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;fornavnet ditt&#34;</span>,
+}
+</code></pre></div><p>Da vil valideringmeldingen bli <code>&quot;Du må fylle ut fornavnet ditt&quot;</code>.</p>
 <h3 id="egendefinerte-feilmeldinger">Egendefinerte feilmeldinger</h3>
 <p>Det er mulig å definere egne feilmeldinger som skal vises når et felt får valideringsfeil. Dette gjøres ved å legge på en parameter <code>errorMessage</code> der 
 hvor feltet er definert i JSON schema. JSON schema filen ligger i mappen <code>App/models</code> og følger navnestandard <code>*.schema.json</code>.</p>

@@ -1154,9 +1154,9 @@ input er en tekst med lengde mer enn 4 karakterer.</p>
 </tr>
 <tr>
 <td>required</td>
-<td>&lsquo;Feltet er påkrevd&rsquo;</td>
-<td>&lsquo;Feltet er påkrevd&rsquo;</td>
-<td>&lsquo;Field is required&rsquo;</td>
+<td>&lsquo;Du må fylle ut {0}&rsquo;</td>
+<td>&lsquo;Du må fylle ut {0}&rsquo;</td>
+<td>&lsquo;You have to fill out {0}&rsquo;</td>
 </tr>
 <tr>
 <td>enum</td>
@@ -1166,6 +1166,51 @@ input er en tekst med lengde mer enn 4 karakterer.</p>
 </tr>
 </tbody>
 </table>
+<h3 id="more-about-error-messages-for-required-fields">More about error messages for required fields</h3>
+<p>The error message for required fields is as defined above, <em>&ldquo;You have to fill out {0}&quot;</em>. The <code>{0}</code> symbol is replaced with the field that
+the error message is shown for. This is done in the following way:</p>
+<ul>
+<li>If <code>shortName</code> text is defined for the component, this is used. <em>This is a new text that is currently used only for this specific error message.</em></li>
+<li>If <code>shortName</code> text is not defined, the <code>title</code> text for the component is used - this is the components label text.</li>
+<li>In some special cases (Address component) where there are multiple fields within the component, the standard labels for the fields is used.</li>
+</ul>
+<h4 id="example-component-with-only-title">Example: Component with only <code>title</code></h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;firstName&#34;</span>,
+  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Input&#34;</span>,
+  <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+    <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;text-firstName&#34;</span>
+  },
+  ... //etc
+}
+</code></pre></div><p>With resource texts:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">...
+{
+  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;text-firstName&#34;</span>,
+  <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;First name&#34;</span>
+}
+</code></pre></div><p>The error message would then be <code>&quot;You have to fill out First name&quot;</code>.</p>
+<h4 id="example-component-with-shortname">Example: Component with <code>shortName</code></h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;firstName&#34;</span>,
+  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Input&#34;</span>,
+  <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+    <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;text-firstName&#34;</span>,
+    <span style="color:#ff79c6">&#34;shortName&#34;</span>: <span style="color:#f1fa8c">&#34;firstName-short&#34;</span>,
+  },
+  ... //etc
+}
+</code></pre></div><p>With resource texts:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">...
+{
+  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;text-firstName&#34;</span>,
+  <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;Please type your first name in the field below:&#34;</span>
+},
+{
+  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;firstName-short&#34;</span>,
+  <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;your first name&#34;</span>
+}
+</code></pre></div><p>The error message would then be <code>&quot;You have to fill out your first name&quot;</code>.</p>
 <h3 id="custom-error-messages">Custom error messages</h3>
 <p>It is possible to define custom error messages that will be displayed when a field doesn&rsquo;t pass the validation check. 
 This is done by including a parameter <code>errorMessage</code> where the field is defined in the JSON schema. 
