@@ -15,14 +15,16 @@ Altinn.App.* librarires target .Net 6 now, which requires that the application d
 In addition, all references to app and platform services have been moved from Startup.cs and should be replaced with 
 two method calls.
 
-Follow the instructions below to ensure that the app is compatible with version 4 of the Altinn.App.* packages.
+Follow the instructions below to ensure that the app is compatible with version 6 of the Altinn.App.* packages.
 
 
 1. Update target framework and package dependencies
 
+    Install [.Net 6 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/6.0) before you start changing code.
+
     Navigate to you application repository and find `App.csproj` in the `App` folder. 
 
-    Update target framework to .Net 5 by replacing 
+    Update target framework to .Net 6 by replacing 
 
     ```xml
     <TargetFramework>net5.0</TargetFramework>
