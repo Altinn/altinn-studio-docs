@@ -26,7 +26,9 @@ If exclusion of a page/component depends on dynamics it _must_ be done programma
 
 In the examples below, the page with id _page2_ is excluded from the PDF PDF.
 
-### Konfigurasjon
+### Configuration
+
+Setup in `Settings.json` under `App/ui`:
 
 ```json {linenos=false,hl_lines=["3-5"]}
 {
@@ -37,7 +39,7 @@ In the examples below, the page with id _page2_ is excluded from the PDF PDF.
 }
 ```
 
-### Programmatisk
+### Programmatically
 
 ```cs
 public async Task<LayoutSettings> FormatPdf(LayoutSettings layoutSettings, object data)
@@ -57,7 +59,9 @@ public async Task<LayoutSettings> FormatPdf(LayoutSettings layoutSettings, objec
 
 In the examples below, the component with id _image-component-id_ is excluded from the PDF.
 
-### Konfigurasjon
+### Configuration
+
+Setup in `Settings.json` under `App/ui`:
 
 ```json {linenos=false,hl_lines=["3-5"]}
 {
@@ -68,7 +72,7 @@ In the examples below, the component with id _image-component-id_ is excluded fr
 }
 ```
 
-### Programmatisk
+### Programmatically
 
 ```cs
 public async Task<LayoutSettings> FormatPdf(LayoutSettings layoutSettings, object data)
@@ -83,7 +87,7 @@ public async Task<LayoutSettings> FormatPdf(LayoutSettings layoutSettings, objec
 }
 ```
 
-## Ekskludere komponentinnslag i en repeterende gruppe
+## Exclude components in a repeating group
 
 If you need to exclude one or more components from an entry in a repeating group, 
 this is done by specifying the index of the group element in addition to the component id. 
@@ -95,7 +99,7 @@ section above.
 
 In the example below, the component with id _ownerId_ in the group element with index 1 is excluded from the PDF.
 
-### Programmatisk
+### Programmatically
 
 ```cs
 public async Task<LayoutSettings> FormatPdf(LayoutSettings layoutSettings, object data)

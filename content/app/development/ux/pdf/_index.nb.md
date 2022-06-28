@@ -25,6 +25,8 @@ I eksemplene nedenfor ekskluderes siden med id _page2_ fra PDF.
 
 ### Konfigurasjon
 
+Oppsett i `Settings.json` under `App/ui`:
+
 ```json {linenos=false,hl_lines=["3-5"]}
 {
   "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
@@ -54,6 +56,8 @@ public async Task<LayoutSettings> FormatPdf(LayoutSettings layoutSettings, objec
 I eksemplene nedenfor blir komponenten med id _image-component-id_ ekskludert fra pdf.
 
 ### Konfigurasjon
+
+Oppsett i `Settings.json` under `App/ui`:
 
 ```json {linenos=false,hl_lines=["3-5"]}
 {
