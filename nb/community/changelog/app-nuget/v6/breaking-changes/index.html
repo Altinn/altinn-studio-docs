@@ -462,6 +462,12 @@ if(host != "localhost")
         <a href="/nb/community/changelog/app-frontend/v3/whats-new/"><span>Hva er nytt?</span></a></li></ul></li></ul></li>
       <li class="dd-item parent">
         <a href="/nb/community/changelog/app-nuget/"><span>App nuget</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item parent">
+        <a href="/nb/community/changelog/app-nuget/v6/"><span>v6</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item parent active">
+        <a href="/nb/community/changelog/app-nuget/v6/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-nuget/v6/whats-new/"><span>Hva er nytt?</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/community/changelog/app-nuget/v5/"><span>v5</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -474,12 +480,6 @@ if(host != "localhost")
         <a href="/nb/community/changelog/app-nuget/v4/breaking-changes/"><span>Breaking changes</span></a></li>
       <li class="dd-item">
         <a href="/nb/community/changelog/app-nuget/v4/whats-new/"><span>Hva er nytt?</span></a></li></ul></li>
-      <li class="dd-item parent">
-        <a href="/nb/community/changelog/app-nuget/v6/"><span>v6</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
-      <li class="dd-item parent active">
-        <a href="/nb/community/changelog/app-nuget/v6/breaking-changes/"><span>Breaking changes</span></a></li>
-      <li class="dd-item">
-        <a href="/nb/community/changelog/app-nuget/v6/whats-new/"><span>Hva er nytt?</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/community/changelog/app-nuget/v3/"><span>v3</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -569,12 +569,13 @@ This is a alpha relase and is not used by default in new applications. Currently
 <p>Altinn.App.* librarires target .Net 6 now, which requires that the application does the same.</p>
 <p>In addition, all references to app and platform services have been moved from Startup.cs and should be replaced with 
 two method calls.</p>
-<p>Follow the instructions below to ensure that the app is compatible with version 4 of the Altinn.App.* packages.</p>
+<p>Follow the instructions below to ensure that the app is compatible with version 6 of the Altinn.App.* packages.</p>
 <ol>
 <li>
 <p>Update target framework and package dependencies</p>
+<p>Install <a href="https://dotnet.microsoft.com/en-us/download/dotnet/6.0">.Net 6 SDK</a> before you start changing code.</p>
 <p>Navigate to you application repository and find <code>App.csproj</code> in the <code>App</code> folder.</p>
-<p>Update target framework to .Net 5 by replacing</p>
+<p>Update target framework to .Net 6 by replacing</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;TargetFramework&gt;</span>net5.0<span style="color:#ff79c6">&lt;/TargetFramework&gt;</span>
 </code></pre></div><p>with</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;TargetFramework&gt;</span>net6.0<span style="color:#ff79c6">&lt;/TargetFramework&gt;</span>

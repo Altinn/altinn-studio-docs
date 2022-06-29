@@ -872,6 +872,18 @@
                 href="https://docs.altinn.studio/nb/community/changelog/storage-interfaces/v3/"
                 />
   </url><url>
+    <loc>https://docs.altinn.studio/nb/community/changelog/app-nuget/v6/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/community/changelog/app-nuget/v6/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/community/changelog/app-nuget/v6/"
+                />
+  </url><url>
     <loc>https://docs.altinn.studio/nb/community/changelog/app-nuget/v5/</loc>
     <xhtml:link
                 rel="alternate"
@@ -894,18 +906,6 @@
                 rel="alternate"
                 hreflang="nb"
                 href="https://docs.altinn.studio/nb/community/changelog/app-nuget/v4/"
-                />
-  </url><url>
-    <loc>https://docs.altinn.studio/nb/community/changelog/app-nuget/v6/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://docs.altinn.studio/community/changelog/app-nuget/v6/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="nb"
-                href="https://docs.altinn.studio/nb/community/changelog/app-nuget/v6/"
                 />
   </url><url>
     <loc>https://docs.altinn.studio/nb/community/changelog/app-nuget/v3/</loc>
