@@ -1,27 +1,27 @@
 ---
 title: Input
-description: Inputfelt brukes når brukeren skal føre inn tekst eller tall. 
+description: Inputfields are used when the user is submitting text or a number. 
 weight: 30
 toc: true
 ---
 
-## Vanlig inputfelt
+## Normal inputfield
 
-### Retningslinjer:
-- Et inputfelt skal alltid ha en tilhørende label med forklarende tekst.
-- Ta en vurdering på om ekstra beskrivelser og hjelpetekster må kobles til input elementet.
-- To inputfelt kan plasseres ved siden av hverandre dersom de på et eller annet vis hører sammen. Se eksempel under.
-- Deaktivert felt bør unngås. Dersom et felt ikke kan redigeres bør informasjonen heller presenteres i tekst. 
+### Guidelines:
+- An inputfield should always have a related label with explanatory text.
+- Evaluate if further explanation and helper texts should be connected to the element.
+- Two inputfields can be placed beside each other if they are somehow connected, see example below. 
+- Deactivated fields should be avoided. If a field cannot be edited, the information should instead be presented as text. 
 
-### Eksempel på bruk:
+### Example of usage:
 {{% figma-example src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwnBveAG2ikUspFsQwM3GNE%2FPrototyping-av-skjematjenester%3Fnode-id%3D2816%253A1332" %}}
 
 
-### Bredde på inputfelt
-Bredden på inputfeltet burde reflektere det som forventes av input fra brukeren. Vi har laget tre standard størrelser som burde dekke de fleste scenarioer og som skal fungere på forskjellige skjermstørrelser. [Les om hvordan du endrer størrelsen her](https://docs.altinn.studio/app/development/ux/styling/#innergrid-og-labelgrid)
+### Width of an input field
+The width of an inputfield should reflect what is expected as an input from the user. We currently have three standard sizes that should reflect most scenarioes and cover different screen-sizes. [Read more about how to change the sizes here](https://docs.altinn.studio/app/development/ux/styling/#innergrid-og-labelgrid).
 
-#### Lite input
-Brukes til for eksempel telefonnummer, postnummer og årstall
+#### Small inputs
+The smaller inputs are more fitting for collecting information like phonenumber, postage number and year. 
 
 ```json
 "grid": {
@@ -34,7 +34,7 @@ Brukes til for eksempel telefonnummer, postnummer og årstall
 }
 ```
 #### Medium input
-Brukes til for eksempel kommune og land
+Can be used for collecting information like municipality or country
 ```json
 "grid": {
     "xs": 12,
@@ -45,8 +45,8 @@ Brukes til for eksempel kommune og land
     }      
 }
 ```
-#### Stor input
-Brukes til for eksempel navn, e-post adresse og en URL
+#### Long input
+Can be used for collecting information like name, e-mail adresse or a URL
 ```json
 "grid": {
     "xs": 12,
@@ -58,20 +58,18 @@ Brukes til for eksempel navn, e-post adresse og en URL
 
 ---
 
-## Stort tekstfelt
-Stort tekstfelt benyttes når brukeren skal fylle inn en lengre beskrivelse. De samme retningslinjene som 
-inputfelt gjelder. 
+## Large textfields
+Large textfields are used when the user has to fill inn a longer explanation. Large textfields follow the same guidelines as inputfields. 
 
-### Eksempel på bruk:
+### Example of usage:
 
 {{% figma-example src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwnBveAG2ikUspFsQwM3GNE%2FPrototyping-av-skjematjenester%3Fnode-id%3D3495%253A656" %}}
 
 ---
 
-## Adresse
-For adresse finnes det et fast oppsett der postnr og poststed er sidestilt under datofeltet. Postfelt fylles 
-ut automatisk basert på postnr-input. 
+## Adress 
+For addresses there is a rigid setup where postnr and postage place are on the same line, below the address input line. Postage place is filled automatically based on postnr-input. 
 
-### Eksempel på bruk:
+### Example of usage:
 
 {{% figma-example src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwnBveAG2ikUspFsQwM3GNE%2FPrototyping-av-skjematjenester%3Fnode-id%3D2911%253A652" %}}
