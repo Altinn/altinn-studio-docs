@@ -5,7 +5,7 @@ titleSup: NEW
 weight: 800
 ---
 
-## Juli 2022
+## July 2022
 
 - Oppstartveileder for enkeltpersonforetak (Brønnøysundregistrene)  
   [Info](https://www.altinn.no/oppstartsveileder/) | [Repo](https://altinn.studio/repos/brg/oppstartsveilederen) | [App](https://brg.apps.altinn.no/brg/oppstartsveilederen/)
