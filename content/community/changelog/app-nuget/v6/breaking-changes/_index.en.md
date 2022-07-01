@@ -58,7 +58,7 @@ Follow the instructions below to ensure that the app is compatible with version 
     with 
 
     ```Dockerfile
-    FROM mcr.microsoft.com/dotnet/sdk:6.0.102-alpine AS build
+    FROM mcr.microsoft.com/dotnet/sdk:6.0-alpine AS build
     ```
 
     And update the runtime image by replacing 
@@ -70,7 +70,7 @@ Follow the instructions below to ensure that the app is compatible with version 
     with 
 
     ```Dockerfile
-    FROM mcr.microsoft.com/dotnet/aspnet:6.0.2-alpine AS final
+    FROM mcr.microsoft.com/dotnet/aspnet:6.0-alpine AS final
     ```
 
 3. Update program.cs  
