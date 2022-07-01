@@ -47,7 +47,7 @@ En gruppe defineres på følgende måte i FormLayout.json:
 | id                    | Ja      | Unik ID, tilsvarer ID på andre komponenter. Må være unik i FormLayout.json-filen.                                                         |
 | type                  | Ja      | MÅ være "group". Sier at dette er en gruppe.                                                                                              |
 | dataModelBindings     | Nei     | MÅ være satt for repeterende grupper, med `group`-parameteren som i eksempelet over. Skal peke på den repeterende gruppen i datamodellen. |
-| textResourceBindings  | Nei     | Kan være satt for repeterende grupper, se [beskrivelse.](#textResourceBindings)                                                            |
+| textResourceBindings  | Nei     | Kan være satt for repeterende grupper, se [beskrivelse.](#textresourcebindings)                                                            |
 | maxCount              | Ja      | Antall ganger en gruppe kan repetere. Settes til `1` om gruppen ikke er repeterende.                                                      |
 | children              | Ja      | Liste over de feltene som skal inngå i gruppen. Her brukes felt-id fra FormLayout.json                                                    |
 | tableHeaders          | Nei     | Liste over komponentener som skal inngå som en del av tabbel header feltene. Om ikke spesifisert så vises alle komponentene.              |                                                           |
