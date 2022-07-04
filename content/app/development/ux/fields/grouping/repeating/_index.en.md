@@ -82,55 +82,55 @@ Oppsett i `FormLayout.json` fra eksempelet over:
 }
 ```
 
-## Vedlegg i repeterende grupper
+## Attachments in repeating groups
 
 {{%notice warning%}}
-Dette er helt ny funksjonalitet. Oppsett må gjøres manuelt inntil videre.
+This is brand new functionality. Setup is manual for now, support in Studio will arrive later.
 {{%/notice%}}
 
-For å sette opp filopplastingskomponenter i repeterende grupper kreves det noe ekstra oppsett.
+In order to set up the file upload component in repeating groups, some additional configration is required.
 
-Når man laster opp vedlegg kan det bli vanskelig å skille hvilket vedlegg som hører til hvilken rad i den repeterende
-gruppen, og dermed hvilken utfyllt informasjon som hører til hvert enkelt vedlegg. Derfor må man sette opp knytninger mot
-datamodellen når filopplasting blir brukt i repeterende grupper, slik at Altinn kan fylle inn den unike identifikatoren
-som hører til hvert vedlegg og sende dette med resten av dataene i instansen.
+When uploading attachments it can be difficult to identify which attachment belongs to which row in the repeating group,
+and in turn which part of the submitted data belongs to which attachment. For that reason, it is required to add data
+model bindings to the `FileUpload` component when used inside repeating groups, so that Altinn can populate the data
+model with a reference to the unique ID per attachment.
 
-Muligheten til å plassere en referanse til vedlegget i datamodellen kan også brukes utenfor repeterende grupper om man
-ønsker en referanse til vedlegg sammen med skjemadataene på mottakersiden.
+This option to have Altinn add references to attachments to the data model can also be used outside the context of
+repeating groups, in case references to attachment(s) are desired in the data model on the receiving end.
 
-![Eksempel på vedlegg i reperende gruppe med tilhørende datamodell](attachments-demo.gif "Eksempel på vedlegg i repeterende gruppe med tilhørende datamodell")
+![Example showing attachment uploads in repeating groups with data model](attachments-demo.gif "Example showing attachment uploads in repeating groups with data model")
 
-Følgende er et eksempel på en datamodell som forventer en referanse til et opplastet vedlegg:
+Below is an example of showing a data model expecting a reference to an uploaded attachment:
 
 ```xsd {hl_lines=["12"]}
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
   <xsd:element name="FamilieMedlemmer" type="Skjema" />
   <xsd:complexType name="Skjema">
     <xsd:sequence>
-      <xsd:element name="FamilieMedlem" type="FamilieMedlem" maxOccurs="99" />
+      <xsd:element name="FamilyMember" type="FamilyMember" maxOccurs="99" />
     </xsd:sequence>
     <xsd:anyAttribute />
   </xsd:complexType>
-  <xsd:complexType name="FamilieMedlem">
+  <xsd:complexType name="FamilyMember">
     <xsd:sequence>
-      <xsd:element name="Fornavn" type="xsd:string" />
-      <xsd:element name="Bilde" type="xsd:string" />
+      <xsd:element name="FirstName" type="xsd:string" />
+      <xsd:element name="Picture" type="xsd:string" />
     </xsd:sequence>
   </xsd:complexType>
 </xsd:schema>
 ```
 
-Dette knyttes til vedleggskomponenten i gruppen:
+This is bound to the file upload component inside a group:
 
 ```json {hl_lines=["8"]}
 {
-  "id": "bilde",
+  "id": "picture",
   "type": "FileUpload",
   "textResourceBindings": {
-    "title": "Bilde"
+    "title": "Picture"
   },
   "dataModelBindings": {
-    "simpleBinding": "FamilieMedlem.Bilde"
+    "simpleBinding": "FamilyMember.Picture"
   },
   "maxFileSizeInMB": 25,
   "maxNumberOfAttachments": 1,
@@ -140,14 +140,14 @@ Dette knyttes til vedleggskomponenten i gruppen:
 }
 ```
 
-I tilfeller hvor man tillater opplasting av flere filer i samme vedleggskomponent må man benytte en datamodellknytning
-av typen `list`:
+In cases where multiple attachments are allowed for a single `FileUpload` component, use a `list` data model binding
+instead:
 
 ```xsd {hl_lines=[4]}
-  <xsd:complexType name="FamilieMedlem">
+  <xsd:complexType name="FamilyMember">
     <xsd:sequence>
-      <xsd:element name="Fornavn" type="xsd:string" />
-      <xsd:element name="Bilder" type="xsd:string" maxOccurs="5" />
+      <xsd:element name="FirstName" type="xsd:string" />
+      <xsd:element name="Pictures" type="xsd:string" maxOccurs="5" />
     </xsd:sequence>
   </xsd:complexType>
 ```
@@ -156,11 +156,11 @@ av typen `list`:
 {
   [...]
   "dataModelBindings": {
-    "list": "FamilieMedlem.Bilder"
+    "list": "FamilyMember.Pictures"
   }
 }
 ```
 
-Mottakersiden vil da få en liste med flere unike IDer, en for hvert vedlegg. Samme unike ID vil også vises i
-PDF-kvitteringen - men det enbefales å [skjule dette](/app/development/ux/pdf/#ekskludere-komponenter) ettersom vedlegg
-vises separat på kvitteringssiden og den unike IDen kan bli forvirrende for brukerne.
+The receiving end will get a list of multiple unique IDs, one for each attachment. The same unique ID will be displayed
+in the PDF receipt, but it is recommended to [hide this](/app/development/ux/pdf/#exclude-components), as attachments
+are shown separately on the receipt page and unique IDs can appear confusing to end users.
