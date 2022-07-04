@@ -8,8 +8,8 @@ tags: [architecture, security, authorization, xacml]
 WORK IN PROGRESS - NOT FINALIZED
 
 
-Access registry 
 
+Access registry contains information about the sentral defined access groups. 
 
 ### AccessGroup defintion
 
@@ -47,7 +47,7 @@ Access registry
 - CoveredByPartyId
 - ChangeType (created, deleted)
 
-### AccessGroups 
+### 
 
 
 
