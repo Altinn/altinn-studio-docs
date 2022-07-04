@@ -97,7 +97,7 @@ som hører til hvert vedlegg og sende dette med resten av dataene i instansen.
 Muligheten til å plassere en referanse til vedlegget i datamodellen kan også brukes utenfor repeterende grupper om man
 ønsker en referanse til vedlegg sammen med skjemadataene på mottakersiden.
 
-![Eksempel på vedlegg i reperende gruppe med tilhørende datamodell](attachments-demo.gif "Eksempel på vedlegg i repeterende gruppe med tilhørende datamodell")
+![Eksempel på vedlegg i repeterende gruppe med tilhørende datamodell](attachments-demo.gif "Eksempel på vedlegg i repeterende gruppe med tilhørende datamodell")
 
 Følgende er et eksempel på en datamodell som forventer en referanse til et opplastet vedlegg:
 
