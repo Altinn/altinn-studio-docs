@@ -624,7 +624,69 @@ En gruppe som er repeterende i datamodellen må også settes opp som repeterende
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">55</span>    ]
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">56</span>  }
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">57</span>}
-</code></pre></div>
+</code></pre></div><h2 id="vedlegg-i-repeterende-grupper">Vedlegg i repeterende grupper</h2>
+<div class="notices warning" >
+Dette er helt ny funksjonalitet. Oppsett må gjøres manuelt inntil videre.
+</div>
+<p>For å sette opp filopplastingskomponenter i repeterende grupper kreves det noe ekstra oppsett.</p>
+<p>Når man laster opp vedlegg kan det bli vanskelig å skille hvilket vedlegg som hører til hvilken rad i den repeterende
+gruppen, og dermed hvilken utfyllt informasjon som hører til hvert enkelt vedlegg. Derfor må man sette opp knytninger mot
+datamodellen når filopplasting blir brukt i repeterende grupper, slik at Altinn kan fylle inn den unike identifikatoren
+som hører til hvert vedlegg og sende dette med resten av dataene i instansen.</p>
+<p>Muligheten til å plassere en referanse til vedlegget i datamodellen kan også brukes utenfor repeterende grupper om man
+ønsker en referanse til vedlegg sammen med skjemadataene på mottakersiden.</p>
+<figure><a href="attachments-demo.gif"><img src="attachments-demo.gif" alt="Eksempel på vedlegg i repeterende gruppe med tilhørende datamodell" title="Eksempel på vedlegg i repeterende gruppe med tilhørende datamodell" /></a><figcaption><h4>Eksempel på vedlegg i repeterende gruppe med tilhørende datamodell</h4></figcaption></figure>
+<p>Følgende er et eksempel på en datamodell som forventer en referanse til et opplastet vedlegg:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xsd" data-lang="xsd"><span style="color:#ff79c6">&lt;xsd:schema</span> <span style="color:#50fa7b">xmlns:xsd=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema&#34;</span> <span style="color:#50fa7b">elementFormDefault=</span><span style="color:#f1fa8c">&#34;qualified&#34;</span> <span style="color:#50fa7b">attributeFormDefault=</span><span style="color:#f1fa8c">&#34;unqualified&#34;</span><span style="color:#ff79c6">&gt;</span>
+  <span style="color:#ff79c6">&lt;xsd:element</span> <span style="color:#50fa7b">name=</span><span style="color:#f1fa8c">&#34;FamilieMedlemmer&#34;</span> <span style="color:#50fa7b">type=</span><span style="color:#f1fa8c">&#34;Skjema&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+  <span style="color:#ff79c6">&lt;xsd:complexType</span> <span style="color:#50fa7b">name=</span><span style="color:#f1fa8c">&#34;Skjema&#34;</span><span style="color:#ff79c6">&gt;</span>
+    <span style="color:#ff79c6">&lt;xsd:sequence&gt;</span>
+      <span style="color:#ff79c6">&lt;xsd:element</span> <span style="color:#50fa7b">name=</span><span style="color:#f1fa8c">&#34;FamilieMedlem&#34;</span> <span style="color:#50fa7b">type=</span><span style="color:#f1fa8c">&#34;FamilieMedlem&#34;</span> <span style="color:#50fa7b">maxOccurs=</span><span style="color:#f1fa8c">&#34;99&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+    <span style="color:#ff79c6">&lt;/xsd:sequence&gt;</span>
+    <span style="color:#ff79c6">&lt;xsd:anyAttribute</span> <span style="color:#ff79c6">/&gt;</span>
+  <span style="color:#ff79c6">&lt;/xsd:complexType&gt;</span>
+  <span style="color:#ff79c6">&lt;xsd:complexType</span> <span style="color:#50fa7b">name=</span><span style="color:#f1fa8c">&#34;FamilieMedlem&#34;</span><span style="color:#ff79c6">&gt;</span>
+    <span style="color:#ff79c6">&lt;xsd:sequence&gt;</span>
+      <span style="color:#ff79c6">&lt;xsd:element</span> <span style="color:#50fa7b">name=</span><span style="color:#f1fa8c">&#34;Fornavn&#34;</span> <span style="color:#50fa7b">type=</span><span style="color:#f1fa8c">&#34;xsd:string&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+<span style="display:block;width:100%;background-color:#3d3f4a">      <span style="color:#ff79c6">&lt;xsd:element</span> <span style="color:#50fa7b">name=</span><span style="color:#f1fa8c">&#34;Bilde&#34;</span> <span style="color:#50fa7b">type=</span><span style="color:#f1fa8c">&#34;xsd:string&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+</span>    <span style="color:#ff79c6">&lt;/xsd:sequence&gt;</span>
+  <span style="color:#ff79c6">&lt;/xsd:complexType&gt;</span>
+<span style="color:#ff79c6">&lt;/xsd:schema&gt;</span>
+</code></pre></div><p>Dette knyttes til vedleggskomponenten i gruppen:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;bilde&#34;</span>,
+  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;FileUpload&#34;</span>,
+  <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+    <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;Bilde&#34;</span>
+  },
+  <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {
+<span style="display:block;width:100%;background-color:#3d3f4a">    <span style="color:#ff79c6">&#34;simpleBinding&#34;</span>: <span style="color:#f1fa8c">&#34;FamilieMedlem.Bilde&#34;</span>
+</span>  },
+  <span style="color:#ff79c6">&#34;maxFileSizeInMB&#34;</span>: <span style="color:#bd93f9">25</span>,
+  <span style="color:#ff79c6">&#34;maxNumberOfAttachments&#34;</span>: <span style="color:#bd93f9">1</span>,
+  <span style="color:#ff79c6">&#34;minNumberOfAttachments&#34;</span>: <span style="color:#bd93f9">1</span>,
+  <span style="color:#ff79c6">&#34;displayMode&#34;</span>: <span style="color:#f1fa8c">&#34;simple&#34;</span>,
+  <span style="color:#ff79c6">&#34;required&#34;</span>: <span style="color:#ff79c6">true</span>
+}
+</code></pre></div><p>I tilfeller hvor man tillater opplasting av flere filer i samme vedleggskomponent må man benytte en datamodellknytning
+av typen <code>list</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xsd" data-lang="xsd">  <span style="color:#ff79c6">&lt;xsd:complexType</span> <span style="color:#50fa7b">name=</span><span style="color:#f1fa8c">&#34;FamilieMedlem&#34;</span><span style="color:#ff79c6">&gt;</span>
+    <span style="color:#ff79c6">&lt;xsd:sequence&gt;</span>
+      <span style="color:#ff79c6">&lt;xsd:element</span> <span style="color:#50fa7b">name=</span><span style="color:#f1fa8c">&#34;Fornavn&#34;</span> <span style="color:#50fa7b">type=</span><span style="color:#f1fa8c">&#34;xsd:string&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+<span style="display:block;width:100%;background-color:#3d3f4a">      <span style="color:#ff79c6">&lt;xsd:element</span> <span style="color:#50fa7b">name=</span><span style="color:#f1fa8c">&#34;Bilder&#34;</span> <span style="color:#50fa7b">type=</span><span style="color:#f1fa8c">&#34;xsd:string&#34;</span> <span style="color:#50fa7b">maxOccurs=</span><span style="color:#f1fa8c">&#34;5&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+</span>    <span style="color:#ff79c6">&lt;/xsd:sequence&gt;</span>
+  <span style="color:#ff79c6">&lt;/xsd:complexType&gt;</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  [...]
+  <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {
+<span style="display:block;width:100%;background-color:#3d3f4a">    <span style="color:#ff79c6">&#34;list&#34;</span>: <span style="color:#f1fa8c">&#34;FamilieMedlem.Bilder&#34;</span>
+</span>  }
+}
+</code></pre></div><p>Mottakersiden vil da få en liste med flere unike IDer, en for hvert vedlegg.</p>
+<p>Samme unike ID vil også vises i
+PDF-kvitteringen - men det enbefales å <a href="/nb/app/development/ux/pdf/#ekskludere-komponenter">skjule dette</a> ettersom vedlegg
+vises separat på kvitteringssiden og den unike IDen kan bli forvirrende for brukerne.</p>
+
 
 <footer class=" footline" >
 	

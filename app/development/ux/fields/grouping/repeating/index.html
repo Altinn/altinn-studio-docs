@@ -1146,7 +1146,68 @@ En gruppe som er repeterende i datamodellen må også settes opp som repeterende
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">55</span>    ]
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">56</span>  }
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">57</span>}
-</code></pre></div>
+</code></pre></div><h2 id="attachments-in-repeating-groups">Attachments in repeating groups</h2>
+<div class="notices warning" >
+This is brand new functionality. Setup is manual for now, support in Studio will arrive later.
+</div>
+<p>In order to set up the file upload component in repeating groups, some additional configration is required.</p>
+<p>When uploading attachments it can be difficult to identify which attachment belongs to which row in the repeating group,
+and in turn which part of the submitted data belongs to which attachment. For that reason, it is required to add data
+model bindings to the <code>FileUpload</code> component when used inside repeating groups, so that Altinn can populate the data
+model with a reference to the unique ID per attachment.</p>
+<p>This option to have Altinn add references to attachments to the data model can also be used outside the context of
+repeating groups, in case references to attachment(s) are desired in the data model on the receiving end.</p>
+<figure><a href="attachments-demo.gif"><img src="attachments-demo.gif" alt="Example showing attachment uploads in repeating groups with data model" title="Example showing attachment uploads in repeating groups with data model" /></a><figcaption><h4>Example showing attachment uploads in repeating groups with data model</h4></figcaption></figure>
+<p>Below is an example of showing a data model expecting a reference to an uploaded attachment:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xsd" data-lang="xsd"><span style="color:#ff79c6">&lt;xsd:schema</span> <span style="color:#50fa7b">xmlns:xsd=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema&#34;</span> <span style="color:#50fa7b">elementFormDefault=</span><span style="color:#f1fa8c">&#34;qualified&#34;</span> <span style="color:#50fa7b">attributeFormDefault=</span><span style="color:#f1fa8c">&#34;unqualified&#34;</span><span style="color:#ff79c6">&gt;</span>
+  <span style="color:#ff79c6">&lt;xsd:element</span> <span style="color:#50fa7b">name=</span><span style="color:#f1fa8c">&#34;FamilieMedlemmer&#34;</span> <span style="color:#50fa7b">type=</span><span style="color:#f1fa8c">&#34;Skjema&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+  <span style="color:#ff79c6">&lt;xsd:complexType</span> <span style="color:#50fa7b">name=</span><span style="color:#f1fa8c">&#34;Skjema&#34;</span><span style="color:#ff79c6">&gt;</span>
+    <span style="color:#ff79c6">&lt;xsd:sequence&gt;</span>
+      <span style="color:#ff79c6">&lt;xsd:element</span> <span style="color:#50fa7b">name=</span><span style="color:#f1fa8c">&#34;FamilyMember&#34;</span> <span style="color:#50fa7b">type=</span><span style="color:#f1fa8c">&#34;FamilyMember&#34;</span> <span style="color:#50fa7b">maxOccurs=</span><span style="color:#f1fa8c">&#34;99&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+    <span style="color:#ff79c6">&lt;/xsd:sequence&gt;</span>
+    <span style="color:#ff79c6">&lt;xsd:anyAttribute</span> <span style="color:#ff79c6">/&gt;</span>
+  <span style="color:#ff79c6">&lt;/xsd:complexType&gt;</span>
+  <span style="color:#ff79c6">&lt;xsd:complexType</span> <span style="color:#50fa7b">name=</span><span style="color:#f1fa8c">&#34;FamilyMember&#34;</span><span style="color:#ff79c6">&gt;</span>
+    <span style="color:#ff79c6">&lt;xsd:sequence&gt;</span>
+      <span style="color:#ff79c6">&lt;xsd:element</span> <span style="color:#50fa7b">name=</span><span style="color:#f1fa8c">&#34;FirstName&#34;</span> <span style="color:#50fa7b">type=</span><span style="color:#f1fa8c">&#34;xsd:string&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+<span style="display:block;width:100%;background-color:#3d3f4a">      <span style="color:#ff79c6">&lt;xsd:element</span> <span style="color:#50fa7b">name=</span><span style="color:#f1fa8c">&#34;Picture&#34;</span> <span style="color:#50fa7b">type=</span><span style="color:#f1fa8c">&#34;xsd:string&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+</span>    <span style="color:#ff79c6">&lt;/xsd:sequence&gt;</span>
+  <span style="color:#ff79c6">&lt;/xsd:complexType&gt;</span>
+<span style="color:#ff79c6">&lt;/xsd:schema&gt;</span>
+</code></pre></div><p>This is bound to the file upload component inside a group:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;picture&#34;</span>,
+  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;FileUpload&#34;</span>,
+  <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+    <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;Picture&#34;</span>
+  },
+  <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {
+<span style="display:block;width:100%;background-color:#3d3f4a">    <span style="color:#ff79c6">&#34;simpleBinding&#34;</span>: <span style="color:#f1fa8c">&#34;FamilyMember.Picture&#34;</span>
+</span>  },
+  <span style="color:#ff79c6">&#34;maxFileSizeInMB&#34;</span>: <span style="color:#bd93f9">25</span>,
+  <span style="color:#ff79c6">&#34;maxNumberOfAttachments&#34;</span>: <span style="color:#bd93f9">1</span>,
+  <span style="color:#ff79c6">&#34;minNumberOfAttachments&#34;</span>: <span style="color:#bd93f9">1</span>,
+  <span style="color:#ff79c6">&#34;displayMode&#34;</span>: <span style="color:#f1fa8c">&#34;simple&#34;</span>,
+  <span style="color:#ff79c6">&#34;required&#34;</span>: <span style="color:#ff79c6">true</span>
+}
+</code></pre></div><p>In cases where multiple attachments are allowed for a single <code>FileUpload</code> component, use a <code>list</code> data model binding
+instead:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xsd" data-lang="xsd">  <span style="color:#ff79c6">&lt;xsd:complexType</span> <span style="color:#50fa7b">name=</span><span style="color:#f1fa8c">&#34;FamilyMember&#34;</span><span style="color:#ff79c6">&gt;</span>
+    <span style="color:#ff79c6">&lt;xsd:sequence&gt;</span>
+      <span style="color:#ff79c6">&lt;xsd:element</span> <span style="color:#50fa7b">name=</span><span style="color:#f1fa8c">&#34;FirstName&#34;</span> <span style="color:#50fa7b">type=</span><span style="color:#f1fa8c">&#34;xsd:string&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+<span style="display:block;width:100%;background-color:#3d3f4a">      <span style="color:#ff79c6">&lt;xsd:element</span> <span style="color:#50fa7b">name=</span><span style="color:#f1fa8c">&#34;Pictures&#34;</span> <span style="color:#50fa7b">type=</span><span style="color:#f1fa8c">&#34;xsd:string&#34;</span> <span style="color:#50fa7b">maxOccurs=</span><span style="color:#f1fa8c">&#34;5&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+</span>    <span style="color:#ff79c6">&lt;/xsd:sequence&gt;</span>
+  <span style="color:#ff79c6">&lt;/xsd:complexType&gt;</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  [...]
+  <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {
+<span style="display:block;width:100%;background-color:#3d3f4a">    <span style="color:#ff79c6">&#34;list&#34;</span>: <span style="color:#f1fa8c">&#34;FamilyMember.Pictures&#34;</span>
+</span>  }
+}
+</code></pre></div><p>The receiving end will get a list of multiple unique IDs, one for each attachment. The same unique ID will be displayed
+in the PDF receipt, but it is recommended to <a href="/app/development/ux/pdf/#exclude-components">hide this</a>, as attachments
+are shown separately on the receipt page and unique IDs can appear confusing to end users.</p>
+
 
 <footer class=" footline" >
 	
