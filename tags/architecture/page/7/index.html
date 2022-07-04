@@ -715,6 +715,8 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/technology/architecture/components/application/solution/altinn-platform/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
+        <a href="/technology/architecture/components/application/solution/altinn-platform/authorization/accessregistry/"><span>Access Registry</span></a></li>
+      <li class="dd-item">
         <a href="/technology/architecture/components/application/solution/altinn-platform/authorization/contexthandler/"><span>Context Handler</span></a></li>
       <li class="dd-item">
         <a href="/technology/architecture/components/application/solution/altinn-platform/authorization/pap/"><span>PAP</span></a></li>
@@ -726,6 +728,8 @@ if(host != "localhost")
         <a href="/technology/architecture/components/application/solution/altinn-platform/authorization/pip/"><span>PIP</span></a></li>
       <li class="dd-item">
         <a href="/technology/architecture/components/application/solution/altinn-platform/authorization/prp/"><span>PRP</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/solution/altinn-platform/authorization/serviceregistry/"><span>Service Registry</span></a></li>
       <li class="dd-item">
         <a href="/technology/architecture/components/application/solution/altinn-platform/authorization/xacml/"><span>XACML</span></a></li></ul></li>
       <li class="dd-item">
@@ -1092,6 +1096,34 @@ if(host != "localhost")
 	
 	   <article class="post technology">
     <header class="post-header">
+        <h2 class="post-title"><a href="/technology/architecture/components/application/construction/security/jwtcookie/">JWTCookieAuthentication</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>JWTCookieAuthentication is a ASP.NET Core authentication service created for supporting Json Web Tokens (JWT) as bearer tokens and JWT in Cookies. It is based on JWTBearer
+This is created for scenarios where you have need for APIs that will be accessed from system using bearer tokens and from Single Page Applications (SPA) where you want to protect the JWT from this SPA. (XSS attacks). When JWT is put in a http only cookie it is not accessible from the SPA and can&rsquo;t be stolen by malicous javascript running in the browser. <a class="read-more" href="/technology/architecture/components/application/construction/security/jwtcookie/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post technology">
+    <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/capabilities/runtime/security/authentication/jwt-format/">JWT Format</a></h2>
     </header>
     <section class="post-excerpt">
@@ -1339,35 +1371,6 @@ PasS and &amp; IaaS configuration There are serveral ways PasS and &amp; IaaS re
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post technology">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/technology/architecture/components/platform/oscloudplatform/">Operating Systems &amp; Cloud Platform</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Operating systems Container Operation Systems All containers are running on Alpine Linux, which includes apps created in Altinn Studio and the Altinn Platform components.
-Cloud Platform Orchestrating &amp; Sceduling We use Kubernetes to manage the application containers for the different solutions.
-We use Azure Kubernetes Services that is a managed Kubernetes administration in Azure.
-Read more about our Kubernetes Clusters.
-Service Mesh &amp; Proxy We use Traefik as proxy in Kubernetes and Linkerd as service mesh. <a class="read-more" href="/technology/architecture/components/platform/oscloudplatform/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
             

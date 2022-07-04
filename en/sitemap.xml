@@ -1728,6 +1728,8 @@
   </url><url>
     <loc>https://docs.altinn.studio/technology/tools/dotnet-core/</loc>
   </url><url>
+    <loc>https://docs.altinn.studio/technology/architecture/components/application/solution/altinn-platform/authorization/accessregistry/</loc>
+  </url><url>
     <loc>https://docs.altinn.studio/technology/architecture/capabilities/runtime/security/authentication/accesstoken/</loc>
   </url><url>
     <loc>https://docs.altinn.studio/technology/tools/alpine-linux/</loc>
@@ -2893,6 +2895,8 @@
     <loc>https://docs.altinn.studio/technology/architecture/components/application/construction/security/</loc>
   </url><url>
     <loc>https://docs.altinn.studio/tags/security/</loc>
+  </url><url>
+    <loc>https://docs.altinn.studio/technology/architecture/components/application/solution/altinn-platform/authorization/serviceregistry/</loc>
   </url><url>
     <loc>https://docs.altinn.studio/technology/solutions/altinn-studio/repos/structure/service-configurations/</loc>
   </url><url>
