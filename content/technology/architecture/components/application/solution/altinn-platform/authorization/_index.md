@@ -121,5 +121,11 @@ The rules are sent in the body of the request. Reade more about the [policy form
 POST /authorization/api/v1/policies?org=org&app=app
 ```
 
+## The Future
+
+The below show the future of Authorization Component. Work in progress
+
+![The future](authorizationdetailed2026.drawio.svg "Authorization Future - WIP")
+
 
 {{% children description="true" depth="1" %}}
