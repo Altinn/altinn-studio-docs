@@ -68,5 +68,5 @@ ta 2 sekunder fra brukeren slutter å skrive i feltet til dataene lagres.
 }
 ```
 
-Hvis denne nøkkelen blir satt til `false` skrus funksjonaliteten av, og lagring vil skje først når brukeren flytter
-fokus ut av feltet.
+Hvis denne nøkkelen blir satt til `false` skrus funksjonaliteten av, og lagring vil skje først når brukeren
+forlater feltet.
