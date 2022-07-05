@@ -1,23 +1,23 @@
 {
-    "identifier":"nav_aa_distribution",
+    "identifier":"skd_inntektsopplysninger",
     "description": 
          [
             {
             "language": "nb-NO",
-             "description": "NAVs brukerstøtte for Aa-registerets distribusjonsløsninger" 
+             "description": "Inntektsopplysninger" 
             },
             {
                 "language": "EN",
-                "description": "NAVs brukerstøtte for Aa-registerets distribusjonsløsninger" 
+                "description": "Inntektsopplysninger" 
             }
         ],
     "title": 
            [{
-                "title":"Aa-registerets distribusjonsløsninger",
+                "title":"Inntektsopplysninger",
                   "language":"nb-NO"
             },
             {
-                "title":"Aa-registerets distribusjonsløsninger",
+                "title":"Inntektsopplysninger",
                   "language":"nb-NO"
             }],
     "hasCompetentAuthority":
@@ -30,8 +30,8 @@
                         "phone":"1231324",
                         "email": "online@digdir.no"
               }],
-          "isPartOf":"navportal",
-          "homepage":"nav.no",
+          "isPartOf":"Inntektsopplysninger",
+          "homepage":"https://skatteetaten.no",
            "status":"Completed", 
            "thematicArea":[],
            "type":[],

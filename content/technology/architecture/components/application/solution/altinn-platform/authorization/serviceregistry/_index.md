@@ -10,6 +10,8 @@ WORK IN PROGRESS - NOT FINALIZED
 The service registry will contain information about the service resources 
 
 
+See [Github #24](https://github.com/Altinn/altinn-authorization/issues/24)
+
 ## Type of resources
 
 There are different types of resources that can be registrated 
