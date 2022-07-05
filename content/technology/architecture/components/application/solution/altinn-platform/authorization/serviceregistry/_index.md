@@ -33,17 +33,15 @@ Apps hosted in Altinn 2 platform will be registrated in Altinn Service Registry
 
 The reference id would be externalServiceCode/serviceeditionCode
 
-
 ### Altinn Service Resource
 
 The service resource would be any type of service provided by public or private organiazations
 
-- API's exposing data
+- API's exposing data [Example3](exampleresource3.json)
 - Portal functionality in Altinn [Example 1](exampleresource1.json)
-- Portal functionality in external portal [Example 2]
-- 
+- Portal functionality in external portal [Example 2](exampleresource2.json)
+
+## Resource model
 
 
 
-- Need to define the resources for already deployed apps
-- 
