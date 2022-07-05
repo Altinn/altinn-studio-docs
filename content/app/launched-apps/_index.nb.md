@@ -5,6 +5,13 @@ titleSup: NY
 weight: 800
 ---
 
+## Juli 2022
+
+- Oppstartveileder for enkeltpersonforetak (Brønnøysundregistrene)  
+  [Info](https://www.altinn.no/oppstartsveileder/) | [Repo](https://altinn.studio/repos/brg/oppstartsveilederen) | [Kjørende tjeneste](https://brg.apps.altinn.no/brg/oppstartsveilederen/)
+- Oppstartveileder for enkeltpersonforetak uten innlogging (Brønnøysundregistrene)
+  [Info](https://www.altinn.no/oppstartsveileder/) | [Repo](https://altinn.studio/repos/brg/anonym-oppstartsveilederen) | [Kjørende tjeneste](https://brg.apps.altinn.no/brg/anonym-oppstartsveilederen/)
+
 ## April 2022
 
 - Nasjonalt arbeidstidsregister (STAMI).  
