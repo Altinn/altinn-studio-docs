@@ -7,9 +7,9 @@ tags: [architecture, security, authorization, xacml]
 
 WORK IN PROGRESS - NOT FINALIZED
 
+Access registry contains information about the sentral defined access groups. 
 
-Access registry 
-
+See [Github #25](https://github.com/Altinn/altinn-authorization/issues/25)
 
 ### AccessGroup defintion
 
@@ -47,7 +47,13 @@ Access registry
 - CoveredByPartyId
 - ChangeType (created, deleted)
 
-### AccessGroups 
+### 
+
+
+![Hierar](dbmodel.drawio.svg "Db model")
+
+
+![Hierar](hierchy.drawio.svg "Db model")
 
 
 
