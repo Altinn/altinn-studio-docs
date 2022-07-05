@@ -1071,6 +1071,30 @@ if(host != "localhost")
 
 
 <p>WORK IN PROGRESS - NOT FINALIZED</p>
+<p>The service registry will contain information about the service resources</p>
+<p>See <a href="https://github.com/Altinn/altinn-authorization/issues/24">Github #24</a></p>
+<h2 id="type-of-resources">Type of resources</h2>
+<p>There are different types of resources that can be registrated</p>
+<ul>
+<li>Altinn 3 apps - Refered with org/app id</li>
+<li>Altinn 2 Services - Refered with externalServiceCode and EditionCode</li>
+<li>Service Resources</li>
+</ul>
+<h3 id="altinn-3-apps">Altinn 3 Apps</h3>
+<p>Apps hosted in Altinn 3 Apps will be registred in the Altinn Service Registry.</p>
+<p>The referenced id would be org/app</p>
+<p>The registration is required to be able to list apps that is included in the rights for a group</p>
+<h3 id="altinn-2-services">Altinn 2 Services</h3>
+<p>Apps hosted in Altinn 2 platform will be registrated in Altinn Service Registry</p>
+<p>The reference id would be externalServiceCode/serviceeditionCode</p>
+<h3 id="altinn-service-resource">Altinn Service Resource</h3>
+<p>The service resource would be any type of service provided by public or private organiazations</p>
+<ul>
+<li>API&rsquo;s exposing data <a href="exampleresource3.json">Example3</a></li>
+<li>Portal functionality in Altinn <a href="exampleresource1.json">Example 1</a></li>
+<li>Portal functionality in external portal <a href="exampleresource2.json">Example 2</a></li>
+</ul>
+<h2 id="resource-model">Resource model</h2>
 
 
 <footer class=" footline" >
