@@ -11,7 +11,7 @@ The Altinn prototype-kit is a collection of presets and components that you can 
 
 **With Altinn's Prototype-Kit for Figma you can:**
 
-- Look how Altinn-forms look like and are experienced by the user
+- See what Altinn-forms look like and how they are experienced by the user
 - Familiarize yourself with design elements in Altinn 3
 - Define Flow and content within your form
 - Create clickable scetch that can be tested by user 
