@@ -15,7 +15,7 @@ The Altinn prototype-kit is a collection of presets and components that you can 
 - Familiarize yourself with design elements in Altinn 3
 - Define flow and content within your form
 - Create clickable sketch that can be user tested
-- Use the prototype as a guide/referance while the app is in development
+- Use the prototype as a guide/reference while the app is in development
 
 ## Get started with Figma
 Having a designer that already has experience in Figma or a similar tool would be an advantage. 
