@@ -31,6 +31,6 @@ When the designer/professional has designed and user tested the form,
 it can be used as a specification for what the developers should create in Altinn Studio. 
 
 {{% panel %}}
-**PS:** If you are creating services for your own solution, where Altinn is invicible for the user, you should rather use 
+**NOTE:** If you are creating services for your own solution, where Altinn is invisible for the user, you should rather use 
 your agencie's own designsystem to prototype your service.
 {{% /panel %}}
