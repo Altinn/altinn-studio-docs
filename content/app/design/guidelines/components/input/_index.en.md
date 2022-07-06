@@ -1,6 +1,6 @@
 ---
 title: Input
-description: Inputfields are used when the user is submitting text or a number. 
+description: input field are used when the user is submitting text or a number. 
 weight: 30
 toc: true
 ---
