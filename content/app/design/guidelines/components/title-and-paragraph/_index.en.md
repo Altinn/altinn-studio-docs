@@ -7,7 +7,7 @@ weight: 10
 ### Guidelines:
 - Text length in a paragraph should not fill the module box 100%, as long lines disturb reading flow. 
 - Paragraphs should be restricted to a width of 696px, even if the module fills 1056px.
-- the text should always be aligned to the left.
+- The text should always be aligned to the left.
 - Keep the correct order of the header size levels. Don't skip sizes, but go down by one at a time. This means that changes in text size changes should be between H2/H3, H1/H2, or stay the same. This avoids sharp differences between H1/H3.  
 - Ha riktig rekkefølge på overskriftsnivåene. Ikke hopp over nivåer, men gå nedover et nivå om gangen. For eksempel er H2 - H2 og H2 - H3 lov, men H1 - H3 er ikke lov.
 
