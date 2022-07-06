@@ -28,7 +28,7 @@ we recommend going through an [introductory course before you start](https://www
 {{% highlighted-link src="https://www.figma.com/file/wnBveAG2ikUspFsQwM3GNE/Prototyping-av-skjematjenester?node-id=47%3A4068" link="Altinn Prototype-kit" %}}
 
 When the designer/professional has designed and user tested the form, 
-it can be used as a specification for what the developers should create within Altinn Studio. 
+it can be used as a specification for what the developers should create in Altinn Studio. 
 
 {{% panel %}}
 **PS:** If you are creating services for your own solution, where Altinn is invicible for the user, you should rather use 
