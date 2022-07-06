@@ -1,5 +1,5 @@
 ---
-title: Check box
+title: Checkboxes
 description: Check boxes are used in cases where the user can mark multiple alternatives in a list of options.
 weight: 50
 ---
