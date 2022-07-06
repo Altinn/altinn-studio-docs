@@ -7,7 +7,7 @@ weight: 90
 Be short and precise in how error messages are formulated, and make sure that the user knows what is necessary to proceed. Writing "The field is not filled correctly" only explains that there's something wrong, but does not give any info on how to fix the problem. 
 
 ### Examples of explanatory error messages:
-- "Postage numbers must have 4 digits"
+- "Zip code must have 4 digits"
 - "You must choose one delivery option"
 - "To deliver the form you need to confirm that the name is correct by checking the name confirmation checkbox."
 
