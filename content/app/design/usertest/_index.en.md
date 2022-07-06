@@ -6,7 +6,6 @@ Doing this early in the project is a good investment, since you save time and mo
 developing a solution that doesn't match what it was trying to solve.
 weight: 10
 toc: true
-tags: [translate-to-english]
 ---
 
 User testing does not have to be advanced with setup, or the amount of test subjects in mind. 
