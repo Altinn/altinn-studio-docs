@@ -6,7 +6,8 @@ weight: 70
 
 ### The pull-down list should be used when:
 - you have many alternatives (more than 5, but not unlimited)
-- you have a recommended choice which is pre-picked
+- You have a recommended choice which is pre-selected
+``
 - it isn't important for the user to compare the alternatives
 - you don't need the user to read every alternative
 - the alternatives are known by the user (birth month, country of origin, etc)
