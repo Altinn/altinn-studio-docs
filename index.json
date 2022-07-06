@@ -263,7 +263,7 @@
 	"title": "UI-komponenter",
 	"tags": ["translate-to-english"],
 	"description": "De ulike komponentene er laget for at de skal passe sammen i en større helhet. Det er derfor viktig å følge retningslinjene for hvordan disse brukes for å oppnå et konsistent og gjenkjennbart uttrykk. UI-komponenter som foreløpig inngår i Altinns bibliotek finner du her.",
-	"content": "Har du behov for en ny komponent?\nVi ønsker at alle er med på å videreutvikle biblioteket av komponenter med både design og kode. I praksis vil dette si at Altinn ønsker å ta imot forslag til nye komponenter etter hvert som tjenesteeierne ser behovet for det.\nSjekk gjerne nedenunder at ikke komponenten du trenger allerede eksisterer.\nOpprett en sak i github\rSkriv til oss på Slack\r\r\r\r\rTittel og avsnitt\rDet bør som hovedregel alltid være en header (H2) og et avsnitt i starten på en skjamaside for å oppsummere brukerens oppgave.\n\r\rKnapp og lenke\rHovedknapp (blå) brukes for å sende brukeren til neste steg.\n\r\rInput\rInputfelt brukes når brukeren skal føre inn tekst eller tall.\n\r\rDato\rDatovelger benyttes i forbindelse med planlegging eller for datoer i nærliggende tid. For datoer lengre tilbake i tid brukes datofelt.\n\r\rAvkrysningsboks\rAvkrysningsbokser brukes i tilfeller der brukeren kan huke av ett eller flere alternativer fra en liste.\n\r\rRadioknapp\rRadioknapper brukes i tilfeller der brukeren skal velge et alternativ blant flere. Det samme gjelder nedtrekksliste, så vær bevisst på når du bruker hvilken.\n\r\rDropdown\rThe pull-down list should be used in cases where the user is picking one of many alternatives, much like the radio buttons.\n\r\rHjelpetekst\rHjelpetekster er små tekstsnutter som kan benyttes for å gi brukeren ekstra veiledning i utfylling av skjemafelter.\n\r\rFeilmeldinger\rFeilmeldinger forklarer brukeren hva som gikk galt og hvordan det kan rettes opp i.\n\r\rFilopplasting\rFilopplasting tillater brukere å laste opp en eller flere filer.\n\r\rImage\rUse images and illustrations to emphazise points or illustrate concepts which are difficult to explain using text\n\r\r"
+	"content": "Har du behov for en ny komponent?\nVi ønsker at alle er med på å videreutvikle biblioteket av komponenter med både design og kode. I praksis vil dette si at Altinn ønsker å ta imot forslag til nye komponenter etter hvert som tjenesteeierne ser behovet for det.\nSjekk gjerne nedenunder at ikke komponenten du trenger allerede eksisterer.\nOpprett en sak i github\rSkriv til oss på Slack\r\r\r\r\rTittel og avsnitt\rDet bør som hovedregel alltid være en header (H2) og et avsnitt i starten på en skjamaside for å oppsummere brukerens oppgave.\n\r\rKnapp og lenke\rHovedknapp (blå) brukes for å sende brukeren til neste steg.\n\r\rInput\rInputfelt brukes når brukeren skal føre inn tekst eller tall.\n\r\rDato\rDatovelger benyttes i forbindelse med planlegging eller for datoer i nærliggende tid. For datoer lengre tilbake i tid brukes datofelt.\n\r\rCheckboxes\rCheck boxes are used in cases where the user can select multiple alternatives in a list of options.\n\r\rRadio button\rRadio buttons are used in cases where the user is picking one of a group of options. The same applies to drop-down lists, so be conscious about which you choose to use.\n\r\rDropdown\rThe pull-down list should be used in cases where the user is picking one of many alternatives, much like the radio buttons.\n\r\rHjelpetekst\rHjelpetekster er små tekstsnutter som kan benyttes for å gi brukeren ekstra veiledning i utfylling av skjemafelter.\n\r\rFeilmeldinger\rFeilmeldinger forklarer brukeren hva som gikk galt og hvordan det kan rettes opp i.\n\r\rFilopplasting\rFilopplasting tillater brukere å laste opp en eller flere filer.\n\r\rImage\rUse images and illustrations to emphazise points or illustrate concepts which are difficult to explain using text\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/technology/architecture/components/application/construction/altinn-studio/designer/frontend/applications/",
@@ -561,10 +561,10 @@
 },
 {
 	"uri": "https://docs.altinn.studio/app/design/guidelines/components/checkbox/",
-	"title": "Avkrysningsboks",
+	"title": "Checkboxes",
 	"tags": [],
-	"description": "Avkrysningsbokser brukes i tilfeller der brukeren kan huke av ett eller flere alternativer fra en liste.",
-	"content": "Dersom brukeren kun kan velge et av alternativene, bruk radioknapper i stedet.\nRetningslinjer:  Avkrysningsboksene skal stå foran tilhørende tekst, og skal aldri stå alene. Deaktiverte avkrysningsbokser bør unngås. Dersom et valg ikke er tilgjengelig bør det heller fjernes og forklares i tekst hvorfor det mangler.  Eksempel på bruk: \r"
+	"description": "Check boxes are used in cases where the user can select multiple alternatives in a list of options.",
+	"content": "If the user should only be able to pick one option, use radio buttons instead.\nGuidelines:  Check boxes should always have a connected text to their right. Deactivated choice boxes should be avoided. If an alternative is unavailable, it should be removed and an explenation should be given in text as to why the option is missing.  Example of use: \r"
 },
 {
 	"uri": "https://docs.altinn.studio/community/contributing/handbook/front-end/debug/",
@@ -603,10 +603,10 @@
 },
 {
 	"uri": "https://docs.altinn.studio/app/design/guidelines/components/radiobutton/",
-	"title": "Radioknapp",
+	"title": "Radio button",
 	"tags": [],
-	"description": "Radioknapper brukes i tilfeller der brukeren skal velge et alternativ blant flere. Det samme gjelder nedtrekksliste, så vær bevisst på når du bruker hvilken.",
-	"content": "Radioknapper velges når:\n Du ikke har for mange valgalternativer (Maks 7) Det ikke er et tydelig anbefalt valg Når brukeren enkelt skal kunne sammenligne alternativene Du ønsker at brukeren skal lese alle alternativene Valgalternativene er ukjent for brukeren  Retningslinjer:  Radioknapper skal stå foran tilhørende tekst, og skal aldri stå alene. Deaktiverte radioknapper bør unngås. Dersom et valg ikke er tilgjengelig bør det heller fjernes og forklares i tekst hvorfor det mangler.  Eksempel på bruk: \r"
+	"description": "Radio buttons are used in cases where the user is picking one of a group of options. The same applies to drop-down lists, so be conscious about which you choose to use.",
+	"content": "Radio buttons are picked when:  You don\u0026rsquo;t have too many choices (max 7) There is no obvious recommended choice You want the user to consider and compare all alternatives  Guidelines  Radio buttons should always have a connected text, and should never be alone. Deactivated radio buttons should be avoided. If an option is unavailable it should be removed and the reason why explained in a text.  Example of use: \r"
 },
 {
 	"uri": "https://docs.altinn.studio/app/development/ux/widgets/",
