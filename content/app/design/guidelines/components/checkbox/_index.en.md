@@ -1,6 +1,6 @@
 ---
 title: Checkboxes
-description: Check boxes are used in cases where the user can mark multiple alternatives in a list of options.
+description: Check boxes are used in cases where the user can select multiple alternatives in a list of options.
 weight: 50
 ---
 If the user only has one option, use the [radial buttons](../radiobutton/) instead. 
