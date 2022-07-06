@@ -32,5 +32,5 @@ it can be used as a specification for what the developers should create in Altin
 
 {{% panel %}}
 **NOTE:** If you are creating services for your own solution, where Altinn is invisible for the user, you should rather use 
-your agencie's own designsystem to prototype your service.
+your agency's own design system to prototype your service.
 {{% /panel %}}
