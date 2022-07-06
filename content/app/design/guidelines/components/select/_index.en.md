@@ -1,5 +1,5 @@
 ---
-title: Pull-down list
+title: Dropdown
 description: The pull-down list should be used in cases where the user is picking one of many alternatives, much like the radio buttons. 
 weight: 70
 ---
