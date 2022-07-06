@@ -19,6 +19,6 @@ In close cooperation with sentral service providers we are planning to offer com
 on their websites to enable completing forms in their current context.
 
 The users of Altinn want both a solution for where they are and a common overview. 
-Both options should be available but handled differently depending on their needs
+Both options should be available but handled differently depending on their needs.
 
 {{% /panel %}}
