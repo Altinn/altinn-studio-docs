@@ -46,7 +46,7 @@ Can be used for collecting information like municipality or country
 }
 ```
 #### Long input
-Can be used for collecting information like name, e-mail adresse or a URL
+Can be used for collecting information like name, e-mail address or a URL
 ```json
 "grid": {
     "xs": 12,
