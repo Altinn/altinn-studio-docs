@@ -18,7 +18,7 @@ toc: true
 
 
 ### Width of an input field
-The width of an inputfield should reflect what is expected as an input from the user. We currently have three standard sizes that should reflect most scenarioes and cover different screen-sizes. [Read more about how to change the sizes here](https://docs.altinn.studio/app/development/ux/styling/#innergrid-og-labelgrid).
+The width of an input field should reflect what is expected as input from the user. We currently have three standard sizes that should reflect most scenarios and cover different screen-sizes. [Read more about how to change the sizes here](https://docs.altinn.studio/app/development/ux/styling/#innergrid-og-labelgrid).
 
 #### Small inputs
 The smaller inputs are more fitting for collecting information like phonenumber, postage number and year. 
