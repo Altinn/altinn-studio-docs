@@ -13,7 +13,7 @@ The Altinn prototype-kit is a collection of presets and components that you can 
 
 - See what Altinn-forms look like and how they are experienced by the user
 - Familiarize yourself with design elements in Altinn 3
-- Define Flow and content within your form
+- Define flow and content within your form
 - Create clickable scetch that can be tested by user 
 - Use the prototype as a guide/referance while the app is in development
 
