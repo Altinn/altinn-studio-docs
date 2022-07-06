@@ -1,16 +1,14 @@
 ---
-title: Avkrysningsboks
-description: Avkrysningsbokser brukes i tilfeller der brukeren kan huke av ett eller flere alternativer fra en liste. 
+title: Checkboxes
+description: Check boxes are used in cases where the user can select multiple alternatives in a list of options.
 weight: 50
 ---
-Dersom brukeren kun kan velge et av alternativene, bruk [radioknapper](../radiobutton/) i stedet. 
+If the user should only be able to pick one option, use [radio buttons](../radiobutton/) instead.
 
-### Retningslinjer:
-- Avkrysningsboksene skal stå foran tilhørende tekst, og skal aldri stå alene.
-- Deaktiverte avkrysningsbokser bør unngås. Dersom et valg ikke er tilgjengelig bør det heller fjernes og forklares 
-i tekst hvorfor det mangler. 
+### Guidelines:
+- Check boxes should always have a connected text to their right. 
+- Deactivated choice boxes should be avoided. If an alternative is unavailable, it should be removed and an explenation should be given in text as to why the option is missing. 
 
-
-### Eksempel på bruk:
+### Example of use:
 
 {{% figma-example src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwnBveAG2ikUspFsQwM3GNE%2FPrototyping-av-skjematjenester%3Fnode-id%3D5295%253A1181" %}}
