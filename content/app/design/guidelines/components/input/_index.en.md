@@ -5,7 +5,7 @@ weight: 30
 toc: true
 ---
 
-## Normal inputfield
+## Normal input field
 
 ### Guidelines:
 - An inputfield should always have a related label with explanatory text.
