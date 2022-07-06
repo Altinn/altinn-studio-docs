@@ -59,7 +59,7 @@ Can be used for collecting information like name, e-mail address or a URL
 ---
 
 ## Large textfields
-Large textfields are used when the user has to fill inn a longer explanation. Large textfields follow the same guidelines as inputfields. 
+Large text fields are used when the user has to fill in a longer explanation. Large text fields follow the same guidelines as input fields. 
 
 ### Example of usage:
 
