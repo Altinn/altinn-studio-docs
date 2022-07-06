@@ -9,7 +9,7 @@ Be short and precise in how error messages are formulated, and make sure that th
 ### Examples of explanatory error messages:
 - "Zip code must have 4 digits"
 - "You must choose one delivery option"
-- "To deliver the form you need to confirm that the name is correct by checking the name confirmation checkbox."
+- "To submit the form you need to confirm that the name is correct by checking the name confirmation checkbox."
 
 Read more about error messaging on [UU-tilsynet's web pages (nb)](https://www.uutilsynet.no/wcag-standarden/skjema/38#formidle_feil_i_skjema).
 
