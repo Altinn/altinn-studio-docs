@@ -12,7 +12,7 @@ It is easier to create a solution with a clearly defined scope for your problem.
 idea to gather your project group, and to look for a nice wall to put post-it notes on.
 - **Who are the users and what are their needs?** 
 We recommend starting by defining your target audience and their requirements as early as possible during the project. 
-Create an overview of your users are. In most cases your service should be usable by multiple usergroups. 
+Create an overview of your users and who they are. In most cases your service should be usable by multiple user groups. 
 Are they citizens or do they represent a company? What background do they have? 
 Are they digitaly inclined or not used to digital services? 
 This phase normally starts with interviews, observations or a focus group.
