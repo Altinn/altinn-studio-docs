@@ -2,7 +2,6 @@
 title: Content in the form
 description: Explain what is needed to fill the form correctly to the user and divide the content into multiple steps.
 weight: 10
-tags: [translate-to-english]
 ---
 
 The user should not need an error message to understand what is required to fill out the application correctly. 
