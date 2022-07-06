@@ -165,6 +165,37 @@ Det vil se omtrent slik ut
 
 ![labelGrid eksempel output](label-grid.png "labelGrid eksempel output")
 
+## To radioknappalternativer eller avkrysningsbokser under hverandre
+Som standard kommer radioknapper eller checkboxer som har kun to svaralternativer, på én linje. Dersom man ønsker at svarene skal ligge på hver sin linje slik:
+
+![SvaralternativUnderHverandre](https://user-images.githubusercontent.com/42466346/177565112-ff5313f7-f56d-4421-bd17-b53f69308697.jpg)
+
+må man legge til "layout":"column" for radioknappelementet på siden.
+```json
+{
+        "id": "radio-under-hverandre",
+        "type": "RadioButtons",
+        "textResourceBindings": {
+          "title": "Vil du har to linjer når det kun er to svaralternativ?"
+        },
+        "dataModelBindings": {
+          "simpleBinding": "someRadiobuttonFieldWith2Options"
+        },
+        "options": [
+          {
+            "value": "1",
+            "label": "Ja"
+          },
+          {
+            "value": "0",
+            "label": "Nei"
+          }
+        ],
+        "required": true,
+        "layout": "column"
+      }
+```
+
 ## Formatering av tall
 Det er nå implementert støtte for å kunne spesifisere formatering av tall i _inputfelt_. Dette gjøres ved å legge til en property `formatting` på
 Input-komponenten. Formateringsmuligheter er dokumentert i et [JSON-schema](https://altinncdn.no/schemas/json/component/number-format.schema.v1.json),
