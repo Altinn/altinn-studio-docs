@@ -68,7 +68,7 @@ Large text fields are used when the user has to fill in a longer explanation. La
 ---
 
 ## Adress 
-For addresses there is a rigid setup where postnr and postage place are on the same line, below the address input line. Postage place is filled automatically based on postnr-input. 
+For addresses, there is a rigid setup where the post number and postage place is on the same line, below the address input line. Postage place is filled automatically based on post-number-input. 
 
 ### Example of usage:
 
