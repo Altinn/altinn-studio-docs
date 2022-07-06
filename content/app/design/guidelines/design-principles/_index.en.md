@@ -2,7 +2,6 @@
 title: Design principles
 description: When developing or improving existing products we follow a set of principles to ensure usability and accessibility for all. We recommend following these principles when developing new services.
 weight: 10
-tags: [translate-to-english]
 ---
 1. **The users needs are our main priority** We use insights into the users needs actively in the development of our products. 
 All solutions should focus on solving real problems for our users and we use surveys and user insights in our decision making process. 
