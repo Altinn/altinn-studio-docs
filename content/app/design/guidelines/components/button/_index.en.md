@@ -1,6 +1,6 @@
 ---
 title: Buttons and links
-description: Main button (blue) is used to send the user to the next step 
+description: Main button (blue) is used to send the user to the next step.
 weight: 20
 ---
 
