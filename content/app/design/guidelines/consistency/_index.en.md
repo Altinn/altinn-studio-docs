@@ -1,5 +1,5 @@
 ---
-title: Consistancy accross services
+title: Consistency across services
 linktitle: Consistancy
 description: To simplify usage and avoid confusion, interaction patterns should be shared accross services. 
 weight: 10
