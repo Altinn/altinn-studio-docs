@@ -14,7 +14,7 @@ idea to gather your project group, and to look for a nice wall to put post-it no
 We recommend starting by defining your target audience and their requirements as early as possible during the project. 
 Create an overview of your users and who they are. In most cases your service should be usable by multiple user groups. 
 Are they citizens or do they represent a company? What background do they have? 
-Are they digitaly inclined or not used to digital services? 
+Are they digitally inclined or not accustomed to digital services? 
 This phase normally starts with interviews, observations or a focus group.
 - **Contact points for the user** Create an overview of the points of contact for the user. What does the customer see during their use of your service? 
 One way to do this is pictured below:
