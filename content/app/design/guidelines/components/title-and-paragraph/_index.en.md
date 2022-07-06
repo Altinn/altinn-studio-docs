@@ -1,6 +1,6 @@
 ---
 title: Titles and paragraphs
-description: There should in most cases be a header (H2) and a paragraph in the start of form pages to summarize the task of the user.
+description: In most cases, there should be a header (H2) and a paragraph at the start of form pages to summarize the task of the user.
 weight: 10
 ---
 
