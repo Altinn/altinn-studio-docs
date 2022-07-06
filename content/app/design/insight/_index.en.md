@@ -19,7 +19,7 @@ This phase normally starts with interviews, observations or a focus group.
 - **Points of contact for the user** Create an overview of the points of contact for the user. What does the customer see during their use of your service? 
 One way to do this is pictured below:
 ![Points of contact](kontaktpunkter.png "Points of contact") Should Altinn be hidden from the end user or will you be using Altinns internal UI? Does this match how the user expects to complete their task? Is it possible to offer the customer the relevant part of Altinn in the context they are in, instead of sending them back and forth? 
-- **What data do you need?** The need of a digital solution usually starts with a need to gather data. Start by checking if someone else has the data you need, and if it is available for reuse. You can check for data in our <a href="https://data.norge.no/">common datacatalog</a>. If not - how can you request it in a way that requires the least effort by your users? Sometimes it could be an idea to try something different than than obvious
+- **What data do you need?** The need for a digital solution usually starts with a need to gather data. Start by checking if someone else has the data you need, and if it is available for reuse. You can check for data in our <a href="https://data.norge.no/">common datacatalog</a>. If not - how can you request it in a way that requires the least effort by your users? Sometimes it could be an idea to try something different than than obvious
 solutions where you ask through a form. 
 {.connected-bullets}
 
