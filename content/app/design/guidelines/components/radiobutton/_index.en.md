@@ -5,10 +5,9 @@ weight: 60
 ---
 
 ### Radio buttons are picked when:
-- you don't have too many choices 
-- comparing choices should be easy
-- you want the user to consider all alternatives
-- the choices are unknown to the user.
+- You don't have too many choices (max 7)
+- There is no obvious recommended choice
+- You want the user to consider and compare all alternatives
 
 ### Guidelines
 - Radio buttons should always have a connected text, and should never be alone.
