@@ -121,11 +121,33 @@ The rules are sent in the body of the request. Reade more about the [policy form
 POST /authorization/api/v1/policies?org=org&app=app
 ```
 
-## The Future
+## Altinn Authorization - Future
 
-The below show the future of Authorization Component. Work in progress
+In the next comming years, Authorization will be modernized from being a part of Altinn 2 monolith to a cloud native architecture. 
 
-![The future](authorizationdetailed2026.drawio.svg "Authorization Future - WIP")
+The diagram below show the different solution components. 
+
+![Future solution Altinn Authorization](authorization_solution_components_future.drawio.svg "Future solution Altinn Authorization")
+
+
+### Access Management
+
+This will be the component responsible for administration of access to self and organization
+
+- Giving the end users 
+- Administration of AccessGroups
+- Possibility to delegate and revoke rights
+
+### Resource Registry
+
+This component will provide a register of
+
+- Altinn 3 Apps
+- Altinn 2 apps
+- External services provided in other platforms but registrated in Altinn for authorization purposes.
+
+
+
 
 
 {{% children description="true" depth="1" %}}

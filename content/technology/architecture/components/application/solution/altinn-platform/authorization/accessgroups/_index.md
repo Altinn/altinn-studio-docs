@@ -1,7 +1,7 @@
 ---
-title: Access Registry
-linktitle: Access Registry
-description: Access registry 
+title: Access Groups
+linktitle: Access Groups
+description: Access groups 
 tags: [architecture, security, authorization, xacml]
 ---
 

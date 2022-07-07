@@ -1,7 +1,7 @@
 ---
-title: Service Registry
-linktitle: Service Registry
-description: The Service Registry 
+title: Resource Registry
+linktitle: Resource Registry
+description: The Resource Registry 
 tags: [architecture, security, authorization, xacml]
 ---
 
