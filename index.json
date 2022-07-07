@@ -1491,7 +1491,7 @@
 	"content": ".NET Core is the cross-platform and open source development framework used in Altinn 3. ASP.NET Core is used for developing APIs.\nWe\u0026rsquo;ve also published a few packages on nuget.org.\nAltinn ❤️ dotnet.\nLinks  Documentation Download License Roadmap Docker Hub Runtime ASP.NET  "
 },
 {
-	"uri": "https://docs.altinn.studio/technology/architecture/components/application/solution/altinn-platform/authorization/accessregistry/",
+	"uri": "https://docs.altinn.studio/technology/architecture/components/application/solution/altinn-platform/authorization/accessgroups/",
 	"title": "Access Registry",
 	"tags": ["architecture", "security", "authorization", "xacml"],
 	"description": "Access registry",
@@ -3479,7 +3479,7 @@
 	"content": ""
 },
 {
-	"uri": "https://docs.altinn.studio/technology/architecture/components/application/solution/altinn-platform/authorization/serviceregistry/",
+	"uri": "https://docs.altinn.studio/technology/architecture/components/application/solution/altinn-platform/authorization/resourceregistry/",
 	"title": "Service Registry",
 	"tags": ["architecture", "security", "authorization", "xacml"],
 	"description": "The Service Registry",
