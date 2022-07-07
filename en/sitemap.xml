@@ -2836,6 +2836,8 @@
   </url><url>
     <loc>https://docs.altinn.studio/technology/architecture/components/application/solution/altinn-studio/repositories/</loc>
   </url><url>
+    <loc>https://docs.altinn.studio/technology/architecture/components/application/solution/altinn-platform/authorization/resourceregistry/</loc>
+  </url><url>
     <loc>https://docs.altinn.studio/technology/solutions/altinn-apps/app/app-api/org-rest/</loc>
   </url><url>
     <loc>https://docs.altinn.studio/community/contributing/handbook/reusable-resources/</loc>
@@ -2895,8 +2897,6 @@
     <loc>https://docs.altinn.studio/technology/architecture/components/application/construction/security/</loc>
   </url><url>
     <loc>https://docs.altinn.studio/tags/security/</loc>
-  </url><url>
-    <loc>https://docs.altinn.studio/technology/architecture/components/application/solution/altinn-platform/authorization/resourceregistry/</loc>
   </url><url>
     <loc>https://docs.altinn.studio/technology/solutions/altinn-studio/repos/structure/service-configurations/</loc>
   </url><url>
