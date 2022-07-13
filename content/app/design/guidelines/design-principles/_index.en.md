@@ -1,19 +1,16 @@
 ---
-title: Designprinsipper
-description: Når vi utvikler nye eller forbedrer eksisterende produkter følger vi et sett med prinsipper for å kunne sikre oss at vi leverer brukervennlige løsninger til alle. Vi anbefaler å følge disse prinsippene når du jobber med utvikling av nye tjenester.
+title: Design principles
+description: When developing or improving existing products we follow a set of principles to ensure usability and accessibility for all. We recommend following these principles when developing new services.
 weight: 10
-tags: [translate-to-english]
 ---
-1. **Vi setter brukerbehov først** Vi bruker innsikt om brukernes behov aktivt i utviklingen av produktene våre. Alle 
-løsninger skal fokusere på å løse reelle problemer for brukerne og vi bruker undersøkelser og brukerinnsikt til å 
-ta beslutninger.
-1. **Skjule kompleksitet** Vi lager fokuserte og forenklede løsninger og skreller vekk unødvendig kompleksitet for 
-brukerne. Løsningene er ofte komplekse på baksiden, men fremstår enkle og brukervennlige for folk som bruker dem.
-2. **Helhetlige brukeropplevelser** Produktene våre skal henge sammen slik at folk får en helhetlig brukeropplevelse. 
-Vi bruker konsistent språk og samme komponenter i alle digitale løsninger. Brukerne skal kjenne seg igjen uansett 
-hvilken del av produktet man bruker.
-3. **Visuelt design som motiverer** Det visuelle designet skal bidra til å gjøre brukerne trygge i dialogen med 
-det offentlige. Vi bruker en vennlig fargepalett, et enklere grensesnitt, tydelige interaksjonselementer og fargesterke 
-illustrasjoner til å skal skape en god atmosfære. Alle visuelle beslutninger skal ha et klart formål om å skape en spesifikk effekt.
-4. **Tilgjengelighet for alle** Vi strekker oss langt for å lage digitale løsninger som skal være tilgjengelige for alle. 
-Vi gjenbruker komponenter som en måte å optimalisere tilgjengelighet på - teknisk så vel som interaksjonsdesign og visuelt design.
+1. **The users needs are our main priority** We use insights into the users needs actively in the development of our products. 
+All solutions should focus on solving real problems for our users and we use surveys and user insights in our decision making process. 
+2. **Hiding complexity** We create focused and simplified solutions and peel away unnecessary complexity for our users. 
+Our solutions allow complex background operations, that don't impeed ease of use and simplicity for the end user. 
+3. **Holistic user experiences** Our products should be interconnected to create a holistic user experience.
+We use a consistent language and the same components in all our digital solutions so that the users are familiar with all parts of our platform.
+4. **Visual design that motivates** The visual design should contribute to ensuring clear and concise dialog between the user and the agency. 
+We use a friendly colour palette, a simple UI, obvious interaction elements and clear illustrations to create a good atmosphere. 
+All visual considerations should have a clear purpose of creating a specific effect.
+5. **Accessibility for all** We strive to create digital solutions that are accessable by everyone. 
+We reuse components in a way which optimalizes accessibility - technically and in terms of interaction and visual design.
