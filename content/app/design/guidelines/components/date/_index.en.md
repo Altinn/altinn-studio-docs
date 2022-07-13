@@ -10,7 +10,7 @@ Use the date picker if something is being planned, or for selecting a (relativel
 
 ### Guidelines:
 -  The date picker is not recommended if your goal is to collect birth dates or other dates further back in time (see studies from [gov.uk](https://design-system.service.gov.uk/patterns/dates/#asking-for-memorable-dates)) 
--  In these cases you should instead use [datofeltet](#datofelt).
+-  In these cases you should instead use a [date field](#date-field).
 -  Notice correct validation and give the user information about what are valid and invalid dates. Should the user be able to select dates further back in time? Within a given period?
 
 ### Example of usage:
