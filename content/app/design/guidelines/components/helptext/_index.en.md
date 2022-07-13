@@ -4,7 +4,7 @@ description: Help texts are small text boxes that can be used to provide explana
 weight: 80
 ---
 
-You can also use the helper text field to explain rules, terms or explain why the information is necessary.
+You can also use the help text field to explain rules, terms or explain why the information is necessary.
 
 ### Guidelines:
 - Helper texts are placed together with a label or title that needs further explanation. 
