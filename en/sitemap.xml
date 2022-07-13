@@ -196,6 +196,18 @@
   </url><url>
     <loc>https://docs.altinn.studio/technology/architecture/capabilities/devops/</loc>
   </url><url>
+    <loc>https://docs.altinn.studio/app/design/guidelines/link-to-app/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/design/guidelines/link-to-app/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/design/guidelines/link-to-app/"
+                />
+  </url><url>
     <loc>https://docs.altinn.studio/technology/architecture/components/application/construction/altinn-studio/designer/frontend/</loc>
   </url><url>
     <loc>https://docs.altinn.studio/app/development/logic/generic/</loc>
@@ -220,18 +232,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://docs.altinn.studio/app/getting-started/"
-                />
-  </url><url>
-    <loc>https://docs.altinn.studio/app/design/guidelines/link-to-app/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="nb"
-                href="https://docs.altinn.studio/nb/app/design/guidelines/link-to-app/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://docs.altinn.studio/app/design/guidelines/link-to-app/"
                 />
   </url><url>
     <loc>https://docs.altinn.studio/app/getting-started/intro/</loc>
