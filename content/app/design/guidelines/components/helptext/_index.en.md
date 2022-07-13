@@ -1,6 +1,6 @@
 ---
 title: Help texts
-description: Helper texts are small text boxes that can be used to provide explanations to the user. 
+description: Help texts are small text boxes that can be used to provide explanations to the user. 
 weight: 80
 ---
 
