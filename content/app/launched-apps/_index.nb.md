@@ -9,8 +9,13 @@ weight: 800
 
 - Oppstartveileder for enkeltpersonforetak (Brønnøysundregistrene)  
   [Info](https://www.altinn.no/oppstartsveileder/) | [Repo](https://altinn.studio/repos/brg/oppstartsveilederen) | [Kjørende tjeneste](https://brg.apps.altinn.no/brg/oppstartsveilederen/)
-- Oppstartveileder for enkeltpersonforetak uten innlogging (Brønnøysundregistrene)
+- Oppstartveileder for enkeltpersonforetak uten innlogging (Brønnøysundregistrene)  
   [Info](https://www.altinn.no/oppstartsveileder/) | [Repo](https://altinn.studio/repos/brg/anonym-oppstartsveilederen) | [Kjørende tjeneste](https://brg.apps.altinn.no/brg/anonym-oppstartsveilederen/)
+
+## Juni 2022
+
+- Søk om godkjenning av virksomhet som tilbyr bilpleie, hjulskift og hjullagring (Arbeidstilsynet)  
+  [Info](https://www.altinn.no/skjemaoversikt/arbeidstilsynet/sok-om-godkjenning-av-virksomhet-som-tilbyr-bilpleie-hjulskift-og-hjullagring/) | [Repo](https://altinn.studio/repos/dat/bilpleie-soknad) | [Kjørende tjeneste](https://dat.apps.altinn.no/dat/bilpleie-soknad/)
 
 ## April 2022
 
