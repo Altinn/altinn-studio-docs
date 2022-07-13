@@ -6,7 +6,7 @@ toc: true
 ---
 
 ## Date picker
-You can use the date picker if something is being planned, or for selecting a recent or close time.
+Use the date picker if something is being planned, or for selecting a (relatively) recent or close future date.
 
 ### Guidelines:
 -  The date picker is not recommended if your goal is to collect birthdates or other datest further back in time. Alternatively, look at studies from [gov.uk](https://design-system.service.gov.uk/patterns/dates/#asking-for-memorable-dates) 
