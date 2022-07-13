@@ -9,7 +9,7 @@ toc: true
 Use the date picker if something is being planned, or for selecting a (relatively) recent or close future date.
 
 ### Guidelines:
--  The date picker is not recommended if your goal is to collect birthdates or other datest further back in time. Alternatively, look at studies from [gov.uk](https://design-system.service.gov.uk/patterns/dates/#asking-for-memorable-dates) 
+-  The date picker is not recommended if your goal is to collect birth dates or other dates further back in time (see studies from [gov.uk](https://design-system.service.gov.uk/patterns/dates/#asking-for-memorable-dates)) 
 -  In these cases you should instead use [datofeltet](#datofelt).
 -  Notice correct validation and give the user information about what are valid and invalid dates. Should the user be able to select dates further back in time? Within a given period?
 
