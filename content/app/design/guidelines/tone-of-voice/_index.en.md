@@ -2,7 +2,6 @@
 title: Language
 description: Guidelines should ensure common language and understandibility across services in Altinn. 
 weight: 20
-tags: [translate-to-english]
 ---
 
 Usually you should use guidelines from the norwegian [language council (nb/nn)](https://www.sprakradet.no/klarsprak/om-skriving/generelle-skriverad-bokmal/) while writing. We have also defined some more specific rules for Altinn which we recommend following.
