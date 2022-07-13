@@ -7,7 +7,7 @@ weight: 80
 You can also use the help text field to explain rules, terms or explain why the information is necessary.
 
 ### Guidelines:
-- Helper texts are placed together with a label or title that needs further explanation. 
+- Help texts are placed together with a label or title that needs further explanation. 
 - If the content is necessary information to answer the form correctly, **do not** use the helper text, as required information should be placed in an info text in the UI (below the label).
 
 ### Example of usage:
