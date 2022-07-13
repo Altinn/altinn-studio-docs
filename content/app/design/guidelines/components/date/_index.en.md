@@ -1,6 +1,6 @@
 ---
 title: Date
-description: The date picker is used when selecting a time close to the present date. To select dates that are far in the past, or in the future, a datefield should be used.
+description: The date picker can be used when selecting a (relatively) recent date. To select dates that are far in the past (or future) a date field can be used instead.
 weight: 40
 toc: true
 ---
