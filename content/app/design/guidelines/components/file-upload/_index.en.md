@@ -1,5 +1,5 @@
 ---
-title: Uploading files
+title: File upload
 description: The file upload module lets the user upload one or multiple files
 weight: 100
 ---
