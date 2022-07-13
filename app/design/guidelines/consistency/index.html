@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="For å være lett å bruke og unngå forvirring, bør samme interaksjonsmønstre følges på tvers av tjenester.">
+    <meta name="description" content="To simplify usage and avoid confusion, interaction patterns should be shared accross services.">
 
-<title>Konsistens på tvers av tjenester – Altinn</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+<title>Consistency across services – Altinn</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
     <link href="/css/nucleus.css" rel="stylesheet">
     <link href="/css/font-awesome.min.css" rel="stylesheet">
     <link href="/css/hybrid.css" rel="stylesheet">
@@ -164,14 +164,14 @@ if(host != "localhost")
         <a href="/app/design/usertest/"><span>Brukertest</span></a></li>
       <li class="dd-item parent">
         <a href="/app/design/guidelines/"><span>Guidelines</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item parent active">
+        <a href="/app/design/guidelines/consistency/"><span>Consistancy</span></a></li>
+      <li class="dd-item">
+        <a href="/app/design/guidelines/content/"><span>Content in the form</span></a></li>
       <li class="dd-item">
         <a href="/app/design/guidelines/design-principles/"><span>Designprinsipper</span></a></li>
       <li class="dd-item">
         <a href="/app/design/guidelines/link-to-app/"><span>Inngang til skjema</span></a></li>
-      <li class="dd-item">
-        <a href="/app/design/guidelines/content/"><span>Innhold i skjema</span></a></li>
-      <li class="dd-item parent active">
-        <a href="/app/design/guidelines/consistency/"><span>Konsistens</span></a></li>
       <li class="dd-item">
         <a href="/app/design/guidelines/components/"><span>UI-komponenter</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -1070,32 +1070,29 @@ if(host != "localhost")
                     <span class="sr-only">Vis/skjul meny</span>
                   </a>
                 </span>
-                <span class="links"><a href='/app/'>Create apps</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/design/'>Design</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/design/guidelines/'>Guidelines</a> <span class='adocs-breadcrumb-divider'> / </span> Konsistens</span>
+                <span class="links"><a href='/app/'>Create apps</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/design/'>Design</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/design/guidelines/'>Guidelines</a> <span class='adocs-breadcrumb-divider'> / </span> Consistancy</span>
             </div>
-          </div><div id="body-inner"><h1 class="a-fontBold">Konsistens på tvers av tjenester</h1>
-              <p class="a-leadText" id="leadText">For å være lett å bruke og unngå forvirring, bør samme interaksjonsmønstre følges på tvers av tjenester.</p>
+          </div><div id="body-inner"><h1 class="a-fontBold">Consistency across services</h1>
+              <p class="a-leadText" id="leadText">To simplify usage and avoid confusion, interaction patterns should be shared accross services.</p>
 
 
 
 
-<p>Når brukere møter en ny tjeneste, har de med seg forventninger fra tidligere opplevelser. Når disse forventningene møtes, 
-kreves det mindre av brukeren for å samhandle med komponentene, og det bygges selvtillit. Ved å ikke trenge å lære nye 
-interaksjoner, vil brukerens fokus i større grad være på innholdet.</p>
-<p>Vi anbefaler <strong>ikke</strong> å endre CSS for individuelle tjenester som bruker Altinn-designet. Dersom vi åpner opp for 
-designendringer og fargeendringer, vil dette skade konsistensen mellom tjenestene. Konsekvent design mellom 
-tjenesteeiere er noe vi bør strekke oss mot. For å få det til kreves et godt samarbeid mellom fagmiljøet i Altinn 
-og hos de ulike tjenesteeierene. 
-<strong>Vi ønsker oss en god felles løsning som kan brukes og forbedres av alle, fremfor mange forskjellige løsninger gjennom ulike CSS-endringer.</strong> 
-Dette vil også gjøre det lettere å kontrollere tilgjengeligheten på tvers av apper på plattformen vår. 
-Velger du likevel å gå bort fra designet, er du selv ansvarlig for å følge alle 
-<a href="https://www.uutilsynet.no/wcag-standarden/wcag-20-standarden/86">WCAG-krav</a>.</p>
+<p>When users interact with a new service, they carry expectations from previous interactions. 
+When these expectations are met, interactons between with the user and the components of the form are less demanding, which reassures the user. 
+By not requiring learning new interactions, the user&rsquo;s focus will be on the content of the form.</p>
+<p>We <strong>do not recommend</strong> changing the CSS for individual services that use the Altinn-design. Allowing<br>
+changes to the design and colour would hurt the consistancy between services. Common designs 
+between service owners is something that we should strive for. To achieve a common framework, cooperation between 
+Altinn employees and service owners is required.</p>
+<p><strong>We wish for a good common solution that can be used and improved by all, instead of a variety of different solutions through unique CSS-changes.</strong> 
+This will also simplify following accessability requirements accross apps on our platform.
+You will be required and resposnible in following all <a href="https://www.uutilsynet.no/wcag-standarden/wcag-20-standarden/86">WCAG-demands</a>, should you choose to walk away from our design.</p>
 <div class="panel mt-3">
     <div class="panel-body">
-<p><strong>Har du behov for en ny komponent?</strong></p>
-<p>Vi ønsker at alle er med på å videreutvikle 
-<a href="../components">biblioteket av komponenter</a> med både design og kode. 
-I praksis vil dette si at Altinn ønsker å ta imot forslag til nye komponenter etter hvert som tjenesteeierne ser 
-behovet for det.</p>
+<p><strong>Do you need a new component?</strong></p>
+<p>We want everyone who is working on developing apps to contribute to our <a href="../components">library of components</a>
+with both design and code. Practically this means that Altinn is accepting suggestions of new components requested by service owners according to their needs.</p>
 <div class="a-btn-group" id="btnGroup">
             <a href="https://github.com/Altinn/altinn-studio/issues/new/choose" class="a-btn mt-1 ">Opprett en sak i github</a>
             <a href="https://altinn.slack.com/" class=" ">Skriv til oss på Slack</a>
@@ -1116,7 +1113,7 @@ behovet for det.</p>
               </div>
 
               <div id="navigation">
-                  <a class="nav nav-prev" href="/app/design/guidelines/content/" title="Innhold i skjema"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/app/design/guidelines/components/" title="UI-komponenter" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+                  <a class="nav nav-prev" href="/app/design/guidelines/" title="Guidelines"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/app/design/guidelines/content/" title="Content in the form" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/app/design/guidelines/consistency/_index.en.md" target="blank">
