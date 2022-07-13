@@ -26,7 +26,7 @@ Date fields should be used for dates further back in time, or for dates that the
 {{% /panel %}}
 
 ### Guidelines:
-- Always lable the input boxes (day, month, year), and keep a leading text for the input group. 
+- Always label the input boxes (day, month, year), and add a label/heading for the input group as well. 
 - If the foundational data exists, a specific date can be suggested in the field, or it can be preset with the current date.
 - 
 ### Example of usage:
