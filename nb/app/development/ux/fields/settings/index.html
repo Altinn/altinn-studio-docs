@@ -581,6 +581,24 @@ på en komponent i form layout.</p>
 <figure><a href="optional.png"><img src="optional.png" alt="Valgfritt" title="Markering av valgfritt felt." /></a><figcaption><h4>Markering av valgfritt felt.</h4></figcaption></figure>
 <p>Det er ikke mulig å tvinge visning av <em>Valgfri</em> teksten på et felt som er obligatorisk. 
 Denne innstillingen styrer ikke feltets faktiske egenskaper.</p>
+<h2 id="konfigurasjon-av-automatisk-lagring">Konfigurasjon av automatisk lagring</h2>
+<p><code>Input</code>-komponenter, <code>TextArea</code>-komponenter og <code>AddressComponent</code> lagrer automatisk endringer når brukeren
+skriver. I utgangspunktet skjer dette 400 millisekunder etter brukeren sist stoppet å skrive. Når lagring av feltet
+starter, vil også valideringer og triggere kjøres. I tilfeller hvor disse valideringene og triggere bruker mye resursser
+kan det være ønskelig å øke tiden det tar det før data i feltet lagres automatisk - eller at denne funksjonaliteten
+skrus av.</p>
+<p>Funksjonaliteten styres av <code>saveWhileTyping</code>-nøkkelen til en komponent i form layout. I eksempelet under vil det
+ta 2 sekunder fra brukeren slutter å skrive i feltet til dataene lagres.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  {
+    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;input-felt-1&#34;</span>,
+    <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Input&#34;</span>,
+    ... 
+<span style="display:block;width:100%;background-color:#3d3f4a">    <span style="color:#ff79c6">&#34;saveWhileTyping&#34;</span>: <span style="color:#bd93f9">2000</span>
+</span>  }
+}
+</code></pre></div><p>Hvis denne nøkkelen blir satt til <code>false</code> skrus funksjonaliteten av, og lagring vil skje først når brukeren
+forlater feltet.</p>
 
 
 <footer class=" footline" >

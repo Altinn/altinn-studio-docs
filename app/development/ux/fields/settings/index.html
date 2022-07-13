@@ -1104,6 +1104,23 @@ optional fields have no marking.</p>
 <figure><a href="optional.png"><img src="optional.png" alt="Optional with marking" title="Optional field with marking." /></a><figcaption><h4>Optional field with marking.</h4></figcaption></figure>
 <p><em>NOTE</em>: It is not possible to force the <em>Optional</em> marking on a field that is required. Changing the 
 <code>optionalIndicator</code> property does not alter or overrule the other properties of the field.</p>
+<h2 id="configuring-automatic-save-while-typing">Configuring automatic save while typing</h2>
+<p><code>Input</code> components, <code>TextArea</code> components and <code>AddressComponent</code> automatically save changes while the user
+is typing. By default, this happens 400 milliseconds after the user last stopped typing. At this point
+validation and triggers will execute as well. In cases where validations and triggers are resource intensive, it
+might be neccesary to increase the delay before saving automatically - or disable it altogether.</p>
+<p>This functionality can be controlled using the <code>saveWhileTyping</code> property of a component in the form layout. In the
+example below, data is saved 2 seconds after the user stopped typing.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  {
+    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;input-field-1&#34;</span>,
+    <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Input&#34;</span>,
+    ... 
+<span style="display:block;width:100%;background-color:#3d3f4a">    <span style="color:#ff79c6">&#34;saveWhileTyping&#34;</span>: <span style="color:#bd93f9">2000</span>
+</span>  }
+}
+</code></pre></div><p>If this property is set to <code>false</code>, typing is the field does not trigger auto-saving or validation at all,
+and these processes will only run when the user changes focus out of the field.</p>
 
 
 <footer class=" footline" >

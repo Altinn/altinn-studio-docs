@@ -1143,7 +1143,7 @@ This is also in **bold**, using double asterisk.
 <p>It is currently possible to fetch values from 3 different data sources.</p>
 <ol>
 <li>Datamodell
-By defining <code>dataModel.&lt;dataModelNavn&gt;</code> as the data source you can fetch values from the fields in the form that the user is filling out. Data can be fetched from fields regardless if they are visible or not. If the user changes data in a field referenced in a variable, the text will be updated when the user blurs the field.</li>
+By defining <code>dataModel.&lt;dataModelNavn&gt;</code> as the data source you can fetch values from the fields in the form that the user is filling out. Data can be fetched from fields regardless if they are visible or not. If the user changes data in a field referenced in a variable, the text will be updated when the user stops typing in the field.</li>
 <li>Application Settings<br>
 By defining <code>applicationSettings</code> as the data source you can fetch values from a specific section in <code>appsettings.{environment}.json</code> files with the key <code>FrontEndSettings</code>. This is a dynamic list you can extend without making changes to the code. This makes it possible to have different values in different environments. Be aware of the difference on first letter casing in the keys <code>FrontEndSettings</code> and <code>applicationSettings</code>.
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#f1fa8c">&#34;FrontEndSettings&#34;</span>: {

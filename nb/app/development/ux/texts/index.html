@@ -622,7 +622,7 @@ i JSON-struturen direkte i repoet. Enten via Altinn Studio Repos eller i en loka
 <p>Det er per nå mulig å hente verdier fra 3 ulike datakilder.</p>
 <ol>
 <li>Datamodel<br>
-Ved å angi <code>dataModel.&lt;dataModelNavn&gt;</code> som datakilde kan man hente ut verdier fra felter i skjema som brukeren fyller ut. Data kan hentes fra felter uavhengig av om de er synlige eller ikke. Hvis bruker endrer på data i et felt referert i en variabel så vil teksten bli oppdatert når bruker forlater feltet.</li>
+Ved å angi <code>dataModel.&lt;dataModelNavn&gt;</code> som datakilde kan man hente ut verdier fra felter i skjema som brukeren fyller ut. Data kan hentes fra felter uavhengig av om de er synlige eller ikke. Hvis bruker endrer på data i et felt referert i en variabel så vil teksten bli oppdatert når brukeren stopper å skrive i feltet.</li>
 <li>Instillinger<br>
 Ved å angi <code>applicationSettings</code> som datakilde kan man hente ut verdier fra en spesiell seksjon i <code>appsettings.{miljø}.json</code> filen(e) med navn <code>FrontEndSettings</code>. Dette er en dynamisk liste man kan utvide uten å måtte gjøre endringer i kode. Dette gjør det mulig å ha ulike verdier fra miljø til miljø ved å ha andre verdier i de ulike <code>appsettings.{miljø}.json</code> filene. Vær obs på ulik bruk av stor bokstav i starten av nøkkel mellom <code>FrontEndSettings</code> og <code>applicationSettings</code>.
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#f1fa8c">&#34;FrontEndSettings&#34;</span>: {
