@@ -197,7 +197,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/components/picture-component/"><span>Image</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/design/guidelines/tone-of-voice/"><span>Språk</span></a></li>
+        <a href="/app/design/guidelines/tone-of-voice/"><span>Language</span></a></li>
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Tilgjengelighet</span></a></li></ul></li></ul></li>
       <li class="dd-item">
@@ -1104,32 +1104,6 @@ if(host != "localhost")
 	
 	   <article class="post app">
     <header class="post-header">
-        <h2 class="post-title"><a href="/app/development/configuration/datafields/">Data fields on instance object</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>I noen tilfeller kan det være nyttig å legge ekstra informasjon på instansobjektet f. eks. for å kunne basere ruting av instans til rett system i bakkant hos tjenesteeier.
-Dette kan gjøres på to måter, ved konfigurasjon eller manuelt. Ved konfigurasjon vil systemet ekstrahere data fra skjemafeltene og legge disse på instansobjektet. Man er da begrenset til skjemafelter, men slipper å programmere dette selv. Hvis man velger å gjøre det manuelt har man frihet til å legge på de dataene man selv ønsker f. <a class="read-more" href="/app/development/configuration/datafields/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post app">
-    <header class="post-header">
         <h2 class="post-title"><a href="/app/development/configuration/messagebox/hide_instances/">Hide instances</a></h2>
     </header>
     <section class="post-excerpt">
@@ -1358,6 +1332,35 @@ Det er definert fire standard team som legger føringer for hva en bruker har ti
 For å gjøre dette må du laste ned og installere et koderedigeringsverktøy.
 Vi anbefaler Visual Studio Code, men det er fritt fram hvilket verktøy du velger.
 Finne adressen til et repo URL-en til et gitt app repository er strukturert slik, så bytt ut owner og repo-navn: <a class="read-more" href="/app/getting-started/navigation/code/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post app">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/app/development/configuration/secrets/">Secrets</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Administrasjon av hemmeligheter i Azure Som applikasjonsutvikler administrerer man selv hemmelighetene som applikasjonen benytter i Azure Key Vault.
+Rutiner for bestilling av tilgang til din organisasjons ressurser er beskrevet her.
+Konfigurer støtte for hemmeligheter i din app For å tilgjengeliggjøre hemmeligheter i applikasjonen må det gjøres oppdateringer i helm charten tilknyttet applikasjonen.
+I applikasjonsrepoet ditt finner du filen values.yaml i mappen deployment.
+Under seksjonen volumeMounts legger du til følgende linjer: <a class="read-more" href="/app/development/configuration/secrets/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
