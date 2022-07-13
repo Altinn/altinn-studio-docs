@@ -3,7 +3,7 @@ title: File upload
 description: The file upload module lets the user upload one or multiple files
 weight: 100
 ---
-You should not request an attachment from the user unless it is strictly necessary for the service.
+You should not request that the user upload an attachment unless it is strictly necessary for the service.
 Before requesting a file upload, check if the data can be collected differently, perhaps through an API?
 
 ### Guidelines:
