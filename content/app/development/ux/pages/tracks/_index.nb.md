@@ -141,6 +141,9 @@ Dette kan du sjekke ved å finne klassenavnet på C# filen i App/models-mappen.
 
 ## Sette opp sporvalg backend (nuget versjon < 5.0.0)
 
+{{%notice warning%}}
+For at sporvalg skal fungere for statless applikasjoner må nuget oppgraderes til 5.0.0 eller senere
+{{%/notice%}}
 I App.cs må man overstyre metoden som henter ut den standardrekkefølgen av sider som er definert i `Settings.json`
 Dette gjøres ved å legge til funksjonen nedenfor i App.cs.
 Forventet output fra denne metoden er en stortert liste som inneholder navnet på de relevante sidene i applikasjonen.
