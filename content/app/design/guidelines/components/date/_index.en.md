@@ -1,38 +1,33 @@
 ---
-title: Dato
-description: Datovelger benyttes i forbindelse med planlegging eller for datoer i nærliggende tid. For datoer lengre tilbake i tid brukes datofelt.
+title: Date
+description: The date picker can be used when selecting a (relatively) recent date. To select dates that are far in the past (or future) a date field can be used instead.
 weight: 40
 toc: true
 ---
 
-## Datovelger
-I forbindelse med planlegging, eller for datoer i nærliggende tid kan du bruke datovelgeren.
+## Date picker
+Use the date picker if something is being planned, or for selecting a (relatively) recent or close future date.
 
-### Retningslinjer:
--  Dersom du skal hente inn en fødselsdato eller andre datoer lengre tilbake i tid, er ikke datovelgeren et anbefalt 
-alternativ, se studier fra [gov.uk](https://design-system.service.gov.uk/patterns/dates/#asking-for-memorable-dates) 
--  I disse tilfellene kan du heller bruke [datofeltet](#datofelt).
--  Legg til korrekt validering og gi brukeren informasjon om hva som er gyldige datoer å velge. Skal brukeren kunne 
-velge datoer tilbake i tid? Innenfor en gitt periode?
+### Guidelines:
+-  The date picker is not recommended if your goal is to collect birth dates or other dates further back in time (see studies from [gov.uk](https://design-system.service.gov.uk/patterns/dates/#asking-for-memorable-dates)) 
+-  In these cases you should instead use a [date field](#date-field).
+-  Add correct validation and give the user information about what are valid and invalid dates. Should the user be able to select dates further back in time? Within a given period?
 
-### Eksempel på bruk:
+### Example of usage:
 
 <iframe style="border: 3px solid rgb(0 0 0 / 90%);border-radius: 9px;" width="100%" height="550" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwnBveAG2ikUspFsQwM3GNE%2FPrototyping-av-skjematjenester%3Fnode-id%3D4833%253A961" allowfullscreen></iframe>
 
 ---
 
-## Datofelt
-For datoer lengre tilbake i tid, eller datoer brukeren kjenner godt, bør datofelt benyttes. Tre tekstfelt er i disse 
-tilfellene den enkleste måten for brukeren å fylle ut datoen. Dersom det er noe som skal planlegges eller tilfeller 
-der en spesifikk dag er viktig, bruk [datovelgeren](#datovelger) i stedet. 
+## Date field
+Date fields should be used for dates further back in time, or for dates that the user knows well. Three textfields is the simplest way to take in dates in these cases. If someone is planning something and a specific day (monday, friday, etc.) is important the datepicker should be used instead.
 
-
-{{% panel theme="warning" %}} ⚠️ Denne komponenten er ikke tilgjengelig i Altinn Studio enda. 
+{{% panel theme="warning" %}} ⚠️ This component is not accessible in Altinn Studio yet. 
 {{% /panel %}}
 
-### Retningslinjer:
-- Bruk alltid label på hver av de tre boksene (dag, måned, år), og ledetekst (legend) for hele input-gruppen. 
-- Om datagrunnlaget finnes, kan en spesifikk dato være foreslått i feltet. Ellers kan eksempelinnholdet være dagen i dag. 
-
-### Eksempel på bruk:
+### Guidelines:
+- Always label the input boxes (day, month, year), and add a label/heading for the input group as well. 
+- If the foundational data exists, a specific date can be suggested in the field, or it can be preset with the current date.
+- 
+### Example of usage:
 {{% figma-example src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwnBveAG2ikUspFsQwM3GNE%2FPrototyping-av-skjematjenester%3Fnode-id%3D5139%253A832" %}}
