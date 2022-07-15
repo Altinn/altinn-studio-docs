@@ -96,7 +96,7 @@ This could be to populate dropdown lists or to present data to the user based on
 In this task you will implement a client that integrates with Bring's APIs to populate the address
 the user submits with a postal city based on the postal code.
 
-The API that will be used is an overview of postal codesw made available by Bring.
+The API that will be used is an overview of postal codes made available by Bring.
 Feel free to test it in your browser with different postal codes.
 
 ```
