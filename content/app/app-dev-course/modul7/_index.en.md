@@ -104,7 +104,7 @@ GET
 https://fraktguide.bring.no/fraktguide/api/postalCode.json?country=no&pnr={postnummer}
 ```
 
-### Requirements from the muncipality
+### Requirements from the municipality
 - Address info should be collected through standard-input components, not through Altinn's address component
 - Postal city should be prefilled for the user when the postal code has been submitted
 - Postal city should be unmutable.
