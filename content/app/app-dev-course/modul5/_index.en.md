@@ -24,7 +24,7 @@ The standard flow for a newly created application consists of one task; one fill
 
 ![Standard process flow illustrated](/app/app-dev-course/modul5/default-process.png)
 
-Your task is to expand the standard proces flow with a confirmation step as illustrated below.
+Your task is to expand the standard process flow with a confirmation step as illustrated below.
 
 [!Updated process flow illsutrated](/app/app-dev-course/modul5/updated-process.png)
 
