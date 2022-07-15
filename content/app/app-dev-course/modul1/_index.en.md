@@ -148,7 +148,7 @@ Altinn Studio, given that you have pushed your changes to master.
 
 {{% expandlarge id="download-app-locally" header="Download application locally" %}}
 
-Some application feautures are not supported to develop in Altinn Studio.
+Some application features are not supported for development in Altinn Studio.
 These must be developed in a local development environment.
 
 The development itself can be carried out in your preferred development tool,
