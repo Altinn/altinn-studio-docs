@@ -9,7 +9,7 @@ Sogndal is in need of more young residents and wishes to become a desirable
 municipality for young adults and others who wishes to settle down.
 
 That is why they wish to create a service in Altinn aimed at people 
-who are moving to Sogndal over the next six months.
+who is moving to Sogndal over the next six months.
 
 By collecting data about newcomers at an early point, the muncipality may facilitate 
 and customize the services to the newcomers before the first moving box has even been packed.
