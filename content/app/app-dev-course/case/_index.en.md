@@ -6,7 +6,7 @@ tags: [apps, case, training]
 weight: 10
 ---
 Sogndal is in need of more young residents and wishes to become a desirable 
-muncipality for young adults and others who wishes to settle down.
+municipality for young adults and others who wishes to settle down.
 
 That is why they wish to create a service in Altinn aimed at people 
 who are moving to Sogndal over the next six months.
