@@ -10,7 +10,7 @@ This intro course is divided into six modules and covers a fictitious case for t
 Over the course of these six modules, you will have gone through the main functionality of an Altinn App,
 as well as testing the app locally and in a test environment.
 
-Three things has to be in order before you can get started with this course.
+Three things have to be in order before you can get started with this course.
 
 1. [A user in Altinn Studio](/nb/app/getting-started/first-time-setup/#lag-en-bruker-i-altinn-studio)
 2. [Your local development environment is set up with support for development and testing of apps](https://github.com/Altinn/altinn-studio/blob/master/LOCALAPP.md#prerequisites)
