@@ -90,7 +90,7 @@ The municipality of Sogndal wishes to collect information on the newcomers worki
 
 In some cases the values displayed in a code list may be attached to a different field in the form.
 
-The muncipality of Sogndal wishes that the list of industies to choose from is personalised to what sector you work in.
+The municipality of Sogndal wishes that the list of industries to choose from is personalised to what sector you work in.
 
 Read through the requirements from the muncipality to see if you can help them.
 
