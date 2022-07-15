@@ -89,7 +89,7 @@ In this task you will set up dynamic tracks in the application based on the requ
 A user who does not meet the requirements for the form should be stopped as early as possible in the workflow.
 
 
-On the information page, the user should be able to state wether the form applies to them or not.
+On the information page, the user should be able to state whether the form applies to them or not.
 
 How this is done is optional, and the field `Innflytter.KanBrukeSkjema` in the datamodel is possible to use for this purpose.
 
