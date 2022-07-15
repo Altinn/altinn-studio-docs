@@ -112,7 +112,7 @@ Before you submit we recommend looking over your answers. You cannot change the 
 In this module you have expanded the application with a confirmation step, customized the view and implemented validation and authorization rules attached to the process step.
 
 The service should be able to run on your local computer with local test
-and you should be able to test the new process step an confirm that the view is as desired.
+and you should be able to test the new process step and confirm that the view is as desired.
 
 **Remember to _push_ your local changes, so that they are available in Altinn Studio when you're happy with them**
 
