@@ -210,7 +210,7 @@ postal code `4619` as a previous residence should **NOT** be allowed to move to 
 In this case, an error message should appear at the field in question with the following text:
 
 ```md
-You are not welcome to our muncipality. Sorry!
+You are not welcome to our municipality. Sorry!
 ```
 
 {{% /expandlarge %}}
