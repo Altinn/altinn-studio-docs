@@ -52,7 +52,7 @@ There is a wish that one or more of the words "newcomer" and "Sogndal" is includ
 ### Texts
 {{% expandlarge id="tekster-expandable" header="Krav" %}}
 
-- All inputfields should have descriptive labels that clarifies what should be filled in.
+- All input fields should have descriptive labels that clarify what should be filled in.
 - The application must be available in bokmål, nynorsk and english.
   In a first edition it is sufficient that only one of this languages are available.
 - It is important that the title of the application sounds good and is descriptive of the service.
