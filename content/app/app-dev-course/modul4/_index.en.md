@@ -113,7 +113,7 @@ based on which sector they are in.
 
 {{% expandlarge id="dynamic-formview" header="tailored offer for IT-competence" %}}
 
-### Requirements from the muncipality
+### Requirements from the municipality
 
 If the user chooses `IKT (data/it)` under industry, a text with a link to our overview of vacant positions should appear.
 
