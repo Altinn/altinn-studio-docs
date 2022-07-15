@@ -204,7 +204,7 @@ It should be possible to enter up to 10 former residences.
 ### Validation previous residences
 {{% expandlarge id="vendetta-expandable" header="Krav" %}}
 
-Due to a personal vendetta among one of the employees in the muncipality of Sogndal, a user who enters 
+Due to a personal vendetta among one of the employees in the municipality of Sogndal, a user who enters 
 postal code `4619` as a previous residence should **NOT** be allowed to move to Sogndal.
 
 In this case, an error message should appear at the field in question with the following text:
