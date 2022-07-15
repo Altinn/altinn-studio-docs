@@ -130,7 +130,7 @@ https://www.sogndal.kommune.no/
 
 {{% expandlarge id="prefill-expandable" header="Prefill of personal information" %}}
 
-One of the benefits of Altinn is that you already have metadata containing information about both people and buisnesses available. By using prefill you can access data about the user and present this in an app, so that they will not have to fill out these fields. Typical prefill values are: name, address, email, etc.
+One of the benefits of Altinn is that you already have metadata containing information about both people and businesses available. By using prefill you can access data about the user and present this in an app, so that they will not have to fill out these fields. Typical prefill values are: name, address, email, etc.
 
 If the data is available in one of Altinn's prefill sources, this can be configured towards a field in the data model and be automatically populated once the form is created. If there are other uses for prefill, this can be solved using code in the application.
 
