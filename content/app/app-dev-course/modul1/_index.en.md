@@ -24,7 +24,7 @@ be setting up the first page of your application for newcomers and verify that e
 Create the application in Altinn Studio with the organization that you have access to as an owner.
 Alternatively, you can create the application with you as the owner, if you are not testing it in a test environment.
 
-### Requirements from the muncipality
+### Requirements from the municipality
 
 - The application must have a sensible name that makes it easy to find it again among the large number
 of repositories Sogndal keeps in Altinn Studio.
