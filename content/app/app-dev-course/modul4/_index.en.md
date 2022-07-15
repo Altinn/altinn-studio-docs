@@ -144,7 +144,7 @@ The text and link should **only** be visible if the user has chosen `IKT (data/i
 
 In this module you have set up a dropdown list, radio buttons and checkboxes and added values for these components manually, programmatically and dynamically.
 
-he service should run on your local computer with local test
+The service should run on your local computer with local test
 and you should be able to validate that the components present expected data values.
 
 **Remember to _push_ your local changes, so that they are available in Altinn Studio when you're happy with them**
