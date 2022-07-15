@@ -231,7 +231,7 @@ private static int CalculateAge(string sosialSecNumber)
 ## Summary
 
 In this module you have expanded your application with more functionality in the sense of
-adding more pages, configuring dynamic tracks to controll user flow and setting up prefill of fields
+adding more pages, configuring dynamic tracks to control user flow and setting up prefill of fields
 both with available data sources in Altinn and custom code.
 
 The service should run on your local computer with local test and you should be able to test both user flows
