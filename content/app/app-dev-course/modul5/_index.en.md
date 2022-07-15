@@ -76,7 +76,7 @@ Update the policy file so that it's authorization rules cover the new process st
 
 {{% expandlarge id="validation" header="Validation of submitter" %}}
 
-### Requirements from the muncipality
+### Requirements from the municipality
 - It should only be possible for the user who owns the instance to submit the form, even if others may hold the necessary roles.
 
 ### Useful documentation
