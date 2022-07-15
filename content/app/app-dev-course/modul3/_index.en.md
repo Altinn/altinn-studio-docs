@@ -6,7 +6,7 @@ tags: [apps, training, build, deploy, test ]
 weight: 20
 ---
 {{% notice warning %}}
- This module requires that you are part of a organization wth an enabled test environment for Altinn Apps. If this is not the case, move on to the next module.
+ This module requires that you are part of an organization with an enabled test environment for Altinn Apps. If this is not the case, move on to the next module.
 {{% /notice %}}
 
 
