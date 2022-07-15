@@ -142,7 +142,7 @@ The text and link should **only** be visible if the user has chosen `IKT (data/i
 
 ## Summary
 
-In this module you have set up a dropdown list, radio buttons and check boxes and added values for these components manually, progmatically and dynamically.
+In this module you have set up a dropdown list, radio buttons and checkboxes and added values for these components manually, programmatically and dynamically.
 
 he service should run on your local computer with local test
 and you should be able to validate that the components present expected data values.
