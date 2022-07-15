@@ -62,8 +62,8 @@ an instance if you meet the requirements.
 ### Requirements from the muncipality
 IT competence is highly sought out. In **module 4** we set up a tailored offer for those with IT competence.
 
-The muncipality of Sogndal has had a look t the numbers and seen that this is generating unsufficient trafikk to the job postings.
-To try to imporove this, we want the offer to be even more tailored.
+The municipality of Sogndal has had a look t the numbers and seen that this is generating insufficient trafikk to the job postings.
+To try to improve this, we want the offer to be even more tailored.
 
 We want the original text:
 
