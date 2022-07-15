@@ -59,7 +59,7 @@ At this point in the workflow, the user should be able to:
 
 {{% expandlarge id="authorization" header="Adding authorization rules for confirmation step" %}}
 
-Your application's Policy file is adapted to standard process flow.
+Your application's Policy file is adapted to a standard process flow.
 Update the policy file so that it's authorization rules cover the new process step.
 
 ### Requirements from the muncipality
