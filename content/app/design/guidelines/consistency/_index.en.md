@@ -1,34 +1,31 @@
 ---
-title: Konsistens på tvers av tjenester
-linktitle: Konsistens
-description: For å være lett å bruke og unngå forvirring, bør samme interaksjonsmønstre følges på tvers av tjenester.
+title: Consistency across services
+linktitle: Consistancy
+description: To simplify usage and avoid confusion, interaction patterns should be shared accross services. 
 weight: 10
 ---
 
-Når brukere møter en ny tjeneste, har de med seg forventninger fra tidligere opplevelser. Når disse forventningene møtes, 
-kreves det mindre av brukeren for å samhandle med komponentene, og det bygges selvtillit. Ved å ikke trenge å lære nye 
-interaksjoner, vil brukerens fokus i større grad være på innholdet.
+When users interact with a new service, they carry expectations from previous interactions. 
+When these expectations are met, interactons between with the user and the components of the form are less demanding, which reassures the user. 
+By not requiring learning new interactions, the user's focus will be on the content of the form. 
 
-Vi anbefaler **ikke** å endre CSS for individuelle tjenester som bruker Altinn-designet. Dersom vi åpner opp for 
-designendringer og fargeendringer, vil dette skade konsistensen mellom tjenestene. Konsekvent design mellom 
-tjenesteeiere er noe vi bør strekke oss mot. For å få det til kreves et godt samarbeid mellom fagmiljøet i Altinn 
-og hos de ulike tjenesteeierene. 
-**Vi ønsker oss en god felles løsning som kan brukes og forbedres av alle, fremfor mange forskjellige løsninger gjennom ulike CSS-endringer.** 
-Dette vil også gjøre det lettere å kontrollere tilgjengeligheten på tvers av apper på plattformen vår. 
-Velger du likevel å gå bort fra designet, er du selv ansvarlig for å følge alle 
-[WCAG-krav](https://www.uutilsynet.no/wcag-standarden/wcag-20-standarden/86). 
+We **do not recommend** changing the CSS for individual services that use the Altinn-design. Allowing  
+changes to the design and colour would hurt the consistancy between services. Common designs 
+between service owners is something that we should strive for. To achieve a common framework, cooperation between 
+Altinn employees and service owners is required.
+
+**We wish for a good common solution that can be used and improved by all, instead of a variety of different solutions through unique CSS-changes.** 
+This will also simplify following accessability requirements accross apps on our platform.
+You will be required and resposnible in following all [WCAG-demands](https://www.uutilsynet.no/wcag-standarden/wcag-20-standarden/86), should you choose to walk away from our design.
 
 {{% panel-contribute 
 src1="https://github.com/Altinn/altinn-studio/issues/new/choose" title1="Opprett en sak i github" 
 src2="https://altinn.slack.com/" title2="Skriv til oss på Slack" %}}
 
 
-**Har du behov for en ny komponent?**
+**Do you need a new component?**
 
-
-Vi ønsker at alle er med på å videreutvikle 
-[biblioteket av komponenter](../components) med både design og kode. 
-I praksis vil dette si at Altinn ønsker å ta imot forslag til nye komponenter etter hvert som tjenesteeierne ser 
-behovet for det.
+We want everyone who is working on developing apps to contribute to our [library of components](../components)
+with both design and code. Practically this means that Altinn is accepting suggestions of new components requested by service owners according to their needs. 
 
 {{% /panel-contribute %}}

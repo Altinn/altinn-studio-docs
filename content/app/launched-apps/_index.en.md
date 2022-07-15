@@ -7,10 +7,15 @@ weight: 800
 
 ## July 2022
 
-- Oppstartveileder for enkeltpersonforetak (Brønnøysundregistrene)  
+- Oppstartveileder for enkeltpersonforetak (Brønnøysund Register Centre)  
   [Info](https://www.altinn.no/oppstartsveileder/) | [Repo](https://altinn.studio/repos/brg/oppstartsveilederen) | [App](https://brg.apps.altinn.no/brg/oppstartsveilederen/)
-- Oppstartveileder for enkeltpersonforetak uten innlogging (Brønnøysundregistrene)  
+- Oppstartveileder for enkeltpersonforetak uten innlogging (Brønnøysund Register Centre)  
   [Info](https://www.altinn.no/oppstartsveileder/) | [Repo](https://altinn.studio/repos/brg/anonym-oppstartsveilederen) | [App](https://brg.apps.altinn.no/brg/anonym-oppstartsveilederen/)
+  
+## June 2022
+
+- Apply for authorisation for manual car care, wheel change and wheel storage (The Labour Inspection Authority).  
+  [Info](https://www.altinn.no/en/forms-overview/labour-inspection-authority/sok-om-godkjenning-av-virksomhet-som-tilbyr-bilpleie-hjulskift-og-hjullagring/) | [Repo](https://altinn.studio/repos/dat/bilpleie-soknad) | [App](https://dat.apps.altinn.no/dat/bilpleie-soknad/)
   
 ## April 2022
 

@@ -1,7 +1,7 @@
 ---
-title: Service Registry
-linktitle: Service Registry
-description: The Service Registry 
+title: Resource Registry
+linktitle: Resource Registry
+description: The Resource Registry 
 tags: [architecture, security, authorization, xacml]
 ---
 
@@ -43,7 +43,7 @@ The service resource would be any type of service provided by public or private 
 - Portal functionality in Altinn [Example 1](exampleresource1.json)
 - Portal functionality in external portal [Example 2](exampleresource2.json)
 
-## Resource model
+## Resource Regis
 
 
 

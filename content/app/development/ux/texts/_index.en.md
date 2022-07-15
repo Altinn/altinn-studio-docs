@@ -98,7 +98,7 @@ Variables in texts can be included by following the syntax below. It is importan
 It is currently possible to fetch values from 3 different data sources.
 
 1. Datamodell
-   By defining `dataModel.<dataModelNavn>` as the data source you can fetch values from the fields in the form that the user is filling out. Data can be fetched from fields regardless if they are visible or not. If the user changes data in a field referenced in a variable, the text will be updated when the user blurs the field.
+   By defining `dataModel.<dataModelNavn>` as the data source you can fetch values from the fields in the form that the user is filling out. Data can be fetched from fields regardless if they are visible or not. If the user changes data in a field referenced in a variable, the text will be updated when the user stops typing in the field.
 2. Application Settings   
    By defining `applicationSettings` as the data source you can fetch values from a specific section in `appsettings.{environment}.json` files with the key `FrontEndSettings`. This is a dynamic list you can extend without making changes to the code. This makes it possible to have different values in different environments. Be aware of the difference on first letter casing in the keys `FrontEndSettings` and `applicationSettings`.
    ```json

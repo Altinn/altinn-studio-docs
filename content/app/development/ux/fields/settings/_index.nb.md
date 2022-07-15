@@ -45,3 +45,28 @@ Ved å sette `optionalIndicator` til `true` vil teksten `(Valgfri)` bli vist bak
 
 Det er ikke mulig å tvinge visning av *Valgfri* teksten på et felt som er obligatorisk. 
 Denne innstillingen styrer ikke feltets faktiske egenskaper.
+
+## Konfigurasjon av automatisk lagring
+
+`Input`-komponenter, `TextArea`-komponenter og `AddressComponent` lagrer automatisk endringer når brukeren
+skriver. I utgangspunktet skjer dette 400 millisekunder etter brukeren sist stoppet å skrive. Når lagring av feltet
+starter, vil også valideringer og triggere kjøres. I tilfeller hvor disse valideringene og triggere bruker mye resursser
+kan det være ønskelig å øke tiden det tar det før data i feltet lagres automatisk - eller at denne funksjonaliteten
+skrus av.
+
+Funksjonaliteten styres av `saveWhileTyping`-nøkkelen til en komponent i form layout. I eksempelet under vil det
+ta 2 sekunder fra brukeren slutter å skrive i feltet til dataene lagres.
+
+```json {hl_lines=[6]}
+{
+  {
+    "id": "input-felt-1",
+    "type": "Input",
+    ... 
+    "saveWhileTyping": 2000
+  }
+}
+```
+
+Hvis denne nøkkelen blir satt til `false` skrus funksjonaliteten av, og lagring vil skje først når brukeren
+forlater feltet.
