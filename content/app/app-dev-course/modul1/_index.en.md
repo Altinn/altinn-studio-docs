@@ -172,7 +172,7 @@ When the app is running and you have logged in with a test user, you should have
 !["Application running locally"](/app/app-dev-course/modul1/app-running-locally.jpeg "A picture of the application running locally")
 
 {{% notice info %}}
-Moving on you will want to test your changes continously in LocalTest.
+Moving on you will want to test your changes continuously in LocalTest.
 - In the event of changes related to formLayout and other _json_-files, a refresh (F5) in the browser is sufficient.
 - In the event of changes in prefill, the application must be instantiated again.
 - In the event of changes in _cs_-files, the application must be stopped and restared.
