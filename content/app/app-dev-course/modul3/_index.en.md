@@ -22,7 +22,7 @@ In this module you are going to build and deploy the application to Altinns test
 ## Tasks
 {{% expandlarge id="change-resources" header="Set custom requirements for resource use" %}}
 
-All applications come with a stanmdard setup for resource use and scaling in the application cluster.
+All applications come with a standard setup for resource use and scaling in the application cluster.
 This setup can be overridden if your application has different needs.
 - You can change the number of replicas (instances of the application running at once)
 - You can change the rules for how early or late the application should scale the number of instances based on CPU or memory usage
