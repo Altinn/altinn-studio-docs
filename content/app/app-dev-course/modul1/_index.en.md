@@ -6,7 +6,7 @@ tags: [apps, training, datamodel, localtest, texts]
 weight: 20
 ---
 
-In this module you will, based on the demands of the muncipality of Sogndal,
+In this module you will, based on the demands of the municipality of Sogndal,
 be setting up the first page of your application for newcomers and verify that everything looks as expected locally.
 
 **Topics covered in this module:**
@@ -21,16 +21,16 @@ be setting up the first page of your application for newcomers and verify that e
 
 {{% expandlarge id="create-new-application" header="Create new application" %}}
 
-Create the application in Altinn Studio with the organization that you have acess to as owner.
-Alternativelym you can create the application with you as the owner, if you are not testing it in a test environment.
+Create the application in Altinn Studio with the organization that you have access to as an owner.
+Alternatively, you can create the application with you as the owner, if you are not testing it in a test environment.
 
-### Requirements from the muncipality
+### Requirements from the municipality
 
 - The application must have a sensible name that makes it easy to find it again among the large number
 of repositories Sogndal keeps in Altinn Studio.
 
-- There are no preliminary plans about yearly revisions of the app,
-so the year does not need to be taking into account.
+- There are no preliminary plans for yearly revisions of the app,
+so the year does not need to be taken into account.
 
 There is a wish that one or more of the words "newcomer" and "Sogndal" is included in the name.
 
@@ -46,7 +46,7 @@ that represents data they wish to collect from future residents.
 
 {{% notice info %}}
 As an app developer you will in some cases have to create a data model 
-for a service yourself. You will then be able to use the data modeling tool in 
+for a service yourself. You will then be able to use the data modelling tool in 
 Altinn Studio (launching Spring 2022), or use an existing data model as a starting point and 
 edit it in for example Visual Studio or a text editing program of your own choosing.
 {{% /notice %}}
@@ -60,8 +60,8 @@ edit it in for example Visual Studio or a text editing program of your own choos
 
 ### Comprehension check
 
-- Which data is it the service owner wishes top collect here?
-- Which effect has **\<minOccurs\>** in the data model? You may notice that the field has different value for _Innflytter.Fornavn_ and _Innflytter.Mellomnavn_
+- Which data is it the service owner wishes to collect here?
+- Which effect has **\<minOccurs\>** in the data model? You may notice that the field has a different value for _Innflytter.Fornavn_ and _Innflytter.Mellomnavn_
 - Which other properties is set on the field _Innflytter.Mellomnavn_?
 - A _.C#_, _.metadata.json_ and _.schema.json_ file has been generated in addition to the _.xsd_ file you uploaded. What is the correlation between these files?
 - Some restrictions from the data model is not transferred to the _C#_-file, which ones? Some new properties has also been added, which ones?
@@ -85,11 +85,11 @@ It is possible to connect texts to components in both Altinn Studio and locally.
 {{% /notice %}}
 
 
-### Requirements from the muncipality
+### Requirements from the municipality
 
 - All inputfields should have descriptive labels that clarifies what should be filled in.
 - The application must be available in bokmål, nynorsk and english.
-  In a first edition it is sufficient that only one of this languages are available.
+  In a first edition it is sufficient that only one of these languages is available.
 - It is important that the display name of the application sounds good and is descriptive of the service.
 
 
@@ -112,9 +112,9 @@ In Altinn we support three languages: bokmål, nynorsk and english.
 The fields to be filled out on a form page can be created by using the "drag and drop" function in Altinn Studio
 or manually in the json-file that describes the appearance of a from page _FormLayout.json_.
 
-Based on the requirements from the muncipality, can you now set up the first form page in Altinn Studio?
+Based on the requirements from the municipality, can you now set up the first form page in Altinn Studio?
 
-### Requirments from the muncipality
+### Requirments from the municipality
 
 - Name and age of the person who is a newcomer
   - Firstname
@@ -141,14 +141,14 @@ Altinn Studio, given that you have pushed your changes to master.
 
 - Can you locate the component connected to the email-field?
 - What change is required in this file if the email-field is no longer required?
-- By changing one line in _FormLayout.json_ it is possible to change the component attached to middle name
+- By changing one line in _FormLayout.json_ it is possible to change the component attached to the middle name
   to an input field for a long answer. What change is required?
 {{% /expandlarge %}}
 
 
 {{% expandlarge id="download-app-locally" header="Download application locally" %}}
 
-Some application feautures are not supported to develop in Altinn Studio.
+Some application features are not supported for development in Altinn Studio.
 These must be developed in a local development environment.
 
 The development itself can be carried out in your preferred development tool,
@@ -172,10 +172,10 @@ When the app is running and you have logged in with a test user, you should have
 !["Application running locally"](/app/app-dev-course/modul1/app-running-locally.jpeg "A picture of the application running locally")
 
 {{% notice info %}}
-Moving on you will want to test your changes continously in LocalTest.
+Moving on you will want to test your changes continuously in LocalTest.
 - In the event of changes related to formLayout and other _json_-files, a refresh (F5) in the browser is sufficient.
 - In the event of changes in prefill, the application must be instantiated again.
-- In the event of changes in _cs_-files, the application must be stopped and restared.
+- In the event of changes in _cs_-files, the application must be stopped and restarted.
   Alternatively, you may use the `dotnet run watch` when you start the application for hot reload.
 
 {{% /notice %}}

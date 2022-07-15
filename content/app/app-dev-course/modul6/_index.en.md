@@ -6,7 +6,7 @@ tags: [apps, training, repeating groups, validation, data processing, consume AP
 weight: 20
 ---
 
-In this module you will expand the application you have built in the previous modules to support more of [the functionality that the muncipality of Sogndal wishes to implement](../case/#krav-fra-kommunen).
+In this module you will expand the application you have built in the previous modules to support more of [the functionality that the municipality of Sogndal wishes to implement](../case/#krav-fra-kommunen).
 
 **Topics covered in this module**
 - Repeating groups
@@ -20,7 +20,7 @@ In this module you will expand the application you have built in the previous mo
 
 To be able to tailor the best possible offers to newcomers we wish to obtain an overview of former residences of the newcomer.
 
-On the data page there should be an option to enter previous residences. Previous residences should contain following fields:
+On the data page there should be an option to enter previous residences. Previous residences should contain the following fields:
 - Street address
 - Postal code
 - Postal city
@@ -41,11 +41,11 @@ It should be possible to enter up to 10 former residences.
 {{% expandlarge id="validation" header="Valdiation" %}}
 ### Requirements from the muncipality
 
-Due to a personal vendetta among one of the employees in the muncipality of Sogndal, a user who enters the postal code `4619` as a previous residence
+Due to a personal vendetta among one of the employees in the municipality of Sogndal, a user who enters the postal code `4619` as a previous residence
 should **NOT** be allowed to move to Sogndal. In this case, an error message should appear at the field in question with the following text:
 
 ```rich
-You are not welcome to our muncipality. Sorry!
+You are not welcome to our municipality. Sorry!
 ```
 
 ### Useful documentation
@@ -61,7 +61,7 @@ You are not welcome to our muncipality. Sorry!
 
 
 {{% expandlarge id="processing" header="Data processing" %}}
-### Requirements from the muncipality
+### Requirements from the municipality
 One of the data processors of Sogndal is sick of manually correcting a street address that often is being incorrectly entered by newcomers.
 Therefore, we wish to programmatic correct this while the user is filling out the app.
 
@@ -83,7 +83,7 @@ In all other cases, the field should remain the same.
 
 ### Summary
 In this module you have had a look at **repeating groups** and how this is configured as a part of the user interface.
-We have also had a look at how to set up custom **validaations** in the backend for cases that will not be defined as a part of restrictions in the data model.
+We have also had a look at how to set up custom **validations** in the backend for cases that will not be defined as a part of restrictions in the data model.
 Lastly, we have looked at how to set up **data processing** that enables manipulation of data runtime.
 
 ### Solution

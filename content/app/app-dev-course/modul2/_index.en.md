@@ -7,7 +7,7 @@ tags: [apps, training, prefill, sporvalg]
 weight: 20
 ---
 
-In this module you will further develop the application you created in [module 1](../modul1) to fulfill more of [the requirements from the muncipality of Sogndal](../case/#krav-fra-kommunen).
+In this module you will further develop the application you created in [module 1](../modul1) to fulfil more of [the requirements from the municipality of Sogndal](../case/#krav-fra-kommunen).
 
 **Themes covered in this module:**
 
@@ -21,7 +21,7 @@ In this module you will further develop the application you created in [module 1
 
 {{% expandlarge id="add-infopage" header="Add Info Page" %}}
 
-For forms where a lot of information is given or collected,
+For forms were a lot of information is given or collected,
 the user experience will improve if the application is divided in several pages.
 
 Let's take a closer look at how you can create a new page in the application that is
@@ -39,15 +39,15 @@ but if you prefer to do this manually the documentation may
 come in handy.
 {{% /notice %}}
 
-The only thing left now is to familiarize yourself with the muncipality's requirements
+The only thing left now is to familiarize yourself with the municipality's requirements
 for the info page and get started with the development. Good luck!
 
-### Requirements from the muncipality
+### Requirements from the municipality
 
 Considering that quite a large amount of data is being collected in this service,
-it is important for the muncipality of Sogndal that it is clear who this form is
+it is important for the municipality of Sogndal that it is clear who this form is
 meant for and what the data collected will be used to.
-Someone in the muncipality has created a sketch of the informationpage.
+Someone in the municipality has created a sketch of the informationpage.
 
 The following is desirable to be similar in the application:
  - Placing of pictures
@@ -81,15 +81,15 @@ In many cases, it is not relevant to answer all questions in a form, maybe becau
 
 By using dynamic tracks you will be able to control which parts of the application that will be visible for the user.
 
-In this task you will set up dynamic tracks in the application based on the requirements from the muncipality of Sogndal.
+In this task you will set up dynamic tracks in the application based on the requirements from the municipality of Sogndal.
 
 
-### Requirements from the muncipality
+### Requirements from the municipality
 
 A user who does not meet the requirements for the form should be stopped as early as possible in the workflow.
 
 
-On the information page, the user should be able to state wether the form applies to them or not.
+On the information page, the user should be able to state whether the form applies to them or not.
 
 How this is done is optional, and the field `Innflytter.KanBrukeSkjema` in the datamodel is possible to use for this purpose.
 
@@ -103,7 +103,7 @@ Based on the answer, the user will be sent to either _Track 1_ or _Track_ 2_.
 
     ```rich
     This form is not for you.
-    For information about other offers in the muncipality click here.
+    For information about other offers in the municipality click here.
     ```
 
 - Line 2 in the text should be a link directing to:
@@ -130,13 +130,13 @@ https://www.sogndal.kommune.no/
 
 {{% expandlarge id="prefill-expandable" header="Prefill of personal information" %}}
 
-One of the benefits of Altinn is that you already have metadata containing information about both people and buisnesses available. By using prefill you can access data about the user and present this in an app, so that they will not have to fill out these fields. Typical prefill values are: name, address, email, etc.
+One of the benefits of Altinn is that you already have metadata containing information about both people and businesses available. By using prefill you can access data about the user and present this in an app, so that they will not have to fill out these fields. Typical prefill values are: name, address, email, etc.
 
 If the data is available in one of Altinn's prefill sources, this can be configured towards a field in the data model and be automatically populated once the form is created. If there are other uses for prefill, this can be solved using code in the application.
 
 In this task, the focus has returned to the first data collecting page, and the goal is to prefill personal information about the user to save the user some time.
 
-### Requirements from the muncipality
+### Requirements from the municipality
 
 - The following values should be prefilled for the user:
   - First name: Innflytter.fornavn
@@ -231,7 +231,7 @@ private static int CalculateAge(string sosialSecNumber)
 ## Summary
 
 In this module you have expanded your application with more functionality in the sense of
-adding more pages, configuring dynamic tracks to controll user flow and setting up prefill of fields
+adding more pages, configuring dynamic tracks to control user flow and setting up prefill of fields
 both with available data sources in Altinn and custom code.
 
 The service should run on your local computer with local test and you should be able to test both user flows

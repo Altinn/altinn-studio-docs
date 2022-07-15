@@ -6,7 +6,7 @@ tags: [apps, training, options, code lists, dynamics ]
 weight: 20
 ---
 
-In this module you're expanding the application you made in the previous modules to support even mote of the [requirements of the muncipality of Sogndal](../case/#krav-fra-kommunen).
+In this module you're expanding the application you made in the previous modules to support even more of the [requirements of the municipality of Sogndal](../case/#krav-fra-kommunen).
 
 **Topics covered in this module:**
 
@@ -34,7 +34,7 @@ There are three ways to set up code lists in Altinn today
 In this task, you will get to try out all three ways to set up a code list.
 
 
-The muncipality of Sogndal wishes to collect information on the newcomers working situation. Some of the data they wish to collect is which **sector** and **industry** the newcomer works in, and how many **years** the newcomer has been active in the workforce.
+The municipality of Sogndal wishes to collect information on the newcomers working situation. Some of the data they wish to collect is which **sector** and **industry** the newcomer works in, and how many **years** the newcomer has been active in the workforce.
 
 
 ### In Altinn Studio
@@ -44,7 +44,7 @@ The muncipality of Sogndal wishes to collect information on the newcomers workin
 2. Set up a **radio button** component for _Sector_. Create the answer options `Offentlig` and `private` manually.
 
 3. Set up a **check box** component for _Industry_.
-   Choose _Kodeliste_ as method for adding check boxes and add _Kodeliste ID_ `industry`
+   Choose _Kodeliste_ as method for adding checkboxes and add _Kodeliste ID_ `industry`
 
    The rest of the setup for this component is done locally
 
@@ -58,7 +58,7 @@ The muncipality of Sogndal wishes to collect information on the newcomers workin
 
 ### In Local Development environment
 
-1. The muncipality of Sogndal has created a [code list](../industry.json) for **industries**. Download the file and place it correctly in the repository.
+1. The municipality of Sogndal has created a [code list](../industry.json) for **industries**. Download the file and place it correctly in the repository.
 
 2. Set up the values in the code list for **Years in work force** directly in the application logic.
 
@@ -90,11 +90,11 @@ The muncipality of Sogndal wishes to collect information on the newcomers workin
 
 In some cases the values displayed in a code list may be attached to a different field in the form.
 
-The muncipality of Sogndal wishes that the list of industies to choose from is personalised to what sector you work in.
+The municipality of Sogndal wishes that the list of industries to choose from is personalised to what sector you work in.
 
-Read through the requirements from the muncipality to see if you can help them.
+Read through the requirements from the municipality to see if you can help them.
 
-### Requirements from the muncipality
+### Requirements from the municipality
 
 We want the user to be presented with a different set of options for the industry choice
 based on which sector they are in.
@@ -113,14 +113,14 @@ based on which sector they are in.
 
 {{% expandlarge id="dynamic-formview" header="tailored offer for IT-competence" %}}
 
-### Requirements from the muncipality
+### Requirements from the municipality
 
 If the user chooses `IKT (data/it)` under industry, a text with a link to our overview of vacant positions should appear.
 
 - Below the industry choice, the following text should appear
 
     ```rich
-    We see that you have competence we need in Sogndal.
+    We see that you have the competence we need in Sogndal.
     Here is an overview of vacant positions.
     ```
 
@@ -142,9 +142,9 @@ The text and link should **only** be visible if the user has chosen `IKT (data/i
 
 ## Summary
 
-In this module you have set up a dropdown list, radio buttons and check boxes and added values for these components manually, progmatically and dynamically.
+In this module you have set up a dropdown list, radio buttons and checkboxes and added values for these components manually, programmatically and dynamically.
 
-he service should run on your local computer with local test
+The service should run on your local computer with local test
 and you should be able to validate that the components present expected data values.
 
 **Remember to _push_ your local changes, so that they are available in Altinn Studio when you're happy with them**

@@ -6,7 +6,7 @@ tags: [apps, training, build, deploy, test ]
 weight: 20
 ---
 {{% notice warning %}}
- This module requires that you are part of a organization wth an enabled test environment for Altinn Apps. If this is not the case, move on to the next module.
+ This module requires that you are part of an organization with an enabled test environment for Altinn Apps. If this is not the case, move on to the next module.
 {{% /notice %}}
 
 
@@ -22,7 +22,7 @@ In this module you are going to build and deploy the application to Altinns test
 ## Tasks
 {{% expandlarge id="change-resources" header="Set custom requirements for resource use" %}}
 
-All applications come with a stanmdard setup for resource use and scaling in the application cluster.
+All applications come with a standard setup for resource use and scaling in the application cluster.
 This setup can be overridden if your application has different needs.
 - You can change the number of replicas (instances of the application running at once)
 - You can change the rules for how early or late the application should scale the number of instances based on CPU or memory usage
@@ -68,7 +68,7 @@ and add a descriptive comment of what the version includes.
 
 By deploying an application to a test environment you will be able to test all integrations.
 In addition to this, TT02 is often used to verify an application is behaving as expected
-befor deploying to production.
+before deploying to production.
 
 {{% notice infor %}}
 To be able to deploy an application to TT02,
@@ -86,7 +86,7 @@ for the organization in Altinn Studio.
 ### Comprehension check
 - Is it possible to have two versions of one application in TT02 at the same time?
 - What happens if you deploy the same version of the application to the environment once more?
-- Will the application be available immediatly after deployment?
+- Will the application be available immediately after deployment?
 - Is it possible to remove an application from the environment after deployment?
 {{% /expandlarge %}}
 

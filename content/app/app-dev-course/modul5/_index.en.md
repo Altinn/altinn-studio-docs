@@ -24,7 +24,7 @@ The standard flow for a newly created application consists of one task; one fill
 
 ![Standard process flow illustrated](/app/app-dev-course/modul5/default-process.png)
 
-Your task is to expand the standard proces flow with a confirmation step as illustrated below.
+Your task is to expand the standard process flow with a confirmation step as illustrated below.
 
 [!Updated process flow illsutrated](/app/app-dev-course/modul5/updated-process.png)
 
@@ -36,9 +36,9 @@ If you want an extra challenge, you can edit the process flow manually or in a B
 and rather use [the template on process flow with data and confirmation step](https://raw.githubusercontent.com/Altinn/altinn-studio/master/src/Altinn.Apps/AppTemplates/ProcessTemplates/Data_Confirmation_Process.bpmn) as a solution.
 {{% /notice %}} 
 
-### Requirements from the muncipality
+### Requirements from the municipality
 
-At this point in the work flow, the user should be able to:
+At this point in the workflow, the user should be able to:
 1. View an overview of the data entered
 2. Exit the workflow without submitting the form
 3. Exit the workflow and submit the form
@@ -59,7 +59,7 @@ At this point in the work flow, the user should be able to:
 
 {{% expandlarge id="authorization" header="Adding authorization rules for confirmation step" %}}
 
-Your application's Policy file is adapted to standard process flow.
+Your application's Policy file is adapted to a standard process flow.
 Update the policy file so that it's authorization rules cover the new process step.
 
 ### Requirements from the muncipality
@@ -76,7 +76,7 @@ Update the policy file so that it's authorization rules cover the new process st
 
 {{% expandlarge id="validation" header="Validation of submitter" %}}
 
-### Requirements from the muncipality
+### Requirements from the municipality
 - It should only be possible for the user who owns the instance to submit the form, even if others may hold the necessary roles.
 
 ### Useful documentation
@@ -89,16 +89,16 @@ Update the policy file so that it's authorization rules cover the new process st
 
 {{% expandlarge id="confirmation" header="Overrule standard texts for confirmation page" %}}
 
-### Requirements from the muncipality
+### Requirements from the municipality
 
-The user should be presented with the following text befor submitting the form.
+The user should be presented with the following text before submitting the form.
 
 ```rich
 You are now ready to submit a notification of moving to Sogndal.
 
-By submitting this form you consent to the data you have entered being saved and used for customizing the muncipality's offers to you during the next 18 months.
+By submitting this form you consent to the data you have entered being saved and used for customizing the municipality's offers to you during the next 18 months.
 
-Before you submit we recommend looking over your answers. You cannot change the answers after submitting.
+Before you submit we recommend looking over your answers. You cannot change the answers after submitting them..
 ```
 
 ### Useful documentation
@@ -112,7 +112,7 @@ Before you submit we recommend looking over your answers. You cannot change the 
 In this module you have expanded the application with a confirmation step, customized the view and implemented validation and authorization rules attached to the process step.
 
 The service should be able to run on your local computer with local test
-and you should be able to test the new process step an confirm that the view is as desired.
+and you should be able to test the new process step and confirm that the view is as desired.
 
 **Remember to _push_ your local changes, so that they are available in Altinn Studio when you're happy with them**
 

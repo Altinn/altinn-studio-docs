@@ -6,12 +6,12 @@ tags: [apps, case, training]
 weight: 10
 ---
 Sogndal is in need of more young residents and wishes to become a desirable 
-muncipality for young adults and others who wishes to settle down.
+municipality for young adults and others who wishes to settle down.
 
 That is why they wish to create a service in Altinn aimed at people 
-who are moving to Sogndal over the next six months.
+who is moving to Sogndal over the next six months.
 
-By collecting data about newcomers at an early point, the muncipality may facilitate 
+By collecting data about newcomers at an early point, the municipality may facilitate 
 and customize the services to the newcomers before the first moving box has even been packed.
 
 Sogndal has a few demands for the services described in the sections below.
@@ -22,10 +22,10 @@ Sogndal has a few demands for the services described in the sections below.
 {{% expandlarge id="navngivning-expandable" header="Krav" %}}
 
 - The application must have a sensible name that makes it easy to find it again among the large number
-of repositories Sogndal keeps in Altinn Studio.
+of repositories, Sogndal keeps in Altinn Studio.
 
-- There are no preliminary plans about yearly revisions of the app,
-so the year does not need to be taking into account.
+- There are no preliminary plans for yearly revisions of the app,
+so the year does not need to be taken into account.
 
 There is a wish that one or more of the words "newcomer" and "Sogndal" is included in the name.
 
@@ -52,9 +52,9 @@ There is a wish that one or more of the words "newcomer" and "Sogndal" is includ
 ### Texts
 {{% expandlarge id="tekster-expandable" header="Krav" %}}
 
-- All inputfields should have descriptive labels that clarifies what should be filled in.
+- All input fields should have descriptive labels that clarify what should be filled in.
 - The application must be available in bokmål, nynorsk and english.
-  In a first edition it is sufficient that only one of this languages are available.
+  In a first edition it is sufficient that only one of these languages is available.
 - It is important that the title of the application sounds good and is descriptive of the service.
 
 {{% /expandlarge %}}
@@ -62,7 +62,7 @@ There is a wish that one or more of the words "newcomer" and "Sogndal" is includ
 ### Information page
 {{% expandlarge id="infoside-expandable" header="Krav" %}}
 
-Someone in the muncipality has created a sketch of the informationpage.
+Someone in the municipality has created a sketch of the information page.
 
 The following is desirable to be similar in the application:
  - Placing of pictures
@@ -83,7 +83,7 @@ The following is desirable to be similar in the application:
 
 A user who does not meet the requirements for the form should be stopped as early as possible in the process.
 
-On the information page, the user should be able to state wether the form applies to them or not.
+On the information page, the user should be able to state whether the form applies to them or not.
 
 How this is done is optional, and the field `Innflytter.KanBrukeSkjema` in the datamodel is possible to use for this purpose.
 
@@ -96,7 +96,7 @@ Based on the answer, the user will be sent to either _Track 1_ or _Track_ 2_.
 - The user should then be sent to a page with the following text:
     ```md
     This form is not for you.
-    For information about other offers in the muncipality click here.
+    For information about other offers in the municipality click here.
     ```
 - Line 2 in the text should be a link directing to https://www.sogndal.kommune.no/
 - It should not be possible to navigate to other pages of the form from this one.
@@ -143,7 +143,7 @@ If the user chooses `IKT (data/it)` under industry, a text with a link to our ov
 
 - Below the industry choice, the following text should appear
     ```md
-    We see that you have competence we need in Sogndal.
+    We see that you have the competence we need in Sogndal.
     Here is an overview of our vacant positions.
     ```
 - Line 2 in the text should be a link that directs to https://sogndal.easycruit.com/index.html
@@ -174,13 +174,13 @@ At this point in the workflow the user should be able to
 
 ### Texts
 
-The user should be presented with the following text befor submitting the form.
+The user should be presented with the following text before submitting the form.
 
 ```md
 You are now ready to submit a notification of moving to Sogndal.
 
 By submitting this form you consent to the data you have entered being saved and used
-for customizing the muncipality's offers to you during the next 18 months.
+for customizing the municipality's offers to you during the next 18 months.
 
 Before you submit we recommend looking over your answers. You cannot change the answers after submitting.
 ```
@@ -204,13 +204,13 @@ It should be possible to enter up to 10 former residences.
 ### Validation previous residences
 {{% expandlarge id="vendetta-expandable" header="Krav" %}}
 
-Due to a personal vendetta among one of the employees in the muncipality of Sogndal, a user who enters 
+Due to a personal vendetta among one of the employees in the municipality of Sogndal, a user who enters 
 postal code `4619` as a previous residence should **NOT** be allowed to move to Sogndal.
 
 In this case, an error message should appear at the field in question with the following text:
 
 ```md
-You are not welcome to our muncipality. Sorry!
+You are not welcome to our municipality. Sorry!
 ```
 
 {{% /expandlarge %}}
