@@ -36,9 +36,9 @@ If you want an extra challenge, you can edit the process flow manually or in a B
 and rather use [the template on process flow with data and confirmation step](https://raw.githubusercontent.com/Altinn/altinn-studio/master/src/Altinn.Apps/AppTemplates/ProcessTemplates/Data_Confirmation_Process.bpmn) as a solution.
 {{% /notice %}} 
 
-### Requirements from the muncipality
+### Requirements from the municipality
 
-At this point in the work flow, the user should be able to:
+At this point in the workflow, the user should be able to:
 1. View an overview of the data entered
 2. Exit the workflow without submitting the form
 3. Exit the workflow and submit the form
