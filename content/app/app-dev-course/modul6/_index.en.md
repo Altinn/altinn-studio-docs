@@ -20,7 +20,7 @@ In this module you will expand the application you have built in the previous mo
 
 To be able to tailor the best possible offers to newcomers we wish to obtain an overview of former residences of the newcomer.
 
-On the data page there should be an option to enter previous residences. Previous residences should contain following fields:
+On the data page there should be an option to enter previous residences. Previous residences should contain the following fields:
 - Street address
 - Postal code
 - Postal city
