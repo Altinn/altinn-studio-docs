@@ -12,7 +12,7 @@ I en Altinn app har man to alternativer for opplasting av vedlegg:
 - vedleggskomponent i skjema
 - API-kall mot app backend
 
-Førstnevnte vil være et godt alternativ for all data er det forventet at en sluttbruker vil laste opp via brukergrensesnitt i skjema.
+Førstnevnte vil være et godt alternativ for all data der det er forventet at en sluttbruker vil laste opp via brukergrensesnitt i skjema.
 Sistnevnte anbefales brukt dersom det kun er forventet at systemer skal laste opp vedlegget.
 Det er ingen begrensning på hvor mange vedlegg som kan inkluderes i en applikasjon
 og begge opplastingsmetoder kan brukes innad i samme applikasjon.
