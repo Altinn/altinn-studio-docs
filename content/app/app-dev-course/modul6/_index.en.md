@@ -41,7 +41,7 @@ It should be possible to enter up to 10 former residences.
 {{% expandlarge id="validation" header="Valdiation" %}}
 ### Requirements from the muncipality
 
-Due to a personal vendetta among one of the employees in the muncipality of Sogndal, a user who enters the postal code `4619` as a previous residence
+Due to a personal vendetta among one of the employees in the municipality of Sogndal, a user who enters the postal code `4619` as a previous residence
 should **NOT** be allowed to move to Sogndal. In this case, an error message should appear at the field in question with the following text:
 
 ```rich
