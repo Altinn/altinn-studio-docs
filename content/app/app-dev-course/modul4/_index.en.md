@@ -34,7 +34,7 @@ There are three ways to set up code lists in Altinn today
 In this task, you will get to try out all three ways to set up a code list.
 
 
-The muncipality of Sogndal wishes to collect information on the newcomers working situation. Some of the data they wish to collect is which **sector** and **industry** the newcomer works in, and how many **years** the newcomer has been active in the workforce.
+The municipality of Sogndal wishes to collect information on the newcomers working situation. Some of the data they wish to collect is which **sector** and **industry** the newcomer works in, and how many **years** the newcomer has been active in the workforce.
 
 
 ### In Altinn Studio
