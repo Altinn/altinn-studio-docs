@@ -68,7 +68,7 @@ and add a descriptive comment of what the version includes.
 
 By deploying an application to a test environment you will be able to test all integrations.
 In addition to this, TT02 is often used to verify an application is behaving as expected
-befor deploying to production.
+before deploying to production.
 
 {{% notice infor %}}
 To be able to deploy an application to TT02,
