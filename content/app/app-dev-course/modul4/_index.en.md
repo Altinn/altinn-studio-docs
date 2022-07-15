@@ -58,7 +58,7 @@ The municipality of Sogndal wishes to collect information on the newcomers worki
 
 ### In Local Development environment
 
-1. The muncipality of Sogndal has created a [code list](../industry.json) for **industries**. Download the file and place it correctly in the repository.
+1. The municipality of Sogndal has created a [code list](../industry.json) for **industries**. Download the file and place it correctly in the repository.
 
 2. Set up the values in the code list for **Years in work force** directly in the application logic.
 
