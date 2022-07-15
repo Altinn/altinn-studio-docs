@@ -83,7 +83,7 @@ In all other cases, the field should remain the same.
 
 ### Summary
 In this module you have had a look at **repeating groups** and how this is configured as a part of the user interface.
-We have also had a look at how to set up custom **validaations** in the backend for cases that will not be defined as a part of restrictions in the data model.
+We have also had a look at how to set up custom **validations** in the backend for cases that will not be defined as a part of restrictions in the data model.
 Lastly, we have looked at how to set up **data processing** that enables manipulation of data runtime.
 
 ### Solution
