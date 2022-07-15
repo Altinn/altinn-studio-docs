@@ -112,7 +112,7 @@ In Altinn we support three languages: bokmål, nynorsk and english.
 The fields to be filled out on a form page can be created by using the "drag and drop" function in Altinn Studio
 or manually in the json-file that describes the appearance of a from page _FormLayout.json_.
 
-Based on the requirements from the muncipality, can you now set up the first form page in Altinn Studio?
+Based on the requirements from the municipality, can you now set up the first form page in Altinn Studio?
 
 ### Requirments from the muncipality
 
