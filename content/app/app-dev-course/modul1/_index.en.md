@@ -6,7 +6,7 @@ tags: [apps, training, datamodel, localtest, texts]
 weight: 20
 ---
 
-In this module you will, based on the demands of the muncipality of Sogndal,
+In this module you will, based on the demands of the municipality of Sogndal,
 be setting up the first page of your application for newcomers and verify that everything looks as expected locally.
 
 **Topics covered in this module:**
