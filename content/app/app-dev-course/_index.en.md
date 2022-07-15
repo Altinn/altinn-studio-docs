@@ -8,7 +8,7 @@ weight: 15
 
 This intro course is divided into six modules and covers a fictitious case for the municipality of Sogndal.
 Over the course of these six modules, you will have gone through the main functionality of an Altinn App,
-as well as testing of the app locally and in a test environment.
+as well as testing the app locally and in a test environment.
 
 Three things has to be in order before you can get started with this course.
 
