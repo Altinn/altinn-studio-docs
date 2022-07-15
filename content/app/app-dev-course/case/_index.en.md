@@ -62,7 +62,7 @@ There is a wish that one or more of the words "newcomer" and "Sogndal" is includ
 ### Information page
 {{% expandlarge id="infoside-expandable" header="Krav" %}}
 
-Someone in the muncipality has created a sketch of the informationpage.
+Someone in the municipality has created a sketch of the information page.
 
 The following is desirable to be similar in the application:
  - Placing of pictures
