@@ -44,7 +44,7 @@ The municipality of Sogndal wishes to collect information on the newcomers worki
 2. Set up a **radio button** component for _Sector_. Create the answer options `Offentlig` and `private` manually.
 
 3. Set up a **check box** component for _Industry_.
-   Choose _Kodeliste_ as method for adding check boxes and add _Kodeliste ID_ `industry`
+   Choose _Kodeliste_ as method for adding checkboxes and add _Kodeliste ID_ `industry`
 
    The rest of the setup for this component is done locally
 
