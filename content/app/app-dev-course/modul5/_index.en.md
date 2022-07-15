@@ -89,9 +89,9 @@ Update the policy file so that it's authorization rules cover the new process st
 
 {{% expandlarge id="confirmation" header="Overrule standard texts for confirmation page" %}}
 
-### Requirements from the muncipality
+### Requirements from the municipality
 
-The user should be presented with the following text befor submitting the form.
+The user should be presented with the following text before submitting the form.
 
 ```rich
 You are now ready to submit a notification of moving to Sogndal.
