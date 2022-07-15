@@ -92,9 +92,9 @@ In some cases the values displayed in a code list may be attached to a different
 
 The municipality of Sogndal wishes that the list of industries to choose from is personalised to what sector you work in.
 
-Read through the requirements from the muncipality to see if you can help them.
+Read through the requirements from the municipality to see if you can help them.
 
-### Requirements from the muncipality
+### Requirements from the municipality
 
 We want the user to be presented with a different set of options for the industry choice
 based on which sector they are in.
