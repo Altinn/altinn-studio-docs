@@ -174,7 +174,7 @@ At this point in the workflow the user should be able to
 
 ### Texts
 
-The user should be presented with the following text befor submitting the form.
+The user should be presented with the following text before submitting the form.
 
 ```md
 You are now ready to submit a notification of moving to Sogndal.
