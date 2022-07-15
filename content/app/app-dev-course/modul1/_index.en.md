@@ -89,7 +89,7 @@ It is possible to connect texts to components in both Altinn Studio and locally.
 
 - All inputfields should have descriptive labels that clarifies what should be filled in.
 - The application must be available in bokmål, nynorsk and english.
-  In a first edition it is sufficient that only one of this languages are available.
+  In a first edition it is sufficient that only one of these languages is available.
 - It is important that the display name of the application sounds good and is descriptive of the service.
 
 
