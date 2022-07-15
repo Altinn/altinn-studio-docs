@@ -141,7 +141,7 @@ Altinn Studio, given that you have pushed your changes to master.
 
 - Can you locate the component connected to the email-field?
 - What change is required in this file if the email-field is no longer required?
-- By changing one line in _FormLayout.json_ it is possible to change the component attached to middle name
+- By changing one line in _FormLayout.json_ it is possible to change the component attached to the middle name
   to an input field for a long answer. What change is required?
 {{% /expandlarge %}}
 
