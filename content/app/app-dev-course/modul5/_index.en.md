@@ -96,9 +96,9 @@ The user should be presented with the following text before submitting the form.
 ```rich
 You are now ready to submit a notification of moving to Sogndal.
 
-By submitting this form you consent to the data you have entered being saved and used for customizing the muncipality's offers to you during the next 18 months.
+By submitting this form you consent to the data you have entered being saved and used for customizing the municipality's offers to you during the next 18 months.
 
-Before you submit we recommend looking over your answers. You cannot change the answers after submitting.
+Before you submit we recommend looking over your answers. You cannot change the answers after submitting them..
 ```
 
 ### Useful documentation
