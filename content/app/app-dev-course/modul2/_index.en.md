@@ -81,10 +81,10 @@ In many cases, it is not relevant to answer all questions in a form, maybe becau
 
 By using dynamic tracks you will be able to control which parts of the application that will be visible for the user.
 
-In this task you will set up dynamic tracks in the application based on the requirements from the muncipality of Sogndal.
+In this task you will set up dynamic tracks in the application based on the requirements from the municipality of Sogndal.
 
 
-### Requirements from the muncipality
+### Requirements from the municipality
 
 A user who does not meet the requirements for the form should be stopped as early as possible in the workflow.
 
