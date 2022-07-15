@@ -21,8 +21,8 @@ be setting up the first page of your application for newcomers and verify that e
 
 {{% expandlarge id="create-new-application" header="Create new application" %}}
 
-Create the application in Altinn Studio with the organization that you have acess to as owner.
-Alternativelym you can create the application with you as the owner, if you are not testing it in a test environment.
+Create the application in Altinn Studio with the organization that you have access to as an owner.
+Alternatively, you can create the application with you as the owner, if you are not testing it in a test environment.
 
 ### Requirements from the muncipality
 
