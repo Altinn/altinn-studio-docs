@@ -46,7 +46,7 @@ that represents data they wish to collect from future residents.
 
 {{% notice info %}}
 As an app developer you will in some cases have to create a data model 
-for a service yourself. You will then be able to use the data modeling tool in 
+for a service yourself. You will then be able to use the data modelling tool in 
 Altinn Studio (launching Spring 2022), or use an existing data model as a starting point and 
 edit it in for example Visual Studio or a text editing program of your own choosing.
 {{% /notice %}}
