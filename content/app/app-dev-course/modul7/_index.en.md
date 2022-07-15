@@ -108,7 +108,7 @@ https://fraktguide.bring.no/fraktguide/api/postalCode.json?country=no&pnr={postn
 - Address info should be collected through standard-input components, not through Altinn's address component
 - Postal city should be prefilled for the user when the postal code has been submitted
 - Postal city should be unmutable.
-- The number of calls to Bring's API should be limited to maximum once a day per postal code
+- The number of calls to Bring's API should be limited to maximum of once a day per postal code
 
 ### Useful documentation
 [Consumpion of external API](/app/development/api/consume/)
