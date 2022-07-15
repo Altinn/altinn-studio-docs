@@ -22,7 +22,7 @@ Sogndal has a few demands for the services described in the sections below.
 {{% expandlarge id="navngivning-expandable" header="Krav" %}}
 
 - The application must have a sensible name that makes it easy to find it again among the large number
-of repositories Sogndal keeps in Altinn Studio.
+of repositories, Sogndal keeps in Altinn Studio.
 
 - There are no preliminary plans for yearly revisions of the app,
 so the year does not need to be taking into account.
