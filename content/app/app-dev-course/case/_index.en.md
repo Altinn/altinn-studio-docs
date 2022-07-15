@@ -24,7 +24,7 @@ Sogndal has a few demands for the services described in the sections below.
 - The application must have a sensible name that makes it easy to find it again among the large number
 of repositories Sogndal keeps in Altinn Studio.
 
-- There are no preliminary plans about yearly revisions of the app,
+- There are no preliminary plans for yearly revisions of the app,
 so the year does not need to be taking into account.
 
 There is a wish that one or more of the words "newcomer" and "Sogndal" is included in the name.
