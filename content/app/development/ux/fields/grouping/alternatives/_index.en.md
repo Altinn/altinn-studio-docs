@@ -178,6 +178,8 @@ The text resources that is used by panel:
 - `body` - the panel body. Placed above children.
 - `add_label` - the add button label.
 
+If `children` is not defined on the group the children of the referenced group will be rendered. By adding `children` you can freely define that only a subset of the referenced group will be displayed.
+
 Demo:
 
 ![Demo of groupReference](panel-reference-demo.gif "Demo of groupReference")

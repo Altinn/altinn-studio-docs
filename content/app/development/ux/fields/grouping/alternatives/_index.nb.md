@@ -170,11 +170,13 @@ Følgende gruppe-komponent ligger som et barn av gruppe-2:
       },
 ```
 
-The text resource keys are used for the panel:
+Tekstressursene som kan settes er:
 
 - `title` - panel tittel
 - `body` - panel body. Plassert over gruppe elementene.
 - `add_label` - tekst for "legg til"-knappen.
+
+Om ikke `children` er satt på gruppen vil barna til den refererte gruppen bli rendret. Ved å legge til `children` kan man fritt definere at det kun skal vises et subset av alle barn av den refererte gruppen.
 
 Demonstrasjon:
 
