@@ -120,7 +120,7 @@ If the user chooses `IKT (data/it)` under industry, a text with a link to our ov
 - Below the industry choice, the following text should appear
 
     ```rich
-    We see that you have competence we need in Sogndal.
+    We see that you have the competence we need in Sogndal.
     Here is an overview of vacant positions.
     ```
 
