@@ -103,7 +103,7 @@ Based on the answer, the user will be sent to either _Track 1_ or _Track_ 2_.
 
     ```rich
     This form is not for you.
-    For information about other offers in the muncipality click here.
+    For information about other offers in the municipality click here.
     ```
 
 - Line 2 in the text should be a link directing to:
