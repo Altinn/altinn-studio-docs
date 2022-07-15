@@ -114,7 +114,7 @@ or manually in the json-file that describes the appearance of a from page _FormL
 
 Based on the requirements from the municipality, can you now set up the first form page in Altinn Studio?
 
-### Requirments from the muncipality
+### Requirments from the municipality
 
 - Name and age of the person who is a newcomer
   - Firstname
