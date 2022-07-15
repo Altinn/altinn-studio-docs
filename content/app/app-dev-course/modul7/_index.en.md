@@ -91,7 +91,7 @@ The last line of the text should still be a link to the vacant positions.
 
 {{% expandlarge id="api" header="External API" %}}
 In some cases, you will have to use external API's to cover all the needs of an application.
-This could be to populate dropdown lists or to present data to the user based on information they have provided.
+This could be to populate dropdown lists or to present data to the user based on the information they have provided.
 
 In this task you will implement a client that intergates with Bring's APIs to populate the address
 the user submits with a postal city based on the postal code.
