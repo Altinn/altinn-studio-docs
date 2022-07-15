@@ -175,7 +175,7 @@ When the app is running and you have logged in with a test user, you should have
 Moving on you will want to test your changes continuously in LocalTest.
 - In the event of changes related to formLayout and other _json_-files, a refresh (F5) in the browser is sufficient.
 - In the event of changes in prefill, the application must be instantiated again.
-- In the event of changes in _cs_-files, the application must be stopped and restared.
+- In the event of changes in _cs_-files, the application must be stopped and restarted.
   Alternatively, you may use the `dotnet run watch` when you start the application for hot reload.
 
 {{% /notice %}}
