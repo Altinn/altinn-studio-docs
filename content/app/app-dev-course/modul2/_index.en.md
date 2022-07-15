@@ -136,7 +136,7 @@ If the data is available in one of Altinn's prefill sources, this can be configu
 
 In this task, the focus has returned to the first data collecting page, and the goal is to prefill personal information about the user to save the user some time.
 
-### Requirements from the muncipality
+### Requirements from the municipality
 
 - The following values should be prefilled for the user:
   - First name: Innflytter.fornavn
