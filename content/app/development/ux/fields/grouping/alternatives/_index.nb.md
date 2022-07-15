@@ -135,8 +135,8 @@ Eksempel:
 
 ### Legge til element fra en annen repeterende gruppe
 
-Et usecase man kan se for seg er at brukeren bes om å velge fra en tidligere utfylt gruppe. Et tenk eksempel kan være at brukeren skal registrere et sett med mistenksomme transaksjoner.
-Her legger først brukeren inn et sett med ulike betalingsmåter som en repeterende gruppe. Senere i skjema skal brukeren velge elementer fra denne gruppen når man skal legge til en mistenkelig transaksjon.
+Et use case man kan se for seg er at brukeren bes om å velge fra en tidligere utfylt gruppe. Et tenkt eksempel kan være at brukeren skal registrere et sett med mistenksomme transaksjoner.
+Her legger først brukeren inn et sett med ulike betalingskort som en repeterende gruppe. Senere i skjema skal brukeren velge elementer fra denne gruppen når man skal legge til en mistenkelig transaksjon.
 Ved utfylling av den mistenkelige transaksjonen kommer sluttbruker på at man har glemt å legge til et betalingskort, men ønsker ikke da å navigere seg helt tilbake til den opprinnelige betalingskort gruppen.
 
 Her kommer `groupReference` parameteren inn i bildet på panel. Dette vil åpne opp for å kunne legge til et element i en repeterende gruppe fra konteksen hvor man benytter denne listen fra.
@@ -169,6 +169,12 @@ Følgende gruppe-komponent ligger som et barn av gruppe-2:
         }
       },
 ```
+
+The text resource keys are used for the panel:
+
+- `title` - panel tittel
+- `body` - panel body. Plassert over gruppe elementene.
+- `add_label` - tekst for "legg til"-knappen.
 
 Demonstrasjon:
 

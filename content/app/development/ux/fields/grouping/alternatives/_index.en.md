@@ -83,11 +83,11 @@ Eksempel:
 }
 ```
 
-## Vise gruppen som del av Panel
+## Show group as part of Panel
 
-Det er lagt til en ny parameter, `panel`, som kan settes på en gruppe-komponent. Denne sier at gruppen skal vises som en del av [Panel-komponenten](../../../components/panel/).
+A new parameter, `panel`, can be added to the group component. This will render the group childrne as part of a [Panel component.](../../../components/panel/).
 
-Her vil du kjenne igjen utseende og innstillinger som kan settes på panel-komponenten. Eksempeloppsett:
+Look and settings will be similar of those of the panel component. Example configuration: 
 
 ```json
       {
@@ -108,22 +108,22 @@ Her vil du kjenne igjen utseende og innstillinger som kan settes på panel-kompo
       },
 ```
 
-Her har man satt opp gruppen til å vises som panel med variant "info". Oppsettet er ellers helt likt som en vanlig gruppe.
+Here the group is configured with the variant "info". The configuration is otherwise equal as a regular group.
 
-Dette vil gi følgende output:
+This will produce the following output:
 
-![Gruppe med panel](input-panel.jpeg "Gruppe med panel")
+![Group with panel](input-panel.jpeg "Group with panel")
 
-Det er mulig å konfigurere følgende settings i `panel` feltet på en gruppe:
+The following settings is configurable in the `pabel` field:
 
-| Parameter             | Påkrevd | Beskrivelse                                                                                                                               |
+| Parameter             | Required | Description                                                                                                                               |
 | --------------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| variant               | Ja      | Hvilken variant av panel gruppen skal ligge i. Tilgjengelige verdier er "info", "success" og "warning"                                    |
-| iconUrl               | Nei     | Om man ønsker eget ikon som del av panel kan dette settes. Relativ eller full path, f.eks "awesomeIcon.png" eller "http://cdn.example.com/awesomeIcon.png" |                                                                                           |
-| iconAlt               | Nei     | Alternativ tekst til custom icon. Kan kun settes om iconUrl er satt. Kan være ren tekst eller en refereanse til en tekstressurs.|
-| groupReference        | Nei     | Referanse til en annen gruppe. Kan benyttes om man ønsker legge til elementer i en repeterende gruppe fra en annen kontest. [Les mer.](#legge-til-element-fra-en-annen-repeterende-gruppe) |                                                       |
+| variant               | Yes      | Which variant of panel the group children should be rendered in. Availiable values are "info", "success" and "warning".                                    |
+| iconUrl               | No     | Custom icon can be added to the panel. Relative or full path, for instance "awesomeIcon.png" or "http://cdn.example.com/awesomeIcon.png" |                                                                                           |
+| iconAlt               | No     | Alternative text for the custom icon. Only applicable if iconUrl is supplied. Can be plain text or a reference to a text resource.|
+| groupReference        | No    | Reference to another group. Can be used if you want to add elements to a repeating group from another context. [Read more.](#legge-til-element-fra-en-annen-repeterende-gruppe) |                                                       |
 
-Eksempel:
+Example:
 
 ```json
         "panel": {
@@ -133,21 +133,23 @@ Eksempel:
         }
 ```
 
-### Legge til element fra en annen repeterende gruppe
+### Add element from another repeating group
 
-Et usecase man kan se for seg er at brukeren bes om å velge fra en tidligere utfylt gruppe. Et tenk eksempel kan være at brukeren skal registrere et sett med mistenksomme transaksjoner.
-Her legger først brukeren inn et sett med ulike betalingsmåter som en repeterende gruppe. Senere i skjema skal brukeren velge elementer fra denne gruppen når man skal legge til en mistenkelig transaksjon.
-Ved utfylling av den mistenkelige transaksjonen kommer sluttbruker på at man har glemt å legge til et betalingskort, men ønsker ikke da å navigere seg helt tilbake til den opprinnelige betalingskort gruppen.
+A use case can be that the user is asked to choose a value from a previously filled out repeating group. As an example imagine the user has to register a set of suspicius transactions.
+Her the user is first asked to add a set of different payment cards as a repeating group. Later in the application the user is asked to select a payment card when adding an entry to the suspicious transactions group.
+While doing so the user remembers that they forgot to add a payment card and does not want to navigate back to the first repeating group. 
 
-Her kommer `groupReference` parameteren inn i bildet på panel. Dette vil åpne opp for å kunne legge til et element i en repeterende gruppe fra konteksen hvor man benytter denne listen fra.
+Her comes `groupReference` parameter in to play. This will give the user the possiblity to add an element to a repeating group from the context this list is used. 
 
-Et bilde for å illustrere usecasen:
+An image to illustrate the use case:
 
 ![GroupReference case](panel-reference-case.png "GroupReference case")
 
-I dette fiktive caset ligger gruppene rett over hverandre, men se for deg at disse fylles ut på ulike sider i skjema.
-For å få til dette oppsettet legges en gruppe element til i den repeterende gruppen som er satt opp med transaksjoner (gruppe-2) med en referanse til den første gruppen med betalingskort (gruppe-1).
-Følgende gruppe-komponent ligger som et barn av gruppe-2:
+In this made up case the groups are positioned under each other, but in a real world scenario these might be placed on different pages in the application.
+
+To setup the possibility a group component is added to the repeating group containg the transactions with a reference to the first group containing payment cards.
+
+The following group component is configured as a child for group 2:
 
 ```json
       {
@@ -170,11 +172,17 @@ Følgende gruppe-komponent ligger som et barn av gruppe-2:
       },
 ```
 
-Demonstrasjon:
+The text resources that is used by panel:
 
-![Demonstrasjon av groupReference](panel-reference-demo.gif "Demonstrasjon av groupReference")
+- `title` - the panel title
+- `body` - the panel body. Placed above children.
+- `add_label` - the add button label.
 
-Se [eksempel app](https://altinn.studio/repos/ttd/input-panel-demo) for fullstendig oppsett i fom layout.
+Demo:
+
+![Demo of groupReference](panel-reference-demo.gif "Demo of groupReference")
+
+See [example app](https://altinn.studio/repos/ttd/input-panel-demo) for a complete form layout setup.
 
 ## Flere sider innad i gruppe-visning
 
