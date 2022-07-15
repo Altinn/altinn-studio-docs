@@ -25,8 +25,8 @@ In this module there are a collection of standalone extensions of the applicatio
 
 {{% expandlarge id="Summary page" header="Summary page" %}}
 ### Requirements from the muncipality
-The muncipality of Sogndal are experiencing an issue where some submissions contain incorrect information and typos that create unnecessary work for the caseworkers.
-To avoid people submitting incorrect information, the muncipality wishes that the user is presented with a summary page displaying the filled out information.
+The municipality of Sogndal are experiencing an issue where some submissions contain incorrect information and typos that create unnecessary work for the caseworkers.
+To avoid people submitting incorrect information, the municipality wishes that the user is presented with a summary page displaying the filled out information.
 
 The muncipality of Sogndal wants to use the categories **Personalia** for the users personal information and **Work** for the users work history.
 
