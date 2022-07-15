@@ -45,9 +45,9 @@ for the info page and get started with the development. Good luck!
 ### Requirements from the municipality
 
 Considering that quite a large amount of data is being collected in this service,
-it is important for the muncipality of Sogndal that it is clear who this form is
+it is important for the municipality of Sogndal that it is clear who this form is
 meant for and what the data collected will be used to.
-Someone in the muncipality has created a sketch of the informationpage.
+Someone in the municipality has created a sketch of the informationpage.
 
 The following is desirable to be similar in the application:
  - Placing of pictures
