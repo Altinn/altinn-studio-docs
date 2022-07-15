@@ -42,7 +42,7 @@ The muncipality of Sogndal wants to use the categories **Personalia** for the us
 
 {{% expandlarge id="stateless" header="Stateless frontpage" %}}
 ### Requirements from the muncipality
-The muncipality of Sogndal has discovered that there is a lot of traffic from people who do not meet the requirements of the application.
+The municipality of Sogndal has discovered that there is a lot of traffic from people who do not meet the requirements of the application.
 For each of these users an instance is created and saved to the data base. This creates unnecessary expenses.
 
 Therefore, Sogndal wants the information page to be shown as a "stateless" part of the application, and that you from here can choose to create
