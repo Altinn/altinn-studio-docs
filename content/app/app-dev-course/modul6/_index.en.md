@@ -61,7 +61,7 @@ You are not welcome to our municipality. Sorry!
 
 
 {{% expandlarge id="processing" header="Data processing" %}}
-### Requirements from the muncipality
+### Requirements from the municipality
 One of the data processors of Sogndal is sick of manually correcting a street address that often is being incorrectly entered by newcomers.
 Therefore, we wish to programmatic correct this while the user is filling out the app.
 
