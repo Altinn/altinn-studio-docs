@@ -86,7 +86,7 @@ for the organization in Altinn Studio.
 ### Comprehension check
 - Is it possible to have two versions of one application in TT02 at the same time?
 - What happens if you deploy the same version of the application to the environment once more?
-- Will the application be available immediatly after deployment?
+- Will the application be available immediately after deployment?
 - Is it possible to remove an application from the environment after deployment?
 {{% /expandlarge %}}
 
