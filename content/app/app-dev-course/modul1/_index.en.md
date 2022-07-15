@@ -85,7 +85,7 @@ It is possible to connect texts to components in both Altinn Studio and locally.
 {{% /notice %}}
 
 
-### Requirements from the muncipality
+### Requirements from the municipality
 
 - All inputfields should have descriptive labels that clarifies what should be filled in.
 - The application must be available in bokmål, nynorsk and english.
