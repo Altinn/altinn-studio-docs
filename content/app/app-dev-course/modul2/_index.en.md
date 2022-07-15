@@ -39,10 +39,10 @@ but if you prefer to do this manually the documentation may
 come in handy.
 {{% /notice %}}
 
-The only thing left now is to familiarize yourself with the muncipality's requirements
+The only thing left now is to familiarize yourself with the municipality's requirements
 for the info page and get started with the development. Good luck!
 
-### Requirements from the muncipality
+### Requirements from the municipality
 
 Considering that quite a large amount of data is being collected in this service,
 it is important for the muncipality of Sogndal that it is clear who this form is
