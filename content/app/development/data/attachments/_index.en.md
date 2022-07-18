@@ -36,7 +36,7 @@ Part of the configuration for the uploaded attachments can be set up here.
 
 1. Custom file types can be specified if you want to limit the file types that can be submitted.
 In this case, a user will be prevented from uploading if the file type is not in the approved list.
-1. The minimum/maximum amount of file attachments can be specified if you want a specific amount of attachments uploaded through the component.
+2. The minimum/maximum amount of file attachments can be specified if you want a specific amount of attachments uploaded through the component.
 By setting the value of _minst antall filvedlegg_ to '0' it will not be required to upload a file.
 3. The maxmimum file size is specified in _MB_.
 
