@@ -11,7 +11,7 @@ The regulation on universal design of ICT solutions require that websites and ap
 
 ## Check list
 - **Content structure**  
-  Check that you have a logical structure of lables (H1 - H4), and that you don't have any empty label elements. It is not uncommon to forget a level. "Wave" might be a usefull tool to discover errors in the content structure. Wave is an extention tool for chrome which can be used to evaluate the accessibility of a website. [Download Wave for Chrome](https://chrome.google.com/webstore/detail/wave-evaluation-tool/jbbplnpkjmmeebjpijfedlgcdilocofh)
+  Check that you have a logical structure of headings (H1 - H4), and that you don't have any empty heading elements. It is not uncommon to forget a level. "Wave" might be a usefull tool to discover errors in the content structure. Wave is an extension for Chrome which can be used to evaluate the accessibility of a website. [Download Wave for Chrome](https://chrome.google.com/webstore/detail/wave-evaluation-tool/jbbplnpkjmmeebjpijfedlgcdilocofh)
 
 - **Explanations and helper texts**  
 Check that links, labels and buttons have explanatory texts. Make an evaluation of what explanations and helper texts have to be connected to the input element. 
