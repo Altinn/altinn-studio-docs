@@ -41,7 +41,7 @@ Below you see an example of how substatus looks like in the message box and in t
 
 ![Substatus in receipt](app.png "Substatus i kvitteringen")
 
-## Automatic deletion of Automatisert sletting av drafts
+## Automatic deletion of drafts
 
 As an application owner you can imagine some cases where deleting a user's draft after a certain time is necessary. 
 To achieve this three steps are required:
