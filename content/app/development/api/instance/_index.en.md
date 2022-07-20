@@ -37,7 +37,7 @@ Below you see an example of how substatus looks like in the message box and in t
 }
 ```
 
-![Substatus in message box](meldingsboks.png "Substatus i meldingsboks")
+![Substatus in message box](meldingsboks.png "Substatus in message box")
 
 ![Substatus in receipt](app.png "Substatus in receipt")
 
