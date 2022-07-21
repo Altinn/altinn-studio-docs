@@ -7,7 +7,7 @@ toc: true
 
 If you want to limit the end user's access to an instance or data after submitting it can be done by configuring automatic deletion.
 Practically the resource will be made inaccessible to the user after submission, 
-while the service owner still har access according to the application's authorisation rules.
+while the service owner still has access according to the application's authorisation rules.
 
 If the end user attempts to access a hard deleted resource with a direct link they will recieve `404 - Not found` in respons.
 The resource will also not be visible in the message box or be listed in any API-responces.
