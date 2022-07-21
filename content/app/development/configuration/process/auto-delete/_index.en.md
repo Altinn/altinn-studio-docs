@@ -5,25 +5,20 @@ description: An application can be configured to delete all traces of it when th
 toc: true
 ---
 
-Dersom man ønsker å begrense sluttbrukers tilgang til en instans eller data i etterkant av innsending kan dette gjøres 
-ved å konfigurere automatisk sletting.
-I praksis vil ressursen gjøres utilgjengelig for sluttbruker etter innsending, 
-mens tjenesteeier enda har tilgang i tråd med applikasjonens autorisasjonsregler. 
+If you want to limit the end user's access to an instance or data after submitting it can be done by configuring automatic deletion.
+Practically the resource will be made inaccessible to the user after submission, 
+while the service owner still has access according to the application's authorisation rules.
 
+If the end user attempts to access a hard deleted resource with a direct link they will recieve `404 - Not found` in response.
+The resource will also not be visible in the message box or be listed in any API-responses.
 
-Hvis sluttbruker forsøker å aksessere en hard deleted ressurs med en direkte lenke vil de få `404 - Not found` i respons.
-Ressursen vil heller ikke vises i meldingsboks eller listes i API-responser.
+When the service owner confirms that the instance has been recieved on their end (complete confirmed),
+the instance  is marked as ready for deletion and will be removed from the Altinn database in 7 days.
 
+The configuration for automatic deletion is done in `applicationmetadata.json` with the flag `"autoDeleteOnProcessEnd": true`.
 
-Når tjenesteeier bekrefter at instansen er mottatt på deres side (complete confirmed), 
-så markeres instansen som klar for sletting og vil saneres fra Altinns database i løpet av 7 dager.
-
-Konfigurasjonen for automatisk sletting gjøres i  `applicationmetadata.json` med flagget 
-`"autoDeleteOnProcessEnd": true`.
-
-## Automatisk sletting av instans
-
-Eksempel på konfigurasjon i  `applicationmetadata.json` for instanser:
+## Automatic deletion of instances
+Example of configuration in `applicationmetadata.json` for instances:
 
 ```json {linenos=false,hl_lines=[48]}
 {
@@ -79,9 +74,9 @@ Eksempel på konfigurasjon i  `applicationmetadata.json` for instanser:
 
 ## Automatic deletion of data
 
-Eksempel på konfigurasjon i  `applicationmetadata.json` for data type:
+Example of configuration in `applicationmetadata.json` for data type:
 
-Her slettes data typene _Skjema_ og _vedleggA_, mens typen _ref-data-as-pdf_ blir værende når prosessen er slutt. 
+Here the data types _Skjema_ and _vedleggA_ are deleted, while the type _ref-data-as-pdf_ stays after the process has been ended. 
 
 ```json {linenos=false,hl_lines=[11, 35]}
 "dataTypes":[
