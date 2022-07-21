@@ -10,7 +10,7 @@ Practically the resource will be made inaccessible to the user after submission,
 while the service owner still has access according to the application's authorisation rules.
 
 If the end user attempts to access a hard deleted resource with a direct link they will recieve `404 - Not found` in response.
-The resource will also not be visible in the message box or be listed in any API-responces.
+The resource will also not be visible in the message box or be listed in any API-responses.
 
 When the service owner confirms that the instance has been recieved on their end (complete confirmed),
 the instance  is marked as ready for deletion and will be removed from the Altinn database in 7 days.
