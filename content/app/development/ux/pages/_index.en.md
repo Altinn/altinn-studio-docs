@@ -27,6 +27,6 @@ Multiple pages in a form (within the same process task) is supported by splittin
 
 The recommended approach as long as there is a need to set it up manually, is to use the ui-editor in Altinn Studio to add all components to `FormLayout.json`, and then copy them to their respective layout files, one for each page you want. `FormLayout.json` can either be renamed under the `layouts` folder or be deleted.
 
-_Note: `FormLayout.json` must either be moved (can be renamed) into the `layouts` folder, or be deleted. If you have the old `FormLayout.json` file under the `App/ui` folder as it was, only this one will be used and all files under the `App/ui/layouts` folder will be ignorered._ 
+_Note: `FormLayout.json` must either be moved (can be renamed) into the `layouts` folder, or be deleted. If you have the old `FormLayout.json` file under the `App/ui` folder as it was, only this one will be used and all files under the `App/ui/layouts` folder will be ignored._
 
 {{<children>}}
