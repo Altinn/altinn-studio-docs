@@ -56,8 +56,8 @@ Determines whether the "Add new" button is displayed below the table. It is usef
 
 ### saveButton
 
-Determines whether the "Lagre"-button is displayed when a group element is in editing mode. The default behaviour if the parameter is not set is for the "Lagre"-button to be displayed.
-If you have set `"mode": "showAll"`, the "Lagre"-button is always hidden, since you in this mode do not have the oppurtunity to close the editing area for
+Determines whether the "Save" button is displayed when a group element is in editing mode. The default behaviour if the parameter is not set is for the "Save" button to be displayed.
+If you have set `"mode": "showAll"`, the "Save" button is always hidden, since in this mode you do not have the opportunity to close the editing area for
 the group-element. The data is still saved.
 
 ### deleteButton
