@@ -5,7 +5,7 @@ toc: true
 weight: 150
 ---
 
-## Limit access in Altinn Studio designer
+## Limit access using Altinn Studio designer
 
 You can limit which actors have access to an app by using the Altinn Studio Designer. Role access options are placed in the "Lage" category in the top menu, on the page "Tilgangsstyring", represented by the keyhole on the leftmost side menu.
 On this page you can mark the actor types the app should be accessible for. If none (or all) actor types are marked, everyone will have access. The option "Virksomhet" is used in cases where a report is filed on behalf of a company or other organization.
