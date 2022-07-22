@@ -62,7 +62,7 @@ you will need to add a [datatype object](/technology/architecture/components/app
 in the _applicationMetadata.json_ (the file is under App/config in the application repo).
 It will then only be possible to submit attachments of this type through API-calls.
 For a more detailed description of the available fields, see
-[configuration of attachments](#configuration-for-attachments)
+[configuration of attachments](#configuration-of-attachments)
 
 ## Configuration of attachments
 
