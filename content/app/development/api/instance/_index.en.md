@@ -3,71 +3,70 @@ title: Instance
 linktitle: Instance
 description: How to make changes to application instances.
 toc: true
-tags: [translate-to-english]
 ---
 
-Denne siden er foreløpig ikke fullstendig, mer informasjon vil komme på et senere tidspunkt.
+This page is currently incomplete, more information will be provided at a later date.
 
-En instansiert applikasjon vil ha et tilhørende instans-objekt. Dette objektet inneholder metadata om den spesifikke instansen.
-Om du ønsker å lære mer om instans og api'et rundt så kan du lese teknisk dokumentasjon om dette under API.
+An instantiated application will have a corresponding instance object. This object confains metadata about that specific instance.
+If you want to learn more about instance and its surrounding API you can read the technical documentation for [API](../../api).
 
 ## Substatus
 
-Som app-eier kan man sette en substatus på instansen, dette for å kunne gi sluttbruker ytterligere informasjon om hvilken tilstand instansen befinner seg i.
-Substatus vil vises frem både i meldingsboksen i Altinn og på kvitteringssiden.
+As an app owner you can set a substatus for the instance, this is to enable giving out further information about the condition the instance is currently in.
+Substatus will be shown both in the message box in Altinn and on the receipt page.
 
-Substatusen er et objekt som kan settes på instansobjektet. Hvordan dette gjøres står beskrevet under API.
-Substatus er et enkelt objekt som inneholder `label` og `description`. Disse feltene kan enten inneholde ren tekst, eller en tekstnøkkel som referer til applikasjonstekstene. Verdt å merke seg at vi ikke støtter variabler i tekst for disse tekstene.
-I meldingsboksen er det satt en begrensning på 25 tegn på `label`, og inneholder label mer enn 25 tegn vil bare de 22 første tegnene bli brukt og "..." lagt til på slutten.
+The substatus is an objekt which can be set on hte instance object. How this is done is described under API.
+Substatus is a simple object that contains `label` and `description`. These fields can either contain pure text or a text key which refers to the application texts. Keep in mind that variables in text are not supported in these fields. 
+The message box is limited to 25 characters in the `label` field, and should `label` contain more than 25 characters only the first 22 will be used and all remaining be replaced with "..."
 
-Eksempel på et substatus-objekt:
+Example of a substatus object: 
 ```json
 {
     "label": "some.label",
-    "description": "Beskrivelse i klarteskst"
+    "description": "Description in pure text"
 }
 ```
 
-Under ser du du eksempler på hvordan substatus ser ut i meldingsboksen og i kvitteringen hvor substatusen er satt opp på følgende måte:
+Underneath you can see examples of how substatus looks like in the message box, and in the receipt where the substatus is set up in the following way:
 ```json
 {
-    "label": "Godkjent",
-    "description": "Din søknad er godkjent av kongen."
+    "label": "Accepted",
+    "description": "Your application has been accepted by the king."
 }
 ```
 
-![Substatus i meldingsboks](meldingsboks.png "Substatus i meldingsboks")
+![Substatus in message box](meldingsboks.png "Substatus in message box")
 
-![Substatus i kvitteringen](app.png "Substatus i kvitteringen")
+![Substatus in receipt](app.png "Substatus in receipt")
 
-## Automatisert sletting av utkast
+## Automatic deletion of drafts
 
-Som applikasjonseier kan man i noen tilfeller ønske å slette sluttbrukerens utkast av en tjeneste dersom det har gått en viss tid siden instansiering. 
-For å oppnå dette er det tre steg som må tas.
+As an application owner you might want to delete a users draft after a certain period of time since instantiation.
+Three steps are required to achieve this:
 
-1. Applikasjonen må konfigureres slik at tjenesteeier har lov til å slette instanser
-2. Identifiser hvilke instanser som ikke er fullført v.h.a. spørring mot storage
-3. Slette instans via endepunkt eksponert i applikasjonen
+1. Applications must be configured so that service owners are permitted to delete instances 
+2. Identifying which instances have not been completed through asking storage
+3. Deleting instance via an endpoint exposed within the application
 
-### Steg 1: Konfigurasjon av applikasjon
+### Step 1: Configuration of applikasjon
 
-Standarden for en applikasjon er at tjenesteeier ikke har lov til å slette instanser.
-For å få lov til dette må det legges til en ny regel i `policy.xml` den finnes i `App/config/authorization`.
-Regelen kan kopieres fra [regelbiblioteket](../autorisasjon/regelbibliotek/#org-can-delete-an-instance-of-orgapp-in-any-task-or-event).
+The standard for an application is that the service owner is not permitted to delete instances.
+To be allowed to do this a rule must be added to `policy.xml` which is placed in `App/config/authorization`.
+The rule can be copied from the [ruke library](../autorisasjon/regelbibliotek/#org-can-delete-an-instance-of-orgapp-in-any-task-or-event).
 
-### Steg 2: Identifiser hvilke instanser som ikke er fullført v.h.a. spørring mot storage
+### Step 2: Identify which instances have not been completed through asking storage
 
-Storage eksponerer et sett med queryparametre som kan brukes når man skal hente ut et sett med instanser. 
-i eksempelet nedenfor får man ut alle instanser som av en gitt applikasjon som er instansiert 30. september 2020 eller tidligere, 
-og som enda står i utfyllingssteget.
+Storage exposes a set of query parameters which can be used when collecting a set of instances.
+In the example below we return all instances which were instantiated before the 30. of september 2020 or earlier, 
+which are still in the form filling stage. 
 
-Her kan man prøve seg litt fram for å finne de rette queryparameterene for akkurat deres tjeneste. 
+You can test query parameters here to find the correct queries for your specific service here.
 
 `HTTP GET https://platform.altinn.no/storage/api/v1/instances?appId={org}/{app}&created=lte:2020-09-30&process.currentTask=Task_1`
 
-### Steg 3: Slette instans via endepunkt eksponert i applikasjone
+### Step 3: Deleting an instance via the endpoint exposed in the application
 
-Når man har identifisert instansene som skal slettes er det en smal sak å sende et kall
-til applikasjonen for å få slettet disse. Da må id på instansen (instanceOwner.partyId/instanceGuid) oppgis.
+After identifying the instances which are to be deleted, sending the actuall call to the 
+application to get them deleted is simple. The id of the instance (instanceOwner.partyId/instanceGuid) then have to be submitted. 
 
 `HTTP DELETE https://ttd.apps.altinn.no/ttd/apps-test/instances/{instanceOwner.partyId}/{instanceGuid}`
