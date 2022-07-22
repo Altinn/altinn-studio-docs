@@ -31,7 +31,7 @@ Here, the frontend will make the call to the api defined in the app and use the 
 This order will also be stored in the state frontend, so that navigating will work both backwards and forwards on the given order returned from the backend.
 
 If you wish to trigger calculation on every single page switch, this can be done by either entering `calculatePageOrder` as part of `triggers` for all 
-the navigationcomponents in the application, or by adding a trigger in `Settings.json` under the `pages` section. Example:
+the navigation components in the application, or by adding a trigger in `Settings.json` under the `pages` section. Example:
 
 ```json
 {
