@@ -127,11 +127,11 @@ Here, you will have the opportunity to control the width of both the outer grid 
 
 Here, it has been set that the component grid shall occupy the whole width, while limiting the component's input to only occupy half the width.
 Innergrid can be controlled for these components:
-- Kort svar (Input)
-- Langt svar (TextArea)
-- Filopplaster (FileUpload)
-- Nedtrekksliste (Dropdown)
-- Datovelger (Datepicker)
+- Input
+- TextArea
+- FileUpload
+- Dropdown
+- Datepicker
 
 
 The example above will give the following output:
