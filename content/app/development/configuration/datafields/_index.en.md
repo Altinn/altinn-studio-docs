@@ -51,7 +51,7 @@ Notice that the instance object is named `dataValues` even when the configured i
 result of the configuration which is done in `dataFields`.
 
 ## Manually
-To manually add datavalues the method `UpdateDataValues`from the IInstance interface is used. It is the same method which is called when datavalues are populated from configuration and it ensures seemless gathering of values into a list. 
+To manually add data values the method `UpdateDataValues`from the IInstance interface is used. It is the same method which is called when the fields in `dataValues` are populated from configuration and it will merge all values into a list. 
 
 {{%notice warning%}}
 Be aware that it is the application developer's responsibility to ensure unique IDs if you combine datavalues between configuration and a manual implementation.
