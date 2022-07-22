@@ -54,7 +54,7 @@ result of the configuration which is done in `dataFields`.
 To manually add data values the method `UpdateDataValues`from the IInstance interface is used. It is the same method which is called when the fields in `dataValues` are populated from configuration and it will merge all values into a list. 
 
 {{%notice warning%}}
-Be aware that it is the application developer's responsibility to ensure unique IDs if you combine datavalues between configuration and a manual implementation.
+Be aware that it is the application developer's responsibility to ensure unique IDs if you combine data values between configuration and a manual implementation.
 Values that share IDs will override each other and there is no way to guarantee which will be saved in the instance. 
 {{% /notice%}}
 
