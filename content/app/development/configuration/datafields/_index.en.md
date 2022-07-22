@@ -5,7 +5,7 @@ description: Configuration of data fields for app.
 weight: 200
 ---
 
-It is usefull to add extra information to instance objects in some cases. For example allowing routing the instance to the correct system in a service owners backend. 
+It is useful to add extra information to instance objects in some cases. For example allowing routing the instance to the correct system in a service owners backend.
 
 This can be done in two ways, by configuration or manually. By configuration the system will extract data from the form fields and add these to the instance object. This method is limited to form fields, but avoids programming it by yourself. If you choose to do it manually you have the freedom to add data you might want from for example external APIs, calculations, preset strings, etc. 
 
