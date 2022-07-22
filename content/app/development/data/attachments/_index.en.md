@@ -105,7 +105,7 @@ This value must be identical to one of the tasks in _process.bpmn_.
 
 - **maxSize** denotes the maximum allowed size of the attachment.
 
-- **maxCount** denotes the upper limit for how many attachments of this type that are to be uploaded in connection to an instance.
+- **maxCount** denotes the upper limit for how many attachments of this type that are to be uploaded per instance.
 
 - **minCount** denotes the lower limit for how many attachments of this type that are to be uploaded in connection to an instance.
               If the value is 0 then it is not required to upload a file attachment of this type.
