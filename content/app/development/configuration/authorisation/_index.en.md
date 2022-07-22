@@ -6,7 +6,7 @@ weight: 100
 ---
 
 Authorization rules for an application is defined in a XACML policy file which is placed in the app repository.
-The XACML Policy contains one or more rules which define who can complete different actions on different resources.
+The XACML Policy contains one or more rules which define who can perform different actions on different resources.
 
 Description of the XACML structure and definition of rules can be found [here](/technology/architecture/components/application/solution/altinn-studio/designer/pap/xacmlpolicy/)
 
