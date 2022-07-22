@@ -31,7 +31,7 @@ read and delete instances of the application are defined in the policy file.
 
 A complete list of role types can be found [here](https://www.altinn.no/api/metadata/roledefinitions).
 
-### Rights for the application owner
+### Permissions for the application owner
 The application owner (organization) has rights to instantiate, write and read instances of the application.
 They also have permissions to mark instances as completed. 
 
