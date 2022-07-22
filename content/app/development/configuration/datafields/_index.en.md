@@ -14,7 +14,7 @@ It is also possible to make use of both methods as long as you use different ids
 Data fields are in many ways similar to [presentationfields](../presentationfields/_index.md). But where the use of presentationfields is predefined, the use of datafields is completely up to the individual application owner.  
 
 ## Configuration
-Configuration of datafelter is done in `applicationmetadata.json` which is located in the folder `App/config`.
+Configuration of data fields is done in `applicationmetadata.json` which is located in the folder `App/config`.
 
 Add a new section with the name `dataFields` with the following under fields
 
