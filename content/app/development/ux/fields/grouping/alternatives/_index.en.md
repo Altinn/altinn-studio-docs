@@ -174,7 +174,7 @@ The text resources that can be set are:
 
 - `title` - panel title
 - `body` - panel body. Placed above the group elements.
-- `add_label` - text for the "legg til"-button.
+- `add_label` - text for the "add new"-button.
 
 If `children` is not set on the group, the children of the referenced group will be rendered. By adding to `children` you can freely define that only a subset of all children of the referenced group should be displayed.
 
