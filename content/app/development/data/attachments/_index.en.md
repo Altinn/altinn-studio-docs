@@ -98,7 +98,7 @@ Below there are two examples of `dataTypes`-instances from a deployed applicatio
 - **Id** on the attachment type
 This will be set as a GUID if you use an attachment component from Altinn Studio like the one you can find in the first element in the dataTypes list.
 If you want to change the value to a more sensible name then you should note that this change
-must be done two places: _applicationMetadata.json_ and _FormLayout.json_. (Only relevant if you use multiple file uploads in GUI)
+must be done two places: _applicationMetadata.json_ and _FormLayout.json_. (Only relevant if you added a file upload component to the GUI)
 
 - **taskID** denotes which step in the process it is expected that this attachment is uploaded to.
 This value must be identical to one of the tasks in _process.bpmn_.
