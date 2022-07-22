@@ -62,7 +62,7 @@ the group-element. The data is still saved.
 
 ### deleteButton
 
-Determines whether the "Slett"-button is displayed when a group element is in editing mode. The default behaviour if the parameter is not set is for the "Slett"-button to be displayed.
+Determines whether the "Delete" button is displayed when a group element is in editing mode. The default behaviour if the parameter is not set is for the "Delete" button to be displayed.
 
 ### multiPage
 
