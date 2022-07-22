@@ -10,7 +10,7 @@ Data modeling functionality is planned for Altinn Studio. The temporary function
 {{% /notice %}}
 
 ## Upload / show data model
-The data model defines which data can be submitted through an app and which format it should be sent in on.
+The data model defines which data can be submitted through an app and the format used when submitting.
 As of now, the data model must be defined as an XSD in an external tool - preferably [Seres Domain Client](https://altinn.github.io/docs/seres/brukerveiledninger/domeneklient/).
 
 A data model must be uploaded for each app.
