@@ -9,7 +9,7 @@ weight: 400
 
 In an Altinn application there are two options for uploading file attachments:
 
-- file attachment component in form
+- File upload component in a form
 - API-call to app backend
 
 The former will be a good alternative for all data where it is expected that the user will upload files through the user interface in the app.
