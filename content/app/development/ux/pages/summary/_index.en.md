@@ -36,7 +36,7 @@ Note: PDF-generating does not support a summary page, so it has to be excluded b
 ```json
 "pages": 
       { 
-        "excludeFromPdf": [ "navn-til-oppsummering-side" ] 
+        "excludeFromPdf": [ "name-of-summary-page" ]
       }
 ```
 ### Simple form component
