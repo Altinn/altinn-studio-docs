@@ -24,7 +24,7 @@ id        | The ID of the datafield. Used to identify the field when saved in th
 path      | Datamodel path to the form field. This value is the same value that is bound to a component in the app's layout file. 
 dataTypeId| Id of the datamodel where the value is collected from.
 
-The configuration for an app with two defined datafields will look like this:
+The configuration for an app with two defined data fields will look like this:
 
   ```json
 "dataFields": [
