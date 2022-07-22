@@ -89,8 +89,8 @@ Then, the components would not be be placed side by side unless the user is usin
 
 ### innerGrid og labelGrid
 
-In addition to setting the width of the `grid` in the component, we also have added the oppurtunity to control `innerGrid` and `labelGrid`. 
-This gives you the oppurtunity to control the width of label and input in the same way. This is typically used when
+In addition to setting the width of the `grid` in the component, we also have added the opportunity to control `innerGrid` and `labelGrid`. 
+This gives you the opportunity to control the width of label and input in the same way. This is typically used when
 you want to make an input field smaller (to give a visual indication that a small answer is expected), or if you want to display
 label and input on the same line (like in a table.)
 
