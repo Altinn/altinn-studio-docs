@@ -165,7 +165,7 @@ This will look something like this:
 ![labelGrid example output](label-grid.png "labelGrid example output")
 
 ## Formatting numbers
-Support has now been implemented to be able to specify formatting of numbers in _inputfelt_ (input field). This is done by adding a property `formatting` to
+Support has now been implemented to be able to specify formatting of numbers in input fields. This is done by adding a property `formatting` to
 the input component. Formatting options are documented in a [JSON-schema](https://altinncdn.no/schemas/json/component/number-format.schema.v1.json),
 and will appear automatically in intellisense when editing the component in e.g. VSCode.
 
