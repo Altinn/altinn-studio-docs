@@ -66,7 +66,7 @@ the component in question.
 
 ### Groups within groups
 Summary is also supported for repeating groups _within_ repeating groups. We only support one level of
-groups within groups. In this case, the summary of each element of the group at the top level is displayed 
+nested groups. In this case, the summary of each element of the group at the top level is displayed
 as its own [category](#categories), and the group at the lowest level is displayed in the same manner as a normal
 repeating group.
 
