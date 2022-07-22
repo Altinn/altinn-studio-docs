@@ -195,7 +195,7 @@ and confusion for the user. To solve this, there has been implemented a possibil
 through while filling out the group element. The navigation takes place within a layout, and updates 
 only the display within the editing area of the group.
 
-To take use of this functionality, you will have to _prefix_ the components in the `children` list with a number indicating which "page" of the fillout
+To make use of this functionality, you will have to _prefix_ the components in the `children` list with a number indicating which "page" of the fillout
 the component should be displayed on, followed by `:`. We start the count on `0`, that is to say components to be displayed on the first "page" must be prefixed with
 `0:`. Components to be displayed on the second page must be prefixed with `1:`, and so on. In addition, you must set `"multiPage": true` on the new [`edit`-parameter](#styre-visning) (see above).
 See example below:
