@@ -14,7 +14,7 @@ The screenshot below shows the settings for full access to the application for a
 
 ![GUI for controlling access between actor types](partytypeselector.png "GUI for controlling access between actor types")
 
-## Adjusting applicationmetadata.json
+## Limit access by editing applicationmetadata.json
 
 If you prefer working with code, you can find the option to adjust access between actor types in `applicationmetadata.json`, which is located in the folder `App/config` in the app repository.
 The example below displays that same settings as the screenshot.
