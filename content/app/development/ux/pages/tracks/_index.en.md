@@ -160,7 +160,7 @@ NOTE! The call to PDF handler, as shown below, must not be removed from the `For
 return await _pdfHandler.FormatPdf(layoutSettings, data);
 ```
 
-To avoid duplicating logic, we recommend creating a method that manipulates the page order based on form data and calling this both from `FormatPDF` and `GetPageOrder`.
+To avoid duplicating logic, we recommend creating a method that manipulates the page order based on form data and calling this both from `FormatPdf` and `GetPageOrder`.
 A code example of such an implementation follows. This can, for example, be placed in the same class that implements the interface IPageOrder to keep all logic for order in the same place.
 
 In the class implementing logic for page order:
