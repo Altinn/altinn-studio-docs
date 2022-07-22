@@ -58,7 +58,7 @@ Be aware that it is the application developer's responsibility to ensure unique 
 Values that share IDs will override each other and there is no way to guarantee which will be saved in the instance. 
 {{% /notice%}}
 
-The example below displays how to set datavalues manually. In this case it is done by adding code 
+The example below displays how to set data values manually. In this case it is done by adding code
 within `RunProcessTaskEnd` in `App.cs`, which is run when a task is completed.
 
 ```cs
