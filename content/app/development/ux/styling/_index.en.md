@@ -106,7 +106,7 @@ You can think of the component in this manner:
 </Grid>
 ```
 
-Here, you will have the oppurtunity to control the width of both the outer grid and the inner grid. Example:
+Here, you will have the opportunity to control the width of both the outer grid and the inner grid. Example:
 
 ```json
 {
