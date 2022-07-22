@@ -107,7 +107,7 @@ This value must be identical to one of the tasks in _process.bpmn_.
 
 - **maxCount** denotes the upper limit for how many attachments of this type that are to be uploaded per instance.
 
-- **minCount** denotes the lower limit for how many attachments of this type that are to be uploaded in connection to an instance.
+- **minCount** denotes the lower limit for how many attachments of this type that are to be uploaded per instance.
               If the value is 0 then it is not required to upload a file attachment of this type.
 
 - **allowedContributors** specifies who is allowed to create and/or modify file attachments of this type.
