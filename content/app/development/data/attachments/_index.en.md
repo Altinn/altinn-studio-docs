@@ -112,7 +112,7 @@ This value must be identical to one of the tasks in _process.bpmn_.
 
 - **allowedContributors** specifies who is allowed to create and/or modify file attachments of this type.
 This is specified on the format `{key}:{value}`.
-Allowed keywords (nøkkelord) include: 'org'; three letter abbreviation for organization and *orgNo'; organization number.
+Allowed keys include: 'org'; three letter abbreviation for organization and *orgNo'; organization number.
 It is as of today not possible to specify an organization that is not registered as a service owner.
 
 - **allowedContentTypes** specifies which file attachment types that are allowed.
