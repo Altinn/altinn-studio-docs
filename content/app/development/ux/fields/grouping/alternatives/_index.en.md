@@ -188,7 +188,7 @@ See [example app](https://altinn.studio/repos/ttd/input-panel-demo) for complete
 
 {{% notice info %}} This functionality is as of today only available for repeating groups. Displayment of groups over 
 multiple pages inside the editing area of the group is only supported for groups at the top level, and is not supported
-for groups within groups. {{% /notice %}}
+for nested groups. {{% /notice %}}
 
 When entering data in a group, there may be incidents where each element in the group contains multiple fields, which may result in a lot of scrolling 
 and confusion for the user. To solve this, there has been implemented a possibility to split the fillout over multiple pages, which the user can navigate
