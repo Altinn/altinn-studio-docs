@@ -87,7 +87,7 @@ Example:
 
 A new parameter, `panel`, has been added which can be set up on a group component. This says that the group should be displayed as part of the [Panel component](../../../components/panel/).
 
-Here, you will recognize the apperance and settings that can be set on the panel component. Example on setup:
+Here, you will recognize the appearance and settings that can be set on the panel component. Example configuration:
 
 ```json
       {
