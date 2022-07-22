@@ -19,7 +19,7 @@ and both upload methods can be used within the same application.
 
 Below is a simple description of how you can accommodate your application to be able to receive attachments.
 
-## Submitting file attachments with file attachment component in form
+## Submitting file attachments with file attachment component in a form
 
 When building your form in Altinn Studio, a file attachment component is available.
 It is possible to upload multiple file attachments on one single component, and how many file attachment components
