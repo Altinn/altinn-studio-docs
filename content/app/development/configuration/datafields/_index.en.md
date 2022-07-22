@@ -7,7 +7,7 @@ weight: 200
 
 It is useful to add extra information to instance objects in some cases. For example allowing routing the instance to the correct system in a service owners backend.
 
-This can be done in two ways, by configuration or manually. By configuration the system will extract data from the form fields and add these to the instance object. This method is limited to form fields, but avoids programming it by yourself. If you choose to do it manually you have the freedom to add data you might want from for example external APIs, calculations, preset strings, etc. 
+This can be done in two ways, by configuration or manually. Using configuration, the system will extract data from the form fields and add these to the instance object. This method is limited to form fields, but avoids programming it by yourself. If you choose to do it manually you have the freedom to add data you might want from for example external APIs, calculations, string constants, etc.
 
 It is also possible to make use of both methods as long as you use different ids on the data fields. The configured values will then be collected together with the manual ones in the instance.
 
