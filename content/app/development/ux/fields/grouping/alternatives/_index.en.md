@@ -120,7 +120,7 @@ It is possible to configure the following settings in the `panel` field of a gro
 | --------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
 | variant               | Yes      | Which variant of panel the group should be placed in. Available values are "info", "success" and "warning"                                |
 | iconUrl               | No       | If you want your own icon as part of a panel, this can be set. Relative or full path, e.g. "awesomeIcon.png" or "http://cdn.example.com/awesomeIcon.png" |                                                                                           |
-| iconAlt               | No       | Alternate text to custom icon. Can only be set if iconUrl has been set. Can be pure text or a reference to a text resource. |
+| iconAlt | No | Alternate text for the custom icon. Can only be set if iconUrl has been set. Can be plain text or a reference to a text resource. |
 | groupReference        | No       | Reference to a different group. Can be used if you wish to add elements to a repeating group from some other context. [Read more.](#legge-til-element-fra-en-annen-repeterende-gruppe) |                                                       |
 
 Example:
