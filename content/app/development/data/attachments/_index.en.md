@@ -67,7 +67,7 @@ For a more detailed description of the available fields, see
 ## Configuration of attachments
 
 In _applicationMetadata.json_ (placed in App/config in the application repo) you will find a property called 'dataTypes'.
-Configuration of all data types attached to the application can be found here,
+Configuration of all data types supported in the application can be found here,
 both form data (app model data) and file attachments. The field _appLogic_, that can also be found among some of the objects
 in the list, should only be used for form data.
 
