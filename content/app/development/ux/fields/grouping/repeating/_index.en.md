@@ -163,5 +163,5 @@ of the type `list`:
 The receiving end will then receive a list of multiple unique ID's, one for each attachment.
 
 The same unique ID will also be displayed in
-the PDF-receipt - but it is recommended to [hide this](/nb/app/development/ux/pdf/#ekskludere-komponenter) since attachments
+the PDF-receipt - but it is recommended to [hide this](/app/development/ux/pdf/#exclude-components) since attachments
 are shown seperately on the receipt site and the unique ID can become confusing for the users.
