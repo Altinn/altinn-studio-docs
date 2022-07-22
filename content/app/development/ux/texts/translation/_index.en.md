@@ -72,4 +72,4 @@ In addition, the texts from the example above must be defined for the dropdown m
 }
 ```
 
-If the application contains multiple `layout-sets` and you want the oppurtunity to translate all pages, it is important that `showLanguageSelector` is added in all `Settings.json`.
+If the application contains multiple `layout-sets` and you want the opportunity to translate all pages, it is important that `showLanguageSelector` is added in all `Settings.json`.
