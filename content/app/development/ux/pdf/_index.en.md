@@ -117,4 +117,4 @@ public async Task<LayoutSettings> FormatPdf(LayoutSettings layoutSettings, objec
 The picture below shows that the component with index 0 and 2 is kept in the PDF, 
 whilst the component with index 1 is excluded. 
 
-!["Eksempel ekskludering av komponent i repeterende gruppe"](exclude-componen-rep-group.png "Eksempel ekskludering av komponent i repeterende gruppe")
+!["Example excluding of component in repeating group"](exclude-componen-rep-group.png "Example excluding of component in repeating group")

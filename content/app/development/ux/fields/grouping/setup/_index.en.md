@@ -6,7 +6,7 @@ weight: 1
 ---
 
 Fields in a form can be set up to be part of a _group_. This can be used to e.g. set up dynamic on a single group of fields,
-in stead of on each single field. In addition, fields must be able to be grouped to support [repeating groups](#repeating-groups) in a form.
+instead of on each single field. In addition, fields must be able to be grouped to support [repeating groups](#repeating-groups) in a form.
 
 A group is set up in `FormLayout.json`, together with the other components in the form. This can be done manually directly in the file, 
 or through form editor in Altinn Studio by using the group component.

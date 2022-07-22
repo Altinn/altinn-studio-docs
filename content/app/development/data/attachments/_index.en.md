@@ -19,19 +19,19 @@ and both upload methods can be used within the same application.
 
 Below is a simple description of how you can accommodate your application to be able to receive attachments.
 
-## Submitting file attachments with file attachment component in a form
+## Submitting file attachments with file upload component in a form
 
-When building your form in Altinn Studio, a file attachment component is available.
-It is possible to upload multiple file attachments on one single component, and how many file attachment components
+When building your form in Altinn Studio, a file upload component is available.
+It is possible to upload multiple file attachments on one single component, and how many file upload components
 you use in your application will be determined by the characteristics of the documents you expect to be uplaoded
 and any restrictions you need to impose.
 (see [configuration of file attachments](#submission-of-attachments-with-API-call) for more information on this).
 
 Note: It will also be possible to upload file attachments of the type defined in the attachment component through API.
 
-![The file attachment component](vedleggskom.png "The file attachment component")
+![The file upload component](vedleggskom.png "The file upload component")
 
-The image above shows the file attachment component in Altinn Studio.
+The image above shows the file upload component in Altinn Studio.
 Part of the configuration for the uploaded attachments can be set up here.
 
 1. Custom file types can be specified if you want to limit the file types that can be submitted.
@@ -43,17 +43,17 @@ By setting the value of _minst antall filvedlegg_ to '0' it will not be required
 Additional configurations that can be set for attachments include: allowed contributors and description.
 This is conigured in _applicationMetadata.json_ which is placed under App/config in the application repo.
 
-### File attachment component with tagging
+### File upload component with tagging
 There is also a separate component where the user tags the file using a dropdown list.
-This is configured pretty similarily to the normal file attachment component, with the addition of a codelist-ID and the name
+This is configured pretty similarily to the normal file upload component, with the addition of a codelist-ID and the name
 you want the tag to have.
 
-![The attachment component with tagging](vedleggsmerkekom.png "The attachment component with tagging")
+![The file upload component with tagging](vedleggsmerkekom.png "The file upload component with tagging")
 
 
 Below you can see it in use
 
-![The attachment component with tagging example](vedleggsmerkekomeks.png "The attachment component with tagging example")
+![The file upload component with tagging example](vedleggsmerkekomeks.png "The file upload with tagging example")
 
 ## Submission of attachments with API-call
 

@@ -61,21 +61,21 @@ the component in question.
 
 ![Summary file attachment component](attachment-summary.png "Summary file attachment component")
 
-### Repeterende grupper
+### Repeating groups
 ![Summary repeating groups](group-summary.png "Summary repeating groups")
 
-### Groups within groups
-Summary is also supported for repeating groups _within_ repeating groups. We only support one level of
+### Nested groups
+Summary is also supported for nested repeating groups. We only support one level of
 nested groups. In this case, the summary of each element of the group at the top level is displayed
 as its own [category](#categories), and the group at the lowest level is displayed in the same manner as a normal
 repeating group.
 
-To support summary display of a group within a group, the following setup must be done in the layout-file:
+To support summary display of nested groups, the following setup must be done in the layout-file:
 - Refer to _the main group_ in `componentRef` in the summary component
 - Set `"largeGroup": true` on the summary component
 
 #### Example
-With the following setup of a group within a group in layout:
+With the following setup of a nested group in layout:
 
 ```json
 {
@@ -130,7 +130,7 @@ Set up the summary in the following manner:
 }
 ```
 
-![Summary repeating group within group](nested-group-summary.png "Summary repeating group within group")
+![Summary nested repeating group](nested-group-summary.png "Summary nested repeating group")
 
 ## Categories
 It is possible to group the summaries in different categories to make a summary page

@@ -89,7 +89,7 @@ This is new functionality. Setup must be done manually for now.
 
 To set up file uploading components in repeating groups, some additional setup is required.
 
-When uploading file attachments it may be difficult to distinguish which file attachments belong to which rows in the repeating group, 
+When uploading file attachments it may be difficult to distinguish which file attachments belongs to which rows in the repeating group, 
 and thus which submitted information belongs to each attachment. Therefore, you must set up connections to
 the data model when file uploading are used in repeating groups, so that Altinn can fill out the unique identificator
 that belongs to each file attachment and send this together with the rest of the data in the instance.
@@ -99,37 +99,37 @@ want a reference to a file attachment together with the form data on the receive
 
 ![Example on file attachment in repeating group with attached data model](attachments-demo.gif "Example on file attachment in repeating group with attached data model")
 
-The following is an example of a data model that expects a reference to an uploaded file attachment.
+The following is an example of a data model expecting a reference to an uploaded file attachment.
 
 ```xsd {hl_lines=["12"]}
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
   <xsd:element name="FamilieMedlemmer" type="Skjema" />
   <xsd:complexType name="Skjema">
     <xsd:sequence>
-      <xsd:element name="FamilieMedlem" type="FamilieMedlem" maxOccurs="99" />
+      <xsd:element name="FamilyMember" type="FamilyMember" maxOccurs="99" />
     </xsd:sequence>
     <xsd:anyAttribute />
   </xsd:complexType>
-  <xsd:complexType name="FamilieMedlem">
+  <xsd:complexType name="FamilyMember">
     <xsd:sequence>
-      <xsd:element name="Fornavn" type="xsd:string" />
-      <xsd:element name="Bilde" type="xsd:string" />
+      <xsd:element name="FirstName" type="xsd:string" />
+      <xsd:element name="Picture" type="xsd:string" />
     </xsd:sequence>
   </xsd:complexType>
 </xsd:schema>
 ```
 
-This is connected to the file attachment component in the group:
+This is connected to the file upload component in the group:
 
 ```json {hl_lines=["8"]}
 {
-  "id": "bilde",
+  "id": "picture",
   "type": "FileUpload",
   "textResourceBindings": {
-    "title": "Bilde"
+    "title": "Picture"
   },
   "dataModelBindings": {
-    "simpleBinding": "FamilieMedlem.Bilde"
+    "simpleBinding": "FamilyMember.Picture"
   },
   "maxFileSizeInMB": 25,
   "maxNumberOfAttachments": 1,
@@ -139,14 +139,14 @@ This is connected to the file attachment component in the group:
 }
 ```
 
-In cases where it is allowed to upload multiple files to the same file attachment component you must use a data model attachment 
+In cases where it is allowed to upload multiple files to the same file attachment component, use a data model attachment 
 of the type `list`:
 
 ```xsd {hl_lines=[4]}
-  <xsd:complexType name="FamilieMedlem">
+  <xsd:complexType name="FamilyMember">
     <xsd:sequence>
-      <xsd:element name="Fornavn" type="xsd:string" />
-      <xsd:element name="Bilder" type="xsd:string" maxOccurs="5" />
+      <xsd:element name="FirstName" type="xsd:string" />
+      <xsd:element name="Pictures" type="xsd:string" maxOccurs="5" />
     </xsd:sequence>
   </xsd:complexType>
 ```
@@ -155,13 +155,12 @@ of the type `list`:
 {
   [...]
   "dataModelBindings": {
-    "list": "FamilieMedlem.Bilder"
+    "list": "FamilyMember.Pictures"
   }
 }
 ```
 
 The receiving end will then receive a list of multiple unique ID's, one for each attachment.
-
 The same unique ID will also be displayed in
-the PDF-receipt - but it is recommended to [hide this](/app/development/ux/pdf/#exclude-components) since attachments
-are shown seperately on the receipt site and the unique ID can become confusing for the users.
+the PDF receipt - but it is recommended to [hide this](/app/development/ux/pdf/#exclude-components), as attachments
+are shown seperately on the receipt page and the unique ID can become confusing to the users.

@@ -1,6 +1,6 @@
 ---
-title: Oversettelse av tekster
-description: Hvordan oversette tekster i applikasjonen.
+title: Translation of texts
+description: How to translate texts in the application.
 toc: true
 weight: 40
 ---
