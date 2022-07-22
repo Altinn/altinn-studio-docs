@@ -71,7 +71,7 @@ as its own [category](#categories), and the group at the lowest level is display
 repeating group.
 
 To support summary display of a group within a group, the following setup must be done in the layout-file:
-- Refer to _hovedgruppen_ (the main group) in `componentRef` in the summary component
+- Refer to _the main group_ in `componentRef` in the summary component
 - Set `"largeGroup": true` on the summary component
 
 #### Example
