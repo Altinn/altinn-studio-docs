@@ -16,7 +16,7 @@ Data fields are in many ways similar to [presentation fields](../presentationfie
 ## Configuration
 Configuration of data fields is done in `applicationmetadata.json` which is located in the folder `App/config`.
 
-Add a new section with the name `dataFields` with the following under fields
+Add a new object with the key `dataFields`, using the following properties
 
  Name     | Description
 ----------|------------
