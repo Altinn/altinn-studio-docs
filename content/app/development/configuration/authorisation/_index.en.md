@@ -25,9 +25,9 @@ Please note that changes to the policy file is at your own risk,
 and that it is recommended to always delegate read permissions to entities with writing permissions.
 {{% /notice%}}
 
-### Rights for role haver
-The rules that give the daily leader (DAGL) or Accountant assistant (REGNA) permissions to instantiate, write 
-read and delete instances of the applicationare defined in the policy file.
+### Permissions for roles
+The rules that give the CEO (DAGL) or accountant assistant (REGNA) permissions to instantiate, write 
+read and delete instances of the application are defined in the policy file.
 
 A complete list of role types can be found [here](https://www.altinn.no/api/metadata/roledefinitions).
 
