@@ -15,7 +15,7 @@ This is new functionality. Setup must be done manually for now. Support for setu
 
 ## Components placed side by side (grid)
 
-It is possible to place components side by side in a form. This functionality is based on the grid system from [Material-UI](https://material-ui.com/components/grid/), and will also be known if you are familiar with the grid system for bootstrap.
+It is possible to place components side by side in a form. This functionality is based on the grid system from [Material-UI](https://material-ui.com/components/grid/), and is similar to the grid system from bootstrap.
 The grid system is based on a construction of containers in 12 parts, where you can assign children (items) of a grid-container a given part of this width. Material-UI also offers the ability to dynamically change how much of the screen you want to occupy based on which screen size the user is on.
 The following sizes with breakpoints are defined:
 
