@@ -52,7 +52,7 @@ and as long as the filter does not match, the element will not be displayed.
 
 ### addButton
 
-Determines whether the "Legg til ny"-button is displayed below the table. It is useful to hide this if you only wish to display data.
+Determines whether the "Add new" button is displayed below the table. It is useful to hide this if you only wish to display data.
 
 ### saveButton
 
