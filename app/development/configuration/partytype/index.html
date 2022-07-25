@@ -1096,25 +1096,25 @@ if(host != "localhost")
                 </span>
                 <span class="links"><a href='/app/'>Create apps</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/development/'>Development</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/development/configuration/'>Configuration</a> <span class='adocs-breadcrumb-divider'> / </span> Party types</span>
             </div>
-          </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english">translate-to-english</a></div><div id="body-inner"><h1 class="a-fontBold">Party types</h1>
+          </div><div id="body-inner"><h1 class="a-fontBold">Party types</h1>
               <p class="a-leadText" id="leadText">How to ensure that only specific types of party types can use an app.</p><h2>On this page:</h2><nav id="TableOfContents">
   <ul>
-    <li><a href="#avgrense-tilgang-i-altinn-studio-designer">Avgrense tilgang i Altinn Studio designer</a></li>
-    <li><a href="#justere-i-applicationmetadatajson">Justere i applicationmetadata.json</a></li>
+    <li><a href="#limit-access-using-altinn-studio-designer">Limit access using Altinn Studio designer</a></li>
+    <li><a href="#limit-access-by-editing-applicationmetadatajson">Limit access by editing applicationmetadata.json</a></li>
   </ul>
 </nav>
 
 
 
 
-<h2 id="avgrense-tilgang-i-altinn-studio-designer">Avgrense tilgang i Altinn Studio designer</h2>
-<p>I Altinn Studio designer finner du mulighet for å styre hvilke aktørtyper som har tilgang til en app i kategorien &ldquo;Lage&rdquo; i toppmenyen, på siden &ldquo;Tilgangsstyring&rdquo; representert ved låshull-ikonet.
-På denne siden krysser du av for de aktørtypene en app er tilgjengelig for. Hvis ingen (eller alle) aktørtyper er valgt, vil alle ha tilgang. Valget &ldquo;Virksomhet&rdquo; benyttes for tilfeller der det skal rapporteres på hovedenhet.</p>
-<p>Skjermdumpen under viser innstillingene for at alle organisasjonsnummer (både hovedenheter og underenheter) skal kunne bruke appen.</p>
-<figure><a href="partytypeselector.png"><img src="partytypeselector.png" alt="GUI for å styre tilgang på aktørtyper" title="GUI for å styre tilgang på aktørtyper" /></a><figcaption><h4>GUI for å styre tilgang på aktørtyper</h4></figcaption></figure>
-<h2 id="justere-i-applicationmetadatajson">Justere i applicationmetadata.json</h2>
-<p>Hvis du foretrekker å jobbe i kode, finner du muligheten til å justere hvilke aktørtyper som kan benytte en app i <code>applicationmetadata.json</code> som ligger i mappa <code>App/config</code> i app-repositoryet. 
-Eksempelet under viser samme innstillinger som skjermdumpen.</p>
+<h2 id="limit-access-using-altinn-studio-designer">Limit access using Altinn Studio designer</h2>
+<p>You can limit which actors have access to an app by using the Altinn Studio Designer. Role access options are placed in the &ldquo;Lage&rdquo; category in the top menu, on the page &ldquo;Tilgangsstyring&rdquo;, represented by the keyhole on the leftmost side menu.
+On this page you can mark the actor types the app should be accessible for. If none (or all) actor types are marked, everyone will have access. The option &ldquo;Virksomhet&rdquo; is used in cases where a report is filed on behalf of a company or other organization.</p>
+<p>The screenshot below shows the settings for full access to the application for all organization numbers (both main entity and sub entities).</p>
+<figure><a href="partytypeselector.png"><img src="partytypeselector.png" alt="GUI for controlling access between actor types" title="GUI for controlling access between actor types" /></a><figcaption><h4>GUI for controlling access between actor types</h4></figcaption></figure>
+<h2 id="limit-access-by-editing-applicationmetadatajson">Limit access by editing applicationmetadata.json</h2>
+<p>If you prefer working with code, you can find the option to adjust access between actor types in <code>applicationmetadata.json</code>, which is located in the folder <code>App/config</code> in the app repository.
+The example below displays that same settings as the screenshot.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">  <span style="color:#f1fa8c">&#34;partyTypesAllowed&#34;</span>: {
     <span style="color:#ff79c6">&#34;bankruptcyEstate&#34;</span>: <span style="color:#ff79c6">false</span>,
     <span style="color:#ff79c6">&#34;organisation&#34;</span>: <span style="color:#ff79c6">true</span>,
