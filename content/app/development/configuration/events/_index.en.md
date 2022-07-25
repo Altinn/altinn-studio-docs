@@ -96,7 +96,7 @@ namespace Altinn.App.AppLogic
 }
 ```
 
-1. The private variable in the servicen is included in the class
+1. The private variable in the service is included in the class
 
     ```cs
     private IEvents _eventsService;
