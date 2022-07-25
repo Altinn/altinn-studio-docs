@@ -66,7 +66,7 @@ You can test query parameters here to find the correct queries for your specific
 
 ### Step 3: Deleting an instance via the endpoint exposed in the application
 
-After identifying the instances which are to be deleted, sending the actuall call to the 
+After identifying the instances which are to be deleted, sending the actual call to the
 application to get them deleted is simple. The id of the instance (instanceOwner.partyId/instanceGuid) then have to be submitted. 
 
 `HTTP DELETE https://ttd.apps.altinn.no/ttd/apps-test/instances/{instanceOwner.partyId}/{instanceGuid}`
