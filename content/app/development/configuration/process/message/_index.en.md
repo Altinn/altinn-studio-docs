@@ -9,8 +9,8 @@ describing what the message should look like in the GUI. Because of this, messag
 
 We have made some tools to simplify the process of getting started with setting up a message in an app.
 
-## Datamodel
-We have made a standard datamodel for messages, to make getting started easier. This datamodel can be found [here](https://altinncdn.no/schemas/xsd/message/message.schema.v1.xsd). It can be used as is, as a starting point, or exchanged for your own datamodel.  
+## Data model
+We have made a standard data model for messages, to make getting started easier. This data model can be found [here](https://altinncdn.no/schemas/xsd/message/message.schema.v1.xsd). It can be used as is, as a starting point, or exchanged for your own data model.
 
 ## Layout
 The layout can be defined by yourself in the same way as a form. We have also created a [message widget](), to make it easier to get started. This widget contains all the necessary components to recreate the example below. It also contains texts which are added to the resource files automatically, and contains [variables]() with referances to `Title` and `Body` in a standard datamodel. If you should wish for different texts, or to use a different datamodel, just edit either the components or the texts according to your wishes after they have been added to the page.
