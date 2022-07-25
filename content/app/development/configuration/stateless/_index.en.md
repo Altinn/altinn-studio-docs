@@ -456,7 +456,7 @@ There is an example application which is set up like an access service where the
 
 One use case where starting an instance from a stateless view can be that you first want the app to act like an access service where the user is presented some given data. From this information the user can choose to act on the listed data, and then use the service as a normal form submittance service.
 
-To achieve this type of flow you are dependent on setting up your application as a stateless application, described under [configuration](#Configuration).
+To achieve this type of flow you are dependent on setting up your application as a stateless application, described under [configuration](#configuration).
 When this has been done, you can expand the stateless view to include `InstantiationButton` which can start a new instance when the user clicks the button.
 Standard behaviour for this button is to submit the entire datamodel that the user has used as a part of the instantiation under the field `prefill`.
 If one wishes to pick parts of the datamodel which are connected in the stateless step it will also be possible to add `mapping`to the `InstantiationButton` component. For example:
