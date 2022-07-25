@@ -23,7 +23,7 @@ Example of a substatus object:
 ```json
 {
     "label": "some.label",
-    "description": "Description in pure text"
+    "description": "Description in plain text"
 }
 ```
 
