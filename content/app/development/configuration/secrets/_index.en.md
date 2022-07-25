@@ -118,7 +118,7 @@ namespace Altinn.App.AppLogic
 }
 ```
 
-1. The private variable for the service is included in the klass
+1. The private variable for the service is included in the class
 
     ```cs
     private ISecrets _secretsService;
