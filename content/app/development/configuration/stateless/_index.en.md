@@ -24,7 +24,7 @@ This is brand new functionality. Setup has to be completed manually until furthe
 
 {{%/notice%}}
 
-In the application metadata it is possible to controll behaviours during startup. Your application can now act like a stateless application if it is enabled. 
+In the application metadata it is possible to control behaviours during startup. Your application can now act like a stateless application if it is enabled.
 For an application like this, no data or metadata is stored, and the application will also not end up in the message box of an end user. This is equivalent to an access service in Altinn 2. 
 
 Configuration of this is done in `applicationmetadata.json`. Example:
