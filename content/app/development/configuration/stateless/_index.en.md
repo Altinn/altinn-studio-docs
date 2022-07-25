@@ -514,7 +514,7 @@ public async Task DataCreation(Instance instance, object data, Dictionary<string
 
 #### Intantiating from a repeating group
 
-If you in the stateless step want the user to for example, pick an element from a repeating group to continue on the chosen element, you can set up the `InstantiationButton` component as a part of the repeating group.
+If in the stateless step wanted the user to, for example, pick an element from a repeating group to continue on the chosen element, you can set up the `InstantiationButton` component as a part of the repeating group.
 Here you can then configure the instantiation button to map fields from the given index the user chose to start an instance from. This requires setting up mapping fields with an index on the actual group.
 example:
 
