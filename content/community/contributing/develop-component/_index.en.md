@@ -2,7 +2,7 @@
 title: Develop a component
 description: We'd love if you start developing functionality or new components that Altinn has approved. We do however appreciate if you plan your work together with us before starting. 
 weight: 40
----
+--
 
 Before you start developing new functionality, it's a good idea to check if the task is already in our backlog.
 If you can't find it, we appreciate if you [propose your wanted component/functionality](../propose-component/) 
