@@ -48,7 +48,7 @@ Three steps are required to achieve this:
 2. Identifying which instances have not been completed through asking storage
 3. Deleting instance via an endpoint exposed within the application
 
-### Step 1: Configuration of applikasjon
+### Step 1: Configuration of application
 
 The standard for an application is that the service owner is not permitted to delete instances.
 To be allowed to do this a rule must be added to `policy.xml` which is placed in `App/config/authorization`.
