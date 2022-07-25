@@ -156,5 +156,5 @@ namespace Altinn.App.AppLogic
     }
     ```
 
-6. Your application is now ready to generate a selfdefined event during instantiation.
+6. Your application is now ready to generate a self defined event during instantiation.
 You can [test this locally](https://github.com/Altinn/altinn-studio/blob/master/LOCALAPP.md) before eventually deploying to a test environment.
