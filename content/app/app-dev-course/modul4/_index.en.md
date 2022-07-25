@@ -29,7 +29,7 @@ There are three ways to set up code lists in Altinn today
 3. Progmatic in the application logic
 
    \* only available on radio buttons and check boxes
-{{% /notice info %}}
+{{% /notice %}}
 
 In this task, you will get to try out all three ways to set up a code list.
 
