@@ -475,8 +475,8 @@ If one wishes to pick parts of the data model which are connected in the statele
   }
 ```
 
-When the user then chooses to start an instance the app frontend will gather the fields `som.source.field` and `some.other.field` from the datamodel in the stateless step and map these fields to `name` and `id` which are sent with the instantiation call for the application.
-Example request which will go to the backend which can be mapped over the datamodel used in the submit part of the application:
+When the user then chooses to start an instance the app frontend will gather the fields `some.source.field` and `some.other.field` from the data model in the stateless step and map these fields to `name` and `id` which are sent with the instantiation call for the application.
+Example request which will be sent to the backend which can be mapped to the data model used in the submit part of the application:
 
 ```json
 {
