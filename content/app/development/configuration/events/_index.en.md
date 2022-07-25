@@ -8,8 +8,8 @@ weight: 400
 ## Activate generation of events in your application
 
 {{%notice info%}}
-To allow generating events for your application it must refer to nugetversion >= 1.2.4.
-See how you uppdate nugetreferences for your applikation [here](../update/#nuget-pakker).
+To allow generating events for your application it must refer to nuget version >= 1.2.4.
+See how you update nuget references for your application [here](../update/#nuget-packages).
 {{% /notice%}}
 
 Generation and storing of events is not enabled by default in applications per 22.10.2020.
