@@ -57,7 +57,7 @@ The rule can be copied from the [rule library](../autorisasjon/regelbibliotek/#o
 ### Step 2: Identify which instances have not been completed through asking storage
 
 Storage exposes a set of query parameters which can be used when collecting a set of instances.
-In the example below we return all instances which were instantiated before the 30. of september 2020 or earlier, 
+In the example below we return all instances which were instantiated the 30th of September 2020 or earlier,
 which are still in the form filling stage. 
 
 You can test query parameters here to find the correct queries for your specific service here.
