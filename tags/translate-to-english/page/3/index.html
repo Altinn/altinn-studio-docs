@@ -153,15 +153,33 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/getting-started/local-dev/"><span>Local development</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/app-dev-course/"><span>Intro course (nb)</span></a></li>
+        <a href="/app/app-dev-course/"><span>Intro course</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/app-dev-course/case/"><span>Case</span></a></li>
+      <li class="dd-item">
+        <a href="/app/app-dev-course/modul2/"><span>Modul 2</span></a></li>
+      <li class="dd-item">
+        <a href="/app/app-dev-course/modul4/"><span>Modul 4</span></a></li>
+      <li class="dd-item">
+        <a href="/app/app-dev-course/modul5/"><span>Modul 5</span></a></li>
+      <li class="dd-item">
+        <a href="/app/app-dev-course/modul1/"><span>Module 1</span></a></li>
+      <li class="dd-item">
+        <a href="/app/app-dev-course/modul3/"><span>Module 3</span></a></li>
+      <li class="dd-item">
+        <a href="/app/app-dev-course/modul6/"><span>Module 6</span></a></li>
+      <li class="dd-item">
+        <a href="/app/app-dev-course/modul7/"><span>Module 7</span></a></li>
+      <li class="dd-item">
+        <a href="/app/app-dev-course/losningsforslag/"><span>Solution</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/app/design/"><span>Design</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/app/design/insight/"><span>Innsiktsfase</span></a></li>
+        <a href="/app/design/insight/"><span>Preliminary considerations</span></a></li>
       <li class="dd-item">
         <a href="/app/design/prototype/"><span>Prototype</span></a></li>
       <li class="dd-item">
-        <a href="/app/design/usertest/"><span>Brukertest</span></a></li>
+        <a href="/app/design/usertest/"><span>Usertesting</span></a></li>
       <li class="dd-item">
         <a href="/app/design/guidelines/"><span>Guidelines</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -169,7 +187,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/content/"><span>Content in the form</span></a></li>
       <li class="dd-item">
-        <a href="/app/design/guidelines/design-principles/"><span>Designprinsipper</span></a></li>
+        <a href="/app/design/guidelines/design-principles/"><span>Design principles</span></a></li>
       <li class="dd-item">
         <a href="/app/design/guidelines/link-to-app/"><span>Entering the form</span></a></li>
       <li class="dd-item">
@@ -181,7 +199,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/components/input/"><span>Input</span></a></li>
       <li class="dd-item">
-        <a href="/app/design/guidelines/components/date/"><span>Dato</span></a></li>
+        <a href="/app/design/guidelines/components/date/"><span>Date</span></a></li>
       <li class="dd-item">
         <a href="/app/design/guidelines/components/checkbox/"><span>Checkboxes</span></a></li>
       <li class="dd-item">
@@ -189,11 +207,11 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/components/select/"><span>Dropdown</span></a></li>
       <li class="dd-item">
-        <a href="/app/design/guidelines/components/helptext/"><span>Hjelpetekst</span></a></li>
+        <a href="/app/design/guidelines/components/helptext/"><span>Help texts</span></a></li>
       <li class="dd-item">
         <a href="/app/design/guidelines/components/error-message/"><span>Error messages</span></a></li>
       <li class="dd-item">
-        <a href="/app/design/guidelines/components/file-upload/"><span>Filopplasting</span></a></li>
+        <a href="/app/design/guidelines/components/file-upload/"><span>File upload</span></a></li>
       <li class="dd-item">
         <a href="/app/design/guidelines/components/picture-component/"><span>Image</span></a></li></ul></li>
       <li class="dd-item">
@@ -339,7 +357,13 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/testing/deploy/"><span>In test environment</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/deployment/"><span>Deployment</span></a></li>
+        <a href="/app/deployment/"><span>Deployment</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/deployment/runtime-environment/"><span>Runtime Environment</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/deployment/runtime-environment/resource-allocation-tips/"><span>Practical tips for resource allocation</span></a></li>
+      <li class="dd-item">
+        <a href="/app/deployment/runtime-environment/resource-allocation/"><span>Resource Allocation</span></a></li></ul></li></ul></li>
       <li class="dd-item">
         <a href="/app/maintainance/"><span>Maintenance</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -1104,6 +1128,34 @@ if(host != "localhost")
 	
 	   <article class="post app">
     <header class="post-header">
+        <h2 class="post-title"><a href="/app/development/configuration/authorisation/">Authorization</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Autorisasjonsregler for en applikasjon er definert i en XACML Policy-fil som ligger i applikasjonsrepoet. XACML Policy-en inneholder en eller flere regler som definerer hvem som kan gjennomføre ulike aksjoner på ulike ressurser.
+Beskrivelse av XACML-strukturen og definisjon av regler finnes her.
+XACML-filen kan endres i en valgfri teksteditor.
+Regler i applikasjonsmalen Når det opprettes en app i Altinn Studio basert på den nåværende asp.net malen vil det følge med en autogenerert XACML policy-fil. <a class="read-more" href="/app/development/configuration/authorisation/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post app">
+    <header class="post-header">
         <h2 class="post-title"><a href="/app/getting-started/first-time-setup/">Create user in Altinn Studio</a></h2>
     </header>
     <section class="post-excerpt">
@@ -1320,33 +1372,6 @@ Her finner du veiledninger som er nyttige når man utvikler en app i Altinn Stud
     <section class="post-excerpt">
         <p>I noen tilfeller kan det være nyttig å legge ekstra informasjon på instansobjektet f. eks. for å kunne basere ruting av instans til rett system i bakkant hos tjenesteeier.
 Dette kan gjøres på to måter, ved konfigurasjon eller manuelt. Ved konfigurasjon vil systemet ekstrahere data fra skjemafeltene og legge disse på instansobjektet. Man er da begrenset til skjemafelter, men slipper å programmere dette selv. Hvis man velger å gjøre det manuelt har man frihet til å legge på de dataene man selv ønsker f. <a class="read-more" href="/app/development/configuration/datafields/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post app">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/app/development/configuration/messagebox/hide_instances/">Hide instances</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>For applications with a complex process flow it can be useful to hide instances from the message box during parts of, or the whole, process.
-Configuration The configuration has a retroactive effect and will also apply to previously created instances.Configuration for hiding instances is defined in applicationmetadata.json, which you can find in ythe appliation repository in the folder App/config.
-Add a new section called messageBoxConfiguration with the child property hideSettings. <a class="read-more" href="/app/development/configuration/messagebox/hide_instances/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          

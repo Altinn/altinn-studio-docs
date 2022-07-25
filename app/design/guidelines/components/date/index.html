@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Datovelger benyttes i forbindelse med planlegging eller for datoer i nærliggende tid. For datoer lengre tilbake i tid brukes datofelt.">
+    <meta name="description" content="The date picker can be used when selecting a (relatively) recent date. To select dates that are far in the past (or future) a date field can be used instead.">
 
-<title>Dato – Altinn</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+<title>Date – Altinn</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
     <link href="/css/nucleus.css" rel="stylesheet">
     <link href="/css/font-awesome.min.css" rel="stylesheet">
     <link href="/css/hybrid.css" rel="stylesheet">
@@ -153,15 +153,33 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/getting-started/local-dev/"><span>Local development</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/app-dev-course/"><span>Intro course (nb)</span></a></li>
+        <a href="/app/app-dev-course/"><span>Intro course</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/app-dev-course/case/"><span>Case</span></a></li>
+      <li class="dd-item">
+        <a href="/app/app-dev-course/modul2/"><span>Modul 2</span></a></li>
+      <li class="dd-item">
+        <a href="/app/app-dev-course/modul4/"><span>Modul 4</span></a></li>
+      <li class="dd-item">
+        <a href="/app/app-dev-course/modul5/"><span>Modul 5</span></a></li>
+      <li class="dd-item">
+        <a href="/app/app-dev-course/modul1/"><span>Module 1</span></a></li>
+      <li class="dd-item">
+        <a href="/app/app-dev-course/modul3/"><span>Module 3</span></a></li>
+      <li class="dd-item">
+        <a href="/app/app-dev-course/modul6/"><span>Module 6</span></a></li>
+      <li class="dd-item">
+        <a href="/app/app-dev-course/modul7/"><span>Module 7</span></a></li>
+      <li class="dd-item">
+        <a href="/app/app-dev-course/losningsforslag/"><span>Solution</span></a></li></ul></li>
       <li class="dd-item parent">
         <a href="/app/design/"><span>Design</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/app/design/insight/"><span>Innsiktsfase</span></a></li>
+        <a href="/app/design/insight/"><span>Preliminary considerations</span></a></li>
       <li class="dd-item">
         <a href="/app/design/prototype/"><span>Prototype</span></a></li>
       <li class="dd-item">
-        <a href="/app/design/usertest/"><span>Brukertest</span></a></li>
+        <a href="/app/design/usertest/"><span>Usertesting</span></a></li>
       <li class="dd-item parent">
         <a href="/app/design/guidelines/"><span>Guidelines</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -169,7 +187,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/content/"><span>Content in the form</span></a></li>
       <li class="dd-item">
-        <a href="/app/design/guidelines/design-principles/"><span>Designprinsipper</span></a></li>
+        <a href="/app/design/guidelines/design-principles/"><span>Design principles</span></a></li>
       <li class="dd-item">
         <a href="/app/design/guidelines/link-to-app/"><span>Entering the form</span></a></li>
       <li class="dd-item parent">
@@ -181,7 +199,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/components/input/"><span>Input</span></a></li>
       <li class="dd-item parent active">
-        <a href="/app/design/guidelines/components/date/"><span>Dato</span></a></li>
+        <a href="/app/design/guidelines/components/date/"><span>Date</span></a></li>
       <li class="dd-item">
         <a href="/app/design/guidelines/components/checkbox/"><span>Checkboxes</span></a></li>
       <li class="dd-item">
@@ -189,11 +207,11 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/components/select/"><span>Dropdown</span></a></li>
       <li class="dd-item">
-        <a href="/app/design/guidelines/components/helptext/"><span>Hjelpetekst</span></a></li>
+        <a href="/app/design/guidelines/components/helptext/"><span>Help texts</span></a></li>
       <li class="dd-item">
         <a href="/app/design/guidelines/components/error-message/"><span>Error messages</span></a></li>
       <li class="dd-item">
-        <a href="/app/design/guidelines/components/file-upload/"><span>Filopplasting</span></a></li>
+        <a href="/app/design/guidelines/components/file-upload/"><span>File upload</span></a></li>
       <li class="dd-item">
         <a href="/app/design/guidelines/components/picture-component/"><span>Image</span></a></li></ul></li>
       <li class="dd-item">
@@ -339,7 +357,13 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/testing/deploy/"><span>In test environment</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/deployment/"><span>Deployment</span></a></li>
+        <a href="/app/deployment/"><span>Deployment</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/deployment/runtime-environment/"><span>Runtime Environment</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/deployment/runtime-environment/resource-allocation-tips/"><span>Practical tips for resource allocation</span></a></li>
+      <li class="dd-item">
+        <a href="/app/deployment/runtime-environment/resource-allocation/"><span>Resource Allocation</span></a></li></ul></li></ul></li>
       <li class="dd-item">
         <a href="/app/maintainance/"><span>Maintenance</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -1070,51 +1094,48 @@ if(host != "localhost")
                     <span class="sr-only">Vis/skjul meny</span>
                   </a>
                 </span>
-                <span class="links"><a href='/app/'>Create apps</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/design/'>Design</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/design/guidelines/'>Guidelines</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/design/guidelines/components/'>UI-components</a> <span class='adocs-breadcrumb-divider'> / </span> Dato</span>
+                <span class="links"><a href='/app/'>Create apps</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/design/'>Design</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/design/guidelines/'>Guidelines</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/design/guidelines/components/'>UI-components</a> <span class='adocs-breadcrumb-divider'> / </span> Date</span>
             </div>
-          </div><div id="body-inner"><h1 class="a-fontBold">Dato</h1>
-              <p class="a-leadText" id="leadText">Datovelger benyttes i forbindelse med planlegging eller for datoer i nærliggende tid. For datoer lengre tilbake i tid brukes datofelt.</p><h2>On this page:</h2><nav id="TableOfContents">
+          </div><div id="body-inner"><h1 class="a-fontBold">Date</h1>
+              <p class="a-leadText" id="leadText">The date picker can be used when selecting a (relatively) recent date. To select dates that are far in the past (or future) a date field can be used instead.</p><h2>On this page:</h2><nav id="TableOfContents">
   <ul>
-    <li><a href="#datovelger">Datovelger</a></li>
-    <li><a href="#datofelt">Datofelt</a></li>
+    <li><a href="#date-picker">Date picker</a></li>
+    <li><a href="#date-field">Date field</a></li>
   </ul>
 </nav>
 
 
 
 
-<h2 id="datovelger">Datovelger</h2>
-<p>I forbindelse med planlegging, eller for datoer i nærliggende tid kan du bruke datovelgeren.</p>
-<h3 id="retningslinjer">Retningslinjer:</h3>
+<h2 id="date-picker">Date picker</h2>
+<p>Use the date picker if something is being planned, or for selecting a (relatively) recent or close future date.</p>
+<h3 id="guidelines">Guidelines:</h3>
 <ul>
-<li>Dersom du skal hente inn en fødselsdato eller andre datoer lengre tilbake i tid, er ikke datovelgeren et anbefalt 
-alternativ, se studier fra <a href="https://design-system.service.gov.uk/patterns/dates/#asking-for-memorable-dates">gov.uk</a></li>
-<li>I disse tilfellene kan du heller bruke <a href="#datofelt">datofeltet</a>.</li>
-<li>Legg til korrekt validering og gi brukeren informasjon om hva som er gyldige datoer å velge. Skal brukeren kunne 
-velge datoer tilbake i tid? Innenfor en gitt periode?</li>
+<li>The date picker is not recommended if your goal is to collect birth dates or other dates further back in time (see studies from <a href="https://design-system.service.gov.uk/patterns/dates/#asking-for-memorable-dates">gov.uk</a>)</li>
+<li>In these cases you should instead use a <a href="#date-field">date field</a>.</li>
+<li>Add correct validation and give the user information about what are valid and invalid dates. Should the user be able to select dates further back in time? Within a given period?</li>
 </ul>
-<h3 id="eksempel-på-bruk">Eksempel på bruk:</h3>
+<h3 id="example-of-usage">Example of usage:</h3>
 <iframe style="border: 3px solid rgb(0 0 0 / 90%);border-radius: 9px;" width="100%" height="550" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwnBveAG2ikUspFsQwM3GNE%2FPrototyping-av-skjematjenester%3Fnode-id%3D4833%253A961" allowfullscreen></iframe>
 <hr>
-<h2 id="datofelt">Datofelt</h2>
-<p>For datoer lengre tilbake i tid, eller datoer brukeren kjenner godt, bør datofelt benyttes. Tre tekstfelt er i disse 
-tilfellene den enkleste måten for brukeren å fylle ut datoen. Dersom det er noe som skal planlegges eller tilfeller 
-der en spesifikk dag er viktig, bruk <a href="#datovelger">datovelgeren</a> i stedet.</p>
+<h2 id="date-field">Date field</h2>
+<p>Date fields should be used for dates further back in time, or for dates that the user knows well. Three textfields is the simplest way to take in dates in these cases. If someone is planning something and a specific day (monday, friday, etc.) is important the datepicker should be used instead.</p>
 
 
 <div class="panel panel-warning">
 	
-	<div class="panel-body"><p>⚠️ Denne komponenten er ikke tilgjengelig i Altinn Studio enda.</p>
+	<div class="panel-body"><p>⚠️ This component is not accessible in Altinn Studio yet.</p>
 </div>
 	
 </div>
 
-<h3 id="retningslinjer-1">Retningslinjer:</h3>
+<h3 id="guidelines-1">Guidelines:</h3>
 <ul>
-<li>Bruk alltid label på hver av de tre boksene (dag, måned, år), og ledetekst (legend) for hele input-gruppen.</li>
-<li>Om datagrunnlaget finnes, kan en spesifikk dato være foreslått i feltet. Ellers kan eksempelinnholdet være dagen i dag.</li>
+<li>Always label the input boxes (day, month, year), and add a label/heading for the input group as well.</li>
+<li>If the foundational data exists, a specific date can be suggested in the field, or it can be preset with the current date.</li>
+<li></li>
 </ul>
-<h3 id="eksempel-på-bruk-1">Eksempel på bruk:</h3>
+<h3 id="example-of-usage-1">Example of usage:</h3>
 <iframe style="border: 3px solid rgb(0 0 0 / 90%);border-radius: 9px;" width="100%" height="450" src="https://www.figma.com/embed?embed_host=share&amp;url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwnBveAG2ikUspFsQwM3GNE%2FPrototyping-av-skjematjenester%3Fnode-id%3D5139%253A832" allowfullscreen></iframe>
 
 

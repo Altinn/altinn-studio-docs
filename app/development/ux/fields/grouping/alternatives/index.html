@@ -153,15 +153,33 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/getting-started/local-dev/"><span>Local development</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/app-dev-course/"><span>Intro course (nb)</span></a></li>
+        <a href="/app/app-dev-course/"><span>Intro course</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/app-dev-course/case/"><span>Case</span></a></li>
+      <li class="dd-item">
+        <a href="/app/app-dev-course/modul2/"><span>Modul 2</span></a></li>
+      <li class="dd-item">
+        <a href="/app/app-dev-course/modul4/"><span>Modul 4</span></a></li>
+      <li class="dd-item">
+        <a href="/app/app-dev-course/modul5/"><span>Modul 5</span></a></li>
+      <li class="dd-item">
+        <a href="/app/app-dev-course/modul1/"><span>Module 1</span></a></li>
+      <li class="dd-item">
+        <a href="/app/app-dev-course/modul3/"><span>Module 3</span></a></li>
+      <li class="dd-item">
+        <a href="/app/app-dev-course/modul6/"><span>Module 6</span></a></li>
+      <li class="dd-item">
+        <a href="/app/app-dev-course/modul7/"><span>Module 7</span></a></li>
+      <li class="dd-item">
+        <a href="/app/app-dev-course/losningsforslag/"><span>Solution</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/app/design/"><span>Design</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/app/design/insight/"><span>Innsiktsfase</span></a></li>
+        <a href="/app/design/insight/"><span>Preliminary considerations</span></a></li>
       <li class="dd-item">
         <a href="/app/design/prototype/"><span>Prototype</span></a></li>
       <li class="dd-item">
-        <a href="/app/design/usertest/"><span>Brukertest</span></a></li>
+        <a href="/app/design/usertest/"><span>Usertesting</span></a></li>
       <li class="dd-item">
         <a href="/app/design/guidelines/"><span>Guidelines</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -169,7 +187,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/content/"><span>Content in the form</span></a></li>
       <li class="dd-item">
-        <a href="/app/design/guidelines/design-principles/"><span>Designprinsipper</span></a></li>
+        <a href="/app/design/guidelines/design-principles/"><span>Design principles</span></a></li>
       <li class="dd-item">
         <a href="/app/design/guidelines/link-to-app/"><span>Entering the form</span></a></li>
       <li class="dd-item">
@@ -181,7 +199,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/components/input/"><span>Input</span></a></li>
       <li class="dd-item">
-        <a href="/app/design/guidelines/components/date/"><span>Dato</span></a></li>
+        <a href="/app/design/guidelines/components/date/"><span>Date</span></a></li>
       <li class="dd-item">
         <a href="/app/design/guidelines/components/checkbox/"><span>Checkboxes</span></a></li>
       <li class="dd-item">
@@ -189,11 +207,11 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/components/select/"><span>Dropdown</span></a></li>
       <li class="dd-item">
-        <a href="/app/design/guidelines/components/helptext/"><span>Hjelpetekst</span></a></li>
+        <a href="/app/design/guidelines/components/helptext/"><span>Help texts</span></a></li>
       <li class="dd-item">
         <a href="/app/design/guidelines/components/error-message/"><span>Error messages</span></a></li>
       <li class="dd-item">
-        <a href="/app/design/guidelines/components/file-upload/"><span>Filopplasting</span></a></li>
+        <a href="/app/design/guidelines/components/file-upload/"><span>File upload</span></a></li>
       <li class="dd-item">
         <a href="/app/design/guidelines/components/picture-component/"><span>Image</span></a></li></ul></li>
       <li class="dd-item">
@@ -339,7 +357,13 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/testing/deploy/"><span>In test environment</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/deployment/"><span>Deployment</span></a></li>
+        <a href="/app/deployment/"><span>Deployment</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/deployment/runtime-environment/"><span>Runtime Environment</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/deployment/runtime-environment/resource-allocation-tips/"><span>Practical tips for resource allocation</span></a></li>
+      <li class="dd-item">
+        <a href="/app/deployment/runtime-environment/resource-allocation/"><span>Resource Allocation</span></a></li></ul></li></ul></li>
       <li class="dd-item">
         <a href="/app/maintainance/"><span>Maintenance</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -1106,6 +1130,10 @@ Følgende verdier godtas:</p>
 <td>&ldquo;showAll&rdquo;</td>
 <td>Skjuler tabellen. Viser alle elementene i gruppen i redigerings-modus, under hverandre. Lagre-knapp skjules.</td>
 </tr>
+<tr>
+<td>&ldquo;likert&rdquo;</td>
+<td>Likert visning.</td>
+</tr>
 </tbody>
 </table>
 <h3 id="filter">filter</h3>
@@ -1118,17 +1146,17 @@ Liste med kriterier er basert på verdi av ett eller flere felter i gruppen, på
   ]
 }
 </code></pre></div><p>Dersom det er flere kriterier, må alle matche for at elementet skal vises.</p>
-<p>Om det kun er ett resultat, vises dette automatsk i redigerings-modus. Om det er flere elementer i gruppen som matcher filteret, vil disse vises. 
+<p>Om det kun er ett resultat, vises dette automatsk i redigerings-modus. Om det er flere elementer i gruppen som matcher filteret, vil disse vises.
 Andre elementer i gruppen skjules. <code>filter</code> kan kombineres med <code>mode</code>-parameter.</p>
 <div class="notices warning" >
-Om man kombinerer `"mode": "showAll"` med `"filter"`, vil det ikke fungere å legge til nye elementer i gruppen. Dette er fordi man med "showAll" kun 
+Om man kombinerer `"mode": "showAll"` med `"filter"`, vil det ikke fungere å legge til nye elementer i gruppen. Dette er fordi man med "showAll" kun
 viser redigerings-flaten, og så lenge filteret ikke matcher, vil ikke elementet vises.
 </div>
 <h3 id="addbutton">addButton</h3>
 <p>Bestemmer om &ldquo;Legg til ny&rdquo;-knappen vises under tabellen. Nyttig å skjule denne om man kun ønsker å presentere data.</p>
 <h3 id="savebutton">saveButton</h3>
 <p>Bestemmer om &ldquo;Lagre&rdquo;-knappen vises når et gruppeelement er i redigeringsmodus. Standard oppførsel om parameteren ikke er satt er at &ldquo;Lagre&rdquo;-knapp vises.
-Dersom man har satt <code>&quot;mode&quot;: &quot;showAll&quot;</code> skjules Lagre-knappen alltid, da man i denne modusen ikke har mulighet til å lukke redigerings-flaten for 
+Dersom man har satt <code>&quot;mode&quot;: &quot;showAll&quot;</code> skjules Lagre-knappen alltid, da man i denne modusen ikke har mulighet til å lukke redigerings-flaten for
 gruppe-elementet. Dataene lagres uansett.</p>
 <h3 id="deletebutton">deleteButton</h3>
 <p>Bestemmer om &ldquo;Slett&rdquo;-knappen vises når et gruppeelement er i redigeringsmodus. Standard oppførsel om parameteren ikke er satt er at &ldquo;Slett&rdquo;-knapp vises.</p>
@@ -1143,7 +1171,105 @@ gruppe-elementet. Dataene lagres uansett.</p>
     <span style="color:#ff79c6">&#34;openByDefault&#34;</span>: <span style="color:#ff79c6">true</span>
   }
 }
-</code></pre></div><h2 id="flere-sider-innad-i-gruppe-visning">Flere sider innad i gruppe-visning</h2>
+</code></pre></div><h2 id="show-group-as-part-of-panel">Show group as part of Panel</h2>
+<p>A new parameter, <code>panel</code>, can be added to the group component. This will render the group childrne as part of a <a href="../../../components/panel/">Panel component.</a>.</p>
+<p>Look and settings will be similar of those of the panel component. Example configuration:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">      {
+        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;input-panel-group&#34;</span>,
+        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Group&#34;</span>,
+        <span style="color:#ff79c6">&#34;children&#34;</span>: [
+          <span style="color:#f1fa8c">&#34;panel-1&#34;</span>,
+          <span style="color:#f1fa8c">&#34;panel-2&#34;</span>
+        ],
+        <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {},
+        <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+          <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;Dette er bare en demo av input panel utenfor repeterende gruppe.&#34;</span>,
+          <span style="color:#ff79c6">&#34;body&#34;</span>: <span style="color:#f1fa8c">&#34;Her ser jeg bare at ting fungerer som forventet.&#34;</span>
+        },
+        <span style="color:#ff79c6">&#34;panel&#34;</span>: {
+          <span style="color:#ff79c6">&#34;variant&#34;</span>: <span style="color:#f1fa8c">&#34;info&#34;</span>
+        }
+      },
+</code></pre></div><p>Here the group is configured with the variant &ldquo;info&rdquo;. The configuration is otherwise equal as a regular group.</p>
+<p>This will produce the following output:</p>
+<figure><a href="input-panel.jpeg"><img src="input-panel.jpeg" alt="Group with panel" title="Group with panel" /></a><figcaption><h4>Group with panel</h4></figcaption></figure>
+<p>The following settings is configurable in the <code>pabel</code> field:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>variant</td>
+<td>Yes</td>
+<td>Which variant of panel the group children should be rendered in. Availiable values are &ldquo;info&rdquo;, &ldquo;success&rdquo; and &ldquo;warning&rdquo;.</td>
+</tr>
+<tr>
+<td>iconUrl</td>
+<td>No</td>
+<td>Custom icon can be added to the panel. Relative or full path, for instance &ldquo;awesomeIcon.png&rdquo; or &ldquo;<a href="http://cdn.example.com/awesomeIcon.png%22">http://cdn.example.com/awesomeIcon.png&quot;</a></td>
+</tr>
+<tr>
+<td>iconAlt</td>
+<td>No</td>
+<td>Alternative text for the custom icon. Only applicable if iconUrl is supplied. Can be plain text or a reference to a text resource.</td>
+</tr>
+<tr>
+<td>groupReference</td>
+<td>No</td>
+<td>Reference to another group. Can be used if you want to add elements to a repeating group from another context. <a href="#legge-til-element-fra-en-annen-repeterende-gruppe">Read more.</a></td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">        <span style="color:#f1fa8c">&#34;panel&#34;</span>: {
+          <span style="color:#ff79c6">&#34;variant&#34;</span>: <span style="color:#f1fa8c">&#34;info&#34;</span>,
+          <span style="color:#ff79c6">&#34;iconUrl&#34;</span>: <span style="color:#f1fa8c">&#34;kort.svg&#34;</span>,
+          <span style="color:#ff79c6">&#34;iconAlt&#34;</span>: <span style="color:#f1fa8c">&#34;Betalingskort ikon&#34;</span>
+        }
+</code></pre></div><h3 id="add-element-from-another-repeating-group">Add element from another repeating group</h3>
+<p>A use case can be that the user is asked to choose a value from a previously filled out repeating group. As an example imagine the user has to register a set of suspicius transactions.
+Her the user is first asked to add a set of different payment cards as a repeating group. Later in the application the user is asked to select a payment card when adding an entry to the suspicious transactions group.
+While doing so the user remembers that they forgot to add a payment card and does not want to navigate back to the first repeating group.</p>
+<p>Her comes <code>groupReference</code> parameter in to play. This will give the user the possiblity to add an element to a repeating group from the context this list is used.</p>
+<p>An image to illustrate the use case:</p>
+<figure><a href="panel-reference-case.png"><img src="panel-reference-case.png" alt="GroupReference case" title="GroupReference case" /></a><figcaption><h4>GroupReference case</h4></figcaption></figure>
+<p>In this made up case the groups are positioned under each other, but in a real world scenario these might be placed on different pages in the application.</p>
+<p>To setup the possibility a group component is added to the repeating group containg the transactions with a reference to the first group containing payment cards.</p>
+<p>The following group component is configured as a child for group 2:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">      {
+        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;input-panel-group&#34;</span>,
+        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Group&#34;</span>,
+        <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {},
+        <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+          <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;Legg til nytt betalingskort&#34;</span>,
+          <span style="color:#ff79c6">&#34;body&#34;</span>: <span style="color:#f1fa8c">&#34;Kortet du registrer vil bli lagret og tilgjengelig i resten av tjenesten.&#34;</span>,
+          <span style="color:#ff79c6">&#34;add_label&#34;</span>: <span style="color:#f1fa8c">&#34;Legg til nytt betalingskort&#34;</span>
+        },
+        <span style="color:#ff79c6">&#34;panel&#34;</span>: {
+          <span style="color:#ff79c6">&#34;showIcon&#34;</span>: <span style="color:#ff79c6">true</span>,
+          <span style="color:#ff79c6">&#34;iconUrl&#34;</span>: <span style="color:#f1fa8c">&#34;kort.svg&#34;</span>,
+          <span style="color:#ff79c6">&#34;variant&#34;</span>: <span style="color:#f1fa8c">&#34;success&#34;</span>,
+          <span style="color:#ff79c6">&#34;groupReference&#34;</span>: {
+            <span style="color:#ff79c6">&#34;group&#34;</span>: <span style="color:#f1fa8c">&#34;first-group&#34;</span>
+          }
+        }
+      },
+</code></pre></div><p>The text resources that is used by panel:</p>
+<ul>
+<li><code>title</code> - the panel title</li>
+<li><code>body</code> - the panel body. Placed above children.</li>
+<li><code>add_label</code> - the add button label.</li>
+</ul>
+<p>If <code>children</code> is not defined on the group the children of the referenced group will be rendered. By adding <code>children</code> you can freely define that only a subset of the referenced group will be displayed.</p>
+<p>Demo:</p>
+<figure><a href="panel-reference-demo.gif"><img src="panel-reference-demo.gif" alt="Demo of groupReference" title="Demo of groupReference" /></a><figcaption><h4>Demo of groupReference</h4></figcaption></figure>
+<p>See <a href="https://altinn.studio/repos/ttd/input-panel-demo">example app</a> for a complete form layout setup.</p>
+<h2 id="flere-sider-innad-i-gruppe-visning">Flere sider innad i gruppe-visning</h2>
 <div class="notices info" > Denne funksjonaliteten er p.t. kun tilgjengelig for repeterende grupper. Visning av gruppe over
 flere sider inne i redigerings-flaten til gruppen støttes KUN for grupper på øverste nivå, og støttes ikke
 for grupper i grupper. </div>
@@ -1151,7 +1277,7 @@ for grupper i grupper. </div>
 og uoversiktlig for sluttbruker. For å løse dette er det innført en mulighet til å dele opp utfyllingen over flere visninger, som bruker kan navigere
 frem/tilbake mellom mens de fyller ut gruppe-elementet. Navigeringen her skjer innad i en layout, og oppdaterer
 kun visningen inne i redigeringsflaten for gruppen.</p>
-<p>For å ta i bruk denne funksjonaliteten, må man <em>prefikse</em> komponentene i <code>children</code> listen med et tall som tilsier hvilken &ldquo;side&rdquo; av utfyllingen 
+<p>For å ta i bruk denne funksjonaliteten, må man <em>prefikse</em> komponentene i <code>children</code> listen med et tall som tilsier hvilken &ldquo;side&rdquo; av utfyllingen
 komponenten skal vises på, etterfulgt av <code>:</code>. Vi starter tellingen på <code>0</code>, dvs. at komponenter som skal vises på den første &ldquo;siden&rdquo; må prefikses med
 <code>0:</code>. Komponenter som skal vises på den andre siden prefikses med <code>1:</code>. Osv. I tillegg må man sette <code>&quot;multiPage&quot;: true</code> på den nye <a href="#styre-visning"><code>edit</code>-parameteren</a> (se over).
 Se eksempel under:</p>

@@ -357,7 +357,13 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/app/testing/deploy/"><span>I testmiljø</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/nb/app/deployment/"><span>Produksjonssetting</span></a></li>
+        <a href="/nb/app/deployment/"><span>Produksjonssetting</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/deployment/runtime-environment/"><span>Kjøremiljø</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/deployment/runtime-environment/resource-allocation/"><span>Ressurserfordeling</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/deployment/runtime-environment/resource-allocation-tips/"><span>Tips til ressurserfordeling</span></a></li></ul></li></ul></li>
       <li class="dd-item">
         <a href="/nb/app/maintainance/"><span>Vedlikehold</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -554,6 +560,7 @@ if(host != "localhost")
               <p class="a-leadText" id="leadText">Innstillinger for visning.</p><h2>På denne siden:</h2><nav id="TableOfContents">
   <ul>
     <li><a href="#styre-visning">Styre visning</a></li>
+    <li><a href="#vise-gruppen-som-del-av-panel">Vise gruppen som del av Panel</a></li>
     <li><a href="#flere-sider-innad-i-gruppe-visning">Flere sider innad i gruppe-visning</a></li>
   </ul>
 </nav>
@@ -605,17 +612,17 @@ Liste med kriterier er basert på verdi av ett eller flere felter i gruppen, på
   ]
 }
 </code></pre></div><p>Dersom det er flere kriterier, må alle matche for at elementet skal vises.</p>
-<p>Om det kun er ett resultat, vises dette automatsk i redigerings-modus. Om det er flere elementer i gruppen som matcher filteret, vil disse vises. 
+<p>Om det kun er ett resultat, vises dette automatsk i redigerings-modus. Om det er flere elementer i gruppen som matcher filteret, vil disse vises.
 Andre elementer i gruppen skjules. <code>filter</code> kan kombineres med <code>mode</code>-parameter.</p>
 <div class="notices warning" >
-Om man kombinerer `"mode": "showAll"` med `"filter"`, vil det ikke fungere å legge til nye elementer i gruppen. Dette er fordi man med "showAll" kun 
+Om man kombinerer `"mode": "showAll"` med `"filter"`, vil det ikke fungere å legge til nye elementer i gruppen. Dette er fordi man med "showAll" kun
 viser redigerings-flaten, og så lenge filteret ikke matcher, vil ikke elementet vises.
 </div>
 <h3 id="addbutton">addButton</h3>
 <p>Bestemmer om &ldquo;Legg til ny&rdquo;-knappen vises under tabellen. Nyttig å skjule denne om man kun ønsker å presentere data.</p>
 <h3 id="savebutton">saveButton</h3>
 <p>Bestemmer om &ldquo;Lagre&rdquo;-knappen vises når et gruppeelement er i redigeringsmodus. Standard oppførsel om parameteren ikke er satt er at &ldquo;Lagre&rdquo;-knapp vises.
-Dersom man har satt <code>&quot;mode&quot;: &quot;showAll&quot;</code> skjules Lagre-knappen alltid, da man i denne modusen ikke har mulighet til å lukke redigerings-flaten for 
+Dersom man har satt <code>&quot;mode&quot;: &quot;showAll&quot;</code> skjules Lagre-knappen alltid, da man i denne modusen ikke har mulighet til å lukke redigerings-flaten for
 gruppe-elementet. Dataene lagres uansett.</p>
 <h3 id="deletebutton">deleteButton</h3>
 <p>Bestemmer om &ldquo;Slett&rdquo;-knappen vises når et gruppeelement er i redigeringsmodus. Standard oppførsel om parameteren ikke er satt er at &ldquo;Slett&rdquo;-knapp vises.</p>
@@ -630,16 +637,113 @@ gruppe-elementet. Dataene lagres uansett.</p>
     <span style="color:#ff79c6">&#34;openByDefault&#34;</span>: <span style="color:#ff79c6">true</span>
   }
 }
-</code></pre></div><h2 id="flere-sider-innad-i-gruppe-visning">Flere sider innad i gruppe-visning</h2>
-<div class="notices info" >
-- Denne funksjonaliteten er p.t. kun tilgjengelig for repeterende grupper.
-- Visning av gruppe over flere sider inne i redigerings-flaten til gruppen støttes KUN for grupper på øverste nivå, og støttes ikke for grupper i grupper.
-</div>
+</code></pre></div><h2 id="vise-gruppen-som-del-av-panel">Vise gruppen som del av Panel</h2>
+<p>Det er lagt til en ny parameter, <code>panel</code>, som kan settes på en gruppe-komponent. Denne sier at gruppen skal vises som en del av <a href="../../../components/panel/">Panel-komponenten</a>.</p>
+<p>Her vil du kjenne igjen utseende og innstillinger som kan settes på panel-komponenten. Eksempeloppsett:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">      {
+        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;input-panel-group&#34;</span>,
+        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Group&#34;</span>,
+        <span style="color:#ff79c6">&#34;children&#34;</span>: [
+          <span style="color:#f1fa8c">&#34;panel-1&#34;</span>,
+          <span style="color:#f1fa8c">&#34;panel-2&#34;</span>
+        ],
+        <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {},
+        <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+          <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;Dette er bare en demo av input panel utenfor repeterende gruppe.&#34;</span>,
+          <span style="color:#ff79c6">&#34;body&#34;</span>: <span style="color:#f1fa8c">&#34;Her ser jeg bare at ting fungerer som forventet.&#34;</span>
+        },
+        <span style="color:#ff79c6">&#34;panel&#34;</span>: {
+          <span style="color:#ff79c6">&#34;variant&#34;</span>: <span style="color:#f1fa8c">&#34;info&#34;</span>
+        }
+      },
+</code></pre></div><p>Her har man satt opp gruppen til å vises som panel med variant &ldquo;info&rdquo;. Oppsettet er ellers helt likt som en vanlig gruppe.</p>
+<p>Dette vil gi følgende output:</p>
+<figure><a href="input-panel.jpeg"><img src="input-panel.jpeg" alt="Gruppe med panel" title="Gruppe med panel" /></a><figcaption><h4>Gruppe med panel</h4></figcaption></figure>
+<p>Det er mulig å konfigurere følgende settings i <code>panel</code> feltet på en gruppe:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Påkrevd</th>
+<th>Beskrivelse</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>variant</td>
+<td>Ja</td>
+<td>Hvilken variant av panel gruppen skal ligge i. Tilgjengelige verdier er &ldquo;info&rdquo;, &ldquo;success&rdquo; og &ldquo;warning&rdquo;</td>
+</tr>
+<tr>
+<td>iconUrl</td>
+<td>Nei</td>
+<td>Om man ønsker eget ikon som del av panel kan dette settes. Relativ eller full path, f.eks &ldquo;awesomeIcon.png&rdquo; eller &ldquo;<a href="http://cdn.example.com/awesomeIcon.png%22">http://cdn.example.com/awesomeIcon.png&quot;</a></td>
+</tr>
+<tr>
+<td>iconAlt</td>
+<td>Nei</td>
+<td>Alternativ tekst til custom icon. Kan kun settes om iconUrl er satt. Kan være ren tekst eller en refereanse til en tekstressurs.</td>
+</tr>
+<tr>
+<td>groupReference</td>
+<td>Nei</td>
+<td>Referanse til en annen gruppe. Kan benyttes om man ønsker legge til elementer i en repeterende gruppe fra en annen kontest. <a href="#legge-til-element-fra-en-annen-repeterende-gruppe">Les mer.</a></td>
+</tr>
+</tbody>
+</table>
+<p>Eksempel:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">        <span style="color:#f1fa8c">&#34;panel&#34;</span>: {
+          <span style="color:#ff79c6">&#34;variant&#34;</span>: <span style="color:#f1fa8c">&#34;info&#34;</span>,
+          <span style="color:#ff79c6">&#34;iconUrl&#34;</span>: <span style="color:#f1fa8c">&#34;kort.svg&#34;</span>,
+          <span style="color:#ff79c6">&#34;iconAlt&#34;</span>: <span style="color:#f1fa8c">&#34;Betalingskort ikon&#34;</span>
+        }
+</code></pre></div><h3 id="legge-til-element-fra-en-annen-repeterende-gruppe">Legge til element fra en annen repeterende gruppe</h3>
+<p>Et use case man kan se for seg er at brukeren bes om å velge fra en tidligere utfylt gruppe. Et tenkt eksempel kan være at brukeren skal registrere et sett med mistenksomme transaksjoner.
+Her legger først brukeren inn et sett med ulike betalingskort som en repeterende gruppe. Senere i skjema skal brukeren velge elementer fra denne gruppen når man skal legge til en mistenkelig transaksjon.
+Ved utfylling av den mistenkelige transaksjonen kommer sluttbruker på at man har glemt å legge til et betalingskort, men ønsker ikke da å navigere seg helt tilbake til den opprinnelige betalingskort gruppen.</p>
+<p>Her kommer <code>groupReference</code> parameteren inn i bildet på panel. Dette vil åpne opp for å kunne legge til et element i en repeterende gruppe fra konteksen hvor man benytter denne listen fra.</p>
+<p>Et bilde for å illustrere usecasen:</p>
+<figure><a href="panel-reference-case.png"><img src="panel-reference-case.png" alt="GroupReference case" title="GroupReference case" /></a><figcaption><h4>GroupReference case</h4></figcaption></figure>
+<p>I dette fiktive caset ligger gruppene rett over hverandre, men se for deg at disse fylles ut på ulike sider i skjema.
+For å få til dette oppsettet legges en gruppe element til i den repeterende gruppen som er satt opp med transaksjoner (gruppe-2) med en referanse til den første gruppen med betalingskort (gruppe-1).
+Følgende gruppe-komponent ligger som et barn av gruppe-2:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">      {
+        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;input-panel-group&#34;</span>,
+        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Group&#34;</span>,
+        <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {},
+        <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+          <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;Legg til nytt betalingskort&#34;</span>,
+          <span style="color:#ff79c6">&#34;body&#34;</span>: <span style="color:#f1fa8c">&#34;Kortet du registrer vil bli lagret og tilgjengelig i resten av tjenesten.&#34;</span>,
+          <span style="color:#ff79c6">&#34;add_label&#34;</span>: <span style="color:#f1fa8c">&#34;Legg til nytt betalingskort&#34;</span>
+        },
+        <span style="color:#ff79c6">&#34;panel&#34;</span>: {
+          <span style="color:#ff79c6">&#34;showIcon&#34;</span>: <span style="color:#ff79c6">true</span>,
+          <span style="color:#ff79c6">&#34;iconUrl&#34;</span>: <span style="color:#f1fa8c">&#34;kort.svg&#34;</span>,
+          <span style="color:#ff79c6">&#34;variant&#34;</span>: <span style="color:#f1fa8c">&#34;success&#34;</span>,
+          <span style="color:#ff79c6">&#34;groupReference&#34;</span>: {
+            <span style="color:#ff79c6">&#34;group&#34;</span>: <span style="color:#f1fa8c">&#34;first-group&#34;</span>
+          }
+        }
+      },
+</code></pre></div><p>Tekstressursene som kan settes er:</p>
+<ul>
+<li><code>title</code> - panel tittel</li>
+<li><code>body</code> - panel body. Plassert over gruppe elementene.</li>
+<li><code>add_label</code> - tekst for &ldquo;legg til&rdquo;-knappen.</li>
+</ul>
+<p>Om ikke <code>children</code> er satt på gruppen vil barna til den refererte gruppen bli rendret. Ved å legge til <code>children</code> kan man fritt definere at det kun skal vises et subset av alle barn av den refererte gruppen.</p>
+<p>Demonstrasjon:</p>
+<figure><a href="panel-reference-demo.gif"><img src="panel-reference-demo.gif" alt="Demonstrasjon av groupReference" title="Demonstrasjon av groupReference" /></a><figcaption><h4>Demonstrasjon av groupReference</h4></figcaption></figure>
+<p>Se <a href="https://altinn.studio/repos/ttd/input-panel-demo">eksempel app</a> for fullstendig oppsett i fom layout.</p>
+<h2 id="flere-sider-innad-i-gruppe-visning">Flere sider innad i gruppe-visning</h2>
+<div class="notices info" > Denne funksjonaliteten er p.t. kun tilgjengelig for repeterende grupper. Visning av gruppe over
+flere sider inne i redigerings-flaten til gruppen støttes KUN for grupper på øverste nivå, og støttes ikke
+for grupper i grupper. </div>
 <p>Når man skal legge inn data i en gruppe, kan det være tilfeller der hvert element i gruppen inneholder mange felter, og at det dermed blir mye scrolling
 og uoversiktlig for sluttbruker. For å løse dette er det innført en mulighet til å dele opp utfyllingen over flere visninger, som bruker kan navigere
 frem/tilbake mellom mens de fyller ut gruppe-elementet. Navigeringen her skjer innad i en layout, og oppdaterer
 kun visningen inne i redigeringsflaten for gruppen.</p>
-<p>For å ta i bruk denne funksjonaliteten, må man <em>prefikse</em> komponentene i <code>children</code> listen med et tall som tilsier hvilken &ldquo;side&rdquo; av utfyllingen 
+<p>For å ta i bruk denne funksjonaliteten, må man <em>prefikse</em> komponentene i <code>children</code> listen med et tall som tilsier hvilken &ldquo;side&rdquo; av utfyllingen
 komponenten skal vises på, etterfulgt av <code>:</code>. Vi starter tellingen på <code>0</code>, dvs. at komponenter som skal vises på den første &ldquo;siden&rdquo; må prefikses med
 <code>0:</code>. Komponenter som skal vises på den andre siden prefikses med <code>1:</code>. Osv. I tillegg må man sette <code>&quot;multiPage&quot;: true</code> på den nye <a href="#styre-visning"><code>edit</code>-parameteren</a> (se over).
 Se eksempel under:</p>

@@ -153,15 +153,33 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/getting-started/local-dev/"><span>Local development</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/app-dev-course/"><span>Intro course (nb)</span></a></li>
+        <a href="/app/app-dev-course/"><span>Intro course</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/app-dev-course/case/"><span>Case</span></a></li>
+      <li class="dd-item">
+        <a href="/app/app-dev-course/modul2/"><span>Modul 2</span></a></li>
+      <li class="dd-item">
+        <a href="/app/app-dev-course/modul4/"><span>Modul 4</span></a></li>
+      <li class="dd-item">
+        <a href="/app/app-dev-course/modul5/"><span>Modul 5</span></a></li>
+      <li class="dd-item">
+        <a href="/app/app-dev-course/modul1/"><span>Module 1</span></a></li>
+      <li class="dd-item">
+        <a href="/app/app-dev-course/modul3/"><span>Module 3</span></a></li>
+      <li class="dd-item">
+        <a href="/app/app-dev-course/modul6/"><span>Module 6</span></a></li>
+      <li class="dd-item">
+        <a href="/app/app-dev-course/modul7/"><span>Module 7</span></a></li>
+      <li class="dd-item">
+        <a href="/app/app-dev-course/losningsforslag/"><span>Solution</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/app/design/"><span>Design</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/app/design/insight/"><span>Innsiktsfase</span></a></li>
+        <a href="/app/design/insight/"><span>Preliminary considerations</span></a></li>
       <li class="dd-item">
         <a href="/app/design/prototype/"><span>Prototype</span></a></li>
       <li class="dd-item">
-        <a href="/app/design/usertest/"><span>Brukertest</span></a></li>
+        <a href="/app/design/usertest/"><span>Usertesting</span></a></li>
       <li class="dd-item">
         <a href="/app/design/guidelines/"><span>Guidelines</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -169,7 +187,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/content/"><span>Content in the form</span></a></li>
       <li class="dd-item">
-        <a href="/app/design/guidelines/design-principles/"><span>Designprinsipper</span></a></li>
+        <a href="/app/design/guidelines/design-principles/"><span>Design principles</span></a></li>
       <li class="dd-item">
         <a href="/app/design/guidelines/link-to-app/"><span>Entering the form</span></a></li>
       <li class="dd-item">
@@ -181,7 +199,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/components/input/"><span>Input</span></a></li>
       <li class="dd-item">
-        <a href="/app/design/guidelines/components/date/"><span>Dato</span></a></li>
+        <a href="/app/design/guidelines/components/date/"><span>Date</span></a></li>
       <li class="dd-item">
         <a href="/app/design/guidelines/components/checkbox/"><span>Checkboxes</span></a></li>
       <li class="dd-item">
@@ -189,11 +207,11 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/components/select/"><span>Dropdown</span></a></li>
       <li class="dd-item">
-        <a href="/app/design/guidelines/components/helptext/"><span>Hjelpetekst</span></a></li>
+        <a href="/app/design/guidelines/components/helptext/"><span>Help texts</span></a></li>
       <li class="dd-item">
         <a href="/app/design/guidelines/components/error-message/"><span>Error messages</span></a></li>
       <li class="dd-item">
-        <a href="/app/design/guidelines/components/file-upload/"><span>Filopplasting</span></a></li>
+        <a href="/app/design/guidelines/components/file-upload/"><span>File upload</span></a></li>
       <li class="dd-item">
         <a href="/app/design/guidelines/components/picture-component/"><span>Image</span></a></li></ul></li>
       <li class="dd-item">
@@ -339,7 +357,13 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/testing/deploy/"><span>In test environment</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/deployment/"><span>Deployment</span></a></li>
+        <a href="/app/deployment/"><span>Deployment</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/deployment/runtime-environment/"><span>Runtime Environment</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/deployment/runtime-environment/resource-allocation-tips/"><span>Practical tips for resource allocation</span></a></li>
+      <li class="dd-item">
+        <a href="/app/deployment/runtime-environment/resource-allocation/"><span>Resource Allocation</span></a></li></ul></li></ul></li>
       <li class="dd-item">
         <a href="/app/maintainance/"><span>Maintenance</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -1098,6 +1122,36 @@ if(host != "localhost")
 </nav>
 
 	</div>
+
+	
+	   <article class="post technology">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/technology/architecture/components/application/construction/altinn-platform/events/">Application construction components - Altinn Platform Events</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>The Events components expose REST-APIs for publishing and subscribing to events. The Azure function are responsible for pushing events to subscriber webhooks. The below diagram shows the components
+When a publish request is received it will push the event document to the event storage. When a request is received it will query the events stored in the event storage.
+Api controllers The following API controllers are defined
+ EventsController : responsible for registrating events and pull of events for consumers. <a class="read-more" href="/technology/architecture/components/application/construction/altinn-platform/events/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
 
 	
 	   <article class="post technology">

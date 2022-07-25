@@ -153,15 +153,33 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/getting-started/local-dev/"><span>Local development</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/app-dev-course/"><span>Intro course (nb)</span></a></li>
+        <a href="/app/app-dev-course/"><span>Intro course</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/app-dev-course/case/"><span>Case</span></a></li>
+      <li class="dd-item">
+        <a href="/app/app-dev-course/modul2/"><span>Modul 2</span></a></li>
+      <li class="dd-item">
+        <a href="/app/app-dev-course/modul4/"><span>Modul 4</span></a></li>
+      <li class="dd-item">
+        <a href="/app/app-dev-course/modul5/"><span>Modul 5</span></a></li>
+      <li class="dd-item">
+        <a href="/app/app-dev-course/modul1/"><span>Module 1</span></a></li>
+      <li class="dd-item">
+        <a href="/app/app-dev-course/modul3/"><span>Module 3</span></a></li>
+      <li class="dd-item">
+        <a href="/app/app-dev-course/modul6/"><span>Module 6</span></a></li>
+      <li class="dd-item">
+        <a href="/app/app-dev-course/modul7/"><span>Module 7</span></a></li>
+      <li class="dd-item">
+        <a href="/app/app-dev-course/losningsforslag/"><span>Solution</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/app/design/"><span>Design</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/app/design/insight/"><span>Innsiktsfase</span></a></li>
+        <a href="/app/design/insight/"><span>Preliminary considerations</span></a></li>
       <li class="dd-item">
         <a href="/app/design/prototype/"><span>Prototype</span></a></li>
       <li class="dd-item">
-        <a href="/app/design/usertest/"><span>Brukertest</span></a></li>
+        <a href="/app/design/usertest/"><span>Usertesting</span></a></li>
       <li class="dd-item">
         <a href="/app/design/guidelines/"><span>Guidelines</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -169,7 +187,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/content/"><span>Content in the form</span></a></li>
       <li class="dd-item">
-        <a href="/app/design/guidelines/design-principles/"><span>Designprinsipper</span></a></li>
+        <a href="/app/design/guidelines/design-principles/"><span>Design principles</span></a></li>
       <li class="dd-item">
         <a href="/app/design/guidelines/link-to-app/"><span>Entering the form</span></a></li>
       <li class="dd-item">
@@ -181,7 +199,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/components/input/"><span>Input</span></a></li>
       <li class="dd-item">
-        <a href="/app/design/guidelines/components/date/"><span>Dato</span></a></li>
+        <a href="/app/design/guidelines/components/date/"><span>Date</span></a></li>
       <li class="dd-item">
         <a href="/app/design/guidelines/components/checkbox/"><span>Checkboxes</span></a></li>
       <li class="dd-item">
@@ -189,11 +207,11 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/components/select/"><span>Dropdown</span></a></li>
       <li class="dd-item">
-        <a href="/app/design/guidelines/components/helptext/"><span>Hjelpetekst</span></a></li>
+        <a href="/app/design/guidelines/components/helptext/"><span>Help texts</span></a></li>
       <li class="dd-item">
         <a href="/app/design/guidelines/components/error-message/"><span>Error messages</span></a></li>
       <li class="dd-item">
-        <a href="/app/design/guidelines/components/file-upload/"><span>Filopplasting</span></a></li>
+        <a href="/app/design/guidelines/components/file-upload/"><span>File upload</span></a></li>
       <li class="dd-item">
         <a href="/app/design/guidelines/components/picture-component/"><span>Image</span></a></li></ul></li>
       <li class="dd-item">
@@ -339,7 +357,13 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/testing/deploy/"><span>In test environment</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/deployment/"><span>Deployment</span></a></li>
+        <a href="/app/deployment/"><span>Deployment</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/deployment/runtime-environment/"><span>Runtime Environment</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/deployment/runtime-environment/resource-allocation-tips/"><span>Practical tips for resource allocation</span></a></li>
+      <li class="dd-item">
+        <a href="/app/deployment/runtime-environment/resource-allocation/"><span>Resource Allocation</span></a></li></ul></li></ul></li>
       <li class="dd-item">
         <a href="/app/maintainance/"><span>Maintenance</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -1104,60 +1128,6 @@ if(host != "localhost")
 	
 	   <article class="post app">
     <header class="post-header">
-        <h2 class="post-title"><a href="/app/design/guidelines/components/">UI-components</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Do you need a new component?
-We wish everyone welcome to contribute to the component library through both code and design. Practically this means that Altinn wishes to accept suggestions for new components as service owners find a need for them.
-You are welcome to check the existing components below.
-Create a new issue on githubWrite to us on SlackTitles and paragraphsIn most cases, there should be a header (H2) and a paragraph at the start of form pages to summarize the task of the user. <a class="read-more" href="/app/design/guidelines/components/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post app">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/app/development/ux/pages/tracks/">Tracks</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Dynamisk sporvalg i en applikasjon kan være nyttig dersom man ønsker å vise og/eller skjule enkelte sider basert input fra sluttbruker på forutgående deler av skjemaet.
-Trigge kalkulering av sporvalg fra frontend Appen vil gjøre et initielt kall for å kalkulere rekkefølgen ved innlasting. For å trigge kalkuleringingen av sporvalg på sidebytte må man legge inn dette som en trigger på den aktuelle navigasjons-komponenten man ønsker. Dette gjøres ved å legge til calculatePageOrder som en del av triggers. <a class="read-more" href="/app/development/ux/pages/tracks/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post app">
-    <header class="post-header">
         <h2 class="post-title"><a href="/app/development/ux/styling/">Styling</a></h2>
     </header>
     <section class="post-excerpt">
@@ -1317,11 +1287,11 @@ resource.nb.json
 	
 	   <article class="post app">
     <header class="post-header">
-        <h2 class="post-title"><a href="/app/development/ux/widgets/">Widgets</a></h2>
+        <h2 class="post-title"><a href="/app/deployment/runtime-environment/resource-allocation-tips/">Practical tips for resource allocation</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Hva er en widget? En widget er en kompleks komponent, sammensatt av en eller flere enkle skjemakomponenter - de skjemakomponentene som er tilgjengelige for bruk i Altinn Studio i dag. En widget er et verktøy i Altinn Studio som gjør det lettere å lage og gjenbruke layouts.
-Hvordan bruke widgets Widgets er tilgjengelige i venstre-menyen i skjemaeditoren i Altinn Studio. Den kan dras inn i skjemasiden på samme måte som andre skjemakomponenter. <a class="read-more" href="/app/development/ux/widgets/">&raquo;</a></p>
+        <p>Før vi går på konkrete tips må vi kort introdusere Helm Chart. Helm Chart er de(n) filen(e) som styrer hvordan applikasjonen din deployes) til Kubernetes. Det er også her man styrer CPU og minne allokering. Du finner Chart.yamlog values.yamli deployment mappen i applikasjonen din. Dette er viktige filer som kan være lett å overse og ikke ha et aktivt forhold til.
+Tips 1 - Kjør siste versjon av Helm Chart Med siste versjon får du de mest oppdaterte innstillingene som standard. <a class="read-more" href="/app/deployment/runtime-environment/resource-allocation-tips/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -1343,13 +1313,64 @@ Hvordan bruke widgets Widgets er tilgjengelige i venstre-menyen i skjemaeditoren
 	
 	   <article class="post app">
     <header class="post-header">
-        <h2 class="post-title"><a href="/app/development/configuration/authorisation/">Authorization</a></h2>
+        <h2 class="post-title"><a href="/app/deployment/runtime-environment/resource-allocation/">Resource Allocation</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Autorisasjonsregler for en applikasjon er definert i en XACML Policy-fil som ligger i applikasjonsrepoet. XACML Policy-en inneholder en eller flere regler som definerer hvem som kan gjennomføre ulike aksjoner på ulike ressurser.
-Beskrivelse av XACML-strukturen og definisjon av regler finnes her.
-XACML-filen kan endres i en valgfri teksteditor.
-Regler i applikasjonsmalen Når det opprettes en app i Altinn Studio basert på den nåværende asp.net malen vil det følge med en autogenerert XACML policy-fil. <a class="read-more" href="/app/development/configuration/authorisation/">&raquo;</a></p>
+        <p>Primært vil det være CPU og minne som fordeles. Man kan sette minimum (requests) og et tak (limit) for en container. Hvis en pod har flere containere vil kubernetes summere opp disse. I Altinn 3 benytter vi som default requests, dvs. minimum for hva en applikasjon vil legge beslag på.
+CPU CPU spesifiseres i CPU enheter, hvor 1 CPU enhet = 1 fysisk CPU kjerne eller 1 virtuell kjerne. Man kan spesifisere fraksjoner og enten spesifisere 0. <a class="read-more" href="/app/deployment/runtime-environment/resource-allocation/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post app">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/app/deployment/runtime-environment/">Runtime Environment</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Altinn 3 applikasjoner for en tjenesteeier kjører i Azure Kubernetes Service (AKS) fra Microsoft Azure. Dette er en såkalt Managed Service hvor vi lar Microsoft Azure ta seg av den underliggende driften av Kubernetes clusteret. Altinn står for konfigurering og provisjonering av clusteret, mens tjenesteeier har selv ansvar for utrulling av applikasjonene til clusteret.
+For detaljert dokumentasjon av hvilke muligheter som finnes må man se på:
+ Azure Kubernetes Services Kubernetes, og da spesielt hvordan ressurser administreres - et ansvar som er delt mellom Altinn og tjenesteeier. <a class="read-more" href="/app/deployment/runtime-environment/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post app">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/app/development/ux/widgets/">Widgets</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Hva er en widget? En widget er en kompleks komponent, sammensatt av en eller flere enkle skjemakomponenter - de skjemakomponentene som er tilgjengelige for bruk i Altinn Studio i dag. En widget er et verktøy i Altinn Studio som gjør det lettere å lage og gjenbruke layouts.
+Hvordan bruke widgets Widgets er tilgjengelige i venstre-menyen i skjemaeditoren i Altinn Studio. Den kan dras inn i skjemasiden på samme måte som andre skjemakomponenter. <a class="read-more" href="/app/development/ux/widgets/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
