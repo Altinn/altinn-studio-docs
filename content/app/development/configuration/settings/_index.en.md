@@ -83,6 +83,6 @@ It is technically possible to override all other data sources by using command l
 
 ## Azure KeyVault
 
-Every application owner should have access to their own Azure KeyVault for storage of sensitive values. By sensitive values we mean values which you don't want to be visible in code or configuration files. Some natural examples of these are things like usernames and passwords for external APIs which are used by the app. A sertificate, private key or similar.
+Every application owner should have access to their own Azure KeyVault for storage of sensitive values. Sensitive values includes values which you don't want to be visible in code or configuration files. Examples include usernames and passwords for external APIs, certificates, private keys, etc.
 
 Currently values from KeyVault are not read into the configuration control of an App. Instead the secrets component is used. This is documented under [Secrets](../secrets).
