@@ -44,7 +44,7 @@ In the future new apps will have a designated section which is simple to expand.
 
 A new app wil contain a set of environment specific appsettings files: `appsettings.Development.json`, `appsettings.Staging.json` and `appsettings.Production.json`. These files are read in their respective environments. The TT02-environment is defined as staging and the production environment is defined as Production.
 
-Every file should have values which are unique or different in at least one different environments. An example of a value that varies from environment to environment is "timeout" values. A good example is if you want an app to wait for a longer response from an external API during development than what you want to allow during production.
+Every file should contain the values which are unique or different in at least one of the environments. Examples of values that vary from environment to environment is the "timeout" values. You might want an app to wait longer for a response from an external API during development than what you want to allow during production.
 
 #### appsettings.Development.json
 ```json
