@@ -122,7 +122,7 @@ namespace Altinn.App.AppLogic
 
 4. In the method where you need to generate an event you call the service.
 
-    Here the selfdefined event has recieved the name `app.test.event`,
+    Here the self defined event has received the name `app.test.event`,
     in addition the instance is sent. This is used to populate remaining metadata about the event
 
     ```cs
