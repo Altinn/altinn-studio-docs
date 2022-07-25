@@ -7,7 +7,7 @@ toc: true
 
 This page is currently incomplete, more information will be provided at a later date.
 
-An instantiated application will have a corresponding instance object. This object confains metadata about that specific instance.
+An instantiated application will have a corresponding instance object. This object contains metadata about that specific instance.
 If you want to learn more about instance and its surrounding API you can read the technical documentation for [API](../../api).
 
 ## Substatus
