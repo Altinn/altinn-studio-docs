@@ -22,6 +22,6 @@ jobs:
         run: hugo
 
       - name: Verify links
-        uses: untitaker/hyperlink@0.1.22
+        uses: untitaker/hyperlink@0.1.24
         with:
           args: public/ --check-anchors --sources content/
