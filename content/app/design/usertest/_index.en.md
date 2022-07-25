@@ -1,9 +1,6 @@
 ---
 title: Usertesting
-description: It is always a good idea to do user testing in multiple stages of a project. 
-Through user testing you measure if your solution corresponds to the needs of the users. 
-Doing this early in the project is a good investment, since you save time and money by avoiding 
-developing a solution that doesn't match what it was trying to solve.
+description: It is always a good idea to do user testing in multiple stages of a project. Through user testing you measure if your solution corresponds to the needs of the users. Doing this early in the project is a good investment, since you save time and money by avoiding developing a solution that doesn't match what it was trying to solve.
 weight: 10
 toc: true
 ---
