@@ -18,7 +18,7 @@ It is also possible to configure a stateless application to only allow anonymous
 
 {{%notice warning%}}
 
-This is brand new functionality. Setup has to be completed manually untill further notice.
+This is brand new functionality. Setup has to be completed manually until further notice.
 
 **Notice:** To make use of this functionality, version >= 4.5.2 of the nugetpackages `Altinn.App.PlatformServices`, `Altinn.App.Common` and `Altinn.App.Api` is required.
 
