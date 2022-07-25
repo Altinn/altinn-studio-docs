@@ -1128,33 +1128,6 @@ if(host != "localhost")
 	
 	   <article class="post app">
     <header class="post-header">
-        <h2 class="post-title"><a href="/app/testing/deploy/">Test app in test environment</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Klargjøring av app og deploy til testmiljø gjøres fra Deploy-fanen i Altinn Studio.
-Bygge app Før en app kan deployes til testmiljø, må alle nødvendige filer samles sammen i en pakke som kan deplpoyes. Dette gjøres ved å bygge appen.
-Merk at det er filene fra app-repoet som benyttes i bygget. Dersom en har gjort endringer på en app i Altinn Studio så må disse sendes til repoet for at endringene skal bli med i bygg-pakken. <a class="read-more" href="/app/testing/deploy/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post app">
-    <header class="post-header">
         <h2 class="post-title"><a href="/app/development/data/prefill/">Prefilling data</a></h2>
     </header>
     <section class="post-excerpt">
@@ -1322,35 +1295,6 @@ Finne adressen til et repo URL-en til et gitt app repository er strukturert slik
 	
 	   <article class="post app">
     <header class="post-header">
-        <h2 class="post-title"><a href="/app/development/configuration/secrets/">Secrets</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Administrasjon av hemmeligheter i Azure Som applikasjonsutvikler administrerer man selv hemmelighetene som applikasjonen benytter i Azure Key Vault.
-Rutiner for bestilling av tilgang til din organisasjons ressurser er beskrevet her.
-Konfigurer støtte for hemmeligheter i din app For å tilgjengeliggjøre hemmeligheter i applikasjonen må det gjøres oppdateringer i helm charten tilknyttet applikasjonen.
-I applikasjonsrepoet ditt finner du filen values.yaml i mappen deployment.
-Under seksjonen volumeMounts legger du til følgende linjer: <a class="read-more" href="/app/development/configuration/secrets/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post app">
-    <header class="post-header">
         <h2 class="post-title"><a href="/app/development/data/attachments/">Attachments</a></h2>
     </header>
     <section class="post-excerpt">
@@ -1377,10 +1321,66 @@ Under seksjonen volumeMounts legger du til følgende linjer: <a class="read-more
 	
 	   <article class="post app">
     <header class="post-header">
-        <h2 class="post-title"><a href="/app/development/configuration/settings/">Settings and environmental variables</a></h2>
+        <h2 class="post-title"><a href="/app/development/configuration/stateless/">Stateless application (lookup-service)</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Standard .NET konfigurasjon Altinn 3 sin App template baserer seg på en ASP.Net Core applikasjon og har med dette en rekke muligheter for å styre konfigurasjon av en App. Denne dokumentasjonen er derfor i stor grad utdrag fra eller linker til Microsoft sin egen dokumentasjon. Det er derimot ikke alt som er mulig i en App da det er litt begrenset hva Altinn 3 gir av tilganger til miljøet en App kjører i. <a class="read-more" href="/app/development/configuration/settings/">&raquo;</a></p>
+        <p>Introduksjon til stateless applikasjoner En stateless, eller tilstandsløs, applikasjon skiller ser fra standard applikasjoner ved at den ikke lagrer noe data, verken skjemadata eller metadata om instanser av applikasjonen. Derfor passer stateless applikasjoner godt som innsynstjenester der en sluttbruker eller et system gjør et oppslag mot en eller annen ressurs evt. presenterer data fra en tredjepart basert på hvem brukeren er. Det er også mulig å konfigurere en stateless applikasjon til å tillate bruk av anonyme brukere, altså brukere som ikke er pålogget. <a class="read-more" href="/app/development/configuration/stateless/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post app">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/app/development/configuration/authentication/">Konfigurasjon av autentisering</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Autentiseringsnivå Påkrevd autentiseringsnivå settes i XACML Policy som obligation.
+ID-provider Det er mulig å sette at app skal bruke en spesiell ID-provider som ikke er standardvalget. Standarvalg betyr ID-porten / Altinn pålogging.
+De eneste godkjente ID-providerene for øyeblikket er
+ FEIDE UIDP  Bruk av OIDC provider settes i appSettings
+&#34;AppOidcProvider&#34;: &#34;uidp&#34; Les mer om OIDC støtten under arkitektur. <a class="read-more" href="/app/development/configuration/authentication/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post app">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/app/development/logic/calculation/">Calculations</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Calculationa is from 4.7.0 replaced by data processing. Look here
+Kalkulering Kalkuleringer kjøres på serveren, og er basert på input fra sluttbruker/skjemadata. Kalkuleringer trenger ikke å være rent matematiske, det kan også være å overføre verdier mellom felter, resultater av API-kall, osv.
+Kalkuleringer kodes i C#, i filen CalculationHandler.cs. Denne filen kan redigeres enklest ved å laste ned kildekoden til app&rsquo;en og redigere på egen maskin, f.eks. i Visual Studio Code. <a class="read-more" href="/app/development/logic/calculation/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          

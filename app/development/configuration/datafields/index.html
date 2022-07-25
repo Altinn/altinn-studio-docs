@@ -1096,42 +1096,42 @@ if(host != "localhost")
                 </span>
                 <span class="links"><a href='/app/'>Create apps</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/development/'>Development</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/development/configuration/'>Configuration</a> <span class='adocs-breadcrumb-divider'> / </span> Data fields</span>
             </div>
-          </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english">translate-to-english</a></div><div id="body-inner"><h1 class="a-fontBold">Data fields on instance object</h1>
+          </div><div id="body-inner"><h1 class="a-fontBold">Data fields on instance object</h1>
               <p class="a-leadText" id="leadText">Configuration of data fields for app.</p>
 
 
 
 
-<p>I noen tilfeller kan det være nyttig å legge ekstra informasjon på instansobjektet f. eks. for å kunne basere ruting av instans til rett system i bakkant hos tjenesteeier.</p>
-<p>Dette kan gjøres på to måter, ved konfigurasjon eller manuelt. Ved konfigurasjon vil systemet ekstrahere data fra skjemafeltene og legge disse på instansobjektet. Man er da begrenset til skjemafelter, men slipper å programmere dette selv. Hvis man velger å gjøre det manuelt har man frihet til å legge på de dataene man selv ønsker f. eks. fra eksterne apier, kalkuleringer, faste strenger etc.</p>
-<p>Det er også mulig å benyttes seg av begge metoder så lenge man benytter seg av forskjellige id&rsquo;er på datafeltene. De konfigurerte verdiene vil da flettes sammen med de manuelle på instansen.</p>
-<p>Datafelter er på mange måter tilsvarende <a href="../presentationfields/_index.md">presentasjonsfelter</a>. Men der hvor bruken av presentasjonsfelter er forhåndsbestemt (benyttes i meldingsboksen til Altinn), er bruken av datafelter opp til den enkelte applikasjonseier.</p>
-<h2 id="konfigurasjon">Konfigurasjon</h2>
-<p>Konfigurasjon av datafelter gjøres i <code>applicationmetadata.json</code> som ligger i repoet under mappen <code>App/config</code>.</p>
-<p>Legg til en ny seksjon med navn <code>dataFields</code> med følgende underfelter</p>
+<p>It is useful to add extra information to instance objects in some cases. For example allowing routing the instance to the correct system in a service owners backend.</p>
+<p>This can be done in two ways, by configuration or manually. Using configuration, the system will extract data from the form fields and add these to the instance object. This method is limited to form fields, but avoids programming it by yourself. If you choose to do it manually you have the freedom to add data you might want from for example external APIs, calculations, string constants, etc.</p>
+<p>It is also possible to make use of both methods as long as you use different ids on the data fields. The configured values will then be collected together with the manual ones in the instance.</p>
+<p>Data fields are in many ways similar to <a href="../presentationfields/_index.md">presentation fields</a>. But where the use of presentation fields is predefined, the use of data fields is completely up to the individual application owner.</p>
+<h2 id="configuration">Configuration</h2>
+<p>Configuration of data fields is done in <code>applicationmetadata.json</code> which is located in the folder <code>App/config</code>.</p>
+<p>Add a new object with the key <code>dataFields</code>, using the following properties</p>
 <table>
 <thead>
 <tr>
-<th>Navn</th>
-<th>Beskrivelse</th>
+<th>Name</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>id</td>
-<td>Id på datafeltet. Benyttes til å identifisere feltet når den er lagret på instansen.</td>
+<td>The ID of the datafield. Used to identify the field when saved in the instance.</td>
 </tr>
 <tr>
 <td>path</td>
-<td>Datamodell path til skjemafeltet. Denne verdien er den samme som bindes til en komponent i layoutfilen til appen.</td>
+<td>Datamodel path to the form field. This value is the same value that is bound to a component in the app&rsquo;s layout file.</td>
 </tr>
 <tr>
 <td>dataTypeId</td>
-<td>Id på datamodellen som verdien skal hentes fra.</td>
+<td>Id of the datamodel where the value is collected from.</td>
 </tr>
 </tbody>
 </table>
-<p>Konfigurasjonen til en app med to definerte datafelter vil se slik ut:</p>
+<p>The configuration for an app with two defined data fields will look like this:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#f1fa8c">&#34;dataFields&#34;</span>: [
   {
   <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;AnsettelseAntAar&#34;</span>,
@@ -1143,21 +1143,21 @@ if(host != "localhost")
   <span style="color:#ff79c6">&#34;path&#34;</span>: <span style="color:#f1fa8c">&#34;OpplysningerOmArbeidstakeren-grp-8819.OpplysningerOmArbeidstakeren-grp-8855.AnsattNavn-datadef-1223.value&#34;</span>,
   <span style="color:#ff79c6">&#34;dataTypeId&#34;</span>: <span style="color:#f1fa8c">&#34;default&#34;</span>
   }]
-</code></pre></div><p>Resultatet vil være en liste på instansobjektet med verdier fra de konfigurerte feltete:</p>
+</code></pre></div><p>The result will be a list in the instance object with values from the configured fields:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#f1fa8c">&#34;dataValues&#34;</span>: {
     <span style="color:#ff79c6">&#34;AnsettelseAntAar&#34;</span>: <span style="color:#bd93f9">10</span>,
     <span style="color:#ff79c6">&#34;Navn&#34;</span>: <span style="color:#f1fa8c">&#34;Ola Nordmann&#34;</span>
 }
-</code></pre></div><p>Legg merke til at det på instansobjektet heter <code>dataValues</code> mens når det konfigureres heter <code>dataFields</code>, det er fordi 
-<code>dataValues</code>er resultatet av konfigureringen som gjøres på <code>dataFields</code>.</p>
-<h2 id="manuelt">Manuelt</h2>
-<p>For å legge til dataverdier manuelt benyttes metoden <code>UpdateDataValues</code> fra IInstance interfacet. Det er den samme metoden som kalles når dataverdier populeres fra konfigurasjon og den sørger for å flette sammen verdiene til en liste.</p>
+</code></pre></div><p>Notice that the instance object is named <code>dataValues</code> even when the configured is named <code>dataFields</code>, this is because <code>dataValues</code> is the 
+result of the configuration which is done in <code>dataFields</code>.</p>
+<h2 id="manually">Manually</h2>
+<p>To manually add data values the method <code>UpdateDataValues</code>from the IInstance interface is used. It is the same method which is called when the fields in <code>dataValues</code> are populated from configuration and it will merge all values into a list.</p>
 <div class="notices warning" >
-Merk at det er applikasjonsutvikler sitt ansvar å sørge for unike id'er hvis man kombinerer dataverdier fra konfgiurasjon og manuelt.
-Har man ikke unike id'er vil verdier overskrives, og man har ingen garanti for hvilken som blir lagret på instansen.
+Be aware that it is the application developer's responsibility to ensure unique IDs if you combine data values between configuration and a manual implementation.
+Values that share IDs will override each other and there is no way to guarantee which will be saved in the instance. 
 </div>
-<p>Eksemplet under viser hvordan man kan sette datavedier manuelt. I dette tilfellet gjøres det ved å gjøre legge inn kode 
-i <code>RunProcessTaskEnd</code> i <code>App.cs</code> som kjører når en task avsluttes.</p>
+<p>The example below displays how to set data values manually. In this case it is done by adding code
+within <code>RunProcessTaskEnd</code> in <code>App.cs</code>, which is run when a task is completed.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">override</span> <span style="color:#ff79c6">async</span> Task RunProcessTaskEnd(<span style="color:#8be9fd">string</span> taskId, Instance instance)
 {
     <span style="color:#8be9fd">var</span> customDataValues = <span style="color:#ff79c6">new</span> DataValues() { Values = <span style="color:#ff79c6">new</span> Dictionary&lt;<span style="color:#8be9fd">string</span>, <span style="color:#8be9fd">string</span>&gt;() { { <span style="color:#f1fa8c">&#34;customKey&#34;</span>, <span style="color:#f1fa8c">&#34;customValue&#34;</span> } } };
@@ -1168,7 +1168,7 @@ i <code>RunProcessTaskEnd</code> i <code>App.cs</code> som kjører når en task 
     <span style="color:#ff79c6">await</span> Task.CompletedTask;
 }
 </code></pre></div><div class="notices warning" >
-Man bør også tenke gjennom når man trenger disse verdiene på instansobjektet slik at man ikke gjør unødvendige api kall og dermed får en dårligere ytelse på applikasjonen.
+It is recommended to think through the necessity of these values for the instance object so that it avoids unnecessary API calls which impact the performance of the application.
 </div>
 
 

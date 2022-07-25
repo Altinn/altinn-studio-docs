@@ -1128,87 +1128,6 @@ if(host != "localhost")
 	
 	   <article class="post app">
     <header class="post-header">
-        <h2 class="post-title"><a href="/app/development/configuration/stateless/">Stateless application (lookup-service)</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Introduksjon til stateless applikasjoner En stateless, eller tilstandsløs, applikasjon skiller ser fra standard applikasjoner ved at den ikke lagrer noe data, verken skjemadata eller metadata om instanser av applikasjonen. Derfor passer stateless applikasjoner godt som innsynstjenester der en sluttbruker eller et system gjør et oppslag mot en eller annen ressurs evt. presenterer data fra en tredjepart basert på hvem brukeren er. Det er også mulig å konfigurere en stateless applikasjon til å tillate bruk av anonyme brukere, altså brukere som ikke er pålogget. <a class="read-more" href="/app/development/configuration/stateless/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post app">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/app/development/configuration/authentication/">Konfigurasjon av autentisering</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Autentiseringsnivå Påkrevd autentiseringsnivå settes i XACML Policy som obligation.
-ID-provider Det er mulig å sette at app skal bruke en spesiell ID-provider som ikke er standardvalget. Standarvalg betyr ID-porten / Altinn pålogging.
-De eneste godkjente ID-providerene for øyeblikket er
- FEIDE UIDP  Bruk av OIDC provider settes i appSettings
-&#34;AppOidcProvider&#34;: &#34;uidp&#34; Les mer om OIDC støtten under arkitektur. <a class="read-more" href="/app/development/configuration/authentication/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post app">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/app/development/logic/calculation/">Calculations</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Calculationa is from 4.7.0 replaced by data processing. Look here
-Kalkulering Kalkuleringer kjøres på serveren, og er basert på input fra sluttbruker/skjemadata. Kalkuleringer trenger ikke å være rent matematiske, det kan også være å overføre verdier mellom felter, resultater av API-kall, osv.
-Kalkuleringer kodes i C#, i filen CalculationHandler.cs. Denne filen kan redigeres enklest ved å laste ned kildekoden til app&rsquo;en og redigere på egen maskin, f.eks. i Visual Studio Code. <a class="read-more" href="/app/development/logic/calculation/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post app">
-    <header class="post-header">
         <h2 class="post-title"><a href="/app/development/api/consume/">Consume APIs in an app</a></h2>
     </header>
     <section class="post-excerpt">
@@ -1344,10 +1263,11 @@ Delegering av API-tilganger til leverandør Som en bruker som er nøkkelrolleinn
 	
 	   <article class="post app">
     <header class="post-header">
-        <h2 class="post-title"><a href="/app/development/configuration/process/message/">Message</a></h2>
+        <h2 class="post-title"><a href="/app/launched-apps/digdir/oed/">Oppgjør etter dødsfall</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>En melding i Altinn 3 er egentlig bare et data-steg, på samme måte som f.eks. skjemautfylling. Det settes opp med en datamodell for meldingen, og en layout for hva som skal vises på siden. Melding er dermed ikke en egen steg-type. Dette gjør at en melding i Altinn 3 er ekstremt fleksibel, og kan settes opp enten som eneste steg i en prosess, eller som en del av en større prosess. <a class="read-more" href="/app/development/configuration/process/message/">&raquo;</a></p>
+        <p>Innledning Figuren under viser de viktigste komponentene i løsningen. OED er realisert som en serie Tjenester 3.0 app&rsquo;er med en overordnet app med skreddersydd GUI og øvrige Tjenester 3.0 apper for spesifikke formål.
+App&rsquo;ene kan ikke instansieres fra tjenestekatalogen. Hovedapp&rsquo;en instansieres utelukkende fra Domstol grensesnittet, og «Altinn avgiver» (process instance owner) er avdøde. Arvinger og evt andre som skal benytte løsningen får tilgang til instansen via tildelte roller i Altinn autorisasjon. <a class="read-more" href="/app/launched-apps/digdir/oed/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -1369,11 +1289,95 @@ Delegering av API-tilganger til leverandør Som en bruker som er nøkkelrolleinn
 	
 	   <article class="post app">
     <header class="post-header">
-        <h2 class="post-title"><a href="/app/launched-apps/digdir/oed/">Oppgjør etter dødsfall</a></h2>
+        <h2 class="post-title"><a href="/app/testing/local/apitests/org/">API test org</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Innledning Figuren under viser de viktigste komponentene i løsningen. OED er realisert som en serie Tjenester 3.0 app&rsquo;er med en overordnet app med skreddersydd GUI og øvrige Tjenester 3.0 apper for spesifikke formål.
-App&rsquo;ene kan ikke instansieres fra tjenestekatalogen. Hovedapp&rsquo;en instansieres utelukkende fra Domstol grensesnittet, og «Altinn avgiver» (process instance owner) er avdøde. Arvinger og evt andre som skal benytte løsningen får tilgang til instansen via tildelte roller i Altinn autorisasjon. <a class="read-more" href="/app/launched-apps/digdir/oed/">&raquo;</a></p>
+        <p>Appen har en rekke API som kan benyttes av applikasjonseier/tjenesteeier. Beskrivelsen du finner her er laget for Postman hvor det er benyttet testapplikasjonen MVA testapp.
+Postman-prosjektet kan lastes ned fra her (høyreklikk og velg &ldquo;save as&rdquo;).
+Autentisering av tjenesteier org I testmiljø og produksjon brukes maskinporten for å autentisere organisasjoner som eier apper.
+Testplattformen for lokal testing tilbyr et enkelt api for å autentisere organisjonen som er ansvarlig.
+Man trenger bare å oppgi tjenesteeier kode (som f. <a class="read-more" href="/app/testing/local/apitests/org/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post app">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/app/development/ux/fields/settings/">Field settings</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>This functionality must be set up manually directly in form layout for now.NOTE: This functionality requires app-frontend v3 or newer. See this link for more information.
+Mark a field as optional It is possible to mark a field as optional. The default is that required fields are marked as required (with *), while optional fields have no marking.
+Default behaviour can be overwritten by changing the settings of the field. <a class="read-more" href="/app/development/ux/fields/settings/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post app">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/app/testing/local/testusers/">Test-user for local testing</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Disse kan man velge når man logger inn i lokal test.
+Sophie Salt Sophie er en svært driftig dame som bor i Oslo. Hun har startet en kjede med treningsententer som heter DDG Fitness og til nå er det startet 3 underenheter i Oslo, Bergen og Trondheim. Sophie har rollen DAGL og dens underroller for DDG Fitness AS og dens underhenheter.
+I tilegg er hun ekspert på helse og har startet eget konsulentfirma for helsetjenester. <a class="read-more" href="/app/testing/local/testusers/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post app">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/app/getting-started/navigation/designer/ui-editor/">UI editor</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Bygge et skjema ved bruk av UI editor UI Editor er tilgjengelig i fanen Lage når man er inne i en app i Altinn Studio.
+Bruke skjemakomponenter Skjemakomponentene kan trekkes inn i arbeidsområdet (i midten) fra menyen til venstre. Man kan deretter endre rekkefølgen på dem ved hjelp av drag and drop i arbeidsområdet.
+Når du holder muspekeren over en komponent, eller når du velger den ved å klikke på den, blir to ikoner synlig - et søppelbøtte-ikon for å slette komponenten, og et blyant-ikon for å endre på egenskapene til komponenten. <a class="read-more" href="/app/getting-started/navigation/designer/ui-editor/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          

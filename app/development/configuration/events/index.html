@@ -1099,31 +1099,31 @@ if(host != "localhost")
           </div><div id="body-inner"><h1 class="a-fontBold">Events</h1>
               <p class="a-leadText" id="leadText">How to create custom events for an app.</p><h2>On this page:</h2><nav id="TableOfContents">
   <ul>
-    <li><a href="#aktivere-generering-av-events-i-applikasjonen-din">Aktivere generering av events i applikasjonen din</a></li>
-    <li><a href="#pushe-egendefinerte-events-i-applikasjonen-din">Pushe egendefinerte events i applikasjonen din</a></li>
+    <li><a href="#activate-generation-of-events-in-your-application">Activate generation of events in your application</a></li>
+    <li><a href="#pushing-self-defined-events-into-your-application">Pushing self defined events into your application</a></li>
   </ul>
 </nav>
 
 
 
 
-<h2 id="aktivere-generering-av-events-i-applikasjonen-din">Aktivere generering av events i applikasjonen din</h2>
+<h2 id="activate-generation-of-events-in-your-application">Activate generation of events in your application</h2>
 <div class="notices info" >
-For at applikasjonen din skal kunne generere events må den referere til nugetversjon >= 1.2.4.
-Se hvordan du oppdaterer nugetreferanser for applikasjonen din [her](../update/#nuget-pakker).
+To allow generating events for your application it must refer to nuget version >= 1.2.4.
+See how you update nuget references for your application [here](../update/#nuget-packages).
 </div>
-<p>Generering og lagring av events er ikke enablet som default i applikasjonene per 22.10.2020.
-Det må derfor et manuelt steg til for at applikasjonen din skal generere events.</p>
-<p>I filen <code>appsettings.json</code> i mappen <em>App</em> må følgende legges til i seksjonen <em>AppSettings</em></p>
+<p>Generation and storing of events is not enabled by default in applications per 22.10.2020.
+Because of this, a manual step is required before your application can generate events.</p>
+<p>In the file <code>appsettings.json</code> in the folder <em>App</em> the following should be added into the section <em>AppSettings</em></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#f1fa8c">&#34;RegisterEventsWithEventsComponent&#34;</span>: <span style="color:#ff79c6">true</span>
-</code></pre></div><h2 id="pushe-egendefinerte-events-i-applikasjonen-din">Pushe egendefinerte events i applikasjonen din</h2>
-<p>Servicen <code>IEvents</code> er eksponert i applikasjonen og kan dependency injectes
-i den klassen der du har behov for å generere et egendefinert event.</p>
-<p>Metoden <em>AddEvent</em> krever navnet på eventypen og instansen som input.</p>
-<h3 id="kodeeksempel">Kodeeksempel</h3>
-<p>I denne seksjonen finner du et eksempel på hvordan man kan generere
-et egendefinert event ved instansiering av applikasjonen.</p>
-<p>Logikken er implementert i <code>InstantiationHandler.cs</code></p>
+</code></pre></div><h2 id="pushing-self-defined-events-into-your-application">Pushing self defined events into your application</h2>
+<p>The service <code>IEvents</code> is exposed in the application and can be dependency injected
+into the class where you need to generate a self defined event.</p>
+<p>The method <em>AddEvent</em> requires the name of the eventtype and the instance as input</p>
+<h3 id="code-example">Code example</h3>
+<p>In this section you can find an example of how to generate a self 
+defined event by instantiation within the application</p>
+<p>The logic is implemented in <code>InstantiationHandler.cs</code></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">using</span> Altinn.App.Services.Interface;
 <span style="color:#ff79c6">using</span> Altinn.App.PlatformServices.Interface;
 <span style="color:#ff79c6">using</span> Altinn.App.Services.Models.Validation;
@@ -1184,16 +1184,16 @@ et egendefinert event ved instansiering av applikasjonen.</p>
 }
 </code></pre></div><ol>
 <li>
-<p>Den private variabelen for servicen inkluderes i klassen</p>
+<p>The private variable in the service is included in the class</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">private</span> IEvents <span style="color:#bd93f9">_</span>eventsService;
 </code></pre></div></li>
 <li>
-<p>Namespce for IEvents må inkluderes i klassen. 
-Legg til linjen nedenfor blant de andre <em>using</em>-statements øverst i filen.</p>
+<p>Namespace for IEvents must be included in the class. 
+Add the line below among the other <em>using</em> statements in the top of the file.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">using</span> Altinn.App.PlatformServices.Interface;
 </code></pre></div></li>
 <li>
-<p>IEvents servicen dependency injectes inn i klassen. Og den private variabelen blir assignet en verdi.</p>
+<p>The IEvents service is dependency injected into the class. And the private variable is assigned a value.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">    <span style="color:#ff79c6">public</span> InstantiationHandler(IProfile profileService, IRegister registerService, IEvents eventsService)
     {
         <span style="color:#bd93f9">_</span>profileService = profileService;
@@ -1202,16 +1202,16 @@ Legg til linjen nedenfor blant de andre <em>using</em>-statements øverst i file
     }
 </code></pre></div></li>
 <li>
-<p>I metoden der man har behov for å genere et event kaller man på servicen.</p>
-<p>Her har det egendefinerte eventet fått navnet <code>app.test.event</code>,
-i tillegg sendes instansen med. Denne brukes til å populere resterende metadata om eventet.</p>
+<p>In the method where you need to generate an event you call the service.</p>
+<p>Here the self defined event has received the name <code>app.test.event</code>,
+in addition the instance is sent. This is used to populate remaining metadata about the event</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">await</span> <span style="color:#bd93f9">_</span>eventsService.AddEvent(<span style="color:#f1fa8c">&#34;app.test.event&#34;</span>, instance);  
 </code></pre></div></li>
 <li>
-<p>Dersom du prøver å bygge løsningen nå vil det feile.</p>
-<p>IEvents vil mangle der InstantiationHandler instansieres. Naviger til <code>App.cs</code>
-og dependency inject servicen inn i konstruktøren til App.</p>
-<p>Videre må tjenesten legges til i kallet der InstantiationHandler instansieres som vist nedenfor.</p>
+<p>If you try building the solution at this point, it will fail.</p>
+<p>IEvents will be missing the location where the InstantiationHandler is instantiated. 
+Navigate to <code>App.cs</code>and dependency inject the service into App&rsquo;s constructor.</p>
+<p>Further the service must be added into the call where InstantiationHandler is instantiated as shown below.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">public</span> App(
     IAppResources appResourcesService,
     ILogger&lt;App&gt; logger,
@@ -1231,8 +1231,8 @@ og dependency inject servicen inn i konstruktøren til App.</p>
 }
 </code></pre></div></li>
 <li>
-<p>Applikasjonen din er nå klar til å generere et egendefinert event under instansiering.
-Dette er mulig å <a href="https://github.com/Altinn/altinn-studio/blob/master/LOCALAPP.md">teste lokalt</a> før det evt. deployes til et testmiljø.</p>
+<p>Your application is now ready to generate a self defined event during instantiation.
+You can <a href="https://github.com/Altinn/altinn-studio/blob/master/LOCALAPP.md">test this locally</a> before eventually deploying to a test environment.</p>
 </li>
 </ol>
 
