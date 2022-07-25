@@ -1096,59 +1096,58 @@ if(host != "localhost")
                 </span>
                 <span class="links"><a href='/app/'>Create apps</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/development/'>Development</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/development/api/'>API</a> <span class='adocs-breadcrumb-divider'> / </span> Instance</span>
             </div>
-          </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english">translate-to-english</a></div><div id="body-inner"><h1 class="a-fontBold">Instance</h1>
+          </div><div id="body-inner"><h1 class="a-fontBold">Instance</h1>
               <p class="a-leadText" id="leadText">How to make changes to application instances.</p><h2>On this page:</h2><nav id="TableOfContents">
   <ul>
     <li><a href="#substatus">Substatus</a></li>
-    <li><a href="#automatisert-sletting-av-utkast">Automatisert sletting av utkast</a></li>
+    <li><a href="#automatic-deletion-of-drafts">Automatic deletion of drafts</a></li>
   </ul>
 </nav>
 
 
 
 
-<p>Denne siden er foreløpig ikke fullstendig, mer informasjon vil komme på et senere tidspunkt.</p>
-<p>En instansiert applikasjon vil ha et tilhørende instans-objekt. Dette objektet inneholder metadata om den spesifikke instansen.
-Om du ønsker å lære mer om instans og api&rsquo;et rundt så kan du lese teknisk dokumentasjon om dette under API.</p>
+<p>This page is currently incomplete and more information will be provided at a later date.</p>
+<p>An instantiated application will have a corresponding instance object. This object contains metadta about the specific instance.
+If you want to learn more about the instance and the affiliated API you can read the technical documentation about this under &ldquo;API&rdquo;.</p>
 <h2 id="substatus">Substatus</h2>
-<p>Som app-eier kan man sette en substatus på instansen, dette for å kunne gi sluttbruker ytterligere informasjon om hvilken tilstand instansen befinner seg i.
-Substatus vil vises frem både i meldingsboksen i Altinn og på kvitteringssiden.</p>
-<p>Substatusen er et objekt som kan settes på instansobjektet. Hvordan dette gjøres står beskrevet under API.
-Substatus er et enkelt objekt som inneholder <code>label</code> og <code>description</code>. Disse feltene kan enten inneholde ren tekst, eller en tekstnøkkel som referer til applikasjonstekstene. Verdt å merke seg at vi ikke støtter variabler i tekst for disse tekstene.
-I meldingsboksen er det satt en begrensning på 25 tegn på <code>label</code>, og inneholder label mer enn 25 tegn vil bare de 22 første tegnene bli brukt og &ldquo;&hellip;&rdquo; lagt til på slutten.</p>
-<p>Eksempel på et substatus-objekt:</p>
+<p>As an app-owner you can set a substatus for the instance, this is to allow the end user further information about which condition the instance is currently in.
+Substatus is displayed both in the Altinn message box and in the receipt page.</p>
+<p>The substatus is an object which can be set in the instance object. How this is done is described under API. 
+Substatus is a simple object which contains <code>label</code> and <code>description</code>. These fields can either contain clean text, or a text key that refers to the application
+texts. It is worth noting that we do not support variables in text for these texts. 
+In the message box, <code>label</code> is limited to 25 symbols and if it contains more than 25 symbols, only the first 22 symbols will be used and &ldquo;&hellip;&rdquo; will be added to the end.</p>
+<p>Example of a status object:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
     <span style="color:#ff79c6">&#34;label&#34;</span>: <span style="color:#f1fa8c">&#34;some.label&#34;</span>,
-    <span style="color:#ff79c6">&#34;description&#34;</span>: <span style="color:#f1fa8c">&#34;Beskrivelse i klarteskst&#34;</span>
+    <span style="color:#ff79c6">&#34;description&#34;</span>: <span style="color:#f1fa8c">&#34;Description in clear text&#34;</span>
 }
-</code></pre></div><p>Under ser du du eksempler på hvordan substatus ser ut i meldingsboksen og i kvitteringen hvor substatusen er satt opp på følgende måte:</p>
+</code></pre></div><p>Below you see an example of how substatus looks like in the message box and in the receipt where the substatus is set up in the following way:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-    <span style="color:#ff79c6">&#34;label&#34;</span>: <span style="color:#f1fa8c">&#34;Godkjent&#34;</span>,
-    <span style="color:#ff79c6">&#34;description&#34;</span>: <span style="color:#f1fa8c">&#34;Din søknad er godkjent av kongen.&#34;</span>
+    <span style="color:#ff79c6">&#34;label&#34;</span>: <span style="color:#f1fa8c">&#34;Accepted&#34;</span>,
+    <span style="color:#ff79c6">&#34;description&#34;</span>: <span style="color:#f1fa8c">&#34;Your application has been accepted by the king.&#34;</span>
 }
-</code></pre></div><figure><a href="meldingsboks.png"><img src="meldingsboks.png" alt="Substatus i meldingsboks" title="Substatus i meldingsboks" /></a><figcaption><h4>Substatus i meldingsboks</h4></figcaption></figure>
-<figure><a href="app.png"><img src="app.png" alt="Substatus i kvitteringen" title="Substatus i kvitteringen" /></a><figcaption><h4>Substatus i kvitteringen</h4></figcaption></figure>
-<h2 id="automatisert-sletting-av-utkast">Automatisert sletting av utkast</h2>
-<p>Som applikasjonseier kan man i noen tilfeller ønske å slette sluttbrukerens utkast av en tjeneste dersom det har gått en viss tid siden instansiering. 
-For å oppnå dette er det tre steg som må tas.</p>
+</code></pre></div><figure><a href="meldingsboks.png"><img src="meldingsboks.png" alt="Substatus in message box" title="Substatus in message box" /></a><figcaption><h4>Substatus in message box</h4></figcaption></figure>
+<figure><a href="app.png"><img src="app.png" alt="Substatus in receipt" title="Substatus in receipt" /></a><figcaption><h4>Substatus in receipt</h4></figcaption></figure>
+<h2 id="automatic-deletion-of-drafts">Automatic deletion of drafts</h2>
+<p>As an application owner you can imagine some cases where deleting a user&rsquo;s draft after a certain time is necessary. 
+To achieve this three steps are required:</p>
 <ol>
-<li>Applikasjonen må konfigureres slik at tjenesteeier har lov til å slette instanser</li>
-<li>Identifiser hvilke instanser som ikke er fullført v.h.a. spørring mot storage</li>
-<li>Slette instans via endepunkt eksponert i applikasjonen</li>
+<li>The application needs to be configured to allow the service owner to delete instances</li>
+<li>Identify which instances that haven&rsquo;t been completed via requesting storage</li>
+<li>Delete the instance via an exposed endpoint within the application</li>
 </ol>
-<h3 id="steg-1-konfigurasjon-av-applikasjon">Steg 1: Konfigurasjon av applikasjon</h3>
-<p>Standarden for en applikasjon er at tjenesteeier ikke har lov til å slette instanser.
-For å få lov til dette må det legges til en ny regel i <code>policy.xml</code> den finnes i <code>App/config/authorization</code>.
-Regelen kan kopieres fra <a href="../autorisasjon/regelbibliotek/#org-can-delete-an-instance-of-orgapp-in-any-task-or-event">regelbiblioteket</a>.</p>
-<h3 id="steg-2-identifiser-hvilke-instanser-som-ikke-er-fullført-vha-spørring-mot-storage">Steg 2: Identifiser hvilke instanser som ikke er fullført v.h.a. spørring mot storage</h3>
-<p>Storage eksponerer et sett med queryparametre som kan brukes når man skal hente ut et sett med instanser. 
-i eksempelet nedenfor får man ut alle instanser som av en gitt applikasjon som er instansiert 30. september 2020 eller tidligere, 
-og som enda står i utfyllingssteget.</p>
-<p>Her kan man prøve seg litt fram for å finne de rette queryparameterene for akkurat deres tjeneste.</p>
+<h3 id="step-1-configuring-the-application">Step 1: Configuring the application</h3>
+<p>Service owners are not allowed to delete instances by default. 
+To get the required permissions a rule must be added into <code>policy.xml</code>, placed in <code>App/config/authorization</code>.
+The rule can be copied from our <a href="../autorisasjon/regelbibliotek/#org-can-delete-an-instance-of-orgapp-in-any-task-or-event">rule library</a>.</p>
+<h3 id="step-2-identify-which-instances-are-incomplete-by-sending-a-request-to-storage">Step 2: Identify which instances are incomplete by sending a request to storage</h3>
+<p>Storage exposes a set of query parameters which can be used to retrieve a set of instances.
+The example below retrieves all non-submitted instances of a given application that was instantiated on the 30. of september 2020.</p>
+<p>You can try query parameters for your service here.</p>
 <p><code>HTTP GET https://platform.altinn.no/storage/api/v1/instances?appId={org}/{app}&amp;created=lte:2020-09-30&amp;process.currentTask=Task_1</code></p>
-<h3 id="steg-3-slette-instans-via-endepunkt-eksponert-i-applikasjone">Steg 3: Slette instans via endepunkt eksponert i applikasjone</h3>
-<p>Når man har identifisert instansene som skal slettes er det en smal sak å sende et kall
-til applikasjonen for å få slettet disse. Da må id på instansen (instanceOwner.partyId/instanceGuid) oppgis.</p>
+<h3 id="step-3-delete-instance-via-endpoint-exposed-in-the-application">Step 3: Delete instance via endpoint exposed in the application</h3>
+<p>After identifying the instances that are to be deleted, you can send a call to the application to delete these with the instance id (instanceOwner.partyId/instanceGuid).</p>
 <p><code>HTTP DELETE https://ttd.apps.altinn.no/ttd/apps-test/instances/{instanceOwner.partyId}/{instanceGuid}</code></p>
 
 

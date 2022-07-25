@@ -1128,31 +1128,6 @@ if(host != "localhost")
 	
 	   <article class="post app">
     <header class="post-header">
-        <h2 class="post-title"><a href="/app/development/configuration/settings/">Settings and environmental variables</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Standard .NET konfigurasjon Altinn 3 sin App template baserer seg på en ASP.Net Core applikasjon og har med dette en rekke muligheter for å styre konfigurasjon av en App. Denne dokumentasjonen er derfor i stor grad utdrag fra eller linker til Microsoft sin egen dokumentasjon. Det er derimot ikke alt som er mulig i en App da det er litt begrenset hva Altinn 3 gir av tilganger til miljøet en App kjører i. <a class="read-more" href="/app/development/configuration/settings/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post app">
-    <header class="post-header">
         <h2 class="post-title"><a href="/app/development/configuration/stateless/">Stateless application (lookup-service)</a></h2>
     </header>
     <section class="post-excerpt">
@@ -1343,12 +1318,11 @@ Delegering av API-tilganger til leverandør Som en bruker som er nøkkelrolleinn
 	
 	   <article class="post app">
     <header class="post-header">
-        <h2 class="post-title"><a href="/app/development/api/instance/">Instance</a></h2>
+        <h2 class="post-title"><a href="/app/development/logic/instantiation/">Instantiation</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Denne siden er foreløpig ikke fullstendig, mer informasjon vil komme på et senere tidspunkt.
-En instansiert applikasjon vil ha et tilhørende instans-objekt. Dette objektet inneholder metadata om den spesifikke instansen. Om du ønsker å lære mer om instans og api&rsquo;et rundt så kan du lese teknisk dokumentasjon om dette under API.
-Substatus Som app-eier kan man sette en substatus på instansen, dette for å kunne gi sluttbruker ytterligere informasjon om hvilken tilstand instansen befinner seg i. <a class="read-more" href="/app/development/api/instance/">&raquo;</a></p>
+        <p>Introduksjon Applikasjonslogikk knyttet til instansiering kan defineres i InstantiationHandler.cs. For en helt ny app vil det være to funksjoner implementert i denne klassen:
+ RunInstantiationValidation - lag egne sjekker for å avgjøre om en bruker/avgiver får lov til å instansiere. DataCreation - lag tilpasset prefill data.  Egendefinerte valideringsregler for instansiering Som tidligere nevnt, kan sjekker for instansiering defineres i RunInstantiationValidation. Tilgang til Register- og Profile-tjenester er inkludert i InstantiationHandler.cs-filen, som tillater å gjøre sjekker mot disse. <a class="read-more" href="/app/development/logic/instantiation/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -1370,11 +1344,36 @@ Substatus Som app-eier kan man sette en substatus på instansen, dette for å ku
 	
 	   <article class="post app">
     <header class="post-header">
-        <h2 class="post-title"><a href="/app/development/logic/instantiation/">Instantiation</a></h2>
+        <h2 class="post-title"><a href="/app/development/configuration/process/message/">Message</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Introduksjon Applikasjonslogikk knyttet til instansiering kan defineres i InstantiationHandler.cs. For en helt ny app vil det være to funksjoner implementert i denne klassen:
- RunInstantiationValidation - lag egne sjekker for å avgjøre om en bruker/avgiver får lov til å instansiere. DataCreation - lag tilpasset prefill data.  Egendefinerte valideringsregler for instansiering Som tidligere nevnt, kan sjekker for instansiering defineres i RunInstantiationValidation. Tilgang til Register- og Profile-tjenester er inkludert i InstantiationHandler.cs-filen, som tillater å gjøre sjekker mot disse. <a class="read-more" href="/app/development/logic/instantiation/">&raquo;</a></p>
+        <p>En melding i Altinn 3 er egentlig bare et data-steg, på samme måte som f.eks. skjemautfylling. Det settes opp med en datamodell for meldingen, og en layout for hva som skal vises på siden. Melding er dermed ikke en egen steg-type. Dette gjør at en melding i Altinn 3 er ekstremt fleksibel, og kan settes opp enten som eneste steg i en prosess, eller som en del av en større prosess. <a class="read-more" href="/app/development/configuration/process/message/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post app">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/app/launched-apps/digdir/oed/">Oppgjør etter dødsfall</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Innledning Figuren under viser de viktigste komponentene i løsningen. OED er realisert som en serie Tjenester 3.0 app&rsquo;er med en overordnet app med skreddersydd GUI og øvrige Tjenester 3.0 apper for spesifikke formål.
+App&rsquo;ene kan ikke instansieres fra tjenestekatalogen. Hovedapp&rsquo;en instansieres utelukkende fra Domstol grensesnittet, og «Altinn avgiver» (process instance owner) er avdøde. Arvinger og evt andre som skal benytte løsningen får tilgang til instansen via tildelte roller i Altinn autorisasjon. <a class="read-more" href="/app/launched-apps/digdir/oed/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
