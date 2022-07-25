@@ -15,8 +15,8 @@ If you want to learn more about instance and its surrounding API you can read th
 As an app owner you can set a substatus for the instance, this is to enable giving out further information about the condition the instance is currently in.
 Substatus will be shown both in the message box in Altinn and on the receipt page.
 
-The substatus is an objekt which can be set on hte instance object. How this is done is described under API.
-Substatus is a simple object that contains `label` and `description`. These fields can either contain pure text or a text key which refers to the application texts. Keep in mind that variables in text are not supported in these fields. 
+The substatus is an object which can be set on the instance object. How this is done is described under API.
+Substatus is a simple object that contains `label` and `description`. These fields can either contain plain text or a text key which refers to the application texts. Keep in mind that variables in text are not supported in these fields. 
 The message box is limited to 25 characters in the `label` field, and should `label` contain more than 25 characters only the first 22 will be used and all remaining be replaced with "..."
 
 Example of a substatus object: 
