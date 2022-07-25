@@ -10,7 +10,7 @@ weight: 500
 
 A stateless application differentiates itself from standard applications by not storing any data,
 including form data or metadata about instances of the application.
-Because of this, a stateless application is a good choice for access services where the end user or a system is doing a lookup against 
+Because of this, a stateless application is a good choice for information transparency services where the end user or a system is doing a lookup against
 one or more resources or presents data from a third party based on who the user is. 
 It is also possible to configure a stateless application to only allow anonymous users, or users that are not logged on.
 
