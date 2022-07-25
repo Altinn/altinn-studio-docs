@@ -1143,10 +1143,8 @@ creates a current task object to hold the process state.</p>
 which signify the behaviour of the task. So far we have defined the following:</p>
 <ul>
 <li><em>data</em> - user is asked to fill inn one or more data elements, e.g. upload data or fill in forms</li>
-<li><em>submit</em> - user is asked if he should submit the information which has been filled in on previous tasks</li>
-<li><em>payment</em> - user is asked to pay a specific amount</li>
-<li><em>signing</em> - user is asked to provide a digital signature</li>
-<li><em>external</em> - task is handled by an external entity, user must wait until they have completed the task.</li>
+<li><em>confirmation</em> - user is asked to confirm the correctness of the information which has been filled in on previous tasks</li>
+<li><em>feedback</em> - user is asked to wait while external feedback is uploaded to the instance</li>
 </ul>
 <h2 id="get-process-state-of-a-specific-instance">Get process state of a specific instance</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process
