@@ -64,7 +64,7 @@ Configuration of this is done in `applicationmetadata.json`. Example:
 }
 
 ```
-In the field `onEntry.show` there is the opportunity to refere to a layout-set which you want to display during startup of the application. Read more about layout-sets [here.](../../ux/ui-editor/multiple-layoutsets/#oppsett)
+In the field `onEntry.show` there is the opportunity to reference a layout set which you want to display during startup of the application. Read more about layout-sets [here.](../../ux/ui-editor/multiple-layoutsets/#setup)
 
 The layout sets you refer to here will be used as the display the user is presented before navigating to the application.
 
