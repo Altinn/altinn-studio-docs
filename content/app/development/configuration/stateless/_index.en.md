@@ -435,8 +435,8 @@ The other check calls `_finanstilsynet.HasReqiuiredLicence()`, a method which lo
     return false;
     ```
 
-    `lookup.result` is populated with the value from the lookup, bin this case we just write the query string back to the user.
-    Again `true` is returned to indicate that a davavalue has been changed, and `false`if this is not the case.
+    `lookup.result` is populated with the value from the lookup, in this case we just write the query string back to the user.
+    Again, `true` is returned to indicate that a data value has been changed, and `false` if this is not the case.
 ## Starting an instance from a stateless form
 
 {{%notice warning%}}
