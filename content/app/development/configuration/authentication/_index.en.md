@@ -1,7 +1,7 @@
 ---
-title: Configuration of authentification
-linktitle: Authentification
-description: Some configurations can be usefull when it comes to authentification
+title: Configuration of authentication
+linktitle: Authentication
+description: Some configurations can be useful when it comes to authentication
 weight: 800
 ---
 
