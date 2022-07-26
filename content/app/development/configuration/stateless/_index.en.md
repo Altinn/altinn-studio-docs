@@ -187,7 +187,7 @@ public async Task<bool> ProcessDataRead(Instance instance, Guid? dataId, object 
 }
 ```
 
-## Authorisation with third party solutions
+## Authorization with third party solutions
 
 Controlling access for stateless applications can be done with [standard app-authorization](../authorisation) 
 Where by using Altinn roles you define who has access to the service.
