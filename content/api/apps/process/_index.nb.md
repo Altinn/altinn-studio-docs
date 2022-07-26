@@ -49,10 +49,8 @@ Application developers can in their BPMN Definition specify some altinn specific
 which signify the behaviour of the task. So far we have defined the following:
 
 - *data* - user is asked to fill inn one or more data elements, e.g. upload data or fill in forms
-- *submit* - user is asked if he should submit the information which has been filled in on previous tasks
-- *payment* - user is asked to pay a specific amount
-- *signing* - user is asked to provide a digital signature
-- *external* - task is handled by an external entity, user must wait until they have completed the task.
+- *confirmation* - user is asked to confirm the correctness of the information which has been filled in on previous tasks
+- *feedback* - user is asked to wait while external feedback is uploaded to the instance
 
 ## Get process state of a specific instance
 
