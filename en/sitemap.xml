@@ -556,6 +556,18 @@
                 href="https://docs.altinn.studio/app/development/ux/"
                 />
   </url><url>
+    <loc>https://docs.altinn.studio/app/design/guidelines/wcag/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/design/guidelines/wcag/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/design/guidelines/wcag/"
+                />
+  </url><url>
     <loc>https://docs.altinn.studio/community/changelog/</loc>
     <xhtml:link
                 rel="alternate"
@@ -676,18 +688,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://docs.altinn.studio/app/development/ux/pages/summary/"
-                />
-  </url><url>
-    <loc>https://docs.altinn.studio/app/design/guidelines/wcag/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="nb"
-                href="https://docs.altinn.studio/nb/app/design/guidelines/wcag/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://docs.altinn.studio/app/design/guidelines/wcag/"
                 />
   </url><url>
     <loc>https://docs.altinn.studio/app/development/configuration/</loc>

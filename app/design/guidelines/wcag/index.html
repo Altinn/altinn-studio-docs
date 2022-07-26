@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="God tilgjengelighet hjelper mennesker med funksjonshemninger å oppfatte innholdet vårt på en meningsfull måte. Ved å bruke Altinn 3 får du mye på kjøpet, men noen ting må du fortsatt huske på selv.">
+    <meta name="description" content="Good accessibility helps people with disabilities access our services in a meaningful way. By using Altinn 3 large parts of your service is handled by us, but you still have to remember some things yourself.">
 
-<title>Tilgjengelighet – Altinn</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+<title>Accessibility – Altinn</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
     <link href="/css/nucleus.css" rel="stylesheet">
     <link href="/css/font-awesome.min.css" rel="stylesheet">
     <link href="/css/hybrid.css" rel="stylesheet">
@@ -217,7 +217,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/tone-of-voice/"><span>Language</span></a></li>
       <li class="dd-item parent active">
-        <a href="/app/design/guidelines/wcag/"><span>Tilgjengelighet</span></a></li></ul></li></ul></li>
+        <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
         <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -1094,78 +1094,69 @@ if(host != "localhost")
                     <span class="sr-only">Vis/skjul meny</span>
                   </a>
                 </span>
-                <span class="links"><a href='/app/'>Create apps</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/design/'>Design</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/design/guidelines/'>Guidelines</a> <span class='adocs-breadcrumb-divider'> / </span> Tilgjengelighet</span>
+                <span class="links"><a href='/app/'>Create apps</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/design/'>Design</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/design/guidelines/'>Guidelines</a> <span class='adocs-breadcrumb-divider'> / </span> Accessibility</span>
             </div>
-          </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english">translate-to-english</a></div><div id="body-inner"><h1 class="a-fontBold">Tilgjengelighet</h1>
-              <p class="a-leadText" id="leadText">God tilgjengelighet hjelper mennesker med funksjonshemninger å oppfatte innholdet vårt på en meningsfull måte. Ved å bruke Altinn 3 får du mye på kjøpet, men noen ting må du fortsatt huske på selv.</p><h2>On this page:</h2><nav id="TableOfContents">
+          </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english">translate-to-english</a></div><div id="body-inner"><h1 class="a-fontBold">Accessibility</h1>
+              <p class="a-leadText" id="leadText">Good accessibility helps people with disabilities access our services in a meaningful way. By using Altinn 3 large parts of your service is handled by us, but you still have to remember some things yourself.</p><h2>On this page:</h2><nav id="TableOfContents">
   <ul>
-    <li><a href="#sjekkliste">Sjekkliste</a></li>
-    <li><a href="#hvordan-teste">Hvordan teste</a></li>
-    <li><a href="#kontrast">Kontrast</a></li>
+    <li><a href="#check-list">Check list</a></li>
+    <li><a href="#how-to-test-accessibility">How to test accessibility</a></li>
+    <li><a href="#contrast">Contrast</a></li>
   </ul>
 </nav>
 
 
 
 
-<p>Forskrift om universell utforming av IKT-løsninger stiller krav om at nettsider må oppfylle 35 av 61 suksesskriterier 
-i standarden <a href="https://www.w3.org/Translations/WCAG20-no/">Retningslinjer for tilgjengelig webinnhold (WCAG) 2.0</a>. Sjekk 
-ut <a href="https://www.uutilsynet.no/wcag-standarden/wcag-20-standarden/86">minimumskravene</a> på UU-tilsynet som er omfattet 
-av forskriften.</p>
-<h2 id="sjekkliste">Sjekkliste</h2>
-<ul>
-<li><strong>Innholdsstruktur</strong> Sjekk at du har en logisk struktur på overskrifter (H1 - H4), og at du ikke har noen tomme 
-overskriftselementer. Det er fort gjort å glemme et nivå. For å oppdage feil i innholdstrukturen kan det være nyttig å 
-benytte “Wave” som er et utvidelsesverktøy til chrome. <a href="https://chrome.google.com/webstore/detail/wave-evaluation-tool/jbbplnpkjmmeebjpijfedlgcdilocofh">Last ned Wave til Chrome</a>, installer og ikonet vil dukke opp 
-øverst til høyre i nettleseren.</li>
-</ul>
+<p>The regulation on universal design of ICT solutions require that websites and apps must meet 35 of 61 success criteria in the standard  <a href="https://www.w3.org/Translations/WCAG20-no/">Guidelines for accessible web content (WCAG) 2.0. (nb)</a>. Check out the <a href="https://www.uutilsynet.no/wcag-standarden/wcag-20-standarden/86">minimum requirements</a></p>
+<h2 id="check-list">Check list</h2>
 <ul>
 <li>
-<p><strong>Forklarende tekster og hjelpetekst</strong> Sjekk at lenker, label og knapper har forklarende tekster. Ta en vurdering på 
-om ekstra beskrivelser og hjelpetekster må kobles til input elementet.</p>
+<p><strong>Content structure</strong><br>
+Check that you have a logical structure of headings (H1 - H4), and that you don&rsquo;t have any empty heading elements. It is not uncommon to forget a level. &ldquo;Wave&rdquo; might be a usefull tool to discover errors in the content structure. Wave is an extension for Chrome which can be used to evaluate the accessibility of a website. <a href="https://chrome.google.com/webstore/detail/wave-evaluation-tool/jbbplnpkjmmeebjpijfedlgcdilocofh">Download Wave for Chrome</a></p>
 </li>
 <li>
-<p><strong>Knapp vs lenke</strong> Det er viktig at man er bevisst på om det blir brukt knapper eller lenker, da skjermlesere kan 
-få problemer med å tolke funksjonaliteten.</p>
+<p><strong>Explanations and helper texts</strong><br>
+Check that links, labels and buttons have explanatory texts. Make an evaluation of what explanations and helper texts have to be connected to the input element.</p>
 </li>
 <li>
-<p><strong>Feilmeldinger</strong> Du er selv ansvarlig for at 
-<a href="../components/error-message/">korrekte feilmeldinger</a> 
-blir lagt inn på hvert av skjemafeltene.</p>
+<p><strong>Button vs link</strong><br>
+It is important to be conscious of using buttons and links, since screen readers can struggle with interpreting their functionality.</p>
+</li>
+<li>
+<p><strong>Error messages</strong><br>
+You are responsible for <a href="../components/error-message/">correct error messages</a> being created for the form fields.</p>
 </li>
 </ul>
 
 
 <div class="panel panel-warning">
 	
-	<div class="panel-body"><p><strong>NB:</strong> Skal du lage tjenester i egen løsning, der Altinns grensesnitt er usynlig for brukeren, må du selv huske på å 
-ta hensyn til øvrige <a href="https://www.uutilsynet.no/wcag-standarden/nettsteder/711">WCAG-krav</a>.</p>
+	<div class="panel-body"><p><strong>NB:</strong> When creating solutions for your internal service, where Altinn&rsquo;s user interface is hidden from the user, you have to make sure that you follow all <a href="https://www.uutilsynet.no/wcag-standarden/nettsteder/711">WCAG-demands</a>.</p>
 </div>
 	
 </div>
 
-<h2 id="hvordan-teste">Hvordan teste</h2>
-<p>Det er viktig at dere tester at tjenesten deres er tilgjengelig for alle. Dette vil ikke bare hjelpe deres tjeneste, 
-men det kan også belyse feil som har oppstått eller blitt oversett hos oss. Her er noen verktøy som kan brukes til 
-å gjøre enkle tester.</p>
-<h3 id="tastaturnavigasjon">Tastaturnavigasjon</h3>
-<p>Sjekk at alle knapper og inputfelter kan nåes ved tastaturnavigasjon.</p>
-<h3 id="skjermleser">Skjermleser</h3>
-<p>Gå gjennom flyten med en skjermleser som hjelpemiddel. Her kan du forsikre deg om at alt blir lest opp riktig og at 
-tekstene er beskrivende nok.</p>
+<h2 id="how-to-test-accessibility">How to test accessibility</h2>
+<p>It&rsquo;s important that you test that your services are accessible to everyone. 
+This will help not just your service, but can also highlight mistakes or oversights made by us. 
+Here are some tools that can be used for simple testing of accessibility.</p>
+<h3 id="keyboard-navigation">Keyboard navigation</h3>
+<p>check that all buttons and input fields can be reached by keyboard navigation (tab, arrowkeys, esc, etc.)</p>
+<h3 id="screen-reader">Screen reader</h3>
+<p>Go through your service while using a screen reader as a helping device. This way you can ensure that everything is read out correctly and that the texts are sufficiently descriptive.</p>
 <ul>
 <li>
-<p><strong>Mac:</strong> VoiceOver er forhåndsinstallert på Apples mobiler og PCer. 
-<a href="https://support.apple.com/no-no/guide/voiceover/welcome/mac">VoiceOver Brukerveiledning</a></p>
+<p><strong>Mac:</strong> VoiceOver is preinstalled on apples mobiles and PCs. 
+<a href="https://support.apple.com/no-no/guide/voiceover/welcome/mac">VoiceOver User walkthrough</a></p>
 </li>
 <li>
-<p><strong>Windows:</strong> NVDA Screenreader er et gratis skjermleser verktøy laget av NV Access 
-<a href="https://www.nvaccess.org/about-nvda/">Om NVDA Screenreader</a></p>
+<p><strong>Windows:</strong> NVDA Screenreader is a free screen reader tool made by NV Access. 
+<a href="https://www.nvaccess.org/about-nvda/">About NVDA Screenreader</a></p>
 </li>
 </ul>
-<h2 id="kontrast">Kontrast</h2>
-<p>Følgende fargekombinasjoner som er brukt på Altinn oppfyller kravene til kontrast i liten tekst. AA er minstekravet, 
-mens AAA er anbefalt, særlig for løpende tekst.</p>
+<h2 id="contrast">Contrast</h2>
+<p>The following colour combinations that are used in Altinn fulfill the accessibility demands for contrast within small text. AA is the minimum requirement, while AAA is recommended, especially for body text</p>
 <div>
     <div class="ap-swatch" style="background: #022F51;">
     <div class="ap-colorCircle" style="border: 1px solid #1EAEF7; color: #1EAEF7; font-size: 20px; line-height: 36px;">AA</div>
@@ -1201,6 +1192,7 @@ mens AAA er anbefalt, særlig for løpende tekst.</p>
     <div class="ap-colorCircle" style="border: 1px solid #000; color: #000; font-size: 20px; line-height: 36px;">AAA</div>
     </div>
 </div>
+
 
 <footer class=" footline" >
 	
