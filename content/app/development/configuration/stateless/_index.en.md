@@ -167,7 +167,9 @@ Data will be populated in two steps during the initial call from the front-end (
 1. Prefill, read more about this [here.](../../data/prefill/)
 2. Data processing, read more about this [here.](../../logic/dataprocessing/)
 
-The following updates to the same form data (POST) will then run prefill one more time, but the calculation is triggered. This allows manipulating the data based on the user's input even in stateless condition.
+The following updates to the same form data (POST) will then run prefill one more time, but the calculation is triggered. This allows manipulating the data based on the user's input even in stateless application.
+
+Example of a calculation which populates the data model mentioned in the example above:
 
 Example of a calculation which populates the datamodel mentioned in the example above:
 
