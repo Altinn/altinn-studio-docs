@@ -441,7 +441,7 @@ The other check calls `_finanstilsynet.HasReqiuiredLicence()`, a method which lo
 
 {{%notice warning%}}
 
-This is brand new functionality. Setup must be completed manually untill further notice and will not be supported in Altinn Studio.
+This is brand new functionality. Setup must be completed manually until further notice and will not be supported in Altinn Studio.
 
 **Note:** To make use of this functionality you must use version >= 4.17.2 of the nuget packages `Altinn.App.PlatformServices`, `Altinn.App.Common` og `Altinn.App.Api`.
 
