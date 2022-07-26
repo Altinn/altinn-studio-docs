@@ -381,7 +381,7 @@ Further down this page we will use the designation *user* synonymously with an o
     lookup lookup = (lookup)data 
     ```
     
-    Then comes the logic for checking if the user is authenticated.
+    Then comes the logic for checking if the user is authorized.
 
     ```cs
     // Check if user is authorized to use service
