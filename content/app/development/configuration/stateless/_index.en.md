@@ -454,7 +454,7 @@ There is an example application which is set up like an access service where the
 
 ### Instantiation with prefill
 
-One use case where starting an instance from a stateless view can be that you first want the app to act like an access service where the user is presented some given data. From this information the user can choose to act on the listed data, and then use the service as a normal form submittance service.
+An example use case for starting an instance from a stateless application could be an app where the user is presented some given data at first. From this information the user can choose to act on the listed data, and then continue using the service as a normal form.
 
 To achieve this type of flow you are dependent on setting up your application as a stateless application, described under [configuration](#configuration).
 When this has been done, you can expand the stateless view to include `InstantiationButton` which can start a new instance when the user clicks the button.
