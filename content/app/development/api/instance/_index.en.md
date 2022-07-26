@@ -27,7 +27,7 @@ Example of a substatus object:
 }
 ```
 
-Underneath you can see examples of how substatus looks like in the message box, and in the receipt where the substatus is set up in the following way:
+Below you can see examples of how substatus looks like in the message box, and in the receipt where the substatus is set up in the following way:
 ```json
 {
     "label": "Accepted",
