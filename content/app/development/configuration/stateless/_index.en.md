@@ -194,7 +194,7 @@ Where by using Altinn roles you define who has access to the service.
 If you require further securing of your service you can implement logic for authorization of users with third party solutions.
 This can be an API which is exposed in your organization or an open API from a different provider.
 
-In the example below, an API from the norwegian finance ministry is used to determine if a company that is 
+In the example below, an API from the Financial Supervisory Authority of Norway is used to determine if a company that is
 represented by a user in Altinn has the necessary licenses to use a service. 
 
 ![GUI for authorized user](extra-credentials-example-allowed.png "GUI for authorized user")
