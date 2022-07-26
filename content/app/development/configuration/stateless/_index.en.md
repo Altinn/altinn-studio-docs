@@ -230,7 +230,7 @@ Further down this page we will use the designation *user* synonymously with an o
 
     ![GUI in Altinn Studio](extra-credentials-example-layout.png "GUI in Altinn Studio")
 
-    The components are connected to a datamodel and text resource in the following way in `FormLayout.json`
+    The components are connected to a data model and text resource in the following way in `FormLayout.json`
 
     ```json
     "layout": [
