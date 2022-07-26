@@ -450,7 +450,7 @@ This is brand new functionality. Setup must be completed manually until further 
 In a stateless application you have the opportunity to use the `InstantiationButton` component to start an instance.
 Currently we only support starting an instance from within the same application the stateless form is displayed in. Starting an instance in another application is functionality we will add in the future.
 
-There is an example application which is set up like an access service where the end user can choose to start an instance in the actual application. It can be used as inspiration for further development. The application with source code can be found [here](https://altinn.studio/repos/ttd/start-from-stateless)
+There is an example stateless application where the end user can choose to start an instance in the actual application. It can be used as inspiration for further development. The application with source code can be found [here](https://altinn.studio/repos/ttd/start-from-stateless)
 
 ### Instantiation with prefill
 
