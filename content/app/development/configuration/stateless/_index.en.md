@@ -275,7 +275,7 @@ Further down this page we will use the designation *user* synonymously with an o
     We use dynamic rules to show/hide fields depending on the users level of authorization 
     
     There has been added a dynamic rule in `RuleHandler.js` which checks if a field in the datamodel has the value `false`.
-    Configuration of rules is described closre [here](../../logic/dynamic/#legg-tilrediger-funksjoner-for-beregninger-eller-visskjul).
+    Configuration of rules is described more closely [here](../../logic/dynamic/#legg-tilrediger-funksjoner-for-beregninger-eller-visskjul).
 
     In `RuleConfiguration.json` you can see how the rule is utilized.
     If the input value from the data model `userAuthorized` is false, the errorBox-component will be made visible,
