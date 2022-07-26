@@ -375,7 +375,7 @@ Further down this page we will use the designation *user* synonymously with an o
      }
     ```
 
-    The method starts with logic for collecting form data for future use in the mehtod.
+    The method starts with logic for collecting form data for future use in the method.
 
     ```cs
     lookup lookup = (lookup)data 
