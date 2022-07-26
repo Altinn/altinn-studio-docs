@@ -15,7 +15,7 @@ Required authentification level is set in the [XACML Policy](../authorization) a
 
 It is possible to set up that an app will use a special ID-provider which is not the standard option. The standard option is ID-porten / Altinn's login.  
 
-Currently the only validated ID-providers are:
+Currently the only approved ID-providers are:
 
 - [FEIDE](https://www.feide.no/)
 - [UIDP](https://www.udir.no/verktoy/uidp/)
