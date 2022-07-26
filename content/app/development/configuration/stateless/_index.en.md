@@ -404,7 +404,7 @@ Further down this page we will use the designation *user* synonymously with an o
 
     Two checks are done to decide the authorization of a user.
     First it is verified that the party object has a defined organization number,
-    if this is not the case and the user is not representing an organization he is not authorized.
+    if this is not the case and the user is not representing an organization they are not authorized.
 
 The other check calls `_finanstilsynet.HasReqiuiredLicence()`, a method which looks up the Financial Supervisory Authority of Norway's API to decide if an organization has been given a license.
     The implementation of that service is available [here][her](https://altinn.studio/repos/ttd/extra-credentials-demo/src/branch/master/App/services/FinanstilsynetService.cs).
