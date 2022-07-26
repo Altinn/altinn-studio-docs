@@ -402,7 +402,7 @@ Further down this page we will use the designation *user* synonymously with an o
     Party party = await _register.GetParty(int.Parse(instance.InstanceOwner.PartyId)) 
     ```
 
-    Two checks are done to decide the authentification of a iser.
+    Two checks are done to decide the authorization of a user.
     First it is verified that the party object has a defined organization number,
     if this is not the case and the user is not representing an organization he is not authorized.
 
