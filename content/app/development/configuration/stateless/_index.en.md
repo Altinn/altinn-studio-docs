@@ -318,8 +318,8 @@ Further down this page we will use the designation *user* synonymously with an o
    In addition to the name of the service, three text resources have been added.
   
    The text resource for error messages contains a placeholder for the name of the user.
-   The variable `errorMessage`will be populated in the datamodel when it is registered
-   that the user lacks the authentification to access the service.
+   The variable `errorMessage` will be populated in the data model when it is registered
+   that the user lacks the authorization to access the service.
 
     ```json
      {
