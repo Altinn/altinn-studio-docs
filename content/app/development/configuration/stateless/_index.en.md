@@ -120,7 +120,7 @@ Note! Form components that affect process (Button for submission or instantiatio
 
 {{%/notice%}}
 
-To permit use of an app by a user that is not logged in, you must follow the steps that are described above. You _Also_ have to define the datatype which is used by the stateless app to allow anonymous use. This is done by modifying the actual `dataType`-element in `applicationMetadata.json`. 
+To permit use of an app by a user that is not logged in, you must follow the steps that are described above. You _also_ have to define the data type which is used by the stateless app to allow anonymous use. This is done by modifying the `dataType`-element in `applicationMetadata.json`.
 The datatype's `appLogic`-object needs a new setting, `"allowAnonymousOnStateless": true`. See example below:
 
 ```json{hl_lines=[24]}
