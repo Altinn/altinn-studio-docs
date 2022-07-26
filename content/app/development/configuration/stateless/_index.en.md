@@ -163,9 +163,9 @@ The datatype's `appLogic`-object needs a new setting, `"allowAnonymousOnStateles
 
 When using a stateless data type you will be able to populate the data model in when the app front-end requests the form data.
 
-Datapopulating happens in two steps on the initial call from frontend (GET):
+Data will be populated in two steps during the initial call from the front-end (GET):
 1. Prefill, read more about this [here.](../../data/prefill/)
-2. Dataprocessing, read more about this [here.](../../logic/dataprocessing/)
+2. Data processing, read more about this [here.](../../logic/dataprocessing/)
 
 The following updates to the same form data (POST) will then run prefill one more time, but the calculation is triggered. This allows manipulating the data based on the user's input even in stateless condition.
 
