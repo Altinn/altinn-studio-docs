@@ -161,7 +161,7 @@ The datatype's `appLogic`-object needs a new setting, `"allowAnonymousOnStateles
 
 ## Populating data
 
-When using a stateless datatype you will be able to populate the datamodel in when the app-front end requests the form data. 
+When using a stateless data type you will be able to populate the data model in when the app front-end requests the form data.
 
 Datapopulating happens in two steps on the initial call from frontend (GET):
 1. Prefill, read more about this [here.](../../data/prefill/)
