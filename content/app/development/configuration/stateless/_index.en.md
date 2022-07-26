@@ -279,7 +279,7 @@ Further down this page we will use the designation *user* synonymously with an o
 
     In `RuleConfiguration.json` you can see how the rule is utilized.
     If the input value from the data model `userAuthorized` is false, the errorBox-component will be made visible,
-    while the opposite happens to the searh and result fields as those are hidden. 
+    while the opposite happens to the search and result fields as those are hidden.
     
     Default behaviour will be the opposite, that search and results are visibile while the error field is hidden.
 
