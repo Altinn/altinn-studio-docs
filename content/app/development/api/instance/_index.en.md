@@ -12,7 +12,7 @@ If you want to learn more about instance and its surrounding API you can read th
 
 ## Substatus
 
-As an app owner you can set a substatus for the instance, this is to enable providing more detailed information information about the current state of the instance.
+As an app owner you can set a substatus for the instance, this is to enable providing more detailed information about the current state of the instance.
 Substatus will be shown both in the message box in Altinn and on the receipt page.
 
 The substatus is an object which can be set on the instance object. How this is done is described under API.
