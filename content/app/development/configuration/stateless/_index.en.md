@@ -171,7 +171,6 @@ The following updates to the same form data (POST) will then run prefill one mor
 
 Example of a calculation which populates the data model mentioned in the example above:
 
-Example of a calculation which populates the datamodel mentioned in the example above:
 
 ```c#
 public async Task<bool> ProcessDataRead(Instance instance, Guid? dataId, object data)
