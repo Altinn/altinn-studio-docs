@@ -178,7 +178,7 @@ public async Task<bool> ProcessDataRead(Instance instance, Guid? dataId, object 
     {
         StatelessV1 form = (StatelessV1) data;
         // Here you can do what you want, for ex. an API-call
-        // If your service is supposed to act as an access service
+        // if your service is supposed to act as an information transparency service
         form.Fornavn = "Test";
         form.Etternavn = "Testesten";
         return true
