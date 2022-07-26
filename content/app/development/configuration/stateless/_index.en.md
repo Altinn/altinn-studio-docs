@@ -206,7 +206,7 @@ The source code for the example application can be found [here](https://altinn.s
 
 Further down this page we will use the designation *user* synonymously with an organization represented by a person in Altinn. 
 
-1. **Expand the datamodel with fields for authorization**
+1. **Expand the data model with fields for authorization**
 
     In addition to a field for user input and a field to display the result,
     in this example we have a field for holding information about if the user is authenticated 
