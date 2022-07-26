@@ -413,7 +413,7 @@ The other check calls `_finanstilsynet.HasReqiuiredLicence()`, a method which lo
     - an indicator that the user is not authorized
     - an error message, with only the name of the user
   
-     And `true` is returned to indicate that the datavalues have been updated. 
+     And `true` is returned to indicate that the data values have been updated.
     
 
     ```cs
