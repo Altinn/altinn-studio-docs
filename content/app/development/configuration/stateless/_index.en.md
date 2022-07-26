@@ -409,7 +409,7 @@ Further down this page we will use the designation *user* synonymously with an o
 The other check calls `_finanstilsynet.HasReqiuiredLicence()`, a method which looks up the Financial Supervisory Authority of Norway's API to decide if an organization has been given a license.
     The implementation of that service is available [here][her](https://altinn.studio/repos/ttd/extra-credentials-demo/src/branch/master/App/services/FinanstilsynetService.cs).
     
-    If none of the checks are succesfull two fields in the datamodel are populated;
+    If none of the checks are successful two fields in the data model are populated;
     - an indicator that the user is not authorized
     - an error message, with only the name of the user
   
