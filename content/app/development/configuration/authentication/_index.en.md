@@ -6,7 +6,7 @@ weight: 800
 ---
 
 
-## Authentification level
+## Authentication level
 
 Required authentification level is set in the [XACML Policy](../authorization) as an obligation.
 
