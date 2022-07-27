@@ -331,7 +331,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/deployment/"><span>Deployment</span></a></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authentication/"><span>Autentisering</span></a></li></ul></li>
+        <a href="/app/development/configuration/authentication/"><span>Authentication</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/app/development/api/"><span>API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -1321,35 +1321,6 @@ Finne adressen til et repo URL-en til et gitt app repository er strukturert slik
 	
 	   <article class="post app">
     <header class="post-header">
-        <h2 class="post-title"><a href="/app/development/configuration/authentication/">Konfigurasjon av autentisering</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Autentiseringsnivå Påkrevd autentiseringsnivå settes i XACML Policy som obligation.
-ID-provider Det er mulig å sette at app skal bruke en spesiell ID-provider som ikke er standardvalget. Standarvalg betyr ID-porten / Altinn pålogging.
-De eneste godkjente ID-providerene for øyeblikket er
- FEIDE UIDP  Bruk av OIDC provider settes i appSettings
-&#34;AppOidcProvider&#34;: &#34;uidp&#34; Les mer om OIDC støtten under arkitektur. <a class="read-more" href="/app/development/configuration/authentication/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post app">
-    <header class="post-header">
         <h2 class="post-title"><a href="/app/development/logic/calculation/">Calculations</a></h2>
     </header>
     <section class="post-excerpt">
@@ -1384,6 +1355,32 @@ Kalkuleringer kodes i C#, i filen CalculationHandler.cs. Denne filen kan rediger
 This can be useful if you want to expose your organization&rsquo;s own APIs via an app or need help from external APIs in the application logic.
 On this page, an example of using an external open API to enrich form data is presented. The example app is available in Altinn Studio.
 The API used is RestCountries v3, and it&rsquo;s the endpoint https://restcountries. <a class="read-more" href="/app/development/api/consume/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post app">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/app/development/logic/dataprocessing/">Data processing</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Dataprosessering kjøres på serveren, og er basert på input fra sluttbruker/skjemadata. Dataprossering kan være kan være rent matematiske kalkuleringer, det kan også være å overføre verdier mellom felter, resultater av API-kall, osv.
+Dataprossering kodes i C#, i filen DataProsessingHandler.cs. Denne filen kan redigeres enklest ved å laste ned kildekoden til app&rsquo;en og redigere på egen maskin, f.eks. i Visual Studio Code. Datamodellen med skjemadata er tilgjengelig og kan redigeres/oppdateres etter ønske/behov. <a class="read-more" href="/app/development/logic/dataprocessing/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          

@@ -522,7 +522,7 @@
 	"title": "Configuration",
 	"tags": [],
 	"description": "Configuring different aspects of an app.",
-	"content": "\r\rMessageBox\rConfiguring different aspects of the presentation of application instances in the Altinn Message Box.\n\r\rAuthorization\rHow to define authorization rules (access management) for an app.\n\r\rParty types\rHow to ensure that only specific types of party types can use an app.\n\r\rData fields on instance object\rConfiguration of data fields for app.\n\r\rDefine application process\rHow to define the process of an app.\n\r\rQuery parameters\rAvailable query parameters for an app.\n\r\rSecrets\rHow to deal with secrets and sensitive data in an app.\n\r\reFormidling\rHow to configure integration with eFormidling for an app.\n\r\rEvents\rHow to create custom events for an app.\n\r\rSettings and environmental variables\rHow to add configuration and environmental specific values so that they are available from app code.\n\r\rConfigure behavior during startup\rHow to configure app behavior during startup of app-frontend\n\r\rStateless application (lookup-service)\rHow to add configuration to control behavior at the application startup.\n\r\rDeployment\rConfiguring deploy and runtime behavior\n\r\rKonfigurasjon av autentisering\rNår det gjelder autentisering er det noen konfigurasjoner som kan være aktuell\n\r\r"
+	"content": "\r\rMessageBox\rConfiguring different aspects of the presentation of application instances in the Altinn Message Box.\n\r\rAuthorization\rHow to define authorization rules (access management) for an app.\n\r\rParty types\rHow to ensure that only specific types of party types can use an app.\n\r\rData fields on instance object\rConfiguration of data fields for app.\n\r\rDefine application process\rHow to define the process of an app.\n\r\rQuery parameters\rAvailable query parameters for an app.\n\r\rSecrets\rHow to deal with secrets and sensitive data in an app.\n\r\reFormidling\rHow to configure integration with eFormidling for an app.\n\r\rEvents\rHow to create custom events for an app.\n\r\rSettings and environmental variables\rHow to add configuration and environmental specific values so that they are available from app code.\n\r\rConfigure behavior during startup\rHow to configure app behavior during startup of app-frontend\n\r\rStateless application (lookup-service)\rHow to add configuration to control behavior at the application startup.\n\r\rDeployment\rConfiguring deploy and runtime behavior\n\r\rConfiguration of authentication\rSome configurations can be useful when it comes to authentication\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/app/design/guidelines/components/date/",
@@ -1527,10 +1527,10 @@
 },
 {
 	"uri": "https://docs.altinn.studio/app/development/configuration/authentication/",
-	"title": "Konfigurasjon av autentisering",
-	"tags": ["translate-to-english"],
-	"description": "Når det gjelder autentisering er det noen konfigurasjoner som kan være aktuell",
-	"content": "Autentiseringsnivå Påkrevd autentiseringsnivå settes i XACML Policy som obligation.\nID-provider Det er mulig å sette at app skal bruke en spesiell ID-provider som ikke er standardvalget. Standarvalg betyr ID-porten / Altinn pålogging.\nDe eneste godkjente ID-providerene for øyeblikket er\n FEIDE UIDP  Bruk av OIDC provider settes i appSettings\n\u0026#34;AppOidcProvider\u0026#34;: \u0026#34;uidp\u0026#34; Les mer om OIDC støtten under arkitektur.\n"
+	"title": "Configuration of authentication",
+	"tags": [],
+	"description": "Some configurations can be useful when it comes to authentication",
+	"content": "Authentication level Required authentication level is set in the XACML Policy as an obligation.\nID-provider It is possible to set up that an app will use a special ID-provider which is not the standard option. The standard option is ID-porten / Altinn\u0026rsquo;s login.\nCurrently the only approved ID-providers are:\n FEIDE UIDP  Use of OIDC provider is set in appSettings\n\u0026#34;AppOidcProvider\u0026#34;: \u0026#34;uidp\u0026#34; Read more about OIDC support under architecture.\n"
 },
 {
 	"uri": "https://docs.altinn.studio/app/launched-apps/",

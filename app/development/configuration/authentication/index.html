@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Når det gjelder autentisering er det noen konfigurasjoner som kan være aktuell">
+    <meta name="description" content="Some configurations can be useful when it comes to authentication">
 
-<title>Konfigurasjon av autentisering – Altinn</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+<title>Configuration of authentication – Altinn</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
     <link href="/css/nucleus.css" rel="stylesheet">
     <link href="/css/font-awesome.min.css" rel="stylesheet">
     <link href="/css/hybrid.css" rel="stylesheet">
@@ -331,7 +331,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/deployment/"><span>Deployment</span></a></li>
       <li class="dd-item parent active">
-        <a href="/app/development/configuration/authentication/"><span>Autentisering</span></a></li></ul></li>
+        <a href="/app/development/configuration/authentication/"><span>Authentication</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/app/development/api/"><span>API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -1094,26 +1094,26 @@ if(host != "localhost")
                     <span class="sr-only">Vis/skjul meny</span>
                   </a>
                 </span>
-                <span class="links"><a href='/app/'>Create apps</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/development/'>Development</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/development/configuration/'>Configuration</a> <span class='adocs-breadcrumb-divider'> / </span> Autentisering</span>
+                <span class="links"><a href='/app/'>Create apps</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/development/'>Development</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/development/configuration/'>Configuration</a> <span class='adocs-breadcrumb-divider'> / </span> Authentication</span>
             </div>
-          </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english">translate-to-english</a></div><div id="body-inner"><h1 class="a-fontBold">Konfigurasjon av autentisering</h1>
-              <p class="a-leadText" id="leadText">Når det gjelder autentisering er det noen konfigurasjoner som kan være aktuell</p>
+          </div><div id="body-inner"><h1 class="a-fontBold">Configuration of authentication</h1>
+              <p class="a-leadText" id="leadText">Some configurations can be useful when it comes to authentication</p>
 
 
 
 
-<h2 id="autentiseringsnivå">Autentiseringsnivå</h2>
-<p>Påkrevd autentiseringsnivå settes i <a href="../authorization">XACML Policy</a> som obligation.</p>
+<h2 id="authentication-level">Authentication level</h2>
+<p>Required authentication level is set in the <a href="../authorization">XACML Policy</a> as an obligation.</p>
 <h2 id="id-provider">ID-provider</h2>
-<p>Det er mulig å sette at app skal bruke en spesiell ID-provider som ikke er standardvalget. Standarvalg betyr ID-porten / Altinn pålogging.</p>
-<p>De eneste godkjente ID-providerene for øyeblikket er</p>
+<p>It is possible to set up that an app will use a special ID-provider which is not the standard option. The standard option is ID-porten / Altinn&rsquo;s login.</p>
+<p>Currently the only approved ID-providers are:</p>
 <ul>
 <li><a href="https://www.feide.no/">FEIDE</a></li>
 <li><a href="https://www.udir.no/verktoy/uidp/">UIDP</a></li>
 </ul>
-<p>Bruk av OIDC provider settes i appSettings</p>
+<p>Use of OIDC provider is set in appSettings</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">    <span style="color:#f1fa8c">&#34;AppOidcProvider&#34;</span>: <span style="color:#f1fa8c">&#34;uidp&#34;</span>
-</code></pre></div><p>Les mer om OIDC støtten under <a href="/technology/architecture/capabilities/runtime/security/authentication/oidcproviders/">arkitektur</a>.</p>
+</code></pre></div><p>Read more about OIDC support under <a href="/technology/architecture/capabilities/runtime/security/authentication/oidcproviders/">architecture</a>.</p>
 
 
 <footer class=" footline" >
