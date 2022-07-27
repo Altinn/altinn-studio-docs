@@ -8,7 +8,7 @@ weight: 800
 
 ## Authentication level
 
-Required authentification level is set in the [XACML Policy](../authorization) as an obligation.
+Required authentication level is set in the [XACML Policy](../authorization) as an obligation.
 
 
 ## ID-provider
