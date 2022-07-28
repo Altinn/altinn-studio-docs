@@ -20,7 +20,7 @@ Calculations are run every time data is saved. With autosave on (default), calcu
 {{%notice info%}}
 IMPORTANT: When a calculation that has updated the data on the server has been run, the front-end must be notified so that the updated data can be loaded.
 To do this, the `Calculate`-method must return `true` if any of the data has been updated.
-If this is not done, the updated data will not be visible for the user until they may reload the page.
+If this is not done, the updated data will not be visible for the user until they reload the page.
 {{% /notice%}}
 
 Example on code that replaces a given value (`12345678`) with another value (`22222222`) in a given field is shown below:
