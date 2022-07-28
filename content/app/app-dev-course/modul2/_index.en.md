@@ -60,11 +60,11 @@ The following is desirable to be similar in the application:
 
 ### Useful docmentation
 
-- [Formatting of texts](https://docs.altinn.studio/app/development/ux/texts/#formatting-of-texts)
-- [Add pictures to the application](https://docs.altinn.studio/app/development/ux/images/#add-images-to-the-application)
-- [Set components side by side](https://docs.altinn.studio/app/development/ux/styling/#sidestilte-komponenter-grid)
-- [File setup with multiple pages](https://docs.altinn.studio/app/development/ux/pages/#oppsett)
-- [Administrate order of muntliple pages](https://docs.altinn.studio/app/development/ux/pages/navigation/#order)
+- [Formatting of texts](/app/development/ux/texts/#formatting-of-texts)
+- [Add pictures to the application](/app/development/ux/images/#add-images-to-the-application)
+- [Set components side by side](/app/development/ux/styling/#sidestilte-komponenter-grid)
+- [File setup with multiple pages](/app/development/ux/pages/#oppsett)
+- [Administrate order of muntliple pages](/app/development/ux/pages/navigation/#order)
 
 ### Comprehension check
 - Which file in the application repository has to be adjusted if you wish to manually change the page order of existing pages?
@@ -118,7 +118,7 @@ https://www.sogndal.kommune.no/
 
 ### Useful documentation
 - [How to set up dynamic tracks](/app/development/ux/pages/tracks/)
-- [Formatting of texts](https://docs.altinn.studio/app/development/ux/texts/#formatting-of-texts)
+- [Formatting of texts](/app/development/ux/texts/#formatting-of-texts)
 
 ### Comprehension check
 - If a user goes back and changes their answer on the info page, will they then be displayed the data collecting pages? If not, what changes can you introduce to support this in your application?

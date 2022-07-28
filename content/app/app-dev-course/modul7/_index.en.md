@@ -51,7 +51,7 @@ an instance if you meet the requirements.
 ### Useful documentation
 - [Introduction to stateless applications](/app/development/configuration/stateless/#introduksjon-til-stateless-applikasjoner)
 - [Configuring stateless applications](/app/development/configuration/stateless/#konfigurasjon)
-- [Starting instance from stateless form](https://docs.altinn.studio/app/development/configuration/stateless/)
+- [Starting instance from stateless form](/app/development/configuration/stateless/)
 ### Comprehension check
 - What data is saved for stateless applications?
 
