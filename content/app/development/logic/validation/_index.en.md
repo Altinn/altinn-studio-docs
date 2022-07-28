@@ -154,9 +154,9 @@ In the future, there will be support for setting custom error messages in the da
 
 Server-side validation can be split into two categories:
 
-- **Validations against data model** - These are run automatically whenever the user attempts to send inn form data.
+- **Validations against data model** - These run automatically whenever the user attempts to submit form data.
 - **Custom validations** - these are written by the application developer,
-and are run when the user attempts to submit form data or move the process to a new step.
+and run when the user attempts to submit form data or move the process to a new step.
 
 ## How to add custom validation
 Custom validation can also be split into two categories; task-validation and data-validation.
