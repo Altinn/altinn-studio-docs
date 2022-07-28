@@ -26,7 +26,7 @@ In Altinn Studio this is supported in the form of radio buttons, checkboxes and 
 There are three ways to set up code lists in Altinn today
 1. Directly on the component through Altinn Studio or manually in _FormLayout.json_\*
 2. In a static json-file referred to in the component
-3. Progmatic in the application logic
+3. Programmatic in the application logic
 
    \* only available on radio buttons and check boxes
 {{% /notice %}}

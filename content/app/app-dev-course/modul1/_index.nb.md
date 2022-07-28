@@ -130,7 +130,7 @@ Basert på kravene fra kommunen klarer du å sette opp den første skjemasiden i
   - Telefon
 
 ### Nyttig dokumentasjon
-- [Hvordan bygge et skjema med UI editor i Altinn Studio](nb/app/getting-started/navigation/designer/ui-editor/)
+- [Hvordan bygge et skjema med UI editor i Altinn Studio](/nb/app/getting-started/navigation/designer/ui-editor/)
 - [Tilgjengelige komponenter i Altinn Studio](/technology/solutions/altinn-studio/designer/functional/build-app/ui-designer/components/)
 - [Retningslinjer for bruk av komponenter](/nb/app/design/guidelines/components/)
 
