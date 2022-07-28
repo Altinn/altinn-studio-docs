@@ -49,7 +49,7 @@ Default error messages has been set up for all validations done on the client-si
 | required  | 'Du må fylle ut {0}'          | 'Du må fylle ut {0}'          | 'You have to fill out {0}'            |
 | enum      | 'Kun verdiene {0} er tillatt' | 'Kun verdiene {0} er tillatt' | 'Only the values {0} are permitted'   |
 
-### Specifically on default error messages for required fields
+### More about error messages for required fields
 The error message for required fields is as defined above, _"You have to fill out {0}"_. The `{0}` symbol is replaced with the field that
 the error message is shown for. This is done in the following way:
 - Uses the field's `shortName` text. This is a new component, that can be set up on a component in the same way as a prompt (`title`).  _This is currently used only for an error message for required fields._
