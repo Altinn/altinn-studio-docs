@@ -472,7 +472,7 @@ It is also possible to overrule the title you see on the messages by adding the 
 
 ## Group validation
 
-It is possible to apply validations to a repeating group when the user wants to set a custom title.
+It is possible to apply validations to a repeating group when the user saves a row in the group.
 This can be done by adding a trigger on the group component in the layout file (e.g. `FormLayout.json`). Example:
 
 ```json {hl_lines=[14]}
