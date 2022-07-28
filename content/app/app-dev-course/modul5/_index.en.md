@@ -66,7 +66,7 @@ Update the policy file so that it's authorization rules cover the new process st
 - The same role requirements should apply to both fill out and confirm an instance.
 
 ### Useful documentation
-- [Rule library](/app/development/configuration/authorisation/rules/)
+- [Rule library](/app/development/configuration/authorization/rules/)
 - [All roles in Altinn](https://www.altinn.no/en/help/forms/all-altinn-roles/)
 
 ### Comprehension check
