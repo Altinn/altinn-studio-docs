@@ -1,31 +1,29 @@
 ---
 title: Data processing
 description: How to add Calculations and other data processing?
-tags: [translate-to-english]
 toc: true
 ---
 
-Dataprosessering kjøres på serveren, og er basert på input fra sluttbruker/skjemadata.
-Dataprossering kan være kan være rent matematiske kalkuleringer, det kan også være å overføre verdier mellom felter, resultater av API-kall, osv. 
+Data processing is run on the server and is based on input from the user/form data.
+Data processing can be purely mathematical calculations, or it could transfer values between fields, retrieve results from API calls, etc.
 
-Dataprossering kodes i C#, i filen `DataProsessingHandler.cs`. Denne filen kan redigeres enklest ved å laste ned kildekoden til app'en og redigere på egen maskin, f.eks. i Visual Studio Code.
-Datamodellen med skjemadata er tilgjengelig og kan redigeres/oppdateres etter ønske/behov.
+Data processing is coded in C#, in the file `DataProcessingHandler.cs`. This file can easily be edited by downloading the source code to the app and editing on your own computer, e.g. in Visual Studio Code.
+The data model with form data is available and can be edited/updated when needed.
 
-Dataprossering kjøres hver gang data lagres og når data hentes ut fra API. Med auto-lagring på (dette er standard) vil dataprossering kjøres hver gang en bruker har gjort en endring og hopper ut av et felt.
+Data processing runs each time data is saved and when data is retrieved from API. With auto-save on (default) data processing will run each time a user has made a change and jumps out of a field.
 
-For å sikre optimal opplevelse og kontroll er applikasjonstemplaten to forskjellige hendelser hvor logikk kan plasseres.
+To ensure optimal experience and control, the application template has two different events where logic can be placed.
 
-- ProcessDataWrite kjøres når data lagres
-- ProcessDataRead kjøres når data leses fra databasen
+- ProcessDataWrite runs when data is saved
+- ProcessDataRead runs when data is read from the database
 
 {{%notice info%}}
-VIKTIG: Når en dataprossering er kjørt som har oppdatert dataene på server, må front-end få beskjed om dette, sånn at de oppdaterte dataene kan lastes inn.
-For å gjøre dette, må `ProcessDataWrite`-metoden returnere `true` om det er noen av dataene som har blitt oppdatert.
-Hvis dette ikke gjøres, vil de oppdaterte dataen ikke være synlig for sluttbruker før de ev. laster inn siden på nytt.
+IMPORTANT: When a data processing that has updated the data on the server has been run, the front-end must be notified so that the updated data can be loaded.
+To do this, the ProcessdataWrite method must return true if any of the data has been updated.
+If this is not done, the updated data won't be visible for the user until they refresh the page.
 {{% /notice%}}
 
-Eksempel på kode fra app som prosesserer og populerer forskjellige data under lagring.
-
+Example on code from app that processes and populates different data while saving.
 
 ```C#
 public async Task<bool> ProcessDataWrite(
