@@ -41,7 +41,7 @@ There is a wish that one or more of the words "newcomer" and "Sogndal" is includ
 
 
 {{% expandlarge id="upload-datamodel" header="Upload data model" %}}
-The muncipality of Sogndal has created [a data model](app/app-dev-course/modul1/datamodel.xsd)
+The muncipality of Sogndal has created [a data model](datamodel.xsd)
 that represents data they wish to collect from future residents.
 
 {{% notice info %}}
@@ -52,7 +52,7 @@ edit it in for example Visual Studio or a text editing program of your own choos
 {{% /notice %}}
 
 
-1. [Download the xsd-file](/app/app-dev-course/modul1/datamodel.xsd), open it in a text editing program
+1. [Download the xsd-file](datamodel.xsd), open it in a text editing program
    and take a closer look at the contents.
 2. [Upload the data model in Altinn Studio](/nb/app/development/data/data-model/#laste-opp--vise-datamodell)
 3. Push the changes to master and take a closer look at the files in the folder `App/models`

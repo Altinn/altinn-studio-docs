@@ -41,7 +41,7 @@ Det er et ønske om at et eller flere av ordene  "tilflytter" og  "Sogndal" er m
 
 
 {{% expandlarge id="late-opp-datamodel" header="Laste opp datamodell" %}}
-Sogndal kommune har opprettet [en datamodell](/app/app-dev-course/modul1/datamodel.xsd)
+Sogndal kommune har opprettet [en datamodell](datamodel.xsd)
 som representerer data de ønsker å samle inn fra fremtidige innbyggere.
 
 {{% notice info %}}
@@ -52,7 +52,7 @@ redigere den i f.eks. Visual Studio eller et selvvalgt tekstredigeringsprogram.
 {{% /notice %}}
 
 
-1. [Last ned xsd-filen](/app/app-dev-course/modul1/datamodel.xsd), åpne den i et tekstredigeringsprogram
+1. [Last ned xsd-filen](datamodel.xsd), åpne den i et tekstredigeringsprogram
    og ta en nærmere titt på innholdet.
 2. [Last opp datamodellen i Altinn Studio](/nb/app/development/data/data-model/#laste-opp--vise-datamodell)
 3. Push endringene master og ta en nærmere titt på filene i mappen `App/models`
