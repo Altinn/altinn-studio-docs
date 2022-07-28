@@ -200,7 +200,7 @@ public void ValidateData(object data, ModelStateDictionary validationResults)
 
 See comments in code above for an expnation of what the different parts do.
 
-In the other parameter of the method `AddModelError`, where it says "_Error: First name cannot contain the value '1337'_", you can use a text key for a [text defined in the resource files](../../ux/texts) for language support. 
+In the other parameter of the method `AddModelError`, where it says "_Error: First name cannot contain the value '1337'_", you can use a text key for a [text defined in the resource files](../../ux/texts) for multilingual support.
 
 An example of a simple task validation that checks how long the user spent on Task_1 and returns an error if there has gone more than three days:
 
