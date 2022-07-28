@@ -15,7 +15,7 @@ Data processing runs each time data is saved and when data is retrieved from API
 To ensure optimal experience and control, the application template has two different events where logic can be placed.
 
 - ProcessDataWrite runs when data is saved
-- ProcessDataRead runs when data is read from the data base
+- ProcessDataRead runs when data is read from the database
 
 {{%notice info%}}
 IMPORTANT: When a data processing that has updated the data on the server has been run, the front-end must be notified so that the updated data can be loaded.
