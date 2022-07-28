@@ -119,7 +119,7 @@ Added a new section called `FrontEndSettings` for use in `appsetting.{environmen
 ## 4.24.0 (2020-01-21)
 
 Support language and query parameters in dynamic options.
-New way of implementing dynamic options by creating a class that implements IAppOptionsProvider.  [See doc](../../../../../app/development/data/options/_index.en.md)
+New way of implementing dynamic options by creating a class that implements IAppOptionsProvider.  [See doc](../../../../../app/development/data/options/)
 
 ## 4.23.0 (2022-01-15) - Updated backend support for BPMN gateways
 
@@ -337,7 +337,7 @@ Improved performance.
 Altinn Apps now support presentation fields. 
 By specifying presentation fields in `applicationmetadata.json`, speficied data values from the form data
 will be stored on the instance in order to show them along with the app title in the Altinn messagebox. 
-Further documentation on how to configure presentation fields is found [here](../../../../../app/development/configuration/presentationfields/).
+Further documentation on how to configure presentation fields is found [here](../../../../../app/development/configuration/messagebox/presentationfields/).
 
 This change is related to [this epic](https://app.zenhub.com/workspace/o/altinn/altinn-studio/issues/594).
 

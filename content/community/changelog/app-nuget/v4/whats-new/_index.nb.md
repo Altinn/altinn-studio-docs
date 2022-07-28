@@ -118,7 +118,7 @@ Det er blitt laget en ny seksjon kalt `FrontEndSettings` for bruk i `appsetting.
 ## 4.24.0 (2020-01-21)
 
 Støtte for språk og query parametre inn til dynamiske kodelister.
-Ny måte å implementere dynamiske kodelister ved hjelp av IAppOptionsProvider. [Se dokumentasjon](../../../../../app/development/data/options/_index.nb.md)
+Ny måte å implementere dynamiske kodelister ved hjelp av IAppOptionsProvider. [Se dokumentasjon](../../../../../app/development/data/options/)
 
 ## 4.23.0 (2022-01-15) - Støtte for BPMN Gateways
 Restrukturering av prosessmotor og støtte for BPMN gateways.
@@ -322,7 +322,7 @@ Improved performance.
 Altinn Apps now support presentation fields. 
 By specifying presentation fields in `applicationmetadata.json`, speficied data values from the form data
 will be stored on the instance in order to show them along with the app title in the Altinn messagebox. 
-Further documentation on how to configure presentation fields is found [here](../../../../../app/development/configuration/presentationfields/).
+Further documentation on how to configure presentation fields is found [here](../../../../../app/development/configuration/messagebox/presentationfields/).
 
 This change is related to [this epic](https://app.zenhub.com/workspace/o/altinn/altinn-studio/issues/594).
 
