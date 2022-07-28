@@ -3,22 +3,21 @@ title: Styling
 description: How to control the styling, formatting and grid layout of an app.
 toc: true
 weight: 30
-tags: [translate-to-english]
 ---
 
 {{%notice warning%}}
 
-Dette er helt ny funksjonalitet. Oppsett må gjøres manuelt inntil videre. Støtte for oppsett via Altinn Studio kommer snart.
+This is new functionality. Setup must be done manually for now. Support for setup through Altinn Studio will be launched shortly.
 
-**MERK:** for å benytte denne funksjonaliteten må man ha app-frontend versjon 3. Se [denne lenken](/community/changelog/app-frontend/v3/breaking-changes/) om endringer som må til i appen.
+**NOTE:** to use this functionality you need app-frontend version 3. See [this link](/community/changelog/app-frontend/v3/breaking-changes/) for changes that is required in the app.
 
 {{%/notice%}}
 
-## Sidestilte komponenter (grid)
+## Components placed side by side (grid)
 
-Det er mulig å sidestille komponenter i skjema. Denne funksjonaliteten baserer seg på grid systemet til [Material-UI](https://material-ui.com/components/grid/), og vil også være kjent om man er kjent med grid-systemet til boostrap.
-Grid systemet baserer seg på en oppbygning av containere i 12 deler, hvor man så kan tildele barn (items) av en grid-container en gitt andel av denne bredden. Material-UI tilbyr også muligheten til å dynamisk endre hvor stor andel av skjermen man ønsker å oppta basert på hvilken skjermstørrelse sluttbrukeren har.
-Følgende størrelser med tilhørende breakpoints er definert:
+It is possible to place components side by side in a form. This functionality is based on the grid system from [Material-UI](https://material-ui.com/components/grid/), and is similar to the grid system from bootstrap.
+The grid system is based on a construction of containers in 12 parts, where you can assign children (items) of a grid-container a given part of this width. Material-UI also offers the ability to dynamically change how much of the screen you want to occupy based on which screen size the user is on.
+The following sizes with breakpoints are defined:
 
 - **xs**: 0px
 - **sm**: 600px
@@ -26,7 +25,7 @@ Følgende størrelser med tilhørende breakpoints er definert:
 - **lg**: 1440px
 - **xl**: 1920px
 
-For å sidestille komponenter horisontalt må man gjøre noen små endringer i formlayout. Det er definert en egen property `grid` som man kan fylle inn bredde ønsket på de ulik størrelsene. Her er et eksempel hvor to input-felt har blitt satt til å ta halve skjermen (enkelte props er fjernet for lesbarhet):
+To place components side by side horizontally, small changes must be done in formlayout. A seperate property `grid` has been defined, where you can fill in desired width on the different sizes. Here is an example where two input fields has been set to cover half the screen (some props are removed for readability):
 
 ```json
  {
@@ -50,15 +49,15 @@ For å sidestille komponenter horisontalt må man gjøre noen små endringer i f
 
 ```
 
-I komponentene over er størrelsen satt til 6 (altså halv bredde) for størrelse `xs`. Siden `xs` er den minste størrelsen tilgjengelig vil dette gjelde fra størrelse `xs` og opp, altså fra `xs` til `xl`.
-Oppsettet over vil gi følgende resultat:
+For the components above, the size has been set to 6 (half width) for the size `xs`. Since: `xs` is the smallest size available, this will apply from size `xs` and up, i.e. from `xs` to `xl`.
+The setup above will give the following result:
 
-![Halv bredde på skjema](halv-bredde.png "Halv bredde på skjema")
+![Half width on form](halv-bredde.png "Half width on form")
 
-Siden man har 12 inndelinger tilgjengelig i sidebredden er det opp til apputvikler å tildele hvor stor andel komponenten skal ha. Om man ønsker at en komponent skal ta 2/12, en annen 6/12 og siste 4/12 så er det mulig.
-Det er viktig å tenke på brukeropplevelsen når man gjør slike endringer, og sidestilling av komponenter bør gjøres med omhu. Komponenter med lengre tekster og beskrivelser blir også fort små og uoversiktelige om disse sidestilles. Skal det benyttes lengre tekster og beskrivelser anbefales det at disse benytter full bredde av skjema.
+Since there are 12 sections available on the page width, it is up to the app developer to assign how large of a share a component should have. If you want a component to take up 2/12, and another 6/12 and the last one 4/12, then this is possible. 
+It is important to consider the user experience when performing these changes, and before you place components side by side you should think it through. Components with longer texts and descriptions quickly become small and unclear if these are placed side by side. If you are to use longer texts and descriptions it is recommended that these occupy the full width of the form.
 
-Om man i eksempelet over hadde ønsket at komponentene skulle ta hele bredden frem til skjermen ble større enn 960px så kunne man satt opp følgende layout:
+If you in the example above wanted the components to take up the whole width of the screen, until the screen passed 960px in size, you could set up the following layout:
 
 ```json
  {
@@ -86,16 +85,16 @@ Om man i eksempelet over hadde ønsket at komponentene skulle ta hele bredden fr
 
 ```
 
-Da ville komponentene først legge seg sidestilt i det sluttbruker faktisk sitter på en skjerm som oppfyller kravet stilt.
+Then, the components would not be be placed side by side unless the user is using a screen of 960px or more. 
 
 ### innerGrid og labelGrid
 
-Utover det å sette bredde på `grid` i komponenten har vi også lagt til mulighet til å styre `innerGrid` og `labelGrid`. 
-Dette gir deg mulighet til å påvirke på samme måte hvor stor bredde label og input skal ta. Dette brukes typisk når du
-vil gjøre input feltet mindre (for å gi en visuell markering av at det forventes kort svar), eller hvis du ønsker å vise
-label og input på samme linje (som i en tabell).
+In addition to setting the width of the `grid` in the component, we also have added the opportunity to control `innerGrid` and `labelGrid`. 
+This gives you the opportunity to control the width of label and input in the same way. This is typically used when
+you want to make an input field smaller (to give a visual indication that a small answer is expected), or if you want to display
+label and input on the same line (like in a table.)
 
-Du kan tenke på komponenten på denne måten:
+You can think of the component in this manner:
 ```html
 <Grid id="grid"> 
     <Grid id="labelGrid">
@@ -107,7 +106,7 @@ Du kan tenke på komponenten på denne måten:
 </Grid>
 ```
 
-Her vil det da være mulig å styre bredden til både ytterste grid og den innerste griden. Eksempel:
+Here, you will have the opportunity to control the width of both the outer grid and the inner grid. Example:
 
 ```json
 {
@@ -126,22 +125,22 @@ Her vil det da være mulig å styre bredden til både ytterste grid og den inner
 
 ```
 
-Her har man satt at komponent griden skal ta hele bredden, mens man begrenser komponentens input til å kun ta halve bredden.
-InnerGrid vil kunne styres for komponentene:
-- Kort svar (Input)
-- Langt svar (TextArea)
-- Filopplaster (FileUpload)
-- Nedtrekksliste (Dropdown)
-- Datovelger (Datepicker)
+Here, it has been set that the component grid shall occupy the whole width, while limiting the component's input to only occupy half the width.
+Innergrid can be controlled for these components:
+- Input
+- TextArea
+- FileUpload
+- Dropdown
+- Datepicker
 
 
-Eksempelet over vil gi følgende output:
+The example above will give the following output:
 
-![InnerGrid eksempel output](inner-grid.png "InnerGrid eksempel output")
+![InnerGrid example output](inner-grid.png "InnerGrid example output")
 
-En tabellvisning med sidestilt label vil komme frem hvis du setter `labelGrid` og `innerGrid` slik at summen blir 12 
-(eller mindre). Dette kan være lurt hvis du har en lang liste med relaterte spørsmål. Det er ofte lurt å ikke bruke
-et slikt layout på de minste skjermene, så bruk gjerne `md`
+A tableview with labels placed to the side will appear if you set `labelGrid` and `innerGrid` so that the sum equals 12
+(or less). This may be wise if you have a long list of related questions. It is often wise to not use
+such a layout on the smallest screens, so feel free to use `md`.
 
 ```json
 {
@@ -161,22 +160,22 @@ et slikt layout på de minste skjermene, så bruk gjerne `md`
 }
 ```
 
-Det vil se omtrent slik ut
+This will look something like this:
 
-![labelGrid eksempel output](label-grid.png "labelGrid eksempel output")
+![labelGrid example output](label-grid.png "labelGrid example output")
 
-## Formatering av tall
-Det er nå implementert støtte for å kunne spesifisere formatering av tall i _inputfelt_. Dette gjøres ved å legge til en property `formatting` på
-Input-komponenten. Formateringsmuligheter er dokumentert i et [JSON-schema](https://altinncdn.no/schemas/json/component/number-format.schema.v1.json),
-og vil dukke opp automatisk i intellisense når man redigerer komponenten i f.eks. VSCode. 
+## Formatting numbers
+Support has now been implemented to be able to specify formatting of numbers in input fields. This is done by adding a property `formatting` to
+the input component. Formatting options are documented in a [JSON-schema](https://altinncdn.no/schemas/json/component/number-format.schema.v1.json),
+and will appear automatically in intellisense when editing the component in e.g. VSCode.
 
-Eksempelet under vil resultere i et inputfelt for tall, hvor tallet vil bli formatert med `,` mellom hver tusen, og `$` foran tallet.
+The example below will result in an input field for numbers, where the number will be formatted with `,` between each thousand, and `$` in front of the number.
 
 {{% notice info %}}
-Formateringen er kun for visning i frontend, og tallene som legges inn i et inputfelt med formatering vil lagres uformatert.
+The formatting is for frontend display only, and the numbers added to an input field with formatting will be saved unformatted.
 {{% /notice %}}
 
-![Formatert tall i input-felt](number-format-money.png "Formatert tall i input-felt")
+![Formatted number in input field](number-format-money.png "Formatted number in input field")
 
 ```json {hl_lines=["12-16"]} {linenos=inline}
 {

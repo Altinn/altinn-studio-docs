@@ -1,14 +1,13 @@
 ---
-title: Oversettelse av tekster
-description: Hvordan oversette tekster i applikasjonen.
+title: Translation of texts
+description: How to translate texts in the application.
 toc: true
 weight: 40
-tags: [translate-to-english]
 ---
 
-Selve logikken rundt oversettelse av tekster benytter seg av tekst-ressursfiler. Se [Tekster](../texts) for mer informasjon om disse filene.
-Det er mulig å oversette tekster i applikasjonen ved å legge til flere tekst-ressursfiler. Altså én fil per språk.
-Under kan man se et eksempel på norsk og engelsk:
+The actual logic of translating texts uses text resource files. See [Texts](../texts) for more information on these files.
+It is possible to translate texts in the application by adding more text resource files. I.e. one file per language.
+Below you can see an example of norwegian and english.
 
 `resource.nb.json`
 
@@ -54,11 +53,11 @@ Under kan man se et eksempel på norsk og engelsk:
 }
 ```
 
-## Aktivere oversettelse
+## Activate translation
 
-For å kunne utføre oversettelse av tekster i applikasjonen må komponenten aktiveres.
-Ved å legge til feltet `showLanguageSelector` og sette feletet til `true` i `settings.json` vil en nedtreksmeny være tilgjengelig i applikasjonen.
-I tillegg må tekstene fra eksemplet over være definert for at nedtreksmenyen skal vises.
+To be able to perform the translation of texts in the application the component must be activated.
+By adding the field `showLanguageSelector` and setting it to `true` in `settings.json` a dropdown menu will be available in the application.
+In addition, the texts from the example above must be defined for the dropdown menu to be visible.
 
 ```json
 {
@@ -73,4 +72,4 @@ I tillegg må tekstene fra eksemplet over være definert for at nedtreksmenyen s
 }
 ```
 
-Om applikasjonen inneholder flere `layout-sets` og man ønsker muligheten til å oversette alle sider er det viktig at `showLanguageSelector` legges til i alle `Settings.json`.
+If the application contains multiple `layout-sets` and you want the opportunity to translate all pages, it is important that `showLanguageSelector` is added in all `Settings.json`.

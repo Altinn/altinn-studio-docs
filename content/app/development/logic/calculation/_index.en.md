@@ -1,30 +1,29 @@
 ---
 title: Calculations
 description: How to add calculations?
-tags: [translate-to-english]
 toc: true
 ---
 
 
-**Calculationa is from 4.7.0 replaced by data processing. Look [here](../dataprocessing/)**
+**Calculation is from 4.7.0 replaced by data processing. See [here](../dataprocessing/)**
 
-## Kalkulering 
+## Calculation 
 
-Kalkuleringer kjøres på serveren, og er basert på input fra sluttbruker/skjemadata.
-Kalkuleringer trenger ikke å være rent matematiske, det kan også være å overføre verdier mellom felter, resultater av API-kall, osv. 
+Calculations are run on the server, and are based on input from the user/form data.
+Calculations does not have to be purely mathematical, they can also transfer values between fields, retrieve results from API calls and so on.
 
-Kalkuleringer kodes i C#, i filen `CalculationHandler.cs`. Denne filen kan redigeres enklest ved å laste ned kildekoden til app'en og redigere på egen maskin, f.eks. i Visual Studio Code.
-Datamodellen med skjemadata er tilgjengelig og kan redigeres/oppdateres etter ønske/behov.
+Calculations are coded in C#, in the file `CalculationHandler.cs`. This file can be edited the easiest by downloading the source code of the app and editing it on your own computer, e.g. in Visual Studio Code.
+The data model with form data is available and can be edited/updated when needed.
 
-Kalkuleringer kjøres hver gang data lagres. Med auto-lagring på (dette er standard) vil kalkulering kjøres hver gang en bruker har gjort en endring og hopper ut av et felt.
+Calculations are run every time data is saved. With autosave on (default), calculations are run each time a user makes a change and jumps out of a field. 
 
 {{%notice info%}}
-VIKTIG: Når en kalkulering er kjørt som har oppdatert dataene på server, må front-end få beskjed om dette, sånn at de oppdaterte dataene kan lastes inn.
-For å gjøre dette, må `Calculate`-metoden returnere `true` om det er noen av dataene som har blitt oppdatert.
-Hvis dette ikke gjøres, vil de oppdaterte dataen ikke være synlig for sluttbruker før de ev. laster inn siden på nytt.
+IMPORTANT: When a calculation that has updated the data on the server has been run, the front-end must be notified so that the updated data can be loaded.
+To do this, the `Calculate`-method must return `true` if any of the data has been updated.
+If this is not done, the updated data will not be visible for the user until they reload the page.
 {{% /notice%}}
 
-Eksempel på kode som erstatter en gitt verdi (`12345678`) med en annen verdi (`22222222`) i et gitt felt vises under:
+Example on code that replaces a given value (`12345678`) with another value (`22222222`) in a given field is shown below:
 
 ```C# {hl_lines=[16,22]}
 public bool Calculate(object data)

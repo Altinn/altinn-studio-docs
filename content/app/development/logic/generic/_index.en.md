@@ -2,20 +2,19 @@
 title: Generic
 description: Overview of logic files and how they can be used.
 toc: true
-tags: [translate-to-english]
 weight: 10
 ---
 
-## Introduksjon
+## Introduction
 
-De forskjellige filene som brukes til å definere logikk, finner man i logikk-menyen,
-som er tilgjengelig i UI-editoren via  _f(x)_-ikonet øverst til høyre.
+The various files that are used to define logic can be found in the logic menu
+that is available in the UI editor through the _f(x)_-icon at the top right corner.
 
-![Logikkmeny](ui-editor-logic-menu.png?height=300px "Logikkmeny")
+![Logic menu](ui-editor-logic-menu.png?height=300px "Logic menu")
 
 
-De kan også redigeres direkte fra applikasjonsrepoet, under folderen `App/logic` (for serverside applikasjonslogikk) eller folderen `App/ui` (for dynamikk).
-Denne folderen inneholder som standard følgende filer:
+They can also be edited directly from the application repo, under the folder `App/logic` (for server-side application logic) or the folder `App/ui` (for dynamic behaviour in the GUI).
+This folder contains the following files by default:
 
 ```C#
 🗀 App/
@@ -30,22 +29,22 @@ Denne folderen inneholder som standard følgende filer:
     🗎 InstantiationHandler.cs
 ```
 
-Flere filer kan legges til her når det er nødvendig.
+More files can be added when needed.
 
-Et komplett prosjekt med eksempler på serverside applikasjonslogikk ligger [her](https://dev.altinn.studio/repos/ttd/webdemo2).
+A complete project with examples on server-side application logic can be found [here](https://dev.altinn.studio/repos/ttd/webdemo2).
 
 {{%panel info%}}
-**MERK:** Måten man refererer til elementer i datamodellen er ulik mellom OR og SERES typer XSDer.
-For OR XSDer er `.value` et nødvendig suffiks i referansen. Eksempelkoden under bruker en blanding av de to typene datamodeller.
+**NOTE:** The way you reference elements in the data model is different between OR and SERES type XSD's.
+For OR XSD's, `.value` is a necessary suffix in the reference. The example code beow uses a mixture of the two types of data models.
 {{% /panel%}}
 
 
 ## Auto-complete/intellisense
 
-Ved å redigere kildekoden i appene lokalt, i f.eks. Visual Studio Code, får man intellisense og autocomplete med på kjøpet. 
-For C#-filene er det enkleste å jobbe med disse lokalt.
+By editing the source code in the apps locally, e.g. in Visual Studio Code, you get intellisense and autocomplete automatically.
+For the C#-files, it's easiest working on these locally.
 
-For javascript-filene er det også intellisense/autocomplete tilgjengelig om man ønsker å redigere filene direkte i Altinn Studio.
-Dette kommer automatisk mens man skriver, og man kan også tvinge det frem ved å trykke `CTRL + SPACE`
+For the javascript-files, intellisense/autocomplete is also available if you wish to edit the files directly in Altinn Studio.
+This appears automatically when writing, and you can also force it to appear by pressing `CTRL + SPACE`
 
 ![Logic menu - auto-complete/intellisense](datamodel-intellisense.gif "Logic menu - auto-complete/intellisense")
