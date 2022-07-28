@@ -2,7 +2,6 @@
 title: Prototype
 description: By using Altinn's Prototype-kit you can create a clickable prototype where you can design the flow and content for your service.
 weight: 3
-tags: [translate-to-english]
 ---
 
 ![Prototyping in Figma](FigmaTeaser3.gif "Prototyping in Figma")

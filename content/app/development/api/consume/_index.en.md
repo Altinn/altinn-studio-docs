@@ -3,7 +3,6 @@ title: Consume APIs in an app
 linktitle: Consume
 description: An application can consume open and closed APIs available through the Internet.
 toc: true
-tags: [translate-to-english]
 ---
 
 ASP.NET Core has good opportunities to consume different types of API.

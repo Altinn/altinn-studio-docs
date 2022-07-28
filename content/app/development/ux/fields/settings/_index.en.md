@@ -2,7 +2,6 @@
 title: Field settings
 linktitle: Settings
 description: Texts attached to a field.
-tags: [translate-to-english]
 toc: false
 ---
 

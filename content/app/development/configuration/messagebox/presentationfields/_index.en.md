@@ -2,7 +2,6 @@
 title: Presentation fields
 linktitle: Presentation fields
 description: Configuration of presentation fields for app.
-tags: [translate-to-english]
 weight: 200
 ---
 

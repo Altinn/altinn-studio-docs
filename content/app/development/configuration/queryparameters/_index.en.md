@@ -2,7 +2,6 @@
 title: Query parameters
 description: Available query parameters for an app.
 weight: 200
-tags: [translate-to-english]
 ---
 
 ## returnUrl
