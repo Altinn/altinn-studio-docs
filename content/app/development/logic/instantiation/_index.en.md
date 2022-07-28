@@ -38,7 +38,7 @@ public async Task<InstantiationValidationResult> RunInstantiationValidation(Inst
 
 ### Example 2 - Instantiation only allowed for application owner
 
-The code base this example is based on is available [here](https://altinn.studio/repos/ttd/example-app-1).
+The application this example is based on is available [here](https://altinn.studio/repos/ttd/example-app-1).
 (requires login in altinn.studio)
 
 To limit instantiation to a given entity, in this case the application owner, 
