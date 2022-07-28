@@ -13,7 +13,7 @@ that is available in the UI editor through the _f(x)_-icon at the top right corn
 ![Logic menu](ui-editor-logic-menu.png?height=300px "Logic menu")
 
 
-They can also be edited directly from the application repo, under the folder `App/logic` (for server-side application logic) or the folder `App/ui` (for dynamic).
+They can also be edited directly from the application repo, under the folder `App/logic` (for server-side application logic) or the folder `App/ui` (for dynamic behaviour in the GUI).
 This folder contains the following files by default:
 
 ```C#
