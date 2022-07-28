@@ -124,7 +124,7 @@ public async Task<InstantiationValidationResult> RunInstantiationValidation(Inst
 }
 ```
 
-Logic connected to date handling has been added to ensure that norwegian time applies and 
+Logic connected to date handling has been added to ensure the Norwegian time zone
 is being used in the validation. 
 
 ```cs
