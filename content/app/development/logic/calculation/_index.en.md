@@ -18,7 +18,7 @@ The data model with form data is available and can be edited/updated when needed
 Calculations are run every time data is saved. With autosave on (default), calculations are run each time a user makes a change and jumps out of a field. 
 
 {{%notice info%}}
-IMPORTANT: When a calculation that has updated the data on server has been run, the front-end must be notified so that the updated data can be loaded.
+IMPORTANT: When a calculation that has updated the data on the server has been run, the front-end must be notified so that the updated data can be loaded.
 To do this, the `Calculate`-method must return `true` if any of the data has been updated.
 If this is not done, the updated data will not be visible for the user until they may reload the page.
 {{% /notice%}}
