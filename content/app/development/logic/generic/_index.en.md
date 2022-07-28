@@ -34,7 +34,7 @@ More files can be added when needed.
 A complete project with examples on server-side application logic can be found [here](https://dev.altinn.studio/repos/ttd/webdemo2).
 
 {{%panel info%}}
-**NOTE:** The way you refer to elements in the data model is different between OR and SERES type XSD's.
+**NOTE:** The way you reference elements in the data model is different between OR and SERES type XSD's.
 For OR XSD's, `.value` is a necessary suffix in the reference. The example code beow uses a mixture of the two types of data models.
 {{% /panel%}}
 
