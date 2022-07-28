@@ -255,8 +255,8 @@ you can set up a trigger for validation on single fields in `formLayout.json`
 ```
 
 {{% notice warning %}}
-Note that if you define a field to trigger validation on server-side, only the result of this validation will be displayed. E.i.
-if there is another client-side validation defined, a possible server-side validation of the field will overrun these. Therefore, you should make sure
+Note that if you define a field to trigger validation server-side, only the result of this validation will be displayed. Meaning,
+if there is another client-side validation defined, a possible server-side validation of the field will overwrite these. Therefore, you should make sure
 to implement all necessary validations on the server-side as well. It is possible to attach multiple error messages to the same field if needed.
 {{% /notice %}}
 
