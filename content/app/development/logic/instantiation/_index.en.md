@@ -150,7 +150,7 @@ _Message_: a string that can contain an error message if it is not valid.
         };
 ```
 
-In addition you have the oppurtunity to use property
+In addition you have the opportunity to use property
 _ValidParties_: a list of the parties that are allowed to instantiate the application.
 
 The result of a failed validation is shown below:
