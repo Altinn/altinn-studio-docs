@@ -15,7 +15,7 @@ Kalkuleringer trenger ikke å være rent matematiske, det kan også være å ove
 Kalkuleringer kodes i C#, i filen `CalculationHandler.cs`. Denne filen kan redigeres enklest ved å laste ned kildekoden til app'en og redigere på egen maskin, f.eks. i Visual Studio Code.
 Datamodellen med skjemadata er tilgjengelig og kan redigeres/oppdateres etter ønske/behov.
 
-Kalkuleringer kjøres hver gang data lagres. Med auto-lagring på (dette er standard) vil kalkulering kjøres hver gang en bruker har gjort en endring og hopper ut av et felt.
+Kalkuleringer kjøres hver gang data lagres. Med auto-lagring på (dette er standard) vil kalkulering kjøres hver gang en bruker har gjort en endring.
 
 {{%notice info%}}
 VIKTIG: Når en kalkulering er kjørt som har oppdatert dataene på server, må front-end få beskjed om dette, sånn at de oppdaterte dataene kan lastes inn.
