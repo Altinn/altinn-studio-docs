@@ -7,7 +7,7 @@ tags: [apps, training, prefill, sporvalg]
 weight: 20
 ---
 
-In this module you will further develop the application you created in [module 1](../modul1) to fulfil more of [the requirements from the municipality of Sogndal](../case/#krav-fra-kommunen).
+In this module you will further develop the application you created in [module 1](../modul1) to fulfil more of [the requirements from the municipality of Sogndal](../case/#demands-from-the-muncipality).
 
 **Themes covered in this module:**
 
@@ -62,8 +62,8 @@ The following is desirable to be similar in the application:
 
 - [Formatting of texts](/app/development/ux/texts/#formatting-of-texts)
 - [Add pictures to the application](/app/development/ux/images/#add-images-to-the-application)
-- [Set components side by side](/app/development/ux/styling/#sidestilte-komponenter-grid)
-- [File setup with multiple pages](/app/development/ux/pages/#oppsett)
+- [Set components side by side](/app/development/ux/styling/#components-placed-side-by-side-grid)
+- [File setup with multiple pages](/app/development/ux/pages/#setup)
 - [Administrate order of muntliple pages](/app/development/ux/pages/navigation/#order)
 
 ### Comprehension check
@@ -149,8 +149,8 @@ In this task, the focus has returned to the first data collecting page, and the 
 
 ### Useful documentation
 - [Available prefill sources](https://altinncdn.no/schemas/json/prefill/prefill.schema.v1.json)
-- [Prefill from national register and user profile](/app/development/data/prefill/#prefill-fra-nasjonale-register-og-brukerprofil)
-- [Custom prefill](/app/development/data/prefill/#egendefinert-prefill)
+- [Prefill from national register and user profile](/app/development/data/prefill/#prefill-from-national-register-and-user-profile)
+- [Custom prefill](/app/development/data/prefill/#custom-prefill)
 - [Description of the InstanceOwner object](../../../api/models/instance/#instanceowner)
 
 ### Help with code: Calculating age from social security number
