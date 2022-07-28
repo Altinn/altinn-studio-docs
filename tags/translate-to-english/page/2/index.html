@@ -269,7 +269,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/ux/texts/"><span>Texts</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/app/development/ux/texts/translation/"><span>Oversettelse av tekster</span></a></li></ul></li>
+        <a href="/app/development/ux/texts/translation/"><span>Translation of texts</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/app/development/ux/pdf/"><span>PDF</span></a></li>
       <li class="dd-item">
@@ -1117,7 +1117,7 @@ if(host != "localhost")
 	
 	    <a class="newer-posts" href="/tags/translate-to-english/">&larr; Previous Pages</a>
 	
-	<span class="page-number">Page 2 on 5</span>
+	<span class="page-number">Page 2 on 3</span>
 	
 	    <a class="older-posts" href="/tags/translate-to-english/page/3/">Next Pages &rarr;</a>
 	
@@ -1128,12 +1128,37 @@ if(host != "localhost")
 	
 	   <article class="post app">
     <header class="post-header">
-        <h2 class="post-title"><a href="/app/design/guidelines/wcag/">Accessibility</a></h2>
+        <h2 class="post-title"><a href="/app/testing/local/">Test of app locally</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>The regulation on universal design of ICT solutions require that websites and apps must meet 35 of 61 success criteria in the standard Guidelines for accessible web content (WCAG) 2.0. (nb). Check out the minimum requirements
-Check list   Content structure
-Check that you have a logical structure of headings (H1 - H4), and that you don&rsquo;t have any empty heading elements. It is not uncommon to forget a level. <a class="read-more" href="/app/design/guidelines/wcag/">&raquo;</a></p>
+        <p>Dersom man skal skrive en del kode (f.eks. logikk), eller kjapt sjekke hvordan skjema ser ut kan det være nytting å kunne teste endringer uten å måtte deploye hele appen til testmiljø.
+Når appen lages, kommer den med alle nødvendige filer og oppsett til å kunne kjøres som en frittstående applikasjon. Ved å laste ned alle filene knyttet til appen fra repoet til appen, kan man kjøre appen lokalt på egen maskin, og på den måten enkelt teste endringer. <a class="read-more" href="/app/testing/local/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post api">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/api/authentication/maskinporten/">Authenticate with Maskinporten</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Samarbeidsportalen I Min profil i Samarbeidsportalen så har du tilgang til selvbetjening for Maskinporten, og der kan du opprette nye integrasjoner (klienter).
+ https://tt02.altinn.no er testmiljø for apper i Altinn, og det er koblet mot Ver 2-miljøet i Maskinporten. https://www.altinn.no er koblet mot Produksjon.  Tilgang som tjenesteeier For å kunne hente data fra Storage i Altinn 3 via API som tjenesteeier, så må man opprette en integrasjon (klient) i Maskinporten, med nødvendige scopes. <a class="read-more" href="/api/authentication/maskinporten/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -1155,12 +1180,13 @@ Check that you have a logical structure of headings (H1 - H4), and that you don&
 	
 	   <article class="post app">
     <header class="post-header">
-        <h2 class="post-title"><a href="/app/development/ux/styling/">Styling</a></h2>
+        <h2 class="post-title"><a href="/app/getting-started/migrate-services/">Migrate services</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Dette er helt ny funksjonalitet. Oppsett må gjøres manuelt inntil videre. Støtte for oppsett via Altinn Studio kommer snart.
-MERK: for å benytte denne funksjonaliteten må man ha app-frontend versjon 3. Se denne lenken om endringer som må til i appen.
-Sidestilte komponenter (grid) Det er mulig å sidestille komponenter i skjema. Denne funksjonaliteten baserer seg på grid systemet til Material-UI, og vil også være kjent om man er kjent med grid-systemet til boostrap. <a class="read-more" href="/app/development/ux/styling/">&raquo;</a></p>
+        <p>Migrere en eksisterende tjeneste til Altinn 3 Gjør deg kjent med Tjenesteeier-funksjonalitet i Altinn 3.
+ Opprett bruker og app i Altinn Studio.
+Når bruker er opprettet kan du be om å bli en del av en organisasjon. Dette for å kunne samarbeide med andre i organisasjonen og ha tilgang til å kjøre deploy av apper. Utvikle app/tjeneste.
+Her finner du veiledninger som er nyttige når man utvikler en app i Altinn Studio. <a class="read-more" href="/app/getting-started/migrate-services/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -1182,11 +1208,11 @@ MERK: for å benytte denne funksjonaliteten må man ha app-frontend versjon 3. S
 	
 	   <article class="post app">
     <header class="post-header">
-        <h2 class="post-title"><a href="/app/development/ux/pages/summary/">Summary view</a></h2>
+        <h2 class="post-title"><a href="/app/getting-started/access-management/apps/">Apps infrastructure access</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Dette er helt ny funksjonalitet. Oppsett må gjøres manuelt inntil videre. Støtte for oppsett via Altinn Studio kommer på et senere tidspunkt..MERK: PDF-genereringen har per nå ikke støtte for oppsummerings-komponenten. For at PDF-generering skal fungere må enten alle oppsummerings-komponentene, eller hele oppsummerings-siden(e) ekskluderes fra PDF. Dette gjøres i Settings.json-filen knyttet til layout-filene.
-Oppsett Visning av oppsummering settes opp på samme måte som øvrige skjema-komponenter i et skjema. Man kan velge å ha oppsummeringen på en egen side, eller på samme side som andre skjema-komponenter. <a class="read-more" href="/app/development/ux/pages/summary/">&raquo;</a></p>
+        <p>Tilgang til logger og hemmeligheter Det er definert to forskjellige typer roller for tilgang i driftsmiljøene i Altinn Apps.
+ Developer gir tilgang til Application Insights der applikasjonslogger samles for tjenesteeier sine applikasjoner i miljøet. Operations gir tilgang til Key Vault for å laste opp hemmeligheter som sertifikater, passord og api-nøkler.  Disse rollene er videre delt opp i tilgang til test (TT02) og produksjon (prod). En bruker kan tildeles en eller flere roller. <a class="read-more" href="/app/getting-started/access-management/apps/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -1208,11 +1234,40 @@ MERK: for å benytte denne funksjonaliteten må man ha app-frontend versjon 3. S
 	
 	   <article class="post app">
     <header class="post-header">
-        <h2 class="post-title"><a href="/app/development/ux/pages/layout-sets/">Layout sets</a></h2>
+        <h2 class="post-title"><a href="/app/development/configuration/messagebox/hide_instances/">Hide instances</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Dette er helt ny funksjonalitet. Oppsett må gjøres manuelt inntil videre. Støtte for oppsett via Altinn Studio kommer snart.Oppsett For å få funksjonalitet for flere skjema i tjeneste, må nuget-versjon til pakkene app&rsquo;en bruker oppgraderes til versjon 3.1.4 eller nyere. Se instrukser for hvordan det gjøres her.
-Sentralt i løsningen er at man har flere layout-sets som består av en eller flere sider og configurasjon. Hvert layout-set består av tilsvarende filer som en skjema tjenester. <a class="read-more" href="/app/development/ux/pages/layout-sets/">&raquo;</a></p>
+        <p>For applications with a complex process flow it can be useful to hide instances from the message box during parts of, or the whole, process.
+Configuration The configuration has a retroactive effect and will also apply to previously created instances.Configuration for hiding instances is defined in applicationmetadata.json, which you can find in ythe appliation repository in the folder App/config.
+Add a new section called messageBoxConfiguration with the child property hideSettings. <a class="read-more" href="/app/development/configuration/messagebox/hide_instances/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post api">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/api/authentication/id-porten/">Authenticate with ID-porten</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Systemer for sluttbrukere kan autentisere brukere via ID-porten. Dette for å kunne benytte API fra applikasjoner kjørende i Altinn Apps og enkelte funksjoner i Altinn Platform på vegne av sluttbruker.
+Det er i hoveddsak to typer systemer hvor dette er aktuelt. Dette er webbaserte løsninger og tykke klienter.
+Felles for begge løsninger er at sluttbruker vil logge inn via nettleser i ID-porten med den autentiseringsmekanismen de ønsker.
+Dette er for eksempel: <a class="read-more" href="/api/authentication/id-porten/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -1234,12 +1289,12 @@ Sentralt i løsningen er at man har flere layout-sets som består av en eller fl
 	
 	   <article class="post app">
     <header class="post-header">
-        <h2 class="post-title"><a href="/app/development/ux/components/likert/">Likert</a></h2>
+        <h2 class="post-title"><a href="/app/testing/deploy/">Test app in test environment</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Dette er helt ny funksjonalitet. Oppsett må gjøres manuelt inntil videre. Støtte for oppsett via Altinn Studio kommersnart.Merk at Likert-komponenten kun kan benyttes som del av en repeterende gruppe.
-Desktop og mobil visning Likert komponenten vises som en liste ved smale skjermer og som en tabell ved brede skjermer. Likert utnytter seg av samme konsept som repeterende grupper.
-Eksempel Likert komponenten krever at du har en datamodel med en liste. <a class="read-more" href="/app/development/ux/components/likert/">&raquo;</a></p>
+        <p>Klargjøring av app og deploy til testmiljø gjøres fra Deploy-fanen i Altinn Studio.
+Bygge app Før en app kan deployes til testmiljø, må alle nødvendige filer samles sammen i en pakke som kan deplpoyes. Dette gjøres ved å bygge appen.
+Merk at det er filene fra app-repoet som benyttes i bygget. Dersom en har gjort endringer på en app i Altinn Studio så må disse sendes til repoet for at endringene skal bli med i bygg-pakken. <a class="read-more" href="/app/testing/deploy/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -1261,12 +1316,12 @@ Eksempel Likert komponenten krever at du har en datamodel med en liste. <a class
 	
 	   <article class="post app">
     <header class="post-header">
-        <h2 class="post-title"><a href="/app/development/ux/texts/translation/">Oversettelse av tekster</a></h2>
+        <h2 class="post-title"><a href="/app/development/configuration/messagebox/presentationfields/">Presentation fields</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Selve logikken rundt oversettelse av tekster benytter seg av tekst-ressursfiler. Se Tekster for mer informasjon om disse filene. Det er mulig å oversette tekster i applikasjonen ved å legge til flere tekst-ressursfiler. Altså én fil per språk. Under kan man se et eksempel på norsk og engelsk:
-resource.nb.json
-{ &#34;language&#34;: &#34;nb&#34;, &#34;resources&#34;: [ { &#34;id&#34;: &#34;language.selector.label&#34;, &#34;value&#34;: &#34;Språk&#34; }, { &#34;id&#34;: &#34;language.full_name.nb&#34;, &#34;value&#34;: &#34;Norsk bokmål&#34; }, { &#34;id&#34;: &#34;language.full_name.en&#34;, &#34;value&#34;: &#34;Engelsk&#34; } ] } resource. <a class="read-more" href="/app/development/ux/texts/translation/">&raquo;</a></p>
+        <p>In some cases it can be useful with presentation fields to easier differentiate instances of a single application.
+By configuring presentation fields on an application, these values are extracted from the form data and included in the instance object. The data values are appended to the application title when the instance is displayed in the message box.
+Configuration Configuration of presentation fields is defined in applicationmetadata.json, which you can find in ythe appliation repository in the folder App/config. <a class="read-more" href="/app/development/configuration/messagebox/presentationfields/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -1288,11 +1343,16 @@ resource.nb.json
 	
 	   <article class="post app">
     <header class="post-header">
-        <h2 class="post-title"><a href="/app/deployment/runtime-environment/resource-allocation-tips/">Practical tips for resource allocation</a></h2>
+        <h2 class="post-title"><a href="/app/development/configuration/queryparameters/">Query parameters</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Før vi går på konkrete tips må vi kort introdusere Helm Chart. Helm Chart er de(n) filen(e) som styrer hvordan applikasjonen din deployes) til Kubernetes. Det er også her man styrer CPU og minne allokering. Du finner Chart.yamlog values.yamli deployment mappen i applikasjonen din. Dette er viktige filer som kan være lett å overse og ikke ha et aktivt forhold til.
-Tips 1 - Kjør siste versjon av Helm Chart Med siste versjon får du de mest oppdaterte innstillingene som standard. <a class="read-more" href="/app/deployment/runtime-environment/resource-allocation-tips/">&raquo;</a></p>
+        <p>returnUrl Query parameter returnUrl is used by the app to redirect users to that value when they click the exit-button in the app.
+Rules:
+ returnUrl must have a valid URL-format The host defined in returnUrl must be the same host as the URL has (see example below). The value of returnUrl must be a base64-encoded string  Example without base64-encoded string:
+https://foo.apps.tt02.altinn.no/foo/bar?returnUrl=https://foo.apps.tt02.altinn.no/foo/foobar
+Example with base64-encoded string:
+https://foo.apps.tt02.altinn.no/foo/bar?returnUrl=aHR0cHM6Ly9mb28uYXBwcy50dDAyLmFsdGlubi5uby9mb28vZm9vYmFy
+Here one can see that returnUrl has a valid URL-format and it has the same host name as the app defined in the beginning. <a class="read-more" href="/app/development/configuration/queryparameters/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -1314,64 +1374,12 @@ Tips 1 - Kjør siste versjon av Helm Chart Med siste versjon får du de mest opp
 	
 	   <article class="post app">
     <header class="post-header">
-        <h2 class="post-title"><a href="/app/deployment/runtime-environment/resource-allocation/">Resource Allocation</a></h2>
+        <h2 class="post-title"><a href="/app/getting-started/navigation/repos/">Repos</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Primært vil det være CPU og minne som fordeles. Man kan sette minimum (requests) og et tak (limit) for en container. Hvis en pod har flere containere vil kubernetes summere opp disse. I Altinn 3 benytter vi som default requests, dvs. minimum for hva en applikasjon vil legge beslag på.
-CPU CPU spesifiseres i CPU enheter, hvor 1 CPU enhet = 1 fysisk CPU kjerne eller 1 virtuell kjerne. Man kan spesifisere fraksjoner og enten spesifisere 0. <a class="read-more" href="/app/deployment/runtime-environment/resource-allocation/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post app">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/app/deployment/runtime-environment/">Runtime Environment</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Altinn 3 applikasjoner for en tjenesteeier kjører i Azure Kubernetes Service (AKS) fra Microsoft Azure. Dette er en såkalt Managed Service hvor vi lar Microsoft Azure ta seg av den underliggende driften av Kubernetes clusteret. Altinn står for konfigurering og provisjonering av clusteret, mens tjenesteeier har selv ansvar for utrulling av applikasjonene til clusteret.
-For detaljert dokumentasjon av hvilke muligheter som finnes må man se på:
- Azure Kubernetes Services Kubernetes, og da spesielt hvordan ressurser administreres - et ansvar som er delt mellom Altinn og tjenesteeier. <a class="read-more" href="/app/deployment/runtime-environment/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post app">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/app/development/ux/widgets/">Widgets</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Hva er en widget? En widget er en kompleks komponent, sammensatt av en eller flere enkle skjemakomponenter - de skjemakomponentene som er tilgjengelige for bruk i Altinn Studio i dag. En widget er et verktøy i Altinn Studio som gjør det lettere å lage og gjenbruke layouts.
-Hvordan bruke widgets Widgets er tilgjengelige i venstre-menyen i skjemaeditoren i Altinn Studio. Den kan dras inn i skjemasiden på samme måte som andre skjemakomponenter. <a class="read-more" href="/app/development/ux/widgets/">&raquo;</a></p>
+        <p>Repos er verktøyet der appene er lagret som Git repositoryer, og kan bli funnet på https://altinn.studio/repos.
+Hovedmeny Hovedmenyen øverst inneholder disse elementene:
+ Altinn-logoen - tilbake til Altinn Studio-dashboardet. Dashboard - Lister ut dine aktiviteter og de repositoryene og organisasjonene du har tilgang til. Du kan også se dashboard for den enkelte organisasjonen. Issues - Lister ut åpne og lukkede issues som er relevant for deg. Pull requests - Lister ut åpne og lukkede pull requests som er relevant for deg. <a class="read-more" href="/app/getting-started/navigation/repos/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -1398,7 +1406,7 @@ Hvordan bruke widgets Widgets er tilgjengelige i venstre-menyen i skjemaeditoren
 	
 	    <a class="newer-posts" href="/tags/translate-to-english/">&larr; Previous Pages</a>
 	
-	<span class="page-number">Page 2 on 5</span>
+	<span class="page-number">Page 2 on 3</span>
 	
 	    <a class="older-posts" href="/tags/translate-to-english/page/3/">Next Pages &rarr;</a>
 	

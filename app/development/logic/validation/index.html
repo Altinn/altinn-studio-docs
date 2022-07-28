@@ -269,7 +269,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/ux/texts/"><span>Texts</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/app/development/ux/texts/translation/"><span>Oversettelse av tekster</span></a></li></ul></li>
+        <a href="/app/development/ux/texts/translation/"><span>Translation of texts</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/app/development/ux/pdf/"><span>PDF</span></a></li>
       <li class="dd-item">
@@ -1096,51 +1096,51 @@ if(host != "localhost")
                 </span>
                 <span class="links"><a href='/app/'>Create apps</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/development/'>Development</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/development/logic/'>Logic</a> <span class='adocs-breadcrumb-divider'> / </span> Validation</span>
             </div>
-          </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english">translate-to-english</a></div><div id="body-inner"><h1 class="a-fontBold">Validation</h1>
+          </div><div id="body-inner"><h1 class="a-fontBold">Validation</h1>
               <p class="a-leadText" id="leadText">How to add logic to validate form data?</p><h2>On this page:</h2><nav id="TableOfContents">
   <ul>
-    <li><a href="#introduksjon">Introduksjon</a></li>
-    <li><a href="#klientside-validering">Klientside-validering</a></li>
-    <li><a href="#serverside-validering">Serverside-validering</a></li>
-    <li><a href="#hvordan-legge-til-egendefinert-validering">Hvordan legge til egendefinert validering</a></li>
-    <li><a href="#enkeltfeltvalidering">Enkeltfeltvalidering</a></li>
-    <li><a href="#myke-valideringer">Myke valideringer</a></li>
-    <li><a href="#gruppevalidering">Gruppevalidering</a></li>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#client-side-validation">Client-side validation</a></li>
+    <li><a href="#server-side-validation">Server-side validation</a></li>
+    <li><a href="#how-to-add-custom-validation">How to add custom validation</a></li>
+    <li><a href="#single-field-validation">Single field validation</a></li>
+    <li><a href="#soft-validations">Soft validations</a></li>
+    <li><a href="#group-validation">Group validation</a></li>
   </ul>
 </nav>
 
 
 
 
-<h2 id="introduksjon">Introduksjon</h2>
-<p>Valideringer sørger for at brukerens input er gyldig med tanke på datamodellen,
-i tillegg til alle egendefinerte regler som settes opp for applikasjonen.
-Valideringer kan kjøres enten på klient (dvs. browseren) eller serversiden.</p>
-<h2 id="klientside-validering">Klientside-validering</h2>
-<p>Dette er validering som kjøres i browseren, FØR data er sendt til server for lagring. Dette gjør det mulig å gi raske tilbakemeldinger til 
-sluttbruker underveis i utfylling.</p>
-<p>Klientside-validering baserer seg på datamodellen som hører til skjemaet, og bruker denne til å bestemme hva som er gyldig input i et felt.
-Helt konkret brukes JSON Schema utgaven av datamodellen for valideringen. Denne genereres automatisk når man laster opp XSD.
-Det går an å gjøre endringer i JSON schema direkte for å tilpasse valideringen ved behov.</p>
-<p><strong>Merk at dersom man gjør tilpasninger i JSON schema manuelt, for å så oppdatere XSD og laste inn på nytt, vil nytt
-JSON schema også genereres, og alle manuelle tilpasninger må gjøres på nytt. Derfor er det anbefalt å gjøre endringer i XSD og/eller datamodelleringsverktøyet
-for at disse endringene skal reflekteres i JSON schema.</strong></p>
-<p>Et eksempel på hvordan et felt kan defineres i JSON schema datamodellen er:</p>
+<h2 id="introduction">Introduction</h2>
+<p>Validations ensures that the user&rsquo;s input is valid with regard to the data model, 
+in addition to all custom rules that are set up for the application.
+Validations can be run either on the client- (the browser) or the server-side.</p>
+<h2 id="client-side-validation">Client-side validation</h2>
+<p>This is validation that is run in the browser, before data is sent to server for saving. This makes it possible to give quick feedback to 
+the user during the fillout process.</p>
+<p>Client-side validation is based on the data model of the form, and uses this to determine what is valid input in a field.
+Specifically, the JSON schema version of the data model is used for validation. This is automatically generated when uploading an XSD.
+It is possible to make changes in the JSON schema file directly to adapt the validation when needed.</p>
+<p><strong>Note that if you make changes in the JSON schema manually, and then update the XSD and reupload it, a new 
+JSON schema will also be generated and all manual adaptations will have to be remade. It is therefore recommended to make changes in the XSD and/or the data modeling tool
+for these changes to be reflected in the JSON schema.</strong></p>
+<p>An example of how a field can be defined in the JSON schema data model is:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#f1fa8c">&#34;someField&#34;</span>: {
   <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;string&#34;</span>,
   <span style="color:#ff79c6">&#34;maxLength&#34;</span>: <span style="color:#f1fa8c">&#34;4&#34;</span>
 }
-</code></pre></div><p>Input i dette feltet vil valideres mot begrensningene som er satt opp, og en feilmelding vil vises dersom disse ikke møtes - i dette tilfellet, dersom 
-input er en tekst med lengde mer enn 4 karakterer.</p>
-<h3 id="standard-feilmeldinger">Standard feilmeldinger</h3>
-<p>Det er satt opp standard feilmeldinger for alle valideringene som gjøres på klientsiden. Se oversikten under.</p>
+</code></pre></div><p>Input in this field will be validated towards the limits that are set, and an error message will appear if these are not met - in this case, if
+input is a text longer than four characters.</p>
+<h3 id="default-error-messages">Default error messages</h3>
+<p>Default error messages has been set up for all validations done on the client-side. See the overview below.</p>
 <table>
 <thead>
 <tr>
-<th>Regel</th>
-<th>Feilmelding bokmål</th>
-<th>Feilmelding nynorsk</th>
-<th>Feilmelding engelsk</th>
+<th>Rule</th>
+<th>Error message bokmål</th>
+<th>Error message nynorsk</th>
+<th>Error message english</th>
 </tr>
 </thead>
 <tbody>
@@ -1199,8 +1199,8 @@ input er en tekst med lengde mer enn 4 karakterer.</p>
 the error message is shown for. This is done in the following way:</p>
 <ul>
 <li>If <code>shortName</code> text is defined for the component, this is used. <em>This is a new text that is currently used only for this specific error message.</em></li>
-<li>If <code>shortName</code> text is not defined, the <code>title</code> text for the component is used - this is the components label text.</li>
-<li>In some special cases (Address component) where there are multiple fields within the component, the standard labels for the fields is used.</li>
+<li>If the <code>shortName</code> text is not defined, the <code>title</code> text for the component is used - this is the components label text.</li>
+<li>In some special cases (Address component) where there are multiple fields within the component, the default labels for the fields is used.</li>
 </ul>
 <h4 id="example-component-with-only-title">Example: Component with only <code>title</code></h4>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
@@ -1219,6 +1219,8 @@ the error message is shown for. This is done in the following way:</p>
 }
 </code></pre></div><p>The error message would then be <code>&quot;You have to fill out First name&quot;</code>.</p>
 <h4 id="example-component-with-shortname">Example: Component with <code>shortName</code></h4>
+<p>If the field&rsquo;s prompt is long or not suitable for use in the validation message, you can add a <code>shortName</code> text that can be used instead.
+<em>Note that this only applies to this specific validation message - the <code>shortName</code> text is not used otherwise in the solution as of now.</em></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;firstName&#34;</span>,
   <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Input&#34;</span>,
@@ -1240,10 +1242,9 @@ the error message is shown for. This is done in the following way:</p>
 }
 </code></pre></div><p>The error message would then be <code>&quot;You have to fill out your first name&quot;</code>.</p>
 <h3 id="custom-error-messages">Custom error messages</h3>
-<p>It is possible to define custom error messages that will be displayed when a field doesn&rsquo;t pass the validation check. 
-This is done by including a parameter <code>errorMessage</code> where the field is defined in the JSON schema. 
+<p>It is possible to define custom error messages that will be displayed when a field doesn&rsquo;t pass the validation check. This is done by including a parameter <code>errorMessage</code> where the field is defined in the JSON schema. 
 The JSON schema file is in the folder <code>App/models</code> and has a naming patterns as follows; <code>*.schema.json</code>,</p>
-<p>An example of how the extend the example previously presented with a custom error message:</p>
+<p>An example of how to extend the example previously presented with a custom error message:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#f1fa8c">&#34;someField&#34;</span>: {
   <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;string&#34;</span>,
   <span style="color:#ff79c6">&#34;maxLength&#34;</span>: <span style="color:#f1fa8c">&#34;4&#34;</span>,
@@ -1269,29 +1270,28 @@ Example:</p>
 }
 </code></pre></div><div class="notices warning" >
 Note that when the XSD is changed, the custom error messages will de removed from the JSON schema.
-In the future, there will be support for setting custom error messages in the data modelling tool in Altinn Studio. 
-But for now, this ia manual job.
+In the future, there will be support for setting custom error messages in the data modelling tool in Altinn Studio. But for now, this is a manual job.
 </div>
-<h2 id="serverside-validering">Serverside-validering</h2>
-<p>Serverside-validering kan deles opp i to kategorier:</p>
+<h2 id="server-side-validation">Server-side validation</h2>
+<p>Server-side validation can be split into two categories:</p>
 <ul>
-<li><strong>Valideringer mot datamodell</strong> - Disse kjører automatisk når brukeren prøver å sende inn skjemadata.</li>
-<li><strong>Egendefinerte valideringer</strong> - Disse skrives av applikasjonsutvikleren,
-og kjører når brukeren prøver å sende inn skjemadata eller flytte prosessen til et nytt steg.</li>
+<li><strong>Validations against data model</strong> - These run automatically whenever the user attempts to submit form data.</li>
+<li><strong>Custom validations</strong> - these are written by the application developer,
+and run when the user attempts to submit form data or move the process to a new step.</li>
 </ul>
-<h2 id="hvordan-legge-til-egendefinert-validering">Hvordan legge til egendefinert validering</h2>
-<p>Egendefinerte validering kan igjen deles opp i to kategorier; task-validering og data-validering.</p>
+<h2 id="how-to-add-custom-validation">How to add custom validation</h2>
+<p>Custom validation can also be split into two categories; task-validation and data-validation.</p>
 <ul>
-<li>Task-validering vil kjøres hver gang validering trigges enten manuelt fra applikasjonen eller når man prøver å flytte seg framover i prosessen.</li>
-<li>Data-validering vil kjøre dersom man står på et steg som har definerte dataelementer knyttet til seg.</li>
+<li>Task-validation will run each time validation is triggered either manually from the application or when you attempt to move forward in the process.</li>
+<li>Data-validation will run if you&rsquo;re on a step that has defined data elements associated with it.</li>
 </ul>
-<p>Valideringer er skrevet i C#, i <code>ValidationHandler.cs</code> -filen i applikasjonsmalen.
-Filen kan aksesseres og endres i Altinn Studio via logikkmenyen, ved å velge <em>Rediger valideringer</em>,
-eller direkte i applikasjonsrepoet der ligger filen i <code>logic/Validation</code>-mappen.</p>
-<p>Endringer gjøres i <code>ValidateData</code> og <code>ValidateTask</code>-metodene (disse er tomme når appen lages).
-Førstnevnte får inn et dataobjekt og sistnevnte får inn instansen og taskId.
-For å legge til en valideringsfeil brukes <code>AddModelError</code>-metoden til <code>validationResults</code> object som sendes med i begge metodene.</p>
-<p>Et eksempel på en enkel data-validering som sjekker at feltet <em>FirstName</em> ikke inneholder verdien <em>1337</em>, når rotelementet til modellen er <code>Skjema</code> er vist nedenfor:</p>
+<p>Validations are written in C#, in the <code>ValidationHandler.cs</code>-file in the application template.
+The file can be accessed and edited in Altinn Studio through the logic menu, by selecting <em>Rediger valideringer</em>,
+or directly in the application repo where the file is under the <code>logic/Validation</code>-folder.</p>
+<p>Changes are made in the <code>ValidateData</code> and <code>ValidateTask</code>-methods (these are empty when the app is made).
+The former takes in a data object and the latter takes in the instance and taskId.
+To add a validation error, the <code>AddModelError</code>-method of the <code>validationResult</code>-object, which is a parameter in both methods, is used.</p>
+<p>An example of a simple data validation that tests that the field <em>FirstName</em> does not contain the value <em>1337</em>, when the root element of the model is <code>Skjema</code> is shown below:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">void</span> ValidateData(<span style="color:#8be9fd">object</span> data, ModelStateDictionary validationResults)
 {
     <span style="color:#ff79c6">if</span> (data.GetType() == <span style="color:#ff79c6">typeof</span>(Skjema))
@@ -1314,9 +1314,9 @@ For å legge til en valideringsfeil brukes <code>AddModelError</code>-metoden ti
         }
     }
 }
-</code></pre></div><p>Se kommentarer i koden over for en forklaring på hva de ulike delene gjør.</p>
-<p>I det andre parameteret til metoden <code>AddModelError</code>, der det står &ldquo;<em>Error: First name cannot contain the value &lsquo;1337&rsquo;</em>&rdquo;, kan man bruke en tekstnøkkel for en <a href="../../ux/texts">tekst definert i ressursfilene</a> for språkstøtte.</p>
-<p>Et eksempel på en enkel task-validering som sjekker hvor lang tid brukeren har brukt på Task_1 og returnerer en feil dersom det har tatt lenger enn 3 dager.</p>
+</code></pre></div><p>See comments in code above for an expnation of what the different parts do.</p>
+<p>In the other parameter of the method <code>AddModelError</code>, where it says &ldquo;<em>Error: First name cannot contain the value &lsquo;1337&rsquo;</em>&rdquo;, you can use a text key for a <a href="../../ux/texts">text defined in the resource files</a> for multilingual support.</p>
+<p>An example of a simple task validation that checks how long the user spent on Task_1 and returns an error if there has gone more than three days:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task ValidateTask(Instance instance, <span style="color:#8be9fd">string</span> taskId, ModelStateDictionary validationResults)
 {
   <span style="color:#ff79c6">if</span> (taskId.Equals(<span style="color:#f1fa8c">&#34;Task_1&#34;</span>))
@@ -1324,14 +1324,14 @@ For å legge til en valideringsfeil brukes <code>AddModelError</code>-metoden ti
 <span style="display:block;width:100%;background-color:#3d3f4a">    DateTime deadline = ((DateTime)instance.Created).AddDays(<span style="color:#bd93f9">3</span>);
 </span><span style="display:block;width:100%;background-color:#3d3f4a">    <span style="color:#ff79c6">if</span> (DateTime.UtcNow &lt; deadline)
 </span>    {
-      validationResults.AddModelError(<span style="color:#f1fa8c">&#34;Task_1&#34;</span>, <span style="color:#f1fa8c">$&#34;Ferdigstilling av Task_1 har tatt for lang tid. Vennligst start på nytt.&#34;</span>);
+      validationResults.AddModelError(<span style="color:#f1fa8c">&#34;Task_1&#34;</span>, <span style="color:#f1fa8c">$&#34;Completion of Task_1 has taken too long. Please start over.&#34;</span>);
     }
   }
 }
-</code></pre></div><h2 id="enkeltfeltvalidering">Enkeltfeltvalidering</h2>
-<p>Dersom det er behov for umiddelbar validering av et felt
-som ikke kan dekkes i klientsidevalideringen, 
-så kan man sette opp en trigger for validering på enkeltfelter i <code>formLayout.json</code></p>
+</code></pre></div><h2 id="single-field-validation">Single field validation</h2>
+<p>If there is a need for immediate validation of a field
+that can not be covered in the client side validation,
+you can set up a trigger for validation on single fields in <code>formLayout.json</code></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#ff79c6">&#34;data&#34;</span>: {
     <span style="color:#ff79c6">&#34;layout&#34;</span>: [
@@ -1360,14 +1360,14 @@ så kan man sette opp en trigger for validering på enkeltfelter i <code>formLay
   }
 }
 </code></pre></div><div class="notices warning" >
-Merk at dersom du definerer at et felt skal trigge validering på serverside, så er det kun resultatet av denne valideringen som vil vises. Det vil si at dersom det er 
-annen klient-side validering som er definert, så vil en ev. server-validering av feltet overskrive disse. Pass derfor på å implementere alle nødvendige
-valideringer på feltet også på server-siden, det går an å legge flere feilmeldinger på samme felt ved behov.
+Note that if you define a field to trigger validation server-side, only the result of this validation will be displayed. Meaning,
+if there is another client-side validation defined, a possible server-side validation of the field will overwrite these. Therefore, you should make sure
+to implement all necessary validations on the server-side as well. It is possible to attach multiple error messages to the same field if needed.
 </div>
-<p>Konfigurasjonen overfor vil resultere i at din egendefinerte validering i <code>ValidationHandler.cs</code>
-vil trigges hver gang feltet oppdaterer seg. Dersom du har behov for å vite hvilket
-felt som trigget valideringen er denne tilgjengelig i http-konteksten som en header på requesten ved navn <em>ValidationTriggerField</em>.</p>
-<p>Et eksempel på en egendefinert validering der headerverdien hentes ut er vist nedenfor.</p>
+<p>The configuration above will result in your own custom validation in <code>ValidationHandler.cs</code> 
+being triggered each time the field is updated. If you need to know which field
+triggered the validation, this is available in the http-context as a header of the request named <em>ValidationTriggerField</em>.</p>
+<p>An example of a custom validation where the header value is retrieved is shown below.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"> <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task ValidateData(<span style="color:#8be9fd">object</span> data, ModelStateDictionary validationResults)
  {
     <span style="color:#bd93f9">_</span>httpContextAccessor.HttpContext.Request.Headers.TryGetValue(<span style="color:#f1fa8c">&#34;ValidationTriggerField&#34;</span>, <span style="color:#ff79c6">out</span> StringValues <span style="color:#ff79c6">value</span>);
@@ -1382,19 +1382,19 @@ felt som trigget valideringen er denne tilgjengelig i http-konteksten som en hea
 
       <span style="color:#ff79c6">if</span> (!kommune.Equals(<span style="color:#f1fa8c">&#34;Oslo&#34;</span>))
       {
-          validationResults.AddModelError(<span style="color:#ff79c6">value</span>[<span style="color:#bd93f9">0</span>], <span style="color:#f1fa8c">&#34;Dette er ikke en gyldig kommune.&#34;</span>);
+          validationResults.AddModelError(<span style="color:#ff79c6">value</span>[<span style="color:#bd93f9">0</span>], <span style="color:#f1fa8c">&#34;This is not a valid municipality.&#34;</span>);
       }
     }
 
     <span style="color:#ff79c6">await</span> Task.CompletedTask;
  }
-</code></pre></div><p><strong>OBS</strong> Merk at validering av enkeltfelter bør implementeres slik at det kjører både på trigger og under generell validering.
-Eksempelet som omhandler flere komplekse valideringer viser hvordan dette kan implementeres.</p>
-<p>Det er gjort flere ting for å få denne kodesnutten til å kjøre</p>
+</code></pre></div><p><strong>NOTE</strong> validation of single fields should be implemented in a way where it is both run on triggers and during general validation.
+The example that revolves multiple complex validations show how this can be implemented.</p>
+<p>Several things has been done to get this code to run</p>
 <ol>
-<li>I <em>ValidationHandler.cs</em> inkluderes <code>using Microsoft.Extensions.Primitives;</code> øverst i filen for å kunne ta i bruk <code>StringValues</code>.</li>
-<li>I <em>App.cs</em> inkluderes <code>using Microsoft.AspNetCore.Http;</code> øverst i filen for å kunne ta i bruk <code>IHttpContextAccessor</code>.</li>
-<li>I <em>App.cs</em> dependency injectes <code>IHttpContextAccessor</code> i konstruktøren og sendes med videre til ValidationHandler.</li>
+<li>In <em>ValidationHandler.cs</em> <code>using Microsoft.Extensions.Primitives;</code> is included at the top of the file to be able to use <code>StringValues</code>.</li>
+<li>In <em>App.cs</em> <code>using Microsoft.AspNetCore.Http;</code> is included at the top of the file to be able to use <code>IHttpContextAccessor</code>.</li>
+<li>In <em>App.cs</em> <code>IHttpContextAccessor</code> is dependency injected in the constructor and passed along to ValidationHandler.</li>
 </ol>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">public</span> App(
             IAppResources appResourcesService,
@@ -1413,12 +1413,12 @@ Eksempelet som omhandler flere komplekse valideringer viser hvordan dette kan im
 </span></span><span style="color:#6272a4"></span>            <span style="color:#bd93f9">_</span>calculationHandler = <span style="color:#ff79c6">new</span> CalculationHandler();
             <span style="color:#bd93f9">_</span>instantiationHandler = <span style="color:#ff79c6">new</span> InstantiationHandler(profileService, registerService);
         }
-</code></pre></div><p>Dersom man har flere komplekse valideringer som er tidkrevende er det anbefalt å implementere flere private metoder
-for validering av disse og bruke ValidationTriggerField til å avgjøre hvilken private metode som skal kjøres.
-Man kan bl.a. bruke en <em>switch statement</em> for å oppnå dette.</p>
+</code></pre></div><p>If there are multiple complex validations that are time consuming, it is recommended to implement several private methods
+to validate these and use ValidationTriggerField to determine which private method is to be run.
+You can e.g. use a <em>switch statement</em> to accomplish this.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task ValidateData(<span style="color:#8be9fd">object</span> data, ModelStateDictionary validationResults)
 {
-    <span style="color:#ff79c6">if</span> (data <span style="color:#ff79c6">is</span> flyttemelding model))
+    <span style="color:#ff79c6">if</span> (data <span style="color:#ff79c6">is</span> flyttemelding model)
     {
         <span style="color:#bd93f9">_</span>httpContextAccessor.HttpContext.Request.Headers
             .TryGetValue(<span style="color:#f1fa8c">&#34;ValidationTriggerField&#34;</span>, <span style="color:#ff79c6">out</span> StringValues <span style="color:#ff79c6">value</span>);
@@ -1447,7 +1447,7 @@ Man kan bl.a. bruke en <em>switch statement</em> for å oppnå dette.</p>
     {
         validationResults.AddModelError(
             nameof(model.kommune), 
-            <span style="color:#f1fa8c">&#34;Dette er ikke en gyldig kommune.&#34;</span>);
+            <span style="color:#f1fa8c">&#34;This is not a valid municipality.&#34;</span>);
     }
 }
 <span style="color:#ff79c6">private</span> <span style="color:#ff79c6">void</span> ValidateBoAdresse(flyttemelding model, ModelStateDictionary validationResults)
@@ -1456,59 +1456,59 @@ Man kan bl.a. bruke en <em>switch statement</em> for å oppnå dette.</p>
     {
         validationResults.AddModelError(
             nameof(model.boaddresse), 
-            <span style="color:#f1fa8c">&#34;Boadresse kan ikke være lengere enn 150 tegn.&#34;</span>);
+            <span style="color:#f1fa8c">&#34;Address can not be longer than 150 characters.&#34;</span>);
     }
 }
-</code></pre></div><h3 id="spesifisere-at-valideringsfeil-er-fikset">Spesifisere at valideringsfeil er fikset</h3>
-<p>Når validering trigges av et enkelt felt, så vil alle tidligere valideringer på dette feltet fjernes i påvente av svar fra den siste valideringen.
-Dersom et felt trigger validering som oppdaterer/legger til feilmelding på flere felter på en gang, vil ikke disse fjernes selv om det ikke lenger er noen
-feil i disse feltene. Dette er fordi man ikke har noen måte å vite hvilke felter som ev. er validert ifm en enkeltfeltvalidering.</p>
-<p>F.eks., dersom man har 2 felter: fornavn og etternavn. Begge felter trigger enkeltfeltvalidering, og dersom begge feltene har verdi så validerer man at fullt navn ikke
-kan være lengre enn 50 tegn. Feilmelding settes da på begge feltene. Dersom man retter opp i dette ved å endre fornavn, vil feilmeldingen fra fornavn-feltet forsvinne,
-men feilmeldingen som vises på etternavn-feltet vises fortsatt selv om valideringen ikke setter noen feilmeldinger på feltene.</p>
+</code></pre></div><h3 id="specify-that-validation-errors-are-fixed">Specify that validation errors are fixed</h3>
+<p>When validation is triggered by a single field, all former validations on this field will be removed pending a response from the last validation.
+If a field triggers validation that updates/adds an error message to multiple fields at once, these will not be removed even when there no longer are any
+errors in these fields. This is because there is no way to know which fields may have been validated through a single field validation.</p>
+<p>For example, if you have two fields; first name and last name. Both fields trigger single field validation, and if both fields have a value, you can validate that
+the full name can not be longer than 50 characters. An error message is then set on both fields. If you correct this by changing the first name, the error message from first name will
+disappear, but the error message on the last name field will still be displayed even though the validation does not set any error messages on the fields.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#ff79c6">private</span> <span style="color:#ff79c6">void</span> ValidateFullName(Datamodell model, ModelStateDictionary validationResults)
 {
   <span style="color:#ff79c6">if</span> (!<span style="color:#8be9fd">string</span>.isNullOrEmpty(model.fornavn) &amp;&amp; !<span style="color:#8be9fd">string</span>.isNullOrEmpty(model.etternavn)
     &amp;&amp; model.fornavn.Length + model.etternavn.Length &gt; <span style="color:#bd93f9">50</span>)
   {
     validationResults.addModelError(nameof(model.fornavn),
-      <span style="color:#f1fa8c">&#34;Fullt navn kan ikke være lengre enn 50 tegn.&#34;</span>);
+      <span style="color:#f1fa8c">&#34;Full name can not be longer than 50 characters.&#34;</span>);
     validationResults.addModelError(nameof(model.etternavn),
-      <span style="color:#f1fa8c">&#34;Fullt navn kan ikke være lengre enn 50 tegn.&#34;</span>);
+      <span style="color:#f1fa8c">&#34;Full name can not be longer than 50 characters.&#34;</span>);
   }
 }
-</code></pre></div><p>For å kunne fjerne gamle feilmeldinger i et sånt tilfelle, er det lagt til støtte for å kunne spesifisere at en valideringsfeil er <strong>fikset</strong>. Da
-vil det aktuelle feltet kunne få beskjed om at en spesifikk feilmelding som den viser frem er fikset og skal skjules.</p>
-<p>Dette gjøres ved å legge til en valideringsfeil i koden i det tilfellet der det ikke er noen feil i valideringen, 
-og sette <code>*FIXED*</code> foran selve feilmeldingen. Dette tilsvarer oppsettet for <a href="#myk-validering">myk validering</a>. 
-Denne prefixen gjør at feilmeldingen som settes fjernes fra det aktuelle feltet, eller ignoreres (dersom det ikke er noen feilmelding på feltet fra før).</p>
-<p>Man kan da utvide eksempelet over for å støtte dette:</p>
+</code></pre></div><p>To be able to remove old error messages in a case like this, there has been added support to be able to specify that a validation error has been <strong>fixed</strong>.
+Then, the field in question will be able to be notified that a specific error message that it is displaying has been fixed and can now be hidden.</p>
+<p>This is done by adding a validation error in the code in the case where there are no errors in the validation,
+and set <code>*FIXED*</code> in front of the error message itself. This corresponds to the setup for <a href="#soft-validations">soft validation</a>.
+This prefix causes the error message that is set to be removed from the field in question, or ignored (if there is no error message on the field already).</p>
+<p>You can now expand the example above to support this:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#ff79c6">private</span> <span style="color:#ff79c6">void</span> ValidateFullName(Datamodell model, ModelStateDictionary validationResults)
 {
   <span style="color:#ff79c6">if</span> (!<span style="color:#8be9fd">string</span>.isNullOrEmpty(model.fornavn) &amp;&amp; !<span style="color:#8be9fd">string</span>.isNullOrEmpty(model.etternavn)
     &amp;&amp; model.fornavn.Length + model.etternavn.Length &gt; <span style="color:#bd93f9">50</span>)
   {
     validationResults.addModelError(nameof(model.fornavn),
-      <span style="color:#f1fa8c">&#34;Fullt navn kan ikke være lengre enn 50 tegn.&#34;</span>);
+      <span style="color:#f1fa8c">&#34;Full name can not be longer than 50 characters.&#34;</span>);
     validationResults.addModelError(nameof(model.etternavn),
-      <span style="color:#f1fa8c">&#34;Fullt navn kan ikke være lengre enn 50 tegn.&#34;</span>);
+      <span style="color:#f1fa8c">&#34;Full name can not be longer than 50 characters.&#34;</span>);
   } 
   <span style="color:#ff79c6">else</span>
   {
     validationResults.addModelError(nameof(model.fornavn),
-<span style="display:block;width:100%;background-color:#3d3f4a">      <span style="color:#f1fa8c">&#34;*FIXED*Fullt navn kan ikke være lengre enn 50 tegn.&#34;</span>);
+<span style="display:block;width:100%;background-color:#3d3f4a">      <span style="color:#f1fa8c">&#34;*FIXED*Full name can not be longer than 50 characters.&#34;</span>);
 </span>    validationResults.addModelError(nameof(model.etternavn),
-<span style="display:block;width:100%;background-color:#3d3f4a">      <span style="color:#f1fa8c">&#34;*FIXED*Fullt navn kan ikke være lengre enn 50 tegn.&#34;</span>);
+<span style="display:block;width:100%;background-color:#3d3f4a">      <span style="color:#f1fa8c">&#34;*FIXED*Full name can not be longer than 50 characters.&#34;</span>);
 </span>  }
 }
-</code></pre></div><h2 id="myke-valideringer">Myke valideringer</h2>
-<p>Myke valideringer er valideringsmeldinger som ikke stopper bruker fra å sende inn eller gå videre til neste steg i prosessen, men som benyttes til å gi brukeren ulike former for informasjon.
-Denne typen valideringer kan f.eks. brukes til å be brukeren om å verifisere input som virker feil eller rart, men som strengt tatt ikke er ugyldig, eller gi nyttig informasjon for videre utfylling.</p>
-<p>Meldinger basert på myke validering vil vises en gang, men bruker kan velge å klikke seg videre uten å utføre endringer.</p>
-<p>Myke valideringer legges til fra server-siden i validerings-logikken, på samme måte som vanlige validerings-feil. Forskjellen er at valideringsmeldingen
-må prefixes med typen validering man ønker å gi, f.eks <code>*WARNING*</code>. Dette vil da tolkes som en myk validering. Prefixen <code>*WARNING*</code> blir ikke synlig for sluttbruker.</p>
-<p>De tilgjengelige typene myke valideringer er <code>WARNING</code>, <code>INFO</code> og <code>SUCCESS</code>.</p>
-<p><strong>Kodeeksempel</strong></p>
+</code></pre></div><h2 id="soft-validations">Soft validations</h2>
+<p>Soft validations are validation messages that does not stop the user from submitting or move onto the next step of the process, but that are used to give the user different forms of information.
+These types of validations can for example be used to ask the user to verify input that seems wrong or strange, but which strictly speaking is not invalid, or give useful information for further filling out the form.</p>
+<p>Messages based on soft validation will be displayed once, but the user can choose to move on without making any changes.</p>
+<p>Soft validations are added from the server-side the application logic, in the same way as regular validation errors. The difference is that the validation message
+must be prefixed with the type of validation you want to give, e.g. <code>*WARNING*</code>. This will be interpreted as a soft validation. The prefix <code>*WARNING*</code> will not be displayed for the user.</p>
+<p>The different types of soft validations are <code>WARNING</code>, <code>INFO</code> and <code>SUCCESS</code>.</p>
+<p><strong>Code example</strong></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task ValidateData(<span style="color:#8be9fd">object</span> data, ModelStateDictionary modelState)
 {
   <span style="color:#ff79c6">if</span> (data <span style="color:#ff79c6">is</span> TestModel testModel)
@@ -1531,14 +1531,14 @@ må prefixes med typen validering man ønker å gi, f.eks <code>*WARNING*</code>
   
   <span style="color:#ff79c6">await</span> Task.CompletedTask;
 }
-</code></pre></div><p>Eksempler på visning av de ulike valieringene ser du nedenfor:</p>
-<figure><a href="info-message.jpeg"><img src="info-message.jpeg" alt="&ldquo;Informasjonsmelding&rdquo;" title="Eksempel på informasjonsmelding (*INFO* - prefix)" /></a><figcaption><h4>Eksempel på informasjonsmelding (*INFO* - prefix)</h4></figcaption></figure>
-<p><img src="success-message.jpeg" alt="&ldquo;Suksessmelding&rdquo;" title="Eksempel på suksessmelding (*SUCCESS* - prefix)">)</p>
-<figure><a href="warning-message.jpeg"><img src="warning-message.jpeg" alt="&ldquo;Informasjonsmelding&rdquo;" title="Eksempel på advarselsmelding (*WARNING* - prefix)" /></a><figcaption><h4>Eksempel på advarselsmelding (*WARNING* - prefix)</h4></figcaption></figure>
-<p>Det er også mulig å overstyre tittelen man ser på meldingene ved å legge til nøkklene <code>soft_validation.info_title</code>, <code>soft_validation.warning_title</code>, og <code>soft_validation.success_title</code> i tekstressursene om man ønsker å sette custom tittel.</p>
-<h2 id="gruppevalidering">Gruppevalidering</h2>
-<p>Det er mulig å gjøre valideringer på en repeterende gruppe i det brukeren ønsker å lagre en gitt indeks.
-Dette gjøres ved å legge til en trigger på gruppe-komponenten i layoutfilen (f.eks <code>FormLayout.json</code>). Eksempel:</p>
+</code></pre></div><p>Examples on display of different validations below:</p>
+<figure><a href="info-message.jpeg"><img src="info-message.jpeg" alt="&ldquo;Information message&rdquo;" title="Example on information message (*INFO* - prefix)" /></a><figcaption><h4>Example on information message (*INFO* - prefix)</h4></figcaption></figure>
+<figure><a href="success-message.jpeg"><img src="success-message.jpeg" alt="&ldquo;Success message&rdquo;" title="Example on success message (*SUCCESS* - prefix)" /></a><figcaption><h4>Example on success message (*SUCCESS* - prefix)</h4></figcaption></figure>
+<figure><a href="warning-message.jpeg"><img src="warning-message.jpeg" alt="&ldquo;Warning message&rdquo;" title="Example on warning message (*WARNING* - prefix)" /></a><figcaption><h4>Example on warning message (*WARNING* - prefix)</h4></figcaption></figure>
+<p>It is also possible to overrule the title you see on the messages by adding the keys <code>soft_validation.info_title</code>, <code>soft_validation.warning_title</code>, and <code>soft_validation.success_title</code> in the text resources if you want to set a custom title.</p>
+<h2 id="group-validation">Group validation</h2>
+<p>It is possible to apply validations to a repeating group when the user saves a row in the group.
+This can be done by adding a trigger on the group component in the layout file (e.g. <code>FormLayout.json</code>). Example:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#ff79c6">&#34;data&#34;</span>: {
     <span style="color:#ff79c6">&#34;layout&#34;</span>: [
@@ -1552,16 +1552,16 @@ Dette gjøres ved å legge til en trigger på gruppe-komponenten i layoutfilen (
         <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {
             <span style="color:#ff79c6">&#34;group&#34;</span>: <span style="color:#f1fa8c">&#34;Endringsmelding-grp-9786.OversiktOverEndringene-grp-9788&#34;</span>
         },
-<span style="display:block;width:100%;background-color:#3d3f4a">        <span style="color:#ff79c6">&#34;triggers&#34;</span>: [<span style="color:#f1fa8c">&#34;validation&#34;</span>]  // &lt;--- Legg til denne
+<span style="display:block;width:100%;background-color:#3d3f4a">        <span style="color:#ff79c6">&#34;triggers&#34;</span>: [<span style="color:#f1fa8c">&#34;validation&#34;</span>]  // &lt;--- Add this
 </span>      },
       ...
     ]
   }
 }
-</code></pre></div><p>Dette vil da sørge for at det vil kjøres validering på komponentene som er en del av gruppen på den aktuelle indeksen man jobber på.
-Om det finnes valideringsfeil så vil man stoppes fra å lagre gruppen før dette er rettet opp i.</p>
-<p>Om man legger til validering på gruppe-komponenten så vil det også gå et kall mot valideringen backend med en header som spesifiserer hvilken komponent som trigget valideringen: <code>ComponentId</code>.
-Valideringer er skrevet i C#, i <code>ValidationHandler.cs</code>-filen i applikasjonsmalen. I valideringen kan man så hente ut denne id&rsquo;en og skreddersy eventuelle valideringer som skal gjøres backend, eksempel:</p>
+</code></pre></div><p>This will ensure that validation is run on the components that are a part of the group on the index you&rsquo;re working on.
+If there are validation errors you will be stopped from saving the group until this has been corrected.</p>
+<p>If you add validation on the group component, a call will be made towards the validation back-end with a header specifying which component triggered the validation: <code>ComponentId</code>.
+Validations are written in C# in the <code>ValidationHandler.cs</code>-file in the application template. In the validation, you can then retrieve this id and tailor possible validations that should run back-end, example:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task ValidateData(<span style="color:#8be9fd">object</span> data, ModelStateDictionary validationResults)
 {
     <span style="color:#ff79c6">if</span> (data <span style="color:#ff79c6">is</span> flyttemelding model))
@@ -1574,15 +1574,15 @@ Valideringer er skrevet i C#, i <code>ValidationHandler.cs</code>-filen i applik
         <span style="color:#ff79c6">switch</span> (component)
         {
             <span style="color:#ff79c6">case</span> <span style="color:#f1fa8c">&#34;demo-group&#34;</span>:
-                <span style="color:#6272a4">// kjør valideringer spesifikke til gruppen
+                <span style="color:#6272a4">// run validations specific to the group
 </span><span style="color:#6272a4"></span>                <span style="color:#ff79c6">break</span>;
             <span style="color:#ff79c6">default</span>:
-                <span style="color:#6272a4">// kjør valideringene i sin helhet
+                <span style="color:#6272a4">// run the validations in their entirety
 </span><span style="color:#6272a4"></span>                <span style="color:#ff79c6">break</span>;
         }
     }
 }
-</code></pre></div><p>For tips til hvordan man løser komplekse valideringer se ekemplene under <a href="#enkeltfeltvalidering">enkeltfeltvalidering</a>.</p>
+</code></pre></div><p>For tips on how you solve complex validations, see the examples under <a href="#single-field-validation">single field validation</a>.</p>
 
 
 <footer class=" footline" >

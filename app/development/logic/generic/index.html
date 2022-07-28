@@ -269,7 +269,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/ux/texts/"><span>Texts</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/app/development/ux/texts/translation/"><span>Oversettelse av tekster</span></a></li></ul></li>
+        <a href="/app/development/ux/texts/translation/"><span>Translation of texts</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/app/development/ux/pdf/"><span>PDF</span></a></li>
       <li class="dd-item">
@@ -1096,10 +1096,10 @@ if(host != "localhost")
                 </span>
                 <span class="links"><a href='/app/'>Create apps</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/development/'>Development</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/development/logic/'>Logic</a> <span class='adocs-breadcrumb-divider'> / </span> Generic</span>
             </div>
-          </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english">translate-to-english</a></div><div id="body-inner"><h1 class="a-fontBold">Generic</h1>
+          </div><div id="body-inner"><h1 class="a-fontBold">Generic</h1>
               <p class="a-leadText" id="leadText">Overview of logic files and how they can be used.</p><h2>On this page:</h2><nav id="TableOfContents">
   <ul>
-    <li><a href="#introduksjon">Introduksjon</a></li>
+    <li><a href="#introduction">Introduction</a></li>
     <li><a href="#auto-completeintellisense">Auto-complete/intellisense</a></li>
   </ul>
 </nav>
@@ -1107,12 +1107,12 @@ if(host != "localhost")
 
 
 
-<h2 id="introduksjon">Introduksjon</h2>
-<p>De forskjellige filene som brukes til å definere logikk, finner man i logikk-menyen,
-som er tilgjengelig i UI-editoren via  <em>f(x)</em>-ikonet øverst til høyre.</p>
-<figure><a href="ui-editor-logic-menu.png?height=300px"><img src="ui-editor-logic-menu.png?height=300px" alt="Logikkmeny" title="Logikkmeny" /></a><figcaption><h4>Logikkmeny</h4></figcaption></figure>
-<p>De kan også redigeres direkte fra applikasjonsrepoet, under folderen <code>App/logic</code> (for serverside applikasjonslogikk) eller folderen <code>App/ui</code> (for dynamikk).
-Denne folderen inneholder som standard følgende filer:</p>
+<h2 id="introduction">Introduction</h2>
+<p>The various files that are used to define logic can be found in the logic menu
+that is available in the UI editor through the <em>f(x)</em>-icon at the top right corner.</p>
+<figure><a href="ui-editor-logic-menu.png?height=300px"><img src="ui-editor-logic-menu.png?height=300px" alt="Logic menu" title="Logic menu" /></a><figcaption><h4>Logic menu</h4></figcaption></figure>
+<p>They can also be edited directly from the application repo, under the folder <code>App/logic</code> (for server-side application logic) or the folder <code>App/ui</code> (for dynamic behaviour in the GUI).
+This folder contains the following files by default:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#">🗀 App/
   🗀 logic/
     🗀 DataProcessing/
@@ -1123,23 +1123,23 @@ Denne folderen inneholder som standard følgende filer:</p>
       🗎 ValidationHandler.cs
     🗎 App.cs
     🗎 InstantiationHandler.cs
-</code></pre></div><p>Flere filer kan legges til her når det er nødvendig.</p>
-<p>Et komplett prosjekt med eksempler på serverside applikasjonslogikk ligger <a href="https://dev.altinn.studio/repos/ttd/webdemo2">her</a>.</p>
+</code></pre></div><p>More files can be added when needed.</p>
+<p>A complete project with examples on server-side application logic can be found <a href="https://dev.altinn.studio/repos/ttd/webdemo2">here</a>.</p>
 
 
 <div class="panel panel-primary">
 	
-	<div class="panel-body"><p><strong>MERK:</strong> Måten man refererer til elementer i datamodellen er ulik mellom OR og SERES typer XSDer.
-For OR XSDer er <code>.value</code> et nødvendig suffiks i referansen. Eksempelkoden under bruker en blanding av de to typene datamodeller.</p>
+	<div class="panel-body"><p><strong>NOTE:</strong> The way you reference elements in the data model is different between OR and SERES type XSD&rsquo;s.
+For OR XSD&rsquo;s, <code>.value</code> is a necessary suffix in the reference. The example code beow uses a mixture of the two types of data models.</p>
 </div>
 	
 </div>
 
 <h2 id="auto-completeintellisense">Auto-complete/intellisense</h2>
-<p>Ved å redigere kildekoden i appene lokalt, i f.eks. Visual Studio Code, får man intellisense og autocomplete med på kjøpet. 
-For C#-filene er det enkleste å jobbe med disse lokalt.</p>
-<p>For javascript-filene er det også intellisense/autocomplete tilgjengelig om man ønsker å redigere filene direkte i Altinn Studio.
-Dette kommer automatisk mens man skriver, og man kan også tvinge det frem ved å trykke <code>CTRL + SPACE</code></p>
+<p>By editing the source code in the apps locally, e.g. in Visual Studio Code, you get intellisense and autocomplete automatically.
+For the C#-files, it&rsquo;s easiest working on these locally.</p>
+<p>For the javascript-files, intellisense/autocomplete is also available if you wish to edit the files directly in Altinn Studio.
+This appears automatically when writing, and you can also force it to appear by pressing <code>CTRL + SPACE</code></p>
 <figure><a href="datamodel-intellisense.gif"><img src="datamodel-intellisense.gif" alt="Logic menu - auto-complete/intellisense" title="Logic menu - auto-complete/intellisense" /></a><figcaption><h4>Logic menu - auto-complete/intellisense</h4></figcaption></figure>
 
 

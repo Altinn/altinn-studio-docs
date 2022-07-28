@@ -269,7 +269,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/ux/texts/"><span>Texts</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/app/development/ux/texts/translation/"><span>Oversettelse av tekster</span></a></li></ul></li>
+        <a href="/app/development/ux/texts/translation/"><span>Translation of texts</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/app/development/ux/pdf/"><span>PDF</span></a></li>
       <li class="dd-item">
@@ -1096,11 +1096,11 @@ if(host != "localhost")
                 </span>
                 <span class="links"><a href='/app/'>Create apps</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/development/'>Development</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/development/ux/'>User interface</a> <span class='adocs-breadcrumb-divider'> / </span> Styling</span>
             </div>
-          </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english">translate-to-english</a></div><div id="body-inner"><h1 class="a-fontBold">Styling</h1>
+          </div><div id="body-inner"><h1 class="a-fontBold">Styling</h1>
               <p class="a-leadText" id="leadText">How to control the styling, formatting and grid layout of an app.</p><h2>On this page:</h2><nav id="TableOfContents">
   <ul>
-    <li><a href="#sidestilte-komponenter-grid">Sidestilte komponenter (grid)</a></li>
-    <li><a href="#formatering-av-tall">Formatering av tall</a></li>
+    <li><a href="#components-placed-side-by-side-grid">Components placed side by side (grid)</a></li>
+    <li><a href="#formatting-numbers">Formatting numbers</a></li>
     <li><a href="#aligning-text-in-input-fields">Aligning text in input fields</a></li>
   </ul>
 </nav>
@@ -1109,13 +1109,13 @@ if(host != "localhost")
 
 
 <div class="notices warning" >
-<p>Dette er helt ny funksjonalitet. Oppsett må gjøres manuelt inntil videre. Støtte for oppsett via Altinn Studio kommer snart.</p>
-<p><strong>MERK:</strong> for å benytte denne funksjonaliteten må man ha app-frontend versjon 3. Se <a href="/community/changelog/app-frontend/v3/breaking-changes/">denne lenken</a> om endringer som må til i appen.</p>
+<p>This is new functionality. Setup must be done manually for now. Support for setup through Altinn Studio will be launched shortly.</p>
+<p><strong>NOTE:</strong> to use this functionality you need app-frontend version 3. See <a href="/community/changelog/app-frontend/v3/breaking-changes/">this link</a> for changes that is required in the app.</p>
 </div>
-<h2 id="sidestilte-komponenter-grid">Sidestilte komponenter (grid)</h2>
-<p>Det er mulig å sidestille komponenter i skjema. Denne funksjonaliteten baserer seg på grid systemet til <a href="https://material-ui.com/components/grid/">Material-UI</a>, og vil også være kjent om man er kjent med grid-systemet til boostrap.
-Grid systemet baserer seg på en oppbygning av containere i 12 deler, hvor man så kan tildele barn (items) av en grid-container en gitt andel av denne bredden. Material-UI tilbyr også muligheten til å dynamisk endre hvor stor andel av skjermen man ønsker å oppta basert på hvilken skjermstørrelse sluttbrukeren har.
-Følgende størrelser med tilhørende breakpoints er definert:</p>
+<h2 id="components-placed-side-by-side-grid">Components placed side by side (grid)</h2>
+<p>It is possible to place components side by side in a form. This functionality is based on the grid system from <a href="https://material-ui.com/components/grid/">Material-UI</a>, and is similar to the grid system from bootstrap.
+The grid system is based on a construction of containers in 12 parts, where you can assign children (items) of a grid-container a given part of this width. Material-UI also offers the ability to dynamically change how much of the screen you want to occupy based on which screen size the user is on.
+The following sizes with breakpoints are defined:</p>
 <ul>
 <li><strong>xs</strong>: 0px</li>
 <li><strong>sm</strong>: 600px</li>
@@ -1123,7 +1123,7 @@ Følgende størrelser med tilhørende breakpoints er definert:</p>
 <li><strong>lg</strong>: 1440px</li>
 <li><strong>xl</strong>: 1920px</li>
 </ul>
-<p>For å sidestille komponenter horisontalt må man gjøre noen små endringer i formlayout. Det er definert en egen property <code>grid</code> som man kan fylle inn bredde ønsket på de ulik størrelsene. Her er et eksempel hvor to input-felt har blitt satt til å ta halve skjermen (enkelte props er fjernet for lesbarhet):</p>
+<p>To place components side by side horizontally, small changes must be done in formlayout. A seperate property <code>grid</code> has been defined, where you can fill in desired width on the different sizes. Here is an example where two input fields has been set to cover half the screen (some props are removed for readability):</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"> {
      {
         <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;input-felt-1&#34;</span>,
@@ -1143,12 +1143,12 @@ Følgende størrelser med tilhørende breakpoints er definert:</p>
       }
 }
 
-</code></pre></div><p>I komponentene over er størrelsen satt til 6 (altså halv bredde) for størrelse <code>xs</code>. Siden <code>xs</code> er den minste størrelsen tilgjengelig vil dette gjelde fra størrelse <code>xs</code> og opp, altså fra <code>xs</code> til <code>xl</code>.
-Oppsettet over vil gi følgende resultat:</p>
-<figure><a href="halv-bredde.png"><img src="halv-bredde.png" alt="Halv bredde på skjema" title="Halv bredde på skjema" /></a><figcaption><h4>Halv bredde på skjema</h4></figcaption></figure>
-<p>Siden man har 12 inndelinger tilgjengelig i sidebredden er det opp til apputvikler å tildele hvor stor andel komponenten skal ha. Om man ønsker at en komponent skal ta 2/12, en annen 6/12 og siste 4/12 så er det mulig.
-Det er viktig å tenke på brukeropplevelsen når man gjør slike endringer, og sidestilling av komponenter bør gjøres med omhu. Komponenter med lengre tekster og beskrivelser blir også fort små og uoversiktelige om disse sidestilles. Skal det benyttes lengre tekster og beskrivelser anbefales det at disse benytter full bredde av skjema.</p>
-<p>Om man i eksempelet over hadde ønsket at komponentene skulle ta hele bredden frem til skjermen ble større enn 960px så kunne man satt opp følgende layout:</p>
+</code></pre></div><p>For the components above, the size has been set to 6 (half width) for the size <code>xs</code>. Since: <code>xs</code> is the smallest size available, this will apply from size <code>xs</code> and up, i.e. from <code>xs</code> to <code>xl</code>.
+The setup above will give the following result:</p>
+<figure><a href="halv-bredde.png"><img src="halv-bredde.png" alt="Half width on form" title="Half width on form" /></a><figcaption><h4>Half width on form</h4></figcaption></figure>
+<p>Since there are 12 sections available on the page width, it is up to the app developer to assign how large of a share a component should have. If you want a component to take up 2/12, and another 6/12 and the last one 4/12, then this is possible. 
+It is important to consider the user experience when performing these changes, and before you place components side by side you should think it through. Components with longer texts and descriptions quickly become small and unclear if these are placed side by side. If you are to use longer texts and descriptions it is recommended that these occupy the full width of the form.</p>
+<p>If you in the example above wanted the components to take up the whole width of the screen, until the screen passed 960px in size, you could set up the following layout:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"> {
      {
         <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;input-felt-1&#34;</span>,
@@ -1172,13 +1172,13 @@ Det er viktig å tenke på brukeropplevelsen når man gjør slike endringer, og 
       }
 }
 
-</code></pre></div><p>Da ville komponentene først legge seg sidestilt i det sluttbruker faktisk sitter på en skjerm som oppfyller kravet stilt.</p>
+</code></pre></div><p>Then, the components would not be be placed side by side unless the user is using a screen of 960px or more.</p>
 <h3 id="innergrid-og-labelgrid">innerGrid og labelGrid</h3>
-<p>Utover det å sette bredde på <code>grid</code> i komponenten har vi også lagt til mulighet til å styre <code>innerGrid</code> og <code>labelGrid</code>. 
-Dette gir deg mulighet til å påvirke på samme måte hvor stor bredde label og input skal ta. Dette brukes typisk når du
-vil gjøre input feltet mindre (for å gi en visuell markering av at det forventes kort svar), eller hvis du ønsker å vise
-label og input på samme linje (som i en tabell).</p>
-<p>Du kan tenke på komponenten på denne måten:</p>
+<p>In addition to setting the width of the <code>grid</code> in the component, we also have added the opportunity to control <code>innerGrid</code> and <code>labelGrid</code>. 
+This gives you the opportunity to control the width of label and input in the same way. This is typically used when
+you want to make an input field smaller (to give a visual indication that a small answer is expected), or if you want to display
+label and input on the same line (like in a table.)</p>
+<p>You can think of the component in this manner:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">Grid</span> <span style="color:#50fa7b">id</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;grid&#34;</span>&gt; 
     &lt;<span style="color:#ff79c6">Grid</span> <span style="color:#50fa7b">id</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;labelGrid&#34;</span>&gt;
         Komponentens tekster
@@ -1187,7 +1187,7 @@ label og input på samme linje (som i en tabell).</p>
         Komponentens input
     &lt;/<span style="color:#ff79c6">Grid</span>&gt;
 &lt;/<span style="color:#ff79c6">Grid</span>&gt;
-</code></pre></div><p>Her vil det da være mulig å styre bredden til både ytterste grid og den innerste griden. Eksempel:</p>
+</code></pre></div><p>Here, you will have the opportunity to control the width of both the outer grid and the inner grid. Example:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
      {
         <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;input-felt-1&#34;</span>,
@@ -1202,20 +1202,20 @@ label og input på samme linje (som i en tabell).</p>
       }
 }
 
-</code></pre></div><p>Her har man satt at komponent griden skal ta hele bredden, mens man begrenser komponentens input til å kun ta halve bredden.
-InnerGrid vil kunne styres for komponentene:</p>
+</code></pre></div><p>Here, it has been set that the component grid shall occupy the whole width, while limiting the component&rsquo;s input to only occupy half the width.
+Innergrid can be controlled for these components:</p>
 <ul>
-<li>Kort svar (Input)</li>
-<li>Langt svar (TextArea)</li>
-<li>Filopplaster (FileUpload)</li>
-<li>Nedtrekksliste (Dropdown)</li>
-<li>Datovelger (Datepicker)</li>
+<li>Input</li>
+<li>TextArea</li>
+<li>FileUpload</li>
+<li>Dropdown</li>
+<li>Datepicker</li>
 </ul>
-<p>Eksempelet over vil gi følgende output:</p>
-<figure><a href="inner-grid.png"><img src="inner-grid.png" alt="InnerGrid eksempel output" title="InnerGrid eksempel output" /></a><figcaption><h4>InnerGrid eksempel output</h4></figcaption></figure>
-<p>En tabellvisning med sidestilt label vil komme frem hvis du setter <code>labelGrid</code> og <code>innerGrid</code> slik at summen blir 12 
-(eller mindre). Dette kan være lurt hvis du har en lang liste med relaterte spørsmål. Det er ofte lurt å ikke bruke
-et slikt layout på de minste skjermene, så bruk gjerne <code>md</code></p>
+<p>The example above will give the following output:</p>
+<figure><a href="inner-grid.png"><img src="inner-grid.png" alt="InnerGrid example output" title="InnerGrid example output" /></a><figcaption><h4>InnerGrid example output</h4></figcaption></figure>
+<p>A tableview with labels placed to the side will appear if you set <code>labelGrid</code> and <code>innerGrid</code> so that the sum equals 12
+(or less). This may be wise if you have a long list of related questions. It is often wise to not use
+such a layout on the smallest screens, so feel free to use <code>md</code>.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
      {
         <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;input-felt-1&#34;</span>,
@@ -1231,17 +1231,17 @@ et slikt layout på de minste skjermene, så bruk gjerne <code>md</code></p>
         }
       }
 }
-</code></pre></div><p>Det vil se omtrent slik ut</p>
-<figure><a href="label-grid.png"><img src="label-grid.png" alt="labelGrid eksempel output" title="labelGrid eksempel output" /></a><figcaption><h4>labelGrid eksempel output</h4></figcaption></figure>
-<h2 id="formatering-av-tall">Formatering av tall</h2>
-<p>Det er nå implementert støtte for å kunne spesifisere formatering av tall i <em>inputfelt</em>. Dette gjøres ved å legge til en property <code>formatting</code> på
-Input-komponenten. Formateringsmuligheter er dokumentert i et <a href="https://altinncdn.no/schemas/json/component/number-format.schema.v1.json">JSON-schema</a>,
-og vil dukke opp automatisk i intellisense når man redigerer komponenten i f.eks. VSCode.</p>
-<p>Eksempelet under vil resultere i et inputfelt for tall, hvor tallet vil bli formatert med <code>,</code> mellom hver tusen, og <code>$</code> foran tallet.</p>
+</code></pre></div><p>This will look something like this:</p>
+<figure><a href="label-grid.png"><img src="label-grid.png" alt="labelGrid example output" title="labelGrid example output" /></a><figcaption><h4>labelGrid example output</h4></figcaption></figure>
+<h2 id="formatting-numbers">Formatting numbers</h2>
+<p>Support has now been implemented to be able to specify formatting of numbers in input fields. This is done by adding a property <code>formatting</code> to
+the input component. Formatting options are documented in a <a href="https://altinncdn.no/schemas/json/component/number-format.schema.v1.json">JSON-schema</a>,
+and will appear automatically in intellisense when editing the component in e.g. VSCode.</p>
+<p>The example below will result in an input field for numbers, where the number will be formatted with <code>,</code> between each thousand, and <code>$</code> in front of the number.</p>
 <div class="notices info" >
-Formateringen er kun for visning i frontend, og tallene som legges inn i et inputfelt med formatering vil lagres uformatert.
+The formatting is for frontend display only, and the numbers added to an input field with formatting will be saved unformatted.
 </div>
-<figure><a href="number-format-money.png"><img src="number-format-money.png" alt="Formatert tall i input-felt" title="Formatert tall i input-felt" /></a><figcaption><h4>Formatert tall i input-felt</h4></figcaption></figure>
+<figure><a href="number-format-money.png"><img src="number-format-money.png" alt="Formatted number in input field" title="Formatted number in input field" /></a><figcaption><h4>Formatted number in input field</h4></figcaption></figure>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;numberComponent&#34;</span>,
   <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Input&#34;</span>,

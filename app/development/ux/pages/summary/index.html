@@ -269,7 +269,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/ux/texts/"><span>Texts</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/app/development/ux/texts/translation/"><span>Oversettelse av tekster</span></a></li></ul></li>
+        <a href="/app/development/ux/texts/translation/"><span>Translation of texts</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/app/development/ux/pdf/"><span>PDF</span></a></li>
       <li class="dd-item">
@@ -1096,12 +1096,12 @@ if(host != "localhost")
                 </span>
                 <span class="links"><a href='/app/'>Create apps</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/development/'>Development</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/development/ux/'>User interface</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/development/ux/pages/'>Pages</a> <span class='adocs-breadcrumb-divider'> / </span> Summary</span>
             </div>
-          </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english">translate-to-english</a></div><div id="body-inner"><h1 class="a-fontBold">Summary view</h1>
+          </div><div id="body-inner"><h1 class="a-fontBold">Summary view</h1>
               <p class="a-leadText" id="leadText">How to set up the display of a summary of the completed form.</p><h2>On this page:</h2><nav id="TableOfContents">
   <ul>
-    <li><a href="#oppsett">Oppsett</a></li>
-    <li><a href="#kategorier">Kategorier</a></li>
-    <li><a href="#eksempel-på-oppsummeringsside">Eksempel på oppsummeringsside</a></li>
+    <li><a href="#setup">Setup</a></li>
+    <li><a href="#categories">Categories</a></li>
+    <li><a href="#example-on-summary-page">Example on summary page</a></li>
   </ul>
 </nav>
 
@@ -1109,55 +1109,55 @@ if(host != "localhost")
 
 
 <div class="notices warning" >
-Dette er helt ny funksjonalitet. Oppsett må gjøres manuelt inntil videre. Støtte for oppsett via Altinn Studio kommer på et senere tidspunkt..
-<p><strong>MERK</strong>: PDF-genereringen har per nå ikke støtte for oppsummerings-komponenten. For at PDF-generering skal fungere må enten alle oppsummerings-komponentene, eller hele oppsummerings-siden(e) ekskluderes fra PDF. Dette gjøres i <code>Settings.json</code>-filen knyttet til layout-filene.</p>
+This is new functionality. Setup must be done manually as of today. Support for setup through Altinn Studio will be available at a later point in time.
+<p><strong>NOTE</strong>: The PDF generation, as of today, does not support the summary component. For PDF generating to work, either all the summary components or the whole summary-page(s) must be excluded from PDF. This is done in the <code>Settings.json</code>-file attached to the layout-files.</p>
 </div>
-<h2 id="oppsett">Oppsett</h2>
-<p>Visning av oppsummering settes opp på samme måte som øvrige skjema-komponenter i et skjema.
-Man kan velge å ha oppsummeringen på en egen side, eller på samme side som andre skjema-komponenter.</p>
-<p>Oppsummerings-komponenten er meget enkel, og refererer til <em>komponent</em> som skal oppsummeres, og <em>siden</em> denne ligger på. Eksempel:</p>
+<h2 id="setup">Setup</h2>
+<p>Display of summary is set up in the same manner as the other form components in a form. 
+You can choose to have the summary on it&rsquo;s own page, or on the same page as other form components.</p>
+<p>The summary component is very simple, and refers to the <em>component</em> that is to be summarized and the <em>page</em> this is on. Example:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
     <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;summary-1&#34;</span>,
     <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Summary&#34;</span>,
 <span style="display:block;width:100%;background-color:#3d3f4a">    <span style="color:#ff79c6">&#34;componentRef&#34;</span>: <span style="color:#f1fa8c">&#34;&lt;komponent-id&gt;&#34;</span>,
 </span>    <span style="color:#ff79c6">&#34;pageRef&#34;</span>: <span style="color:#f1fa8c">&#34;&lt;side komponenten er definert på&gt;&#34;</span>
 },
-</code></pre></div><p>Komponenten viser oppsummering av data fra den spesifiserte komponenten. I tillegg får sluttbruker mulighet
-til å gå tilbake til den aktuelle komponenten/siden for å gjøre endringer.</p>
-<p>Visningen er litt forskjellig avhengig av hva slags skjemakomponent oppsummeringen refererer til.</p>
-<p>Merk: PDF-generering støtter ikke oppsummering side, så må den ekskluderes ved å endre <code>ui/Settings.json</code></p>
+</code></pre></div><p>The component displays a summary of data from the specified component. In addition, the user gets the opportunity to 
+return to the relevant component/page to make changes.</p>
+<p>The display differs depending on which form component the summary refers to.</p>
+<p>Note: PDF-generating does not support a summary page, so it has to be excluded by changing <code>ui/Settings.json</code></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#f1fa8c">&#34;pages&#34;</span>: 
       { 
-        <span style="color:#ff79c6">&#34;excludeFromPdf&#34;</span>: [ <span style="color:#f1fa8c">&#34;navn-til-oppsummering-side&#34;</span> ] 
+        <span style="color:#ff79c6">&#34;excludeFromPdf&#34;</span>: [ <span style="color:#f1fa8c">&#34;name-of-summary-page&#34;</span> ]
       }
-</code></pre></div><h3 id="enkel-skjemakomponent">Enkel skjemakomponent</h3>
-<p>Dette er skjemakomponenter som kun er knyttet til 1 felt i datamodellen. F.eks. Input, Dropdown, Checkbox/Radio, osv.</p>
-<figure><a href="simple-summary.png"><img src="simple-summary.png" alt="Oppsummering enkel skjemakomponent" title="Oppsummering enkel skjemakomponent" /></a><figcaption><h4>Oppsummering enkel skjemakomponent</h4></figcaption></figure>
-<p>Oppsummeringen viser ledeteksten til skjemakomponenten, og tilknyttet data. Dersom det er en aktiv feilmelding
-knyttet til skjemakomponenten, vil dette også vises.</p>
-<figure><a href="simple-summary-error.png"><img src="simple-summary-error.png" alt="Oppsummering enkel skjemakomponent med feil" title="Oppsummering enkel skjemakomponent med feil" /></a><figcaption><h4>Oppsummering enkel skjemakomponent med feil</h4></figcaption></figure>
-<h3 id="adressekomponent">Adressekomponent</h3>
-<p>Denne komponenten har flere felter som inngår. Visningen er lik som for en enkel skjemakomponent, 
-slik at feltene blir slått sammen til en enkel tekst.</p>
-<figure><a href="summary-address.png"><img src="summary-address.png" alt="Oppsummering adressekomponent, med feil" title="Oppsummering adressekomponent, med feil" /></a><figcaption><h4>Oppsummering adressekomponent, med feil</h4></figcaption></figure>
-<h3 id="filvedlegg">Filvedlegg</h3>
-<p>Oppsummeringsvisningen for filvedlegg viser en liste over de vedleggene som er lastet opp for den aktuelle
-komponenten.</p>
-<figure><a href="attachment-summary.png"><img src="attachment-summary.png" alt="Oppsummering vedleggskomponent" title="Oppsummering vedleggskomponent" /></a><figcaption><h4>Oppsummering vedleggskomponent</h4></figcaption></figure>
-<h3 id="repeterende-grupper">Repeterende grupper</h3>
-<figure><a href="group-summary.png"><img src="group-summary.png" alt="Oppsummering repeterende grupper" title="Oppsummering repeterende grupper" /></a><figcaption><h4>Oppsummering repeterende grupper</h4></figcaption></figure>
-<h3 id="grupper-i-grupper">Grupper i grupper</h3>
-<p>Oppsummering støttes også for repeterende grupper <em>inne i</em> repeterende grupper. Vi støtter kun ett nivå av 
-grupper i grupper. I dette tilfellet vises oppsummeringen av hvert innslag av gruppen på øverst nivå som en
-egen <a href="#kategorier">kategori</a>, og gruppen på nederste nivå vises på samme måte som vanlige repeterende
-grupper.</p>
-<p>For å støtte oppsummeringsvisning av gruppe i gruppe må gjøre følgende oppsett i layout-filen:</p>
+</code></pre></div><h3 id="simple-form-component">Simple form component</h3>
+<p>These are components that are only connected to one field in the data model. E.g. Input, Dropdown, Checkbox/Radio, etc.</p>
+<figure><a href="simple-summary.png"><img src="simple-summary.png" alt="Summary simple form component" title="Summary simple form component" /></a><figcaption><h4>Summary simple form component</h4></figcaption></figure>
+<p>The summary displays the prompt for the form component and attached data. If there is an active error message
+attached to the form component, this will also be displayed.</p>
+<figure><a href="simple-summary-error.png"><img src="simple-summary-error.png" alt="Summary of simple form component with error" title="Summary of simple form component with error" /></a><figcaption><h4>Summary of simple form component with error</h4></figcaption></figure>
+<h3 id="address-component">Address component</h3>
+<p>This component includes multiple fields. The display is the same as that of a simple form component,
+so the fields are merged into a simple text.</p>
+<figure><a href="summary-address.png"><img src="summary-address.png" alt="Summary of address component, with error" title="Summary of address component, with error" /></a><figcaption><h4>Summary of address component, with error</h4></figcaption></figure>
+<h3 id="file-attachments">File attachments</h3>
+<p>The summary display for file attachments displays a list of the attachments that are uploaded for 
+the component in question.</p>
+<figure><a href="attachment-summary.png"><img src="attachment-summary.png" alt="Summary file attachment component" title="Summary file attachment component" /></a><figcaption><h4>Summary file attachment component</h4></figcaption></figure>
+<h3 id="repeating-groups">Repeating groups</h3>
+<figure><a href="group-summary.png"><img src="group-summary.png" alt="Summary repeating groups" title="Summary repeating groups" /></a><figcaption><h4>Summary repeating groups</h4></figcaption></figure>
+<h3 id="nested-groups">Nested groups</h3>
+<p>Summary is also supported for nested repeating groups. We only support one level of
+nested groups. In this case, the summary of each element of the group at the top level is displayed
+as its own <a href="#categories">category</a>, and the group at the lowest level is displayed in the same manner as a normal
+repeating group.</p>
+<p>To support summary display of nested groups, the following setup must be done in the layout-file:</p>
 <ul>
-<li>Referere til <em>hovedgruppen</em> i <code>componentRef</code> i Summary-komponenten</li>
-<li>Sette <code>&quot;largeGroup&quot;: true</code> på Summary-komponenten</li>
+<li>Refer to <em>the main group</em> in <code>componentRef</code> in the summary component</li>
+<li>Set <code>&quot;largeGroup&quot;: true</code> on the summary component</li>
 </ul>
-<h4 id="eksempel">Eksempel</h4>
-<p>Med følgende oppsett av gruppe i gruppe i layout:</p>
+<h4 id="example">Example</h4>
+<p>With the following setup of a nested group in layout:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;main-group&#34;</span>,
   <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Group&#34;</span>,
@@ -1170,7 +1170,7 @@ grupper.</p>
   <span style="color:#ff79c6">&#34;children&#34;</span>: [
     <span style="color:#f1fa8c">&#34;nested-group-1&#34;</span>
   ],
-  ... // resterende oppsett av komponent
+  ... // remaining setup of component
 },
 {
   <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;nested-group-1&#34;</span>,
@@ -1184,7 +1184,7 @@ grupper.</p>
   <span style="color:#ff79c6">&#34;children&#34;</span>: [
     <span style="color:#f1fa8c">&#34;input-field-1&#34;</span>
   ],
-  ... // resterende oppsett av komponent
+  ... // remaining setup of component
 },
 {
   <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;input-field-1&#34;</span>,
@@ -1195,9 +1195,9 @@ grupper.</p>
   <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {
     <span style="color:#ff79c6">&#34;group&#34;</span>: <span style="color:#f1fa8c">&#34;model.mainGroup.subGroup.field1&#34;</span>
   },
-  ... // resterende oppsett av komponent
+  ... // remaining setup of component
 }
-</code></pre></div><p>Setter man opp oppsummering på følgende måte:</p>
+</code></pre></div><p>Set up the summary in the following manner:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;summary-1&#34;</span>,
   <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Summary&#34;</span>,
@@ -1205,14 +1205,14 @@ grupper.</p>
   <span style="color:#ff79c6">&#34;pageRef&#34;</span>: <span style="color:#f1fa8c">&#34;FormLayout&#34;</span>,
 <span style="display:block;width:100%;background-color:#3d3f4a">  <span style="color:#ff79c6">&#34;largeGroup&#34;</span>: <span style="color:#ff79c6">true</span>,
 </span>}
-</code></pre></div><figure><a href="nested-group-summary.png"><img src="nested-group-summary.png" alt="Oppsummering repeterende grupper i grupper" title="Oppsummering repeterende grupper i grupper" /></a><figcaption><h4>Oppsummering repeterende grupper i grupper</h4></figcaption></figure>
-<h2 id="kategorier">Kategorier</h2>
-<p>Det er mulig å gruppere oppsummeringene i forskjellige kategorier, for å gjøre en ev. oppsummeringsside
-mer oversiktlig. Dette gjøres ved å bruke den eksisterende <em>gruppe</em>-komponenten, uten å sette den opp
-som en repeterende gruppe.</p>
-<p>Feltene i oppsummeringen vises da med en tittel, som settes i <code>title</code>-feltet for <code>textResourceBindings</code> for 
-gruppe-komponenten. Se eksempel under.</p>
-<figure><a href="category-summary.png"><img src="category-summary.png" alt="Felter samlet under en kategori" title="Felter samlet under en kategori" /></a><figcaption><h4>Felter samlet under en kategori</h4></figcaption></figure>
+</code></pre></div><figure><a href="nested-group-summary.png"><img src="nested-group-summary.png" alt="Summary nested repeating group" title="Summary nested repeating group" /></a><figcaption><h4>Summary nested repeating group</h4></figcaption></figure>
+<h2 id="categories">Categories</h2>
+<p>It is possible to group the summaries in different categories to make a summary page
+more clear. This is done by using the existing <em>group</em> component, without setting it up
+as a repeating group.</p>
+<p>The fields in the summary are then displayed with a title, which is set in the <code>title</code> field for <code>textResourceBindings</code> for 
+the group component. See the example below.</p>
+<figure><a href="category-summary.png"><img src="category-summary.png" alt="Fields grouped under one category" title="Fields grouped under one category" /></a><figcaption><h4>Fields grouped under one category</h4></figcaption></figure>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;personalia-group&#34;</span>,
   <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Group&#34;</span>,
@@ -1243,11 +1243,11 @@ gruppe-komponenten. Se eksempel under.</p>
   <span style="color:#ff79c6">&#34;componentRef&#34;</span>: <span style="color:#f1fa8c">&#34;d497737b-67b2-4e03-87a9-43f58579c938&#34;</span>,
   <span style="color:#ff79c6">&#34;pageRef&#34;</span>: <span style="color:#f1fa8c">&#34;personalia&#34;</span>
 },
-</code></pre></div><h2 id="eksempel-på-oppsummeringsside">Eksempel på oppsummeringsside</h2>
-<p>Under er et eksempel på en oppsummeringsside, med oppsett i layout-filen. Da oppsummeringen settes opp
-i layout-filene på samme måte som andre komponenter, kan man også ha med andre skjemakomponenter som tekster
-ved behov.</p>
-<figure><a href="summary.png"><img src="summary.png" alt="Oppsummering eksempel" title="Oppsummering eksempel" /></a><figcaption><h4>Oppsummering eksempel</h4></figcaption></figure>
+</code></pre></div><h2 id="example-on-summary-page">Example on summary page</h2>
+<p>Below is an example of a summary page, with setup in the layout file. Since the summary is set up 
+in the layout files in the same way as other components, you can also include other form components as texts
+when needed.</p>
+<figure><a href="summary.png"><img src="summary.png" alt="Summary example" title="Summary example" /></a><figcaption><h4>Summary example</h4></figcaption></figure>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#ff79c6">&#34;$schema&#34;</span>:  <span style="color:#f1fa8c">&#34;https://altinncdn.no/schemas/json/layout/layout.schema.v1.json&#34;</span>,
   <span style="color:#ff79c6">&#34;data&#34;</span>: {

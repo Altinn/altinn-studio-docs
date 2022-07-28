@@ -269,7 +269,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/ux/texts/"><span>Texts</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/app/development/ux/texts/translation/"><span>Oversettelse av tekster</span></a></li></ul></li>
+        <a href="/app/development/ux/texts/translation/"><span>Translation of texts</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/app/development/ux/pdf/"><span>PDF</span></a></li>
       <li class="dd-item">
@@ -1096,25 +1096,25 @@ if(host != "localhost")
                 </span>
                 <span class="links"><a href='/app/'>Create apps</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/development/'>Development</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/development/ux/'>User interface</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/development/ux/components/'>Components</a> <span class='adocs-breadcrumb-divider'> / </span> Likert</span>
             </div>
-          </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english">translate-to-english</a></div><div id="body-inner"><h1 class="a-fontBold">Likert</h1>
+          </div><div id="body-inner"><h1 class="a-fontBold">Likert</h1>
               <p class="a-leadText" id="leadText">How to use a likert component</p>
 
 
 
 
 <div class="notices warning" >
-Dette er helt ny funksjonalitet. Oppsett må gjøres manuelt inntil videre. Støtte for oppsett via Altinn Studio kommer
-snart.
-<p>Merk at Likert-komponenten kun kan benyttes som del av en repeterende gruppe.</p>
+This is new functionality. The setup must be done manually as of today. Support for setup through Altinn Studio 
+will be launched shortly.
+<p>Note that the Likert-component only can be used as part of a repeating group.</p>
 </div>
-<h2 id="desktop-og-mobil-visning">Desktop og mobil visning</h2>
-<p>Likert komponenten vises som en liste ved smale skjermer og som en tabell ved brede skjermer.
-Likert utnytter seg av samme konsept som repeterende grupper.</p>
-<figure><a href="desktop.png"><img src="desktop.png" alt="Desktop" title="Likert komponent ved bred (desktop) skjermstørrelse" /></a><figcaption><h4>Likert komponent ved bred (desktop) skjermstørrelse</h4></figcaption></figure>
-<figure><a href="mobile.png"><img src="mobile.png" alt="Mobil" title="Likert komponent ved smal (mobil) skjermstørrelse" /></a><figcaption><h4>Likert komponent ved smal (mobil) skjermstørrelse</h4></figcaption></figure>
-<h2 id="eksempel">Eksempel</h2>
-<p>Likert komponenten krever at du har en datamodel med en liste. Denne listen må innholde objekter med spørsmål og svar.
-Eksempel på oppsett av datamodel i App\logic\InstantiationHandler.cs:</p>
+<h2 id="desktop-and-mobile-view">Desktop and mobile view</h2>
+<p>The Likert component is shown as a list on narrow screens and as a table on broad screens.
+Likert uses the same concept as repeating groups.</p>
+<figure><a href="desktop.png"><img src="desktop.png" alt="Desktop" title="Likert component on broad (desktop) screensize" /></a><figcaption><h4>Likert component on broad (desktop) screensize</h4></figcaption></figure>
+<figure><a href="mobile.png"><img src="mobile.png" alt="Mobile" title="Likert component on narrow (mobile) screensize" /></a><figcaption><h4>Likert component on narrow (mobile) screensize</h4></figcaption></figure>
+<h2 id="example">Example</h2>
+<p>The Likert component requires that you have a data model with a list. This list must contain objects with questions and answers.
+Example on setup of data model in App/logic/InstantiationHandler.cs:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task DataCreation(Instance instance, <span style="color:#8be9fd">object</span> data)
         {
 
@@ -1140,7 +1140,7 @@ Eksempel på oppsett av datamodel i App\logic\InstantiationHandler.cs:</p>
 
             <span style="color:#ff79c6">await</span> Task.CompletedTask;
         }
-</code></pre></div><p>Eksempel på definisjon av likert komponent i layout.json:</p>
+</code></pre></div><p>Example on definition of likert component in layout.json:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[
   {
     <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;likert-group&#34;</span>,
@@ -1175,9 +1175,9 @@ Eksempel på oppsett av datamodel i App\logic\InstantiationHandler.cs:</p>
   }
 ]
 </code></pre></div><div class="notices warning" >
-Likert-komponenten fungerer likt som RadioButtons og CheckBoxes.
+The Likert-component works the same as RadioButtons and CheckBoxes.
 </div>
-<p>OptionsId knyttes opp mot kodeliste-fil (likertOptions.json)</p>
+<p>OptionsId is linked to the codelist-file (likertOptions.json)</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[
       {
         <span style="color:#ff79c6">&#34;label&#34;</span>: <span style="color:#f1fa8c">&#34;Alltid&#34;</span>,
@@ -1200,8 +1200,8 @@ Likert-komponenten fungerer likt som RadioButtons og CheckBoxes.
         <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;5&#34;</span>
       }
     ]
-</code></pre></div><p>For å binde opp tekst for hver rad må man opprette en binding mellom datamodellen og likerten sin tekstResourcebinding.
-Dette kan gjøres i tekst-ressursfilene:</p>
+</code></pre></div><p>To connect text for each row you need to create a connection between the data model and the Likert&rsquo;s textResourceBinding.
+This can be done in the text-resourcefiles:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[
   {
     <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;question-1&#34;</span>,
@@ -1226,8 +1226,8 @@ Dette kan gjøres i tekst-ressursfilene:</p>
     ]
   }
 ]
-</code></pre></div><h3 id="filtrer-ut-spørsmål-med-start-og-end">Filtrer ut spørsmål med start og end</h3>
-<p>Du kan velge å filtrere rader du ikke ønsker å inkludere i likerten ved å benytte start og stop:</p>
+</code></pre></div><h3 id="filter-out-questions-with-start-and-end">Filter out questions with start and end</h3>
+<p>You can choose to filter out rows you do not wish to include in the Likert by using start and stop:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#ff79c6">&#34;edit&#34;</span>: {
     <span style="color:#ff79c6">&#34;mode&#34;</span>: <span style="color:#f1fa8c">&#34;likert&#34;</span>,

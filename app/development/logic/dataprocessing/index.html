@@ -269,7 +269,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/ux/texts/"><span>Texts</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/app/development/ux/texts/translation/"><span>Oversettelse av tekster</span></a></li></ul></li>
+        <a href="/app/development/ux/texts/translation/"><span>Translation of texts</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/app/development/ux/pdf/"><span>PDF</span></a></li>
       <li class="dd-item">
@@ -1096,28 +1096,28 @@ if(host != "localhost")
                 </span>
                 <span class="links"><a href='/app/'>Create apps</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/development/'>Development</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/development/logic/'>Logic</a> <span class='adocs-breadcrumb-divider'> / </span> Data processing</span>
             </div>
-          </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english">translate-to-english</a></div><div id="body-inner"><h1 class="a-fontBold">Data processing</h1>
+          </div><div id="body-inner"><h1 class="a-fontBold">Data processing</h1>
               <p class="a-leadText" id="leadText">How to add Calculations and other data processing?</p><h2>On this page:</h2><nav id="TableOfContents"></nav>
 
 
 
 
-<p>Dataprosessering kjøres på serveren, og er basert på input fra sluttbruker/skjemadata.
-Dataprossering kan være kan være rent matematiske kalkuleringer, det kan også være å overføre verdier mellom felter, resultater av API-kall, osv.</p>
-<p>Dataprossering kodes i C#, i filen <code>DataProsessingHandler.cs</code>. Denne filen kan redigeres enklest ved å laste ned kildekoden til app&rsquo;en og redigere på egen maskin, f.eks. i Visual Studio Code.
-Datamodellen med skjemadata er tilgjengelig og kan redigeres/oppdateres etter ønske/behov.</p>
-<p>Dataprossering kjøres hver gang data lagres og når data hentes ut fra API. Med auto-lagring på (dette er standard) vil dataprossering kjøres hver gang en bruker har gjort en endring og hopper ut av et felt.</p>
-<p>For å sikre optimal opplevelse og kontroll er applikasjonstemplaten to forskjellige hendelser hvor logikk kan plasseres.</p>
+<p>Data processing is run on the server and is based on input from the user/form data.
+Data processing can be purely mathematical calculations, or it could transfer values between fields, retrieve results from API calls, etc.</p>
+<p>Data processing is coded in C#, in the file <code>DataProcessingHandler.cs</code>. This file can easily be edited by downloading the source code to the app and editing on your own computer, e.g. in Visual Studio Code.
+The data model with form data is available and can be edited/updated when needed.</p>
+<p>Data processing runs each time data is saved and when data is retrieved from API. With auto-save on (default) data processing will run each time a user has made a change and jumps out of a field.</p>
+<p>To ensure optimal experience and control, the application template has two different events where logic can be placed.</p>
 <ul>
-<li>ProcessDataWrite kjøres når data lagres</li>
-<li>ProcessDataRead kjøres når data leses fra databasen</li>
+<li>ProcessDataWrite runs when data is saved</li>
+<li>ProcessDataRead runs when data is read from the database</li>
 </ul>
 <div class="notices info" >
-VIKTIG: Når en dataprossering er kjørt som har oppdatert dataene på server, må front-end få beskjed om dette, sånn at de oppdaterte dataene kan lastes inn.
-For å gjøre dette, må `ProcessDataWrite`-metoden returnere `true` om det er noen av dataene som har blitt oppdatert.
-Hvis dette ikke gjøres, vil de oppdaterte dataen ikke være synlig for sluttbruker før de ev. laster inn siden på nytt.
+IMPORTANT: When a data processing that has updated the data on the server has been run, the front-end must be notified so that the updated data can be loaded.
+To do this, the ProcessdataWrite method must return true if any of the data has been updated.
+If this is not done, the updated data won't be visible for the user until they refresh the page.
 </div>
-<p>Eksempel på kode fra app som prosesserer og populerer forskjellige data under lagring.</p>
+<p>Example on code from app that processes and populates different data while saving.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;<span style="color:#8be9fd">bool</span>&gt; ProcessDataWrite(
     Instance instance, Guid? dataId, <span style="color:#8be9fd">object</span> data)
 {

@@ -269,7 +269,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/ux/texts/"><span>Texts</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/app/development/ux/texts/translation/"><span>Oversettelse av tekster</span></a></li></ul></li>
+        <a href="/app/development/ux/texts/translation/"><span>Translation of texts</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/app/development/ux/pdf/"><span>PDF</span></a></li>
       <li class="dd-item">
@@ -1096,19 +1096,19 @@ if(host != "localhost")
                 </span>
                 <span class="links"><a href='/app/'>Create apps</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/development/'>Development</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/development/ux/'>User interface</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/development/ux/pages/'>Pages</a> <span class='adocs-breadcrumb-divider'> / </span> Layout sets</span>
             </div>
-          </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english">translate-to-english</a></div><div id="body-inner"><h1 class="a-fontBold">Layout sets</h1>
+          </div><div id="body-inner"><h1 class="a-fontBold">Layout sets</h1>
               <p class="a-leadText" id="leadText">How to set up multiple layouts or forms in the same app.</p>
 
 
 
 
 <div class="notices warning" >
-Dette er helt ny funksjonalitet. Oppsett må gjøres manuelt inntil videre. Støtte for oppsett via Altinn Studio kommer snart.
+This is new functionality. Setup must be done manually as of today. Support for setup through Altinn Studio will be coming shortly.
 </div>
-<h2 id="oppsett">Oppsett</h2>
-<p>For å få funksjonalitet for flere skjema i tjeneste, <strong>må</strong> nuget-versjon til pakkene app&rsquo;en bruker oppgraderes til versjon <code>3.1.4</code> <em>eller nyere</em>.
-Se instrukser for hvordan det gjøres <a href="../../../../maintainance/dependencies">her</a>.</p>
-<p>Sentralt i løsningen er at man har flere layout-sets som består av en eller flere sider og configurasjon. Hvert layout-set består av tilsvarende filer som en skjema tjenester.</p>
+<h2 id="setup">Setup</h2>
+<p>To get functionality for multiple forms in a service, the nuget-version of the packets the app uses <strong>must</strong> be upgraded to version <code>3.1.4</code> <em>or newer</em>.
+See instructions on how that is done <a href="../../../../maintainance/dependencies">here</a>.</p>
+<p>A key to the solution is that there are mulitiple layout-sets that consists of one or more pages and configurations. Each layout-set consists of the same files as a form service.</p>
 <pre tabindex="0"><code>|- App/
   |- ui/
     | - layout-sets.json
@@ -1128,9 +1128,9 @@ Se instrukser for hvordan det gjøres <a href="../../../../maintainance/dependen
         |- side1.json
         |- side2.json
         |- side3.json  
-</code></pre><p>I <code>layout-set.json</code> defineres det hvilke steg i prosessen (task) hvor et gitt layout-set skal brukes.
-Merk at id&rsquo;en er case sensitiv, så om du har stor bokstav i mappenavnet må id&rsquo;en reflektere dette. Vi anbefaler små bokstaver i mappenavn.</p>
-<p>Eksempel:</p>
+</code></pre><p>In <code>layout-set.json</code> it is defined which steps in the process (task) where a given layout-set should be used.
+Note that the ID is case sensitive, so if you have a capital letter in the folder name, the ID must reflect this. We recommend lower case letters in folder names.</p>
+<p>Example:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#ff79c6">&#34;sets&#34;</span>: [
     {

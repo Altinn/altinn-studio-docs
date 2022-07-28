@@ -269,7 +269,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/ux/texts/"><span>Texts</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/app/development/ux/texts/translation/"><span>Oversettelse av tekster</span></a></li></ul></li>
+        <a href="/app/development/ux/texts/translation/"><span>Translation of texts</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/app/development/ux/pdf/"><span>PDF</span></a></li>
       <li class="dd-item">
@@ -1096,29 +1096,29 @@ if(host != "localhost")
                 </span>
                 <span class="links"><a href='/app/'>Create apps</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/development/'>Development</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/development/logic/'>Logic</a> <span class='adocs-breadcrumb-divider'> / </span> Calculations</span>
             </div>
-          </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english">translate-to-english</a></div><div id="body-inner"><h1 class="a-fontBold">Calculations</h1>
+          </div><div id="body-inner"><h1 class="a-fontBold">Calculations</h1>
               <p class="a-leadText" id="leadText">How to add calculations?</p><h2>On this page:</h2><nav id="TableOfContents">
   <ul>
-    <li><a href="#kalkulering">Kalkulering</a></li>
+    <li><a href="#calculation">Calculation</a></li>
   </ul>
 </nav>
 
 
 
 
-<p><strong>Calculationa is from 4.7.0 replaced by data processing. Look <a href="../dataprocessing/">here</a></strong></p>
-<h2 id="kalkulering">Kalkulering</h2>
-<p>Kalkuleringer kjøres på serveren, og er basert på input fra sluttbruker/skjemadata.
-Kalkuleringer trenger ikke å være rent matematiske, det kan også være å overføre verdier mellom felter, resultater av API-kall, osv.</p>
-<p>Kalkuleringer kodes i C#, i filen <code>CalculationHandler.cs</code>. Denne filen kan redigeres enklest ved å laste ned kildekoden til app&rsquo;en og redigere på egen maskin, f.eks. i Visual Studio Code.
-Datamodellen med skjemadata er tilgjengelig og kan redigeres/oppdateres etter ønske/behov.</p>
-<p>Kalkuleringer kjøres hver gang data lagres. Med auto-lagring på (dette er standard) vil kalkulering kjøres hver gang en bruker har gjort en endring og hopper ut av et felt.</p>
+<p><strong>Calculation is from 4.7.0 replaced by data processing. See <a href="../dataprocessing/">here</a></strong></p>
+<h2 id="calculation">Calculation</h2>
+<p>Calculations are run on the server, and are based on input from the user/form data.
+Calculations does not have to be purely mathematical, they can also transfer values between fields, retrieve results from API calls and so on.</p>
+<p>Calculations are coded in C#, in the file <code>CalculationHandler.cs</code>. This file can be edited the easiest by downloading the source code of the app and editing it on your own computer, e.g. in Visual Studio Code.
+The data model with form data is available and can be edited/updated when needed.</p>
+<p>Calculations are run every time data is saved. With autosave on (default), calculations are run each time a user makes a change and jumps out of a field.</p>
 <div class="notices info" >
-VIKTIG: Når en kalkulering er kjørt som har oppdatert dataene på server, må front-end få beskjed om dette, sånn at de oppdaterte dataene kan lastes inn.
-For å gjøre dette, må `Calculate`-metoden returnere `true` om det er noen av dataene som har blitt oppdatert.
-Hvis dette ikke gjøres, vil de oppdaterte dataen ikke være synlig for sluttbruker før de ev. laster inn siden på nytt.
+IMPORTANT: When a calculation that has updated the data on the server has been run, the front-end must be notified so that the updated data can be loaded.
+To do this, the `Calculate`-method must return `true` if any of the data has been updated.
+If this is not done, the updated data will not be visible for the user until they reload the page.
 </div>
-<p>Eksempel på kode som erstatter en gitt verdi (<code>12345678</code>) med en annen verdi (<code>22222222</code>) i et gitt felt vises under:</p>
+<p>Example on code that replaces a given value (<code>12345678</code>) with another value (<code>22222222</code>) in a given field is shown below:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#ff79c6">public</span> <span style="color:#8be9fd">bool</span> Calculate(<span style="color:#8be9fd">object</span> data)
 {
     <span style="color:#ff79c6">if</span> (data.GetType() == <span style="color:#ff79c6">typeof</span>(Skjema))

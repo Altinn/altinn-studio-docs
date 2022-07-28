@@ -269,7 +269,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/ux/texts/"><span>Texts</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/app/development/ux/texts/translation/"><span>Oversettelse av tekster</span></a></li></ul></li>
+        <a href="/app/development/ux/texts/translation/"><span>Translation of texts</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/app/development/ux/pdf/"><span>PDF</span></a></li>
       <li class="dd-item">
@@ -1096,28 +1096,28 @@ if(host != "localhost")
                 </span>
                 <span class="links"><a href='/app/'>Create apps</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/development/'>Development</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/development/logic/'>Logic</a> <span class='adocs-breadcrumb-divider'> / </span> Instantiation</span>
             </div>
-          </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english">translate-to-english</a></div><div id="body-inner"><h1 class="a-fontBold">Instantiation</h1>
+          </div><div id="body-inner"><h1 class="a-fontBold">Instantiation</h1>
               <p class="a-leadText" id="leadText">How to add logic to be run when a new instance is created?</p><h2>On this page:</h2><nav id="TableOfContents">
   <ul>
-    <li><a href="#introduksjon">Introduksjon</a></li>
-    <li><a href="#egendefinerte-valideringsregler-for-instansiering">Egendefinerte valideringsregler for instansiering</a></li>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#custom-validation-rules-for-instantiation">Custom validation rules for instantiation</a></li>
   </ul>
 </nav>
 
 
 
 
-<h2 id="introduksjon">Introduksjon</h2>
-<p>Applikasjonslogikk knyttet til instansiering kan defineres i <code>InstantiationHandler.cs</code>. For en helt ny app vil det være to funksjoner implementert i denne klassen:</p>
+<h2 id="introduction">Introduction</h2>
+<p>Application logic connected to instantiation can be defined in <code>InstantiationHandler.cs</code>. For a completely new app, two functions will be implemented in this class:</p>
 <ul>
-<li><code>RunInstantiationValidation</code> - lag egne sjekker for å avgjøre om en bruker/avgiver får lov til å instansiere.</li>
-<li><code>DataCreation</code> - lag tilpasset prefill data.</li>
+<li><code>RunInstantiationValidation</code> - create your own tests for determining whether a user/submitter is allowed to instantiate.</li>
+<li><code>DataCreation</code> - create customized prefill data.</li>
 </ul>
-<h2 id="egendefinerte-valideringsregler-for-instansiering">Egendefinerte valideringsregler for instansiering</h2>
-<p>Som tidligere nevnt, kan sjekker for instansiering defineres i <code>RunInstantiationValidation</code>.
-Tilgang til <em>Register</em>- og <em>Profile</em>-tjenester er inkludert i <code>InstantiationHandler.cs</code>-filen, som tillater å gjøre sjekker mot disse.
-Valideringsregler for instansiering kan innebære å validere tidspunkt til spesifikke brukerrestriksjoner og komplekse sjekker som krever eksterne API-kall.</p>
-<h3 id="eksempel-1---insansiering-kun-tillatt-før-kl-1500-på-en-gitt-dag">Eksempel 1 - Insansiering kun tillatt før kl 15:00 på en gitt dag</h3>
+<h2 id="custom-validation-rules-for-instantiation">Custom validation rules for instantiation</h2>
+<p>As previously mentioned, tests for instantiation are defined in <code>RunInstantiationValidation</code>
+Access to <em>Register</em>- and <em>Profile</em>-services are included in the <code>InstantiationHandler.cs</code>-file, which allows test to be run againts these.
+Validation rules for instantiation can include validating a time to specific user instructions and complex tests that require external API calls.</p>
+<h3 id="example-1---instantiation-only-allowed-before-3-pm-on-any-given-day">Example 1 - Instantiation only allowed before 3 pm on any given day</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;InstantiationValidationResult&gt; RunInstantiationValidation(Instance instance)
 {
     DateTime now = DateTime.Now;
@@ -1132,20 +1132,20 @@ Valideringsregler for instansiering kan innebære å validere tidspunkt til spes
 
     <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">null</span>;
 }
-</code></pre></div><h3 id="eksempel-2---instansiering-kun-tillatt-for-applikasjonseier">Eksempel 2 - Instansiering kun tillatt for applikasjonseier</h3>
-<p>Kodebasen som eksempelet er basert på er tilgjengelig <a href="https://altinn.studio/repos/ttd/example-app-1">her</a>.
-(krever innlogging i altinn.studio)</p>
-<p>For å kunne begrense instansiering til en gitt entitet, i dette tilfellet applikasjonseier,
-er det to filer som må endres: <code>App.cs</code> og <code>InstantiationHandler.cs</code>.</p>
+</code></pre></div><h3 id="example-2---instantiation-only-allowed-for-application-owner">Example 2 - Instantiation only allowed for application owner</h3>
+<p>The application this example is based on is available <a href="https://altinn.studio/repos/ttd/example-app-1">here</a>.
+(requires login in altinn.studio)</p>
+<p>To limit instantiation to a given entity, in this case the application owner, 
+two files must be changed: <code>App.cs</code> and <code>InstantiationHandler.cs</code>.</p>
 <figure><a href="instatiation-example-2-appcs.PNG"><img src="instatiation-example-2-appcs.PNG" alt="Changes to app.cs" title="Changes to app.cs" /></a><figcaption><h4>Changes to app.cs</h4></figcaption></figure>
-<p>I <code>App.cs</code> tilgjengeliggjøres http-konteksten og 
-brukerdata (claims principals) hentes ut fra konteksten ved å kalle <code>_httpContext.User</code>.</p>
-<p>For å validere instansieringen kan man sjekke ett av to claims i konteksten.
-Enten organisasjonsen trebokstavsforkortelse eller organisasjonsnummeret.
-Valideringen skjer i <code>InstantiationHandler.cs</code> og eksempelet nedenfor bruker organisasjonsforkortelsen.</p>
-<p>For å validere basert på organisasjonsnummer kan du følge eksempelet nedenfor,
-og bytte ut <em>AltinnCoreClaimTypes.Org</em> med <em>AltinnCoreClaimTypes.OrgNumber</em>.<br>
-om må gjøres i denne file ser du nedenfor.</p>
+<p>In <code>App.cs</code> the http-context is made available and
+user data (claims principals) is retrieved from the context by calling <code>_httpContext.User</code>.</p>
+<p>To validate the instantiation, you can check one of two claims in the context.
+Either the organization&rsquo;s three-letter abbreviation or the organization number.
+The validation is run in <code>InstantiationHandler.cs</code> and the example below uses the organization abbreviation.</p>
+<p>To validate based on organization number you can follow the example below,
+and replace <em>AltinnCoreClaimTypes.Org</em> with <em>AltinnCoreClaimTypes.OrgNumber</em>.
+You can see the changes required in the file below.</p>
 <figure><a href="instatiation-example-2-instantiationhandler.PNG"><img src="instatiation-example-2-instantiationhandler.PNG" alt="InstantiationHandler.cs" title="Changes to instantiationHandler.cs" /></a><figcaption><h4>Changes to instantiationHandler.cs</h4></figcaption></figure>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;InstantiationValidationResult&gt; RunInstantiationValidation(Instance instance, ClaimsPrincipal user)
 {
@@ -1176,11 +1176,11 @@ om må gjøres i denne file ser du nedenfor.</p>
 
     <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">await</span> Task.FromResult(result);
 }
-</code></pre></div><h3 id="eksempel-3---instansiering-kun-tillatt-mellom-gitte-datoer">Eksempel 3 - Instansiering kun tillatt mellom gitte datoer</h3>
-<p>For å kunne begrense instansiering til en gitt tidsrom, i dette eksempelet januar 2021,
-er det én fil som må endres:<code>InstantiationHandler.cs</code>.</p>
-<p>Metoden <code>RunInstantiationValidation</code> vil kjøre hver gang noen prøver å instansiere applikasjonen, 
-så her plasseres logikk for å verifiere at tidspunktet er innenfor den tillatte rammen.</p>
+</code></pre></div><h3 id="example-3---instantiation-only-allowed-between-certain-dates">Example 3 - Instantiation only allowed between certain dates</h3>
+<p>To limit instantiation to a certain time frame, in this example January 2021, 
+one file requires changes:<code>InstantiationHandler.cs</code>.</p>
+<p>The method <code>RunInstantiationValidation</code> will run whenever someone tries to instantiate the application,
+so logic is placed here to verify that the time is within the allowed frame.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;InstantiationValidationResult&gt; RunInstantiationValidation(Instance instance)
 {
     InstantiationValidationResult result = <span style="color:#ff79c6">null</span>;
@@ -1203,24 +1203,24 @@ så her plasseres logikk for å verifiere at tidspunktet er innenfor den tillatt
     }
     <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">await</span> Task.FromResult(result);
 }
-</code></pre></div><p>Det er lagt inn logikk knyttet til datohåndtering for å forsikre oss om at det er norsk tid som gjelder
-og som blir brukt i valideringen.</p>
+</code></pre></div><p>Logic connected to date handling has been added to ensure the Norwegian time zone
+is being used in the validation.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">DateTime now = TimeZoneInfo.ConvertTime(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById(<span style="color:#f1fa8c">&#34;Central European Standard Time&#34;</span>));
-</code></pre></div><p>Videre gjøres det en enkel sjekk for å se om nåværende tidspunkt er innenfor rammene</p>
+</code></pre></div><p>Furthermore, a simple test is run to see if the current time is within the given time frame</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">(now &lt; <span style="color:#ff79c6">new</span> DateTime(<span style="color:#bd93f9">2021</span>, <span style="color:#bd93f9">01</span>, <span style="color:#bd93f9">01</span>)
-</code></pre></div><p>Dersom man ikke oppfyller kravene blir returobjektet populert med et <em>InstantiationValidationResult</em> objekt som inneholder to felter: 
-<em>Valid</em>: en boolean som benyttes for å si om instansieringen er gyldig eller ikke
-<em>Message</em>: en string som kan inneholde en feilmelding dersom det ikke er gyldig</p>
+</code></pre></div><p>If the requirements are not met, the return object is populated with an <em>InstantiationValidationResult</em> object that contains two fields:
+<em>Valid</em>: a boolean that says if the instantiation is valid or not.
+<em>Message</em>: a string that can contain an error message if it is not valid.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"> result = <span style="color:#ff79c6">new</span> InstantiationValidationResult
         {
             Valid = <span style="color:#ff79c6">false</span>,
             Message = <span style="color:#f1fa8c">&#34;Application cannot be instantiated before 1.1.2021&#34;</span>
         };
-</code></pre></div><p>I tillegg har man muligheten til å legge benytte property 
-<em>ValidParties</em>: en liste med de partiene som kan instansiere applikasjonen.</p>
-<p>Resultatet av en feilet validering er vist nedenfor:</p>
-<figure><a href="instantiation-validation-before-date.png"><img src="instantiation-validation-before-date.png" alt="Instansiering før tillatt dato" title="Instansiering før tillatt dato" /></a><figcaption><h4>Instansiering før tillatt dato</h4></figcaption></figure>
-<figure><a href="instantiation-validation-after-date.png"><img src="instantiation-validation-after-date.png" alt="Instansiering etter tillatt dato" title="Instansiering etter tillatt dato" /></a><figcaption><h4>Instansiering etter tillatt dato</h4></figcaption></figure>
+</code></pre></div><p>In addition you have the opportunity to use property
+<em>ValidParties</em>: a list of the parties that are allowed to instantiate the application.</p>
+<p>The result of a failed validation is shown below:</p>
+<figure><a href="instantiation-validation-before-date.png"><img src="instantiation-validation-before-date.png" alt="Instantiation pre allowed time frame" title="Instantiation pre allowed time frame" /></a><figcaption><h4>Instantiation pre allowed time frame</h4></figcaption></figure>
+<figure><a href="instantiation-validation-after-date.png"><img src="instantiation-validation-after-date.png" alt="Instantiation post allowed time frame" title="Instantiation post allowed time frame" /></a><figcaption><h4>Instantiation post allowed time frame</h4></figcaption></figure>
 
 
 <footer class=" footline" >

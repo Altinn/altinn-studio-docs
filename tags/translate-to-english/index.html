@@ -269,7 +269,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/ux/texts/"><span>Texts</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/app/development/ux/texts/translation/"><span>Oversettelse av tekster</span></a></li></ul></li>
+        <a href="/app/development/ux/texts/translation/"><span>Translation of texts</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/app/development/ux/pdf/"><span>PDF</span></a></li>
       <li class="dd-item">
@@ -1115,7 +1115,7 @@ if(host != "localhost")
 	<div class="extra-pagination inner">
 	<nav class="pagination" role="navigation">
 	
-	<span class="page-number">Page 1 on 5</span>
+	<span class="page-number">Page 1 on 3</span>
 	
 	    <a class="older-posts" href="/tags/translate-to-english/page/2/">Next Pages &rarr;</a>
 	
@@ -1151,118 +1151,12 @@ if(host != "localhost")
 	
 	   <article class="post app">
     <header class="post-header">
-        <h2 class="post-title"><a href="/app/development/ux/fields/grouping/setup/">Setup of field grouping</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Felter i skjema kan settes opp til å bli del av en gruppe. Dette kan brukes til å f.eks. sette opp dynamikk på en enkelt gruppe av felter, i stedet for på hvert enkelt felt. I tillegg må felter kunnne grupperes for å støtte repeterende grupper i skjema.
-En gruppe settes opp i FormLayout.json, sammen med de andre komponentene i skjemaet. Dette kan enten gjøres manuelt direkte i filen, eller via skjemaeditor i Atinn Studio ved å bruke Gruppe-komponenten. <a class="read-more" href="/app/development/ux/fields/grouping/setup/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post app">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/app/development/ux/fields/grouping/repeating/">Repeating groups</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Grupper i datamodellen inneholder ett eller flere felter. Grupper er definert som repeterende dersom de har maxOccurs &gt; 1 i xsd&rsquo;en. En gruppe som er repeterende i datamodellen må også settes opp som repeterende i skjemaet, ellers vil lagring av data feile.
-Eksempel Skjema med noen enkelt-felt, og en repeterende gruppe som:
- inneholder 3 felter kan repeteres opp til 3 ganger har lagt til egen streng på &ldquo;legg til&rdquo; knappen  Oppsett i FormLayout. <a class="read-more" href="/app/development/ux/fields/grouping/repeating/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post app">
-    <header class="post-header">
         <h2 class="post-title"><a href="/app/design/prototype/">Prototype</a></h2>
     </header>
     <section class="post-excerpt">
         <p>The Altinn prototype-kit is a collection of presets and components that you can use to create a prototype of your app within Figma.
 With Altinn&rsquo;s Prototype-Kit for Figma you can:
  See what Altinn-forms look like and how they are experienced by the user Familiarize yourself with design elements in Altinn 3 Define flow and content within your form Create clickable sketch that can be user tested Use the prototype as a guide/reference while the app is in development  Get started with Figma Having a designer that already has experience in Figma or a similar tool would be an advantage. <a class="read-more" href="/app/design/prototype/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post app">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/app/development/ux/fields/grouping/alternatives/">Settings for views</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Det er implementert en ny (valgfri) parameter som kan legges inn på definisjonen av en repeterende gruppe i layout-filen, som gjør at man kan styre litt rundt visningen og oppførselen til gruppen på siden. I tillegg er det lagt til støtte for flere &ldquo;sider&rdquo; inne i redigerings-flaten til gruppen.
-Styre visning Det er lagt til en ny parameter, edit, som kan settes på en gruppe-komponent (repeterende gruppe). Denne lar oss definere forskjellige innstillinger mtp visning av et gruppe-element under redigering/utfylling. <a class="read-more" href="/app/development/ux/fields/grouping/alternatives/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post app">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/app/development/logic/generic/">Generic</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Introduksjon De forskjellige filene som brukes til å definere logikk, finner man i logikk-menyen, som er tilgjengelig i UI-editoren via f(x)-ikonet øverst til høyre.
-De kan også redigeres direkte fra applikasjonsrepoet, under folderen App/logic (for serverside applikasjonslogikk) eller folderen App/ui (for dynamikk). Denne folderen inneholder som standard følgende filer:
-🗀 App/ 🗀 logic/ 🗀 DataProcessing/ 🗎 DataProcessingHandler.cs 🗀 Print/ 🗎 PdfHandler.cs 🗀 Validation/ 🗎 ValidationHandler.cs 🗎 App.cs 🗎 InstantiationHandler.cs Flere filer kan legges til her når det er nødvendig. <a class="read-more" href="/app/development/logic/generic/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -1312,31 +1206,6 @@ Tenk nøye gjennom hele prosessen fra et brukerperspektiv. Hva er utfordringen o
 	
 	   <article class="post app">
     <header class="post-header">
-        <h2 class="post-title"><a href="/app/development/ux/pages/">Pages</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Oppsett av flere sider kan gjøres enten manuelt (som beskrevet under) eller direkte i skjema-editoren i Altinn Studio.Merk at siste side sluttbruker var innom nå caches slik at man kommer tilbake til denne siden når appen lastes inn på nytt.Oppsett For å få funksjonalitet for flere sider i skjema, må nuget-versjon til pakkene app&rsquo;en bruker oppgraderes til versjon 1.2.0-alpha eller nyere. Se instrukser for hvordan det gjøres her. <a class="read-more" href="/app/development/ux/pages/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post app">
-    <header class="post-header">
         <h2 class="post-title"><a href="/app/design/guidelines/components/">UI-components</a></h2>
     </header>
     <section class="post-excerpt">
@@ -1365,11 +1234,144 @@ Create a new issue on githubWrite to us on SlackTitles and paragraphsIn m
 	
 	   <article class="post app">
     <header class="post-header">
-        <h2 class="post-title"><a href="/app/development/ux/pages/tracks/">Tracks</a></h2>
+        <h2 class="post-title"><a href="/app/design/guidelines/wcag/">Accessibility</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Dynamisk sporvalg i en applikasjon kan være nyttig dersom man ønsker å vise og/eller skjule enkelte sider basert input fra sluttbruker på forutgående deler av skjemaet.
-Trigge kalkulering av sporvalg fra frontend Appen vil gjøre et initielt kall for å kalkulere rekkefølgen ved innlasting. For å trigge kalkuleringingen av sporvalg på sidebytte må man legge inn dette som en trigger på den aktuelle navigasjons-komponenten man ønsker. Dette gjøres ved å legge til calculatePageOrder som en del av triggers. <a class="read-more" href="/app/development/ux/pages/tracks/">&raquo;</a></p>
+        <p>The regulation on universal design of ICT solutions require that websites and apps must meet 35 of 61 success criteria in the standard Guidelines for accessible web content (WCAG) 2.0. (nb). Check out the minimum requirements
+Check list   Content structure
+Check that you have a logical structure of headings (H1 - H4), and that you don&rsquo;t have any empty heading elements. It is not uncommon to forget a level. <a class="read-more" href="/app/design/guidelines/wcag/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post app">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/app/deployment/runtime-environment/resource-allocation-tips/">Practical tips for resource allocation</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Før vi går på konkrete tips må vi kort introdusere Helm Chart. Helm Chart er de(n) filen(e) som styrer hvordan applikasjonen din deployes) til Kubernetes. Det er også her man styrer CPU og minne allokering. Du finner Chart.yamlog values.yamli deployment mappen i applikasjonen din. Dette er viktige filer som kan være lett å overse og ikke ha et aktivt forhold til.
+Tips 1 - Kjør siste versjon av Helm Chart Med siste versjon får du de mest oppdaterte innstillingene som standard. <a class="read-more" href="/app/deployment/runtime-environment/resource-allocation-tips/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post app">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/app/deployment/runtime-environment/resource-allocation/">Resource Allocation</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Primært vil det være CPU og minne som fordeles. Man kan sette minimum (requests) og et tak (limit) for en container. Hvis en pod har flere containere vil kubernetes summere opp disse. I Altinn 3 benytter vi som default requests, dvs. minimum for hva en applikasjon vil legge beslag på.
+CPU CPU spesifiseres i CPU enheter, hvor 1 CPU enhet = 1 fysisk CPU kjerne eller 1 virtuell kjerne. Man kan spesifisere fraksjoner og enten spesifisere 0. <a class="read-more" href="/app/deployment/runtime-environment/resource-allocation/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post app">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/app/deployment/runtime-environment/">Runtime Environment</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Altinn 3 applikasjoner for en tjenesteeier kjører i Azure Kubernetes Service (AKS) fra Microsoft Azure. Dette er en såkalt Managed Service hvor vi lar Microsoft Azure ta seg av den underliggende driften av Kubernetes clusteret. Altinn står for konfigurering og provisjonering av clusteret, mens tjenesteeier har selv ansvar for utrulling av applikasjonene til clusteret.
+For detaljert dokumentasjon av hvilke muligheter som finnes må man se på:
+ Azure Kubernetes Services Kubernetes, og da spesielt hvordan ressurser administreres - et ansvar som er delt mellom Altinn og tjenesteeier. <a class="read-more" href="/app/deployment/runtime-environment/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post app">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/app/getting-started/first-time-setup/">Create user in Altinn Studio</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Lag en bruker i Altinn Studio Din Altinn Studio bruker er personlig for deg og kan knyttes til en eller flere organisasjoner for å samarbeide med andre og få tilgang til eksisterende apper.
+Vis/skjul innholdLag bruker med GitHub brukernavn Velg å logge inn på altinn.studio. På “Logg in”-siden, klikk på knappen “Har du en Github konto? Registrer deg med den her”.  Logg inn i GitHub hvis du ikke allerede er det. <a class="read-more" href="/app/getting-started/first-time-setup/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post app">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/app/getting-started/navigation/designer/">Designer</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Designer er verktøyet du starer i etter å ha logget inn på https://altinn.studio. Det er et verktøy for å opprette, konfigurere og deploye apper.
+Navigere til en app Alle apper du har tilgang til å endre på vises på dashboardet. Gå til appen ved å klikke på appen. Dersom du ikke har en lokal klone av appen, vil du bli bedt om å opprette det.
+Hvis du ønsker å gå til app-repositoryet når du er inne i en app i Designer, er det en lenke i menyen som ligger i profilmenyen øverst til høyre. <a class="read-more" href="/app/getting-started/navigation/designer/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -1394,7 +1396,7 @@ Trigge kalkulering av sporvalg fra frontend Appen vil gjøre et initielt kall fo
 
 	<nav class="pagination" role="navigation">
 	
-	<span class="page-number">Page 1 on 5</span>
+	<span class="page-number">Page 1 on 3</span>
 	
 	    <a class="older-posts" href="/tags/translate-to-english/page/2/">Next Pages &rarr;</a>
 	

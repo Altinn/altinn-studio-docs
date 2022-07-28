@@ -269,7 +269,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/ux/texts/"><span>Texts</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/app/development/ux/texts/translation/"><span>Oversettelse av tekster</span></a></li></ul></li>
+        <a href="/app/development/ux/texts/translation/"><span>Translation of texts</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/app/development/ux/pdf/"><span>PDF</span></a></li>
       <li class="dd-item">
@@ -1096,23 +1096,23 @@ if(host != "localhost")
                 </span>
                 <span class="links"><a href='/app/'>Create apps</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/development/'>Development</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/development/ux/'>User interface</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/development/ux/fields/'>Fields</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/development/ux/fields/grouping/'>Grouping</a> <span class='adocs-breadcrumb-divider'> / </span> Repeating</span>
             </div>
-          </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english">translate-to-english</a></div><div id="body-inner"><h1 class="a-fontBold">Repeating groups</h1>
+          </div><div id="body-inner"><h1 class="a-fontBold">Repeating groups</h1>
               <p class="a-leadText" id="leadText">Setup for repeating groups.</p>
 
 
 
 
-<p>Grupper i datamodellen inneholder ett eller flere felter. Grupper er definert som <em>repeterende</em> dersom de har <code>maxOccurs &gt; 1</code> i xsd&rsquo;en. 
-En gruppe som er repeterende i datamodellen må også settes opp som repeterende i skjemaet, ellers vil lagring av data feile.</p>
-<h2 id="eksempel">Eksempel</h2>
-<p>Skjema med noen enkelt-felt, og en repeterende gruppe som:</p>
+<p>Groups in the data model contain one or more fields. Groups are defined as <em>repeating</em> if they have <code>maxOccurs &gt; 1</code> in the xsd.
+A group that is repeating in the data model must also be set up as repeating in the form, if not, data saving will fail.</p>
+<h2 id="example">Example</h2>
+<p>Form with some single-fields and a repeating group that:</p>
 <ul>
-<li>inneholder 3 felter</li>
-<li>kan repeteres opp til 3 ganger</li>
-<li>har lagt til egen streng på &ldquo;legg til&rdquo; knappen</li>
+<li>contains three fields</li>
+<li>can be repeated up to three times</li>
+<li>has added a custom string to the &ldquo;legg til&rdquo;-button</li>
 </ul>
-<figure><a href="repeating-groups-demo.gif"><img src="repeating-groups-demo.gif" alt="Skjema med repeterende gruppe" title="Skjema med repeterende gruppe" /></a><figcaption><h4>Skjema med repeterende gruppe</h4></figcaption></figure>
-<p>Oppsett i <code>FormLayout.json</code> fra eksempelet over:</p>
+<figure><a href="repeating-groups-demo.gif"><img src="repeating-groups-demo.gif" alt="Form with repeating group" title="Form with repeating group" /></a><figcaption><h4>Form with repeating group</h4></figcaption></figure>
+<p>Setup in <code>FormLayout.json</code> from the example above:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span>{
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>  <span style="color:#ff79c6">&#34;data&#34;</span>: {
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>    <span style="color:#ff79c6">&#34;layout&#34;</span>: [
@@ -1170,19 +1170,19 @@ En gruppe som er repeterende i datamodellen må også settes opp som repeterende
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">55</span>    ]
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">56</span>  }
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">57</span>}
-</code></pre></div><h2 id="attachments-in-repeating-groups">Attachments in repeating groups</h2>
+</code></pre></div><h2 id="file-attachment-in-repeating-groups">File attachment in repeating groups</h2>
 <div class="notices warning" >
-This is brand new functionality. Setup is manual for now, support in Studio will arrive later.
+This is new functionality. Setup must be done manually for now.
 </div>
-<p>In order to set up the file upload component in repeating groups, some additional configration is required.</p>
-<p>When uploading attachments it can be difficult to identify which attachment belongs to which row in the repeating group,
-and in turn which part of the submitted data belongs to which attachment. For that reason, it is required to add data
-model bindings to the <code>FileUpload</code> component when used inside repeating groups, so that Altinn can populate the data
-model with a reference to the unique ID per attachment.</p>
-<p>This option to have Altinn add references to attachments to the data model can also be used outside the context of
-repeating groups, in case references to attachment(s) are desired in the data model on the receiving end.</p>
-<figure><a href="attachments-demo.gif"><img src="attachments-demo.gif" alt="Example showing attachment uploads in repeating groups with data model" title="Example showing attachment uploads in repeating groups with data model" /></a><figcaption><h4>Example showing attachment uploads in repeating groups with data model</h4></figcaption></figure>
-<p>Below is an example of showing a data model expecting a reference to an uploaded attachment:</p>
+<p>To set up file uploading components in repeating groups, some additional setup is required.</p>
+<p>When uploading file attachments it may be difficult to distinguish which file attachments belongs to which rows in the repeating group, 
+and thus which submitted information belongs to each attachment. Therefore, you must set up connections to
+the data model when file uploading are used in repeating groups, so that Altinn can fill out the unique identificator
+that belongs to each file attachment and send this together with the rest of the data in the instance.</p>
+<p>The ability to place a reference to the file attachment in the data model can also be used outside of repeating groups if you
+want a reference to a file attachment together with the form data on the receivers end.</p>
+<figure><a href="attachments-demo.gif"><img src="attachments-demo.gif" alt="Example on file attachment in repeating group with attached data model" title="Example on file attachment in repeating group with attached data model" /></a><figcaption><h4>Example on file attachment in repeating group with attached data model</h4></figcaption></figure>
+<p>The following is an example of a data model expecting a reference to an uploaded file attachment.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xsd" data-lang="xsd"><span style="color:#ff79c6">&lt;xsd:schema</span> <span style="color:#50fa7b">xmlns:xsd=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema&#34;</span> <span style="color:#50fa7b">elementFormDefault=</span><span style="color:#f1fa8c">&#34;qualified&#34;</span> <span style="color:#50fa7b">attributeFormDefault=</span><span style="color:#f1fa8c">&#34;unqualified&#34;</span><span style="color:#ff79c6">&gt;</span>
   <span style="color:#ff79c6">&lt;xsd:element</span> <span style="color:#50fa7b">name=</span><span style="color:#f1fa8c">&#34;FamilieMedlemmer&#34;</span> <span style="color:#50fa7b">type=</span><span style="color:#f1fa8c">&#34;Skjema&#34;</span> <span style="color:#ff79c6">/&gt;</span>
   <span style="color:#ff79c6">&lt;xsd:complexType</span> <span style="color:#50fa7b">name=</span><span style="color:#f1fa8c">&#34;Skjema&#34;</span><span style="color:#ff79c6">&gt;</span>
@@ -1198,7 +1198,7 @@ repeating groups, in case references to attachment(s) are desired in the data mo
 </span>    <span style="color:#ff79c6">&lt;/xsd:sequence&gt;</span>
   <span style="color:#ff79c6">&lt;/xsd:complexType&gt;</span>
 <span style="color:#ff79c6">&lt;/xsd:schema&gt;</span>
-</code></pre></div><p>This is bound to the file upload component inside a group:</p>
+</code></pre></div><p>This is connected to the file upload component in the group:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;picture&#34;</span>,
   <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;FileUpload&#34;</span>,
@@ -1214,8 +1214,8 @@ repeating groups, in case references to attachment(s) are desired in the data mo
   <span style="color:#ff79c6">&#34;displayMode&#34;</span>: <span style="color:#f1fa8c">&#34;simple&#34;</span>,
   <span style="color:#ff79c6">&#34;required&#34;</span>: <span style="color:#ff79c6">true</span>
 }
-</code></pre></div><p>In cases where multiple attachments are allowed for a single <code>FileUpload</code> component, use a <code>list</code> data model binding
-instead:</p>
+</code></pre></div><p>In cases where it is allowed to upload multiple files to the same file attachment component, use a data model attachment 
+of the type <code>list</code>:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xsd" data-lang="xsd">  <span style="color:#ff79c6">&lt;xsd:complexType</span> <span style="color:#50fa7b">name=</span><span style="color:#f1fa8c">&#34;FamilyMember&#34;</span><span style="color:#ff79c6">&gt;</span>
     <span style="color:#ff79c6">&lt;xsd:sequence&gt;</span>
       <span style="color:#ff79c6">&lt;xsd:element</span> <span style="color:#50fa7b">name=</span><span style="color:#f1fa8c">&#34;FirstName&#34;</span> <span style="color:#50fa7b">type=</span><span style="color:#f1fa8c">&#34;xsd:string&#34;</span> <span style="color:#ff79c6">/&gt;</span>
@@ -1228,9 +1228,10 @@ instead:</p>
 <span style="display:block;width:100%;background-color:#3d3f4a">    <span style="color:#ff79c6">&#34;list&#34;</span>: <span style="color:#f1fa8c">&#34;FamilyMember.Pictures&#34;</span>
 </span>  }
 }
-</code></pre></div><p>The receiving end will get a list of multiple unique IDs, one for each attachment. The same unique ID will be displayed
-in the PDF receipt, but it is recommended to <a href="/app/development/ux/pdf/#exclude-components">hide this</a>, as attachments
-are shown separately on the receipt page and unique IDs can appear confusing to end users.</p>
+</code></pre></div><p>The receiving end will then receive a list of multiple unique ID&rsquo;s, one for each attachment.
+The same unique ID will also be displayed in
+the PDF receipt - but it is recommended to <a href="/app/development/ux/pdf/#exclude-components">hide this</a>, as attachments
+are shown seperately on the receipt page and the unique ID can become confusing to the users.</p>
 
 
 <footer class=" footline" >

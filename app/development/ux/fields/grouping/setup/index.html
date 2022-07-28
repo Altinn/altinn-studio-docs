@@ -269,7 +269,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/ux/texts/"><span>Texts</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/app/development/ux/texts/translation/"><span>Oversettelse av tekster</span></a></li></ul></li>
+        <a href="/app/development/ux/texts/translation/"><span>Translation of texts</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/app/development/ux/pdf/"><span>PDF</span></a></li>
       <li class="dd-item">
@@ -1096,23 +1096,23 @@ if(host != "localhost")
                 </span>
                 <span class="links"><a href='/app/'>Create apps</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/development/'>Development</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/development/ux/'>User interface</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/development/ux/fields/'>Fields</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/development/ux/fields/grouping/'>Grouping</a> <span class='adocs-breadcrumb-divider'> / </span> Setup</span>
             </div>
-          </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english">translate-to-english</a></div><div id="body-inner"><h1 class="a-fontBold">Setup of field grouping</h1>
+          </div><div id="body-inner"><h1 class="a-fontBold">Setup of field grouping</h1>
               <p class="a-leadText" id="leadText">General Setup for grouping fields in form.</p>
 
 
 
 
-<p>Felter i skjema kan settes opp til å bli del av en <em>gruppe</em>. Dette kan brukes til å f.eks. sette opp dynamikk på en enkelt gruppe av felter,
-i stedet for på hvert enkelt felt. I tillegg må felter kunnne grupperes for å støtte <a href="#repeterende-grupper">repeterende grupper</a> i skjema.</p>
-<p>En gruppe settes opp i <code>FormLayout.json</code>, sammen med de andre komponentene i skjemaet. Dette kan enten gjøres manuelt direkte i filen,
-eller via skjemaeditor i Atinn Studio ved å bruke Gruppe-komponenten.</p>
-<p>Noen punkter å notere seg ved manuelt oppsett:</p>
+<p>Fields in a form can be set up to be part of a <em>group</em>. This can be used to e.g. set up dynamic on a single group of fields,
+instead of on each single field. In addition, fields must be able to be grouped to support <a href="#repeating-groups">repeating groups</a> in a form.</p>
+<p>A group is set up in <code>FormLayout.json</code>, together with the other components in the form. This can be done manually directly in the file, 
+or through form editor in Altinn Studio by using the group component.</p>
+<p>Some things to note when manually setting up:</p>
 <ul>
-<li>Gruppen må ligge <em>før</em> ev. komponenter som skal inngå i gruppen i FormLayout.json.</li>
-<li>En gruppe <em>MÅ</em> ha <code>type: &quot;group&quot;</code> satt for at den skal registreres som en gruppe</li>
+<li>The group must be placed <em>before</em> any components that are to be included in the group in FormLayout.json</li>
+<li>A group <em>MUST</em> have <code>type: &quot;group&quot;</code> set if it is to be recognized as a group</li>
 </ul>
-<p>Eksempel på en (repeterende) gruppe definert i <code>FormLayout.json</code> som inneholder 4 felter som kan repetere 3 ganger:
-En gruppe defineres på følgende måte i FormLayout.json:</p>
+<p>An example of a (repeating) group defined in <code>FormLayout.json</code> that contains four fields that can be repeated three times:
+A group is defined as follows in FormLayout.json:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;&lt;unik-id&gt;&#34;</span>,
 <span style="display:block;width:100%;background-color:#3d3f4a">  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;group&#34;</span>,
@@ -1136,55 +1136,55 @@ En gruppe defineres på følgende måte i FormLayout.json:</p>
 <thead>
 <tr>
 <th>Parameter</th>
-<th>Påkrevd</th>
-<th>Beskrivelse</th>
+<th>Required</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>id</td>
-<td>Ja</td>
-<td>Unik ID, tilsvarer ID på andre komponenter. Må være unik i FormLayout.json-filen.</td>
+<td>Yes</td>
+<td>Unique ID, same as ID on other components. Must be unique in the FormLayout.json file.</td>
 </tr>
 <tr>
 <td>type</td>
-<td>Ja</td>
-<td>MÅ være &ldquo;group&rdquo;. Sier at dette er en gruppe.</td>
+<td>Yes</td>
+<td>MUST be &lsquo;group&rsquo;. Says that this is a group.</td>
 </tr>
 <tr>
 <td>dataModelBindings</td>
-<td>Nei</td>
-<td>MÅ være satt for repeterende grupper, med <code>group</code>-parameteren som i eksempelet over. Skal peke på den repeterende gruppen i datamodellen.</td>
+<td>No</td>
+<td>MUST be set for repeating groups, with the <code>group</code>-parameter like in the example above. Should point to the repeating group in the data model.</td>
 </tr>
 <tr>
 <td>textResourceBindings</td>
-<td>Nei</td>
-<td>Kan være satt for repeterende grupper, se <a href="#textResourceBindings">beskrivelse.</a></td>
+<td>No</td>
+<td>Can be set for repeating groups, see <a href="#textResourceBindings">description</a>.</td>
 </tr>
 <tr>
 <td>maxCount</td>
-<td>Ja</td>
-<td>Antall ganger en gruppe kan repetere. Settes til <code>1</code> om gruppen ikke er repeterende.</td>
+<td>Yes</td>
+<td>The number of times a group can repeat. Set to <code>1</code> if the group is not repeating.</td>
 </tr>
 <tr>
 <td>children</td>
-<td>Ja</td>
-<td>Liste over de feltene som skal inngå i gruppen. Her brukes felt-id fra FormLayout.json</td>
+<td>Yes</td>
+<td>List of the fields that are to be included in the group. Field-id from FormLayout.json is used here.</td>
 </tr>
 <tr>
 <td>tableHeaders</td>
-<td>Nei</td>
-<td>Liste over komponentener som skal inngå som en del av tabbel header feltene. Om ikke spesifisert så vises alle komponentene.</td>
+<td>No</td>
+<td>List of components that are to be included as part of the table header fields. If not specified, all components are displayed.</td>
 </tr>
 </tbody>
 </table>
 <h2 id="textresourcebindings">textResourceBindings</h2>
-<p>Det er mulig å legge til ulike nøkler i textResourceBindings for å overstyre default tekster.</p>
+<p>It is possible to add different keys in textResourceBindings to overrule default texts.</p>
 <ul>
-<li><code>add_button</code> - blir lagt til på enden av &ldquo;Legg til ny&rdquo; teksten på knappen, og kan brukes til å f.eks ha tekst som sier &ldquo;Legg til ny person&rdquo;.</li>
-<li><code>save_button</code> - blir brukt som tekst i &ldquo;Lagre&rdquo;-knappen når brukeren fyller ut data.</li>
-<li><code>edit_button_open</code> - blir brukt som tekst i &ldquo;Endre&rdquo; knappen i tabellen når brukeren skal åpne et element.</li>
-<li><code>edit_button_close</code> - blir brukt som tekst i &ldquo;Endre&rdquo; knappen tabellen når brukeren skal lukke et element.</li>
+<li><code>add_button</code> - is added at the end of the &ldquo;Add new&rdquo; text on the button, and can be used to e.g. get text that says &ldquo;Add new person&rdquo;.</li>
+<li><code>save_button</code> - is used as text on the &ldquo;Save&rdquo;-button when the user is filling out data.</li>
+<li><code>edit_button_open</code> - is used as text on the &ldquo;Edit&rdquo;-button on the table when the user is opening an element.</li>
+<li><code>edit_button_close</code> - is used as text on the &ldquo;Edit&rdquo;-button on the table when the user is closing an element.</li>
 </ul>
 
 

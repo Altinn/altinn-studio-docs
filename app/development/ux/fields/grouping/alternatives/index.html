@@ -269,7 +269,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/ux/texts/"><span>Texts</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/app/development/ux/texts/translation/"><span>Oversettelse av tekster</span></a></li></ul></li>
+        <a href="/app/development/ux/texts/translation/"><span>Translation of texts</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/app/development/ux/pdf/"><span>PDF</span></a></li>
       <li class="dd-item">
@@ -1096,84 +1096,90 @@ if(host != "localhost")
                 </span>
                 <span class="links"><a href='/app/'>Create apps</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/development/'>Development</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/development/ux/'>User interface</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/development/ux/fields/'>Fields</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/development/ux/fields/grouping/'>Grouping</a> <span class='adocs-breadcrumb-divider'> / </span> Settings</span>
             </div>
-          </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english">translate-to-english</a></div><div id="body-inner"><h1 class="a-fontBold">Settings for views</h1>
-              <p class="a-leadText" id="leadText">Settings for views.</p>
+          </div><div id="body-inner"><h1 class="a-fontBold">Settings for views</h1>
+              <p class="a-leadText" id="leadText">Settings for views.</p><h2>On this page:</h2><nav id="TableOfContents">
+  <ul>
+    <li><a href="#control-display">Control display</a></li>
+    <li><a href="#display-group-as-part-of-panel">Display group as part of Panel</a></li>
+    <li><a href="#multiple-pages-within-group-display">Multiple pages within group-display</a></li>
+  </ul>
+</nav>
 
 
 
 
-<p>Det er implementert en ny (valgfri) parameter som kan legges inn på definisjonen av en repeterende gruppe i layout-filen, som gjør at man kan styre litt
-rundt visningen og oppførselen til gruppen på siden. I tillegg er det lagt til støtte for flere &ldquo;sider&rdquo; inne i redigerings-flaten til gruppen.</p>
-<h2 id="styre-visning">Styre visning</h2>
-<p>Det er lagt til en ny parameter, <code>edit</code>, som kan settes på en gruppe-komponent (repeterende gruppe). Denne lar oss definere forskjellige innstillinger
-mtp visning av et gruppe-element under redigering/utfylling. Følgende innstillinger kan settes.</p>
+<p>A new (optional) parameter has been implemented, that can be added to the definition of a repeating group in the layout-file, which allows you to control
+some of the display and behaviour of the group on the page. In addition, support for multiple &ldquo;pages&rdquo; has been added within the editing area of the group.</p>
+<h2 id="control-display">Control display</h2>
+<p>A new parameter, <code>edit</code>, has been added, which can be set up on a group component (repeating group). This allows us to define various settings
+in regards to displaying a group element when editing/filling out. The following settings can be set:</p>
 <h3 id="mode">mode</h3>
-<p>Definerer om tabellen (som viser alle elementene i gruppen) skal vises når et element er åpent i redigerings-modus.
-Følgende verdier godtas:</p>
+<p>Defines whether the table (that displays all elements in the group) should be displayed when an element is open in editing-mode.
+The following values are allowed:</p>
 <table>
 <thead>
 <tr>
-<th>Verdi</th>
-<th>Beskrivelse</th>
+<th>Value</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>&ldquo;showTable&rdquo;</td>
-<td>Standard oppførsel om ingenting er satt. Viser tabellen over flaten for redigering av gruppe-element.</td>
+<td>Default behaviour if nothing else has been specified. Displays the table for editing of group-element.</td>
 </tr>
 <tr>
 <td>&ldquo;hideTable&rdquo;</td>
-<td>Skjuler tabellen når et gruppe-element er åpent for redigering.</td>
+<td>Hides the table when a group-element is open for editing.</td>
 </tr>
 <tr>
 <td>&ldquo;showAll&rdquo;</td>
-<td>Skjuler tabellen. Viser alle elementene i gruppen i redigerings-modus, under hverandre. Lagre-knapp skjules.</td>
+<td>Hides the table. Shows all elements in the group in editing mode below each other. The save button is hidden.</td>
 </tr>
 <tr>
 <td>&ldquo;likert&rdquo;</td>
-<td>Likert visning.</td>
+<td>Likert display.</td>
 </tr>
 </tbody>
 </table>
 <h3 id="filter">filter</h3>
-<p>Støtte for å filtrere elementene i gruppen, slik at kun de elementene som matcher de definerte kriteriene vises.
-F.eks. i en gruppe som viser arbeidserfaring, vis kun de elementene der arbeidssted var Oslo.
-Liste med kriterier er basert på verdi av ett eller flere felter i gruppen, på formen</p>
+<p>Support to filter elements in group, so that only the elements matching the defined criteria are displayed.
+E.g. in a group displaying work experience, only display the elements where the workplace was Oslo.
+List of criteria is based on values of one or more fields in the group, on the format:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#f1fa8c">&#34;edit&#34;</span>: {
   <span style="color:#ff79c6">&#34;filter&#34;</span>: [
     { <span style="color:#ff79c6">&#34;key&#34;</span>: <span style="color:#f1fa8c">&#34;&lt;felt i datamodell&gt;&#34;</span>, <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;&lt;ønsket verdi&gt;&#34;</span> }
   ]
 }
-</code></pre></div><p>Dersom det er flere kriterier, må alle matche for at elementet skal vises.</p>
-<p>Om det kun er ett resultat, vises dette automatsk i redigerings-modus. Om det er flere elementer i gruppen som matcher filteret, vil disse vises.
-Andre elementer i gruppen skjules. <code>filter</code> kan kombineres med <code>mode</code>-parameter.</p>
+</code></pre></div><p>If there are multiple criteria, all must match for the element to be displayed.</p>
+<p>If there is only one result, this is displayed automatically in editing-mode. If there are multiple elements in the group that match the filter, these will be displayed.
+Other elements in the group will be hidden. <code>filter</code> can be combined with the <code>mode</code>-parameter.</p>
 <div class="notices warning" >
-Om man kombinerer `"mode": "showAll"` med `"filter"`, vil det ikke fungere å legge til nye elementer i gruppen. Dette er fordi man med "showAll" kun
-viser redigerings-flaten, og så lenge filteret ikke matcher, vil ikke elementet vises.
+If you combine `"mode": "showAll"` with `"filter"`, it will not be possible to add more elements to the group. This is because with "showAll" only the editing area is displayed, 
+and as long as the filter does not match, the element will not be displayed.
 </div>
 <h3 id="addbutton">addButton</h3>
-<p>Bestemmer om &ldquo;Legg til ny&rdquo;-knappen vises under tabellen. Nyttig å skjule denne om man kun ønsker å presentere data.</p>
+<p>Determines whether the &ldquo;Add new&rdquo; button is displayed below the table. It is useful to hide this if you only wish to display data.</p>
 <h3 id="savebutton">saveButton</h3>
-<p>Bestemmer om &ldquo;Lagre&rdquo;-knappen vises når et gruppeelement er i redigeringsmodus. Standard oppførsel om parameteren ikke er satt er at &ldquo;Lagre&rdquo;-knapp vises.
-Dersom man har satt <code>&quot;mode&quot;: &quot;showAll&quot;</code> skjules Lagre-knappen alltid, da man i denne modusen ikke har mulighet til å lukke redigerings-flaten for
-gruppe-elementet. Dataene lagres uansett.</p>
+<p>Determines whether the &ldquo;Save&rdquo; button is displayed when a group element is in editing mode. The default behaviour if the parameter is not set is for the &ldquo;Save&rdquo; button to be displayed.
+If you have set <code>&quot;mode&quot;: &quot;showAll&quot;</code>, the &ldquo;Save&rdquo; button is always hidden, since in this mode you do not have the opportunity to close the editing area for
+the group-element. The data is still saved.</p>
 <h3 id="deletebutton">deleteButton</h3>
-<p>Bestemmer om &ldquo;Slett&rdquo;-knappen vises når et gruppeelement er i redigeringsmodus. Standard oppførsel om parameteren ikke er satt er at &ldquo;Slett&rdquo;-knapp vises.</p>
+<p>Determines whether the &ldquo;Delete&rdquo; button is displayed when a group element is in editing mode. The default behaviour if the parameter is not set is for the &ldquo;Delete&rdquo; button to be displayed.</p>
 <h3 id="multipage">multiPage</h3>
-<p>Sier at redigering/utfylling av gruppe kan gjøres over flere &ldquo;sider&rdquo;/visninger. Krever mer oppsett for å fungere, se under for mer informasjon.</p>
+<p>Editing/filling out pages can be performed over multiple &ldquo;pages&rdquo;/displays. Requires more setup to work, see below for more information.</p>
 <h3 id="openbydefault">openByDefault</h3>
-<p>Sier at gruppen skal åpnes i editeringsmodus om det ikke finnes noen elementer i gruppen fra før. Merk at denne ikke kan brukes sammen med <code>&quot;mode&quot;: &quot;showAll&quot;</code>.</p>
-<p>Eksempel:</p>
+<p>If there are no elements in the group already, the group should be opened in editing mode. Note that this cannot be used with <code>&quot;mode&quot;: &quot;showAll&quot;</code>.</p>
+<p>Example:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   ...
   <span style="color:#ff79c6">&#34;edit&#34;</span>: {
     <span style="color:#ff79c6">&#34;openByDefault&#34;</span>: <span style="color:#ff79c6">true</span>
   }
 }
-</code></pre></div><h2 id="show-group-as-part-of-panel">Show group as part of Panel</h2>
-<p>A new parameter, <code>panel</code>, can be added to the group component. This will render the group childrne as part of a <a href="../../../components/panel/">Panel component.</a>.</p>
-<p>Look and settings will be similar of those of the panel component. Example configuration:</p>
+</code></pre></div><h2 id="display-group-as-part-of-panel">Display group as part of Panel</h2>
+<p>A new parameter, <code>panel</code>, has been added which can be set up on a group component. This says that the group should be displayed as part of the <a href="../../../components/panel/">Panel component</a>.</p>
+<p>Here, you will recognize the appearance and settings that can be set on the panel component. Example configuration:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">      {
         <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;input-panel-group&#34;</span>,
         <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Group&#34;</span>,
@@ -1190,10 +1196,10 @@ gruppe-elementet. Dataene lagres uansett.</p>
           <span style="color:#ff79c6">&#34;variant&#34;</span>: <span style="color:#f1fa8c">&#34;info&#34;</span>
         }
       },
-</code></pre></div><p>Here the group is configured with the variant &ldquo;info&rdquo;. The configuration is otherwise equal as a regular group.</p>
-<p>This will produce the following output:</p>
+</code></pre></div><p>Here the group has been set up to be displayed as a panel with the variant &ldquo;info&rdquo;. The setup is otherwise exactely the same as a regular group.</p>
+<p>This will give the following output:</p>
 <figure><a href="input-panel.jpeg"><img src="input-panel.jpeg" alt="Group with panel" title="Group with panel" /></a><figcaption><h4>Group with panel</h4></figcaption></figure>
-<p>The following settings is configurable in the <code>pabel</code> field:</p>
+<p>It is possible to configure the following settings in the <code>panel</code> field of a group:</p>
 <table>
 <thead>
 <tr>
@@ -1206,22 +1212,22 @@ gruppe-elementet. Dataene lagres uansett.</p>
 <tr>
 <td>variant</td>
 <td>Yes</td>
-<td>Which variant of panel the group children should be rendered in. Availiable values are &ldquo;info&rdquo;, &ldquo;success&rdquo; and &ldquo;warning&rdquo;.</td>
+<td>Which variant of panel the group should be placed in. Available values are &ldquo;info&rdquo;, &ldquo;success&rdquo; and &ldquo;warning&rdquo;</td>
 </tr>
 <tr>
 <td>iconUrl</td>
 <td>No</td>
-<td>Custom icon can be added to the panel. Relative or full path, for instance &ldquo;awesomeIcon.png&rdquo; or &ldquo;<a href="http://cdn.example.com/awesomeIcon.png%22">http://cdn.example.com/awesomeIcon.png&quot;</a></td>
+<td>If you want your own icon as part of a panel, this can be set. Relative or full path, e.g. &ldquo;awesomeIcon.png&rdquo; or &ldquo;<a href="http://cdn.example.com/awesomeIcon.png%22">http://cdn.example.com/awesomeIcon.png&quot;</a></td>
 </tr>
 <tr>
 <td>iconAlt</td>
 <td>No</td>
-<td>Alternative text for the custom icon. Only applicable if iconUrl is supplied. Can be plain text or a reference to a text resource.</td>
+<td>Alternate text for the custom icon. Can only be set if iconUrl has been set. Can be plain text or a reference to a text resource.</td>
 </tr>
 <tr>
 <td>groupReference</td>
 <td>No</td>
-<td>Reference to another group. Can be used if you want to add elements to a repeating group from another context. <a href="#legge-til-element-fra-en-annen-repeterende-gruppe">Read more.</a></td>
+<td>Reference to a different group. Can be used if you wish to add elements to a repeating group from some other context. <a href="#add-element-from-separate-repeating-group">Read more.</a></td>
 </tr>
 </tbody>
 </table>
@@ -1231,16 +1237,16 @@ gruppe-elementet. Dataene lagres uansett.</p>
           <span style="color:#ff79c6">&#34;iconUrl&#34;</span>: <span style="color:#f1fa8c">&#34;kort.svg&#34;</span>,
           <span style="color:#ff79c6">&#34;iconAlt&#34;</span>: <span style="color:#f1fa8c">&#34;Betalingskort ikon&#34;</span>
         }
-</code></pre></div><h3 id="add-element-from-another-repeating-group">Add element from another repeating group</h3>
-<p>A use case can be that the user is asked to choose a value from a previously filled out repeating group. As an example imagine the user has to register a set of suspicius transactions.
-Her the user is first asked to add a set of different payment cards as a repeating group. Later in the application the user is asked to select a payment card when adding an entry to the suspicious transactions group.
-While doing so the user remembers that they forgot to add a payment card and does not want to navigate back to the first repeating group.</p>
-<p>Her comes <code>groupReference</code> parameter in to play. This will give the user the possiblity to add an element to a repeating group from the context this list is used.</p>
-<p>An image to illustrate the use case:</p>
+</code></pre></div><h3 id="add-element-from-separate-repeating-group">Add element from separate repeating group</h3>
+<p>A use case one can imagine is that the user is asked to choose from an already filled out repeating group. One possible case is that the user is registering a set of suspicious transactions.
+Here, the user first enters a set of separate payment cards as a repeating group. Later on in the form, the user will choose elements from this group when adding a suspicious transaction.
+While filling out the suspicious transaction, the user remembers that they forgot to add a payment card, but do not wish to navigate all the way back to the original payment card group.</p>
+<p>This is where the <code>groupReference</code> parameter comes in handy. This will open up for the possibility to add an element to a repeating group from the context from which you are using this list.</p>
+<p>A picture to illustrate the usecase:</p>
 <figure><a href="panel-reference-case.png"><img src="panel-reference-case.png" alt="GroupReference case" title="GroupReference case" /></a><figcaption><h4>GroupReference case</h4></figcaption></figure>
-<p>In this made up case the groups are positioned under each other, but in a real world scenario these might be placed on different pages in the application.</p>
-<p>To setup the possibility a group component is added to the repeating group containg the transactions with a reference to the first group containing payment cards.</p>
-<p>The following group component is configured as a child for group 2:</p>
+<p>In this fictitious case the groups are placed directly above each other, but imagine that these are filled out on different pages in the form.
+To achieve this setup, a group of elements are added to the repeating group that is set up with transactions (group-2) with a reference to the first group with payment cards (group-1).
+The following group component is one of the children of group-2:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">      {
         <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;input-panel-group&#34;</span>,
         <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Group&#34;</span>,
@@ -1259,28 +1265,28 @@ While doing so the user remembers that they forgot to add a payment card and doe
           }
         }
       },
-</code></pre></div><p>The text resources that is used by panel:</p>
+</code></pre></div><p>The text resources that can be set are:</p>
 <ul>
-<li><code>title</code> - the panel title</li>
-<li><code>body</code> - the panel body. Placed above children.</li>
-<li><code>add_label</code> - the add button label.</li>
+<li><code>title</code> - panel title</li>
+<li><code>body</code> - panel body. Placed above the group elements.</li>
+<li><code>add_label</code> - text for the &ldquo;add new&rdquo;-button.</li>
 </ul>
-<p>If <code>children</code> is not defined on the group the children of the referenced group will be rendered. By adding <code>children</code> you can freely define that only a subset of the referenced group will be displayed.</p>
-<p>Demo:</p>
-<figure><a href="panel-reference-demo.gif"><img src="panel-reference-demo.gif" alt="Demo of groupReference" title="Demo of groupReference" /></a><figcaption><h4>Demo of groupReference</h4></figcaption></figure>
-<p>See <a href="https://altinn.studio/repos/ttd/input-panel-demo">example app</a> for a complete form layout setup.</p>
-<h2 id="flere-sider-innad-i-gruppe-visning">Flere sider innad i gruppe-visning</h2>
-<div class="notices info" > Denne funksjonaliteten er p.t. kun tilgjengelig for repeterende grupper. Visning av gruppe over
-flere sider inne i redigerings-flaten til gruppen støttes KUN for grupper på øverste nivå, og støttes ikke
-for grupper i grupper. </div>
-<p>Når man skal legge inn data i en gruppe, kan det være tilfeller der hvert element i gruppen inneholder mange felter, og at det dermed blir mye scrolling
-og uoversiktlig for sluttbruker. For å løse dette er det innført en mulighet til å dele opp utfyllingen over flere visninger, som bruker kan navigere
-frem/tilbake mellom mens de fyller ut gruppe-elementet. Navigeringen her skjer innad i en layout, og oppdaterer
-kun visningen inne i redigeringsflaten for gruppen.</p>
-<p>For å ta i bruk denne funksjonaliteten, må man <em>prefikse</em> komponentene i <code>children</code> listen med et tall som tilsier hvilken &ldquo;side&rdquo; av utfyllingen
-komponenten skal vises på, etterfulgt av <code>:</code>. Vi starter tellingen på <code>0</code>, dvs. at komponenter som skal vises på den første &ldquo;siden&rdquo; må prefikses med
-<code>0:</code>. Komponenter som skal vises på den andre siden prefikses med <code>1:</code>. Osv. I tillegg må man sette <code>&quot;multiPage&quot;: true</code> på den nye <a href="#styre-visning"><code>edit</code>-parameteren</a> (se over).
-Se eksempel under:</p>
+<p>If <code>children</code> is not set on the group, the children of the referenced group will be rendered. By adding to <code>children</code> you can freely define that only a subset of all children of the referenced group should be displayed.</p>
+<p>Demonstration:</p>
+<figure><a href="panel-reference-demo.gif"><img src="panel-reference-demo.gif" alt="Demonstration of groupReference" title="Demonstration of groupReference" /></a><figcaption><h4>Demonstration of groupReference</h4></figcaption></figure>
+<p>See <a href="https://altinn.studio/repos/ttd/input-panel-demo">example app</a> for complete setup in form layout.</p>
+<h2 id="multiple-pages-within-group-display">Multiple pages within group-display</h2>
+<div class="notices info" > This functionality is as of today only available for repeating groups. Displayment of groups over 
+multiple pages inside the editing area of the group is only supported for groups at the top level, and is not supported
+for nested groups. </div>
+<p>When entering data in a group, there may be incidents where each element in the group contains multiple fields, which may result in a lot of scrolling 
+and confusion for the user. To solve this, there has been implemented a possibility to split the fillout over multiple pages, which the user can navigate
+through while filling out the group element. The navigation takes place within a layout, and updates 
+only the display within the editing area of the group.</p>
+<p>To make use of this functionality, you will have to <em>prefix</em> the components in the <code>children</code> list with a number indicating which &ldquo;page&rdquo; of the fillout
+the component should be displayed on, followed by <code>:</code>. We start the count on <code>0</code>, that is to say components to be displayed on the first &ldquo;page&rdquo; must be prefixed with
+<code>0:</code>. Components to be displayed on the second page must be prefixed with <code>1:</code>, and so on. In addition, you must set <code>&quot;multiPage&quot;: true</code> on the new <a href="#control-display"><code>edit</code>-parameter</a> (see above).
+See example below:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;Some-group-id&#34;</span>,
   <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Group&#34;</span>,
@@ -1299,9 +1305,9 @@ Se eksempel under:</p>
 </span><span style="display:block;width:100%;background-color:#3d3f4a">    <span style="color:#ff79c6">&#34;mode&#34;</span>: <span style="color:#f1fa8c">&#34;hideTable&#34;</span>,
 </span>  }
 }
-</code></pre></div><p>Her har man også lagt inn en <a href="#mode">mode</a> som skjuler tabellen under redigering.
-Resultatet blir som vist under.</p>
-<figure><a href="group-multipage.gif"><img src="group-multipage.gif" alt="Utfylling i gruppe over flere &ldquo;sider&rdquo;" title="Utfylling i gruppe over flere sider" /></a><figcaption><h4>Utfylling i gruppe over flere sider</h4></figcaption></figure>
+</code></pre></div><p>Here a <a href="#mode">mode</a> that hides the table when editing has also been added.
+The result will be as displayed below.</p>
+<p>![Fill-out of group over multiple &ldquo;pages&rdquo;](group-multipage.gif &ldquo;Fill-out of group over multiple &ldquo;pages&rdquo;)</p>
 
 
 <footer class=" footline" >

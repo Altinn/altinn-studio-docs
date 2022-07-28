@@ -269,7 +269,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/ux/texts/"><span>Texts</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/app/development/ux/texts/translation/"><span>Oversettelse av tekster</span></a></li></ul></li>
+        <a href="/app/development/ux/texts/translation/"><span>Translation of texts</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/app/development/ux/pdf/"><span>PDF</span></a></li>
       <li class="dd-item">
@@ -1096,69 +1096,69 @@ if(host != "localhost")
                 </span>
                 <span class="links"><a href='/app/'>Create apps</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/development/'>Development</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/development/data/'>Data</a> <span class='adocs-breadcrumb-divider'> / </span> Attachments</span>
             </div>
-          </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english">translate-to-english</a></div><div id="body-inner"><h1 class="a-fontBold">Attachments</h1>
+          </div><div id="body-inner"><h1 class="a-fontBold">Attachments</h1>
               <p class="a-leadText" id="leadText">In an application one can facilitate uploading file attachments both via GUI and API.</p><h2>On this page:</h2><nav id="TableOfContents">
   <ul>
-    <li><a href="#metoder-for-opplasting-av-vedlegg">Metoder for opplasting av vedlegg</a></li>
-    <li><a href="#innsending-av-vedlegg-med-vedleggskomponent-i-skjema">Innsending av vedlegg med vedleggskomponent i skjema</a></li>
-    <li><a href="#innsending-av-vedlegg-med-api-kall">Innsending av vedlegg med API-kall</a></li>
-    <li><a href="#konfigurasjon-for-vedlegg">Konfigurasjon for vedlegg</a></li>
+    <li><a href="#methods-for-uploading-file-attachments">Methods for uploading file attachments</a></li>
+    <li><a href="#submitting-file-attachments-with-file-upload-component-in-a-form">Submitting file attachments with file upload component in a form</a></li>
+    <li><a href="#submission-of-attachments-with-api-call">Submission of attachments with API-call</a></li>
+    <li><a href="#configuration-of-attachments">Configuration of attachments</a></li>
   </ul>
 </nav>
 
 
 
 
-<h2 id="metoder-for-opplasting-av-vedlegg">Metoder for opplasting av vedlegg</h2>
-<p>I en Altinn app har man to alternativer for opplasting av vedlegg:</p>
+<h2 id="methods-for-uploading-file-attachments">Methods for uploading file attachments</h2>
+<p>In an Altinn application there are two options for uploading file attachments:</p>
 <ul>
-<li>vedleggskomponent i skjema</li>
-<li>API-kall mot app backend</li>
+<li>File upload component in a form</li>
+<li>API-call to app backend</li>
 </ul>
-<p>Førstnevnte vil være et godt alternativ for all data er det forventet at en sluttbruker vil laste opp via brukergrensesnitt i skjema.
-Sistnevnte anbefales brukt dersom det kun er forventet at systemer skal laste opp vedlegget.
-Det er ingen begrensning på hvor mange vedlegg som kan inkluderes i en applikasjon
-og begge opplastingsmetoder kan brukes innad i samme applikasjon.</p>
-<p>Nedenfor følger en enkel beskrivelse av hvordan du kan legge til rette for at applikasjonen din kan ta imot vedlegg.</p>
-<h2 id="innsending-av-vedlegg-med-vedleggskomponent-i-skjema">Innsending av vedlegg med vedleggskomponent i skjema</h2>
-<p>Når man setter sammen skjemaet sitt i Altinn Studio har man en vedleggskomponent tilgjengelig.
-Det er mulig å laste opp flere vedlegg på en enkelt komponent, og hvor mange vedleggskomponenter
-du benytter i din applikasjon vil avgjøres av egenskapene til dokumentene du forventer at skal lastes opp
-og eventuelle begrensninger du selv ønsker å sette
-(se <a href="#innsending-av-vedlegg-med-api-kall">konfigurasjon av vedlegg</a> for mer informasjon om dette).</p>
-<p>NB! Det vil også være mulig å laste opp vedlegg av typen definert i vedleggkomponenten via API.</p>
-<figure><a href="vedleggskom.png"><img src="vedleggskom.png" alt="Vedleggskomponenten" title="Vedleggskomponenten" /></a><figcaption><h4>Vedleggskomponenten</h4></figcaption></figure>
-<p>Bildet over viser vedleggskomponenten i Altinn Studio.
-Det er mulig å sette en del av konfigurasjonenen for vedleggene som lastes opp alledere her.</p>
+<p>The former will be a good alternative for all data where it is expected that the user will upload files through the user interface in the app.
+The latter is recommended for use if it is only expected that systems will upload the attachment.
+There is no limit to how many attachments that can be included in one application
+and both upload methods can be used within the same application.</p>
+<p>Below is a simple description of how you can accommodate your application to be able to receive attachments.</p>
+<h2 id="submitting-file-attachments-with-file-upload-component-in-a-form">Submitting file attachments with file upload component in a form</h2>
+<p>When building your form in Altinn Studio, a file upload component is available.
+It is possible to upload multiple file attachments on one single component, and how many file upload components
+you use in your application will be determined by the characteristics of the documents you expect to be uplaoded
+and any restrictions you need to impose.
+(see <a href="#submission-of-attachments-with-API-call">configuration of file attachments</a> for more information on this).</p>
+<p>Note: It will also be possible to upload file attachments of the type defined in the attachment component through API.</p>
+<figure><a href="vedleggskom.png"><img src="vedleggskom.png" alt="The file upload component" title="The file upload component" /></a><figcaption><h4>The file upload component</h4></figcaption></figure>
+<p>The image above shows the file upload component in Altinn Studio.
+Part of the configuration for the uploaded attachments can be set up here.</p>
 <ol>
-<li>Egendefinerte filtyper kan spesifiseres dersom man vil begrense filtypene som kan sendes inn.
-En bruker vil i så fall hindres under opplastning dersom filtypen ikke er blant den godkjente listen.</li>
-<li>Minst/maks antall filvedlegg kan spesifiseres dersom man ønsker et bestemt antall vedlegg lastet opp via komponenten.
-Ved å sette &lsquo;0&rsquo; på <em>minst antall filvedlegg</em> vil det ikke være påkrevd å laste opp en fil.</li>
-<li>Maks filstørrelse spesifiseres i <em>MB</em>.</li>
+<li>Custom file types can be specified if you want to limit the file types that can be submitted.
+In this case, a user will be prevented from uploading if the file type is not in the approved list.</li>
+<li>The minimum/maximum amount of file attachments can be specified if you want a specific amount of attachments uploaded through the component.
+By setting the value of <em>minst antall filvedlegg</em> to &lsquo;0&rsquo; it will not be required to upload a file.</li>
+<li>The maxmimum file size is specified in <em>MB</em>.</li>
 </ol>
-<p>Ytterligere konfigurasjoner som kan settes for vedlegg inkluderer: tillatte bidragsytere og beskrivelse.
-Dette gjøres i <em>applicationMetadata.json</em> som ligger under App/config i applikasjonsrepoet.</p>
-<h3 id="vedleggskomponent-med-merking">Vedleggskomponent med merking</h3>
-<p>Det finnes også en egen komponent der man får brukeren til å merke filen med hjelp av en nedtrekksliste.
-Dette settes opp ganske likt som med den vanlige filopplastingskomponenten, med tillegget av en kodeliste-ID og navnet
-man vil gi merkingen.</p>
-<figure><a href="vedleggsmerkekom.png"><img src="vedleggsmerkekom.png" alt="Vedleggskomponenten med merking" title="Vedleggskomponenten med merking" /></a><figcaption><h4>Vedleggskomponenten med merking</h4></figcaption></figure>
-<p>Her under kan du se den i bruk</p>
-<figure><a href="vedleggsmerkekomeks.png"><img src="vedleggsmerkekomeks.png" alt="Vedleggskomponenten med merking eksempelvisning" title="Vedleggskomponenten med merking eksempel" /></a><figcaption><h4>Vedleggskomponenten med merking eksempel</h4></figcaption></figure>
-<h2 id="innsending-av-vedlegg-med-api-kall">Innsending av vedlegg med API-kall</h2>
-<p>For å legge til rette for å kunne sende inn vedlegg uten å ha støtte for dette i GUI
-må man legge inn et <a href="/technology/architecture/components/application/solution/altinn-platform/storage/#datatype">datatype-objekt</a>
-i <em>applicationMetadata.json</em> (filen ligger under App/config i applikasjonsrepoet).
-Det vil da kun være mulig å sende inn vedlegg av denne typen via API-kall.
-For en nærmere beskrivelse av de tilgjengelige feltene se
-<a href="#innsending-av-vedlegg-med-api-kall">konfigurasjon av vedlegg</a>.</p>
-<h2 id="konfigurasjon-for-vedlegg">Konfigurasjon for vedlegg</h2>
-<p>I <em>applicationMetadata.json</em> (ligger under App/config i applikasjonsrepoet) vil man finne en property som heter <code>dataTypes</code>.
-Her er ligger konfigurasjonen for alle datatyper knyttet til applikasjonen,
-både skjemadata (app model data) og vedlegg. Feltet <em>appLogic</em> som man også vil se blant noen av objektene
-i listen skal kun brukes for skjemadata.</p>
-<p>Nedenfor er det to eksempler på  <code>dataTypes</code>-instanser i en applikasjon fra en deployet applikasjon.</p>
+<p>Additional configurations that can be set for attachments include: allowed contributors and description.
+This is conigured in <em>applicationMetadata.json</em> which is placed under App/config in the application repo.</p>
+<h3 id="file-upload-component-with-tagging">File upload component with tagging</h3>
+<p>There is also a separate component where the user tags the file using a dropdown list.
+This is configured pretty similarily to the normal file upload component, with the addition of a codelist-ID and the name
+you want the tag to have.</p>
+<figure><a href="vedleggsmerkekom.png"><img src="vedleggsmerkekom.png" alt="The file upload component with tagging" title="The file upload component with tagging" /></a><figcaption><h4>The file upload component with tagging</h4></figcaption></figure>
+<p>Below you can see it in use</p>
+<figure><a href="vedleggsmerkekomeks.png"><img src="vedleggsmerkekomeks.png" alt="The file upload component with tagging example" title="The file upload with tagging example" /></a><figcaption><h4>The file upload with tagging example</h4></figcaption></figure>
+<h2 id="submission-of-attachments-with-api-call">Submission of attachments with API-call</h2>
+<p>To accommodate being able to submit attachments without this being supported in GUI,
+you will need to add a <a href="/technology/architecture/components/application/solution/altinn-platform/storage/#datatype">datatype object</a>
+in the <em>applicationMetadata.json</em> (the file is under App/config in the application repo).
+It will then only be possible to submit attachments of this type through API-calls.
+For a more detailed description of the available fields, see
+<a href="#configuration-of-attachments">configuration of attachments</a></p>
+<h2 id="configuration-of-attachments">Configuration of attachments</h2>
+<p>In <em>applicationMetadata.json</em> (placed in App/config in the application repo) you will find a property called &lsquo;dataTypes&rsquo;.
+Configuration of all data types supported in the application can be found here,
+both form data (app model data) and file attachments. The field <em>appLogic</em>, that can also be found among some of the objects
+in the list, should only be used for form data.</p>
+<p>Below there are two examples of <code>dataTypes</code>-instances from a deployed application.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"> <span style="color:#f1fa8c">&#34;dataTypes&#34;</span>: [
     {
       <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;53a50f0d-2345-448d-9fba-f18e6bbe71f8&#34;</span>,
@@ -1180,42 +1180,42 @@ i listen skal kun brukes for skjemadata.</p>
   ]
 </code></pre></div><ul>
 <li>
-<p><strong>Id</strong> på vedleggstypen.
-Denne vil settes som en GUID dersom man bruker vedleggskomponent fra Altinn Studio slik man ser i det første elementet i dataTypes-listen.
-Skulle det være ønskelig å endre verdien til et mer fornuftig navn må man også være obs på at denne endringen
-må gjøres to steder: <em>applicationMetadata.json</em> og <em>FormLayout.json</em>. (Kun relevant dersom man bruker filopplaster i GUI)</p>
+<p><strong>Id</strong> on the attachment type
+This will be set as a GUID if you use an attachment component from Altinn Studio like the one you can find in the first element in the dataTypes list.
+If you want to change the value to a more sensible name then you should note that this change
+must be done two places: <em>applicationMetadata.json</em> and <em>FormLayout.json</em>. (Only relevant if you added a file upload component to the GUI)</p>
 </li>
 <li>
-<p><strong>taskId</strong> betegner hvilket steg i prosessen det er forventet at dette vedlegget skal lastes opp på.
-Denne verdien må tilsvare en id på en av taskene i <em>process.bpmn</em>.</p>
+<p><strong>taskID</strong> denotes which step in the process it is expected that this attachment is uploaded to.
+This value must be identical to one of the tasks in <em>process.bpmn</em>.</p>
 </li>
 <li>
-<p><strong>maxSize</strong> betegner maks tillat størrelse på vedlegget.</p>
+<p><strong>maxSize</strong> denotes the maximum allowed size of the attachment.</p>
 </li>
 <li>
-<p><strong>maxCount</strong> betegner en øvre grensen for hvor mange vedlegg av denne typen som skal lastet opp i tilknytning til en instans.</p>
+<p><strong>maxCount</strong> denotes the upper limit for how many attachments of this type that are to be uploaded per instance.</p>
 </li>
 <li>
-<p><strong>minCount</strong> betegner en nedre grensen for hvor mange vedlegg av denne typen som skal lastet opp i tilknytning til en instans.
-Dersom verdien er 0 er det ikke påkrevt å laste opp vedlegg av denne typen.</p>
+<p><strong>minCount</strong> denotes the lower limit for how many attachments of this type that are to be uploaded per instance.
+If the value is 0 then it is not required to upload a file attachment of this type.</p>
 </li>
 <li>
-<p><strong>allowedContributers</strong> spesifiserer hvem som får lov til å lage og/eller endre vedlegg av denne typen.
-Dette spesifiseres på formatet <code>{nøkkelord}:{verdi}</code>.
-Tillatte nøkkelord inkluderer: &lsquo;org&rsquo;; trebokstavsforkortelse på organisasjon og &lsquo;orgNo&rsquo;; organisasjonsnummer.
-Det er per nå ikke mulig å spesifisere en organisasjon som ikke er registrert som tjenesteeier.</p>
+<p><strong>allowedContributors</strong> specifies who is allowed to create and/or modify file attachments of this type.
+This is specified on the format <code>{key}:{value}</code>.
+Allowed keys include: &lsquo;org&rsquo;; three letter abbreviation for organization and *orgNo'; organization number.
+It is as of today not possible to specify an organization that is not registered as a service owner.</p>
 </li>
 <li>
-<p><strong>allowedContentTypes</strong> spefisiserer hvilke vedleggstyper man tillater.
-De hyppigst brukte inkluderer: application/pdf, text/xml, image/jpeg. Dersom man ikke ønsker å sette begrensning på typen vedlegg trenger man ikke definere denne parameteren.
-Les mer om mime types <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types">her</a>.</p>
+<p><strong>allowedContentTypes</strong> specifies which file attachment types that are allowed.
+The most frequently used include: application/pdf, text/xml, image/jpeg. If you do not want to set a limit to the type of attachments, you will not need to define this parameter.
+Read more on mime types <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types">here</a>.</p>
 </li>
 <li>
-<p><strong>grouping</strong> betegner gruppen som vedleggene i av denne typen skal grupperes etter.
-Dette er en valgfri egenskap, hvor vedlegg med samme grouping vil havne i samme liste. Grouping kan både være en streng (f.eks &ldquo;Attester&rdquo;) eller en tekstnøkkel om man ønsker å støtte flere språk (f.eks &ldquo;skjema.vedleggsgruppering). Her er et eksempel hvor grouping &ldquo;Demogruppe&rdquo; satt på en vedleggstype:</p>
+<p><strong>grouping</strong> denotes the group that the file attachments should be gropued according to.
+This is an optional attribute, where file attachments with the same grouping will be sorted into the same list. Grouping can be both a string (e.g. &ldquo;Certificates&rdquo;) or a text key if you wish to configure multiple languages (e.g. &ldquo;form.attachmentgrouping&rdquo;). Here is an example where the grouping &ldquo;Demogruppe&rdquo; is set on an file attachment type:</p>
 </li>
 </ul>
-<figure><a href="attachment-grouping-demo.png"><img src="attachment-grouping-demo.png" alt="Skjermdump av grupperingseksempel" title="Grupperingseksempel" /></a><figcaption><h4>Grupperingseksempel</h4></figcaption></figure>
+<figure><a href="attachment-grouping-demo.png"><img src="attachment-grouping-demo.png" alt="Screenshot of grouping example" title="Grouping example" /></a><figcaption><h4>Grouping example</h4></figcaption></figure>
 
 
 <footer class=" footline" >

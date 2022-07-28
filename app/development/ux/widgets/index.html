@@ -269,7 +269,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/ux/texts/"><span>Texts</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/app/development/ux/texts/translation/"><span>Oversettelse av tekster</span></a></li></ul></li>
+        <a href="/app/development/ux/texts/translation/"><span>Translation of texts</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/app/development/ux/pdf/"><span>PDF</span></a></li>
       <li class="dd-item parent active">
@@ -1096,57 +1096,57 @@ if(host != "localhost")
                 </span>
                 <span class="links"><a href='/app/'>Create apps</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/development/'>Development</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/development/ux/'>User interface</a> <span class='adocs-breadcrumb-divider'> / </span> Widgets</span>
             </div>
-          </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english">translate-to-english</a></div><div id="body-inner"><h1 class="a-fontBold">Widgets</h1>
+          </div><div id="body-inner"><h1 class="a-fontBold">Widgets</h1>
               <p class="a-leadText" id="leadText">How to use compound components (widgets).</p><h2>On this page:</h2><nav id="TableOfContents">
   <ul>
-    <li><a href="#hva-er-en-widget">Hva er en widget?</a></li>
-    <li><a href="#hvordan-bruke-widgets">Hvordan bruke widgets</a></li>
-    <li><a href="#tilgjengelige-widgets">Tilgjengelige widgets</a></li>
+    <li><a href="#what-is-a-widget">What is a widget?</a></li>
+    <li><a href="#how-to-use-widgets">How to use widgets</a></li>
+    <li><a href="#available-widgets">Available widgets</a></li>
   </ul>
 </nav>
 
 
 
 
-<h2 id="hva-er-en-widget">Hva er en widget?</h2>
-<p>En widget er en kompleks komponent, sammensatt av en eller flere enkle skjemakomponenter - de skjemakomponentene som er tilgjengelige
-for bruk i Altinn Studio i dag. En widget er et verktøy i Altinn Studio som gjør det lettere å lage og gjenbruke layouts.</p>
-<h2 id="hvordan-bruke-widgets">Hvordan bruke widgets</h2>
-<p>Widgets er tilgjengelige i venstre-menyen i skjemaeditoren i Altinn Studio. Den kan dras inn i skjemasiden på samme måte som andre skjemakomponenter.
-Når en widget dras inn i skjema i Altinn Studio, legges de skjemakomponentene som er definert som del av widget&rsquo;en til i layouten, sammen med ev. 
-standard oppsett som knytning til datamodell, tekster, osv. Når en widget er dratt inn i skjema, vil man kun se de skjemakomponentene som den er laget av.
-Disse kan redigeres som normalt i skjemaeditoren.
-Dersom det er tekster definert for widget&rsquo;en, disse legges til i ressursfilene for tekster automatisk.</p>
-<h3 id="eksempel-meldings-widget">Eksempel: Meldings-widget</h3>
-<figure><a href="message-widget.gif"><img src="message-widget.gif" alt="Meldings-widget legges til i skjema" title="Meldings-widget legges til i skjema" /></a><figcaption><h4>Meldings-widget legges til i skjema</h4></figcaption></figure>
-<h2 id="tilgjengelige-widgets">Tilgjengelige widgets</h2>
-<h3 id="standard-widgets">Standard widgets</h3>
-<p>Vi vil etter hvert kunne tilby en samling av forskjellige widgets, disse vil dukke opp automatisk i venstre-menyen i skjemaeditoren i Altinn Studio.
-Listen oppdateres etter hvert som nye widgets legges til. Per nå. er følgende widgets tilgjengelig:</p>
+<h2 id="what-is-a-widget">What is a widget?</h2>
+<p>A widget is a complex component, consisting of one or more simple form components - the form components available to use in
+Altinn Studio as of today. A widget is a tool in Altinn Studio that makes it easier to create and reuse layouts.</p>
+<h2 id="how-to-use-widgets">How to use widgets</h2>
+<p>Widgets are available in the menu to the left in the form editor in Altinn Studio. It can be dragged into the form page in the same way as other form components.
+When a widget is dragged into the form in Altinn Studio, the form components that are defined as part of the widget are added to the layout, together with
+default setup such as connection to data model, texts, etc. When a widget is dragged into the form, you will be able to see the form components it consists of.
+These can be edited normally in the form editor.
+If there are texts defined for the widget, these are added to the resource files automatically.</p>
+<h3 id="example-message-widget">Example: Message widget</h3>
+<figure><a href="message-widget.gif"><img src="message-widget.gif" alt="Message widget is added to form" title="Message widget is added to form" /></a><figcaption><h4>Message widget is added to form</h4></figcaption></figure>
+<h2 id="available-widgets">Available widgets</h2>
+<h3 id="default-widgets">Default widgets</h3>
+<p>Eventually we will offer a collection of various widgets, these will appear automatically in the menu to the left in the form editor in Altinn Studio.
+The list is updated as new widgets are added. As of today the following widgets are available:</p>
 <table>
 <thead>
 <tr>
-<th>Navn</th>
-<th>Beskrivelse</th>
-<th>Skjermbilde</th>
+<th>Name</th>
+<th>Description</th>
+<th>Screenshot</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Melding</td>
-<td>Inneholder komponentene som utgjør en standard melding:<br><ul> <li>tittel<br><li>meldingstekst<br><li>vedlegg<br><li>navigasjonsknapp</ul><br> Tekstene er satt opp med referanse til felt i standard melding datamodell. Se <a href="../../message">her</a> for mer info om meldinger.</td>
-<td><img src="message-app.png" alt="Standard melding"></td>
+<td>Message</td>
+<td>Contains the components that make up a standard message:<br><ul> <li>title<br><li>message text<br><li>file attachment<br><li>navigation button</ul><br> The texts are set up with reference to fields in the standard message data model. See <a href="../../message">here</a> for more info on messages.</td>
+<td><img src="message-app.png" alt="Default message"></td>
 </tr>
 </tbody>
 </table>
-<h3 id="egendefinerte-widgets">Egendefinerte widgets</h3>
-<p>I tillegg til standard widgets som kommer opp automatisk i Altinn Studio, er det også mulig å definere sine egne widgets. En widget består av 3 deler:</p>
+<h3 id="custom-widgets">Custom widgets</h3>
+<p>In addition to default widgets that automatically appear in Altinn Studio, it is also possible to define custom widgets. A widget consists of three parts:</p>
 <ul>
-<li>Komponenter: Dette er liste over komponentene som skal inngå, inkl. definisjon av disse komponentene. Dette settes opp på samme måte som i layout-filene, man kan f.eks. kopiere ut komponenter direkte fra en layout-fil.</li>
-<li>Visnings-navn: Dette er teksten som vises i Altinn Studio, i menyen der widget&rsquo;en ligger.</li>
-<li>Tekstressurser: Dette er valgfritt, og er en liste over tekstressurser på de språk som man ønsker å ha med. Nyttig om komponentene f.eks. skal ha noen standard tekster de bruker.</li>
+<li>Components: This is a list of all the components that should be included, including the definition of these components. This is set up in the same way as in the layout files, you can for example copy components directly from a layout file.</li>
+<li>Display name: This is the text that is displayed in Altinn Studio, in the menu where the widget is placed.</li>
+<li>Text resources: This is optional, and is a list of text resources of the languages you want to incorporate. This is useful if the components e.g. should have some default texts to use.</li>
 </ul>
-<p>Se <a href="https://altinncdn.no/altinn-apps/widgets/message.json">oppsett for meldings-widget</a> for et konkret eksempel. Det fins også en <a href="https://altinncdn.no/altinn-apps/widgets/widget-template.json">widget-mal</a> som kan lastes ned for å komme i gang.</p>
+<p>See <a href="https://altinncdn.no/altinn-apps/widgets/message.json">setup for message widget</a> for a concrete example. There is also a <a href="https://altinncdn.no/altinn-apps/widgets/widget-template.json">widget template</a> that can be downloaded to get started.</p>
 
 
 <footer class=" footline" >

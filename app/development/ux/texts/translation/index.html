@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Hvordan oversette tekster i applikasjonen.">
+    <meta name="description" content="How to translate texts in the application.">
 
-<title>Oversettelse av tekster – Altinn</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+<title>Translation of texts – Altinn</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
     <link href="/css/nucleus.css" rel="stylesheet">
     <link href="/css/font-awesome.min.css" rel="stylesheet">
     <link href="/css/hybrid.css" rel="stylesheet">
@@ -269,7 +269,7 @@ if(host != "localhost")
       <li class="dd-item parent">
         <a href="/app/development/ux/texts/"><span>Texts</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item parent active">
-        <a href="/app/development/ux/texts/translation/"><span>Oversettelse av tekster</span></a></li></ul></li>
+        <a href="/app/development/ux/texts/translation/"><span>Translation of texts</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/app/development/ux/pdf/"><span>PDF</span></a></li>
       <li class="dd-item">
@@ -1094,21 +1094,21 @@ if(host != "localhost")
                     <span class="sr-only">Vis/skjul meny</span>
                   </a>
                 </span>
-                <span class="links"><a href='/app/'>Create apps</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/development/'>Development</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/development/ux/'>User interface</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/development/ux/texts/'>Texts</a> <span class='adocs-breadcrumb-divider'> / </span> Oversettelse av tekster</span>
+                <span class="links"><a href='/app/'>Create apps</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/development/'>Development</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/development/ux/'>User interface</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/development/ux/texts/'>Texts</a> <span class='adocs-breadcrumb-divider'> / </span> Translation of texts</span>
             </div>
-          </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english">translate-to-english</a></div><div id="body-inner"><h1 class="a-fontBold">Oversettelse av tekster</h1>
-              <p class="a-leadText" id="leadText">Hvordan oversette tekster i applikasjonen.</p><h2>On this page:</h2><nav id="TableOfContents">
+          </div><div id="body-inner"><h1 class="a-fontBold">Translation of texts</h1>
+              <p class="a-leadText" id="leadText">How to translate texts in the application.</p><h2>On this page:</h2><nav id="TableOfContents">
   <ul>
-    <li><a href="#aktivere-oversettelse">Aktivere oversettelse</a></li>
+    <li><a href="#activate-translation">Activate translation</a></li>
   </ul>
 </nav>
 
 
 
 
-<p>Selve logikken rundt oversettelse av tekster benytter seg av tekst-ressursfiler. Se <a href="../texts">Tekster</a> for mer informasjon om disse filene.
-Det er mulig å oversette tekster i applikasjonen ved å legge til flere tekst-ressursfiler. Altså én fil per språk.
-Under kan man se et eksempel på norsk og engelsk:</p>
+<p>The actual logic of translating texts uses text resource files. See <a href="../texts">Texts</a> for more information on these files.
+It is possible to translate texts in the application by adding more text resource files. I.e. one file per language.
+Below you can see an example of norwegian and english.</p>
 <p><code>resource.nb.json</code></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#ff79c6">&#34;language&#34;</span>: <span style="color:#f1fa8c">&#34;nb&#34;</span>,
@@ -1145,10 +1145,10 @@ Under kan man se et eksempel på norsk og engelsk:</p>
     }
   ]
 }
-</code></pre></div><h2 id="aktivere-oversettelse">Aktivere oversettelse</h2>
-<p>For å kunne utføre oversettelse av tekster i applikasjonen må komponenten aktiveres.
-Ved å legge til feltet <code>showLanguageSelector</code> og sette feletet til <code>true</code> i <code>settings.json</code> vil en nedtreksmeny være tilgjengelig i applikasjonen.
-I tillegg må tekstene fra eksemplet over være definert for at nedtreksmenyen skal vises.</p>
+</code></pre></div><h2 id="activate-translation">Activate translation</h2>
+<p>To be able to perform the translation of texts in the application the component must be activated.
+By adding the field <code>showLanguageSelector</code> and setting it to <code>true</code> in <code>settings.json</code> a dropdown menu will be available in the application.
+In addition, the texts from the example above must be defined for the dropdown menu to be visible.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
     <span style="color:#ff79c6">&#34;$schema&#34;</span>: <span style="color:#f1fa8c">&#34;https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json&#34;</span>,
     <span style="color:#ff79c6">&#34;components&#34;</span>: {
@@ -1159,7 +1159,7 @@ I tillegg må tekstene fra eksemplet over være definert for at nedtreksmenyen s
       <span style="color:#ff79c6">&#34;showLanguageSelector&#34;</span>: <span style="color:#ff79c6">true</span>
     }
 }
-</code></pre></div><p>Om applikasjonen inneholder flere <code>layout-sets</code> og man ønsker muligheten til å oversette alle sider er det viktig at <code>showLanguageSelector</code> legges til i alle <code>Settings.json</code>.</p>
+</code></pre></div><p>If the application contains multiple <code>layout-sets</code> and you want the opportunity to translate all pages, it is important that <code>showLanguageSelector</code> is added in all <code>Settings.json</code>.</p>
 
 
 <footer class=" footline" >
