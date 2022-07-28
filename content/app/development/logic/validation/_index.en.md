@@ -370,8 +370,8 @@ private void ValidateBoAdresse(flyttemelding model, ModelStateDictionary validat
 
 ### Specify that validation errors are fixed
 When validation is triggered by a single field, all former validations on this field will be removed pending a response from the last validation.
-If a field triggers validation that updates/adds an error message to multiple fields at once, these will not be removed even though there is no longer any
-error in these fields. This is because there is no way to know which fields may have been validated through a single field validation.
+If a field triggers validation that updates/adds an error message to multiple fields at once, these will not be removed even when there no longer are any
+errors in these fields. This is because there is no way to know which fields may have been validated through a single field validation.
 
 For example, if you have two fields; first name and last name. Both fields trigger single field validation, and if both fields have a value, you can validate that
 the full name can not be longer than 50 characters. An error message is then set on both fields. If you correct this by changing the first name, the error message from first name will
