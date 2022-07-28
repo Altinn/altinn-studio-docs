@@ -52,7 +52,7 @@ Default error messages has been set up for all validations done on the client-si
 ### More about error messages for required fields
 The error message for required fields is as defined above, _"You have to fill out {0}"_. The `{0}` symbol is replaced with the field that
 the error message is shown for. This is done in the following way:
-- Uses the field's `shortName` text. This is a new component, that can be set up on a component in the same way as a prompt (`title`).  _This is currently used only for an error message for required fields._
+- If `shortName` text is defined for the component, this is used. _This is a new text that is currently used only for this specific error message._
 - If the `shortName` text is not defined, the `title` text for the component is used - this is the components label text.
 - In some special cases (Address component) where there are multiple fields within the component, the default labels for the fields is used.
 
