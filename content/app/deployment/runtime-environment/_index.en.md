@@ -25,10 +25,16 @@ Et AKS Cluster kjører på et antall noder (virtuelle maskiner) av en gitt type.
 
 
 <div style="text-align: center;">
-    <object data="/app/deployment/runtime-environment/kubernetes-scaling-consepts.drawio.svg" type="image/svg+xml" style="width: 100%;" title="Backlogs and teams" alt="Backlogs"></object>
+    <object
+        data="kubernetes-scaling-concepts.drawio.svg"
+        type="image/svg+xml"
+        style="width: 100%;"
+        title="Backlogs and teams"
+        alt="Backlogs"
+    ></object>
 </div>
 
-[Fullscreen](backlogs.drawio.svg)
+[Fullscreen](kubernetes-scaling-concepts.drawio.svg)
 
 ### Applikasjoner / Apps
 Når vi snakker om en Altinn 3 App så snakker vi om den logiske applikasjonen som det bare finnes 1 av. For å sikre at en app hele tiden er oppe så kjører vi som regel med 2 eller flere instanser av applikasjonen. Minne og CPU reservasjoner gjelder per instans.
