@@ -1,0 +1,6 @@
+{{ $r := . }}
+{{ $pairs := (dict "ø" "o" "æ" "a" "å" "a" "Ø" "O" "Æ" "A" "Å" "A") }}
+{{ range $from, $to := $pairs }}
+{{ $r = replace $r $from $to }}
+{{ end }}
+{{ return $r }}
