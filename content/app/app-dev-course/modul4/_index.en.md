@@ -1,7 +1,7 @@
 ---
 title: Module 4
 description: Add code lists manually, progmatic and dynamically
-linktitle: Modul 4
+linktitle: Module 4
 tags: [apps, training, options, code lists, dynamics ]
 weight: 20
 ---
