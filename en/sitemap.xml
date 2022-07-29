@@ -448,6 +448,18 @@
                 href="https://docs.altinn.studio/app/design/guidelines/tone-of-voice/"
                 />
   </url><url>
+    <loc>https://docs.altinn.studio/app/app-dev-course/modul1/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/app-dev-course/modul1/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/app-dev-course/modul1/"
+                />
+  </url><url>
     <loc>https://docs.altinn.studio/app/app-dev-course/modul2/</loc>
     <xhtml:link
                 rel="alternate"
@@ -458,6 +470,18 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://docs.altinn.studio/app/app-dev-course/modul2/"
+                />
+  </url><url>
+    <loc>https://docs.altinn.studio/app/app-dev-course/modul3/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/app-dev-course/modul3/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/app-dev-course/modul3/"
                 />
   </url><url>
     <loc>https://docs.altinn.studio/app/app-dev-course/modul4/</loc>
@@ -482,30 +506,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://docs.altinn.studio/app/app-dev-course/modul5/"
-                />
-  </url><url>
-    <loc>https://docs.altinn.studio/app/app-dev-course/modul1/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="nb"
-                href="https://docs.altinn.studio/nb/app/app-dev-course/modul1/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://docs.altinn.studio/app/app-dev-course/modul1/"
-                />
-  </url><url>
-    <loc>https://docs.altinn.studio/app/app-dev-course/modul3/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="nb"
-                href="https://docs.altinn.studio/nb/app/app-dev-course/modul3/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://docs.altinn.studio/app/app-dev-course/modul3/"
                 />
   </url><url>
     <loc>https://docs.altinn.studio/app/app-dev-course/modul6/</loc>
