@@ -27,7 +27,7 @@ Bilder fra Gitea benyttes som eksempler videre i denne dokumentasjonen.
 
 ## Funksjonalitet i "Repositories"
 
-Repositories inneholder et repository med versjonerte filer for hver [3.0-tjeneste](#3-0-tjeneste).
+Repositories inneholder et repository med versjonerte filer for hver [3.0-tjeneste](#30-tjeneste).
 Eksempel på typer filer som en "3.0-tjeneste" vil kunne bestå av er kode, tester, web-komponenter, layouts og stiler,
 oversettinger, arbeidsflyt og konfigurasjon.
 

@@ -6,7 +6,7 @@ tags: [apps, training, options, code lists, dynamics ]
 weight: 20
 ---
 
-In this module you're expanding the application you made in the previous modules to support even more of the [requirements of the municipality of Sogndal](../case/#krav-fra-kommunen).
+In this module you're expanding the application you made in the previous modules to support even more of the [requirements of the municipality of Sogndal](../case/#demands-from-the-muncipality).
 
 **Topics covered in this module:**
 

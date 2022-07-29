@@ -9,7 +9,7 @@ Reusable resource is typical created by technical developers using code editors.
 
 ### Web component
 
-When [building UI](#building-ui), you will use and configure premade web components.
+When building UI, you will use and configure premade web components.
 The components will be based on [React](https://reactjs.org/), and vil vary in size
 and complexity. Web components are developed in code editors.
 
@@ -25,7 +25,7 @@ Some basic requirements:
 
 ### Overall layout
 
-When [building UI](#bygge-brukergrensesnitt) it will be possible to select a overall layout 
+When building UI it will be possible to select a overall layout 
  (aka "look&feel"). 
 This could bee neded because of the complexity of the service or a wish for branding of the service.
 

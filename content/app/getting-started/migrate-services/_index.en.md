@@ -23,7 +23,7 @@ Gjør deg kjent med [Tjenesteeier-funksjonalitet i Altinn 3](../../../community/
    Lokalt test miljø er en effektiv måte å teste apper uten å måtte kjøre en delploy. 
 6. **Test app i [testmiljø](../../testing/deploy/).**  
    Under fanen Deploy i Altinn Studio kan du bygge og deploye app. Når Appen er klart kan du logge inn i test miljøet med en testbruker for å kjøre tjenesten.
-7. **Sette opp App i  [produksjonsmiljø](../../deployment/) og [bestille om skjema-side](../../deployment#bestille-om-skjema-side).**  
+7. **Sette opp App i  [produksjonsmiljø](../../deployment/) og [bestille om skjema-side](../../deployment#order-about-form-page-on-altinnno).**  
    Før man setter app i produksjon må man ha tilgang til et produksjonsmiljø.
    Nyttig informasjon på om skjema-side gjør bruker av tjenesten selvhjulpen og Altinn brukerservice i stand til å hjelpe brukere.
 8. **Tilrettelegge system for mottak av data.**  

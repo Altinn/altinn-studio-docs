@@ -399,11 +399,11 @@ Issue [#7228](https://github.com/Altinn/altinn-studio/issues/7228).
 Patching of external dependencies for week 44.
 Issue [#7317](https://github.com/Altinn/altinn-studio/issues/7317).
 
-## 3.13.5 (2021-10-28) -  Dependency patching
+## 3.13.5 (2021-10-28) - Dependency patching
 Patching of external dependencies for week 43.
 Issue [#7303](https://github.com/Altinn/altinn-studio/issues/7303).
 
-## 3.13.4 (2021-10-22) -  Dependency patching
+## 3.13.4 (2021-10-22) - Dependency patching
 Patching of external dependencies for week 42.
 Issue [#7303](https://github.com/Altinn/altinn-studio/issues/7303).
 

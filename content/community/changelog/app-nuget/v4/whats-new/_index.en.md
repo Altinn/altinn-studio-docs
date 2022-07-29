@@ -273,7 +273,7 @@ Issue [#6418](https://github.com/Altinn/altinn-studio/issues/6418)
 
 ## 4.9.0 (2021-06-29) - Support for marking a single field validation error as fixed
 It is now possible to mark a previous validation error as fixed by using the prefix `*FIXED*` in front of the original error. 
-[documentation on how to implement the functionality](../../../../../app/development/logic/validation/#spesifisere-at-valideringsfeil-er-fikset) (in Norwegian )
+[Documentation on how to implement the functionality](../../../../../app/development/logic/validation/#specify-that-validation-errors-are-fixed).
 
 
 ## 4.8.0 (2021-06-22) - Application version number available in AppSettings

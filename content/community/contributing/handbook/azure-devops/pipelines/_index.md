@@ -23,8 +23,8 @@ The build pipelines are grouped in folders based on either the part of the solut
 or the purpose of the pipeline. See build pipelines [here](https://dev.azure.com/brreg/altinn-studio/_build?treeState=XGFsdGlubi1hcHBz&view=folders).
 
 - [altinn-apps](#altinn-apps)
-- [altinn-platform](#altinn-platform)
-- [altinn-studio](#altinn-studio)
+- [altinn-platform](#altinn-platform--altinn-studio)
+- [altinn-studio](#altinn-platform--altinn-studio)
 - [code-analysis](#code-analysis)
 - [load-test](#load-test)
 - [test](#test)

@@ -388,7 +388,7 @@ Issue [#7183](https://github.com/Altinn/altinn-studio/issues/7183).
 Oppdaterte ekstern avhenghighet jsonpointer.
 Issue [#7317](https://github.com/Altinn/altinn-studio/issues/7317).
 
-## 3.14.1 (2021-11-11) -  Oppdaterte avhengigheter
+## 3.14.1 (2021-11-11) - Oppdaterte avhengigheter
 Oppdaterte eksterne avhengigheter for uke 45.
 Issue [#7317](https://github.com/Altinn/altinn-studio/issues/7317).
 

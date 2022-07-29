@@ -17,7 +17,7 @@ In this module you are adding a process step in the application.
 
 ## Tasks
 
-{{% expandlarge id="process description" header="Expand process with a confirmation step" %}}
+{{% expandlarge id="process_description" header="Expand process with a confirmation step" %}}
 
 An Altinn App has a process flow that describes the different steps in the flow.
 The standard flow for a newly created application consists of one task; one fill out step.
@@ -80,7 +80,7 @@ Update the policy file so that it's authorization rules cover the new process st
 - It should only be possible for the user who owns the instance to submit the form, even if others may hold the necessary roles.
 
 ### Useful documentation
-- [Custom validation](/app/development/logic/validation/#hvordan-legge-til-egendefinert-validering)
+- [Custom validation](/app/development/logic/validation/#how-to-add-custom-validation)
 
 ### Comprehension check
 - Which change would you suggest for the client to be able to meet this requirement without adding custom validation at this step?

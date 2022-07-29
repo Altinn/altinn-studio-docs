@@ -24,7 +24,7 @@ The Application model is the main model for metadata for the application.
 | autoDeleteOnProcessEnd | A value indicating whether an instance will be automatically deleted once the process ends. This can be used by highly sensitive applications to force an instance delete instead of sending the instance to the archive. |
 | presentationFields     | A collection of presentation fields. See [PresentationField](#presentationfield). Currently not in use.                                                                                                                   |
 | dataFields             | A collection of data fields. See [DataField](#datafield).                                                                                                                                                                 |
-| eFormidling            | The configuration for the eFormidling integration for the application. See [eFormidlingContract](#eFormidlingContract).                                                                                                   |
+| eFormidling            | The configuration for the eFormidling integration for the application. See [eFormidlingContract](#eformidlingcontract).                                                                                                   |
 | messageBoxConfig       | A collection of configurations related to the Altinn Message box                                                                                                                                                          |
 
 ## DataType
@@ -78,7 +78,7 @@ PresentationField represents a form field extraction rule. Every time a form is 
 
 ## DataField
 
-DataField represents a form field extraction rule. Every time a form is being saved the data field rules will be applied and any values from the form will be stored directly on the instance. While [PresentationField](#presentationField) will have logic applied to it with regards to where and how it's used, the use of data fields is entirely up to the application developer and the application owner. One usage scenario is to provide data fields which can be used for routing to the correct backend system.
+DataField represents a form field extraction rule. Every time a form is being saved the data field rules will be applied and any values from the form will be stored directly on the instance. While [PresentationField](#presentationfield) will have logic applied to it with regards to where and how it's used, the use of data fields is entirely up to the application developer and the application owner. One usage scenario is to provide data fields which can be used for routing to the correct backend system.
 
 
 | Name       | Description                                               |

@@ -10,12 +10,12 @@ This is one of the more complex functionalities developed as part of Altinn Stud
 The UI-designer has the following functionality:
 
 - Define a **detailed layout** (responsive design)
-  - Add reusable [form components](#components)
+  - Add reusable [form components](#form-components)
     - Configure form components
       - Connection to **data model**
       - Connection to **texts/translations**
 - Define/configure connections to **external API**
-- Define/configure rules for [validation](#validation), [calculation](#calculation) and [dynamics](#dynamics)
+- Define/configure rules for [validation](/app/development/logic/validation), [calculation](/app/development/logic/calculation) and [dynamics](/app/development/logic/dynamic)
 
 ![Drag'n drop of web components](ux-editor-dnd.gif "Drag'n drop of web components")
 
