@@ -1,7 +1,7 @@
 ---
-title: Modul 5
+title: Module 5
 description: Legge til bekreftelsessteg
-linktitle: Modul 5
+linktitle: Module 5
 tags: [apps, training, process, policy, autorisasjon, confirmation, bekreftelsessteg, validering ]
 weight: 20
 ---

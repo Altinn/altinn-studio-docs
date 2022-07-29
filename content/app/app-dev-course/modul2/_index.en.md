@@ -2,7 +2,7 @@
 title: Module 2
 description: Add more pages, dynamic tracks and prefill
 
-linktitle: Modul 2
+linktitle: Module 2
 tags: [apps, training, prefill, sporvalg]
 weight: 20
 ---
