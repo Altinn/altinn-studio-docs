@@ -1164,7 +1164,7 @@ See all stored procedures <a href="https://github.com/Altinn/altinn-studio/tree/
 <h4 id="event-sequencing">Event sequencing</h4>
 <p>Events will be sequnced by sequence number that is the primary key of the Events table.</p>
 <h3 id="indexing">Indexing</h3>
-<p>We would need to have index on</p>
+<p>The events table has indexes on the columns <em>subject</em>, <em>time</em>, <em>sourcefilter</em>.</p>
 <h2 id="functions">Functions</h2>
 <p>As part of the Event Component there is 3 <a href="https://docs.microsoft.com/en-us/azure/azure-functions/">Azure Functions</a> used for pushing events to the consumers. Click on name for code.</p>
 <ul>
