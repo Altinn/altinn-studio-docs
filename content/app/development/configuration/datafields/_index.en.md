@@ -3,29 +3,28 @@ title: Data fields on instance object
 linktitle: Data fields
 description: Configuration of data fields for app.
 weight: 200
-tags: [translate-to-english]
 ---
 
-I noen tilfeller kan det være nyttig å legge ekstra informasjon på instansobjektet f. eks. for å kunne basere ruting av instans til rett system i bakkant hos tjenesteeier.
+It is useful to add extra information to instance objects in some cases. For example allowing routing the instance to the correct system in a service owners backend.
 
-Dette kan gjøres på to måter, ved konfigurasjon eller manuelt. Ved konfigurasjon vil systemet ekstrahere data fra skjemafeltene og legge disse på instansobjektet. Man er da begrenset til skjemafelter, men slipper å programmere dette selv. Hvis man velger å gjøre det manuelt har man frihet til å legge på de dataene man selv ønsker f. eks. fra eksterne apier, kalkuleringer, faste strenger etc.
+This can be done in two ways, by configuration or manually. Using configuration, the system will extract data from the form fields and add these to the instance object. This method is limited to form fields, but avoids programming it by yourself. If you choose to do it manually you have the freedom to add data you might want from for example external APIs, calculations, string constants, etc.
 
-Det er også mulig å benyttes seg av begge metoder så lenge man benytter seg av forskjellige id'er på datafeltene. De konfigurerte verdiene vil da flettes sammen med de manuelle på instansen.
+It is also possible to make use of both methods as long as you use different ids on the data fields. The configured values will then be collected together with the manual ones in the instance.
 
-Datafelter er på mange måter tilsvarende [presentasjonsfelter](../presentationfields/_index.md). Men der hvor bruken av presentasjonsfelter er forhåndsbestemt (benyttes i meldingsboksen til Altinn), er bruken av datafelter opp til den enkelte applikasjonseier.
+Data fields are in many ways similar to [presentation fields](../presentationfields/_index.md). But where the use of presentation fields is predefined, the use of data fields is completely up to the individual application owner.
 
-## Konfigurasjon 
-Konfigurasjon av datafelter gjøres i `applicationmetadata.json` som ligger i repoet under mappen `App/config`.
+## Configuration
+Configuration of data fields is done in `applicationmetadata.json` which is located in the folder `App/config`.
 
-Legg til en ny seksjon med navn `dataFields` med følgende underfelter
+Add a new object with the key `dataFields`, using the following properties
 
- Navn     | Beskrivelse
+ Name     | Description
 ----------|------------
-id        | Id på datafeltet. Benyttes til å identifisere feltet når den er lagret på instansen.
-path      | Datamodell path til skjemafeltet. Denne verdien er den samme som bindes til en komponent i layoutfilen til appen.
-dataTypeId| Id på datamodellen som verdien skal hentes fra. 
+id        | The ID of the datafield. Used to identify the field when saved in the instance. 
+path      | Datamodel path to the form field. This value is the same value that is bound to a component in the app's layout file. 
+dataTypeId| Id of the datamodel where the value is collected from.
 
-Konfigurasjonen til en app med to definerte datafelter vil se slik ut:
+The configuration for an app with two defined data fields will look like this:
 
   ```json
 "dataFields": [
@@ -41,26 +40,26 @@ Konfigurasjonen til en app med to definerte datafelter vil se slik ut:
     }]
   ```
 
-Resultatet vil være en liste på instansobjektet med verdier fra de konfigurerte feltete:
+The result will be a list in the instance object with values from the configured fields:
 ```json
 "dataValues": {
     "AnsettelseAntAar": 10,
     "Navn": "Ola Nordmann"
 }
 ```
-Legg merke til at det på instansobjektet heter `dataValues` mens når det konfigureres heter `dataFields`, det er fordi 
-`dataValues`er resultatet av konfigureringen som gjøres på `dataFields`.
+Notice that the instance object is named `dataValues` even when the configured is named `dataFields`, this is because `dataValues` is the 
+result of the configuration which is done in `dataFields`.
 
-## Manuelt
-For å legge til dataverdier manuelt benyttes metoden `UpdateDataValues` fra IInstance interfacet. Det er den samme metoden som kalles når dataverdier populeres fra konfigurasjon og den sørger for å flette sammen verdiene til en liste. 
+## Manually
+To manually add data values the method `UpdateDataValues`from the IInstance interface is used. It is the same method which is called when the fields in `dataValues` are populated from configuration and it will merge all values into a list. 
 
 {{%notice warning%}}
-Merk at det er applikasjonsutvikler sitt ansvar å sørge for unike id'er hvis man kombinerer dataverdier fra konfgiurasjon og manuelt.
-Har man ikke unike id'er vil verdier overskrives, og man har ingen garanti for hvilken som blir lagret på instansen.
+Be aware that it is the application developer's responsibility to ensure unique IDs if you combine data values between configuration and a manual implementation.
+Values that share IDs will override each other and there is no way to guarantee which will be saved in the instance. 
 {{% /notice%}}
 
-Eksemplet under viser hvordan man kan sette datavedier manuelt. I dette tilfellet gjøres det ved å gjøre legge inn kode 
-i `RunProcessTaskEnd` i `App.cs` som kjører når en task avsluttes. 
+The example below displays how to set data values manually. In this case it is done by adding code
+within `RunProcessTaskEnd` in `App.cs`, which is run when a task is completed.
 
 ```cs
 public override async Task RunProcessTaskEnd(string taskId, Instance instance)
@@ -75,5 +74,5 @@ public override async Task RunProcessTaskEnd(string taskId, Instance instance)
 ```
 
 {{%notice warning%}}
-Man bør også tenke gjennom når man trenger disse verdiene på instansobjektet slik at man ikke gjør unødvendige api kall og dermed får en dårligere ytelse på applikasjonen.
+It is recommended to think through the necessity of these values for the instance object so that it avoids unnecessary API calls which impact the performance of the application.
 {{% /notice%}}
