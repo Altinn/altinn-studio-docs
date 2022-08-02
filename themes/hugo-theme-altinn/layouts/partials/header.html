@@ -48,7 +48,11 @@
       <div class="adocs-scrollcontainer">
         <div class="row">
             <div class="col-sm-12">
-    {{- partial "menu.html" . -}}
+              {{- partialCached "menu.html" . -}}
+
+        <script>
+          {{ template "activeMenus" dict "page" . "value" (printf "$(\"li.dd-item a[href='%s']\").parent().addClass(\"active\");" .RelPermalink) }}
+        </script>
         <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
@@ -94,7 +98,7 @@
             {{- end -}}
           {{- end -}}
 
-          {{- if and (gt .WordCount 100 ) (.Params.toc) -}}
+          {{- if .Params.toc -}}
             <h2>{{T "on-this-page"}}</h2>
             {{- .TableOfContents -}}
           {{- end -}}
@@ -105,5 +109,14 @@
     {{- template "breadcrumb" dict "page" .page.Parent "value" $value -}}
   {{- else -}}
   {{- .value|safeHTML -}}
+  {{- end -}}
+{{- end -}}
+
+{{- define "activeMenus" -}}
+  {{- if and (.page.Parent) (not .page.Parent.IsHome) -}}
+    {{- $value := (printf "$(\"li.dd-item a[href='%s']\").parent().addClass(\"parent\");\n %s" .page.Parent.RelPermalink .value) -}}
+    {{ template "activeMenus" dict "page" .page.Parent "value" $value }}
+  {{- else -}}
+    {{.value|safeJS}}
   {{- end -}}
 {{- end -}}
