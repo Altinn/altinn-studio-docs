@@ -86,8 +86,8 @@
   translation: Application APIs
 - id: storage
   translation: Altinn Storage APIs
-- id: models
-  translation: Models
+- id: events
+  translation: Altinn Events APIs
 - id: scenarios
   translation: Scenarios
 
