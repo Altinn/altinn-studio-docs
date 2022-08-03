@@ -7,7 +7,7 @@ weight: 20
 ---
 
 {{% notice warning %}}
-NOTE! This module is still under development. Come back later and it will probably be even better!
+NOTE: This module is still under development. Come back later and it will probably be even better!
 {{% /notice %}}
 
 In this module there are a collection of standalone extensions of the application. They do not require being solved in order.
@@ -21,9 +21,9 @@ In this module there are a collection of standalone extensions of the applicatio
 - Configuration of message box
 - Presentation texts
 
-### Tasks
+## Tasks
 
-{{% expandlarge id="Summary page" header="Summary page" %}}
+{{% expandlarge id="Summary-page" header="Summary page" %}}
 ### Requirements from the muncipality
 The municipality of Sogndal are experiencing an issue where some submissions contain incorrect information and typos that create unnecessary work for the caseworkers.
 To avoid people submitting incorrect information, the municipality wishes that the user is presented with a summary page displaying the filled out information.
@@ -111,35 +111,35 @@ https://fraktguide.bring.no/fraktguide/api/postalCode.json?country=no&pnr={postn
 - The number of calls to Bring's API should be limited to maximum of once a day per postal code
 
 ### Useful documentation
-[Consumpion of external API](/app/development/api/consume/)
+[Consumption of external API](/app/development/api/consume/)
 
 ### Comprehension check
 - How many times maximum will you make an API call in 24 hours with a _memorycache_ if the application is running with three replicas?
 {{% /expandlarge %}}
 
 {{% expandlarge id="messagebox" header="Show and hide elements in message box" %}}
-### Requirements from the muncipality
+### Requirements from the municipality
 
 
 ### Useful documentation
 
-### Comprhension check
+### Comprehension check
 {{% /expandlarge %}}
 
 {{% expandlarge id="presentation-texts" header="Presentation Texts" %}}
-### Requirements from the muncipality
+### Requirements from the municipality
 
 
 ### Useful documentation
 
-### Comprhension check
+### Comprehension check
 {{% /expandlarge %}}
 
 {{% expandlarge id="Events" header="Events" %}}
-### Requirements from the muncipality
+### Requirements from the municipality
 
 
 ### Useful documentation
 
-### Comprhension check
+### Comprehension check
 {{% /expandlarge %}}

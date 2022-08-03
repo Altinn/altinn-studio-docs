@@ -114,7 +114,7 @@ else
 }
 ```
 
-This prequires that the service IAppResources is made available in the class.
+This prequires that the service `IAppResources` is made available in the class.
 When the service is already available through dependency injected into the class, only two steps are required:
 
 1. Create a private variable in the state of the class

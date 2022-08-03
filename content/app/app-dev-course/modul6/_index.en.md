@@ -33,12 +33,12 @@ It should be possible to enter up to 10 former residences.
 
 ### Comprehension check
 - What field in the data model decides if an element is repeating?
-- How many repetitions are allowed for the field `TidligereBosteder`? 
+- How many repetitions are allowed for the field `TidligereBosteder`?
 
 {{% /expandlarge %}}
 
 
-{{% expandlarge id="validation" header="Valdiation" %}}
+{{% expandlarge id="validation" header="Validation" %}}
 ### Requirements from the muncipality
 
 Due to a personal vendetta among one of the employees in the municipality of Sogndal, a user who enters the postal code `4619` as a previous residence
@@ -81,7 +81,7 @@ In all other cases, the field should remain the same.
 {{% /expandlarge %}}
 
 
-### Summary
+## Summary
 In this module you have had a look at **repeating groups** and how this is configured as a part of the user interface.
 We have also had a look at how to set up custom **validations** in the backend for cases that will not be defined as a part of restrictions in the data model.
 Lastly, we have looked at how to set up **data processing** that enables manipulation of data runtime.

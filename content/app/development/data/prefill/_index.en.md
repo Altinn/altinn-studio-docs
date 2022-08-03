@@ -82,7 +82,7 @@ The example below will populate the field _Datamodell.Bruker.Epost_ with the ema
 
 ### Available prefill values
 
-The JSON-schema definition of the prefill file is also available [here]https://altinncdn.no/schemas/json/prefill/prefill.schema.v1.json).
+The JSON-schema definition of the prefill file is also available [here](https://altinncdn.no/schemas/json/prefill/prefill.schema.v1.json).
 The use of a schema enables editors, [e.g. Visual Studio Code](https://code.visualstudio.com/docs/languages/json#_mapping-in-the-json),
 to validate and offer intellisense for faster editing.
 

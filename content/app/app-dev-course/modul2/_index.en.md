@@ -93,7 +93,7 @@ On the information page, the user should be able to state whether the form appli
 
 How this is done is optional, and the field `Innflytter.KanBrukeSkjema` in the datamodel is possible to use for this purpose.
 
-Based on the answer, the user will be sent to either _Track 1_ or _Track_ 2_.
+Based on the answer, the user will be sent to either _Track 1_ or _Track 2_.
 
 ### Track 1
 

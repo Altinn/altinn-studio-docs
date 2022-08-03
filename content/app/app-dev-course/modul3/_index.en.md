@@ -70,7 +70,7 @@ By deploying an application to a test environment you will be able to test all i
 In addition to this, TT02 is often used to verify an application is behaving as expected
 before deploying to production.
 
-{{% notice infor %}}
+{{% notice info %}}
 To be able to deploy an application to TT02,
 the organization that owns the application has to have an app cluster in the test environment.
 In addition to this, the developer deploying the application needs the [role Deploy-TT02](/app/getting-started/access-management/studio/#deploy-tt02)

@@ -1,6 +1,6 @@
 ---
 title: Module 5
-description: Legge til bekreftelsessteg
+description: Add confirmation step
 linktitle: Module 5
 tags: [apps, training, process, policy, autorisasjon, confirmation, bekreftelsessteg, validering ]
 weight: 20
@@ -17,7 +17,7 @@ In this module you are adding a process step in the application.
 
 ## Tasks
 
-{{% expandlarge id="process description" header="Expand process with a confirmation step" %}}
+{{% expandlarge id="process-description" header="Expand process with a confirmation step" %}}
 
 An Altinn App has a process flow that describes the different steps in the flow.
 The standard flow for a newly created application consists of one task; one fill out step.
@@ -26,7 +26,7 @@ The standard flow for a newly created application consists of one task; one fill
 
 Your task is to expand the standard process flow with a confirmation step as illustrated below.
 
-[!Updated process flow illsutrated](/app/app-dev-course/modul5/updated-process.png)
+![Updated process flow illsutrated](/app/app-dev-course/modul5/updated-process.png)
 
 {{% notice info %}}
 [Standard process flow is available on GitHub](https://github.com/Altinn/altinn-studio/tree/master/src/Altinn.Apps/AppTemplates/ProcessTemplates).
@@ -107,7 +107,7 @@ Before you submit we recommend looking over your answers. You cannot change the 
 {{% /expandlarge %}}
 
 
-### Summary
+## Summary
 
 In this module you have expanded the application with a confirmation step, customized the view and implemented validation and authorization rules attached to the process step.
 

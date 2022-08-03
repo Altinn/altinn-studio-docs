@@ -24,9 +24,9 @@ In Altinn Studio this is supported in the form of radio buttons, checkboxes and 
 
 {{% notice info %}}
 There are three ways to set up code lists in Altinn today
-1. Directly on the component through Altinn Studio or manually in _FormLayout.json_\*
-2. In a static json-file referred to in the component
-3. Progmatic in the application logic
+ 1. Directly on the component through Altinn Studio or manually in _FormLayout.json_\*
+ 2. In a static json-file referred to in the component
+ 3. Progmatic in the application logic
 
    \* only available on radio buttons and check boxes
 {{% /notice %}}
@@ -39,22 +39,18 @@ The municipality of Sogndal wishes to collect information on the newcomers worki
 
 ### In Altinn Studio
 
-1. Create a new form page to collect data about working conditions
+  1. Create a new form page to collect data about working conditions
+  2. Set up a **radio button** component for _Sector_. Create the answer options `Offentlig` and `private` manually.
+  3. Set up a **check box** component for _Industry_.
+     Choose _Kodeliste_ as method for adding checkboxes and add _Kodeliste ID_ `industry`
 
-2. Set up a **radio button** component for _Sector_. Create the answer options `Offentlig` and `private` manually.
+     The rest of the setup for this component is done locally
+  4. Set up a **dropdown list** for _Years in work force_
+     Add _Kodeliste ID_ `years-in-work-force`
 
-3. Set up a **check box** component for _Industry_.
-   Choose _Kodeliste_ as method for adding checkboxes and add _Kodeliste ID_ `industry`
-
-   The rest of the setup for this component is done locally
-
-4. Set up a **dropdown list** for _Years in work force_
-   Add _Kodeliste ID_ `years-in-work-force`
-
-   The rest of the setup for this component is done locally
-
-5. _Commit_ and _Push_ your changes to master, 
-   and _Pull_ the changes to your local development environment.
+     The rest of the setup for this component is done locally
+  5. _Commit_ and _Push_ your changes to master, 
+     and _Pull_ the changes to your local development environment.
 
 ### In Local Development environment
 
@@ -111,7 +107,7 @@ based on which sector they are in.
 
 {{% /expandlarge %}}
 
-{{% expandlarge id="dynamic-formview" header="tailored offer for IT-competence" %}}
+{{% expandlarge id="dynamic-formview" header="Tailored offer for IT-competence" %}}
 
 ### Requirements from the municipality
 
@@ -131,7 +127,7 @@ The text and link should **only** be visible if the user has chosen `IKT (data/i
 
 ### Useful documentation
 - [Add functions for dynamics](/app/development/logic/dynamic/#add-or-edit-functions-for-dynamics)
-- [Exanples of use of dynamic in form](/app/development/logic/dynamic/#example-usage-of-dynamics-on-an-appe)
+- [Examples of use of dynamic in form](/app/development/logic/dynamic/#example-usage-of-dynamics-on-an-appe)
 
 ### Comprehension check
 - If you add a new function to `RuleHandlerHelper` - where will these functions run?

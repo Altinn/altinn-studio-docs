@@ -1,6 +1,6 @@
 ---
 title: Intro course
-description: An introductory course to app development with Altinn Studio and local dev tools. (Only available in Norwegian)
+description: An introductory course to app development with Altinn Studio and local dev tools.
 linktitle: Intro course
 tags: [apps, build, deploy, training]
 weight: 15

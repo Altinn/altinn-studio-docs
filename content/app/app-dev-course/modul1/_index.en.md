@@ -54,7 +54,7 @@ edit it in for example Visual Studio or a text editing program of your own choos
 
 1. [Download the xsd-file](/app/app-dev-course/modul1/datamodel.xsd), open it in a text editing program
    and take a closer look at the contents.
-2. [Upload the data model in Altinn Studio](/nb/app/development/data/data-model/#laste-opp--vise-datamodell)
+2. [Upload the data model in Altinn Studio](/app/development/data/data-model/)
 3. Push the changes to master and take a closer look at the files in the folder `App/models`
 
 
@@ -188,7 +188,7 @@ Moving on you will want to test your changes continuously in LocalTest.
 {{% /expandlarge %}}
 
 
-### Summary
+## Summary
 
 In this module you have created an application in Altinn Studio, uploaded a data model
 and set up a form page that connects components to some of the fields in the data model.
@@ -201,4 +201,4 @@ The service should be able to run on your local computer with LocalTest and you 
 ### Solution
 If you have not completed all the steps, we have an [example of a solution](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/1) that you can use as inspiration.
 
-![Screenshot of data collecting page](/app/app-dev-course/modul1/data-screenshot.png "Screen shot of data collecting page")
+![Screenshot of data collecting page](/app/app-dev-course/modul1/data-screenshot.png "Screenshot of data collecting page")

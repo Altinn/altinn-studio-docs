@@ -1,6 +1,6 @@
 ---
 title: Solution
-description: Solution and explanation on comprenhension checks
+description: Solution and explanation on comprehension checks
 linktitle: Solution
 tags: [apps, training, solution, losningsforslag]
 weight: 30
@@ -16,7 +16,7 @@ toc: true
 - [Module 5](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/5)
 - [Module 6](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/6)
 
-## Module 1 - Comprhension check: Upload data model
+## Module 1 - Comprehension check: Upload data model
 
 ### Which data is it the service owner wishes to collect here?
 
@@ -92,8 +92,8 @@ Note that the language property at the top of the file must be set to **en**.
 
 ```json
 {
-"language": "en"
-"reources": []
+"language": "en",
+"resources": []
 }
 ```
 
@@ -120,7 +120,7 @@ To adjust the page order, the list under _pages.order_ must be changed to repres
 
 ### How can you get a text to break if the text string is not long enough to break naturally?
 
-All text resources support markdown and thus html-notation, so by using `<br>` you will be able to force text breaks.
+All text resources support markdown and thus html-notation, so by using `<br/>` you will be able to force text breaks.
 
 ## Module 2 - Comprehension check: Alternative workflow
 
@@ -177,7 +177,7 @@ public static string GetDOB(string fOrDNumber){
 }
 ```
 
-## Modue 3 - Comprehension check: Deploy application
+## Module 3 - Comprehension check: Deploy application
 
 ### Is it possible to have two versions of one application in TT02 at the same time?
 
@@ -204,7 +204,7 @@ As of March 2022 it is not possible for a service owner to remove an application
 The service owner would have to contact support.
 By the end of the year a function where the service owner themselves can do this will be made available.
 
-## Module 4 - Comprhension check: Collection of work information
+## Module 4 - Comprehension check: Collection of work information
 
 ### What is the difference between static and dynamic options?
 
@@ -244,7 +244,7 @@ Dynmaics will **not** work without this defined.
 `RuleConfiguration.json` is a configuration that says something about which fields the actual rule in `RuleHandlerObject` should be used on and possibly which effect it should have.
 A function defined in `RuleHandlerObject` can be set up multiple times in `RuleConfiguration.json`. You can almost think of it as "instances" of the function.
 
-## Module 5 - Comprhension check: Expand process with confirmation step
+## Module 5 - Comprehension check: Expand process with confirmation step
 
 ### Which Altinn-specific traits are on every process task?
 
@@ -268,7 +268,7 @@ The application will display "Unknown error" when the usr presses the Submit but
 
 Then all users, with or without roles, will be allowed to perform the _confirm_ operation for the application.
 
-## Module 5 - Comprhension check: Validation of submitter
+## Module 5 - Comprehension check: Validation of submitter
 
 ### Which change would you suggest for the client to be able to meet this requirement without adding custom validation at this step?
 
