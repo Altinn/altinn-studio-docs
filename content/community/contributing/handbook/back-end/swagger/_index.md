@@ -159,7 +159,7 @@ Finally the class must be registered as a schema filter in _Program.cs_.
 
 ## Set up request body filter
 
-When using schema filters, it is only possible to provide a single exaple per schema. 
+When using schema filters, it is only possible to provide a single example per schema. 
 In the case where the schema in the request body can have many variants where all could have the benefit of being exemplified in Swagger, 
 request body filters should be used.
 
