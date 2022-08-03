@@ -84,9 +84,9 @@
 - id: application
   translation: Applikasjon API
 - id: storage
-  translation: Altinn Storage API
+  translation: Storage API
 - id: events
-  translation: Altinn Events API
+  translation: Events API
 - id: scenarios
   translation: Scenarier
 
