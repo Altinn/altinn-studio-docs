@@ -6,7 +6,7 @@ weight: 1
 ---
 
 Fields in a form can be set up to be part of a _group_. This can be used to e.g. set up dynamic on a single group of fields,
-instead of on each single field. In addition, fields must be able to be grouped to support [repeating groups](#repeating-groups) in a form.
+instead of on each single field. In addition, fields must be able to be grouped to support [repeating groups](../repeating) in a form.
 
 A group is set up in `FormLayout.json`, together with the other components in the form. This can be done manually directly in the file, 
 or through form editor in Altinn Studio by using the group component.
@@ -41,15 +41,15 @@ A group is defined as follows in FormLayout.json:
 }
 ```
 
-| Parameter             | Required | Description                                                                                                                               |
-| --------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| id                    | Yes      | Unique ID, same as ID on other components. Must be unique in the FormLayout.json file.                                                    |
-| type                  | Yes      | MUST be 'group'. Says that this is a group.                                                                                               |
-| dataModelBindings     | No       | MUST be set for repeating groups, with the `group`-parameter like in the example above. Should point to the repeating group in the data model.|
-| textResourceBindings  | No       | Can be set for repeating groups, see [description](#textResourceBindings).                                                                |
-| maxCount              | Yes      | The number of times a group can repeat. Set to `1` if the group is not repeating.                                                         |
-| children              | Yes      | List of the fields that are to be included in the group. Field-id from FormLayout.json is used here.                                      |
-| tableHeaders          | No       | List of components that are to be included as part of the table header fields. If not specified, all components are displayed.            |                                                           |
+| Parameter             | Required | Description                                                                                                                                    |
+| --------------------- | -------- |------------------------------------------------------------------------------------------------------------------------------------------------|
+| id                    | Yes      | Unique ID, same as ID on other components. Must be unique in the FormLayout.json file.                                                         |
+| type                  | Yes      | MUST be 'group'. Says that this is a group.                                                                                                    |
+| dataModelBindings     | No       | MUST be set for repeating groups, with the `group`-parameter like in the example above. Should point to the repeating group in the data model. |
+| textResourceBindings  | No       | Can be set for repeating groups, see [description](#textresourcebindings).                                                                     |
+| maxCount              | Yes      | The number of times a group can repeat. Set to `1` if the group is not repeating.                                                              |
+| children              | Yes      | List of the fields that are to be included in the group. Field-id from FormLayout.json is used here.                                           |
+| tableHeaders          | No       | List of components that are to be included as part of the table header fields. If not specified, all components are displayed.                 |                                                           |
 
 ## textResourceBindings
 It is possible to add different keys in textResourceBindings to overrule default texts.

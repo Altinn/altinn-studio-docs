@@ -11,7 +11,7 @@ Dette kan gjøres på to måter, ved konfigurasjon eller manuelt. Ved konfiguras
 
 Det er også mulig å benyttes seg av begge metoder så lenge man benytter seg av forskjellige id'er på datafeltene. De konfigurerte verdiene vil da flettes sammen med de manuelle på instansen.
 
-Datafelter er på mange måter tilsvarende [presentasjonsfelter](../presentationfields/_index.md). Men der hvor bruken av presentasjonsfelter er forhåndsbestemt (benyttes i meldingsboksen til Altinn), er bruken av datafelter opp til den enkelte applikasjonseier.
+Datafelter er på mange måter tilsvarende [presentasjonsfelter](../messagebox/presentationfields/). Men der hvor bruken av presentasjonsfelter er forhåndsbestemt (benyttes i meldingsboksen til Altinn), er bruken av datafelter opp til den enkelte applikasjonseier.
 
 ## Konfigurasjon 
 Konfigurasjon av datafelter gjøres i `applicationmetadata.json` som ligger i repoet under mappen `App/config`.

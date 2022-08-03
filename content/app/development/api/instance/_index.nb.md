@@ -52,7 +52,7 @@ For å oppnå dette er det tre steg som må tas.
 
 Standarden for en applikasjon er at tjenesteeier ikke har lov til å slette instanser.
 For å få lov til dette må det legges til en ny regel i `policy.xml` den finnes i `App/config/authorization`.
-Regelen kan kopieres fra [regelbiblioteket](../autorisasjon/regelbibliotek/#org-can-delete-an-instance-of-orgapp-in-any-task-or-event).
+Regelen kan kopieres fra [regelbiblioteket](../../configuration/authorization/rules/#org-kan-slette-en-instans-av-orgapp-uavhengig-av-hvor-den-er-i-prosessen).
 
 ### Steg 2: Identifiser hvilke instanser som ikke er fullført v.h.a. spørring mot storage
 

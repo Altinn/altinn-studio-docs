@@ -216,7 +216,7 @@ Below is an example of a _FormLayout.json_ without help texts.
 
 If you want to add help texts to any of these components you have to
 
-1. Add the help text in the resource file [as described here](#legge-til-og-endre-tekster-i-en-app).
+1. Add the help text in the resource file [as described here](#add-and-change-texts-in-an-application).
 2. Open the `FormLayout.json`-file.
 3. Add the binding to the new help text with the key `"help"` and value equal the newly added text resource.
 

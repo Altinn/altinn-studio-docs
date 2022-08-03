@@ -23,12 +23,12 @@ Releases are managed on Github.
 - Automated browser testing and WCAG testing using [Cypress](https://www.cypress.io/).
 
 #### Unit Test
-- [Jest](https://jestjs.io/) framework used for unit testing front-end. More details [here](../../../../development/handbook/test/unit-testing/).
+- [Jest](https://jestjs.io/) framework used for unit testing front-end. More details [here](../../../../../../community/contributing/handbook/test/unit-testing/).
 - [xunit](https://xunit.net/) used for unit testing back-end.
 
 #### Service & API Test
 
-- API testing is done using Postman. More details [here](../../../../development/handbook/test/postman/).
+- API testing is done using Postman. More details [here](../../../../../../community/contributing/handbook/test/postman/).
 - Integration testing of services done using [standard Microsoft frameworks](https://docs.microsoft.com/en-us/aspnet/core/test/integration-tests?view=aspnetcore-3.1).
 
 #### Performance Testing & Profiling
@@ -44,7 +44,7 @@ We will use [K6](https://k6.io/) for performance testing.
 ### UX Design
 We use Figma for prototypes. 
 
-[See our Figma Guidlines](https://docs.altinn.studio/design/figma/).
+[See our Figma Guidlines](/app/design/prototype).
 
 
 ### Artefact & Code Repository

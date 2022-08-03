@@ -54,7 +54,7 @@ To achieve this three steps are required:
 
 Service owners are not allowed to delete instances by default. 
 To get the required permissions a rule must be added into `policy.xml`, placed in `App/config/authorization`.
-The rule can be copied from our [rule library](../autorisasjon/regelbibliotek/#org-can-delete-an-instance-of-orgapp-in-any-task-or-event).
+The rule can be copied from our [rule library](../../configuration/authorization/rules/#org-can-delete-an-instance-of-orgapp-in-any-task-or-event).
 
 ### Step 2: Identify which instances are incomplete by sending a request to storage
 

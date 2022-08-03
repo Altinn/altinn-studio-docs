@@ -64,7 +64,7 @@ Configuration of this is done in `applicationmetadata.json`. Example:
 }
 
 ```
-In the field `onEntry.show` there is the opportunity to reference a layout set which you want to display during startup of the application. Read more about layout-sets [here.](../../ux/ui-editor/multiple-layoutsets/#setup)
+In the field `onEntry.show` there is the opportunity to reference a layout set which you want to display during startup of the application. Read more about layout-sets [here.](../../ux/pages/layout-sets/#setup)
 
 The layout sets you refer to here will be used as the display the user is presented before navigating to the application.
 
@@ -190,7 +190,7 @@ public async Task<bool> ProcessDataRead(Instance instance, Guid? dataId, object 
 
 ## Authorization with third party solutions
 
-Controlling access for stateless applications can be done with [standard app-authorization](../authorisation) 
+Controlling access for stateless applications can be done with [standard app-authorization](../authorization) 
 Where by using Altinn roles you define who has access to the service.
 If you require further securing of your service you can implement logic for authorization of users with third party solutions.
 This can be an API which is exposed in your organization or an open API from a different provider.
@@ -276,7 +276,7 @@ Further down this page we will use the designation *user* synonymously with an o
     We use dynamic rules to show/hide fields depending on the users level of authorization 
     
     There has been added a dynamic rule in `RuleHandler.js` which checks if a field in the datamodel has the value `false`.
-    Configuration of rules is described more closely [here](../../logic/dynamic/#legg-tilrediger-funksjoner-for-beregninger-eller-visskjul).
+    Configuration of rules is described more closely [here](../../logic/dynamic/#add-or-edit-functions-for-dynamics).
 
     In `RuleConfiguration.json` you can see how the rule is utilized.
     If the input value from the data model `userAuthorized` is false, the errorBox-component will be made visible,

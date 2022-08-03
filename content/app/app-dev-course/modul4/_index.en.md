@@ -6,7 +6,7 @@ tags: [apps, training, options, code lists, dynamics ]
 weight: 20
 ---
 
-In this module you're expanding the application you made in the previous modules to support even more of the [requirements of the municipality of Sogndal](../case/#krav-fra-kommunen).
+In this module you're expanding the application you made in the previous modules to support even more of the [requirements of the municipality of Sogndal](../case/#demands-from-the-muncipality).
 
 **Topics covered in this module:**
 
@@ -26,7 +26,7 @@ In Altinn Studio this is supported in the form of radio buttons, checkboxes and 
 There are three ways to set up code lists in Altinn today
 1. Directly on the component through Altinn Studio or manually in _FormLayout.json_\*
 2. In a static json-file referred to in the component
-3. Progmatic in the application logic
+3. Programmatic in the application logic
 
    \* only available on radio buttons and check boxes
 {{% /notice %}}

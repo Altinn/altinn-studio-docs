@@ -11,13 +11,13 @@ Denne siden vil forklare hvordan visningen til de forskjellige stegene kan tilpa
 
 ## Data (tilsvarer utfyllingssteg i Altinn II)
 I denne prosess-task-typen vises skjema som kan fylles ut.  
-Skjema kan redigeres ved bruk av [UI editoren](../../ui-editor) eller ved å endre `FormLayout.json` direkte.
+Skjema kan redigeres ved bruk av [UI editoren](../../../../getting-started/navigation/designer/ui-editor) eller ved å endre `FormLayout.json` direkte.
 
 ## Bekreftelse (Confirmation)
 I denne prosess-task-typen vises noen standard-tekster, og bruker kan velge å *bekrefte* for å gå videre.
 
 Tekstene kan overstyres, ved at man legger inn tekstnøkkel som hører til hver tekst i språkfilene for appen. Info
-om hvordan dette gjøres finner du [her](../../tekster). Se under for oversikt over de forskjellige tekstnøklene som kan
+om hvordan dette gjøres finner du [her](../../../ux/texts). Se under for oversikt over de forskjellige tekstnøklene som kan
 overstyres.
 
 ![Bekreftelses-visningen](confirm-step.png "Tekster som kan endres/overstyres i bekreftelses-visningen")
@@ -56,7 +56,7 @@ Eksempel på overstyrte tekster i filen `resources.nb.json`:
 ```
 
 Merk at i eksempelet over har vi brukt html-taggen `<br/>` for å lage linjeskift.
-For lenke og utheving, [benytt markdown](../../tekster#formatering-av-tekster).
+For lenke og utheving, [benytt markdown](../../../ux/texts#formatering-av-tekster).
 
 Dette resulterer i følgende visning:
 
@@ -65,7 +65,7 @@ Dette resulterer i følgende visning:
 ## Tilbakemelding (Feedback)
 Dette er et prosesssteg hvor applikasjonseier vil sjekke utfylte data for å generere en tilbakemelding før alle data kan arkiveres.
 
-Tekstene på siden kan overstyres ved at man legger inn tekstnøkler som hører til hver tekst i språkfilene for appen. Info om hvordan dette gjøres finner du [her](../../tekster). Se under for oversikt over de forskjellige tekstnøklene som kan overstyres.
+Tekstene på siden kan overstyres ved at man legger inn tekstnøkler som hører til hver tekst i språkfilene for appen. Info om hvordan dette gjøres finner du [her](../../../ux/texts). Se under for oversikt over de forskjellige tekstnøklene som kan overstyres.
 
 ![Tilbakemelding-visningen](feedback-default.png "Tekster som kan endres/overstyres i tilbakemelding-visningen")
 

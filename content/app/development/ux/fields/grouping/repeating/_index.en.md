@@ -15,7 +15,6 @@ Form with some single-fields and a repeating group that:
 
 - contains three fields
 - can be repeated up to three times
-- has added a custom string to the "legg til"-button
 
 ![Form with repeating group](repeating-groups-demo.gif "Form with repeating group")
 
