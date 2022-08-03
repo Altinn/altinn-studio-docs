@@ -109,7 +109,7 @@ In many cases, parties use professionals to handle their data in Altinn. These p
 
 Currently we only support persons and consumers. They need to be authenticated through ID-porten to set up a subscription for themself.
 
-Before any event is pushed 
+Before any event is pushed, the consumers access to the source of the event is authorized.
 
 ## Requirments
 

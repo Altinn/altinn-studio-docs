@@ -109,8 +109,7 @@ Events will be sequnced by sequence number that is the primary key of the Events
 
 ### Indexing
 
-We would need to have index on 
-
+The events table has indexes on the columns _subject_, _time_, _sourcefilter_.
 
 ## Functions
 

@@ -211,7 +211,6 @@ We have this example
 }]
 ```
 
-
 ### Adding Subscription
 
 ##### Endpoint
