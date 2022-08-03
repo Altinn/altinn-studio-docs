@@ -33,9 +33,7 @@ if(host != "localhost")
   </head>
   <body class="a-page" data-url="/nb/community/changelog/app-nuget/v4/whats-new/"><nav class="a-jumpnav">
   <ul class="no-decoration d-flex">
-    <li><a class="sr-only sr-only-focusable" href="#content">Hopp til hovedinnholdet</a></li>
-    <li><a class="sr-only sr-only-focusable" href="#docsmenu">Hopp til hovedmeny</a></li>
-  </ul>
+    <li><a class="sr-only sr-only-focusable" href="#content">Hopp til hovedinnholdet</a></li><li><a class="sr-only sr-only-focusable" href="#docsmenu">Hopp til hovedmeny</a></li></ul>
 </nav>
 
 <header class="a-header ">
@@ -299,9 +297,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/app/development/configuration/messagebox/hide_instances/"><span>Skjule instanser</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/nb/app/development/configuration/authorisation/"><span>Autorisasjon</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/nb/app/development/configuration/authorization/"><span>Autorisasjon</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/app/development/configuration/authorisation/rules/"><span>Regelbibliotek</span></a></li></ul></li>
+        <a href="/nb/app/development/configuration/authorization/rules/"><span>Regelbibliotek</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/app/development/configuration/partytype/"><span>Aktørtyper</span></a></li>
       <li class="dd-item">
@@ -383,7 +381,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/metadata/"><span>Metadata</span></a></li>
       <li class="dd-item">
@@ -698,7 +696,7 @@ Lokal kopi av tekstressurser benyttes i PDF i stedet for tekstressurser fra Plat
 <p>Det er blitt laget en ny seksjon kalt <code>FrontEndSettings</code> for bruk i <code>appsetting.{miljø}.json</code> filer. Dette eksponeres til frontendapplikasjonen som <code>applicationSettings</code> og er en dynamisk liste med verdier. I praksis betyr dette at <code>FrontEndSettings</code> kan utvides med innslag uten at man må gjøre kodeendringer i backend. Dette gjør det mulig for backend å tilby miljøspesifikke verdier til frontend.</p>
 <h2 id="4240-2020-01-21">4.24.0 (2020-01-21)</h2>
 <p>Støtte for språk og query parametre inn til dynamiske kodelister.
-Ny måte å implementere dynamiske kodelister ved hjelp av IAppOptionsProvider. <a href="../../../../../app/development/data/options/_index.nb.md">Se dokumentasjon</a></p>
+Ny måte å implementere dynamiske kodelister ved hjelp av IAppOptionsProvider. <a href="../../../../../app/development/data/options/">Se dokumentasjon</a></p>
 <h2 id="4230-2022-01-15---støtte-for-bpmn-gateways">4.23.0 (2022-01-15) - Støtte for BPMN Gateways</h2>
 <p>Restrukturering av prosessmotor og støtte for BPMN gateways.</p>
 <h2 id="4220-2022-01-07---included-access-token-generation-for-eformidling-integration-point">4.22.0 (2022-01-07) - Included access token generation for eFormidling integration point</h2>
@@ -837,7 +835,7 @@ A stateless data element entails there is no link to an instance or instance own
 <p>Altinn Apps now support presentation fields. 
 By specifying presentation fields in <code>applicationmetadata.json</code>, speficied data values from the form data
 will be stored on the instance in order to show them along with the app title in the Altinn messagebox. 
-Further documentation on how to configure presentation fields is found <a href="../../../../../app/development/configuration/presentationfields/">here</a>.</p>
+Further documentation on how to configure presentation fields is found <a href="../../../../../app/development/configuration/messagebox/presentationfields/">here</a>.</p>
 <p>This change is related to <a href="https://app.zenhub.com/workspace/o/altinn/altinn-studio/issues/594">this epic</a>.</p>
 <h2 id="420-2021-04-19---possible-to-integrate-an-app-with-eformidling">4.2.0 (2021-04-19) - Possible to integrate an app with eFormidling</h2>
 <p>Altinn Apps now support integration with eFormidling. 

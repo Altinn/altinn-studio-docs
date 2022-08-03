@@ -33,9 +33,7 @@ if(host != "localhost")
   </head>
   <body class="a-page" data-url="/app/deployment/runtime-environment/resource-allocation-tips/"><nav class="a-jumpnav">
   <ul class="no-decoration d-flex">
-    <li><a class="sr-only sr-only-focusable" href="#content">Jump to the main content</a></li>
-    <li><a class="sr-only sr-only-focusable" href="#docsmenu">Jump to the main menu</a></li>
-  </ul>
+    <li><a class="sr-only sr-only-focusable" href="#content">Jump to the main content</a></li><li><a class="sr-only sr-only-focusable" href="#docsmenu">Jump to the main menu</a></li></ul>
 </nav>
 
 <header class="a-header ">
@@ -179,7 +177,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/prototype/"><span>Prototype</span></a></li>
       <li class="dd-item">
-        <a href="/app/design/usertest/"><span>Usertesting</span></a></li>
+        <a href="/app/design/usertest/"><span>User testing</span></a></li>
       <li class="dd-item">
         <a href="/app/design/guidelines/"><span>Guidelines</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -299,9 +297,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorisation/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorisation/rules/"><span>Rule library</span></a></li></ul></li>
+        <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/app/development/configuration/partytype/"><span>Party types</span></a></li>
       <li class="dd-item">
@@ -429,7 +427,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -437,7 +435,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -445,7 +443,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -529,7 +527,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -1103,9 +1101,9 @@ if(host != "localhost")
                 <span class="links"><a href='/app/'>Create apps</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/deployment/'>Deployment</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/deployment/runtime-environment/'>Runtime Environment</a> <span class='adocs-breadcrumb-divider'> / </span> Practical tips for resource allocation</span>
             </div>
           </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english">translate-to-english</a></div><div id="body-inner"><h1 class="a-fontBold">Practical tips for resource allocation</h1>
-              <p class="a-leadText" id="leadText"></p><p>Før vi går på konkrete tips må vi kort introdusere Helm Chart. Helm Chart er de(n) filen(e) som styrer hvordan applikasjonen din <a href="../../../development/configuration/deployment/">deployes</a>) til Kubernetes. Det er også her man styrer CPU og minne allokering. Du finner <code>Chart.yaml</code>og <code>values.yaml</code>i deployment mappen i applikasjonen din. Dette er viktige filer som kan være lett å overse og ikke ha et aktivt forhold til.</p>
+              <p class="a-leadText" id="leadText"></p><p>Før vi går på konkrete tips må vi kort introdusere Helm Chart. Helm Chart er de(n) filen(e) som styrer hvordan applikasjonen din <a href="/app/development/configuration/deployment/">deployes</a>) til Kubernetes. Det er også her man styrer CPU og minne allokering. Du finner <code>Chart.yaml</code>og <code>values.yaml</code>i deployment mappen i applikasjonen din. Dette er viktige filer som kan være lett å overse og ikke ha et aktivt forhold til.</p>
 <h2 id="tips-1---kjør-siste-versjon-av-helm-chart">Tips 1 - Kjør siste versjon av Helm Chart</h2>
-<p>Med siste versjon får du de mest oppdaterte innstillingene som standard. Se <a href="../../../community/changelog/deployment">Endringslogg for deployment</a> for hvordan oppgradere til siste versjon.</p>
+<p>Med siste versjon får du de mest oppdaterte innstillingene som standard. Se <a href="/community/changelog/deployment/">Endringslogg for deployment</a> for hvordan oppgradere til siste versjon.</p>
 <h2 id="tips-2---ha-et-aktivt-forhold-til-hva-applikasjonen-krever-av-minne-og-cpu">Tips 2 - Ha et aktivt forhold til hva applikasjonen krever av minne og CPU</h2>
 <p>Altinn kommer med en standard på 50m CPU og 128Mi minne, men hva som faktisk kreves er det jo bare den som utvikler en applikasjon som vet. Hvis det caches mye data, vil det kreve mye minne. Hvis det er tunge operasjoner så vil det kreve mye CPU. De faktiske kravene bør gjenspeiles i Helm Chart hvis de avviker fra standarden.</p>
 <h2 id="tips-3---reduser-antall-instanser-i-testmiljø">Tips 3 - Reduser antall instanser i testmiljø</h2>

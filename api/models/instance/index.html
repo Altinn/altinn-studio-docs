@@ -33,9 +33,7 @@ if(host != "localhost")
   </head>
   <body class="a-page" data-url="/api/models/instance/"><nav class="a-jumpnav">
   <ul class="no-decoration d-flex">
-    <li><a class="sr-only sr-only-focusable" href="#content">Jump to the main content</a></li>
-    <li><a class="sr-only sr-only-focusable" href="#docsmenu">Jump to the main menu</a></li>
-  </ul>
+    <li><a class="sr-only sr-only-focusable" href="#content">Jump to the main content</a></li><li><a class="sr-only sr-only-focusable" href="#docsmenu">Jump to the main menu</a></li></ul>
 </nav>
 
 <header class="a-header ">
@@ -179,7 +177,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/prototype/"><span>Prototype</span></a></li>
       <li class="dd-item">
-        <a href="/app/design/usertest/"><span>Usertesting</span></a></li>
+        <a href="/app/design/usertest/"><span>User testing</span></a></li>
       <li class="dd-item">
         <a href="/app/design/guidelines/"><span>Guidelines</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -299,9 +297,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorisation/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorisation/rules/"><span>Rule library</span></a></li></ul></li>
+        <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/app/development/configuration/partytype/"><span>Party types</span></a></li>
       <li class="dd-item">
@@ -429,7 +427,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -437,7 +435,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -445,7 +443,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -529,7 +527,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -1261,7 +1259,7 @@ if(host != "localhost")
 <p>The CompleteConfirmation model is a simple type for holding information about who and when a given stakeholder has told Altinn that the instance is no longer needed. They have obtained all the information they needed from the instance. The instance can be deleted permanently should an application user decide to to so. At the time of writing an instance can have only one stakeholder and that is the Application Owner.</p>
 <h2 id="datavalues">DataValues</h2>
 <p>Data values are values either extracted from the instance data or other sources. The values are stored with the instance for easy access and can be used for example in routing logic on the receiving end.</p>
-<p>While data fields configured in the <a href="../app-metadata/_index.md#datafield">app metadata file</a> will be extracted and automatically picked up by the application, there is also the option of adding values manually by using the UpdataDataValues method from the IInstance interface. You can mix and match data fields from configuration and by manually adding. It&rsquo;s the UpdateDataValues method that is called under the hood in both cases. UpdateDataValues merges the incoming collection with what&rsquo;s allready stored. However if yo specify the same id it will be overwritten by one or the other and you have no guaranties on which is stored.</p>
+<p>While data fields configured in the <a href="../app-metadata/#datafield">app metadata file</a> will be extracted and automatically picked up by the application, there is also the option of adding values manually by using the UpdataDataValues method from the IInstance interface. You can mix and match data fields from configuration and by manually adding. It&rsquo;s the UpdateDataValues method that is called under the hood in both cases. UpdateDataValues merges the incoming collection with what&rsquo;s allready stored. However if yo specify the same id it will be overwritten by one or the other and you have no guaranties on which is stored.</p>
 <p>Values passed in to the UpdataDataValues can have any source and is not restricted to data stored in the application. It can be called from any place but it&rsquo;s recomended to not call it more than strictly required. A good place is to override the RunProcessTaskEnd method from AppBase causing the method to be called when a task is completed.</p>
 <h3 id="properties-3">Properties</h3>
 <table>

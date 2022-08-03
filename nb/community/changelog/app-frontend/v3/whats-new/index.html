@@ -33,9 +33,7 @@ if(host != "localhost")
   </head>
   <body class="a-page" data-url="/nb/community/changelog/app-frontend/v3/whats-new/"><nav class="a-jumpnav">
   <ul class="no-decoration d-flex">
-    <li><a class="sr-only sr-only-focusable" href="#content">Hopp til hovedinnholdet</a></li>
-    <li><a class="sr-only sr-only-focusable" href="#docsmenu">Hopp til hovedmeny</a></li>
-  </ul>
+    <li><a class="sr-only sr-only-focusable" href="#content">Hopp til hovedinnholdet</a></li><li><a class="sr-only sr-only-focusable" href="#docsmenu">Hopp til hovedmeny</a></li></ul>
 </nav>
 
 <header class="a-header ">
@@ -299,9 +297,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/app/development/configuration/messagebox/hide_instances/"><span>Skjule instanser</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/nb/app/development/configuration/authorisation/"><span>Autorisasjon</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/nb/app/development/configuration/authorization/"><span>Autorisasjon</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/app/development/configuration/authorisation/rules/"><span>Regelbibliotek</span></a></li></ul></li>
+        <a href="/nb/app/development/configuration/authorization/rules/"><span>Regelbibliotek</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/app/development/configuration/partytype/"><span>Aktørtyper</span></a></li>
       <li class="dd-item">
@@ -383,7 +381,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/metadata/"><span>Metadata</span></a></li>
       <li class="dd-item">
@@ -653,7 +651,7 @@ if(host != "localhost")
     <li><a href="#3151-2021-11-18---ugyldige-typer-for-reselect">3.15.1 (2021-11-18) - Ugyldige typer for reselect</a></li>
     <li><a href="#3150-2021-11-15---støtte-for-returnurl">3.15.0 (2021-11-15) - Støtte for returnUrl</a></li>
     <li><a href="#3142-2021-11-11---oppdatering-av-jsonpointer">3.14.2 (2021-11-11) - Oppdatering av jsonpointer</a></li>
-    <li><a href="#3141-2021-11-11----oppdaterte-avhengigheter">3.14.1 (2021-11-11) -  Oppdaterte avhengigheter</a></li>
+    <li><a href="#3141-2021-11-11---oppdaterte-avhengigheter">3.14.1 (2021-11-11) - Oppdaterte avhengigheter</a></li>
     <li><a href="#3140-2021-11-08---today-flagg-for-datovelger-minmax-datoer">3.14.0 (2021-11-08) - &ldquo;today&rdquo;-flagg for datovelger min/max datoer</a></li>
     <li><a href="#3136-2021-11-04---oppdaterte-avhengigheter">3.13.6 (2021-11-04) - Oppdaterte avhengigheter</a></li>
     <li><a href="#3135-2021-10-28---oppdaterte-avhengigheter">3.13.5 (2021-10-28) - Oppdaterte avhengigheter</a></li>
@@ -784,7 +782,7 @@ Issue <a href="https://github.com/Altinn/altinn-studio/issues/6398">#6398</a>.</
 <h2 id="3350-2022-04-28---merke-påkrevde-felter">3.35.0 (2022-04-28) - Merke påkrevde felter</h2>
 <p>Endret standard visning av felter til at påkrevde felter markeres med en *, mens felter som er valgfrie
 ikke har noen markering. Valgfrie felter kan settes opp til å markeres med <code>(Valgfri)</code> via <code>labelSettings</code>-property
-på feltet i form layout. Se <a href="https://docs.altinn.studio/app/development/ux/fields/settings/">her</a>.</p>
+på feltet i form layout. Se <a href="/app/development/ux/fields/settings/">her</a>.</p>
 <h2 id="3344-2022-04-28---fjernet-overskrift-om-vedlegg-når-det-ikke-er-noen-vedlegg">3.34.4 (2022-04-28) - Fjernet overskrift om vedlegg når det ikke er noen vedlegg</h2>
 <p>Under kvitteringen ble det vist en overskrift over listen med vedlegg. Etter det ble mulig å skru av generering av
 PDF ble denne overskriften fortsatt vist, men har nå blitt skjult.
@@ -801,7 +799,7 @@ Issue <a href="https://github.com/Altinn/app-frontend-react/issues/11">#11</a>.<
 Width deklarasjonen ble flyttet til inline styling for å løse problemet.
 Issue <a href="https://github.com/Altinn/app-frontend-react/issues/14">#14</a>.</p>
 <h2 id="3340-2022-04-11---options-fra-redux">3.34.0 (2022-04-11) - Options fra Redux</h2>
-<p>La til støtte for å sette opp options (kodelister) fra repeterende grupper i Redux staten. Les mer på <a href="https://docs.altinn.studio/app/development/data/options/#options-based-on-repeating-groups-from-redux">docs.</a>
+<p>La til støtte for å sette opp options (kodelister) fra repeterende grupper i Redux staten. Les mer på <a href="/app/development/data/options/#options-based-on-repeating-groups-from-redux">docs.</a>
 Issue <a href="https://github.com/Altinn/altinn-studio/issues/7626">#7626</a>.</p>
 <h2 id="3335-2022-04-11---oppdaterte-ekstern-avhengighet">3.33.5 (2022-04-11) - Oppdaterte ekstern avhengighet</h2>
 <p>Oppdatering av ekstern avhengighet grunnet sikkerhetshull.
@@ -1023,7 +1021,7 @@ Issue <a href="https://github.com/Altinn/altinn-studio/issues/7183">#7183</a>.</
 <h2 id="3142-2021-11-11---oppdatering-av-jsonpointer">3.14.2 (2021-11-11) - Oppdatering av jsonpointer</h2>
 <p>Oppdaterte ekstern avhenghighet jsonpointer.
 Issue <a href="https://github.com/Altinn/altinn-studio/issues/7317">#7317</a>.</p>
-<h2 id="3141-2021-11-11----oppdaterte-avhengigheter">3.14.1 (2021-11-11) -  Oppdaterte avhengigheter</h2>
+<h2 id="3141-2021-11-11---oppdaterte-avhengigheter">3.14.1 (2021-11-11) - Oppdaterte avhengigheter</h2>
 <p>Oppdaterte eksterne avhengigheter for uke 45.
 Issue <a href="https://github.com/Altinn/altinn-studio/issues/7317">#7317</a>.</p>
 <h2 id="3140-2021-11-08---today-flagg-for-datovelger-minmax-datoer">3.14.0 (2021-11-08) - &ldquo;today&rdquo;-flagg for datovelger min/max datoer</h2>

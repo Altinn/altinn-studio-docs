@@ -33,9 +33,7 @@ if(host != "localhost")
   </head>
   <body class="a-page" data-url="/tags/testing/"><nav class="a-jumpnav">
   <ul class="no-decoration d-flex">
-    <li><a class="sr-only sr-only-focusable" href="#content">Jump to the main content</a></li>
-    <li><a class="sr-only sr-only-focusable" href="#docsmenu">Jump to the main menu</a></li>
-  </ul>
+    <li><a class="sr-only sr-only-focusable" href="#content">Jump to the main content</a></li><li><a class="sr-only sr-only-focusable" href="#docsmenu">Jump to the main menu</a></li></ul>
 </nav>
 
 <header class="a-header ">
@@ -171,7 +169,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/prototype/"><span>Prototype</span></a></li>
       <li class="dd-item">
-        <a href="/app/design/usertest/"><span>Usertesting</span></a></li>
+        <a href="/app/design/usertest/"><span>User testing</span></a></li>
       <li class="dd-item">
         <a href="/app/design/guidelines/"><span>Guidelines</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -291,9 +289,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorisation/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorisation/rules/"><span>Rule library</span></a></li></ul></li>
+        <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/app/development/configuration/partytype/"><span>Party types</span></a></li>
       <li class="dd-item">
@@ -421,7 +419,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -429,7 +427,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -437,7 +435,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -521,7 +519,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -1107,12 +1105,9 @@ if(host != "localhost")
         <h2 class="post-title"><a href="/community/contributing/handbook/test/automated-test-app/">App for automated test</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Rules
-Conditional rules
-Prefill
-Change of name app This is an app which should only be used to run automated tests against. It contains these components:
+        <p>Change of name app This is an app which should only be used to run automated tests against. It contains these components:
  Title Input Textarea Checkbox Radio button Attachment Datepicker Button   Rules The rules appends the text from the text feilds for new first, middle and last name and displays in a new field. The relevant code:
-nyttNavn: (obj) =&gt; { obj.fornavn = obj. <a class="read-more" href="/community/contributing/handbook/test/automated-test-app/">&raquo;</a></p>
+nyttNavn: (obj) =&gt; { obj.fornavn = obj.fornavn ? obj.fornavn + &#39; &#39; : &#39;&#39;; obj. <a class="read-more" href="/community/contributing/handbook/test/automated-test-app/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         
@@ -1199,7 +1194,7 @@ Authentication Several of the exposed APIs requires various cookies, for instanc
         <h2 class="post-title"><a href="/community/contributing/handbook/test/">Test</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Coding guidelines for tests  &lt;li&gt;&lt;a href=&quot;/community/contributing/handbook/test/automated-test-app/&quot;&gt;App for automated test&lt;/a&gt;&lt;p&gt;An app used solely for automated testing in the browser&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/community/contributing/handbook/test/cypress/&quot;&gt;Cypress&lt;/a&gt;&lt;p&gt;Functional Testing of Altinn Studio and Altinn app-frontend with Cypress&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/community/contributing/handbook/test/k6/&quot;&gt;k6&lt;/a&gt;&lt;p&gt;Performance and Functional Testing of API with K6&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/community/contributing/handbook/test/postman/&quot;&gt;Postman&lt;/a&gt;&lt;p&gt;API Testing with postman&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/community/contributing/handbook/test/test-strategy/&quot;&gt;Test Strategy&lt;/a&gt;&lt;p&gt;Test Strategy&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/community/contributing/handbook/test/unit-testing/&quot;&gt;Unit testing&lt;/a&gt;&lt;p&gt;How to write jest test in altinn studio, what we know so far&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/community/contributing/handbook/test/xunit-testing/&quot;&gt;Xunit Testing&lt;/a&gt;&lt;p&gt;Xunit Testing&lt;/p&gt;&lt;/li&gt;  <a class="read-more" href="/community/contributing/handbook/test/">&raquo;</a></p>
+        <p>Coding guidelines for tests  &lt;li&gt;&lt;a href=&quot;/community/contributing/handbook/test/automated-test-app/&quot;&gt;App for automated test&lt;/a&gt;&lt;p&gt;An app used solely for automated testing in the browser&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/community/contributing/handbook/test/cypress/&quot;&gt;Cypress&lt;/a&gt;&lt;p&gt;Functional Testing of Altinn Studio and Altinn app-frontend with Cypress&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/community/contributing/handbook/test/k6/&quot;&gt;k6&lt;/a&gt;&lt;p&gt;Performance and Functional Testing of API with K6&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/community/contributing/handbook/test/postman/&quot;&gt;Postman&lt;/a&gt;&lt;p&gt;API Testing with postman&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/community/contributing/handbook/test/test-strategy/&quot;&gt;Test Strategy&lt;/a&gt;&lt;p&gt;Test Strategy&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/community/contributing/handbook/test/unit-testing/&quot;&gt;Unit testing with Jest&lt;/a&gt;&lt;p&gt;How to write jest test in altinn studio, what we know so far. <a class="read-more" href="/community/contributing/handbook/test/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         
@@ -1235,11 +1230,12 @@ Testing of Altinn Studio is to be tested automatically at the unit and integrati
 </article>
 <article class="post community">
     <header class="post-header">
-        <h2 class="post-title"><a href="/community/contributing/handbook/test/unit-testing/">Unit testing</a></h2>
+        <h2 class="post-title"><a href="/community/contributing/handbook/test/unit-testing/">Unit testing with Jest</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Introduction to unit testing with Jest This page summarizes how UI testing is performed with Jest and related libraries for Altinn Studio.
- When should you write tests? Exporting and importing your component Methods in your component User Interface and Methods Networked functions (get, post, put) Rejecting Promises / Error testing / Negative tests Using Router Example #1, positive test Example #2, negative test (Error handling)  When should you write tests? <a class="read-more" href="/community/contributing/handbook/test/unit-testing/">&raquo;</a></p>
+        <p>When should you write tests? Unit testing includes testing of javascript functions and react/UI components. Listing of the highest priority of unit-testing:
+ API calls with the correct formatted parameters Rendering of isolated components. Functions in general.  Exporting and importing your component A quick way to get started testing your component is first to export the React Component:
+export class CloneServiceComponent extends React.Component&lt;ICloneServiceComponentProps &amp; RouteChildrenProps, ICloneServiceComponentState&gt; { and then reference it in your test the following way: <a class="read-more" href="/community/contributing/handbook/test/unit-testing/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         

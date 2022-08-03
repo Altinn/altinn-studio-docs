@@ -33,9 +33,7 @@ if(host != "localhost")
   </head>
   <body class="a-page" data-url="/nb/app/deployment/runtime-environment/resource-allocation-tips/"><nav class="a-jumpnav">
   <ul class="no-decoration d-flex">
-    <li><a class="sr-only sr-only-focusable" href="#content">Hopp til hovedinnholdet</a></li>
-    <li><a class="sr-only sr-only-focusable" href="#docsmenu">Hopp til hovedmeny</a></li>
-  </ul>
+    <li><a class="sr-only sr-only-focusable" href="#content">Hopp til hovedinnholdet</a></li><li><a class="sr-only sr-only-focusable" href="#docsmenu">Hopp til hovedmeny</a></li></ul>
 </nav>
 
 <header class="a-header ">
@@ -299,9 +297,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/app/development/configuration/messagebox/hide_instances/"><span>Skjule instanser</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/nb/app/development/configuration/authorisation/"><span>Autorisasjon</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/nb/app/development/configuration/authorization/"><span>Autorisasjon</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/app/development/configuration/authorisation/rules/"><span>Regelbibliotek</span></a></li></ul></li>
+        <a href="/nb/app/development/configuration/authorization/rules/"><span>Regelbibliotek</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/app/development/configuration/partytype/"><span>Aktørtyper</span></a></li>
       <li class="dd-item">
@@ -383,7 +381,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/metadata/"><span>Metadata</span></a></li>
       <li class="dd-item">
@@ -563,9 +561,9 @@ if(host != "localhost")
                 <span class="links"><a href='/nb/app/'>Lage apper</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/app/deployment/'>Produksjonssetting</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/app/deployment/runtime-environment/'>Kjøremiljø</a> <span class='adocs-breadcrumb-divider'> / </span> Tips til ressurserfordeling</span>
             </div>
           </div><div id="body-inner"><h1 class="a-fontBold">Tips til ressurserfordeling</h1>
-              <p class="a-leadText" id="leadText">Hva kan/bør man gjøre utover standard innstillinger?</p><p>Før vi går på konkrete tips må vi kort introdusere Helm Chart. Helm Chart er de(n) filen(e) som styrer hvordan applikasjonen din <a href="../../../development/configuration/deployment/">deployes</a>) til Kubernetes. Det er også her man styrer CPU og minne allokering. Du finner <code>Chart.yaml</code>og <code>values.yaml</code>i deployment mappen i applikasjonen din. Dette er viktige filer som kan være lett å overse og ikke ha et aktivt forhold til.</p>
+              <p class="a-leadText" id="leadText">Hva kan/bør man gjøre utover standard innstillinger?</p><p>Før vi går på konkrete tips må vi kort introdusere Helm Chart. Helm Chart er de(n) filen(e) som styrer hvordan applikasjonen din <a href="/nb/app/development/configuration/deployment/">deployes</a>) til Kubernetes. Det er også her man styrer CPU og minne allokering. Du finner <code>Chart.yaml</code>og <code>values.yaml</code>i deployment mappen i applikasjonen din. Dette er viktige filer som kan være lett å overse og ikke ha et aktivt forhold til.</p>
 <h2 id="tips-1---kjør-siste-versjon-av-helm-chart">Tips 1 - Kjør siste versjon av Helm Chart</h2>
-<p>Med siste versjon får du de mest oppdaterte innstillingene som standard. Se <a href="../../../community/changelog/deployment">Endringslogg for deployment</a> for hvordan oppgradere til siste versjon.</p>
+<p>Med siste versjon får du de mest oppdaterte innstillingene som standard. Se <a href="/nb/community/changelog/deployment">Endringslogg for deployment</a> for hvordan oppgradere til siste versjon.</p>
 <h2 id="tips-2---ha-et-aktivt-forhold-til-hva-applikasjonen-krever-av-minne-og-cpu">Tips 2 - Ha et aktivt forhold til hva applikasjonen krever av minne og CPU</h2>
 <p>Altinn kommer med en standard på 50m CPU og 128Mi minne, men hva som faktisk kreves er det jo bare den som utvikler en applikasjon som vet. Hvis det caches mye data, vil det kreve mye minne. Hvis det er tunge operasjoner så vil det kreve mye CPU. De faktiske kravene bør gjenspeiles i Helm Chart hvis de avviker fra standarden.</p>
 <h2 id="tips-3---reduser-antall-instanser-i-testmiljø">Tips 3 - Reduser antall instanser i testmiljø</h2>

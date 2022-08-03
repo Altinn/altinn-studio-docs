@@ -33,9 +33,7 @@ if(host != "localhost")
   </head>
   <body class="a-page" data-url="/nb/app/deployment/runtime-environment/"><nav class="a-jumpnav">
   <ul class="no-decoration d-flex">
-    <li><a class="sr-only sr-only-focusable" href="#content">Hopp til hovedinnholdet</a></li>
-    <li><a class="sr-only sr-only-focusable" href="#docsmenu">Hopp til hovedmeny</a></li>
-  </ul>
+    <li><a class="sr-only sr-only-focusable" href="#content">Hopp til hovedinnholdet</a></li><li><a class="sr-only sr-only-focusable" href="#docsmenu">Hopp til hovedmeny</a></li></ul>
 </nav>
 
 <header class="a-header ">
@@ -299,9 +297,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/app/development/configuration/messagebox/hide_instances/"><span>Skjule instanser</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/nb/app/development/configuration/authorisation/"><span>Autorisasjon</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/nb/app/development/configuration/authorization/"><span>Autorisasjon</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/app/development/configuration/authorisation/rules/"><span>Regelbibliotek</span></a></li></ul></li>
+        <a href="/nb/app/development/configuration/authorization/rules/"><span>Regelbibliotek</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/app/development/configuration/partytype/"><span>Aktørtyper</span></a></li>
       <li class="dd-item">
@@ -383,7 +381,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/metadata/"><span>Metadata</span></a></li>
       <li class="dd-item">
@@ -583,9 +581,15 @@ if(host != "localhost")
 </div>
 
 <div style="text-align: center;">
-    <object data="/app/deployment/runtime-environment/kubernetes-scaling-consepts.drawio.svg" type="image/svg+xml" style="width: 100%;" title="Backlogs and teams" alt="Backlogs"></object>
+    <object
+        data="kubernetes-scaling-concepts.drawio.svg"
+        type="image/svg+xml"
+        style="width: 100%;"
+        title="Backlogs and teams"
+        alt="Backlogs"
+    ></object>
 </div>
-<p><a href="backlogs.drawio.svg">Fullscreen</a></p>
+<p><a href="kubernetes-scaling-concepts.drawio.svg">Fullscreen</a></p>
 <h3 id="applikasjoner--apps">Applikasjoner / Apps</h3>
 <p>Når vi snakker om en Altinn 3 App så snakker vi om den logiske applikasjonen som det bare finnes 1 av. For å sikre at en app hele tiden er oppe så kjører vi som regel med 2 eller flere instanser av applikasjonen. Minne og CPU reservasjoner gjelder per instans.</p>
 <h3 id="docker-containers">Docker Containers</h3>

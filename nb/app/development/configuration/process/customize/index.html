@@ -33,9 +33,7 @@ if(host != "localhost")
   </head>
   <body class="a-page" data-url="/nb/app/development/configuration/process/customize/"><nav class="a-jumpnav">
   <ul class="no-decoration d-flex">
-    <li><a class="sr-only sr-only-focusable" href="#content">Hopp til hovedinnholdet</a></li>
-    <li><a class="sr-only sr-only-focusable" href="#docsmenu">Hopp til hovedmeny</a></li>
-  </ul>
+    <li><a class="sr-only sr-only-focusable" href="#content">Hopp til hovedinnholdet</a></li><li><a class="sr-only sr-only-focusable" href="#docsmenu">Hopp til hovedmeny</a></li></ul>
 </nav>
 
 <header class="a-header ">
@@ -299,9 +297,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/app/development/configuration/messagebox/hide_instances/"><span>Skjule instanser</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/nb/app/development/configuration/authorisation/"><span>Autorisasjon</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/nb/app/development/configuration/authorization/"><span>Autorisasjon</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/app/development/configuration/authorisation/rules/"><span>Regelbibliotek</span></a></li></ul></li>
+        <a href="/nb/app/development/configuration/authorization/rules/"><span>Regelbibliotek</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/app/development/configuration/partytype/"><span>Aktørtyper</span></a></li>
       <li class="dd-item">
@@ -383,7 +381,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/metadata/"><span>Metadata</span></a></li>
       <li class="dd-item">
@@ -575,11 +573,11 @@ Avhengig av hvilken type steg brukeren er i, vil forskjellige ting vises.
 Denne siden vil forklare hvordan visningen til de forskjellige stegene kan tilpasses.</p>
 <h2 id="data-tilsvarer-utfyllingssteg-i-altinn-ii">Data (tilsvarer utfyllingssteg i Altinn II)</h2>
 <p>I denne prosess-task-typen vises skjema som kan fylles ut.<br>
-Skjema kan redigeres ved bruk av <a href="../../ui-editor">UI editoren</a> eller ved å endre <code>FormLayout.json</code> direkte.</p>
+Skjema kan redigeres ved bruk av <a href="../../../../getting-started/navigation/designer/ui-editor">UI editoren</a> eller ved å endre <code>FormLayout.json</code> direkte.</p>
 <h2 id="bekreftelse-confirmation">Bekreftelse (Confirmation)</h2>
 <p>I denne prosess-task-typen vises noen standard-tekster, og bruker kan velge å <em>bekrefte</em> for å gå videre.</p>
 <p>Tekstene kan overstyres, ved at man legger inn tekstnøkkel som hører til hver tekst i språkfilene for appen. Info
-om hvordan dette gjøres finner du <a href="../../tekster">her</a>. Se under for oversikt over de forskjellige tekstnøklene som kan
+om hvordan dette gjøres finner du <a href="../../../ux/texts">her</a>. Se under for oversikt over de forskjellige tekstnøklene som kan
 overstyres.</p>
 <figure><a href="confirm-step.png"><img src="confirm-step.png" alt="Bekreftelses-visningen" title="Tekster som kan endres/overstyres i bekreftelses-visningen" /></a><figcaption><h4>Tekster som kan endres/overstyres i bekreftelses-visningen</h4></figcaption></figure>
 <h3 id="overstyre-tekster">Overstyre tekster</h3>
@@ -635,12 +633,12 @@ overstyres.</p>
   <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;Lagre og fortsett&#34;</span>
 }
 </code></pre></div><p>Merk at i eksempelet over har vi brukt html-taggen <code>&lt;br/&gt;</code> for å lage linjeskift.
-For lenke og utheving, <a href="../../tekster#formatering-av-tekster">benytt markdown</a>.</p>
+For lenke og utheving, <a href="../../../ux/texts#formatering-av-tekster">benytt markdown</a>.</p>
 <p>Dette resulterer i følgende visning:</p>
 <figure><a href="confirm-step-custom.png"><img src="confirm-step-custom.png" alt="Bekreftelses-visningen" title="Overstyrte tekster på bekreftelses-visningen" /></a><figcaption><h4>Overstyrte tekster på bekreftelses-visningen</h4></figcaption></figure>
 <h2 id="tilbakemelding-feedback">Tilbakemelding (Feedback)</h2>
 <p>Dette er et prosesssteg hvor applikasjonseier vil sjekke utfylte data for å generere en tilbakemelding før alle data kan arkiveres.</p>
-<p>Tekstene på siden kan overstyres ved at man legger inn tekstnøkler som hører til hver tekst i språkfilene for appen. Info om hvordan dette gjøres finner du <a href="../../tekster">her</a>. Se under for oversikt over de forskjellige tekstnøklene som kan overstyres.</p>
+<p>Tekstene på siden kan overstyres ved at man legger inn tekstnøkler som hører til hver tekst i språkfilene for appen. Info om hvordan dette gjøres finner du <a href="../../../ux/texts">her</a>. Se under for oversikt over de forskjellige tekstnøklene som kan overstyres.</p>
 <figure><a href="feedback-default.png"><img src="feedback-default.png" alt="Tilbakemelding-visningen" title="Tekster som kan endres/overstyres i tilbakemelding-visningen" /></a><figcaption><h4>Tekster som kan endres/overstyres i tilbakemelding-visningen</h4></figcaption></figure>
 <h3 id="overstyre-tekster-1">Overstyre tekster</h3>
 <table>

@@ -1058,16 +1058,16 @@
                 href="https://docs.altinn.studio/nb/api/scenarios/authentication/"
                 />
   </url><url>
-    <loc>https://docs.altinn.studio/nb/app/development/configuration/authorisation/</loc>
+    <loc>https://docs.altinn.studio/nb/app/development/configuration/authorization/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://docs.altinn.studio/app/development/configuration/authorisation/"
+                href="https://docs.altinn.studio/app/development/configuration/authorization/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="nb"
-                href="https://docs.altinn.studio/nb/app/development/configuration/authorisation/"
+                href="https://docs.altinn.studio/nb/app/development/configuration/authorization/"
                 />
   </url><url>
     <loc>https://docs.altinn.studio/nb/api/apps/data-elements/</loc>
@@ -2574,16 +2574,16 @@
                 href="https://docs.altinn.studio/nb/tags/process/"
                 />
   </url><url>
-    <loc>https://docs.altinn.studio/nb/app/development/configuration/authorisation/rules/</loc>
+    <loc>https://docs.altinn.studio/nb/app/development/configuration/authorization/rules/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://docs.altinn.studio/app/development/configuration/authorisation/rules/"
+                href="https://docs.altinn.studio/app/development/configuration/authorization/rules/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="nb"
-                href="https://docs.altinn.studio/nb/app/development/configuration/authorisation/rules/"
+                href="https://docs.altinn.studio/nb/app/development/configuration/authorization/rules/"
                 />
   </url><url>
     <loc>https://docs.altinn.studio/nb/tags/register/</loc>

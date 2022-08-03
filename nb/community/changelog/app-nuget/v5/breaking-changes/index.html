@@ -33,9 +33,7 @@ if(host != "localhost")
   </head>
   <body class="a-page" data-url="/nb/community/changelog/app-nuget/v5/breaking-changes/"><nav class="a-jumpnav">
   <ul class="no-decoration d-flex">
-    <li><a class="sr-only sr-only-focusable" href="#content">Hopp til hovedinnholdet</a></li>
-    <li><a class="sr-only sr-only-focusable" href="#docsmenu">Hopp til hovedmeny</a></li>
-  </ul>
+    <li><a class="sr-only sr-only-focusable" href="#content">Hopp til hovedinnholdet</a></li><li><a class="sr-only sr-only-focusable" href="#docsmenu">Hopp til hovedmeny</a></li></ul>
 </nav>
 
 <header class="a-header ">
@@ -299,9 +297,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/app/development/configuration/messagebox/hide_instances/"><span>Skjule instanser</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/nb/app/development/configuration/authorisation/"><span>Autorisasjon</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/nb/app/development/configuration/authorization/"><span>Autorisasjon</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/app/development/configuration/authorisation/rules/"><span>Regelbibliotek</span></a></li></ul></li>
+        <a href="/nb/app/development/configuration/authorization/rules/"><span>Regelbibliotek</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/app/development/configuration/partytype/"><span>Aktørtyper</span></a></li>
       <li class="dd-item">
@@ -383,7 +381,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/metadata/"><span>Metadata</span></a></li>
       <li class="dd-item">
@@ -669,7 +667,7 @@ This the old way when you have your code directly in the overridden FormatPdf me
 </li>
 </ol>
 <h2 id="2-obsolete-method-getoptionid-removed-from-appappbaseialtinnapp">2. Obsolete method GetOptionId removed from App/AppBase/IAltinnApp</h2>
-<p>In <a href="../../v4/whats-new/_index.en.md">version 4.24.0</a> we introduced a new way of supporting dynamic options making the GetOptionId methods in obsolete. The methods have now been removed and you should use the new way of implementing options as described <a href="../../../../../app/development/data/options/_index.en.md">in the documentation</a></p>
+<p>In <a href="../../v4/whats-new/">version 4.24.0</a> we introduced a new way of supporting dynamic options making the GetOptionId methods in obsolete. The methods have now been removed and you should use the new way of implementing options as described <a href="../../../../../app/development/data/options/">in the documentation</a></p>
 <p>When you update you app you should then remove the following from App.cs as this method is removed from AppBase.cs:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp">        <span style="color:#6272a4">/// &lt;inheritdoc /&gt;
 </span><span style="color:#6272a4"></span><span style="color:#ff79c6">#pragma warning disable CS0672 // Member overrides obsolete member
@@ -679,7 +677,7 @@ This the old way when you have your code directly in the overridden FormatPdf me
             <span style="color:#ff79c6">return</span> Task.FromResult(options);
         }
 </code></pre></div><h2 id="3-obsolete-method-runappevent-removed-from-appappbaseialtinnapp">3. Obsolete method RunAppEvent removed from App/AppBase/IAltinnApp</h2>
-<p>The RunAppEvent method is a old construct for hooking into various application events. This have been made obsolete by having concrete method overrides for each type of event as <a href="../../../../../technology/architecture/components/application/construction/altinn-apps/app/app-backend/applogic-events/_index.md">described in the documentation</a>. The RunAppEvent method was passed in an <code>AppEventType</code> enum which specified the type of event that was fired. You would then need to have code checking the type and performing the logic needed. The table below shows the old enum values and their corresponding new methods that should be used instead.</p>
+<p>The RunAppEvent method is a old construct for hooking into various application events. This have been made obsolete by having concrete method overrides for each type of event as <a href="/technology/architecture/components/application/construction/altinn-apps/app/app-backend/applogic-events/">described in the documentation</a>. The RunAppEvent method was passed in an <code>AppEventType</code> enum which specified the type of event that was fired. You would then need to have code checking the type and performing the logic needed. The table below shows the old enum values and their corresponding new methods that should be used instead.</p>
 <table>
 <thead>
 <tr>
@@ -742,7 +740,7 @@ This the old way when you have your code directly in the overridden FormatPdf me
 }
 </code></pre></div><p>The <code>RunAppEvent</code>method should be replaced with the appropriate methods as described above.</p>
 <h2 id="4-obsolete-methods-runcalculation-removed-from-appbaseialtinnapp">4. Obsolete methods RunCalculation removed from AppBase/IAltinnApp</h2>
-<p><a href="../../../../../community/changelog/app-nuget/_index.en.md">In version 4.7.0</a> the RunCalculation method was replaced with the methods RunProcessDataRead and RunProcessDataWrite. RunCalculation has now been removed and those that have code in this method needs to move this to either RunProcessDataRead or RunProcessDataWrite.</p>
+<p><a href="../../../../../community/changelog/app-nuget/">In version 4.7.0</a> the RunCalculation method was replaced with the methods RunProcessDataRead and RunProcessDataWrite. RunCalculation has now been removed and those that have code in this method needs to move this to either RunProcessDataRead or RunProcessDataWrite.</p>
 <p>The process to update is:</p>
 <ol>
 <li>Add the DataProcessing folder and DataProcessingHandler class from our <a href="https://github.com/Altinn/app-template-dotnet/blob/e600e19/src/App/logic/DataProcessing/DataProcessingHandler.cs">app template</a> to your app.</li>

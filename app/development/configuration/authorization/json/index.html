@@ -1,0 +1,1526 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Bibliotek av autorisasjonsregler som kan brukes i en app. Husk å bytte ut tags ([ORG], [APP], [RULE_ID]) med din egen data.">
+
+<title>Regelbibliotek JSON - UNDER ARBEID! – Altinn</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+    <link href="/css/nucleus.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/hybrid.css" rel="stylesheet">
+    <link href="/css/horsey.css" rel="stylesheet">
+    <link href="/css/fortawesome.css" rel="stylesheet">
+    <link href="/css/designsystem.css" rel="stylesheet"><link href="/css/theme.css" rel="stylesheet"><script src="/js/jquery-2.x.min.js"></script>
+<link href="/css/custom.css" rel="stylesheet">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114303148-1"></script>
+<script>
+var host = window.location.hostname;
+if(host != "localhost")
+{
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-114303148-1', { 'anonymize_ip': true });
+}
+</script><style>
+      :root #header + #content > #left > #rlblock_left {
+        display:none !important;
+      }
+    </style>
+  </head>
+  <body class="a-page" data-url="/app/development/configuration/authorization/json/"><nav class="a-jumpnav">
+  <ul class="no-decoration d-flex">
+    <li><a class="sr-only sr-only-focusable" href="#content">Jump to the main content</a></li><li><a class="sr-only sr-only-focusable" href="#docsmenu">Jump to the main menu</a></li></ul>
+</nav>
+
+<header class="a-header ">
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+
+        
+        <nav class="a-globalNav " id="primary-nav">
+          <a href="/" class="a-globalNav-logo">
+            <img src="/images/altinnstudio-logo-white.svg" alt="Altinn Studio logo" class="adocs-logo">
+            <span class="sr-only">To the frontpage</span>
+          </a>
+
+          <button class="navbar-toggler d-md-none" type="button"><span class="sr-only">Show/hide menu</span></button>
+          <div class="collapse navbar-toggleable-sm a-globalNav-main" id="exCollapsingNavbar2">
+            <ul id="exCollapsingNavbar">
+              <li class="d-md-none dropdown"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  Language
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle"><a aria-hidden="true" class="dropdown-item" href="/app/development/configuration/authorization/json/">
+      <img src="/images/en.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">English ✓</span><br><span>Most content is available in english.</span></p>
+    </a></div>
+</li>
+              <li>
+                <a class="a-nav-link a-hvr-underline" href="/app/">apps</a>
+              </li>
+              <li>
+                <a class="a-nav-link a-hvr-underline" href="/api/">api</a>
+              </li>
+              <li>
+                <a class="a-nav-link a-hvr-underline" href="/community/">community</a>
+              </li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/technology/">tech</a>
+              </li>
+            </ul>
+          </div>
+
+        </nav> 
+        <ul class="nav nav-pills a-header-options" id="nav-list">
+          <li class="nav-item dropdown d-none d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  Language
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle"><a aria-hidden="true" class="dropdown-item" href="/app/development/configuration/authorization/json/">
+      <img src="/images/en.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">English ✓</span><br><span>Most content is available in english.</span></p>
+    </a></div>
+</li>
+        </ul>
+      </div>
+    </div> 
+  </div> 
+</header>
+<div class="container pt-2 pt-md-3 pt-lg-5">
+      <div class="adocs-scrollcontainer">
+        <div class="row">
+            <div class="col-sm-12"><nav id="sidebar" class=""><div class="highlightable">
+    <div id="header-wrapper"><div class="searchbox">
+    <label for="search-by"><i class="fa fa-search"></i></label>
+    <input data-search-input id="search-by" type="text" placeholder="Search...">
+    <span data-search-clear=""><i class="fa fa-close"></i></span>
+</div>
+<script src="/js/lunr.min.js"></script>
+<script src="/js/horsey.js"></script>
+<script>
+    var baseurl = "https:\/\/docs.altinn.studio\/";
+</script>
+<script src="/js/search.js"></script></div>
+    <ul id="docsmenu" class="topics">
+      <li class="dd-item">
+        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/getting-started/intro/"><span>Introduction</span></a></li>
+      <li class="dd-item">
+        <a href="/app/getting-started/first-time-setup/"><span>Create user</span></a></li>
+      <li class="dd-item">
+        <a href="/app/getting-started/copy-app/"><span>Copy app</span></a></li>
+      <li class="dd-item">
+        <a href="/app/getting-started/create-app/"><span>Create app</span></a></li>
+      <li class="dd-item">
+        <a href="/app/getting-started/dashboard/"><span>Dashboard</span></a></li>
+      <li class="dd-item">
+        <a href="/app/getting-started/migrate-services/"><span>Migrate services</span></a></li>
+      <li class="dd-item">
+        <a href="/app/getting-started/access-management/"><span>Access</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/getting-started/access-management/apps/"><span>Apps</span></a></li>
+      <li class="dd-item">
+        <a href="/app/getting-started/access-management/studio/"><span>Studio</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/app/getting-started/navigation/"><span>Navigation</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/getting-started/navigation/designer/"><span>Designer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/getting-started/navigation/designer/ui-editor/"><span>UI editor</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/app/getting-started/navigation/repos/"><span>Repos</span></a></li>
+      <li class="dd-item">
+        <a href="/app/getting-started/navigation/code/"><span>Code</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/app/getting-started/local-dev/"><span>Local development</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/app/app-dev-course/"><span>Intro course</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/app-dev-course/case/"><span>Case</span></a></li>
+      <li class="dd-item">
+        <a href="/app/app-dev-course/modul1/"><span>Module 1</span></a></li>
+      <li class="dd-item">
+        <a href="/app/app-dev-course/modul2/"><span>Module 2</span></a></li>
+      <li class="dd-item">
+        <a href="/app/app-dev-course/modul3/"><span>Module 3</span></a></li>
+      <li class="dd-item">
+        <a href="/app/app-dev-course/modul4/"><span>Module 4</span></a></li>
+      <li class="dd-item">
+        <a href="/app/app-dev-course/modul5/"><span>Module 5</span></a></li>
+      <li class="dd-item">
+        <a href="/app/app-dev-course/modul6/"><span>Module 6</span></a></li>
+      <li class="dd-item">
+        <a href="/app/app-dev-course/modul7/"><span>Module 7</span></a></li>
+      <li class="dd-item">
+        <a href="/app/app-dev-course/losningsforslag/"><span>Solution</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/app/design/"><span>Design</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/design/insight/"><span>Preliminary considerations</span></a></li>
+      <li class="dd-item">
+        <a href="/app/design/prototype/"><span>Prototype</span></a></li>
+      <li class="dd-item">
+        <a href="/app/design/usertest/"><span>User testing</span></a></li>
+      <li class="dd-item">
+        <a href="/app/design/guidelines/"><span>Guidelines</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/design/guidelines/consistency/"><span>Consistancy</span></a></li>
+      <li class="dd-item">
+        <a href="/app/design/guidelines/content/"><span>Content in the form</span></a></li>
+      <li class="dd-item">
+        <a href="/app/design/guidelines/design-principles/"><span>Design principles</span></a></li>
+      <li class="dd-item">
+        <a href="/app/design/guidelines/link-to-app/"><span>Entering the form</span></a></li>
+      <li class="dd-item">
+        <a href="/app/design/guidelines/components/"><span>UI-components</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/design/guidelines/components/title-and-paragraph/"><span>Titles and paragraphs</span></a></li>
+      <li class="dd-item">
+        <a href="/app/design/guidelines/components/button/"><span>Buttons and links</span></a></li>
+      <li class="dd-item">
+        <a href="/app/design/guidelines/components/input/"><span>Input</span></a></li>
+      <li class="dd-item">
+        <a href="/app/design/guidelines/components/date/"><span>Date</span></a></li>
+      <li class="dd-item">
+        <a href="/app/design/guidelines/components/checkbox/"><span>Checkboxes</span></a></li>
+      <li class="dd-item">
+        <a href="/app/design/guidelines/components/radiobutton/"><span>Radio button</span></a></li>
+      <li class="dd-item">
+        <a href="/app/design/guidelines/components/select/"><span>Dropdown</span></a></li>
+      <li class="dd-item">
+        <a href="/app/design/guidelines/components/helptext/"><span>Help texts</span></a></li>
+      <li class="dd-item">
+        <a href="/app/design/guidelines/components/error-message/"><span>Error messages</span></a></li>
+      <li class="dd-item">
+        <a href="/app/design/guidelines/components/file-upload/"><span>File upload</span></a></li>
+      <li class="dd-item">
+        <a href="/app/design/guidelines/components/picture-component/"><span>Image</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/app/design/guidelines/tone-of-voice/"><span>Language</span></a></li>
+      <li class="dd-item">
+        <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/development/data/data-model/"><span>Data model</span></a></li>
+      <li class="dd-item">
+        <a href="/app/development/data/prefill/"><span>Prefill</span></a></li>
+      <li class="dd-item">
+        <a href="/app/development/data/options/"><span>Code lists</span></a></li>
+      <li class="dd-item">
+        <a href="/app/development/data/attachments/"><span>Attachments</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/app/development/ux/"><span>User interface</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/development/ux/components/"><span>Components</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/development/ux/components/panel/"><span>Panel</span></a></li>
+      <li class="dd-item">
+        <a href="/app/development/ux/components/printbutton/"><span>PrintButton</span></a></li>
+      <li class="dd-item">
+        <a href="/app/development/ux/components/likert/"><span>Likert</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/app/development/ux/pages/"><span>Pages</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/development/ux/pages/navigation/"><span>Navigation</span></a></li>
+      <li class="dd-item">
+        <a href="/app/development/ux/pages/tracks/"><span>Tracks</span></a></li>
+      <li class="dd-item">
+        <a href="/app/development/ux/pages/summary/"><span>Summary</span></a></li>
+      <li class="dd-item">
+        <a href="/app/development/ux/pages/layout-sets/"><span>Layout sets</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/app/development/ux/fields/"><span>Fields</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/development/ux/fields/grouping/"><span>Grouping</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/development/ux/fields/grouping/setup/"><span>Setup</span></a></li>
+      <li class="dd-item">
+        <a href="/app/development/ux/fields/grouping/repeating/"><span>Repeating</span></a></li>
+      <li class="dd-item">
+        <a href="/app/development/ux/fields/grouping/alternatives/"><span>Settings</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/app/development/ux/fields/settings/"><span>Settings</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/app/development/ux/styling/"><span>Styling</span></a></li>
+      <li class="dd-item">
+        <a href="/app/development/ux/images/"><span>Images</span></a></li>
+      <li class="dd-item">
+        <a href="/app/development/ux/texts/"><span>Texts</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/development/ux/texts/translation/"><span>Translation of texts</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/app/development/ux/pdf/"><span>PDF</span></a></li>
+      <li class="dd-item">
+        <a href="/app/development/ux/widgets/"><span>Widgets</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/app/development/logic/"><span>Logic</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/development/logic/generic/"><span>Generic</span></a></li>
+      <li class="dd-item">
+        <a href="/app/development/logic/calculation/"><span>Calculations</span></a></li>
+      <li class="dd-item">
+        <a href="/app/development/logic/dataprocessing/"><span>Data processing</span></a></li>
+      <li class="dd-item">
+        <a href="/app/development/logic/dynamic/"><span>Dynamics</span></a></li>
+      <li class="dd-item">
+        <a href="/app/development/logic/instantiation/"><span>Instantiation</span></a></li>
+      <li class="dd-item">
+        <a href="/app/development/logic/services/"><span>Services</span></a></li>
+      <li class="dd-item">
+        <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/development/configuration/messagebox/hide_instances/"><span>Hide instances</span></a></li>
+      <li class="dd-item">
+        <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/app/development/configuration/partytype/"><span>Party types</span></a></li>
+      <li class="dd-item">
+        <a href="/app/development/configuration/datafields/"><span>Data fields</span></a></li>
+      <li class="dd-item">
+        <a href="/app/development/configuration/process/"><span>Process</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/development/configuration/process/auto-delete/"><span>Automatic deletion</span></a></li>
+      <li class="dd-item">
+        <a href="/app/development/configuration/process/customize/"><span>Customize Views</span></a></li>
+      <li class="dd-item">
+        <a href="/app/development/configuration/process/message/"><span>Message</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/app/development/configuration/queryparameters/"><span>Query parameters</span></a></li>
+      <li class="dd-item">
+        <a href="/app/development/configuration/secrets/"><span>Secrets</span></a></li>
+      <li class="dd-item">
+        <a href="/app/development/configuration/eformidling/"><span>eFormidling</span></a></li>
+      <li class="dd-item">
+        <a href="/app/development/configuration/events/"><span>Events</span></a></li>
+      <li class="dd-item">
+        <a href="/app/development/configuration/settings/"><span>Settings</span></a></li>
+      <li class="dd-item">
+        <a href="/app/development/configuration/startup/"><span>Startup</span></a></li>
+      <li class="dd-item">
+        <a href="/app/development/configuration/stateless/"><span>Stateless</span></a></li>
+      <li class="dd-item">
+        <a href="/app/development/configuration/deployment/"><span>Deployment</span></a></li>
+      <li class="dd-item">
+        <a href="/app/development/configuration/authentication/"><span>Authentication</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/app/development/api/"><span>API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/development/api/consume/"><span>Consume</span></a></li>
+      <li class="dd-item">
+        <a href="/app/development/api/expose/"><span>Expose</span></a></li>
+      <li class="dd-item">
+        <a href="/app/development/api/instance/"><span>Instance</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/app/testing/"><span>Testing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/testing/local/"><span>Locally</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/testing/local/apitests/"><span>API tests</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/testing/local/apitests/user/"><span>End user</span></a></li>
+      <li class="dd-item">
+        <a href="/app/testing/local/apitests/org/"><span>Org</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/app/testing/local/debug/"><span>Debugging</span></a></li>
+      <li class="dd-item">
+        <a href="/app/testing/local/testusers/"><span>Test users</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/app/testing/deploy/"><span>In test environment</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/app/deployment/"><span>Deployment</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/deployment/runtime-environment/"><span>Runtime Environment</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/deployment/runtime-environment/resource-allocation-tips/"><span>Practical tips for resource allocation</span></a></li>
+      <li class="dd-item">
+        <a href="/app/deployment/runtime-environment/resource-allocation/"><span>Resource Allocation</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/app/maintainance/"><span>Maintenance</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/maintainance/dependencies/"><span>Dependencies</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/app/launched-apps/"><span>Launched apps</span><sup>NEW</sup></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/api/"><span>API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/api/apps/metadata/"><span>Metadata</span></a></li>
+      <li class="dd-item">
+        <a href="/api/apps/instances/"><span>Instances</span></a></li>
+      <li class="dd-item">
+        <a href="/api/apps/data-elements/"><span>Data elements</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/api/apps/data-elements/tags/"><span>Tags</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/api/apps/stateless-data-elements/"><span>Stateless data elements</span></a></li>
+      <li class="dd-item">
+        <a href="/api/apps/process/"><span>Process</span></a></li>
+      <li class="dd-item">
+        <a href="/api/apps/validation/"><span>Validation</span></a></li>
+      <li class="dd-item">
+        <a href="/api/apps/spec/"><span>OpenAPI</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/api/authentication/"><span>Authentication</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/api/authentication/enterpriseuser/"><span>Enterprise users</span></a></li>
+      <li class="dd-item">
+        <a href="/api/authentication/maskinporten/"><span>Maskinporten</span></a></li>
+      <li class="dd-item">
+        <a href="/api/authentication/id-porten/"><span>ID-porten</span></a></li>
+      <li class="dd-item">
+        <a href="/api/authentication/delegate-scopes/"><span>Delegate API Access</span></a></li>
+      <li class="dd-item">
+        <a href="/api/authentication/spec/"><span>OpenAPI</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/api/events/"><span>Events</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/api/events/spec/"><span>OpenAPI</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/api/models/"><span>Models</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/api/models/app-metadata/"><span>App metadata</span></a></li>
+      <li class="dd-item">
+        <a href="/api/models/instance/"><span>Instance</span></a></li>
+      <li class="dd-item">
+        <a href="/api/models/data-element/"><span>DataElement</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/api/scenarios/"><span>Scenarios</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/api/scenarios/authentication/"><span>Authentication</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/api/storage/"><span>Storage</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/api/storage/instances/"><span>Instances</span></a></li>
+      <li class="dd-item">
+        <a href="/api/storage/instance-events/"><span>Instance events</span></a></li>
+      <li class="dd-item">
+        <a href="/api/storage/spec/"><span>OpenAPI</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/community/about/goals/"><span>Goals</span></a></li>
+      <li class="dd-item">
+        <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/develop-component/"><span>Develop a component</span></a></li><li class="dd-item">
+          <a href="/community/contributing/intro/">
+            <span>Intro for developers</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/azure-devops/pipelines/"><span>Pipelines</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/back-end/"><span>Back-end</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/back-end/app-template-and-deps/"><span>App template and deps</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/back-end/async-programming/"><span>Async programming</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/back-end/error-handling/"><span>Error handling</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/back-end/logging/"><span>Logging</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/back-end/nuget-package/"><span>Nuget Package</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/general/"><span>Cheat Sheet</span></a></li><li class="dd-item">
+          <a href="/community/contributing/handbook/cosmosdb/">
+            <span>Cosmos DB</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/deployment/"><span>Deployment</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/front-end/"><span>Front-end</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/front-end/getting-started/"><span>Getting started</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/front-end/developing/"><span>Developing locally</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/front-end/routine/"><span>Routines for development</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/front-end/new-component/"><span>Creating components</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/front-end/react/"><span>React</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/front-end/redux/"><span>Redux</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/front-end/debug/"><span>Debug</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/front-end/best-practices/"><span>Best practices</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/front-end/build/"><span>Build</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/front-end/component-library/"><span>Component Library</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/front-end/error-handling/"><span>Error handling</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/front-end/postmessage/"><span>Post Message</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/front-end/styling/"><span>Styling (css)</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/front-end/versioning/"><span>Versioning</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/cheatsheet/"><span>General</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/getting-started/"><span>Getting started</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/git/"><span>Git</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/naming/"><span>Naming Conventions</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/loadbalancer/"><span>Nginx loadbalancing in studio</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/loadbalancer/ssl-certificate/"><span>Nginx SSL/TLS certificate</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/postgres/"><span>PostgreSQL</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/rest/"><span>RESTful APIs (Representation State Transfer)</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/routing/"><span>Routing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/routing/nginx/"><span>Nginx routing</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/routing/traefik/"><span>Traefik routing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/routing/traefik/installation/"><span>Installation of Traefik 2.0</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/routing/traefik/tls-configuration/"><span>TLS in Traefik 2.0</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/routing/traefik/custom-resources/"><span>Traefik custom resources</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+          <a href="/community/contributing/handbook/securecoding/checklist/">
+            <span>Code Checklist</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/test/"><span>Test</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/test/automated-test-app/"><span>App for automated test</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/test/cypress/"><span>Cypress</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/test/k6/"><span>k6</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/test/postman/"><span>Postman</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/test/test-strategy/"><span>Test Strategy</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/test/unit-testing/"><span>Unit testing</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/test/xunit-testing/"><span>Xunit Testing</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/branching/"><span>Branching</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/flight-rules/"><span>Flight Rules</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/gitea/"><span>Gitea</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/reusable-resources/"><span>Reusable resources</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/theming/"><span>Theming and styling</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/troubleshooting/"><span>Troubleshooting</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/community/changelog/"><span>Changelog</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/community/changelog/app-frontend/"><span>App frontend</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/community/changelog/app-frontend/v3/"><span>v3</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/community/changelog/app-frontend/v3/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/community/changelog/app-frontend/v3/whats-new/"><span>What&#39;s new</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/community/changelog/app-nuget/"><span>App nuget</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/community/changelog/app-nuget/v6/"><span>v6</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/community/changelog/app-nuget/v6/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/community/changelog/app-nuget/v6/whats-new/"><span>What&#39;s new</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/community/changelog/app-nuget/v5/"><span>v5</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/community/changelog/app-nuget/v5/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/community/changelog/app-nuget/v5/whats-new/"><span>What&#39;s new</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/community/changelog/app-nuget/v4/"><span>v4</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/community/changelog/app-nuget/v4/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/community/changelog/app-nuget/v4/whats-new/"><span>What&#39;s new</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/community/changelog/app-nuget/v3/"><span>v3</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/community/changelog/app-nuget/v3/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/community/changelog/app-nuget/v3/whats-new/"><span>What&#39;s new</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/community/changelog/app-nuget/older/"><span>Older</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/community/changelog/app-nuget/older/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/community/changelog/app-nuget/older/whats-new/"><span>What&#39;s new</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/community/changelog/deployment/"><span>Deployment</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/community/changelog/deployment/migration/"><span>Migration</span></a></li>
+      <li class="dd-item">
+        <a href="/community/changelog/deployment/v1/"><span>v1</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/community/changelog/deployment/v1/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/community/changelog/deployment/v1/whats-new/"><span>What&#39;s new</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/community/changelog/deployment/v2/"><span>v2</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/community/changelog/deployment/v2/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/community/changelog/deployment/v2/whats-new/"><span>What&#39;s new</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/community/changelog/storage-interfaces/"><span>Storage Interface</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/community/changelog/storage-interfaces/v3/"><span>v3</span></a></li>
+      <li class="dd-item">
+        <a href="/community/changelog/storage-interfaces/v2/"><span>v2</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/community/roadmap/"><span>Roadmap</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/community/roadmap/studio/"><span>Studio</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/community/roadmap/studio/appowner/"><span>App owner</span></a></li>
+      <li class="dd-item">
+        <a href="/community/roadmap/studio/enduser/"><span>End user</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/community/devops/"><span>DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/community/devops/definition-of-ready/"><span>Definition of Ready</span></a></li>
+      <li class="dd-item">
+        <a href="/community/devops/roadmapprocess/"><span>Roadmap prosess</span></a></li>
+      <li class="dd-item">
+        <a href="/community/devops/teams/"><span>Teams</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/community/devops/teams/apps/"><span>Apps</span></a></li>
+      <li class="dd-item">
+        <a href="/community/devops/teams/platform/"><span>Platform</span></a></li>
+      <li class="dd-item">
+        <a href="/community/devops/teams/studio/"><span>Studio</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/community/presentations/"><span>Presentations</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/"><span>Technology</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/"><span>Architecture</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/requirements/"><span>Requirements</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/requirements/functional/"><span>Functional</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/requirements/non_functional/"><span>Non-Functional</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/principles/"><span>Principles</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/patterns/"><span>Patterns</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/capabilities/"><span>Capabilities</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/capabilities/runtime/"><span>Runtime</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/capabilities/runtime/appdeploy/"><span>App Build &amp; Deploy</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/capabilities/runtime/appdevelopment/"><span>App Development</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/capabilities/runtime/data/"><span>Data</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/capabilities/runtime/integration/"><span>Integration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/capabilities/runtime/integration/events/"><span>Event capabilities</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+          <a href="/technology/architecture/capabilities/runtime/integration/events/scenarios/">
+            <span>Scenarios</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/capabilities/runtime/presentation/"><span>Presentation</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/capabilities/runtime/processing/"><span>Processing &amp; Execution</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/capabilities/runtime/processing/process/"><span>Process</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+          <a href="/technology/architecture/capabilities/runtime/processing/process/process_interaction/">
+            <span>Process Interaction</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/capabilities/runtime/security/"><span>Security</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/capabilities/runtime/security/authentication/"><span>Authentication</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/capabilities/runtime/security/authentication/accesstoken/"><span>Access Token</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/capabilities/runtime/security/authentication/authentication-api/"><span>Authentication API</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/capabilities/runtime/security/authentication/jwt-format/"><span>JWT Format</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/capabilities/runtime/security/authentication/oidcproviders/"><span>OIDC Providers</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/capabilities/runtime/security/authorization/"><span>Authorization</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/capabilities/runtime/security/encryption/"><span>Encryption</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/capabilities/devops/"><span>DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/capabilities/devops/analysisanddesign/"><span>Analysis &amp; Design</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/capabilities/devops/build_and_test/"><span>Build &amp; Test</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/capabilities/devops/build_and_test/build/"><span>Build process</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/capabilities/devops/environments/"><span>Environments</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/capabilities/devops/platformoperations/"><span>Platform Operations</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/capabilities/devops/platformoperations/backupandrecovery/"><span>Backup &amp; Recovery</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/capabilities/devops/platformoperations/infrastructuremgmt/"><span>Infrastructure mgmt</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/capabilities/devops/platformoperations/monitoring/"><span>Monitoring</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/capabilities/devops/projectmanagement/"><span>Project Management</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/capabilities/devops/quality/"><span>Quality Management</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/capabilities/devops/softwareconfiguration/"><span>Software Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/capabilities/devops/softwareconfiguration/deployment/"><span>Deployment</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/capabilities/devops/softwareconfiguration/deployment/altinn-studio/"><span>Altinn Studio</span></a></li></ul></li></ul></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/"><span>Components</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/"><span>Application</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/solution/"><span>Solution</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/solution/altinn-apps/"><span>Altinn Apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/solution/altinn-apps/app/"><span>App</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/solution/altinn-platform/"><span>Altinn Platform</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/solution/altinn-platform/authentication/"><span>Authentication</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/solution/altinn-platform/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/solution/altinn-platform/authorization/accessgroups/"><span>Access Groups</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/solution/altinn-platform/authorization/contexthandler/"><span>Context Handler</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/solution/altinn-platform/authorization/pap/"><span>PAP</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/solution/altinn-platform/authorization/pdp/"><span>PDP</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/solution/altinn-platform/authorization/pep/"><span>PEP</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/solution/altinn-platform/authorization/pip/"><span>PIP</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/solution/altinn-platform/authorization/prp/"><span>PRP</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/solution/altinn-platform/authorization/resourceregistry/"><span>Resource Registry</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/solution/altinn-platform/authorization/xacml/"><span>XACML</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/solution/altinn-platform/events/"><span>Events</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/solution/altinn-platform/profile/"><span>Profile</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/solution/altinn-platform/register/"><span>Register</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/solution/altinn-platform/storage/"><span>Storage</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/solution/altinn-studio/"><span>Altinn Studio</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/solution/altinn-studio/designer/"><span>Designer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/solution/altinn-studio/designer/pap/"><span>PAP</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/solution/altinn-studio/designer/pap/xacmlpolicy/"><span>Policy</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/solution/altinn-studio/repositories/"><span>Repositories</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/solution/local-dev/"><span>Local dev</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/construction/"><span>Construction</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/construction/altinn-studio/"><span>Altinn Studio</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/construction/altinn-studio/designer/"><span>Designer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/construction/altinn-studio/designer/frontend/"><span>Front-end</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+          <a href="/technology/architecture/components/application/construction/altinn-studio/designer/frontend/applications/">
+            <span>Applications</span></a></li><li class="dd-item">
+          <a href="/technology/architecture/components/application/construction/altinn-studio/designer/frontend/structure/">
+            <span>Structure</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/construction/altinn-studio/designer/backend/"><span>Back-end</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/construction/altinn-studio/loadbalancer/"><span>Load balancer</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/construction/altinn-studio/repositories/"><span>Repositories</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/construction/altinn-apps/"><span>Altinn Apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/construction/altinn-apps/app/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/construction/altinn-apps/app/app-backend/"><span>App Backend</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/construction/altinn-apps/app/app-backend/applogic-events/"><span>AppLogic Events</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/construction/altinn-apps/app/app-backend/process/"><span>Process</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/construction/altinn-apps/app/app-frontend/"><span>App Frontend</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+          <a href="/technology/architecture/components/application/construction/altinn-apps/app/app-frontend/react/">
+            <span>React &#43; Redux</span></a></li><li class="dd-item">
+          <a href="/technology/architecture/components/application/construction/altinn-apps/app/app-frontend/configuration/">
+            <span>Configuration files</span></a></li><li class="dd-item">
+          <a href="/technology/architecture/components/application/construction/altinn-apps/app/app-frontend/features/">
+            <span>Features</span></a></li><li class="dd-item">
+          <a href="/technology/architecture/components/application/construction/altinn-apps/app/app-frontend/structure/">
+            <span>Structure</span></a></li><li class="dd-item">
+          <a href="/technology/architecture/components/application/construction/altinn-apps/app/app-frontend/rendering/">
+            <span>Rendering</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/construction/altinn-apps/kuberneteswrapper/"><span>Kubernetes Wrapper</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/construction/altinn-apps/routing/"><span>Routing</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/construction/altinn-platform/"><span>Altinn Platform</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/construction/altinn-platform/authentication/"><span>Authentication</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/construction/altinn-platform/authorization/"><span>Authorization</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/construction/altinn-platform/events/"><span>Events</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/construction/altinn-platform/pdf/"><span>PDF</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/construction/altinn-platform/profile/"><span>Profile</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/construction/altinn-platform/receipt/"><span>Receipt</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/construction/altinn-platform/register/"><span>Register</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/construction/altinn-platform/storage/"><span>Storage</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/construction/security/"><span>Security</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+          <a href="/technology/architecture/components/application/construction/security/jwtcookie/">
+            <span>JWT</span></a></li><li class="dd-item">
+          <a href="/technology/architecture/components/application/construction/security/pep/">
+            <span>PEP</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/nonsolutionspecific/"><span>Non-Solution</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/nonsolutionspecific/development/"><span>Development</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/nonsolutionspecific/operations/"><span>Operations</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/nonsolutionspecific/operations/backupandrecovery/"><span>Backup &amp; Recovery</span></a></li></ul></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/data/conceptual/"><span>Conceptual</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/data/logical/"><span>Logical</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/infrastructure/"><span>Infrastructure</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/infrastructure/computing/"><span>Compute</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/infrastructure/computing/scaling/"><span>Scaling</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/infrastructure/network/"><span>Network</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/infrastructure/storage/"><span>Storage</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/platform/"><span>Platform</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/platform/datareporting/"><span>Data &amp; Reporting</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/platform/integration/"><span>Integration</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/platform/logicexecution/"><span>Logic Execution</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/platform/oscloudplatform/"><span>OS &amp; Cloud Platform</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/platform/oscloudplatform/kubernetes/"><span>Kubernetes</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/platform/presentation/"><span>Presentation</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/platform/presentation/altinn-cdn/"><span>Altinn CDN</span></a></li></ul></li></ul></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/"><span>Solutions</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-restorage/"><span>Altinn ReStorage</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-apps/"><span>Altinn Apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-apps/app/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-apps/app/app-api/"><span>App API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-apps/app/app-api/eus-rest/"><span>For end-user systems</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-apps/app/app-api/org-rest/"><span>REST-API for orgs</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-apps/app/apptemplates/"><span>App templates</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-apps/app/apptemplates/asp.net/"><span>ASP.NET Web</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+          <a href="/technology/solutions/altinn-apps/app/apptemplates/asp.net/configuration/">
+            <span>Configuration</span></a></li><li class="dd-item">
+          <a href="/technology/solutions/altinn-apps/app/apptemplates/asp.net/customizing/">
+            <span>Customizing</span></a></li><li class="dd-item">
+          <a href="/technology/solutions/altinn-apps/app/apptemplates/asp.net/files/">
+            <span>Filestructure</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-apps/app/features/"><span>Features</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-apps/app/frontend/"><span>Frontend</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-apps/app/processhandling/"><span>Process handling</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/cli/"><span>Altinn CLI</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/solutions/cli/commands/"><span>Commands</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/cli/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/solutions/cli/configuration/maskinporten-setup/"><span></span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/cli/software-implementation/"><span>Software implementation</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-platform/"><span>Altinn Platform</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-platform/authentication/"><span>Authentication</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-platform/authorization/"><span>Authorization</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-platform/events/"><span>Events</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-platform/pdf/"><span>PDF</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-platform/profile/"><span>Profile</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-platform/receipt/"><span>Receipt</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-platform/register/"><span>Register</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-platform/storage/"><span>Storage</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/"><span>Altinn Studio</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/thirdpartytools/"><span>Third Party Tools</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/data-storage/"><span>Data Storage</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/designer/"><span>Designer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/designer/functional/"><span>Functionality</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/designer/functional/build-app/"><span>Building apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/designer/functional/build-app/api-expose/"><span>API expose</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/designer/functional/build-app/api-use/"><span>API use</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/designer/functional/build-app/code-editor/"><span>App logic</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/designer/functional/build-app/app-parameters/"><span>App Parameters</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/designer/functional/build-app/authorization-rules/"><span>Authorization</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/designer/functional/build-app/data-modeling/"><span>Data modeling</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/designer/functional/build-app/helptext/"><span>Help texts</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/designer/functional/build-app/prefill/"><span>Prefill</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/designer/functional/build-app/define-process/"><span>Process</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/designer/functional/build-app/text/"><span>Text</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/designer/functional/build-app/ui-designer/"><span>UI Design</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+          <a href="/technology/solutions/altinn-studio/designer/functional/build-app/ui-designer/components/">
+            <span>Components</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/designer/functional/dashboard/"><span>Dashboard</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/designer/functional/deployment/"><span>Deploy</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/designer/functional/version-control/"><span>Version Control</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/repos/"><span>Repos</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/repos/functional/"><span>Functionality</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/repos/structure/"><span>Structure</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/repos/structure/app-csproj/"><span>App.csproj</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/repos/structure/application-metadata/"><span>applicationmetadata.json</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/repos/structure/calculationhandler/"><span>CalculationHandler.cs</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/repos/structure/form-layout/"><span>FormLayout.json</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/repos/structure/instantiationhandler/"><span>InstansiationHandler.cs</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/repos/structure/reactapp/"><span>react-app.js</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/repos/structure/rule-handler/"><span>RuleHandler.js</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/repos/structure/service-configurations/"><span>ServiceConfigurations.json</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/repos/structure/serviceimplementation/"><span>ServiceImplementation.cs</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/repos/structure/servicemetadata/"><span>ServiceMetadata.json</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/repos/structure/servicemodel/"><span>ServiceModel.cs</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/repos/structure/servicemodelxsd/"><span>ServiceModel.xsd</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/repos/structure/validationhandler/"><span>ValidationHandler.cs</span></a></li></ul></li></ul></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/terms/"><span>Terms</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/tools/"><span>Tools</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/tools/dotnet-core/"><span>.NET Core</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/tools/alpine-linux/"><span>Alpine Linux</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/tools/bpmn/"><span>BPMN</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/tools/c-sharp/"><span>C#</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/tools/docker/"><span>Docker</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/tools/git/"><span>Git</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/tools/gitea/"><span>Gitea</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/tools/go/"><span>Go</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/tools/grafana/"><span>Grafana</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/tools/helm/"><span>Helm</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/tools/hugo/"><span>Hugo</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/tools/jest/"><span>Jest</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/tools/kubernetes/"><span>Kubernetes</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/tools/markdown/"><span>Markdown</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/tools/material-ui/"><span>Material UI</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/tools/nginx/"><span>Nginx</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/tools/node-js/"><span>Node.js</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/tools/prometheus/"><span>Prometheus</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/tools/react/"><span>React</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/tools/react/architecture/"><span>Kodearkitektur</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/tools/react/redux/"><span>Redux</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/tools/stylecop/"><span>StyleCop</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/tools/terraform/"><span>Terraform</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/tools/traefik/"><span>Traefik</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/tools/typescript/"><span>TypeScript</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/tools/vs-code/"><span>Visual Studio Code</span></a></li></ul></li></ul></li></ul>
+  </div>
+</nav>
+
+<script>
+          $("li.dd-item a[href='/app/']").parent().addClass("parent");
+ $("li.dd-item a[href='/app/development/']").parent().addClass("parent");
+ $("li.dd-item a[href='/app/development/configuration/']").parent().addClass("parent");
+ $("li.dd-item a[href='/app/development/configuration/authorization/']").parent().addClass("parent");
+ $("li.dd-item a[href='/app/development/configuration/authorization/json/']").parent().addClass("active");
+        </script>
+        <section id="body">
+          <div id="content" class="adocs-content js-moveChildrenTo">
+        <div id="overlay"></div>
+        <div class="a-text"><div id="top-bar">
+            <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                <span id="sidebar-toggle-span" class="adocs-sidebarToggle">
+                  <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                    <i class="fa fa-bars"></i>
+                    <span class="sr-only">Vis/skjul meny</span>
+                  </a>
+                </span>
+                <span class="links"><a href='/app/'>Create apps</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/development/'>Development</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/development/configuration/'>Configuration</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/development/configuration/authorization/'>Authorization</a> <span class='adocs-breadcrumb-divider'> / </span> JSON</span>
+            </div>
+          </div><div id="body-inner"><h1 class="a-fontBold">Regelbibliotek JSON - UNDER ARBEID!</h1>
+              <p class="a-leadText" id="leadText">Bibliotek av autorisasjonsregler som kan brukes i en app. Husk å bytte ut tags ([ORG], [APP], [RULE_ID]) med din egen data.</p>
+
+
+
+
+<h2 id="org-can-instantiate-an-instance-of-orgapp">[ORG] can instantiate an instance of [ORG]/[APP]</h2>
+<p>[ORG_1] og [ORG_2] kan her være like eller ulike. I tilfellet at de er ulike vil [ORG_1] tilsvare applikasjonseieren og [ORG_2] være en annen organisasjon som får lov til å instansiere.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;xacml:Rule</span> <span style="color:#50fa7b">RuleId=</span><span style="color:#f1fa8c">&#34;urn:altinn:example:ruleid:[RULE_ID]&#34;</span> <span style="color:#50fa7b">Effect=</span><span style="color:#f1fa8c">&#34;Permit&#34;</span><span style="color:#ff79c6">&gt;</span>
+<span style="display:block;width:100%;background-color:#3d3f4a">  <span style="color:#ff79c6">&lt;xacml:Description&gt;</span>[ORG_2] can instantiate an instance of [ORG_1]/[APP]<span style="color:#ff79c6">&lt;/xacml:Description&gt;</span>
+</span>  <span style="color:#ff79c6">&lt;xacml:Target&gt;</span>
+    <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
+      <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
+        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
+<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>[ORG_2]<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:org&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:subject-category:access-subject&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+      <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
+    <span style="color:#ff79c6">&lt;/xacml:AnyOf&gt;</span>
+    <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
+      <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
+        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
+<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>[ORG_1]<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:org&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
+<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>[APP]<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:app&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+      <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
+    <span style="color:#ff79c6">&lt;/xacml:AnyOf&gt;</span>
+    <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
+      <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
+        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
+<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>instantiate<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:action:action-id&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:action&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+      <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
+    <span style="color:#ff79c6">&lt;/xacml:AnyOf&gt;</span>
+  <span style="color:#ff79c6">&lt;/xacml:Target&gt;</span>
+<span style="color:#ff79c6">&lt;/xacml:Rule&gt;</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#ff79c6">&#34;$schema&#34;</span>: <span style="color:#f1fa8c">&#34;https://altinncdn.no/schemas/json/policy/policy.schema.v1.json&#34;</span>,
+  <span style="color:#ff79c6">&#34;Policy&#34;</span>: {
+    <span style="color:#ff79c6">&#34;Rules&#34;</span>: [
+      {
+        <span style="color:#ff79c6">&#34;Effect&#34;</span>: <span style="color:#f1fa8c">&#34;Permit&#34;</span>,
+        <span style="color:#ff79c6">&#34;Description&#34;</span>: <span style="color:#f1fa8c">&#34;[ORG_2] can instantiate an instance of [ORG_1]/[APP]&#34;</span>,
+        <span style="color:#ff79c6">&#34;Subjects&#34;</span>: [
+<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#f1fa8c">&#34;org:[ORG_2]&#34;</span>
+</span>        ],
+        <span style="color:#ff79c6">&#34;Resources&#34;</span>: [
+<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#f1fa8c">&#34;app:[ORG_1]/[APP]&#34;</span>
+</span>        ],
+        <span style="color:#ff79c6">&#34;Actions&#34;</span>: [
+<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#f1fa8c">&#34;instantiate&#34;</span>
+</span>        ]
+      }
+    ]
+  }
+}
+</code></pre></div><h2 id="user-with-role-regna-can-read-instances-of-orgapp-when-it-is-in-task_1">User with role REGNA can read instances of [ORG]/[APP] when it is in Task_1</h2>
+<p>Ved å endre på rolle og task i denne regelen vil du kunne gi rettigheter til å lese instansdata på en gitt task i prosessflyten.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;xacml:Rule</span> <span style="color:#50fa7b">RuleId=</span><span style="color:#f1fa8c">&#34;urn:altinn:example:ruleid:[RULE_ID]&#34;</span> <span style="color:#50fa7b">Effect=</span><span style="color:#f1fa8c">&#34;Permit&#34;</span><span style="color:#ff79c6">&gt;</span>
+<span style="display:block;width:100%;background-color:#3d3f4a">  <span style="color:#ff79c6">&lt;xacml:Description&gt;</span>User with role REGNA can read instances of [ORG]/[APP] when it is in Task_1<span style="color:#ff79c6">&lt;/xacml:Description&gt;</span>
+</span>  <span style="color:#ff79c6">&lt;xacml:Target&gt;</span>
+    <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
+      <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
+        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:function:string-equal-ignore-case&#34;</span><span style="color:#ff79c6">&gt;</span>
+<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>REGNA<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:rolecode&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:subject-category:access-subject&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+      <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>  
+    <span style="color:#ff79c6">&lt;/xacml:AnyOf&gt;</span>
+    <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
+      <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
+        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
+<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>[ORG]<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:org&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
+<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>[APP]<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:app&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
+<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>Task_1<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:task&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+      <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
+    <span style="color:#ff79c6">&lt;/xacml:AnyOf&gt;</span>
+    <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
+      <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
+      <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
+<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>read<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:action:action-id&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:action&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+      <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
+    <span style="color:#ff79c6">&lt;/xacml:AnyOf&gt;</span>
+  <span style="color:#ff79c6">&lt;/xacml:Target&gt;</span>
+<span style="color:#ff79c6">&lt;/xacml:Rule&gt;</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#ff79c6">&#34;$schema&#34;</span>: <span style="color:#f1fa8c">&#34;https://altinncdn.no/schemas/json/policy/policy.schema.v1.json&#34;</span>,
+  <span style="color:#ff79c6">&#34;Policy&#34;</span>: {
+    <span style="color:#ff79c6">&#34;Rules&#34;</span>: [
+      {
+        <span style="color:#ff79c6">&#34;Effect&#34;</span>: <span style="color:#f1fa8c">&#34;Permit&#34;</span>,
+        <span style="color:#ff79c6">&#34;Description&#34;</span>: <span style="color:#f1fa8c">&#34;User with role REGNA can read instances of [ORG]/[APP] when it is in Task_1&#34;</span>,
+        <span style="color:#ff79c6">&#34;Subjects&#34;</span>: [
+<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#f1fa8c">&#34;role:REGNA&#34;</span>
+</span>        ],
+        <span style="color:#ff79c6">&#34;Resources&#34;</span>: [
+<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#f1fa8c">&#34;app:[ORG]/[APP]/Task_1&#34;</span>
+</span>        ],
+        <span style="color:#ff79c6">&#34;Actions&#34;</span>: [
+<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#f1fa8c">&#34;read&#34;</span>
+</span>        ]
+      }
+    ]
+  }
+}
+</code></pre></div><h2 id="org-can-write-to-an-instance-of-orgapp-in-any-task-or-event">[ORG] can write to an instance of [ORG]/[APP] in any task or event</h2>
+<p>Denne regelen kan brukes dersom applikasjonseier skal kunne oppdatere instanser uavhengig av hvor de er i prosessflyten sin.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;xacml:Rule</span> <span style="color:#50fa7b">RuleId=</span><span style="color:#f1fa8c">&#34;urn:altinn:example:ruleid:[RULE_ID]&#34;</span> <span style="color:#50fa7b">Effect=</span><span style="color:#f1fa8c">&#34;Permit&#34;</span><span style="color:#ff79c6">&gt;</span>
+<span style="display:block;width:100%;background-color:#3d3f4a">  <span style="color:#ff79c6">&lt;xacml:Description&gt;</span>[ORG] can write to instances of [ORG]/[APP] in any task or event<span style="color:#ff79c6">&lt;/xacml:Description&gt;</span>
+</span>  <span style="color:#ff79c6">&lt;xacml:Target&gt;</span>
+    <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
+      <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
+        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
+<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>[ORG]<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:org&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:subject-category:access-subject&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+      <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
+    <span style="color:#ff79c6">&lt;/xacml:AnyOf&gt;</span>
+    <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
+      <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
+        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
+<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>[ORG]<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:org&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
+<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>[APP]<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:app&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+      <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
+    <span style="color:#ff79c6">&lt;/xacml:AnyOf&gt;</span>
+    <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
+      <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
+        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
+<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>write<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:action:action-id&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:action&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+      <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
+    <span style="color:#ff79c6">&lt;/xacml:AnyOf&gt;</span>
+  <span style="color:#ff79c6">&lt;/xacml:Target&gt;</span>
+<span style="color:#ff79c6">&lt;/xacml:Rule&gt;</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#ff79c6">&#34;$schema&#34;</span>: <span style="color:#f1fa8c">&#34;https://altinncdn.no/schemas/json/policy/policy.schema.v1.json&#34;</span>,
+  <span style="color:#ff79c6">&#34;Policy&#34;</span>: {
+    <span style="color:#ff79c6">&#34;Rules&#34;</span>: [
+      {
+        <span style="color:#ff79c6">&#34;Effect&#34;</span>: <span style="color:#f1fa8c">&#34;Permit&#34;</span>,
+        <span style="color:#ff79c6">&#34;Description&#34;</span>: <span style="color:#f1fa8c">&#34;[ORG] can write to instances of [ORG]/[APP] in any task or event&#34;</span>,
+        <span style="color:#ff79c6">&#34;Subjects&#34;</span>: [
+<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#f1fa8c">&#34;org:[ORG]&#34;</span>
+</span>        ],
+        <span style="color:#ff79c6">&#34;Resources&#34;</span>: [
+<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#f1fa8c">&#34;app:[ORG]/[APP]&#34;</span>
+</span>        ],
+        <span style="color:#ff79c6">&#34;Actions&#34;</span>: [
+<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#f1fa8c">&#34;write&#34;</span>
+</span>        ]
+      }
+    ]
+  }
+}
+</code></pre></div><h2 id="user-with-role-regna-or-dagl-can-confirm-instances-of-orgapp-when-it-is-in-task_2">User with role REGNA or DAGL can confirm instances of [ORG]/[APP] when it is in Task_2</h2>
+<p>Denne reglen begrenser rettigheten til å bekrefte en instans i en bestemt task til kun to roller.
+Ved å enten modifisere task eller roller vil du her kunne sette regler for hvem som får bekrefte instansen i ulike faser av prosessen.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;xacml:Rule</span> <span style="color:#50fa7b">RuleId=</span><span style="color:#f1fa8c">&#34;urn:altinn:example:ruleid:[RULE_ID]&#34;</span> <span style="color:#50fa7b">Effect=</span><span style="color:#f1fa8c">&#34;Permit&#34;</span><span style="color:#ff79c6">&gt;</span>
+<span style="display:block;width:100%;background-color:#3d3f4a">  <span style="color:#ff79c6">&lt;xacml:Description&gt;</span>User with role REGNA or DAGL can confirm instances of [ORG]/[APP] when it is in Task_2<span style="color:#ff79c6">&lt;/xacml:Description&gt;</span>
+</span>  <span style="color:#ff79c6">&lt;xacml:Target&gt;</span>
+    <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
+      <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
+        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:function:string-equal-ignore-case&#34;</span><span style="color:#ff79c6">&gt;</span>
+<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>REGNA<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:rolecode&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:subject-category:access-subject&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+      <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
+      <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
+        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:function:string-equal-ignore-case&#34;</span><span style="color:#ff79c6">&gt;</span>
+<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>DAGL<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:rolecode&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:subject-category:access-subject&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+      <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
+    <span style="color:#ff79c6">&lt;/xacml:AnyOf&gt;</span>
+    <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
+      <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
+        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
+<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>[ORG]<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:org&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
+<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>[APP]<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:app&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
+<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>Task_2<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:task&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+      <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
+    <span style="color:#ff79c6">&lt;/xacml:AnyOf&gt;</span>
+    <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
+      <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
+      <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
+<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>confirm<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:action:action-id&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:action&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+      <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
+    <span style="color:#ff79c6">&lt;/xacml:AnyOf&gt;</span>
+  <span style="color:#ff79c6">&lt;/xacml:Target&gt;</span>
+<span style="color:#ff79c6">&lt;/xacml:Rule&gt;</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#ff79c6">&#34;$schema&#34;</span>: <span style="color:#f1fa8c">&#34;https://altinncdn.no/schemas/json/policy/policy.schema.v1.json&#34;</span>,
+  <span style="color:#ff79c6">&#34;Policy&#34;</span>: {
+    <span style="color:#ff79c6">&#34;Rules&#34;</span>: [
+      {
+        <span style="color:#ff79c6">&#34;Effect&#34;</span>: <span style="color:#f1fa8c">&#34;Permit&#34;</span>,
+        <span style="color:#ff79c6">&#34;Description&#34;</span>: <span style="color:#f1fa8c">&#34;User with role REGNA or DAGL can confirm instances of [ORG]/[APP] when it is in Task_2&#34;</span>,
+        <span style="color:#ff79c6">&#34;Subjects&#34;</span>: [
+<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#f1fa8c">&#34;role:REGNA&#34;</span>,
+</span><span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#f1fa8c">&#34;role:DAGL&#34;</span>
+</span>        ],
+        <span style="color:#ff79c6">&#34;Resources&#34;</span>: [
+<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#f1fa8c">&#34;app:[ORG]/[APP]/Task_2&#34;</span>
+</span>        ],
+        <span style="color:#ff79c6">&#34;Actions&#34;</span>: [
+<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#f1fa8c">&#34;confirm&#34;</span>
+</span>        ]
+      }
+    ]
+  }
+}
+</code></pre></div><h2 id="user-with-role-regna-can-read-instanes-of-orgapp-when-it-is-in-endevent_1">User with role REGNA can read instanes of [ORG]/[APP] when it is in EndEvent_1</h2>
+<p>Denne regler tillatter en bruker med den gitte rollen å lese instansdata etter at prosessen er avsluttet.
+Dette vil bl.a. inkludere å laste ned vedlegg og kvitteringer knyttet til instansen.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;xacml:Rule</span> <span style="color:#50fa7b">RuleId=</span><span style="color:#f1fa8c">&#34;urn:altinn:example:ruleid:[RULE_ID]&#34;</span> <span style="color:#50fa7b">Effect=</span><span style="color:#f1fa8c">&#34;Permit&#34;</span><span style="color:#ff79c6">&gt;</span>
+<span style="display:block;width:100%;background-color:#3d3f4a">  <span style="color:#ff79c6">&lt;xacml:Description&gt;</span>User with role REGNA can read instanes of [ORG]/[APP] when it is in EndEvent_1<span style="color:#ff79c6">&lt;/xacml:Description&gt;</span>
+</span>  <span style="color:#ff79c6">&lt;xacml:Target&gt;</span>
+    <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
+      <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
+        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:function:string-equal-ignore-case&#34;</span><span style="color:#ff79c6">&gt;</span>
+<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>REGNA<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:rolecode&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:subject-category:access-subject&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+      <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
+    <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
+      <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
+        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
+<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>[ORG]<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:org&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
+<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>[APP]<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:app&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
+<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>EndEvent_1<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:end-event&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+      <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
+    <span style="color:#ff79c6">&lt;/xacml:AnyOf&gt;</span>
+    <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
+      <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
+        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
+<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>read<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:action:action-id&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:action&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+      <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
+    <span style="color:#ff79c6">&lt;/xacml:AnyOf&gt;</span>
+  <span style="color:#ff79c6">&lt;/xacml:Target&gt;</span>
+<span style="color:#ff79c6">&lt;/xacml:Rule&gt;</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#ff79c6">&#34;$schema&#34;</span>: <span style="color:#f1fa8c">&#34;https://altinncdn.no/schemas/json/policy/policy.schema.v1.json&#34;</span>,
+  <span style="color:#ff79c6">&#34;Policy&#34;</span>: {
+    <span style="color:#ff79c6">&#34;Rules&#34;</span>: [
+      {
+        <span style="color:#ff79c6">&#34;Effect&#34;</span>: <span style="color:#f1fa8c">&#34;Permit&#34;</span>,
+        <span style="color:#ff79c6">&#34;Description&#34;</span>: <span style="color:#f1fa8c">&#34;User with role REGNA can read instanes of [ORG]/[APP] when it is in EndEvent_1&#34;</span>,
+        <span style="color:#ff79c6">&#34;Subjects&#34;</span>: [
+<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#f1fa8c">&#34;role:REGNA&#34;</span>
+</span>        ],
+        <span style="color:#ff79c6">&#34;Resources&#34;</span>: [
+<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#f1fa8c">&#34;app:[ORG]/[APP]/EndEvent_1&#34;</span>
+</span>        ],
+        <span style="color:#ff79c6">&#34;Actions&#34;</span>: [
+<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#f1fa8c">&#34;read&#34;</span>
+</span>        ]
+      }
+    ]
+  }
+}
+</code></pre></div><h2 id="rule-that-defines-that-org-can-complete-an-instance-of-orgapp-which-state-is-at-the-end-event">Rule that defines that [ORG] can complete an instance of [ORG]/[APP] which state is at the end event.</h2>
+<p>Denne regelen tillatter applikasjonseier å utføre en kvittering på at de er ferdig med en instans. Instansen må ha en fullført process.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;xacml:Rule</span> <span style="color:#50fa7b">RuleId=</span><span style="color:#f1fa8c">&#34;urn:altinn:example:ruleid:5&#34;</span> <span style="color:#50fa7b">Effect=</span><span style="color:#f1fa8c">&#34;Permit&#34;</span><span style="color:#ff79c6">&gt;</span>
+<span style="display:block;width:100%;background-color:#3d3f4a">  <span style="color:#ff79c6">&lt;xacml:Description&gt;</span>Rule that defines that [ORG] can complete an instance of [ORG]/[APP] which state is at the end event.<span style="color:#ff79c6">&lt;/xacml:Description&gt;</span>
+</span>  <span style="color:#ff79c6">&lt;xacml:Target&gt;</span>
+    <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
+      <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
+        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
+<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>[ORG]<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:org&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:subject-category:access-subject&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+      <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
+    <span style="color:#ff79c6">&lt;/xacml:AnyOf&gt;</span>
+    <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
+      <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
+        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
+<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>[ORG]<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:org&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
+<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>[APP]<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:app&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
+<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>EndEvent_1<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:end-event&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+      <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
+    <span style="color:#ff79c6">&lt;/xacml:AnyOf&gt;</span>
+    <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
+      <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
+        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
+<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>complete<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:action:action-id&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:action&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+      <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
+    <span style="color:#ff79c6">&lt;/xacml:AnyOf&gt;</span>
+  <span style="color:#ff79c6">&lt;/xacml:Target&gt;</span>
+<span style="color:#ff79c6">&lt;/xacml:Rule&gt;</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#ff79c6">&#34;$schema&#34;</span>: <span style="color:#f1fa8c">&#34;https://altinncdn.no/schemas/json/policy/policy.schema.v1.json&#34;</span>,
+  <span style="color:#ff79c6">&#34;Policy&#34;</span>: {
+    <span style="color:#ff79c6">&#34;Rules&#34;</span>: [
+      {
+        <span style="color:#ff79c6">&#34;Effect&#34;</span>: <span style="color:#f1fa8c">&#34;Permit&#34;</span>,
+        <span style="color:#ff79c6">&#34;Description&#34;</span>: <span style="color:#f1fa8c">&#34;Rule that defines that [ORG] can complete an instance of [ORG]/[APP] which state is at the end event.&#34;</span>,
+        <span style="color:#ff79c6">&#34;Subjects&#34;</span>: [
+<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#f1fa8c">&#34;org:[ORG]&#34;</span>
+</span>        ],
+        <span style="color:#ff79c6">&#34;Resources&#34;</span>: [
+<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#f1fa8c">&#34;app:[ORG]/[APP]/EndEvent_1&#34;</span>
+</span>        ],
+        <span style="color:#ff79c6">&#34;Actions&#34;</span>: [
+<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#f1fa8c">&#34;complete&#34;</span>
+</span>        ]
+      }
+    ]
+  }
+}
+</code></pre></div>
+
+<footer class=" footline" >
+	
+</footer>
+
+
+                </div>
+              </div>
+              
+
+            </div><div id="top-github-link">
+                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/app/development/configuration/authorization/json.md" target="blank">
+                    <i class="fa fa-code-fork"></i>
+                    Edit page on GitHub
+                  </a>
+                </div></section>
+        </div> 
+      </div> 
+    </div>
+    </div> <footer class="adocs-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <ul>
+                    <li>
+                        <a href="https://www.altinn.no/om-altinn/">About Altinn</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn/altinn-studio/issues">Backlog</a>
+                    </li>
+                    <li>
+                        <a href="https://altinn.slack.com">Slack</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn/altinn-studio">GitHub</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js"></script>
+    <script src="/js/html5shiv-printshiv.min.js"></script>
+    <script src="/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom.71422.js"></script>
+    <script src="/js/altinninfoportal.js"></script>
+    <script src="/js/altinndocs.js"></script>
+    <script src="/js/altinndocs-learn.js"></script>
+    <script src="/js/stickysidebar/rAF.js"></script>
+    <script src="/js/stickysidebar/ResizeSensor.js"></script>
+    <script src="/js/stickysidebar/sticky-sidebar.js"></script>
+
+    <script>
+      var a = new StickySidebar('#sidebar', {
+        topSpacing: 20,
+        bottomSpacing: 60,
+        containerSelector: '.adocs-scrollcontainer',
+        innerWrapperSelector: '.sidebar__inner',
+        minWidth: 768
+      });
+    </script>
+    <link href="/mermaid/mermaid.css" type="text/css" rel="stylesheet"/>
+    <script src="/mermaid/mermaid.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+<script src="/js/custom.js"></script></body>
+</html>

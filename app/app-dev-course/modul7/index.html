@@ -33,9 +33,7 @@ if(host != "localhost")
   </head>
   <body class="a-page" data-url="/app/app-dev-course/modul7/"><nav class="a-jumpnav">
   <ul class="no-decoration d-flex">
-    <li><a class="sr-only sr-only-focusable" href="#content">Jump to the main content</a></li>
-    <li><a class="sr-only sr-only-focusable" href="#docsmenu">Jump to the main menu</a></li>
-  </ul>
+    <li><a class="sr-only sr-only-focusable" href="#content">Jump to the main content</a></li><li><a class="sr-only sr-only-focusable" href="#docsmenu">Jump to the main menu</a></li></ul>
 </nav>
 
 <header class="a-header ">
@@ -179,7 +177,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/prototype/"><span>Prototype</span></a></li>
       <li class="dd-item">
-        <a href="/app/design/usertest/"><span>Usertesting</span></a></li>
+        <a href="/app/design/usertest/"><span>User testing</span></a></li>
       <li class="dd-item">
         <a href="/app/design/guidelines/"><span>Guidelines</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -299,9 +297,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorisation/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorisation/rules/"><span>Rule library</span></a></li></ul></li>
+        <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/app/development/configuration/partytype/"><span>Party types</span></a></li>
       <li class="dd-item">
@@ -429,7 +427,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -437,7 +435,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -445,7 +443,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -529,7 +527,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -1120,14 +1118,14 @@ NOTE! This module is still under development. Come back later and it will probab
 
 <div class="card adocs-expand">
 	<div>
-		<a data-toggle="collapse" href="#Summary%20page" role="tab" aria-expanded="false" class="a-collapse-title no-decoration collapsed a-h3">
+		<a data-toggle="collapse" href="#summary_page" role="tab" aria-expanded="false" class="a-collapse-title no-decoration collapsed a-h3">
 			<span class="a-dropdownCircleArrow">
 			<i class="ai ai-expand ai-sm"><span class="sr-only">Vis/skjul innhold</span></i>
 			</span>
 			Summary page
 		</a>
 	</div>
-	<div id="Summary page" class="a-collapseContent collapse" role="tabpanel">
+	<div id="summary_page" class="a-collapseContent collapse" role="tabpanel">
 		<div class="a-collapseContent-inside">
 			<h3 id="requirements-from-the-muncipality">Requirements from the muncipality</h3>
 <p>The municipality of Sogndal are experiencing an issue where some submissions contain incorrect information and typos that create unnecessary work for the caseworkers.
@@ -1136,7 +1134,7 @@ To avoid people submitting incorrect information, the municipality wishes that t
 <h3 id="useful-documentation">Useful documentation</h3>
 <ul>
 <li><a href="/app/development/ux/pages/summary/">How to set up summary view of filled out form</a></li>
-<li><a href="/app/development/ux/pages/summary/#kategorier">Categories in summary</a></li>
+<li><a href="/app/development/ux/pages/summary/#categories">Categories in summary</a></li>
 </ul>
 <h3 id="comprehension-check">Comprehension check</h3>
 <ul>
@@ -1166,9 +1164,9 @@ For each of these users an instance is created and saved to the database. This c
 an instance if you meet the requirements.</p>
 <h3 id="useful-documentation">Useful documentation</h3>
 <ul>
-<li><a href="/app/development/configuration/stateless/#introduksjon-til-stateless-applikasjoner">Introduction to stateless applications</a></li>
-<li><a href="/app/development/configuration/stateless/#konfigurasjon">Configuring stateless applications</a></li>
-<li><a href="https://docs.altinn.studio/app/development/configuration/stateless/">Starting instance from stateless form</a></li>
+<li><a href="/app/development/configuration/stateless/#introduction-to-stateless-applications">Introduction to stateless applications</a></li>
+<li><a href="/app/development/configuration/stateless/#configuration">Configuring stateless applications</a></li>
+<li><a href="/app/development/configuration/stateless/">Starting instance from stateless form</a></li>
 </ul>
 <h3 id="comprehension-check">Comprehension check</h3>
 <ul>

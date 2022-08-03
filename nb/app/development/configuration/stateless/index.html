@@ -33,9 +33,7 @@ if(host != "localhost")
   </head>
   <body class="a-page" data-url="/nb/app/development/configuration/stateless/"><nav class="a-jumpnav">
   <ul class="no-decoration d-flex">
-    <li><a class="sr-only sr-only-focusable" href="#content">Hopp til hovedinnholdet</a></li>
-    <li><a class="sr-only sr-only-focusable" href="#docsmenu">Hopp til hovedmeny</a></li>
-  </ul>
+    <li><a class="sr-only sr-only-focusable" href="#content">Hopp til hovedinnholdet</a></li><li><a class="sr-only sr-only-focusable" href="#docsmenu">Hopp til hovedmeny</a></li></ul>
 </nav>
 
 <header class="a-header ">
@@ -299,9 +297,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/app/development/configuration/messagebox/hide_instances/"><span>Skjule instanser</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/nb/app/development/configuration/authorisation/"><span>Autorisasjon</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/nb/app/development/configuration/authorization/"><span>Autorisasjon</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/app/development/configuration/authorisation/rules/"><span>Regelbibliotek</span></a></li></ul></li>
+        <a href="/nb/app/development/configuration/authorization/rules/"><span>Regelbibliotek</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/app/development/configuration/partytype/"><span>Aktørtyper</span></a></li>
       <li class="dd-item">
@@ -383,7 +381,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/metadata/"><span>Metadata</span></a></li>
       <li class="dd-item">
@@ -618,7 +616,7 @@ For en slik applikasjon vil det ikke bli lagret noe data eller metadata, og appl
   &quot;onEntry&quot;: { &quot;show&quot;: &quot;stateless&quot; } // legg til denne linjen
 }
 
-</code></pre><p>I feltet <code>onEntry.show</code> har man mulighet til nå å referere til et layout-set som man ønsker skal vises under oppstarten av applkasjonen. Les mer om layout-sets <a href="../../ux/ui-editor/multiple-layoutsets/#oppsett">her.</a></p>
+</code></pre><p>I feltet <code>onEntry.show</code> har man mulighet til nå å referere til et layout-set som man ønsker skal vises under oppstarten av applkasjonen. Les mer om layout-sets <a href="../../ux/pages/layout-sets/#oppsett">her.</a></p>
 <p>Layout-settet man referer til her blir så benyttet som visningen brukeren blir presentert for i det man navigerer til applikasjonen.</p>
 <p>Konfigurasjonsfilen <code>layout-sets.json</code> kan opprettes dersom den ikke finnes fra før av. Den skal ligge i mappen <code>App/ui</code>.
 I <code>layout-sets.json</code> legger man så inn det aktuelle settet man referer til fra <code>applicationmetadata.json</code>, eksempel:</p>
@@ -719,7 +717,7 @@ Datatypen sitt <code>appLogic</code>-objekt må få en ny innstilling, <code>&qu
     <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">false</span>;
 }
 </code></pre></div><h2 id="autorisasjon-med-tredjepartsløsninger">Autorisasjon med tredjepartsløsninger</h2>
-<p>Tilgangsstyring for stateless applikasjoner kan løses med <a href="../authorisation">standard app-autorisasjon</a> 
+<p>Tilgangsstyring for stateless applikasjoner kan løses med <a href="../authorization">standard app-autorisasjon</a> 
 der man hved hjelp av Altinn-roller definerer hvem som har tilgang til å benytte tjenesten.
 Dersom man har behov for ytteligere sikring av tjenesten kan man implementere logikk for autorisasjon av brukere med tredjepartløsninger.
 Dette kan være API-er som er eksponert innenfor egen virksomhet eller åpne API fra andre tilbydere.</p>

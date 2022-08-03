@@ -33,9 +33,7 @@ if(host != "localhost")
   </head>
   <body class="a-page" data-url="/app/development/configuration/stateless/"><nav class="a-jumpnav">
   <ul class="no-decoration d-flex">
-    <li><a class="sr-only sr-only-focusable" href="#content">Jump to the main content</a></li>
-    <li><a class="sr-only sr-only-focusable" href="#docsmenu">Jump to the main menu</a></li>
-  </ul>
+    <li><a class="sr-only sr-only-focusable" href="#content">Jump to the main content</a></li><li><a class="sr-only sr-only-focusable" href="#docsmenu">Jump to the main menu</a></li></ul>
 </nav>
 
 <header class="a-header ">
@@ -179,7 +177,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/prototype/"><span>Prototype</span></a></li>
       <li class="dd-item">
-        <a href="/app/design/usertest/"><span>Usertesting</span></a></li>
+        <a href="/app/design/usertest/"><span>User testing</span></a></li>
       <li class="dd-item">
         <a href="/app/design/guidelines/"><span>Guidelines</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -299,9 +297,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorisation/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorisation/rules/"><span>Rule library</span></a></li></ul></li>
+        <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/app/development/configuration/partytype/"><span>Party types</span></a></li>
       <li class="dd-item">
@@ -429,7 +427,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -437,7 +435,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -445,7 +443,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -529,7 +527,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -1158,7 +1156,7 @@ For an application like this, no data or metadata is stored, and the application
   &quot;onEntry&quot;: { &quot;show&quot;: &quot;stateless&quot; } // legg til denne linjen
 }
 
-</code></pre><p>In the field <code>onEntry.show</code> there is the opportunity to reference a layout set which you want to display during startup of the application. Read more about layout-sets <a href="../../ux/ui-editor/multiple-layoutsets/#setup">here.</a></p>
+</code></pre><p>In the field <code>onEntry.show</code> there is the opportunity to reference a layout set which you want to display during startup of the application. Read more about layout-sets <a href="../../ux/pages/layout-sets/#setup">here.</a></p>
 <p>The layout sets you refer to here will be used as the display the user is presented before navigating to the application.</p>
 <p>The configuration file <code>layout-sets.json</code> can be created if it doesn&rsquo;t already exist. It should be located in the folder <code>App/ui</code>.
 In <code>layout-sets.json</code> you add the actual set you are refering to from <code>applicationmetadata.json</code>, Example:</p>
@@ -1258,7 +1256,7 @@ The datatype&rsquo;s <code>appLogic</code>-object needs a new setting, <code>&qu
     <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">false</span>;
 }
 </code></pre></div><h2 id="authorization-with-third-party-solutions">Authorization with third party solutions</h2>
-<p>Controlling access for stateless applications can be done with <a href="../authorisation">standard app-authorization</a> 
+<p>Controlling access for stateless applications can be done with <a href="../authorization">standard app-authorization</a> 
 Where by using Altinn roles you define who has access to the service.
 If you require further securing of your service you can implement logic for authorization of users with third party solutions.
 This can be an API which is exposed in your organization or an open API from a different provider.</p>
@@ -1328,7 +1326,7 @@ A search field for user input, a text field dedicated to showing a search result
 <p><strong>Add dynamic rules to show/hide fields</strong></p>
 <p>We use dynamic rules to show/hide fields depending on the users level of authorization</p>
 <p>There has been added a dynamic rule in <code>RuleHandler.js</code> which checks if a field in the datamodel has the value <code>false</code>.
-Configuration of rules is described more closely <a href="../../logic/dynamic/#legg-tilrediger-funksjoner-for-beregninger-eller-visskjul">here</a>.</p>
+Configuration of rules is described more closely <a href="../../logic/dynamic/#add-or-edit-functions-for-dynamics">here</a>.</p>
 <p>In <code>RuleConfiguration.json</code> you can see how the rule is utilized.
 If the input value from the data model <code>userAuthorized</code> is false, the errorBox-component will be made visible,
 while the opposite happens to the search and result fields as those are hidden.</p>

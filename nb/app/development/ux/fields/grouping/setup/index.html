@@ -33,9 +33,7 @@ if(host != "localhost")
   </head>
   <body class="a-page" data-url="/nb/app/development/ux/fields/grouping/setup/"><nav class="a-jumpnav">
   <ul class="no-decoration d-flex">
-    <li><a class="sr-only sr-only-focusable" href="#content">Hopp til hovedinnholdet</a></li>
-    <li><a class="sr-only sr-only-focusable" href="#docsmenu">Hopp til hovedmeny</a></li>
-  </ul>
+    <li><a class="sr-only sr-only-focusable" href="#content">Hopp til hovedinnholdet</a></li><li><a class="sr-only sr-only-focusable" href="#docsmenu">Hopp til hovedmeny</a></li></ul>
 </nav>
 
 <header class="a-header ">
@@ -299,9 +297,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/app/development/configuration/messagebox/hide_instances/"><span>Skjule instanser</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/nb/app/development/configuration/authorisation/"><span>Autorisasjon</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/nb/app/development/configuration/authorization/"><span>Autorisasjon</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/app/development/configuration/authorisation/rules/"><span>Regelbibliotek</span></a></li></ul></li>
+        <a href="/nb/app/development/configuration/authorization/rules/"><span>Regelbibliotek</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/app/development/configuration/partytype/"><span>Aktørtyper</span></a></li>
       <li class="dd-item">
@@ -383,7 +381,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/metadata/"><span>Metadata</span></a></li>
       <li class="dd-item">
@@ -566,7 +564,7 @@ if(host != "localhost")
             </div>
           </div><div id="body-inner"><h1 class="a-fontBold">Oppsett for gruppering av felter</h1>
               <p class="a-leadText" id="leadText">Generelt oppsett for gruppering av felter i skjema.</p><p>Felter i skjema kan settes opp til å bli del av en <em>gruppe</em>. Dette kan brukes til å f.eks. sette opp dynamikk på en enkelt gruppe av felter,
-i stedet for på hvert enkelt felt. I tillegg må felter kunnne grupperes for å støtte <a href="#repeterende-grupper">repeterende grupper</a> i skjema.</p>
+i stedet for på hvert enkelt felt. I tillegg må felter kunnne grupperes for å støtte <a href="../repeating">repeterende grupper</a> i skjema.</p>
 <p>En gruppe settes opp i <code>FormLayout.json</code>, sammen med de andre komponentene i skjemaet. Dette kan enten gjøres manuelt direkte i filen,
 eller via skjemaeditor i Atinn Studio ved å bruke Gruppe-komponenten.</p>
 <p>Noen punkter å notere seg ved manuelt oppsett:</p>
@@ -622,7 +620,7 @@ En gruppe defineres på følgende måte i FormLayout.json:</p>
 <tr>
 <td>textResourceBindings</td>
 <td>Nei</td>
-<td>Kan være satt for repeterende grupper, se <a href="#textResourceBindings">beskrivelse.</a></td>
+<td>Kan være satt for repeterende grupper, se <a href="#textresourcebindings">beskrivelse.</a></td>
 </tr>
 <tr>
 <td>maxCount</td>

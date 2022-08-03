@@ -33,9 +33,7 @@ if(host != "localhost")
   </head>
   <body class="a-page" data-url="/nb/api/models/instance/"><nav class="a-jumpnav">
   <ul class="no-decoration d-flex">
-    <li><a class="sr-only sr-only-focusable" href="#content">Hopp til hovedinnholdet</a></li>
-    <li><a class="sr-only sr-only-focusable" href="#docsmenu">Hopp til hovedmeny</a></li>
-  </ul>
+    <li><a class="sr-only sr-only-focusable" href="#content">Hopp til hovedinnholdet</a></li><li><a class="sr-only sr-only-focusable" href="#docsmenu">Hopp til hovedmeny</a></li></ul>
 </nav>
 
 <header class="a-header ">
@@ -299,9 +297,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/app/development/configuration/messagebox/hide_instances/"><span>Skjule instanser</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/nb/app/development/configuration/authorisation/"><span>Autorisasjon</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/nb/app/development/configuration/authorization/"><span>Autorisasjon</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/app/development/configuration/authorisation/rules/"><span>Regelbibliotek</span></a></li></ul></li>
+        <a href="/nb/app/development/configuration/authorization/rules/"><span>Regelbibliotek</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/app/development/configuration/partytype/"><span>Aktørtyper</span></a></li>
       <li class="dd-item">
@@ -383,7 +381,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/metadata/"><span>Metadata</span></a></li>
       <li class="dd-item">
@@ -721,7 +719,7 @@ if(host != "localhost")
 <p>The CompleteConfirmation model is a simple type for holding information about who and when a given stakeholder has told Altinn that the instance is no longer needed. They have obtained all the information they needed from the instance. The instance can be deleted permanently should an application user decide to to so. At the time of writing an instance can have only one stakeholder and that is the Application Owner.</p>
 <h2 id="datavalues">DataValues</h2>
 <p>Data values are values either extracted from the instance data or other sources. The values are stored with the instance for easy access and can be used for example in routing logic on the receiving end.</p>
-<p>While data fields configured in the <a href="../app-metadata/_index.md#datafield">app metadata file</a> will be extracted and automatically picked up by the application, there is also the option of adding values manually by using the UpdataDataValues method from the IInstance interface. You can mix and match data fields from configuration and by manually adding. It&rsquo;s the UpdateDataValues method that is called under the hood in both cases. UpdateDataValues merges the incoming collection with what&rsquo;s allready stored. However if yo specify the same id it will be overwritten by one or the other and you have no guaranties on which is stored.</p>
+<p>While data fields configured in the <a href="../app-metadata/#datafield">app metadata file</a> will be extracted and automatically picked up by the application, there is also the option of adding values manually by using the UpdataDataValues method from the IInstance interface. You can mix and match data fields from configuration and by manually adding. It&rsquo;s the UpdateDataValues method that is called under the hood in both cases. UpdateDataValues merges the incoming collection with what&rsquo;s allready stored. However if yo specify the same id it will be overwritten by one or the other and you have no guaranties on which is stored.</p>
 <p>Values passed in to the UpdataDataValues can have any source and is not restricted to data stored in the application. It can be called from any place but it&rsquo;s recomended to not call it more than strictly required. A good place is to override the RunProcessTaskEnd method from AppBase causing the method to be called when a task is completed.</p>
 <h3 id="properties-3">Properties</h3>
 <table>

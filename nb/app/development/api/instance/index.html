@@ -33,9 +33,7 @@ if(host != "localhost")
   </head>
   <body class="a-page" data-url="/nb/app/development/api/instance/"><nav class="a-jumpnav">
   <ul class="no-decoration d-flex">
-    <li><a class="sr-only sr-only-focusable" href="#content">Hopp til hovedinnholdet</a></li>
-    <li><a class="sr-only sr-only-focusable" href="#docsmenu">Hopp til hovedmeny</a></li>
-  </ul>
+    <li><a class="sr-only sr-only-focusable" href="#content">Hopp til hovedinnholdet</a></li><li><a class="sr-only sr-only-focusable" href="#docsmenu">Hopp til hovedmeny</a></li></ul>
 </nav>
 
 <header class="a-header ">
@@ -299,9 +297,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/app/development/configuration/messagebox/hide_instances/"><span>Skjule instanser</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/nb/app/development/configuration/authorisation/"><span>Autorisasjon</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/nb/app/development/configuration/authorization/"><span>Autorisasjon</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/app/development/configuration/authorisation/rules/"><span>Regelbibliotek</span></a></li></ul></li>
+        <a href="/nb/app/development/configuration/authorization/rules/"><span>Regelbibliotek</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/app/development/configuration/partytype/"><span>Aktørtyper</span></a></li>
       <li class="dd-item">
@@ -383,7 +381,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/metadata/"><span>Metadata</span></a></li>
       <li class="dd-item">
@@ -600,7 +598,7 @@ For å oppnå dette er det tre steg som må tas.</p>
 <h3 id="steg-1-konfigurasjon-av-applikasjon">Steg 1: Konfigurasjon av applikasjon</h3>
 <p>Standarden for en applikasjon er at tjenesteeier ikke har lov til å slette instanser.
 For å få lov til dette må det legges til en ny regel i <code>policy.xml</code> den finnes i <code>App/config/authorization</code>.
-Regelen kan kopieres fra <a href="../autorisasjon/regelbibliotek/#org-can-delete-an-instance-of-orgapp-in-any-task-or-event">regelbiblioteket</a>.</p>
+Regelen kan kopieres fra <a href="../../configuration/authorization/rules/#org-kan-slette-en-instans-av-orgapp-uavhengig-av-hvor-den-er-i-prosessen">regelbiblioteket</a>.</p>
 <h3 id="steg-2-identifiser-hvilke-instanser-som-ikke-er-fullført-vha-spørring-mot-storage">Steg 2: Identifiser hvilke instanser som ikke er fullført v.h.a. spørring mot storage</h3>
 <p>Storage eksponerer et sett med queryparametre som kan brukes når man skal hente ut et sett med instanser. 
 i eksempelet nedenfor får man ut alle instanser som av en gitt applikasjon som er instansiert 30. september 2020 eller tidligere, 
