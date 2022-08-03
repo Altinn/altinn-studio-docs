@@ -459,7 +459,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/back-end/logging/"><span>Logging</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/back-end/nuget-package/"><span>Nuget Package</span></a></li></ul></li>
+        <a href="/community/contributing/handbook/back-end/nuget-package/"><span>Nuget Package</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/back-end/swagger/"><span>Swagger</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/community/contributing/handbook/general/"><span>Cheat Sheet</span></a></li><li class="dd-item">
           <a href="/community/contributing/handbook/cosmosdb/">
@@ -1114,6 +1116,27 @@ if(host != "localhost")
 
 	</div><article class="post community">
     <header class="post-header">
+        <h2 class="post-title"><a href="/community/contributing/handbook/back-end/swagger/">Swagger</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>We use Swagger to document our APIs.
+Swashbuckle We use Swashbuckle to generate the documentation. Further documentation on Swashbuckle.AspNetCore is available here
+The configurations described below are all located in Program.cs in the AddSwaggerGen method.
+Configure authorization Most of our APIs requires authorization. To enable the end user to test these endpoints through Swagger support for authentication must be configured.
+The authorization box above is created with the configuration below. It enables the user provide a JWT token to the requests that are sent through Swagger as a bearer token. <a class="read-more" href="/community/contributing/handbook/back-end/swagger/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+        
+
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
+            
+        
+    </footer>
+</article>
+<article class="post community">
+    <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/test/">Test</a></h2>
     </header>
     <section class="post-excerpt">
@@ -1311,27 +1334,6 @@ Each time we make a change to a package, we need to update the version of the pa
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/testing/">testing</a>
-            
-        
-    </footer>
-</article>
-<article class="post community">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/community/contributing/handbook/branching/">Branching</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Principles  Altinn Studio uses trunk-based development  This ensures the codebase is always releasable on demand and helps to make Continuous Delivery a reality.   Code is checked in using short living feature branches  naming standard for feature branches are feature/&lt;issueNumber&gt;-&lt;description&gt; , for instance: feature/1028-text-component naming standard for bug branches are bug/&lt;issueNumber&gt;-&lt;description&gt; , for instance: bug/877-performance-leak-ui-editor    Trunk Based Development Read more about trunk based development here. <a class="read-more" href="/community/contributing/handbook/branching/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-        
-
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/git/">git</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/branching/">branching</a>
             
         
     </footer>
