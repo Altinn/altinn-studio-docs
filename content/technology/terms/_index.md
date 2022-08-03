@@ -38,7 +38,7 @@ Norways E-Governement plattform. Launched december 4. 2003.
 Altinn Apps is the infrastructures for running apps developed in Altinn Studio.
 Each organisation that is using Altinn Studio will have their own Altinn Apps Kubernetes cluster, isolated from other organisations.
 
-See Altinn Apps [application architecture](/architecture/application/altinn-apps/) or [deployment architecture](/architecture/deployment/altinn-apps/).
+See Altinn Apps [application architecture](/technology/architecture/components/application/construction/altinn-apps) or [deployment architecture](/technology/architecture/capabilities/runtime/appdeploy).
 
 ## Altinn CLI
 

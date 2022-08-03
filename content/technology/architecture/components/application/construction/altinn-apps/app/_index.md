@@ -12,7 +12,7 @@ The app developer modifies and enhances the app
 with changing code and configuration in Altinn Studio or external devlopment tools like [Visual Studio Code](https://code.visualstudio.com/). 
 
 The application is built and deployed as a Docker container in a Kubernetes Pod to a Kubernetes cluster.
-See [deployment architecture](/technology/architecture/infrastructure/deployement/altinn-apps) for deployment details. 
+See [deployment architecture](/technology/architecture/capabilities/runtime/appdeploy) for deployment details.
 
 In the future Altinn Studio will support apps based on different templates. Currently we support the below template(s).
 

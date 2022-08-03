@@ -111,7 +111,7 @@ https://fraktguide.bring.no/fraktguide/api/postalCode.json?country=no&pnr={postn
  - Antall kall til Bring sitt API skal begrenses til maksimalt én gang om dager per postnummer
 
 ### Nyttig dokumentasjon
-[Konsumering av eksterne API](nb/app/development/api/consume)
+[Konsumering av eksterne API](/nb/app/development/api/consume)
 
 ### Forståelsessjekk
 - Med en _memorycache_ hvor mange ganger vil man maksimalt gjøre et API-kall i løpet av et døgn dersom applikasjonen kjører med tre replikas

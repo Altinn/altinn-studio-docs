@@ -80,7 +80,7 @@ Under arbeid... Her må det gjøres en større opprydding i filstrukturen.
 │  │  │        │     │     │    ├──{{<icon name="fa-folder-open">}} data-id...   
 │  │  ├──  {{<icon name="fa-folder-open">}} Workflow  
 │  │  │      └── {{<icon name="fa-code">}} workflow.bpmn ([BPMN]({{<ref "/technology/tools/bpmn">}}))  
-│  │  ├──  {{<icon name="fa-code">}} [AltinnService.csproj](altinnservice-projectfile)    
+│  │  ├──  {{<icon name="fa-code">}} [App.csproj](app-csproj)    
 │  │  ├──  {{<icon name="fa-code">}} config.json        
 │  │  ├──  .gitignore  
 │  │  ├──  LICENSE  

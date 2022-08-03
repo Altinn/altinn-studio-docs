@@ -41,7 +41,7 @@ There is a wish that one or more of the words "newcomer" and "Sogndal" is includ
 
 
 {{% expandlarge id="upload-datamodel" header="Upload data model" %}}
-The muncipality of Sogndal has created [a data model](app/app-dev-course/modul1/datamodel.xsd)
+The muncipality of Sogndal has created [a data model](datamodel.xsd)
 that represents data they wish to collect from future residents.
 
 {{% notice info %}}
@@ -52,9 +52,9 @@ edit it in for example Visual Studio or a text editing program of your own choos
 {{% /notice %}}
 
 
-1. [Download the xsd-file](/app/app-dev-course/modul1/datamodel.xsd), open it in a text editing program
+1. [Download the xsd-file](datamodel.xsd), open it in a text editing program
    and take a closer look at the contents.
-2. [Upload the data model in Altinn Studio](/nb/app/development/data/data-model/#laste-opp--vise-datamodell)
+2. [Upload the data model in Altinn Studio](/app/development/data/data-model/#upload--show-data-model)
 3. Push the changes to master and take a closer look at the files in the folder `App/models`
 
 
@@ -67,7 +67,7 @@ edit it in for example Visual Studio or a text editing program of your own choos
 - Some restrictions from the data model is not transferred to the _C#_-file, which ones? Some new properties has also been added, which ones?
 
 ### Useful documentation
-- [Upload data model in Altinn Studio](/app/development/data/data-model/#laste-opp--vise-datamodell)
+- [Upload data model in Altinn Studio](/app/development/data/data-model/#upload--show-data-model)
 - [Description of indicators in XSD](https://www.w3schools.com/xml/schema_complex_indicators.asp)
 
 {{% /expandlarge %}}
@@ -183,7 +183,7 @@ Moving on you will want to test your changes continuously in LocalTest.
 
 ### Useful documentation
 - [How to set up LocalTest](https://github.com/Altinn/altinn-studio/blob/master/LOCALAPP.md)
-- [Debugging of application](https://docs.altinn.studio/app/testing/local/debug/)
+- [Debugging of application](/app/testing/local/debug/)
 - [Available test-users in LocalTest](/nb/app/testing/local/testusers/)
 {{% /expandlarge %}}
 

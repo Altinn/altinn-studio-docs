@@ -10,7 +10,7 @@ Data processing can be purely mathematical calculations, or it could transfer va
 Data processing is coded in C#, in the file `DataProcessingHandler.cs`. This file can easily be edited by downloading the source code to the app and editing on your own computer, e.g. in Visual Studio Code.
 The data model with form data is available and can be edited/updated when needed.
 
-Data processing runs each time data is saved and when data is retrieved from API. With auto-save on (default) data processing will run each time a user has made a change and jumps out of a field.
+Data processing runs each time data is saved and when data is retrieved from API. With auto-save on (default) data processing will run each time a user has made a change.
 
 To ensure optimal experience and control, the application template has two different events where logic can be placed.
 

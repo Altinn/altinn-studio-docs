@@ -15,7 +15,7 @@ Calculations does not have to be purely mathematical, they can also transfer val
 Calculations are coded in C#, in the file `CalculationHandler.cs`. This file can be edited the easiest by downloading the source code of the app and editing it on your own computer, e.g. in Visual Studio Code.
 The data model with form data is available and can be edited/updated when needed.
 
-Calculations are run every time data is saved. With autosave on (default), calculations are run each time a user makes a change and jumps out of a field. 
+Calculations are run every time data is saved. With autosave on (default), calculations are run each time a user makes a change. 
 
 {{%notice info%}}
 IMPORTANT: When a calculation that has updated the data on the server has been run, the front-end must be notified so that the updated data can be loaded.

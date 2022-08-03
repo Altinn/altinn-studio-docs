@@ -6,7 +6,7 @@ weight: 1
 ---
 
 Felter i skjema kan settes opp til å bli del av en _gruppe_. Dette kan brukes til å f.eks. sette opp dynamikk på en enkelt gruppe av felter,
-i stedet for på hvert enkelt felt. I tillegg må felter kunnne grupperes for å støtte [repeterende grupper](#repeterende-grupper) i skjema.
+i stedet for på hvert enkelt felt. I tillegg må felter kunnne grupperes for å støtte [repeterende grupper](../repeating) i skjema.
 
 En gruppe settes opp i `FormLayout.json`, sammen med de andre komponentene i skjemaet. Dette kan enten gjøres manuelt direkte i filen,
 eller via skjemaeditor i Atinn Studio ved å bruke Gruppe-komponenten.
@@ -42,11 +42,11 @@ En gruppe defineres på følgende måte i FormLayout.json:
 ```
 
 | Parameter             | Påkrevd | Beskrivelse                                                                                                                               |
-| --------------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| --------------------- | ------- |-------------------------------------------------------------------------------------------------------------------------------------------|
 | id                    | Ja      | Unik ID, tilsvarer ID på andre komponenter. Må være unik i FormLayout.json-filen.                                                         |
 | type                  | Ja      | MÅ være "group". Sier at dette er en gruppe.                                                                                              |
 | dataModelBindings     | Nei     | MÅ være satt for repeterende grupper, med `group`-parameteren som i eksempelet over. Skal peke på den repeterende gruppen i datamodellen. |
-| textResourceBindings  | Nei     | Kan være satt for repeterende grupper, se [beskrivelse.](#textResourceBindings)                                                            |
+| textResourceBindings  | Nei     | Kan være satt for repeterende grupper, se [beskrivelse.](#textresourcebindings)                                                           |
 | maxCount              | Ja      | Antall ganger en gruppe kan repetere. Settes til `1` om gruppen ikke er repeterende.                                                      |
 | children              | Ja      | Liste over de feltene som skal inngå i gruppen. Her brukes felt-id fra FormLayout.json                                                    |
 | tableHeaders          | Nei     | Liste over komponentener som skal inngå som en del av tabbel header feltene. Om ikke spesifisert så vises alle komponentene.              |                                                           |

@@ -64,7 +64,7 @@ Konfigurasjonen av dette gjøres i `applicationmetadata.json`. Eksempel:
 }
 
 ```
-I feltet `onEntry.show` har man mulighet til nå å referere til et layout-set som man ønsker skal vises under oppstarten av applkasjonen. Les mer om layout-sets [her.](../../ux/ui-editor/multiple-layoutsets/#oppsett)
+I feltet `onEntry.show` har man mulighet til nå å referere til et layout-set som man ønsker skal vises under oppstarten av applkasjonen. Les mer om layout-sets [her.](../../ux/pages/layout-sets/#oppsett)
 
 Layout-settet man referer til her blir så benyttet som visningen brukeren blir presentert for i det man navigerer til applikasjonen.
 
@@ -190,7 +190,7 @@ public async Task<bool> ProcessDataRead(Instance instance, Guid? dataId, object 
 
 ## Autorisasjon med tredjepartsløsninger
 
-Tilgangsstyring for stateless applikasjoner kan løses med [standard app-autorisasjon](../authorisation) 
+Tilgangsstyring for stateless applikasjoner kan løses med [standard app-autorisasjon](../authorization) 
 der man hved hjelp av Altinn-roller definerer hvem som har tilgang til å benytte tjenesten.
 Dersom man har behov for ytteligere sikring av tjenesten kan man implementere logikk for autorisasjon av brukere med tredjepartløsninger.
 Dette kan være API-er som er eksponert innenfor egen virksomhet eller åpne API fra andre tilbydere.

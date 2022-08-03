@@ -278,10 +278,10 @@ fra Maskinporten til Altinn JWT ligger i Util/MaskinportenUtil.
 
 Eksterne aktører -- i første omgang primært Domstolene -- kan hente ut
 data via standardiserte Api fra Tjenester 3.0. Dette er beskrevet i
-[Storage API -- Altinn](https://docs.altinn.studio/api/storage/).
+[Storage API -- Altinn](/api/storage/).
 
 Det anbefales å benytte en hendelsesbasert innfallsvinkel til å hente ut
-data. Dette er beskrevet i [Integration & Data Transport Capabilties --Altinn](https://docs.altinn.studio/technology/architecture/capabilities/runtime/integration/).
+data. Dette er beskrevet i [Integration & Data Transport Capabilties --Altinn](/technology/architecture/capabilities/runtime/integration/).
 
 Det finnes tilgjengelige data fra hver app. Det antas at Domstolene i
 første omgang vil hente data fra skjema app'ene. Avdøde vil være
