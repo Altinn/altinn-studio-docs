@@ -118,8 +118,8 @@ if(host != "localhost")
 </script>
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
-      <li class="dd-item parent">
-        <a href="/nb/app/"><span>Lage apper</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/"><span>Lage apper</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/app/getting-started/"><span>Kom i gang</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -172,16 +172,16 @@ if(host != "localhost")
         <a href="/nb/app/app-dev-course/modul7/"><span>Modul 7</span></a></li>
       <li class="dd-item">
         <a href="/nb/app/app-dev-course/losningsforslag/"><span>Løsningsforslag</span></a></li></ul></li>
-      <li class="dd-item parent">
-        <a href="/nb/app/design/"><span>Design</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/design/"><span>Design</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/app/design/insight/"><span>Innsiktsfase</span></a></li>
       <li class="dd-item">
         <a href="/nb/app/design/prototype/"><span>Prototype</span></a></li>
       <li class="dd-item">
         <a href="/nb/app/design/usertest/"><span>Brukertest</span></a></li>
-      <li class="dd-item parent">
-        <a href="/nb/app/design/guidelines/"><span>Retningslinjer</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/design/guidelines/"><span>Retningslinjer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/app/design/guidelines/design-principles/"><span>Designprinsipper</span></a></li>
       <li class="dd-item">
@@ -216,7 +216,7 @@ if(host != "localhost")
         <a href="/nb/app/design/guidelines/components/picture-component/"><span>Bilde</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/app/design/guidelines/tone-of-voice/"><span>Språk</span></a></li>
-      <li class="dd-item parent active">
+      <li class="dd-item">
         <a href="/nb/app/design/guidelines/wcag/"><span>Tilgjengelighet</span></a></li></ul></li></ul></li>
       <li class="dd-item">
         <a href="/nb/app/development/"><span>Utvikling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
@@ -381,7 +381,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/app/launched-apps/digdir/be-om-api-nokkel/"><span>Tilgang til REST API</span></a></li></ul></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/nb/api/"><span>API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -543,7 +543,13 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/nb/app/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/app/design/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/app/design/guidelines/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/app/design/guidelines/wcag/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -563,12 +569,7 @@ if(host != "localhost")
     <li><a href="#hvordan-teste">Hvordan teste</a></li>
     <li><a href="#kontrast">Kontrast</a></li>
   </ul>
-</nav>
-
-
-
-
-<p>Forskrift om universell utforming av IKT-løsninger stiller krav om at nettsider må oppfylle 35 av 61 suksesskriterier 
+</nav><p>Forskrift om universell utforming av IKT-løsninger stiller krav om at nettsider må oppfylle 35 av 61 suksesskriterier 
 i standarden <a href="https://www.w3.org/Translations/WCAG20-no/">Retningslinjer for tilgjengelig webinnhold (WCAG) 2.0</a>. Sjekk 
 ut <a href="https://www.uutilsynet.no/wcag-standarden/wcag-20-standarden/86">minimumskravene</a> på UU-tilsynet som er omfattet 
 av forskriften.</p>
@@ -662,19 +663,10 @@ mens AAA er anbefalt, særlig for løpende tekst.</p>
     </div>
 </div>
 
-<footer class=" footline" >
-	
-</footer>
-
-
-
-
-
+<footer class=" footline" ></footer>
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/nb/app/design/guidelines/tone-of-voice/" title="Språk"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/nb/app/development/" title="Utvikling" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/app/design/guidelines/wcag/_index.nb.md" target="blank">
@@ -736,3 +728,4 @@ mens AAA er anbefalt, særlig for løpende tekst.</p>
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

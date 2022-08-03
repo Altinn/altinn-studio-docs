@@ -420,7 +420,7 @@ if(host != "localhost")
         <a href="/api/storage/spec/"><span>OpenAPI</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
-      <li class="dd-item parent">
+      <li class="dd-item">
         <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
@@ -428,7 +428,7 @@ if(host != "localhost")
         <a href="/community/about/goals/"><span>Goals</span></a></li>
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
-      <li class="dd-item parent">
+      <li class="dd-item">
         <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
@@ -436,7 +436,7 @@ if(host != "localhost")
         <a href="/community/contributing/develop-component/"><span>Develop a component</span></a></li><li class="dd-item">
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
-      <li class="dd-item parent">
+      <li class="dd-item">
         <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
@@ -506,22 +506,22 @@ if(host != "localhost")
         <a href="/community/contributing/handbook/postgres/"><span>PostgreSQL</span></a></li>
       <li class="dd-item">
         <a href="/community/contributing/handbook/rest/"><span>RESTful APIs (Representation State Transfer)</span></a></li>
-      <li class="dd-item parent">
-        <a href="/community/contributing/handbook/routing/"><span>Routing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/routing/"><span>Routing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/nginx/"><span>Nginx routing</span></a></li>
-      <li class="dd-item parent">
-        <a href="/community/contributing/handbook/routing/traefik/"><span>Traefik routing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/routing/traefik/"><span>Traefik routing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/installation/"><span>Installation of Traefik 2.0</span></a></li>
-      <li class="dd-item parent active">
+      <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/tls-configuration/"><span>TLS in Traefik 2.0</span></a></li>
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/custom-resources/"><span>Traefik custom resources</span></a></li>
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -1075,7 +1075,15 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/community/']").parent().addClass("parent");
+ $("li.dd-item a[href='/community/contributing/']").parent().addClass("parent");
+ $("li.dd-item a[href='/community/contributing/handbook/']").parent().addClass("parent");
+ $("li.dd-item a[href='/community/contributing/handbook/routing/']").parent().addClass("parent");
+ $("li.dd-item a[href='/community/contributing/handbook/routing/traefik/']").parent().addClass("parent");
+ $("li.dd-item a[href='/community/contributing/handbook/routing/traefik/tls-configuration/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1089,12 +1097,7 @@ if(host != "localhost")
                 <span class="links"><a href='/community/'>Community</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/community/contributing/'>Contributing</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/community/contributing/handbook/'>Handbook</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/community/contributing/handbook/routing/'>Routing</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/community/contributing/handbook/routing/traefik/'>Traefik routing</a> <span class='adocs-breadcrumb-divider'> / </span> TLS in Traefik 2.0</span>
             </div>
           </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/development">development</a><a class="label label-default" href="https://docs.altinn.studio/tags/routing">routing</a><a class="label label-default" href="https://docs.altinn.studio/tags/traefik">traefik</a><a class="label label-default" href="https://docs.altinn.studio/tags/tls">tls</a></div><div id="body-inner"><h1 class="a-fontBold">TLS in Traefik 2.0</h1>
-              <p class="a-leadText" id="leadText">How to set up TLS</p>
-
-
-
-
-<h4 id="tls-sertificates-stored-as-secrets-on-the-cluster">TLS sertificates stored as secrets on the cluster</h4>
+              <p class="a-leadText" id="leadText">How to set up TLS</p><h4 id="tls-sertificates-stored-as-secrets-on-the-cluster">TLS sertificates stored as secrets on the cluster</h4>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#ff79c6">apiVersion</span>: v1
 <span style="color:#ff79c6">kind</span>: Secret
 <span style="color:#ff79c6">metadata</span>:
@@ -1136,19 +1139,10 @@ a <code>options</code>-attribute with the name of the TLSOption we made and the 
       <span style="color:#ff79c6">namespace</span>: default
 </code></pre></div>
 
-<footer class=" footline" >
-	
-</footer>
-
-
-
-
-
+<footer class=" footline" ></footer>
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/community/contributing/handbook/routing/traefik/installation/" title="Installation of Traefik 2.0"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/community/contributing/handbook/routing/traefik/custom-resources/" title="Traefik custom resources" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/community/contributing/handbook/routing/traefik/tls-configuration/_index.md" target="blank">
@@ -1210,3 +1204,4 @@ a <code>options</code>-attribute with the name of the TLSOption we made and the 
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

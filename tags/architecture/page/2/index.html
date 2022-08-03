@@ -421,7 +421,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -429,7 +429,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -437,7 +437,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -521,7 +521,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -1075,7 +1075,11 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/tags/']").parent().addClass("parent");
+ $("li.dd-item a[href='/tags/architecture/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1091,20 +1095,7 @@ if(host != "localhost")
           </div><div id="body-inner"><h1 class="a-fontBold">architecture</h1>
               <p class="a-leadText" id="leadText"></p>
 
-
-
-
-
-
-<footer class=" footline" >
-	
-</footer>
-
-
-
-	
-
-	<div class="extra-pagination inner">
+<footer class=" footline" ></footer><div class="extra-pagination inner">
 	<nav class="pagination" role="navigation">
 	
 	    <a class="newer-posts" href="/tags/architecture/">&larr; Previous Pages</a>
@@ -1115,37 +1106,24 @@ if(host != "localhost")
 	
 </nav>
 
-	</div>
-
-	
-	   <article class="post technology">
+	</div><article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/">Application Components</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Solution-Specific (functional) Application ComponentsSolution-Specific (Functional) Application Components describes the different applications and their functional components. It does not go in to detail about technology.
-Application Construction ComponentsApplication Construction Components refers to the required components and configurations needed to create the different applications in the different solutions.
-Non-Solution-SpecificNon-Solution-Specific Application components refer to all components other than the core solution or solution-specific Application typical used for devops. <a class="read-more" href="/technology/architecture/components/application/">&raquo;</a></p>
+        <p>&lt;li&gt;&lt;a href=&quot;/technology/architecture/components/application/solution/&quot;&gt;Solution-Specific (functional) Application Components&lt;/a&gt;&lt;p&gt;Solution-Specific (Functional) Application Components describes the different applications and their functional components. It does not go in to detail about technology.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/technology/architecture/components/application/construction/&quot;&gt;Application Construction Components&lt;/a&gt;&lt;p&gt;Application Construction Components refers to the required components and configurations needed to create the different applications in the different solutions.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/technology/architecture/components/application/nonsolutionspecific/&quot;&gt;Non-Solution-Specific&lt;/a&gt;&lt;p&gt;Non-Solution-Specific Application components refer to all components other than the core solution or solution-specific Application typical used for devops. <a class="read-more" href="/technology/architecture/components/application/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/capabilities/devops/">Development &amp; Operations Capabilties</a></h2>
     </header>
@@ -1156,13 +1134,11 @@ This documentation currently focuses on the capabilities that can be shared and 
 See below for a capability map and the different DevOps capability areas.
 
 Full screen
-Analysis &amp; Design CapabilitiesAnalysis &amp; Design Capabilities are the capabilities needed to analyze needs and design solutions and applications for the Altinn 3 platform. <a class="read-more" href="/technology/architecture/capabilities/devops/">&raquo;</a></p>
+ &lt;li&gt;&lt;a href=&quot;/technology/architecture/capabilities/devops/analysisanddesign/&quot;&gt;Analysis &amp;amp; Design Capabilities&lt;/a&gt;&lt;p&gt;Analysis &amp;amp; Design Capabilities are the capabilities needed to analyze needs and design solutions and applications for the Altinn 3 platform. <a class="read-more" href="/technology/architecture/capabilities/devops/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1170,15 +1146,9 @@ Full screen
                 <a class="label label-default" href="https://docs.altinn.studio/tags/devops/">devops</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/solution/">Solution-Specific (functional) Application Components</a></h2>
     </header>
@@ -1188,10 +1158,8 @@ Full screen
 Full screen | Visio <a class="read-more" href="/technology/architecture/components/application/solution/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
@@ -1199,15 +1167,9 @@ Full screen | Visio <a class="read-more" href="/technology/architecture/componen
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/solution/altinn-platform/authentication/">Application architecture authentication component - Altinn Platform</a></h2>
     </header>
@@ -1217,10 +1179,8 @@ Authenticate user The authentication resource enables authenticating a user and 
 GET /authentication?goto={url} Refresh a valid JwtToken GET /refresh Exchange a JWT token from an external token provider Accepted providers include: maskinporten and id-porten. Request must include a bearer token in the authorization header. <a class="read-more" href="/technology/architecture/components/application/solution/altinn-platform/authentication/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1228,43 +1188,27 @@ GET /authentication?goto={url} Refresh a valid JwtToken GET /refresh Exchange a 
                 <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/construction/">Application Construction Components</a></h2>
     </header>
     <section class="post-excerpt">
         <p>It also describes the internal frameworks used in the different applications and how they consume and produce data.
-Application construction components Altinn StudioThe application construction components for Altinn Studio includes all components uses to create the Altinn Studio Applications.
-Application construction components for Altinn AppsApplication created in Altinn Studio is deployed to Altinn Apps.
-Application construction components for Altinn PlatformAltinn Platform consist of serveral components that is constructed with help of different frameworks and components. <a class="read-more" href="/technology/architecture/components/application/construction/">&raquo;</a></p>
+ &lt;li&gt;&lt;a href=&quot;/technology/architecture/components/application/construction/altinn-studio/&quot;&gt;Application construction components Altinn Studio&lt;/a&gt;&lt;p&gt;The application construction components for Altinn Studio includes all components uses to create the Altinn Studio Applications.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/technology/architecture/components/application/construction/altinn-apps/&quot;&gt;Application construction components for Altinn Apps&lt;/a&gt;&lt;p&gt;Application created in Altinn Studio is deployed to Altinn Apps.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/technology/architecture/components/application/construction/altinn-platform/&quot;&gt;Application construction components for Altinn Platform&lt;/a&gt;&lt;p&gt;Altinn Platform consist of serveral components that is constructed with help of different frameworks and components. <a class="read-more" href="/technology/architecture/components/application/construction/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/solution/altinn-platform/authorization/">Altinn Platform - Authorization</a></h2>
     </header>
@@ -1276,10 +1220,8 @@ The following diagram describes the different solution components that provide A
 This architecture defines the following components. <a class="read-more" href="/technology/architecture/components/application/solution/altinn-platform/authorization/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1287,28 +1229,18 @@ This architecture defines the following components. <a class="read-more" href="/
                 <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/nonsolutionspecific/">Non-Solution-Specific</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Development ApplicationsDevelopment Applications are used by the devops team to support the different development capabilities required.
-Operations ApplicationOperations Applications are used by the devops team for supporting the different operation and management capabilities required
- <a class="read-more" href="/technology/architecture/components/application/nonsolutionspecific/">&raquo;</a></p>
+        <p> &lt;li&gt;&lt;a href=&quot;/technology/architecture/components/application/nonsolutionspecific/development/&quot;&gt;Development Applications&lt;/a&gt;&lt;p&gt;Development Applications are used by the devops team to support the different development capabilities required.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/technology/architecture/components/application/nonsolutionspecific/operations/&quot;&gt;Operations Application&lt;/a&gt;&lt;p&gt;Operations Applications are used by the devops team for supporting the different operation and management capabilities required&lt;/p&gt;&lt;/li&gt;  <a class="read-more" href="/technology/architecture/components/application/nonsolutionspecific/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
@@ -1316,15 +1248,9 @@ This architecture defines the following components. <a class="read-more" href="/
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/solution/altinn-platform/events/">Application architecture Events component - Altinn Platform</a></h2>
     </header>
@@ -1337,10 +1263,8 @@ Instances events for Org Endpoint GET path: platform.altinn.no/events/api/v1/app
 Authorization We will use scopes from Maskinporten to authorize access. <a class="read-more" href="/technology/architecture/components/application/solution/altinn-platform/events/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1348,15 +1272,9 @@ Authorization We will use scopes from Maskinporten to authorize access. <a class
                 <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/solution/altinn-platform/profile/">Application arhicture profile component - Altinn Platform</a></h2>
     </header>
@@ -1368,10 +1286,8 @@ Resources: users
 User type    Attribute Type Description     UserId int user ID   UserName string username set by the user   PhoneNumber string phone number   Email string email address   PartyId int party ID   Party Party party object that represents the user   UserType UserType user type   ProfileSettingPreference ProfileSettingPreference object containing the users profile setting preferences    Operations Get information about a user from user id: <a class="read-more" href="/technology/architecture/components/application/solution/altinn-platform/profile/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1379,15 +1295,9 @@ User type    Attribute Type Description     UserId int user ID   UserName string
                 <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/solution/altinn-platform/register/">Application arhicture register component - Altinn Platform</a></h2>
     </header>
@@ -1399,10 +1309,8 @@ Resource: Organizations, Parties, Persons
 Organization type    Attribute Type Description     OrgNumber string the organisation number nine digits   Name string the registered name of the organisation   UnitType string    TelephoneNumber string the telephone number   MobileNumber string the mobile number   FaxNumber string the fax number   EMailAddress string the email adress   InternetAddress string the url for a web site   MailingAddress string the adress for sending mail to the organisation   MailingPostalCode string the postal code for sending mail to the organisation   MailingPostalCity string the city for sending mail to the organisation   BusinessAddress string the address of the daily business   BusinessPostalCode string the postal code for the daily business   BusinessPostalCity string the city for the daily business    Operations GET /organizations/{orgNr} /persons Person type    Attribute Type Description     SSN string Social security number   Name string the person&rsquo;s full name   FirstName string the person&rsquo;s first name   MiddleName string the person&rsquo;s middle name   LastName string the person&rsquo;s last name   TelephoneNumber string telephone number   MobileNumber string mobile number   MailingAddress string mailing address   MailingPostalCode string mailing postal code   MailingPostalCity string mailing postal city   AddressMunicipalNumber string adress municipal number   AddressMunicipalName string adress municipal name   AddressHouseNumber string address house number   AddressHouseLetter string address house letter   AddressPostalCode string address postal code   AddressCity string adress city    Operations Get information about a person: Send a GET-request with the persons SSN contained in the request body to <a class="read-more" href="/technology/architecture/components/application/solution/altinn-platform/register/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1410,16 +1318,9 @@ Organization type    Attribute Type Description     OrgNumber string the organis
                 <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-
-	<div style="margin-bottom:2rem"></div>
+<div style="margin-bottom:2rem"></div>
 
 	<nav class="pagination" role="navigation">
 	
@@ -1431,14 +1332,9 @@ Organization type    Attribute Type Description     OrgNumber string the organis
 	
 </nav>
 
-
-
-
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/technology/tools/vs-code/" title="Visual Studio Code"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/app/" title="Create apps" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div></section>
         </div> 
@@ -1495,3 +1391,4 @@ Organization type    Attribute Type Description     OrgNumber string the organis
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

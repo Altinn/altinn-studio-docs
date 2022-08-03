@@ -118,8 +118,8 @@ if(host != "localhost")
 </script>
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
-      <li class="dd-item parent">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -152,8 +152,8 @@ if(host != "localhost")
         <a href="/app/getting-started/navigation/code/"><span>Code</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/app/getting-started/local-dev/"><span>Local development</span></a></li></ul></li>
-      <li class="dd-item parent">
-        <a href="/app/app-dev-course/"><span>Intro course</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/app-dev-course/"><span>Intro course</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/app-dev-course/case/"><span>Case</span></a></li>
       <li class="dd-item">
@@ -164,7 +164,7 @@ if(host != "localhost")
         <a href="/app/app-dev-course/modul3/"><span>Module 3</span></a></li>
       <li class="dd-item">
         <a href="/app/app-dev-course/modul4/"><span>Module 4</span></a></li>
-      <li class="dd-item parent active">
+      <li class="dd-item">
         <a href="/app/app-dev-course/modul5/"><span>Module 5</span></a></li>
       <li class="dd-item">
         <a href="/app/app-dev-course/modul6/"><span>Module 6</span></a></li>
@@ -429,7 +429,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -437,7 +437,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -445,7 +445,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -529,7 +529,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -1083,7 +1083,12 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/app/']").parent().addClass("parent");
+ $("li.dd-item a[href='/app/app-dev-course/']").parent().addClass("parent");
+ $("li.dd-item a[href='/app/app-dev-course/modul5/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1097,12 +1102,7 @@ if(host != "localhost")
                 <span class="links"><a href='/app/'>Create apps</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/app-dev-course/'>Intro course</a> <span class='adocs-breadcrumb-divider'> / </span> Module 5</span>
             </div>
           </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/apps">apps</a><a class="label label-default" href="https://docs.altinn.studio/tags/training">training</a><a class="label label-default" href="https://docs.altinn.studio/tags/process">process</a><a class="label label-default" href="https://docs.altinn.studio/tags/policy">policy</a><a class="label label-default" href="https://docs.altinn.studio/tags/autorisasjon">autorisasjon</a><a class="label label-default" href="https://docs.altinn.studio/tags/confirmation">confirmation</a><a class="label label-default" href="https://docs.altinn.studio/tags/bekreftelsessteg">bekreftelsessteg</a><a class="label label-default" href="https://docs.altinn.studio/tags/validering">validering</a></div><div id="body-inner"><h1 class="a-fontBold">Module 5</h1>
-              <p class="a-leadText" id="leadText">Legge til bekreftelsessteg</p>
-
-
-
-
-<p>In this module you are adding a process step in the application.</p>
+              <p class="a-leadText" id="leadText">Legge til bekreftelsessteg</p><p>In this module you are adding a process step in the application.</p>
 <p><strong>Topics covered in this module:</strong></p>
 <ul>
 <li>Process</li>
@@ -1259,19 +1259,10 @@ and you should be able to test the new process step and confirm that the view is
 <figure><a href="/app/app-dev-course/modul5/bekreftelsesside-screenshot.png"><img src="/app/app-dev-course/modul5/bekreftelsesside-screenshot.png" alt="Screenshot of confirmation page" title="Screenshot of confirmation page" /></a><figcaption><h4>Screenshot of confirmation page</h4></figcaption></figure>
 
 
-<footer class=" footline" >
-	
-</footer>
-
-
-
-
-
+<footer class=" footline" ></footer>
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/app/app-dev-course/modul4/" title="Module 4"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/app/app-dev-course/modul6/" title="Module 6" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/app/app-dev-course/modul5/_index.en.md" target="blank">
@@ -1333,3 +1324,4 @@ and you should be able to test the new process step and confirm that the view is
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

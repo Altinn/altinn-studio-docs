@@ -118,8 +118,8 @@ if(host != "localhost")
 </script>
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
-      <li class="dd-item parent">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -218,8 +218,8 @@ if(host != "localhost")
         <a href="/app/design/guidelines/tone-of-voice/"><span>Language</span></a></li>
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
-      <li class="dd-item parent">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -290,8 +290,8 @@ if(host != "localhost")
         <a href="/app/development/logic/services/"><span>Services</span></a></li>
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
-      <li class="dd-item parent">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -318,7 +318,7 @@ if(host != "localhost")
         <a href="/app/development/configuration/queryparameters/"><span>Query parameters</span></a></li>
       <li class="dd-item">
         <a href="/app/development/configuration/secrets/"><span>Secrets</span></a></li>
-      <li class="dd-item parent active">
+      <li class="dd-item">
         <a href="/app/development/configuration/eformidling/"><span>eFormidling</span></a></li>
       <li class="dd-item">
         <a href="/app/development/configuration/events/"><span>Events</span></a></li>
@@ -429,7 +429,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -437,7 +437,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -445,7 +445,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -529,7 +529,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -1083,7 +1083,13 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/app/']").parent().addClass("parent");
+ $("li.dd-item a[href='/app/development/']").parent().addClass("parent");
+ $("li.dd-item a[href='/app/development/configuration/']").parent().addClass("parent");
+ $("li.dd-item a[href='/app/development/configuration/eformidling/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1107,12 +1113,7 @@ if(host != "localhost")
     <li><a href="#testing-eformidling-integration-locally">Testing eFormidling integration locally</a></li>
     <li><a href="#testing-eformidling-integration-in-a-test-environment">Testing eFormidling integration in a test environment</a></li>
   </ul>
-</nav>
-
-
-
-
-<h2 id="activate-eformidling-integration-for-your-application">Activate eFormidling integration for your application</h2>
+</nav><h2 id="activate-eformidling-integration-for-your-application">Activate eFormidling integration for your application</h2>
 <div class="notices info" >
 Nuget versions >= 4.22.0 are required for your application to support eFormidling.
 [See how to update the nuget references of your application here](../update/#nuget-pakker).
@@ -1366,19 +1367,10 @@ vil cause the shipment to fail without explicit warning the end user or app owne
 <p>Replace <code>{instanceGuid}</code> with the guid of the instance that has been archived.</p>
 
 
-<footer class=" footline" >
-	
-</footer>
-
-
-
-
-
+<footer class=" footline" ></footer>
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/app/development/configuration/secrets/" title="Secrets"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/app/development/configuration/events/" title="Events" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/app/development/configuration/eformidling/_index.en.md" target="blank">
@@ -1440,3 +1432,4 @@ vil cause the shipment to fail without explicit warning the end user or app owne
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

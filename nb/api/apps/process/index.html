@@ -380,10 +380,10 @@ if(host != "localhost")
         <a href="/nb/app/launched-apps/digdir/oed/"><span>Oppgjør etter dødsfall</span></a></li>
       <li class="dd-item">
         <a href="/nb/app/launched-apps/digdir/be-om-api-nokkel/"><span>Tilgang til REST API</span></a></li></ul></li></ul></li></ul></li>
-      <li class="dd-item parent">
+      <li class="dd-item">
         <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
-      <li class="dd-item parent">
-        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/metadata/"><span>Metadata</span></a></li>
       <li class="dd-item">
@@ -394,7 +394,7 @@ if(host != "localhost")
         <a href="/nb/api/apps/data-elements/tags/"><span>Tags</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/api/apps/stateless-data-elements/"><span>Tilstandsløse data</span></a></li>
-      <li class="dd-item parent active">
+      <li class="dd-item">
         <a href="/nb/api/apps/process/"><span>Prosess</span></a></li>
       <li class="dd-item">
         <a href="/nb/api/apps/validation/"><span>Validering</span></a></li>
@@ -543,7 +543,12 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/nb/api/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/api/apps/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/api/apps/process/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -569,12 +574,7 @@ if(host != "localhost")
     <li><a href="#get-the-next-tasks-in-a-process">Get the next tasks in a process</a></li>
     <li><a href="#start-a-task">Start a task</a></li>
   </ul>
-</nav>
-
-
-
-
-<h2 id="overview">Overview</h2>
+</nav><h2 id="overview">Overview</h2>
 <p>All apps have a process definition that specifies start events, end events, tasks and the allowed flows (transitions) between these.
 A process is started by the application, which selects a start event to start and follows the sequence flow to the first task and
 creates a current task object to hold the process state.</p>
@@ -740,19 +740,10 @@ Notice that same task can be visited multiple times in a process if there is a s
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/next?id=Task_2
 </code></pre></div>
 
-<footer class=" footline" >
-	
-</footer>
-
-
-
-
-
+<footer class=" footline" ></footer>
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/nb/api/apps/stateless-data-elements/" title="Tilstandsløse data"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/nb/api/apps/validation/" title="Validering" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/api/apps/process/_index.nb.md" target="blank">
@@ -814,3 +805,4 @@ Notice that same task can be visited multiple times in a process if there is a s
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

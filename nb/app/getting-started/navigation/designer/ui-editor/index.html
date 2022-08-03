@@ -118,10 +118,10 @@ if(host != "localhost")
 </script>
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
-      <li class="dd-item parent">
-        <a href="/nb/app/"><span>Lage apper</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
-      <li class="dd-item parent">
-        <a href="/nb/app/getting-started/"><span>Kom i gang</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/"><span>Lage apper</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/"><span>Kom i gang</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/app/getting-started/intro/"><span>Introduksjon</span></a></li>
       <li class="dd-item">
@@ -134,11 +134,11 @@ if(host != "localhost")
         <a href="/nb/app/getting-started/create-app/"><span>Opprette app</span></a></li>
       <li class="dd-item">
         <a href="/nb/app/getting-started/migrate-services/"><span>Migrere tjenester</span></a></li>
-      <li class="dd-item parent">
-        <a href="/nb/app/getting-started/navigation/"><span>Navigasjon</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
-      <li class="dd-item parent">
-        <a href="/nb/app/getting-started/navigation/designer/"><span>Designer</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
-      <li class="dd-item parent active">
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/navigation/"><span>Navigasjon</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/navigation/designer/"><span>Designer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
         <a href="/nb/app/getting-started/navigation/designer/ui-editor/"><span>UI editor</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/app/getting-started/navigation/repos/"><span>Repos</span></a></li>
@@ -381,7 +381,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/app/launched-apps/digdir/be-om-api-nokkel/"><span>Tilgang til REST API</span></a></li></ul></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/nb/api/"><span>API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -543,7 +543,14 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/nb/app/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/app/getting-started/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/app/getting-started/navigation/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/app/getting-started/navigation/designer/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/app/getting-started/navigation/designer/ui-editor/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -563,12 +570,7 @@ if(host != "localhost")
     <li><a href="#bruke-skjemakomponenter">Bruke skjemakomponenter</a></li>
     <li><a href="#redigere-egenskapene-til-komponentene">Redigere egenskapene til komponentene</a></li>
   </ul>
-</nav>
-
-
-
-
-<h2 id="bygge-et-skjema-ved-bruk-av-ui-editor">Bygge et skjema ved bruk av UI editor</h2>
+</nav><h2 id="bygge-et-skjema-ved-bruk-av-ui-editor">Bygge et skjema ved bruk av UI editor</h2>
 <p>UI Editor er tilgjengelig i fanen <em>Lage</em> når man er inne i en app i Altinn Studio.</p>
 <figure><a href="ui-editor.png"><img src="ui-editor.png" alt="UI editor" title="UI editor" /></a><figcaption><h4>UI editor</h4></figcaption></figure>
 <h2 id="bruke-skjemakomponenter">Bruke skjemakomponenter</h2>
@@ -588,19 +590,10 @@ MERK: UI-editoren og kompoentene er under utvikling. Det vil derfor være period
 </ul>
 
 
-<footer class=" footline" >
-	
-</footer>
-
-
-
-
-
+<footer class=" footline" ></footer>
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/nb/app/getting-started/navigation/designer/" title="Designer"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/nb/app/getting-started/navigation/repos/" title="Repos" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/app/getting-started/navigation/designer/ui-editor/_index.nb.md" target="blank">
@@ -662,3 +655,4 @@ MERK: UI-editoren og kompoentene er under utvikling. Det vil derfor være period
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

@@ -380,17 +380,17 @@ if(host != "localhost")
         <a href="/nb/app/launched-apps/digdir/oed/"><span>Oppgjør etter dødsfall</span></a></li>
       <li class="dd-item">
         <a href="/nb/app/launched-apps/digdir/be-om-api-nokkel/"><span>Tilgang til REST API</span></a></li></ul></li></ul></li></ul></li>
-      <li class="dd-item parent">
+      <li class="dd-item">
         <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
-      <li class="dd-item parent">
-        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/metadata/"><span>Metadata</span></a></li>
       <li class="dd-item">
         <a href="/nb/api/apps/instances/"><span>Instanser</span></a></li>
-      <li class="dd-item parent">
-        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
-      <li class="dd-item parent active">
+      <li class="dd-item">
+        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
         <a href="/nb/api/apps/data-elements/tags/"><span>Tags</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/api/apps/stateless-data-elements/"><span>Tilstandsløse data</span></a></li>
@@ -543,7 +543,13 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/nb/api/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/api/apps/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/api/apps/data-elements/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/api/apps/data-elements/tags/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -564,12 +570,7 @@ if(host != "localhost")
     <li><a href="#legge-til-tag">Legge til tag</a></li>
     <li><a href="#slett-tag">Slett tag</a></li>
   </ul>
-</nav>
-
-
-
-
-<h2 id="oversikt">Oversikt</h2>
+</nav><h2 id="oversikt">Oversikt</h2>
 <p>API&rsquo;et for tags (stikkord) på data elementer har endepunkter for å liste ut tags, legge til en tag, samt sletting av tag.</p>
 <p><strong>baseSti</strong></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">{org}/{appname}/instances/{instanceOwnerPartyId}/{instanceGuid}/data/{dataGuid}/
@@ -591,19 +592,10 @@ Content-Type: application/json
 </code></pre></div><p>Svaret vil gi http status kode 204 hvis operasjonen lykkes.</p>
 
 
-<footer class=" footline" >
-	
-</footer>
-
-
-
-
-
+<footer class=" footline" ></footer>
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/nb/api/apps/data-elements/" title="Data-elementer"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/nb/api/apps/stateless-data-elements/" title="Tilstandsløse data" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/api/apps/data-elements/tags/_index.nb.md" target="blank">
@@ -665,3 +657,4 @@ Content-Type: application/json
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

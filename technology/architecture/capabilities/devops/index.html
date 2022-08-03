@@ -421,7 +421,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -429,7 +429,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -437,7 +437,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -521,7 +521,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -640,10 +640,10 @@ if(host != "localhost")
         <a href="/community/devops/teams/studio/"><span>Studio</span></a></li></ul></li></ul></li>
       <li class="dd-item">
         <a href="/community/presentations/"><span>Presentations</span></a></li></ul></li>
-      <li class="dd-item parent">
-        <a href="/technology/"><span>Technology</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
-      <li class="dd-item parent">
-        <a href="/technology/architecture/"><span>Architecture</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/"><span>Technology</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/"><span>Architecture</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/technology/architecture/requirements/"><span>Requirements</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -654,8 +654,8 @@ if(host != "localhost")
         <a href="/technology/architecture/principles/"><span>Principles</span></a></li>
       <li class="dd-item">
         <a href="/technology/architecture/patterns/"><span>Patterns</span></a></li>
-      <li class="dd-item parent">
-        <a href="/technology/architecture/capabilities/"><span>Capabilities</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/capabilities/"><span>Capabilities</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/technology/architecture/capabilities/runtime/"><span>Runtime</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -694,8 +694,8 @@ if(host != "localhost")
         <a href="/technology/architecture/capabilities/runtime/security/authorization/"><span>Authorization</span></a></li>
       <li class="dd-item">
         <a href="/technology/architecture/capabilities/runtime/security/encryption/"><span>Encryption</span></a></li></ul></li></ul></li>
-      <li class="dd-item parent active">
-        <a href="/technology/architecture/capabilities/devops/"><span>DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/capabilities/devops/"><span>DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/technology/architecture/capabilities/devops/analysisanddesign/"><span>Analysis &amp; Design</span></a></li>
       <li class="dd-item">
@@ -1075,7 +1075,13 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/technology/']").parent().addClass("parent");
+ $("li.dd-item a[href='/technology/architecture/']").parent().addClass("parent");
+ $("li.dd-item a[href='/technology/architecture/capabilities/']").parent().addClass("parent");
+ $("li.dd-item a[href='/technology/architecture/capabilities/devops/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1089,62 +1095,43 @@ if(host != "localhost")
                 <span class="links"><a href='/technology/'>Technology</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/technology/architecture/'>Architecture</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/technology/architecture/capabilities/'>Capabilities</a> <span class='adocs-breadcrumb-divider'> / </span> DevOps</span>
             </div>
           </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/architecture">architecture</a><a class="label label-default" href="https://docs.altinn.studio/tags/devops">devops</a></div><div id="body-inner"><h1 class="a-fontBold">Development &amp; Operations Capabilties</h1>
-              <p class="a-leadText" id="leadText">The development &amp; operations architecture capabilities list the capabilities used to develop and operate the Altinn 3 platform including Altinn Studio, Altinn Apps, and Altinn Platform.</p>
-
-
-
-
-<p>It covers the full spectrum of capabilities starting from development, going through a transition to operations, and ending with operations it-self.</p>
+              <p class="a-leadText" id="leadText">The development &amp; operations architecture capabilities list the capabilities used to develop and operate the Altinn 3 platform including Altinn Studio, Altinn Apps, and Altinn Platform.</p><p>It covers the full spectrum of capabilities starting from development, going through a transition to operations, and ending with operations it-self.</p>
 <p>Each capability consists of people, the procedures they follow, and the software and hardware tools they use.</p>
 <p>This documentation currently focuses on the capabilities that can be shared and reused by others.</p>
 <p>See below for a capability map and the different DevOps capability areas.</p>
 <p><object data="devops_capabilities.svg" type="image/svg+xml" style="width: 100%;"></object></p>
 <p><a href="devops_capabilities.svg">Full screen</a></p>
 <ul class="children children-li js-moveChildrenFrom">
-<li>
-<a href="/technology/architecture/capabilities/devops/analysisanddesign/" >Analysis &amp; Design Capabilities</a>
-<p>Analysis &amp; Design Capabilities are the capabilities needed to analyze needs and design solutions and applications for the Altinn 3 platform.</p>
-</li>
-<li>
-<a href="/technology/architecture/capabilities/devops/build_and_test/" >Build &amp; Test Capabilities</a>
-<p>Involves everything from the capability to write and building code to the different types of testing of the code.</p>
-</li>
-<li>
-<a href="/technology/architecture/capabilities/devops/environments/" >Environments</a>
-<p>An important DevOps capability is to have different environments to deploy the different solutions part of the Altinn 3 platform.</p>
-</li>
-<li>
-<a href="/technology/architecture/capabilities/devops/platformoperations/" >Platform Operations Management Capabilities</a>
-<p>Platform Operations Management Capabilities describes the capabilities needed to operate the platform.</p>
-</li>
-<li>
-<a href="/technology/architecture/capabilities/devops/projectmanagement/" >Project Management Capabilities</a>
-<p>Project Management Capabilities covers the different capabilities to mange the project.</p>
-</li>
-<li>
-<a href="/technology/architecture/capabilities/devops/quality/" >Quality Management Capabilities</a>
-<p>Quality Management Capabilities covers the different capabilities to mange the project.</p>
-</li>
-<li>
-<a href="/technology/architecture/capabilities/devops/softwareconfiguration/" >Software Configuration &amp; Release Management Capabilities</a>
-<p>Software Configuration &amp; Release Management Capabilities process of tracking changes and handle new releases for a application</p>
-</li>
+<pre><code>    &lt;li&gt;
+            &lt;a href=&quot;/technology/architecture/capabilities/devops/analysisanddesign/&quot;&gt;Analysis &amp;amp; Design Capabilities&lt;/a&gt;
+            &lt;p&gt;Analysis &amp;amp; Design Capabilities are the capabilities needed to analyze needs and design solutions and applications for the Altinn 3 platform.&lt;/p&gt;
+            &lt;/li&gt;&lt;li&gt;
+            &lt;a href=&quot;/technology/architecture/capabilities/devops/build_and_test/&quot;&gt;Build &amp;amp; Test Capabilities&lt;/a&gt;
+            &lt;p&gt;Involves everything from the capability to write and building code to the different types of testing of the code.&lt;/p&gt;
+            &lt;/li&gt;&lt;li&gt;
+            &lt;a href=&quot;/technology/architecture/capabilities/devops/environments/&quot;&gt;Environments&lt;/a&gt;
+            &lt;p&gt;An important DevOps capability is to have different environments to deploy the different solutions part of the Altinn 3 platform.&lt;/p&gt;
+            &lt;/li&gt;&lt;li&gt;
+            &lt;a href=&quot;/technology/architecture/capabilities/devops/platformoperations/&quot;&gt;Platform Operations Management Capabilities&lt;/a&gt;
+            &lt;p&gt;Platform Operations Management Capabilities describes the capabilities needed to operate the platform.&lt;/p&gt;
+            &lt;/li&gt;&lt;li&gt;
+            &lt;a href=&quot;/technology/architecture/capabilities/devops/projectmanagement/&quot;&gt;Project Management Capabilities&lt;/a&gt;
+            &lt;p&gt;Project Management Capabilities covers the different capabilities to mange the project.&lt;/p&gt;
+            &lt;/li&gt;&lt;li&gt;
+            &lt;a href=&quot;/technology/architecture/capabilities/devops/quality/&quot;&gt;Quality Management Capabilities&lt;/a&gt;
+            &lt;p&gt;Quality Management Capabilities covers the different capabilities to mange the project.&lt;/p&gt;
+            &lt;/li&gt;&lt;li&gt;
+            &lt;a href=&quot;/technology/architecture/capabilities/devops/softwareconfiguration/&quot;&gt;Software Configuration &amp;amp; Release Management Capabilities&lt;/a&gt;
+            &lt;p&gt;Software Configuration &amp;amp; Release Management Capabilities process of tracking changes and handle new releases for a application&lt;/p&gt;
+            &lt;/li&gt;
+</code></pre>
 </ul>
 
 
-<footer class=" footline" >
-	
-</footer>
-
-
-
-
-
+<footer class=" footline" ></footer>
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/technology/architecture/capabilities/runtime/security/encryption/" title="Encryption"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/technology/architecture/capabilities/devops/analysisanddesign/" title="Analysis &amp; Design Capabilities" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/technology/architecture/capabilities/devops/_index.md" target="blank">
@@ -1206,3 +1193,4 @@ if(host != "localhost")
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

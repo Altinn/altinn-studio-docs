@@ -421,7 +421,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -429,7 +429,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -437,7 +437,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -521,7 +521,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -1075,7 +1075,11 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/tags/']").parent().addClass("parent");
+ $("li.dd-item a[href='/tags/architecture/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1091,20 +1095,7 @@ if(host != "localhost")
           </div><div id="body-inner"><h1 class="a-fontBold">architecture</h1>
               <p class="a-leadText" id="leadText"></p>
 
-
-
-
-
-
-<footer class=" footline" >
-	
-</footer>
-
-
-
-	
-
-	<div class="extra-pagination inner">
+<footer class=" footline" ></footer><div class="extra-pagination inner">
 	<nav class="pagination" role="navigation">
 	
 	    <a class="newer-posts" href="/tags/architecture/page/7/">&larr; Previous Pages</a>
@@ -1115,10 +1106,7 @@ if(host != "localhost")
 	
 </nav>
 
-	</div>
-
-	
-	   <article class="post technology">
+	</div><article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/platform/oscloudplatform/">Operating Systems &amp; Cloud Platform</a></h2>
     </header>
@@ -1130,24 +1118,16 @@ Read more about our Kubernetes Clusters.
 Service Mesh &amp; Proxy We use Traefik as proxy in Kubernetes and Linkerd as service mesh. <a class="read-more" href="/technology/architecture/components/platform/oscloudplatform/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/solution/altinn-platform/authorization/pap/">Policy Administration Point</a></h2>
     </header>
@@ -1158,10 +1138,8 @@ See Policy Administration Point in Altinn Studio for details.
 Delegation Policies Delegation of rights will be performed in Altinn II platform through the delegation functionality. <a class="read-more" href="/technology/architecture/components/application/solution/altinn-platform/authorization/pap/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1173,15 +1151,9 @@ Delegation Policies Delegation of rights will be performed in Altinn II platform
                 <a class="label label-default" href="https://docs.altinn.studio/tags/xacml/">xacml</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/solution/altinn-studio/designer/pap/">Policy Administration Point</a></h2>
     </header>
@@ -1189,14 +1161,11 @@ Delegation Policies Delegation of rights will be performed in Altinn II platform
         <p>The rules for this is defined as XACML 3.0 Policy documents.
 Currently the PAP is using an editor to manual edit the XACML Policy Template
 See application development guidelines for details how to do that.
-Authorization - Altinn Apps - PolicyDescription of the XACML Policy defined for a app.
- <a class="read-more" href="/technology/architecture/components/application/solution/altinn-studio/designer/pap/">&raquo;</a></p>
+ &lt;li&gt;&lt;a href=&quot;/technology/architecture/components/application/solution/altinn-studio/designer/pap/xacmlpolicy/&quot;&gt;Authorization - Altinn Apps - Policy&lt;/a&gt;&lt;p&gt;Description of the XACML Policy defined for a app.&lt;/p&gt;&lt;/li&gt;  <a class="read-more" href="/technology/architecture/components/application/solution/altinn-studio/designer/pap/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1204,15 +1173,9 @@ See application development guidelines for details how to do that.
                 <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/construction/altinn-platform/pdf/">Application architecture pdf component - Altinn Platform</a></h2>
     </header>
@@ -1222,10 +1185,8 @@ The pdf api is exposed at http://platform.altinn.cloud/pdf/api/v1.
 The available endpoints can be seen in the swagger definition.. <a class="read-more" href="/technology/architecture/components/application/construction/altinn-platform/pdf/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1235,15 +1196,9 @@ The available endpoints can be seen in the swagger definition.. <a class="read-m
                 <a class="label label-default" href="https://docs.altinn.studio/tags/pdf/">pdf</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/solution/altinn-platform/authorization/pdp/">Policy Decision Point</a></h2>
     </header>
@@ -1255,10 +1210,8 @@ The PDP evaluates the Context Request based on standard XACML 3.0 behaviour. The
 Policy Decision Point exposes a method that authorize the decision request. <a class="read-more" href="/technology/architecture/components/application/solution/altinn-platform/authorization/pdp/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1270,15 +1223,9 @@ Policy Decision Point exposes a method that authorize the decision request. <a c
                 <a class="label label-default" href="https://docs.altinn.studio/tags/xacml/">xacml</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/construction/security/pep/">Policy Enforcement Point</a></h2>
     </header>
@@ -1290,10 +1237,8 @@ The different standard PEP&rsquo;s in the ASP.Net Web application template is cr
 See AppAccessHandler for PEP for checking app policy for an API. <a class="read-more" href="/technology/architecture/components/application/construction/security/pep/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1301,15 +1246,9 @@ See AppAccessHandler for PEP for checking app policy for an API. <a class="read-
                 <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/solution/altinn-platform/authorization/pep/">Policy Enforcement Point</a></h2>
     </header>
@@ -1319,10 +1258,8 @@ The PEP will identify call the PDP to get a decision on a reuest.
 See construction components on details how the PEP are created. <a class="read-more" href="/technology/architecture/components/application/solution/altinn-platform/authorization/pep/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1330,15 +1267,9 @@ See construction components on details how the PEP are created. <a class="read-m
                 <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/solution/altinn-platform/authorization/pip/">Policy Information Point</a></h2>
     </header>
@@ -1348,10 +1279,8 @@ For the Altinn Platform there are serveral Policy Information Points:
  Altinn II Authorization - Get information about roles a user or system has for a given party Storage PIP - Get attributes about the resource in the decision request. (what kind of app, who is the reportee of the data, what is the current process state)  The number of PIP are expected to grow in the future. <a class="read-more" href="/technology/architecture/components/application/solution/altinn-platform/authorization/pip/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1359,30 +1288,20 @@ For the Altinn Platform there are serveral Policy Information Points:
                 <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/platform/">Platform Components</a></h2>
     </header>
     <section class="post-excerpt">
         <p>The platform components can be structured in to different areas. The diagram below show the different areas and the platform components involved in Altinn Studio, Altinn Apps and Altinn Platform solutions.
 Download as Visio
-Data &amp; Reporting ComponentsData and Reporting Components hold the functionalities to manage data and create business reports.
-Integration ComponentsIntegration components are in charge of enabling communications between systems.
-Logic Executions ComponentsLogic execution components are in charge of modeling the application behavior, in terms of data processing and flow control, according to the application specifications. <a class="read-more" href="/technology/architecture/components/platform/">&raquo;</a></p>
+ &lt;li&gt;&lt;a href=&quot;/technology/architecture/components/platform/datareporting/&quot;&gt;Data &amp;amp; Reporting Components&lt;/a&gt;&lt;p&gt;Data and Reporting Components hold the functionalities to manage data and create business reports.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/technology/architecture/components/platform/integration/&quot;&gt;Integration Components&lt;/a&gt;&lt;p&gt;Integration components are in charge of enabling communications between systems.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/technology/architecture/components/platform/logicexecution/&quot;&gt;Logic Executions Components&lt;/a&gt;&lt;p&gt;Logic execution components are in charge of modeling the application behavior, in terms of data processing and flow control, according to the application specifications. <a class="read-more" href="/technology/architecture/components/platform/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1390,15 +1309,9 @@ Download as Visio
                 <a class="label label-default" href="https://docs.altinn.studio/tags/infrastructure/">infrastructure</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/capabilities/devops/platformoperations/">Platform Operations Management Capabilities</a></h2>
     </header>
@@ -1410,10 +1323,8 @@ See details here.
 Backup &amp; Recovery The Altinn 3 platform has the capability to backup and restore data created by applications hosted in Altinn Apps. <a class="read-more" href="/technology/architecture/capabilities/devops/platformoperations/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1421,16 +1332,9 @@ Backup &amp; Recovery The Altinn 3 platform has the capability to backup and res
                 <a class="label label-default" href="https://docs.altinn.studio/tags/devops/">devops</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-
-	<div style="margin-bottom:2rem"></div>
+<div style="margin-bottom:2rem"></div>
 
 	<nav class="pagination" role="navigation">
 	
@@ -1442,14 +1346,9 @@ Backup &amp; Recovery The Altinn 3 platform has the capability to backup and res
 	
 </nav>
 
-
-
-
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/technology/tools/vs-code/" title="Visual Studio Code"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/app/" title="Create apps" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div></section>
         </div> 
@@ -1506,3 +1405,4 @@ Backup &amp; Recovery The Altinn 3 platform has the capability to backup and res
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

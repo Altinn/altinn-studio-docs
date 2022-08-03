@@ -429,7 +429,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -437,7 +437,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -445,7 +445,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -529,7 +529,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -1083,7 +1083,11 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/tags/']").parent().addClass("parent");
+ $("li.dd-item a[href='/tags/development/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1099,20 +1103,7 @@ if(host != "localhost")
           </div><div id="body-inner"><h1 class="a-fontBold">development</h1>
               <p class="a-leadText" id="leadText"></p>
 
-
-
-
-
-
-<footer class=" footline" >
-	
-</footer>
-
-
-
-	
-
-	<div class="extra-pagination inner">
+<footer class=" footline" ></footer><div class="extra-pagination inner">
 	<nav class="pagination" role="navigation">
 	
 	    <a class="newer-posts" href="/tags/development/page/2/">&larr; Previous Pages</a>
@@ -1123,10 +1114,7 @@ if(host != "localhost")
 	
 </nav>
 
-	</div>
-
-	
-	   <article class="post community">
+	</div><article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/front-end/error-handling/">Error handling</a></h2>
     </header>
@@ -1134,10 +1122,8 @@ if(host != "localhost")
         <p>This page is a work-in-progress. Because we do not have details on how potential errors should be shown to the users, this is only a general overview currently. More details will be added once we have a functional understanding of how users should experience errors. React components Error boundaries Error boundaries are React&rsquo;s official way of handling errors that occur in a component. This functionality is available from React 16. <a class="read-more" href="/community/contributing/handbook/front-end/error-handling/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1145,32 +1131,18 @@ if(host != "localhost")
                 <a class="label label-default" href="https://docs.altinn.studio/tags/error-handling/">error-handling</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/front-end/">Front-end</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Getting startedGet started working with the frontend
-Developing locallyRunning the frontends locally for development
-Routines for developmentDescribes routines for developing frontend code for resources in the DevOps team.
-Creating componentsGet started creating new form components for the apps
-ReactGuidelines for using React in Altinn Studio
-ReduxGuidelines for using Redux in Altinn Studio
-DebugDebug documentation for altinn. <a class="read-more" href="/community/contributing/handbook/front-end/">&raquo;</a></p>
+        <p>&lt;li&gt;&lt;a href=&quot;/community/contributing/handbook/front-end/getting-started/&quot;&gt;Getting started&lt;/a&gt;&lt;p&gt;Get started working with the frontend&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/community/contributing/handbook/front-end/developing/&quot;&gt;Developing locally&lt;/a&gt;&lt;p&gt;Running the frontends locally for development&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/community/contributing/handbook/front-end/routine/&quot;&gt;Routines for development&lt;/a&gt;&lt;p&gt;Describes routines for developing frontend code for resources in the DevOps team.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/community/contributing/handbook/front-end/new-component/&quot;&gt;Creating components&lt;/a&gt;&lt;p&gt;Get started creating new form components for the apps&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/community/contributing/handbook/front-end/react/&quot;&gt;React&lt;/a&gt;&lt;p&gt;Guidelines for using React in Altinn Studio&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/community/contributing/handbook/front-end/redux/&quot;&gt;Redux&lt;/a&gt;&lt;p&gt;Guidelines for using Redux in Altinn Studio&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/community/contributing/handbook/front-end/debug/&quot;&gt;Debug&lt;/a&gt;&lt;p&gt;Debug documentation for altinn. <a class="read-more" href="/community/contributing/handbook/front-end/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1178,15 +1150,9 @@ if(host != "localhost")
                 <a class="label label-default" href="https://docs.altinn.studio/tags/front-end/">front-end</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/cheatsheet/">General</a></h2>
     </header>
@@ -1197,10 +1163,8 @@ git commit -m &ldquo;&rdquo;
 Revert local commit git reset --soft HEAD~1 Azure CLI az login --use-device-code Kubectl  <a class="read-more" href="/community/contributing/handbook/cheatsheet/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1208,15 +1172,9 @@ Revert local commit git reset --soft HEAD~1 Azure CLI az login --use-device-code
                 <a class="label label-default" href="https://docs.altinn.studio/tags/todo/">todo</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/getting-started/">Getting started</a></h2>
     </header>
@@ -1224,24 +1182,16 @@ Revert local commit git reset --soft HEAD~1 Azure CLI az login --use-device-code
         <p>.highlight-source-batchfile {color: #fff !important;}let content = document.getElementById('readmeContent');if (content.innerHTML === '') {content.innerHTML = 'Loading from github...';} axios.get(`${'https://cors-anywhere.herokuapp.com/'}https://github.com/Altinn/altinn-studio/blob/master/README.md`).then((res) = {const doc = new DOMParser().parseFromString(res.data, "text/html");content.innerHTML = doc.getElementById('readme').innerHTML;}); <a class="read-more" href="/community/contributing/handbook/getting-started/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/git/">Git</a></h2>
     </header>
@@ -1249,10 +1199,8 @@ Revert local commit git reset --soft HEAD~1 Azure CLI az login --use-device-code
         <p>let content = document.getElementById('contributionContent');if (content.innerHTML === '') {content.innerHTML = 'Loading from github...';}axios.get(`${'https://cors-anywhere.herokuapp.com/'}https://github.com/Altinn/altinn-studio/blob/master/CONTRIBUTING.md`).then((res) = {const doc = new DOMParser().parseFromString(res.data, "text/html");content.innerHTML = doc.getElementById('readme').innerHTML;}); <a class="read-more" href="/community/contributing/handbook/git/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1260,15 +1208,9 @@ Revert local commit git reset --soft HEAD~1 Azure CLI az login --use-device-code
                 <a class="label label-default" href="https://docs.altinn.studio/tags/git/">git</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/routing/traefik/installation/">Installation of Traefik 2.0</a></h2>
     </header>
@@ -1277,10 +1219,8 @@ Revert local commit git reset --soft HEAD~1 Azure CLI az login --use-device-code
 If there is a fresh installation of traefik 2.0 with helm 3.0, make sure that there is a folder called crds in that helm chart folder. After that it is just to install with helm, and wait for the traefik service to have a public IP before updating the Azure DNS zone with a A record. <a class="read-more" href="/community/contributing/handbook/routing/traefik/installation/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1292,15 +1232,9 @@ If there is a fresh installation of traefik 2.0 with helm 3.0, make sure that th
                 <a class="label label-default" href="https://docs.altinn.studio/tags/installation/">installation</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/test/k6/">k6</a></h2>
     </header>
@@ -1309,10 +1243,8 @@ If there is a fresh installation of traefik 2.0 with helm 3.0, make sure that th
 Set up k6 tests  Clone the k6 tests from GitHub Repo Install docker and make sure the drive having the k6 tests is shared. Open cmd and download the latest k6 docker image docker pull loadimpact/k6  How to write k6 tests  Find the area/collection where the new test has to be added. <a class="read-more" href="/community/contributing/handbook/test/k6/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1322,15 +1254,9 @@ Set up k6 tests  Clone the k6 tests from GitHub Repo Install docker and make sur
                 <a class="label label-default" href="https://docs.altinn.studio/tags/api/">api</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/back-end/logging/">Logging</a></h2>
     </header>
@@ -1338,10 +1264,8 @@ Set up k6 tests  Clone the k6 tests from GitHub Repo Install docker and make sur
         <p>This page is a work-in-progress. Because we do not have details on how potential errors should be shown to the users, this is only a general overview currently. More details will be added once we have a functional understanding of how users should experience errors. Logging .Net core provides a standard logging framework that can be used to log exceptions or events to a desired logging provider (console, eventlog, azure app service, application insights). <a class="read-more" href="/community/contributing/handbook/back-end/logging/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1349,15 +1273,9 @@ Set up k6 tests  Clone the k6 tests from GitHub Repo Install docker and make sur
                 <a class="label label-default" href="https://docs.altinn.studio/tags/logging/">logging</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/naming/">Naming Conventions</a></h2>
     </header>
@@ -1368,24 +1286,16 @@ Implicit typing (var) should only be used when a variable is initialized with an
 Methods should not be more than 50 lines long When dealing with XML you should prefer XDocument to XmlDocument (especially in new methods) If/for/while/using and other structures should normally not be more than 2-3 levels deep All disposeable objects (proxies, DbCommand and so on) should be disposed by using a using block. <a class="read-more" href="/community/contributing/handbook/naming/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/loadbalancer/">Nginx loadbalancing in studio</a></h2>
     </header>
@@ -1396,10 +1306,8 @@ Option 1: kill the pod and let the deployment spinn up a new pod.
 Option 2: open a shell into the pod kubectl exec -it [POD_NAME] -- sh and run the command nginx -s reload <a class="read-more" href="/community/contributing/handbook/loadbalancer/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1409,16 +1317,9 @@ Option 2: open a shell into the pod kubectl exec -it [POD_NAME] -- sh and run th
                 <a class="label label-default" href="https://docs.altinn.studio/tags/routing/">routing</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-
-	<div style="margin-bottom:2rem"></div>
+<div style="margin-bottom:2rem"></div>
 
 	<nav class="pagination" role="navigation">
 	
@@ -1430,14 +1331,9 @@ Option 2: open a shell into the pod kubectl exec -it [POD_NAME] -- sh and run th
 	
 </nav>
 
-
-
-
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/technology/tools/vs-code/" title="Visual Studio Code"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/app/" title="Create apps" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div></section>
         </div> 
@@ -1494,3 +1390,4 @@ Option 2: open a shell into the pod kubectl exec -it [POD_NAME] -- sh and run th
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

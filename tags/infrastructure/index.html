@@ -421,7 +421,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -429,7 +429,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -437,7 +437,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -521,7 +521,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -1075,7 +1075,11 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/tags/']").parent().addClass("parent");
+ $("li.dd-item a[href='/tags/infrastructure/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1091,30 +1095,14 @@ if(host != "localhost")
           </div><div id="body-inner"><h1 class="a-fontBold">infrastructure</h1>
               <p class="a-leadText" id="leadText"></p>
 
-
-
-
-
-
-<footer class=" footline" >
-	
-</footer>
-
-
-
-	
-
-	<div class="extra-pagination inner">
+<footer class=" footline" ></footer><div class="extra-pagination inner">
 	<nav class="pagination" role="navigation">
 	
 	<span class="page-number">Page 1 on 1</span>
 	
 </nav>
 
-	</div>
-
-	
-	   <article class="post technology">
+	</div><article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/infrastructure/computing/">Compute components</a></h2>
     </header>
@@ -1125,10 +1113,8 @@ For each environment (Production, Application Test, Performance Test, and Integr
 The Kubernetes masters are managed by Azure. Our DevOps team only manages and maintains the agent nodes. As a managed Kubernetes service, AKS is free - Microsoft only charges for the agent nodes within your clusters, not for the masters. <a class="read-more" href="/technology/architecture/components/infrastructure/computing/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1136,29 +1122,19 @@ The Kubernetes masters are managed by Azure. Our DevOps team only manages and ma
                 <a class="label label-default" href="https://docs.altinn.studio/tags/infrastructure/">infrastructure</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/data/">Data Components</a></h2>
     </header>
     <section class="post-excerpt">
         <p>Altinn Studio, Altinn Apps and Altinn Platform is created to give the government, the citizens and the businesses of Norway a effective way to share data and retrieve data.
-ConceptualThe conceptual data model describes the data entities in the solutions and their relatiohip.
-Logical datamodelThe logcical datamodel describes the data entities that is stored.
- <a class="read-more" href="/technology/architecture/components/data/">&raquo;</a></p>
+ &lt;li&gt;&lt;a href=&quot;/technology/architecture/components/data/conceptual/&quot;&gt;Conceptual&lt;/a&gt;&lt;p&gt;The conceptual data model describes the data entities in the solutions and their relatiohip.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/technology/architecture/components/data/logical/&quot;&gt;Logical datamodel&lt;/a&gt;&lt;p&gt;The logcical datamodel describes the data entities that is stored.&lt;/p&gt;&lt;/li&gt;  <a class="read-more" href="/technology/architecture/components/data/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1166,15 +1142,9 @@ The Kubernetes masters are managed by Azure. Our DevOps team only manages and ma
                 <a class="label label-default" href="https://docs.altinn.studio/tags/infrastructure/">infrastructure</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/platform/datareporting/">Data &amp; Reporting Components</a></h2>
     </header>
@@ -1187,10 +1157,8 @@ Relational DBMs We use Azure Database for PostgreSQL as a relational database fo
 Read more about Azure Database for PostgreSQL. <a class="read-more" href="/technology/architecture/components/platform/datareporting/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1198,15 +1166,9 @@ Read more about Azure Database for PostgreSQL. <a class="read-more" href="/techn
                 <a class="label label-default" href="https://docs.altinn.studio/tags/infrastructure/">infrastructure</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/infrastructure/">Infrastructure components</a></h2>
     </header>
@@ -1217,13 +1179,11 @@ Download as Visio
 Altinn 3 is currently deployed to Microsoft Azure. This does not mean that Altinn 3 can&rsquo;t be deployed to other cloud providers.
 Below you find details about the different cloud components used.
 
-Compute componentsCompute components gives processor power to applications and software <a class="read-more" href="/technology/architecture/components/infrastructure/">&raquo;</a></p>
+ &lt;li&gt;&lt;a href=&quot;/technology/architecture/components/infrastructure/computing/&quot;&gt;Compute components&lt;/a&gt;&lt;p&gt;Compute components gives processor power to applications and software&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/technology/architecture/components/infrastructure/network/&quot;&gt;Network componentens&lt;/a&gt;&lt;p&gt;All networking infrastructure is located in Azure. <a class="read-more" href="/technology/architecture/components/infrastructure/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1231,15 +1191,9 @@ Below you find details about the different cloud components used.
                 <a class="label label-default" href="https://docs.altinn.studio/tags/infrastructure/">infrastructure</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/capabilities/devops/platformoperations/infrastructuremgmt/">Infrastructure management</a></h2>
     </header>
@@ -1249,10 +1203,8 @@ To be able to manage and configure all these cloud resources the architecture th
 Infrastructure Configuration and managment Capabilities Tools &amp; components For all solutions of Altinn 3 (Altinn Apps, Altinn Platform and Altinn Studio) we use some common tools to configure and manage infrastructure. <a class="read-more" href="/technology/architecture/capabilities/devops/platformoperations/infrastructuremgmt/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1262,15 +1214,9 @@ Infrastructure Configuration and managment Capabilities Tools &amp; components F
                 <a class="label label-default" href="https://docs.altinn.studio/tags/devops/">devops</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/infrastructure/network/">Network componentens</a></h2>
     </header>
@@ -1282,10 +1228,8 @@ Read more about Azure Virtual Networks.
 Azure Loadbalancer In front of every AKS cluster there is a Azure Loadbalancer that load traffic between the different nodes in the AKS cluster. <a class="read-more" href="/technology/architecture/components/infrastructure/network/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1295,30 +1239,20 @@ Azure Loadbalancer In front of every AKS cluster there is a Azure Loadbalancer t
                 <a class="label label-default" href="https://docs.altinn.studio/tags/todo/">todo</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/platform/">Platform Components</a></h2>
     </header>
     <section class="post-excerpt">
         <p>The platform components can be structured in to different areas. The diagram below show the different areas and the platform components involved in Altinn Studio, Altinn Apps and Altinn Platform solutions.
 Download as Visio
-Data &amp; Reporting ComponentsData and Reporting Components hold the functionalities to manage data and create business reports.
-Integration ComponentsIntegration components are in charge of enabling communications between systems.
-Logic Executions ComponentsLogic execution components are in charge of modeling the application behavior, in terms of data processing and flow control, according to the application specifications. <a class="read-more" href="/technology/architecture/components/platform/">&raquo;</a></p>
+ &lt;li&gt;&lt;a href=&quot;/technology/architecture/components/platform/datareporting/&quot;&gt;Data &amp;amp; Reporting Components&lt;/a&gt;&lt;p&gt;Data and Reporting Components hold the functionalities to manage data and create business reports.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/technology/architecture/components/platform/integration/&quot;&gt;Integration Components&lt;/a&gt;&lt;p&gt;Integration components are in charge of enabling communications between systems.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/technology/architecture/components/platform/logicexecution/&quot;&gt;Logic Executions Components&lt;/a&gt;&lt;p&gt;Logic execution components are in charge of modeling the application behavior, in terms of data processing and flow control, according to the application specifications. <a class="read-more" href="/technology/architecture/components/platform/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1326,15 +1260,9 @@ Download as Visio
                 <a class="label label-default" href="https://docs.altinn.studio/tags/infrastructure/">infrastructure</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/infrastructure/computing/scaling/">Scaling compute resources</a></h2>
     </header>
@@ -1343,10 +1271,8 @@ Download as Visio
 Altinn 2 is a monolith where all digital services run on the same servers. This means that days like the tax day when there is this enormous spike in traffic will require that all servers are scaled up. It is also an on-prem solution where scaling needs to be planned weeks ahead. <a class="read-more" href="/technology/architecture/components/infrastructure/computing/scaling/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1354,15 +1280,9 @@ Altinn 2 is a monolith where all digital services run on the same servers. This 
                 <a class="label label-default" href="https://docs.altinn.studio/tags/infrastructure/">infrastructure</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/infrastructure/storage/">Storage componentens</a></h2>
     </header>
@@ -1372,10 +1292,8 @@ Altinn 3 uses Cosmos DB to store metadata about data in Altinn.
  applications: applications dataElements: data elements instanceEvents: instance events instances: instance information leases: used by Azure Functions texts: Applications texts  Azure CosmosDB is configured with one Write Region and one read region. <a class="read-more" href="/technology/architecture/components/infrastructure/storage/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1383,16 +1301,9 @@ Altinn 3 uses Cosmos DB to store metadata about data in Altinn.
                 <a class="label label-default" href="https://docs.altinn.studio/tags/infrastructure/">infrastructure</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-
-	<div style="margin-bottom:2rem"></div>
+<div style="margin-bottom:2rem"></div>
 
 	<nav class="pagination" role="navigation">
 	
@@ -1400,14 +1311,9 @@ Altinn 3 uses Cosmos DB to store metadata about data in Altinn.
 	
 </nav>
 
-
-
-
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-next" href="/app/" title="Create apps" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div></section>
         </div> 
@@ -1464,3 +1370,4 @@ Altinn 3 uses Cosmos DB to store metadata about data in Altinn.
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

@@ -421,7 +421,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -429,7 +429,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -437,7 +437,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -521,7 +521,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -640,8 +640,8 @@ if(host != "localhost")
         <a href="/community/devops/teams/studio/"><span>Studio</span></a></li></ul></li></ul></li>
       <li class="dd-item">
         <a href="/community/presentations/"><span>Presentations</span></a></li></ul></li>
-      <li class="dd-item parent">
-        <a href="/technology/"><span>Technology</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/"><span>Technology</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/technology/architecture/"><span>Architecture</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -1018,8 +1018,8 @@ if(host != "localhost")
         <a href="/technology/solutions/altinn-studio/repos/structure/validationhandler/"><span>ValidationHandler.cs</span></a></li></ul></li></ul></li></ul></li></ul></li>
       <li class="dd-item">
         <a href="/technology/terms/"><span>Terms</span></a></li>
-      <li class="dd-item parent">
-        <a href="/technology/tools/"><span>Tools</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/tools/"><span>Tools</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/technology/tools/dotnet-core/"><span>.NET Core</span></a></li>
       <li class="dd-item">
@@ -1070,12 +1070,17 @@ if(host != "localhost")
         <a href="/technology/tools/traefik/"><span>Traefik</span></a></li>
       <li class="dd-item">
         <a href="/technology/tools/typescript/"><span>TypeScript</span></a></li>
-      <li class="dd-item parent active">
+      <li class="dd-item">
         <a href="/technology/tools/vs-code/"><span>Visual Studio Code</span></a></li></ul></li></ul></li></ul>
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/technology/']").parent().addClass("parent");
+ $("li.dd-item a[href='/technology/tools/']").parent().addClass("parent");
+ $("li.dd-item a[href='/technology/tools/vs-code/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1089,12 +1094,7 @@ if(host != "localhost")
                 <span class="links"><a href='/technology/'>Technology</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/technology/tools/'>Tools</a> <span class='adocs-breadcrumb-divider'> / </span> Visual Studio Code</span>
             </div>
           </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/tech">tech</a><a class="label label-default" href="https://docs.altinn.studio/tags/git">git</a><a class="label label-default" href="https://docs.altinn.studio/tags/programming">programming</a></div><div id="body-inner"><h1 class="a-fontBold">Visual Studio Code</h1>
-              <p class="a-leadText" id="leadText">Visual Studio Code is a lightweight source code editor which runs on your desktop.</p>
-
-
-
-
-<figure><a href="vscode-logo.png"><img src="vscode-logo.png" alt="Visual Studio Code logo" title="VS Code logo" /></a><figcaption><h4>VS Code logo</h4></figcaption></figure>
+              <p class="a-leadText" id="leadText">Visual Studio Code is a lightweight source code editor which runs on your desktop.</p><figure><a href="vscode-logo.png"><img src="vscode-logo.png" alt="Visual Studio Code logo" title="VS Code logo" /></a><figcaption><h4>VS Code logo</h4></figcaption></figure>
 <p>Visual Studio Code is a lightweight and extendable code editor which runs on your desktop and is available for Windows, macOS and Linux.<br>
 We use it when developing <a href="https://github.com/altinn/altinn-studio">Altinn 3</a>, and it can be used for editing files from <a href="/altinn-studio-repos">Altinn Studio Repos</a> locally
 using the <a href="https://code.visualstudio.com/docs/editor/versioncontrol#_git-support">built-in Git support</a>.</p>
@@ -1127,19 +1127,10 @@ using the <a href="https://code.visualstudio.com/docs/editor/versioncontrol#_git
 </ul>
 
 
-<footer class=" footline" >
-	
-</footer>
-
-
-
-
-
+<footer class=" footline" ></footer>
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/technology/tools/typescript/" title="TypeScript"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/technology/tools/dotnet-core/" title=".NET Core" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/technology/tools/vs-code/_index.md" target="blank">
@@ -1201,3 +1192,4 @@ using the <a href="https://code.visualstudio.com/docs/editor/versioncontrol#_git
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

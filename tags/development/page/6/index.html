@@ -429,7 +429,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -437,7 +437,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -445,7 +445,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -529,7 +529,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -1083,7 +1083,11 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/tags/']").parent().addClass("parent");
+ $("li.dd-item a[href='/tags/development/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1099,20 +1103,7 @@ if(host != "localhost")
           </div><div id="body-inner"><h1 class="a-fontBold">development</h1>
               <p class="a-leadText" id="leadText"></p>
 
-
-
-
-
-
-<footer class=" footline" >
-	
-</footer>
-
-
-
-	
-
-	<div class="extra-pagination inner">
+<footer class=" footline" ></footer><div class="extra-pagination inner">
 	<nav class="pagination" role="navigation">
 	
 	    <a class="newer-posts" href="/tags/development/page/5/">&larr; Previous Pages</a>
@@ -1121,10 +1112,7 @@ if(host != "localhost")
 	
 </nav>
 
-	</div>
-
-	
-	   <article class="post community">
+	</div><article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/flight-rules/">Flight Rules</a></h2>
     </header>
@@ -1137,24 +1125,16 @@ Can be triggerd by these issues:
  Some of the kubernetes services are not existing Some of the kubernetes pods are not existing Kubernetes mapping between deployments and services are incorrect. <a class="read-more" href="/community/contributing/handbook/flight-rules/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/gitea/">Gitea</a></h2>
     </header>
@@ -1167,10 +1147,8 @@ It&rsquo;s customized to look like this
 Follow these steps to change any user interface of Gitea. <a class="read-more" href="/community/contributing/handbook/gitea/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1178,15 +1156,9 @@ Follow these steps to change any user interface of Gitea. <a class="read-more" h
                 <a class="label label-default" href="https://docs.altinn.studio/tags/gitea/">gitea</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/">Development handbook</a></h2>
     </header>
@@ -1196,24 +1168,16 @@ The guidelines should work as reference material, but it should also be possible
 The development handbook is a dynamic material and everybody should feel free to extend or correct articles when needed. <a class="read-more" href="/community/contributing/handbook/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/troubleshooting/">Troubleshooting</a></h2>
     </header>
@@ -1222,25 +1186,16 @@ The development handbook is a dynamic material and everybody should feel free to
  Check out Flight Rules for Altinn.studio. Check out Known Issues.   <a class="read-more" href="/community/contributing/handbook/troubleshooting/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-
-	<div style="margin-bottom:2rem"></div>
+<div style="margin-bottom:2rem"></div>
 
 	<nav class="pagination" role="navigation">
 	
@@ -1250,14 +1205,9 @@ The development handbook is a dynamic material and everybody should feel free to
 	
 </nav>
 
-
-
-
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/technology/tools/vs-code/" title="Visual Studio Code"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/app/" title="Create apps" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div></section>
         </div> 
@@ -1314,3 +1264,4 @@ The development handbook is a dynamic material and everybody should feel free to
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

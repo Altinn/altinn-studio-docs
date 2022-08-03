@@ -421,7 +421,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -429,7 +429,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -437,7 +437,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -521,7 +521,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -1075,7 +1075,11 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/tags/']").parent().addClass("parent");
+ $("li.dd-item a[href='/tags/security/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1091,20 +1095,7 @@ if(host != "localhost")
           </div><div id="body-inner"><h1 class="a-fontBold">security</h1>
               <p class="a-leadText" id="leadText"></p>
 
-
-
-
-
-
-<footer class=" footline" >
-	
-</footer>
-
-
-
-	
-
-	<div class="extra-pagination inner">
+<footer class=" footline" ></footer><div class="extra-pagination inner">
 	<nav class="pagination" role="navigation">
 	
 	    <a class="newer-posts" href="/tags/security/">&larr; Previous Pages</a>
@@ -1115,10 +1106,7 @@ if(host != "localhost")
 	
 </nav>
 
-	</div>
-
-	
-	   <article class="post technology">
+	</div><article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/capabilities/runtime/security/authentication/oidcproviders/">OIDC Providers</a></h2>
     </header>
@@ -1128,10 +1116,8 @@ When redirecting the user to Altinn Authentication, by default ID-porten will be
 If authentication component has configured a specific OIDC provider and the app is configured to use this, the user will be redirected to login. Currently, the only approved OIDC providers in Altinn are FEIDE and UIDP have been approved OIDC providers in Altinn. <a class="read-more" href="/technology/architecture/capabilities/runtime/security/authentication/oidcproviders/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1139,15 +1125,9 @@ If authentication component has configured a specific OIDC provider and the app 
                 <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/solution/altinn-platform/authorization/pap/">Policy Administration Point</a></h2>
     </header>
@@ -1158,10 +1138,8 @@ See Policy Administration Point in Altinn Studio for details.
 Delegation Policies Delegation of rights will be performed in Altinn II platform through the delegation functionality. <a class="read-more" href="/technology/architecture/components/application/solution/altinn-platform/authorization/pap/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1173,15 +1151,9 @@ Delegation Policies Delegation of rights will be performed in Altinn II platform
                 <a class="label label-default" href="https://docs.altinn.studio/tags/xacml/">xacml</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/solution/altinn-studio/designer/pap/">Policy Administration Point</a></h2>
     </header>
@@ -1189,14 +1161,11 @@ Delegation Policies Delegation of rights will be performed in Altinn II platform
         <p>The rules for this is defined as XACML 3.0 Policy documents.
 Currently the PAP is using an editor to manual edit the XACML Policy Template
 See application development guidelines for details how to do that.
-Authorization - Altinn Apps - PolicyDescription of the XACML Policy defined for a app.
- <a class="read-more" href="/technology/architecture/components/application/solution/altinn-studio/designer/pap/">&raquo;</a></p>
+ &lt;li&gt;&lt;a href=&quot;/technology/architecture/components/application/solution/altinn-studio/designer/pap/xacmlpolicy/&quot;&gt;Authorization - Altinn Apps - Policy&lt;/a&gt;&lt;p&gt;Description of the XACML Policy defined for a app.&lt;/p&gt;&lt;/li&gt;  <a class="read-more" href="/technology/architecture/components/application/solution/altinn-studio/designer/pap/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1204,15 +1173,9 @@ See application development guidelines for details how to do that.
                 <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/solution/altinn-platform/authorization/pdp/">Policy Decision Point</a></h2>
     </header>
@@ -1224,10 +1187,8 @@ The PDP evaluates the Context Request based on standard XACML 3.0 behaviour. The
 Policy Decision Point exposes a method that authorize the decision request. <a class="read-more" href="/technology/architecture/components/application/solution/altinn-platform/authorization/pdp/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1239,15 +1200,9 @@ Policy Decision Point exposes a method that authorize the decision request. <a c
                 <a class="label label-default" href="https://docs.altinn.studio/tags/xacml/">xacml</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/construction/security/pep/">Policy Enforcement Point</a></h2>
     </header>
@@ -1259,10 +1214,8 @@ The different standard PEP&rsquo;s in the ASP.Net Web application template is cr
 See AppAccessHandler for PEP for checking app policy for an API. <a class="read-more" href="/technology/architecture/components/application/construction/security/pep/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1270,15 +1223,9 @@ See AppAccessHandler for PEP for checking app policy for an API. <a class="read-
                 <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/solution/altinn-platform/authorization/pep/">Policy Enforcement Point</a></h2>
     </header>
@@ -1288,10 +1235,8 @@ The PEP will identify call the PDP to get a decision on a reuest.
 See construction components on details how the PEP are created. <a class="read-more" href="/technology/architecture/components/application/solution/altinn-platform/authorization/pep/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1299,15 +1244,9 @@ See construction components on details how the PEP are created. <a class="read-m
                 <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/solution/altinn-platform/authorization/pip/">Policy Information Point</a></h2>
     </header>
@@ -1317,10 +1256,8 @@ For the Altinn Platform there are serveral Policy Information Points:
  Altinn II Authorization - Get information about roles a user or system has for a given party Storage PIP - Get attributes about the resource in the decision request. (what kind of app, who is the reportee of the data, what is the current process state)  The number of PIP are expected to grow in the future. <a class="read-more" href="/technology/architecture/components/application/solution/altinn-platform/authorization/pip/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1328,15 +1265,9 @@ For the Altinn Platform there are serveral Policy Information Points:
                 <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/solution/altinn-studio/designer/pap/xacmlpolicy/">Authorization - Altinn Apps - Policy</a></h2>
     </header>
@@ -1346,10 +1277,8 @@ The policy format follows XACML 3.0 and for every rule in the policy, there is a
 Resource Attributes    Attribute Description     Org The org part of the resource attribute defines which org that owns the app. <a class="read-more" href="/technology/architecture/components/application/solution/altinn-studio/designer/pap/xacmlpolicy/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1357,15 +1286,9 @@ Resource Attributes    Attribute Description     Org The org part of the resourc
                 <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/solution/altinn-platform/authorization/prp/">Policy Retrieval Point</a></h2>
     </header>
@@ -1377,10 +1300,8 @@ See Policy Adminstration Point for details about how the policies are created.
 See construction components how PRP is built. <a class="read-more" href="/technology/architecture/components/application/solution/altinn-platform/authorization/prp/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1392,15 +1313,9 @@ See construction components how PRP is built. <a class="read-more" href="/techno
                 <a class="label label-default" href="https://docs.altinn.studio/tags/xacml/">xacml</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/solution/altinn-platform/authorization/resourceregistry/">Resource Registry</a></h2>
     </header>
@@ -1412,10 +1327,8 @@ Type of resources There are different types of resources that can be registrated
  Altinn 3 apps - Refered with org/app id Altinn 2 Services - Refered with externalServiceCode and EditionCode Service Resources  Altinn 3 Apps Apps hosted in Altinn 3 Apps will be registred in the Altinn Service Registry. <a class="read-more" href="/technology/architecture/components/application/solution/altinn-platform/authorization/resourceregistry/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1427,16 +1340,9 @@ Type of resources There are different types of resources that can be registrated
                 <a class="label label-default" href="https://docs.altinn.studio/tags/xacml/">xacml</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-
-	<div style="margin-bottom:2rem"></div>
+<div style="margin-bottom:2rem"></div>
 
 	<nav class="pagination" role="navigation">
 	
@@ -1448,14 +1354,9 @@ Type of resources There are different types of resources that can be registrated
 	
 </nav>
 
-
-
-
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/technology/tools/vs-code/" title="Visual Studio Code"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/app/" title="Create apps" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div></section>
         </div> 
@@ -1512,3 +1413,4 @@ Type of resources There are different types of resources that can be registrated
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

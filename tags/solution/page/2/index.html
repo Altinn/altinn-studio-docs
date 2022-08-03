@@ -429,7 +429,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -437,7 +437,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -445,7 +445,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -529,7 +529,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -1083,7 +1083,11 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/tags/']").parent().addClass("parent");
+ $("li.dd-item a[href='/tags/solution/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1099,20 +1103,7 @@ if(host != "localhost")
           </div><div id="body-inner"><h1 class="a-fontBold">solution</h1>
               <p class="a-leadText" id="leadText"></p>
 
-
-
-
-
-
-<footer class=" footline" >
-	
-</footer>
-
-
-
-	
-
-	<div class="extra-pagination inner">
+<footer class=" footline" ></footer><div class="extra-pagination inner">
 	<nav class="pagination" role="navigation">
 	
 	    <a class="newer-posts" href="/tags/solution/">&larr; Previous Pages</a>
@@ -1123,24 +1114,18 @@ if(host != "localhost")
 	
 </nav>
 
-	</div>
-
-	
-	   <article class="post technology">
+	</div><article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/solutions/altinn-apps/">Altinn Apps</a></h2>
     </header>
     <section class="post-excerpt">
         <p>The applications has a web native architecture and is deployed to Kubernetes Clusters as docker containers.
 The Kubernetes clusters are isolated between the different applications owners and hosted in a public cloud solution making it highly scalable.
-AppDescription of the app created in Altinn Studio and that is deployed to Altinn Apps.
- <a class="read-more" href="/technology/solutions/altinn-apps/">&raquo;</a></p>
+ &lt;li&gt;&lt;a href=&quot;/technology/solutions/altinn-apps/app/&quot;&gt;App&lt;/a&gt;&lt;p&gt;Description of the app created in Altinn Studio and that is deployed to Altinn Apps.&lt;/p&gt;&lt;/li&gt;  <a class="read-more" href="/technology/solutions/altinn-apps/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
@@ -1148,28 +1133,19 @@ The Kubernetes clusters are isolated between the different applications owners a
                 <a class="label label-default" href="https://docs.altinn.studio/tags/apps/">apps</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/construction/altinn-platform/">Application construction components for Altinn Platform</a></h2>
     </header>
     <section class="post-excerpt">
         <p>See below for application contruction components for the different components in Altinn Platform.
-Application construction components - Altinn Platform AuthenticationThe authentication component in Altinn platform is constructed as an asp.net core web API application deployed as a docker container to a Kubernetes cluster.
-Application construction components - Altinn Platform AuthorizationThe authorization component in Altinn platform is constructed as an asp.net core web API application deployed as a docker container to a Kubernetes cluster. <a class="read-more" href="/technology/architecture/components/application/construction/altinn-platform/">&raquo;</a></p>
+ &lt;li&gt;&lt;a href=&quot;/technology/architecture/components/application/construction/altinn-platform/authentication/&quot;&gt;Application construction components - Altinn Platform Authentication&lt;/a&gt;&lt;p&gt;The authentication component in Altinn platform is constructed as an asp.net core web API application deployed as a docker container to a Kubernetes cluster.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/technology/architecture/components/application/construction/altinn-platform/authorization/&quot;&gt;Application construction components - Altinn Platform Authorization&lt;/a&gt;&lt;p&gt;The authorization component in Altinn platform is constructed as an asp.net core web API application deployed as a docker container to a Kubernetes cluster. <a class="read-more" href="/technology/architecture/components/application/construction/altinn-platform/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1177,15 +1153,9 @@ The Kubernetes clusters are isolated between the different applications owners a
                 <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/solution/altinn-platform/">Solution-specific application components Altinn Platform</a></h2>
     </header>
@@ -1193,10 +1163,8 @@ The Kubernetes clusters are isolated between the different applications owners a
         <p>The diagram below shows where the different functionality i located in the components. <a class="read-more" href="/technology/architecture/components/application/solution/altinn-platform/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1204,29 +1172,19 @@ The Kubernetes clusters are isolated between the different applications owners a
                 <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/solution/altinn-studio/">Solution-specific application components Altinn Studio</a></h2>
     </header>
     <section class="post-excerpt">
         <p>
-Solution-specific application components Altinn Studio DesignerAltinn Studio Designer is the custom appliaction where app developers manage and creates applications.
-Solution components Altinn Studio RepositoriesIn Altinn Studio Repos you find the functional components related to source control and access management of the application developer.
- <a class="read-more" href="/technology/architecture/components/application/solution/altinn-studio/">&raquo;</a></p>
+ &lt;li&gt;&lt;a href=&quot;/technology/architecture/components/application/solution/altinn-studio/designer/&quot;&gt;Solution-specific application components Altinn Studio Designer&lt;/a&gt;&lt;p&gt;Altinn Studio Designer is the custom appliaction where app developers manage and creates applications.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/technology/architecture/components/application/solution/altinn-studio/repositories/&quot;&gt;Solution components Altinn Studio Repositories&lt;/a&gt;&lt;p&gt;In Altinn Studio Repos you find the functional components related to source control and access management of the application developer.&lt;/p&gt;&lt;/li&gt;  <a class="read-more" href="/technology/architecture/components/application/solution/altinn-studio/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1234,15 +1192,9 @@ The Kubernetes clusters are isolated between the different applications owners a
                 <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/solution/altinn-apps/app/">Solution-specific application components for App based on ASP.Net template</a></h2>
     </header>
@@ -1254,10 +1206,8 @@ Instanstation The app has instansiation functionality that presents the user for
 The app developer can add instansiation controll that veriy the type of party selected. <a class="read-more" href="/technology/architecture/components/application/solution/altinn-apps/app/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1265,15 +1215,9 @@ The app developer can add instansiation controll that veriy the type of party se
                 <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/construction/altinn-platform/authentication/">Application construction components - Altinn Platform Authentication</a></h2>
     </header>
@@ -1283,10 +1227,8 @@ Api Controllers  Authentication : Functionality to convert the different ID-toke
 See full list of dependencies in csproj. <a class="read-more" href="/technology/architecture/components/application/construction/altinn-platform/authentication/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1294,15 +1236,9 @@ See full list of dependencies in csproj. <a class="read-more" href="/technology/
                 <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/construction/altinn-platform/authorization/">Application construction components - Altinn Platform Authorization</a></h2>
     </header>
@@ -1315,10 +1251,8 @@ The below diagram shows the data flow including PEP.
 Decision API The decision API is the API that orchestrates the decision process. <a class="read-more" href="/technology/architecture/components/application/construction/altinn-platform/authorization/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1326,15 +1260,9 @@ Decision API The decision API is the API that orchestrates the decision process.
                 <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/nonsolutionspecific/operations/backupandrecovery/">Backup and recovery</a></h2>
     </header>
@@ -1345,10 +1273,8 @@ Backup Altinn Platform As described in the data section of the architecture docu
 There is different solutions for the different data stores. <a class="read-more" href="/technology/architecture/components/application/nonsolutionspecific/operations/backupandrecovery/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
@@ -1356,15 +1282,9 @@ There is different solutions for the different data stores. <a class="read-more"
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/solution/altinn-studio/designer/">Solution-specific application components Altinn Studio Designer</a></h2>
     </header>
@@ -1376,10 +1296,8 @@ App Creation App creation functionaliy lets the app developer create application
 During this process the app developer can select the org that will own the app and the repository name for that app. <a class="read-more" href="/technology/architecture/components/application/solution/altinn-studio/designer/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
@@ -1387,15 +1305,9 @@ During this process the app developer can select the org that will own the app a
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/nonsolutionspecific/development/">Development Applications</a></h2>
     </header>
@@ -1406,10 +1318,8 @@ See releases here.
 Manual &amp; Automated Test Tools Functional Test  Automated browser testing and WCAG testing using Cypress.  Unit Test  Jest framework used for unit testing front-end. More details here. xunit used for unit testing back-end. <a class="read-more" href="/technology/architecture/components/application/nonsolutionspecific/development/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
@@ -1417,16 +1327,9 @@ Manual &amp; Automated Test Tools Functional Test  Automated browser testing and
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-
-	<div style="margin-bottom:2rem"></div>
+<div style="margin-bottom:2rem"></div>
 
 	<nav class="pagination" role="navigation">
 	
@@ -1438,14 +1341,9 @@ Manual &amp; Automated Test Tools Functional Test  Automated browser testing and
 	
 </nav>
 
-
-
-
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/technology/tools/vs-code/" title="Visual Studio Code"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/app/" title="Create apps" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div></section>
         </div> 
@@ -1502,3 +1400,4 @@ Manual &amp; Automated Test Tools Functional Test  Automated browser testing and
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

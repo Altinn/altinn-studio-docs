@@ -381,7 +381,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/app/launched-apps/digdir/be-om-api-nokkel/"><span>Tilgang til REST API</span></a></li></ul></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/nb/api/"><span>API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -438,19 +438,19 @@ if(host != "localhost")
         <a href="/nb/api/storage/spec/"><span>OpenAPI</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/api/studio/"><span>Studio</span></a></li></ul></li>
-      <li class="dd-item parent">
-        <a href="/nb/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/community/about/"><span>Om</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/community/about/goals/"><span>Mål</span></a></li>
       <li class="dd-item">
         <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li></ul></li>
-      <li class="dd-item parent">
-        <a href="/nb/community/contributing/"><span>Bidra til utvikling</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/"><span>Bidra til utvikling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/community/contributing/propose-component/"><span>Foreslå en ny komponent</span></a></li>
-      <li class="dd-item parent active">
+      <li class="dd-item">
         <a href="/nb/community/contributing/develop-component/"><span>Utvikle en komponent</span></a></li><li class="dd-item">
           <a href="/nb/community/contributing/intro/">
             <span>Intro for utviklere</span></a></li>
@@ -543,7 +543,12 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/nb/community/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/community/contributing/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/community/contributing/develop-component/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -557,12 +562,7 @@ if(host != "localhost")
                 <span class="links"><a href='/nb/community/'>Community</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/community/contributing/'>Bidra til utvikling</a> <span class='adocs-breadcrumb-divider'> / </span> Utvikle en komponent</span>
             </div>
           </div><div id="body-inner"><h1 class="a-fontBold">Utvikle en komponent</h1>
-              <p class="a-leadText" id="leadText">Start gjerne utviklingen av ny funksjonalitet eller nye komponenter som er godkjent av Altinn. Vi setter pris på om du planlegger arbeidet ditt med oss før du begynner.</p>
-
-
-
-
-<p>Før du starter utvikling av ny funksjonalitet kan det være lurt å sjekke om oppgaven allerede ligger i backloggen vår. 
+              <p class="a-leadText" id="leadText">Start gjerne utviklingen av ny funksjonalitet eller nye komponenter som er godkjent av Altinn. Vi setter pris på om du planlegger arbeidet ditt med oss før du begynner.</p><p>Før du starter utvikling av ny funksjonalitet kan det være lurt å sjekke om oppgaven allerede ligger i backloggen vår. 
 Om du ikke finner den vil vi gjerne at du først <a href="../propose-component/">foreslår ønsket funksjonalitet/komponent</a> 
 og starter en dialog med oss før utviklingen starter.</p>
 <figure><a href="contribute-develop.svg"><img src="contribute-develop.svg" alt="Contributing process" title="Ønsket forløp når nye komponenter skal utvikles" /></a><figcaption><h4>Ønsket forløp når nye komponenter skal utvikles</h4></figcaption></figure>
@@ -594,19 +594,10 @@ enige om hvordan komponenten skal løses på forhånd slik at ikke de store endr
 <p>Dersom vi finner noe som bør utbedres kontakter vi deg for videre utvikling.</p>
 
 
-<footer class=" footline" >
-	
-</footer>
-
-
-
-
-
+<footer class=" footline" ></footer>
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/nb/community/contributing/propose-component/" title="Foreslå en ny komponent"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/nb/community/contributing/intro/" title="Intro for utviklere" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/community/contributing/develop-component/_index.nb.md" target="blank">
@@ -668,3 +659,4 @@ enige om hvordan komponenten skal løses på forhånd slik at ikke de store endr
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

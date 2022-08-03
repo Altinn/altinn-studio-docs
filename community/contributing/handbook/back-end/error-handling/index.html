@@ -420,7 +420,7 @@ if(host != "localhost")
         <a href="/api/storage/spec/"><span>OpenAPI</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
-      <li class="dd-item parent">
+      <li class="dd-item">
         <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
@@ -428,7 +428,7 @@ if(host != "localhost")
         <a href="/community/about/goals/"><span>Goals</span></a></li>
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
-      <li class="dd-item parent">
+      <li class="dd-item">
         <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
@@ -436,19 +436,19 @@ if(host != "localhost")
         <a href="/community/contributing/develop-component/"><span>Develop a component</span></a></li><li class="dd-item">
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
-      <li class="dd-item parent">
+      <li class="dd-item">
         <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/pipelines/"><span>Pipelines</span></a></li></ul></li>
-      <li class="dd-item parent">
-        <a href="/community/contributing/handbook/back-end/"><span>Back-end</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/back-end/"><span>Back-end</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/back-end/app-template-and-deps/"><span>App template and deps</span></a></li>
       <li class="dd-item">
         <a href="/community/contributing/handbook/back-end/async-programming/"><span>Async programming</span></a></li>
-      <li class="dd-item parent active">
+      <li class="dd-item">
         <a href="/community/contributing/handbook/back-end/error-handling/"><span>Error handling</span></a></li>
       <li class="dd-item">
         <a href="/community/contributing/handbook/back-end/logging/"><span>Logging</span></a></li>
@@ -521,7 +521,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -1075,7 +1075,14 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/community/']").parent().addClass("parent");
+ $("li.dd-item a[href='/community/contributing/']").parent().addClass("parent");
+ $("li.dd-item a[href='/community/contributing/handbook/']").parent().addClass("parent");
+ $("li.dd-item a[href='/community/contributing/handbook/back-end/']").parent().addClass("parent");
+ $("li.dd-item a[href='/community/contributing/handbook/back-end/error-handling/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1089,12 +1096,7 @@ if(host != "localhost")
                 <span class="links"><a href='/community/'>Community</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/community/contributing/'>Contributing</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/community/contributing/handbook/'>Handbook</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/community/contributing/handbook/back-end/'>Back-end</a> <span class='adocs-breadcrumb-divider'> / </span> Error handling</span>
             </div>
           </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/development">development</a><a class="label label-default" href="https://docs.altinn.studio/tags/error-handling">error-handling</a></div><div id="body-inner"><h1 class="a-fontBold">Error handling</h1>
-              <p class="a-leadText" id="leadText">Guidelines for exception handling in backend logic.</p>
-
-
-
-
-<h2 id="exception-handling">Exception Handling</h2>
+              <p class="a-leadText" id="leadText">Guidelines for exception handling in backend logic.</p><h2 id="exception-handling">Exception Handling</h2>
 <p>Exception handling is the act of catching an exception with the intention of handling the situation so that normal execution flow can continue. It should not be used as any part of an expected execution flow. It should also be avoided if the situation continue to be unrecoverable.</p>
 <p>.Net core provides a default middleware <em>UseExceptionHandler</em> that will catch exceptions and log them. You can read more about this <a href="https://docs.microsoft.com/en-us/aspnet/core/fundamentals/error-handling?view=aspnetcore-3.1">here</a>. This is the preferred mechanism when it comes to dealing with errors the application logic is unable to handle elegantly on its own. The middleware should be configured to generate a response that is appropriate for the running environment.</p>
 <p>Exceptions that can be handled by the application logic should be handled as soon and as specific as possible. The following example is found in the platform Storage application. More specifically the <a href="https://github.com/Altinn/altinn-studio/blob/0ff6a8d1dde279578fdab3b0a4403da001601a50/src/Altinn.Platform/Altinn.Platform.Storage/Storage/Controllers/DataController.cs#L494">DataController.GetDataElementAsync</a> method.</p>
@@ -1152,19 +1154,10 @@ if(host != "localhost")
 }
 </code></pre></div>
 
-<footer class=" footline" >
-	
-</footer>
-
-
-
-
-
+<footer class=" footline" ></footer>
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/community/contributing/handbook/back-end/async-programming/" title="Async programming"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/community/contributing/handbook/back-end/logging/" title="Logging" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/community/contributing/handbook/back-end/error-handling/_index.md" target="blank">
@@ -1226,3 +1219,4 @@ if(host != "localhost")
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

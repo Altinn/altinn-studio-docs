@@ -429,7 +429,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -437,7 +437,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -445,7 +445,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -529,7 +529,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -1083,7 +1083,11 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/tags/']").parent().addClass("parent");
+ $("li.dd-item a[href='/tags/todo/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1099,20 +1103,7 @@ if(host != "localhost")
           </div><div id="body-inner"><h1 class="a-fontBold">todo</h1>
               <p class="a-leadText" id="leadText"></p>
 
-
-
-
-
-
-<footer class=" footline" >
-	
-</footer>
-
-
-
-	
-
-	<div class="extra-pagination inner">
+<footer class=" footline" ></footer><div class="extra-pagination inner">
 	<nav class="pagination" role="navigation">
 	
 	<span class="page-number">Page 1 on 4</span>
@@ -1121,10 +1112,7 @@ if(host != "localhost")
 	
 </nav>
 
-	</div>
-
-	
-	   <article class="post community">
+	</div><article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/back-end/">Back-end</a></h2>
     </header>
@@ -1132,10 +1120,8 @@ if(host != "localhost")
         <p>TODO <a class="read-more" href="/community/contributing/handbook/back-end/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1143,15 +1129,9 @@ if(host != "localhost")
                 <a class="label label-default" href="https://docs.altinn.studio/tags/todo/">todo</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/general/">Cheat Sheet</a></h2>
     </header>
@@ -1165,10 +1145,8 @@ kubectl describe pod [pod name] describes current state and lists environment va
 kubectl delete pod [pod name] deletes a pod and a new pod of the same deployment will start <a class="read-more" href="/community/contributing/handbook/general/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1176,15 +1154,9 @@ kubectl delete pod [pod name] deletes a pod and a new pod of the same deployment
                 <a class="label label-default" href="https://docs.altinn.studio/tags/todo/">todo</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/cheatsheet/">General</a></h2>
     </header>
@@ -1195,10 +1167,8 @@ git commit -m &ldquo;&rdquo;
 Revert local commit git reset --soft HEAD~1 Azure CLI az login --use-device-code Kubectl  <a class="read-more" href="/community/contributing/handbook/cheatsheet/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1206,15 +1176,9 @@ Revert local commit git reset --soft HEAD~1 Azure CLI az login --use-device-code
                 <a class="label label-default" href="https://docs.altinn.studio/tags/todo/">todo</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/capabilities/devops/softwareconfiguration/deployment/altinn-studio/">Altinn Studio - Deployment Architecture</a></h2>
     </header>
@@ -1224,24 +1188,16 @@ Revert local commit git reset --soft HEAD~1 Azure CLI az login --use-device-code
 Repository Gitea is used as Repository in Altinn Studio App Development solution. There is one instance of Gitea running in a docker container in the solution. It uses cloud service database and cloud file share for configuration and remote repos. <a class="read-more" href="/technology/architecture/capabilities/devops/softwareconfiguration/deployment/altinn-studio/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/todo/">todo</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/solutions/altinn-studio/designer/functional/build-app/app-parameters/">App Parameters</a></h2>
     </header>
@@ -1250,24 +1206,16 @@ Repository Gitea is used as Repository in Altinn Studio App Development solution
 Supported App Parameters  party type requirements  Not (yet) supported App parameters  Valid to Valid from  See all issues related to App-Parameters on Github. <a class="read-more" href="/technology/solutions/altinn-studio/designer/functional/build-app/app-parameters/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/todo/">todo</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/solutions/altinn-studio/repos/structure/app-csproj/">App.csproj</a></h2>
     </header>
@@ -1275,24 +1223,16 @@ Supported App Parameters  party type requirements  Not (yet) supported App param
         <p>Summary This is a c# project file that is generated when a new app is created. This project file is placed in the root of the app folder. This project file helps in compiling the app. <a class="read-more" href="/technology/solutions/altinn-studio/repos/structure/app-csproj/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/todo/">todo</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/solutions/altinn-studio/repos/structure/application-metadata/">applicationmetadata.json</a></h2>
     </header>
@@ -1303,10 +1243,8 @@ Application Metadata Format Below is an example of application metadata json for
 { &#34;id&#34;: &#34;Brreg-testappmetaattachment&#34;, &#34;versionId&#34;: &#34;1.0&#34;, &#34;applicationOwnerId&#34;: &#34;Brreg&#34;, &#34;createdDateTime&#34;: &#34;2019-05-23T20:26:29. <a class="read-more" href="/technology/solutions/altinn-studio/repos/structure/application-metadata/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/app-structure/">app-structure</a>
@@ -1314,15 +1252,9 @@ Application Metadata Format Below is an example of application metadata json for
                 <a class="label label-default" href="https://docs.altinn.studio/tags/todo/">todo</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/solutions/altinn-platform/authorization/">Authorization</a></h2>
     </header>
@@ -1335,10 +1267,8 @@ The authorization component consist of a Policy Decision Point (PDP), Policy Ret
 Apps integrated with PDP to authorize access to applications. <a class="read-more" href="/technology/solutions/altinn-platform/authorization/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/platform/">platform</a>
@@ -1348,15 +1278,9 @@ Apps integrated with PDP to authorize access to applications. <a class="read-mor
                 <a class="label label-default" href="https://docs.altinn.studio/tags/todo/">todo</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/capabilities/devops/build_and_test/">Build &amp; Test Capabilities</a></h2>
     </header>
@@ -1368,10 +1292,8 @@ Build &amp; Integration Enablement Capabilities Software Compilation &amp; Valid
 Sofware Linking &amp; Packaging The project has the capability to build packages. <a class="read-more" href="/technology/architecture/capabilities/devops/build_and_test/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1381,15 +1303,9 @@ Sofware Linking &amp; Packaging The project has the capability to build packages
                 <a class="label label-default" href="https://docs.altinn.studio/tags/todo/">todo</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/solutions/altinn-studio/repos/structure/calculationhandler/">CalculationHandler.cs</a></h2>
     </header>
@@ -1401,25 +1317,16 @@ Utvikling Under opprettelse av en tjeneste vil en tom CalculationHandler opprett
 Hypotese: Tjenesteutvikler editerer på denne filen via Altinn Studio eller Visual Studio Code <a class="read-more" href="/technology/solutions/altinn-studio/repos/structure/calculationhandler/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/todo/">todo</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-
-	<div style="margin-bottom:2rem"></div>
+<div style="margin-bottom:2rem"></div>
 
 	<nav class="pagination" role="navigation">
 	
@@ -1429,14 +1336,9 @@ Hypotese: Tjenesteutvikler editerer på denne filen via Altinn Studio eller Visu
 	
 </nav>
 
-
-
-
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-next" href="/app/" title="Create apps" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div></section>
         </div> 
@@ -1493,3 +1395,4 @@ Hypotese: Tjenesteutvikler editerer på denne filen via Altinn Studio eller Visu
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

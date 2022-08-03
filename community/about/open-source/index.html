@@ -428,16 +428,16 @@ if(host != "localhost")
         <a href="/api/storage/spec/"><span>OpenAPI</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
-      <li class="dd-item parent">
+      <li class="dd-item">
         <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
-      <li class="dd-item parent">
-        <a href="/community/about/"><span>About</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/goals/"><span>Goals</span></a></li>
-      <li class="dd-item parent active">
+      <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -445,7 +445,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -529,7 +529,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -1083,7 +1083,12 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/community/']").parent().addClass("parent");
+ $("li.dd-item a[href='/community/about/']").parent().addClass("parent");
+ $("li.dd-item a[href='/community/about/open-source/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1105,12 +1110,7 @@ if(host != "localhost")
     <li><a href="#the-best-tools">The best tools</a></li>
     <li><a href="#the-best-people">The best people</a></li>
   </ul>
-</nav>
-
-
-
-
-<p>There are many who have noticed that Altinn has chosen a new and very open direction in recent years.</p>
+</nav><p>There are many who have noticed that Altinn has chosen a new and very open direction in recent years.</p>
 <p>We&rsquo;ve received questions about why, and thought it would be interesting that we share our thoughts on open source,
 as as central national common component in Norway.</p>
 <h2 id="sharing-and-reuse">Sharing and reuse</h2>
@@ -1205,19 +1205,10 @@ candidates are clearly expressing that they think open source is important, and 
 who can help make that happen.</p>
 
 
-<footer class=" footline" >
-	
-</footer>
-
-
-
-
-
+<footer class=" footline" ></footer>
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/community/about/goals/" title="Goals"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/community/contributing/" title="Contribute to the development of Altinn" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/community/about/open-source/_index.en.md" target="blank">
@@ -1279,3 +1270,4 @@ who can help make that happen.</p>
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

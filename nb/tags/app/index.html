@@ -373,7 +373,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/app/launched-apps/digdir/be-om-api-nokkel/"><span>Tilgang til REST API</span></a></li></ul></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/nb/api/"><span>API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -535,7 +535,11 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/nb/tags/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/tags/app/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -551,30 +555,14 @@ if(host != "localhost")
           </div><div id="body-inner"><h1 class="a-fontBold">app</h1>
               <p class="a-leadText" id="leadText"></p>
 
-
-
-
-
-
-<footer class=" footline" >
-	
-</footer>
-
-
-
-	
-
-	<div class="extra-pagination inner">
+<footer class=" footline" ></footer><div class="extra-pagination inner">
 	<nav class="pagination" role="navigation">
 	
 	<span class="page-number">Side 1 av 1</span>
 	
 </nav>
 
-	</div>
-
-	
-	   <article class="post app">
+	</div><article class="post app">
     <header class="post-header">
         <h2 class="post-title"><a href="/nb/app/launched-apps/digdir/bli-tjenesteeier/">Bli tjenesteeier</a></h2>
     </header>
@@ -583,24 +571,16 @@ if(host != "localhost")
  Info Repo Kjørende tjeneste   <a class="read-more" href="/nb/app/launched-apps/digdir/bli-tjenesteeier/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/app/">app</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post app">
+<article class="post app">
     <header class="post-header">
         <h2 class="post-title"><a href="/nb/app/launched-apps/digdir/godkjenn-bruksvilkaar/">Godkjenning av bruksvilkår for skytjenester fra Altinn</a></h2>
     </header>
@@ -609,24 +589,16 @@ if(host != "localhost")
  Repo Kjørende tjeneste   <a class="read-more" href="/nb/app/launched-apps/digdir/godkjenn-bruksvilkaar/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/app/">app</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post app">
+<article class="post app">
     <header class="post-header">
         <h2 class="post-title"><a href="/nb/app/launched-apps/digdir/oed/">Oppgjør etter dødsfall</a></h2>
     </header>
@@ -635,24 +607,16 @@ if(host != "localhost")
 App&rsquo;ene kan ikke instansieres fra tjenestekatalogen. Hovedapp&rsquo;en instansieres utelukkende fra Domstol grensesnittet, og «Altinn avgiver» (process instance owner) er avdøde. Arvinger og evt andre som skal benytte løsningen får tilgang til instansen via tildelte roller i Altinn autorisasjon. <a class="read-more" href="/nb/app/launched-apps/digdir/oed/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/app/">app</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post app">
+<article class="post app">
     <header class="post-header">
         <h2 class="post-title"><a href="/nb/app/launched-apps/digdir/be-om-api-nokkel/">Bestill tilgang til REST API</a></h2>
     </header>
@@ -661,25 +625,16 @@ App&rsquo;ene kan ikke instansieres fra tjenestekatalogen. Hovedapp&rsquo;en ins
  Info Repo Kjørende tjeneste   <a class="read-more" href="/nb/app/launched-apps/digdir/be-om-api-nokkel/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/app/">app</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-
-	<div style="margin-bottom:2rem"></div>
+<div style="margin-bottom:2rem"></div>
 
 	<nav class="pagination" role="navigation">
 	
@@ -687,14 +642,9 @@ App&rsquo;ene kan ikke instansieres fra tjenestekatalogen. Hovedapp&rsquo;en ins
 	
 </nav>
 
-
-
-
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-next" href="/nb/app/" title="Lage apper" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div></section>
         </div> 
@@ -751,3 +701,4 @@ App&rsquo;ene kan ikke instansieres fra tjenestekatalogen. Hovedapp&rsquo;en ins
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

@@ -421,7 +421,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -429,7 +429,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -437,7 +437,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -521,7 +521,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -1075,7 +1075,11 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/tags/']").parent().addClass("parent");
+ $("li.dd-item a[href='/tags/containers/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1091,30 +1095,14 @@ if(host != "localhost")
           </div><div id="body-inner"><h1 class="a-fontBold">containers</h1>
               <p class="a-leadText" id="leadText"></p>
 
-
-
-
-
-
-<footer class=" footline" >
-	
-</footer>
-
-
-
-	
-
-	<div class="extra-pagination inner">
+<footer class=" footline" ></footer><div class="extra-pagination inner">
 	<nav class="pagination" role="navigation">
 	
 	<span class="page-number">Page 1 on 1</span>
 	
 </nav>
 
-	</div>
-
-	
-	   <article class="post technology">
+	</div><article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/tools/docker/">Docker</a></h2>
     </header>
@@ -1125,10 +1113,8 @@ Altinn ❤️ containers.
 Links  https://www.docker.com https://www.docker.com/products/docker-desktop https://hub.docker.com https://github.com/docker/docker-ce   <a class="read-more" href="/technology/tools/docker/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/tech/">tech</a>
@@ -1136,15 +1122,9 @@ Links  https://www.docker.com https://www.docker.com/products/docker-desktop htt
                 <a class="label label-default" href="https://docs.altinn.studio/tags/containers/">containers</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/tools/helm/">Helm</a></h2>
     </header>
@@ -1154,10 +1134,8 @@ A helm-package, or a helm-chart is a folder with a set file-structure.
 +-- altinn-designer | +-- templates | | +-- tests | | | +-- test-connection.yaml | | +-- NOTES.txt | | +-- _helpers.tpl | | +-- deployment.yaml | | +-- service. <a class="read-more" href="/technology/tools/helm/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/tech/">tech</a>
@@ -1165,15 +1143,9 @@ A helm-package, or a helm-chart is a folder with a set file-structure.
                 <a class="label label-default" href="https://docs.altinn.studio/tags/containers/">containers</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/tools/kubernetes/">Kubernetes</a></h2>
     </header>
@@ -1184,10 +1156,8 @@ Kubernetes is used to manage the containers.
 Links  https://kubernetes.io https://github. <a class="read-more" href="/technology/tools/kubernetes/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/tech/">tech</a>
@@ -1195,15 +1165,9 @@ Links  https://kubernetes.io https://github. <a class="read-more" href="/technol
                 <a class="label label-default" href="https://docs.altinn.studio/tags/containers/">containers</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/tools/traefik/">Traefik</a></h2>
     </header>
@@ -1212,10 +1176,8 @@ Links  https://kubernetes.io https://github. <a class="read-more" href="/technol
 Links  https://traefik.io https://github.com/containous/traefik https://hub.docker.com/_/traefik   <a class="read-more" href="/technology/tools/traefik/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/tech/">tech</a>
@@ -1225,16 +1187,9 @@ Links  https://traefik.io https://github.com/containous/traefik https://hub.dock
                 <a class="label label-default" href="https://docs.altinn.studio/tags/load-balancer/">load-balancer</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-
-	<div style="margin-bottom:2rem"></div>
+<div style="margin-bottom:2rem"></div>
 
 	<nav class="pagination" role="navigation">
 	
@@ -1242,14 +1197,9 @@ Links  https://traefik.io https://github.com/containous/traefik https://hub.dock
 	
 </nav>
 
-
-
-
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-next" href="/app/" title="Create apps" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div></section>
         </div> 
@@ -1306,3 +1256,4 @@ Links  https://traefik.io https://github.com/containous/traefik https://hub.dock
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

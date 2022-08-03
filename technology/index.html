@@ -429,7 +429,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -437,7 +437,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -445,7 +445,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -529,7 +529,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -648,8 +648,8 @@ if(host != "localhost")
         <a href="/community/devops/teams/studio/"><span>Studio</span></a></li></ul></li></ul></li>
       <li class="dd-item">
         <a href="/community/presentations/"><span>Presentations</span></a></li></ul></li>
-      <li class="dd-item parent active">
-        <a href="/technology/"><span>Technology</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/"><span>Technology</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/technology/architecture/"><span>Architecture</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -1083,7 +1083,10 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/technology/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1097,107 +1100,36 @@ if(host != "localhost")
                 <span class="links">Technology</span>
             </div>
           </div><div id="body-inner"><h1 class="a-fontBold">Technology</h1>
-              <p class="a-leadText" id="leadText">System documentation for Altinn Studio, Altinn Apps and Altinn Platform.</p>
-
-
-
-
-<p>Altinn Studio is the next generation Altinn application development and hosting solution.
+              <p class="a-leadText" id="leadText">System documentation for Altinn Studio, Altinn Apps and Altinn Platform.</p><p>Altinn Studio is the next generation Altinn application development and hosting solution.
 All you need for testing Studio is to <a href="../app/getting-started/first-time-setup">register an account</a>.</p>
 <p>Altinn 3 have an open backlog on GitHub and the code is open source. Everybody can <a href="https://github.com/Altinn/altinn-studio/issues/new?template=bug_report.md">create bugs</a>, <a href="https://github.com/Altinn/altinn-studio/issues/new?template=feature_request.md">request features</a> or <a href="https://github.com/Altinn/altinn-studio/issues/new?template=question.md">ask questions</a>.</p>
 <figure><a href="altinn-lego-platform.jpg"><img src="altinn-lego-platform.jpg" alt="Altinn as lego" title="Building the new Altinn. One brick at the time..." /></a><figcaption><h4>Building the new Altinn. One brick at the time...</h4></figcaption></figure>
-
-
-
-
-
-
-
-
-
-
-
-
 <ul class="children children-li js-moveChildrenFrom">
-	
-    
-	    
-    
-    
 
 	
-		
-	
-		
-
-
-<li>
-<a href="/technology/architecture/" >Architecture</a>
-<p>Altinn Studio, Altinn Apps and Altinn Platform has a modern cloud native architecture. This documentation describes everything from the requirements affecting the architecture to the defined capabilities and the components that provides them.</p>
-</li>
-
-
-
-		
-	
-		
-
-
-<li>
-<a href="/technology/solutions/" >Solutions</a>
-<p>The latest generation Altinn platform consist of serveral solutions.</p>
-</li>
-
-
-
-		
-	
-		
-
-
-<li>
-<a href="/technology/terms/" >Terms</a>
-<p>Description of the most common terms used in the documentation for Altinn Studio.</p>
-</li>
-
-
-
-		
-	
-		
-
-
-<li>
-<a href="/technology/tools/" >Tools and frameworks</a>
-<p>The open source tech used in Altinn Studio, Altinn Apps and Altinn Platform.</p>
-</li>
-
-
-
-		
-	
-
+		<li>
+				<a href="/technology/architecture/">Architecture</a>
+				<p>Altinn Studio, Altinn Apps and Altinn Platform has a modern cloud native architecture. This documentation describes everything from the requirements affecting the architecture to the defined capabilities and the components that provides them.</p>
+				</li><li>
+				<a href="/technology/solutions/">Solutions</a>
+				<p>The latest generation Altinn platform consist of serveral solutions.</p>
+				</li><li>
+				<a href="/technology/terms/">Terms</a>
+				<p>Description of the most common terms used in the documentation for Altinn Studio.</p>
+				</li><li>
+				<a href="/technology/tools/">Tools and frameworks</a>
+				<p>The open source tech used in Altinn Studio, Altinn Apps and Altinn Platform.</p>
+				</li>
 	
 </ul>
 
 
 
 
-
-
-<footer class=" footline" >
-	
-</footer>
-
-
-
-
-
+<footer class=" footline" ></footer>
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/community/presentations/" title="Presentations and Altinn Coffee"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/technology/architecture/" title="Architecture" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/technology/_index.en.md" target="blank">
@@ -1259,3 +1191,4 @@ All you need for testing Studio is to <a href="../app/getting-started/first-time
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

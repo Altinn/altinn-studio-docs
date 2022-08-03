@@ -421,7 +421,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -429,7 +429,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -437,7 +437,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -521,7 +521,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -1075,7 +1075,11 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/tags/']").parent().addClass("parent");
+ $("li.dd-item a[href='/tags/authorization/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1091,30 +1095,14 @@ if(host != "localhost")
           </div><div id="body-inner"><h1 class="a-fontBold">authorization</h1>
               <p class="a-leadText" id="leadText"></p>
 
-
-
-
-
-
-<footer class=" footline" >
-	
-</footer>
-
-
-
-	
-
-	<div class="extra-pagination inner">
+<footer class=" footline" ></footer><div class="extra-pagination inner">
 	<nav class="pagination" role="navigation">
 	
 	<span class="page-number">Page 1 on 1</span>
 	
 </nav>
 
-	</div>
-
-	
-	   <article class="post technology">
+	</div><article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/solution/altinn-platform/authorization/accessgroups/">Access Groups</a></h2>
     </header>
@@ -1125,10 +1113,8 @@ See Github #25
 AccessGroup defintion  Type of group. Leaf or branch? Name of group in different languges AccessGroup identifier  AccessGroup relationship  Parent/child relantiship between AccessGroups Relationship for external roles (ER, AA,  AccessGroup Membership  MembershipID CoveredBy UserId Covered OfferedByParty AccessGroupId ValidTo?  AccessGroup Delegation  DelegatedByParty DelegatedByUserId DelegationType DelegatetDateTime  AccessGroup History  DelegatedBy AccessGroupID OfferedBy CoveredByUserId CoveredByPartyId ChangeType (created, deleted)    <a class="read-more" href="/technology/architecture/components/application/solution/altinn-platform/authorization/accessgroups/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1140,15 +1126,9 @@ AccessGroup defintion  Type of group. Leaf or branch? Name of group in different
                 <a class="label label-default" href="https://docs.altinn.studio/tags/xacml/">xacml</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/solutions/altinn-platform/authorization/">Authorization</a></h2>
     </header>
@@ -1161,10 +1141,8 @@ The authorization component consist of a Policy Decision Point (PDP), Policy Ret
 Apps integrated with PDP to authorize access to applications. <a class="read-more" href="/technology/solutions/altinn-platform/authorization/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/platform/">platform</a>
@@ -1174,15 +1152,9 @@ Apps integrated with PDP to authorize access to applications. <a class="read-mor
                 <a class="label label-default" href="https://docs.altinn.studio/tags/todo/">todo</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/solution/altinn-platform/authorization/contexthandler/">Context Handler</a></h2>
     </header>
@@ -1191,10 +1163,8 @@ Apps integrated with PDP to authorize access to applications. <a class="read-mor
 &lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt; &lt;Request xsi:schemaLocation=&#34;urn:oasis:names:tc:xacml:3.0:core:schema:wd-17 http://docs.oasis-open.org/xacml/3.0/xacml-core-v3-schema-wd-17.xsd&#34; ReturnPolicyIdList=&#34;false&#34; CombinedDecision=&#34;false&#34; xmlns=&#34;urn:oasis:names:tc:xacml:3.0:core:schema:wd-17&#34; xmlns:xsi=&#34;http://www.w3.org/2001/XMLSchema-instance&#34;&gt; &lt;Attributes Category=&#34;urn:oasis:names:tc:xacml:1.0:subject-category:access-subject&#34;&gt; &lt;Attribute IncludeInResult=&#34;false&#34; AttributeId=&#34;urn:altinn:user-id&#34;&gt; &lt;AttributeValue DataType=&#34;http://www.w3.org/2001/XMLSchema#string&#34;&gt;15468&lt;/AttributeValue&gt;  &lt;/Attribute&gt; &lt;/Attributes&gt; &lt;Attributes Category=&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&#34;&gt; &lt;Attribute IncludeInResult=&#34;false&#34; AttributeId=&#34;urn:altinn:instance-id&#34;&gt; &lt;AttributeValue DataType=&#34;http://www.w3.org/2001/XMLSchema#string&#34;&gt;cbdc7b44-9442-4fe0-854b-da278bf0b0e&lt;/AttributeValue&gt;  &lt;/Attribute&gt; &lt;/Attributes&gt; &lt;Attributes Category=&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:action&#34;&gt; &lt;Attribute IncludeInResult=&#34;false&#34; AttributeId=&#34;urn:oasis:names:tc:xacml:1.0:action:action-id&#34;&gt; &lt;AttributeValue DataType=&#34;http://www.w3.org/2001/XMLSchema#string&#34;&gt;Read&lt;/AttributeValue&gt;  &lt;/Attribute&gt; &lt;/Attributes&gt; &lt;Attributes Category=&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:environment&#34; /&gt; &lt;/Request&gt; The enriched decision request contains all the needed attributes for subject and resource so PDP can identify the correct policy and evauluate the request based on it. <a class="read-more" href="/technology/architecture/components/application/solution/altinn-platform/authorization/contexthandler/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1206,15 +1176,9 @@ Apps integrated with PDP to authorize access to applications. <a class="read-mor
                 <a class="label label-default" href="https://docs.altinn.studio/tags/xacml/">xacml</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/solution/altinn-platform/authorization/pap/">Policy Administration Point</a></h2>
     </header>
@@ -1225,10 +1189,8 @@ See Policy Administration Point in Altinn Studio for details.
 Delegation Policies Delegation of rights will be performed in Altinn II platform through the delegation functionality. <a class="read-more" href="/technology/architecture/components/application/solution/altinn-platform/authorization/pap/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1240,15 +1202,9 @@ Delegation Policies Delegation of rights will be performed in Altinn II platform
                 <a class="label label-default" href="https://docs.altinn.studio/tags/xacml/">xacml</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/solution/altinn-platform/authorization/pdp/">Policy Decision Point</a></h2>
     </header>
@@ -1260,10 +1216,8 @@ The PDP evaluates the Context Request based on standard XACML 3.0 behaviour. The
 Policy Decision Point exposes a method that authorize the decision request. <a class="read-more" href="/technology/architecture/components/application/solution/altinn-platform/authorization/pdp/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1275,15 +1229,9 @@ Policy Decision Point exposes a method that authorize the decision request. <a c
                 <a class="label label-default" href="https://docs.altinn.studio/tags/xacml/">xacml</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/solution/altinn-platform/authorization/prp/">Policy Retrieval Point</a></h2>
     </header>
@@ -1295,10 +1243,8 @@ See Policy Adminstration Point for details about how the policies are created.
 See construction components how PRP is built. <a class="read-more" href="/technology/architecture/components/application/solution/altinn-platform/authorization/prp/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1310,15 +1256,9 @@ See construction components how PRP is built. <a class="read-more" href="/techno
                 <a class="label label-default" href="https://docs.altinn.studio/tags/xacml/">xacml</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/solution/altinn-platform/authorization/resourceregistry/">Resource Registry</a></h2>
     </header>
@@ -1330,10 +1270,8 @@ Type of resources There are different types of resources that can be registrated
  Altinn 3 apps - Refered with org/app id Altinn 2 Services - Refered with externalServiceCode and EditionCode Service Resources  Altinn 3 Apps Apps hosted in Altinn 3 Apps will be registred in the Altinn Service Registry. <a class="read-more" href="/technology/architecture/components/application/solution/altinn-platform/authorization/resourceregistry/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1345,16 +1283,9 @@ Type of resources There are different types of resources that can be registrated
                 <a class="label label-default" href="https://docs.altinn.studio/tags/xacml/">xacml</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-
-	<div style="margin-bottom:2rem"></div>
+<div style="margin-bottom:2rem"></div>
 
 	<nav class="pagination" role="navigation">
 	
@@ -1362,14 +1293,9 @@ Type of resources There are different types of resources that can be registrated
 	
 </nav>
 
-
-
-
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-next" href="/app/" title="Create apps" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div></section>
         </div> 
@@ -1426,3 +1352,4 @@ Type of resources There are different types of resources that can be registrated
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

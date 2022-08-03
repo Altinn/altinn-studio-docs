@@ -428,7 +428,7 @@ if(host != "localhost")
         <a href="/api/storage/spec/"><span>OpenAPI</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
-      <li class="dd-item parent">
+      <li class="dd-item">
         <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
@@ -437,7 +437,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -445,7 +445,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -529,7 +529,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -560,15 +560,15 @@ if(host != "localhost")
         <a href="/community/contributing/handbook/theming/"><span>Theming and styling</span></a></li>
       <li class="dd-item">
         <a href="/community/contributing/handbook/troubleshooting/"><span>Troubleshooting</span></a></li></ul></li></ul></li>
-      <li class="dd-item parent">
-        <a href="/community/changelog/"><span>Changelog</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
-      <li class="dd-item parent">
-        <a href="/community/changelog/app-frontend/"><span>App frontend</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
-      <li class="dd-item parent">
-        <a href="/community/changelog/app-frontend/v3/"><span>v3</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/community/changelog/"><span>Changelog</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/community/changelog/app-frontend/"><span>App frontend</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/community/changelog/app-frontend/v3/"><span>v3</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/changelog/app-frontend/v3/breaking-changes/"><span>Breaking changes</span></a></li>
-      <li class="dd-item parent active">
+      <li class="dd-item">
         <a href="/community/changelog/app-frontend/v3/whats-new/"><span>What&#39;s new</span></a></li></ul></li></ul></li>
       <li class="dd-item">
         <a href="/community/changelog/app-nuget/"><span>App nuget</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
@@ -1083,7 +1083,14 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/community/']").parent().addClass("parent");
+ $("li.dd-item a[href='/community/changelog/']").parent().addClass("parent");
+ $("li.dd-item a[href='/community/changelog/app-frontend/']").parent().addClass("parent");
+ $("li.dd-item a[href='/community/changelog/app-frontend/v3/']").parent().addClass("parent");
+ $("li.dd-item a[href='/community/changelog/app-frontend/v3/whats-new/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1278,12 +1285,7 @@ if(host != "localhost")
     <li><a href="#301-2021-02-25---horizontally-aligned-components--bugfix-for-loading-options">3.0.1 (2021-02-25) - Horizontally aligned components &amp; Bugfix for loading options</a></li>
     <li><a href="#300-2021-02-23---new-font-for-app-frontend">3.0.0 (2021-02-23) - New font for App Frontend</a></li>
   </ul>
-</nav>
-
-
-
-
-<p>Changelog for app-frontend can now be <a href="https://github.com/Altinn/app-frontend-react/releases">found on Github Releases</a>.</p>
+</nav><p>Changelog for app-frontend can now be <a href="https://github.com/Altinn/app-frontend-react/releases">found on Github Releases</a>.</p>
 <p>For a high-level overview of <a href="https://github.com/Altinn/altinn-roadmap/issues">upcoming changes, you can check out the roadmap</a>.</p>
 <h2 id="3372-2022-05-20---dependency-patching">3.37.2 (2022-05-20) - Dependency patching</h2>
 <p>Patching of external dependencies for week 20 of 2022.</p>
@@ -1807,19 +1809,10 @@ For the apps to show fonts as expected, some changes need to be made. See <a hre
 for the details.</p>
 
 
-<footer class=" footline" >
-	
-</footer>
-
-
-
-
-
+<footer class=" footline" ></footer>
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/community/changelog/app-frontend/v3/breaking-changes/" title="Breaking changes"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/community/changelog/app-nuget/" title="Changelog for app nuget packages" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/community/changelog/app-frontend/v3/whats-new/_index.en.md" target="blank">
@@ -1881,3 +1874,4 @@ for the details.</p>
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

@@ -429,7 +429,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -437,7 +437,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -445,7 +445,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -529,7 +529,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -1083,7 +1083,11 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/tags/']").parent().addClass("parent");
+ $("li.dd-item a[href='/tags/todo/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1099,20 +1103,7 @@ if(host != "localhost")
           </div><div id="body-inner"><h1 class="a-fontBold">todo</h1>
               <p class="a-leadText" id="leadText"></p>
 
-
-
-
-
-
-<footer class=" footline" >
-	
-</footer>
-
-
-
-	
-
-	<div class="extra-pagination inner">
+<footer class=" footline" ></footer><div class="extra-pagination inner">
 	<nav class="pagination" role="navigation">
 	
 	    <a class="newer-posts" href="/tags/todo/">&larr; Previous Pages</a>
@@ -1123,10 +1114,7 @@ if(host != "localhost")
 	
 </nav>
 
-	</div>
-
-	
-	   <article class="post technology">
+	</div><article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/solutions/altinn-apps/app/apptemplates/asp.net/configuration/">Configuration of Application</a></h2>
     </header>
@@ -1138,10 +1126,8 @@ Configuration of allowed data elements TODO
 Configuration of Linkerd Every app cluster has linkerd installed as a service mesh. The app can be configured to use linkerd to encrypt the traffic between the ingress controller and the app. <a class="read-more" href="/technology/solutions/altinn-apps/app/apptemplates/asp.net/configuration/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/altinn-apps/">altinn-apps</a>
@@ -1149,15 +1135,9 @@ Configuration of Linkerd Every app cluster has linkerd installed as a service me
                 <a class="label label-default" href="https://docs.altinn.studio/tags/todo/">todo</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/solutions/altinn-studio/designer/functional/build-app/data-modeling/">Data modeling</a></h2>
     </header>
@@ -1166,10 +1146,8 @@ Configuration of Linkerd Every app cluster has linkerd installed as a service me
 Altinn Studio will support both importing existing data model as XSD or creating a data modell. In MVP only import is in scope. <a class="read-more" href="/technology/solutions/altinn-studio/designer/functional/build-app/data-modeling/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/data-modeling/">data-modeling</a>
@@ -1177,15 +1155,9 @@ Altinn Studio will support both importing existing data model as XSD or creating
                 <a class="label label-default" href="https://docs.altinn.studio/tags/todo/">todo</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post app">
+<article class="post app">
     <header class="post-header">
         <h2 class="post-title"><a href="/app/testing/local/apitests/user/">API use as an end user</a></h2>
     </header>
@@ -1193,24 +1165,16 @@ Altinn Studio will support both importing existing data model as XSD or creating
         <p>TODO <a class="read-more" href="/app/testing/local/apitests/user/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/todo/">todo</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/solutions/altinn-studio/repos/structure/form-layout/">FormLayout.json</a></h2>
     </header>
@@ -1220,10 +1184,8 @@ Format &lsquo;FormLayout.json&rsquo; is divided into three objects:
  Components: describes the components in the schema and configurations connected to the specific component. E.g the binding to a data model. Containers: describes the layout containers used in the schema and the configurations connected to them. E.g if the container is a repeating group Order: this object specify the order of the containers and components in the schema. <a class="read-more" href="/technology/solutions/altinn-studio/repos/structure/form-layout/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/app-structure/">app-structure</a>
@@ -1231,15 +1193,9 @@ Format &lsquo;FormLayout.json&rsquo; is divided into three objects:
                 <a class="label label-default" href="https://docs.altinn.studio/tags/todo/">todo</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/solutions/altinn-studio/repos/structure/instantiationhandler/">InstansiationHandler.cs</a></h2>
     </header>
@@ -1251,10 +1207,8 @@ Utvikling Under opprettelse av en tjeneste vil en tom InstansiationHandler oppre
 Hypotese: Tjenesteutvikler editerer på denne filen via Altinn Studio eller Visual Studio Code <a class="read-more" href="/technology/solutions/altinn-studio/repos/structure/instantiationhandler/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/app-structure/">app-structure</a>
@@ -1262,15 +1216,9 @@ Hypotese: Tjenesteutvikler editerer på denne filen via Altinn Studio eller Visu
                 <a class="label label-default" href="https://docs.altinn.studio/tags/todo/">todo</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/infrastructure/network/">Network componentens</a></h2>
     </header>
@@ -1282,10 +1230,8 @@ Read more about Azure Virtual Networks.
 Azure Loadbalancer In front of every AKS cluster there is a Azure Loadbalancer that load traffic between the different nodes in the AKS cluster. <a class="read-more" href="/technology/architecture/components/infrastructure/network/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1295,15 +1241,9 @@ Azure Loadbalancer In front of every AKS cluster there is a Azure Loadbalancer t
                 <a class="label label-default" href="https://docs.altinn.studio/tags/todo/">todo</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/capabilities/runtime/presentation/">Presentation (User Interface) Capabilities</a></h2>
     </header>
@@ -1313,10 +1253,8 @@ These capabilities is both targeting App developers creating applications in Alt
 Rendering &amp; Interaction Capabilities Composition The app developer may create the layout of the App UI using Altinn Studio. <a class="read-more" href="/technology/architecture/capabilities/runtime/presentation/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1324,15 +1262,9 @@ Rendering &amp; Interaction Capabilities Composition The app developer may creat
                 <a class="label label-default" href="https://docs.altinn.studio/tags/todo/">todo</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/solutions/altinn-apps/app/processhandling/">Process handling</a></h2>
     </header>
@@ -1342,10 +1274,8 @@ If you want details about the business process architechture see Business Proces
 Tasks Formfilling Signing Payment Events  <a class="read-more" href="/technology/solutions/altinn-apps/app/processhandling/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/altinn-apps/">altinn-apps</a>
@@ -1353,15 +1283,9 @@ Tasks Formfilling Signing Payment Events  <a class="read-more" href="/technology
                 <a class="label label-default" href="https://docs.altinn.studio/tags/todo/">todo</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/construction/altinn-platform/profile/">Application construction components - Altinn Platform Profile</a></h2>
     </header>
@@ -1369,10 +1293,8 @@ Tasks Formfilling Signing Payment Events  <a class="read-more" href="/technology
         <p>TODO <a class="read-more" href="/technology/architecture/components/application/construction/altinn-platform/profile/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1382,15 +1304,9 @@ Tasks Formfilling Signing Payment Events  <a class="read-more" href="/technology
                 <a class="label label-default" href="https://docs.altinn.studio/tags/todo/">todo</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/solutions/altinn-studio/repos/structure/reactapp/">react-app.js</a></h2>
     </header>
@@ -1399,10 +1315,8 @@ Tasks Formfilling Signing Payment Events  <a class="read-more" href="/technology
 For øyeblikket er den statisk og lik for alle tjenester. Målet er at den blir tilpasset de komponentene som er i bruk. Dette slik at javascript koden ikke i inneholder referanser til komponenter ikke brukt i tjenesten. <a class="read-more" href="/technology/solutions/altinn-studio/repos/structure/reactapp/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/app-structure/">app-structure</a>
@@ -1410,16 +1324,9 @@ For øyeblikket er den statisk og lik for alle tjenester. Målet er at den blir 
                 <a class="label label-default" href="https://docs.altinn.studio/tags/todo/">todo</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-
-	<div style="margin-bottom:2rem"></div>
+<div style="margin-bottom:2rem"></div>
 
 	<nav class="pagination" role="navigation">
 	
@@ -1431,14 +1338,9 @@ For øyeblikket er den statisk og lik for alle tjenester. Målet er at den blir 
 	
 </nav>
 
-
-
-
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/technology/tools/vs-code/" title="Visual Studio Code"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/app/" title="Create apps" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div></section>
         </div> 
@@ -1495,3 +1397,4 @@ For øyeblikket er den statisk og lik for alle tjenester. Målet er at den blir 
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

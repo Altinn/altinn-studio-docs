@@ -429,7 +429,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -437,7 +437,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -445,7 +445,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -529,7 +529,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -1083,7 +1083,11 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/tags/']").parent().addClass("parent");
+ $("li.dd-item a[href='/tags/translate-to-english/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1099,20 +1103,7 @@ if(host != "localhost")
           </div><div id="body-inner"><h1 class="a-fontBold">translate-to-english</h1>
               <p class="a-leadText" id="leadText"></p>
 
-
-
-
-
-
-<footer class=" footline" >
-	
-</footer>
-
-
-
-	
-
-	<div class="extra-pagination inner">
+<footer class=" footline" ></footer><div class="extra-pagination inner">
 	<nav class="pagination" role="navigation">
 	
 	    <a class="newer-posts" href="/tags/translate-to-english/">&larr; Previous Pages</a>
@@ -1123,10 +1114,7 @@ if(host != "localhost")
 	
 </nav>
 
-	</div>
-
-	
-	   <article class="post app">
+	</div><article class="post app">
     <header class="post-header">
         <h2 class="post-title"><a href="/app/testing/local/">Test of app locally</a></h2>
     </header>
@@ -1135,24 +1123,16 @@ if(host != "localhost")
 Når appen lages, kommer den med alle nødvendige filer og oppsett til å kunne kjøres som en frittstående applikasjon. Ved å laste ned alle filene knyttet til appen fra repoet til appen, kan man kjøre appen lokalt på egen maskin, og på den måten enkelt teste endringer. <a class="read-more" href="/app/testing/local/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post api">
+<article class="post api">
     <header class="post-header">
         <h2 class="post-title"><a href="/api/authentication/maskinporten/">Authenticate with Maskinporten</a></h2>
     </header>
@@ -1161,24 +1141,16 @@ Når appen lages, kommer den med alle nødvendige filer og oppsett til å kunne 
  https://tt02.altinn.no er testmiljø for apper i Altinn, og det er koblet mot Ver 2-miljøet i Maskinporten. https://www.altinn.no er koblet mot Produksjon.  Tilgang som tjenesteeier For å kunne hente data fra Storage i Altinn 3 via API som tjenesteeier, så må man opprette en integrasjon (klient) i Maskinporten, med nødvendige scopes. <a class="read-more" href="/api/authentication/maskinporten/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post app">
+<article class="post app">
     <header class="post-header">
         <h2 class="post-title"><a href="/app/getting-started/migrate-services/">Migrate services</a></h2>
     </header>
@@ -1189,24 +1161,16 @@ Når bruker er opprettet kan du be om å bli en del av en organisasjon. Dette fo
 Her finner du veiledninger som er nyttige når man utvikler en app i Altinn Studio. <a class="read-more" href="/app/getting-started/migrate-services/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post app">
+<article class="post app">
     <header class="post-header">
         <h2 class="post-title"><a href="/app/getting-started/access-management/apps/">Apps infrastructure access</a></h2>
     </header>
@@ -1215,24 +1179,16 @@ Her finner du veiledninger som er nyttige når man utvikler en app i Altinn Stud
  Developer gir tilgang til Application Insights der applikasjonslogger samles for tjenesteeier sine applikasjoner i miljøet. Operations gir tilgang til Key Vault for å laste opp hemmeligheter som sertifikater, passord og api-nøkler.  Disse rollene er videre delt opp i tilgang til test (TT02) og produksjon (prod). En bruker kan tildeles en eller flere roller. <a class="read-more" href="/app/getting-started/access-management/apps/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post app">
+<article class="post app">
     <header class="post-header">
         <h2 class="post-title"><a href="/app/development/configuration/messagebox/hide_instances/">Hide instances</a></h2>
     </header>
@@ -1242,24 +1198,16 @@ Configuration The configuration has a retroactive effect and will also apply to 
 Add a new section called messageBoxConfiguration with the child property hideSettings. <a class="read-more" href="/app/development/configuration/messagebox/hide_instances/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post api">
+<article class="post api">
     <header class="post-header">
         <h2 class="post-title"><a href="/api/authentication/id-porten/">Authenticate with ID-porten</a></h2>
     </header>
@@ -1270,24 +1218,16 @@ Felles for begge løsninger er at sluttbruker vil logge inn via nettleser i ID-p
 Dette er for eksempel: <a class="read-more" href="/api/authentication/id-porten/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post app">
+<article class="post app">
     <header class="post-header">
         <h2 class="post-title"><a href="/app/testing/deploy/">Test app in test environment</a></h2>
     </header>
@@ -1297,24 +1237,16 @@ Bygge app Før en app kan deployes til testmiljø, må alle nødvendige filer sa
 Merk at det er filene fra app-repoet som benyttes i bygget. Dersom en har gjort endringer på en app i Altinn Studio så må disse sendes til repoet for at endringene skal bli med i bygg-pakken. <a class="read-more" href="/app/testing/deploy/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post app">
+<article class="post app">
     <header class="post-header">
         <h2 class="post-title"><a href="/app/development/configuration/messagebox/presentationfields/">Presentation fields</a></h2>
     </header>
@@ -1324,24 +1256,16 @@ By configuring presentation fields on an application, these values are extracted
 Configuration Configuration of presentation fields is defined in applicationmetadata.json, which you can find in ythe appliation repository in the folder App/config. <a class="read-more" href="/app/development/configuration/messagebox/presentationfields/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post app">
+<article class="post app">
     <header class="post-header">
         <h2 class="post-title"><a href="/app/development/configuration/queryparameters/">Query parameters</a></h2>
     </header>
@@ -1355,24 +1279,16 @@ https://foo.apps.tt02.altinn.no/foo/bar?returnUrl=aHR0cHM6Ly9mb28uYXBwcy50dDAyLm
 Here one can see that returnUrl has a valid URL-format and it has the same host name as the app defined in the beginning. <a class="read-more" href="/app/development/configuration/queryparameters/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post app">
+<article class="post app">
     <header class="post-header">
         <h2 class="post-title"><a href="/app/getting-started/navigation/repos/">Repos</a></h2>
     </header>
@@ -1382,25 +1298,16 @@ Hovedmeny Hovedmenyen øverst inneholder disse elementene:
  Altinn-logoen - tilbake til Altinn Studio-dashboardet. Dashboard - Lister ut dine aktiviteter og de repositoryene og organisasjonene du har tilgang til. Du kan også se dashboard for den enkelte organisasjonen. Issues - Lister ut åpne og lukkede issues som er relevant for deg. Pull requests - Lister ut åpne og lukkede pull requests som er relevant for deg. <a class="read-more" href="/app/getting-started/navigation/repos/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-
-	<div style="margin-bottom:2rem"></div>
+<div style="margin-bottom:2rem"></div>
 
 	<nav class="pagination" role="navigation">
 	
@@ -1412,14 +1319,9 @@ Hovedmeny Hovedmenyen øverst inneholder disse elementene:
 	
 </nav>
 
-
-
-
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/technology/tools/vs-code/" title="Visual Studio Code"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/app/" title="Create apps" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div></section>
         </div> 
@@ -1476,3 +1378,4 @@ Hovedmeny Hovedmenyen øverst inneholder disse elementene:
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

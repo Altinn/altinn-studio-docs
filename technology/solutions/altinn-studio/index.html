@@ -421,7 +421,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -429,7 +429,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -437,7 +437,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -521,7 +521,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -640,8 +640,8 @@ if(host != "localhost")
         <a href="/community/devops/teams/studio/"><span>Studio</span></a></li></ul></li></ul></li>
       <li class="dd-item">
         <a href="/community/presentations/"><span>Presentations</span></a></li></ul></li>
-      <li class="dd-item parent">
-        <a href="/technology/"><span>Technology</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/"><span>Technology</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/technology/architecture/"><span>Architecture</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -884,8 +884,8 @@ if(host != "localhost")
         <a href="/technology/architecture/components/platform/presentation/"><span>Presentation</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/technology/architecture/components/platform/presentation/altinn-cdn/"><span>Altinn CDN</span></a></li></ul></li></ul></li></ul></li></ul></li>
-      <li class="dd-item parent">
-        <a href="/technology/solutions/"><span>Solutions</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/solutions/"><span>Solutions</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/technology/solutions/altinn-restorage/"><span>Altinn ReStorage</span></a></li>
       <li class="dd-item">
@@ -942,8 +942,8 @@ if(host != "localhost")
         <a href="/technology/solutions/altinn-platform/register/"><span>Register</span></a></li>
       <li class="dd-item">
         <a href="/technology/solutions/altinn-platform/storage/"><span>Storage</span></a></li></ul></li>
-      <li class="dd-item parent active">
-        <a href="/technology/solutions/altinn-studio/"><span>Altinn Studio</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/"><span>Altinn Studio</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/technology/solutions/altinn-studio/thirdpartytools/"><span>Third Party Tools</span></a></li>
       <li class="dd-item">
@@ -1075,7 +1075,12 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/technology/']").parent().addClass("parent");
+ $("li.dd-item a[href='/technology/solutions/']").parent().addClass("parent");
+ $("li.dd-item a[href='/technology/solutions/altinn-studio/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1089,49 +1094,33 @@ if(host != "localhost")
                 <span class="links"><a href='/technology/'>Technology</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/technology/solutions/'>Solutions</a> <span class='adocs-breadcrumb-divider'> / </span> Altinn Studio</span>
             </div>
           </div><div id="body-inner"><h1 class="a-fontBold">Altinn Studio</h1>
-              <p class="a-leadText" id="leadText">Altinn Studio is the design-time solution for developing, maintaining, building and deploying applications. Applications created can target both simple and complex user scenarios and have a modern web native architecture.</p>
-
-
-
-
-<p><strong>Altinn Studio</strong> is a user-friendly solution where non-technical and technical
+              <p class="a-leadText" id="leadText">Altinn Studio is the design-time solution for developing, maintaining, building and deploying applications. Applications created can target both simple and complex user scenarios and have a modern web native architecture.</p><p><strong>Altinn Studio</strong> is a user-friendly solution where non-technical and technical
 developers can create apps based on reuse and configuration of existing building blocks.</p>
 <p>Examples on building blocks can be layouts, themes, web-components, texts, API-calls, code lists,
 and process tasks.</p>
 <p>Altinn Studio consist of serveral parts.</p>
 <ul class="children children-li js-moveChildrenFrom">
-<li>
-<a href="/technology/solutions/altinn-studio/thirdpartytools/" >Third Party Tools</a>
-<p>One important aspect of the Altinn Studio is that we encourage to use third party development tools to create and modify applications.</p>
-</li>
-<li>
-<a href="/technology/solutions/altinn-studio/data-storage/" >Data Storage in Altinn Studio</a>
-<p>Description of how the data is stored in Altinn Studio</p>
-</li>
-<li>
-<a href="/technology/solutions/altinn-studio/designer/" >Altinn Studio Designer</a>
-<p>This is where developers create, modify, build and deploy apps. In the background Designer uses Git to store code and config in Altinn Studio Repos.</p>
-</li>
-<li>
-<a href="/technology/solutions/altinn-studio/repos/" >Altinn Studio Repos</a>
-<p>The Git repository solution for storing and versioning apps developed with Altinn Studio.</p>
-</li>
+<pre><code>    &lt;li&gt;
+            &lt;a href=&quot;/technology/solutions/altinn-studio/thirdpartytools/&quot;&gt;Third Party Tools&lt;/a&gt;
+            &lt;p&gt;One important aspect of the Altinn Studio is that we encourage to use third party development tools to create and modify applications.&lt;/p&gt;
+            &lt;/li&gt;&lt;li&gt;
+            &lt;a href=&quot;/technology/solutions/altinn-studio/data-storage/&quot;&gt;Data Storage in Altinn Studio&lt;/a&gt;
+            &lt;p&gt;Description of how the data is stored in Altinn Studio&lt;/p&gt;
+            &lt;/li&gt;&lt;li&gt;
+            &lt;a href=&quot;/technology/solutions/altinn-studio/designer/&quot;&gt;Altinn Studio Designer&lt;/a&gt;
+            &lt;p&gt;This is where developers create, modify, build and deploy apps. In the background Designer uses Git to store code and config in Altinn Studio Repos.&lt;/p&gt;
+            &lt;/li&gt;&lt;li&gt;
+            &lt;a href=&quot;/technology/solutions/altinn-studio/repos/&quot;&gt;Altinn Studio Repos&lt;/a&gt;
+            &lt;p&gt;The Git repository solution for storing and versioning apps developed with Altinn Studio.&lt;/p&gt;
+            &lt;/li&gt;
+</code></pre>
 </ul>
 
 
-<footer class=" footline" >
-	
-</footer>
-
-
-
-
-
+<footer class=" footline" ></footer>
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/technology/solutions/altinn-platform/storage/" title="Storage"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/technology/solutions/altinn-studio/thirdpartytools/" title="Third Party Tools" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/technology/solutions/altinn-studio/_index.md" target="blank">
@@ -1193,3 +1182,4 @@ and process tasks.</p>
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

@@ -420,7 +420,7 @@ if(host != "localhost")
         <a href="/api/storage/spec/"><span>OpenAPI</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
-      <li class="dd-item parent">
+      <li class="dd-item">
         <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
@@ -428,7 +428,7 @@ if(host != "localhost")
         <a href="/community/about/goals/"><span>Goals</span></a></li>
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
-      <li class="dd-item parent">
+      <li class="dd-item">
         <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
@@ -436,7 +436,7 @@ if(host != "localhost")
         <a href="/community/contributing/develop-component/"><span>Develop a component</span></a></li><li class="dd-item">
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
-      <li class="dd-item parent">
+      <li class="dd-item">
         <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
@@ -460,8 +460,8 @@ if(host != "localhost")
             <span>Cosmos DB</span></a></li>
       <li class="dd-item">
         <a href="/community/contributing/handbook/deployment/"><span>Deployment</span></a></li>
-      <li class="dd-item parent active">
-        <a href="/community/contributing/handbook/front-end/"><span>Front-end</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/front-end/"><span>Front-end</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/front-end/getting-started/"><span>Getting started</span></a></li>
       <li class="dd-item">
@@ -521,7 +521,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -1075,7 +1075,13 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/community/']").parent().addClass("parent");
+ $("li.dd-item a[href='/community/contributing/']").parent().addClass("parent");
+ $("li.dd-item a[href='/community/contributing/handbook/']").parent().addClass("parent");
+ $("li.dd-item a[href='/community/contributing/handbook/front-end/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1089,84 +1095,58 @@ if(host != "localhost")
                 <span class="links"><a href='/community/'>Community</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/community/contributing/'>Contributing</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/community/contributing/handbook/'>Handbook</a> <span class='adocs-breadcrumb-divider'> / </span> Front-end</span>
             </div>
           </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/development">development</a><a class="label label-default" href="https://docs.altinn.studio/tags/front-end">front-end</a></div><div id="body-inner"><h1 class="a-fontBold">Front-end</h1>
-              <p class="a-leadText" id="leadText">Coding guidelines for front-end</p>
-
-
-
-
-<ul class="children children-li js-moveChildrenFrom">
-<li>
-<a href="/community/contributing/handbook/front-end/getting-started/" >Getting started</a>
-<p>Get started working with the frontend</p>
-</li>
-<li>
-<a href="/community/contributing/handbook/front-end/developing/" >Developing locally</a>
-<p>Running the frontends locally for development</p>
-</li>
-<li>
-<a href="/community/contributing/handbook/front-end/routine/" >Routines for development</a>
-<p>Describes routines for developing frontend code for resources in the DevOps team.</p>
-</li>
-<li>
-<a href="/community/contributing/handbook/front-end/new-component/" >Creating components</a>
-<p>Get started creating new form components for the apps</p>
-</li>
-<li>
-<a href="/community/contributing/handbook/front-end/react/" >React</a>
-<p>Guidelines for using React in Altinn Studio</p>
-</li>
-<li>
-<a href="/community/contributing/handbook/front-end/redux/" >Redux</a>
-<p>Guidelines for using Redux in Altinn Studio</p>
-</li>
-<li>
-<a href="/community/contributing/handbook/front-end/debug/" >Debug</a>
-<p>Debug documentation for altinn.studio frontend</p>
-</li>
-<li>
-<a href="/community/contributing/handbook/front-end/best-practices/" >Best practices</a>
-<p>Best practices for altinn.studio frontend</p>
-</li>
-<li>
-<a href="/community/contributing/handbook/front-end/build/" >Build</a>
-<p>Build documentation for altinn.studio frontend</p>
-</li>
-<li>
-<a href="/community/contributing/handbook/front-end/component-library/" >Component Library</a>
-<p>Component documentation for altinn.studio</p>
-</li>
-<li>
-<a href="/community/contributing/handbook/front-end/error-handling/" >Error handling</a>
-<p>Guidelines for error handling front-end</p>
-</li>
-<li>
-<a href="/community/contributing/handbook/front-end/postmessage/" >Post Message</a>
-<p>Guidelines for using post message functionality in Altinn Studio</p>
-</li>
-<li>
-<a href="/community/contributing/handbook/front-end/styling/" >Styling (css)</a>
-<p>Guidelines for styling components in Altinn Studio</p>
-</li>
-<li>
-<a href="/community/contributing/handbook/front-end/versioning/" >Versioning</a>
-<p>Guidelines for versioning of front-end</p>
-</li>
+              <p class="a-leadText" id="leadText">Coding guidelines for front-end</p><ul class="children children-li js-moveChildrenFrom">
+<pre><code>    &lt;li&gt;
+            &lt;a href=&quot;/community/contributing/handbook/front-end/getting-started/&quot;&gt;Getting started&lt;/a&gt;
+            &lt;p&gt;Get started working with the frontend&lt;/p&gt;
+            &lt;/li&gt;&lt;li&gt;
+            &lt;a href=&quot;/community/contributing/handbook/front-end/developing/&quot;&gt;Developing locally&lt;/a&gt;
+            &lt;p&gt;Running the frontends locally for development&lt;/p&gt;
+            &lt;/li&gt;&lt;li&gt;
+            &lt;a href=&quot;/community/contributing/handbook/front-end/routine/&quot;&gt;Routines for development&lt;/a&gt;
+            &lt;p&gt;Describes routines for developing frontend code for resources in the DevOps team.&lt;/p&gt;
+            &lt;/li&gt;&lt;li&gt;
+            &lt;a href=&quot;/community/contributing/handbook/front-end/new-component/&quot;&gt;Creating components&lt;/a&gt;
+            &lt;p&gt;Get started creating new form components for the apps&lt;/p&gt;
+            &lt;/li&gt;&lt;li&gt;
+            &lt;a href=&quot;/community/contributing/handbook/front-end/react/&quot;&gt;React&lt;/a&gt;
+            &lt;p&gt;Guidelines for using React in Altinn Studio&lt;/p&gt;
+            &lt;/li&gt;&lt;li&gt;
+            &lt;a href=&quot;/community/contributing/handbook/front-end/redux/&quot;&gt;Redux&lt;/a&gt;
+            &lt;p&gt;Guidelines for using Redux in Altinn Studio&lt;/p&gt;
+            &lt;/li&gt;&lt;li&gt;
+            &lt;a href=&quot;/community/contributing/handbook/front-end/debug/&quot;&gt;Debug&lt;/a&gt;
+            &lt;p&gt;Debug documentation for altinn.studio frontend&lt;/p&gt;
+            &lt;/li&gt;&lt;li&gt;
+            &lt;a href=&quot;/community/contributing/handbook/front-end/best-practices/&quot;&gt;Best practices&lt;/a&gt;
+            &lt;p&gt;Best practices for altinn.studio frontend&lt;/p&gt;
+            &lt;/li&gt;&lt;li&gt;
+            &lt;a href=&quot;/community/contributing/handbook/front-end/build/&quot;&gt;Build&lt;/a&gt;
+            &lt;p&gt;Build documentation for altinn.studio frontend&lt;/p&gt;
+            &lt;/li&gt;&lt;li&gt;
+            &lt;a href=&quot;/community/contributing/handbook/front-end/component-library/&quot;&gt;Component Library&lt;/a&gt;
+            &lt;p&gt;Component documentation for altinn.studio&lt;/p&gt;
+            &lt;/li&gt;&lt;li&gt;
+            &lt;a href=&quot;/community/contributing/handbook/front-end/error-handling/&quot;&gt;Error handling&lt;/a&gt;
+            &lt;p&gt;Guidelines for error handling front-end&lt;/p&gt;
+            &lt;/li&gt;&lt;li&gt;
+            &lt;a href=&quot;/community/contributing/handbook/front-end/postmessage/&quot;&gt;Post Message&lt;/a&gt;
+            &lt;p&gt;Guidelines for using post message functionality in Altinn Studio&lt;/p&gt;
+            &lt;/li&gt;&lt;li&gt;
+            &lt;a href=&quot;/community/contributing/handbook/front-end/styling/&quot;&gt;Styling (css)&lt;/a&gt;
+            &lt;p&gt;Guidelines for styling components in Altinn Studio&lt;/p&gt;
+            &lt;/li&gt;&lt;li&gt;
+            &lt;a href=&quot;/community/contributing/handbook/front-end/versioning/&quot;&gt;Versioning&lt;/a&gt;
+            &lt;p&gt;Guidelines for versioning of front-end&lt;/p&gt;
+            &lt;/li&gt;
+</code></pre>
 </ul>
 
 
-<footer class=" footline" >
-	
-</footer>
-
-
-
-
-
+<footer class=" footline" ></footer>
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/community/contributing/handbook/deployment/" title="Deployment"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/community/contributing/handbook/front-end/getting-started/" title="Getting started" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/community/contributing/handbook/front-end/_index.md" target="blank">
@@ -1228,3 +1208,4 @@ if(host != "localhost")
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

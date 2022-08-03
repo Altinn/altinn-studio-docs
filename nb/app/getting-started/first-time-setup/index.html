@@ -118,13 +118,13 @@ if(host != "localhost")
 </script>
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
-      <li class="dd-item parent">
-        <a href="/nb/app/"><span>Lage apper</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
-      <li class="dd-item parent">
-        <a href="/nb/app/getting-started/"><span>Kom i gang</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/"><span>Lage apper</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/"><span>Kom i gang</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/app/getting-started/intro/"><span>Introduksjon</span></a></li>
-      <li class="dd-item parent active">
+      <li class="dd-item">
         <a href="/nb/app/getting-started/first-time-setup/"><span>Opprette bruker</span></a></li>
       <li class="dd-item">
         <a href="/nb/app/getting-started/dashboard/"><span>Dashboard</span></a></li>
@@ -381,7 +381,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/app/launched-apps/digdir/be-om-api-nokkel/"><span>Tilgang til REST API</span></a></li></ul></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/nb/api/"><span>API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -543,7 +543,12 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/nb/app/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/app/getting-started/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/app/getting-started/first-time-setup/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -563,12 +568,7 @@ if(host != "localhost")
     <li><a href="#bli-del-av-en-organisasjon">Bli del av en organisasjon</a></li>
     <li><a href="#opprette-en-organisasjon">Opprette en organisasjon</a></li>
   </ul>
-</nav>
-
-
-
-
-<h2 id="lag-en-bruker-i-altinn-studio">Lag en bruker i Altinn Studio</h2>
+</nav><h2 id="lag-en-bruker-i-altinn-studio">Lag en bruker i Altinn Studio</h2>
 <p>Din Altinn Studio bruker er personlig for deg og kan knyttes til en eller flere organisasjoner for å samarbeide med andre og få tilgang til eksisterende apper.</p>
 
 
@@ -635,19 +635,10 @@ kan du spørre <a href="mailto:tjenesteeier@altinn.no">Altinn Servicedesk</a> om
 Det vil kunne ta noen dager å opprette organisasjonen og du vil få en mail så fort det er gjort.</p>
 
 
-<footer class=" footline" >
-	
-</footer>
-
-
-
-
-
+<footer class=" footline" ></footer>
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/nb/app/getting-started/intro/" title="Introduksjon til Altinn Studio"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/nb/app/getting-started/dashboard/" title="Dashboard i Altinn Studio" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/app/getting-started/first-time-setup/_index.nb.md" target="blank">
@@ -709,3 +700,4 @@ Det vil kunne ta noen dager å opprette organisasjonen og du vil få en mail så
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

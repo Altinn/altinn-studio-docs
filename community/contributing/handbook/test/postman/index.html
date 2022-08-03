@@ -420,7 +420,7 @@ if(host != "localhost")
         <a href="/api/storage/spec/"><span>OpenAPI</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
-      <li class="dd-item parent">
+      <li class="dd-item">
         <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
@@ -428,7 +428,7 @@ if(host != "localhost")
         <a href="/community/about/goals/"><span>Goals</span></a></li>
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
-      <li class="dd-item parent">
+      <li class="dd-item">
         <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
@@ -436,7 +436,7 @@ if(host != "localhost")
         <a href="/community/contributing/develop-component/"><span>Develop a component</span></a></li><li class="dd-item">
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
-      <li class="dd-item parent">
+      <li class="dd-item">
         <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
@@ -521,18 +521,18 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
-      <li class="dd-item parent">
-        <a href="/community/contributing/handbook/test/"><span>Test</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/test/"><span>Test</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/test/automated-test-app/"><span>App for automated test</span></a></li>
       <li class="dd-item">
         <a href="/community/contributing/handbook/test/cypress/"><span>Cypress</span></a></li>
       <li class="dd-item">
         <a href="/community/contributing/handbook/test/k6/"><span>k6</span></a></li>
-      <li class="dd-item parent active">
+      <li class="dd-item">
         <a href="/community/contributing/handbook/test/postman/"><span>Postman</span></a></li>
       <li class="dd-item">
         <a href="/community/contributing/handbook/test/test-strategy/"><span>Test Strategy</span></a></li>
@@ -1075,7 +1075,14 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/community/']").parent().addClass("parent");
+ $("li.dd-item a[href='/community/contributing/']").parent().addClass("parent");
+ $("li.dd-item a[href='/community/contributing/handbook/']").parent().addClass("parent");
+ $("li.dd-item a[href='/community/contributing/handbook/test/']").parent().addClass("parent");
+ $("li.dd-item a[href='/community/contributing/handbook/test/postman/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1089,12 +1096,7 @@ if(host != "localhost")
                 <span class="links"><a href='/community/'>Community</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/community/contributing/'>Contributing</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/community/contributing/handbook/'>Handbook</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/community/contributing/handbook/test/'>Test</a> <span class='adocs-breadcrumb-divider'> / </span> Postman</span>
             </div>
           </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/development">development</a><a class="label label-default" href="https://docs.altinn.studio/tags/testing">testing</a><a class="label label-default" href="https://docs.altinn.studio/tags/api">api</a></div><div id="body-inner"><h1 class="a-fontBold">Postman</h1>
-              <p class="a-leadText" id="leadText">API Testing with postman</p>
-
-
-
-
-<h2 id="postman">Postman</h2>
+              <p class="a-leadText" id="leadText">API Testing with postman</p><h2 id="postman">Postman</h2>
 <p>To test API endpoints the tool postman enables easy configuration and setup of various HTTP requests, <a href="https://learning.getpostman.com/docs/postman/sending_api_requests/requests">read more about postman here.</a></p>
 <h3 id="authentication">Authentication</h3>
 <p>Several of the exposed APIs requires various cookies, for instance authentication and gitea information. To be able to do requests against these APIs the cookies have to be included in the HTTP request, and configured in postman. The cookies can be found in the following way:</p>
@@ -1143,19 +1145,10 @@ Cookies are easily added to the postman requests under the slightly hidden cooki
 <p>Note: newman can be used to a Postman collection from command line interface.</p>
 
 
-<footer class=" footline" >
-	
-</footer>
-
-
-
-
-
+<footer class=" footline" ></footer>
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/community/contributing/handbook/test/k6/" title="k6"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/community/contributing/handbook/test/test-strategy/" title="Test Strategy" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/community/contributing/handbook/test/postman/_index.md" target="blank">
@@ -1217,3 +1210,4 @@ Cookies are easily added to the postman requests under the slightly hidden cooki
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

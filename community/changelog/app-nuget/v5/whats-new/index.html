@@ -428,7 +428,7 @@ if(host != "localhost")
         <a href="/api/storage/spec/"><span>OpenAPI</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
-      <li class="dd-item parent">
+      <li class="dd-item">
         <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
@@ -437,7 +437,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -445,7 +445,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -529,7 +529,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -560,8 +560,8 @@ if(host != "localhost")
         <a href="/community/contributing/handbook/theming/"><span>Theming and styling</span></a></li>
       <li class="dd-item">
         <a href="/community/contributing/handbook/troubleshooting/"><span>Troubleshooting</span></a></li></ul></li></ul></li>
-      <li class="dd-item parent">
-        <a href="/community/changelog/"><span>Changelog</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/community/changelog/"><span>Changelog</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/changelog/app-frontend/"><span>App frontend</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -570,19 +570,19 @@ if(host != "localhost")
         <a href="/community/changelog/app-frontend/v3/breaking-changes/"><span>Breaking changes</span></a></li>
       <li class="dd-item">
         <a href="/community/changelog/app-frontend/v3/whats-new/"><span>What&#39;s new</span></a></li></ul></li></ul></li>
-      <li class="dd-item parent">
-        <a href="/community/changelog/app-nuget/"><span>App nuget</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/community/changelog/app-nuget/"><span>App nuget</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/changelog/app-nuget/v6/"><span>v6</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/changelog/app-nuget/v6/breaking-changes/"><span>Breaking changes</span></a></li>
       <li class="dd-item">
         <a href="/community/changelog/app-nuget/v6/whats-new/"><span>What&#39;s new</span></a></li></ul></li>
-      <li class="dd-item parent">
-        <a href="/community/changelog/app-nuget/v5/"><span>v5</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/community/changelog/app-nuget/v5/"><span>v5</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/changelog/app-nuget/v5/breaking-changes/"><span>Breaking changes</span></a></li>
-      <li class="dd-item parent active">
+      <li class="dd-item">
         <a href="/community/changelog/app-nuget/v5/whats-new/"><span>What&#39;s new</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/community/changelog/app-nuget/v4/"><span>v4</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
@@ -1083,7 +1083,14 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/community/']").parent().addClass("parent");
+ $("li.dd-item a[href='/community/changelog/']").parent().addClass("parent");
+ $("li.dd-item a[href='/community/changelog/app-nuget/']").parent().addClass("parent");
+ $("li.dd-item a[href='/community/changelog/app-nuget/v5/']").parent().addClass("parent");
+ $("li.dd-item a[href='/community/changelog/app-nuget/v5/whats-new/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1103,12 +1110,7 @@ if(host != "localhost")
     <li><a href="#520-07062022---api-for-supported-languages">5.2.0 (07.06.2022) - Api for supported languages</a></li>
     <li><a href="#510-23052022---support-for-anonymous-stateless-apps">5.1.0 (23.05.2022) - Support for anonymous stateless apps</a></li>
   </ul>
-</nav>
-
-
-
-
-<h2 id="530-21062022---support-for-autodeleting-data-elements">5.3.0 (21.06.2022) - Support for autodeleting data elements</h2>
+</nav><h2 id="530-21062022---support-for-autodeleting-data-elements">5.3.0 (21.06.2022) - Support for autodeleting data elements</h2>
 <p>This release introduces support for autodeleting dataelements when the process ends. This is to restrict end user&rsquo;s
 access to data elements after the process has been completed.</p>
 <p>To configure auto deletion include <code>&quot;autodeleteOnProcessEnd&quot;:true</code> in the <code>appLogic</code> section of the dataType in <code>applicationmetadata.json</code>.
@@ -1146,19 +1148,10 @@ A fully configured data element should look like this</p>
 </ul>
 
 
-<footer class=" footline" >
-	
-</footer>
-
-
-
-
-
+<footer class=" footline" ></footer>
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/community/changelog/app-nuget/v5/breaking-changes/" title="Breaking changes"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/community/changelog/app-nuget/v4/" title="v4" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/community/changelog/app-nuget/v5/whats-new/_index.en.md" target="blank">
@@ -1220,3 +1213,4 @@ A fully configured data element should look like this</p>
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

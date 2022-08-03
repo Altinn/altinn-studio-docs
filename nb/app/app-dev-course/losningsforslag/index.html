@@ -118,8 +118,8 @@ if(host != "localhost")
 </script>
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
-      <li class="dd-item parent">
-        <a href="/nb/app/"><span>Lage apper</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/"><span>Lage apper</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/app/getting-started/"><span>Kom i gang</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -152,8 +152,8 @@ if(host != "localhost")
         <a href="/nb/app/getting-started/access-management/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/app/getting-started/local-dev/"><span>Lokal utvikling</span></a></li></ul></li>
-      <li class="dd-item parent">
-        <a href="/nb/app/app-dev-course/"><span>Introkurs</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/app-dev-course/"><span>Introkurs</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/app/app-dev-course/case/"><span>Case</span></a></li>
       <li class="dd-item">
@@ -170,7 +170,7 @@ if(host != "localhost")
         <a href="/nb/app/app-dev-course/modul6/"><span>Modul 6</span></a></li>
       <li class="dd-item">
         <a href="/nb/app/app-dev-course/modul7/"><span>Modul 7</span></a></li>
-      <li class="dd-item parent active">
+      <li class="dd-item">
         <a href="/nb/app/app-dev-course/losningsforslag/"><span>Løsningsforslag</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/app/design/"><span>Design</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
@@ -381,7 +381,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/app/launched-apps/digdir/be-om-api-nokkel/"><span>Tilgang til REST API</span></a></li></ul></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/nb/api/"><span>API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -543,7 +543,12 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/nb/app/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/app/app-dev-course/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/app/app-dev-course/losningsforslag/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -577,12 +582,7 @@ if(host != "localhost")
     <li><a href="#modul-6---forståelsessjekk-validering">Modul 6 - Forståelsessjekk: Validering</a></li>
     <li><a href="#modul-6---forståelsessjekk-dataprosessering">Modul 6 - Forståelsessjekk: Dataprosessering</a></li>
   </ul>
-</nav>
-
-
-
-
-<h2 id="løsingsforslag---applikasjonskode">Løsingsforslag - Applikasjonskode</h2>
+</nav><h2 id="løsingsforslag---applikasjonskode">Løsingsforslag - Applikasjonskode</h2>
 <ul>
 <li><a href="https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/1">Modul 1</a></li>
 <li><a href="https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/2">Modul 2</a></li>
@@ -781,19 +781,10 @@ Dette stller derfor krav til apputvikler at optimaliserer koden som kjøres og u
 <p>Kjært barn har mange navn - også i dette tilfellet. <code>DataProcessing</code> og <code>calculations</code> er samme navn på samme konsept. I nugetpakkene før 4.7.0 gikk dette under navnet <code>calculations</code> eller <code>kalkuleringer</code>, mens dette nå omtales som <code>DataProcessing</code>.</p>
 
 
-<footer class=" footline" >
-	
-</footer>
-
-
-
-
-
+<footer class=" footline" ></footer>
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/nb/app/app-dev-course/modul7/" title="Modul 7"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/nb/app/design/" title="Design og planlegging" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/app/app-dev-course/losningsforslag/_index.nb.md" target="blank">
@@ -855,3 +846,4 @@ Dette stller derfor krav til apputvikler at optimaliserer koden som kjøres og u
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

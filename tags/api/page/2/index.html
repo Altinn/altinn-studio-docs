@@ -429,7 +429,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -437,7 +437,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -445,7 +445,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -529,7 +529,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -1083,7 +1083,11 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/tags/']").parent().addClass("parent");
+ $("li.dd-item a[href='/tags/api/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1099,20 +1103,7 @@ if(host != "localhost")
           </div><div id="body-inner"><h1 class="a-fontBold">api</h1>
               <p class="a-leadText" id="leadText"></p>
 
-
-
-
-
-
-<footer class=" footline" >
-	
-</footer>
-
-
-
-	
-
-	<div class="extra-pagination inner">
+<footer class=" footline" ></footer><div class="extra-pagination inner">
 	<nav class="pagination" role="navigation">
 	
 	    <a class="newer-posts" href="/tags/api/">&larr; Previous Pages</a>
@@ -1121,10 +1112,7 @@ if(host != "localhost")
 	
 </nav>
 
-	</div>
-
-	
-	   <article class="post community">
+	</div><article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/rest/">RESTful APIs (Representation State Transfer)</a></h2>
     </header>
@@ -1134,10 +1122,8 @@ if(host != "localhost")
   REST APIs should start with a short word to indicate the logical domain or group of apis. <a class="read-more" href="/community/contributing/handbook/rest/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1145,15 +1131,9 @@ if(host != "localhost")
                 <a class="label label-default" href="https://docs.altinn.studio/tags/api/">api</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post api">
+<article class="post api">
     <header class="post-header">
         <h2 class="post-title"><a href="/api/apps/stateless-data-elements/">Stateless data elements</a></h2>
     </header>
@@ -1164,24 +1144,16 @@ basePath
 POST basePath?dataType=[dataTypeId] Accept: application/{xml/json} The dataType parameter is required and should reference one of the data types defined on the application that requires app logic. <a class="read-more" href="/api/apps/stateless-data-elements/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/api/">api</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post api">
+<article class="post api">
     <header class="post-header">
         <h2 class="post-title"><a href="/api/apps/data-elements/tags/">Tags</a></h2>
     </header>
@@ -1193,24 +1165,16 @@ GET basePath/tags Accept: application/json Add tag Endpoint for adding a tag to 
 POST basePath/tags Content-Type: application/json &#34;letters&#34; The body should contain the new word in quotes. This is the JSON representation of a text and the Content-Type needs to be application/json. <a class="read-more" href="/api/apps/data-elements/tags/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/api/">api</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post api">
+<article class="post api">
     <header class="post-header">
         <h2 class="post-title"><a href="/api/apps/process/">Process</a></h2>
     </header>
@@ -1219,24 +1183,16 @@ POST basePath/tags Content-Type: application/json &#34;letters&#34; The body sho
 A process is represented by an process modell in BPMN/XML notation. Each task has an unique id, which is used to refer to the task in the api. <a class="read-more" href="/api/apps/process/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/api/">api</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post api">
+<article class="post api">
     <header class="post-header">
         <h2 class="post-title"><a href="/api/storage/instance-events/">Instance events</a></h2>
     </header>
@@ -1247,24 +1203,16 @@ GET {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/events E
  Selected instance events. Created, first read, change process state. <a class="read-more" href="/api/storage/instance-events/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/api/">api</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post api">
+<article class="post api">
     <header class="post-header">
         <h2 class="post-title"><a href="/api/apps/validation/">Validation</a></h2>
     </header>
@@ -1273,24 +1221,16 @@ GET {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/events E
 Validate stored instance This action will validate an entire instance including the all data elements already uploaded and stored in Altinn. Validation will be performed based on current task in the process. Validation will ensure that all required data elements, as defined by the application metadata, have been uploaded and are valid. <a class="read-more" href="/api/apps/validation/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/api/">api</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/solutions/altinn-studio/designer/functional/build-app/api-expose/">API expose</a></h2>
     </header>
@@ -1300,24 +1240,16 @@ For more details, see altinn api.
 See all issues for API-Expose on Github <a class="read-more" href="/technology/solutions/altinn-studio/designer/functional/build-app/api-expose/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/api/">api</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/solutions/altinn-studio/designer/functional/build-app/api-use/">API use</a></h2>
     </header>
@@ -1328,24 +1260,16 @@ En ukjent faktor er den kommende &ldquo;API-katalogen&rdquo;, og hvilke egenskap
 See all issues related to API-Usage on Github. <a class="read-more" href="/technology/solutions/altinn-studio/designer/functional/build-app/api-use/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/api/">api</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post api">
+<article class="post api">
     <header class="post-header">
         <h2 class="post-title"><a href="/api/apps/">App API</a></h2>
     </header>
@@ -1354,24 +1278,16 @@ See all issues related to API-Usage on Github. <a class="read-more" href="/techn
 All app API endpoints have the same URL base path that will vary based on application owner and application name. <a class="read-more" href="/api/apps/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/api/">api</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post api">
+<article class="post api">
     <header class="post-header">
         <h2 class="post-title"><a href="/api/events/">Events API</a></h2>
     </header>
@@ -1381,25 +1297,16 @@ The events APIs are used to access events created by applications in Altinn Apps
 Subscription The highly preferred way to use events is to set up a subscription that enables push of events to a webhook-endpoint. <a class="read-more" href="/api/events/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/api/">api</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-
-	<div style="margin-bottom:2rem"></div>
+<div style="margin-bottom:2rem"></div>
 
 	<nav class="pagination" role="navigation">
 	
@@ -1409,14 +1316,9 @@ Subscription The highly preferred way to use events is to set up a subscription 
 	
 </nav>
 
-
-
-
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/technology/tools/vs-code/" title="Visual Studio Code"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/app/" title="Create apps" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div></section>
         </div> 
@@ -1473,3 +1375,4 @@ Subscription The highly preferred way to use events is to set up a subscription 
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

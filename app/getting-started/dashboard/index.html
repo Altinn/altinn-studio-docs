@@ -118,10 +118,10 @@ if(host != "localhost")
 </script>
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
-      <li class="dd-item parent">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
-      <li class="dd-item parent">
-        <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/intro/"><span>Introduction</span></a></li>
       <li class="dd-item">
@@ -130,7 +130,7 @@ if(host != "localhost")
         <a href="/app/getting-started/copy-app/"><span>Copy app</span></a></li>
       <li class="dd-item">
         <a href="/app/getting-started/create-app/"><span>Create app</span></a></li>
-      <li class="dd-item parent active">
+      <li class="dd-item">
         <a href="/app/getting-started/dashboard/"><span>Dashboard</span></a></li>
       <li class="dd-item">
         <a href="/app/getting-started/migrate-services/"><span>Migrate services</span></a></li>
@@ -429,7 +429,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -437,7 +437,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -445,7 +445,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -529,7 +529,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -1083,7 +1083,12 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/app/']").parent().addClass("parent");
+ $("li.dd-item a[href='/app/getting-started/']").parent().addClass("parent");
+ $("li.dd-item a[href='/app/getting-started/dashboard/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1097,12 +1102,7 @@ if(host != "localhost")
                 <span class="links"><a href='/app/'>Create apps</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/getting-started/'>Get started</a> <span class='adocs-breadcrumb-divider'> / </span> Dashboard</span>
             </div>
           </div><div id="body-inner"><h1 class="a-fontBold">Dashboard in Altinn Studio</h1>
-              <p class="a-leadText" id="leadText">How to use the dashboard</p>
-
-
-
-
-<h2 id="context">Context</h2>
+              <p class="a-leadText" id="leadText">How to use the dashboard</p><h2 id="context">Context</h2>
 <p>In the dashboard there is a possibility to select which context you want to filter applications on. This is done by clicking on the profile icon at the rop right of the dashboard.</p>
 <figure><a href="profile-icon.png"><img src="profile-icon.png" alt="Profile icon" title="Profile icon" /></a><figcaption><h4>Profile icon</h4></figcaption></figure>
 <p>Here you are presented with a menu of the available contexts. The context can be an organisation you are a part of, everything, or just yourself.</p>
@@ -1120,19 +1120,10 @@ These appilcations will always be displayed at the top of the dashboard and be i
 <figure><a href="search.png"><img src="search.png" alt="Search" title="Search" /></a><figcaption><h4>Search</h4></figcaption></figure>
 
 
-<footer class=" footline" >
-	
-</footer>
-
-
-
-
-
+<footer class=" footline" ></footer>
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/app/getting-started/create-app/" title="Create app in Altinn Studio"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/app/getting-started/migrate-services/" title="Migrate services" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/app/getting-started/dashboard/_index.en.md" target="blank">
@@ -1194,3 +1185,4 @@ These appilcations will always be displayed at the top of the dashboard and be i
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

@@ -429,7 +429,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -437,7 +437,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -445,7 +445,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -529,7 +529,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -1083,7 +1083,11 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/tags/']").parent().addClass("parent");
+ $("li.dd-item a[href='/tags/api/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1099,20 +1103,7 @@ if(host != "localhost")
           </div><div id="body-inner"><h1 class="a-fontBold">api</h1>
               <p class="a-leadText" id="leadText"></p>
 
-
-
-
-
-
-<footer class=" footline" >
-	
-</footer>
-
-
-
-	
-
-	<div class="extra-pagination inner">
+<footer class=" footline" ></footer><div class="extra-pagination inner">
 	<nav class="pagination" role="navigation">
 	
 	<span class="page-number">Page 1 on 2</span>
@@ -1121,10 +1112,7 @@ if(host != "localhost")
 	
 </nav>
 
-	</div>
-
-	
-	   <article class="post api">
+	</div><article class="post api">
     <header class="post-header">
         <h2 class="post-title"><a href="/api/models/app-metadata/">App metadata</a></h2>
     </header>
@@ -1133,24 +1121,16 @@ if(host != "localhost")
    Name Description     id A gobally unique id for the application. The value has two parts separated by a &lsquo;/&rsquo; character. The first part is the short name of the application owner and the second part is the name of the app.   versionId The current version of the application. (Currently not in use. <a class="read-more" href="/api/models/app-metadata/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/api/">api</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post api">
+<article class="post api">
     <header class="post-header">
         <h2 class="post-title"><a href="/api/apps/metadata/">App metadata</a></h2>
     </header>
@@ -1160,24 +1140,16 @@ Get app metadata Endpoint for downloading a copy of the application metadata doc
 GET {basePath}/api/v1/applicationmetadata Get Application texts Get text resources for the application for a specific language code. If the requested language isn&rsquo;t available, norsk bokmål (nb) will be returned as default. <a class="read-more" href="/api/apps/metadata/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/api/">api</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post api">
+<article class="post api">
     <header class="post-header">
         <h2 class="post-title"><a href="/api/models/instance/">Instance</a></h2>
     </header>
@@ -1186,24 +1158,16 @@ GET {basePath}/api/v1/applicationmetadata Get Application texts Get text resourc
 Properties    Name Description     id A gobally unique id for the instance. <a class="read-more" href="/api/models/instance/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/api/">api</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post api">
+<article class="post api">
     <header class="post-header">
         <h2 class="post-title"><a href="/api/apps/instances/">Instances</a></h2>
     </header>
@@ -1211,24 +1175,16 @@ Properties    Name Description     id A gobally unique id for the instance. <a c
         <p>Overview An instance can be regarded as an envelope or folder where data is collected and exchanged between the application user and owner. The instance document is a way for Altinn and external parties to track the state of one specific data exchange. How long an instance lives and how many interactions there are between the application owner and user will vary from one app to another. Advanced apps will have their own documentation. <a class="read-more" href="/api/apps/instances/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/api/">api</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post api">
+<article class="post api">
     <header class="post-header">
         <h2 class="post-title"><a href="/api/models/data-element/">DataElement</a></h2>
     </header>
@@ -1237,24 +1193,16 @@ Properties    Name Description     id A gobally unique id for the instance. <a c
 Properties    Name Description     id A globally unique id for the data element.   instanceGuid The globally unique id for the instance the data element is associated with. <a class="read-more" href="/api/models/data-element/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/api/">api</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post api">
+<article class="post api">
     <header class="post-header">
         <h2 class="post-title"><a href="/api/scenarios/authentication/">Authentication</a></h2>
     </header>
@@ -1264,24 +1212,16 @@ API provisioning in Maskinporten API-provider To provide an API in maskinporten 
  As API-provider Altinn registres a scope in Maskinporten POST /scopes { &#34;prefix&#34;: &#34;altinn&#34;, &#34;subscope&#34;: &#34;instances/metadata.read&#34;, &#34;description&#34;: &#34;Clients can access metadata for all instances for all apps of the organisation&#34; }  As API-provider Altinn has to give access to its scope for a given organisation PUT /scopes/access/889640782? <a class="read-more" href="/api/scenarios/authentication/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/api/">api</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post api">
+<article class="post api">
     <header class="post-header">
         <h2 class="post-title"><a href="/api/apps/data-elements/">Data elements</a></h2>
     </header>
@@ -1292,24 +1232,16 @@ basePath
 GET basePath/{dataGuid} Accept: application/{xml/json} The response will depend on the type of blob. There are currently 2 primary types: form data based on a model and attachments. An Accept header in a request will be considered only when the requested data element is connected to a data model. <a class="read-more" href="/api/apps/data-elements/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/api/">api</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post api">
+<article class="post api">
     <header class="post-header">
         <h2 class="post-title"><a href="/api/storage/instances/">Instances</a></h2>
     </header>
@@ -1317,24 +1249,16 @@ GET basePath/{dataGuid} Accept: application/{xml/json} The response will depend 
         <p>Overview An instance works as a form of envelope or folder where data can be collected and exchanged between the user and owner of the application. The instance document is a way for Altinn and external parties to track the state of one specific data exchange. How long an instance can live and how many interactions there can be between the application owner and user will vary from one app to another. <a class="read-more" href="/api/storage/instances/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/api/">api</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/test/k6/">k6</a></h2>
     </header>
@@ -1343,10 +1267,8 @@ GET basePath/{dataGuid} Accept: application/{xml/json} The response will depend 
 Set up k6 tests  Clone the k6 tests from GitHub Repo Install docker and make sure the drive having the k6 tests is shared. Open cmd and download the latest k6 docker image docker pull loadimpact/k6  How to write k6 tests  Find the area/collection where the new test has to be added. <a class="read-more" href="/community/contributing/handbook/test/k6/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1356,15 +1278,9 @@ Set up k6 tests  Clone the k6 tests from GitHub Repo Install docker and make sur
                 <a class="label label-default" href="https://docs.altinn.studio/tags/api/">api</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/test/postman/">Postman</a></h2>
     </header>
@@ -1374,10 +1290,8 @@ Authentication Several of the exposed APIs requires various cookies, for instanc
  In your browser login to dev. <a class="read-more" href="/community/contributing/handbook/test/postman/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1387,16 +1301,9 @@ Authentication Several of the exposed APIs requires various cookies, for instanc
                 <a class="label label-default" href="https://docs.altinn.studio/tags/api/">api</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-
-	<div style="margin-bottom:2rem"></div>
+<div style="margin-bottom:2rem"></div>
 
 	<nav class="pagination" role="navigation">
 	
@@ -1406,14 +1313,9 @@ Authentication Several of the exposed APIs requires various cookies, for instanc
 	
 </nav>
 
-
-
-
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-next" href="/app/" title="Create apps" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div></section>
         </div> 
@@ -1470,3 +1372,4 @@ Authentication Several of the exposed APIs requires various cookies, for instanc
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

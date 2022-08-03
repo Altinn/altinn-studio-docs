@@ -421,7 +421,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -429,7 +429,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -437,7 +437,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -521,7 +521,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -1075,7 +1075,11 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/tags/']").parent().addClass("parent");
+ $("li.dd-item a[href='/tags/testing/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1091,30 +1095,14 @@ if(host != "localhost")
           </div><div id="body-inner"><h1 class="a-fontBold">testing</h1>
               <p class="a-leadText" id="leadText"></p>
 
-
-
-
-
-
-<footer class=" footline" >
-	
-</footer>
-
-
-
-	
-
-	<div class="extra-pagination inner">
+<footer class=" footline" ></footer><div class="extra-pagination inner">
 	<nav class="pagination" role="navigation">
 	
 	<span class="page-number">Page 1 on 1</span>
 	
 </nav>
 
-	</div>
-
-	
-	   <article class="post community">
+	</div><article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/test/automated-test-app/">App for automated test</a></h2>
     </header>
@@ -1127,10 +1115,8 @@ Change of name app This is an app which should only be used to run automated tes
 nyttNavn: (obj) =&gt; { obj.fornavn = obj. <a class="read-more" href="/community/contributing/handbook/test/automated-test-app/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1138,15 +1124,9 @@ nyttNavn: (obj) =&gt; { obj.fornavn = obj. <a class="read-more" href="/community
                 <a class="label label-default" href="https://docs.altinn.studio/tags/testing/">testing</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/test/cypress/">Cypress</a></h2>
     </header>
@@ -1156,10 +1136,8 @@ Prerequisite  Cypress lists the requirement for the tests here.  Run the tests C
 Altinn Studio tests git clone https://github.com/Altinn/altinn-studio.git The tests on altinn studio are run from an azure devops pipeline and the results are recorded in cypress dashboard with tag: altinn-studio. <a class="read-more" href="/community/contributing/handbook/test/cypress/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1169,15 +1147,9 @@ Altinn Studio tests git clone https://github.com/Altinn/altinn-studio.git The te
                 <a class="label label-default" href="https://docs.altinn.studio/tags/web/">web</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/test/k6/">k6</a></h2>
     </header>
@@ -1186,10 +1158,8 @@ Altinn Studio tests git clone https://github.com/Altinn/altinn-studio.git The te
 Set up k6 tests  Clone the k6 tests from GitHub Repo Install docker and make sure the drive having the k6 tests is shared. Open cmd and download the latest k6 docker image docker pull loadimpact/k6  How to write k6 tests  Find the area/collection where the new test has to be added. <a class="read-more" href="/community/contributing/handbook/test/k6/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1199,15 +1169,9 @@ Set up k6 tests  Clone the k6 tests from GitHub Repo Install docker and make sur
                 <a class="label label-default" href="https://docs.altinn.studio/tags/api/">api</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/test/postman/">Postman</a></h2>
     </header>
@@ -1217,10 +1181,8 @@ Authentication Several of the exposed APIs requires various cookies, for instanc
  In your browser login to dev. <a class="read-more" href="/community/contributing/handbook/test/postman/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1230,31 +1192,18 @@ Authentication Several of the exposed APIs requires various cookies, for instanc
                 <a class="label label-default" href="https://docs.altinn.studio/tags/api/">api</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/test/">Test</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Coding guidelines for tests App for automated testAn app used solely for automated testing in the browser
-CypressFunctional Testing of Altinn Studio and Altinn app-frontend with Cypress
-k6Performance and Functional Testing of API with K6
-PostmanAPI Testing with postman
-Test StrategyTest Strategy
-Unit testingHow to write jest test in altinn studio, what we know so far <a class="read-more" href="/community/contributing/handbook/test/">&raquo;</a></p>
+        <p>Coding guidelines for tests  &lt;li&gt;&lt;a href=&quot;/community/contributing/handbook/test/automated-test-app/&quot;&gt;App for automated test&lt;/a&gt;&lt;p&gt;An app used solely for automated testing in the browser&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/community/contributing/handbook/test/cypress/&quot;&gt;Cypress&lt;/a&gt;&lt;p&gt;Functional Testing of Altinn Studio and Altinn app-frontend with Cypress&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/community/contributing/handbook/test/k6/&quot;&gt;k6&lt;/a&gt;&lt;p&gt;Performance and Functional Testing of API with K6&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/community/contributing/handbook/test/postman/&quot;&gt;Postman&lt;/a&gt;&lt;p&gt;API Testing with postman&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/community/contributing/handbook/test/test-strategy/&quot;&gt;Test Strategy&lt;/a&gt;&lt;p&gt;Test Strategy&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/community/contributing/handbook/test/unit-testing/&quot;&gt;Unit testing&lt;/a&gt;&lt;p&gt;How to write jest test in altinn studio, what we know so far&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/community/contributing/handbook/test/xunit-testing/&quot;&gt;Xunit Testing&lt;/a&gt;&lt;p&gt;Xunit Testing&lt;/p&gt;&lt;/li&gt;  <a class="read-more" href="/community/contributing/handbook/test/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1262,15 +1211,9 @@ Authentication Several of the exposed APIs requires various cookies, for instanc
                 <a class="label label-default" href="https://docs.altinn.studio/tags/testing/">testing</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/test/test-strategy/">Test Strategy</a></h2>
     </header>
@@ -1279,10 +1222,8 @@ Authentication Several of the exposed APIs requires various cookies, for instanc
 Testing of Altinn Studio is to be tested automatically at the unit and integration levels of testing. Unit testing of the system involves, for example, the testing of individual javascript functions, and individual pieces of logic relating to react/UI components. <a class="read-more" href="/community/contributing/handbook/test/test-strategy/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1290,15 +1231,9 @@ Testing of Altinn Studio is to be tested automatically at the unit and integrati
                 <a class="label label-default" href="https://docs.altinn.studio/tags/testing/">testing</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/test/unit-testing/">Unit testing</a></h2>
     </header>
@@ -1307,10 +1242,8 @@ Testing of Altinn Studio is to be tested automatically at the unit and integrati
  When should you write tests? Exporting and importing your component Methods in your component User Interface and Methods Networked functions (get, post, put) Rejecting Promises / Error testing / Negative tests Using Router Example #1, positive test Example #2, negative test (Error handling)  When should you write tests? <a class="read-more" href="/community/contributing/handbook/test/unit-testing/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1320,15 +1253,9 @@ Testing of Altinn Studio is to be tested automatically at the unit and integrati
                 <a class="label label-default" href="https://docs.altinn.studio/tags/testing/">testing</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/test/xunit-testing/">Xunit Testing</a></h2>
     </header>
@@ -1336,10 +1263,8 @@ Testing of Altinn Studio is to be tested automatically at the unit and integrati
         <p>Find code on xunit tests here <a class="read-more" href="/community/contributing/handbook/test/xunit-testing/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1347,16 +1272,9 @@ Testing of Altinn Studio is to be tested automatically at the unit and integrati
                 <a class="label label-default" href="https://docs.altinn.studio/tags/testing/">testing</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-
-	<div style="margin-bottom:2rem"></div>
+<div style="margin-bottom:2rem"></div>
 
 	<nav class="pagination" role="navigation">
 	
@@ -1364,14 +1282,9 @@ Testing of Altinn Studio is to be tested automatically at the unit and integrati
 	
 </nav>
 
-
-
-
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-next" href="/app/" title="Create apps" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div></section>
         </div> 
@@ -1428,3 +1341,4 @@ Testing of Altinn Studio is to be tested automatically at the unit and integrati
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

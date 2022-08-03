@@ -429,7 +429,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -437,7 +437,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -445,7 +445,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -529,7 +529,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -1083,7 +1083,11 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/tags/']").parent().addClass("parent");
+ $("li.dd-item a[href='/tags/translate-to-english/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1099,20 +1103,7 @@ if(host != "localhost")
           </div><div id="body-inner"><h1 class="a-fontBold">translate-to-english</h1>
               <p class="a-leadText" id="leadText"></p>
 
-
-
-
-
-
-<footer class=" footline" >
-	
-</footer>
-
-
-
-	
-
-	<div class="extra-pagination inner">
+<footer class=" footline" ></footer><div class="extra-pagination inner">
 	<nav class="pagination" role="navigation">
 	
 	<span class="page-number">Page 1 on 3</span>
@@ -1121,10 +1112,7 @@ if(host != "localhost")
 	
 </nav>
 
-	</div>
-
-	
-	   <article class="post app">
+	</div><article class="post app">
     <header class="post-header">
         <h2 class="post-title"><a href="/app/design/insight/">Preliminary considerations</a></h2>
     </header>
@@ -1132,24 +1120,16 @@ if(host != "localhost")
         <p>Consider What are the current challenges? Start by defining the problem. What are you going to solve? It is easier to create a solution with a clearly defined scope for your problem. It might be a good idea to gather your project group, and to look for a nice wall to put post-it notes on. Who are the users and what are their needs? We recommend starting by defining your target audience and their requirements as early as possible during the project. <a class="read-more" href="/app/design/insight/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post app">
+<article class="post app">
     <header class="post-header">
         <h2 class="post-title"><a href="/app/design/prototype/">Prototype</a></h2>
     </header>
@@ -1159,24 +1139,16 @@ With Altinn&rsquo;s Prototype-Kit for Figma you can:
  See what Altinn-forms look like and how they are experienced by the user Familiarize yourself with design elements in Altinn 3 Define flow and content within your form Create clickable sketch that can be user tested Use the prototype as a guide/reference while the app is in development  Get started with Figma Having a designer that already has experience in Figma or a similar tool would be an advantage. <a class="read-more" href="/app/design/prototype/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post app">
+<article class="post app">
     <header class="post-header">
         <h2 class="post-title"><a href="/app/getting-started/intro/">Introduction to Altinn Studio</a></h2>
     </header>
@@ -1187,24 +1159,16 @@ Slik går du frem:
 Tenk nøye gjennom hele prosessen fra et brukerperspektiv. Hva er utfordringen og hvem skal den løses for? <a class="read-more" href="/app/getting-started/intro/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post app">
+<article class="post app">
     <header class="post-header">
         <h2 class="post-title"><a href="/app/design/guidelines/components/">UI-components</a></h2>
     </header>
@@ -1215,24 +1179,16 @@ You are welcome to check the existing components below.
 Create a new issue on githubWrite to us on SlackTitles and paragraphsIn most cases, there should be a header (H2) and a paragraph at the start of form pages to summarize the task of the user. <a class="read-more" href="/app/design/guidelines/components/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post app">
+<article class="post app">
     <header class="post-header">
         <h2 class="post-title"><a href="/app/design/guidelines/wcag/">Accessibility</a></h2>
     </header>
@@ -1242,24 +1198,16 @@ Check list   Content structure
 Check that you have a logical structure of headings (H1 - H4), and that you don&rsquo;t have any empty heading elements. It is not uncommon to forget a level. <a class="read-more" href="/app/design/guidelines/wcag/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post app">
+<article class="post app">
     <header class="post-header">
         <h2 class="post-title"><a href="/app/deployment/runtime-environment/resource-allocation-tips/">Practical tips for resource allocation</a></h2>
     </header>
@@ -1268,24 +1216,16 @@ Check that you have a logical structure of headings (H1 - H4), and that you don&
 Tips 1 - Kjør siste versjon av Helm Chart Med siste versjon får du de mest oppdaterte innstillingene som standard. <a class="read-more" href="/app/deployment/runtime-environment/resource-allocation-tips/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post app">
+<article class="post app">
     <header class="post-header">
         <h2 class="post-title"><a href="/app/deployment/runtime-environment/resource-allocation/">Resource Allocation</a></h2>
     </header>
@@ -1294,24 +1234,16 @@ Tips 1 - Kjør siste versjon av Helm Chart Med siste versjon får du de mest opp
 CPU CPU spesifiseres i CPU enheter, hvor 1 CPU enhet = 1 fysisk CPU kjerne eller 1 virtuell kjerne. Man kan spesifisere fraksjoner og enten spesifisere 0. <a class="read-more" href="/app/deployment/runtime-environment/resource-allocation/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post app">
+<article class="post app">
     <header class="post-header">
         <h2 class="post-title"><a href="/app/deployment/runtime-environment/">Runtime Environment</a></h2>
     </header>
@@ -1321,24 +1253,16 @@ For detaljert dokumentasjon av hvilke muligheter som finnes må man se på:
  Azure Kubernetes Services Kubernetes, og da spesielt hvordan ressurser administreres - et ansvar som er delt mellom Altinn og tjenesteeier. <a class="read-more" href="/app/deployment/runtime-environment/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post app">
+<article class="post app">
     <header class="post-header">
         <h2 class="post-title"><a href="/app/getting-started/first-time-setup/">Create user in Altinn Studio</a></h2>
     </header>
@@ -1347,24 +1271,16 @@ For detaljert dokumentasjon av hvilke muligheter som finnes må man se på:
 Vis/skjul innholdLag bruker med GitHub brukernavn Velg å logge inn på altinn.studio. På “Logg in”-siden, klikk på knappen “Har du en Github konto? Registrer deg med den her”.  Logg inn i GitHub hvis du ikke allerede er det. <a class="read-more" href="/app/getting-started/first-time-setup/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post app">
+<article class="post app">
     <header class="post-header">
         <h2 class="post-title"><a href="/app/getting-started/navigation/designer/">Designer</a></h2>
     </header>
@@ -1374,25 +1290,16 @@ Navigere til en app Alle apper du har tilgang til å endre på vises på dashboa
 Hvis du ønsker å gå til app-repositoryet når du er inne i en app i Designer, er det en lenke i menyen som ligger i profilmenyen øverst til høyre. <a class="read-more" href="/app/getting-started/navigation/designer/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-
-	<div style="margin-bottom:2rem"></div>
+<div style="margin-bottom:2rem"></div>
 
 	<nav class="pagination" role="navigation">
 	
@@ -1402,14 +1309,9 @@ Hvis du ønsker å gå til app-repositoryet når du er inne i en app i Designer,
 	
 </nav>
 
-
-
-
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-next" href="/app/" title="Create apps" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div></section>
         </div> 
@@ -1466,3 +1368,4 @@ Hvis du ønsker å gå til app-repositoryet når du er inne i en app i Designer,
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

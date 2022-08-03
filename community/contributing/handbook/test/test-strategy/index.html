@@ -420,7 +420,7 @@ if(host != "localhost")
         <a href="/api/storage/spec/"><span>OpenAPI</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
-      <li class="dd-item parent">
+      <li class="dd-item">
         <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
@@ -428,7 +428,7 @@ if(host != "localhost")
         <a href="/community/about/goals/"><span>Goals</span></a></li>
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
-      <li class="dd-item parent">
+      <li class="dd-item">
         <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
@@ -436,7 +436,7 @@ if(host != "localhost")
         <a href="/community/contributing/develop-component/"><span>Develop a component</span></a></li><li class="dd-item">
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
-      <li class="dd-item parent">
+      <li class="dd-item">
         <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
@@ -521,11 +521,11 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
-      <li class="dd-item parent">
-        <a href="/community/contributing/handbook/test/"><span>Test</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/test/"><span>Test</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/test/automated-test-app/"><span>App for automated test</span></a></li>
       <li class="dd-item">
@@ -534,7 +534,7 @@ if(host != "localhost")
         <a href="/community/contributing/handbook/test/k6/"><span>k6</span></a></li>
       <li class="dd-item">
         <a href="/community/contributing/handbook/test/postman/"><span>Postman</span></a></li>
-      <li class="dd-item parent active">
+      <li class="dd-item">
         <a href="/community/contributing/handbook/test/test-strategy/"><span>Test Strategy</span></a></li>
       <li class="dd-item">
         <a href="/community/contributing/handbook/test/unit-testing/"><span>Unit testing</span></a></li>
@@ -1075,7 +1075,14 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/community/']").parent().addClass("parent");
+ $("li.dd-item a[href='/community/contributing/']").parent().addClass("parent");
+ $("li.dd-item a[href='/community/contributing/handbook/']").parent().addClass("parent");
+ $("li.dd-item a[href='/community/contributing/handbook/test/']").parent().addClass("parent");
+ $("li.dd-item a[href='/community/contributing/handbook/test/test-strategy/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1089,12 +1096,7 @@ if(host != "localhost")
                 <span class="links"><a href='/community/'>Community</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/community/contributing/'>Contributing</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/community/contributing/handbook/'>Handbook</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/community/contributing/handbook/test/'>Test</a> <span class='adocs-breadcrumb-divider'> / </span> Test Strategy</span>
             </div>
           </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/development">development</a><a class="label label-default" href="https://docs.altinn.studio/tags/testing">testing</a></div><div id="body-inner"><h1 class="a-fontBold">Test Strategy</h1>
-              <p class="a-leadText" id="leadText">Test Strategy</p>
-
-
-
-
-<h2 id="what-should-be-tested">What should be tested?</h2>
+              <p class="a-leadText" id="leadText">Test Strategy</p><h2 id="what-should-be-tested">What should be tested?</h2>
 <p>In tjenester 3.0, there is a need for both testing Altinn Studio, the app designer, as well as testing apps that are developed by an app developer in Altinn Studio Runtime. Testing these two areas of Altinn Studio requires different approaches.</p>
 <p>Testing of Altinn Studio is to be tested automatically at the unit and integration levels of testing. Unit testing of the system involves, for example, the testing of individual javascript functions, and individual pieces of logic relating to react/UI components. At the integrasion level of test, API&rsquo;s and smaller modules are typically tested: Effective unit and integration testing demands good testing frameworks that tjenester 3.0 developrs can easily pick up and use, and that can be easily integrated in the current codebase and the current build toolchain.</p>
 <p>Testing of workflows, and the usage of ALtinn Studio, as well as testing of apps developed in Altinn Studio, is the primary responsibility of the test developer in the team. On a regression, or end-to-end, level of test, one tests that the users whole journey through the altinn studio system, or the developed app, works as expected in relation to stated acceptance criteria.</p>
@@ -1132,19 +1134,10 @@ Cypress has different methods of getting elements from the DOM. The easiest and 
 <p>See the pipeline hyperlinks above in this document.</p>
 
 
-<footer class=" footline" >
-	
-</footer>
-
-
-
-
-
+<footer class=" footline" ></footer>
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/community/contributing/handbook/test/postman/" title="Postman"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/community/contributing/handbook/test/unit-testing/" title="Unit testing" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/community/contributing/handbook/test/test-strategy/_index.md" target="blank">
@@ -1206,3 +1199,4 @@ Cypress has different methods of getting elements from the DOM. The easiest and 
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

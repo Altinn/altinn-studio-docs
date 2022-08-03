@@ -429,7 +429,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -437,7 +437,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -445,7 +445,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -529,7 +529,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -1083,7 +1083,11 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/tags/']").parent().addClass("parent");
+ $("li.dd-item a[href='/tags/todo/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1099,20 +1103,7 @@ if(host != "localhost")
           </div><div id="body-inner"><h1 class="a-fontBold">todo</h1>
               <p class="a-leadText" id="leadText"></p>
 
-
-
-
-
-
-<footer class=" footline" >
-	
-</footer>
-
-
-
-	
-
-	<div class="extra-pagination inner">
+<footer class=" footline" ></footer><div class="extra-pagination inner">
 	<nav class="pagination" role="navigation">
 	
 	    <a class="newer-posts" href="/tags/todo/page/2/">&larr; Previous Pages</a>
@@ -1123,10 +1114,7 @@ if(host != "localhost")
 	
 </nav>
 
-	</div>
-
-	
-	   <article class="post technology">
+	</div><article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/construction/altinn-platform/register/">Application construction components - Altinn Platform Register</a></h2>
     </header>
@@ -1134,10 +1122,8 @@ if(host != "localhost")
         <p>TODO <a class="read-more" href="/technology/architecture/components/application/construction/altinn-platform/register/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1147,15 +1133,9 @@ if(host != "localhost")
                 <a class="label label-default" href="https://docs.altinn.studio/tags/todo/">todo</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/solutions/altinn-studio/repos/structure/rule-handler/">RuleHandler.js</a></h2>
     </header>
@@ -1164,10 +1144,8 @@ if(host != "localhost")
 Format Filen består av 4 objekter, 2 av de benyttes for til kalkuleringer/regler i skjema og de 2 andre benyttes til dynamikk i skjema. ruleHandlerObject og conditionalRuleHandlerObject skal benyttes til å definere metoder som kan brukes til kalkuleringer/regler i skjema. Alle metodene har et objekt som input parameter og en output verdi, strukturen på input objektet er beskrevet i ruleHandlerHelper og conditionalRuleHandlerHelper. <a class="read-more" href="/technology/solutions/altinn-studio/repos/structure/rule-handler/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/app-structure/">app-structure</a>
@@ -1175,15 +1153,9 @@ Format Filen består av 4 objekter, 2 av de benyttes for til kalkuleringer/regle
                 <a class="label label-default" href="https://docs.altinn.studio/tags/todo/">todo</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/solutions/altinn-studio/repos/structure/service-configurations/">ServiceConfigurations.json</a></h2>
     </header>
@@ -1193,10 +1165,8 @@ Format API connections Strukturen under beskriver api koblinger til et skjema. O
 &#34;data&#34;: { &#34;externalApi&#34;: { &#34;APIs&#34;: { &#34;connections&#34;: { &#34;c5dadba0-9707-11e8-9c4d-6f48d2b86ea7&#34;: { &#34;externalApiId&#34;: &#34;id1&#34;, &#34;clientParams&#34;: { &#34;pnr&#34;: &#34;skattyterinfor. <a class="read-more" href="/technology/solutions/altinn-studio/repos/structure/service-configurations/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/app-structure/">app-structure</a>
@@ -1204,15 +1174,9 @@ Format API connections Strukturen under beskriver api koblinger til et skjema. O
                 <a class="label label-default" href="https://docs.altinn.studio/tags/todo/">todo</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/solutions/altinn-studio/repos/structure/serviceimplementation/">ServiceImplementation.cs</a></h2>
     </header>
@@ -1223,10 +1187,8 @@ object CreateNewServiceModel(); Metode som oppretter nytt datamodell objekt base
 void SetServiceModel(object model); Metode som gjør at plattformen kan tilgjengeliggjøre en populert datamodell til tjenesteimplementasjonen <a class="read-more" href="/technology/solutions/altinn-studio/repos/structure/serviceimplementation/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/app-structure/">app-structure</a>
@@ -1234,15 +1196,9 @@ void SetServiceModel(object model); Metode som gjør at plattformen kan tilgjeng
                 <a class="label label-default" href="https://docs.altinn.studio/tags/todo/">todo</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/solutions/altinn-studio/repos/structure/servicemetadata/">ServiceMetadata.json</a></h2>
     </header>
@@ -1254,10 +1210,8 @@ Eksempel Under er et eksempel på hvordan ServiceMetadata kan se ut
 { &#34;Org&#34;:&#34;BR&#34;, &#34;Service&#34;:&#34;Tjeneste1&#34;, &#34;Edition&#34;:&#34;2019&#34;, &#34;Elements&#34;:{ &#34;Skjema. <a class="read-more" href="/technology/solutions/altinn-studio/repos/structure/servicemetadata/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/app-structure/">app-structure</a>
@@ -1265,15 +1219,9 @@ Eksempel Under er et eksempel på hvordan ServiceMetadata kan se ut
                 <a class="label label-default" href="https://docs.altinn.studio/tags/todo/">todo</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/solutions/altinn-studio/repos/structure/servicemodel/">ServiceModel.cs</a></h2>
     </header>
@@ -1282,10 +1230,8 @@ Eksempel Under er et eksempel på hvordan ServiceMetadata kan se ut
 Runtime vil populere datamodellen med data fra GUI og forretningsregler vil kunne jobbe mot denne modellen. <a class="read-more" href="/technology/solutions/altinn-studio/repos/structure/servicemodel/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/app-structure/">app-structure</a>
@@ -1293,15 +1239,9 @@ Runtime vil populere datamodellen med data fra GUI og forretningsregler vil kunn
                 <a class="label label-default" href="https://docs.altinn.studio/tags/todo/">todo</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/solutions/altinn-studio/repos/structure/servicemodelxsd/">ServiceModel.xsd</a></h2>
     </header>
@@ -1310,10 +1250,8 @@ Runtime vil populere datamodellen med data fra GUI og forretningsregler vil kunn
 For tjenester 3.0 vil jobbes med å kunne definere XSD som en del av løsningen. (f.eks å definere skjema i GUI og få XSD basert på det). Dette vil avklares fremover. <a class="read-more" href="/technology/solutions/altinn-studio/repos/structure/servicemodelxsd/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/app-structure/">app-structure</a>
@@ -1321,15 +1259,9 @@ For tjenester 3.0 vil jobbes med å kunne definere XSD som en del av løsningen.
                 <a class="label label-default" href="https://docs.altinn.studio/tags/todo/">todo</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/capabilities/devops/softwareconfiguration/">Software Configuration &amp; Release Management Capabilities</a></h2>
     </header>
@@ -1339,10 +1271,8 @@ Deployment Capabilities Deployment Orchestration Capabilites The devopsteam has 
 See development application components to get a overview over tools and application we use. <a class="read-more" href="/technology/architecture/capabilities/devops/softwareconfiguration/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1352,15 +1282,9 @@ See development application components to get a overview over tools and applicat
                 <a class="label label-default" href="https://docs.altinn.studio/tags/devops/">devops</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/solutions/altinn-studio/repos/structure/">Data Structure for Repos</a></h2>
     </header>
@@ -1382,10 +1306,8 @@ See development application components to get a overview over tools and applicat
 │ │ ├── settings. <a class="read-more" href="/technology/solutions/altinn-studio/repos/structure/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/altinn-repos/">altinn-repos</a>
@@ -1395,15 +1317,9 @@ See development application components to get a overview over tools and applicat
                 <a class="label label-default" href="https://docs.altinn.studio/tags/todo/">todo</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/solutions/altinn-studio/designer/functional/build-app/text/">Text and translations</a></h2>
     </header>
@@ -1412,25 +1328,16 @@ See development application components to get a overview over tools and applicat
 Texts in the editor are written in a ini-file that is converted to a simple JSON-file and presented as an API. In that way the user could work directly in the code editor or convert the text into other formats supported by external translation tools. <a class="read-more" href="/technology/solutions/altinn-studio/designer/functional/build-app/text/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/todo/">todo</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-
-	<div style="margin-bottom:2rem"></div>
+<div style="margin-bottom:2rem"></div>
 
 	<nav class="pagination" role="navigation">
 	
@@ -1442,14 +1349,9 @@ Texts in the editor are written in a ini-file that is converted to a simple JSON
 	
 </nav>
 
-
-
-
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/technology/tools/vs-code/" title="Visual Studio Code"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/app/" title="Create apps" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div></section>
         </div> 
@@ -1506,3 +1408,4 @@ Texts in the editor are written in a ini-file that is converted to a simple JSON
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

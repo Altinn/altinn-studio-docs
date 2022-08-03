@@ -381,7 +381,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/app/launched-apps/digdir/be-om-api-nokkel/"><span>Tilgang til REST API</span></a></li></ul></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/nb/api/"><span>API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -438,8 +438,8 @@ if(host != "localhost")
         <a href="/nb/api/storage/spec/"><span>OpenAPI</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/api/studio/"><span>Studio</span></a></li></ul></li>
-      <li class="dd-item parent">
-        <a href="/nb/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/community/about/"><span>Om</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -456,8 +456,8 @@ if(host != "localhost")
             <span>Intro for utviklere</span></a></li>
       <li class="dd-item">
         <a href="/nb/community/contributing/handbook/"><span>Håndbok</span></a></li></ul></li>
-      <li class="dd-item parent">
-        <a href="/nb/community/changelog/"><span>Endringslogg</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/"><span>Endringslogg</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/community/changelog/app-frontend/"><span>App frontend</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -492,9 +492,9 @@ if(host != "localhost")
         <a href="/nb/community/changelog/app-nuget/v3/breaking-changes/"><span>Breaking changes</span></a></li>
       <li class="dd-item">
         <a href="/nb/community/changelog/app-nuget/v3/whats-new/"><span>Hva er nytt?</span></a></li></ul></li></ul></li>
-      <li class="dd-item parent">
-        <a href="/nb/community/changelog/deployment/"><span>Deployment</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
-      <li class="dd-item parent active">
+      <li class="dd-item">
+        <a href="/nb/community/changelog/deployment/"><span>Deployment</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
         <a href="/nb/community/changelog/deployment/migration/"><span>Migrering</span></a></li>
       <li class="dd-item">
         <a href="/nb/community/changelog/deployment/v1/"><span>v1</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
@@ -543,7 +543,13 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/nb/community/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/community/changelog/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/community/changelog/deployment/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/community/changelog/deployment/migration/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -562,12 +568,7 @@ if(host != "localhost")
     <li><a href="#hvordan-avdekke-om-din-app-bruker-gammel-deployment-stretegi">Hvordan avdekke om din app bruker gammel deployment stretegi</a></li>
     <li><a href="#migrere-til-ny-deployment-strategi">Migrere til ny deployment strategi</a></li>
   </ul>
-</nav>
-
-
-
-
-<p>For å forenkle oppraderings prosessen av deployment charts har vi flyttet template filene ut et sentralt repository på github. Fra her publiseres helm charts som igjen draes inn i apps repoene som avhengigheter.</p>
+</nav><p>For å forenkle oppraderings prosessen av deployment charts har vi flyttet template filene ut et sentralt repository på github. Fra her publiseres helm charts som igjen draes inn i apps repoene som avhengigheter.</p>
 <p>Dette gir oss muligheten til å oppdatere standard måte for deploy til altinn3 i et sentralt repository og forenkler jobben for tjenesteiere ved oppgradering.</p>
 <h2 id="hvordan-avdekke-om-din-app-bruker-gammel-deployment-stretegi">Hvordan avdekke om din app bruker gammel deployment stretegi</h2>
 <p>Åpne opp appen din i gitea eller hent siste versjon ned til din datamaskin med git.</p>
@@ -746,19 +747,10 @@ Nye  versjoner er tilgjengelige. Hvis det er ny major versjon må du være obs p
 <p>Commit og Push dine endringer til gitea og neste deploy av din applikasjon vil være med ny deployment strategi</p>
 
 
-<footer class=" footline" >
-	
-</footer>
-
-
-
-
-
+<footer class=" footline" ></footer>
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/nb/community/changelog/deployment/" title="Endringslogg for deployment"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/nb/community/changelog/deployment/v1/" title="v1" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/community/changelog/deployment/migration/_index.nb.md" target="blank">
@@ -820,3 +812,4 @@ Nye  versjoner er tilgjengelige. Hvis det er ny major versjon må du være obs p
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

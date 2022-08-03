@@ -380,7 +380,7 @@ if(host != "localhost")
         <a href="/nb/app/launched-apps/digdir/oed/"><span>Oppgjør etter dødsfall</span></a></li>
       <li class="dd-item">
         <a href="/nb/app/launched-apps/digdir/be-om-api-nokkel/"><span>Tilgang til REST API</span></a></li></ul></li></ul></li></ul></li>
-      <li class="dd-item parent">
+      <li class="dd-item">
         <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
@@ -412,8 +412,8 @@ if(host != "localhost")
         <a href="/nb/api/authentication/delegate-scopes/"><span>Delegere API-tilganger</span></a></li>
       <li class="dd-item">
         <a href="/nb/api/authentication/spec/"><span>OpenAPI</span></a></li></ul></li>
-      <li class="dd-item parent active">
-        <a href="/nb/api/events/"><span>Events</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/api/events/"><span>Events</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/events/spec/"><span>OpenAPI</span></a></li></ul></li>
       <li class="dd-item">
@@ -543,7 +543,11 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/nb/api/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/api/events/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -563,12 +567,7 @@ if(host != "localhost")
     <li><a href="#subscription">Subscription</a></li>
     <li><a href="#search-api">Search API</a></li>
   </ul>
-</nav>
-
-
-
-
-<h2 id="overview">Overview</h2>
+</nav><h2 id="overview">Overview</h2>
 <p>Events are in this context is information about events created by applications or other sources. The event itself is based on the CloudEvent standard and is
 a small JSON structure containing the most important information of an event. Details are found <a href="/technology/architecture/capabilities/runtime/integration/events/#event-schema">here</a>.</p>
 <p>The events APIs are used to access events created by applications in Altinn Apps and other event sources that use Altinn Platform as
@@ -593,19 +592,10 @@ This is done through the subcriptions API. This API supports the following consu
 <p>The API is described in swagger <a href="./spec/#/Events">here</a>.</p>
 
 
-<footer class=" footline" >
-	
-</footer>
-
-
-
-
-
+<footer class=" footline" ></footer>
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/nb/api/authentication/spec/" title="OpenAPI (swagger) for Authentication"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/nb/api/events/spec/" title="OpenAPI (swagger) for Events" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/api/events/_index.nb.md" target="blank">
@@ -667,3 +657,4 @@ This is done through the subcriptions API. This API supports the following consu
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

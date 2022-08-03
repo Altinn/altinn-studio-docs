@@ -428,16 +428,16 @@ if(host != "localhost")
         <a href="/api/storage/spec/"><span>OpenAPI</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
-      <li class="dd-item parent">
+      <li class="dd-item">
         <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
-      <li class="dd-item parent active">
-        <a href="/community/about/"><span>About</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/goals/"><span>Goals</span></a></li>
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -445,7 +445,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -529,7 +529,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -1083,7 +1083,11 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/community/']").parent().addClass("parent");
+ $("li.dd-item a[href='/community/about/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1104,12 +1108,7 @@ if(host != "localhost")
     <li><a href="#when-was-altinn-3-launched">When was Altinn 3 launched?</a></li>
     <li><a href="#how-to-learn-more-about-altinn-3">How to learn more about Altinn 3</a></li>
   </ul>
-</nav>
-
-
-
-
-<p>The platform is owned by the Norwegian Digitalization Agency and developed as an open source platform.</p>
+</nav><p>The platform is owned by the Norwegian Digitalization Agency and developed as an open source platform.</p>
 <p>The current development solution and hosting platform (launched 2010) is considered by Gartner
 as one of the five leading digital government technology platforms in the world.</p>
 <figure><a href="gartner.png"><img src="gartner.png" alt="Gartner" title="Gartner" /></a><figcaption><h4>Gartner</h4></figcaption></figure>
@@ -1146,77 +1145,26 @@ the most simple public digital services in only hours.</p>
 <li>Altinn Apps let your host your digital services</li>
 <li>Altinn Platform will provide standard functionalit to your digital services</li>
 </ul>
-
-
-
-
-
-
-
-
-
-
-
-
 <ul class="children children-li js-moveChildrenFrom">
-	
-    
-	    
-    
-    
 
 	
-		
-	
-		 
-		
-	
-		
-
-
-<li>
-<a href="/community/about/goals/" >Goals</a>
-<p>This summarizes the high level goals for Altinn 3.</p>
-</li>
-
-
-
-		
-	
-		
-
-
-<li>
-<a href="/community/about/open-source/" >Altinn and open source</a>
-<p>Altinn 3 is open source with an open backlog, open documentation and open dialogue and discussions.</p>
-</li>
-
-
-
-		
-	
-
+		<li>
+				<a href="/community/about/goals/">Goals</a>
+				<p>This summarizes the high level goals for Altinn 3.</p>
+				</li><li>
+				<a href="/community/about/open-source/">Altinn and open source</a>
+				<p>Altinn 3 is open source with an open backlog, open documentation and open dialogue and discussions.</p>
+				</li>
 	
 </ul>
 
 
 
 
-
-
-<footer class=" footline" >
-	
-</footer>
-
-
-
-
-
+<footer class=" footline" ></footer>
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/community/" title="Community"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/community/about/goals/" title="Goals" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/community/about/_index.en.md" target="blank">
@@ -1278,3 +1226,4 @@ the most simple public digital services in only hours.</p>
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

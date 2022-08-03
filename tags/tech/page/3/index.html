@@ -421,7 +421,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -429,7 +429,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -437,7 +437,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -521,7 +521,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -1075,7 +1075,11 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/tags/']").parent().addClass("parent");
+ $("li.dd-item a[href='/tags/tech/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1091,20 +1095,7 @@ if(host != "localhost")
           </div><div id="body-inner"><h1 class="a-fontBold">tech</h1>
               <p class="a-leadText" id="leadText"></p>
 
-
-
-
-
-
-<footer class=" footline" >
-	
-</footer>
-
-
-
-	
-
-	<div class="extra-pagination inner">
+<footer class=" footline" ></footer><div class="extra-pagination inner">
 	<nav class="pagination" role="navigation">
 	
 	    <a class="newer-posts" href="/tags/tech/page/2/">&larr; Previous Pages</a>
@@ -1113,10 +1104,7 @@ if(host != "localhost")
 	
 </nav>
 
-	</div>
-
-	
-	   <article class="post technology">
+	</div><article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/tools/stylecop/">StyleCop</a></h2>
     </header>
@@ -1126,10 +1114,8 @@ In Altinn Studio, we have turned set this &ldquo;warning&rdquo; action to &ldquo
 Nuget Package Instructions to install the stylecop analyzer in your project can be found here. <a class="read-more" href="/technology/tools/stylecop/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/tech/">tech</a>
@@ -1137,15 +1123,9 @@ Nuget Package Instructions to install the stylecop analyzer in your project can 
                 <a class="label label-default" href="https://docs.altinn.studio/tags/code-quality/">code-quality</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/tools/terraform/">Terraform</a></h2>
     </header>
@@ -1154,10 +1134,8 @@ Nuget Package Instructions to install the stylecop analyzer in your project can 
 Links  https://www.terraform.io https://github.com/hashicorp/terraform https://marketplace.visualstudio.com/items?itemName=HashiCorp.terraform   <a class="read-more" href="/technology/tools/terraform/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/tech/">tech</a>
@@ -1165,45 +1143,31 @@ Links  https://www.terraform.io https://github.com/hashicorp/terraform https://m
                 <a class="label label-default" href="https://docs.altinn.studio/tags/programming/">programming</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/tools/">Tools and frameworks</a></h2>
     </header>
     <section class="post-excerpt">
         <p>.NET CoreServer side development framework.
-Alpine LinuxAlpine Linux is a security-oriented, lightweight Linux distribution based on musl libc and busybox.
-BPMNBusiness Process Model and Notation.
-C#Server side programming language.
-DockerDocker is the container technology used in Altinn Studio, Altinn Apps and Altinn Platform.
-GitGit is a distributed version-control system for tracking changes in source code during software development. <a class="read-more" href="/technology/tools/">&raquo;</a></p>
+Alpine LinuxAlpine Linux is a security-oriented, lightweight Linux distribution based on musl libc and busybox.
+BPMNBusiness Process Model and Notation.
+C#Server side programming language.
+DockerDocker is the container technology used in Altinn Studio, Altinn Apps and Altinn Platform.
+GitGit is a distributed version-control system for tracking changes in source code during software development. <a class="read-more" href="/technology/tools/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/tech/">tech</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/tools/traefik/">Traefik</a></h2>
     </header>
@@ -1212,10 +1176,8 @@ Links  https://www.terraform.io https://github.com/hashicorp/terraform https://m
 Links  https://traefik.io https://github.com/containous/traefik https://hub.docker.com/_/traefik   <a class="read-more" href="/technology/tools/traefik/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/tech/">tech</a>
@@ -1225,15 +1187,9 @@ Links  https://traefik.io https://github.com/containous/traefik https://hub.dock
                 <a class="label label-default" href="https://docs.altinn.studio/tags/load-balancer/">load-balancer</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/tools/typescript/">TypeScript</a></h2>
     </header>
@@ -1244,10 +1200,8 @@ Typescript kompileres til JavaScript, så klienten kjører aldri TypeScript kode
 Links  http://www.typescriptlang.org https://github.com/Microsoft/TypeScript   <a class="read-more" href="/technology/tools/typescript/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/tech/">tech</a>
@@ -1255,15 +1209,9 @@ Links  http://www.typescriptlang.org https://github.com/Microsoft/TypeScript   <
                 <a class="label label-default" href="https://docs.altinn.studio/tags/programming/">programming</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/tools/vs-code/">Visual Studio Code</a></h2>
     </header>
@@ -1274,10 +1222,8 @@ Altinn ❤️ vscode.
 Languages and tech VS Code comes with support for hundreds of languages and technologies, including all the ones that are relevant in Altinn 3: <a class="read-more" href="/technology/tools/vs-code/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/tech/">tech</a>
@@ -1287,16 +1233,9 @@ Languages and tech VS Code comes with support for hundreds of languages and tech
                 <a class="label label-default" href="https://docs.altinn.studio/tags/programming/">programming</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-
-	<div style="margin-bottom:2rem"></div>
+<div style="margin-bottom:2rem"></div>
 
 	<nav class="pagination" role="navigation">
 	
@@ -1306,14 +1245,9 @@ Languages and tech VS Code comes with support for hundreds of languages and tech
 	
 </nav>
 
-
-
-
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/technology/tools/vs-code/" title="Visual Studio Code"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/app/" title="Create apps" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div></section>
         </div> 
@@ -1370,3 +1304,4 @@ Languages and tech VS Code comes with support for hundreds of languages and tech
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

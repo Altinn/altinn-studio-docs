@@ -370,10 +370,10 @@ if(host != "localhost")
         <a href="/app/maintainance/dependencies/"><span>Dependencies</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/app/launched-apps/"><span>Launched apps</span><sup>NEW</sup></a></li></ul></li>
-      <li class="dd-item parent">
-        <a href="/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
-      <li class="dd-item parent">
-        <a href="/api/apps/"><span>App</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/api/"><span>API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/api/apps/metadata/"><span>Metadata</span></a></li>
       <li class="dd-item">
@@ -386,7 +386,7 @@ if(host != "localhost")
         <a href="/api/apps/stateless-data-elements/"><span>Stateless data elements</span></a></li>
       <li class="dd-item">
         <a href="/api/apps/process/"><span>Process</span></a></li>
-      <li class="dd-item parent active">
+      <li class="dd-item">
         <a href="/api/apps/validation/"><span>Validation</span></a></li>
       <li class="dd-item">
         <a href="/api/apps/spec/"><span>OpenAPI</span></a></li></ul></li>
@@ -429,7 +429,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -437,7 +437,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -445,7 +445,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -529,7 +529,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -1083,7 +1083,12 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/api/']").parent().addClass("parent");
+ $("li.dd-item a[href='/api/apps/']").parent().addClass("parent");
+ $("li.dd-item a[href='/api/apps/validation/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1103,12 +1108,7 @@ if(host != "localhost")
     <li><a href="#validate-stored-instance">Validate stored instance</a></li>
     <li><a href="#validate-stored-data">Validate stored data</a></li>
   </ul>
-</nav>
-
-
-
-
-<h2 id="overview">Overview</h2>
+</nav><h2 id="overview">Overview</h2>
 <p>There are multiple endpoints that can trigger validation and provide feedback regarding the state of an instance and its data.
 Some of them validates data already uploaded and stored in Altinn while others can validate input.</p>
 <h2 id="validate-stored-instance">Validate stored instance</h2>
@@ -1155,19 +1155,10 @@ The validate method takes a data file of an dataType and performs validation on 
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">PUT {appPath}/validate?dataType=modelA
 </code></pre></div>
 
-<footer class=" footline" >
-	
-</footer>
-
-
-
-
-
+<footer class=" footline" ></footer>
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/api/apps/process/" title="Process"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/api/apps/spec/" title="OpenAPI (swagger) for Apps" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/api/apps/validation/_index.en.md" target="blank">
@@ -1229,3 +1220,4 @@ The validate method takes a data file of an dataType and performs validation on 
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

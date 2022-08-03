@@ -118,8 +118,8 @@ if(host != "localhost")
 </script>
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
-      <li class="dd-item parent">
-        <a href="/nb/app/"><span>Lage apper</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/"><span>Lage apper</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/app/getting-started/"><span>Kom i gang</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -364,8 +364,8 @@ if(host != "localhost")
         <a href="/nb/app/deployment/runtime-environment/resource-allocation/"><span>Ressurserfordeling</span></a></li>
       <li class="dd-item">
         <a href="/nb/app/deployment/runtime-environment/resource-allocation-tips/"><span>Tips til ressurserfordeling</span></a></li></ul></li></ul></li>
-      <li class="dd-item parent active">
-        <a href="/nb/app/maintainance/"><span>Vedlikehold</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/maintainance/"><span>Vedlikehold</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/app/maintainance/dependencies/"><span>Avhengigheter</span></a></li></ul></li>
       <li class="dd-item">
@@ -381,7 +381,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/app/launched-apps/digdir/be-om-api-nokkel/"><span>Tilgang til REST API</span></a></li></ul></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/nb/api/"><span>API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -543,7 +543,11 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/nb/app/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/app/maintainance/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -557,72 +561,28 @@ if(host != "localhost")
                 <span class="links"><a href='/nb/app/'>Lage apper</a> <span class='adocs-breadcrumb-divider'> / </span> Vedlikehold</span>
             </div>
           </div><div id="body-inner"><h1 class="a-fontBold">Vedlikehold av app i produksjon</h1>
-              <p class="a-leadText" id="leadText">Applikasjoner i produksjon krever jevnlig vedlikehold og oppdateringer.</p>
-
-
-
-
-<p>Når applikasjonen er satt i produksjon, vil det oppstå behov for å vedlikeholde applikasjonen.
+              <p class="a-leadText" id="leadText">Applikasjoner i produksjon krever jevnlig vedlikehold og oppdateringer.</p><p>Når applikasjonen er satt i produksjon, vil det oppstå behov for å vedlikeholde applikasjonen.
 Den vanligste vedlikeholdstypen vil være å <a href="./dependencies">oppdatere avhengigheter</a>.</p>
 <p>For å gjøre en ny versjon av applikasjonen tilgjengelig, produksjonssetter man den på samme måte som vanlig.</p>
 <p>Instanser av appen i brukers innboks vil automatisk oppdateres til å bruke siste versjon av applikasjonen,
 så det er viktig at man ikke innfører endringer som knekker eksisterende instanser.</p>
-
-
-
-
-
-
-
-
-
-
-
-
 <ul class="children children-li js-moveChildrenFrom">
-	
-    
-	    
-    
-    
 
 	
-		
-	
-		
-
-
-<li>
-<a href="/nb/app/maintainance/dependencies/" >Oppdatere avhengigheter i app</a>
-<p>Hvordan oppdatere avhengigheter i en app.</p>
-</li>
-
-
-
-		
-	
-
+		<li>
+				<a href="/nb/app/maintainance/dependencies/">Oppdatere avhengigheter i app</a>
+				<p>Hvordan oppdatere avhengigheter i en app.</p>
+				</li>
 	
 </ul>
 
 
 
 
-
-
-<footer class=" footline" >
-	
-</footer>
-
-
-
-
-
+<footer class=" footline" ></footer>
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/nb/app/deployment/runtime-environment/resource-allocation-tips/" title="Tips til ressurserfordeling"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/nb/app/maintainance/dependencies/" title="Oppdatere avhengigheter i app" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/app/maintainance/_index.nb.md" target="blank">
@@ -684,3 +644,4 @@ så det er viktig at man ikke innfører endringer som knekker eksisterende insta
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

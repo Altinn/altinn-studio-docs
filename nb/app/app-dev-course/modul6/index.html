@@ -118,8 +118,8 @@ if(host != "localhost")
 </script>
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
-      <li class="dd-item parent">
-        <a href="/nb/app/"><span>Lage apper</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/"><span>Lage apper</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/app/getting-started/"><span>Kom i gang</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -152,8 +152,8 @@ if(host != "localhost")
         <a href="/nb/app/getting-started/access-management/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/app/getting-started/local-dev/"><span>Lokal utvikling</span></a></li></ul></li>
-      <li class="dd-item parent">
-        <a href="/nb/app/app-dev-course/"><span>Introkurs</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/app-dev-course/"><span>Introkurs</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/app/app-dev-course/case/"><span>Case</span></a></li>
       <li class="dd-item">
@@ -166,7 +166,7 @@ if(host != "localhost")
         <a href="/nb/app/app-dev-course/modul4/"><span>Modul 4</span></a></li>
       <li class="dd-item">
         <a href="/nb/app/app-dev-course/modul5/"><span>Modul 5</span></a></li>
-      <li class="dd-item parent active">
+      <li class="dd-item">
         <a href="/nb/app/app-dev-course/modul6/"><span>Modul 6</span></a></li>
       <li class="dd-item">
         <a href="/nb/app/app-dev-course/modul7/"><span>Modul 7</span></a></li>
@@ -381,7 +381,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/app/launched-apps/digdir/be-om-api-nokkel/"><span>Tilgang til REST API</span></a></li></ul></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/nb/api/"><span>API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -543,7 +543,12 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/nb/app/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/app/app-dev-course/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/app/app-dev-course/modul6/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -557,12 +562,7 @@ if(host != "localhost")
                 <span class="links"><a href='/nb/app/'>Lage apper</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/app/app-dev-course/'>Introkurs</a> <span class='adocs-breadcrumb-divider'> / </span> Modul 6</span>
             </div>
           </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/apps">apps</a><a class="label label-default" href="https://docs.altinn.studio/tags/training">training</a><a class="label label-default" href="https://docs.altinn.studio/tags/repeterende-grupper">repeterende grupper</a><a class="label label-default" href="https://docs.altinn.studio/tags/validering">validering</a><a class="label label-default" href="https://docs.altinn.studio/tags/dataprosessering">dataprosessering</a><a class="label label-default" href="https://docs.altinn.studio/tags/konsumere-api">konsumere API</a></div><div id="body-inner"><h1 class="a-fontBold">Modul 6</h1>
-              <p class="a-leadText" id="leadText">Utvidelse av skjema med repeterende gruppe</p>
-
-
-
-
-<p>I denne modulen skal du utvide applikasjonen du har laget i foregående moduler for å støtte mer av <a href="../case/#krav-fra-kommunen">funksjonaliteten som Sogndal kommune ønsker</a>.</p>
+              <p class="a-leadText" id="leadText">Utvidelse av skjema med repeterende gruppe</p><p>I denne modulen skal du utvide applikasjonen du har laget i foregående moduler for å støtte mer av <a href="../case/#krav-fra-kommunen">funksjonaliteten som Sogndal kommune ønsker</a>.</p>
 <p><strong>Temaer som dekkes i denne modulen:</strong></p>
 <ul>
 <li>Repeterende grupper</li>
@@ -680,19 +680,10 @@ Til slutt har vi sett på hvordan man kan sette opp <strong>dataprosessering</st
 <figure><a href="/app/app-dev-course/modul6/data-rep-grupper-screenshot.png"><img src="/app/app-dev-course/modul6/data-rep-grupper-screenshot.png" alt="Skjermbilde av datainnsamlingsside med repeterende gruppe" title="Skjermbilde av datainnsamlingsside med repeterende gruppe" /></a><figcaption><h4>Skjermbilde av datainnsamlingsside med repeterende gruppe</h4></figcaption></figure>
 
 
-<footer class=" footline" >
-	
-</footer>
-
-
-
-
-
+<footer class=" footline" ></footer>
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/nb/app/app-dev-course/modul5/" title="Modul 5"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/nb/app/app-dev-course/modul7/" title="Modul 7" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/app/app-dev-course/modul6/_index.nb.md" target="blank">
@@ -754,3 +745,4 @@ Til slutt har vi sett på hvordan man kan sette opp <strong>dataprosessering</st
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

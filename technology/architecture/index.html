@@ -421,7 +421,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -429,7 +429,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -437,7 +437,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -521,7 +521,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -640,10 +640,10 @@ if(host != "localhost")
         <a href="/community/devops/teams/studio/"><span>Studio</span></a></li></ul></li></ul></li>
       <li class="dd-item">
         <a href="/community/presentations/"><span>Presentations</span></a></li></ul></li>
-      <li class="dd-item parent">
-        <a href="/technology/"><span>Technology</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
-      <li class="dd-item parent active">
-        <a href="/technology/architecture/"><span>Architecture</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/"><span>Technology</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/"><span>Architecture</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/technology/architecture/requirements/"><span>Requirements</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -1075,7 +1075,11 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/technology/']").parent().addClass("parent");
+ $("li.dd-item a[href='/technology/architecture/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1089,12 +1093,7 @@ if(host != "localhost")
                 <span class="links"><a href='/technology/'>Technology</a> <span class='adocs-breadcrumb-divider'> / </span> Architecture</span>
             </div>
           </div><div id="body-inner"><h1 class="a-fontBold">Architecture</h1>
-              <p class="a-leadText" id="leadText">Altinn Studio, Altinn Apps and Altinn Platform has a modern cloud native architecture. This documentation describes everything from the requirements affecting the architecture to the defined capabilities and the components that provides them.</p>
-
-
-
-
-<h2 id="how-is-the-architecture-documented">How is the architecture documented?</h2>
+              <p class="a-leadText" id="leadText">Altinn Studio, Altinn Apps and Altinn Platform has a modern cloud native architecture. This documentation describes everything from the requirements affecting the architecture to the defined capabilities and the components that provides them.</p><h2 id="how-is-the-architecture-documented">How is the architecture documented?</h2>
 <p>The <a href="requirements">non functional and functional requirements</a> have given input to which devops and runtime <a href="capabilities">capabilities</a> 
 that is needed in the solutions. It also have given input which type of <a href="components">components</a> that is needed to implement the capabilities.</p>
 <p>The <a href="principles">Architecture Principles</a> and <a href="patterns">Architecture Patterns</a> has been
@@ -1104,42 +1103,30 @@ The Principles and patterns has been deciding factors how the <a href="component
 <p><object data="/technology/architecture/architecture_decision_relationship.svg" type="image/svg+xml" style="width: 100%;"></object></p>
 <p><a href="architecture_decision_relationship.vsdx">Download as Visio</a>.</p>
 <ul class="children children-li js-moveChildrenFrom">
-<li>
-<a href="/technology/architecture/requirements/" >Architecture Requirements</a>
-<p>Functional and non-functional requirements for the different solutions has been important to shape the architecture.</p>
-</li>
-<li>
-<a href="/technology/architecture/principles/" >Architecture Principles</a>
-<p>The Architecture Principles are guidelines for the construction of the architecture in Altinn 3.</p>
-</li>
-<li>
-<a href="/technology/architecture/patterns/" >Architecture Patterns</a>
-<p>The architecture defines some patterns that is reused accross the different solutions.</p>
-</li>
-<li>
-<a href="/technology/architecture/capabilities/" >Architecture Capabilities</a>
-<p>Architecture Capabilities are the logical building blocks of the solutions. They have been grouped into Development &amp; Operations (DevOps) Capabilities and Runtime (Execution) Capabilities.</p>
-</li>
-<li>
-<a href="/technology/architecture/components/" >Architecture Components</a>
-<p>Architecture Components describes the application, data, platform and infrastructure components that provides the capabilities.</p>
-</li>
+<pre><code>    &lt;li&gt;
+            &lt;a href=&quot;/technology/architecture/requirements/&quot;&gt;Architecture Requirements&lt;/a&gt;
+            &lt;p&gt;Functional and non-functional requirements for the different solutions has been important to shape the architecture.&lt;/p&gt;
+            &lt;/li&gt;&lt;li&gt;
+            &lt;a href=&quot;/technology/architecture/principles/&quot;&gt;Architecture Principles&lt;/a&gt;
+            &lt;p&gt;The Architecture Principles are guidelines for the construction of the architecture in Altinn 3.&lt;/p&gt;
+            &lt;/li&gt;&lt;li&gt;
+            &lt;a href=&quot;/technology/architecture/patterns/&quot;&gt;Architecture Patterns&lt;/a&gt;
+            &lt;p&gt;The architecture defines some patterns that is reused accross the different solutions.&lt;/p&gt;
+            &lt;/li&gt;&lt;li&gt;
+            &lt;a href=&quot;/technology/architecture/capabilities/&quot;&gt;Architecture Capabilities&lt;/a&gt;
+            &lt;p&gt;Architecture Capabilities are the logical building blocks of the solutions. They have been grouped into Development &amp;amp; Operations (DevOps) Capabilities and Runtime (Execution) Capabilities.&lt;/p&gt;
+            &lt;/li&gt;&lt;li&gt;
+            &lt;a href=&quot;/technology/architecture/components/&quot;&gt;Architecture Components&lt;/a&gt;
+            &lt;p&gt;Architecture Components describes the application, data, platform and infrastructure components that provides the capabilities.&lt;/p&gt;
+            &lt;/li&gt;
+</code></pre>
 </ul>
 
 
-<footer class=" footline" >
-	
-</footer>
-
-
-
-
-
+<footer class=" footline" ></footer>
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/technology/" title="Technology"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/technology/architecture/requirements/" title="Architecture Requirements" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/technology/architecture/_index.md" target="blank">
@@ -1201,3 +1188,4 @@ The Principles and patterns has been deciding factors how the <a href="component
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

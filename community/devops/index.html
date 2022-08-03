@@ -428,7 +428,7 @@ if(host != "localhost")
         <a href="/api/storage/spec/"><span>OpenAPI</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
-      <li class="dd-item parent">
+      <li class="dd-item">
         <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
@@ -437,7 +437,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -445,7 +445,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -529,7 +529,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -632,8 +632,8 @@ if(host != "localhost")
         <a href="/community/roadmap/studio/appowner/"><span>App owner</span></a></li>
       <li class="dd-item">
         <a href="/community/roadmap/studio/enduser/"><span>End user</span></a></li></ul></li></ul></li>
-      <li class="dd-item parent active">
-        <a href="/community/devops/"><span>DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/community/devops/"><span>DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/devops/definition-of-ready/"><span>Definition of Ready</span></a></li>
       <li class="dd-item">
@@ -1083,7 +1083,11 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/community/']").parent().addClass("parent");
+ $("li.dd-item a[href='/community/devops/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1097,74 +1101,23 @@ if(host != "localhost")
                 <span class="links"><a href='/community/'>Community</a> <span class='adocs-breadcrumb-divider'> / </span> DevOps</span>
             </div>
           </div><div id="body-inner"><h1 class="a-fontBold">DevOps</h1>
-              <p class="a-leadText" id="leadText">How we do DevOps.</p>
-
-
-
-
-<div style="text-align: center;">
+              <p class="a-leadText" id="leadText">How we do DevOps.</p><div style="text-align: center;">
     <object data="/community/devops/backlogs.drawio.svg" type="image/svg+xml" style="width: 100%;" title="Backlogs and teams" alt="Backlogs"></object>
 </div>
 <p><a href="backlogs.drawio.svg">Fullscreen</a></p>
-
-
-
-
-
-
-
-
-
-
-
-
 <ul class="children children-li js-moveChildrenFrom">
-	
-    
-	    
-    
-    
 
 	
-		
-	
-		
-
-
-<li>
-<a href="/community/devops/definition-of-ready/" >Definition of Ready</a>
-<p>What needs to be in place before a team starts on a user story/issue.</p>
-</li>
-
-
-
-		
-	
-		
-
-
-<li>
-<a href="/community/devops/roadmapprocess/" >Roadmap prosess</a>
-<p>Hvordan jobber vi med vår roadmap</p>
-</li>
-
-
-
-		
-	
-		
-
-
-<li>
-<a href="/community/devops/teams/" >Teams</a>
-<p>Our DevOps teams</p>
-</li>
-
-
-
-		
-	
-
+		<li>
+				<a href="/community/devops/definition-of-ready/">Definition of Ready</a>
+				<p>What needs to be in place before a team starts on a user story/issue.</p>
+				</li><li>
+				<a href="/community/devops/roadmapprocess/">Roadmap prosess</a>
+				<p>Hvordan jobber vi med vår roadmap</p>
+				</li><li>
+				<a href="/community/devops/teams/">Teams</a>
+				<p>Our DevOps teams</p>
+				</li>
 	
 </ul>
 
@@ -1172,21 +1125,10 @@ if(host != "localhost")
 
 
 
-
-
-<footer class=" footline" >
-	
-</footer>
-
-
-
-
-
+<footer class=" footline" ></footer>
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/community/roadmap/studio/enduser/" title="End user functionality in Altinn 3"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/community/devops/definition-of-ready/" title="Definition of Ready" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/community/devops/_index.en.md" target="blank">
@@ -1248,3 +1190,4 @@ if(host != "localhost")
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

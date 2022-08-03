@@ -380,7 +380,7 @@ if(host != "localhost")
         <a href="/nb/app/launched-apps/digdir/oed/"><span>Oppgjør etter dødsfall</span></a></li>
       <li class="dd-item">
         <a href="/nb/app/launched-apps/digdir/be-om-api-nokkel/"><span>Tilgang til REST API</span></a></li></ul></li></ul></li></ul></li>
-      <li class="dd-item parent">
+      <li class="dd-item">
         <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
@@ -416,8 +416,8 @@ if(host != "localhost")
         <a href="/nb/api/events/"><span>Events</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/events/spec/"><span>OpenAPI</span></a></li></ul></li>
-      <li class="dd-item parent active">
-        <a href="/nb/api/models/"><span>Modeller</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/api/models/"><span>Modeller</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/models/app-metadata/"><span>App metadata</span></a></li>
       <li class="dd-item">
@@ -543,7 +543,11 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/nb/api/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/api/models/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -557,40 +561,25 @@ if(host != "localhost")
                 <span class="links"><a href='/nb/api/'>API</a> <span class='adocs-breadcrumb-divider'> / </span> Modeller</span>
             </div>
           </div><div id="body-inner"><h1 class="a-fontBold">Modeller</h1>
-              <p class="a-leadText" id="leadText">Dette er en oversikt over de fleste modellene brukt av de forskjellige APIen. Den forklarer ikke hver eneste property i alle modeller, men vil forsøke å gi en solid introduksjon til de viktigste delene.</p>
-
-
-
-
-<ul class="children children-li js-moveChildrenFrom">
-<li>
-<a href="/nb/api/models/app-metadata/" >App metadata</a>
-<p>The application metadata document holds technical information about the app and the data type requirements.</p>
-</li>
-<li>
-<a href="/nb/api/models/instance/" >Instance</a>
-<p>An instance is a metadata container that is used to track the status and progress of one interaction between an app user and owner.</p>
-</li>
-<li>
-<a href="/nb/api/models/data-element/" >DataElement</a>
-<p>Et DataElement er en metadatabeholder som brukes til å spore statusen til faktiske data blobs.</p>
-</li>
+              <p class="a-leadText" id="leadText">Dette er en oversikt over de fleste modellene brukt av de forskjellige APIen. Den forklarer ikke hver eneste property i alle modeller, men vil forsøke å gi en solid introduksjon til de viktigste delene.</p><ul class="children children-li js-moveChildrenFrom">
+<pre><code>    &lt;li&gt;
+            &lt;a href=&quot;/nb/api/models/app-metadata/&quot;&gt;App metadata&lt;/a&gt;
+            &lt;p&gt;The application metadata document holds technical information about the app and the data type requirements.&lt;/p&gt;
+            &lt;/li&gt;&lt;li&gt;
+            &lt;a href=&quot;/nb/api/models/instance/&quot;&gt;Instance&lt;/a&gt;
+            &lt;p&gt;An instance is a metadata container that is used to track the status and progress of one interaction between an app user and owner.&lt;/p&gt;
+            &lt;/li&gt;&lt;li&gt;
+            &lt;a href=&quot;/nb/api/models/data-element/&quot;&gt;DataElement&lt;/a&gt;
+            &lt;p&gt;Et DataElement er en metadatabeholder som brukes til å spore statusen til faktiske data blobs.&lt;/p&gt;
+            &lt;/li&gt;
+</code></pre>
 </ul>
 
 
-<footer class=" footline" >
-	
-</footer>
-
-
-
-
-
+<footer class=" footline" ></footer>
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/nb/api/events/spec/" title="OpenAPI (swagger) for Events"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/nb/api/models/app-metadata/" title="App metadata" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/api/models/_index.nb.md" target="blank">
@@ -652,3 +641,4 @@ if(host != "localhost")
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

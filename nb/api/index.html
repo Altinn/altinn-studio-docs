@@ -380,7 +380,7 @@ if(host != "localhost")
         <a href="/nb/app/launched-apps/digdir/oed/"><span>Oppgjør etter dødsfall</span></a></li>
       <li class="dd-item">
         <a href="/nb/app/launched-apps/digdir/be-om-api-nokkel/"><span>Tilgang til REST API</span></a></li></ul></li></ul></li></ul></li>
-      <li class="dd-item parent active">
+      <li class="dd-item">
         <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
@@ -543,7 +543,10 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/nb/api/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -562,12 +565,7 @@ if(host != "localhost")
     <li><a href="#the-apis">The APIs</a></li>
     <li><a href="#api-user-groups">API user groups</a></li>
   </ul>
-</nav>
-
-
-
-
-<h2 id="the-apis">The APIs</h2>
+</nav><h2 id="the-apis">The APIs</h2>
 <p>The new solution will have multiple APIs, but they can be divided in two groups. The app APIs and the Platform APIs.</p>
 <h3 id="app-api">App API</h3>
 <p>The application API is an API that provides access to specific instances of a specific app. The API provides features for working with data elements while keeping the metadata document for the instance and its data elements updated. The instance level endpoints revolves around moving an instance through its defined process and controlling some instance level settings.</p>
@@ -604,134 +602,41 @@ if(host != "localhost")
 <li>Change process state (workflow).</li>
 <li>View status of an instance.</li>
 </ul>
-
-
-
-
-
-
-
-
-
-
-
-
 <ul class="children children-li js-moveChildrenFrom">
-	
-    
-	    
-    
-    
 
 	
-		
-	
-		
-
-
-<li>
-<a href="/nb/api/apps/" >App API</a>
-<p>Standard API&#39;er eksponert av apper i Altinn 3.</p>
-</li>
-
-
-
-		
-	
-		
-
-
-<li>
-<a href="/nb/api/authentication/" >Authentication API</a>
-<p>Beskrivelse av hvordan systemer og tjenesteeiere kan benytte Maskinporten eller ID-porten for å få tilgang til APIer i Altinn 3.</p>
-</li>
-
-
-
-		
-	
-		
-
-
-<li>
-<a href="/nb/api/events/" >Events API</a>
-<p>Platform API for hendelser.</p>
-</li>
-
-
-
-		
-	
-		
-
-
-<li>
-<a href="/nb/api/models/" >Modeller</a>
-<p>Dette er en oversikt over de fleste modellene brukt av de forskjellige APIen. Den forklarer ikke hver eneste property i alle modeller, men vil forsøke å gi en solid introduksjon til de viktigste delene.</p>
-</li>
-
-
-
-		
-	
-		
-
-
-<li>
-<a href="/nb/api/scenarios/" >Scenarier</a>
-<p>Forskjellige API-bruksscenarier.</p>
-</li>
-
-
-
-		
-	
-		
-
-
-<li>
-<a href="/nb/api/storage/" >Storage API</a>
-<p>Beskrivelse av API&#39;et til Storage komponenten i Altinn 3 platformen.</p>
-</li>
-
-
-
-		
-	
-		
-
-
-<li>
-<a href="/nb/api/studio/" >Altinn Studio Repository API</a>
-<p>OpenAPI (swagger) spesifikasjon for App kildekode API.</p>
-</li>
-
-
-
-		
-	
-
+		<li>
+				<a href="/nb/api/apps/">App API</a>
+				<p>Standard API&#39;er eksponert av apper i Altinn 3.</p>
+				</li><li>
+				<a href="/nb/api/authentication/">Authentication API</a>
+				<p>Beskrivelse av hvordan systemer og tjenesteeiere kan benytte Maskinporten eller ID-porten for å få tilgang til APIer i Altinn 3.</p>
+				</li><li>
+				<a href="/nb/api/events/">Events API</a>
+				<p>Platform API for hendelser.</p>
+				</li><li>
+				<a href="/nb/api/models/">Modeller</a>
+				<p>Dette er en oversikt over de fleste modellene brukt av de forskjellige APIen. Den forklarer ikke hver eneste property i alle modeller, men vil forsøke å gi en solid introduksjon til de viktigste delene.</p>
+				</li><li>
+				<a href="/nb/api/scenarios/">Scenarier</a>
+				<p>Forskjellige API-bruksscenarier.</p>
+				</li><li>
+				<a href="/nb/api/storage/">Storage API</a>
+				<p>Beskrivelse av API&#39;et til Storage komponenten i Altinn 3 platformen.</p>
+				</li><li>
+				<a href="/nb/api/studio/">Altinn Studio Repository API</a>
+				<p>OpenAPI (swagger) spesifikasjon for App kildekode API.</p>
+				</li>
 	
 </ul>
 
 
 
 
-
-
-<footer class=" footline" >
-	
-</footer>
-
-
-
-
-
+<footer class=" footline" ></footer>
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/nb/app/launched-apps/digdir/be-om-api-nokkel/" title="Bestill tilgang til REST API"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/nb/api/apps/" title="App API" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/api/_index.nb.md" target="blank">
@@ -793,3 +698,4 @@ if(host != "localhost")
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

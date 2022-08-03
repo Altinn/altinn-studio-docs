@@ -380,7 +380,7 @@ if(host != "localhost")
         <a href="/nb/app/launched-apps/digdir/oed/"><span>Oppgjør etter dødsfall</span></a></li>
       <li class="dd-item">
         <a href="/nb/app/launched-apps/digdir/be-om-api-nokkel/"><span>Tilgang til REST API</span></a></li></ul></li></ul></li></ul></li>
-      <li class="dd-item parent">
+      <li class="dd-item">
         <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
@@ -428,11 +428,11 @@ if(host != "localhost")
         <a href="/nb/api/scenarios/"><span>Scenarier</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/scenarios/authentication/"><span>Autentisering</span></a></li></ul></li>
-      <li class="dd-item parent">
-        <a href="/nb/api/storage/"><span>Storage</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/api/storage/"><span>Storage</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/storage/instances/"><span>Instanser</span></a></li>
-      <li class="dd-item parent active">
+      <li class="dd-item">
         <a href="/nb/api/storage/instance-events/"><span>Instance events</span></a></li>
       <li class="dd-item">
         <a href="/nb/api/storage/spec/"><span>OpenAPI</span></a></li></ul></li>
@@ -543,7 +543,12 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/nb/api/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/api/storage/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/api/storage/instance-events/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -557,12 +562,11 @@ if(host != "localhost")
                 <span class="links"><a href='/nb/api/'>API</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/api/storage/'>Storage</a> <span class='adocs-breadcrumb-divider'> / </span> Instance events</span>
             </div>
           </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/api">api</a><a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-norwegian">translate-to-norwegian</a></div><div id="body-inner"><h1 class="a-fontBold">Instance events</h1>
-              <p class="a-leadText" id="leadText">Plattform API for å jobbe med instans-hendelser.</p>
-
-
-
-
-<h2 id="instance-events">Instance events</h2>
+              <p class="a-leadText" id="leadText">Plattform API for å jobbe med instans-hendelser.</p><h2>På denne siden:</h2><nav id="TableOfContents">
+  <ul>
+    <li><a href="#instance-events">Instance events</a></li>
+  </ul>
+</nav><h2 id="instance-events">Instance events</h2>
 <p>All instance events, e.g. creation, read, save, change process state, &hellip;</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/events
 </code></pre></div><p>Example of event data.</p>
@@ -594,19 +598,10 @@ if(host != "localhost")
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET {storagePath}/applications/org/app/events?created=gte:2019-03-30&amp;process.currentTask=Task_2
 </code></pre></div>
 
-<footer class=" footline" >
-	
-</footer>
-
-
-
-
-
+<footer class=" footline" ></footer>
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/nb/api/storage/instances/" title="Instanser"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/nb/api/storage/spec/" title="OpenAPI (swagger) for Storage" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/api/storage/instance-events/_index.nb.md" target="blank">
@@ -668,3 +663,4 @@ if(host != "localhost")
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

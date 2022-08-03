@@ -421,7 +421,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -429,7 +429,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -437,7 +437,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -521,7 +521,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -640,10 +640,10 @@ if(host != "localhost")
         <a href="/community/devops/teams/studio/"><span>Studio</span></a></li></ul></li></ul></li>
       <li class="dd-item">
         <a href="/community/presentations/"><span>Presentations</span></a></li></ul></li>
-      <li class="dd-item parent">
-        <a href="/technology/"><span>Technology</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
-      <li class="dd-item parent">
-        <a href="/technology/architecture/"><span>Architecture</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/"><span>Technology</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/"><span>Architecture</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/technology/architecture/requirements/"><span>Requirements</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -654,10 +654,10 @@ if(host != "localhost")
         <a href="/technology/architecture/principles/"><span>Principles</span></a></li>
       <li class="dd-item">
         <a href="/technology/architecture/patterns/"><span>Patterns</span></a></li>
-      <li class="dd-item parent">
-        <a href="/technology/architecture/capabilities/"><span>Capabilities</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
-      <li class="dd-item parent">
-        <a href="/technology/architecture/capabilities/runtime/"><span>Runtime</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/capabilities/"><span>Capabilities</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/capabilities/runtime/"><span>Runtime</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/technology/architecture/capabilities/runtime/appdeploy/"><span>App Build &amp; Deploy</span></a></li>
       <li class="dd-item">
@@ -670,7 +670,7 @@ if(host != "localhost")
         <a href="/technology/architecture/capabilities/runtime/integration/events/"><span>Event capabilities</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/technology/architecture/capabilities/runtime/integration/events/scenarios/">
             <span>Scenarios</span></a></li></ul></li></ul></li>
-      <li class="dd-item parent active">
+      <li class="dd-item">
         <a href="/technology/architecture/capabilities/runtime/presentation/"><span>Presentation</span></a></li>
       <li class="dd-item">
         <a href="/technology/architecture/capabilities/runtime/processing/"><span>Processing &amp; Execution</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
@@ -1075,7 +1075,14 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/technology/']").parent().addClass("parent");
+ $("li.dd-item a[href='/technology/architecture/']").parent().addClass("parent");
+ $("li.dd-item a[href='/technology/architecture/capabilities/']").parent().addClass("parent");
+ $("li.dd-item a[href='/technology/architecture/capabilities/runtime/']").parent().addClass("parent");
+ $("li.dd-item a[href='/technology/architecture/capabilities/runtime/presentation/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1094,12 +1101,7 @@ if(host != "localhost")
     <li><a href="#rendering--interaction-capabilities">Rendering &amp; Interaction Capabilities</a></li>
     <li><a href="#presentation-adaptation-capabilities">Presentation Adaptation Capabilities</a></li>
   </ul>
-</nav>
-
-
-
-
-<p>This includes capturing user actions and generating resulting events, presenting data to the user, and assisting in the management of the dialog flow of processing.</p>
+</nav><p>This includes capturing user actions and generating resulting events, presenting data to the user, and assisting in the management of the dialog flow of processing.</p>
 <p>These capabilities is both targeting App developers creating applications in Altinn Studio and the application created in Altinn Studio and Deployed to Altinn Apps for end users.</p>
 <h2 id="rendering--interaction-capabilities">Rendering &amp; Interaction Capabilities</h2>
 <h3 id="composition">Composition</h3>
@@ -1151,19 +1153,10 @@ TODO: Link to relevant archiecture component(s) providing this capability.</p>
 <p>App developers have a UI component library available in Altinn Studio to select UI components from.</p>
 
 
-<footer class=" footline" >
-	
-</footer>
-
-
-
-
-
+<footer class=" footline" ></footer>
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/technology/architecture/capabilities/runtime/integration/events/scenarios/" title="Event Scenarios"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/technology/architecture/capabilities/runtime/processing/" title="Processing &amp; Execution Capabilities" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/technology/architecture/capabilities/runtime/presentation/_index.md" target="blank">
@@ -1225,3 +1218,4 @@ TODO: Link to relevant archiecture component(s) providing this capability.</p>
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

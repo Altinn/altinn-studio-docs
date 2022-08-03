@@ -118,8 +118,8 @@ if(host != "localhost")
 </script>
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
-      <li class="dd-item parent">
-        <a href="/nb/app/"><span>Lage apper</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/"><span>Lage apper</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/app/getting-started/"><span>Kom i gang</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -152,8 +152,8 @@ if(host != "localhost")
         <a href="/nb/app/getting-started/access-management/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/app/getting-started/local-dev/"><span>Lokal utvikling</span></a></li></ul></li>
-      <li class="dd-item parent active">
-        <a href="/nb/app/app-dev-course/"><span>Introkurs</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/app-dev-course/"><span>Introkurs</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/app/app-dev-course/case/"><span>Case</span></a></li>
       <li class="dd-item">
@@ -381,7 +381,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/app/launched-apps/digdir/be-om-api-nokkel/"><span>Tilgang til REST API</span></a></li></ul></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/nb/api/"><span>API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -543,7 +543,11 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/nb/app/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/app/app-dev-course/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -557,12 +561,7 @@ if(host != "localhost")
                 <span class="links"><a href='/nb/app/'>Lage apper</a> <span class='adocs-breadcrumb-divider'> / </span> Introkurs</span>
             </div>
           </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/apps">apps</a><a class="label label-default" href="https://docs.altinn.studio/tags/build">build</a><a class="label label-default" href="https://docs.altinn.studio/tags/deploy">deploy</a><a class="label label-default" href="https://docs.altinn.studio/tags/training">training</a></div><div id="body-inner"><h1 class="a-fontBold">Introkurs</h1>
-              <p class="a-leadText" id="leadText">Et kursopplegg for å lære seg apputvikling med Altinn Studio og lokale verktøy.</p>
-
-
-
-
-<p>Dette intro-kurset er delt opp i seks moduler og dekker et fiktivt case for Sogndal kommune.
+              <p class="a-leadText" id="leadText">Et kursopplegg for å lære seg apputvikling med Altinn Studio og lokale verktøy.</p><p>Dette intro-kurset er delt opp i seks moduler og dekker et fiktivt case for Sogndal kommune.
 I løpet av disse seks modulene vil du ha vært innom den mest sentrale funksjonaliteten for en Altinn App,
 samt testing av applikasjonen lokalt og i testmiljø.</p>
 <p>Tre ting må være på plass før du går i gang med dette kurset.</p>
@@ -576,58 +575,42 @@ samt testing av applikasjonen lokalt og i testmiljø.</p>
 <h3 id="nå-kjører-vi-i-gang">Nå kjører vi i gang!</h3>
 <h3 id="les-gjennom-caset-til-sogndal-kommune-og-jobb-deg-gjennom-modul-for-modul">Les gjennom caset til Sogndal kommune, og jobb deg gjennom modul for modul.</h3>
 <ul class="children children-li js-moveChildrenFrom">
-<li>
-<a href="/nb/app/app-dev-course/case/" >Casebeskrivelse</a>
-<p>Beskrivelse av kommunens krav og ønsker til tjenesten.</p>
-</li>
-<li>
-<a href="/nb/app/app-dev-course/modul1/" >Modul 1</a>
-<p>Opprette app i Studio, sette opp lokalt utviklingsmiljø og local test</p>
-</li>
-<li>
-<a href="/nb/app/app-dev-course/modul2/" >Modul 2</a>
-<p>Legge til flere sider, sporvalg og prefill</p>
-</li>
-<li>
-<a href="/nb/app/app-dev-course/modul3/" >Modul 3</a>
-<p>Bygg og deploy applikasjon til testmiljø</p>
-</li>
-<li>
-<a href="/nb/app/app-dev-course/modul4/" >Modul 4</a>
-<p>Legge til kodelister manuelt, programatisk og dynamisk</p>
-</li>
-<li>
-<a href="/nb/app/app-dev-course/modul5/" >Modul 5</a>
-<p>Legge til bekreftelsessteg</p>
-</li>
-<li>
-<a href="/nb/app/app-dev-course/modul6/" >Modul 6</a>
-<p>Utvidelse av skjema med repeterende gruppe</p>
-</li>
-<li>
-<a href="/nb/app/app-dev-course/modul7/" >Modul 7</a>
-<p>Frittstående utvidelser av appen</p>
-</li>
-<li>
-<a href="/nb/app/app-dev-course/losningsforslag/" >Løsningsforslag</a>
-<p>Løsningsforslag og forklaring på forståelsessjekker</p>
-</li>
+<pre><code>    &lt;li&gt;
+            &lt;a href=&quot;/nb/app/app-dev-course/case/&quot;&gt;Casebeskrivelse&lt;/a&gt;
+            &lt;p&gt;Beskrivelse av kommunens krav og ønsker til tjenesten.&lt;/p&gt;
+            &lt;/li&gt;&lt;li&gt;
+            &lt;a href=&quot;/nb/app/app-dev-course/modul1/&quot;&gt;Modul 1&lt;/a&gt;
+            &lt;p&gt;Opprette app i Studio, sette opp lokalt utviklingsmiljø og local test&lt;/p&gt;
+            &lt;/li&gt;&lt;li&gt;
+            &lt;a href=&quot;/nb/app/app-dev-course/modul2/&quot;&gt;Modul 2&lt;/a&gt;
+            &lt;p&gt;Legge til flere sider, sporvalg og prefill&lt;/p&gt;
+            &lt;/li&gt;&lt;li&gt;
+            &lt;a href=&quot;/nb/app/app-dev-course/modul3/&quot;&gt;Modul 3&lt;/a&gt;
+            &lt;p&gt;Bygg og deploy applikasjon til testmiljø&lt;/p&gt;
+            &lt;/li&gt;&lt;li&gt;
+            &lt;a href=&quot;/nb/app/app-dev-course/modul4/&quot;&gt;Modul 4&lt;/a&gt;
+            &lt;p&gt;Legge til kodelister manuelt, programatisk og dynamisk&lt;/p&gt;
+            &lt;/li&gt;&lt;li&gt;
+            &lt;a href=&quot;/nb/app/app-dev-course/modul5/&quot;&gt;Modul 5&lt;/a&gt;
+            &lt;p&gt;Legge til bekreftelsessteg&lt;/p&gt;
+            &lt;/li&gt;&lt;li&gt;
+            &lt;a href=&quot;/nb/app/app-dev-course/modul6/&quot;&gt;Modul 6&lt;/a&gt;
+            &lt;p&gt;Utvidelse av skjema med repeterende gruppe&lt;/p&gt;
+            &lt;/li&gt;&lt;li&gt;
+            &lt;a href=&quot;/nb/app/app-dev-course/modul7/&quot;&gt;Modul 7&lt;/a&gt;
+            &lt;p&gt;Frittstående utvidelser av appen&lt;/p&gt;
+            &lt;/li&gt;&lt;li&gt;
+            &lt;a href=&quot;/nb/app/app-dev-course/losningsforslag/&quot;&gt;Løsningsforslag&lt;/a&gt;
+            &lt;p&gt;Løsningsforslag og forklaring på forståelsessjekker&lt;/p&gt;
+            &lt;/li&gt;
+</code></pre>
 </ul>
 
 
-<footer class=" footline" >
-	
-</footer>
-
-
-
-
-
+<footer class=" footline" ></footer>
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/nb/app/getting-started/local-dev/" title="Lokal utvikling"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/nb/app/app-dev-course/case/" title="Casebeskrivelse" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/app/app-dev-course/_index.nb.md" target="blank">
@@ -689,3 +672,4 @@ samt testing av applikasjonen lokalt og i testmiljø.</p>
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

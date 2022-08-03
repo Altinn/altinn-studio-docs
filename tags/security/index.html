@@ -421,7 +421,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -429,7 +429,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -437,7 +437,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -521,7 +521,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -1075,7 +1075,11 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/tags/']").parent().addClass("parent");
+ $("li.dd-item a[href='/tags/security/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1091,20 +1095,7 @@ if(host != "localhost")
           </div><div id="body-inner"><h1 class="a-fontBold">security</h1>
               <p class="a-leadText" id="leadText"></p>
 
-
-
-
-
-
-<footer class=" footline" >
-	
-</footer>
-
-
-
-	
-
-	<div class="extra-pagination inner">
+<footer class=" footline" ></footer><div class="extra-pagination inner">
 	<nav class="pagination" role="navigation">
 	
 	<span class="page-number">Page 1 on 3</span>
@@ -1113,10 +1104,7 @@ if(host != "localhost")
 	
 </nav>
 
-	</div>
-
-	
-	   <article class="post community">
+	</div><article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/securecoding/checklist/">Code Checklist</a></h2>
     </header>
@@ -1128,10 +1116,8 @@ This is related to OWASP Top 10 no 1.
 2. Does API requires authenticted user? All API&rsquo;s need to require authenticated user or system. <a class="read-more" href="/community/contributing/handbook/securecoding/checklist/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/checklist/">checklist</a>
@@ -1141,15 +1127,9 @@ This is related to OWASP Top 10 no 1.
                 <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/solution/altinn-platform/authorization/accessgroups/">Access Groups</a></h2>
     </header>
@@ -1160,10 +1140,8 @@ See Github #25
 AccessGroup defintion  Type of group. Leaf or branch? Name of group in different languges AccessGroup identifier  AccessGroup relationship  Parent/child relantiship between AccessGroups Relationship for external roles (ER, AA,  AccessGroup Membership  MembershipID CoveredBy UserId Covered OfferedByParty AccessGroupId ValidTo?  AccessGroup Delegation  DelegatedByParty DelegatedByUserId DelegationType DelegatetDateTime  AccessGroup History  DelegatedBy AccessGroupID OfferedBy CoveredByUserId CoveredByPartyId ChangeType (created, deleted)    <a class="read-more" href="/technology/architecture/components/application/solution/altinn-platform/authorization/accessgroups/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1175,15 +1153,9 @@ AccessGroup defintion  Type of group. Leaf or branch? Name of group in different
                 <a class="label label-default" href="https://docs.altinn.studio/tags/xacml/">xacml</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/capabilities/runtime/security/authentication/accesstoken/">Access Token</a></h2>
     </header>
@@ -1193,10 +1165,8 @@ This makes it possible for each Altinn Platform environment to configure which A
 The token is generated with help of the Access Token generator and this is generated for each call designer are doing aginst the platform solution for Storage and Authorization. <a class="read-more" href="/technology/architecture/capabilities/runtime/security/authentication/accesstoken/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1204,15 +1174,9 @@ The token is generated with help of the Access Token generator and this is gener
                 <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/capabilities/runtime/security/authentication/">Authentication Capabilities</a></h2>
     </header>
@@ -1223,10 +1187,8 @@ Git repo authentication When users tries to update the Git-repo where source fil
 This can be done through using a App Key generated in Gitea or using the username/password for the Gitea account. <a class="read-more" href="/technology/architecture/capabilities/runtime/security/authentication/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1234,15 +1196,9 @@ This can be done through using a App Key generated in Gitea or using the usernam
                 <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/capabilities/runtime/security/authentication/authentication-api/">Authentication APIs</a></h2>
     </header>
@@ -1252,10 +1208,8 @@ API for SBL Authentication cookie This API creates a JWT Cookie (A cookie with a
 Based on this information this API creates a JWT token with claims about the user (userid, authentication level ++) and sign the JWT token with the private key of Altinn Platform. <a class="read-more" href="/technology/architecture/capabilities/runtime/security/authentication/authentication-api/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1263,15 +1217,9 @@ Based on this information this API creates a JWT token with claims about the use
                 <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/capabilities/runtime/security/authorization/">Authorization</a></h2>
     </header>
@@ -1281,10 +1229,8 @@ These capabilities include:
  The capability to define wide/narrow authorization policies for apps. Rules can be valid for the whole application or only valid for a subset of resources. The capability to evaluate policies based on a request for a resource The capability to configure authorization policies for API endpoints The capability to enforce decision request (permit or deny) The capability to enrich decision request with needed information The capability to retrieve context information from different sources both regarding resources accessed and subjects doing that. <a class="read-more" href="/technology/architecture/capabilities/runtime/security/authorization/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1292,15 +1238,9 @@ These capabilities include:
                 <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/solution/altinn-platform/authorization/contexthandler/">Context Handler</a></h2>
     </header>
@@ -1309,10 +1249,8 @@ These capabilities include:
 &lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt; &lt;Request xsi:schemaLocation=&#34;urn:oasis:names:tc:xacml:3.0:core:schema:wd-17 http://docs.oasis-open.org/xacml/3.0/xacml-core-v3-schema-wd-17.xsd&#34; ReturnPolicyIdList=&#34;false&#34; CombinedDecision=&#34;false&#34; xmlns=&#34;urn:oasis:names:tc:xacml:3.0:core:schema:wd-17&#34; xmlns:xsi=&#34;http://www.w3.org/2001/XMLSchema-instance&#34;&gt; &lt;Attributes Category=&#34;urn:oasis:names:tc:xacml:1.0:subject-category:access-subject&#34;&gt; &lt;Attribute IncludeInResult=&#34;false&#34; AttributeId=&#34;urn:altinn:user-id&#34;&gt; &lt;AttributeValue DataType=&#34;http://www.w3.org/2001/XMLSchema#string&#34;&gt;15468&lt;/AttributeValue&gt;  &lt;/Attribute&gt; &lt;/Attributes&gt; &lt;Attributes Category=&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&#34;&gt; &lt;Attribute IncludeInResult=&#34;false&#34; AttributeId=&#34;urn:altinn:instance-id&#34;&gt; &lt;AttributeValue DataType=&#34;http://www.w3.org/2001/XMLSchema#string&#34;&gt;cbdc7b44-9442-4fe0-854b-da278bf0b0e&lt;/AttributeValue&gt;  &lt;/Attribute&gt; &lt;/Attributes&gt; &lt;Attributes Category=&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:action&#34;&gt; &lt;Attribute IncludeInResult=&#34;false&#34; AttributeId=&#34;urn:oasis:names:tc:xacml:1.0:action:action-id&#34;&gt; &lt;AttributeValue DataType=&#34;http://www.w3.org/2001/XMLSchema#string&#34;&gt;Read&lt;/AttributeValue&gt;  &lt;/Attribute&gt; &lt;/Attributes&gt; &lt;Attributes Category=&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:environment&#34; /&gt; &lt;/Request&gt; The enriched decision request contains all the needed attributes for subject and resource so PDP can identify the correct policy and evauluate the request based on it. <a class="read-more" href="/technology/architecture/components/application/solution/altinn-platform/authorization/contexthandler/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1324,15 +1262,9 @@ These capabilities include:
                 <a class="label label-default" href="https://docs.altinn.studio/tags/xacml/">xacml</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/capabilities/runtime/security/encryption/">Encryption</a></h2>
     </header>
@@ -1342,10 +1274,8 @@ The Org that creates the App, would based on the type of data have spceial requi
 Storage encryption The storage component uses Azure Cosmos DB and Azrue Blob storage to store data for apps. <a class="read-more" href="/technology/architecture/capabilities/runtime/security/encryption/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1355,15 +1285,9 @@ Storage encryption The storage component uses Azure Cosmos DB and Azrue Blob sto
                 <a class="label label-default" href="https://docs.altinn.studio/tags/encryption/">encryption</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/construction/security/jwtcookie/">JWTCookieAuthentication</a></h2>
     </header>
@@ -1372,10 +1296,8 @@ Storage encryption The storage component uses Azure Cosmos DB and Azrue Blob sto
 This is created for scenarios where you have need for APIs that will be accessed from system using bearer tokens and from Single Page Applications (SPA) where you want to protect the JWT from this SPA. (XSS attacks). When JWT is put in a http only cookie it is not accessible from the SPA and can&rsquo;t be stolen by malicous javascript running in the browser. <a class="read-more" href="/technology/architecture/components/application/construction/security/jwtcookie/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1383,15 +1305,9 @@ This is created for scenarios where you have need for APIs that will be accessed
                 <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/capabilities/runtime/security/authentication/jwt-format/">JWT Format</a></h2>
     </header>
@@ -1400,10 +1316,8 @@ This is created for scenarios where you have need for APIs that will be accessed
 The format that is choosen for JWT tokens is RSA256. This is a asymetric algorithm where the Authentication component in Altinn Platform generates tokens based on a private key in a certificate, and everyone can validate the token with the public key. <a class="read-more" href="/technology/architecture/capabilities/runtime/security/authentication/jwt-format/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1411,16 +1325,9 @@ The format that is choosen for JWT tokens is RSA256. This is a asymetric algorit
                 <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-
-	<div style="margin-bottom:2rem"></div>
+<div style="margin-bottom:2rem"></div>
 
 	<nav class="pagination" role="navigation">
 	
@@ -1430,14 +1337,9 @@ The format that is choosen for JWT tokens is RSA256. This is a asymetric algorit
 	
 </nav>
 
-
-
-
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-next" href="/app/" title="Create apps" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div></section>
         </div> 
@@ -1494,3 +1396,4 @@ The format that is choosen for JWT tokens is RSA256. This is a asymetric algorit
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

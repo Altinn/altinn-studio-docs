@@ -118,8 +118,8 @@ if(host != "localhost")
 </script>
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
-      <li class="dd-item parent">
-        <a href="/nb/app/"><span>Lage apper</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/"><span>Lage apper</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/app/getting-started/"><span>Kom i gang</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -218,8 +218,8 @@ if(host != "localhost")
         <a href="/nb/app/design/guidelines/tone-of-voice/"><span>Språk</span></a></li>
       <li class="dd-item">
         <a href="/nb/app/design/guidelines/wcag/"><span>Tilgjengelighet</span></a></li></ul></li></ul></li>
-      <li class="dd-item parent">
-        <a href="/nb/app/development/"><span>Utvikling</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/development/"><span>Utvikling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -290,10 +290,10 @@ if(host != "localhost")
         <a href="/nb/app/development/logic/calculation/"><span>Kalkuleringer</span></a></li>
       <li class="dd-item">
         <a href="/nb/app/development/logic/validation/"><span>Validering</span></a></li></ul></li>
-      <li class="dd-item parent">
-        <a href="/nb/app/development/configuration/"><span>Konfigurasjon</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
-      <li class="dd-item parent active">
-        <a href="/nb/app/development/configuration/messagebox/"><span>Meldingsboks</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/"><span>Konfigurasjon</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/messagebox/"><span>Meldingsboks</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/app/development/configuration/messagebox/presentationfields/"><span>Presentasjonsfelter</span></a></li>
       <li class="dd-item">
@@ -381,7 +381,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/app/launched-apps/digdir/be-om-api-nokkel/"><span>Tilgang til REST API</span></a></li></ul></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/nb/api/"><span>API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -543,7 +543,13 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/nb/app/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/app/development/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/app/development/configuration/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/app/development/configuration/messagebox/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -557,79 +563,26 @@ if(host != "localhost")
                 <span class="links"><a href='/nb/app/'>Lage apper</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/app/development/'>Utvikling</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/app/development/configuration/'>Konfigurasjon</a> <span class='adocs-breadcrumb-divider'> / </span> Meldingsboks</span>
             </div>
           </div><div id="body-inner"><h1 class="a-fontBold">Meldingsboks</h1>
-              <p class="a-leadText" id="leadText">Konfigurasjon av presentasjon av applikasjonsinstanser i meldingsboksen i Altinn.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<ul class="children children-li js-moveChildrenFrom">
-	
-    
-	    
-    
-    
+              <p class="a-leadText" id="leadText">Konfigurasjon av presentasjon av applikasjonsinstanser i meldingsboksen i Altinn.</p><h2>På denne siden:</h2><nav id="TableOfContents"></nav><ul class="children children-li js-moveChildrenFrom">
 
 	
-		
-	
-		
-
-
-<li>
-<a href="/nb/app/development/configuration/messagebox/presentationfields/" >Presentasjonsfelter</a>
-<p>Konfigurasjon av presentasjonsfelter for app.</p>
-</li>
-
-
-
-		
-	
-		
-
-
-<li>
-<a href="/nb/app/development/configuration/messagebox/hide_instances/" >Skjule instanser</a>
-<p>Konfiurasjon for å skjule instanser fra meldingsboksen.</p>
-</li>
-
-
-
-		
-	
-
+		<li>
+				<a href="/nb/app/development/configuration/messagebox/presentationfields/">Presentasjonsfelter</a>
+				<p>Konfigurasjon av presentasjonsfelter for app.</p>
+				</li><li>
+				<a href="/nb/app/development/configuration/messagebox/hide_instances/">Skjule instanser</a>
+				<p>Konfiurasjon for å skjule instanser fra meldingsboksen.</p>
+				</li>
 	
 </ul>
 
 
 
 
-
-
-<footer class=" footline" >
-	
-</footer>
-
-
-
-
-
+<footer class=" footline" ></footer>
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/nb/app/development/configuration/" title="Konfigurasjon"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/nb/app/development/configuration/messagebox/presentationfields/" title="Presentasjonsfelter" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/app/development/configuration/messagebox/_index.nb.md" target="blank">
@@ -691,3 +644,4 @@ if(host != "localhost")
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

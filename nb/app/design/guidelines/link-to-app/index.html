@@ -118,8 +118,8 @@ if(host != "localhost")
 </script>
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
-      <li class="dd-item parent">
-        <a href="/nb/app/"><span>Lage apper</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/"><span>Lage apper</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/app/getting-started/"><span>Kom i gang</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -172,19 +172,19 @@ if(host != "localhost")
         <a href="/nb/app/app-dev-course/modul7/"><span>Modul 7</span></a></li>
       <li class="dd-item">
         <a href="/nb/app/app-dev-course/losningsforslag/"><span>Løsningsforslag</span></a></li></ul></li>
-      <li class="dd-item parent">
-        <a href="/nb/app/design/"><span>Design</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/design/"><span>Design</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/app/design/insight/"><span>Innsiktsfase</span></a></li>
       <li class="dd-item">
         <a href="/nb/app/design/prototype/"><span>Prototype</span></a></li>
       <li class="dd-item">
         <a href="/nb/app/design/usertest/"><span>Brukertest</span></a></li>
-      <li class="dd-item parent">
-        <a href="/nb/app/design/guidelines/"><span>Retningslinjer</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/design/guidelines/"><span>Retningslinjer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/app/design/guidelines/design-principles/"><span>Designprinsipper</span></a></li>
-      <li class="dd-item parent active">
+      <li class="dd-item">
         <a href="/nb/app/design/guidelines/link-to-app/"><span>Inngang til skjema</span></a></li>
       <li class="dd-item">
         <a href="/nb/app/design/guidelines/content/"><span>Innhold i skjema</span></a></li>
@@ -381,7 +381,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/app/launched-apps/digdir/be-om-api-nokkel/"><span>Tilgang til REST API</span></a></li></ul></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/nb/api/"><span>API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -543,7 +543,13 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/nb/app/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/app/design/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/app/design/guidelines/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/app/design/guidelines/link-to-app/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -557,12 +563,7 @@ if(host != "localhost")
                 <span class="links"><a href='/nb/app/'>Lage apper</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/app/design/'>Design</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/app/design/guidelines/'>Retningslinjer</a> <span class='adocs-breadcrumb-divider'> / </span> Inngang til skjema</span>
             </div>
           </div><div id="body-inner"><h1 class="a-fontBold">Inngang til skjema</h1>
-              <p class="a-leadText" id="leadText">For å gjøre opplevelsen til brukeren best mulig bør du tenke over hvordan du lenker til Altinn-appen fra din etat.</p>
-
-
-
-
-<p>Brukertester har vist at når brukerne starter på etaten/kommunens sider for å fylle ut et skjema og så blir sendt 
+              <p class="a-leadText" id="leadText">For å gjøre opplevelsen til brukeren best mulig bør du tenke over hvordan du lenker til Altinn-appen fra din etat.</p><p>Brukertester har vist at når brukerne starter på etaten/kommunens sider for å fylle ut et skjema og så blir sendt 
 videre til Altinn, får de ofte opplevelsen av at «plutselig var jeg i altinn». Innganger til skjema bør derfor 
 presenteres slik at det er tydelig at man går til Altinn, men samtidig slipper å gå innom unødvendige mellomledd. 
 &ldquo;Start innsending&rdquo; bør lenke direkte til skjemaet. Opplevelsen til bruker vil da også i større grad bli at man får 
@@ -583,19 +584,10 @@ best på litt forskjellige måter.</p>
 
 
 
-<footer class=" footline" >
-	
-</footer>
-
-
-
-
-
+<footer class=" footline" ></footer>
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/nb/app/design/guidelines/design-principles/" title="Designprinsipper"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/nb/app/design/guidelines/content/" title="Innhold i skjema" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/app/design/guidelines/link-to-app/_index.nb.md" target="blank">
@@ -657,3 +649,4 @@ best på litt forskjellige måter.</p>
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

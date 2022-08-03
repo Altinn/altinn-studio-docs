@@ -118,8 +118,8 @@ if(host != "localhost")
 </script>
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
-      <li class="dd-item parent">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -218,8 +218,8 @@ if(host != "localhost")
         <a href="/app/design/guidelines/tone-of-voice/"><span>Language</span></a></li>
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
-      <li class="dd-item parent">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -290,8 +290,8 @@ if(host != "localhost")
         <a href="/app/development/logic/services/"><span>Services</span></a></li>
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
-      <li class="dd-item parent">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -306,8 +306,8 @@ if(host != "localhost")
         <a href="/app/development/configuration/partytype/"><span>Party types</span></a></li>
       <li class="dd-item">
         <a href="/app/development/configuration/datafields/"><span>Data fields</span></a></li>
-      <li class="dd-item parent active">
-        <a href="/app/development/configuration/process/"><span>Process</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/development/configuration/process/"><span>Process</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/process/auto-delete/"><span>Automatic deletion</span></a></li>
       <li class="dd-item">
@@ -429,7 +429,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -437,7 +437,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -445,7 +445,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -529,7 +529,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -1083,7 +1083,13 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/app/']").parent().addClass("parent");
+ $("li.dd-item a[href='/app/development/']").parent().addClass("parent");
+ $("li.dd-item a[href='/app/development/configuration/']").parent().addClass("parent");
+ $("li.dd-item a[href='/app/development/configuration/process/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1097,12 +1103,7 @@ if(host != "localhost")
                 <span class="links"><a href='/app/'>Create apps</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/development/'>Development</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/development/configuration/'>Configuration</a> <span class='adocs-breadcrumb-divider'> / </span> Process</span>
             </div>
           </div><div id="body-inner"><h1 class="a-fontBold">Define application process</h1>
-              <p class="a-leadText" id="leadText">How to define the process of an app.</p>
-
-
-
-
-<p>An application has defined a process that controls the flow.
+              <p class="a-leadText" id="leadText">How to define the process of an app.</p><p>An application has defined a process that controls the flow.
 The process is defined as <a href="https://en.wikipedia.org/wiki/Business_Process_Model_and_Notation">BPMN 2.0</a>.</p>
 <h2 id="supported-process-task-types">Supported Process Task Types</h2>
 <p>The current application template supports the following tasks:</p>
@@ -1122,86 +1123,29 @@ The process is defined as <a href="https://en.wikipedia.org/wiki/Business_Proces
 <h2 id="change-the-process">Change the process</h2>
 <p>To change the process, you can manually edit the BPMN file with an text, XML or BPMN editor.
 It is stored in the app repo as <code>App/config/process/process.bpmn</code>.</p>
-
-
-
-
-
-
-
-
-
-
-
-
 <ul class="children children-li js-moveChildrenFrom">
-	
-    
-	    
-    
-    
 
 	
-		
-	
-		
-
-
-<li>
-<a href="/app/development/configuration/process/auto-delete/" >Automatic deletion</a>
-<p>An application can be configured to delete all traces of it when the process is over.</p>
-</li>
-
-
-
-		
-	
-		
-
-
-<li>
-<a href="/app/development/configuration/process/customize/" >Customize Views of Step</a>
-<p>How to customize views in different steps of a process.</p>
-</li>
-
-
-
-		
-	
-		
-
-
-<li>
-<a href="/app/development/configuration/process/message/" >Message</a>
-<p>How to set up a message in Altinn Studio.</p>
-</li>
-
-
-
-		
-	
-
+		<li>
+				<a href="/app/development/configuration/process/auto-delete/">Automatic deletion</a>
+				<p>An application can be configured to delete all traces of it when the process is over.</p>
+				</li><li>
+				<a href="/app/development/configuration/process/customize/">Customize Views of Step</a>
+				<p>How to customize views in different steps of a process.</p>
+				</li><li>
+				<a href="/app/development/configuration/process/message/">Message</a>
+				<p>How to set up a message in Altinn Studio.</p>
+				</li>
 	
 </ul>
 
 
 
 
-
-
-<footer class=" footline" >
-	
-</footer>
-
-
-
-
-
+<footer class=" footline" ></footer>
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/app/development/configuration/datafields/" title="Data fields on instance object"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/app/development/configuration/process/auto-delete/" title="Automatic deletion" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/app/development/configuration/process/_index.en.md" target="blank">
@@ -1263,3 +1207,4 @@ It is stored in the app repo as <code>App/config/process/process.bpmn</code>.</p
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

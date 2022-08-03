@@ -421,7 +421,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -429,7 +429,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -437,7 +437,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -521,7 +521,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -1075,7 +1075,11 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/tags/']").parent().addClass("parent");
+ $("li.dd-item a[href='/tags/routing/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1091,30 +1095,14 @@ if(host != "localhost")
           </div><div id="body-inner"><h1 class="a-fontBold">routing</h1>
               <p class="a-leadText" id="leadText"></p>
 
-
-
-
-
-
-<footer class=" footline" >
-	
-</footer>
-
-
-
-	
-
-	<div class="extra-pagination inner">
+<footer class=" footline" ></footer><div class="extra-pagination inner">
 	<nav class="pagination" role="navigation">
 	
 	<span class="page-number">Page 1 on 1</span>
 	
 </nav>
 
-	</div>
-
-	
-	   <article class="post community">
+	</div><article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/routing/traefik/installation/">Installation of Traefik 2.0</a></h2>
     </header>
@@ -1123,10 +1111,8 @@ if(host != "localhost")
 If there is a fresh installation of traefik 2.0 with helm 3.0, make sure that there is a folder called crds in that helm chart folder. After that it is just to install with helm, and wait for the traefik service to have a public IP before updating the Azure DNS zone with a A record. <a class="read-more" href="/community/contributing/handbook/routing/traefik/installation/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1138,15 +1124,9 @@ If there is a fresh installation of traefik 2.0 with helm 3.0, make sure that th
                 <a class="label label-default" href="https://docs.altinn.studio/tags/installation/">installation</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/loadbalancer/">Nginx loadbalancing in studio</a></h2>
     </header>
@@ -1157,10 +1137,8 @@ Option 1: kill the pod and let the deployment spinn up a new pod.
 Option 2: open a shell into the pod kubectl exec -it [POD_NAME] -- sh and run the command nginx -s reload <a class="read-more" href="/community/contributing/handbook/loadbalancer/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1170,15 +1148,9 @@ Option 2: open a shell into the pod kubectl exec -it [POD_NAME] -- sh and run th
                 <a class="label label-default" href="https://docs.altinn.studio/tags/routing/">routing</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/routing/nginx/">Nginx routing</a></h2>
     </header>
@@ -1189,10 +1161,8 @@ Option 1: kill the pod and let the deployment spinn up a new pod.
 Option 2: open a shell into the pod kubectl exec -it [POD_NAME] -- sh and run the command nginx -s reload <a class="read-more" href="/community/contributing/handbook/routing/nginx/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1202,15 +1172,9 @@ Option 2: open a shell into the pod kubectl exec -it [POD_NAME] -- sh and run th
                 <a class="label label-default" href="https://docs.altinn.studio/tags/routing/">routing</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/loadbalancer/ssl-certificate/">Nginx SSL/TLS certificate</a></h2>
     </header>
@@ -1219,10 +1183,8 @@ Option 2: open a shell into the pod kubectl exec -it [POD_NAME] -- sh and run th
 Download .pfx file At the moment of writing this guide, we store our *.altinn.studio certificate in azure keyvault and you will need access to download it from that vault. <a class="read-more" href="/community/contributing/handbook/loadbalancer/ssl-certificate/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1238,28 +1200,18 @@ Download .pfx file At the moment of writing this guide, we store our *.altinn.st
                 <a class="label label-default" href="https://docs.altinn.studio/tags/certificate/">certificate</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/routing/">Routing</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Routing Nginx routingInformation about routing with nginx
-Traefik routing
- <a class="read-more" href="/community/contributing/handbook/routing/">&raquo;</a></p>
+        <p>Routing  &lt;li&gt;&lt;a href=&quot;/community/contributing/handbook/routing/nginx/&quot;&gt;Nginx routing&lt;/a&gt;&lt;p&gt;Information about routing with nginx&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/community/contributing/handbook/routing/traefik/&quot;&gt;Traefik routing&lt;/a&gt;&lt;p&gt;&lt;/p&gt;&lt;/li&gt;  <a class="read-more" href="/community/contributing/handbook/routing/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1267,15 +1219,9 @@ Download .pfx file At the moment of writing this guide, we store our *.altinn.st
                 <a class="label label-default" href="https://docs.altinn.studio/tags/routing/">routing</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/securecoding/">Secure DevOps</a></h2>
     </header>
@@ -1285,10 +1231,8 @@ Below you find information on what kind of tools, patterns, and processes we fol
 Planning phase During the planning phase, the requirements for features are gathered. Already in this phase, we identify changes that need special security considerations. <a class="read-more" href="/community/contributing/handbook/securecoding/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1296,15 +1240,9 @@ Planning phase During the planning phase, the requirements for features are gath
                 <a class="label label-default" href="https://docs.altinn.studio/tags/routing/">routing</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/routing/traefik/tls-configuration/">TLS in Traefik 2.0</a></h2>
     </header>
@@ -1313,10 +1251,8 @@ Planning phase During the planning phase, the requirements for features are gath
 apiVersion: traefik.containo.us/v1alpha1 kind: TLSOption metadata: name: altinn-tls-options namespace: default spec: minVersion: VersionTLS12 Adding TLS to an Ingress Route Add a tls attribute to the spec if the ingress route, with secretName (secret that contains the TLS certificate and private key) and optionally a options-attribute with the name of the TLSOption we made and the namespace (if nothing is specified when creating the secret it would be in the default namespace). <a class="read-more" href="/community/contributing/handbook/routing/traefik/tls-configuration/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1328,15 +1264,9 @@ apiVersion: traefik.containo.us/v1alpha1 kind: TLSOption metadata: name: altinn-
                 <a class="label label-default" href="https://docs.altinn.studio/tags/tls/">tls</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/routing/traefik/custom-resources/">Traefik custom resources</a></h2>
     </header>
@@ -1346,10 +1276,8 @@ To support new features in routing and middlewares with IngressRoutes and dynami
 apiVersion: apiextensions.k8s.io/v1beta1 kind: CustomResourceDefinition metadata: name: ingressroutes.traefik.containo.us spec: group: traefik.containo.us version: v1alpha1 names: kind: IngressRoute plural: ingressroutes singular: ingressroute scope: Namespaced --- apiVersion: apiextensions. <a class="read-more" href="/community/contributing/handbook/routing/traefik/custom-resources/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1363,15 +1291,9 @@ apiVersion: apiextensions.k8s.io/v1beta1 kind: CustomResourceDefinition metadata
                 <a class="label label-default" href="https://docs.altinn.studio/tags/crds/">crds</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/routing/traefik/ingress-routes/">Traefik ingress routes</a></h2>
     </header>
@@ -1381,10 +1303,8 @@ As a result of introducing the custom resource IngressRoutes in traefik 2.0 we d
 Resource configuration apiVersion: traefik.containo.us/v1alpha1 kind: IngressRoute metadata: name: altinn-runtime spec: entryPoints: - web - websecure routes: - match: Host(`dev. <a class="read-more" href="/community/contributing/handbook/routing/traefik/ingress-routes/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1398,31 +1318,19 @@ Resource configuration apiVersion: traefik.containo.us/v1alpha1 kind: IngressRou
                 <a class="label label-default" href="https://docs.altinn.studio/tags/ingress/">ingress</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/routing/traefik/">Traefik routing</a></h2>
     </header>
     <section class="post-excerpt">
         <p>In Altinn Tjenester 3.0 we are migrating from nginx to traefik for routing.
-Installation of Traefik 2.0How to install traefik
-TLS in Traefik 2.0How to set up TLS
-Traefik custom resourcesDefinitions for traefik 2.0 custom resources in kubernetes
-Traefik ingress routesHow to set up an ingress route and route trafic based on rules and middlewares
- <a class="read-more" href="/community/contributing/handbook/routing/traefik/">&raquo;</a></p>
+ &lt;li&gt;&lt;a href=&quot;/community/contributing/handbook/routing/traefik/installation/&quot;&gt;Installation of Traefik 2.0&lt;/a&gt;&lt;p&gt;How to install traefik&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/community/contributing/handbook/routing/traefik/tls-configuration/&quot;&gt;TLS in Traefik 2.0&lt;/a&gt;&lt;p&gt;How to set up TLS&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/community/contributing/handbook/routing/traefik/custom-resources/&quot;&gt;Traefik custom resources&lt;/a&gt;&lt;p&gt;Definitions for traefik 2.0 custom resources in kubernetes&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/community/contributing/handbook/routing/traefik/ingress-routes/&quot;&gt;Traefik ingress routes&lt;/a&gt;&lt;p&gt;How to set up an ingress route and route trafic based on rules and middlewares&lt;/p&gt;&lt;/li&gt;  <a class="read-more" href="/community/contributing/handbook/routing/traefik/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1432,16 +1340,9 @@ Resource configuration apiVersion: traefik.containo.us/v1alpha1 kind: IngressRou
                 <a class="label label-default" href="https://docs.altinn.studio/tags/routing/">routing</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-
-	<div style="margin-bottom:2rem"></div>
+<div style="margin-bottom:2rem"></div>
 
 	<nav class="pagination" role="navigation">
 	
@@ -1449,14 +1350,9 @@ Resource configuration apiVersion: traefik.containo.us/v1alpha1 kind: IngressRou
 	
 </nav>
 
-
-
-
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-next" href="/app/" title="Create apps" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div></section>
         </div> 
@@ -1513,3 +1409,4 @@ Resource configuration apiVersion: traefik.containo.us/v1alpha1 kind: IngressRou
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

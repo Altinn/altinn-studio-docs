@@ -370,10 +370,10 @@ if(host != "localhost")
         <a href="/app/maintainance/dependencies/"><span>Dependencies</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/app/launched-apps/"><span>Launched apps</span><sup>NEW</sup></a></li></ul></li>
-      <li class="dd-item parent">
-        <a href="/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
-      <li class="dd-item parent active">
-        <a href="/api/apps/"><span>App</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/api/"><span>API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/api/apps/metadata/"><span>Metadata</span></a></li>
       <li class="dd-item">
@@ -429,7 +429,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -437,7 +437,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -445,7 +445,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -529,7 +529,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -1083,7 +1083,11 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/api/']").parent().addClass("parent");
+ $("li.dd-item a[href='/api/apps/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1097,12 +1101,7 @@ if(host != "localhost")
                 <span class="links"><a href='/api/'>API</a> <span class='adocs-breadcrumb-divider'> / </span> App</span>
             </div>
           </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/api">api</a></div><div id="body-inner"><h1 class="a-fontBold">App API</h1>
-              <p class="a-leadText" id="leadText">The default APIs exposed by apps in Altinn 3.</p>
-
-
-
-
-<h2 id="overview">Overview</h2>
+              <p class="a-leadText" id="leadText">The default APIs exposed by apps in Altinn 3.</p><h2 id="overview">Overview</h2>
 <p>The features documented here are the default features of any app created based on the app template in Altinn Studio. Application owners are free to make changes to this, but it is probably safe to say that removal of features will be extremly rare. Any app with changes to its API should have its own documentation published by the application owner.</p>
 <p>All app API endpoints have the same URL base path that will vary based on application owner and application name.</p>
 <p><strong>Test environment (TT02)</strong></p>
@@ -1111,50 +1110,36 @@ if(host != "localhost")
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">https://{org}.apps.altinn.no/{org}/{appname}
 </code></pre></div><p>The URL identifies the application owner specific hostname using the short name <strong>org</strong>, and the identificator of the app consisting of both the application owner short name and the name of the app; <strong>org/appname</strong>.</p>
 <ul class="children children-li js-moveChildrenFrom">
-<li>
-<a href="/api/apps/metadata/" >App metadata</a>
-<p>The app API to get metadata information for the app.</p>
-</li>
-<li>
-<a href="/api/apps/instances/" >Instances</a>
-<p>The app API to work with instances of an app</p>
-</li>
-<li>
-<a href="/api/apps/data-elements/" >Data elements</a>
-<p>The app API to work with the data elements associated with an instance.</p>
-</li>
-<li>
-<a href="/api/apps/stateless-data-elements/" >Stateless data elements</a>
-<p>The app API to work with stateless date elements not associated with an instance</p>
-</li>
-<li>
-<a href="/api/apps/process/" >Process</a>
-<p>The process API endpoints to lead an instance through the defined process.</p>
-</li>
-<li>
-<a href="/api/apps/validation/" >Validation</a>
-<p>The validation API endpoints for instances and data elements.</p>
-</li>
-<li>
-<a href="/api/apps/spec/" >OpenAPI (swagger) for Apps</a>
-<p></p>
-</li>
+<pre><code>    &lt;li&gt;
+            &lt;a href=&quot;/api/apps/metadata/&quot;&gt;App metadata&lt;/a&gt;
+            &lt;p&gt;The app API to get metadata information for the app.&lt;/p&gt;
+            &lt;/li&gt;&lt;li&gt;
+            &lt;a href=&quot;/api/apps/instances/&quot;&gt;Instances&lt;/a&gt;
+            &lt;p&gt;The app API to work with instances of an app&lt;/p&gt;
+            &lt;/li&gt;&lt;li&gt;
+            &lt;a href=&quot;/api/apps/data-elements/&quot;&gt;Data elements&lt;/a&gt;
+            &lt;p&gt;The app API to work with the data elements associated with an instance.&lt;/p&gt;
+            &lt;/li&gt;&lt;li&gt;
+            &lt;a href=&quot;/api/apps/stateless-data-elements/&quot;&gt;Stateless data elements&lt;/a&gt;
+            &lt;p&gt;The app API to work with stateless date elements not associated with an instance&lt;/p&gt;
+            &lt;/li&gt;&lt;li&gt;
+            &lt;a href=&quot;/api/apps/process/&quot;&gt;Process&lt;/a&gt;
+            &lt;p&gt;The process API endpoints to lead an instance through the defined process.&lt;/p&gt;
+            &lt;/li&gt;&lt;li&gt;
+            &lt;a href=&quot;/api/apps/validation/&quot;&gt;Validation&lt;/a&gt;
+            &lt;p&gt;The validation API endpoints for instances and data elements.&lt;/p&gt;
+            &lt;/li&gt;&lt;li&gt;
+            &lt;a href=&quot;/api/apps/spec/&quot;&gt;OpenAPI (swagger) for Apps&lt;/a&gt;
+            &lt;p&gt;&lt;/p&gt;
+            &lt;/li&gt;
+</code></pre>
 </ul>
 
 
-<footer class=" footline" >
-	
-</footer>
-
-
-
-
-
+<footer class=" footline" ></footer>
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/api/" title="Altinn 3 API"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/api/apps/metadata/" title="App metadata" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/api/apps/_index.en.md" target="blank">
@@ -1216,3 +1201,4 @@ if(host != "localhost")
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

@@ -370,8 +370,8 @@ if(host != "localhost")
         <a href="/app/maintainance/dependencies/"><span>Dependencies</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/app/launched-apps/"><span>Launched apps</span><sup>NEW</sup></a></li></ul></li>
-      <li class="dd-item parent">
-        <a href="/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/api/"><span>API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -414,9 +414,9 @@ if(host != "localhost")
         <a href="/api/models/instance/"><span>Instance</span></a></li>
       <li class="dd-item">
         <a href="/api/models/data-element/"><span>DataElement</span></a></li></ul></li>
-      <li class="dd-item parent">
-        <a href="/api/scenarios/"><span>Scenarios</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
-      <li class="dd-item parent active">
+      <li class="dd-item">
+        <a href="/api/scenarios/"><span>Scenarios</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
         <a href="/api/scenarios/authentication/"><span>Authentication</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/api/storage/"><span>Storage</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
@@ -429,7 +429,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -437,7 +437,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -445,7 +445,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -529,7 +529,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -1083,7 +1083,12 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/api/']").parent().addClass("parent");
+ $("li.dd-item a[href='/api/scenarios/']").parent().addClass("parent");
+ $("li.dd-item a[href='/api/scenarios/authentication/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1103,12 +1108,7 @@ if(host != "localhost")
     <li><a href="#authentication-for-end-user-system">Authentication for end user system</a></li>
     <li><a href="#open-id-connect-configuration">Open ID Connect configuration</a></li>
   </ul>
-</nav>
-
-
-
-
-<h2 id="authentication-for-application-owners">Authentication for application owners</h2>
+</nav><h2 id="authentication-for-application-owners">Authentication for application owners</h2>
 <p>Application owners should be authenticated with <a href="https://www.digdir.no/felleslosninger/maskinporten/869">Maskinporten</a>.</p>
 <h3 id="api-provisioning-in-maskinporten">API provisioning in Maskinporten</h3>
 <h4 id="api-provider">API-provider</h4>
@@ -1301,19 +1301,10 @@ It is recommended that clients of Altinn use this discovery endpoint to automati
 </table>
 
 
-<footer class=" footline" >
-	
-</footer>
-
-
-
-
-
+<footer class=" footline" ></footer>
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/api/scenarios/" title="Scenarios"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/api/storage/" title="Storage API" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/api/scenarios/authentication/_index.en.md" target="blank">
@@ -1375,3 +1366,4 @@ It is recommended that clients of Altinn use this discovery endpoint to automati
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

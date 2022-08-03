@@ -428,7 +428,7 @@ if(host != "localhost")
         <a href="/api/storage/spec/"><span>OpenAPI</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
-      <li class="dd-item parent">
+      <li class="dd-item">
         <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
@@ -436,7 +436,7 @@ if(host != "localhost")
         <a href="/community/about/goals/"><span>Goals</span></a></li>
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
-      <li class="dd-item parent active">
+      <li class="dd-item">
         <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
@@ -445,7 +445,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -529,7 +529,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -1083,7 +1083,11 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/community/']").parent().addClass("parent");
+ $("li.dd-item a[href='/community/contributing/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1097,12 +1101,7 @@ if(host != "localhost")
                 <span class="links"><a href='/community/'>Community</a> <span class='adocs-breadcrumb-divider'> / </span> Contributing</span>
             </div>
           </div><div id="body-inner"><h1 class="a-fontBold">Contribute to the development of Altinn</h1>
-              <p class="a-leadText" id="leadText">Discover how to contribute to Altinn Studio and the rest of Altinn 3.</p>
-
-
-
-
-<p>You can contribute to making Altinn as good as it can be by:</p>
+              <p class="a-leadText" id="leadText">Discover how to contribute to Altinn Studio and the rest of Altinn 3.</p><p>You can contribute to making Altinn as good as it can be by:</p>
 <ul>
 <li><strong>Following Altinn Studio on Github</strong> You can follow the development in <a href="https://github.com/Altinn/altinn-studio/issues">Github</a> 
 and tell us that issues are important to you by giving them a thumbs up (👍). If you have input on the issue we
@@ -1116,77 +1115,22 @@ the patterns of interaction we want to support. We&rsquo;ll also assess if a new
 or if an existing component can get added functionality. Thus we appreciate if you start by
 <a href="./propose-component/">proposing a new component</a> so that we can decide who will <a href="./develop-component/">develop the component</a>.</li>
 </ul>
-
-
-
-
-
-
-
-
-
-
-
-
 <ul class="children children-li js-moveChildrenFrom">
-	
-    
-	    
-    
-    
 
 	
-		
-	
-		
-
-
-<li>
-<a href="/community/contributing/propose-component/" >Propose a new component</a>
-<p>If you need a component or functionality we prefer that the need is registered as a feature request before development stars.</p>
-</li>
-
-
-
-		
-	
-		
-
-
-<li>
-<a href="/community/contributing/develop-component/" >Develop a component</a>
-<p>We&#39;d love if you start developing functionality or new components that Altinn has approved. We do however appreciate if you plan your work together with us before starting.</p>
-</li>
-
-
-
-		
-	
-		
-
-
-<li>
-<a href="/community/contributing/intro/" >Intro for developers</a>
-<p>Introduction</p>
-</li>
-
-
-
-		
-	
-		
-
-
-<li>
-<a href="/community/contributing/handbook/" >Development handbook</a>
-<p>Developer handbook for contributions to the Altinn code base.</p>
-</li>
-
-
-
-		
-	
-
+		<li>
+				<a href="/community/contributing/propose-component/">Propose a new component</a>
+				<p>If you need a component or functionality we prefer that the need is registered as a feature request before development stars.</p>
+				</li><li>
+				<a href="/community/contributing/develop-component/">Develop a component</a>
+				<p>We&#39;d love if you start developing functionality or new components that Altinn has approved. We do however appreciate if you plan your work together with us before starting.</p>
+				</li><li>
+				<a href="/community/contributing/intro/">Intro for developers</a>
+				<p>Introduction</p>
+				</li><li>
+				<a href="/community/contributing/handbook/">Development handbook</a>
+				<p>Developer handbook for contributions to the Altinn code base.</p>
+				</li>
 	
 </ul>
 
@@ -1194,21 +1138,10 @@ or if an existing component can get added functionality. Thus we appreciate if y
 
 
 
-
-
-<footer class=" footline" >
-	
-</footer>
-
-
-
-
-
+<footer class=" footline" ></footer>
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/community/about/open-source/" title="Altinn and open source"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/community/contributing/propose-component/" title="Propose a new component" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/community/contributing/_index.en.md" target="blank">
@@ -1270,3 +1203,4 @@ or if an existing component can get added functionality. Thus we appreciate if y
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

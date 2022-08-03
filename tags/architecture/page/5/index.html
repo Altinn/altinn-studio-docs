@@ -421,7 +421,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -429,7 +429,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -437,7 +437,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -521,7 +521,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -1075,7 +1075,11 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/tags/']").parent().addClass("parent");
+ $("li.dd-item a[href='/tags/architecture/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1091,20 +1095,7 @@ if(host != "localhost")
           </div><div id="body-inner"><h1 class="a-fontBold">architecture</h1>
               <p class="a-leadText" id="leadText"></p>
 
-
-
-
-
-
-<footer class=" footline" >
-	
-</footer>
-
-
-
-	
-
-	<div class="extra-pagination inner">
+<footer class=" footline" ></footer><div class="extra-pagination inner">
 	<nav class="pagination" role="navigation">
 	
 	    <a class="newer-posts" href="/tags/architecture/page/4/">&larr; Previous Pages</a>
@@ -1115,10 +1106,7 @@ if(host != "localhost")
 	
 </nav>
 
-	</div>
-
-	
-	   <article class="post technology">
+	</div><article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/nonsolutionspecific/operations/backupandrecovery/">Backup and recovery</a></h2>
     </header>
@@ -1129,10 +1117,8 @@ Backup Altinn Platform As described in the data section of the architecture docu
 There is different solutions for the different data stores. <a class="read-more" href="/technology/architecture/components/application/nonsolutionspecific/operations/backupandrecovery/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
@@ -1140,15 +1126,9 @@ There is different solutions for the different data stores. <a class="read-more"
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/capabilities/devops/build_and_test/">Build &amp; Test Capabilities</a></h2>
     </header>
@@ -1160,10 +1140,8 @@ Build &amp; Integration Enablement Capabilities Software Compilation &amp; Valid
 Sofware Linking &amp; Packaging The project has the capability to build packages. <a class="read-more" href="/technology/architecture/capabilities/devops/build_and_test/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1173,44 +1151,28 @@ Sofware Linking &amp; Packaging The project has the capability to build packages
                 <a class="label label-default" href="https://docs.altinn.studio/tags/todo/">todo</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/">Architecture Components</a></h2>
     </header>
     <section class="post-excerpt">
         <p>Components relationship The figure below shows the relationship between the different componentes in the technical architecture and the capabilities they provide.
 
-Application ComponentsThe Application Components is split in to solution-specific application components, application construction components and non-solution application components.
-Data ComponentsData is the most important part of the solutions in Altinn.
-Infrastructure componentsAltinn 3 is hosted in public cloud, and all infrastructure components are cloud based. <a class="read-more" href="/technology/architecture/components/">&raquo;</a></p>
+ &lt;li&gt;&lt;a href=&quot;/technology/architecture/components/application/&quot;&gt;Application Components&lt;/a&gt;&lt;p&gt;The Application Components is split in to solution-specific application components, application construction components and non-solution application components.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/technology/architecture/components/data/&quot;&gt;Data Components&lt;/a&gt;&lt;p&gt;Data is the most important part of the solutions in Altinn.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/technology/architecture/components/infrastructure/&quot;&gt;Infrastructure components&lt;/a&gt;&lt;p&gt;Altinn 3 is hosted in public cloud, and all infrastructure components are cloud based. <a class="read-more" href="/technology/architecture/components/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/infrastructure/computing/">Compute components</a></h2>
     </header>
@@ -1221,10 +1183,8 @@ For each environment (Production, Application Test, Performance Test, and Integr
 The Kubernetes masters are managed by Azure. Our DevOps team only manages and maintains the agent nodes. As a managed Kubernetes service, AKS is free - Microsoft only charges for the agent nodes within your clusters, not for the masters. <a class="read-more" href="/technology/architecture/components/infrastructure/computing/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1232,15 +1192,9 @@ The Kubernetes masters are managed by Azure. Our DevOps team only manages and ma
                 <a class="label label-default" href="https://docs.altinn.studio/tags/infrastructure/">infrastructure</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/data/conceptual/">Conceptual</a></h2>
     </header>
@@ -1248,24 +1202,16 @@ The Kubernetes masters are managed by Azure. Our DevOps team only manages and ma
         <p>Description Instance Usage Storage  <a class="read-more" href="/technology/architecture/components/data/conceptual/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/solution/altinn-platform/authorization/contexthandler/">Context Handler</a></h2>
     </header>
@@ -1274,10 +1220,8 @@ The Kubernetes masters are managed by Azure. Our DevOps team only manages and ma
 &lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt; &lt;Request xsi:schemaLocation=&#34;urn:oasis:names:tc:xacml:3.0:core:schema:wd-17 http://docs.oasis-open.org/xacml/3.0/xacml-core-v3-schema-wd-17.xsd&#34; ReturnPolicyIdList=&#34;false&#34; CombinedDecision=&#34;false&#34; xmlns=&#34;urn:oasis:names:tc:xacml:3.0:core:schema:wd-17&#34; xmlns:xsi=&#34;http://www.w3.org/2001/XMLSchema-instance&#34;&gt; &lt;Attributes Category=&#34;urn:oasis:names:tc:xacml:1.0:subject-category:access-subject&#34;&gt; &lt;Attribute IncludeInResult=&#34;false&#34; AttributeId=&#34;urn:altinn:user-id&#34;&gt; &lt;AttributeValue DataType=&#34;http://www.w3.org/2001/XMLSchema#string&#34;&gt;15468&lt;/AttributeValue&gt;  &lt;/Attribute&gt; &lt;/Attributes&gt; &lt;Attributes Category=&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&#34;&gt; &lt;Attribute IncludeInResult=&#34;false&#34; AttributeId=&#34;urn:altinn:instance-id&#34;&gt; &lt;AttributeValue DataType=&#34;http://www.w3.org/2001/XMLSchema#string&#34;&gt;cbdc7b44-9442-4fe0-854b-da278bf0b0e&lt;/AttributeValue&gt;  &lt;/Attribute&gt; &lt;/Attributes&gt; &lt;Attributes Category=&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:action&#34;&gt; &lt;Attribute IncludeInResult=&#34;false&#34; AttributeId=&#34;urn:oasis:names:tc:xacml:1.0:action:action-id&#34;&gt; &lt;AttributeValue DataType=&#34;http://www.w3.org/2001/XMLSchema#string&#34;&gt;Read&lt;/AttributeValue&gt;  &lt;/Attribute&gt; &lt;/Attributes&gt; &lt;Attributes Category=&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:environment&#34; /&gt; &lt;/Request&gt; The enriched decision request contains all the needed attributes for subject and resource so PDP can identify the correct policy and evauluate the request based on it. <a class="read-more" href="/technology/architecture/components/application/solution/altinn-platform/authorization/contexthandler/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1289,15 +1233,9 @@ The Kubernetes masters are managed by Azure. Our DevOps team only manages and ma
                 <a class="label label-default" href="https://docs.altinn.studio/tags/xacml/">xacml</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/capabilities/runtime/data/">Data management Capabilities</a></h2>
     </header>
@@ -1309,38 +1247,26 @@ TODO: Add scenario where relevant
 Data Enrichment &amp; Aggregation A application developer can define data enrichment logic that enrich data. <a class="read-more" href="/technology/architecture/capabilities/runtime/data/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/data/">Data Components</a></h2>
     </header>
     <section class="post-excerpt">
         <p>Altinn Studio, Altinn Apps and Altinn Platform is created to give the government, the citizens and the businesses of Norway a effective way to share data and retrieve data.
-ConceptualThe conceptual data model describes the data entities in the solutions and their relatiohip.
-Logical datamodelThe logcical datamodel describes the data entities that is stored.
- <a class="read-more" href="/technology/architecture/components/data/">&raquo;</a></p>
+ &lt;li&gt;&lt;a href=&quot;/technology/architecture/components/data/conceptual/&quot;&gt;Conceptual&lt;/a&gt;&lt;p&gt;The conceptual data model describes the data entities in the solutions and their relatiohip.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/technology/architecture/components/data/logical/&quot;&gt;Logical datamodel&lt;/a&gt;&lt;p&gt;The logcical datamodel describes the data entities that is stored.&lt;/p&gt;&lt;/li&gt;  <a class="read-more" href="/technology/architecture/components/data/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1348,15 +1274,9 @@ Data Enrichment &amp; Aggregation A application developer can define data enrich
                 <a class="label label-default" href="https://docs.altinn.studio/tags/infrastructure/">infrastructure</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/platform/datareporting/">Data &amp; Reporting Components</a></h2>
     </header>
@@ -1369,10 +1289,8 @@ Relational DBMs We use Azure Database for PostgreSQL as a relational database fo
 Read more about Azure Database for PostgreSQL. <a class="read-more" href="/technology/architecture/components/platform/datareporting/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1380,15 +1298,9 @@ Read more about Azure Database for PostgreSQL. <a class="read-more" href="/techn
                 <a class="label label-default" href="https://docs.altinn.studio/tags/infrastructure/">infrastructure</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/solution/altinn-studio/designer/">Solution-specific application components Altinn Studio Designer</a></h2>
     </header>
@@ -1400,10 +1312,8 @@ App Creation App creation functionaliy lets the app developer create application
 During this process the app developer can select the org that will own the app and the repository name for that app. <a class="read-more" href="/technology/architecture/components/application/solution/altinn-studio/designer/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
@@ -1411,16 +1321,9 @@ During this process the app developer can select the org that will own the app a
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-
-	<div style="margin-bottom:2rem"></div>
+<div style="margin-bottom:2rem"></div>
 
 	<nav class="pagination" role="navigation">
 	
@@ -1432,14 +1335,9 @@ During this process the app developer can select the org that will own the app a
 	
 </nav>
 
-
-
-
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/technology/tools/vs-code/" title="Visual Studio Code"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/app/" title="Create apps" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div></section>
         </div> 
@@ -1496,3 +1394,4 @@ During this process the app developer can select the org that will own the app a
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

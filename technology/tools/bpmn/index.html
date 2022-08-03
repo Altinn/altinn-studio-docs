@@ -421,7 +421,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -429,7 +429,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -437,7 +437,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -521,7 +521,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -640,8 +640,8 @@ if(host != "localhost")
         <a href="/community/devops/teams/studio/"><span>Studio</span></a></li></ul></li></ul></li>
       <li class="dd-item">
         <a href="/community/presentations/"><span>Presentations</span></a></li></ul></li>
-      <li class="dd-item parent">
-        <a href="/technology/"><span>Technology</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/"><span>Technology</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/technology/architecture/"><span>Architecture</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -1018,13 +1018,13 @@ if(host != "localhost")
         <a href="/technology/solutions/altinn-studio/repos/structure/validationhandler/"><span>ValidationHandler.cs</span></a></li></ul></li></ul></li></ul></li></ul></li>
       <li class="dd-item">
         <a href="/technology/terms/"><span>Terms</span></a></li>
-      <li class="dd-item parent">
-        <a href="/technology/tools/"><span>Tools</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/tools/"><span>Tools</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/technology/tools/dotnet-core/"><span>.NET Core</span></a></li>
       <li class="dd-item">
         <a href="/technology/tools/alpine-linux/"><span>Alpine Linux</span></a></li>
-      <li class="dd-item parent active">
+      <li class="dd-item">
         <a href="/technology/tools/bpmn/"><span>BPMN</span></a></li>
       <li class="dd-item">
         <a href="/technology/tools/c-sharp/"><span>C#</span></a></li>
@@ -1075,7 +1075,12 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/technology/']").parent().addClass("parent");
+ $("li.dd-item a[href='/technology/tools/']").parent().addClass("parent");
+ $("li.dd-item a[href='/technology/tools/bpmn/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1094,12 +1099,7 @@ if(host != "localhost")
     <li><a href="#bpmn-20-xml-extensibility">BPMN 2.0 XML Extensibility</a></li>
     <li><a href="#bpnmio---bpnm-js">BPNM.io - bpnm-js</a></li>
   </ul>
-</nav>
-
-
-
-
-<p><a href="https://en.wikipedia.org/wiki/Business_Process_Model_and_Notation">BPMN</a> is a standard for business process modeling that provides a graphical notation
+</nav><p><a href="https://en.wikipedia.org/wiki/Business_Process_Model_and_Notation">BPMN</a> is a standard for business process modeling that provides a graphical notation
 for specifying business processes in a Business Process Diagram, based on a flowcharting technique very similar to activity diagrams
 from Unified Modeling Language (UML).</p>
 <ul>
@@ -1139,19 +1139,10 @@ but the additional attributes and elements MAY be lost during interchange.</stro
 </ul>
 
 
-<footer class=" footline" >
-	
-</footer>
-
-
-
-
-
+<footer class=" footline" ></footer>
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/technology/tools/alpine-linux/" title="Alpine Linux"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/technology/tools/c-sharp/" title="C#" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/technology/tools/bpmn/_index.md" target="blank">
@@ -1213,3 +1204,4 @@ but the additional attributes and elements MAY be lost during interchange.</stro
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

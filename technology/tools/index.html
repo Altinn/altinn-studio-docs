@@ -421,7 +421,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -429,7 +429,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -437,7 +437,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -521,7 +521,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -640,8 +640,8 @@ if(host != "localhost")
         <a href="/community/devops/teams/studio/"><span>Studio</span></a></li></ul></li></ul></li>
       <li class="dd-item">
         <a href="/community/presentations/"><span>Presentations</span></a></li></ul></li>
-      <li class="dd-item parent">
-        <a href="/technology/"><span>Technology</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/"><span>Technology</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/technology/architecture/"><span>Architecture</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -1018,8 +1018,8 @@ if(host != "localhost")
         <a href="/technology/solutions/altinn-studio/repos/structure/validationhandler/"><span>ValidationHandler.cs</span></a></li></ul></li></ul></li></ul></li></ul></li>
       <li class="dd-item">
         <a href="/technology/terms/"><span>Terms</span></a></li>
-      <li class="dd-item parent active">
-        <a href="/technology/tools/"><span>Tools</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/tools/"><span>Tools</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/technology/tools/dotnet-core/"><span>.NET Core</span></a></li>
       <li class="dd-item">
@@ -1075,7 +1075,11 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/technology/']").parent().addClass("parent");
+ $("li.dd-item a[href='/technology/tools/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1089,323 +1093,83 @@ if(host != "localhost")
                 <span class="links"><a href='/technology/'>Technology</a> <span class='adocs-breadcrumb-divider'> / </span> Tools</span>
             </div>
           </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/tech">tech</a></div><div id="body-inner"><h1 class="a-fontBold">Tools and frameworks</h1>
-              <p class="a-leadText" id="leadText">The open source tech used in Altinn Studio, Altinn Apps and Altinn Platform.</p>
-
-
-
-
-<figure><a href="tech-map.png"><img src="tech-map.png" alt="Tech map" title="The technology used in Altinn 3" /></a><figcaption><h4>The technology used in Altinn 3</h4></figcaption></figure>
-
-
-
-
-
-
-
-
-
-
-
-
+              <p class="a-leadText" id="leadText">The open source tech used in Altinn Studio, Altinn Apps and Altinn Platform.</p><figure><a href="tech-map.png"><img src="tech-map.png" alt="Tech map" title="The technology used in Altinn 3" /></a><figcaption><h4>The technology used in Altinn 3</h4></figcaption></figure>
 <ul class="children children-li js-moveChildrenFrom">
-	
-    
-	    
-    
-    
 
 	
-		
-	
-		
-
-
-<li>
-<a href="/technology/tools/dotnet-core/" >.NET Core</a>
-<p>Server side development framework.</p>
-</li>
-
-
-
-		
-	
-		
-
-
-<li>
-<a href="/technology/tools/alpine-linux/" >Alpine Linux</a>
-<p>Alpine Linux is a security-oriented, lightweight Linux distribution based on musl libc and busybox.</p>
-</li>
-
-
-
-		
-	
-		
-
-
-<li>
-<a href="/technology/tools/bpmn/" >BPMN</a>
-<p>Business Process Model and Notation.</p>
-</li>
-
-
-
-		
-	
-		
-
-
-<li>
-<a href="/technology/tools/c-sharp/" >C#</a>
-<p>Server side programming language.</p>
-</li>
-
-
-
-		
-	
-		
-
-
-<li>
-<a href="/technology/tools/docker/" >Docker</a>
-<p>Docker is the container technology used in Altinn Studio, Altinn Apps and Altinn Platform.</p>
-</li>
-
-
-
-		
-	
-		
-
-
-<li>
-<a href="/technology/tools/git/" >Git</a>
-<p>Git is a distributed version-control system for tracking changes in source code during software development.</p>
-</li>
-
-
-
-		
-	
-		
-
-
-<li>
-<a href="/technology/tools/gitea/" >Gitea</a>
-<p>Gitea is a self-hosted Git service similar to GitHub. It is used as the repository solution in Altinn Studio Repos.</p>
-</li>
-
-
-
-		
-	
-		
-
-
-<li>
-<a href="/technology/tools/go/" >Go</a>
-<p>Server side programming language.</p>
-</li>
-
-
-
-		
-	
-		
-
-
-<li>
-<a href="/technology/tools/grafana/" >Grafana</a>
-<p>Grafana is an open platform for analytics and monitoring.</p>
-</li>
-
-
-
-		
-	
-		
-
-
-<li>
-<a href="/technology/tools/helm/" >Helm</a>
-<p>The Kubernetes Package Manager.</p>
-</li>
-
-
-
-		
-	
-		
-
-
-<li>
-<a href="/technology/tools/hugo/" >Hugo</a>
-<p>Static site generator used for our documentation.</p>
-</li>
-
-
-
-		
-	
-		
-
-
-<li>
-<a href="/technology/tools/jest/" >Jest</a>
-<p>JavaScript Testing Framework.</p>
-</li>
-
-
-
-		
-	
-		
-
-
-<li>
-<a href="/technology/tools/kubernetes/" >Kubernetes</a>
-<p>Kubernetes is used to manage the docker containers.</p>
-</li>
-
-
-
-		
-	
-		
-
-
-<li>
-<a href="/technology/tools/markdown/" >Markdown</a>
-<p>Markdown is a text-to-HTML conversion tool for web writers, created in 2004 by John Gruber.</p>
-</li>
-
-
-
-		
-	
-		
-
-
-<li>
-<a href="/technology/tools/material-ui/" >Material UI</a>
-<p>A popular React UI library used in Altinn Studio.</p>
-</li>
-
-
-
-		
-	
-		
-
-
-<li>
-<a href="/technology/tools/nginx/" >Nginx</a>
-<p>Load balancer currently used for routing traffic between Repos and Designer.</p>
-</li>
-
-
-
-		
-	
-		
-
-
-<li>
-<a href="/technology/tools/node-js/" >Node.js</a>
-<p>Node.js is a JavaScript runtime built on Chrome&#39;s V8 JavaScript engine.</p>
-</li>
-
-
-
-		
-	
-		
-
-
-<li>
-<a href="/technology/tools/prometheus/" >Prometheus</a>
-<p>Prometheus is an open-source systems monitoring and alerting toolkit.</p>
-</li>
-
-
-
-		
-	
-		
-
-
-<li>
-<a href="/technology/tools/react/" >React</a>
-<p>Modulært rammeverk for å utvikle UI komponenter og SPA applikasjoner.</p>
-</li>
-
-
-
-		
-	
-		
-
-
-<li>
-<a href="/technology/tools/stylecop/" >StyleCop</a>
-<p>Stylecop analyzer is a code analysis tool for C#.</p>
-</li>
-
-
-
-		
-	
-		
-
-
-<li>
-<a href="/technology/tools/terraform/" >Terraform</a>
-<p>Infrastructure as Code to provision and manage any cloud, infrastructure, or service.</p>
-</li>
-
-
-
-		
-	
-		
-
-
-<li>
-<a href="/technology/tools/traefik/" >Traefik</a>
-<p>Container load balancer.</p>
-</li>
-
-
-
-		
-	
-		
-
-
-<li>
-<a href="/technology/tools/typescript/" >TypeScript</a>
-<p>TypeScript is a superset of JavaScript that compiles to clean JavaScript output.</p>
-</li>
-
-
-
-		
-	
-		
-
-
-<li>
-<a href="/technology/tools/vs-code/" >Visual Studio Code</a>
-<p>Visual Studio Code is a lightweight source code editor which runs on your desktop.</p>
-</li>
-
-
-
-		
-	
-
+		<li>
+				<a href="/technology/tools/dotnet-core/">.NET Core</a>
+				<p>Server side development framework.</p>
+				</li><li>
+				<a href="/technology/tools/alpine-linux/">Alpine Linux</a>
+				<p>Alpine Linux is a security-oriented, lightweight Linux distribution based on musl libc and busybox.</p>
+				</li><li>
+				<a href="/technology/tools/bpmn/">BPMN</a>
+				<p>Business Process Model and Notation.</p>
+				</li><li>
+				<a href="/technology/tools/c-sharp/">C#</a>
+				<p>Server side programming language.</p>
+				</li><li>
+				<a href="/technology/tools/docker/">Docker</a>
+				<p>Docker is the container technology used in Altinn Studio, Altinn Apps and Altinn Platform.</p>
+				</li><li>
+				<a href="/technology/tools/git/">Git</a>
+				<p>Git is a distributed version-control system for tracking changes in source code during software development.</p>
+				</li><li>
+				<a href="/technology/tools/gitea/">Gitea</a>
+				<p>Gitea is a self-hosted Git service similar to GitHub. It is used as the repository solution in Altinn Studio Repos.</p>
+				</li><li>
+				<a href="/technology/tools/go/">Go</a>
+				<p>Server side programming language.</p>
+				</li><li>
+				<a href="/technology/tools/grafana/">Grafana</a>
+				<p>Grafana is an open platform for analytics and monitoring.</p>
+				</li><li>
+				<a href="/technology/tools/helm/">Helm</a>
+				<p>The Kubernetes Package Manager.</p>
+				</li><li>
+				<a href="/technology/tools/hugo/">Hugo</a>
+				<p>Static site generator used for our documentation.</p>
+				</li><li>
+				<a href="/technology/tools/jest/">Jest</a>
+				<p>JavaScript Testing Framework.</p>
+				</li><li>
+				<a href="/technology/tools/kubernetes/">Kubernetes</a>
+				<p>Kubernetes is used to manage the docker containers.</p>
+				</li><li>
+				<a href="/technology/tools/markdown/">Markdown</a>
+				<p>Markdown is a text-to-HTML conversion tool for web writers, created in 2004 by John Gruber.</p>
+				</li><li>
+				<a href="/technology/tools/material-ui/">Material UI</a>
+				<p>A popular React UI library used in Altinn Studio.</p>
+				</li><li>
+				<a href="/technology/tools/nginx/">Nginx</a>
+				<p>Load balancer currently used for routing traffic between Repos and Designer.</p>
+				</li><li>
+				<a href="/technology/tools/node-js/">Node.js</a>
+				<p>Node.js is a JavaScript runtime built on Chrome&#39;s V8 JavaScript engine.</p>
+				</li><li>
+				<a href="/technology/tools/prometheus/">Prometheus</a>
+				<p>Prometheus is an open-source systems monitoring and alerting toolkit.</p>
+				</li><li>
+				<a href="/technology/tools/react/">React</a>
+				<p>Modulært rammeverk for å utvikle UI komponenter og SPA applikasjoner.</p>
+				</li><li>
+				<a href="/technology/tools/stylecop/">StyleCop</a>
+				<p>Stylecop analyzer is a code analysis tool for C#.</p>
+				</li><li>
+				<a href="/technology/tools/terraform/">Terraform</a>
+				<p>Infrastructure as Code to provision and manage any cloud, infrastructure, or service.</p>
+				</li><li>
+				<a href="/technology/tools/traefik/">Traefik</a>
+				<p>Container load balancer.</p>
+				</li><li>
+				<a href="/technology/tools/typescript/">TypeScript</a>
+				<p>TypeScript is a superset of JavaScript that compiles to clean JavaScript output.</p>
+				</li><li>
+				<a href="/technology/tools/vs-code/">Visual Studio Code</a>
+				<p>Visual Studio Code is a lightweight source code editor which runs on your desktop.</p>
+				</li>
 	
 </ul>
 
@@ -1413,21 +1177,10 @@ if(host != "localhost")
 
 
 
-
-
-<footer class=" footline" >
-	
-</footer>
-
-
-
-
-
+<footer class=" footline" ></footer>
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/technology/terms/" title="Terms"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/technology/tools/dotnet-core/" title=".NET Core" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/technology/tools/_index.md" target="blank">
@@ -1489,3 +1242,4 @@ if(host != "localhost")
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

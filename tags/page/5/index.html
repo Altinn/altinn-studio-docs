@@ -429,7 +429,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -437,7 +437,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -445,7 +445,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -529,7 +529,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -1083,7 +1083,10 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/tags/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1098,20 +1101,7 @@ if(host != "localhost")
             </div>
           </div><div id="body-inner"><h1 class="a-fontBold">Tag:Tags</h1>
 
-
-
-
-
-
-<footer class=" footline" >
-	
-</footer>
-
-
-
-	
-
-	<div class="extra-pagination inner">
+<footer class=" footline" ></footer><div class="extra-pagination inner">
 	<nav class="pagination" role="navigation">
 	
 	    <a class="newer-posts" href="/tags/page/4/">&larr; Previous Pages</a>
@@ -1122,10 +1112,7 @@ if(host != "localhost")
 	
 </nav>
 
-	</div>
-
-	
-	   <article class="post tags">
+	</div><article class="post tags">
     <header class="post-header">
         <h2 class="post-title"><a href="/tags/development/">development</a></h2>
     </header>
@@ -1133,20 +1120,12 @@ if(host != "localhost")
         <p> <a class="read-more" href="/tags/development/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
         
-        
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post tags">
+<article class="post tags">
     <header class="post-header">
         <h2 class="post-title"><a href="/tags/devops/">devops</a></h2>
     </header>
@@ -1154,20 +1133,12 @@ if(host != "localhost")
         <p> <a class="read-more" href="/tags/devops/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
         
-        
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post tags">
+<article class="post tags">
     <header class="post-header">
         <h2 class="post-title"><a href="/tags/docs/">docs</a></h2>
     </header>
@@ -1175,20 +1146,12 @@ if(host != "localhost")
         <p> <a class="read-more" href="/tags/docs/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
         
-        
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post tags">
+<article class="post tags">
     <header class="post-header">
         <h2 class="post-title"><a href="/tags/dynamics/">dynamics</a></h2>
     </header>
@@ -1196,20 +1159,12 @@ if(host != "localhost")
         <p> <a class="read-more" href="/tags/dynamics/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
         
-        
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post tags">
+<article class="post tags">
     <header class="post-header">
         <h2 class="post-title"><a href="/tags/encryption/">encryption</a></h2>
     </header>
@@ -1217,20 +1172,12 @@ if(host != "localhost")
         <p> <a class="read-more" href="/tags/encryption/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
         
-        
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post tags">
+<article class="post tags">
     <header class="post-header">
         <h2 class="post-title"><a href="/tags/error-handling/">error-handling</a></h2>
     </header>
@@ -1238,20 +1185,12 @@ if(host != "localhost")
         <p> <a class="read-more" href="/tags/error-handling/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
         
-        
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post tags">
+<article class="post tags">
     <header class="post-header">
         <h2 class="post-title"><a href="/tags/events/">events</a></h2>
     </header>
@@ -1259,20 +1198,12 @@ if(host != "localhost")
         <p> <a class="read-more" href="/tags/events/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
         
-        
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post tags">
+<article class="post tags">
     <header class="post-header">
         <h2 class="post-title"><a href="/tags/front-end/">front-end</a></h2>
     </header>
@@ -1280,20 +1211,12 @@ if(host != "localhost")
         <p> <a class="read-more" href="/tags/front-end/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
         
-        
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post tags">
+<article class="post tags">
     <header class="post-header">
         <h2 class="post-title"><a href="/tags/frontend/">frontend</a></h2>
     </header>
@@ -1301,20 +1224,12 @@ if(host != "localhost")
         <p> <a class="read-more" href="/tags/frontend/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
         
-        
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post tags">
+<article class="post tags">
     <header class="post-header">
         <h2 class="post-title"><a href="/tags/git/">git</a></h2>
     </header>
@@ -1322,21 +1237,12 @@ if(host != "localhost")
         <p> <a class="read-more" href="/tags/git/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
         
-        
-
     </footer>
 </article>
-
-
-
-
-	
-
-	<div style="margin-bottom:2rem"></div>
+<div style="margin-bottom:2rem"></div>
 
 	<nav class="pagination" role="navigation">
 	
@@ -1348,14 +1254,9 @@ if(host != "localhost")
 	
 </nav>
 
-
-
-
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/technology/tools/vs-code/" title="Visual Studio Code"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/app/" title="Create apps" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div></section>
         </div> 
@@ -1412,3 +1313,4 @@ if(host != "localhost")
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

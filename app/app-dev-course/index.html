@@ -118,8 +118,8 @@ if(host != "localhost")
 </script>
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
-      <li class="dd-item parent">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -152,8 +152,8 @@ if(host != "localhost")
         <a href="/app/getting-started/navigation/code/"><span>Code</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/app/getting-started/local-dev/"><span>Local development</span></a></li></ul></li>
-      <li class="dd-item parent active">
-        <a href="/app/app-dev-course/"><span>Intro course</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/app-dev-course/"><span>Intro course</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/app-dev-course/case/"><span>Case</span></a></li>
       <li class="dd-item">
@@ -429,7 +429,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -437,7 +437,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -445,7 +445,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -529,7 +529,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -1083,7 +1083,11 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/app/']").parent().addClass("parent");
+ $("li.dd-item a[href='/app/app-dev-course/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1097,12 +1101,7 @@ if(host != "localhost")
                 <span class="links"><a href='/app/'>Create apps</a> <span class='adocs-breadcrumb-divider'> / </span> Intro course</span>
             </div>
           </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/apps">apps</a><a class="label label-default" href="https://docs.altinn.studio/tags/build">build</a><a class="label label-default" href="https://docs.altinn.studio/tags/deploy">deploy</a><a class="label label-default" href="https://docs.altinn.studio/tags/training">training</a></div><div id="body-inner"><h1 class="a-fontBold">Intro course</h1>
-              <p class="a-leadText" id="leadText">An introductory course to app development with Altinn Studio and local dev tools. (Only available in Norwegian)</p>
-
-
-
-
-<p>This intro course is divided into six modules and covers a fictitious case for the municipality of Sogndal.
+              <p class="a-leadText" id="leadText">An introductory course to app development with Altinn Studio and local dev tools. (Only available in Norwegian)</p><p>This intro course is divided into six modules and covers a fictitious case for the municipality of Sogndal.
 Over the course of these six modules, you will have gone through the main functionality of an Altinn App,
 as well as testing the app locally and in a test environment.</p>
 <p>Three things have to be in order before you can get started with this course.</p>
@@ -1116,58 +1115,42 @@ as well as testing the app locally and in a test environment.</p>
 <h3 id="lets-get-started">Let&rsquo;s get started!</h3>
 <h3 id="read-through-the-municipality-of-sogndals-case-and-work-through-it-module-by-module">Read through the municipality of Sogndal&rsquo;s case, and work through it module by module.</h3>
 <ul class="children children-li js-moveChildrenFrom">
-<li>
-<a href="/app/app-dev-course/case/" >Casedescription</a>
-<p>Description of the muncipalitys requirements and wishes for the service.</p>
-</li>
-<li>
-<a href="/app/app-dev-course/modul1/" >Module 1</a>
-<p>Create app in Studio, set up local development environment and local test</p>
-</li>
-<li>
-<a href="/app/app-dev-course/modul2/" >Module 2</a>
-<p>Add more pages, dynamic tracks and prefill</p>
-</li>
-<li>
-<a href="/app/app-dev-course/modul3/" >Module 3</a>
-<p>Build and deploy application to test environment</p>
-</li>
-<li>
-<a href="/app/app-dev-course/modul4/" >Module 4</a>
-<p>Add code lists manually, progmatic and dynamically</p>
-</li>
-<li>
-<a href="/app/app-dev-course/modul5/" >Module 5</a>
-<p>Legge til bekreftelsessteg</p>
-</li>
-<li>
-<a href="/app/app-dev-course/modul6/" >Module 6</a>
-<p>Expansion of form with repeating group</p>
-</li>
-<li>
-<a href="/app/app-dev-course/modul7/" >Module 7</a>
-<p>Standalone extensions of the app</p>
-</li>
-<li>
-<a href="/app/app-dev-course/losningsforslag/" >Solution</a>
-<p>Solution and explanation on comprenhension checks</p>
-</li>
+<pre><code>    &lt;li&gt;
+            &lt;a href=&quot;/app/app-dev-course/case/&quot;&gt;Casedescription&lt;/a&gt;
+            &lt;p&gt;Description of the muncipalitys requirements and wishes for the service.&lt;/p&gt;
+            &lt;/li&gt;&lt;li&gt;
+            &lt;a href=&quot;/app/app-dev-course/modul1/&quot;&gt;Module 1&lt;/a&gt;
+            &lt;p&gt;Create app in Studio, set up local development environment and local test&lt;/p&gt;
+            &lt;/li&gt;&lt;li&gt;
+            &lt;a href=&quot;/app/app-dev-course/modul2/&quot;&gt;Module 2&lt;/a&gt;
+            &lt;p&gt;Add more pages, dynamic tracks and prefill&lt;/p&gt;
+            &lt;/li&gt;&lt;li&gt;
+            &lt;a href=&quot;/app/app-dev-course/modul3/&quot;&gt;Module 3&lt;/a&gt;
+            &lt;p&gt;Build and deploy application to test environment&lt;/p&gt;
+            &lt;/li&gt;&lt;li&gt;
+            &lt;a href=&quot;/app/app-dev-course/modul4/&quot;&gt;Module 4&lt;/a&gt;
+            &lt;p&gt;Add code lists manually, progmatic and dynamically&lt;/p&gt;
+            &lt;/li&gt;&lt;li&gt;
+            &lt;a href=&quot;/app/app-dev-course/modul5/&quot;&gt;Module 5&lt;/a&gt;
+            &lt;p&gt;Legge til bekreftelsessteg&lt;/p&gt;
+            &lt;/li&gt;&lt;li&gt;
+            &lt;a href=&quot;/app/app-dev-course/modul6/&quot;&gt;Module 6&lt;/a&gt;
+            &lt;p&gt;Expansion of form with repeating group&lt;/p&gt;
+            &lt;/li&gt;&lt;li&gt;
+            &lt;a href=&quot;/app/app-dev-course/modul7/&quot;&gt;Module 7&lt;/a&gt;
+            &lt;p&gt;Standalone extensions of the app&lt;/p&gt;
+            &lt;/li&gt;&lt;li&gt;
+            &lt;a href=&quot;/app/app-dev-course/losningsforslag/&quot;&gt;Solution&lt;/a&gt;
+            &lt;p&gt;Solution and explanation on comprenhension checks&lt;/p&gt;
+            &lt;/li&gt;
+</code></pre>
 </ul>
 
 
-<footer class=" footline" >
-	
-</footer>
-
-
-
-
-
+<footer class=" footline" ></footer>
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/app/getting-started/local-dev/" title="Local development"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/app/app-dev-course/case/" title="Casedescription" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/app/app-dev-course/_index.en.md" target="blank">
@@ -1229,3 +1212,4 @@ as well as testing the app locally and in a test environment.</p>
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

@@ -421,7 +421,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -429,7 +429,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -437,7 +437,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -521,7 +521,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -1075,7 +1075,11 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/tags/']").parent().addClass("parent");
+ $("li.dd-item a[href='/tags/architecture/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1091,20 +1095,7 @@ if(host != "localhost")
           </div><div id="body-inner"><h1 class="a-fontBold">architecture</h1>
               <p class="a-leadText" id="leadText"></p>
 
-
-
-
-
-
-<footer class=" footline" >
-	
-</footer>
-
-
-
-	
-
-	<div class="extra-pagination inner">
+<footer class=" footline" ></footer><div class="extra-pagination inner">
 	<nav class="pagination" role="navigation">
 	
 	    <a class="newer-posts" href="/tags/architecture/page/3/">&larr; Previous Pages</a>
@@ -1115,10 +1106,7 @@ if(host != "localhost")
 	
 </nav>
 
-	</div>
-
-	
-	   <article class="post technology">
+	</div><article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/construction/altinn-apps/app/app-backend/">Application construction components App Backend</a></h2>
     </header>
@@ -1129,10 +1117,8 @@ The diagram below show how the code is structured in different parts.
 Altinn.App.Api The REST-APIS are implemented in different web-api-controllers and uses attribute based routing to identify the correct operation. <a class="read-more" href="/technology/architecture/components/application/construction/altinn-apps/app/app-backend/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1140,15 +1126,9 @@ Altinn.App.Api The REST-APIS are implemented in different web-api-controllers an
                 <a class="label label-default" href="https://docs.altinn.studio/tags/app-backend/">app-backend</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/capabilities/runtime/appdeploy/">Application build &amp; deploy capabilties</a></h2>
     </header>
@@ -1159,24 +1139,16 @@ Container Orchestration by Kubernetes Each app created in Altinn Studio is deplo
 The Altinn App is deployed as sets of Docker Containers defined as Kubernetes Deployment. <a class="read-more" href="/technology/architecture/capabilities/runtime/appdeploy/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/capabilities/runtime/appdevelopment/">Application development capabilities</a></h2>
     </header>
@@ -1187,24 +1159,16 @@ Process definition The process defintion is defined in a BPMN 2.0 file located i
 Later Altinn Studio will support creating and updating process through GUI. <a class="read-more" href="/technology/architecture/capabilities/runtime/appdevelopment/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/construction/altinn-apps/app/app-frontend/">App Frontend Application Architecture</a></h2>
     </header>
@@ -1214,24 +1178,16 @@ This application is responsible for presenting a UI to the end user. The applica
 The app frontend is automatically built and deployed to a CDN, and is versioned using semantic versioning. Each App developed in Altinn Studio will reference the app frontend, which will be served by the CDN. <a class="read-more" href="/technology/architecture/components/application/construction/altinn-apps/app/app-frontend/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/capabilities/runtime/security/authentication/">Authentication Capabilities</a></h2>
     </header>
@@ -1242,10 +1198,8 @@ Git repo authentication When users tries to update the Git-repo where source fil
 This can be done through using a App Key generated in Gitea or using the username/password for the Gitea account. <a class="read-more" href="/technology/architecture/capabilities/runtime/security/authentication/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1253,15 +1207,9 @@ This can be done through using a App Key generated in Gitea or using the usernam
                 <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/construction/altinn-platform/authentication/">Application construction components - Altinn Platform Authentication</a></h2>
     </header>
@@ -1271,10 +1219,8 @@ Api Controllers  Authentication : Functionality to convert the different ID-toke
 See full list of dependencies in csproj. <a class="read-more" href="/technology/architecture/components/application/construction/altinn-platform/authentication/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1282,15 +1228,9 @@ See full list of dependencies in csproj. <a class="read-more" href="/technology/
                 <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/capabilities/runtime/security/authentication/authentication-api/">Authentication APIs</a></h2>
     </header>
@@ -1300,10 +1240,8 @@ API for SBL Authentication cookie This API creates a JWT Cookie (A cookie with a
 Based on this information this API creates a JWT token with claims about the user (userid, authentication level ++) and sign the JWT token with the private key of Altinn Platform. <a class="read-more" href="/technology/architecture/capabilities/runtime/security/authentication/authentication-api/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1311,15 +1249,9 @@ Based on this information this API creates a JWT token with claims about the use
                 <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/capabilities/runtime/security/authorization/">Authorization</a></h2>
     </header>
@@ -1329,10 +1261,8 @@ These capabilities include:
  The capability to define wide/narrow authorization policies for apps. Rules can be valid for the whole application or only valid for a subset of resources. The capability to evaluate policies based on a request for a resource The capability to configure authorization policies for API endpoints The capability to enforce decision request (permit or deny) The capability to enrich decision request with needed information The capability to retrieve context information from different sources both regarding resources accessed and subjects doing that. <a class="read-more" href="/technology/architecture/capabilities/runtime/security/authorization/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1340,15 +1270,9 @@ These capabilities include:
                 <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/construction/altinn-platform/authorization/">Application construction components - Altinn Platform Authorization</a></h2>
     </header>
@@ -1361,10 +1285,8 @@ The below diagram shows the data flow including PEP.
 Decision API The decision API is the API that orchestrates the decision process. <a class="read-more" href="/technology/architecture/components/application/construction/altinn-platform/authorization/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1372,15 +1294,9 @@ Decision API The decision API is the API that orchestrates the decision process.
                 <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/capabilities/devops/platformoperations/backupandrecovery/">Backup &amp; Recovery</a></h2>
     </header>
@@ -1389,25 +1305,16 @@ Decision API The decision API is the API that orchestrates the decision process.
  Data is deleted by accident by DevOps team or by wrongly configured jobs Data is corrupted by bugs in platform or application code Data is accidentally corrupted or deleted by end-users or systems A storage account is deleted Blob storage is deleted Cosmos DB collection is accidentally deleted  In Altinn Platform different types of data is stored <a class="read-more" href="/technology/architecture/capabilities/devops/platformoperations/backupandrecovery/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-
-	<div style="margin-bottom:2rem"></div>
+<div style="margin-bottom:2rem"></div>
 
 	<nav class="pagination" role="navigation">
 	
@@ -1419,14 +1326,9 @@ Decision API The decision API is the API that orchestrates the decision process.
 	
 </nav>
 
-
-
-
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/technology/tools/vs-code/" title="Visual Studio Code"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/app/" title="Create apps" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div></section>
         </div> 
@@ -1483,3 +1385,4 @@ Decision API The decision API is the API that orchestrates the decision process.
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

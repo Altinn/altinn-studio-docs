@@ -429,7 +429,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -437,7 +437,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -445,7 +445,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -529,7 +529,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -1083,7 +1083,11 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/tags/']").parent().addClass("parent");
+ $("li.dd-item a[href='/tags/development/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1099,20 +1103,7 @@ if(host != "localhost")
           </div><div id="body-inner"><h1 class="a-fontBold">development</h1>
               <p class="a-leadText" id="leadText"></p>
 
-
-
-
-
-
-<footer class=" footline" >
-	
-</footer>
-
-
-
-	
-
-	<div class="extra-pagination inner">
+<footer class=" footline" ></footer><div class="extra-pagination inner">
 	<nav class="pagination" role="navigation">
 	
 	    <a class="newer-posts" href="/tags/development/page/4/">&larr; Previous Pages</a>
@@ -1123,26 +1114,16 @@ if(host != "localhost")
 	
 </nav>
 
-	</div>
-
-	
-	   <article class="post community">
+	</div><article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/test/">Test</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Coding guidelines for tests App for automated testAn app used solely for automated testing in the browser
-CypressFunctional Testing of Altinn Studio and Altinn app-frontend with Cypress
-k6Performance and Functional Testing of API with K6
-PostmanAPI Testing with postman
-Test StrategyTest Strategy
-Unit testingHow to write jest test in altinn studio, what we know so far <a class="read-more" href="/community/contributing/handbook/test/">&raquo;</a></p>
+        <p>Coding guidelines for tests  &lt;li&gt;&lt;a href=&quot;/community/contributing/handbook/test/automated-test-app/&quot;&gt;App for automated test&lt;/a&gt;&lt;p&gt;An app used solely for automated testing in the browser&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/community/contributing/handbook/test/cypress/&quot;&gt;Cypress&lt;/a&gt;&lt;p&gt;Functional Testing of Altinn Studio and Altinn app-frontend with Cypress&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/community/contributing/handbook/test/k6/&quot;&gt;k6&lt;/a&gt;&lt;p&gt;Performance and Functional Testing of API with K6&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/community/contributing/handbook/test/postman/&quot;&gt;Postman&lt;/a&gt;&lt;p&gt;API Testing with postman&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/community/contributing/handbook/test/test-strategy/&quot;&gt;Test Strategy&lt;/a&gt;&lt;p&gt;Test Strategy&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/community/contributing/handbook/test/unit-testing/&quot;&gt;Unit testing&lt;/a&gt;&lt;p&gt;How to write jest test in altinn studio, what we know so far&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/community/contributing/handbook/test/xunit-testing/&quot;&gt;Xunit Testing&lt;/a&gt;&lt;p&gt;Xunit Testing&lt;/p&gt;&lt;/li&gt;  <a class="read-more" href="/community/contributing/handbook/test/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1150,15 +1131,9 @@ if(host != "localhost")
                 <a class="label label-default" href="https://docs.altinn.studio/tags/testing/">testing</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/test/test-strategy/">Test Strategy</a></h2>
     </header>
@@ -1167,10 +1142,8 @@ if(host != "localhost")
 Testing of Altinn Studio is to be tested automatically at the unit and integration levels of testing. Unit testing of the system involves, for example, the testing of individual javascript functions, and individual pieces of logic relating to react/UI components. <a class="read-more" href="/community/contributing/handbook/test/test-strategy/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1178,15 +1151,9 @@ Testing of Altinn Studio is to be tested automatically at the unit and integrati
                 <a class="label label-default" href="https://docs.altinn.studio/tags/testing/">testing</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/routing/traefik/tls-configuration/">TLS in Traefik 2.0</a></h2>
     </header>
@@ -1195,10 +1162,8 @@ Testing of Altinn Studio is to be tested automatically at the unit and integrati
 apiVersion: traefik.containo.us/v1alpha1 kind: TLSOption metadata: name: altinn-tls-options namespace: default spec: minVersion: VersionTLS12 Adding TLS to an Ingress Route Add a tls attribute to the spec if the ingress route, with secretName (secret that contains the TLS certificate and private key) and optionally a options-attribute with the name of the TLSOption we made and the namespace (if nothing is specified when creating the secret it would be in the default namespace). <a class="read-more" href="/community/contributing/handbook/routing/traefik/tls-configuration/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1210,15 +1175,9 @@ apiVersion: traefik.containo.us/v1alpha1 kind: TLSOption metadata: name: altinn-
                 <a class="label label-default" href="https://docs.altinn.studio/tags/tls/">tls</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/routing/traefik/custom-resources/">Traefik custom resources</a></h2>
     </header>
@@ -1228,10 +1187,8 @@ To support new features in routing and middlewares with IngressRoutes and dynami
 apiVersion: apiextensions.k8s.io/v1beta1 kind: CustomResourceDefinition metadata: name: ingressroutes.traefik.containo.us spec: group: traefik.containo.us version: v1alpha1 names: kind: IngressRoute plural: ingressroutes singular: ingressroute scope: Namespaced --- apiVersion: apiextensions. <a class="read-more" href="/community/contributing/handbook/routing/traefik/custom-resources/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1245,15 +1202,9 @@ apiVersion: apiextensions.k8s.io/v1beta1 kind: CustomResourceDefinition metadata
                 <a class="label label-default" href="https://docs.altinn.studio/tags/crds/">crds</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/routing/traefik/ingress-routes/">Traefik ingress routes</a></h2>
     </header>
@@ -1263,10 +1214,8 @@ As a result of introducing the custom resource IngressRoutes in traefik 2.0 we d
 Resource configuration apiVersion: traefik.containo.us/v1alpha1 kind: IngressRoute metadata: name: altinn-runtime spec: entryPoints: - web - websecure routes: - match: Host(`dev. <a class="read-more" href="/community/contributing/handbook/routing/traefik/ingress-routes/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1280,31 +1229,19 @@ Resource configuration apiVersion: traefik.containo.us/v1alpha1 kind: IngressRou
                 <a class="label label-default" href="https://docs.altinn.studio/tags/ingress/">ingress</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/routing/traefik/">Traefik routing</a></h2>
     </header>
     <section class="post-excerpt">
         <p>In Altinn Tjenester 3.0 we are migrating from nginx to traefik for routing.
-Installation of Traefik 2.0How to install traefik
-TLS in Traefik 2.0How to set up TLS
-Traefik custom resourcesDefinitions for traefik 2.0 custom resources in kubernetes
-Traefik ingress routesHow to set up an ingress route and route trafic based on rules and middlewares
- <a class="read-more" href="/community/contributing/handbook/routing/traefik/">&raquo;</a></p>
+ &lt;li&gt;&lt;a href=&quot;/community/contributing/handbook/routing/traefik/installation/&quot;&gt;Installation of Traefik 2.0&lt;/a&gt;&lt;p&gt;How to install traefik&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/community/contributing/handbook/routing/traefik/tls-configuration/&quot;&gt;TLS in Traefik 2.0&lt;/a&gt;&lt;p&gt;How to set up TLS&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/community/contributing/handbook/routing/traefik/custom-resources/&quot;&gt;Traefik custom resources&lt;/a&gt;&lt;p&gt;Definitions for traefik 2.0 custom resources in kubernetes&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/community/contributing/handbook/routing/traefik/ingress-routes/&quot;&gt;Traefik ingress routes&lt;/a&gt;&lt;p&gt;How to set up an ingress route and route trafic based on rules and middlewares&lt;/p&gt;&lt;/li&gt;  <a class="read-more" href="/community/contributing/handbook/routing/traefik/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1314,15 +1251,9 @@ Resource configuration apiVersion: traefik.containo.us/v1alpha1 kind: IngressRou
                 <a class="label label-default" href="https://docs.altinn.studio/tags/routing/">routing</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/test/unit-testing/">Unit testing</a></h2>
     </header>
@@ -1331,10 +1262,8 @@ Resource configuration apiVersion: traefik.containo.us/v1alpha1 kind: IngressRou
  When should you write tests? Exporting and importing your component Methods in your component User Interface and Methods Networked functions (get, post, put) Rejecting Promises / Error testing / Negative tests Using Router Example #1, positive test Example #2, negative test (Error handling)  When should you write tests? <a class="read-more" href="/community/contributing/handbook/test/unit-testing/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1344,15 +1273,9 @@ Resource configuration apiVersion: traefik.containo.us/v1alpha1 kind: IngressRou
                 <a class="label label-default" href="https://docs.altinn.studio/tags/testing/">testing</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/front-end/versioning/">Versioning</a></h2>
     </header>
@@ -1361,10 +1284,8 @@ Resource configuration apiVersion: traefik.containo.us/v1alpha1 kind: IngressRou
 Each time we make a change to a package, we need to update the version of the package to reflect the change. <a class="read-more" href="/community/contributing/handbook/front-end/versioning/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1374,15 +1295,9 @@ Each time we make a change to a package, we need to update the version of the pa
                 <a class="label label-default" href="https://docs.altinn.studio/tags/versioning/">versioning</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/test/xunit-testing/">Xunit Testing</a></h2>
     </header>
@@ -1390,10 +1305,8 @@ Each time we make a change to a package, we need to update the version of the pa
         <p>Find code on xunit tests here <a class="read-more" href="/community/contributing/handbook/test/xunit-testing/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1401,15 +1314,9 @@ Each time we make a change to a package, we need to update the version of the pa
                 <a class="label label-default" href="https://docs.altinn.studio/tags/testing/">testing</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/branching/">Branching</a></h2>
     </header>
@@ -1417,10 +1324,8 @@ Each time we make a change to a package, we need to update the version of the pa
         <p>Principles  Altinn Studio uses trunk-based development  This ensures the codebase is always releasable on demand and helps to make Continuous Delivery a reality.   Code is checked in using short living feature branches  naming standard for feature branches are feature/&lt;issueNumber&gt;-&lt;description&gt; , for instance: feature/1028-text-component naming standard for bug branches are bug/&lt;issueNumber&gt;-&lt;description&gt; , for instance: bug/877-performance-leak-ui-editor    Trunk Based Development Read more about trunk based development here. <a class="read-more" href="/community/contributing/handbook/branching/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1430,16 +1335,9 @@ Each time we make a change to a package, we need to update the version of the pa
                 <a class="label label-default" href="https://docs.altinn.studio/tags/branching/">branching</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-
-	<div style="margin-bottom:2rem"></div>
+<div style="margin-bottom:2rem"></div>
 
 	<nav class="pagination" role="navigation">
 	
@@ -1451,14 +1349,9 @@ Each time we make a change to a package, we need to update the version of the pa
 	
 </nav>
 
-
-
-
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/technology/tools/vs-code/" title="Visual Studio Code"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/app/" title="Create apps" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div></section>
         </div> 
@@ -1515,3 +1408,4 @@ Each time we make a change to a package, we need to update the version of the pa
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

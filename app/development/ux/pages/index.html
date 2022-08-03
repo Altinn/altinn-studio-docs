@@ -118,8 +118,8 @@ if(host != "localhost")
 </script>
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
-      <li class="dd-item parent">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -218,8 +218,8 @@ if(host != "localhost")
         <a href="/app/design/guidelines/tone-of-voice/"><span>Language</span></a></li>
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
-      <li class="dd-item parent">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -230,8 +230,8 @@ if(host != "localhost")
         <a href="/app/development/data/options/"><span>Code lists</span></a></li>
       <li class="dd-item">
         <a href="/app/development/data/attachments/"><span>Attachments</span></a></li></ul></li>
-      <li class="dd-item parent">
-        <a href="/app/development/ux/"><span>User interface</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/development/ux/"><span>User interface</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/ux/components/"><span>Components</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -240,8 +240,8 @@ if(host != "localhost")
         <a href="/app/development/ux/components/printbutton/"><span>PrintButton</span></a></li>
       <li class="dd-item">
         <a href="/app/development/ux/components/likert/"><span>Likert</span></a></li></ul></li>
-      <li class="dd-item parent active">
-        <a href="/app/development/ux/pages/"><span>Pages</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/development/ux/pages/"><span>Pages</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/ux/pages/navigation/"><span>Navigation</span></a></li>
       <li class="dd-item">
@@ -429,7 +429,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -437,7 +437,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -445,7 +445,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -529,7 +529,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -1083,7 +1083,13 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/app/']").parent().addClass("parent");
+ $("li.dd-item a[href='/app/development/']").parent().addClass("parent");
+ $("li.dd-item a[href='/app/development/ux/']").parent().addClass("parent");
+ $("li.dd-item a[href='/app/development/ux/pages/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1097,12 +1103,7 @@ if(host != "localhost")
                 <span class="links"><a href='/app/'>Create apps</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/development/'>Development</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/development/ux/'>User interface</a> <span class='adocs-breadcrumb-divider'> / </span> Pages</span>
             </div>
           </div><div id="body-inner"><h1 class="a-fontBold">Pages</h1>
-              <p class="a-leadText" id="leadText">How to set up an app with multiple pages, tracks, summary or multiple layouts.</p>
-
-
-
-
-<div class="notices info" >
+              <p class="a-leadText" id="leadText">How to set up an app with multiple pages, tracks, summary or multiple layouts.</p><div class="notices info" >
 Setup of multiple pages can be done manually (as described below) or directly in the form editor in Altinn Studio.
 Note that the last page the user entered is cached so that they will return to this page when the app reloads.
 </div>
@@ -1118,98 +1119,32 @@ See instructions for how that is done <a href="../../../maintainance/dependencie
       |- side3.json
 </code></pre><p>The recommended approach as long as there is a need to set it up manually, is to use the ui-editor in Altinn Studio to add all components to <code>FormLayout.json</code>, and then copy them to their respective layout files, one for each page you want. <code>FormLayout.json</code> can either be renamed under the <code>layouts</code> folder or be deleted.</p>
 <p><em>Note: <code>FormLayout.json</code> must either be moved (can be renamed) into the <code>layouts</code> folder, or be deleted. If you have the old <code>FormLayout.json</code> file under the <code>App/ui</code> folder as it was, only this one will be used and all files under the <code>App/ui/layouts</code> folder will be ignored.</em></p>
-
-
-
-
-
-
-
-
-
-
-
-
 <ul class="children children-li js-moveChildrenFrom">
-	
-    
-	    
-    
-    
 
 	
-		
-	
-		
-
-
-<li>
-<a href="/app/development/ux/pages/navigation/" >Navigation between pages</a>
-<p>How to set up navigation between pages.</p>
-</li>
-
-
-
-		
-	
-		
-
-
-<li>
-<a href="/app/development/ux/pages/tracks/" >Tracks</a>
-<p>How to add dynamic tracks in the app.</p>
-</li>
-
-
-
-		
-	
-		
-
-
-<li>
-<a href="/app/development/ux/pages/summary/" >Summary view</a>
-<p>How to set up the display of a summary of the completed form.</p>
-</li>
-
-
-
-		
-	
-		
-
-
-<li>
-<a href="/app/development/ux/pages/layout-sets/" >Layout sets</a>
-<p>How to set up multiple layouts or forms in the same app.</p>
-</li>
-
-
-
-		
-	
-
+		<li>
+				<a href="/app/development/ux/pages/navigation/">Navigation between pages</a>
+				<p>How to set up navigation between pages.</p>
+				</li><li>
+				<a href="/app/development/ux/pages/tracks/">Tracks</a>
+				<p>How to add dynamic tracks in the app.</p>
+				</li><li>
+				<a href="/app/development/ux/pages/summary/">Summary view</a>
+				<p>How to set up the display of a summary of the completed form.</p>
+				</li><li>
+				<a href="/app/development/ux/pages/layout-sets/">Layout sets</a>
+				<p>How to set up multiple layouts or forms in the same app.</p>
+				</li>
 	
 </ul>
 
 
 
 
-
-
-<footer class=" footline" >
-	
-</footer>
-
-
-
-
-
+<footer class=" footline" ></footer>
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/app/development/ux/components/likert/" title="Likert"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/app/development/ux/pages/navigation/" title="Navigation between pages" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/app/development/ux/pages/_index.en.md" target="blank">
@@ -1271,3 +1206,4 @@ See instructions for how that is done <a href="../../../maintainance/dependencie
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

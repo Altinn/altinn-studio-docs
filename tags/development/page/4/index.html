@@ -429,7 +429,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -437,7 +437,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -445,7 +445,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -529,7 +529,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -1083,7 +1083,11 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/tags/']").parent().addClass("parent");
+ $("li.dd-item a[href='/tags/development/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1099,20 +1103,7 @@ if(host != "localhost")
           </div><div id="body-inner"><h1 class="a-fontBold">development</h1>
               <p class="a-leadText" id="leadText"></p>
 
-
-
-
-
-
-<footer class=" footline" >
-	
-</footer>
-
-
-
-	
-
-	<div class="extra-pagination inner">
+<footer class=" footline" ></footer><div class="extra-pagination inner">
 	<nav class="pagination" role="navigation">
 	
 	    <a class="newer-posts" href="/tags/development/page/3/">&larr; Previous Pages</a>
@@ -1123,10 +1114,7 @@ if(host != "localhost")
 	
 </nav>
 
-	</div>
-
-	
-	   <article class="post community">
+	</div><article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/routing/nginx/">Nginx routing</a></h2>
     </header>
@@ -1137,10 +1125,8 @@ Option 1: kill the pod and let the deployment spinn up a new pod.
 Option 2: open a shell into the pod kubectl exec -it [POD_NAME] -- sh and run the command nginx -s reload <a class="read-more" href="/community/contributing/handbook/routing/nginx/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1150,15 +1136,9 @@ Option 2: open a shell into the pod kubectl exec -it [POD_NAME] -- sh and run th
                 <a class="label label-default" href="https://docs.altinn.studio/tags/routing/">routing</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/loadbalancer/ssl-certificate/">Nginx SSL/TLS certificate</a></h2>
     </header>
@@ -1167,10 +1147,8 @@ Option 2: open a shell into the pod kubectl exec -it [POD_NAME] -- sh and run th
 Download .pfx file At the moment of writing this guide, we store our *.altinn.studio certificate in azure keyvault and you will need access to download it from that vault. <a class="read-more" href="/community/contributing/handbook/loadbalancer/ssl-certificate/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1186,15 +1164,9 @@ Download .pfx file At the moment of writing this guide, we store our *.altinn.st
                 <a class="label label-default" href="https://docs.altinn.studio/tags/certificate/">certificate</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/azure-devops/pipelines/">Pipelines</a></h2>
     </header>
@@ -1202,24 +1174,16 @@ Download .pfx file At the moment of writing this guide, we store our *.altinn.st
         <p>Quality checklist Build pipelines Release pipelines  Quality Checklist  all sensitive information is marked as secret. Read more about setting variables as secret here. verify that no sensitive information is available in the exported API JSON definition (https://dev.azure.com/brreg/d0be3bbb-9145-4490-8d76-fd8024277467/_apis/pipelines/{definitionId}) make sure that no secrets are shared with forks of github repos if you are using a github integrated pipeline. Read more about that here. if it exists a built in task for the job the pipeline should do, this should be prefered over writing your own scripts. <a class="read-more" href="/community/contributing/handbook/azure-devops/pipelines/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/front-end/postmessage/">Post Message</a></h2>
     </header>
@@ -1229,10 +1193,8 @@ Usage Dispatching a message event is done the following way:
 // variables should be used for messages var SAVED_EVENT = &#39;SAVED&#39; window.postMessage(SAVED_EVENT, window.location.href); Catching the event is done by adding an event listener to the component one needs to communicate with: <a class="read-more" href="/community/contributing/handbook/front-end/postmessage/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1240,15 +1202,9 @@ Usage Dispatching a message event is done the following way:
                 <a class="label label-default" href="https://docs.altinn.studio/tags/front-end/">front-end</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/postgres/">PostgreSQL</a></h2>
     </header>
@@ -1259,24 +1215,16 @@ Set up database Open pgAdmin 4. We will be working on the PostgreSQL 13 server.
   Right click on Databases and select Create.   Fill inn database name eventsdb and click Save.   You should now be able to see a new database in the list. If you don&rsquo;t - right click the server and select REFRESH. <a class="read-more" href="/community/contributing/handbook/postgres/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/test/postman/">Postman</a></h2>
     </header>
@@ -1286,10 +1234,8 @@ Authentication Several of the exposed APIs requires various cookies, for instanc
  In your browser login to dev. <a class="read-more" href="/community/contributing/handbook/test/postman/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1299,15 +1245,9 @@ Authentication Several of the exposed APIs requires various cookies, for instanc
                 <a class="label label-default" href="https://docs.altinn.studio/tags/api/">api</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/rest/">RESTful APIs (Representation State Transfer)</a></h2>
     </header>
@@ -1317,10 +1257,8 @@ Authentication Several of the exposed APIs requires various cookies, for instanc
   REST APIs should start with a short word to indicate the logical domain or group of apis. <a class="read-more" href="/community/contributing/handbook/rest/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1328,28 +1266,18 @@ Authentication Several of the exposed APIs requires various cookies, for instanc
                 <a class="label label-default" href="https://docs.altinn.studio/tags/api/">api</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/routing/">Routing</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Routing Nginx routingInformation about routing with nginx
-Traefik routing
- <a class="read-more" href="/community/contributing/handbook/routing/">&raquo;</a></p>
+        <p>Routing  &lt;li&gt;&lt;a href=&quot;/community/contributing/handbook/routing/nginx/&quot;&gt;Nginx routing&lt;/a&gt;&lt;p&gt;Information about routing with nginx&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/community/contributing/handbook/routing/traefik/&quot;&gt;Traefik routing&lt;/a&gt;&lt;p&gt;&lt;/p&gt;&lt;/li&gt;  <a class="read-more" href="/community/contributing/handbook/routing/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1357,15 +1285,9 @@ Authentication Several of the exposed APIs requires various cookies, for instanc
                 <a class="label label-default" href="https://docs.altinn.studio/tags/routing/">routing</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/securecoding/">Secure DevOps</a></h2>
     </header>
@@ -1375,10 +1297,8 @@ Below you find information on what kind of tools, patterns, and processes we fol
 Planning phase During the planning phase, the requirements for features are gathered. Already in this phase, we identify changes that need special security considerations. <a class="read-more" href="/community/contributing/handbook/securecoding/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1386,15 +1306,9 @@ Planning phase During the planning phase, the requirements for features are gath
                 <a class="label label-default" href="https://docs.altinn.studio/tags/routing/">routing</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/front-end/styling/">Styling (css)</a></h2>
     </header>
@@ -1406,10 +1320,8 @@ Proposed order of styling methods The following order is proposed when consideri
  Styled Components (Accepts props, logic, theming) Material-UI&rsquo;s JSS (Accepts theming) Inline Styling, the React way (Accepts props, logic, theming. <a class="read-more" href="/community/contributing/handbook/front-end/styling/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1419,16 +1331,9 @@ Proposed order of styling methods The following order is proposed when consideri
                 <a class="label label-default" href="https://docs.altinn.studio/tags/styling/">styling</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-
-	<div style="margin-bottom:2rem"></div>
+<div style="margin-bottom:2rem"></div>
 
 	<nav class="pagination" role="navigation">
 	
@@ -1440,14 +1345,9 @@ Proposed order of styling methods The following order is proposed when consideri
 	
 </nav>
 
-
-
-
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/technology/tools/vs-code/" title="Visual Studio Code"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/app/" title="Create apps" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div></section>
         </div> 
@@ -1504,3 +1404,4 @@ Proposed order of styling methods The following order is proposed when consideri
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

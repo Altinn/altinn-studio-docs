@@ -381,7 +381,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/app/launched-apps/digdir/be-om-api-nokkel/"><span>Tilgang til REST API</span></a></li></ul></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/nb/api/"><span>API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -438,17 +438,17 @@ if(host != "localhost")
         <a href="/nb/api/storage/spec/"><span>OpenAPI</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/api/studio/"><span>Studio</span></a></li></ul></li>
-      <li class="dd-item parent">
-        <a href="/nb/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/community/about/"><span>Om</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/community/about/goals/"><span>Mål</span></a></li>
       <li class="dd-item">
         <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li></ul></li>
-      <li class="dd-item parent">
-        <a href="/nb/community/contributing/"><span>Bidra til utvikling</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
-      <li class="dd-item parent active">
+      <li class="dd-item">
+        <a href="/nb/community/contributing/"><span>Bidra til utvikling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
         <a href="/nb/community/contributing/propose-component/"><span>Foreslå en ny komponent</span></a></li>
       <li class="dd-item">
         <a href="/nb/community/contributing/develop-component/"><span>Utvikle en komponent</span></a></li><li class="dd-item">
@@ -543,7 +543,12 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/nb/community/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/community/contributing/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/community/contributing/propose-component/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -557,12 +562,7 @@ if(host != "localhost")
                 <span class="links"><a href='/nb/community/'>Community</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/community/contributing/'>Bidra til utvikling</a> <span class='adocs-breadcrumb-divider'> / </span> Foreslå en ny komponent</span>
             </div>
           </div><div id="body-inner"><h1 class="a-fontBold">Foreslå en ny komponent</h1>
-              <p class="a-leadText" id="leadText">Om dere har behov for en komponent eller funksjonalitet som vi ikke tilbyr ønsker vi at behovet blir meldt som en feature request før utviklingen starter.</p>
-
-
-
-
-<ul class="connected-bullets">
+              <p class="a-leadText" id="leadText">Om dere har behov for en komponent eller funksjonalitet som vi ikke tilbyr ønsker vi at behovet blir meldt som en feature request før utviklingen starter.</p><ul class="connected-bullets">
 <li><strong><a href="https://github.com/Altinn/altinn-studio/issues/new?assignees=FinnurO&amp;labels=kind%2Ffeature-request&amp;template=feature_request.md">Opprett en Feature request in github</a>.</strong><br>
 Beskriv komponenten, forklar hvorfor den vil være nyttig og i hvilken 
 sammenheng den trengs.</li>
@@ -587,27 +587,10 @@ oppstår problemer.</li>
 Brukere skal ikke trenge å lure på om forskjellige ord, situasjoner eller handlinger betyr det samme.</li>
 <li><strong>Allsidig</strong> - En ny komponent bør utformes slik at den kan brukes i andre tilsvarende scenarioer og tjenester.</li>
 </ul>
-
-
-
-
-
-
-
-
-
-
-
-
 <ul class="children children-li js-moveChildrenFrom">
-	
-    
-    
 
 	
 		
-	
-
 	
 </ul>
 
@@ -616,21 +599,10 @@ Brukere skal ikke trenge å lure på om forskjellige ord, situasjoner eller hand
 
 
 
-
-
-<footer class=" footline" >
-	
-</footer>
-
-
-
-
-
+<footer class=" footline" ></footer>
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/nb/community/contributing/" title="Bidra til utviklingen av Altinn"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/nb/community/contributing/develop-component/" title="Utvikle en komponent" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/community/contributing/propose-component/_index.nb.md" target="blank">
@@ -692,3 +664,4 @@ Brukere skal ikke trenge å lure på om forskjellige ord, situasjoner eller hand
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

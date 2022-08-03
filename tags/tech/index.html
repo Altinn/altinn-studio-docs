@@ -421,7 +421,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -429,7 +429,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -437,7 +437,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -521,7 +521,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -1075,7 +1075,11 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/tags/']").parent().addClass("parent");
+ $("li.dd-item a[href='/tags/tech/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1091,20 +1095,7 @@ if(host != "localhost")
           </div><div id="body-inner"><h1 class="a-fontBold">tech</h1>
               <p class="a-leadText" id="leadText"></p>
 
-
-
-
-
-
-<footer class=" footline" >
-	
-</footer>
-
-
-
-	
-
-	<div class="extra-pagination inner">
+<footer class=" footline" ></footer><div class="extra-pagination inner">
 	<nav class="pagination" role="navigation">
 	
 	<span class="page-number">Page 1 on 3</span>
@@ -1113,10 +1104,7 @@ if(host != "localhost")
 	
 </nav>
 
-	</div>
-
-	
-	   <article class="post technology">
+	</div><article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/tools/dotnet-core/">.NET Core</a></h2>
     </header>
@@ -1127,10 +1115,8 @@ Altinn ❤️ dotnet.
 Links  Documentation Download License Roadmap Docker Hub Runtime ASP.NET   <a class="read-more" href="/technology/tools/dotnet-core/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/tech/">tech</a>
@@ -1138,15 +1124,9 @@ Links  Documentation Download License Roadmap Docker Hub Runtime ASP.NET   <a cl
                 <a class="label label-default" href="https://docs.altinn.studio/tags/programming/">programming</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/tools/alpine-linux/">Alpine Linux</a></h2>
     </header>
@@ -1155,24 +1135,16 @@ Links  Documentation Download License Roadmap Docker Hub Runtime ASP.NET   <a cl
 Links  https://alpinelinux.org https://hub.docker.com/_/alpine https://en.wikipedia.org/wiki/Alpine_Linux   <a class="read-more" href="/technology/tools/alpine-linux/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/tech/">tech</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/tools/c-sharp/">C#</a></h2>
     </header>
@@ -1181,10 +1153,8 @@ Links  https://alpinelinux.org https://hub.docker.com/_/alpine https://en.wikipe
 Links  Extension for Visual Studio Code C# documentation C# language design History   <a class="read-more" href="/technology/tools/c-sharp/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/tech/">tech</a>
@@ -1192,15 +1162,9 @@ Links  Extension for Visual Studio Code C# documentation C# language design Hist
                 <a class="label label-default" href="https://docs.altinn.studio/tags/programming/">programming</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/tools/docker/">Docker</a></h2>
     </header>
@@ -1211,10 +1175,8 @@ Altinn ❤️ containers.
 Links  https://www.docker.com https://www.docker.com/products/docker-desktop https://hub.docker.com https://github.com/docker/docker-ce   <a class="read-more" href="/technology/tools/docker/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/tech/">tech</a>
@@ -1222,15 +1184,9 @@ Links  https://www.docker.com https://www.docker.com/products/docker-desktop htt
                 <a class="label label-default" href="https://docs.altinn.studio/tags/containers/">containers</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/tools/git/">Git</a></h2>
     </header>
@@ -1241,10 +1197,8 @@ Altinn ❤️ Git.
 Links  https://git-scm.com https://en.wikipedia.org/wiki/Git https://code.visualstudio.com/docs/editor/versioncontrol#_git-support   <a class="read-more" href="/technology/tools/git/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/tech/">tech</a>
@@ -1252,15 +1206,9 @@ Links  https://git-scm.com https://en.wikipedia.org/wiki/Git https://code.visual
                 <a class="label label-default" href="https://docs.altinn.studio/tags/git/">git</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/tools/gitea/">Gitea</a></h2>
     </header>
@@ -1269,10 +1217,8 @@ Links  https://git-scm.com https://en.wikipedia.org/wiki/Git https://code.visual
 Links  https://gitea.io https://github.com/go-gitea/gitea https://hub.docker.com/r/gitea/gitea   <a class="read-more" href="/technology/tools/gitea/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/tech/">tech</a>
@@ -1284,15 +1230,9 @@ Links  https://gitea.io https://github.com/go-gitea/gitea https://hub.docker.com
                 <a class="label label-default" href="https://docs.altinn.studio/tags/repos/">repos</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/tools/go/">Go</a></h2>
     </header>
@@ -1301,10 +1241,8 @@ Links  https://gitea.io https://github.com/go-gitea/gitea https://hub.docker.com
 Links  https://golang.org https://github.com/golang/go https://hub.docker.com/_/golang https://code.visualstudio.com/docs/languages/go   <a class="read-more" href="/technology/tools/go/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/tech/">tech</a>
@@ -1312,15 +1250,9 @@ Links  https://golang.org https://github.com/golang/go https://hub.docker.com/_/
                 <a class="label label-default" href="https://docs.altinn.studio/tags/programming/">programming</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/tools/grafana/">Grafana</a></h2>
     </header>
@@ -1329,10 +1261,8 @@ Links  https://golang.org https://github.com/golang/go https://hub.docker.com/_/
 Links  https://grafana.com https://github.com/grafana/grafana   <a class="read-more" href="/technology/tools/grafana/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/tech/">tech</a>
@@ -1340,15 +1270,9 @@ Links  https://grafana.com https://github.com/grafana/grafana   <a class="read-m
                 <a class="label label-default" href="https://docs.altinn.studio/tags/monitoring/">monitoring</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/tools/helm/">Helm</a></h2>
     </header>
@@ -1358,10 +1282,8 @@ A helm-package, or a helm-chart is a folder with a set file-structure.
 +-- altinn-designer | +-- templates | | +-- tests | | | +-- test-connection.yaml | | +-- NOTES.txt | | +-- _helpers.tpl | | +-- deployment.yaml | | +-- service. <a class="read-more" href="/technology/tools/helm/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/tech/">tech</a>
@@ -1369,15 +1291,9 @@ A helm-package, or a helm-chart is a folder with a set file-structure.
                 <a class="label label-default" href="https://docs.altinn.studio/tags/containers/">containers</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/tools/hugo/">Hugo</a></h2>
     </header>
@@ -1387,10 +1303,8 @@ Altinn ❤️ Hugo.
 Links  https://gohugo.io https://github.com/altinn/docs https://github.com/altinn/altinn-studio-docs https://github.com/altinn/hugo-theme-altinn   <a class="read-more" href="/technology/tools/hugo/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/tech/">tech</a>
@@ -1400,16 +1314,9 @@ Links  https://gohugo.io https://github.com/altinn/docs https://github.com/altin
                 <a class="label label-default" href="https://docs.altinn.studio/tags/markdown/">markdown</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-
-	<div style="margin-bottom:2rem"></div>
+<div style="margin-bottom:2rem"></div>
 
 	<nav class="pagination" role="navigation">
 	
@@ -1419,14 +1326,9 @@ Links  https://gohugo.io https://github.com/altinn/docs https://github.com/altin
 	
 </nav>
 
-
-
-
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-next" href="/app/" title="Create apps" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div></section>
         </div> 
@@ -1483,3 +1385,4 @@ Links  https://gohugo.io https://github.com/altinn/docs https://github.com/altin
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

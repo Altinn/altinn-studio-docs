@@ -380,7 +380,7 @@ if(host != "localhost")
         <a href="/nb/app/launched-apps/digdir/oed/"><span>Oppgjør etter dødsfall</span></a></li>
       <li class="dd-item">
         <a href="/nb/app/launched-apps/digdir/be-om-api-nokkel/"><span>Tilgang til REST API</span></a></li></ul></li></ul></li></ul></li>
-      <li class="dd-item parent">
+      <li class="dd-item">
         <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
@@ -400,8 +400,8 @@ if(host != "localhost")
         <a href="/nb/api/apps/validation/"><span>Validering</span></a></li>
       <li class="dd-item">
         <a href="/nb/api/apps/spec/"><span>OpenAPI</span></a></li></ul></li>
-      <li class="dd-item parent active">
-        <a href="/nb/api/authentication/"><span>Authentication</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/api/authentication/"><span>Authentication</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/authentication/maskinporten/"><span>Maskinporten</span></a></li>
       <li class="dd-item">
@@ -543,7 +543,11 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/nb/api/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/api/authentication/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -557,115 +561,35 @@ if(host != "localhost")
                 <span class="links"><a href='/nb/api/'>API</a> <span class='adocs-breadcrumb-divider'> / </span> Authentication</span>
             </div>
           </div><div id="body-inner"><h1 class="a-fontBold">Authentication API</h1>
-              <p class="a-leadText" id="leadText">Beskrivelse av hvordan systemer og tjenesteeiere kan benytte Maskinporten eller ID-porten for å få tilgang til APIer i Altinn 3.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<ul class="children children-li js-moveChildrenFrom">
-	
-    
-	    
-    
-    
+              <p class="a-leadText" id="leadText">Beskrivelse av hvordan systemer og tjenesteeiere kan benytte Maskinporten eller ID-porten for å få tilgang til APIer i Altinn 3.</p><ul class="children children-li js-moveChildrenFrom">
 
 	
-		
-	
-		
-
-
-<li>
-<a href="/nb/api/authentication/maskinporten/" >Autentisere med Maskinporten</a>
-<p>Beskrivelse av hvordan tjenesteeiers systemer kan benytte Maskinporten for å få tilgang til APIer.</p>
-</li>
-
-
-
-		
-	
-		
-
-
-<li>
-<a href="/nb/api/authentication/enterpriseuser/" >Autentisere med virksomhetsbruker</a>
-<p>Beskrivelse hvordan man kan benytte virksomhetsbrukere i Altinn 3</p>
-</li>
-
-
-
-		
-	
-		
-
-
-<li>
-<a href="/nb/api/authentication/id-porten/" >Autentisere med ID-porten</a>
-<p>Beskrivelse av hvordan systemer kan benytte ID-porten for å få tilgang til APIer i Altinn 3.</p>
-</li>
-
-
-
-		
-	
-		
-
-
-<li>
-<a href="/nb/api/authentication/delegate-scopes/" >Delegere API-tilganger til en leverandør</a>
-<p>Beskrivelse av hvordan tjenesteier kan delegere API-tilganger (scopes) til en underleverandør.</p>
-</li>
-
-
-
-		
-	
-		
-
-
-<li>
-<a href="/nb/api/authentication/spec/" >OpenAPI (swagger) for Authentication</a>
-<p></p>
-</li>
-
-
-
-		
-	
-
+		<li>
+				<a href="/nb/api/authentication/maskinporten/">Autentisere med Maskinporten</a>
+				<p>Beskrivelse av hvordan tjenesteeiers systemer kan benytte Maskinporten for å få tilgang til APIer.</p>
+				</li><li>
+				<a href="/nb/api/authentication/enterpriseuser/">Autentisere med virksomhetsbruker</a>
+				<p>Beskrivelse hvordan man kan benytte virksomhetsbrukere i Altinn 3</p>
+				</li><li>
+				<a href="/nb/api/authentication/id-porten/">Autentisere med ID-porten</a>
+				<p>Beskrivelse av hvordan systemer kan benytte ID-porten for å få tilgang til APIer i Altinn 3.</p>
+				</li><li>
+				<a href="/nb/api/authentication/delegate-scopes/">Delegere API-tilganger til en leverandør</a>
+				<p>Beskrivelse av hvordan tjenesteier kan delegere API-tilganger (scopes) til en underleverandør.</p>
+				</li><li>
+				<a href="/nb/api/authentication/spec/">OpenAPI (swagger) for Authentication</a>
+				<p></p>
+				</li>
 	
 </ul>
 
 
 
 
-
-
-<footer class=" footline" >
-	
-</footer>
-
-
-
-
-
+<footer class=" footline" ></footer>
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/nb/api/apps/spec/" title="OpenAPI (swagger) for Apps"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/nb/api/authentication/maskinporten/" title="Autentisere med Maskinporten" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/api/authentication/_index.nb.md" target="blank">
@@ -727,3 +651,4 @@ if(host != "localhost")
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

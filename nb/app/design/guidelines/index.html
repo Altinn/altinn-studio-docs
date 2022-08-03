@@ -118,8 +118,8 @@ if(host != "localhost")
 </script>
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
-      <li class="dd-item parent">
-        <a href="/nb/app/"><span>Lage apper</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/"><span>Lage apper</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/app/getting-started/"><span>Kom i gang</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -172,16 +172,16 @@ if(host != "localhost")
         <a href="/nb/app/app-dev-course/modul7/"><span>Modul 7</span></a></li>
       <li class="dd-item">
         <a href="/nb/app/app-dev-course/losningsforslag/"><span>Løsningsforslag</span></a></li></ul></li>
-      <li class="dd-item parent">
-        <a href="/nb/app/design/"><span>Design</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/design/"><span>Design</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/app/design/insight/"><span>Innsiktsfase</span></a></li>
       <li class="dd-item">
         <a href="/nb/app/design/prototype/"><span>Prototype</span></a></li>
       <li class="dd-item">
         <a href="/nb/app/design/usertest/"><span>Brukertest</span></a></li>
-      <li class="dd-item parent active">
-        <a href="/nb/app/design/guidelines/"><span>Retningslinjer</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/design/guidelines/"><span>Retningslinjer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/app/design/guidelines/design-principles/"><span>Designprinsipper</span></a></li>
       <li class="dd-item">
@@ -381,7 +381,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/app/launched-apps/digdir/be-om-api-nokkel/"><span>Tilgang til REST API</span></a></li></ul></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/nb/api/"><span>API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -543,7 +543,12 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/nb/app/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/app/design/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/app/design/guidelines/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -557,142 +562,44 @@ if(host != "localhost")
                 <span class="links"><a href='/nb/app/'>Lage apper</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/app/design/'>Design</a> <span class='adocs-breadcrumb-divider'> / </span> Retningslinjer</span>
             </div>
           </div><div id="body-inner"><h1 class="a-fontBold">Retningslinjer</h1>
-              <p class="a-leadText" id="leadText">Vi ønsker å oppnå helhetlige og konsistente brukeropplevelser ved å bruke gjenkjennbare og godt testede komponenter. For å oppnå dette ut i tjenestene, ber vi deg om å benytte retningslinjene på disse sidene.</p>
-
-
-
-
-<p>Altinn har som mål å gjøre det enklere for innbyggere og næringsliv å være i kontakt med det offentlige uavhengig 
+              <p class="a-leadText" id="leadText">Vi ønsker å oppnå helhetlige og konsistente brukeropplevelser ved å bruke gjenkjennbare og godt testede komponenter. For å oppnå dette ut i tjenestene, ber vi deg om å benytte retningslinjene på disse sidene.</p><p>Altinn har som mål å gjøre det enklere for innbyggere og næringsliv å være i kontakt med det offentlige uavhengig 
 av digital kompetanse. Felles retningslinjer for design hjelper oss å skape konsistens på tvers av tjenester 
 som lages i Altinn Studio.</p>
-
-
-
-
-
-
-
-
-
-
-
-
 <ul class="children children-li js-moveChildrenFrom">
-	
-    
-	    
-    
-    
 
 	
-		
-	
-		
-
-
-<li>
-<a href="/nb/app/design/guidelines/design-principles/" >Designprinsipper</a>
-<p>Når vi utvikler nye eller forbedrer eksisterende produkter følger vi et sett med prinsipper for å kunne sikre oss at vi leverer brukervennlige løsninger til alle. Vi anbefaler å følge disse prinsippene når du jobber med utvikling av nye tjenester.</p>
-</li>
-
-
-
-		
-	
-		
-
-
-<li>
-<a href="/nb/app/design/guidelines/link-to-app/" >Inngang til skjema</a>
-<p>For å gjøre opplevelsen til brukeren best mulig bør du tenke over hvordan du lenker til Altinn-appen fra din etat.</p>
-</li>
-
-
-
-		
-	
-		
-
-
-<li>
-<a href="/nb/app/design/guidelines/content/" >Innhold i skjema</a>
-<p>Forklar brukeren hva som skal til for å fylle ut skjemaet riktig og fordel innholdet i flere steg.</p>
-</li>
-
-
-
-		
-	
-		
-
-
-<li>
-<a href="/nb/app/design/guidelines/consistency/" >Konsistens på tvers av tjenester</a>
-<p>For å være lett å bruke og unngå forvirring, bør samme interaksjonsmønstre følges på tvers av tjenester.</p>
-</li>
-
-
-
-		
-	
-		
-
-
-<li>
-<a href="/nb/app/design/guidelines/components/" >UI-komponenter</a>
-<p>De ulike komponentene er laget for at de skal passe sammen i en større helhet. Det er derfor viktig å følge retningslinjene for hvordan disse brukes for å oppnå et konsistent og gjenkjennbart uttrykk. UI-komponenter som foreløpig inngår i Altinns bibliotek finner du her.</p>
-</li>
-
-
-
-		
-	
-		
-
-
-<li>
-<a href="/nb/app/design/guidelines/tone-of-voice/" >Språk</a>
-<p>Retningslinjene skal sørge for at vi får et ensrettet språk og forståelig innhold i tjenestene som lages i Altinn.</p>
-</li>
-
-
-
-		
-	
-		
-
-
-<li>
-<a href="/nb/app/design/guidelines/wcag/" >Tilgjengelighet</a>
-<p>God tilgjengelighet hjelper mennesker med funksjonshemninger å oppfatte innholdet vårt på en meningsfull måte. Ved å bruke Altinn 3 får du mye på kjøpet, men noen ting må du fortsatt huske på selv.</p>
-</li>
-
-
-
-		
-	
-
+		<li>
+				<a href="/nb/app/design/guidelines/design-principles/">Designprinsipper</a>
+				<p>Når vi utvikler nye eller forbedrer eksisterende produkter følger vi et sett med prinsipper for å kunne sikre oss at vi leverer brukervennlige løsninger til alle. Vi anbefaler å følge disse prinsippene når du jobber med utvikling av nye tjenester.</p>
+				</li><li>
+				<a href="/nb/app/design/guidelines/link-to-app/">Inngang til skjema</a>
+				<p>For å gjøre opplevelsen til brukeren best mulig bør du tenke over hvordan du lenker til Altinn-appen fra din etat.</p>
+				</li><li>
+				<a href="/nb/app/design/guidelines/content/">Innhold i skjema</a>
+				<p>Forklar brukeren hva som skal til for å fylle ut skjemaet riktig og fordel innholdet i flere steg.</p>
+				</li><li>
+				<a href="/nb/app/design/guidelines/consistency/">Konsistens på tvers av tjenester</a>
+				<p>For å være lett å bruke og unngå forvirring, bør samme interaksjonsmønstre følges på tvers av tjenester.</p>
+				</li><li>
+				<a href="/nb/app/design/guidelines/components/">UI-komponenter</a>
+				<p>De ulike komponentene er laget for at de skal passe sammen i en større helhet. Det er derfor viktig å følge retningslinjene for hvordan disse brukes for å oppnå et konsistent og gjenkjennbart uttrykk. UI-komponenter som foreløpig inngår i Altinns bibliotek finner du her.</p>
+				</li><li>
+				<a href="/nb/app/design/guidelines/tone-of-voice/">Språk</a>
+				<p>Retningslinjene skal sørge for at vi får et ensrettet språk og forståelig innhold i tjenestene som lages i Altinn.</p>
+				</li><li>
+				<a href="/nb/app/design/guidelines/wcag/">Tilgjengelighet</a>
+				<p>God tilgjengelighet hjelper mennesker med funksjonshemninger å oppfatte innholdet vårt på en meningsfull måte. Ved å bruke Altinn 3 får du mye på kjøpet, men noen ting må du fortsatt huske på selv.</p>
+				</li>
 	
 </ul>
 
 
 
 
-
-
-<footer class=" footline" >
-	
-</footer>
-
-
-
-
-
+<footer class=" footline" ></footer>
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/nb/app/design/usertest/" title="Brukertest"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/nb/app/design/guidelines/design-principles/" title="Designprinsipper" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/app/design/guidelines/_index.nb.md" target="blank">
@@ -754,3 +661,4 @@ som lages i Altinn Studio.</p>
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

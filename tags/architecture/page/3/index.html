@@ -421,7 +421,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -429,7 +429,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -437,7 +437,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -521,7 +521,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -1075,7 +1075,11 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/tags/']").parent().addClass("parent");
+ $("li.dd-item a[href='/tags/architecture/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1091,20 +1095,7 @@ if(host != "localhost")
           </div><div id="body-inner"><h1 class="a-fontBold">architecture</h1>
               <p class="a-leadText" id="leadText"></p>
 
-
-
-
-
-
-<footer class=" footline" >
-	
-</footer>
-
-
-
-	
-
-	<div class="extra-pagination inner">
+<footer class=" footline" ></footer><div class="extra-pagination inner">
 	<nav class="pagination" role="navigation">
 	
 	    <a class="newer-posts" href="/tags/architecture/page/2/">&larr; Previous Pages</a>
@@ -1115,10 +1106,7 @@ if(host != "localhost")
 	
 </nav>
 
-	</div>
-
-	
-	   <article class="post technology">
+	</div><article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/solution/altinn-platform/storage/">Altinn Platform - Storage</a></h2>
     </header>
@@ -1129,10 +1117,8 @@ Resources: Instance, Application, DataType, ApplicationLogic, InstanceEvent, App
 Instance An application instance is created when a instance owner (reportee) starts a process in an Altinn application. <a class="read-more" href="/technology/architecture/components/application/solution/altinn-platform/storage/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1142,15 +1128,9 @@ Instance An application instance is created when a instance owner (reportee) sta
                 <a class="label label-default" href="https://docs.altinn.studio/tags/platform/">platform</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/solution/altinn-platform/authorization/accessgroups/">Access Groups</a></h2>
     </header>
@@ -1161,10 +1141,8 @@ See Github #25
 AccessGroup defintion  Type of group. Leaf or branch? Name of group in different languges AccessGroup identifier  AccessGroup relationship  Parent/child relantiship between AccessGroups Relationship for external roles (ER, AA,  AccessGroup Membership  MembershipID CoveredBy UserId Covered OfferedByParty AccessGroupId ValidTo?  AccessGroup Delegation  DelegatedByParty DelegatedByUserId DelegationType DelegatetDateTime  AccessGroup History  DelegatedBy AccessGroupID OfferedBy CoveredByUserId CoveredByPartyId ChangeType (created, deleted)    <a class="read-more" href="/technology/architecture/components/application/solution/altinn-platform/authorization/accessgroups/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1176,15 +1154,9 @@ AccessGroup defintion  Type of group. Leaf or branch? Name of group in different
                 <a class="label label-default" href="https://docs.altinn.studio/tags/xacml/">xacml</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/capabilities/runtime/security/authentication/accesstoken/">Access Token</a></h2>
     </header>
@@ -1194,10 +1166,8 @@ This makes it possible for each Altinn Platform environment to configure which A
 The token is generated with help of the Access Token generator and this is generated for each call designer are doing aginst the platform solution for Storage and Authorization. <a class="read-more" href="/technology/architecture/capabilities/runtime/security/authentication/accesstoken/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1205,15 +1175,9 @@ The token is generated with help of the Access Token generator and this is gener
                 <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/solution/altinn-apps/">Solution-specific application components Altinn Apps</a></h2>
     </header>
@@ -1222,10 +1186,8 @@ The token is generated with help of the Access Token generator and this is gener
 This functionality depends on what kind of application template the app is based on and what the app developer have added in addition. <a class="read-more" href="/technology/architecture/components/application/solution/altinn-apps/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1233,28 +1195,19 @@ This functionality depends on what kind of application template the app is based
                 <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/construction/altinn-platform/">Application construction components for Altinn Platform</a></h2>
     </header>
     <section class="post-excerpt">
         <p>See below for application contruction components for the different components in Altinn Platform.
-Application construction components - Altinn Platform AuthenticationThe authentication component in Altinn platform is constructed as an asp.net core web API application deployed as a docker container to a Kubernetes cluster.
-Application construction components - Altinn Platform AuthorizationThe authorization component in Altinn platform is constructed as an asp.net core web API application deployed as a docker container to a Kubernetes cluster. <a class="read-more" href="/technology/architecture/components/application/construction/altinn-platform/">&raquo;</a></p>
+ &lt;li&gt;&lt;a href=&quot;/technology/architecture/components/application/construction/altinn-platform/authentication/&quot;&gt;Application construction components - Altinn Platform Authentication&lt;/a&gt;&lt;p&gt;The authentication component in Altinn platform is constructed as an asp.net core web API application deployed as a docker container to a Kubernetes cluster.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/technology/architecture/components/application/construction/altinn-platform/authorization/&quot;&gt;Application construction components - Altinn Platform Authorization&lt;/a&gt;&lt;p&gt;The authorization component in Altinn platform is constructed as an asp.net core web API application deployed as a docker container to a Kubernetes cluster. <a class="read-more" href="/technology/architecture/components/application/construction/altinn-platform/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1262,15 +1215,9 @@ This functionality depends on what kind of application template the app is based
                 <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/solution/altinn-platform/">Solution-specific application components Altinn Platform</a></h2>
     </header>
@@ -1278,10 +1225,8 @@ This functionality depends on what kind of application template the app is based
         <p>The diagram below shows where the different functionality i located in the components. <a class="read-more" href="/technology/architecture/components/application/solution/altinn-platform/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1289,29 +1234,19 @@ This functionality depends on what kind of application template the app is based
                 <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/solution/altinn-studio/">Solution-specific application components Altinn Studio</a></h2>
     </header>
     <section class="post-excerpt">
         <p>
-Solution-specific application components Altinn Studio DesignerAltinn Studio Designer is the custom appliaction where app developers manage and creates applications.
-Solution components Altinn Studio RepositoriesIn Altinn Studio Repos you find the functional components related to source control and access management of the application developer.
- <a class="read-more" href="/technology/architecture/components/application/solution/altinn-studio/">&raquo;</a></p>
+ &lt;li&gt;&lt;a href=&quot;/technology/architecture/components/application/solution/altinn-studio/designer/&quot;&gt;Solution-specific application components Altinn Studio Designer&lt;/a&gt;&lt;p&gt;Altinn Studio Designer is the custom appliaction where app developers manage and creates applications.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/technology/architecture/components/application/solution/altinn-studio/repositories/&quot;&gt;Solution components Altinn Studio Repositories&lt;/a&gt;&lt;p&gt;In Altinn Studio Repos you find the functional components related to source control and access management of the application developer.&lt;/p&gt;&lt;/li&gt;  <a class="read-more" href="/technology/architecture/components/application/solution/altinn-studio/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1319,15 +1254,9 @@ This functionality depends on what kind of application template the app is based
                 <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/capabilities/devops/analysisanddesign/">Analysis &amp; Design Capabilities</a></h2>
     </header>
@@ -1339,10 +1268,8 @@ Some example issues are
 User story Definition The DevOps team has the capability to define user stories in our GitHub repository. <a class="read-more" href="/technology/architecture/capabilities/devops/analysisanddesign/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1350,15 +1277,9 @@ User story Definition The DevOps team has the capability to define user stories 
                 <a class="label label-default" href="https://docs.altinn.studio/tags/devops/">devops</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/construction/altinn-apps/app/">Application construction components App</a></h2>
     </header>
@@ -1369,24 +1290,16 @@ The application is built and deployed as a Docker container in a Kubernetes Pod 
 In the future Altinn Studio will support apps based on different templates. <a class="read-more" href="/technology/architecture/components/application/construction/altinn-apps/app/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/solution/altinn-apps/app/">Solution-specific application components for App based on ASP.Net template</a></h2>
     </header>
@@ -1398,10 +1311,8 @@ Instanstation The app has instansiation functionality that presents the user for
 The app developer can add instansiation controll that veriy the type of party selected. <a class="read-more" href="/technology/architecture/components/application/solution/altinn-apps/app/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1409,16 +1320,9 @@ The app developer can add instansiation controll that veriy the type of party se
                 <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-
-	<div style="margin-bottom:2rem"></div>
+<div style="margin-bottom:2rem"></div>
 
 	<nav class="pagination" role="navigation">
 	
@@ -1430,14 +1334,9 @@ The app developer can add instansiation controll that veriy the type of party se
 	
 </nav>
 
-
-
-
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/technology/tools/vs-code/" title="Visual Studio Code"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/app/" title="Create apps" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div></section>
         </div> 
@@ -1494,3 +1393,4 @@ The app developer can add instansiation controll that veriy the type of party se
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

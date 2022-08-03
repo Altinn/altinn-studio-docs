@@ -421,7 +421,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -429,7 +429,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -437,7 +437,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -521,7 +521,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -1075,7 +1075,11 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/tags/']").parent().addClass("parent");
+ $("li.dd-item a[href='/tags/architecture/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1091,20 +1095,7 @@ if(host != "localhost")
           </div><div id="body-inner"><h1 class="a-fontBold">architecture</h1>
               <p class="a-leadText" id="leadText"></p>
 
-
-
-
-
-
-<footer class=" footline" >
-	
-</footer>
-
-
-
-	
-
-	<div class="extra-pagination inner">
+<footer class=" footline" ></footer><div class="extra-pagination inner">
 	<nav class="pagination" role="navigation">
 	
 	    <a class="newer-posts" href="/tags/architecture/page/5/">&larr; Previous Pages</a>
@@ -1115,10 +1106,7 @@ if(host != "localhost")
 	
 </nav>
 
-	</div>
-
-	
-	   <article class="post technology">
+	</div><article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/nonsolutionspecific/development/">Development Applications</a></h2>
     </header>
@@ -1129,10 +1117,8 @@ See releases here.
 Manual &amp; Automated Test Tools Functional Test  Automated browser testing and WCAG testing using Cypress.  Unit Test  Jest framework used for unit testing front-end. More details here. xunit used for unit testing back-end. <a class="read-more" href="/technology/architecture/components/application/nonsolutionspecific/development/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
@@ -1140,15 +1126,9 @@ Manual &amp; Automated Test Tools Functional Test  Automated browser testing and
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/capabilities/runtime/security/encryption/">Encryption</a></h2>
     </header>
@@ -1158,10 +1138,8 @@ The Org that creates the App, would based on the type of data have spceial requi
 Storage encryption The storage component uses Azure Cosmos DB and Azrue Blob storage to store data for apps. <a class="read-more" href="/technology/architecture/capabilities/runtime/security/encryption/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1171,15 +1149,9 @@ Storage encryption The storage component uses Azure Cosmos DB and Azrue Blob sto
                 <a class="label label-default" href="https://docs.altinn.studio/tags/encryption/">encryption</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/capabilities/devops/environments/">Environments</a></h2>
     </header>
@@ -1196,10 +1168,8 @@ Available at tt02.altinn.no
 Production Environment Available at www. <a class="read-more" href="/technology/architecture/capabilities/devops/environments/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1207,15 +1177,9 @@ Production Environment Available at www. <a class="read-more" href="/technology/
                 <a class="label label-default" href="https://docs.altinn.studio/tags/devops/">devops</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/capabilities/runtime/integration/events/">Event capabilities</a></h2>
     </header>
@@ -1225,10 +1189,8 @@ This page is focused on capabilities. If you are interested in more details abou
 Overall Concept In Altinn there will over time be thousands of different digital services deployed to Altinn Apps. <a class="read-more" href="/technology/architecture/capabilities/runtime/integration/events/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1236,15 +1198,9 @@ Overall Concept In Altinn there will over time be thousands of different digital
                 <a class="label label-default" href="https://docs.altinn.studio/tags/events/">events</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/construction/altinn-platform/events/">Application construction components - Altinn Platform Events</a></h2>
     </header>
@@ -1255,10 +1211,8 @@ Api controllers The following API controllers are defined
  EventsController : responsible for registrating events and pull of events for consumers. <a class="read-more" href="/technology/architecture/components/application/construction/altinn-platform/events/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1266,15 +1220,9 @@ Api controllers The following API controllers are defined
                 <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/requirements/functional/">Functional Requirements</a></h2>
     </header>
@@ -1282,24 +1230,16 @@ Api controllers The following API controllers are defined
         <p>The functional requirements is extensive and is written as user stories. A good starting point is to look at issue 1337 at GitHub to get an overview of the required functionality. <a class="read-more" href="/technology/architecture/requirements/functional/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/infrastructure/">Infrastructure components</a></h2>
     </header>
@@ -1310,13 +1250,11 @@ Download as Visio
 Altinn 3 is currently deployed to Microsoft Azure. This does not mean that Altinn 3 can&rsquo;t be deployed to other cloud providers.
 Below you find details about the different cloud components used.
 
-Compute componentsCompute components gives processor power to applications and software <a class="read-more" href="/technology/architecture/components/infrastructure/">&raquo;</a></p>
+ &lt;li&gt;&lt;a href=&quot;/technology/architecture/components/infrastructure/computing/&quot;&gt;Compute components&lt;/a&gt;&lt;p&gt;Compute components gives processor power to applications and software&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/technology/architecture/components/infrastructure/network/&quot;&gt;Network componentens&lt;/a&gt;&lt;p&gt;All networking infrastructure is located in Azure. <a class="read-more" href="/technology/architecture/components/infrastructure/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1324,15 +1262,9 @@ Below you find details about the different cloud components used.
                 <a class="label label-default" href="https://docs.altinn.studio/tags/infrastructure/">infrastructure</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/capabilities/devops/platformoperations/infrastructuremgmt/">Infrastructure management</a></h2>
     </header>
@@ -1342,10 +1274,8 @@ To be able to manage and configure all these cloud resources the architecture th
 Infrastructure Configuration and managment Capabilities Tools &amp; components For all solutions of Altinn 3 (Altinn Apps, Altinn Platform and Altinn Studio) we use some common tools to configure and manage infrastructure. <a class="read-more" href="/technology/architecture/capabilities/devops/platformoperations/infrastructuremgmt/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1355,15 +1285,9 @@ Infrastructure Configuration and managment Capabilities Tools &amp; components F
                 <a class="label label-default" href="https://docs.altinn.studio/tags/devops/">devops</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/capabilities/runtime/integration/">Integration &amp; Data Transport Capabilties</a></h2>
     </header>
@@ -1373,24 +1297,16 @@ Data flows between the different actors using Altinns.
  Citizens receives data from the public agencies and sends data to the public agencies Business receives data from the public agencies and sends data to the public agencies Public agencies can share data with other public agencies ++  End-point enablement Applications created in Altinn Studio has build in API for communication with the different actors. <a class="read-more" href="/technology/architecture/capabilities/runtime/integration/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/platform/integration/">Integration Components</a></h2>
     </header>
@@ -1403,25 +1319,16 @@ Data Access Libraries We use various libraries to interact with different data s
 Integration Libraries We use integration libraries to interact with different external and internal components. <a class="read-more" href="/technology/architecture/components/platform/integration/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-
-	<div style="margin-bottom:2rem"></div>
+<div style="margin-bottom:2rem"></div>
 
 	<nav class="pagination" role="navigation">
 	
@@ -1433,14 +1340,9 @@ Integration Libraries We use integration libraries to interact with different ex
 	
 </nav>
 
-
-
-
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/technology/tools/vs-code/" title="Visual Studio Code"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/app/" title="Create apps" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div></section>
         </div> 
@@ -1497,3 +1399,4 @@ Integration Libraries We use integration libraries to interact with different ex
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

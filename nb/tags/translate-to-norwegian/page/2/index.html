@@ -381,7 +381,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/app/launched-apps/digdir/be-om-api-nokkel/"><span>Tilgang til REST API</span></a></li></ul></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/nb/api/"><span>API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -543,7 +543,11 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/nb/tags/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/tags/translate-to-norwegian/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -559,20 +563,7 @@ if(host != "localhost")
           </div><div id="body-inner"><h1 class="a-fontBold">translate-to-norwegian</h1>
               <p class="a-leadText" id="leadText"></p>
 
-
-
-
-
-
-<footer class=" footline" >
-	
-</footer>
-
-
-
-	
-
-	<div class="extra-pagination inner">
+<footer class=" footline" ></footer><div class="extra-pagination inner">
 	<nav class="pagination" role="navigation">
 	
 	    <a class="newer-posts" href="/nb/tags/translate-to-norwegian/">&larr; Forrige</a>
@@ -583,10 +574,7 @@ if(host != "localhost")
 	
 </nav>
 
-	</div>
-
-	
-	   <article class="post community">
+	</div><article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/nb/community/changelog/storage-interfaces/v2/">v2</a></h2>
     </header>
@@ -594,24 +582,16 @@ if(host != "localhost")
         <p>2.5.10 Dependency on .NETStandard2.0  The package was changed to depend on .NetStandard2.0 in place of .NetStandard2.1. This should ensure that applications based on .NET Framework 4.7 can use the package.  2.5.9 Expanded the eFormidlingContract with SecurityLevel  eFormidlingContract model was given a new property holding security level information. #5740  2.5.8 Extended eFormidlingContract with additional parameters  eFormidlingContract model was given three new properties to support eFormidling in apps. <a class="read-more" href="/nb/community/changelog/storage-interfaces/v2/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-norwegian/">translate-to-norwegian</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post api">
+<article class="post api">
     <header class="post-header">
         <h2 class="post-title"><a href="/nb/api/apps/process/">Prosess</a></h2>
     </header>
@@ -620,10 +600,8 @@ if(host != "localhost")
 A process is represented by an process modell in BPMN/XML notation. Each task has an unique id, which is used to refer to the task in the api. <a class="read-more" href="/nb/api/apps/process/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/api/">api</a>
@@ -631,15 +609,9 @@ A process is represented by an process modell in BPMN/XML notation. Each task ha
                 <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-norwegian/">translate-to-norwegian</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post api">
+<article class="post api">
     <header class="post-header">
         <h2 class="post-title"><a href="/nb/api/storage/instance-events/">Instance events</a></h2>
     </header>
@@ -650,10 +622,8 @@ GET {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/events E
  Selected instance events. Created, first read, change process state. <a class="read-more" href="/nb/api/storage/instance-events/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/api/">api</a>
@@ -661,15 +631,9 @@ GET {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/events E
                 <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-norwegian/">translate-to-norwegian</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post api">
+<article class="post api">
     <header class="post-header">
         <h2 class="post-title"><a href="/nb/api/apps/validation/">Validering</a></h2>
     </header>
@@ -678,10 +642,8 @@ GET {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/events E
 Validate stored instance This action will validate an entire instance including the all data elements already uploaded and stored in Altinn. Validation will be performed based on current task in the process. Validation will ensure that all required data elements, as defined by the application metadata, have been uploaded and are valid. <a class="read-more" href="/nb/api/apps/validation/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/api/">api</a>
@@ -689,15 +651,9 @@ Validate stored instance This action will validate an entire instance including 
                 <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-norwegian/">translate-to-norwegian</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/nb/community/changelog/app-frontend/v3/breaking-changes/">Breaking changes</a></h2>
     </header>
@@ -709,24 +665,16 @@ In App/views/Home/Index.cshtml, replace the line
 &lt;link href=&#34;https://altinncdn.no/fonts/altinn-din/altinn-din.css&#34; rel=&#34;stylesheet&#34;&gt; The updated file, referring to v3 of app frontend, should reflect the changes of the file on the right: <a class="read-more" href="/nb/community/changelog/app-frontend/v3/breaking-changes/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-norwegian/">translate-to-norwegian</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/nb/community/changelog/app-nuget/v3/breaking-changes/">Breaking changes</a></h2>
     </header>
@@ -739,24 +687,16 @@ Navigate to you application repository and find App.csproj in the App folder.
 Update nuget dependencies in App.csproj to version 3.0.0. &lt;PackageReference Include=&#34;Altinn.App.Api&#34; Version=&#34;3.0.0&#34; /&gt; &lt;PackageReference Include=&#34;Altinn.App.Common&#34; Version=&#34;3.0.0&#34; /&gt; &lt;PackageReference Include=&#34;Altinn. <a class="read-more" href="/nb/community/changelog/app-nuget/v3/breaking-changes/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-norwegian/">translate-to-norwegian</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/nb/community/changelog/app-nuget/v4/breaking-changes/">Breaking changes</a></h2>
     </header>
@@ -768,24 +708,16 @@ Follow the instructions below to ensure that the app is compatible with version 
 Navigate to you application repository and find App.csproj in the App folder. <a class="read-more" href="/nb/community/changelog/app-nuget/v4/breaking-changes/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-norwegian/">translate-to-norwegian</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/nb/community/changelog/app-nuget/v5/breaking-changes/">Breaking changes</a></h2>
     </header>
@@ -795,24 +727,16 @@ Since App.cs passes parameteres to AppBase.cs you need to remove thos no longer 
  processService settings textService  Your App constructor should then look something like this: <a class="read-more" href="/nb/community/changelog/app-nuget/v5/breaking-changes/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-norwegian/">translate-to-norwegian</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/nb/community/changelog/app-nuget/v6/breaking-changes/">Breaking changes</a></h2>
     </header>
@@ -822,24 +746,16 @@ This is a alpha relase and is not used by default in new applications. Currently
 Altinn.App.* librarires target . <a class="read-more" href="/nb/community/changelog/app-nuget/v6/breaking-changes/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-norwegian/">translate-to-norwegian</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post api">
+<article class="post api">
     <header class="post-header">
         <h2 class="post-title"><a href="/nb/api/events/">Events API</a></h2>
     </header>
@@ -849,10 +765,8 @@ The events APIs are used to access events created by applications in Altinn Apps
 Subscription The highly preferred way to use events is to set up a subscription that enables push of events to a webhook-endpoint. <a class="read-more" href="/nb/api/events/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/api/">api</a>
@@ -860,16 +774,9 @@ Subscription The highly preferred way to use events is to set up a subscription 
                 <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-norwegian/">translate-to-norwegian</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-
-	<div style="margin-bottom:2rem"></div>
+<div style="margin-bottom:2rem"></div>
 
 	<nav class="pagination" role="navigation">
 	
@@ -881,14 +788,9 @@ Subscription The highly preferred way to use events is to set up a subscription 
 	
 </nav>
 
-
-
-
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/nb/technology/" title="Teknologi"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/nb/app/" title="Lage apper" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div></section>
         </div> 
@@ -945,3 +847,4 @@ Subscription The highly preferred way to use events is to set up a subscription 
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

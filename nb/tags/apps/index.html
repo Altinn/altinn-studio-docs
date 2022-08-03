@@ -381,7 +381,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/app/launched-apps/digdir/be-om-api-nokkel/"><span>Tilgang til REST API</span></a></li></ul></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/nb/api/"><span>API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -543,7 +543,11 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/nb/tags/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/tags/apps/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -559,30 +563,14 @@ if(host != "localhost")
           </div><div id="body-inner"><h1 class="a-fontBold">apps</h1>
               <p class="a-leadText" id="leadText"></p>
 
-
-
-
-
-
-<footer class=" footline" >
-	
-</footer>
-
-
-
-	
-
-	<div class="extra-pagination inner">
+<footer class=" footline" ></footer><div class="extra-pagination inner">
 	<nav class="pagination" role="navigation">
 	
 	<span class="page-number">Side 1 av 1</span>
 	
 </nav>
 
-	</div>
-
-	
-	   <article class="post app">
+	</div><article class="post app">
     <header class="post-header">
         <h2 class="post-title"><a href="/nb/app/app-dev-course/case/">Casebeskrivelse</a></h2>
     </header>
@@ -592,10 +580,8 @@ I den sammenheng ønsker de å opprette en tjeneste i Altinn beregnet på person
 Ved å samle inn data om tilflyttere på et tidlig tidspunkt kan kommunen legge til rette og spisse tilbudene til tilflytterne allerede før første flytteeske er pakket. <a class="read-more" href="/nb/app/app-dev-course/case/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/apps/">apps</a>
@@ -605,15 +591,9 @@ Ved å samle inn data om tilflyttere på et tidlig tidspunkt kan kommunen legge 
                 <a class="label label-default" href="https://docs.altinn.studio/tags/training/">training</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post app">
+<article class="post app">
     <header class="post-header">
         <h2 class="post-title"><a href="/nb/app/app-dev-course/">Introkurs</a></h2>
     </header>
@@ -623,10 +603,8 @@ Tre ting må være på plass før du går i gang med dette kurset.
  En bruker i Altinn Studio Ditt lokale utviklingsmiljø er satt opp med støtte for utvikling og testing av apps Tilgang til en organisasjon med et testmiljø*  * En forutsetning for modul 3. <a class="read-more" href="/nb/app/app-dev-course/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/apps/">apps</a>
@@ -638,15 +616,9 @@ Tre ting må være på plass før du går i gang med dette kurset.
                 <a class="label label-default" href="https://docs.altinn.studio/tags/training/">training</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post app">
+<article class="post app">
     <header class="post-header">
         <h2 class="post-title"><a href="/nb/app/app-dev-course/modul1/">Modul 1</a></h2>
     </header>
@@ -656,10 +628,8 @@ Temaer som dekkes i denne modulen:
  Opprette ny applikasjon Legge til datamodell og knytte felter Utvikle en app i lokalt utviklingsmiljø Redigering av tekstressurser Teste applikasjon i lokalt utviklingsmiljø (LocalTest)  Oppgaver Vis/skjul innholdOpprette ny applikasjonOpprett applikasjonen i Altinn Studio med organisasjonen du har tilgang til som eier. <a class="read-more" href="/nb/app/app-dev-course/modul1/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/apps/">apps</a>
@@ -673,15 +643,9 @@ Temaer som dekkes i denne modulen:
                 <a class="label label-default" href="https://docs.altinn.studio/tags/texts/">texts</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post app">
+<article class="post app">
     <header class="post-header">
         <h2 class="post-title"><a href="/nb/app/app-dev-course/modul2/">Modul 2</a></h2>
     </header>
@@ -692,10 +656,8 @@ Temaer som dekkes i denne modulen:
 La oss se nærmere på hvordan man kan opprette en ny side i applikasjonen som vises før brukeren kommer til første datainnsamlingsside som ble laget i modul 1. <a class="read-more" href="/nb/app/app-dev-course/modul2/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/apps/">apps</a>
@@ -707,15 +669,9 @@ La oss se nærmere på hvordan man kan opprette en ny side i applikasjonen som v
                 <a class="label label-default" href="https://docs.altinn.studio/tags/sporvalg/">sporvalg</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post app">
+<article class="post app">
     <header class="post-header">
         <h2 class="post-title"><a href="/nb/app/app-dev-course/modul3/">Modul 3</a></h2>
     </header>
@@ -725,10 +681,8 @@ Temaer som dekkes i denne modulen:
  Sette egendefinerte krav for ressursbruk Bygg av applikasjon Deploy av applikasjon  Oppgaver Vis/skjul innholdSette egendefinerte krav for ressursbrukAlle applikasjoner kommer med et standardoppsett for ressursbruk og skalering i applikasjonsclusteret. <a class="read-more" href="/nb/app/app-dev-course/modul3/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/apps/">apps</a>
@@ -742,15 +696,9 @@ Temaer som dekkes i denne modulen:
                 <a class="label label-default" href="https://docs.altinn.studio/tags/test/">test</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post app">
+<article class="post app">
     <header class="post-header">
         <h2 class="post-title"><a href="/nb/app/app-dev-course/modul4/">Modul 4</a></h2>
     </header>
@@ -761,10 +709,8 @@ Temaer som dekkes i denne modulen:
 I Altinn Studio er dette støttet i form av radioknapper, avkrysningsbokser og nedtrekkslister. <a class="read-more" href="/nb/app/app-dev-course/modul4/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/apps/">apps</a>
@@ -778,15 +724,9 @@ I Altinn Studio er dette støttet i form av radioknapper, avkrysningsbokser og n
                 <a class="label label-default" href="https://docs.altinn.studio/tags/dynamikk/">dynamikk</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post app">
+<article class="post app">
     <header class="post-header">
         <h2 class="post-title"><a href="/nb/app/app-dev-course/modul5/">Modul 5</a></h2>
     </header>
@@ -797,10 +737,8 @@ Temaer som dekkes i denne modulen:
 Din oppgave er å utvide standard prosessflyten med et bekreftelsessteg som illustrert nedenfor. <a class="read-more" href="/nb/app/app-dev-course/modul5/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/apps/">apps</a>
@@ -820,15 +758,9 @@ Din oppgave er å utvide standard prosessflyten med et bekreftelsessteg som illu
                 <a class="label label-default" href="https://docs.altinn.studio/tags/validering/">validering</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post app">
+<article class="post app">
     <header class="post-header">
         <h2 class="post-title"><a href="/nb/app/app-dev-course/modul6/">Modul 6</a></h2>
     </header>
@@ -839,10 +771,8 @@ Temaer som dekkes i denne modulen:
 På datasiden ønsker vi at det legges opp til at brukeren kan fylle inn tidligere bosteder. <a class="read-more" href="/nb/app/app-dev-course/modul6/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/apps/">apps</a>
@@ -858,15 +788,9 @@ På datasiden ønsker vi at det legges opp til at brukeren kan fylle inn tidlige
                 <a class="label label-default" href="https://docs.altinn.studio/tags/konsumere-api/">konsumere API</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post app">
+<article class="post app">
     <header class="post-header">
         <h2 class="post-title"><a href="/nb/app/app-dev-course/modul7/">Modul 7</a></h2>
     </header>
@@ -876,10 +800,8 @@ Temaer som dekkes i denne modulen:
  Oppsummmeringsside Stateless applikasjon Variabler i tekst Bruk av eksternt API Konfigurasjon av Meldingsboks Presentasjonstekster  Oppgaver Vis/skjul innholdOppsummeringssideKrav fra kommunen Sogndal kommune opplever at enkelte innsendinger inneholder feilopplysninger og skrivefeil som skaper unødig arbeid for saksbehandlere. <a class="read-more" href="/nb/app/app-dev-course/modul7/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/apps/">apps</a>
@@ -887,15 +809,9 @@ Temaer som dekkes i denne modulen:
                 <a class="label label-default" href="https://docs.altinn.studio/tags/training/">training</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post app">
+<article class="post app">
     <header class="post-header">
         <h2 class="post-title"><a href="/nb/app/app-dev-course/losningsforslag/">Løsningsforslag</a></h2>
     </header>
@@ -904,10 +820,8 @@ Temaer som dekkes i denne modulen:
 Hvilken effekt har &lt;minOccurs&gt; i datamodellen? Du vil se at feltet har ulik verdi for Inflytter. <a class="read-more" href="/nb/app/app-dev-course/losningsforslag/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/apps/">apps</a>
@@ -919,16 +833,9 @@ Hvilken effekt har &lt;minOccurs&gt; i datamodellen? Du vil se at feltet har uli
                 <a class="label label-default" href="https://docs.altinn.studio/tags/losningsforslag/">losningsforslag</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-
-	<div style="margin-bottom:2rem"></div>
+<div style="margin-bottom:2rem"></div>
 
 	<nav class="pagination" role="navigation">
 	
@@ -936,14 +843,9 @@ Hvilken effekt har &lt;minOccurs&gt; i datamodellen? Du vil se at feltet har uli
 	
 </nav>
 
-
-
-
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-next" href="/nb/app/" title="Lage apper" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div></section>
         </div> 
@@ -1000,3 +902,4 @@ Hvilken effekt har &lt;minOccurs&gt; i datamodellen? Du vil se at feltet har uli
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

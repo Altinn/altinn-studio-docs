@@ -370,8 +370,8 @@ if(host != "localhost")
         <a href="/app/maintainance/dependencies/"><span>Dependencies</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/app/launched-apps/"><span>Launched apps</span><sup>NEW</sup></a></li></ul></li>
-      <li class="dd-item parent active">
-        <a href="/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/api/"><span>API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -429,7 +429,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -437,7 +437,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -445,7 +445,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -529,7 +529,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -1083,7 +1083,10 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/api/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1102,12 +1105,7 @@ if(host != "localhost")
     <li><a href="#the-apis">The APIs</a></li>
     <li><a href="#api-user-groups">API user groups</a></li>
   </ul>
-</nav>
-
-
-
-
-<h2 id="the-apis">The APIs</h2>
+</nav><h2 id="the-apis">The APIs</h2>
 <p>The new solution will have multiple APIs, but they can be divided in two groups. The app APIs and the Platform APIs.</p>
 <h3 id="app-api">App API</h3>
 <p>The application API is an API that provides access to specific instances of a specific app. The API provides features for working with data elements while keeping the metadata document for the instance and its data elements updated. The instance level endpoints revolves around moving an instance through its defined process and controlling some instance level settings.</p>
@@ -1144,134 +1142,41 @@ if(host != "localhost")
 <li>Change process state (workflow).</li>
 <li>View status of an instance.</li>
 </ul>
-
-
-
-
-
-
-
-
-
-
-
-
 <ul class="children children-li js-moveChildrenFrom">
-	
-    
-	    
-    
-    
 
 	
-		
-	
-		
-
-
-<li>
-<a href="/api/apps/" >App API</a>
-<p>The default APIs exposed by apps in Altinn 3.</p>
-</li>
-
-
-
-		
-	
-		
-
-
-<li>
-<a href="/api/authentication/" >Authentication API</a>
-<p>Description of how systems and service owners can use Maskinporten or ID-porten to access APIs in Altinn 3.</p>
-</li>
-
-
-
-		
-	
-		
-
-
-<li>
-<a href="/api/events/" >Events API</a>
-<p>The Platform API to work with events</p>
-</li>
-
-
-
-		
-	
-		
-
-
-<li>
-<a href="/api/models/" >Models</a>
-<p>This is an overview over most models exposed by the different API. It does not explain every single property of all models, but will try to give a solid introduction to the important parts.</p>
-</li>
-
-
-
-		
-	
-		
-
-
-<li>
-<a href="/api/scenarios/" >Scenarios</a>
-<p>Different API usage scenarios.</p>
-</li>
-
-
-
-		
-	
-		
-
-
-<li>
-<a href="/api/storage/" >Storage API</a>
-<p>Description of the Altinn 3 APIs supported by the storage component in the Altinn 3 Platform.</p>
-</li>
-
-
-
-		
-	
-		
-
-
-<li>
-<a href="/api/studio/" >Altinn Studio Repository API</a>
-<p>The OpenAPI (swagger) specification for the App source control API.</p>
-</li>
-
-
-
-		
-	
-
+		<li>
+				<a href="/api/apps/">App API</a>
+				<p>The default APIs exposed by apps in Altinn 3.</p>
+				</li><li>
+				<a href="/api/authentication/">Authentication API</a>
+				<p>Description of how systems and service owners can use Maskinporten or ID-porten to access APIs in Altinn 3.</p>
+				</li><li>
+				<a href="/api/events/">Events API</a>
+				<p>The Platform API to work with events</p>
+				</li><li>
+				<a href="/api/models/">Models</a>
+				<p>This is an overview over most models exposed by the different API. It does not explain every single property of all models, but will try to give a solid introduction to the important parts.</p>
+				</li><li>
+				<a href="/api/scenarios/">Scenarios</a>
+				<p>Different API usage scenarios.</p>
+				</li><li>
+				<a href="/api/storage/">Storage API</a>
+				<p>Description of the Altinn 3 APIs supported by the storage component in the Altinn 3 Platform.</p>
+				</li><li>
+				<a href="/api/studio/">Altinn Studio Repository API</a>
+				<p>The OpenAPI (swagger) specification for the App source control API.</p>
+				</li>
 	
 </ul>
 
 
 
 
-
-
-<footer class=" footline" >
-	
-</footer>
-
-
-
-
-
+<footer class=" footline" ></footer>
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/app/launched-apps/" title="Launched apps"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/api/apps/" title="App API" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/api/_index.en.md" target="blank">
@@ -1333,3 +1238,4 @@ if(host != "localhost")
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

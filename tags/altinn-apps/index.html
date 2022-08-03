@@ -421,7 +421,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -429,7 +429,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -437,7 +437,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -521,7 +521,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -1075,7 +1075,11 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/tags/']").parent().addClass("parent");
+ $("li.dd-item a[href='/tags/altinn-apps/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1091,20 +1095,7 @@ if(host != "localhost")
           </div><div id="body-inner"><h1 class="a-fontBold">altinn-apps</h1>
               <p class="a-leadText" id="leadText"></p>
 
-
-
-
-
-
-<footer class=" footline" >
-	
-</footer>
-
-
-
-	
-
-	<div class="extra-pagination inner">
+<footer class=" footline" ></footer><div class="extra-pagination inner">
 	<nav class="pagination" role="navigation">
 	
 	<span class="page-number">Page 1 on 2</span>
@@ -1113,10 +1104,7 @@ if(host != "localhost")
 	
 </nav>
 
-	</div>
-
-	
-	   <article class="post technology">
+	</div><article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/solutions/altinn-restorage/">Altinn ReStorage</a></h2>
     </header>
@@ -1131,54 +1119,35 @@ Options:
 SubCommand The sub command defines the operation to be performed on the command resource <a class="read-more" href="/technology/solutions/altinn-restorage/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/altinn-apps/">altinn-apps</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/solutions/altinn-platform/">Altinn Platform</a></h2>
     </header>
     <section class="post-excerpt">
         <p>The components are deployed as microservices.
 See below for details about each component.
-AuthenticationThe authentication component provides functionality to authenticate users and systems accessing Altinn Apps and Altinn platform.
-AuthorizationThe authorization component contains a highly flexible policy decision point and policy retrieval point to authorize access to applications and Altinn platform components.
-EventsThe Events component receives and publishes events.
-PDFThe PDF component is responsible for generating PDF printouts for submitted instances of an app. <a class="read-more" href="/technology/solutions/altinn-platform/">&raquo;</a></p>
+ &lt;li&gt;&lt;a href=&quot;/technology/solutions/altinn-platform/authentication/&quot;&gt;Authentication&lt;/a&gt;&lt;p&gt;The authentication component provides functionality to authenticate users and systems accessing Altinn Apps and Altinn platform.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/technology/solutions/altinn-platform/authorization/&quot;&gt;Authorization&lt;/a&gt;&lt;p&gt;The authorization component contains a highly flexible policy decision point and policy retrieval point to authorize access to applications and Altinn platform components.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/technology/solutions/altinn-platform/events/&quot;&gt;Events&lt;/a&gt;&lt;p&gt;The Events component receives and publishes events.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/technology/solutions/altinn-platform/pdf/&quot;&gt;PDF&lt;/a&gt;&lt;p&gt;The PDF component is responsible for generating PDF printouts for submitted instances of an app. <a class="read-more" href="/technology/solutions/altinn-platform/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/altinn-apps/">altinn-apps</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/solutions/altinn-apps/app/">App</a></h2>
     </header>
@@ -1188,24 +1157,16 @@ Currently there is only one &ldquo;App Template&rdquo; that is used, but in futu
 The App template contains functionality for API, process handling, GUI, and many other features making it easy for the developers to create a Apps to support different types of functional needs. <a class="read-more" href="/technology/solutions/altinn-apps/app/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/altinn-apps/">altinn-apps</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/solutions/altinn-apps/app/app-api/">App API</a></h2>
     </header>
@@ -1215,24 +1176,16 @@ More than 100 different vendors of different types of applications integrates wi
 In addition mobile apps and external governmental portal consumes Altinn APIs to allow users to use services outside the Altinn Portal. <a class="read-more" href="/technology/solutions/altinn-apps/app/app-api/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/altinn-apps/">altinn-apps</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/solutions/altinn-apps/app/apptemplates/asp.net/">ASP.NET Web Application Template</a></h2>
     </header>
@@ -1243,24 +1196,16 @@ For web applications that need a web based UI, it has a React based frontend tha
 ASP.NET Core is a cross-platform, high performance, open-source framework for building modern cloud-based, Internet-connected application. <a class="read-more" href="/technology/solutions/altinn-apps/app/apptemplates/asp.net/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/altinn-apps/">altinn-apps</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/solutions/altinn-apps/app/apptemplates/asp.net/configuration/">Configuration of Application</a></h2>
     </header>
@@ -1272,10 +1217,8 @@ Configuration of allowed data elements TODO
 Configuration of Linkerd Every app cluster has linkerd installed as a service mesh. The app can be configured to use linkerd to encrypt the traffic between the ingress controller and the app. <a class="read-more" href="/technology/solutions/altinn-apps/app/apptemplates/asp.net/configuration/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/altinn-apps/">altinn-apps</a>
@@ -1283,15 +1226,9 @@ Configuration of Linkerd Every app cluster has linkerd installed as a service me
                 <a class="label label-default" href="https://docs.altinn.studio/tags/todo/">todo</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/solutions/altinn-apps/app/apptemplates/asp.net/customizing/">Customzing Application</a></h2>
     </header>
@@ -1303,24 +1240,16 @@ See development handbook for a step to step guideline for consuming external API
 Custom frontend If the standard UI-editor is to limited it is possible to build a custom frontend with the single page application (SPA) framework of your choice. <a class="read-more" href="/technology/solutions/altinn-apps/app/apptemplates/asp.net/customizing/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/altinn-apps/">altinn-apps</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/solutions/altinn-apps/app/features/">Features</a></h2>
     </header>
@@ -1329,24 +1258,16 @@ Custom frontend If the standard UI-editor is to limited it is possible to build 
 Data validation The App can validate the datamodel based on the datamodel itself and based on custom app logic defined by the application developer. <a class="read-more" href="/technology/solutions/altinn-apps/app/features/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/altinn-apps/">altinn-apps</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/solutions/altinn-apps/app/apptemplates/asp.net/files/">Template filestructure</a></h2>
     </header>
@@ -1359,24 +1280,16 @@ The XACML is imported in to authorization component.
 See standard XACML file in template. <a class="read-more" href="/technology/solutions/altinn-apps/app/apptemplates/asp.net/files/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/altinn-apps/">altinn-apps</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/solutions/altinn-apps/app/app-api/eus-rest/">REST-API for End User Systems</a></h2>
     </header>
@@ -1387,25 +1300,16 @@ Download as Visio.
 API to authenticate end user systems For new API&rsquo;s the goal is to use JWT Tokens to authenticate against the API. <a class="read-more" href="/technology/solutions/altinn-apps/app/app-api/eus-rest/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/altinn-apps/">altinn-apps</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-
-	<div style="margin-bottom:2rem"></div>
+<div style="margin-bottom:2rem"></div>
 
 	<nav class="pagination" role="navigation">
 	
@@ -1415,14 +1319,9 @@ API to authenticate end user systems For new API&rsquo;s the goal is to use JWT 
 	
 </nav>
 
-
-
-
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-next" href="/app/" title="Create apps" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div></section>
         </div> 
@@ -1479,3 +1378,4 @@ API to authenticate end user systems For new API&rsquo;s the goal is to use JWT 
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

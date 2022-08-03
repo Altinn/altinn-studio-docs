@@ -429,7 +429,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -437,7 +437,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -445,7 +445,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -529,7 +529,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -1083,7 +1083,11 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/tags/']").parent().addClass("parent");
+ $("li.dd-item a[href='/tags/translate-to-english/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1099,20 +1103,7 @@ if(host != "localhost")
           </div><div id="body-inner"><h1 class="a-fontBold">translate-to-english</h1>
               <p class="a-leadText" id="leadText"></p>
 
-
-
-
-
-
-<footer class=" footline" >
-	
-</footer>
-
-
-
-	
-
-	<div class="extra-pagination inner">
+<footer class=" footline" ></footer><div class="extra-pagination inner">
 	<nav class="pagination" role="navigation">
 	
 	    <a class="newer-posts" href="/tags/translate-to-english/page/2/">&larr; Previous Pages</a>
@@ -1121,10 +1112,7 @@ if(host != "localhost")
 	
 </nav>
 
-	</div>
-
-	
-	   <article class="post app">
+	</div><article class="post app">
     <header class="post-header">
         <h2 class="post-title"><a href="/app/getting-started/access-management/studio/">Altinn Studio access</a></h2>
     </header>
@@ -1133,24 +1121,16 @@ if(host != "localhost")
 Det er definert fire standard team som legger føringer for hva en bruker har tillatelse til å gjøre innad i en organisasjon i Altinn Studio. Ved behov kan man som eier kan man legge til/fjerne brukere i team, opprette nye team og endre konfigurasjon på eksisterende team. <a class="read-more" href="/app/getting-started/access-management/studio/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post app">
+<article class="post app">
     <header class="post-header">
         <h2 class="post-title"><a href="/app/getting-started/navigation/code/">Code</a></h2>
     </header>
@@ -1161,24 +1141,16 @@ Vi anbefaler Visual Studio Code, men det er fritt fram hvilket verktøy du velge
 Finne adressen til et repo URL-en til et gitt app repository er strukturert slik, så bytt ut owner og repo-navn: <a class="read-more" href="/app/getting-started/navigation/code/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post app">
+<article class="post app">
     <header class="post-header">
         <h2 class="post-title"><a href="/app/development/api/consume/">Consume APIs in an app</a></h2>
     </header>
@@ -1189,24 +1161,16 @@ On this page, an example of using an external open API to enrich form data is pr
 The API used is RestCountries v3, and it&rsquo;s the endpoint https://restcountries. <a class="read-more" href="/app/development/api/consume/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post app">
+<article class="post app">
     <header class="post-header">
         <h2 class="post-title"><a href="/app/testing/local/debug/">Debugging of app</a></h2>
     </header>
@@ -1217,24 +1181,16 @@ Velg debugging knappen til venstre i vertikal meny.
 Det er to måter å starte debugging av en applikasjon lokalt: <a class="read-more" href="/app/testing/local/debug/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post api">
+<article class="post api">
     <header class="post-header">
         <h2 class="post-title"><a href="/api/authentication/delegate-scopes/">Delegate API Access to a Supplier</a></h2>
     </header>
@@ -1244,24 +1200,16 @@ Det er tjenesteeiers ansvar å selv fjerne delegeringene om behovet for tilgang 
 Delegering av API-tilganger til leverandør Som en bruker som er nøkkelrolleinnehaver for tjenesteeier (typisk daglig leder aka DAGL), åpne &ldquo;Andre med rettigheter til virksomheten&rdquo;. <a class="read-more" href="/api/authentication/delegate-scopes/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post app">
+<article class="post app">
     <header class="post-header">
         <h2 class="post-title"><a href="/app/launched-apps/digdir/oed/">Oppgjør etter dødsfall</a></h2>
     </header>
@@ -1270,24 +1218,16 @@ Delegering av API-tilganger til leverandør Som en bruker som er nøkkelrolleinn
 App&rsquo;ene kan ikke instansieres fra tjenestekatalogen. Hovedapp&rsquo;en instansieres utelukkende fra Domstol grensesnittet, og «Altinn avgiver» (process instance owner) er avdøde. Arvinger og evt andre som skal benytte løsningen får tilgang til instansen via tildelte roller i Altinn autorisasjon. <a class="read-more" href="/app/launched-apps/digdir/oed/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post app">
+<article class="post app">
     <header class="post-header">
         <h2 class="post-title"><a href="/app/testing/local/apitests/org/">API test org</a></h2>
     </header>
@@ -1299,24 +1239,16 @@ Testplattformen for lokal testing tilbyr et enkelt api for å autentisere organi
 Man trenger bare å oppgi tjenesteeier kode (som f. <a class="read-more" href="/app/testing/local/apitests/org/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post app">
+<article class="post app">
     <header class="post-header">
         <h2 class="post-title"><a href="/app/development/ux/fields/settings/">Field settings</a></h2>
     </header>
@@ -1326,24 +1258,16 @@ Man trenger bare å oppgi tjenesteeier kode (som f. <a class="read-more" href="/
 Default behaviour can be overwritten by changing the settings of the field. <a class="read-more" href="/app/development/ux/fields/settings/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post app">
+<article class="post app">
     <header class="post-header">
         <h2 class="post-title"><a href="/app/testing/local/testusers/">Test-user for local testing</a></h2>
     </header>
@@ -1353,24 +1277,16 @@ Sophie Salt Sophie er en svært driftig dame som bor i Oslo. Hun har startet en 
 I tilegg er hun ekspert på helse og har startet eget konsulentfirma for helsetjenester. <a class="read-more" href="/app/testing/local/testusers/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post app">
+<article class="post app">
     <header class="post-header">
         <h2 class="post-title"><a href="/app/getting-started/navigation/designer/ui-editor/">UI editor</a></h2>
     </header>
@@ -1380,25 +1296,16 @@ Bruke skjemakomponenter Skjemakomponentene kan trekkes inn i arbeidsområdet (i 
 Når du holder muspekeren over en komponent, eller når du velger den ved å klikke på den, blir to ikoner synlig - et søppelbøtte-ikon for å slette komponenten, og et blyant-ikon for å endre på egenskapene til komponenten. <a class="read-more" href="/app/getting-started/navigation/designer/ui-editor/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-
-	<div style="margin-bottom:2rem"></div>
+<div style="margin-bottom:2rem"></div>
 
 	<nav class="pagination" role="navigation">
 	
@@ -1408,14 +1315,9 @@ Når du holder muspekeren over en komponent, eller når du velger den ved å kli
 	
 </nav>
 
-
-
-
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/technology/tools/vs-code/" title="Visual Studio Code"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/app/" title="Create apps" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div></section>
         </div> 
@@ -1472,3 +1374,4 @@ Når du holder muspekeren over en komponent, eller når du velger den ved å kli
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

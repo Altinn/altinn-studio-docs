@@ -118,8 +118,8 @@ if(host != "localhost")
 </script>
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
-      <li class="dd-item parent">
-        <a href="/nb/app/"><span>Lage apper</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/"><span>Lage apper</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/app/getting-started/"><span>Kom i gang</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -218,13 +218,13 @@ if(host != "localhost")
         <a href="/nb/app/design/guidelines/tone-of-voice/"><span>Språk</span></a></li>
       <li class="dd-item">
         <a href="/nb/app/design/guidelines/wcag/"><span>Tilgjengelighet</span></a></li></ul></li></ul></li>
-      <li class="dd-item parent">
-        <a href="/nb/app/development/"><span>Utvikling</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
-      <li class="dd-item parent">
-        <a href="/nb/app/development/data/"><span>Data</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/development/"><span>Utvikling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/app/development/data/data-model/"><span>Datamodell</span></a></li>
-      <li class="dd-item parent active">
+      <li class="dd-item">
         <a href="/nb/app/development/data/prefill/"><span>Preutfylling</span></a></li>
       <li class="dd-item">
         <a href="/nb/app/development/data/options/"><span>Kodelister</span></a></li>
@@ -381,7 +381,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/app/launched-apps/digdir/be-om-api-nokkel/"><span>Tilgang til REST API</span></a></li></ul></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/nb/api/"><span>API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -543,7 +543,13 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/nb/app/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/app/development/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/app/development/data/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/app/development/data/prefill/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -562,12 +568,7 @@ if(host != "localhost")
     <li><a href="#prefill-fra-nasjonale-register-og-brukerprofil">Prefill fra nasjonale register og brukerprofil</a></li>
     <li><a href="#egendefinert-prefill">Egendefinert prefill</a></li>
   </ul>
-</nav>
-
-
-
-
-<p>Altinn tilbyr i dag tre fremgangsmåter for å preutfylle data i en app for en sluttbruker.
+</nav><p>Altinn tilbyr i dag tre fremgangsmåter for å preutfylle data i en app for en sluttbruker.
 Disse metodene kan kombineres fritt for å oppnå ønsket resultat</p>
 <h2 id="prefill-fra-nasjonale-register-og-brukerprofil">Prefill fra nasjonale register og brukerprofil</h2>
 <p>Altinn apps støtter prefill med data fra Enhetsregisteret, Folkeregisteret og brukerprofil i Altinn.</p>
@@ -762,19 +763,10 @@ Content-Disposition: form-data; name=&#34;Endring-av-navn&#34;
 --abcdefg--
 </code></pre></div>
 
-<footer class=" footline" >
-	
-</footer>
-
-
-
-
-
+<footer class=" footline" ></footer>
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/nb/app/development/data/data-model/" title="Datamodell i Altinn Studio"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/nb/app/development/data/options/" title="Kodelister (options)" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/app/development/data/prefill/_index.nb.md" target="blank">
@@ -836,3 +828,4 @@ Content-Disposition: form-data; name=&#34;Endring-av-navn&#34;
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

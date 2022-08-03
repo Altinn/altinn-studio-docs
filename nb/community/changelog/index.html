@@ -381,7 +381,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/app/launched-apps/digdir/be-om-api-nokkel/"><span>Tilgang til REST API</span></a></li></ul></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/nb/api/"><span>API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -438,8 +438,8 @@ if(host != "localhost")
         <a href="/nb/api/storage/spec/"><span>OpenAPI</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/api/studio/"><span>Studio</span></a></li></ul></li>
-      <li class="dd-item parent">
-        <a href="/nb/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/community/about/"><span>Om</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -456,8 +456,8 @@ if(host != "localhost")
             <span>Intro for utviklere</span></a></li>
       <li class="dd-item">
         <a href="/nb/community/contributing/handbook/"><span>Håndbok</span></a></li></ul></li>
-      <li class="dd-item parent active">
-        <a href="/nb/community/changelog/"><span>Endringslogg</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/"><span>Endringslogg</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/community/changelog/app-frontend/"><span>App frontend</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -543,7 +543,11 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/nb/community/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/community/changelog/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -557,44 +561,28 @@ if(host != "localhost")
                 <span class="links"><a href='/nb/community/'>Community</a> <span class='adocs-breadcrumb-divider'> / </span> Endringslogg</span>
             </div>
           </div><div id="body-inner"><h1 class="a-fontBold">Endringslogg</h1>
-              <p class="a-leadText" id="leadText">Oversikt over endringer introdusert i Altinn 3.</p>
-
-
-
-
-<ul class="children children-li js-moveChildrenFrom">
-<li>
-<a href="/nb/community/changelog/app-frontend/" >Endringslogg for app frontend</a>
-<p>Oversikt over endringer introdusert i app frontend.</p>
-</li>
-<li>
-<a href="/nb/community/changelog/app-nuget/" >Endringslogg for app nuget pakker</a>
-<p>Oversikt over endringer introdusert i App Nuget-pakker.</p>
-</li>
-<li>
-<a href="/nb/community/changelog/deployment/" >Endringslogg for deployment</a>
-<p>Oversikt over endringer introdusert i helm-chart for deployment.</p>
-</li>
-<li>
-<a href="/nb/community/changelog/storage-interfaces/" >Storage Interface endringslogg</a>
-<p>Oversikt over endringer introdusert i Altinn.Platform.Storage.Interface NuGet package.</p>
-</li>
+              <p class="a-leadText" id="leadText">Oversikt over endringer introdusert i Altinn 3.</p><ul class="children children-li js-moveChildrenFrom">
+<pre><code>    &lt;li&gt;
+            &lt;a href=&quot;/nb/community/changelog/app-frontend/&quot;&gt;Endringslogg for app frontend&lt;/a&gt;
+            &lt;p&gt;Oversikt over endringer introdusert i app frontend.&lt;/p&gt;
+            &lt;/li&gt;&lt;li&gt;
+            &lt;a href=&quot;/nb/community/changelog/app-nuget/&quot;&gt;Endringslogg for app nuget pakker&lt;/a&gt;
+            &lt;p&gt;Oversikt over endringer introdusert i App Nuget-pakker.&lt;/p&gt;
+            &lt;/li&gt;&lt;li&gt;
+            &lt;a href=&quot;/nb/community/changelog/deployment/&quot;&gt;Endringslogg for deployment&lt;/a&gt;
+            &lt;p&gt;Oversikt over endringer introdusert i helm-chart for deployment.&lt;/p&gt;
+            &lt;/li&gt;&lt;li&gt;
+            &lt;a href=&quot;/nb/community/changelog/storage-interfaces/&quot;&gt;Storage Interface endringslogg&lt;/a&gt;
+            &lt;p&gt;Oversikt over endringer introdusert i Altinn.Platform.Storage.Interface NuGet package.&lt;/p&gt;
+            &lt;/li&gt;
+</code></pre>
 </ul>
 
 
-<footer class=" footline" >
-	
-</footer>
-
-
-
-
-
+<footer class=" footline" ></footer>
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/nb/community/contributing/handbook/" title="Utviklingshåndbok"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/nb/community/changelog/app-frontend/" title="Endringslogg for app frontend" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/community/changelog/_index.nb.md" target="blank">
@@ -656,3 +644,4 @@ if(host != "localhost")
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

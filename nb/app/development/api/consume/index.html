@@ -118,8 +118,8 @@ if(host != "localhost")
 </script>
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
-      <li class="dd-item parent">
-        <a href="/nb/app/"><span>Lage apper</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/"><span>Lage apper</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/app/getting-started/"><span>Kom i gang</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -218,8 +218,8 @@ if(host != "localhost")
         <a href="/nb/app/design/guidelines/tone-of-voice/"><span>Språk</span></a></li>
       <li class="dd-item">
         <a href="/nb/app/design/guidelines/wcag/"><span>Tilgjengelighet</span></a></li></ul></li></ul></li>
-      <li class="dd-item parent">
-        <a href="/nb/app/development/"><span>Utvikling</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/development/"><span>Utvikling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -332,13 +332,13 @@ if(host != "localhost")
         <a href="/nb/app/development/configuration/deployment/"><span>Deployment</span></a></li>
       <li class="dd-item">
         <a href="/nb/app/development/configuration/authentication/"><span>Autentisering</span></a></li></ul></li>
-      <li class="dd-item parent">
-        <a href="/nb/app/development/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/development/api/"><span>API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/app/development/api/expose/"><span>Eksponere</span></a></li>
       <li class="dd-item">
         <a href="/nb/app/development/api/instance/"><span>Instans</span></a></li>
-      <li class="dd-item parent active">
+      <li class="dd-item">
         <a href="/nb/app/development/api/consume/"><span>Konsumere</span></a></li></ul></li></ul></li>
       <li class="dd-item">
         <a href="/nb/app/testing/"><span>Testing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
@@ -381,7 +381,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/app/launched-apps/digdir/be-om-api-nokkel/"><span>Tilgang til REST API</span></a></li></ul></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/nb/api/"><span>API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -543,7 +543,13 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/nb/app/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/app/development/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/app/development/api/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/app/development/api/consume/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -566,12 +572,7 @@ if(host != "localhost")
     <li><a href="#benytte-klient-i-applikasjonslogikk">Benytte klient i applikasjonslogikk</a></li>
     <li><a href="#caching-av-responsdata">Caching av responsdata</a></li>
   </ul>
-</nav>
-
-
-
-
-<p>ASP.NET Core har gode muligheter til å konsumere API.</p>
+</nav><p>ASP.NET Core har gode muligheter til å konsumere API.</p>
 <p>Dette kan være nyttig dersom man ønsker å eksponere organisasjonens
 egne API via en app eller har behov for data fra eksterne API i appen.</p>
 <p>På denne siden går vi gjennom et eksempel hvor et eksternt, åpent API benyttes til å berrike skjemadata.
@@ -965,19 +966,10 @@ Det kreves kun endringer i <em>CountryClient.cs</em>.</p>
 }
 </code></pre></div>
 
-<footer class=" footline" >
-	
-</footer>
-
-
-
-
-
+<footer class=" footline" ></footer>
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/nb/app/development/api/instance/" title="Instans"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/nb/app/testing/" title="Testing av apper" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/app/development/api/consume/_index.nb.md" target="blank">
@@ -1039,3 +1031,4 @@ Det kreves kun endringer i <em>CountryClient.cs</em>.</p>
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

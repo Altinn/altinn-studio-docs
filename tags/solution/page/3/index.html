@@ -429,7 +429,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -437,7 +437,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -445,7 +445,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -529,7 +529,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -1083,7 +1083,11 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/tags/']").parent().addClass("parent");
+ $("li.dd-item a[href='/tags/solution/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1099,20 +1103,7 @@ if(host != "localhost")
           </div><div id="body-inner"><h1 class="a-fontBold">solution</h1>
               <p class="a-leadText" id="leadText"></p>
 
-
-
-
-
-
-<footer class=" footline" >
-	
-</footer>
-
-
-
-	
-
-	<div class="extra-pagination inner">
+<footer class=" footline" ></footer><div class="extra-pagination inner">
 	<nav class="pagination" role="navigation">
 	
 	    <a class="newer-posts" href="/tags/solution/page/2/">&larr; Previous Pages</a>
@@ -1121,10 +1112,7 @@ if(host != "localhost")
 	
 </nav>
 
-	</div>
-
-	
-	   <article class="post technology">
+	</div><article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/construction/altinn-platform/events/">Application construction components - Altinn Platform Events</a></h2>
     </header>
@@ -1135,10 +1123,8 @@ Api controllers The following API controllers are defined
  EventsController : responsible for registrating events and pull of events for consumers. <a class="read-more" href="/technology/architecture/components/application/construction/altinn-platform/events/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1146,28 +1132,20 @@ Api controllers The following API controllers are defined
                 <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/nonsolutionspecific/operations/">Operations Application</a></h2>
     </header>
     <section class="post-excerpt">
         <p>Application Performance Monitoring Some monitoring is done from Azure Portal with help of Azure Monitor Appliation Insight and other tools avaiable.
 PasS and &amp; IaaS configuration There are serveral ways PasS and &amp; IaaS resources are configured &amp; managed
- Azure Portal Azure CLI Azure mobile app  Backup and recoveryAll data created in the different solutions are backed up so it is possible to restore it in case of data loss. <a class="read-more" href="/technology/architecture/components/application/nonsolutionspecific/operations/">&raquo;</a></p>
+ Azure Portal Azure CLI Azure mobile app   &lt;li&gt;&lt;a href=&quot;/technology/architecture/components/application/nonsolutionspecific/operations/backupandrecovery/&quot;&gt;Backup and recovery&lt;/a&gt;&lt;p&gt;All data created in the different solutions are backed up so it is possible to restore it in case of data loss. <a class="read-more" href="/technology/architecture/components/application/nonsolutionspecific/operations/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
@@ -1175,15 +1153,9 @@ PasS and &amp; IaaS configuration There are serveral ways PasS and &amp; IaaS re
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/construction/altinn-platform/pdf/">Application architecture pdf component - Altinn Platform</a></h2>
     </header>
@@ -1193,10 +1165,8 @@ The pdf api is exposed at http://platform.altinn.cloud/pdf/api/v1.
 The available endpoints can be seen in the swagger definition.. <a class="read-more" href="/technology/architecture/components/application/construction/altinn-platform/pdf/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1206,15 +1176,9 @@ The available endpoints can be seen in the swagger definition.. <a class="read-m
                 <a class="label label-default" href="https://docs.altinn.studio/tags/pdf/">pdf</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/construction/altinn-platform/profile/">Application construction components - Altinn Platform Profile</a></h2>
     </header>
@@ -1222,10 +1186,8 @@ The available endpoints can be seen in the swagger definition.. <a class="read-m
         <p>TODO <a class="read-more" href="/technology/architecture/components/application/construction/altinn-platform/profile/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1235,15 +1197,9 @@ The available endpoints can be seen in the swagger definition.. <a class="read-m
                 <a class="label label-default" href="https://docs.altinn.studio/tags/todo/">todo</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/construction/altinn-platform/receipt/">Application architecture receipt component - Altinn Platform</a></h2>
     </header>
@@ -1254,10 +1210,8 @@ Receipt backend exposes two enitities through API endpoints prefixed with https:
 /users A user is the entity which is logged in in Altinn and performs actions for on behalf of an instance owner. <a class="read-more" href="/technology/architecture/components/application/construction/altinn-platform/receipt/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1267,15 +1221,9 @@ Receipt backend exposes two enitities through API endpoints prefixed with https:
                 <a class="label label-default" href="https://docs.altinn.studio/tags/receipt/">receipt</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/construction/altinn-platform/register/">Application construction components - Altinn Platform Register</a></h2>
     </header>
@@ -1283,10 +1231,8 @@ Receipt backend exposes two enitities through API endpoints prefixed with https:
         <p>TODO <a class="read-more" href="/technology/architecture/components/application/construction/altinn-platform/register/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1296,15 +1242,9 @@ Receipt backend exposes two enitities through API endpoints prefixed with https:
                 <a class="label label-default" href="https://docs.altinn.studio/tags/todo/">todo</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/solution/altinn-studio/repositories/">Solution components Altinn Studio Repositories</a></h2>
     </header>
@@ -1316,10 +1256,8 @@ Authentication The login functionality for Altinn Studio is located in repositor
 User Profile User profile in Altinn Studio Repostories lets the app developer manage its user profile. <a class="read-more" href="/technology/architecture/components/application/solution/altinn-studio/repositories/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
@@ -1327,15 +1265,9 @@ User Profile User profile in Altinn Studio Repostories lets the app developer ma
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/construction/altinn-platform/storage/">Application Construction components - Storage</a></h2>
     </header>
@@ -1348,10 +1280,8 @@ Docker configuration Storage listen on port 5010.
 See DockerFile for details. <a class="read-more" href="/technology/architecture/components/application/construction/altinn-platform/storage/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1359,16 +1289,9 @@ See DockerFile for details. <a class="read-more" href="/technology/architecture/
                 <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-
-	<div style="margin-bottom:2rem"></div>
+<div style="margin-bottom:2rem"></div>
 
 	<nav class="pagination" role="navigation">
 	
@@ -1378,14 +1301,9 @@ See DockerFile for details. <a class="read-more" href="/technology/architecture/
 	
 </nav>
 
-
-
-
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/technology/tools/vs-code/" title="Visual Studio Code"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/app/" title="Create apps" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div></section>
         </div> 
@@ -1442,3 +1360,4 @@ See DockerFile for details. <a class="read-more" href="/technology/architecture/
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

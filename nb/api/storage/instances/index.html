@@ -380,7 +380,7 @@ if(host != "localhost")
         <a href="/nb/app/launched-apps/digdir/oed/"><span>Oppgjør etter dødsfall</span></a></li>
       <li class="dd-item">
         <a href="/nb/app/launched-apps/digdir/be-om-api-nokkel/"><span>Tilgang til REST API</span></a></li></ul></li></ul></li></ul></li>
-      <li class="dd-item parent">
+      <li class="dd-item">
         <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
@@ -428,9 +428,9 @@ if(host != "localhost")
         <a href="/nb/api/scenarios/"><span>Scenarier</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/scenarios/authentication/"><span>Autentisering</span></a></li></ul></li>
-      <li class="dd-item parent">
-        <a href="/nb/api/storage/"><span>Storage</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
-      <li class="dd-item parent active">
+      <li class="dd-item">
+        <a href="/nb/api/storage/"><span>Storage</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
         <a href="/nb/api/storage/instances/"><span>Instanser</span></a></li>
       <li class="dd-item">
         <a href="/nb/api/storage/instance-events/"><span>Instance events</span></a></li>
@@ -543,7 +543,12 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/nb/api/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/api/storage/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/api/storage/instances/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -562,12 +567,7 @@ if(host != "localhost")
     <li><a href="#overview">Overview</a></li>
     <li><a href="#query-instances">Query instances</a></li>
   </ul>
-</nav>
-
-
-
-
-<h2 id="overview">Overview</h2>
+</nav><h2 id="overview">Overview</h2>
 <p>An <a href="../../models/instance">instance</a> works as a form of envelope or folder where data can be collected and exchanged between the user and owner of the application. The instance document is a way for Altinn and external parties to track the state of one specific data exchange. How long an instance can live and how many interactions there can be between the application owner and user will vary from one app to another. Advanced Apps will have their own documentation.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">basePath = https://{hostname}/storage/api/v1/instances
 </code></pre></div><h2 id="query-instances">Query instances</h2>
@@ -644,19 +644,10 @@ Note that hard deleted instances are only included if an application owner retri
 }
 </code></pre></div>
 
-<footer class=" footline" >
-	
-</footer>
-
-
-
-
-
+<footer class=" footline" ></footer>
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/nb/api/storage/" title="Storage API"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/nb/api/storage/instance-events/" title="Instance events" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/api/storage/instances/_index.nb.md" target="blank">
@@ -718,3 +709,4 @@ Note that hard deleted instances are only included if an application owner retri
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

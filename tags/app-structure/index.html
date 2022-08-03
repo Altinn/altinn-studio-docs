@@ -421,7 +421,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -429,7 +429,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -437,7 +437,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -521,7 +521,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -1075,7 +1075,11 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/tags/']").parent().addClass("parent");
+ $("li.dd-item a[href='/tags/app-structure/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1091,20 +1095,7 @@ if(host != "localhost")
           </div><div id="body-inner"><h1 class="a-fontBold">app-structure</h1>
               <p class="a-leadText" id="leadText"></p>
 
-
-
-
-
-
-<footer class=" footline" >
-	
-</footer>
-
-
-
-	
-
-	<div class="extra-pagination inner">
+<footer class=" footline" ></footer><div class="extra-pagination inner">
 	<nav class="pagination" role="navigation">
 	
 	<span class="page-number">Page 1 on 2</span>
@@ -1113,10 +1104,7 @@ if(host != "localhost")
 	
 </nav>
 
-	</div>
-
-	
-	   <article class="post technology">
+	</div><article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/solutions/altinn-studio/repos/structure/application-metadata/">applicationmetadata.json</a></h2>
     </header>
@@ -1127,10 +1115,8 @@ Application Metadata Format Below is an example of application metadata json for
 { &#34;id&#34;: &#34;Brreg-testappmetaattachment&#34;, &#34;versionId&#34;: &#34;1.0&#34;, &#34;applicationOwnerId&#34;: &#34;Brreg&#34;, &#34;createdDateTime&#34;: &#34;2019-05-23T20:26:29. <a class="read-more" href="/technology/solutions/altinn-studio/repos/structure/application-metadata/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/app-structure/">app-structure</a>
@@ -1138,15 +1124,9 @@ Application Metadata Format Below is an example of application metadata json for
                 <a class="label label-default" href="https://docs.altinn.studio/tags/todo/">todo</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/solutions/altinn-studio/repos/structure/form-layout/">FormLayout.json</a></h2>
     </header>
@@ -1156,10 +1136,8 @@ Format &lsquo;FormLayout.json&rsquo; is divided into three objects:
  Components: describes the components in the schema and configurations connected to the specific component. E.g the binding to a data model. Containers: describes the layout containers used in the schema and the configurations connected to them. E.g if the container is a repeating group Order: this object specify the order of the containers and components in the schema. <a class="read-more" href="/technology/solutions/altinn-studio/repos/structure/form-layout/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/app-structure/">app-structure</a>
@@ -1167,15 +1145,9 @@ Format &lsquo;FormLayout.json&rsquo; is divided into three objects:
                 <a class="label label-default" href="https://docs.altinn.studio/tags/todo/">todo</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/solutions/altinn-studio/repos/structure/instantiationhandler/">InstansiationHandler.cs</a></h2>
     </header>
@@ -1187,10 +1159,8 @@ Utvikling Under opprettelse av en tjeneste vil en tom InstansiationHandler oppre
 Hypotese: Tjenesteutvikler editerer på denne filen via Altinn Studio eller Visual Studio Code <a class="read-more" href="/technology/solutions/altinn-studio/repos/structure/instantiationhandler/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/app-structure/">app-structure</a>
@@ -1198,15 +1168,9 @@ Hypotese: Tjenesteutvikler editerer på denne filen via Altinn Studio eller Visu
                 <a class="label label-default" href="https://docs.altinn.studio/tags/todo/">todo</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/solutions/altinn-studio/repos/structure/reactapp/">react-app.js</a></h2>
     </header>
@@ -1215,10 +1179,8 @@ Hypotese: Tjenesteutvikler editerer på denne filen via Altinn Studio eller Visu
 For øyeblikket er den statisk og lik for alle tjenester. Målet er at den blir tilpasset de komponentene som er i bruk. Dette slik at javascript koden ikke i inneholder referanser til komponenter ikke brukt i tjenesten. <a class="read-more" href="/technology/solutions/altinn-studio/repos/structure/reactapp/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/app-structure/">app-structure</a>
@@ -1226,15 +1188,9 @@ For øyeblikket er den statisk og lik for alle tjenester. Målet er at den blir 
                 <a class="label label-default" href="https://docs.altinn.studio/tags/todo/">todo</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/solutions/altinn-studio/repos/structure/rule-handler/">RuleHandler.js</a></h2>
     </header>
@@ -1243,10 +1199,8 @@ For øyeblikket er den statisk og lik for alle tjenester. Målet er at den blir 
 Format Filen består av 4 objekter, 2 av de benyttes for til kalkuleringer/regler i skjema og de 2 andre benyttes til dynamikk i skjema. ruleHandlerObject og conditionalRuleHandlerObject skal benyttes til å definere metoder som kan brukes til kalkuleringer/regler i skjema. Alle metodene har et objekt som input parameter og en output verdi, strukturen på input objektet er beskrevet i ruleHandlerHelper og conditionalRuleHandlerHelper. <a class="read-more" href="/technology/solutions/altinn-studio/repos/structure/rule-handler/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/app-structure/">app-structure</a>
@@ -1254,15 +1208,9 @@ Format Filen består av 4 objekter, 2 av de benyttes for til kalkuleringer/regle
                 <a class="label label-default" href="https://docs.altinn.studio/tags/todo/">todo</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/solutions/altinn-studio/repos/structure/service-configurations/">ServiceConfigurations.json</a></h2>
     </header>
@@ -1272,10 +1220,8 @@ Format API connections Strukturen under beskriver api koblinger til et skjema. O
 &#34;data&#34;: { &#34;externalApi&#34;: { &#34;APIs&#34;: { &#34;connections&#34;: { &#34;c5dadba0-9707-11e8-9c4d-6f48d2b86ea7&#34;: { &#34;externalApiId&#34;: &#34;id1&#34;, &#34;clientParams&#34;: { &#34;pnr&#34;: &#34;skattyterinfor. <a class="read-more" href="/technology/solutions/altinn-studio/repos/structure/service-configurations/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/app-structure/">app-structure</a>
@@ -1283,15 +1229,9 @@ Format API connections Strukturen under beskriver api koblinger til et skjema. O
                 <a class="label label-default" href="https://docs.altinn.studio/tags/todo/">todo</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/solutions/altinn-studio/repos/structure/serviceimplementation/">ServiceImplementation.cs</a></h2>
     </header>
@@ -1302,10 +1242,8 @@ object CreateNewServiceModel(); Metode som oppretter nytt datamodell objekt base
 void SetServiceModel(object model); Metode som gjør at plattformen kan tilgjengeliggjøre en populert datamodell til tjenesteimplementasjonen <a class="read-more" href="/technology/solutions/altinn-studio/repos/structure/serviceimplementation/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/app-structure/">app-structure</a>
@@ -1313,15 +1251,9 @@ void SetServiceModel(object model); Metode som gjør at plattformen kan tilgjeng
                 <a class="label label-default" href="https://docs.altinn.studio/tags/todo/">todo</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/solutions/altinn-studio/repos/structure/servicemetadata/">ServiceMetadata.json</a></h2>
     </header>
@@ -1333,10 +1265,8 @@ Eksempel Under er et eksempel på hvordan ServiceMetadata kan se ut
 { &#34;Org&#34;:&#34;BR&#34;, &#34;Service&#34;:&#34;Tjeneste1&#34;, &#34;Edition&#34;:&#34;2019&#34;, &#34;Elements&#34;:{ &#34;Skjema. <a class="read-more" href="/technology/solutions/altinn-studio/repos/structure/servicemetadata/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/app-structure/">app-structure</a>
@@ -1344,15 +1274,9 @@ Eksempel Under er et eksempel på hvordan ServiceMetadata kan se ut
                 <a class="label label-default" href="https://docs.altinn.studio/tags/todo/">todo</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/solutions/altinn-studio/repos/structure/servicemodel/">ServiceModel.cs</a></h2>
     </header>
@@ -1361,10 +1285,8 @@ Eksempel Under er et eksempel på hvordan ServiceMetadata kan se ut
 Runtime vil populere datamodellen med data fra GUI og forretningsregler vil kunne jobbe mot denne modellen. <a class="read-more" href="/technology/solutions/altinn-studio/repos/structure/servicemodel/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/app-structure/">app-structure</a>
@@ -1372,15 +1294,9 @@ Runtime vil populere datamodellen med data fra GUI og forretningsregler vil kunn
                 <a class="label label-default" href="https://docs.altinn.studio/tags/todo/">todo</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/solutions/altinn-studio/repos/structure/servicemodelxsd/">ServiceModel.xsd</a></h2>
     </header>
@@ -1389,10 +1305,8 @@ Runtime vil populere datamodellen med data fra GUI og forretningsregler vil kunn
 For tjenester 3.0 vil jobbes med å kunne definere XSD som en del av løsningen. (f.eks å definere skjema i GUI og få XSD basert på det). Dette vil avklares fremover. <a class="read-more" href="/technology/solutions/altinn-studio/repos/structure/servicemodelxsd/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/app-structure/">app-structure</a>
@@ -1400,16 +1314,9 @@ For tjenester 3.0 vil jobbes med å kunne definere XSD som en del av løsningen.
                 <a class="label label-default" href="https://docs.altinn.studio/tags/todo/">todo</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-
-	<div style="margin-bottom:2rem"></div>
+<div style="margin-bottom:2rem"></div>
 
 	<nav class="pagination" role="navigation">
 	
@@ -1419,14 +1326,9 @@ For tjenester 3.0 vil jobbes med å kunne definere XSD som en del av løsningen.
 	
 </nav>
 
-
-
-
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-next" href="/app/" title="Create apps" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div></section>
         </div> 
@@ -1483,3 +1385,4 @@ For tjenester 3.0 vil jobbes med å kunne definere XSD som en del av løsningen.
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

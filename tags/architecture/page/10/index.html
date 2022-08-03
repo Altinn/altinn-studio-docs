@@ -421,7 +421,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -429,7 +429,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -437,7 +437,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -521,7 +521,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -1075,7 +1075,11 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/tags/']").parent().addClass("parent");
+ $("li.dd-item a[href='/tags/architecture/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1091,20 +1095,7 @@ if(host != "localhost")
           </div><div id="body-inner"><h1 class="a-fontBold">architecture</h1>
               <p class="a-leadText" id="leadText"></p>
 
-
-
-
-
-
-<footer class=" footline" >
-	
-</footer>
-
-
-
-	
-
-	<div class="extra-pagination inner">
+<footer class=" footline" ></footer><div class="extra-pagination inner">
 	<nav class="pagination" role="navigation">
 	
 	    <a class="newer-posts" href="/tags/architecture/page/9/">&larr; Previous Pages</a>
@@ -1113,10 +1104,7 @@ if(host != "localhost")
 	
 </nav>
 
-	</div>
-
-	
-	   <article class="post technology">
+	</div><article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/solution/altinn-studio/repositories/">Solution components Altinn Studio Repositories</a></h2>
     </header>
@@ -1128,10 +1116,8 @@ Authentication The login functionality for Altinn Studio is located in repositor
 User Profile User profile in Altinn Studio Repostories lets the app developer manage its user profile. <a class="read-more" href="/technology/architecture/components/application/solution/altinn-studio/repositories/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
@@ -1139,15 +1125,9 @@ User Profile User profile in Altinn Studio Repostories lets the app developer ma
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/solution/altinn-platform/authorization/resourceregistry/">Resource Registry</a></h2>
     </header>
@@ -1159,10 +1139,8 @@ Type of resources There are different types of resources that can be registrated
  Altinn 3 apps - Refered with org/app id Altinn 2 Services - Refered with externalServiceCode and EditionCode Service Resources  Altinn 3 Apps Apps hosted in Altinn 3 Apps will be registred in the Altinn Service Registry. <a class="read-more" href="/technology/architecture/components/application/solution/altinn-platform/authorization/resourceregistry/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1174,15 +1152,9 @@ Type of resources There are different types of resources that can be registrated
                 <a class="label label-default" href="https://docs.altinn.studio/tags/xacml/">xacml</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/infrastructure/computing/scaling/">Scaling compute resources</a></h2>
     </header>
@@ -1191,10 +1163,8 @@ Type of resources There are different types of resources that can be registrated
 Altinn 2 is a monolith where all digital services run on the same servers. This means that days like the tax day when there is this enormous spike in traffic will require that all servers are scaled up. It is also an on-prem solution where scaling needs to be planned weeks ahead. <a class="read-more" href="/technology/architecture/components/infrastructure/computing/scaling/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1202,15 +1172,9 @@ Altinn 2 is a monolith where all digital services run on the same servers. This 
                 <a class="label label-default" href="https://docs.altinn.studio/tags/infrastructure/">infrastructure</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/capabilities/runtime/integration/events/scenarios/">Event Scenarios</a></h2>
     </header>
@@ -1223,10 +1187,8 @@ Org waiting on ProcessComplete for a given app In this scenario, an org is waiti
 GET {platformurl}/events/api/v1/app/{org}/{app}?from={lastchanged}&amp;eventType=instance.process.completed   Event component verifies that scope matches request <a class="read-more" href="/technology/architecture/capabilities/runtime/integration/events/scenarios/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1234,58 +1196,37 @@ GET {platformurl}/events/api/v1/app/{org}/{app}?from={lastchanged}&amp;eventType
                 <a class="label label-default" href="https://docs.altinn.studio/tags/events/">events</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/capabilities/runtime/security/">Security Enforcement Capabilities</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Authentication CapabilitiesThe different solutions need different types of Authentication capabilties to support the different users and systems.
-AuthorizationThe Altinn 3 platform has very powerful and flexible authorization capabilities.
-EncryptionDescription of the encryption architecture
- <a class="read-more" href="/technology/architecture/capabilities/runtime/security/">&raquo;</a></p>
+        <p> &lt;li&gt;&lt;a href=&quot;/technology/architecture/capabilities/runtime/security/authentication/&quot;&gt;Authentication Capabilities&lt;/a&gt;&lt;p&gt;The different solutions need different types of Authentication capabilties to support the different users and systems.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/technology/architecture/capabilities/runtime/security/authorization/&quot;&gt;Authorization&lt;/a&gt;&lt;p&gt;The Altinn 3 platform has very powerful and flexible authorization capabilities.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/technology/architecture/capabilities/runtime/security/encryption/&quot;&gt;Encryption&lt;/a&gt;&lt;p&gt;Description of the encryption architecture&lt;/p&gt;&lt;/li&gt;  <a class="read-more" href="/technology/architecture/capabilities/runtime/security/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/construction/security/">Security Enforcement Capabilities</a></h2>
     </header>
     <section class="post-excerpt">
         <p>For a solutions like Altinn Studio, Altinn Apps and Altinn Platform security is a important aspect.
 The security architecture is based on the following reference model
-JWTCookieAuthenticationThis is the description of JWTCookieAuthentication.
-Policy Enforcement PointThere are different types of Policy Enforcement Points in the Altinn 3 platform.
- <a class="read-more" href="/technology/architecture/components/application/construction/security/">&raquo;</a></p>
+ &lt;li&gt;&lt;a href=&quot;/technology/architecture/components/application/construction/security/jwtcookie/&quot;&gt;JWTCookieAuthentication&lt;/a&gt;&lt;p&gt;This is the description of JWTCookieAuthentication.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/technology/architecture/components/application/construction/security/pep/&quot;&gt;Policy Enforcement Point&lt;/a&gt;&lt;p&gt;There are different types of Policy Enforcement Points in the Altinn 3 platform.&lt;/p&gt;&lt;/li&gt;  <a class="read-more" href="/technology/architecture/components/application/construction/security/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1295,15 +1236,9 @@ The security architecture is based on the following reference model
                 <a class="label label-default" href="https://docs.altinn.studio/tags/runtime-capabilities/">runtime capabilities</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/capabilities/devops/softwareconfiguration/">Software Configuration &amp; Release Management Capabilities</a></h2>
     </header>
@@ -1313,10 +1248,8 @@ Deployment Capabilities Deployment Orchestration Capabilites The devopsteam has 
 See development application components to get a overview over tools and application we use. <a class="read-more" href="/technology/architecture/capabilities/devops/softwareconfiguration/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1326,15 +1259,9 @@ See development application components to get a overview over tools and applicat
                 <a class="label label-default" href="https://docs.altinn.studio/tags/devops/">devops</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/construction/altinn-platform/storage/">Application Construction components - Storage</a></h2>
     </header>
@@ -1347,10 +1274,8 @@ Docker configuration Storage listen on port 5010.
 See DockerFile for details. <a class="read-more" href="/technology/architecture/components/application/construction/altinn-platform/storage/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1358,15 +1283,9 @@ See DockerFile for details. <a class="read-more" href="/technology/architecture/
                 <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/infrastructure/storage/">Storage componentens</a></h2>
     </header>
@@ -1376,10 +1295,8 @@ Altinn 3 uses Cosmos DB to store metadata about data in Altinn.
  applications: applications dataElements: data elements instanceEvents: instance events instances: instance information leases: used by Azure Functions texts: Applications texts  Azure CosmosDB is configured with one Write Region and one read region. <a class="read-more" href="/technology/architecture/components/infrastructure/storage/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1387,15 +1304,9 @@ Altinn 3 uses Cosmos DB to store metadata about data in Altinn.
                 <a class="label label-default" href="https://docs.altinn.studio/tags/infrastructure/">infrastructure</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/solution/altinn-platform/authorization/xacml/">XACML - Altinn Studio</a></h2>
     </header>
@@ -1405,10 +1316,8 @@ The Altinn Studio and Altinn Studio Apps solution uses the XACML standard for th
  XACML Reference Architecture: Used as input for defining the Altinn Studio Apps authorization architecture XACML Policy: Used to define the authorization rules for apps XACML Request: Format used for PEP to call PDP XACML Response: Format used for response from PDP to PEP. <a class="read-more" href="/technology/architecture/components/application/solution/altinn-platform/authorization/xacml/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1418,16 +1327,9 @@ The Altinn Studio and Altinn Studio Apps solution uses the XACML standard for th
                 <a class="label label-default" href="https://docs.altinn.studio/tags/xacml/">XACML</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-
-	<div style="margin-bottom:2rem"></div>
+<div style="margin-bottom:2rem"></div>
 
 	<nav class="pagination" role="navigation">
 	
@@ -1437,14 +1339,9 @@ The Altinn Studio and Altinn Studio Apps solution uses the XACML standard for th
 	
 </nav>
 
-
-
-
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/technology/tools/vs-code/" title="Visual Studio Code"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/app/" title="Create apps" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div></section>
         </div> 
@@ -1501,3 +1398,4 @@ The Altinn Studio and Altinn Studio Apps solution uses the XACML standard for th
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

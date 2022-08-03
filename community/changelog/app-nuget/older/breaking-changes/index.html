@@ -420,7 +420,7 @@ if(host != "localhost")
         <a href="/api/storage/spec/"><span>OpenAPI</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
-      <li class="dd-item parent">
+      <li class="dd-item">
         <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
@@ -429,7 +429,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -437,7 +437,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -521,7 +521,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -552,8 +552,8 @@ if(host != "localhost")
         <a href="/community/contributing/handbook/theming/"><span>Theming and styling</span></a></li>
       <li class="dd-item">
         <a href="/community/contributing/handbook/troubleshooting/"><span>Troubleshooting</span></a></li></ul></li></ul></li>
-      <li class="dd-item parent">
-        <a href="/community/changelog/"><span>Changelog</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/community/changelog/"><span>Changelog</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/changelog/app-frontend/"><span>App frontend</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -562,8 +562,8 @@ if(host != "localhost")
         <a href="/community/changelog/app-frontend/v3/breaking-changes/"><span>Breaking changes</span></a></li>
       <li class="dd-item">
         <a href="/community/changelog/app-frontend/v3/whats-new/"><span>What&#39;s new</span></a></li></ul></li></ul></li>
-      <li class="dd-item parent">
-        <a href="/community/changelog/app-nuget/"><span>App nuget</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/community/changelog/app-nuget/"><span>App nuget</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/changelog/app-nuget/v6/"><span>v6</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -588,9 +588,9 @@ if(host != "localhost")
         <a href="/community/changelog/app-nuget/v3/breaking-changes/"><span>Breaking changes</span></a></li>
       <li class="dd-item">
         <a href="/community/changelog/app-nuget/v3/whats-new/"><span>What&#39;s new</span></a></li></ul></li>
-      <li class="dd-item parent">
-        <a href="/community/changelog/app-nuget/older/"><span>Older</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
-      <li class="dd-item parent active">
+      <li class="dd-item">
+        <a href="/community/changelog/app-nuget/older/"><span>Older</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
         <a href="/community/changelog/app-nuget/older/breaking-changes/"><span>Breaking changes</span></a></li>
       <li class="dd-item">
         <a href="/community/changelog/app-nuget/older/whats-new/"><span>What&#39;s new</span></a></li></ul></li></ul></li>
@@ -1075,7 +1075,14 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/community/']").parent().addClass("parent");
+ $("li.dd-item a[href='/community/changelog/']").parent().addClass("parent");
+ $("li.dd-item a[href='/community/changelog/app-nuget/']").parent().addClass("parent");
+ $("li.dd-item a[href='/community/changelog/app-nuget/older/']").parent().addClass("parent");
+ $("li.dd-item a[href='/community/changelog/app-nuget/older/breaking-changes/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1108,12 +1115,7 @@ if(host != "localhost")
     <li><a href="#validation-fails-for-attachments-in-some-cases-after-30032020">Validation fails for attachments in some cases after 30.03.2020</a></li>
     <li><a href="#build-fails-after-upgrading-altinnapp-nugets-to-version-1062-alpha">Build fails after upgrading Altinn.App-nugets to version 1.0.62-alpha</a></li>
   </ul>
-</nav>
-
-
-
-
-<h2 id="support-for-autodelete-when-process-ends">Support for autodelete when process ends</h2>
+</nav><h2 id="support-for-autodelete-when-process-ends">Support for autodelete when process ends</h2>
 <p>For some apps, the fact that there&rsquo;s traces of it in the user archive (and the data is stored) is a problem (e.g. for security reasons). 
 The Altinn.App.* packages has been updated to support autodelete when process ends. This is introduced with version 2.0.0-alpha of the packages.</p>
 <p>Updating to this version will require changes in multiple files.</p>
@@ -1541,19 +1543,10 @@ Find the template files <a href="https://github.com/Altinn/altinn-studio/tree/ma
 }
 </code></pre></div>
 
-<footer class=" footline" >
-	
-</footer>
-
-
-
-
-
+<footer class=" footline" ></footer>
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/community/changelog/app-nuget/older/" title="Older"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/community/changelog/app-nuget/older/whats-new/" title="What&#39;s new" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/community/changelog/app-nuget/older/breaking-changes/_index.en.md" target="blank">
@@ -1615,3 +1608,4 @@ Find the template files <a href="https://github.com/Altinn/altinn-studio/tree/ma
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

@@ -381,7 +381,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/app/launched-apps/digdir/be-om-api-nokkel/"><span>Tilgang til REST API</span></a></li></ul></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/nb/api/"><span>API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -543,7 +543,11 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/nb/tags/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/tags/localtest/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -559,30 +563,14 @@ if(host != "localhost")
           </div><div id="body-inner"><h1 class="a-fontBold">localtest</h1>
               <p class="a-leadText" id="leadText"></p>
 
-
-
-
-
-
-<footer class=" footline" >
-	
-</footer>
-
-
-
-	
-
-	<div class="extra-pagination inner">
+<footer class=" footline" ></footer><div class="extra-pagination inner">
 	<nav class="pagination" role="navigation">
 	
 	<span class="page-number">Side 1 av 1</span>
 	
 </nav>
 
-	</div>
-
-	
-	   <article class="post app">
+	</div><article class="post app">
     <header class="post-header">
         <h2 class="post-title"><a href="/nb/app/app-dev-course/modul1/">Modul 1</a></h2>
     </header>
@@ -592,10 +580,8 @@ Temaer som dekkes i denne modulen:
  Opprette ny applikasjon Legge til datamodell og knytte felter Utvikle en app i lokalt utviklingsmiljø Redigering av tekstressurser Teste applikasjon i lokalt utviklingsmiljø (LocalTest)  Oppgaver Vis/skjul innholdOpprette ny applikasjonOpprett applikasjonen i Altinn Studio med organisasjonen du har tilgang til som eier. <a class="read-more" href="/nb/app/app-dev-course/modul1/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/apps/">apps</a>
@@ -609,16 +595,9 @@ Temaer som dekkes i denne modulen:
                 <a class="label label-default" href="https://docs.altinn.studio/tags/texts/">texts</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-
-	<div style="margin-bottom:2rem"></div>
+<div style="margin-bottom:2rem"></div>
 
 	<nav class="pagination" role="navigation">
 	
@@ -626,14 +605,9 @@ Temaer som dekkes i denne modulen:
 	
 </nav>
 
-
-
-
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-next" href="/nb/app/" title="Lage apper" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div></section>
         </div> 
@@ -690,3 +664,4 @@ Temaer som dekkes i denne modulen:
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

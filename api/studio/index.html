@@ -370,8 +370,8 @@ if(host != "localhost")
         <a href="/app/maintainance/dependencies/"><span>Dependencies</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/app/launched-apps/"><span>Launched apps</span><sup>NEW</sup></a></li></ul></li>
-      <li class="dd-item parent">
-        <a href="/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/api/"><span>API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -426,10 +426,10 @@ if(host != "localhost")
         <a href="/api/storage/instance-events/"><span>Instance events</span></a></li>
       <li class="dd-item">
         <a href="/api/storage/spec/"><span>OpenAPI</span></a></li></ul></li>
-      <li class="dd-item parent active">
+      <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -437,7 +437,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -445,7 +445,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -529,7 +529,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -1083,7 +1083,11 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/api/']").parent().addClass("parent");
+ $("li.dd-item a[href='/api/studio/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1097,27 +1101,13 @@ if(host != "localhost")
                 <span class="links"><a href='/api/'>API</a> <span class='adocs-breadcrumb-divider'> / </span> Studio</span>
             </div>
           </div><div id="body-inner"><h1 class="a-fontBold">Altinn Studio Repository API</h1>
-              <p class="a-leadText" id="leadText">The OpenAPI (swagger) specification for the App source control API.</p>
+              <p class="a-leadText" id="leadText">The OpenAPI (swagger) specification for the App source control API.</p><h2>On this page:</h2><nav id="TableOfContents"></nav><p>See <a href="https://altinn.studio/repos/api/swagger">https://altinn.studio/repos/api/swagger</a></p>
 
 
-
-
-<p>See <a href="https://altinn.studio/repos/api/swagger">https://altinn.studio/repos/api/swagger</a></p>
-
-
-<footer class=" footline" >
-	
-</footer>
-
-
-
-
-
+<footer class=" footline" ></footer>
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/api/storage/spec/" title="OpenAPI (swagger) for Storage"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/community/" title="Community" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/api/studio/_index.en.md" target="blank">
@@ -1179,3 +1169,4 @@ if(host != "localhost")
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

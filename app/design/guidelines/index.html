@@ -118,8 +118,8 @@ if(host != "localhost")
 </script>
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
-      <li class="dd-item parent">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -172,16 +172,16 @@ if(host != "localhost")
         <a href="/app/app-dev-course/modul7/"><span>Module 7</span></a></li>
       <li class="dd-item">
         <a href="/app/app-dev-course/losningsforslag/"><span>Solution</span></a></li></ul></li>
-      <li class="dd-item parent">
-        <a href="/app/design/"><span>Design</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/design/"><span>Design</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/design/insight/"><span>Preliminary considerations</span></a></li>
       <li class="dd-item">
         <a href="/app/design/prototype/"><span>Prototype</span></a></li>
       <li class="dd-item">
         <a href="/app/design/usertest/"><span>Usertesting</span></a></li>
-      <li class="dd-item parent active">
-        <a href="/app/design/guidelines/"><span>Guidelines</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/design/guidelines/"><span>Guidelines</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/design/guidelines/consistency/"><span>Consistancy</span></a></li>
       <li class="dd-item">
@@ -429,7 +429,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -437,7 +437,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -445,7 +445,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -529,7 +529,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -1083,7 +1083,12 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/app/']").parent().addClass("parent");
+ $("li.dd-item a[href='/app/design/']").parent().addClass("parent");
+ $("li.dd-item a[href='/app/design/guidelines/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1097,140 +1102,42 @@ if(host != "localhost")
                 <span class="links"><a href='/app/'>Create apps</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/design/'>Design</a> <span class='adocs-breadcrumb-divider'> / </span> Guidelines</span>
             </div>
           </div><div id="body-inner"><h1 class="a-fontBold">Guidelines</h1>
-              <p class="a-leadText" id="leadText">We want to achieve consistent user experiences across services created in Altinn. To achieve this, we ask you to use our guidelines in your app design. You are welcome to contribute to the further development of the guidelines.</p>
-
-
-
-
-<p>The pages for guidelines is currently only available in <a href="/nb/app/guidelines/">norwegian</a>.</p>
-
-
-
-
-
-
-
-
-
-
-
-
+              <p class="a-leadText" id="leadText">We want to achieve consistent user experiences across services created in Altinn. To achieve this, we ask you to use our guidelines in your app design. You are welcome to contribute to the further development of the guidelines.</p><p>The pages for guidelines is currently only available in <a href="/nb/app/guidelines/">norwegian</a>.</p>
 <ul class="children children-li js-moveChildrenFrom">
-	
-    
-	    
-    
-    
 
 	
-		
-	
-		
-
-
-<li>
-<a href="/app/design/guidelines/consistency/" >Consistency across services</a>
-<p>To simplify usage and avoid confusion, interaction patterns should be shared accross services.</p>
-</li>
-
-
-
-		
-	
-		
-
-
-<li>
-<a href="/app/design/guidelines/content/" >Content in the form</a>
-<p>Explain what is needed to fill the form correctly to the user and divide the content into multiple steps.</p>
-</li>
-
-
-
-		
-	
-		
-
-
-<li>
-<a href="/app/design/guidelines/design-principles/" >Design principles</a>
-<p>When developing or improving existing products we follow a set of principles to ensure usability and accessibility for all. We recommend following these principles when developing new services.</p>
-</li>
-
-
-
-		
-	
-		
-
-
-<li>
-<a href="/app/design/guidelines/link-to-app/" >Entering the form</a>
-<p>To make the user experience as best as possible you should think about how you link between your agency and the Altinn-app.</p>
-</li>
-
-
-
-		
-	
-		
-
-
-<li>
-<a href="/app/design/guidelines/components/" >UI-components</a>
-<p>The different components have been made to fit together as a larger whole. This makes it important to follow the guidelines for how they should be used to achieve a consistent and recognizable appearance. UI components that are currently included in Altinn&#39;s library are found below.</p>
-</li>
-
-
-
-		
-	
-		
-
-
-<li>
-<a href="/app/design/guidelines/tone-of-voice/" >Language</a>
-<p>Guidelines should ensure common language and understandibility across services in Altinn.</p>
-</li>
-
-
-
-		
-	
-		
-
-
-<li>
-<a href="/app/design/guidelines/wcag/" >Accessibility</a>
-<p>Good accessibility helps people with disabilities access our services in a meaningful way. By using Altinn 3 large parts of your service is handled by us, but you still have to remember some things yourself.</p>
-</li>
-
-
-
-		
-	
-
+		<li>
+				<a href="/app/design/guidelines/consistency/">Consistency across services</a>
+				<p>To simplify usage and avoid confusion, interaction patterns should be shared accross services.</p>
+				</li><li>
+				<a href="/app/design/guidelines/content/">Content in the form</a>
+				<p>Explain what is needed to fill the form correctly to the user and divide the content into multiple steps.</p>
+				</li><li>
+				<a href="/app/design/guidelines/design-principles/">Design principles</a>
+				<p>When developing or improving existing products we follow a set of principles to ensure usability and accessibility for all. We recommend following these principles when developing new services.</p>
+				</li><li>
+				<a href="/app/design/guidelines/link-to-app/">Entering the form</a>
+				<p>To make the user experience as best as possible you should think about how you link between your agency and the Altinn-app.</p>
+				</li><li>
+				<a href="/app/design/guidelines/components/">UI-components</a>
+				<p>The different components have been made to fit together as a larger whole. This makes it important to follow the guidelines for how they should be used to achieve a consistent and recognizable appearance. UI components that are currently included in Altinn&#39;s library are found below.</p>
+				</li><li>
+				<a href="/app/design/guidelines/tone-of-voice/">Language</a>
+				<p>Guidelines should ensure common language and understandibility across services in Altinn.</p>
+				</li><li>
+				<a href="/app/design/guidelines/wcag/">Accessibility</a>
+				<p>Good accessibility helps people with disabilities access our services in a meaningful way. By using Altinn 3 large parts of your service is handled by us, but you still have to remember some things yourself.</p>
+				</li>
 	
 </ul>
 
 
 
 
-
-
-<footer class=" footline" >
-	
-</footer>
-
-
-
-
-
+<footer class=" footline" ></footer>
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/app/design/usertest/" title="Usertesting"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/app/design/guidelines/consistency/" title="Consistency across services" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/app/design/guidelines/_index.en.md" target="blank">
@@ -1292,3 +1199,4 @@ if(host != "localhost")
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

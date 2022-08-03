@@ -429,7 +429,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -437,7 +437,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -445,7 +445,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -529,7 +529,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -1083,7 +1083,11 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/tags/']").parent().addClass("parent");
+ $("li.dd-item a[href='/tags/development/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1099,20 +1103,7 @@ if(host != "localhost")
           </div><div id="body-inner"><h1 class="a-fontBold">development</h1>
               <p class="a-leadText" id="leadText"></p>
 
-
-
-
-
-
-<footer class=" footline" >
-	
-</footer>
-
-
-
-	
-
-	<div class="extra-pagination inner">
+<footer class=" footline" ></footer><div class="extra-pagination inner">
 	<nav class="pagination" role="navigation">
 	
 	<span class="page-number">Page 1 on 6</span>
@@ -1121,10 +1112,7 @@ if(host != "localhost")
 	
 </nav>
 
-	</div>
-
-	
-	   <article class="post community">
+	</div><article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/front-end/getting-started/">Getting started</a></h2>
     </header>
@@ -1137,10 +1125,8 @@ Technologies and frameworks  https://reactjs.org/ https://redux.js.org/ https://
  For Altinn Studio Designer and Altinn. <a class="read-more" href="/community/contributing/handbook/front-end/getting-started/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1148,15 +1134,9 @@ Technologies and frameworks  https://reactjs.org/ https://redux.js.org/ https://
                 <a class="label label-default" href="https://docs.altinn.studio/tags/front-end/">front-end</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/front-end/developing/">Developing locally</a></h2>
     </header>
@@ -1167,10 +1147,8 @@ Technologies and frameworks  https://reactjs.org/ https://redux.js.org/ https://
   Run the app (from &lt;path-to-app&gt;/App/): <a class="read-more" href="/community/contributing/handbook/front-end/developing/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1178,15 +1156,9 @@ Technologies and frameworks  https://reactjs.org/ https://redux.js.org/ https://
                 <a class="label label-default" href="https://docs.altinn.studio/tags/front-end/">front-end</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/front-end/routine/">Routines for development</a></h2>
     </header>
@@ -1195,10 +1167,8 @@ Technologies and frameworks  https://reactjs.org/ https://redux.js.org/ https://
 App frontend  Create a new branch from master.  Naming convention for branches is bug/&lt;issue number&gt;-&lt;short description&gt; or feature/&lt;issue number&gt;-&lt;short description&gt;, depending on the issue type.   Code your changes and test them by running an app locally. Run unit tests  Update any failing tests Add new tests when needed   Make sure you update the version in altinn-app-frontend/package. <a class="read-more" href="/community/contributing/handbook/front-end/routine/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1208,15 +1178,9 @@ App frontend  Create a new branch from master.  Naming convention for branches i
                 <a class="label label-default" href="https://docs.altinn.studio/tags/front-end/">front-end</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/front-end/new-component/">Creating components</a></h2>
     </header>
@@ -1226,10 +1190,8 @@ A detailed overview of the app frontend structure and architecture is available 
 Form components All form components should be presentational components. <a class="read-more" href="/community/contributing/handbook/front-end/new-component/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1237,15 +1199,9 @@ Form components All form components should be presentational components. <a clas
                 <a class="label label-default" href="https://docs.altinn.studio/tags/front-end/">front-end</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/front-end/react/">React</a></h2>
     </header>
@@ -1256,10 +1212,8 @@ Important concepts The 2 most important concepts when working with React compone
 State is a collection of properties, controlled by the component, that say what the current state of the component is - this can be used to determine how the component should be rendered. <a class="read-more" href="/community/contributing/handbook/front-end/react/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1267,15 +1221,9 @@ State is a collection of properties, controlled by the component, that say what 
                 <a class="label label-default" href="https://docs.altinn.studio/tags/react/">react</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/front-end/redux/">Redux</a></h2>
     </header>
@@ -1284,10 +1232,8 @@ State is a collection of properties, controlled by the component, that say what 
 Redux Toolkit As of 2021, we have started using Redux Toolkit rather than the traditional Redux setup. This allows us to get rid of a lot of boilerplate code. Read more about Redux Toolkit here. <a class="read-more" href="/community/contributing/handbook/front-end/redux/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1297,15 +1243,9 @@ Redux Toolkit As of 2021, we have started using Redux Toolkit rather than the tr
                 <a class="label label-default" href="https://docs.altinn.studio/tags/react/">react</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/front-end/debug/">Debug</a></h2>
     </header>
@@ -1315,10 +1255,8 @@ This allows for code to run, and pause at the desired codeline, so the developer
 Debugging tools  Google Chrome React Devtools Google Chrome Redux Devtools   <a class="read-more" href="/community/contributing/handbook/front-end/debug/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1326,15 +1264,9 @@ Debugging tools  Google Chrome React Devtools Google Chrome Redux Devtools   <a 
                 <a class="label label-default" href="https://docs.altinn.studio/tags/debug/">debug</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/test/automated-test-app/">App for automated test</a></h2>
     </header>
@@ -1347,10 +1279,8 @@ Change of name app This is an app which should only be used to run automated tes
 nyttNavn: (obj) =&gt; { obj.fornavn = obj. <a class="read-more" href="/community/contributing/handbook/test/automated-test-app/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1358,15 +1288,9 @@ nyttNavn: (obj) =&gt; { obj.fornavn = obj. <a class="read-more" href="/community
                 <a class="label label-default" href="https://docs.altinn.studio/tags/testing/">testing</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/back-end/app-template-and-deps/">App template and deps</a></h2>
     </header>
@@ -1374,24 +1298,16 @@ nyttNavn: (obj) =&gt; { obj.fornavn = obj. <a class="read-more" href="/community
         <p>Process for updating app template and its dependencies Updating app template (Template files + depentent supporting projects)  Complete changes in template Get PR approved Push alpha nugets &amp; update reference in Altinn.Apps/AppTemplate Merge to master Complete testing of new feature Once testing is completed and successful Create new branch. Push nugets without alpha based on the branch Duplicate changes in Altinn Studio template Update nuget reference in Altinn Studio template. <a class="read-more" href="/community/contributing/handbook/back-end/app-template-and-deps/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/back-end/async-programming/">Async programming</a></h2>
     </header>
@@ -1401,10 +1317,8 @@ Best Practices Async Antipatterns Keep an eye out for anti-patterns and help the
 Blocking on tasks with .Result When an asynchronous call is needed in a synchronous method, the implementation below is quite common. <a class="read-more" href="/community/contributing/handbook/back-end/async-programming/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1412,16 +1326,9 @@ Blocking on tasks with .Result When an asynchronous call is needed in a synchron
                 <a class="label label-default" href="https://docs.altinn.studio/tags/asynchronous-programming/">asynchronous-programming</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-
-	<div style="margin-bottom:2rem"></div>
+<div style="margin-bottom:2rem"></div>
 
 	<nav class="pagination" role="navigation">
 	
@@ -1431,14 +1338,9 @@ Blocking on tasks with .Result When an asynchronous call is needed in a synchron
 	
 </nav>
 
-
-
-
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-next" href="/app/" title="Create apps" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div></section>
         </div> 
@@ -1495,3 +1397,4 @@ Blocking on tasks with .Result When an asynchronous call is needed in a synchron
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

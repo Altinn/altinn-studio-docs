@@ -429,7 +429,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -437,7 +437,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -445,7 +445,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -529,7 +529,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -1083,7 +1083,11 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/tags/']").parent().addClass("parent");
+ $("li.dd-item a[href='/tags/development/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1099,20 +1103,7 @@ if(host != "localhost")
           </div><div id="body-inner"><h1 class="a-fontBold">development</h1>
               <p class="a-leadText" id="leadText"></p>
 
-
-
-
-
-
-<footer class=" footline" >
-	
-</footer>
-
-
-
-	
-
-	<div class="extra-pagination inner">
+<footer class=" footline" ></footer><div class="extra-pagination inner">
 	<nav class="pagination" role="navigation">
 	
 	    <a class="newer-posts" href="/tags/development/">&larr; Previous Pages</a>
@@ -1123,36 +1114,24 @@ if(host != "localhost")
 	
 </nav>
 
-	</div>
-
-	
-	   <article class="post community">
+	</div><article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/azure-devops/">Azure DevOps</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>PipelinesQuality checklist and overview of pipelines in Azure DevOps
-We use Azure DevOps for building and deploying both our solution and the app owners applications. <a class="read-more" href="/community/contributing/handbook/azure-devops/">&raquo;</a></p>
+        <p>&lt;li&gt;&lt;a href=&quot;/community/contributing/handbook/azure-devops/pipelines/&quot;&gt;Pipelines&lt;/a&gt;&lt;p&gt;Quality checklist and overview of pipelines in Azure DevOps&lt;/p&gt;&lt;/li&gt;&lt;ul&gt;&lt;/ul&gt; We use Azure DevOps for building and deploying both our solution and the app owners applications. <a class="read-more" href="/community/contributing/handbook/azure-devops/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/back-end/">Back-end</a></h2>
     </header>
@@ -1160,10 +1139,8 @@ if(host != "localhost")
         <p>TODO <a class="read-more" href="/community/contributing/handbook/back-end/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1171,15 +1148,9 @@ if(host != "localhost")
                 <a class="label label-default" href="https://docs.altinn.studio/tags/todo/">todo</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/front-end/best-practices/">Best practices</a></h2>
     </header>
@@ -1188,10 +1159,8 @@ if(host != "localhost")
 Sagas All logic used in a saga should be an exported function in the utils-folder. <a class="read-more" href="/community/contributing/handbook/front-end/best-practices/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1199,15 +1168,9 @@ Sagas All logic used in a saga should be an exported function in the utils-folde
                 <a class="label label-default" href="https://docs.altinn.studio/tags/front-end/">front-end</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/front-end/build/">Build</a></h2>
     </header>
@@ -1215,10 +1178,8 @@ Sagas All logic used in a saga should be an exported function in the utils-folde
         <p>App Frontend See details in the repository for how to build the project <a class="read-more" href="/community/contributing/handbook/front-end/build/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1228,15 +1189,9 @@ Sagas All logic used in a saga should be an exported function in the utils-folde
                 <a class="label label-default" href="https://docs.altinn.studio/tags/build/">build</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/general/">Cheat Sheet</a></h2>
     </header>
@@ -1250,10 +1205,8 @@ kubectl describe pod [pod name] describes current state and lists environment va
 kubectl delete pod [pod name] deletes a pod and a new pod of the same deployment will start <a class="read-more" href="/community/contributing/handbook/general/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1261,15 +1214,9 @@ kubectl delete pod [pod name] deletes a pod and a new pod of the same deployment
                 <a class="label label-default" href="https://docs.altinn.studio/tags/todo/">todo</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/front-end/component-library/">Component Library</a></h2>
     </header>
@@ -1278,24 +1225,16 @@ kubectl delete pod [pod name] deletes a pod and a new pod of the same deployment
  All shared components shall have a corresponding component.md file in the same directory. The shared component must hava a default export function AND also exporting the rendered function. React Styleguidist is used to build the documentation site. The Component Library is currently a local dev server  Running dev server  &ldquo;yarn run styleguide&rdquo; from src\react-apps\applications\shared <a class="read-more" href="/community/contributing/handbook/front-end/component-library/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/cosmosdb/">Cosmos DB</a></h2>
     </header>
@@ -1304,24 +1243,16 @@ kubectl delete pod [pod name] deletes a pod and a new pod of the same deployment
 Avoid expensive queries CosmosDB uses indexes to find matches for the queries, if there is not value for the indexed property, all instances will have to be checked to figure out if there is a match for the query. <a class="read-more" href="/community/contributing/handbook/cosmosdb/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/test/cypress/">Cypress</a></h2>
     </header>
@@ -1331,10 +1262,8 @@ Prerequisite  Cypress lists the requirement for the tests here.  Run the tests C
 Altinn Studio tests git clone https://github.com/Altinn/altinn-studio.git The tests on altinn studio are run from an azure devops pipeline and the results are recorded in cypress dashboard with tag: altinn-studio. <a class="read-more" href="/community/contributing/handbook/test/cypress/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1344,15 +1273,9 @@ Altinn Studio tests git clone https://github.com/Altinn/altinn-studio.git The te
                 <a class="label label-default" href="https://docs.altinn.studio/tags/web/">web</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/deployment/">Deployment</a></h2>
     </header>
@@ -1363,10 +1286,8 @@ Triggered by:
 Git Merge to Master Altinn Studio Release Build When the build for either Altinn Studio or Runtime is successfully ran a release build will start. <a class="read-more" href="/community/contributing/handbook/deployment/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1374,15 +1295,9 @@ Git Merge to Master Altinn Studio Release Build When the build for either Altinn
                 <a class="label label-default" href="https://docs.altinn.studio/tags/deploy/">deploy</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/back-end/error-handling/">Error handling</a></h2>
     </header>
@@ -1391,10 +1306,8 @@ Git Merge to Master Altinn Studio Release Build When the build for either Altinn
 .Net core provides a default middleware UseExceptionHandler that will catch exceptions and log them. You can read more about this here. <a class="read-more" href="/community/contributing/handbook/back-end/error-handling/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1402,16 +1315,9 @@ Git Merge to Master Altinn Studio Release Build When the build for either Altinn
                 <a class="label label-default" href="https://docs.altinn.studio/tags/error-handling/">error-handling</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-
-	<div style="margin-bottom:2rem"></div>
+<div style="margin-bottom:2rem"></div>
 
 	<nav class="pagination" role="navigation">
 	
@@ -1423,14 +1329,9 @@ Git Merge to Master Altinn Studio Release Build When the build for either Altinn
 	
 </nav>
 
-
-
-
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/technology/tools/vs-code/" title="Visual Studio Code"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/app/" title="Create apps" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div></section>
         </div> 
@@ -1487,3 +1388,4 @@ Git Merge to Master Altinn Studio Release Build When the build for either Altinn
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

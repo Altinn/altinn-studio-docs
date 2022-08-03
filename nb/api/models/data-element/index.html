@@ -380,7 +380,7 @@ if(host != "localhost")
         <a href="/nb/app/launched-apps/digdir/oed/"><span>Oppgjør etter dødsfall</span></a></li>
       <li class="dd-item">
         <a href="/nb/app/launched-apps/digdir/be-om-api-nokkel/"><span>Tilgang til REST API</span></a></li></ul></li></ul></li></ul></li>
-      <li class="dd-item parent">
+      <li class="dd-item">
         <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
@@ -416,13 +416,13 @@ if(host != "localhost")
         <a href="/nb/api/events/"><span>Events</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/events/spec/"><span>OpenAPI</span></a></li></ul></li>
-      <li class="dd-item parent">
-        <a href="/nb/api/models/"><span>Modeller</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/api/models/"><span>Modeller</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/models/app-metadata/"><span>App metadata</span></a></li>
       <li class="dd-item">
         <a href="/nb/api/models/instance/"><span>Instance</span></a></li>
-      <li class="dd-item parent active">
+      <li class="dd-item">
         <a href="/nb/api/models/data-element/"><span>DataElement</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/api/scenarios/"><span>Scenarier</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
@@ -543,7 +543,12 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/nb/api/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/api/models/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/api/models/data-element/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -562,12 +567,7 @@ if(host != "localhost")
     <li><a href="#dataelement">DataElement</a></li>
     <li><a href="#complete-example">Complete example</a></li>
   </ul>
-</nav>
-
-
-
-
-<h2 id="dataelement">DataElement</h2>
+</nav><h2 id="dataelement">DataElement</h2>
 <p>The data element model is the main model for metadata related to a specific data element. A data element can be any data associated with an instance.
 The two most common type of data is the actual form data and attachments.</p>
 <h3 id="properties">Properties</h3>
@@ -664,19 +664,10 @@ The two most common type of data is the actual form data and attachments.</p>
 }
 </code></pre></div>
 
-<footer class=" footline" >
-	
-</footer>
-
-
-
-
-
+<footer class=" footline" ></footer>
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/nb/api/models/instance/" title="Instance"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/nb/api/scenarios/" title="Scenarier" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/api/models/data-element/_index.nb.md" target="blank">
@@ -738,3 +729,4 @@ The two most common type of data is the actual form data and attachments.</p>
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

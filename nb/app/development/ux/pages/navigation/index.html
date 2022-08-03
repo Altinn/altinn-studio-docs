@@ -118,8 +118,8 @@ if(host != "localhost")
 </script>
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
-      <li class="dd-item parent">
-        <a href="/nb/app/"><span>Lage apper</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/"><span>Lage apper</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/app/getting-started/"><span>Kom i gang</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -218,8 +218,8 @@ if(host != "localhost")
         <a href="/nb/app/design/guidelines/tone-of-voice/"><span>Språk</span></a></li>
       <li class="dd-item">
         <a href="/nb/app/design/guidelines/wcag/"><span>Tilgjengelighet</span></a></li></ul></li></ul></li>
-      <li class="dd-item parent">
-        <a href="/nb/app/development/"><span>Utvikling</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/development/"><span>Utvikling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -230,8 +230,8 @@ if(host != "localhost")
         <a href="/nb/app/development/data/options/"><span>Kodelister</span></a></li>
       <li class="dd-item">
         <a href="/nb/app/development/data/attachments/"><span>Vedlegg</span></a></li></ul></li>
-      <li class="dd-item parent">
-        <a href="/nb/app/development/ux/"><span>Brukergrensesnitt</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/"><span>Brukergrensesnitt</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/app/development/ux/components/"><span>Komponenter</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -240,9 +240,9 @@ if(host != "localhost")
         <a href="/nb/app/development/ux/components/printbutton/"><span>PrintButton</span></a></li>
       <li class="dd-item">
         <a href="/nb/app/development/ux/components/likert/"><span>Likert</span></a></li></ul></li>
-      <li class="dd-item parent">
-        <a href="/nb/app/development/ux/pages/"><span>Sider</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
-      <li class="dd-item parent active">
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/pages/"><span>Sider</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
         <a href="/nb/app/development/ux/pages/navigation/"><span>Navigasjon</span></a></li>
       <li class="dd-item">
         <a href="/nb/app/development/ux/pages/tracks/"><span>Sporvalg</span></a></li>
@@ -381,7 +381,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/app/launched-apps/digdir/be-om-api-nokkel/"><span>Tilgang til REST API</span></a></li></ul></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/nb/api/"><span>API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -543,7 +543,14 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/nb/app/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/app/development/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/app/development/ux/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/app/development/ux/pages/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/app/development/ux/pages/navigation/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -564,12 +571,7 @@ if(host != "localhost")
     <li><a href="#rekkefølge">Rekkefølge</a></li>
     <li><a href="#validering-ved-sidebytte">Validering ved sidebytte</a></li>
   </ul>
-</nav>
-
-
-
-
-<p>Navigering videre til neste side skjer via en navigerings-knapp. Denne må legges til manuelt i hver layout-fil hvor man ønsker navigering fremover. Navigering tilbake til forrige side gjøres via tilbake-pil i venstre hjørnet. Denne knappen vises alltid så lenge det er en side å gå tilbake til, og er ikke en del av layout-filen. Se bilde under.</p>
+</nav><p>Navigering videre til neste side skjer via en navigerings-knapp. Denne må legges til manuelt i hver layout-fil hvor man ønsker navigering fremover. Navigering tilbake til forrige side gjøres via tilbake-pil i venstre hjørnet. Denne knappen vises alltid så lenge det er en side å gå tilbake til, og er ikke en del av layout-filen. Se bilde under.</p>
 <figure><a href="nav-button-next.png"><img src="nav-button-next.png" alt="Navigeringsknapper" title="Navigeringsknapper" /></a><figcaption><h4>Navigeringsknapper</h4></figcaption></figure>
 <h2 id="legge-til-knapp-for-navigering">Legge til knapp for navigering</h2>
 <p>Knapp for navigering legges inn i alle layout-filer der det er behov. Om man ønsker at den skal dukke opp nederst på siden, må den legges inn nederst i layout-filen. Eksempel vises under</p>
@@ -670,19 +672,10 @@ Funksjonalitet for å kunne dynamisk bestemme hvilken side som er neste er ikke 
 <p>Det er også mulig å trigge validering på alle sider ved å legge til <code>validateAllPages</code> i <code>triggers</code>.</p>
 
 
-<footer class=" footline" >
-	
-</footer>
-
-
-
-
-
+<footer class=" footline" ></footer>
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/nb/app/development/ux/pages/" title="Sider"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/nb/app/development/ux/pages/tracks/" title="Sporvalg" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/app/development/ux/pages/navigation/_index.nb.md" target="blank">
@@ -744,3 +737,4 @@ Funksjonalitet for å kunne dynamisk bestemme hvilken side som er neste er ikke 
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

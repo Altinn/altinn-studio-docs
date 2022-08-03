@@ -118,8 +118,8 @@ if(host != "localhost")
 </script>
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
-      <li class="dd-item parent">
-        <a href="/nb/app/"><span>Lage apper</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/"><span>Lage apper</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/app/getting-started/"><span>Kom i gang</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -152,8 +152,8 @@ if(host != "localhost")
         <a href="/nb/app/getting-started/access-management/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/app/getting-started/local-dev/"><span>Lokal utvikling</span></a></li></ul></li>
-      <li class="dd-item parent">
-        <a href="/nb/app/app-dev-course/"><span>Introkurs</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/app-dev-course/"><span>Introkurs</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/app/app-dev-course/case/"><span>Case</span></a></li>
       <li class="dd-item">
@@ -164,7 +164,7 @@ if(host != "localhost")
         <a href="/nb/app/app-dev-course/modul3/"><span>Modul 3</span></a></li>
       <li class="dd-item">
         <a href="/nb/app/app-dev-course/modul4/"><span>Modul 4</span></a></li>
-      <li class="dd-item parent active">
+      <li class="dd-item">
         <a href="/nb/app/app-dev-course/modul5/"><span>Modul 5</span></a></li>
       <li class="dd-item">
         <a href="/nb/app/app-dev-course/modul6/"><span>Modul 6</span></a></li>
@@ -381,7 +381,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/app/launched-apps/digdir/be-om-api-nokkel/"><span>Tilgang til REST API</span></a></li></ul></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/nb/api/"><span>API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -543,7 +543,12 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/nb/app/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/app/app-dev-course/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/app/app-dev-course/modul5/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -557,12 +562,7 @@ if(host != "localhost")
                 <span class="links"><a href='/nb/app/'>Lage apper</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/app/app-dev-course/'>Introkurs</a> <span class='adocs-breadcrumb-divider'> / </span> Modul 5</span>
             </div>
           </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/apps">apps</a><a class="label label-default" href="https://docs.altinn.studio/tags/training">training</a><a class="label label-default" href="https://docs.altinn.studio/tags/process">process</a><a class="label label-default" href="https://docs.altinn.studio/tags/policy">policy</a><a class="label label-default" href="https://docs.altinn.studio/tags/autorisasjon">autorisasjon</a><a class="label label-default" href="https://docs.altinn.studio/tags/confirmation">confirmation</a><a class="label label-default" href="https://docs.altinn.studio/tags/bekreftelsessteg">bekreftelsessteg</a><a class="label label-default" href="https://docs.altinn.studio/tags/validering">validering</a></div><div id="body-inner"><h1 class="a-fontBold">Modul 5</h1>
-              <p class="a-leadText" id="leadText">Legge til bekreftelsessteg</p>
-
-
-
-
-<p>I denne modulen skal du legge til et prosessteg i applikasjonen.</p>
+              <p class="a-leadText" id="leadText">Legge til bekreftelsessteg</p><p>I denne modulen skal du legge til et prosessteg i applikasjonen.</p>
 <p><strong>Temaer som dekkes i denne modulen:</strong></p>
 <ul>
 <li>Prosess</li>
@@ -719,19 +719,10 @@ og du skal kunne teste det nye prosessteget og bekrefte at visningen ser ut som 
 <figure><a href="/app/app-dev-course/modul5/bekreftelsesside-screenshot.png"><img src="/app/app-dev-course/modul5/bekreftelsesside-screenshot.png" alt="Skjermbilde av bekreftelsesside" title="Skjermbilde av bekreftelsesside" /></a><figcaption><h4>Skjermbilde av bekreftelsesside</h4></figcaption></figure>
 
 
-<footer class=" footline" >
-	
-</footer>
-
-
-
-
-
+<footer class=" footline" ></footer>
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/nb/app/app-dev-course/modul4/" title="Modul 4"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/nb/app/app-dev-course/modul6/" title="Modul 6" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/app/app-dev-course/modul5/_index.nb.md" target="blank">
@@ -793,3 +784,4 @@ og du skal kunne teste det nye prosessteget og bekrefte at visningen ser ut som 
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

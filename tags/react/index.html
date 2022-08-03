@@ -421,7 +421,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -429,7 +429,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -437,7 +437,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -521,7 +521,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -1075,7 +1075,11 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/tags/']").parent().addClass("parent");
+ $("li.dd-item a[href='/tags/react/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1091,30 +1095,14 @@ if(host != "localhost")
           </div><div id="body-inner"><h1 class="a-fontBold">react</h1>
               <p class="a-leadText" id="leadText"></p>
 
-
-
-
-
-
-<footer class=" footline" >
-	
-</footer>
-
-
-
-	
-
-	<div class="extra-pagination inner">
+<footer class=" footline" ></footer><div class="extra-pagination inner">
 	<nav class="pagination" role="navigation">
 	
 	<span class="page-number">Page 1 on 1</span>
 	
 </nav>
 
-	</div>
-
-	
-	   <article class="post community">
+	</div><article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/front-end/react/">React</a></h2>
     </header>
@@ -1125,10 +1113,8 @@ Important concepts The 2 most important concepts when working with React compone
 State is a collection of properties, controlled by the component, that say what the current state of the component is - this can be used to determine how the component should be rendered. <a class="read-more" href="/community/contributing/handbook/front-end/react/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1136,15 +1122,9 @@ State is a collection of properties, controlled by the component, that say what 
                 <a class="label label-default" href="https://docs.altinn.studio/tags/react/">react</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/front-end/redux/">Redux</a></h2>
     </header>
@@ -1153,10 +1133,8 @@ State is a collection of properties, controlled by the component, that say what 
 Redux Toolkit As of 2021, we have started using Redux Toolkit rather than the traditional Redux setup. This allows us to get rid of a lot of boilerplate code. Read more about Redux Toolkit here. <a class="read-more" href="/community/contributing/handbook/front-end/redux/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1166,15 +1144,9 @@ Redux Toolkit As of 2021, we have started using Redux Toolkit rather than the tr
                 <a class="label label-default" href="https://docs.altinn.studio/tags/react/">react</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/tools/react/architecture/">Kodearkitektur</a></h2>
     </header>
@@ -1184,10 +1156,8 @@ Utfordring (Why?) Hvis en del av Redux Store sendes som Props så vil komponente
 Re-rendring trigges av…  Endring av Props. Endring av State som endrer Props.  Kilder  Redux best practices Common pitfalls  Filtrering av Redux Store i mapStateToProps() ved help av Selector Kort oppsummert (TL;DR) Bruk Memoized Selector for å filtrere Redux Store til Props når Redux Store er stor. <a class="read-more" href="/technology/tools/react/architecture/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/tech/">tech</a>
@@ -1197,15 +1167,9 @@ Re-rendring trigges av…  Endring av Props. Endring av State som endrer Props. 
                 <a class="label label-default" href="https://docs.altinn.studio/tags/react/">react</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/tools/material-ui/">Material UI</a></h2>
     </header>
@@ -1214,10 +1178,8 @@ Re-rendring trigges av…  Endring av Props. Endring av State som endrer Props. 
  It is based on the Google&rsquo;s material design. It focuses exclusively on the React components Can use responsive components provided by the library Can override the style to customize the component to match the application requirements Can save time by using the components in the library instead of creating it from scratch (for example, the navigation drawers, application bar) It uses JSS as a styling solution that exposes a low-level API which helps in advanced overriding and theming mechanism  React router is a third party routing library used in Altinn Studio to trigger navigation within the application. <a class="read-more" href="/technology/tools/material-ui/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/tech/">tech</a>
@@ -1227,15 +1189,9 @@ Re-rendring trigges av…  Endring av Props. Endring av State som endrer Props. 
                 <a class="label label-default" href="https://docs.altinn.studio/tags/react/">react</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/tools/react/">React</a></h2>
     </header>
@@ -1243,10 +1199,8 @@ Re-rendring trigges av…  Endring av Props. Endring av State som endrer Props. 
         <p>Modulært rammeverk for å utvikle UI komponenter som kan gjenbrukes flere steder i løsningen. Hvert React komponent har en tilstand som gir den data i henhold til hvor i applikasjonen brukeren er og hvilke handlinger som foretas. Vedlikeholdt av Facebook, under MIT lisens.  Slik React blir brukt Uten redux  Ved bruk av higher order components kan tilstand sendes fra rot-komponenten nedover i komponent-hierarkiet. Rot-komponenten håndterer alt av state, og sender callbacks ned i komponentene, slik at det er mulig og legge til, fjerne og endre komponeter. <a class="read-more" href="/technology/tools/react/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/tech/">tech</a>
@@ -1256,15 +1210,9 @@ Re-rendring trigges av…  Endring av Props. Endring av State som endrer Props. 
                 <a class="label label-default" href="https://docs.altinn.studio/tags/react/">react</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/tools/react/redux/">Redux</a></h2>
     </header>
@@ -1272,10 +1220,8 @@ Re-rendring trigges av…  Endring av Props. Endring av State som endrer Props. 
         <p>Applikasjonstilstandshåndtering En felles tilstand for hele applikasjonen Tilstanden styres av Actions som håndteres av Reducere som igjen populerer tilstanden.  En Action kan f.eks. være &ldquo;FETCH_POSTNUMMER&rdquo; Når en slik actions kjøres, så vil en Reducer ta imot og oppdatere tilstanden slik at det er i tilstanden at applikasjonen nå henter postnummer. Når er hentingen er fullført, vil man f.eks. sende en action &ldquo;FETCH_POSTNUMMER_FULFILLED&rdquo; som har postnummer-data med som parameter. Reducer håndterer denne handlingen og setter postnummer-data i applikasjonens tilstand. <a class="read-more" href="/technology/tools/react/redux/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/tech/">tech</a>
@@ -1285,16 +1231,9 @@ Re-rendring trigges av…  Endring av Props. Endring av State som endrer Props. 
                 <a class="label label-default" href="https://docs.altinn.studio/tags/react/">react</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-
-	<div style="margin-bottom:2rem"></div>
+<div style="margin-bottom:2rem"></div>
 
 	<nav class="pagination" role="navigation">
 	
@@ -1302,14 +1241,9 @@ Re-rendring trigges av…  Endring av Props. Endring av State som endrer Props. 
 	
 </nav>
 
-
-
-
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-next" href="/app/" title="Create apps" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div></section>
         </div> 
@@ -1366,3 +1300,4 @@ Re-rendring trigges av…  Endring av Props. Endring av State som endrer Props. 
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

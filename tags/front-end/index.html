@@ -421,7 +421,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -429,7 +429,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -437,7 +437,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -521,7 +521,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -1075,7 +1075,11 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/tags/']").parent().addClass("parent");
+ $("li.dd-item a[href='/tags/front-end/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1091,20 +1095,7 @@ if(host != "localhost")
           </div><div id="body-inner"><h1 class="a-fontBold">front-end</h1>
               <p class="a-leadText" id="leadText"></p>
 
-
-
-
-
-
-<footer class=" footline" >
-	
-</footer>
-
-
-
-	
-
-	<div class="extra-pagination inner">
+<footer class=" footline" ></footer><div class="extra-pagination inner">
 	<nav class="pagination" role="navigation">
 	
 	<span class="page-number">Page 1 on 2</span>
@@ -1113,10 +1104,7 @@ if(host != "localhost")
 	
 </nav>
 
-	</div>
-
-	
-	   <article class="post community">
+	</div><article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/front-end/getting-started/">Getting started</a></h2>
     </header>
@@ -1129,10 +1117,8 @@ Technologies and frameworks  https://reactjs.org/ https://redux.js.org/ https://
  For Altinn Studio Designer and Altinn. <a class="read-more" href="/community/contributing/handbook/front-end/getting-started/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1140,15 +1126,9 @@ Technologies and frameworks  https://reactjs.org/ https://redux.js.org/ https://
                 <a class="label label-default" href="https://docs.altinn.studio/tags/front-end/">front-end</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/front-end/developing/">Developing locally</a></h2>
     </header>
@@ -1159,10 +1139,8 @@ Technologies and frameworks  https://reactjs.org/ https://redux.js.org/ https://
   Run the app (from &lt;path-to-app&gt;/App/): <a class="read-more" href="/community/contributing/handbook/front-end/developing/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1170,15 +1148,9 @@ Technologies and frameworks  https://reactjs.org/ https://redux.js.org/ https://
                 <a class="label label-default" href="https://docs.altinn.studio/tags/front-end/">front-end</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/front-end/routine/">Routines for development</a></h2>
     </header>
@@ -1187,10 +1159,8 @@ Technologies and frameworks  https://reactjs.org/ https://redux.js.org/ https://
 App frontend  Create a new branch from master.  Naming convention for branches is bug/&lt;issue number&gt;-&lt;short description&gt; or feature/&lt;issue number&gt;-&lt;short description&gt;, depending on the issue type.   Code your changes and test them by running an app locally. Run unit tests  Update any failing tests Add new tests when needed   Make sure you update the version in altinn-app-frontend/package. <a class="read-more" href="/community/contributing/handbook/front-end/routine/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1200,15 +1170,9 @@ App frontend  Create a new branch from master.  Naming convention for branches i
                 <a class="label label-default" href="https://docs.altinn.studio/tags/front-end/">front-end</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/front-end/new-component/">Creating components</a></h2>
     </header>
@@ -1218,10 +1182,8 @@ A detailed overview of the app frontend structure and architecture is available 
 Form components All form components should be presentational components. <a class="read-more" href="/community/contributing/handbook/front-end/new-component/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1229,15 +1191,9 @@ Form components All form components should be presentational components. <a clas
                 <a class="label label-default" href="https://docs.altinn.studio/tags/front-end/">front-end</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/front-end/redux/">Redux</a></h2>
     </header>
@@ -1246,10 +1202,8 @@ Form components All form components should be presentational components. <a clas
 Redux Toolkit As of 2021, we have started using Redux Toolkit rather than the traditional Redux setup. This allows us to get rid of a lot of boilerplate code. Read more about Redux Toolkit here. <a class="read-more" href="/community/contributing/handbook/front-end/redux/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1259,15 +1213,9 @@ Redux Toolkit As of 2021, we have started using Redux Toolkit rather than the tr
                 <a class="label label-default" href="https://docs.altinn.studio/tags/react/">react</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/front-end/best-practices/">Best practices</a></h2>
     </header>
@@ -1276,10 +1224,8 @@ Redux Toolkit As of 2021, we have started using Redux Toolkit rather than the tr
 Sagas All logic used in a saga should be an exported function in the utils-folder. <a class="read-more" href="/community/contributing/handbook/front-end/best-practices/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1287,15 +1233,9 @@ Sagas All logic used in a saga should be an exported function in the utils-folde
                 <a class="label label-default" href="https://docs.altinn.studio/tags/front-end/">front-end</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/front-end/build/">Build</a></h2>
     </header>
@@ -1303,10 +1243,8 @@ Sagas All logic used in a saga should be an exported function in the utils-folde
         <p>App Frontend See details in the repository for how to build the project <a class="read-more" href="/community/contributing/handbook/front-end/build/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1316,32 +1254,18 @@ Sagas All logic used in a saga should be an exported function in the utils-folde
                 <a class="label label-default" href="https://docs.altinn.studio/tags/build/">build</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/front-end/">Front-end</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Getting startedGet started working with the frontend
-Developing locallyRunning the frontends locally for development
-Routines for developmentDescribes routines for developing frontend code for resources in the DevOps team.
-Creating componentsGet started creating new form components for the apps
-ReactGuidelines for using React in Altinn Studio
-ReduxGuidelines for using Redux in Altinn Studio
-DebugDebug documentation for altinn. <a class="read-more" href="/community/contributing/handbook/front-end/">&raquo;</a></p>
+        <p>&lt;li&gt;&lt;a href=&quot;/community/contributing/handbook/front-end/getting-started/&quot;&gt;Getting started&lt;/a&gt;&lt;p&gt;Get started working with the frontend&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/community/contributing/handbook/front-end/developing/&quot;&gt;Developing locally&lt;/a&gt;&lt;p&gt;Running the frontends locally for development&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/community/contributing/handbook/front-end/routine/&quot;&gt;Routines for development&lt;/a&gt;&lt;p&gt;Describes routines for developing frontend code for resources in the DevOps team.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/community/contributing/handbook/front-end/new-component/&quot;&gt;Creating components&lt;/a&gt;&lt;p&gt;Get started creating new form components for the apps&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/community/contributing/handbook/front-end/react/&quot;&gt;React&lt;/a&gt;&lt;p&gt;Guidelines for using React in Altinn Studio&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/community/contributing/handbook/front-end/redux/&quot;&gt;Redux&lt;/a&gt;&lt;p&gt;Guidelines for using Redux in Altinn Studio&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/community/contributing/handbook/front-end/debug/&quot;&gt;Debug&lt;/a&gt;&lt;p&gt;Debug documentation for altinn. <a class="read-more" href="/community/contributing/handbook/front-end/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1349,15 +1273,9 @@ Sagas All logic used in a saga should be an exported function in the utils-folde
                 <a class="label label-default" href="https://docs.altinn.studio/tags/front-end/">front-end</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/front-end/postmessage/">Post Message</a></h2>
     </header>
@@ -1367,10 +1285,8 @@ Usage Dispatching a message event is done the following way:
 // variables should be used for messages var SAVED_EVENT = &#39;SAVED&#39; window.postMessage(SAVED_EVENT, window.location.href); Catching the event is done by adding an event listener to the component one needs to communicate with: <a class="read-more" href="/community/contributing/handbook/front-end/postmessage/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1378,15 +1294,9 @@ Usage Dispatching a message event is done the following way:
                 <a class="label label-default" href="https://docs.altinn.studio/tags/front-end/">front-end</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post community">
+<article class="post community">
     <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/front-end/styling/">Styling (css)</a></h2>
     </header>
@@ -1398,10 +1308,8 @@ Proposed order of styling methods The following order is proposed when consideri
  Styled Components (Accepts props, logic, theming) Material-UI&rsquo;s JSS (Accepts theming) Inline Styling, the React way (Accepts props, logic, theming. <a class="read-more" href="/community/contributing/handbook/front-end/styling/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
@@ -1411,16 +1319,9 @@ Proposed order of styling methods The following order is proposed when consideri
                 <a class="label label-default" href="https://docs.altinn.studio/tags/styling/">styling</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-
-	<div style="margin-bottom:2rem"></div>
+<div style="margin-bottom:2rem"></div>
 
 	<nav class="pagination" role="navigation">
 	
@@ -1430,14 +1331,9 @@ Proposed order of styling methods The following order is proposed when consideri
 	
 </nav>
 
-
-
-
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-next" href="/app/" title="Create apps" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div></section>
         </div> 
@@ -1494,3 +1390,4 @@ Proposed order of styling methods The following order is proposed when consideri
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

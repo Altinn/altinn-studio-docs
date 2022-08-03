@@ -381,7 +381,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/app/launched-apps/digdir/be-om-api-nokkel/"><span>Tilgang til REST API</span></a></li></ul></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/nb/api/"><span>API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -438,8 +438,8 @@ if(host != "localhost")
         <a href="/nb/api/storage/spec/"><span>OpenAPI</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/api/studio/"><span>Studio</span></a></li></ul></li>
-      <li class="dd-item parent">
-        <a href="/nb/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/community/about/"><span>Om</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -456,13 +456,13 @@ if(host != "localhost")
             <span>Intro for utviklere</span></a></li>
       <li class="dd-item">
         <a href="/nb/community/contributing/handbook/"><span>Håndbok</span></a></li></ul></li>
-      <li class="dd-item parent">
-        <a href="/nb/community/changelog/"><span>Endringslogg</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
-      <li class="dd-item parent">
-        <a href="/nb/community/changelog/app-frontend/"><span>App frontend</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
-      <li class="dd-item parent">
-        <a href="/nb/community/changelog/app-frontend/v3/"><span>v3</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
-      <li class="dd-item parent active">
+      <li class="dd-item">
+        <a href="/nb/community/changelog/"><span>Endringslogg</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-frontend/"><span>App frontend</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-frontend/v3/"><span>v3</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
         <a href="/nb/community/changelog/app-frontend/v3/breaking-changes/"><span>Breaking changes</span></a></li>
       <li class="dd-item">
         <a href="/nb/community/changelog/app-frontend/v3/whats-new/"><span>Hva er nytt?</span></a></li></ul></li></ul></li>
@@ -543,7 +543,14 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/nb/community/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/community/changelog/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/community/changelog/app-frontend/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/community/changelog/app-frontend/v3/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/community/changelog/app-frontend/v3/breaking-changes/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -557,12 +564,7 @@ if(host != "localhost")
                 <span class="links"><a href='/nb/community/'>Community</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/community/changelog/'>Endringslogg</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/community/changelog/app-frontend/'>App frontend</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/community/changelog/app-frontend/v3/'>v3</a> <span class='adocs-breadcrumb-divider'> / </span> Breaking changes</span>
             </div>
           </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-norwegian">translate-to-norwegian</a></div><div id="body-inner"><h1 class="a-fontBold">Breaking changes</h1>
-              <p class="a-leadText" id="leadText">Oversikt over breaking changes introdusert i app frontend i v3.0.0</p>
-
-
-
-
-<p>As of v3.0.0 of app frontend, the font <a href="https://github.com/Altinn/altinn-din">Altinn-DIN</a> replaces the 
+              <p class="a-leadText" id="leadText">Oversikt over breaking changes introdusert i app frontend i v3.0.0</p><p>As of v3.0.0 of app frontend, the font <a href="https://github.com/Altinn/altinn-din">Altinn-DIN</a> replaces the 
 Roboto font that was used previously.</p>
 <p>Once an app is upgraded to use v3 of the app frontend, all CSS expects the Altinn-DIN font to be loaded.
 In order for the app to display fonts as expected, the font that is loaded with the app must be updated.</p>
@@ -574,19 +576,10 @@ In order for the app to display fonts as expected, the font that is loaded with 
 <figure><a href="v3-diff.png"><img src="v3-diff.png" alt="Diff when upgrading to v3 of app frontend" title="Diff when upgrading to v3 of app frontend" /></a><figcaption><h4>Diff when upgrading to v3 of app frontend</h4></figcaption></figure>
 
 
-<footer class=" footline" >
-	
-</footer>
-
-
-
-
-
+<footer class=" footline" ></footer>
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/nb/community/changelog/app-frontend/v3/" title="v3"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/nb/community/changelog/app-frontend/v3/whats-new/" title="Hva er nytt?" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/community/changelog/app-frontend/v3/breaking-changes/_index.nb.md" target="blank">
@@ -648,3 +641,4 @@ In order for the app to display fonts as expected, the font that is loaded with 
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

@@ -421,7 +421,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -429,7 +429,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -437,7 +437,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -521,7 +521,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -1075,7 +1075,11 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/tags/']").parent().addClass("parent");
+ $("li.dd-item a[href='/tags/architecture/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1091,20 +1095,7 @@ if(host != "localhost")
           </div><div id="body-inner"><h1 class="a-fontBold">architecture</h1>
               <p class="a-leadText" id="leadText"></p>
 
-
-
-
-
-
-<footer class=" footline" >
-	
-</footer>
-
-
-
-	
-
-	<div class="extra-pagination inner">
+<footer class=" footline" ></footer><div class="extra-pagination inner">
 	<nav class="pagination" role="navigation">
 	
 	    <a class="newer-posts" href="/tags/architecture/page/8/">&larr; Previous Pages</a>
@@ -1115,10 +1106,7 @@ if(host != "localhost")
 	
 </nav>
 
-	</div>
-
-	
-	   <article class="post technology">
+	</div><article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/solution/altinn-studio/designer/pap/xacmlpolicy/">Authorization - Altinn Apps - Policy</a></h2>
     </header>
@@ -1128,10 +1116,8 @@ The policy format follows XACML 3.0 and for every rule in the policy, there is a
 Resource Attributes    Attribute Description     Org The org part of the resource attribute defines which org that owns the app. <a class="read-more" href="/technology/architecture/components/application/solution/altinn-studio/designer/pap/xacmlpolicy/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1139,15 +1125,9 @@ Resource Attributes    Attribute Description     Org The org part of the resourc
                 <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/capabilities/runtime/presentation/">Presentation (User Interface) Capabilities</a></h2>
     </header>
@@ -1157,10 +1137,8 @@ These capabilities is both targeting App developers creating applications in Alt
 Rendering &amp; Interaction Capabilities Composition The app developer may create the layout of the App UI using Altinn Studio. <a class="read-more" href="/technology/architecture/capabilities/runtime/presentation/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1168,15 +1146,9 @@ Rendering &amp; Interaction Capabilities Composition The app developer may creat
                 <a class="label label-default" href="https://docs.altinn.studio/tags/todo/">todo</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/platform/presentation/">Presentation Components</a></h2>
     </header>
@@ -1187,24 +1159,16 @@ Read all about Altinn CDN.
 Web server For Altinn Studio, Altinn Apps and Altinn Platform we use Kestrel as the web server/ application server for dot.net applications. Read more about Kestrel. <a class="read-more" href="/technology/architecture/components/platform/presentation/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/capabilities/runtime/processing/">Processing &amp; Execution Capabilities</a></h2>
     </header>
@@ -1215,24 +1179,16 @@ Read the details about BPMN processing capabilities.
 Execution Control &amp; Failure Mgmt Capabilities Auditing, Logging &amp; Tracing Altinn Studio, The applications created in Altinn Studio and Altinn Platform perform auditing, logging and tracing of events that happens. <a class="read-more" href="/technology/architecture/capabilities/runtime/processing/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/construction/altinn-platform/profile/">Application construction components - Altinn Platform Profile</a></h2>
     </header>
@@ -1240,10 +1196,8 @@ Execution Control &amp; Failure Mgmt Capabilities Auditing, Logging &amp; Tracin
         <p>TODO <a class="read-more" href="/technology/architecture/components/application/construction/altinn-platform/profile/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1253,15 +1207,9 @@ Execution Control &amp; Failure Mgmt Capabilities Auditing, Logging &amp; Tracin
                 <a class="label label-default" href="https://docs.altinn.studio/tags/todo/">todo</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/capabilities/devops/projectmanagement/">Project Management Capabilities</a></h2>
     </header>
@@ -1273,10 +1221,8 @@ Burn-down / Tracking The project has capability to manage see the burn-down and 
 This is done in Github and Zenhub. <a class="read-more" href="/technology/architecture/capabilities/devops/projectmanagement/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1284,15 +1230,9 @@ This is done in Github and Zenhub. <a class="read-more" href="/technology/archit
                 <a class="label label-default" href="https://docs.altinn.studio/tags/devops/">devops</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/solution/altinn-platform/authorization/prp/">Policy Retrieval Point</a></h2>
     </header>
@@ -1304,10 +1244,8 @@ See Policy Adminstration Point for details about how the policies are created.
 See construction components how PRP is built. <a class="read-more" href="/technology/architecture/components/application/solution/altinn-platform/authorization/prp/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1319,15 +1257,9 @@ See construction components how PRP is built. <a class="read-more" href="/techno
                 <a class="label label-default" href="https://docs.altinn.studio/tags/xacml/">xacml</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/capabilities/devops/quality/">Quality Management Capabilities</a></h2>
     </header>
@@ -1339,10 +1271,8 @@ Defect Tracking &amp; Management Defects are tracked in Gitub as bugs. See activ
 Static SW Analysis Enablement Every pull requsts needs to adhere to code quality standard verifyed with static code analysis. <a class="read-more" href="/technology/architecture/capabilities/devops/quality/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1350,15 +1280,9 @@ Static SW Analysis Enablement Every pull requsts needs to adhere to code quality
                 <a class="label label-default" href="https://docs.altinn.studio/tags/devops/">devops</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/construction/altinn-platform/receipt/">Application architecture receipt component - Altinn Platform</a></h2>
     </header>
@@ -1369,10 +1293,8 @@ Receipt backend exposes two enitities through API endpoints prefixed with https:
 /users A user is the entity which is logged in in Altinn and performs actions for on behalf of an instance owner. <a class="read-more" href="/technology/architecture/components/application/construction/altinn-platform/receipt/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1382,15 +1304,9 @@ Receipt backend exposes two enitities through API endpoints prefixed with https:
                 <a class="label label-default" href="https://docs.altinn.studio/tags/receipt/">receipt</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/construction/altinn-platform/register/">Application construction components - Altinn Platform Register</a></h2>
     </header>
@@ -1398,10 +1314,8 @@ Receipt backend exposes two enitities through API endpoints prefixed with https:
         <p>TODO <a class="read-more" href="/technology/architecture/components/application/construction/altinn-platform/register/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1411,16 +1325,9 @@ Receipt backend exposes two enitities through API endpoints prefixed with https:
                 <a class="label label-default" href="https://docs.altinn.studio/tags/todo/">todo</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-
-	<div style="margin-bottom:2rem"></div>
+<div style="margin-bottom:2rem"></div>
 
 	<nav class="pagination" role="navigation">
 	
@@ -1432,14 +1339,9 @@ Receipt backend exposes two enitities through API endpoints prefixed with https:
 	
 </nav>
 
-
-
-
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/technology/tools/vs-code/" title="Visual Studio Code"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/app/" title="Create apps" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div></section>
         </div> 
@@ -1496,3 +1398,4 @@ Receipt backend exposes two enitities through API endpoints prefixed with https:
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

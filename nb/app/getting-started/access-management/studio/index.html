@@ -118,10 +118,10 @@ if(host != "localhost")
 </script>
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
-      <li class="dd-item parent">
-        <a href="/nb/app/"><span>Lage apper</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
-      <li class="dd-item parent">
-        <a href="/nb/app/getting-started/"><span>Kom i gang</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/"><span>Lage apper</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/"><span>Kom i gang</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/app/getting-started/intro/"><span>Introduksjon</span></a></li>
       <li class="dd-item">
@@ -144,11 +144,11 @@ if(host != "localhost")
         <a href="/nb/app/getting-started/navigation/repos/"><span>Repos</span></a></li>
       <li class="dd-item">
         <a href="/nb/app/getting-started/navigation/code/"><span>Code</span></a></li></ul></li>
-      <li class="dd-item parent">
-        <a href="/nb/app/getting-started/access-management/"><span>Tilganger</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/access-management/"><span>Tilganger</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/app/getting-started/access-management/apps/"><span>Apps</span></a></li>
-      <li class="dd-item parent active">
+      <li class="dd-item">
         <a href="/nb/app/getting-started/access-management/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/app/getting-started/local-dev/"><span>Lokal utvikling</span></a></li></ul></li>
@@ -381,7 +381,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/app/launched-apps/digdir/be-om-api-nokkel/"><span>Tilgang til REST API</span></a></li></ul></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/nb/api/"><span>API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -543,7 +543,13 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/nb/app/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/app/getting-started/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/app/getting-started/access-management/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/app/getting-started/access-management/studio/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -562,12 +568,7 @@ if(host != "localhost")
     <li><a href="#tilgangsstyring-for-organisasjonen">Tilgangsstyring for organisasjonen</a></li>
     <li><a href="#tilgangsstyring-for-repository">Tilgangsstyring for repository</a></li>
   </ul>
-</nav>
-
-
-
-
-<h2 id="tilgangsstyring-for-organisasjonen">Tilgangsstyring for organisasjonen</h2>
+</nav><h2 id="tilgangsstyring-for-organisasjonen">Tilgangsstyring for organisasjonen</h2>
 <p>Som eier av en organisasjon i Altinn Studio har man mulighet til å konfigurere tilgangene til 
 de øvrige brukerne knyttet til organisasjonen. Dette gjøres via Gitea på følgende lenke: <a href="https://altinn.studio/repos/org/%7Borg%7D/teams/">https://altinn.studio/repos/org/{org}/teams/</a></p>
 <p>Det er definert fire standard team som legger føringer for hva en bruker har tillatelse til å gjøre innad i en organisasjon i Altinn Studio.
@@ -641,19 +642,10 @@ team for tilgangsstyring. For å gi et team tilgang, søk det fram og klikk <cod
 <figure><a href="access-management-repository.png"><img src="access-management-repository.png" alt="Styre tilgang på repository" title="Styre tilgang til et enkelt repository" /></a><figcaption><h4>Styre tilgang til et enkelt repository</h4></figcaption></figure>
 
 
-<footer class=" footline" >
-	
-</footer>
-
-
-
-
-
+<footer class=" footline" ></footer>
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/nb/app/getting-started/access-management/apps/" title="Apps infrastruktur tilganger"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/nb/app/getting-started/local-dev/" title="Lokal utvikling" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/app/getting-started/access-management/studio/_index.nb.md" target="blank">
@@ -715,3 +707,4 @@ team for tilgangsstyring. For å gi et team tilgang, søk det fram og klikk <cod
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

@@ -118,10 +118,10 @@ if(host != "localhost")
 </script>
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
-      <li class="dd-item parent">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
-      <li class="dd-item parent">
-        <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/intro/"><span>Introduction</span></a></li>
       <li class="dd-item">
@@ -132,7 +132,7 @@ if(host != "localhost")
         <a href="/app/getting-started/create-app/"><span>Create app</span></a></li>
       <li class="dd-item">
         <a href="/app/getting-started/dashboard/"><span>Dashboard</span></a></li>
-      <li class="dd-item parent active">
+      <li class="dd-item">
         <a href="/app/getting-started/migrate-services/"><span>Migrate services</span></a></li>
       <li class="dd-item">
         <a href="/app/getting-started/access-management/"><span>Access</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
@@ -429,7 +429,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -437,7 +437,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -445,7 +445,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -529,7 +529,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -1083,7 +1083,12 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/app/']").parent().addClass("parent");
+ $("li.dd-item a[href='/app/getting-started/']").parent().addClass("parent");
+ $("li.dd-item a[href='/app/getting-started/migrate-services/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1102,12 +1107,7 @@ if(host != "localhost")
     <li><a href="#migrere-en-eksisterende-tjeneste-til-altinn-3">Migrere en eksisterende tjeneste til Altinn 3</a></li>
     <li><a href="#lag-en-skisse-av-skjema">Lag en skisse av skjema</a></li>
   </ul>
-</nav>
-
-
-
-
-<h2 id="migrere-en-eksisterende-tjeneste-til-altinn-3">Migrere en eksisterende tjeneste til Altinn 3</h2>
+</nav><h2 id="migrere-en-eksisterende-tjeneste-til-altinn-3">Migrere en eksisterende tjeneste til Altinn 3</h2>
 <p>Gjør deg kjent med <a href="../../../community/roadmap/studio/appowner">Tjenesteeier-funksjonalitet i Altinn 3</a>.</p>
 <ol>
 <li><strong>Opprett <a href="../first-time-setup/">bruker</a> og <a href="../create-app/">app</a> i <a href="https://altinn.studio/">Altinn Studio</a>.</strong><br>
@@ -1164,19 +1164,10 @@ og slik at man har en referanse å se til når man utvikler løsningen. Slik gj�
 </div>
 
 
-<footer class=" footline" >
-	
-</footer>
-
-
-
-
-
+<footer class=" footline" ></footer>
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/app/getting-started/dashboard/" title="Dashboard in Altinn Studio"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/app/getting-started/access-management/" title="Access" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/app/getting-started/migrate-services/_index.en.md" target="blank">
@@ -1238,3 +1229,4 @@ og slik at man har en referanse å se til når man utvikler løsningen. Slik gj�
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

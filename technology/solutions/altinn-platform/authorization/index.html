@@ -421,7 +421,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -429,7 +429,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -437,7 +437,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -521,7 +521,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -640,8 +640,8 @@ if(host != "localhost")
         <a href="/community/devops/teams/studio/"><span>Studio</span></a></li></ul></li></ul></li>
       <li class="dd-item">
         <a href="/community/presentations/"><span>Presentations</span></a></li></ul></li>
-      <li class="dd-item parent">
-        <a href="/technology/"><span>Technology</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/"><span>Technology</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/technology/architecture/"><span>Architecture</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -884,8 +884,8 @@ if(host != "localhost")
         <a href="/technology/architecture/components/platform/presentation/"><span>Presentation</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/technology/architecture/components/platform/presentation/altinn-cdn/"><span>Altinn CDN</span></a></li></ul></li></ul></li></ul></li></ul></li>
-      <li class="dd-item parent">
-        <a href="/technology/solutions/"><span>Solutions</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/solutions/"><span>Solutions</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/technology/solutions/altinn-restorage/"><span>Altinn ReStorage</span></a></li>
       <li class="dd-item">
@@ -924,11 +924,11 @@ if(host != "localhost")
         <a href="/technology/solutions/cli/configuration/maskinporten-setup/"><span></span></a></li></ul></li>
       <li class="dd-item">
         <a href="/technology/solutions/cli/software-implementation/"><span>Software implementation</span></a></li></ul></li>
-      <li class="dd-item parent">
-        <a href="/technology/solutions/altinn-platform/"><span>Altinn Platform</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-platform/"><span>Altinn Platform</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/technology/solutions/altinn-platform/authentication/"><span>Authentication</span></a></li>
-      <li class="dd-item parent active">
+      <li class="dd-item">
         <a href="/technology/solutions/altinn-platform/authorization/"><span>Authorization</span></a></li>
       <li class="dd-item">
         <a href="/technology/solutions/altinn-platform/events/"><span>Events</span></a></li>
@@ -1075,7 +1075,13 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/technology/']").parent().addClass("parent");
+ $("li.dd-item a[href='/technology/solutions/']").parent().addClass("parent");
+ $("li.dd-item a[href='/technology/solutions/altinn-platform/']").parent().addClass("parent");
+ $("li.dd-item a[href='/technology/solutions/altinn-platform/authorization/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1089,12 +1095,7 @@ if(host != "localhost")
                 <span class="links"><a href='/technology/'>Technology</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/technology/solutions/'>Solutions</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/technology/solutions/altinn-platform/'>Altinn Platform</a> <span class='adocs-breadcrumb-divider'> / </span> Authorization</span>
             </div>
           </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/platform">platform</a><a class="label label-default" href="https://docs.altinn.studio/tags/authorization">authorization</a><a class="label label-default" href="https://docs.altinn.studio/tags/todo">todo</a></div><div id="body-inner"><h1 class="a-fontBold">Authorization</h1>
-              <p class="a-leadText" id="leadText">The authorization component contains a highly flexible policy decision point and policy retrieval point to authorize access to applications and Altinn platform components.</p>
-
-
-
-
-<p>The authorization component as based on XACML 3.0 and support both simple and complex policies defined for applications.</p>
+              <p class="a-leadText" id="leadText">The authorization component contains a highly flexible policy decision point and policy retrieval point to authorize access to applications and Altinn platform components.</p><p>The authorization component as based on XACML 3.0 and support both simple and complex policies defined for applications.</p>
 <p>The Policy Decision Point</p>
 <p>The Policy Retriavel Point identifes the correct policy for a request</p>
 <p>The context handler get all information needed to authorize the request.</p>
@@ -1104,19 +1105,10 @@ integrated with other external Policy Information Points.</p>
 <p>It also provides list for possible parties that a user or organization could represent.</p>
 
 
-<footer class=" footline" >
-	
-</footer>
-
-
-
-
-
+<footer class=" footline" ></footer>
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/technology/solutions/altinn-platform/authentication/" title="Authentication"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/technology/solutions/altinn-platform/events/" title="Events" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/technology/solutions/altinn-platform/authorization/_index.md" target="blank">
@@ -1178,3 +1170,4 @@ integrated with other external Policy Information Points.</p>
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

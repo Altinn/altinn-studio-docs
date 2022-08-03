@@ -429,7 +429,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -437,7 +437,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -445,7 +445,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -529,7 +529,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -1083,7 +1083,11 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/tags/']").parent().addClass("parent");
+ $("li.dd-item a[href='/tags/platform/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1099,30 +1103,14 @@ if(host != "localhost")
           </div><div id="body-inner"><h1 class="a-fontBold">platform</h1>
               <p class="a-leadText" id="leadText"></p>
 
-
-
-
-
-
-<footer class=" footline" >
-	
-</footer>
-
-
-
-	
-
-	<div class="extra-pagination inner">
+<footer class=" footline" ></footer><div class="extra-pagination inner">
 	<nav class="pagination" role="navigation">
 	
 	<span class="page-number">Page 1 on 1</span>
 	
 </nav>
 
-	</div>
-
-	
-	   <article class="post technology">
+	</div><article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/solution/altinn-platform/storage/">Altinn Platform - Storage</a></h2>
     </header>
@@ -1133,10 +1121,8 @@ Resources: Instance, Application, DataType, ApplicationLogic, InstanceEvent, App
 Instance An application instance is created when a instance owner (reportee) starts a process in an Altinn application. <a class="read-more" href="/technology/architecture/components/application/solution/altinn-platform/storage/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1146,15 +1132,9 @@ Instance An application instance is created when a instance owner (reportee) sta
                 <a class="label label-default" href="https://docs.altinn.studio/tags/platform/">platform</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/solutions/altinn-platform/authentication/">Authentication</a></h2>
     </header>
@@ -1164,10 +1144,8 @@ The authentication component creates JWT tokens with claims about user and syste
 Token exchange for Altinn Portal When a user logs in to the Altinn Portal (Legacy Solution) it gets a Cookie containing information about the logged-in user. This cookie is a propiaritary format for ASP. <a class="read-more" href="/technology/solutions/altinn-platform/authentication/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/platform/">platform</a>
@@ -1175,15 +1153,9 @@ Token exchange for Altinn Portal When a user logs in to the Altinn Portal (Legac
                 <a class="label label-default" href="https://docs.altinn.studio/tags/authentication/">authentication</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/solutions/altinn-platform/authorization/">Authorization</a></h2>
     </header>
@@ -1196,10 +1168,8 @@ The authorization component consist of a Policy Decision Point (PDP), Policy Ret
 Apps integrated with PDP to authorize access to applications. <a class="read-more" href="/technology/solutions/altinn-platform/authorization/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/platform/">platform</a>
@@ -1209,15 +1179,9 @@ Apps integrated with PDP to authorize access to applications. <a class="read-mor
                 <a class="label label-default" href="https://docs.altinn.studio/tags/todo/">todo</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/solutions/altinn-platform/events/">Events</a></h2>
     </header>
@@ -1225,10 +1189,8 @@ Apps integrated with PDP to authorize access to applications. <a class="read-mor
         <p>The Events component supports storage of events in Azure Cosmos Db. Both Apps and Platform can create events. <a class="read-more" href="/technology/solutions/altinn-platform/events/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/platform/">platform</a>
@@ -1236,15 +1198,9 @@ Apps integrated with PDP to authorize access to applications. <a class="read-mor
                 <a class="label label-default" href="https://docs.altinn.studio/tags/events/">events</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/solutions/altinn-platform/pdf/">PDF</a></h2>
     </header>
@@ -1253,10 +1209,8 @@ Apps integrated with PDP to authorize access to applications. <a class="read-mor
 See all open issues for pdf on Github. <a class="read-more" href="/technology/solutions/altinn-platform/pdf/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/platform/">platform</a>
@@ -1264,15 +1218,9 @@ See all open issues for pdf on Github. <a class="read-more" href="/technology/so
                 <a class="label label-default" href="https://docs.altinn.studio/tags/pdf/">pdf</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/solutions/altinn-platform/profile/">Profile</a></h2>
     </header>
@@ -1281,10 +1229,8 @@ See all open issues for pdf on Github. <a class="read-more" href="/technology/so
 See all open issues for Profile on Github. <a class="read-more" href="/technology/solutions/altinn-platform/profile/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/platform/">platform</a>
@@ -1292,15 +1238,9 @@ See all open issues for Profile on Github. <a class="read-more" href="/technolog
                 <a class="label label-default" href="https://docs.altinn.studio/tags/profile/">profile</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/solutions/altinn-platform/receipt/">Receipt</a></h2>
     </header>
@@ -1308,10 +1248,8 @@ See all open issues for Profile on Github. <a class="read-more" href="/technolog
         <p>The Receipt component is built to present receipt for all apps. Since apps over time will be removed from Altinn Apps, but the data will live forever, the Receipt component is responsible for presenting a generic receipt view. <a class="read-more" href="/technology/solutions/altinn-platform/receipt/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/platform/">platform</a>
@@ -1319,15 +1257,9 @@ See all open issues for Profile on Github. <a class="read-more" href="/technolog
                 <a class="label label-default" href="https://docs.altinn.studio/tags/register/">register</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/solutions/altinn-platform/register/">Register</a></h2>
     </header>
@@ -1337,10 +1269,8 @@ Altinn Platform does not have a own copy of ER. It currently uses Altinn II plaf
 See Application architecture for details. <a class="read-more" href="/technology/solutions/altinn-platform/register/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/platform/">platform</a>
@@ -1348,15 +1278,9 @@ See Application architecture for details. <a class="read-more" href="/technology
                 <a class="label label-default" href="https://docs.altinn.studio/tags/register/">register</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/solutions/altinn-platform/storage/">Storage</a></h2>
     </header>
@@ -1367,10 +1291,8 @@ Formdata and attachments Stored in Azure Blob Storage. One storage account for e
 Additional details See Application Architecture for details about the solutions components in Storage. <a class="read-more" href="/technology/solutions/altinn-platform/storage/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/platform/">platform</a>
@@ -1378,16 +1300,9 @@ Additional details See Application Architecture for details about the solutions 
                 <a class="label label-default" href="https://docs.altinn.studio/tags/storage/">storage</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-
-	<div style="margin-bottom:2rem"></div>
+<div style="margin-bottom:2rem"></div>
 
 	<nav class="pagination" role="navigation">
 	
@@ -1395,14 +1310,9 @@ Additional details See Application Architecture for details about the solutions 
 	
 </nav>
 
-
-
-
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-next" href="/app/" title="Create apps" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div></section>
         </div> 
@@ -1459,3 +1369,4 @@ Additional details See Application Architecture for details about the solutions 
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

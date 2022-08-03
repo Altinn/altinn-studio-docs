@@ -421,7 +421,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -429,7 +429,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -437,7 +437,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -521,7 +521,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -1075,7 +1075,11 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/tags/']").parent().addClass("parent");
+ $("li.dd-item a[href='/tags/architecture/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1091,20 +1095,7 @@ if(host != "localhost")
           </div><div id="body-inner"><h1 class="a-fontBold">architecture</h1>
               <p class="a-leadText" id="leadText"></p>
 
-
-
-
-
-
-<footer class=" footline" >
-	
-</footer>
-
-
-
-	
-
-	<div class="extra-pagination inner">
+<footer class=" footline" ></footer><div class="extra-pagination inner">
 	<nav class="pagination" role="navigation">
 	
 	<span class="page-number">Page 1 on 10</span>
@@ -1113,10 +1104,7 @@ if(host != "localhost")
 	
 </nav>
 
-	</div>
-
-	
-	   <article class="post technology">
+	</div><article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/construction/altinn-apps/app/app-frontend/react/">React &#43; Redux architecture</a></h2>
     </header>
@@ -1128,24 +1116,16 @@ Read more.
 Reducers Reducers specify how the application&rsquo;s state changes in response to actions sent to the store. <a class="read-more" href="/technology/architecture/components/application/construction/altinn-apps/app/app-frontend/react/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/construction/altinn-apps/app/app-frontend/configuration/">App Frontend configuration files</a></h2>
     </header>
@@ -1155,24 +1135,16 @@ Layout files The form layout files are used to render the UI for the form featur
 FormLayout.json The default layout file, at the root of the ui config folder. <a class="read-more" href="/technology/architecture/components/application/construction/altinn-apps/app/app-frontend/configuration/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/construction/altinn-apps/app/app-frontend/features/">App frontend features</a></h2>
     </header>
@@ -1182,24 +1154,16 @@ Support for new types of workflow steps will be added as they become available i
 Instantiate This feature is responsible for creating a specific instance of the app for the end user. <a class="read-more" href="/technology/architecture/components/application/construction/altinn-apps/app/app-frontend/features/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/construction/altinn-apps/app/app-frontend/structure/">App frontend code structure</a></h2>
     </header>
@@ -1207,24 +1171,16 @@ Instantiate This feature is responsible for creating a specific instance of the 
         <p>The code mainly uses a feature-based structure. <a class="read-more" href="/technology/architecture/components/application/construction/altinn-apps/app/app-frontend/structure/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/construction/altinn-apps/app/app-frontend/rendering/">App frontend rendering and flow</a></h2>
     </header>
@@ -1233,52 +1189,34 @@ Instantiate This feature is responsible for creating a specific instance of the 
 Loading general App resources - common for all apps and process task types When an app is loaded initially, there is some data that is always loaded for the App, regardless of state or which process task the app is currently in. <a class="read-more" href="/technology/architecture/components/application/construction/altinn-apps/app/app-frontend/rendering/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/requirements/">Architecture Requirements</a></h2>
     </header>
     <section class="post-excerpt">
         <p>They are important input to deciding which cababilities required and they also is important input to the Architecture Principles and Architecture Patterns.
-Functional RequirementsFunctional requirements can be important to the architecture decisions.
-Non-Functional RequirementsNon functional requirements contains requirements that typically is important for deciding the architecture.
- <a class="read-more" href="/technology/architecture/requirements/">&raquo;</a></p>
+ &lt;li&gt;&lt;a href=&quot;/technology/architecture/requirements/functional/&quot;&gt;Functional Requirements&lt;/a&gt;&lt;p&gt;Functional requirements can be important to the architecture decisions.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/technology/architecture/requirements/non_functional/&quot;&gt;Non-Functional Requirements&lt;/a&gt;&lt;p&gt;Non functional requirements contains requirements that typically is important for deciding the architecture.&lt;/p&gt;&lt;/li&gt;  <a class="read-more" href="/technology/architecture/requirements/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/principles/">Architecture Principles</a></h2>
     </header>
@@ -1293,24 +1231,16 @@ Implications
  Code developed is shared on GitHub. <a class="read-more" href="/technology/architecture/principles/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/patterns/">Architecture Patterns</a></h2>
     </header>
@@ -1323,24 +1253,16 @@ Combined with robust automation, they allow the devops team to make changes freq
 The Cloud Native blueprint below show the important aspect of a Cloud Native solution. <a class="read-more" href="/technology/architecture/patterns/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/capabilities/">Architecture Capabilities</a></h2>
     </header>
@@ -1351,24 +1273,16 @@ An example could be authorization. The architecture provides the capability to a
 Since Altinn 3 is a platform letting its users develop applications and deploy them, you will see that many capabilities that typical is DevOps capabilities in other projects, is part of the runtime capabilities. <a class="read-more" href="/technology/architecture/capabilities/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/capabilities/runtime/">Runtime arhictecture capabilities</a></h2>
     </header>
@@ -1376,29 +1290,19 @@ Since Altinn 3 is a platform letting its users develop applications and deploy t
         <p>The Runtime (exceution) Architecture supports applications at run-time. It is a unified collection of run-time technology services, capabilities, control structures, and supporting infrastructure upon which application software runs.
 The below capability map shows the different runtime capabilities grouped by different areas.
 Download as Visio
-Application build &amp; deploy capabiltiesApplication developers using Altinn Studio to create Applications have access to build &amp; deploy capabilties
-Application development capabilitiesApplication development capabilities are capabilites that is used for developing applications in Altinn Studio <a class="read-more" href="/technology/architecture/capabilities/runtime/">&raquo;</a></p>
+ &lt;li&gt;&lt;a href=&quot;/technology/architecture/capabilities/runtime/appdeploy/&quot;&gt;Application build &amp;amp; deploy capabilties&lt;/a&gt;&lt;p&gt;Application developers using Altinn Studio to create Applications have access to build &amp;amp; deploy capabilties&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/technology/architecture/capabilities/runtime/appdevelopment/&quot;&gt;Application development capabilities&lt;/a&gt;&lt;p&gt;Application development capabilities are capabilites that is used for developing applications in Altinn Studio&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/technology/architecture/capabilities/runtime/data/&quot;&gt;Data management Capabilities&lt;/a&gt;&lt;p&gt;Data management capabilities range from handling data to defining data models for applications in Altinn Studio&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/technology/architecture/capabilities/runtime/integration/&quot;&gt;Integration &amp;amp; Data Transport Capabilties&lt;/a&gt;&lt;p&gt;The most important capability for a platform like Altinn 3 is the integration capabilites. <a class="read-more" href="/technology/architecture/capabilities/runtime/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-
-	<div style="margin-bottom:2rem"></div>
+<div style="margin-bottom:2rem"></div>
 
 	<nav class="pagination" role="navigation">
 	
@@ -1408,14 +1312,9 @@ Download as Visio
 	
 </nav>
 
-
-
-
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-next" href="/app/" title="Create apps" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div></section>
         </div> 
@@ -1472,3 +1371,4 @@ Download as Visio
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

@@ -421,7 +421,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -429,7 +429,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -437,7 +437,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -521,7 +521,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -1075,7 +1075,11 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/tags/']").parent().addClass("parent");
+ $("li.dd-item a[href='/tags/architecture/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1091,20 +1095,7 @@ if(host != "localhost")
           </div><div id="body-inner"><h1 class="a-fontBold">architecture</h1>
               <p class="a-leadText" id="leadText"></p>
 
-
-
-
-
-
-<footer class=" footline" >
-	
-</footer>
-
-
-
-	
-
-	<div class="extra-pagination inner">
+<footer class=" footline" ></footer><div class="extra-pagination inner">
 	<nav class="pagination" role="navigation">
 	
 	    <a class="newer-posts" href="/tags/architecture/page/6/">&larr; Previous Pages</a>
@@ -1115,10 +1106,7 @@ if(host != "localhost")
 	
 </nav>
 
-	</div>
-
-	
-	   <article class="post technology">
+	</div><article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/construction/security/jwtcookie/">JWTCookieAuthentication</a></h2>
     </header>
@@ -1127,10 +1115,8 @@ if(host != "localhost")
 This is created for scenarios where you have need for APIs that will be accessed from system using bearer tokens and from Single Page Applications (SPA) where you want to protect the JWT from this SPA. (XSS attacks). When JWT is put in a http only cookie it is not accessible from the SPA and can&rsquo;t be stolen by malicous javascript running in the browser. <a class="read-more" href="/technology/architecture/components/application/construction/security/jwtcookie/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1138,15 +1124,9 @@ This is created for scenarios where you have need for APIs that will be accessed
                 <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/capabilities/runtime/security/authentication/jwt-format/">JWT Format</a></h2>
     </header>
@@ -1155,10 +1135,8 @@ This is created for scenarios where you have need for APIs that will be accessed
 The format that is choosen for JWT tokens is RSA256. This is a asymetric algorithm where the Authentication component in Altinn Platform generates tokens based on a private key in a certificate, and everyone can validate the token with the public key. <a class="read-more" href="/technology/architecture/capabilities/runtime/security/authentication/jwt-format/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1166,15 +1144,9 @@ The format that is choosen for JWT tokens is RSA256. This is a asymetric algorit
                 <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/platform/oscloudplatform/kubernetes/">Kubernetes</a></h2>
     </header>
@@ -1187,24 +1159,16 @@ Management &amp; monitoring From the Azure Portal we can manage and montitor the
 Nodes We can scale up and down Nodes. <a class="read-more" href="/technology/architecture/components/platform/oscloudplatform/kubernetes/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/platform/logicexecution/">Logic Executions Components</a></h2>
     </header>
@@ -1215,24 +1179,16 @@ Language Virtual Machines &amp; Code Containers Applicatons in Altinn Studio, Al
 Applications in Altinn Apps and Altinn Platform that is based on Java runs on Java Virtual Machine. <a class="read-more" href="/technology/architecture/components/platform/logicexecution/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/data/logical/">Logical datamodel</a></h2>
     </header>
@@ -1242,24 +1198,16 @@ Data is stored in Cosmos DB as JSON documents. In addition we use object databas
 Entities    Entity Storage Created by     Instance Cosmos DB user/app owner   InstanceEvent Cosmos DB user/app owner   InstanceData Cosmos DB user/app owner   Data Blob storage user/app owner   Events PostgreSQL App   Applications Cosmos DB app owner    See below for details <a class="read-more" href="/technology/architecture/components/data/logical/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/capabilities/devops/platformoperations/monitoring/">System and platform monitoring</a></h2>
     </header>
@@ -1273,24 +1221,16 @@ This screenshots show how a request flows through the different applications
 This screenshots show how a request flows through the different applications <a class="read-more" href="/technology/architecture/capabilities/devops/platformoperations/monitoring/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/infrastructure/network/">Network componentens</a></h2>
     </header>
@@ -1302,10 +1242,8 @@ Read more about Azure Virtual Networks.
 Azure Loadbalancer In front of every AKS cluster there is a Azure Loadbalancer that load traffic between the different nodes in the AKS cluster. <a class="read-more" href="/technology/architecture/components/infrastructure/network/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1315,15 +1253,9 @@ Azure Loadbalancer In front of every AKS cluster there is a Azure Loadbalancer t
                 <a class="label label-default" href="https://docs.altinn.studio/tags/todo/">todo</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/requirements/non_functional/">Non-Functional Requirements</a></h2>
     </header>
@@ -1332,24 +1264,16 @@ Azure Loadbalancer In front of every AKS cluster there is a Azure Loadbalancer t
 Performance Scalability The platform need to be highly scalable. The traffic in this types of solutions involves a large part of the countries citizens and the traffic is often concentrated around a few dates. <a class="read-more" href="/technology/architecture/requirements/non_functional/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/capabilities/runtime/security/authentication/oidcproviders/">OIDC Providers</a></h2>
     </header>
@@ -1359,10 +1283,8 @@ When redirecting the user to Altinn Authentication, by default ID-porten will be
 If authentication component has configured a specific OIDC provider and the app is configured to use this, the user will be redirected to login. Currently, the only approved OIDC providers in Altinn are FEIDE and UIDP have been approved OIDC providers in Altinn. <a class="read-more" href="/technology/architecture/capabilities/runtime/security/authentication/oidcproviders/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
@@ -1370,28 +1292,20 @@ If authentication component has configured a specific OIDC provider and the app 
                 <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-	   <article class="post technology">
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/nonsolutionspecific/operations/">Operations Application</a></h2>
     </header>
     <section class="post-excerpt">
         <p>Application Performance Monitoring Some monitoring is done from Azure Portal with help of Azure Monitor Appliation Insight and other tools avaiable.
 PasS and &amp; IaaS configuration There are serveral ways PasS and &amp; IaaS resources are configured &amp; managed
- Azure Portal Azure CLI Azure mobile app  Backup and recoveryAll data created in the different solutions are backed up so it is possible to restore it in case of data loss. <a class="read-more" href="/technology/architecture/components/application/nonsolutionspecific/operations/">&raquo;</a></p>
+ Azure Portal Azure CLI Azure mobile app   &lt;li&gt;&lt;a href=&quot;/technology/architecture/components/application/nonsolutionspecific/operations/backupandrecovery/&quot;&gt;Backup and recovery&lt;/a&gt;&lt;p&gt;All data created in the different solutions are backed up so it is possible to restore it in case of data loss. <a class="read-more" href="/technology/architecture/components/application/nonsolutionspecific/operations/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         
 
-        
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
@@ -1399,16 +1313,9 @@ PasS and &amp; IaaS configuration There are serveral ways PasS and &amp; IaaS re
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
             
         
-
     </footer>
 </article>
-
-
-
-
-	
-
-	<div style="margin-bottom:2rem"></div>
+<div style="margin-bottom:2rem"></div>
 
 	<nav class="pagination" role="navigation">
 	
@@ -1420,14 +1327,9 @@ PasS and &amp; IaaS configuration There are serveral ways PasS and &amp; IaaS re
 	
 </nav>
 
-
-
-
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/technology/tools/vs-code/" title="Visual Studio Code"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/app/" title="Create apps" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div></section>
         </div> 
@@ -1484,3 +1386,4 @@ PasS and &amp; IaaS configuration There are serveral ways PasS and &amp; IaaS re
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

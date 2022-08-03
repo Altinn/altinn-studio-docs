@@ -421,7 +421,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -429,7 +429,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -437,7 +437,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -521,7 +521,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -640,8 +640,8 @@ if(host != "localhost")
         <a href="/community/devops/teams/studio/"><span>Studio</span></a></li></ul></li></ul></li>
       <li class="dd-item">
         <a href="/community/presentations/"><span>Presentations</span></a></li></ul></li>
-      <li class="dd-item parent">
-        <a href="/technology/"><span>Technology</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/"><span>Technology</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/technology/architecture/"><span>Architecture</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -884,14 +884,14 @@ if(host != "localhost")
         <a href="/technology/architecture/components/platform/presentation/"><span>Presentation</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/technology/architecture/components/platform/presentation/altinn-cdn/"><span>Altinn CDN</span></a></li></ul></li></ul></li></ul></li></ul></li>
-      <li class="dd-item parent">
-        <a href="/technology/solutions/"><span>Solutions</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/solutions/"><span>Solutions</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/technology/solutions/altinn-restorage/"><span>Altinn ReStorage</span></a></li>
-      <li class="dd-item parent">
-        <a href="/technology/solutions/altinn-apps/"><span>Altinn Apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
-      <li class="dd-item parent active">
-        <a href="/technology/solutions/altinn-apps/app/"><span>App</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-apps/"><span>Altinn Apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-apps/app/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/technology/solutions/altinn-apps/app/app-api/"><span>App API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -1075,7 +1075,13 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/technology/']").parent().addClass("parent");
+ $("li.dd-item a[href='/technology/solutions/']").parent().addClass("parent");
+ $("li.dd-item a[href='/technology/solutions/altinn-apps/']").parent().addClass("parent");
+ $("li.dd-item a[href='/technology/solutions/altinn-apps/app/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -1089,54 +1095,37 @@ if(host != "localhost")
                 <span class="links"><a href='/technology/'>Technology</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/technology/solutions/'>Solutions</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/technology/solutions/altinn-apps/'>Altinn Apps</a> <span class='adocs-breadcrumb-divider'> / </span> App</span>
             </div>
           </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/altinn-apps">altinn-apps</a></div><div id="body-inner"><h1 class="a-fontBold">App</h1>
-              <p class="a-leadText" id="leadText">Description of the app created in Altinn Studio and that is deployed to Altinn Apps.</p>
-
-
-
-
-<p>The App is created, designed and build in Altinn Studio and deployed to Altinn Apps.</p>
+              <p class="a-leadText" id="leadText">Description of the app created in Altinn Studio and that is deployed to Altinn Apps.</p><p>The App is created, designed and build in Altinn Studio and deployed to Altinn Apps.</p>
 <p>Currently there is only one &ldquo;App Template&rdquo; that is used, but in future the App could be based on 
 different types of templates and even different types of frameworks.</p>
 <p>The App template contains functionality for API, process handling, GUI, and many other features making it easy for
 the developers to create a Apps to support different types of functional needs.</p>
 <p>The current version contains support for simple user needs, but the platform and the app templates will get more functionality in the future.</p>
 <ul class="children children-li js-moveChildrenFrom">
-<li>
-<a href="/technology/solutions/altinn-apps/app/app-api/" >App API</a>
-<p>Description of the APIs exposed by an app created in Altinn Studio.</p>
-</li>
-<li>
-<a href="/technology/solutions/altinn-apps/app/apptemplates/" >App templates</a>
-<p>The Altinn Apps architecture support that applications can be buildt based on many different framworks/templates.</p>
-</li>
-<li>
-<a href="/technology/solutions/altinn-apps/app/features/" >Features</a>
-<p>Description of features in App</p>
-</li>
-<li>
-<a href="/technology/solutions/altinn-apps/app/frontend/" >Frontend</a>
-<p>Description of the optional app frontend created in Altinn Studio and that is deployed to Altinn Apps.</p>
-</li>
-<li>
-<a href="/technology/solutions/altinn-apps/app/processhandling/" >Process handling</a>
-<p>Description of the process handling capability of Apps created in Altinn Studio.</p>
-</li>
+<pre><code>    &lt;li&gt;
+            &lt;a href=&quot;/technology/solutions/altinn-apps/app/app-api/&quot;&gt;App API&lt;/a&gt;
+            &lt;p&gt;Description of the APIs exposed by an app created in Altinn Studio.&lt;/p&gt;
+            &lt;/li&gt;&lt;li&gt;
+            &lt;a href=&quot;/technology/solutions/altinn-apps/app/apptemplates/&quot;&gt;App templates&lt;/a&gt;
+            &lt;p&gt;The Altinn Apps architecture support that applications can be buildt based on many different framworks/templates.&lt;/p&gt;
+            &lt;/li&gt;&lt;li&gt;
+            &lt;a href=&quot;/technology/solutions/altinn-apps/app/features/&quot;&gt;Features&lt;/a&gt;
+            &lt;p&gt;Description of features in App&lt;/p&gt;
+            &lt;/li&gt;&lt;li&gt;
+            &lt;a href=&quot;/technology/solutions/altinn-apps/app/frontend/&quot;&gt;Frontend&lt;/a&gt;
+            &lt;p&gt;Description of the optional app frontend created in Altinn Studio and that is deployed to Altinn Apps.&lt;/p&gt;
+            &lt;/li&gt;&lt;li&gt;
+            &lt;a href=&quot;/technology/solutions/altinn-apps/app/processhandling/&quot;&gt;Process handling&lt;/a&gt;
+            &lt;p&gt;Description of the process handling capability of Apps created in Altinn Studio.&lt;/p&gt;
+            &lt;/li&gt;
+</code></pre>
 </ul>
 
 
-<footer class=" footline" >
-	
-</footer>
-
-
-
-
-
+<footer class=" footline" ></footer>
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/technology/solutions/altinn-apps/" title="Altinn Apps"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/technology/solutions/altinn-apps/app/app-api/" title="App API" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/technology/solutions/altinn-apps/app/_index.md" target="blank">
@@ -1198,3 +1187,4 @@ the developers to create a Apps to support different types of functional needs.<
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+

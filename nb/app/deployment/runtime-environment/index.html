@@ -118,8 +118,8 @@ if(host != "localhost")
 </script>
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
-      <li class="dd-item parent">
-        <a href="/nb/app/"><span>Lage apper</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/"><span>Lage apper</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/app/getting-started/"><span>Kom i gang</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -356,10 +356,10 @@ if(host != "localhost")
         <a href="/nb/app/testing/local/testusers/"><span>Testbrukere</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/app/testing/deploy/"><span>I testmiljø</span></a></li></ul></li>
-      <li class="dd-item parent">
-        <a href="/nb/app/deployment/"><span>Produksjonssetting</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
-      <li class="dd-item parent active">
-        <a href="/nb/app/deployment/runtime-environment/"><span>Kjøremiljø</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/deployment/"><span>Produksjonssetting</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/deployment/runtime-environment/"><span>Kjøremiljø</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/app/deployment/runtime-environment/resource-allocation/"><span>Ressurserfordeling</span></a></li>
       <li class="dd-item">
@@ -381,7 +381,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/app/launched-apps/digdir/be-om-api-nokkel/"><span>Tilgang til REST API</span></a></li></ul></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/nb/api/"><span>API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -543,7 +543,12 @@ if(host != "localhost")
   </div>
 </nav>
 
-<section id="body">
+<script>
+          $("li.dd-item a[href='/nb/app/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/app/deployment/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/app/deployment/runtime-environment/']").parent().addClass("active");
+        </script>
+        <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text"><div id="top-bar">
@@ -557,12 +562,7 @@ if(host != "localhost")
                 <span class="links"><a href='/nb/app/'>Lage apper</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/app/deployment/'>Produksjonssetting</a> <span class='adocs-breadcrumb-divider'> / </span> Kjøremiljø</span>
             </div>
           </div><div id="body-inner"><h1 class="a-fontBold">Kjøremiljø</h1>
-              <p class="a-leadText" id="leadText">Beskrivelse av kjøremiljøet for en Alttin 3 applikasjoner for en tjenesteeier.</p>
-
-
-
-
-<p>Altinn 3 applikasjoner for en tjenesteeier kjører i Azure Kubernetes Service (AKS) fra Microsoft Azure. Dette er en såkalt Managed Service hvor vi lar Microsoft Azure ta seg av den underliggende driften av Kubernetes clusteret. Altinn står for konfigurering og provisjonering av clusteret, mens tjenesteeier har selv ansvar for utrulling av applikasjonene til clusteret.</p>
+              <p class="a-leadText" id="leadText">Beskrivelse av kjøremiljøet for en Alttin 3 applikasjoner for en tjenesteeier.</p><p>Altinn 3 applikasjoner for en tjenesteeier kjører i Azure Kubernetes Service (AKS) fra Microsoft Azure. Dette er en såkalt Managed Service hvor vi lar Microsoft Azure ta seg av den underliggende driften av Kubernetes clusteret. Altinn står for konfigurering og provisjonering av clusteret, mens tjenesteeier har selv ansvar for utrulling av applikasjonene til clusteret.</p>
 <p>For detaljert dokumentasjon av hvilke muligheter som finnes må man se på:</p>
 <ul>
 <li><a href="https://docs.microsoft.com/en-us/azure/aks/">Azure Kubernetes Services</a></li>
@@ -603,76 +603,28 @@ if(host != "localhost")
 	
 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
 <ul class="children children-li js-moveChildrenFrom">
-	
-    
-	    
-    
-    
 
 	
-		
-	
-		
-
-
-<li>
-<a href="/nb/app/deployment/runtime-environment/resource-allocation/" >Ressurserfordeling</a>
-<p>Hvilke ressurser fordeles i et cluster og hvordan?</p>
-</li>
-
-
-
-		
-	
-		
-
-
-<li>
-<a href="/nb/app/deployment/runtime-environment/resource-allocation-tips/" >Tips til ressurserfordeling</a>
-<p>Hva kan/bør man gjøre utover standard innstillinger?</p>
-</li>
-
-
-
-		
-	
-
+		<li>
+				<a href="/nb/app/deployment/runtime-environment/resource-allocation/">Ressurserfordeling</a>
+				<p>Hvilke ressurser fordeles i et cluster og hvordan?</p>
+				</li><li>
+				<a href="/nb/app/deployment/runtime-environment/resource-allocation-tips/">Tips til ressurserfordeling</a>
+				<p>Hva kan/bør man gjøre utover standard innstillinger?</p>
+				</li>
 	
 </ul>
 
 
   
-
-
 </p>
 
 
-<footer class=" footline" >
-	
-</footer>
-
-
-
-
-
+<footer class=" footline" ></footer>
                 </div>
               </div>
-
-              <div id="navigation">
-                  <a class="nav nav-prev" href="/nb/app/deployment/" title="Produksjonssetting av apper"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/nb/app/deployment/runtime-environment/resource-allocation/" title="Ressurserfordeling" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+              
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/app/deployment/runtime-environment/_index.nb.md" target="blank">
@@ -734,3 +686,4 @@ if(host != "localhost")
     <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="/js/custom.js"></script></body>
 </html>
+
