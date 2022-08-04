@@ -7,9 +7,9 @@ toc: true
 
 ## Principles
 
-1. Altinn Studio uses [trunk-based development](##Trunk-Based-Development)
+1. Altinn Studio uses [trunk-based development](#trunk-based-development)
     - This ensures the codebase is always releasable on demand and helps to make Continuous Delivery a reality.
-2. Code is checked in using short living [feature branches](##Feature-Branches)
+2. Code is checked in using short living [feature branches](#feature-branches)
     - naming standard for feature branches are `feature/<issueNumber>-<description>` , for instance: `feature/1028-text-component`
     - naming standard for bug branches are `bug/<issueNumber>-<description>` , for instance: `bug/877-performance-leak-ui-editor`
 

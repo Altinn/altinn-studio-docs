@@ -2,7 +2,6 @@
 title: Preliminary considerations
 description: Before you do anything else you should gather the project group and start by defining your problem. What is it that you are trying to solve and for whom?
 weight: 1
-tags: [translate-to-english]
 ---
 
 ## Consider

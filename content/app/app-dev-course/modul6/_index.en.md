@@ -6,7 +6,7 @@ tags: [apps, training, repeating groups, validation, data processing, consume AP
 weight: 20
 ---
 
-In this module you will expand the application you have built in the previous modules to support more of [the functionality that the municipality of Sogndal wishes to implement](../case/#krav-fra-kommunen).
+In this module you will expand the application you have built in the previous modules to support more of [the functionality that the municipality of Sogndal wishes to implement](../case/#demands-from-the-muncipality).
 
 **Topics covered in this module**
 - Repeating groups
@@ -49,9 +49,9 @@ You are not welcome to our municipality. Sorry!
 ```
 
 ### Useful documentation
-- [Server-side validation](/app/development/logic/validation/#serverside-validering)
-- [How to implement custom validation](/app/development/logic/validation/#hvordan-legge-til-egendefinert-validering)
-- [Single field validations](/app/development/logic/validation/#enkeltfeltvalidering)
+- [Server-side validation](/app/development/logic/validation/#server-side-validation)
+- [How to implement custom validation](/app/development/logic/validation/#how-to-add-custom-validation)
+- [Single field validations](/app/development/logic/validation/#single-field-validation)
 
 ### Knowledge check
 - When are validations server-side running?
@@ -71,7 +71,7 @@ In all other cases, the field should remain the same.
 
 ### Useful documentation
 - [Data processing](/app/development/logic/dataprocessing/)
-- [Calculation](/app/development/logic/calculation/#kalkulering)
+- [Calculation](/app/development/logic/calculation/#calculation)
 
 ### Knowledge check
 - When is data processing running?

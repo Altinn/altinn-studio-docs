@@ -238,7 +238,7 @@ to a Slack webhook
 
 ### API Documentation
 
-The full detail for this API is described [here](/api/events/spec/#/Events). 
+The full detail for this API is described [here](/api/events/spec). 
 
 
 ## Push Functions

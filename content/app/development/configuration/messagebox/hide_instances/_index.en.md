@@ -3,7 +3,6 @@
 title: Hide instances
 linktitle: Hide instances
 description: Configuration for hiding instances from the message box.
-tags: [translate-to-english]
 weight: 200
 ---
 
@@ -23,7 +22,7 @@ Add a new section called `messageBoxConfiguration` with the child property `hide
 
 HideSettings can consist of one of two properties
 
- Navn         | Beskrivelse
+ Name         | Description
 --------------|------------
 hideOnTask  | A list of tasks where the instance should be hidden from the messagebox.
 hideAlways  | A boolean indicating that the instance should always be hidden.

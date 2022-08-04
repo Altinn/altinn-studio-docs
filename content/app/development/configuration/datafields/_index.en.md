@@ -11,7 +11,7 @@ This can be done in two ways, by configuration or manually. Using configuration,
 
 It is also possible to make use of both methods as long as you use different ids on the data fields. The configured values will then be collected together with the manual ones in the instance.
 
-Data fields are in many ways similar to [presentation fields](../presentationfields/_index.md). But where the use of presentation fields is predefined, the use of data fields is completely up to the individual application owner.
+Data fields are in many ways similar to [presentation fields](../messagebox/presentationfields/). But where the use of presentation fields is predefined, the use of data fields is completely up to the individual application owner.
 
 ## Configuration
 Configuration of data fields is done in `applicationmetadata.json` which is located in the folder `App/config`.

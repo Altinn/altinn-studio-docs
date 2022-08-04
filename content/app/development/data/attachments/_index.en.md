@@ -25,7 +25,7 @@ When building your form in Altinn Studio, a file upload component is available.
 It is possible to upload multiple file attachments on one single component, and how many file upload components
 you use in your application will be determined by the characteristics of the documents you expect to be uplaoded
 and any restrictions you need to impose.
-(see [configuration of file attachments](#submission-of-attachments-with-API-call) for more information on this).
+(see [configuration of file attachments](#submission-of-attachments-with-api-call) for more information on this).
 
 Note: It will also be possible to upload file attachments of the type defined in the attachment component through API.
 

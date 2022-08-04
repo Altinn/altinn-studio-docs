@@ -151,4 +151,4 @@ Scopes are always used together with the authorization rules for the specific ap
 
 The below show the future of Authorization Component. Work in progress
 
-![The future](authorizationdetailed2026.drawio.svg)
+![The future](../../../../components/application/solution/altinn-platform/authorization/authorizationdetailed2026.drawio.svg)

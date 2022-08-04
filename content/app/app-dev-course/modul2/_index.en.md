@@ -7,7 +7,7 @@ tags: [apps, training, prefill, sporvalg]
 weight: 20
 ---
 
-In this module you will further develop the application you created in [module 1](../modul1) to fulfil more of [the requirements from the municipality of Sogndal](../case/#krav-fra-kommunen).
+In this module you will further develop the application you created in [module 1](../modul1) to fulfil more of [the requirements from the municipality of Sogndal](../case/#demands-from-the-muncipality).
 
 **Themes covered in this module:**
 
@@ -56,17 +56,15 @@ The following is desirable to be similar in the application:
 
 [Sketch of information page](/app/app-dev-course/modul2/infoside_tilflyttere.pdf)
 
-[Sketch of information page (.docx)](/app/app-dev-course/modul2/infoside_tilflyttere.docx)
-
 !["Sogndal coats of arms"](/app/app-dev-course/modul2/kommune-logo.png "A picture of the coats of arms of Sogndal that may be used in the application." )
 
 ### Useful docmentation
 
-- [Formatting of texts](https://docs.altinn.studio/app/development/ux/texts/#formatting-of-texts)
-- [Add pictures to the application](https://docs.altinn.studio/app/development/ux/images/#add-images-to-the-application)
-- [Set components side by side](https://docs.altinn.studio/app/development/ux/styling/#sidestilte-komponenter-grid)
-- [File setup with multiple pages](https://docs.altinn.studio/app/development/ux/pages/#oppsett)
-- [Administrate order of muntliple pages](https://docs.altinn.studio/app/development/ux/pages/navigation/#order)
+- [Formatting of texts](/app/development/ux/texts/#formatting-of-texts)
+- [Add pictures to the application](/app/development/ux/images/#add-images-to-the-application)
+- [Set components side by side](/app/development/ux/styling/#components-placed-side-by-side-grid)
+- [File setup with multiple pages](/app/development/ux/pages/#setup)
+- [Administrate order of muntliple pages](/app/development/ux/pages/navigation/#order)
 
 ### Knowledge check
 - Which file in the application repository has to be adjusted if you wish to manually change the page order of existing pages?
@@ -120,7 +118,7 @@ https://www.sogndal.kommune.no/
 
 ### Useful documentation
 - [How to set up dynamic tracks](/app/development/ux/pages/tracks/)
-- [Formatting of texts](https://docs.altinn.studio/app/development/ux/texts/#formatting-of-texts)
+- [Formatting of texts](/app/development/ux/texts/#formatting-of-texts)
 
 ### Knowledge check
 - If a user goes back and changes their answer on the info page, will they then be displayed the data collecting pages? If not, what changes can you introduce to support this in your application?
@@ -151,8 +149,8 @@ In this task, the focus has returned to the first data collecting page, and the 
 
 ### Useful documentation
 - [Available prefill sources](https://altinncdn.no/schemas/json/prefill/prefill.schema.v1.json)
-- [Prefill from national register and user profile](/app/development/data/prefill/#prefill-fra-nasjonale-register-og-brukerprofil)
-- [Custom prefill](/app/development/data/prefill/#egendefinert-prefill)
+- [Prefill from national register and user profile](/app/development/data/prefill/#prefill-from-national-register-and-user-profile)
+- [Custom prefill](/app/development/data/prefill/#custom-prefill)
 - [Description of the InstanceOwner object](../../../api/models/instance/#instanceowner)
 
 ### Help with code: Calculating age from social security number

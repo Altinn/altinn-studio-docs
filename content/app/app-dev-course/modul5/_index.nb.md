@@ -66,7 +66,7 @@ Oppdater policyfilen, så den har autorisasjonsregler som dekker det nye prosess
 - Det skal være samme rollekrav for å fylle ut og bekrefte en instans.
 
 ### Nyttig dokumentasjon
-- [Regelbibliotek](/nb/app/development/configuration/authorisation/rules/)
+- [Regelbibliotek](/nb/app/development/configuration/authorization/rules/)
 - [Alle roller i Altinn](https://www.altinn.no/hjelp/skjema/alle-altinn-roller/)
 
 ### Forståelsessjekk

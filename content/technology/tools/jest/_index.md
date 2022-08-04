@@ -9,8 +9,7 @@ tags: [tech, frontend, test]
 "_Jest is a delightful JavaScript Testing Framework with a focus on simplicity._"
 
 Jest testing framework is used for front-end testing.
-You can read more about how to test with Jest [here](/teknologi/altinnstudio/development/handbook/test/unit-testing).
-
+You can read more about how to test with Jest [here](/community/contributing/handbook/test/unit-testing).
 
 ## Links
 

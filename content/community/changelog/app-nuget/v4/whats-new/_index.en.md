@@ -119,7 +119,7 @@ Added a new section called `FrontEndSettings` for use in `appsetting.{environmen
 ## 4.24.0 (2020-01-21)
 
 Support language and query parameters in dynamic options.
-New way of implementing dynamic options by creating a class that implements IAppOptionsProvider.  [See doc](../../../../../app/development/data/options/_index.en.md)
+New way of implementing dynamic options by creating a class that implements IAppOptionsProvider.  [See doc](../../../../../app/development/data/options/)
 
 ## 4.23.0 (2022-01-15) - Updated backend support for BPMN gateways
 
@@ -273,7 +273,7 @@ Issue [#6418](https://github.com/Altinn/altinn-studio/issues/6418)
 
 ## 4.9.0 (2021-06-29) - Support for marking a single field validation error as fixed
 It is now possible to mark a previous validation error as fixed by using the prefix `*FIXED*` in front of the original error. 
-[documentation on how to implement the functionality](../../../../../app/development/logic/validation/#spesifisere-at-valideringsfeil-er-fikset) (in Norwegian )
+[Documentation on how to implement the functionality](../../../../../app/development/logic/validation/#specify-that-validation-errors-are-fixed).
 
 
 ## 4.8.0 (2021-06-22) - Application version number available in AppSettings
@@ -337,7 +337,7 @@ Improved performance.
 Altinn Apps now support presentation fields. 
 By specifying presentation fields in `applicationmetadata.json`, speficied data values from the form data
 will be stored on the instance in order to show them along with the app title in the Altinn messagebox. 
-Further documentation on how to configure presentation fields is found [here](../../../../../app/development/configuration/presentationfields/).
+Further documentation on how to configure presentation fields is found [here](../../../../../app/development/configuration/messagebox/presentationfields/).
 
 This change is related to [this epic](https://app.zenhub.com/workspace/o/altinn/altinn-studio/issues/594).
 

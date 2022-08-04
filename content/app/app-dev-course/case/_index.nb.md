@@ -72,8 +72,6 @@ Følgende er ønskelig at reflekteres i applikasjonen:
 
 [Skisse på informasjonsside](/app/app-dev-course/modul2/infoside_tilflyttere.pdf)
 
-[Skisse på informasjonsside (.docx)](/app/app-dev-course/modul2/infoside_tilflyttere.docx)
-
 !["Sogndal kommunevåpen"](/app/app-dev-course/modul2/kommune-logo.png "Et bilde av Sogndals kommunevåpen som kan benyttes i applikasjonen" )
 
 {{% /expandlarge %}}

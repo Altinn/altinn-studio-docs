@@ -4,7 +4,6 @@ description: Good accessibility helps people with disabilities access our servic
 weight: 7
 weight: 30
 toc: true
-tags: [translate-to-english]
 ---
 
 The regulation on universal design of ICT solutions require that websites and apps must meet 35 of 61 success criteria in the standard  [Guidelines for accessible web content (WCAG) 2.0. (nb)](https://www.w3.org/Translations/WCAG20-no/). Check out the [minimum requirements](https://www.uutilsynet.no/wcag-standarden/wcag-20-standarden/86) 

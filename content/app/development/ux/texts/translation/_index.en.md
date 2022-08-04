@@ -5,7 +5,7 @@ toc: true
 weight: 40
 ---
 
-The actual logic of translating texts uses text resource files. See [Texts](../texts) for more information on these files.
+The actual logic of translating texts uses text resource files. See [Texts](..) for more information on these files.
 It is possible to translate texts in the application by adding more text resource files. I.e. one file per language.
 Below you can see an example of norwegian and english.
 
