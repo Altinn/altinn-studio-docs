@@ -1,5 +1,5 @@
 ---
-title: Casedescription
+title: Case description
 description: Description of the municipalitys requirements and wishes for the service.
 linktitle: Case
 tags: [apps, case, training]
@@ -141,8 +141,8 @@ If the user chooses `IKT (data/it)` under industry, a text with a link to our ov
 
 - Below the industry choice, the following text should appear
     ```md
-    We see that you have the competence we need in Sogndal.
-    Here is an overview of our vacant positions.
+    Vi ser at du besitter kompetanse vi trenger i kommunen.
+    Se en oversikt over våre ledige stillinger her.
     ```
 - Line 2 in the text should be a link that directs to https://sogndal.easycruit.com/index.html
 
