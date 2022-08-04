@@ -75,7 +75,7 @@ The municipality of Sogndal wishes to collect information on the newcomers worki
 - [How to set up dynamic code lists](/app/development/data/options/#dynamic-codelists-generated-runtime)
 - [Secured dynamic options](/app/development/data/options/#secured-dynamic-options)
 
-### Comprehension check
+### Knowledge check
 - What is the difference between static and dynamic options?
 - What will the area of use be for secured dynamic options?
 
@@ -96,12 +96,12 @@ We want the user to be presented with a different set of options for the industr
 based on which sector they are in.
 
 - Private sector: [Standard list of industries](../industry.json)
-- Public sector: `State` and `Muncipality`
+- Public sector: `State` and `Municipality`
 
 ### Useful documentation
 - [How to pass query parameters when fetching options](/app/development/data/options/#pass-query-parameters-when-fetching-options)
 
-### Comprehension check
+### Knowledge check
 - If a list of options is set up with mapping towards the data model - what happens when the field in question changes value?
 - What happens with the chosen value on a field connected to an option-list that is retrieved over again from the server side?
 
@@ -129,7 +129,7 @@ The text and link should **only** be visible if the user has chosen `IKT (data/i
 - [Add functions for dynamics](/app/development/logic/dynamic/#add-or-edit-functions-for-dynamics)
 - [Examples of use of dynamic in form](/app/development/logic/dynamic/#example-usage-of-dynamics-on-an-appe)
 
-### Comprehension check
+### Knowledge check
 - If you add a new function to `RuleHandlerHelper` - where will these functions run?
   - Would dynamic work without this defined?
 - What is the correlation between functions defined in `RuleHandlerObject` and the file `RuleConfiguration.json`?

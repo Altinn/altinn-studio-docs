@@ -1,6 +1,6 @@
 ---
 title: Solution
-description: Solution and explanation on comprehension checks
+description: Solution and explanation on knowledge checks
 linktitle: Solution
 tags: [apps, training, solution, losningsforslag]
 weight: 30
@@ -16,7 +16,7 @@ toc: true
 - [Module 5](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/5)
 - [Module 6](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/6)
 
-## Module 1 - Comprehension check: Upload data model
+## Module 1 - Knowledge check: Upload data model
 
 ### Which data is it the service owner wishes to collect here?
 
@@ -49,7 +49,7 @@ The mentioned files are all generated from the xsd-description of the data model
 - `XmlElement.Order` is introduced as a decoration on each property.
   - This ensures that the order of the elements will stay the same when the data is serialized to xml.
 
-## Module 1 - Comprehension check: Set up components
+## Module 1 - Knowledge check: Set up components
 
 ### Can you locate the component connected to the email-field?
 
@@ -82,7 +82,7 @@ as shown below
 },
 ```
 
-## Module 1 - Comprehension check: Edit texts
+## Module 1 - Knowledge check: Edit texts
 
 ### How do you implement english language support in the application?
 
@@ -105,7 +105,7 @@ According to [the list of ISO 639-1 codes](https://en.wikipedia.org/wiki/List_of
 
 If said text key does not exist inthe text resource file, the text key will be displayed instead.
 
-## Module 2 - Comprehension check: Add info page
+## Module 2 - Knowledge check: Add info page
 
 ### Which file in the application repository has to be adjusted if you wish to manually change the page order of existing pages?
 
@@ -122,7 +122,7 @@ To adjust the page order, the list under _pages.order_ must be changed to repres
 
 All text resources support markdown and thus html-notation, so by using `<br/>` you will be able to force text breaks.
 
-## Module 2 - Comprehension check: Alternative workflow
+## Module 2 - Knowledge check: Alternative workflow
 
 ### If a user goes back and changes their answer on the info page, will they then be displayed the data collecting pages? If not, what changes can you introduce to support this in your application?
 
@@ -134,7 +134,7 @@ Take a look at the solution for this module to see how this is done. Files of in
 
 If you have implemented this type of logic in an application where you can continue to submitting for multiple tracks, the data on the page(s) that are now hidden for the user should be nulled.
 
-## Module 2 - Comprehension check: Prefill of personal information
+## Module 2 - Knowledge check: Prefill of personal information
 
 ### Is it possible to change a prefilled value once it is set?
 
@@ -177,7 +177,7 @@ public static string GetDOB(string fOrDNumber){
 }
 ```
 
-## Module 3 - Comprehension check: Deploy application
+## Module 3 - Knowledge check: Deploy application
 
 ### Is it possible to have two versions of one application in TT02 at the same time?
 
@@ -204,7 +204,7 @@ As of March 2022 it is not possible for a service owner to remove an application
 The service owner would have to contact support.
 By the end of the year a function where the service owner themselves can do this will be made available.
 
-## Module 4 - Comprehension check: Collection of work information
+## Module 4 - Knowledge check: Collection of work information
 
 ### What is the difference between static and dynamic options?
 
@@ -216,7 +216,7 @@ Dynamic options are collected **runtime** and can therefore get a value based on
 Options are by default openly available and the API will be reachable for those who are not logged in to the app. There are also no restrictions on roles or anything else.
 In some cases you might want to expose options that are sensitive. This is where safe dynamic options come in, where you get automatic verification that the person making the call has `Instance.Read` rights.
 
-## Module 4 - Comprehension check: Differentiated data base for public and private sector
+## Module 4 - Knowledge check: Differentiated data base for public and private sector
 
 ### If a list of options is set up with mapping towards the data model - what happens when the field in question changes value?
 
@@ -227,7 +227,7 @@ This opens up for the possibility to dynamically show options that are tailored 
 
 If the user e.g. has chosen a muncipality from a dropdown list containing muncipalities set up with mapping on `Fylke`, then returns and changes the field `Fylke`, the answer in the muncipality list will be remowed.
 
-## Module 4 - Comprehension check: Tailored offer for IT competence
+## Module 4 - Knowledge check: Tailored offer for IT competence
 
 ### If you add a new function to `RuleHandlerHelper` - where will these functions run? Would dynamic work without this defined?
 
@@ -244,7 +244,7 @@ Dynmaics will **not** work without this defined.
 `RuleConfiguration.json` is a configuration that says something about which fields the actual rule in `RuleHandlerObject` should be used on and possibly which effect it should have.
 A function defined in `RuleHandlerObject` can be set up multiple times in `RuleConfiguration.json`. You can almost think of it as "instances" of the function.
 
-## Module 5 - Comprehension check: Expand process with confirmation step
+## Module 5 - Knowledge check: Expand process with confirmation step
 
 ### Which Altinn-specific traits are on every process task?
 
@@ -258,7 +258,7 @@ Altinn-specific traits would probably not be imported or exported when working o
 
 _SequenceFlow_ in the bpmn-file only describes the flow going one way, from filling out to confirmation. Therefore the flow cannot go both ways.
 
-## Module 5 - Comprehension check: Add authorization rules for confirmation step
+## Module 5 - Knowledge check: Add authorization rules for confirmation step
 
 ### What will happen when the process flow proceeds to the confirmation step without the authorization rules being updated?
 
@@ -268,14 +268,14 @@ The application will display "Unknown error" when the usr presses the Submit but
 
 Then all users, with or without roles, will be allowed to perform the _confirm_ operation for the application.
 
-## Module 5 - Comprehension check: Validation of submitter
+## Module 5 - Knowledge check: Validation of submitter
 
 ### Which change would you suggest for the client to be able to meet this requirement without adding custom validation at this step?
 
 By rather changing policy so that only the role _PRIV_, which is only delegated by a private person on behalf of themselves, has the permission to perform the action _confirm_,
 the authorization rules will do the check, which currently is set up as custom validation, automatically.
 
-## Module 6 - Comprehension check: Repeating groups 
+## Module 6 - Knowledge check: Repeating groups 
 
 ### What field in the data model decides if an element is repeating?
 
@@ -285,7 +285,7 @@ The field `maxOccurs` in the xsd-model says something about wether a field is re
 
 10 repetitions are allowed for `TidligereBosteder`.
 
-## Module 6 - Comprehension check: Validation
+## Module 6 - Knowledge check: Validation
 
 ### When are validations server-side running?
 
@@ -298,7 +298,7 @@ Client-side validations should be considered as an aid for better user experienc
 People who don't mean well can get past these validations, and client-side validations will not be run if, for exapmle, you use the APIs directly.
 Therefore, validations placed on the front-end should always be reflected in the back-end logic.
 
-## Module 6 - Comprehension check: Data processing
+## Module 6 - Knowledge check: Data processing
 
 ### When is data processing running?
 

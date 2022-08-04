@@ -6,7 +6,7 @@ tags: [apps, training, datamodel, localtest, texts]
 weight: 20
 ---
 
-In this module you will, based on the demands of the municipality of Sogndal,
+In this module you will, based on the requirements of the municipality of Sogndal,
 be setting up the first page of your application for newcomers and verify that everything looks as expected locally.
 
 **Topics covered in this module:**
@@ -41,7 +41,7 @@ There is a wish that one or more of the words "newcomer" and "Sogndal" is includ
 
 
 {{% expandlarge id="upload-datamodel" header="Upload data model" %}}
-The muncipality of Sogndal has created [a data model](app/app-dev-course/modul1/datamodel.xsd)
+The municipality of Sogndal has created [a data model](app/app-dev-course/modul1/datamodel.xsd)
 that represents data they wish to collect from future residents.
 
 {{% notice info %}}
@@ -58,7 +58,7 @@ edit it in for example Visual Studio or a text editing program of your own choos
 3. Push the changes to master and take a closer look at the files in the folder `App/models`
 
 
-### Comprehension check
+### Knowledge check
 
 - Which data is it the service owner wishes to collect here?
 - Which effect has **\<minOccurs\>** in the data model? You may notice that the field has a different value for _Innflytter.Fornavn_ and _Innflytter.Mellomnavn_
@@ -98,7 +98,7 @@ It is possible to connect texts to components in both Altinn Studio and locally.
 - [Formatting of texts](/app/development/ux/texts/#formatting-of-texts)
 - [ISO 639-1 standard](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)
 
-### Comprehension check
+### Knowledge check
 
 In Altinn we support three languages: bokmål, nynorsk and english.
 - How do you get english language support in the application?
@@ -134,7 +134,7 @@ Based on the requirements from the municipality, can you now set up the first fo
 - [Available components in Altinn Studio](/technology/solutions/altinn-studio/designer/functional/build-app/ui-designer/components/)
 - [Guidelines for using components](/app/design/guidelines/components/)
 
-### Comprehension check
+### Knowledge check
 
 In your application repository you will find _FormLayout.json_ in the folder `App/ui/layouts`. The JSON file describes the form page you have created in
 Altinn Studio, given that you have pushed your changes to master.

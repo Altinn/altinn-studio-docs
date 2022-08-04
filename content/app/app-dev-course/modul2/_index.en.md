@@ -68,7 +68,7 @@ The following is desirable to be similar in the application:
 - [File setup with multiple pages](https://docs.altinn.studio/app/development/ux/pages/#oppsett)
 - [Administrate order of muntliple pages](https://docs.altinn.studio/app/development/ux/pages/navigation/#order)
 
-### Comprehension check
+### Knowledge check
 - Which file in the application repository has to be adjusted if you wish to manually change the page order of existing pages?
 - If you wish to rename a page, but Altinn Studio is not available, which files will need to be updated?
 - How can you get a text to break if the text string is not long enough to break naturally?
@@ -122,7 +122,7 @@ https://www.sogndal.kommune.no/
 - [How to set up dynamic tracks](/app/development/ux/pages/tracks/)
 - [Formatting of texts](https://docs.altinn.studio/app/development/ux/texts/#formatting-of-texts)
 
-### Comprehension check
+### Knowledge check
 - If a user goes back and changes their answer on the info page, will they then be displayed the data collecting pages? If not, what changes can you introduce to support this in your application?
 - If dynamic tracks is implemented further into the workflow and a user changes a choice, what will happen with the form data that was filled out prior to this, if the page is now hidden from the user?
 {{% /expandlarge %}}
@@ -220,7 +220,7 @@ private static int CalculateAge(string sosialSecNumber)
 }
 ```
 
-### Comprehension check
+### Knowledge check
 - Is it possible to change a prefilled value once it is set?
 - How can you prevent a user from changing a prefilled value?
 - Not all norwegian citizens have a social security number,

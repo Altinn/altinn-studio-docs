@@ -83,7 +83,7 @@ for the organization in Altinn Studio.
 - [Deploy app to test environment](/app/testing/deploy/#deploy-av-app-til-testmiljø)
 - [Access control for the organization in Altinn Studio](/app/getting-started/access-management/studio/#tilgangsstyring-for-organisasjonen)
 
-### Comprehension check
+### Knowledge check
 - Is it possible to have two versions of one application in TT02 at the same time?
 - What happens if you deploy the same version of the application to the environment once more?
 - Will the application be available immediately after deployment?

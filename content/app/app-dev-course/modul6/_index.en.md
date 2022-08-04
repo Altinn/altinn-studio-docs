@@ -16,7 +16,7 @@ In this module you will expand the application you have built in the previous mo
 ## Tasks
 
 {{% expandlarge id="rep-groups" header="Repeating groups" %}}
-### Requirements from the muncipality
+### Requirements from the municipality
 
 To be able to tailor the best possible offers to newcomers we wish to obtain an overview of former residences of the newcomer.
 
@@ -31,7 +31,7 @@ It should be possible to enter up to 10 former residences.
 - [Setup of field grouping](/app/development/ux/fields/grouping/setup/)
 - [Setup of repeating groups](/app/development/ux/fields/grouping/repeating/)
 
-### Comprehension check
+### Knowledge check
 - What field in the data model decides if an element is repeating?
 - How many repetitions are allowed for the field `TidligereBosteder`?
 
@@ -39,7 +39,7 @@ It should be possible to enter up to 10 former residences.
 
 
 {{% expandlarge id="validation" header="Validation" %}}
-### Requirements from the muncipality
+### Requirements from the municipality
 
 Due to a personal vendetta among one of the employees in the municipality of Sogndal, a user who enters the postal code `4619` as a previous residence
 should **NOT** be allowed to move to Sogndal. In this case, an error message should appear at the field in question with the following text:
@@ -53,7 +53,7 @@ You are not welcome to our municipality. Sorry!
 - [How to implement custom validation](/app/development/logic/validation/#hvordan-legge-til-egendefinert-validering)
 - [Single field validations](/app/development/logic/validation/#enkeltfeltvalidering)
 
-### Comprehension check
+### Knowledge check
 - When are validations server-side running?
 - Why should validations added on the client side also be duplicated server-side?
 
@@ -73,7 +73,7 @@ In all other cases, the field should remain the same.
 - [Data processing](/app/development/logic/dataprocessing/)
 - [Calculation](/app/development/logic/calculation/#kalkulering)
 
-### Comprehension check
+### Knowledge check
 - When is data processing running?
 - What seperates `ProcessDataWrite` and `ProcessDataRead`?
 - What is the difference between DataProcessing and Calculations?

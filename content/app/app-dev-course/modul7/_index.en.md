@@ -24,24 +24,24 @@ In this module there are a collection of standalone extensions of the applicatio
 ## Tasks
 
 {{% expandlarge id="Summary-page" header="Summary page" %}}
-### Requirements from the muncipality
+### Requirements from the municipality
 The municipality of Sogndal are experiencing an issue where some submissions contain incorrect information and typos that create unnecessary work for the caseworkers.
 To avoid people submitting incorrect information, the municipality wishes that the user is presented with a summary page displaying the filled out information.
 
-The muncipality of Sogndal wants to use the categories **Personalia** for the users personal information and **Work** for the users work history.
+The municipality of Sogndal wants to use the categories **Personalia** for the users personal information and **Work** for the users work history.
 
 ### Useful documentation
 - [How to set up summary view of filled out form](/app/development/ux/pages/summary/)
 - [Categories in summary](/app/development/ux/pages/summary/#kategorier)
 
-### Comprehension check
+### Knowledge check
 - Why should the summary page be ignore in the PDF generation?
 
 {{% /expandlarge %}}
 
 
 {{% expandlarge id="stateless" header="Stateless frontpage" %}}
-### Requirements from the muncipality
+### Requirements from the municipality
 The municipality of Sogndal has discovered that there is a lot of traffic from people who do not meet the requirements of the application.
 For each of these users an instance is created and saved to the database. This creates unnecessary expenses.
 
@@ -52,14 +52,14 @@ an instance if you meet the requirements.
 - [Introduction to stateless applications](/app/development/configuration/stateless/#introduksjon-til-stateless-applikasjoner)
 - [Configuring stateless applications](/app/development/configuration/stateless/#konfigurasjon)
 - [Starting instance from stateless form](https://docs.altinn.studio/app/development/configuration/stateless/)
-### Comprehension check
+### Knowledge check
 - What data is saved for stateless applications?
 
 {{% /expandlarge %}}
 
 
 {{% expandlarge id="variables-in-text" header="Variables in text" %}}
-### Requirements from the muncipality
+### Requirements from the municipality
 IT competence is highly sought out. In **module 4** we set up a tailored offer for those with IT competence.
 
 The municipality of Sogndal has had a look t the numbers and seen that this is generating insufficient trafikk to the job postings.
@@ -84,7 +84,7 @@ The last line of the text should still be a link to the vacant positions.
 ### Useful documentation
 - [Variables in texts](/app/development/ux/texts/#variables-in-texts)
 
-### Comprehension check
+### Knowledge check
 - What is displayed as part of the text about the relevant variable, but has now value in the data model?
 
 {{% /expandlarge %}}
@@ -113,7 +113,7 @@ https://fraktguide.bring.no/fraktguide/api/postalCode.json?country=no&pnr={postn
 ### Useful documentation
 [Consumption of external API](/app/development/api/consume/)
 
-### Comprehension check
+### Knowledge check
 - How many times maximum will you make an API call in 24 hours with a _memorycache_ if the application is running with three replicas?
 {{% /expandlarge %}}
 
@@ -123,7 +123,7 @@ https://fraktguide.bring.no/fraktguide/api/postalCode.json?country=no&pnr={postn
 
 ### Useful documentation
 
-### Comprehension check
+### Knowledge check
 {{% /expandlarge %}}
 
 {{% expandlarge id="presentation-texts" header="Presentation Texts" %}}
@@ -132,7 +132,7 @@ https://fraktguide.bring.no/fraktguide/api/postalCode.json?country=no&pnr={postn
 
 ### Useful documentation
 
-### Comprehension check
+### Knowledge check
 {{% /expandlarge %}}
 
 {{% expandlarge id="Events" header="Events" %}}
@@ -141,5 +141,5 @@ https://fraktguide.bring.no/fraktguide/api/postalCode.json?country=no&pnr={postn
 
 ### Useful documentation
 
-### Comprehension check
+### Knowledge check
 {{% /expandlarge %}}

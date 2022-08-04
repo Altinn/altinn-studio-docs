@@ -50,7 +50,7 @@ At this point in the workflow, the user should be able to:
 - [Online BMPN editor](https://demo.bpmn.io/)
 - [BPMN standard](https://en.wikipedia.org/wiki/Business_Process_Model_and_Notation)
 
-### Comprehension check
+### Knowledge check
 - Which Altinn-specific traits are on every process task?
 - Which limitations would an external BPMN editor have when editing the process description of an Altinn app?
 - Is it possible for the process flow to go both ways? From filling in to confirmation and from confirmation to filling in?
@@ -62,14 +62,14 @@ At this point in the workflow, the user should be able to:
 Your application's Policy file is adapted to a standard process flow.
 Update the policy file so that it's authorization rules cover the new process step.
 
-### Requirements from the muncipality
+### Requirements from the municipality
 - The same role requirements should apply to both fill out and confirm an instance.
 
 ### Useful documentation
 - [Rule library](/app/development/configuration/authorisation/rules/)
 - [All roles in Altinn](https://www.altinn.no/en/help/forms/all-altinn-roles/)
 
-### Comprehension check
+### Knowledge check
 - What will happen when the process flow proceeds to the confirmation step without the authorization rules being updated?
 - What happens if you don't specify which roles are allowed to perform an action in an authorization rule?
 {{% /expandlarge %}}
@@ -82,7 +82,7 @@ Update the policy file so that it's authorization rules cover the new process st
 ### Useful documentation
 - [Custom validation](/app/development/logic/validation/#hvordan-legge-til-egendefinert-validering)
 
-### Comprehension check
+### Knowledge check
 - Which change would you suggest for the client to be able to meet this requirement without adding custom validation at this step?
 {{% /expandlarge %}}
 
