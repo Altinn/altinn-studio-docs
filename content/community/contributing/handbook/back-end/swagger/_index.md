@@ -201,6 +201,7 @@ public class RequestBodyExampleFilter : IRequestBodyFilter
                     ("source", "https://ttd.apps.altinn.no/ttd/apps-test/instances/50015641/a72223a3-926b-4095-a2a6-bacc10815f2d"),
                     ("specversion",  "1.0"),
                     ("type",  "app.instance.created"),
+                    ("subject",  "/party/50015641"),
                     ("alternativesubject", "/person/01017512345")
                 })),
                 ("Instance created event without alternative subject",
