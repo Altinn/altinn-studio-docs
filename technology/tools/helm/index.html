@@ -109,7 +109,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -209,7 +209,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -281,7 +281,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -1104,19 +1104,19 @@ if(host != "localhost")
 <h2 id="what-is-helm">What is helm?</h2>
 <p>Helm is a kubernetes resource templating tool. Where all the defined kubernetes resources are deployed with combinations of templates and values. Therefore it is called the kubernetes package manager.</p>
 <p>A helm-package, or a helm-chart is a folder with a set file-structure.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">+-- altinn-designer
-|   +-- templates
-|   |   +-- tests
-|   |   |   +-- test-connection.yaml
-|   |   +-- NOTES.txt
-|   |   +-- _helpers.tpl
-|   |   +-- deployment.yaml
-|   |   +-- service.yaml
-|   |   +-- ingress.yaml (deleted in altinn studio, since we don&#39;t use ingress. But an ingress template is included in a default helm-chart)
-|   +-- .helmignore
-|   +-- Chart.yaml
-|   +-- values.yaml
-</code></pre></div><p>The <code>Chart.yaml</code>-file contains information about the chart, like the name, version and maintainers. 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>+-- altinn-designer
+</span></span><span style="display:flex;"><span>|   +-- templates
+</span></span><span style="display:flex;"><span>|   |   +-- tests
+</span></span><span style="display:flex;"><span>|   |   |   +-- test-connection.yaml
+</span></span><span style="display:flex;"><span>|   |   +-- NOTES.txt
+</span></span><span style="display:flex;"><span>|   |   +-- _helpers.tpl
+</span></span><span style="display:flex;"><span>|   |   +-- deployment.yaml
+</span></span><span style="display:flex;"><span>|   |   +-- service.yaml
+</span></span><span style="display:flex;"><span>|   |   +-- ingress.yaml (deleted in altinn studio, since we don&#39;t use ingress. But an ingress template is included in a default helm-chart)
+</span></span><span style="display:flex;"><span>|   +-- .helmignore
+</span></span><span style="display:flex;"><span>|   +-- Chart.yaml
+</span></span><span style="display:flex;"><span>|   +-- values.yaml
+</span></span></code></pre></div><p>The <code>Chart.yaml</code>-file contains information about the chart, like the name, version and maintainers. 
 The <code>values.yaml</code>-file contains different values. These values are accessable in the templates. So different environment variables can be defined in the values. Values can also be overwritten when running a upgrade or install of the chart.</p>
 <p>The files in the <code>templates</code>-folder becomes populated with the values, and sent to the kubernetes clusters as the name of the files. So <code>deployment.yaml</code> should create a deployment in kubernetes. The same fore <code>service.yaml</code> and <code>ingress.yaml</code>.</p>
 <p><code>_helpers.tpl</code> can be used to define functions to get release names, concatinated with other info.

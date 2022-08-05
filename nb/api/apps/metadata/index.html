@@ -381,13 +381,13 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/metadata/"><span>Metadata</span></a></li>
       <li class="dd-item">
         <a href="/nb/api/apps/instances/"><span>Instanser</span></a></li>
       <li class="dd-item">
-        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/data-elements/tags/"><span>Tags</span></a></li></ul></li>
       <li class="dd-item">
@@ -441,9 +441,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/community/about/"><span>Om</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/community/about/goals/"><span>Mål</span></a></li>
+        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li>
       <li class="dd-item">
-        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li></ul></li>
+        <a href="/nb/community/about/goals/"><span>Mål</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/community/contributing/"><span>Bidra til utvikling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -571,16 +571,16 @@ if(host != "localhost")
 <p>The endpoints documented here are all for accessing metadata on the app itself and the data types that are allowed in an instance of the app. Additional endpoints provides access to text resources.</p>
 <h2 id="get-app-metadata">Get app metadata</h2>
 <p>Endpoint for downloading a copy of the <a href="../../models/app-metadata">application metadata</a> document.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET {basePath}/api/v1/applicationmetadata
-</code></pre></div><h2 id="get-application-texts">Get Application texts</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>GET {basePath}/api/v1/applicationmetadata
+</span></span></code></pre></div><h2 id="get-application-texts">Get Application texts</h2>
 <p>Get text resources for the application for a specific language code. If the requested language isn&rsquo;t available, norsk bokmål (nb) will be returned as default. 
 The <strong>langaugeCode</strong> URL path element should follow the <a href="https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes">ISO 639-1 standard</a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET {basePath}/api/v1/texts/{languageCode}
-</code></pre></div><p>Note that the texts are cached in Platform Storage for 60 minutes before being retrieved from the database again.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>GET {basePath}/api/v1/texts/{languageCode}
+</span></span></code></pre></div><p>Note that the texts are cached in Platform Storage for 60 minutes before being retrieved from the database again.</p>
 <h2 id="get-model-json-schema">Get model JSON schema</h2>
 <p>Download the JSON schema for a specific model. The <strong>id</strong> parameter must have the name of a JSON Schema in the app. This is usually a generated name based on values in the original XSD uploaded on the app. E.g: <em>Kursdomene_BliTjenesteeier_M_2020-05-25_5703_34553_SERES</em></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET {basePath}/api/jsonschema/{id}
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>GET {basePath}/api/jsonschema/{id}
+</span></span></code></pre></div>
 
 <footer class=" footline" ></footer>
                 </div>

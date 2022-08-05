@@ -109,7 +109,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -209,7 +209,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -281,7 +281,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -1128,7 +1128,7 @@ if(host != "localhost")
 <p>To be be able to easily and effectively test on all levels, it can be necessary to put a tool in place to easily retrieve or store different test data. The Tjenester 3.0 team must decide on whether to creat testdata classes that can be imported in the different test projects. Another possibility is to fetch spesific pre-made dataset (for example testdata set 164/5) from a json file or similar. In MVP02 the testcafe project uses a naive testdata class, that will be expanded as the new for more complex testdata grows: TestData.js contains a class for creating users in Altinn Studio at the moment. Refer to the Jest section under test for an overview on using data in unit tests.</p>
 <p>#Methodology
 During sprint planning, the product owner, the developers, and the test developer agree on an approach for teting on individual user stories that are pulled into the sprint. A plan is then created for how the responsible role will test the required functionality, and sub tasks are created on the different user stories. It is possible, and likely, that a user story will contain tasks to develop tests on all the testing levels specified above. When a test is written and completed, it can be integrated into a testing build.</p>
-<p><strong>Naming convention for element ids'</strong>
+<p><strong>Naming convention for element ids&rsquo;</strong>
 Cypress has different methods of getting elements from the DOM. The easiest and most robust method of defining a selector is with a css id selector. The idea behind using html-id&rsquo;s is to avoid finding elements by their relative location in the DOM, or by the element&rsquo;s inner texts, as tests become brittle with these selectors due to design changs. The id&rsquo;s must be unique, to ensure the uniqueness of a Selector, the following naming convention for element id&rsquo;s is proposed: Id&rsquo;s must be tekstbased and written in camelCase, id&rsquo;s follow a logical location the Altinn Studio system, such as; &ldquo;Pagelocation Submenu Elementtype Descriptiveword&rdquo;. The text box element id under the GUI creator could then be assigned the following id: &ldquo;designerSkjemakomponenterKnappTekstområde&rdquo;.</p>
 <h2 id="building-and-deploying-testcode">Building and deploying testcode</h2>
 <p>See the pipeline hyperlinks above in this document.</p>

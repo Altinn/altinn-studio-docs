@@ -381,13 +381,13 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/metadata/"><span>Metadata</span></a></li>
       <li class="dd-item">
         <a href="/nb/api/apps/instances/"><span>Instanser</span></a></li>
       <li class="dd-item">
-        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/data-elements/tags/"><span>Tags</span></a></li></ul></li>
       <li class="dd-item">
@@ -441,9 +441,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/community/about/"><span>Om</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/community/about/goals/"><span>Mål</span></a></li>
+        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li>
       <li class="dd-item">
-        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li></ul></li>
+        <a href="/nb/community/about/goals/"><span>Mål</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/community/contributing/"><span>Bidra til utvikling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -575,65 +575,64 @@ Checkbox, Dropdown og RadioButton komponenter vil automatisk kunne hente ut en s
 <p>Ved å legge json-lister i options mappen i app repo vil appen automatisk lese denne filen og eksponere det gjennom options-apiet. 
 Options filene må ligge under <code>App/options/</code> og vil bli differensiert ved hjelp av navngivningen på json-filen. F.eks <code>land.json</code>. Her vil da optionsId være <code>land</code>, og vil være eksponert gjennom endepunktet <code>{org}/{app}/api/options/land</code>.
 Kodelistene må være på et spesifikt format. Eksempel på en kodeliste som inneholder land (<code>App/options/land.json</code>):</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[
-    {
-        <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;norway&#34;</span>,
-        <span style="color:#ff79c6">&#34;label&#34;</span>: <span style="color:#f1fa8c">&#34;Norge&#34;</span>
-    },
-    {
-        <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;denmark&#34;</span>,
-        <span style="color:#ff79c6">&#34;label&#34;</span>: <span style="color:#f1fa8c">&#34;Danmark&#34;</span>
-    },
-    {
-        <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;sweden&#34;</span>,
-        <span style="color:#ff79c6">&#34;label&#34;</span>: <span style="color:#f1fa8c">&#34;country.label.sweden&#34;</span>
-    }
-]
-</code></pre></div><p><code>label</code> feltet kan inneholde en tekstnøkkel til teskstressursene eller ren tekst.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>[
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;norway&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;label&#34;</span>: <span style="color:#f1fa8c">&#34;Norge&#34;</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;denmark&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;label&#34;</span>: <span style="color:#f1fa8c">&#34;Danmark&#34;</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;sweden&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;label&#34;</span>: <span style="color:#f1fa8c">&#34;country.label.sweden&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>]
+</span></span></code></pre></div><p><code>label</code> feltet kan inneholde en tekstnøkkel til teskstressursene eller ren tekst.</p>
 <h2 id="dynamisk-kodeliste-generert-runtime">Dynamisk kodeliste generert runtime</h2>
 <p>I app-templaten har man også mulighet til å ha dynamisk kodelister som bestemmes under kjøringen av appen. Dette muligjør det å eksponere dynamiske verdier som kan filtreres eller hentes fra andre kilder. Dynamiske kodelister kan enten være åpne, dvs. alle brukere når de, eller de kan være sikret gjennom at du må ha tilgang til instansen for å se de.</p>
 <p>I versjoner eldre enn 4.24.0 ble dette gjort ved å legge til kode i metoden <code>GetOptions</code> i <code>App.cs</code>. Denne metoden er nå erstattet ved at man legger til egne klasser for hver kodeliste som implementerer et interface og at man registrerer denne i applikasjonen sin &lsquo;dependency injection cointainer&rsquo;. Dette gir bedre skille mellom de ulike kodelistene, muliggjør å sende avhengigheter inn i konstruktøren til klassen, sende inn språk og andre parametere og generelt håndtere alle aspekter av implementeringen slik du selv ønsker det.</p>
 <p>For kodelister som er åpne implementerer man <code>IAppOptionsProvider</code> interfacet, mens for kodelister som skal være sikret implementerer man <code>IInstanceAppOptionsProvider</code>. Fremgangsmåten er den samme for begge to og modellen som returneres er lik. Men implementeringen holdes adskilt for ikke å eksponere verdier som skulle vært sikret.</p>
 <h3 id="åpne-dynamiske-kodelister">Åpne dynamiske kodelister</h3>
 <p>Under finner du et eksempel på hvordan dette kan settes opp for en åpen kodeliste. Her vil man få ut den oppsatte kodelisten i det appen får et kall mot <code>{org}/{app}/api/options/countries</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#ff79c6">using</span> Altinn.App.Common.Models;
-<span style="color:#ff79c6">using</span> Altinn.App.PlatformServices.Options;
-<span style="color:#ff79c6">using</span> System.Collections.Generic;
-<span style="color:#ff79c6">using</span> System.Threading.Tasks;
-
-<span style="color:#ff79c6">namespace</span> Altinn.App.Core
-{
-    <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">CountryAppOptionsProvider</span> : IAppOptionsProvider
-    {
-        <span style="color:#ff79c6">public</span> <span style="color:#8be9fd">string</span> Id { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; } = <span style="color:#f1fa8c">&#34;countries&#34;</span>;
-
-        <span style="color:#ff79c6">public</span> Task&lt;AppOptions&gt; GetAppOptionsAsync(<span style="color:#8be9fd">string</span> language, Dictionary&lt;<span style="color:#8be9fd">string</span>, <span style="color:#8be9fd">string</span>&gt; keyValuePairs)
-        {
-            <span style="color:#8be9fd">var</span> options = <span style="color:#ff79c6">new</span> AppOptions
-            {
-                Options = <span style="color:#ff79c6">new</span> List&lt;AppOption&gt;
-                    {
-                        <span style="color:#ff79c6">new</span> AppOption
-                        {
-                            Label = <span style="color:#f1fa8c">&#34;Norway&#34;</span>,
-                            Value = <span style="color:#f1fa8c">&#34;47&#34;</span>
-                        },
-                        <span style="color:#ff79c6">new</span> AppOption
-                        {
-                            Label = <span style="color:#f1fa8c">&#34;Sweden&#34;</span>,
-                            Value = <span style="color:#f1fa8c">&#34;46&#34;</span>
-                        }
-                    }
-            };
-
-            <span style="color:#ff79c6">return</span> Task.FromResult(options);
-        }
-    }
-}
-
-</code></pre></div><p>For at denne implementasjonen skal plukkes opp av applikasjonen må den registreres i <code>Startup.cs</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp">services.AddTransient&lt;IAppOptionsProvider, CountryAppOptionsProvider&gt;();
-</code></pre></div><p>Legg merke til at du kan ha mange implementasjoner av dette interfacet. Den rette implementasjonen finnes gjennom å se på hvilken kodeliste id det spørres etter.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C#" data-lang="C#"><span style="display:flex;"><span><span style="color:#ff79c6">using</span> Altinn.App.Common.Models;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> Altinn.App.PlatformServices.Options;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> System.Collections.Generic;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> System.Threading.Tasks;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">namespace</span> Altinn.App.Core
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">CountryAppOptionsProvider</span> : IAppOptionsProvider
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">public</span> <span style="color:#8be9fd">string</span> Id { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; } = <span style="color:#f1fa8c">&#34;countries&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">public</span> Task&lt;AppOptions&gt; GetAppOptionsAsync(<span style="color:#8be9fd">string</span> language, Dictionary&lt;<span style="color:#8be9fd">string</span>, <span style="color:#8be9fd">string</span>&gt; keyValuePairs)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#8be9fd">var</span> options = <span style="color:#ff79c6">new</span> AppOptions
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                Options = <span style="color:#ff79c6">new</span> List&lt;AppOption&gt;
+</span></span><span style="display:flex;"><span>                    {
+</span></span><span style="display:flex;"><span>                        <span style="color:#ff79c6">new</span> AppOption
+</span></span><span style="display:flex;"><span>                        {
+</span></span><span style="display:flex;"><span>                            Label = <span style="color:#f1fa8c">&#34;Norway&#34;</span>,
+</span></span><span style="display:flex;"><span>                            Value = <span style="color:#f1fa8c">&#34;47&#34;</span>
+</span></span><span style="display:flex;"><span>                        },
+</span></span><span style="display:flex;"><span>                        <span style="color:#ff79c6">new</span> AppOption
+</span></span><span style="display:flex;"><span>                        {
+</span></span><span style="display:flex;"><span>                            Label = <span style="color:#f1fa8c">&#34;Sweden&#34;</span>,
+</span></span><span style="display:flex;"><span>                            Value = <span style="color:#f1fa8c">&#34;46&#34;</span>
+</span></span><span style="display:flex;"><span>                        }
+</span></span><span style="display:flex;"><span>                    }
+</span></span><span style="display:flex;"><span>            };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">return</span> Task.FromResult(options);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>For at denne implementasjonen skal plukkes opp av applikasjonen må den registreres i <code>Startup.cs</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span>services.AddTransient&lt;IAppOptionsProvider, CountryAppOptionsProvider&gt;();
+</span></span></code></pre></div><p>Legg merke til at du kan ha mange implementasjoner av dette interfacet. Den rette implementasjonen finnes gjennom å se på hvilken kodeliste id det spørres etter.</p>
 <p>Interfacene har en egenskap <code>Id</code>, som skal settes til til den id&rsquo;en man skal spørre etter, og en metode <code>GetAppOptionsAsync</code> som returnerer selve kodelisten. Denne metoden tar i mot språk og en liste med key/value par som typisk er query parametre som plukkes opp av kontrolleren og sendes inn. Selv om språk kunne vært et key/value par og sånn sett hvert i listen, så er denne lagt utenfor for å være eksplisitt på språk.</p>
 <blockquote>
 <p>Språkkoder bør baseres på ISO 639-1 standarden eller W3C IANA Language Subtag Registry standarden. Sistnevnte bygger på ISO 639-1 standarden men garanterer at alle kodene er unike, noe ISO 639-1 ikke gjør.</p>
@@ -645,109 +644,108 @@ Kodelistene må være på et spesifikt format. Eksempel på en kodeliste som inn
 <p>Om du ønsker å eksponere kodelister som inneholder sensitive data som man ikke ønsker skal være tilgjengelige i et åpent API kan man benytte <code>IInstanceAppOptionsProvider</code>. Disse kodelistene validerer at brukeren har lesetilgang definert i applikasjonens <code>policy.xaml</code>-fil.
 Under finner du et eksempel på man setter opp en sikret kodeliste. Interfacet <code>IInstanceAppOptionsProvider</code> må implementeres og en <code>secure</code> boolean må legges på komponenten.
 Her vil man få ut den oppsatte kodelisten i det appen får et kall mot <code>/{org}/{app}/instances/{instanceOwnerId}/{instanceGUID}/options/children</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#ff79c6">using</span> System.Collections.Generic;
-<span style="color:#ff79c6">using</span> System.Threading.Tasks;
-<span style="color:#ff79c6">using</span> Altinn.App.Common.Models;
-<span style="color:#ff79c6">using</span> Altinn.App.PlatformServices.Models;
-
-<span style="color:#ff79c6">namespace</span> Altinn.App.Core
-{
-    <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">ChildrenAppOptionsProvider</span> : IInstanceAppOptionsProvider
-    {
-        <span style="color:#ff79c6">public</span> <span style="color:#8be9fd">string</span> Id { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; } = <span style="color:#f1fa8c">&#34;children&#34;</span>;
-
-        <span style="color:#ff79c6">public</span> Task&lt;AppOptions&gt; GetInstanceAppOptionsAsync(InstanceIdentifier instanceIdentifier, <span style="color:#8be9fd">string</span> language, Dictionary&lt;<span style="color:#8be9fd">string</span>, <span style="color:#8be9fd">string</span>&gt; keyValuePairs)
-        {
-            <span style="color:#6272a4">// ...
-</span><span style="color:#6272a4"></span>            <span style="color:#6272a4">// Some custom code to get the list of children from the instance owner
-</span><span style="color:#6272a4"></span>            <span style="color:#6272a4">// ...
-</span><span style="color:#6272a4"></span>
-            <span style="color:#8be9fd">var</span> options = <span style="color:#ff79c6">new</span> AppOptions
-            {
-                Options = <span style="color:#ff79c6">new</span> List&lt;AppOption&gt;
-                    {
-                        <span style="color:#ff79c6">new</span> AppOption
-                        {
-                            Label = <span style="color:#f1fa8c">&#34;Ole&#34;</span>,
-                            Value = <span style="color:#f1fa8c">&#34;1&#34;</span>
-                        },
-                        <span style="color:#ff79c6">new</span> AppOption
-                        {
-                            Label = <span style="color:#f1fa8c">&#34;Dole&#34;</span>,
-                            Value = <span style="color:#f1fa8c">&#34;2&#34;</span>
-                        },
-                        <span style="color:#ff79c6">new</span> AppOption
-                        {
-                            Label = <span style="color:#f1fa8c">&#34;Doffen&#34;</span>,
-                            Value = <span style="color:#f1fa8c">&#34;3&#34;</span>
-                        }
-                    }
-            };
-
-            <span style="color:#ff79c6">return</span> Task.FromResult(options);
-        }
-    }
-}
-
-</code></pre></div><p>For at denne implementasjonen skal plukkes opp av applikasjonen må den registreres i <code>Startup.cs</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp">services.AddTransient&lt;IInstanceAppOptionsProvider, ChildrenAppOptionsProvider&gt;();
-</code></pre></div><p>Legg merke til at du kan ha mange implementasjoner av dette interfacet. Den rette implementasjonen finnes gjennom å se på hvilken kodeliste id det spørres etter.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C#" data-lang="C#"><span style="display:flex;"><span><span style="color:#ff79c6">using</span> System.Collections.Generic;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> System.Threading.Tasks;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> Altinn.App.Common.Models;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> Altinn.App.PlatformServices.Models;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">namespace</span> Altinn.App.Core
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">ChildrenAppOptionsProvider</span> : IInstanceAppOptionsProvider
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">public</span> <span style="color:#8be9fd">string</span> Id { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; } = <span style="color:#f1fa8c">&#34;children&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">public</span> Task&lt;AppOptions&gt; GetInstanceAppOptionsAsync(InstanceIdentifier instanceIdentifier, <span style="color:#8be9fd">string</span> language, Dictionary&lt;<span style="color:#8be9fd">string</span>, <span style="color:#8be9fd">string</span>&gt; keyValuePairs)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#6272a4">// ...</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#6272a4">// Some custom code to get the list of children from the instance owner</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#6272a4">// ...</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#8be9fd">var</span> options = <span style="color:#ff79c6">new</span> AppOptions
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                Options = <span style="color:#ff79c6">new</span> List&lt;AppOption&gt;
+</span></span><span style="display:flex;"><span>                    {
+</span></span><span style="display:flex;"><span>                        <span style="color:#ff79c6">new</span> AppOption
+</span></span><span style="display:flex;"><span>                        {
+</span></span><span style="display:flex;"><span>                            Label = <span style="color:#f1fa8c">&#34;Ole&#34;</span>,
+</span></span><span style="display:flex;"><span>                            Value = <span style="color:#f1fa8c">&#34;1&#34;</span>
+</span></span><span style="display:flex;"><span>                        },
+</span></span><span style="display:flex;"><span>                        <span style="color:#ff79c6">new</span> AppOption
+</span></span><span style="display:flex;"><span>                        {
+</span></span><span style="display:flex;"><span>                            Label = <span style="color:#f1fa8c">&#34;Dole&#34;</span>,
+</span></span><span style="display:flex;"><span>                            Value = <span style="color:#f1fa8c">&#34;2&#34;</span>
+</span></span><span style="display:flex;"><span>                        },
+</span></span><span style="display:flex;"><span>                        <span style="color:#ff79c6">new</span> AppOption
+</span></span><span style="display:flex;"><span>                        {
+</span></span><span style="display:flex;"><span>                            Label = <span style="color:#f1fa8c">&#34;Doffen&#34;</span>,
+</span></span><span style="display:flex;"><span>                            Value = <span style="color:#f1fa8c">&#34;3&#34;</span>
+</span></span><span style="display:flex;"><span>                        }
+</span></span><span style="display:flex;"><span>                    }
+</span></span><span style="display:flex;"><span>            };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">return</span> Task.FromResult(options);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>For at denne implementasjonen skal plukkes opp av applikasjonen må den registreres i <code>Startup.cs</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span>services.AddTransient&lt;IInstanceAppOptionsProvider, ChildrenAppOptionsProvider&gt;();
+</span></span></code></pre></div><p>Legg merke til at du kan ha mange implementasjoner av dette interfacet. Den rette implementasjonen finnes gjennom å se på hvilken kodeliste id det spørres etter.</p>
 <p>Interfacene har en egenskap <code>Id</code>, som skal settes til til den id&rsquo;en man skal spørre etter, og en metode <code>GetAppOptionsAsync</code> som returnerer selve kodelisten. Denne metoden tar i mot språk og en liste med key/value par som typisk er query parametre som plukkes opp av kontrolleren og sendes inn. Selv om språk kunne vært et key/value par og sånn sett hvert i listen, så er denne lagt utenfor for å være eksplisitt på språk.</p>
 <p>Siste konfigurasjon som trengs er å legge til <code>secure</code>-boolean på den aktuelle komponenten. Eksempel:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">      {
-        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;dropdown-component&#34;</span>,
-        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Dropdown&#34;</span>,
-        <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
-          <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;Some title&#34;</span>,
-          <span style="color:#ff79c6">&#34;description&#34;</span>: <span style="color:#f1fa8c">&#34;Some description&#34;</span>
-        },
-        <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {
-          <span style="color:#ff79c6">&#34;simpleBinding&#34;</span>: <span style="color:#f1fa8c">&#34;some.field&#34;</span>
-        },
-        <span style="color:#ff79c6">&#34;required&#34;</span>: <span style="color:#ff79c6">true</span>,
-        <span style="color:#ff79c6">&#34;optionsId&#34;</span>: <span style="color:#f1fa8c">&#34;children&#34;</span>,
-<span style="display:block;width:100%;background-color:#3d3f4a">        <span style="color:#ff79c6">&#34;secure&#34;</span>: <span style="color:#ff79c6">true</span>
-</span>      }
-</code></pre></div><h2 id="koble-en-komponent-til-kodeliste">Koble en komponent til kodeliste</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;dropdown-component&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Dropdown&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;Some title&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;description&#34;</span>: <span style="color:#f1fa8c">&#34;Some description&#34;</span>
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;simpleBinding&#34;</span>: <span style="color:#f1fa8c">&#34;some.field&#34;</span>
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;required&#34;</span>: <span style="color:#ff79c6">true</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;optionsId&#34;</span>: <span style="color:#f1fa8c">&#34;children&#34;</span>,
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>        <span style="color:#ff79c6">&#34;secure&#34;</span>: <span style="color:#ff79c6">true</span>
+</span></span><span style="display:flex;"><span>      }
+</span></span></code></pre></div><h2 id="koble-en-komponent-til-kodeliste">Koble en komponent til kodeliste</h2>
 <p>Dette gjøres ved å legge til feltet optionsId som referer til hvilken option (kodeliste) man ønsker refere til. Eksempel:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;8e6f7b2f-fcf0-438d-8336-c1a8e1e03f44&#34;</span>,
-    <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Dropdown&#34;</span>,
-    <span style="color:#ff79c6">&#34;componentType&#34;</span>: <span style="color:#bd93f9">4</span>,
-    <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {},
-    <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {},
-    <span style="color:#ff79c6">&#34;optionsId&#34;</span>: <span style="color:#f1fa8c">&#34;biler&#34;</span>,
-}
-</code></pre></div><h2 id="sende-med-query-parametere-ved-henting-av-options">Sende med query parametere ved henting av options</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;8e6f7b2f-fcf0-438d-8336-c1a8e1e03f44&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Dropdown&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;componentType&#34;</span>: <span style="color:#bd93f9">4</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {},
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {},
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;optionsId&#34;</span>: <span style="color:#f1fa8c">&#34;biler&#34;</span>,
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="sende-med-query-parametere-ved-henting-av-options">Sende med query parametere ved henting av options</h2>
 <p>Options støtter query parameters når det gjøres api kall. <code>language</code> er satt opp automatisk, men man kan også legge til egendefinerte parametere ved å sette opp <code>mapping</code> på den aktuelle komponenten.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;c66d7b69-2e18-4786-af44-1fa913853618&#34;</span>,
-    <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Dropdown&#34;</span>,
-    <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
-        <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;NyGarantiLoyvetype&#34;</span>
-    },
-    <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {
-        <span style="color:#ff79c6">&#34;simpleBinding&#34;</span>: <span style="color:#f1fa8c">&#34;soknad.nyGaranti.loyvetype&#34;</span>
-    },
-    <span style="color:#ff79c6">&#34;required&#34;</span>: <span style="color:#ff79c6">true</span>,
-    <span style="color:#ff79c6">&#34;optionsId&#34;</span>: <span style="color:#f1fa8c">&#34;loyvetyper&#34;</span>,
-    <span style="color:#ff79c6">&#34;mapping&#34;</span>: {
-        <span style="color:#ff79c6">&#34;soknad.transportorOrgnummer&#34;</span>: <span style="color:#f1fa8c">&#34;orgnummer&#34;</span>
-    }
-},
-</code></pre></div><p>I eksempelet over vil det bli satt på et query parameter <code>orgnummer={nr}</code>, hvor <code>{nr}</code> er verdien på feltet <code>soknad.transportorOrgnummer</code>.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;c66d7b69-2e18-4786-af44-1fa913853618&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Dropdown&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;NyGarantiLoyvetype&#34;</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;simpleBinding&#34;</span>: <span style="color:#f1fa8c">&#34;soknad.nyGaranti.loyvetype&#34;</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;required&#34;</span>: <span style="color:#ff79c6">true</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;optionsId&#34;</span>: <span style="color:#f1fa8c">&#34;loyvetyper&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;mapping&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;soknad.transportorOrgnummer&#34;</span>: <span style="color:#f1fa8c">&#34;orgnummer&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>},
+</span></span></code></pre></div><p>I eksempelet over vil det bli satt på et query parameter <code>orgnummer={nr}</code>, hvor <code>{nr}</code> er verdien på feltet <code>soknad.transportorOrgnummer</code>.
 Om man setter opp en kobling til et datafelt og dette feltet endrer seg så vil app-frontend hente options på nytt. På denne måten kan man dynamisk styre hvilke valg som vises basert på informasjon gitt av sluttbruker.</p>
 <div class="notices warning" >
 Under PDF-generering vil appen prøve å kalle det samme options-endepunktet som app-frontend gjør. 
 Vi har foreløpig en svakhet ved at eventuelle mapping-parametere ikke blir inkludert i denne forespørselen, se issue [#7903.](https://github.com/Altinn/altinn-studio/issues/7903)
 <p>En mulig workaround her er å returnere en tom array i det PDF-generatoren spør om options med tomme query-parametere, eksempel:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#">            <span style="color:#8be9fd">string</span> someArg = keyValuePairs.GetValueOrDefault(<span style="color:#f1fa8c">&#34;someArg&#34;</span>);
-            <span style="color:#8be9fd">string</span> someOtherArg = keyValuePairs.GetValueOrDefault(<span style="color:#f1fa8c">&#34;someOtherArg&#34;</span>);
-
-            <span style="color:#ff79c6">if</span> (<span style="color:#8be9fd">string</span>.IsNullOrEmpty(someArg) || <span style="color:#8be9fd">string</span>.IsNullOrEmpty(someOtherArg)) {
-                <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">await</span> Task.FromResult(<span style="color:#ff79c6">new</span> List&lt;AppOption&gt;());
-            }
-</code></pre></div><p>Merk at dette vil resultere i at PDF vil vise verdien valgt og ikke label som sluttbrukers svar.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c#" data-lang="c#"><span style="display:flex;"><span>            <span style="color:#8be9fd">string</span> someArg = keyValuePairs.GetValueOrDefault(<span style="color:#f1fa8c">&#34;someArg&#34;</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#8be9fd">string</span> someOtherArg = keyValuePairs.GetValueOrDefault(<span style="color:#f1fa8c">&#34;someOtherArg&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">if</span> (<span style="color:#8be9fd">string</span>.IsNullOrEmpty(someArg) || <span style="color:#8be9fd">string</span>.IsNullOrEmpty(someOtherArg)) {
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">await</span> Task.FromResult(<span style="color:#ff79c6">new</span> List&lt;AppOption&gt;());
+</span></span><span style="display:flex;"><span>            }
+</span></span></code></pre></div><p>Merk at dette vil resultere i at PDF vil vise verdien valgt og ikke label som sluttbrukers svar.</p>
 </div>
 <h2 id="options-basert-på-repeterende-grupper-i-redux">Options basert på repeterende grupper i Redux</h2>
 <p>Tradisjonelle options baserer seg på ressurser hentet fra backend.
@@ -756,17 +754,17 @@ Et typisk bruksområde for dette er om brukeren fyller ut en liste med data som 
 <h3 id="konfigurasjon">Konfigurasjon</h3>
 <p>For å sette opp options fra redux har vu laget en nytt objekt som kan brukes på komponentene <code>RadioButtons</code>, <code>Checkboxes</code> og <code>Dropdown</code> som vi har kalt <code>source</code>.
 Dette nye objektet inneholder feltene <code>group</code>, <code>label</code> og <code>value</code>. Eksempel:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">      {
-        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;dropdown-component-id&#34;</span>,
-        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Dropdown&#34;</span>,
-        ...
-        <span style="color:#ff79c6">&#34;source&#34;</span>: {
-          <span style="color:#ff79c6">&#34;group&#34;</span>: <span style="color:#f1fa8c">&#34;some.group&#34;</span>,
-          <span style="color:#ff79c6">&#34;label&#34;</span>: <span style="color:#f1fa8c">&#34;dropdown.label&#34;</span>,
-          <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;some.group[{0}].someField&#34;</span>
-        }
-      },
-</code></pre></div><p>Forklaring:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;dropdown-component-id&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Dropdown&#34;</span>,
+</span></span><span style="display:flex;"><span>        ...
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;source&#34;</span>: {
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;group&#34;</span>: <span style="color:#f1fa8c">&#34;some.group&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;label&#34;</span>: <span style="color:#f1fa8c">&#34;dropdown.label&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;some.group[{0}].someField&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      },
+</span></span></code></pre></div><p>Forklaring:</p>
 <ul>
 <li><strong>group</strong> - gruppen i datamodellen man baserer options på.</li>
 <li><strong>label</strong> - en referanse til en text id som brukes som label for hver iterasjon av gruppen. Se mer under.</li>
@@ -776,26 +774,26 @@ Dette nye objektet inneholder feltene <code>group</code>, <code>label</code> og 
 <p>For <strong>label</strong> feltet må vi definere en tekst ressurs som kan bli brukt som label for hver repetisjon av gruppen.
 Dette følger samme syntax som <strong>value</strong>, og vil være kjent for deg om du har brukt <a href="../../ux/texts">variabler i tekst</a>.</p>
 <p>Eksempel:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#ff79c6">&#34;language&#34;</span>: <span style="color:#f1fa8c">&#34;nb&#34;</span>,
-  <span style="color:#ff79c6">&#34;resources&#34;</span>: [
-    {
-      <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;dropdown.label&#34;</span>,
-      <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;Person: {0}, Age: {1}&#34;</span>,
-      <span style="color:#ff79c6">&#34;variables&#34;</span>: [
-        {
-          <span style="color:#ff79c6">&#34;key&#34;</span>: <span style="color:#f1fa8c">&#34;some.group[{0}].name&#34;</span>,
-          <span style="color:#ff79c6">&#34;dataSource&#34;</span>: <span style="color:#f1fa8c">&#34;dataModel.default&#34;</span>
-        },
-        {
-          <span style="color:#ff79c6">&#34;key&#34;</span>: <span style="color:#f1fa8c">&#34;some.group[{0}].age&#34;</span>,
-          <span style="color:#ff79c6">&#34;dataSource&#34;</span>: <span style="color:#f1fa8c">&#34;dataModel.default&#34;</span>
-        }
-      ]
-    }
-  ]
-}
-</code></pre></div><p>I dette eksempelet har vi satt opp to parametere i teksten som refererer til felter i gruppen.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;language&#34;</span>: <span style="color:#f1fa8c">&#34;nb&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;resources&#34;</span>: [
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;dropdown.label&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;Person: {0}, Age: {1}&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;variables&#34;</span>: [
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;key&#34;</span>: <span style="color:#f1fa8c">&#34;some.group[{0}].name&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;dataSource&#34;</span>: <span style="color:#f1fa8c">&#34;dataModel.default&#34;</span>
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;key&#34;</span>: <span style="color:#f1fa8c">&#34;some.group[{0}].age&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;dataSource&#34;</span>: <span style="color:#f1fa8c">&#34;dataModel.default&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      ]
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  ]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>I dette eksempelet har vi satt opp to parametere i teksten som refererer til felter i gruppen.
 Vi kjenner også igjen <code>[{0}]</code> syntaksen i <code>key</code> feltet som muliggjør gjenbruk av labelen for hver index i gruppen.</p>
 
 

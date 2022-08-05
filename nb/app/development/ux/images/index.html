@@ -381,13 +381,13 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/metadata/"><span>Metadata</span></a></li>
       <li class="dd-item">
         <a href="/nb/api/apps/instances/"><span>Instanser</span></a></li>
       <li class="dd-item">
-        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/data-elements/tags/"><span>Tags</span></a></li></ul></li>
       <li class="dd-item">
@@ -441,9 +441,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/community/about/"><span>Om</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/community/about/goals/"><span>Mål</span></a></li>
+        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li>
       <li class="dd-item">
-        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li></ul></li>
+        <a href="/nb/community/about/goals/"><span>Mål</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/community/contributing/"><span>Bidra til utvikling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -571,84 +571,84 @@ if(host != "localhost")
 </div>
 <h2 id="legge-til-bilder-i-applikasjonen">Legge til bilder i applikasjonen</h2>
 <p>Å legge til bilder gjøres i <em>FormLayout.json</em> ved bruk av bildekomponenten. Alternativ tekst for bildet er nyttig for situasjoner hvor bildet ikke kan lastes, eller for brukere som benytter skjermleser. Dette kan legges til som en tekst ressurs som er definert i <em>resource.[språk].json</em>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#ff79c6">&#34;data&#34;</span>: {
-    <span style="color:#ff79c6">&#34;layout&#34;</span>: [
-      {
-        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;616071dc-90b1-4ce5-8d18-492844828a41&#34;</span>,
-        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Image&#34;</span>,
-        <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
-          <span style="color:#ff79c6">&#34;altTextImg&#34;</span>: <span style="color:#f1fa8c">&#34;imgAltText&#34;</span>
-        },
-        <span style="color:#ff79c6">&#34;image&#34;</span>: {
-          <span style="color:#ff79c6">&#34;src&#34;</span>: {
-            <span style="color:#ff79c6">&#34;nb&#34;</span>: <span style="color:#f1fa8c">&#34;https://example.com/image_nb.png&#34;</span>
-          },
-          <span style="color:#ff79c6">&#34;width&#34;</span>: <span style="color:#f1fa8c">&#34;100%&#34;</span>,
-          <span style="color:#ff79c6">&#34;align&#34;</span>: <span style="color:#f1fa8c">&#34;center&#34;</span>
-        }
-      }
-    ]
-  }
-}
-</code></pre></div><p>Bildet kan også ha ulik kilde i forskjellige språk. Standardkilde er <em>nb</em>, og denne brukes for språk som ikke har oppgitt en egen kilde for bilder. Eksempel med forskjellig kilde for <em>nb</em> og <em>en</em>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#ff79c6">&#34;data&#34;</span>: {
-    <span style="color:#ff79c6">&#34;layout&#34;</span>: [
-      {
-        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;616071dc-90b1-4ce5-8d18-492844828a41&#34;</span>,
-        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Image&#34;</span>,
-        <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
-          <span style="color:#ff79c6">&#34;altTextImg&#34;</span>: <span style="color:#f1fa8c">&#34;imgAltText&#34;</span>
-        },
-        <span style="color:#ff79c6">&#34;image&#34;</span>: {
-          <span style="color:#ff79c6">&#34;src&#34;</span>: {
-            <span style="color:#ff79c6">&#34;nb&#34;</span>: <span style="color:#f1fa8c">&#34;https://example.com/image_nb.png&#34;</span>,
-            <span style="color:#ff79c6">&#34;en&#34;</span>: <span style="color:#f1fa8c">&#34;https://example.com/image_en.png&#34;</span>
-          },
-          <span style="color:#ff79c6">&#34;width&#34;</span>: <span style="color:#f1fa8c">&#34;100%&#34;</span>,
-          <span style="color:#ff79c6">&#34;align&#34;</span>: <span style="color:#f1fa8c">&#34;center&#34;</span>
-        }
-      }
-    ]
-  }
-}
-</code></pre></div><h2 id="hosting-av-bilder-fra-app">Hosting av bilder fra app</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;data&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;layout&#34;</span>: [
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;616071dc-90b1-4ce5-8d18-492844828a41&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Image&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;altTextImg&#34;</span>: <span style="color:#f1fa8c">&#34;imgAltText&#34;</span>
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;image&#34;</span>: {
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;src&#34;</span>: {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;nb&#34;</span>: <span style="color:#f1fa8c">&#34;https://example.com/image_nb.png&#34;</span>
+</span></span><span style="display:flex;"><span>          },
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;width&#34;</span>: <span style="color:#f1fa8c">&#34;100%&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;align&#34;</span>: <span style="color:#f1fa8c">&#34;center&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Bildet kan også ha ulik kilde i forskjellige språk. Standardkilde er <em>nb</em>, og denne brukes for språk som ikke har oppgitt en egen kilde for bilder. Eksempel med forskjellig kilde for <em>nb</em> og <em>en</em>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;data&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;layout&#34;</span>: [
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;616071dc-90b1-4ce5-8d18-492844828a41&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Image&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;altTextImg&#34;</span>: <span style="color:#f1fa8c">&#34;imgAltText&#34;</span>
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;image&#34;</span>: {
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;src&#34;</span>: {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;nb&#34;</span>: <span style="color:#f1fa8c">&#34;https://example.com/image_nb.png&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;en&#34;</span>: <span style="color:#f1fa8c">&#34;https://example.com/image_en.png&#34;</span>
+</span></span><span style="display:flex;"><span>          },
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;width&#34;</span>: <span style="color:#f1fa8c">&#34;100%&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;align&#34;</span>: <span style="color:#f1fa8c">&#34;center&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="hosting-av-bilder-fra-app">Hosting av bilder fra app</h2>
 <p>Dersom bildet skal lastes fra appen, må man sette opp statisk hosting av filer i applikasjonen. Dette er automatisk satt opp for applikasjoner laget etter desember 2021. For eldre applikasjoner, følg beskrivelsen nedenfor.
 Dette konfigureres i <em>App/Startup.cs</em>, i <em>Configure</em> metoden. Dette vil så hoste alle filer som ligger i <code>/app/wwwroot</code> mappen. Om denne mappen ikke finnes må den opprettes.
 Ønsker du å referer til filen <code>app/wwwroot/bilde_nb.png</code> så vil denne kunne nås med følgende path: <code>/org/app-name/bilde_nb.png</code></p>
 <p><em>applicationId</em> er en variabel deklarert noen linjer opp og inneholder <em>org/app-name</em> fra <code>applicationmetadata.json</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">void</span> Configure(IApplicationBuilder app, IWebHostEnvironment env)
-  {
-    <span style="color:#6272a4">// ...
-</span><span style="color:#6272a4"></span>    app.UseRouting();
-<span style="display:block;width:100%;background-color:#3d3f4a">    app.UseStaticFiles(<span style="color:#f1fa8c">&#39;/&#39;</span> + applicationId);
-</span>    app.UseAuthentication();
-    <span style="color:#6272a4">// ...
-</span><span style="color:#6272a4"></span>  }
-</code></pre></div><p>I <em>FormLayout.json</em> må referansen til bildet være en relativ url som starter med <em>/org/app-name</em> som ble satt opp i static hosting.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-C#" data-lang="C#"><span style="display:flex;"><span><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">void</span> Configure(IApplicationBuilder app, IWebHostEnvironment env)
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// ...</span>
+</span></span><span style="display:flex;"><span>    app.UseRouting();
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>    app.UseStaticFiles(<span style="color:#f1fa8c">&#39;/&#39;</span> + applicationId);
+</span></span><span style="display:flex;"><span>    app.UseAuthentication();
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// ...</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><p>I <em>FormLayout.json</em> må referansen til bildet være en relativ url som starter med <em>/org/app-name</em> som ble satt opp i static hosting.
 Du kan også bruke snarveien <code>wwwroot</code> (uten <code>/</code> først), som blir erstattet med <em>/org/app-name</em> før bildet lastes.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#ff79c6">&#34;data&#34;</span>: {
-    <span style="color:#ff79c6">&#34;layout&#34;</span>: [
-      {
-        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;616071dc-90b1-4ce5-8d18-492844828a41&#34;</span>,
-        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Image&#34;</span>,
-        <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
-          <span style="color:#ff79c6">&#34;altTextImg&#34;</span>: <span style="color:#f1fa8c">&#34;imgAltText&#34;</span>
-        },
-        <span style="color:#ff79c6">&#34;image&#34;</span>: {
-          <span style="color:#ff79c6">&#34;src&#34;</span>: {
-            <span style="color:#ff79c6">&#34;nb&#34;</span>: <span style="color:#f1fa8c">&#34;wwwroot/bilde_nb.png&#34;</span>
-          },
-          <span style="color:#ff79c6">&#34;width&#34;</span>: <span style="color:#f1fa8c">&#34;100%&#34;</span>,
-          <span style="color:#ff79c6">&#34;align&#34;</span>: <span style="color:#f1fa8c">&#34;center&#34;</span>
-        }
-      }
-    ]
-  }
-}
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;data&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;layout&#34;</span>: [
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;616071dc-90b1-4ce5-8d18-492844828a41&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Image&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;altTextImg&#34;</span>: <span style="color:#f1fa8c">&#34;imgAltText&#34;</span>
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;image&#34;</span>: {
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;src&#34;</span>: {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;nb&#34;</span>: <span style="color:#f1fa8c">&#34;wwwroot/bilde_nb.png&#34;</span>
+</span></span><span style="display:flex;"><span>          },
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;width&#34;</span>: <span style="color:#f1fa8c">&#34;100%&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;align&#34;</span>: <span style="color:#f1fa8c">&#34;center&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
 
 <footer class=" footline" ></footer>
                 </div>

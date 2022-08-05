@@ -381,13 +381,13 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/metadata/"><span>Metadata</span></a></li>
       <li class="dd-item">
         <a href="/nb/api/apps/instances/"><span>Instanser</span></a></li>
       <li class="dd-item">
-        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/data-elements/tags/"><span>Tags</span></a></li></ul></li>
       <li class="dd-item">
@@ -441,9 +441,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/community/about/"><span>Om</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/community/about/goals/"><span>Mål</span></a></li>
+        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li>
       <li class="dd-item">
-        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li></ul></li>
+        <a href="/nb/community/about/goals/"><span>Mål</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/community/contributing/"><span>Bidra til utvikling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -582,33 +582,33 @@ if(host != "localhost")
 <p>Bredden på inputfeltet burde reflektere det som forventes av input fra brukeren. Vi har laget tre standard størrelser som burde dekke de fleste scenarioer og som skal fungere på forskjellige skjermstørrelser. <a href="/app/development/ux/styling/#innergrid-og-labelgrid">Les om hvordan du endrer størrelsen her</a></p>
 <h4 id="lite-input">Lite input</h4>
 <p>Brukes til for eksempel telefonnummer, postnummer og årstall</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#f1fa8c">&#34;grid&#34;</span>: {
-    <span style="color:#ff79c6">&#34;xs&#34;</span>: <span style="color:#bd93f9">12</span>,
-    <span style="color:#ff79c6">&#34;innergrid&#34;</span>: {
-        <span style="color:#ff79c6">&#34;xs&#34;</span>:<span style="color:#bd93f9">5</span>,
-        <span style="color:#ff79c6">&#34;sm&#34;</span>:<span style="color:#bd93f9">3</span>, 
-        <span style="color:#ff79c6">&#34;md&#34;</span>:<span style="color:#bd93f9">2</span>
-    }
-}
-</code></pre></div><h4 id="medium-input">Medium input</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#f1fa8c">&#34;grid&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;xs&#34;</span>: <span style="color:#bd93f9">12</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;innergrid&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;xs&#34;</span>:<span style="color:#bd93f9">5</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;sm&#34;</span>:<span style="color:#bd93f9">3</span>, 
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;md&#34;</span>:<span style="color:#bd93f9">2</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="medium-input">Medium input</h4>
 <p>Brukes til for eksempel kommune og land</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#f1fa8c">&#34;grid&#34;</span>: {
-    <span style="color:#ff79c6">&#34;xs&#34;</span>: <span style="color:#bd93f9">12</span>,
-    <span style="color:#ff79c6">&#34;innergrid&#34;</span>: {
-        <span style="color:#ff79c6">&#34;xs&#34;</span>:<span style="color:#bd93f9">8</span>,
-        <span style="color:#ff79c6">&#34;sm&#34;</span>:<span style="color:#bd93f9">6</span>, 
-        <span style="color:#ff79c6">&#34;md&#34;</span>:<span style="color:#bd93f9">6</span>
-    }      
-}
-</code></pre></div><h4 id="stor-input">Stor input</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#f1fa8c">&#34;grid&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;xs&#34;</span>: <span style="color:#bd93f9">12</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;innergrid&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;xs&#34;</span>:<span style="color:#bd93f9">8</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;sm&#34;</span>:<span style="color:#bd93f9">6</span>, 
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;md&#34;</span>:<span style="color:#bd93f9">6</span>
+</span></span><span style="display:flex;"><span>    }      
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="stor-input">Stor input</h4>
 <p>Brukes til for eksempel navn, e-post adresse og en URL</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#f1fa8c">&#34;grid&#34;</span>: {
-    <span style="color:#ff79c6">&#34;xs&#34;</span>: <span style="color:#bd93f9">12</span>,
-    <span style="color:#ff79c6">&#34;innergrid&#34;</span>: {
-        <span style="color:#ff79c6">&#34;sm&#34;</span>:<span style="color:#bd93f9">10</span> 
-    }
-}
-</code></pre></div><hr>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#f1fa8c">&#34;grid&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;xs&#34;</span>: <span style="color:#bd93f9">12</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;innergrid&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;sm&#34;</span>:<span style="color:#bd93f9">10</span> 
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><hr>
 <h2 id="stort-tekstfelt">Stort tekstfelt</h2>
 <p>Stort tekstfelt benyttes når brukeren skal fylle inn en lengre beskrivelse. De samme retningslinjene som 
 inputfelt gjelder.</p>

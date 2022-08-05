@@ -381,13 +381,13 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/metadata/"><span>Metadata</span></a></li>
       <li class="dd-item">
         <a href="/nb/api/apps/instances/"><span>Instanser</span></a></li>
       <li class="dd-item">
-        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/data-elements/tags/"><span>Tags</span></a></li></ul></li>
       <li class="dd-item">
@@ -441,9 +441,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/community/about/"><span>Om</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/community/about/goals/"><span>Mål</span></a></li>
+        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li>
       <li class="dd-item">
-        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li></ul></li>
+        <a href="/nb/community/about/goals/"><span>Mål</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/community/contributing/"><span>Bidra til utvikling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -575,18 +575,18 @@ Standard oppførsel om dette feltet ikke er satt er at det lages en ny instans f
 <p>Om man setter feltet til <code>onEntry.show</code> til <code>select-instance</code> vil brukeren bli presentert med en liste av aktive instanser for den valgte avgiver når man navigerer seg til en applikasjon.</p>
 <h3 id="eksempel">Eksempel</h3>
 <p>Følgende konfigurasjon legges til i <code>applicationmetadata.json</code> for å sette opp valg av aktive instanser.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;ttd/demo-app&#34;</span>,
-  <span style="color:#ff79c6">&#34;org&#34;</span>: <span style="color:#f1fa8c">&#34;ttd&#34;</span>,
-  <span style="color:#ff79c6">&#34;title&#34;</span>: {
-    <span style="color:#ff79c6">&#34;nb&#34;</span>: <span style="color:#f1fa8c">&#34;Starte fra aktiv instans&#34;</span>
-  },
-  ...
-  <span style="color:#ff79c6">&#34;onEntry&#34;</span>: {
-    <span style="color:#ff79c6">&#34;show&#34;</span>: <span style="color:#f1fa8c">&#34;select-instance&#34;</span>
-  }
-}
-</code></pre></div><p>For brukere som ikke har noen aktive instanser vil det automatisk bli opprettet en instans.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;ttd/demo-app&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;org&#34;</span>: <span style="color:#f1fa8c">&#34;ttd&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;title&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;nb&#34;</span>: <span style="color:#f1fa8c">&#34;Starte fra aktiv instans&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;onEntry&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;show&#34;</span>: <span style="color:#f1fa8c">&#34;select-instance&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>For brukere som ikke har noen aktive instanser vil det automatisk bli opprettet en instans.
 Brukere som har aktive instanser vil bli presentert med følgende brukergrensesnitt:</p>
 <figure><a href="select-active-instance.png"><img src="select-active-instance.png" alt="Brukergrensesnitt for å velge aktiv instans" title="Brukergrensesnitt for å velge aktiv instans" /></a><figcaption><h4>Brukergrensesnitt for å velge aktiv instans</h4></figcaption></figure>
 

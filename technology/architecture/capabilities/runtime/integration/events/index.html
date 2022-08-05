@@ -109,7 +109,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -209,7 +209,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -281,7 +281,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -1235,19 +1235,19 @@ the events to a subscriber webhook.</p>
 <li>It is flexible so it would support scenarios in the future</li>
 </ul>
 <p>Below you find a offical example. <a href="https://raw.githubusercontent.com/cloudevents/spec/master/spec.json">See full JSON Schema</a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-    <span style="color:#ff79c6">&#34;specversion&#34;</span> : <span style="color:#f1fa8c">&#34;1.x-wip&#34;</span>,
-    <span style="color:#ff79c6">&#34;type&#34;</span> : <span style="color:#f1fa8c">&#34;com.github.pull.create&#34;</span>,
-    <span style="color:#ff79c6">&#34;source&#34;</span> : <span style="color:#f1fa8c">&#34;https://github.com/cloudevents/spec/pull&#34;</span>,
-    <span style="color:#ff79c6">&#34;subject&#34;</span> : <span style="color:#f1fa8c">&#34;123&#34;</span>,
-    <span style="color:#ff79c6">&#34;id&#34;</span> : <span style="color:#f1fa8c">&#34;A234-1234-1234&#34;</span>,
-    <span style="color:#ff79c6">&#34;time&#34;</span> : <span style="color:#f1fa8c">&#34;2018-04-05T17:31:00Z&#34;</span>,
-    <span style="color:#ff79c6">&#34;comexampleextension1&#34;</span> : <span style="color:#f1fa8c">&#34;value&#34;</span>,
-    <span style="color:#ff79c6">&#34;comexampleothervalue&#34;</span> : <span style="color:#bd93f9">5</span>,
-    <span style="color:#ff79c6">&#34;datacontenttype&#34;</span> : <span style="color:#f1fa8c">&#34;text/xml&#34;</span>,
-    <span style="color:#ff79c6">&#34;data&#34;</span> : <span style="color:#f1fa8c">&#34;&lt;much wow=\&#34;xml\&#34;/&gt;&#34;</span>
-}
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;specversion&#34;</span> : <span style="color:#f1fa8c">&#34;1.x-wip&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;type&#34;</span> : <span style="color:#f1fa8c">&#34;com.github.pull.create&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;source&#34;</span> : <span style="color:#f1fa8c">&#34;https://github.com/cloudevents/spec/pull&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;subject&#34;</span> : <span style="color:#f1fa8c">&#34;123&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;id&#34;</span> : <span style="color:#f1fa8c">&#34;A234-1234-1234&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;time&#34;</span> : <span style="color:#f1fa8c">&#34;2018-04-05T17:31:00Z&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;comexampleextension1&#34;</span> : <span style="color:#f1fa8c">&#34;value&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;comexampleothervalue&#34;</span> : <span style="color:#bd93f9">5</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;datacontenttype&#34;</span> : <span style="color:#f1fa8c">&#34;text/xml&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;data&#34;</span> : <span style="color:#f1fa8c">&#34;&lt;much wow=\&#34;xml\&#34;/&gt;&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
 <li><code>specversion</code>: The version of the CloudEvents specification which the event uses. This enables the interpretation of the context.
 Compliant event producers MUST use a value of 1.x-wip when referring to this version of the specification.</li>
 <li><code>type</code>: This is the event type. Examples: instance.created, instance.process.paymentcompleted, instance.process.completed</li>
@@ -1270,35 +1270,35 @@ This will be used for socical secuirty number, organization number or other iden
 <p>The value will be prefixed</p>
 <h4 id="example-1">Example 1</h4>
 <p>A instance has been created for a given party. It is not possible from the event itself to know who did it.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[{
-  <span style="color:#ff79c6">&#34;source&#34;</span>:  <span style="color:#f1fa8c">&#34;https://skd.apps.altinn.no/skd/skattemelding/instances/1234324/6fb3f738-6800-4f29-9f3e-1c66862656cd&#34;</span>,
-<span style="display:block;width:100%;background-color:#3d3f4a">  <span style="color:#ff79c6">&#34;subject&#34;</span>: <span style="color:#f1fa8c">&#34;party/1234324&#34;</span>,
-</span>  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;app.instance.created&#34;</span>,
-  <span style="color:#ff79c6">&#34;time&#34;</span>: <span style="color:#f1fa8c">&#34;2020-02-20T08:00:06.4014168Z&#34;</span>,
-  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;91f2388f-bd8c-4647-8684-fd9f68af5b14&#34;</span>,
-  <span style="color:#ff79c6">&#34;alternativesubject&#34;</span>: <span style="color:#f1fa8c">&#34;/person/01038712345&#34;</span>
-}]
-</code></pre></div><h5 id="example-2">Example 2</h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>[{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;source&#34;</span>:  <span style="color:#f1fa8c">&#34;https://skd.apps.altinn.no/skd/skattemelding/instances/1234324/6fb3f738-6800-4f29-9f3e-1c66862656cd&#34;</span>,
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>  <span style="color:#ff79c6">&#34;subject&#34;</span>: <span style="color:#f1fa8c">&#34;party/1234324&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;app.instance.created&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;time&#34;</span>: <span style="color:#f1fa8c">&#34;2020-02-20T08:00:06.4014168Z&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;91f2388f-bd8c-4647-8684-fd9f68af5b14&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;alternativesubject&#34;</span>: <span style="color:#f1fa8c">&#34;/person/01038712345&#34;</span>
+</span></span><span style="display:flex;"><span>}]
+</span></span></code></pre></div><h5 id="example-2">Example 2</h5>
 <p>A user has completed the confirmation1 task in the process.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[{
-  <span style="color:#ff79c6">&#34;source&#34;</span>:  <span style="color:#f1fa8c">&#34;https://skd.apps.altinn.no/skd/skattemelding/instances/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8&#34;</span>,
-  <span style="color:#ff79c6">&#34;subject&#34;</span>: <span style="color:#f1fa8c">&#34;party/234234422&#34;</span>,
-<span style="display:block;width:100%;background-color:#3d3f4a">  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;app.instance.process.movedTo.confirmation1&#34;</span>,
-</span>  <span style="color:#ff79c6">&#34;time&#34;</span>: <span style="color:#f1fa8c">&#34;2020-03-16T10:23:46.6443563Z&#34;</span>,
-  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;91f2388f-bd8c-4647-8684-fd9f68af5b14&#34;</span>,
-  <span style="color:#ff79c6">&#34;alternativesubject&#34;</span>: <span style="color:#f1fa8c">&#34;/org/974760673&#34;</span>
-}]
-</code></pre></div><h5 id="example-3">Example 3</h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>[{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;source&#34;</span>:  <span style="color:#f1fa8c">&#34;https://skd.apps.altinn.no/skd/skattemelding/instances/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;subject&#34;</span>: <span style="color:#f1fa8c">&#34;party/234234422&#34;</span>,
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;app.instance.process.movedTo.confirmation1&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;time&#34;</span>: <span style="color:#f1fa8c">&#34;2020-03-16T10:23:46.6443563Z&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;91f2388f-bd8c-4647-8684-fd9f68af5b14&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;alternativesubject&#34;</span>: <span style="color:#f1fa8c">&#34;/org/974760673&#34;</span>
+</span></span><span style="display:flex;"><span>}]
+</span></span></code></pre></div><h5 id="example-3">Example 3</h5>
 <p>A user/system has completed the process for an instance.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[{
-  <span style="color:#ff79c6">&#34;source&#34;</span>:  <span style="color:#f1fa8c">&#34;https://skd.apps.altinn.no/skd/skattemelding/instances/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8&#34;</span>,
-  <span style="color:#ff79c6">&#34;subject&#34;</span>: <span style="color:#f1fa8c">&#34;party/234234422&#34;</span>,
-<span style="display:block;width:100%;background-color:#3d3f4a">  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;app.instance.process.completed&#34;</span>,
-</span>  <span style="color:#ff79c6">&#34;time&#34;</span>:  <span style="color:#f1fa8c">&#34;2020-02-20T09:06:50.3736712Z&#34;</span>,
-  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;91f2388f-bd8c-4647-8684-fd9f68af5b14&#34;</span>,
-  <span style="color:#ff79c6">&#34;alternativesubject&#34;</span>: <span style="color:#f1fa8c">&#34;/org/974760673&#34;</span>
-}]
-</code></pre></div><h3 id="event-components">Event components</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>[{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;source&#34;</span>:  <span style="color:#f1fa8c">&#34;https://skd.apps.altinn.no/skd/skattemelding/instances/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;subject&#34;</span>: <span style="color:#f1fa8c">&#34;party/234234422&#34;</span>,
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;app.instance.process.completed&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;time&#34;</span>:  <span style="color:#f1fa8c">&#34;2020-02-20T09:06:50.3736712Z&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;91f2388f-bd8c-4647-8684-fd9f68af5b14&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;alternativesubject&#34;</span>: <span style="color:#f1fa8c">&#34;/org/974760673&#34;</span>
+</span></span><span style="display:flex;"><span>}]
+</span></span></code></pre></div><h3 id="event-components">Event components</h3>
 <p>The below diagram shows the different components in the proposed Event Architecture for Altinn 3.</p>
 <figure><a href="event_architecture_custom.svg"><img src="event_architecture_custom.svg" alt="Event architecture diagram" title="Altinn Event Architecture" /></a><figcaption><h4>Altinn Event Architecture</h4></figcaption></figure>
 <p>More details can be in <a href="../../../../components/application/solution/altinn-platform/events/">solutions components</a> with detailed API info of event component 

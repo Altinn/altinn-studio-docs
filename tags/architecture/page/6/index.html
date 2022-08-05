@@ -109,7 +109,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -209,7 +209,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -281,7 +281,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -1114,7 +1114,7 @@ if(host != "localhost")
         <p>Application Lifecycle Management Applications Requirement &amp; Release Management Use cases are defined in Github. We have defined differen types of template to support creation of user stories.
 Releases are managed on Github.
 See releases here.
-Manual &amp; Automated Test Tools Functional Test  Automated browser testing and WCAG testing using Cypress.  Unit Test  Jest framework used for unit testing front-end. More details here. xunit used for unit testing back-end. <a class="read-more" href="/technology/architecture/components/application/nonsolutionspecific/development/">&raquo;</a></p>
+Manual &amp; Automated Test Tools Functional Test Automated browser testing and WCAG testing using Cypress. Unit Test Jest framework used for unit testing front-end. More details here. xunit used for unit testing back-end. Service &amp; API Test API testing is done using Postman. <a class="read-more" href="/technology/architecture/components/application/nonsolutionspecific/development/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         
@@ -1208,7 +1208,7 @@ Overall Concept In Altinn there will over time be thousands of different digital
         <p>The Events components expose REST-APIs for publishing and subscribing to events. The Azure function are responsible for pushing events to subscriber webhooks. The below diagram shows the components
 When a publish request is received it will push the event document to the event storage. When a request is received it will query the events stored in the event storage.
 Api controllers The following API controllers are defined
- EventsController : responsible for registrating events and pull of events for consumers. <a class="read-more" href="/technology/architecture/components/application/construction/altinn-platform/events/">&raquo;</a></p>
+EventsController : responsible for registrating events and pull of events for consumers. <a class="read-more" href="/technology/architecture/components/application/construction/altinn-platform/events/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         
@@ -1249,8 +1249,7 @@ The diagram below shows an simplified overview over the infrastructure component
 Download as Visio
 Altinn 3 is currently deployed to Microsoft Azure. This does not mean that Altinn 3 can&rsquo;t be deployed to other cloud providers.
 Below you find details about the different cloud components used.
-
- &lt;li&gt;&lt;a href=&quot;/technology/architecture/components/infrastructure/computing/&quot;&gt;Compute components&lt;/a&gt;&lt;p&gt;Compute components gives processor power to applications and software&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/technology/architecture/components/infrastructure/network/&quot;&gt;Network componentens&lt;/a&gt;&lt;p&gt;All networking infrastructure is located in Azure. <a class="read-more" href="/technology/architecture/components/infrastructure/">&raquo;</a></p>
+&lt;li&gt;&lt;a href=&quot;/technology/architecture/components/infrastructure/computing/&quot;&gt;Compute components&lt;/a&gt;&lt;p&gt;Compute components gives processor power to applications and software&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/technology/architecture/components/infrastructure/network/&quot;&gt;Network componentens&lt;/a&gt;&lt;p&gt;All networking infrastructure is located in Azure. <a class="read-more" href="/technology/architecture/components/infrastructure/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         
@@ -1294,7 +1293,7 @@ Infrastructure Configuration and managment Capabilities Tools &amp; components F
     <section class="post-excerpt">
         <p>In many ways you can say that Altinn is a integration hub for communication between the citizens, the businesses and the public entities in Norway.
 Data flows between the different actors using Altinns.
- Citizens receives data from the public agencies and sends data to the public agencies Business receives data from the public agencies and sends data to the public agencies Public agencies can share data with other public agencies ++  End-point enablement Applications created in Altinn Studio has build in API for communication with the different actors. <a class="read-more" href="/technology/architecture/capabilities/runtime/integration/">&raquo;</a></p>
+Citizens receives data from the public agencies and sends data to the public agencies Business receives data from the public agencies and sends data to the public agencies Public agencies can share data with other public agencies ++ End-point enablement Applications created in Altinn Studio has build in API for communication with the different actors. <a class="read-more" href="/technology/architecture/capabilities/runtime/integration/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         

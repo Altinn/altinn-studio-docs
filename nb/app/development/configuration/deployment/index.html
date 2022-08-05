@@ -381,13 +381,13 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/metadata/"><span>Metadata</span></a></li>
       <li class="dd-item">
         <a href="/nb/api/apps/instances/"><span>Instanser</span></a></li>
       <li class="dd-item">
-        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/data-elements/tags/"><span>Tags</span></a></li></ul></li>
       <li class="dd-item">
@@ -441,9 +441,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/community/about/"><span>Om</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/community/about/goals/"><span>Mål</span></a></li>
+        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li>
       <li class="dd-item">
-        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li></ul></li>
+        <a href="/nb/community/about/goals/"><span>Mål</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/community/contributing/"><span>Bidra til utvikling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -582,13 +582,13 @@ for å automatisk skalere opp og ned en app basert på CPU forbruk.</p>
 <p>Standard verdiene kan du se <a href="https://github.com/Altinn/altinn-studio-charts/blob/main/charts/deployment/values.yaml">her</a></p>
 <p>Et eksempel på hvordan du overskriver verdier:</p>
 <p>I values.yaml i den sentrale helm-charten er <em>replicaCount</em> definert som følger:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#ff79c6">replicaCount</span>: <span style="color:#bd93f9">2</span>
-...
-</code></pre></div><p>For å overskrive dette i den app endrer du filen <em>deployment/values.yaml</em> og legger <em>replicaCount</em> under <em>deplyoment</em>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#ff79c6">deployment</span>:
-  <span style="color:#ff79c6">replicaCount</span>: <span style="color:#bd93f9">3</span>
-...
-</code></pre></div><div class="notices warning" >
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ff79c6">replicaCount</span>: <span style="color:#bd93f9">2</span>
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><p>For å overskrive dette i den app endrer du filen <em>deployment/values.yaml</em> og legger <em>replicaCount</em> under <em>deplyoment</em>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ff79c6">deployment</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">replicaCount</span>: <span style="color:#bd93f9">3</span>
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><div class="notices warning" >
 Legg merke til at "deployment:" er lagt til i forhold til det sentrale charten sin values.yaml. _replicaCount_ er også indentert med to mellomrom.
 I yaml skal indents være mellomrom og ikke tab, benytter du tab vil ikke din yaml være gyldig.
 </div>
@@ -596,24 +596,24 @@ I yaml skal indents være mellomrom og ikke tab, benytter du tab vil ikke din ya
 <h3 id="initial-skalering">Initial skalering</h3>
 <p>Initial skalering er konfigurerbart med feltet <code>replicaCount</code>. Hvis autoskalering er aktivert vil autoskalerings logikken overstyre denne verdien.
 Eksempel hvor initial skalering er satt til 2:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#ff79c6">deployment</span>:
-  <span style="color:#ff79c6">replicaCount</span>: <span style="color:#bd93f9">2</span>
-</code></pre></div><h3 id="autoscaling-konfigurasjon">Autoscaling konfigurasjon</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ff79c6">deployment</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">replicaCount</span>: <span style="color:#bd93f9">2</span>
+</span></span></code></pre></div><h3 id="autoscaling-konfigurasjon">Autoscaling konfigurasjon</h3>
 <p>Autoscaling seksjonen konfigurerer når en applikasjon automatisk skal skaleres. Dette er håndtert av Horizontal Pod Autoscaler i kubernetes.</p>
 <p>For å lese mer og Horizontal Pod Autoscaler kan du lese kubernetes sin dokumentasjon <a href="https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/">her</a>.</p>
 <p>Standard verdier hvis ikke overstyrt i <em>deployment/values.yaml</em></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#ff79c6">deployment</span>:
-  <span style="color:#ff79c6">autoscaling</span>:
-    <span style="color:#ff79c6">enabled</span>: <span style="color:#ff79c6">true</span>
-    <span style="color:#ff79c6">replicas</span>:
-      <span style="color:#ff79c6">min</span>: <span style="color:#bd93f9">2</span>
-      <span style="color:#ff79c6">max</span>: <span style="color:#bd93f9">10</span>
-    <span style="color:#ff79c6">avgCpuUtilization</span>: <span style="color:#bd93f9">70</span>
-    <span style="color:#ff79c6">behavior</span>:
-      <span style="color:#ff79c6">stabilizationWindowSeconds</span>:
-        <span style="color:#ff79c6">scaleUp</span>: <span style="color:#bd93f9">0</span>
-        <span style="color:#ff79c6">scaleDown</span>: <span style="color:#bd93f9">120</span>
-</code></pre></div><h4 id="deploymentautoscalingreplicas">deployment.autoscaling.replicas</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ff79c6">deployment</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">autoscaling</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">enabled</span>: <span style="color:#ff79c6">true</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">replicas</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">min</span>: <span style="color:#bd93f9">2</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">max</span>: <span style="color:#bd93f9">10</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">avgCpuUtilization</span>: <span style="color:#bd93f9">70</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">behavior</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">stabilizationWindowSeconds</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">scaleUp</span>: <span style="color:#bd93f9">0</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">scaleDown</span>: <span style="color:#bd93f9">120</span>
+</span></span></code></pre></div><h4 id="deploymentautoscalingreplicas">deployment.autoscaling.replicas</h4>
 <p><strong>min</strong>: Det laveste antall pods autoskaleringen har lov til å sette.
 <strong>max</strong>: Det høyeste antall pods autoskalering har lov til å sette.</p>
 <h4 id="deploymentautoscalingavgcpuutilization">deployment.autoscaling.avgCpuUtilization</h4>
@@ -630,21 +630,21 @@ Det er derfor lurt å ha en liten buffer sånn at applikasjonen kan håndtere la
 <p>For å sette gode requests og eventuelt limits er kjennskap til appen viktig da koden og oppgavene applikasjonen utfører har stor innvirkning på dette.
 Vi forsøker å sette kode standard verdier som fungerer for så mange av alle appene i Altinn som mulig, men det er ikke sikkert de passer for din app.</p>
 <p>Standard verdier hvis de ikke blir overskrevet i <em>deployment/values.yaml</em></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#ff79c6">deplyoment</span>:
-  <span style="color:#ff79c6">resources</span>:
-    <span style="color:#ff79c6">requests</span>:
-      <span style="color:#ff79c6">cpu</span>: 300m
-      <span style="color:#ff79c6">memory</span>: 256Mi
-</code></pre></div><p>Verdier som er mulige å konfigurere (verdiene under er kun som et eksempel og på ingen måte en fasit)</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#ff79c6">deplyoment</span>:
-  <span style="color:#ff79c6">resources</span>:
-    <span style="color:#ff79c6">requests</span>:
-      <span style="color:#ff79c6">cpu</span>: 200m
-      <span style="color:#ff79c6">memory</span>: 256Mi
-    <span style="color:#ff79c6">limits</span>:
-      <span style="color:#ff79c6">cpu</span>: 1000m
-      <span style="color:#ff79c6">memory</span>: 512Mi
-</code></pre></div><h4 id="deploymentresourcesrequests">deployment.resources.requests</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ff79c6">deplyoment</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">resources</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">requests</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">cpu</span>: 300m
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">memory</span>: 256Mi
+</span></span></code></pre></div><p>Verdier som er mulige å konfigurere (verdiene under er kun som et eksempel og på ingen måte en fasit)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ff79c6">deplyoment</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">resources</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">requests</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">cpu</span>: 200m
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">memory</span>: 256Mi
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">limits</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">cpu</span>: 1000m
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">memory</span>: 512Mi
+</span></span></code></pre></div><h4 id="deploymentresourcesrequests">deployment.resources.requests</h4>
 <p>Denne seksjonen i values.yaml definerer ressursene som din app vil få reservert av kubelet i clusteret.</p>
 <p>Requests er brukt av kubernetes sin skedulerer for å finne noden den skal plassere appen sine pods på. Dette vil begrense hvor mange pods en node kan kjøre før den er full.</p>
 <p>Requests er også brukt av Horizontal Pod autoscaler for å avgjøre om det skal skalere opp eller ned antall replikaer av appen.</p>
@@ -660,43 +660,43 @@ Vi forsøker å sette kode standard verdier som fungerer for så mange av alle a
 <h2 id="linkerd">Linkerd</h2>
 <p>Alle applikasjoner som deployes er som standard innlemmet i Linkerd sitt service mesh.</p>
 <p>Vi anbefaler på det sterkeste å ikke endre denne innstillingen da den legger på mutual TLS som krypterer all intern kommunikasjon mellom tjenester i klusteret før det forlater en maskin.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#ff79c6">deployment</span>:
-...
-  <span style="color:#ff79c6">linkerd</span>:
-    <span style="color:#ff79c6">enabled</span>: <span style="color:#ff79c6">true</span>
-...
-</code></pre></div><h2 id="volumes-and-volumemounts">Volumes and VolumeMounts</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ff79c6">deployment</span>:
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">linkerd</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">enabled</span>: <span style="color:#ff79c6">true</span>
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><h2 id="volumes-and-volumemounts">Volumes and VolumeMounts</h2>
 <p>Disse delene gjør det mulig å <em>mounte</em> opp forskjellige ressurser til filsystemet til en applikasjon.
 Det er to predefinerte <em>mounts</em> som benyttes av standard funksjonalitet for å blant annet kommunisere med Altinn Platform.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#ff79c6">deployment</span>:
-...
-  <span style="color:#ff79c6">volumeMounts</span>:
-    - <span style="color:#ff79c6">name</span>: datakeys
-      <span style="color:#ff79c6">mountPath</span>: /mnt/keys
-    - <span style="color:#ff79c6">name</span>: accesstoken
-      <span style="color:#ff79c6">mountPath</span>: <span style="color:#f1fa8c">&#34;/accesstoken&#34;</span>
-  <span style="color:#ff79c6">volumes</span>:
-    - <span style="color:#ff79c6">name </span>: datakeys
-      <span style="color:#ff79c6">persistentVolumeClaim</span>:
-        <span style="color:#ff79c6">claimName</span>: keys
-    - <span style="color:#ff79c6">name</span>: accesstoken
-      <span style="color:#ff79c6">secret</span>:
-        <span style="color:#ff79c6">secretName</span>: accesstoken
-</code></pre></div><p>På gjeldende tidspunkt er det kun en use case for å legge til andre volumer: <a href="../secrets">Hente hemmeligheter fra Azure Key Vault</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ff79c6">deployment</span>:
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">volumeMounts</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#ff79c6">name</span>: datakeys
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">mountPath</span>: /mnt/keys
+</span></span><span style="display:flex;"><span>    - <span style="color:#ff79c6">name</span>: accesstoken
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">mountPath</span>: <span style="color:#f1fa8c">&#34;/accesstoken&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">volumes</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#ff79c6">name </span>: datakeys
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">persistentVolumeClaim</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">claimName</span>: keys
+</span></span><span style="display:flex;"><span>    - <span style="color:#ff79c6">name</span>: accesstoken
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">secret</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">secretName</span>: accesstoken
+</span></span></code></pre></div><p>På gjeldende tidspunkt er det kun en use case for å legge til andre volumer: <a href="../secrets">Hente hemmeligheter fra Azure Key Vault</a></p>
 <h2 id="service">Service</h2>
 <p>Service konfigurasjonen gjør det mulig å endre hvilke port som eksponeres internt i clusteret og hvilken intern port dette skal mappes til. Det er sjelden disse verdiene må endres.
 Hvis din applikasjon kjører på annen port enn 5005 så endrer du internalPort. EksternalPort må ikke endres
 Standard oppsett er:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#ff79c6">deployment</span>:
-...
-  <span style="color:#ff79c6">service</span>:
-    <span style="color:#ff79c6">name</span>: deployment
-    <span style="color:#ff79c6">type</span>: ClusterIP
-    <span style="color:#ff79c6">externalPort</span>: <span style="color:#bd93f9">80</span>
-    <span style="color:#6272a4">## If your application is running on another port, change only the internal port.</span>
-<span style="display:block;width:100%;background-color:#3d3f4a">    <span style="color:#ff79c6">internalPort</span>: <span style="color:#bd93f9">5005</span>
-</span>...
-</code></pre></div><h2 id="deler-som-blir-overskrevet-ved-deploy">Deler som blir overskrevet ved deploy</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ff79c6">deployment</span>:
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">service</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">name</span>: deployment
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">type</span>: ClusterIP
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">externalPort</span>: <span style="color:#bd93f9">80</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">## If your application is running on another port, change only the internal port.</span>
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>    <span style="color:#ff79c6">internalPort</span>: <span style="color:#bd93f9">5005</span>
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><h2 id="deler-som-blir-overskrevet-ved-deploy">Deler som blir overskrevet ved deploy</h2>
 <ul>
 <li>image</li>
 <li>ingressRoute</li>

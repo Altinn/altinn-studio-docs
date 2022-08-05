@@ -381,13 +381,13 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/metadata/"><span>Metadata</span></a></li>
       <li class="dd-item">
         <a href="/nb/api/apps/instances/"><span>Instanser</span></a></li>
       <li class="dd-item">
-        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/data-elements/tags/"><span>Tags</span></a></li></ul></li>
       <li class="dd-item">
@@ -441,9 +441,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/community/about/"><span>Om</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/community/about/goals/"><span>Mål</span></a></li>
+        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li>
       <li class="dd-item">
-        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li></ul></li>
+        <a href="/nb/community/about/goals/"><span>Mål</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/community/contributing/"><span>Bidra til utvikling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -577,21 +577,21 @@ if(host != "localhost")
 Tilgang til <em>Register</em>- og <em>Profile</em>-tjenester er inkludert i <code>InstantiationHandler.cs</code>-filen, som tillater å gjøre sjekker mot disse.
 Valideringsregler for instansiering kan innebære å validere tidspunkt til spesifikke brukerrestriksjoner og komplekse sjekker som krever eksterne API-kall.</p>
 <h3 id="eksempel-1---insansiering-kun-tillatt-før-kl-1500-på-en-gitt-dag">Eksempel 1 - Insansiering kun tillatt før kl 15:00 på en gitt dag</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;InstantiationValidationResult&gt; RunInstantiationValidation(Instance instance)
-{
-    DateTime now = DateTime.Now;
-<span style="display:block;width:100%;background-color:#3d3f4a">    <span style="color:#ff79c6">if</span> (now.Hour &lt; <span style="color:#bd93f9">15</span>)
-</span>    {
-        <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">new</span> InstantiationValidationResult()
-        {
-            Valid = <span style="color:#ff79c6">false</span>,
-            Message = <span style="color:#f1fa8c">&#34;ERROR: Instantiation not possible before 3PM.&#34;</span>
-        };
-    }
-
-    <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">null</span>;
-}
-</code></pre></div><h3 id="eksempel-2---instansiering-kun-tillatt-for-applikasjonseier">Eksempel 2 - Instansiering kun tillatt for applikasjonseier</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-C#" data-lang="C#"><span style="display:flex;"><span><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;InstantiationValidationResult&gt; RunInstantiationValidation(Instance instance)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    DateTime now = DateTime.Now;
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>    <span style="color:#ff79c6">if</span> (now.Hour &lt; <span style="color:#bd93f9">15</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">new</span> InstantiationValidationResult()
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            Valid = <span style="color:#ff79c6">false</span>,
+</span></span><span style="display:flex;"><span>            Message = <span style="color:#f1fa8c">&#34;ERROR: Instantiation not possible before 3PM.&#34;</span>
+</span></span><span style="display:flex;"><span>        };
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">null</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="eksempel-2---instansiering-kun-tillatt-for-applikasjonseier">Eksempel 2 - Instansiering kun tillatt for applikasjonseier</h3>
 <p>Kodebasen som eksempelet er basert på er tilgjengelig <a href="https://altinn.studio/repos/ttd/example-app-1">her</a>.
 (krever innlogging i altinn.studio)</p>
 <p>For å kunne begrense instansiering til en gitt entitet, i dette tilfellet applikasjonseier,
@@ -606,76 +606,76 @@ Valideringen skjer i <code>InstantiationHandler.cs</code> og eksempelet nedenfor
 og bytte ut <em>AltinnCoreClaimTypes.Org</em> med <em>AltinnCoreClaimTypes.OrgNumber</em>.<br>
 om må gjøres i denne file ser du nedenfor.</p>
 <figure><a href="instatiation-example-2-instantiationhandler.PNG"><img src="instatiation-example-2-instantiationhandler.PNG" alt="InstantiationHandler.cs" title="Changes to instantiationHandler.cs" /></a><figcaption><h4>Changes to instantiationHandler.cs</h4></figcaption></figure>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;InstantiationValidationResult&gt; RunInstantiationValidation(Instance instance, ClaimsPrincipal user)
-{
-    <span style="color:#8be9fd">var</span> result = <span style="color:#ff79c6">new</span> InstantiationValidationResult();
-    <span style="color:#8be9fd">string</span> org = <span style="color:#8be9fd">string</span>.Empty;
-
-    <span style="color:#ff79c6">if</span> (user.HasClaim(c =&gt; c.Type == AltinnCoreClaimTypes.Org))
-    {
-        Claim orgClaim =
-          user.FindFirst(c =&gt; c.Type == AltinnCoreClaimTypes.Org);
-          
-        <span style="color:#ff79c6">if</span> (orgClaim != <span style="color:#ff79c6">null</span>)
-        {
-            org = orgClaim.Value;
-        }
-    }
-
-    <span style="color:#ff79c6">if</span> (!<span style="color:#8be9fd">string</span>.IsNullOrWhiteSpace(org) &amp;&amp; org.Equals(<span style="color:#f1fa8c">&#34;ttd&#34;</span>))
-    {
-        result.Valid = <span style="color:#ff79c6">true</span>;
-    }
-    <span style="color:#ff79c6">else</span>
-    {
-        result.Valid = <span style="color:#ff79c6">false</span>;
-        result.Message =
-          <span style="color:#f1fa8c">&#34;Only ttd is allowed to instantiate this application.&#34;</span>;
-    }
-
-    <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">await</span> Task.FromResult(result);
-}
-</code></pre></div><h3 id="eksempel-3---instansiering-kun-tillatt-mellom-gitte-datoer">Eksempel 3 - Instansiering kun tillatt mellom gitte datoer</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C#" data-lang="C#"><span style="display:flex;"><span><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;InstantiationValidationResult&gt; RunInstantiationValidation(Instance instance, ClaimsPrincipal user)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">var</span> result = <span style="color:#ff79c6">new</span> InstantiationValidationResult();
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">string</span> org = <span style="color:#8be9fd">string</span>.Empty;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> (user.HasClaim(c =&gt; c.Type == AltinnCoreClaimTypes.Org))
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        Claim orgClaim =
+</span></span><span style="display:flex;"><span>          user.FindFirst(c =&gt; c.Type == AltinnCoreClaimTypes.Org);
+</span></span><span style="display:flex;"><span>          
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">if</span> (orgClaim != <span style="color:#ff79c6">null</span>)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            org = orgClaim.Value;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> (!<span style="color:#8be9fd">string</span>.IsNullOrWhiteSpace(org) &amp;&amp; org.Equals(<span style="color:#f1fa8c">&#34;ttd&#34;</span>))
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        result.Valid = <span style="color:#ff79c6">true</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">else</span>
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        result.Valid = <span style="color:#ff79c6">false</span>;
+</span></span><span style="display:flex;"><span>        result.Message =
+</span></span><span style="display:flex;"><span>          <span style="color:#f1fa8c">&#34;Only ttd is allowed to instantiate this application.&#34;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">await</span> Task.FromResult(result);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="eksempel-3---instansiering-kun-tillatt-mellom-gitte-datoer">Eksempel 3 - Instansiering kun tillatt mellom gitte datoer</h3>
 <p>For å kunne begrense instansiering til en gitt tidsrom, i dette eksempelet januar 2021,
 er det én fil som må endres:<code>InstantiationHandler.cs</code>.</p>
 <p>Metoden <code>RunInstantiationValidation</code> vil kjøre hver gang noen prøver å instansiere applikasjonen, 
 så her plasseres logikk for å verifiere at tidspunktet er innenfor den tillatte rammen.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;InstantiationValidationResult&gt; RunInstantiationValidation(Instance instance)
-{
-    InstantiationValidationResult result = <span style="color:#ff79c6">null</span>;
-    DateTime now = TimeZoneInfo.ConvertTime(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById(<span style="color:#f1fa8c">&#34;Central European Standard Time&#34;</span>));
-    <span style="color:#ff79c6">if</span> (now &lt; <span style="color:#ff79c6">new</span> DateTime(<span style="color:#bd93f9">2021</span>, <span style="color:#bd93f9">01</span>, <span style="color:#bd93f9">01</span>))
-    {
-        result = <span style="color:#ff79c6">new</span> InstantiationValidationResult
-        {
-            Valid = <span style="color:#ff79c6">false</span>,
-            Message = <span style="color:#f1fa8c">&#34;Application cannot be instantiated before 1.1.2021&#34;</span>
-        };
-    }
-    <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">if</span> (now &gt; <span style="color:#ff79c6">new</span> DateTime(<span style="color:#bd93f9">2021</span>, <span style="color:#bd93f9">01</span>, <span style="color:#bd93f9">31</span>))
-    {
-        result = <span style="color:#ff79c6">new</span> InstantiationValidationResult
-        {
-            Valid = <span style="color:#ff79c6">false</span>,
-            Message = <span style="color:#f1fa8c">&#34;Application cannot be instantiated after 25.1.2021&#34;</span>
-        };
-    }
-    <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">await</span> Task.FromResult(result);
-}
-</code></pre></div><p>Det er lagt inn logikk knyttet til datohåndtering for å forsikre oss om at det er norsk tid som gjelder
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;InstantiationValidationResult&gt; RunInstantiationValidation(Instance instance)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    InstantiationValidationResult result = <span style="color:#ff79c6">null</span>;
+</span></span><span style="display:flex;"><span>    DateTime now = TimeZoneInfo.ConvertTime(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById(<span style="color:#f1fa8c">&#34;Central European Standard Time&#34;</span>));
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> (now &lt; <span style="color:#ff79c6">new</span> DateTime(<span style="color:#bd93f9">2021</span>, <span style="color:#bd93f9">01</span>, <span style="color:#bd93f9">01</span>))
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        result = <span style="color:#ff79c6">new</span> InstantiationValidationResult
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            Valid = <span style="color:#ff79c6">false</span>,
+</span></span><span style="display:flex;"><span>            Message = <span style="color:#f1fa8c">&#34;Application cannot be instantiated before 1.1.2021&#34;</span>
+</span></span><span style="display:flex;"><span>        };
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">if</span> (now &gt; <span style="color:#ff79c6">new</span> DateTime(<span style="color:#bd93f9">2021</span>, <span style="color:#bd93f9">01</span>, <span style="color:#bd93f9">31</span>))
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        result = <span style="color:#ff79c6">new</span> InstantiationValidationResult
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            Valid = <span style="color:#ff79c6">false</span>,
+</span></span><span style="display:flex;"><span>            Message = <span style="color:#f1fa8c">&#34;Application cannot be instantiated after 25.1.2021&#34;</span>
+</span></span><span style="display:flex;"><span>        };
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">await</span> Task.FromResult(result);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Det er lagt inn logikk knyttet til datohåndtering for å forsikre oss om at det er norsk tid som gjelder
 og som blir brukt i valideringen.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">DateTime now = TimeZoneInfo.ConvertTime(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById(<span style="color:#f1fa8c">&#34;Central European Standard Time&#34;</span>));
-</code></pre></div><p>Videre gjøres det en enkel sjekk for å se om nåværende tidspunkt er innenfor rammene</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">(now &lt; <span style="color:#ff79c6">new</span> DateTime(<span style="color:#bd93f9">2021</span>, <span style="color:#bd93f9">01</span>, <span style="color:#bd93f9">01</span>)
-</code></pre></div><p>Dersom man ikke oppfyller kravene blir returobjektet populert med et <em>InstantiationValidationResult</em> objekt som inneholder to felter: 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span>DateTime now = TimeZoneInfo.ConvertTime(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById(<span style="color:#f1fa8c">&#34;Central European Standard Time&#34;</span>));
+</span></span></code></pre></div><p>Videre gjøres det en enkel sjekk for å se om nåværende tidspunkt er innenfor rammene</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span>(now &lt; <span style="color:#ff79c6">new</span> DateTime(<span style="color:#bd93f9">2021</span>, <span style="color:#bd93f9">01</span>, <span style="color:#bd93f9">01</span>)
+</span></span></code></pre></div><p>Dersom man ikke oppfyller kravene blir returobjektet populert med et <em>InstantiationValidationResult</em> objekt som inneholder to felter: 
 <em>Valid</em>: en boolean som benyttes for å si om instansieringen er gyldig eller ikke
 <em>Message</em>: en string som kan inneholde en feilmelding dersom det ikke er gyldig</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"> result = <span style="color:#ff79c6">new</span> InstantiationValidationResult
-        {
-            Valid = <span style="color:#ff79c6">false</span>,
-            Message = <span style="color:#f1fa8c">&#34;Application cannot be instantiated before 1.1.2021&#34;</span>
-        };
-</code></pre></div><p>I tillegg har man muligheten til å legge benytte property 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span> result = <span style="color:#ff79c6">new</span> InstantiationValidationResult
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            Valid = <span style="color:#ff79c6">false</span>,
+</span></span><span style="display:flex;"><span>            Message = <span style="color:#f1fa8c">&#34;Application cannot be instantiated before 1.1.2021&#34;</span>
+</span></span><span style="display:flex;"><span>        };
+</span></span></code></pre></div><p>I tillegg har man muligheten til å legge benytte property 
 <em>ValidParties</em>: en liste med de partiene som kan instansiere applikasjonen.</p>
 <p>Resultatet av en feilet validering er vist nedenfor:</p>
 <figure><a href="instantiation-validation-before-date.png"><img src="instantiation-validation-before-date.png" alt="Instansiering før tillatt dato" title="Instansiering før tillatt dato" /></a><figcaption><h4>Instansiering før tillatt dato</h4></figcaption></figure>

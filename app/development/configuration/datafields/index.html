@@ -117,7 +117,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -217,7 +217,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -297,7 +297,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -1133,23 +1133,23 @@ if(host != "localhost")
 </tbody>
 </table>
 <p>The configuration for an app with two defined data fields will look like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#f1fa8c">&#34;dataFields&#34;</span>: [
-  {
-  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;AnsettelseAntAar&#34;</span>,
-  <span style="color:#ff79c6">&#34;path&#34;</span>: <span style="color:#f1fa8c">&#34;OpplysningerOmArbeidstakeren-grp-8819.Arbeidsforhold-grp-8856.AnsattAar-datadef-33267.value&#34;</span>,
-  <span style="color:#ff79c6">&#34;dataTypeId&#34;</span>: <span style="color:#f1fa8c">&#34;default&#34;</span>
-  },
-  {
-  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;Navn&#34;</span>,
-  <span style="color:#ff79c6">&#34;path&#34;</span>: <span style="color:#f1fa8c">&#34;OpplysningerOmArbeidstakeren-grp-8819.OpplysningerOmArbeidstakeren-grp-8855.AnsattNavn-datadef-1223.value&#34;</span>,
-  <span style="color:#ff79c6">&#34;dataTypeId&#34;</span>: <span style="color:#f1fa8c">&#34;default&#34;</span>
-  }]
-</code></pre></div><p>The result will be a list in the instance object with values from the configured fields:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#f1fa8c">&#34;dataValues&#34;</span>: {
-    <span style="color:#ff79c6">&#34;AnsettelseAntAar&#34;</span>: <span style="color:#bd93f9">10</span>,
-    <span style="color:#ff79c6">&#34;Navn&#34;</span>: <span style="color:#f1fa8c">&#34;Ola Nordmann&#34;</span>
-}
-</code></pre></div><p>Notice that the instance object is named <code>dataValues</code> even when the configured is named <code>dataFields</code>, this is because <code>dataValues</code> is the 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#f1fa8c">&#34;dataFields&#34;</span>: [
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;AnsettelseAntAar&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;path&#34;</span>: <span style="color:#f1fa8c">&#34;OpplysningerOmArbeidstakeren-grp-8819.Arbeidsforhold-grp-8856.AnsattAar-datadef-33267.value&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;dataTypeId&#34;</span>: <span style="color:#f1fa8c">&#34;default&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;Navn&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;path&#34;</span>: <span style="color:#f1fa8c">&#34;OpplysningerOmArbeidstakeren-grp-8819.OpplysningerOmArbeidstakeren-grp-8855.AnsattNavn-datadef-1223.value&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;dataTypeId&#34;</span>: <span style="color:#f1fa8c">&#34;default&#34;</span>
+</span></span><span style="display:flex;"><span>  }]
+</span></span></code></pre></div><p>The result will be a list in the instance object with values from the configured fields:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#f1fa8c">&#34;dataValues&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;AnsettelseAntAar&#34;</span>: <span style="color:#bd93f9">10</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;Navn&#34;</span>: <span style="color:#f1fa8c">&#34;Ola Nordmann&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Notice that the instance object is named <code>dataValues</code> even when the configured is named <code>dataFields</code>, this is because <code>dataValues</code> is the 
 result of the configuration which is done in <code>dataFields</code>.</p>
 <h2 id="manually">Manually</h2>
 <p>To manually add data values the method <code>UpdateDataValues</code>from the IInstance interface is used. It is the same method which is called when the fields in <code>dataValues</code> are populated from configuration and it will merge all values into a list.</p>
@@ -1159,16 +1159,16 @@ Values that share IDs will override each other and there is no way to guarantee 
 </div>
 <p>The example below displays how to set data values manually. In this case it is done by adding code
 within <code>RunProcessTaskEnd</code> in <code>App.cs</code>, which is run when a task is completed.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">override</span> <span style="color:#ff79c6">async</span> Task RunProcessTaskEnd(<span style="color:#8be9fd">string</span> taskId, Instance instance)
-{
-    <span style="color:#8be9fd">var</span> customDataValues = <span style="color:#ff79c6">new</span> DataValues() { Values = <span style="color:#ff79c6">new</span> Dictionary&lt;<span style="color:#8be9fd">string</span>, <span style="color:#8be9fd">string</span>&gt;() { { <span style="color:#f1fa8c">&#34;customKey&#34;</span>, <span style="color:#f1fa8c">&#34;customValue&#34;</span> } } };
-    <span style="color:#8be9fd">var</span> (instanceOwnerPartyId, instanceGuid) = InstanceHelper.DeconstructInstanceIdFromUrl(<span style="color:#bd93f9">_</span>httpContextAccessor.HttpContext.Request.Path.Value);
-
-    <span style="color:#ff79c6">await</span> <span style="color:#bd93f9">_</span>instanceService.UpdateDataValues(instanceOwnerPartyId, instanceGuid, customDataValues);
-
-    <span style="color:#ff79c6">await</span> Task.CompletedTask;
-}
-</code></pre></div><div class="notices warning" >
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">override</span> <span style="color:#ff79c6">async</span> Task RunProcessTaskEnd(<span style="color:#8be9fd">string</span> taskId, Instance instance)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">var</span> customDataValues = <span style="color:#ff79c6">new</span> DataValues() { Values = <span style="color:#ff79c6">new</span> Dictionary&lt;<span style="color:#8be9fd">string</span>, <span style="color:#8be9fd">string</span>&gt;() { { <span style="color:#f1fa8c">&#34;customKey&#34;</span>, <span style="color:#f1fa8c">&#34;customValue&#34;</span> } } };
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">var</span> (instanceOwnerPartyId, instanceGuid) = InstanceHelper.DeconstructInstanceIdFromUrl(_httpContextAccessor.HttpContext.Request.Path.Value);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">await</span> _instanceService.UpdateDataValues(instanceOwnerPartyId, instanceGuid, customDataValues);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">await</span> Task.CompletedTask;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="notices warning" >
 It is recommended to think through the necessity of these values for the instance object so that it avoids unnecessary API calls which impact the performance of the application.
 </div>
 

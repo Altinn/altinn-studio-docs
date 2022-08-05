@@ -381,13 +381,13 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/metadata/"><span>Metadata</span></a></li>
       <li class="dd-item">
         <a href="/nb/api/apps/instances/"><span>Instanser</span></a></li>
       <li class="dd-item">
-        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/data-elements/tags/"><span>Tags</span></a></li></ul></li>
       <li class="dd-item">
@@ -441,9 +441,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/community/about/"><span>Om</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/community/about/goals/"><span>Mål</span></a></li>
+        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li>
       <li class="dd-item">
-        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li></ul></li>
+        <a href="/nb/community/about/goals/"><span>Mål</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/community/contributing/"><span>Bidra til utvikling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -833,69 +833,69 @@ if(host != "localhost")
 </table>
 <h2 id="complete-example">Complete example</h2>
 <p>This example was created by instantiating an app running locally on a development machine using LocalTest. The process is at first step, Task_1, and it has a single data element which is the main form of the app.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;1337/bd9edd59-b18c-4726-aa9e-6b150eade814&#34;</span>,
-    <span style="color:#ff79c6">&#34;instanceOwner&#34;</span>: {
-        <span style="color:#ff79c6">&#34;partyId&#34;</span>: <span style="color:#f1fa8c">&#34;1337&#34;</span>,
-        <span style="color:#ff79c6">&#34;personNumber&#34;</span>: <span style="color:#f1fa8c">&#34;01039012345&#34;</span>,
-        <span style="color:#ff79c6">&#34;organisationNumber&#34;</span>: <span style="color:#ff79c6">null</span>,
-        <span style="color:#ff79c6">&#34;username&#34;</span>: <span style="color:#ff79c6">null</span>
-    },
-    <span style="color:#ff79c6">&#34;appId&#34;</span>: <span style="color:#f1fa8c">&#34;ttd/bli-applikasjonseier&#34;</span>,
-    <span style="color:#ff79c6">&#34;org&#34;</span>: <span style="color:#f1fa8c">&#34;ttd&#34;</span>,
-    <span style="color:#ff79c6">&#34;selfLinks&#34;</span>: {
-        <span style="color:#ff79c6">&#34;apps&#34;</span>: <span style="color:#f1fa8c">&#34;https://altinn3local.no/ttd/bli-applikasjonseier/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814&#34;</span>,
-        <span style="color:#ff79c6">&#34;platform&#34;</span>: <span style="color:#f1fa8c">&#34;https://altinn3local.no/storage/api/v1/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814&#34;</span>
-    },
-    <span style="color:#ff79c6">&#34;dueBefore&#34;</span>: <span style="color:#ff79c6">null</span>,
-    <span style="color:#ff79c6">&#34;visibleAfter&#34;</span>: <span style="color:#ff79c6">null</span>,
-    <span style="color:#ff79c6">&#34;process&#34;</span>: {
-        <span style="color:#ff79c6">&#34;started&#34;</span>: <span style="color:#f1fa8c">&#34;2020-11-18T15:56:41.5662973Z&#34;</span>,
-        <span style="color:#ff79c6">&#34;startEvent&#34;</span>: <span style="color:#f1fa8c">&#34;StartEvent_1&#34;</span>,
-        <span style="color:#ff79c6">&#34;currentTask&#34;</span>: {
-            <span style="color:#ff79c6">&#34;flow&#34;</span>: <span style="color:#bd93f9">2</span>,
-            <span style="color:#ff79c6">&#34;started&#34;</span>: <span style="color:#f1fa8c">&#34;2020-11-18T15:56:41.5664762Z&#34;</span>,
-            <span style="color:#ff79c6">&#34;elementId&#34;</span>: <span style="color:#f1fa8c">&#34;Task_1&#34;</span>,
-            <span style="color:#ff79c6">&#34;name&#34;</span>: <span style="color:#f1fa8c">&#34;Utfylling&#34;</span>,
-            <span style="color:#ff79c6">&#34;altinnTaskType&#34;</span>: <span style="color:#f1fa8c">&#34;data&#34;</span>,
-            <span style="color:#ff79c6">&#34;ended&#34;</span>: <span style="color:#ff79c6">null</span>,
-            <span style="color:#ff79c6">&#34;validated&#34;</span>: {
-                <span style="color:#ff79c6">&#34;timestamp&#34;</span>: <span style="color:#f1fa8c">&#34;2020-11-20T13:00:05.1800273+00:00&#34;</span>,
-                <span style="color:#ff79c6">&#34;canCompleteTask&#34;</span>: <span style="color:#ff79c6">true</span>
-            }
-        },
-        <span style="color:#ff79c6">&#34;ended&#34;</span>: <span style="color:#ff79c6">null</span>,
-        <span style="color:#ff79c6">&#34;endEvent&#34;</span>: <span style="color:#ff79c6">null</span>
-    },
-    <span style="color:#ff79c6">&#34;status&#34;</span>: <span style="color:#ff79c6">null</span>,
-    <span style="color:#ff79c6">&#34;completeConfirmations&#34;</span>: <span style="color:#ff79c6">null</span>,
-    <span style="color:#ff79c6">&#34;data&#34;</span>: [
-        {
-            <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;8a8a01ae-9533-4aa9-b914-8ab0fae6ea0d&#34;</span>,
-            <span style="color:#ff79c6">&#34;instanceGuid&#34;</span>: <span style="color:#f1fa8c">&#34;bd9edd59-b18c-4726-aa9e-6b150eade814&#34;</span>,
-            <span style="color:#ff79c6">&#34;dataType&#34;</span>: <span style="color:#f1fa8c">&#34;Kursdomene_BliTjenesteeier_M_2020-05-25_5703_34553_SERES&#34;</span>,
-            <span style="color:#ff79c6">&#34;filename&#34;</span>: <span style="color:#ff79c6">null</span>,
-            <span style="color:#ff79c6">&#34;contentType&#34;</span>: <span style="color:#f1fa8c">&#34;application/xml&#34;</span>,
-            <span style="color:#ff79c6">&#34;blobStoragePath&#34;</span>: <span style="color:#f1fa8c">&#34;ttd/bli-applikasjonseier/bd9edd59-b18c-4726-aa9e-6b150eade814/data/8a8a01ae-9533-4aa9-b914-8ab0fae6ea0d&#34;</span>,
-            <span style="color:#ff79c6">&#34;selfLinks&#34;</span>: {
-                <span style="color:#ff79c6">&#34;apps&#34;</span>: <span style="color:#f1fa8c">&#34;https://altinn3local.no/ttd/bli-applikasjonseier/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814/data/8a8a01ae-9533-4aa9-b914-8ab0fae6ea0d&#34;</span>,
-                <span style="color:#ff79c6">&#34;platform&#34;</span>: <span style="color:#f1fa8c">&#34;https://altinn3local.no/storage/api/v1/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814/data/8a8a01ae-9533-4aa9-b914-8ab0fae6ea0d&#34;</span>
-            },
-            <span style="color:#ff79c6">&#34;size&#34;</span>: <span style="color:#bd93f9">401</span>,
-            <span style="color:#ff79c6">&#34;locked&#34;</span>: <span style="color:#ff79c6">false</span>,
-            <span style="color:#ff79c6">&#34;refs&#34;</span>: [],
-            <span style="color:#ff79c6">&#34;created&#34;</span>: <span style="color:#f1fa8c">&#34;2020-11-18T15:56:43.1089008Z&#34;</span>,
-            <span style="color:#ff79c6">&#34;createdBy&#34;</span>: <span style="color:#ff79c6">null</span>,
-            <span style="color:#ff79c6">&#34;lastChanged&#34;</span>: <span style="color:#f1fa8c">&#34;2020-11-18T15:56:43.1089008Z&#34;</span>,
-            <span style="color:#ff79c6">&#34;lastChangedBy&#34;</span>: <span style="color:#ff79c6">null</span>
-        }
-    ],
-    <span style="color:#ff79c6">&#34;created&#34;</span>: <span style="color:#f1fa8c">&#34;2020-11-18T15:56:42.1972942Z&#34;</span>,
-    <span style="color:#ff79c6">&#34;createdBy&#34;</span>: <span style="color:#f1fa8c">&#34;1337&#34;</span>,
-    <span style="color:#ff79c6">&#34;lastChanged&#34;</span>: <span style="color:#f1fa8c">&#34;2020-11-18T15:56:42.1972942Z&#34;</span>,
-    <span style="color:#ff79c6">&#34;lastChangedBy&#34;</span>: <span style="color:#f1fa8c">&#34;1337&#34;</span>
-}
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;1337/bd9edd59-b18c-4726-aa9e-6b150eade814&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;instanceOwner&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;partyId&#34;</span>: <span style="color:#f1fa8c">&#34;1337&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;personNumber&#34;</span>: <span style="color:#f1fa8c">&#34;01039012345&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;organisationNumber&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;username&#34;</span>: <span style="color:#ff79c6">null</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;appId&#34;</span>: <span style="color:#f1fa8c">&#34;ttd/bli-applikasjonseier&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;org&#34;</span>: <span style="color:#f1fa8c">&#34;ttd&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;selfLinks&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;apps&#34;</span>: <span style="color:#f1fa8c">&#34;https://altinn3local.no/ttd/bli-applikasjonseier/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;platform&#34;</span>: <span style="color:#f1fa8c">&#34;https://altinn3local.no/storage/api/v1/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814&#34;</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;dueBefore&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;visibleAfter&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;process&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;started&#34;</span>: <span style="color:#f1fa8c">&#34;2020-11-18T15:56:41.5662973Z&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;startEvent&#34;</span>: <span style="color:#f1fa8c">&#34;StartEvent_1&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;currentTask&#34;</span>: {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;flow&#34;</span>: <span style="color:#bd93f9">2</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;started&#34;</span>: <span style="color:#f1fa8c">&#34;2020-11-18T15:56:41.5664762Z&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;elementId&#34;</span>: <span style="color:#f1fa8c">&#34;Task_1&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;name&#34;</span>: <span style="color:#f1fa8c">&#34;Utfylling&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;altinnTaskType&#34;</span>: <span style="color:#f1fa8c">&#34;data&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;ended&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;validated&#34;</span>: {
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">&#34;timestamp&#34;</span>: <span style="color:#f1fa8c">&#34;2020-11-20T13:00:05.1800273+00:00&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">&#34;canCompleteTask&#34;</span>: <span style="color:#ff79c6">true</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;ended&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;endEvent&#34;</span>: <span style="color:#ff79c6">null</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;status&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;completeConfirmations&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;data&#34;</span>: [
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;8a8a01ae-9533-4aa9-b914-8ab0fae6ea0d&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;instanceGuid&#34;</span>: <span style="color:#f1fa8c">&#34;bd9edd59-b18c-4726-aa9e-6b150eade814&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;dataType&#34;</span>: <span style="color:#f1fa8c">&#34;Kursdomene_BliTjenesteeier_M_2020-05-25_5703_34553_SERES&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;filename&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;contentType&#34;</span>: <span style="color:#f1fa8c">&#34;application/xml&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;blobStoragePath&#34;</span>: <span style="color:#f1fa8c">&#34;ttd/bli-applikasjonseier/bd9edd59-b18c-4726-aa9e-6b150eade814/data/8a8a01ae-9533-4aa9-b914-8ab0fae6ea0d&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;selfLinks&#34;</span>: {
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">&#34;apps&#34;</span>: <span style="color:#f1fa8c">&#34;https://altinn3local.no/ttd/bli-applikasjonseier/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814/data/8a8a01ae-9533-4aa9-b914-8ab0fae6ea0d&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">&#34;platform&#34;</span>: <span style="color:#f1fa8c">&#34;https://altinn3local.no/storage/api/v1/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814/data/8a8a01ae-9533-4aa9-b914-8ab0fae6ea0d&#34;</span>
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;size&#34;</span>: <span style="color:#bd93f9">401</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;locked&#34;</span>: <span style="color:#ff79c6">false</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;refs&#34;</span>: [],
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;created&#34;</span>: <span style="color:#f1fa8c">&#34;2020-11-18T15:56:43.1089008Z&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;createdBy&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;lastChanged&#34;</span>: <span style="color:#f1fa8c">&#34;2020-11-18T15:56:43.1089008Z&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;lastChangedBy&#34;</span>: <span style="color:#ff79c6">null</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    ],
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;created&#34;</span>: <span style="color:#f1fa8c">&#34;2020-11-18T15:56:42.1972942Z&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;createdBy&#34;</span>: <span style="color:#f1fa8c">&#34;1337&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;lastChanged&#34;</span>: <span style="color:#f1fa8c">&#34;2020-11-18T15:56:42.1972942Z&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;lastChangedBy&#34;</span>: <span style="color:#f1fa8c">&#34;1337&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
 
 <footer class=" footline" ></footer>
                 </div>

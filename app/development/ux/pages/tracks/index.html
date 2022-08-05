@@ -117,7 +117,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -217,7 +217,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -297,7 +297,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -1115,33 +1115,33 @@ based on input from user on previous parts of the form.</p>
 <h2 id="trigger-calculation-on-tracks-from-frontend">Trigger calculation on tracks from frontend</h2>
 <p>The app will perform an initial call to calculate the order when loading. To trigger calculation of dynamic tracks when switching pages, this needs to be added as a trigger on the navigation component you want.
 This is done by adding <code>calculatePageOrder</code> ad a part of triggers. Example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;navigation-button&#34;</span>,
-    <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;NavigationButtons&#34;</span>,
-    <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
-        <span style="color:#ff79c6">&#34;next&#34;</span>: <span style="color:#f1fa8c">&#34;Neste&#34;</span>,
-        <span style="color:#ff79c6">&#34;back&#34;</span>: <span style="color:#f1fa8c">&#34;Tilbake&#34;</span>
-    },
-    <span style="color:#ff79c6">&#34;triggers&#34;</span>: [<span style="color:#f1fa8c">&#34;calculatePageOrder&#34;</span>],
-    <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {},
-    <span style="color:#ff79c6">&#34;showBackButton&#34;</span>: <span style="color:#ff79c6">true</span>
-}
-</code></pre></div><p>Here, the frontend will make the call to the api defined in the app and use the list returned to determine which page it will go to when the user presses next.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;navigation-button&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;NavigationButtons&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;next&#34;</span>: <span style="color:#f1fa8c">&#34;Neste&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;back&#34;</span>: <span style="color:#f1fa8c">&#34;Tilbake&#34;</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;triggers&#34;</span>: [<span style="color:#f1fa8c">&#34;calculatePageOrder&#34;</span>],
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {},
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;showBackButton&#34;</span>: <span style="color:#ff79c6">true</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Here, the frontend will make the call to the api defined in the app and use the list returned to determine which page it will go to when the user presses next.
 This order will also be stored in the state frontend, so that navigating will work both backwards and forwards on the given order returned from the backend.</p>
 <p>If you wish to trigger calculation on every single page switch, this can be done by either entering <code>calculatePageOrder</code> as part of <code>triggers</code> for all 
 the navigation components in the application, or by adding a trigger in <code>Settings.json</code> under the <code>pages</code> section. Example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#ff79c6">&#34;$schema&#34;</span>: <span style="color:#f1fa8c">&#34;https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json&#34;</span>,
-  <span style="color:#ff79c6">&#34;pages&#34;</span>: {
-    <span style="color:#ff79c6">&#34;order&#34;</span>: [
-      <span style="color:#f1fa8c">&#34;Side1&#34;</span>,
-      <span style="color:#f1fa8c">&#34;Side2&#34;</span>,
-      <span style="color:#f1fa8c">&#34;Side3&#34;</span>
-    ],
-    <span style="color:#ff79c6">&#34;triggers&#34;</span>: [<span style="color:#f1fa8c">&#34;calculatePageOrder&#34;</span>]
-  }
-}
-</code></pre></div><p>If <code>triggers</code> is set on the navigation component, this will overrule <code>triggers</code> set in Settings.json, and by doing this it is possible to control default behaviour on component level if desirable.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;$schema&#34;</span>: <span style="color:#f1fa8c">&#34;https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;pages&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;order&#34;</span>: [
+</span></span><span style="display:flex;"><span>      <span style="color:#f1fa8c">&#34;Side1&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f1fa8c">&#34;Side2&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f1fa8c">&#34;Side3&#34;</span>
+</span></span><span style="display:flex;"><span>    ],
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;triggers&#34;</span>: [<span style="color:#f1fa8c">&#34;calculatePageOrder&#34;</span>]
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>If <code>triggers</code> is set on the navigation component, this will overrule <code>triggers</code> set in Settings.json, and by doing this it is possible to control default behaviour on component level if desirable.</p>
 <h2 id="setting-up-dynamic-tracks-backend-nuget-version--500">Setting up dynamic tracks backend (nuget version &gt; 5.0.0)</h2>
 <p>To overrule default dynamic tracks, two changes must be made.</p>
 <ol>
@@ -1152,31 +1152,31 @@ the navigation components in the application, or by adding a trigger in <code>Se
 <p>Create a new class in your application, e.g. under the folder App/logic/Pages (the folder is not created by default).
 This class must implement the interface IPageOrder.
 The interface contains a method with the name <em>GetPageOrder</em>. The expected output from this is a sorted list with the names of the relevant pages in the application.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">using</span> System;
-<span style="color:#ff79c6">using</span> System.Collections.Generic;
-<span style="color:#ff79c6">using</span> System.Threading.Tasks;
-<span style="color:#ff79c6">using</span> Altinn.App.Models;
-<span style="color:#ff79c6">using</span> Altinn.App.Services.Interface;
-<span style="color:#ff79c6">using</span> Altinn.App.PlatformServices.Models;
-
-<span style="color:#ff79c6">namespace</span> Altinn.App.AppLogic.Pages
-{
-    <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">CustomOrder</span> : IPageOrder
-    {
-        <span style="color:#6272a4">/// &lt;inheritdoc /&gt;
-</span><span style="color:#6272a4"></span>        <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;List&lt;<span style="color:#8be9fd">string</span>&gt;&gt; GetPageOrder(AppIdentifier appIdentifier, InstanceIdentifier instanceIdentifier, <span style="color:#8be9fd">string</span> layoutSetId, <span style="color:#8be9fd">string</span> currentPage, <span style="color:#8be9fd">string</span> dataTypeId, <span style="color:#8be9fd">object</span> formData)
-        {
-            List&lt;<span style="color:#8be9fd">string</span>&gt; pageOrder = <span style="color:#ff79c6">new</span> List&lt;<span style="color:#8be9fd">string</span>&gt;();
-            
-            <span style="color:#6272a4">// Implement your logic here.
-</span><span style="color:#6272a4"></span>            
-            <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">await</span> Task.FromResult(pageOrder);
-        }
-
-    }
-
-}
-</code></pre></div><p>The function provides a number of parameters that can be useful if you are using form data or 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#ff79c6">using</span> System;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> System.Collections.Generic;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> System.Threading.Tasks;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> Altinn.App.Models;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> Altinn.App.Services.Interface;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> Altinn.App.PlatformServices.Models;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">namespace</span> Altinn.App.AppLogic.Pages
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">CustomOrder</span> : IPageOrder
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">/// &lt;inheritdoc /&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;List&lt;<span style="color:#8be9fd">string</span>&gt;&gt; GetPageOrder(AppIdentifier appIdentifier, InstanceIdentifier instanceIdentifier, <span style="color:#8be9fd">string</span> layoutSetId, <span style="color:#8be9fd">string</span> currentPage, <span style="color:#8be9fd">string</span> dataTypeId, <span style="color:#8be9fd">object</span> formData)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            List&lt;<span style="color:#8be9fd">string</span>&gt; pageOrder = <span style="color:#ff79c6">new</span> List&lt;<span style="color:#8be9fd">string</span>&gt;();
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            <span style="color:#6272a4">// Implement your logic here.</span>
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">await</span> Task.FromResult(pageOrder);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>The function provides a number of parameters that can be useful if you are using form data or 
 other information about the user to trigger the dynamic tracks.</p>
 <ul>
 <li>
@@ -1192,30 +1192,30 @@ If the application does not have a layout set, this string will be empty. Based 
 defined in the application can be retrieved.</p>
 </li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">List&lt;<span style="color:#8be9fd">string</span>&gt; pageOrder = <span style="color:#ff79c6">new</span> List&lt;<span style="color:#8be9fd">string</span>&gt;();
-
-<span style="color:#ff79c6">if</span> (<span style="color:#8be9fd">string</span>.IsNullOrEmpty(layoutSetId))
-{
-    pageOrder = <span style="color:#bd93f9">_</span>appResourcesService.GetLayoutSettings().Pages.Order;
-}
-<span style="color:#ff79c6">else</span>
-{
-    pageOrder = <span style="color:#bd93f9">_</span>appResourcesService.GetLayoutSettingsForSet(layoutSetId).Pages.Order;
-}
-</code></pre></div><p>This prequires that the service IAppResources is made available in the class.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span>List&lt;<span style="color:#8be9fd">string</span>&gt; pageOrder = <span style="color:#ff79c6">new</span> List&lt;<span style="color:#8be9fd">string</span>&gt;();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">if</span> (<span style="color:#8be9fd">string</span>.IsNullOrEmpty(layoutSetId))
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    pageOrder = _appResourcesService.GetLayoutSettings().Pages.Order;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">else</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    pageOrder = _appResourcesService.GetLayoutSettingsForSet(layoutSetId).Pages.Order;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>This prequires that the service IAppResources is made available in the class.
 When the service is already available through dependency injected into the class, only two steps are required:</p>
 <ol>
 <li>Create a private variable in the state of the class</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">private</span> <span style="color:#ff79c6">readonly</span> IAppResources <span style="color:#bd93f9">_</span>appResourcesService;
-</code></pre></div><ol start="2">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#ff79c6">private</span> <span style="color:#ff79c6">readonly</span> IAppResources _appResourcesService;
+</span></span></code></pre></div><ol start="2">
 <li>Define a constructor that takes in IAppResources and initializes the private variable that was created in step 1.</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">public</span> CustomOrder(IAppResources appResourcesService)
-{
-    <span style="color:#bd93f9">_</span>appResourcesService = appResourcesService;
-}
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#ff79c6">public</span> CustomOrder(IAppResources appResourcesService)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    _appResourcesService = appResourcesService;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
 <li>
 <p><em>CurrentPage</em> The page you want to navigate from will be specified in this parameter.</p>
 </li>
@@ -1228,52 +1228,52 @@ You can check this by finding the class name of the C# file in the App/models fo
 <h2 id="reflect-dynamic-tracks-in-receipt-pdf">Reflect dynamic tracks in receipt (PDF)</h2>
 <p>As an app developer you must make sure to reflect the dynamic track choices made in the PDF that is created at the end of each task.
 In <code>App.cs</code> the function <code>FormatPdf</code> can be found:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">override</span> <span style="color:#ff79c6">async</span> Task&lt;LayoutSettings&gt; FormatPdf(LayoutSettings layoutSettings, <span style="color:#8be9fd">object</span> data)
-{
-    <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">await</span> <span style="color:#bd93f9">_</span>pdfHandler.FormatPdf(layoutSettings, data);
-}
-</code></pre></div><p>As input to the method you have <code>layoutSettings</code> which contains the default page order under the property <code>layoutSettings.Pages.Order</code>.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">override</span> <span style="color:#ff79c6">async</span> Task&lt;LayoutSettings&gt; FormatPdf(LayoutSettings layoutSettings, <span style="color:#8be9fd">object</span> data)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">await</span> _pdfHandler.FormatPdf(layoutSettings, data);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>As input to the method you have <code>layoutSettings</code> which contains the default page order under the property <code>layoutSettings.Pages.Order</code>.
 In addition, you have the form data that is associated with the step to be completed. This can be parsed to a C# model as described further up on this page.</p>
 <p>By manipulating <code>layoutSettings.Pages.Order</code> in this method, it will be possible to duplicate the dynamic track choices made for the user.
 NOTE! The call to PDF handler, as shown below, must not be removed from the <code>FormatPDF</code> method, if you have implemented additional logic for the receipt in <code>PDFHandler.cs</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">return</span> <span style="color:#ff79c6">await</span> <span style="color:#bd93f9">_</span>pdfHandler.FormatPdf(layoutSettings, data);
-</code></pre></div><p>To avoid duplicating logic, we recommend creating a method that manipulates the page order based on form data and calling this both from <code>FormatPdf</code> and <code>GetPageOrder</code>.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#ff79c6">return</span> <span style="color:#ff79c6">await</span> _pdfHandler.FormatPdf(layoutSettings, data);
+</span></span></code></pre></div><p>To avoid duplicating logic, we recommend creating a method that manipulates the page order based on form data and calling this both from <code>FormatPdf</code> and <code>GetPageOrder</code>.
 A code example of such an implementation follows. This can, for example, be placed in the same class that implements the interface IPageOrder to keep all logic for order in the same place.</p>
 <p>In the class implementing logic for page order:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;List&lt;<span style="color:#8be9fd">string</span>&gt;&gt; GetPageOrder(AppIdentifier appIdentifier, InstanceIdentifier instanceIdentifier, <span style="color:#8be9fd">string</span> layoutSetId, <span style="color:#8be9fd">string</span> currentPage, <span style="color:#8be9fd">string</span> dataTypeId, <span style="color:#8be9fd">object</span> formData)
-{
-    List&lt;<span style="color:#8be9fd">string</span>&gt; pageOrder = <span style="color:#ff79c6">new</span> List&lt;<span style="color:#8be9fd">string</span>&gt;();
-
-    <span style="color:#ff79c6">if</span> (<span style="color:#8be9fd">string</span>.IsNullOrEmpty(layoutSetId))
-    {
-        pageOrder = <span style="color:#bd93f9">_</span>appResourcesService.GetLayoutSettings().Pages.Order;
-    }
-    <span style="color:#ff79c6">else</span>
-    {
-        pageOrder = <span style="color:#bd93f9">_</span>appResourcesService.GetLayoutSettingsForSet(layoutSetId).Pages.Order;
-    }
-    UpdatePageOrder(pageOrder, (FavorittArtist)formData);
-    <span style="color:#ff79c6">return</span> pageOrder;
-}
-
-<span style="color:#ff79c6">public</span> <span style="color:#ff79c6">void</span> UpdatePageOrder(List&lt;<span style="color:#8be9fd">string</span>&gt; pageOrder, FavorittArtist formdata)
-{
-    <span style="color:#ff79c6">if</span> (formdata.EnGodNrTo.Contains(<span style="color:#f1fa8c">&#34;Tix&#34;</span>))
-    {
-        pageOrder.Remove(<span style="color:#f1fa8c">&#34;Prince&#34;</span>);
-    }
-    <span style="color:#ff79c6">else</span>
-    {
-        pageOrder.Remove(<span style="color:#f1fa8c">&#34;Tix&#34;</span>);
-    }
-}
-</code></pre></div><p>The method is then called from the method <code>FormatPdf</code> in <code>App.cs</code></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">override</span> <span style="color:#ff79c6">async</span> Task&lt;LayoutSettings&gt; FormatPdf(LayoutSettings layoutSettings, <span style="color:#8be9fd">object</span> data)
-{
-    UpdatePageOrder(layoutSettings.Pages.Order, (FavorittArtist)data);
-    <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">await</span> <span style="color:#bd93f9">_</span>pdfHandler.FormatPdf(layoutSettings, data);
-}
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;List&lt;<span style="color:#8be9fd">string</span>&gt;&gt; GetPageOrder(AppIdentifier appIdentifier, InstanceIdentifier instanceIdentifier, <span style="color:#8be9fd">string</span> layoutSetId, <span style="color:#8be9fd">string</span> currentPage, <span style="color:#8be9fd">string</span> dataTypeId, <span style="color:#8be9fd">object</span> formData)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    List&lt;<span style="color:#8be9fd">string</span>&gt; pageOrder = <span style="color:#ff79c6">new</span> List&lt;<span style="color:#8be9fd">string</span>&gt;();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> (<span style="color:#8be9fd">string</span>.IsNullOrEmpty(layoutSetId))
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        pageOrder = _appResourcesService.GetLayoutSettings().Pages.Order;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">else</span>
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        pageOrder = _appResourcesService.GetLayoutSettingsForSet(layoutSetId).Pages.Order;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    UpdatePageOrder(pageOrder, (FavorittArtist)formData);
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> pageOrder;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">void</span> UpdatePageOrder(List&lt;<span style="color:#8be9fd">string</span>&gt; pageOrder, FavorittArtist formdata)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> (formdata.EnGodNrTo.Contains(<span style="color:#f1fa8c">&#34;Tix&#34;</span>))
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        pageOrder.Remove(<span style="color:#f1fa8c">&#34;Prince&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">else</span>
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        pageOrder.Remove(<span style="color:#f1fa8c">&#34;Tix&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>The method is then called from the method <code>FormatPdf</code> in <code>App.cs</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">override</span> <span style="color:#ff79c6">async</span> Task&lt;LayoutSettings&gt; FormatPdf(LayoutSettings layoutSettings, <span style="color:#8be9fd">object</span> data)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    UpdatePageOrder(layoutSettings.Pages.Order, (FavorittArtist)data);
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">await</span> _pdfHandler.FormatPdf(layoutSettings, data);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
 
 <footer class=" footline" ></footer>
                 </div>

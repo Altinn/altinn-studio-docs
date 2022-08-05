@@ -109,7 +109,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -209,7 +209,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -281,7 +281,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -1183,203 +1183,199 @@ Used to present information to users and org.</p>
 <h3 id="instances">Instances</h3>
 <p>Example document from instance.</p>
 <p><code>appId</code> is the reference to the app.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;3cc58033-128e-414d-86c2-d652af251b39&#34;</span>,
-    <span style="color:#ff79c6">&#34;instanceOwner&#34;</span>: {
-        <span style="color:#ff79c6">&#34;partyId&#34;</span>: <span style="color:#f1fa8c">&#34;50002123&#34;</span>,
-        <span style="color:#ff79c6">&#34;personNumber&#34;</span>: <span style="color:#f1fa8c">&#34;01054210007&#34;</span>
-    },
-<span style="display:block;width:100%;background-color:#3d3f4a">    <span style="color:#ff79c6">&#34;appId&#34;</span>: <span style="color:#f1fa8c">&#34;ttd/rip-livsgnist&#34;</span>,
-</span>    <span style="color:#ff79c6">&#34;org&#34;</span>: <span style="color:#f1fa8c">&#34;ttd&#34;</span>,
-    <span style="color:#ff79c6">&#34;title&#34;</span>: {
-        <span style="color:#ff79c6">&#34;nb&#34;</span>: <span style="color:#f1fa8c">&#34;rip-livsgnist&#34;</span>
-    },
-    <span style="color:#ff79c6">&#34;process&#34;</span>: {
-        <span style="color:#ff79c6">&#34;started&#34;</span>: <span style="color:#f1fa8c">&#34;2020-01-16T10:54:04.7691165Z&#34;</span>,
-        <span style="color:#ff79c6">&#34;startEvent&#34;</span>: <span style="color:#f1fa8c">&#34;StartEvent_1&#34;</span>,
-        <span style="color:#ff79c6">&#34;ended&#34;</span>: <span style="color:#f1fa8c">&#34;2020-01-16T11:11:16.6358823Z&#34;</span>,
-        <span style="color:#ff79c6">&#34;endEvent&#34;</span>: <span style="color:#f1fa8c">&#34;EndEvent_1&#34;</span>
-    },
-    <span style="color:#ff79c6">&#34;status&#34;</span>: {
-        <span style="color:#ff79c6">&#34;archived&#34;</span>: <span style="color:#f1fa8c">&#34;2020-01-16T11:11:16.6358823Z&#34;</span>
-    },
-    <span style="color:#ff79c6">&#34;created&#34;</span>: <span style="color:#f1fa8c">&#34;2020-01-16T10:54:05.0591613Z&#34;</span>,
-    <span style="color:#ff79c6">&#34;createdBy&#34;</span>: <span style="color:#f1fa8c">&#34;20000015&#34;</span>,
-    <span style="color:#ff79c6">&#34;lastChanged&#34;</span>: <span style="color:#f1fa8c">&#34;2020-01-16T11:11:21.4678343Z&#34;</span>,
-    <span style="color:#ff79c6">&#34;lastChangedBy&#34;</span>: <span style="color:#f1fa8c">&#34;20000015&#34;</span>,
-    <span style="color:#ff79c6">&#34;_rid&#34;</span>: <span style="color:#f1fa8c">&#34;Mx4uAJesYy0BAAAAAAAAAA==&#34;</span>,
-    <span style="color:#ff79c6">&#34;_self&#34;</span>: <span style="color:#f1fa8c">&#34;dbs/Mx4uAA==/colls/Mx4uAJesYy0=/docs/Mx4uAJesYy0BAAAAAAAAAA==/&#34;</span>,
-    <span style="color:#ff79c6">&#34;_etag&#34;</span>: <span style="color:#f1fa8c">&#34;\&#34;00004300-0000-3c00-0000-5e2044d90000\&#34;&#34;</span>,
-    <span style="color:#ff79c6">&#34;_attachments&#34;</span>: <span style="color:#f1fa8c">&#34;attachments/&#34;</span>,
-    <span style="color:#ff79c6">&#34;_ts&#34;</span>: <span style="color:#bd93f9">1579173081</span>
-}
-
-</code></pre></div><h3 id="dataitem">DataItem</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;3cc58033-128e-414d-86c2-d652af251b39&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;instanceOwner&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;partyId&#34;</span>: <span style="color:#f1fa8c">&#34;50002123&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;personNumber&#34;</span>: <span style="color:#f1fa8c">&#34;01054210007&#34;</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>    <span style="color:#ff79c6">&#34;appId&#34;</span>: <span style="color:#f1fa8c">&#34;ttd/rip-livsgnist&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;org&#34;</span>: <span style="color:#f1fa8c">&#34;ttd&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;title&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;nb&#34;</span>: <span style="color:#f1fa8c">&#34;rip-livsgnist&#34;</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;process&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;started&#34;</span>: <span style="color:#f1fa8c">&#34;2020-01-16T10:54:04.7691165Z&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;startEvent&#34;</span>: <span style="color:#f1fa8c">&#34;StartEvent_1&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;ended&#34;</span>: <span style="color:#f1fa8c">&#34;2020-01-16T11:11:16.6358823Z&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;endEvent&#34;</span>: <span style="color:#f1fa8c">&#34;EndEvent_1&#34;</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;status&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;archived&#34;</span>: <span style="color:#f1fa8c">&#34;2020-01-16T11:11:16.6358823Z&#34;</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;created&#34;</span>: <span style="color:#f1fa8c">&#34;2020-01-16T10:54:05.0591613Z&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;createdBy&#34;</span>: <span style="color:#f1fa8c">&#34;20000015&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;lastChanged&#34;</span>: <span style="color:#f1fa8c">&#34;2020-01-16T11:11:21.4678343Z&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;lastChangedBy&#34;</span>: <span style="color:#f1fa8c">&#34;20000015&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;_rid&#34;</span>: <span style="color:#f1fa8c">&#34;Mx4uAJesYy0BAAAAAAAAAA==&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;_self&#34;</span>: <span style="color:#f1fa8c">&#34;dbs/Mx4uAA==/colls/Mx4uAJesYy0=/docs/Mx4uAJesYy0BAAAAAAAAAA==/&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;_etag&#34;</span>: <span style="color:#f1fa8c">&#34;\&#34;00004300-0000-3c00-0000-5e2044d90000\&#34;&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;_attachments&#34;</span>: <span style="color:#f1fa8c">&#34;attachments/&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;_ts&#34;</span>: <span style="color:#bd93f9">1579173081</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="dataitem">DataItem</h3>
 <p>Example document from data items.</p>
 <ul>
 <li><code>instanceGuid</code> references to instance</li>
 <li><code>blobstoragePath</code> references to the storage location for the given data</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-<span style="display:block;width:100%;background-color:#3d3f4a">    <span style="color:#ff79c6">&#34;instanceGuid&#34;</span>: <span style="color:#f1fa8c">&#34;7eae6eec-f686-40b6-bc57-6fafc8c94f13&#34;</span>,
-</span>    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;94f277a5-7d37-48e1-973c-92fb1f84f83a&#34;</span>,
-    <span style="color:#ff79c6">&#34;dataType&#34;</span>: <span style="color:#f1fa8c">&#34;ServiceModel-test&#34;</span>,
-    <span style="color:#ff79c6">&#34;contentType&#34;</span>: <span style="color:#f1fa8c">&#34;application/xml&#34;</span>,
-<span style="display:block;width:100%;background-color:#3d3f4a">    <span style="color:#ff79c6">&#34;blobStoragePath&#34;</span>: <span style="color:#f1fa8c">&#34;ttd/endring-av-navn-v2/7eae6eec-f686-40b6-bc57-6fafc8c94f13/data/94f277a5-7d37-48e1-973c-92fb1f84f83a&#34;</span>,
-</span>    <span style="color:#ff79c6">&#34;size&#34;</span>: <span style="color:#bd93f9">1515</span>,
-    <span style="color:#ff79c6">&#34;locked&#34;</span>: <span style="color:#ff79c6">false</span>,
-    <span style="color:#ff79c6">&#34;refs&#34;</span>: [],
-    <span style="color:#ff79c6">&#34;created&#34;</span>: <span style="color:#f1fa8c">&#34;2020-01-20T09:07:59.5480429Z&#34;</span>,
-    <span style="color:#ff79c6">&#34;lastChanged&#34;</span>: <span style="color:#f1fa8c">&#34;2020-01-20T09:08:48.3218863Z&#34;</span>,
-    <span style="color:#ff79c6">&#34;lastChangedBy&#34;</span>: <span style="color:#f1fa8c">&#34;20013900&#34;</span>,
-    <span style="color:#ff79c6">&#34;_rid&#34;</span>: <span style="color:#f1fa8c">&#34;Mx4uAOy+834VAAAAAAAAAA==&#34;</span>,
-    <span style="color:#ff79c6">&#34;_self&#34;</span>: <span style="color:#f1fa8c">&#34;dbs/Mx4uAA==/colls/Mx4uAOy+834=/docs/Mx4uAOy+834VAAAAAAAAAA==/&#34;</span>,
-    <span style="color:#ff79c6">&#34;_etag&#34;</span>: <span style="color:#f1fa8c">&#34;\&#34;00004c00-0000-3c00-0000-5e256e210000\&#34;&#34;</span>,
-    <span style="color:#ff79c6">&#34;_attachments&#34;</span>: <span style="color:#f1fa8c">&#34;attachments/&#34;</span>,
-    <span style="color:#ff79c6">&#34;_ts&#34;</span>: <span style="color:#bd93f9">1579511329</span>
-}
-</code></pre></div><h3 id="instanceevent">InstanceEvent</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>    <span style="color:#ff79c6">&#34;instanceGuid&#34;</span>: <span style="color:#f1fa8c">&#34;7eae6eec-f686-40b6-bc57-6fafc8c94f13&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;94f277a5-7d37-48e1-973c-92fb1f84f83a&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;dataType&#34;</span>: <span style="color:#f1fa8c">&#34;ServiceModel-test&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;contentType&#34;</span>: <span style="color:#f1fa8c">&#34;application/xml&#34;</span>,
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>    <span style="color:#ff79c6">&#34;blobStoragePath&#34;</span>: <span style="color:#f1fa8c">&#34;ttd/endring-av-navn-v2/7eae6eec-f686-40b6-bc57-6fafc8c94f13/data/94f277a5-7d37-48e1-973c-92fb1f84f83a&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;size&#34;</span>: <span style="color:#bd93f9">1515</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;locked&#34;</span>: <span style="color:#ff79c6">false</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;refs&#34;</span>: [],
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;created&#34;</span>: <span style="color:#f1fa8c">&#34;2020-01-20T09:07:59.5480429Z&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;lastChanged&#34;</span>: <span style="color:#f1fa8c">&#34;2020-01-20T09:08:48.3218863Z&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;lastChangedBy&#34;</span>: <span style="color:#f1fa8c">&#34;20013900&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;_rid&#34;</span>: <span style="color:#f1fa8c">&#34;Mx4uAOy+834VAAAAAAAAAA==&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;_self&#34;</span>: <span style="color:#f1fa8c">&#34;dbs/Mx4uAA==/colls/Mx4uAOy+834=/docs/Mx4uAOy+834VAAAAAAAAAA==/&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;_etag&#34;</span>: <span style="color:#f1fa8c">&#34;\&#34;00004c00-0000-3c00-0000-5e256e210000\&#34;&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;_attachments&#34;</span>: <span style="color:#f1fa8c">&#34;attachments/&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;_ts&#34;</span>: <span style="color:#bd93f9">1579511329</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="instanceevent">InstanceEvent</h3>
 <p>Example on instance event.</p>
 <p><code>instanceId</code> references to the instance.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-    <span style="color:#ff79c6">&#34;user&#34;</span>: {
-        <span style="color:#ff79c6">&#34;userId&#34;</span>: <span style="color:#bd93f9">20000015</span>,
-        <span style="color:#ff79c6">&#34;orgId&#34;</span>: <span style="color:#ff79c6">null</span>,
-        <span style="color:#ff79c6">&#34;authenticationLevel&#34;</span>: <span style="color:#bd93f9">1</span>,
-        <span style="color:#ff79c6">&#34;endUserSystemId&#34;</span>: <span style="color:#ff79c6">null</span>
-    },
-<span style="display:block;width:100%;background-color:#3d3f4a">    <span style="color:#ff79c6">&#34;instanceId&#34;</span>: <span style="color:#f1fa8c">&#34;50002123/3cc58033-128e-414d-86c2-d652af251b39&#34;</span>,
-</span>    <span style="color:#ff79c6">&#34;created&#34;</span>: <span style="color:#f1fa8c">&#34;2020-01-16T10:54:05.1706031Z&#34;</span>,
-    <span style="color:#ff79c6">&#34;eventType&#34;</span>: <span style="color:#f1fa8c">&#34;Created&#34;</span>,
-    <span style="color:#ff79c6">&#34;instanceOwnerPartyId&#34;</span>: <span style="color:#f1fa8c">&#34;50002123&#34;</span>,
-    <span style="color:#ff79c6">&#34;processInfo&#34;</span>: {
-        <span style="color:#ff79c6">&#34;started&#34;</span>: <span style="color:#f1fa8c">&#34;2020-01-16T10:54:04.7691165Z&#34;</span>,
-        <span style="color:#ff79c6">&#34;startEvent&#34;</span>: <span style="color:#f1fa8c">&#34;StartEvent_1&#34;</span>,
-        <span style="color:#ff79c6">&#34;currentTask&#34;</span>: {
-            <span style="color:#ff79c6">&#34;flow&#34;</span>: <span style="color:#bd93f9">2</span>,
-            <span style="color:#ff79c6">&#34;started&#34;</span>: <span style="color:#f1fa8c">&#34;2020-01-16T10:54:04.7871455Z&#34;</span>,
-            <span style="color:#ff79c6">&#34;elementId&#34;</span>: <span style="color:#f1fa8c">&#34;Task_1&#34;</span>,
-            <span style="color:#ff79c6">&#34;name&#34;</span>: <span style="color:#f1fa8c">&#34;Utfylling&#34;</span>,
-            <span style="color:#ff79c6">&#34;altinnTaskType&#34;</span>: <span style="color:#f1fa8c">&#34;data&#34;</span>
-        }
-    },
-    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;5c57d85b-18e4-4215-9976-065290ef086f&#34;</span>,
-    <span style="color:#ff79c6">&#34;_rid&#34;</span>: <span style="color:#f1fa8c">&#34;Mx4uAImMTtoBAAAAAAAAAA==&#34;</span>,
-    <span style="color:#ff79c6">&#34;_self&#34;</span>: <span style="color:#f1fa8c">&#34;dbs/Mx4uAA==/colls/Mx4uAImMTto=/docs/Mx4uAImMTtoBAAAAAAAAAA==/&#34;</span>,
-    <span style="color:#ff79c6">&#34;_etag&#34;</span>: <span style="color:#f1fa8c">&#34;\&#34;0900c6e2-0000-3c00-0000-5e2040cd0000\&#34;&#34;</span>,
-    <span style="color:#ff79c6">&#34;_attachments&#34;</span>: <span style="color:#f1fa8c">&#34;attachments/&#34;</span>,
-    <span style="color:#ff79c6">&#34;_ts&#34;</span>: <span style="color:#bd93f9">1579172045</span>
-}
-
-</code></pre></div><h3 id="application">Application</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;user&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;userId&#34;</span>: <span style="color:#bd93f9">20000015</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;orgId&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;authenticationLevel&#34;</span>: <span style="color:#bd93f9">1</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;endUserSystemId&#34;</span>: <span style="color:#ff79c6">null</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>    <span style="color:#ff79c6">&#34;instanceId&#34;</span>: <span style="color:#f1fa8c">&#34;50002123/3cc58033-128e-414d-86c2-d652af251b39&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;created&#34;</span>: <span style="color:#f1fa8c">&#34;2020-01-16T10:54:05.1706031Z&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;eventType&#34;</span>: <span style="color:#f1fa8c">&#34;Created&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;instanceOwnerPartyId&#34;</span>: <span style="color:#f1fa8c">&#34;50002123&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;processInfo&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;started&#34;</span>: <span style="color:#f1fa8c">&#34;2020-01-16T10:54:04.7691165Z&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;startEvent&#34;</span>: <span style="color:#f1fa8c">&#34;StartEvent_1&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;currentTask&#34;</span>: {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;flow&#34;</span>: <span style="color:#bd93f9">2</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;started&#34;</span>: <span style="color:#f1fa8c">&#34;2020-01-16T10:54:04.7871455Z&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;elementId&#34;</span>: <span style="color:#f1fa8c">&#34;Task_1&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;name&#34;</span>: <span style="color:#f1fa8c">&#34;Utfylling&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;altinnTaskType&#34;</span>: <span style="color:#f1fa8c">&#34;data&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;5c57d85b-18e4-4215-9976-065290ef086f&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;_rid&#34;</span>: <span style="color:#f1fa8c">&#34;Mx4uAImMTtoBAAAAAAAAAA==&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;_self&#34;</span>: <span style="color:#f1fa8c">&#34;dbs/Mx4uAA==/colls/Mx4uAImMTto=/docs/Mx4uAImMTtoBAAAAAAAAAA==/&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;_etag&#34;</span>: <span style="color:#f1fa8c">&#34;\&#34;0900c6e2-0000-3c00-0000-5e2040cd0000\&#34;&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;_attachments&#34;</span>: <span style="color:#f1fa8c">&#34;attachments/&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;_ts&#34;</span>: <span style="color:#bd93f9">1579172045</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="application">Application</h3>
 <p>Example document on application:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;ttd-testavpdf-2020&#34;</span>,
-    <span style="color:#ff79c6">&#34;versionId&#34;</span>: <span style="color:#f1fa8c">&#34;7cfd1c857a8535c74690aa7d6c22258c94eabf6f&#34;</span>,
-    <span style="color:#ff79c6">&#34;org&#34;</span>: <span style="color:#f1fa8c">&#34;ttd&#34;</span>,
-    <span style="color:#ff79c6">&#34;title&#34;</span>: {
-        <span style="color:#ff79c6">&#34;nb&#34;</span>: <span style="color:#f1fa8c">&#34;testavpdf-2020&#34;</span>
-    },
-    <span style="color:#ff79c6">&#34;validFrom&#34;</span>: <span style="color:#f1fa8c">&#34;2020-01-14T11:39:00.3281424Z&#34;</span>,
-    <span style="color:#ff79c6">&#34;dataTypes&#34;</span>: [
-        {
-            <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;ServiceModel&#34;</span>,
-            <span style="color:#ff79c6">&#34;allowedContentTypes&#34;</span>: [
-                <span style="color:#f1fa8c">&#34;application/xml&#34;</span>
-            ],
-            <span style="color:#ff79c6">&#34;appLogic&#34;</span>: {
-                <span style="color:#ff79c6">&#34;autoCreate&#34;</span>: <span style="color:#ff79c6">null</span>,
-                <span style="color:#ff79c6">&#34;classRef&#34;</span>: <span style="color:#ff79c6">null</span>,
-                <span style="color:#ff79c6">&#34;schemaRef&#34;</span>: <span style="color:#ff79c6">null</span>
-            },
-            <span style="color:#ff79c6">&#34;taskId&#34;</span>: <span style="color:#f1fa8c">&#34;Task_1&#34;</span>,
-            <span style="color:#ff79c6">&#34;maxCount&#34;</span>: <span style="color:#bd93f9">1</span>,
-            <span style="color:#ff79c6">&#34;minCount&#34;</span>: <span style="color:#bd93f9">1</span>
-        },
-        {
-            <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;ref-data-as-pdf&#34;</span>,
-            <span style="color:#ff79c6">&#34;allowedContentTypes&#34;</span>: [
-                <span style="color:#f1fa8c">&#34;application/pdf&#34;</span>
-            ],
-            <span style="color:#ff79c6">&#34;maxCount&#34;</span>: <span style="color:#bd93f9">0</span>,
-            <span style="color:#ff79c6">&#34;minCount&#34;</span>: <span style="color:#bd93f9">0</span>
-        }
-    ],
-    <span style="color:#ff79c6">&#34;partyTypesAllowed&#34;</span>: {
-        <span style="color:#ff79c6">&#34;bankruptcyEstate&#34;</span>: <span style="color:#ff79c6">false</span>,
-        <span style="color:#ff79c6">&#34;organisation&#34;</span>: <span style="color:#ff79c6">false</span>,
-        <span style="color:#ff79c6">&#34;person&#34;</span>: <span style="color:#ff79c6">false</span>,
-        <span style="color:#ff79c6">&#34;subUnit&#34;</span>: <span style="color:#ff79c6">false</span>
-    },
-    <span style="color:#ff79c6">&#34;created&#34;</span>: <span style="color:#f1fa8c">&#34;2020-01-14T11:39:00.3281424Z&#34;</span>,
-    <span style="color:#ff79c6">&#34;lastChanged&#34;</span>: <span style="color:#f1fa8c">&#34;2020-01-14T11:39:00.3281424Z&#34;</span>,
-    <span style="color:#ff79c6">&#34;_rid&#34;</span>: <span style="color:#f1fa8c">&#34;Mx4uAL3TuwQBAAAAAAAAAA==&#34;</span>,
-    <span style="color:#ff79c6">&#34;_self&#34;</span>: <span style="color:#f1fa8c">&#34;dbs/Mx4uAA==/colls/Mx4uAL3TuwQ=/docs/Mx4uAL3TuwQBAAAAAAAAAA==/&#34;</span>,
-    <span style="color:#ff79c6">&#34;_etag&#34;</span>: <span style="color:#f1fa8c">&#34;\&#34;00008644-0000-3c00-0000-5e1da8540000\&#34;&#34;</span>,
-    <span style="color:#ff79c6">&#34;_attachments&#34;</span>: <span style="color:#f1fa8c">&#34;attachments/&#34;</span>,
-    <span style="color:#ff79c6">&#34;_ts&#34;</span>: <span style="color:#bd93f9">1579001940</span>
-}
-</code></pre></div><h3 id="events-1">EVents</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[{
-  <span style="color:#ff79c6">&#34;source&#34;</span>:  <span style="color:#f1fa8c">&#34;https://skd.apps.altinn.no/skd/skattemelding/instances/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8&#34;</span>,
-  <span style="color:#ff79c6">&#34;subject&#34;</span>: <span style="color:#f1fa8c">&#34;party/234234422&#34;</span>,
-<span style="display:block;width:100%;background-color:#3d3f4a">  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;app.instance.process.completed&#34;</span>,
-</span>  <span style="color:#ff79c6">&#34;time&#34;</span>:  <span style="color:#f1fa8c">&#34;2020-02-20T09:06:50.3736712Z&#34;</span>,
-  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;91f2388f-bd8c-4647-8684-fd9f68af5b14&#34;</span>,
-  <span style="color:#ff79c6">&#34;alternativesubject&#34;</span>: <span style="color:#f1fa8c">&#34;/org/974760673&#34;</span>
-}]
-</code></pre></div><h2 id="data-entities---altinn-studio">Data entities - Altinn Studio</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;ttd-testavpdf-2020&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;versionId&#34;</span>: <span style="color:#f1fa8c">&#34;7cfd1c857a8535c74690aa7d6c22258c94eabf6f&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;org&#34;</span>: <span style="color:#f1fa8c">&#34;ttd&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;title&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;nb&#34;</span>: <span style="color:#f1fa8c">&#34;testavpdf-2020&#34;</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;validFrom&#34;</span>: <span style="color:#f1fa8c">&#34;2020-01-14T11:39:00.3281424Z&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;dataTypes&#34;</span>: [
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;ServiceModel&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;allowedContentTypes&#34;</span>: [
+</span></span><span style="display:flex;"><span>                <span style="color:#f1fa8c">&#34;application/xml&#34;</span>
+</span></span><span style="display:flex;"><span>            ],
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;appLogic&#34;</span>: {
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">&#34;autoCreate&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">&#34;classRef&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">&#34;schemaRef&#34;</span>: <span style="color:#ff79c6">null</span>
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;taskId&#34;</span>: <span style="color:#f1fa8c">&#34;Task_1&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;maxCount&#34;</span>: <span style="color:#bd93f9">1</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;minCount&#34;</span>: <span style="color:#bd93f9">1</span>
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;ref-data-as-pdf&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;allowedContentTypes&#34;</span>: [
+</span></span><span style="display:flex;"><span>                <span style="color:#f1fa8c">&#34;application/pdf&#34;</span>
+</span></span><span style="display:flex;"><span>            ],
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;maxCount&#34;</span>: <span style="color:#bd93f9">0</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;minCount&#34;</span>: <span style="color:#bd93f9">0</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    ],
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;partyTypesAllowed&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;bankruptcyEstate&#34;</span>: <span style="color:#ff79c6">false</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;organisation&#34;</span>: <span style="color:#ff79c6">false</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;person&#34;</span>: <span style="color:#ff79c6">false</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;subUnit&#34;</span>: <span style="color:#ff79c6">false</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;created&#34;</span>: <span style="color:#f1fa8c">&#34;2020-01-14T11:39:00.3281424Z&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;lastChanged&#34;</span>: <span style="color:#f1fa8c">&#34;2020-01-14T11:39:00.3281424Z&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;_rid&#34;</span>: <span style="color:#f1fa8c">&#34;Mx4uAL3TuwQBAAAAAAAAAA==&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;_self&#34;</span>: <span style="color:#f1fa8c">&#34;dbs/Mx4uAA==/colls/Mx4uAL3TuwQ=/docs/Mx4uAL3TuwQBAAAAAAAAAA==/&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;_etag&#34;</span>: <span style="color:#f1fa8c">&#34;\&#34;00008644-0000-3c00-0000-5e1da8540000\&#34;&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;_attachments&#34;</span>: <span style="color:#f1fa8c">&#34;attachments/&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;_ts&#34;</span>: <span style="color:#bd93f9">1579001940</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="events-1">EVents</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>[{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;source&#34;</span>:  <span style="color:#f1fa8c">&#34;https://skd.apps.altinn.no/skd/skattemelding/instances/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;subject&#34;</span>: <span style="color:#f1fa8c">&#34;party/234234422&#34;</span>,
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;app.instance.process.completed&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;time&#34;</span>:  <span style="color:#f1fa8c">&#34;2020-02-20T09:06:50.3736712Z&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;91f2388f-bd8c-4647-8684-fd9f68af5b14&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;alternativesubject&#34;</span>: <span style="color:#f1fa8c">&#34;/org/974760673&#34;</span>
+</span></span><span style="display:flex;"><span>}]
+</span></span></code></pre></div><h2 id="data-entities---altinn-studio">Data entities - Altinn Studio</h2>
 <h3 id="releases">Releases</h3>
 <p>Example document for releases:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-    <span style="color:#ff79c6">&#34;tagName&#34;</span>: <span style="color:#f1fa8c">&#34;1&#34;</span>,
-    <span style="color:#ff79c6">&#34;name&#34;</span>: <span style="color:#f1fa8c">&#34;1&#34;</span>,
-    <span style="color:#ff79c6">&#34;body&#34;</span>: <span style="color:#f1fa8c">&#34;ver 1&#34;</span>,
-    <span style="color:#ff79c6">&#34;targetCommitish&#34;</span>: <span style="color:#f1fa8c">&#34;304e64a5b768a1a438f5682f05c81f1e3f4806e8&#34;</span>,
-    <span style="color:#ff79c6">&#34;build&#34;</span>: {
-        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;25639&#34;</span>,
-        <span style="color:#ff79c6">&#34;status&#34;</span>: <span style="color:#f1fa8c">&#34;completed&#34;</span>,
-        <span style="color:#ff79c6">&#34;result&#34;</span>: <span style="color:#f1fa8c">&#34;failed&#34;</span>,
-        <span style="color:#ff79c6">&#34;started&#34;</span>: <span style="color:#f1fa8c">&#34;2020-01-28T14:26:38.776664Z&#34;</span>,
-        <span style="color:#ff79c6">&#34;finished&#34;</span>: <span style="color:#f1fa8c">&#34;2020-01-28T14:27:50.8388306Z&#34;</span>
-    },
-    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;a361d1c8-11a1-49fb-8775-59f231aadcd5&#34;</span>,
-    <span style="color:#ff79c6">&#34;created&#34;</span>: <span style="color:#f1fa8c">&#34;2020-01-28T14:26:22.167018+00:00&#34;</span>,
-    <span style="color:#ff79c6">&#34;createdBy&#34;</span>: <span style="color:#f1fa8c">&#34;jeeva&#34;</span>,
-    <span style="color:#ff79c6">&#34;app&#34;</span>: <span style="color:#f1fa8c">&#34;apps-test&#34;</span>,
-    <span style="color:#ff79c6">&#34;org&#34;</span>: <span style="color:#f1fa8c">&#34;ttd&#34;</span>,
-    <span style="color:#ff79c6">&#34;_rid&#34;</span>: <span style="color:#f1fa8c">&#34;9g8wAPi8x1cLAAAAAAAAAA==&#34;</span>,
-    <span style="color:#ff79c6">&#34;_self&#34;</span>: <span style="color:#f1fa8c">&#34;dbs/9g8wAA==/colls/9g8wAPi8x1c=/docs/9g8wAPi8x1cLAAAAAAAAAA==/&#34;</span>,
-    <span style="color:#ff79c6">&#34;_etag&#34;</span>: <span style="color:#f1fa8c">&#34;\&#34;10008d1b-0000-0c00-0000-5e3044f90000\&#34;&#34;</span>,
-    <span style="color:#ff79c6">&#34;_attachments&#34;</span>: <span style="color:#f1fa8c">&#34;attachments/&#34;</span>,
-    <span style="color:#ff79c6">&#34;_ts&#34;</span>: <span style="color:#bd93f9">1580221689</span>
-}
-
-</code></pre></div><h3 id="deployments">Deployments</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;tagName&#34;</span>: <span style="color:#f1fa8c">&#34;1&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;name&#34;</span>: <span style="color:#f1fa8c">&#34;1&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;body&#34;</span>: <span style="color:#f1fa8c">&#34;ver 1&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;targetCommitish&#34;</span>: <span style="color:#f1fa8c">&#34;304e64a5b768a1a438f5682f05c81f1e3f4806e8&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;build&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;25639&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;status&#34;</span>: <span style="color:#f1fa8c">&#34;completed&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;result&#34;</span>: <span style="color:#f1fa8c">&#34;failed&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;started&#34;</span>: <span style="color:#f1fa8c">&#34;2020-01-28T14:26:38.776664Z&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;finished&#34;</span>: <span style="color:#f1fa8c">&#34;2020-01-28T14:27:50.8388306Z&#34;</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;a361d1c8-11a1-49fb-8775-59f231aadcd5&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;created&#34;</span>: <span style="color:#f1fa8c">&#34;2020-01-28T14:26:22.167018+00:00&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;createdBy&#34;</span>: <span style="color:#f1fa8c">&#34;jeeva&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;app&#34;</span>: <span style="color:#f1fa8c">&#34;apps-test&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;org&#34;</span>: <span style="color:#f1fa8c">&#34;ttd&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;_rid&#34;</span>: <span style="color:#f1fa8c">&#34;9g8wAPi8x1cLAAAAAAAAAA==&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;_self&#34;</span>: <span style="color:#f1fa8c">&#34;dbs/9g8wAA==/colls/9g8wAPi8x1c=/docs/9g8wAPi8x1cLAAAAAAAAAA==/&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;_etag&#34;</span>: <span style="color:#f1fa8c">&#34;\&#34;10008d1b-0000-0c00-0000-5e3044f90000\&#34;&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;_attachments&#34;</span>: <span style="color:#f1fa8c">&#34;attachments/&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;_ts&#34;</span>: <span style="color:#bd93f9">1580221689</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="deployments">Deployments</h3>
 <p>Example document for deployments:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-    <span style="color:#ff79c6">&#34;tagName&#34;</span>: <span style="color:#f1fa8c">&#34;1&#34;</span>,
-    <span style="color:#ff79c6">&#34;envName&#34;</span>: <span style="color:#f1fa8c">&#34;at22&#34;</span>,
-    <span style="color:#ff79c6">&#34;build&#34;</span>: {
-        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;25637&#34;</span>,
-        <span style="color:#ff79c6">&#34;status&#34;</span>: <span style="color:#f1fa8c">&#34;completed&#34;</span>,
-        <span style="color:#ff79c6">&#34;result&#34;</span>: <span style="color:#f1fa8c">&#34;succeeded&#34;</span>,
-        <span style="color:#ff79c6">&#34;started&#34;</span>: <span style="color:#f1fa8c">&#34;2020-01-28T14:17:53.0563266Z&#34;</span>,
-        <span style="color:#ff79c6">&#34;finished&#34;</span>: <span style="color:#f1fa8c">&#34;2020-01-28T14:18:39.2312059Z&#34;</span>
-    },
-    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;682e31ee-3aeb-4f28-b457-98db2f34ece6&#34;</span>,
-    <span style="color:#ff79c6">&#34;created&#34;</span>: <span style="color:#f1fa8c">&#34;2020-01-28T14:17:37.2229801+00:00&#34;</span>,
-    <span style="color:#ff79c6">&#34;createdBy&#34;</span>: <span style="color:#f1fa8c">&#34;steph&#34;</span>,
-    <span style="color:#ff79c6">&#34;app&#34;</span>: <span style="color:#f1fa8c">&#34;process-history-app&#34;</span>,
-    <span style="color:#ff79c6">&#34;org&#34;</span>: <span style="color:#f1fa8c">&#34;ttd&#34;</span>,
-    <span style="color:#ff79c6">&#34;_rid&#34;</span>: <span style="color:#f1fa8c">&#34;9g8wAKEPFmYBAAAAAAAAAA==&#34;</span>,
-    <span style="color:#ff79c6">&#34;_self&#34;</span>: <span style="color:#f1fa8c">&#34;dbs/9g8wAA==/colls/9g8wAKEPFmY=/docs/9g8wAKEPFmYBAAAAAAAAAA==/&#34;</span>,
-    <span style="color:#ff79c6">&#34;_etag&#34;</span>: <span style="color:#f1fa8c">&#34;\&#34;04007c5a-0000-0c00-0000-5e3042ca0000\&#34;&#34;</span>,
-    <span style="color:#ff79c6">&#34;_attachments&#34;</span>: <span style="color:#f1fa8c">&#34;attachments/&#34;</span>,
-    <span style="color:#ff79c6">&#34;_ts&#34;</span>: <span style="color:#bd93f9">1580221130</span>
-}
-
-</code></pre></div><h2 id="altinn-studio-repositories">Altinn Studio Repositories</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;tagName&#34;</span>: <span style="color:#f1fa8c">&#34;1&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;envName&#34;</span>: <span style="color:#f1fa8c">&#34;at22&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;build&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;25637&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;status&#34;</span>: <span style="color:#f1fa8c">&#34;completed&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;result&#34;</span>: <span style="color:#f1fa8c">&#34;succeeded&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;started&#34;</span>: <span style="color:#f1fa8c">&#34;2020-01-28T14:17:53.0563266Z&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;finished&#34;</span>: <span style="color:#f1fa8c">&#34;2020-01-28T14:18:39.2312059Z&#34;</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;682e31ee-3aeb-4f28-b457-98db2f34ece6&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;created&#34;</span>: <span style="color:#f1fa8c">&#34;2020-01-28T14:17:37.2229801+00:00&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;createdBy&#34;</span>: <span style="color:#f1fa8c">&#34;steph&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;app&#34;</span>: <span style="color:#f1fa8c">&#34;process-history-app&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;org&#34;</span>: <span style="color:#f1fa8c">&#34;ttd&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;_rid&#34;</span>: <span style="color:#f1fa8c">&#34;9g8wAKEPFmYBAAAAAAAAAA==&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;_self&#34;</span>: <span style="color:#f1fa8c">&#34;dbs/9g8wAA==/colls/9g8wAKEPFmY=/docs/9g8wAKEPFmYBAAAAAAAAAA==/&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;_etag&#34;</span>: <span style="color:#f1fa8c">&#34;\&#34;04007c5a-0000-0c00-0000-5e3042ca0000\&#34;&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;_attachments&#34;</span>: <span style="color:#f1fa8c">&#34;attachments/&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;_ts&#34;</span>: <span style="color:#bd93f9">1580221130</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="altinn-studio-repositories">Altinn Studio Repositories</h2>
 <p>Altinn Studio Repositories uses Gitea, that uses a PostgreSQL database.</p>
 <p><a href="https://github.com/go-gitea/gitea">See Gitea project</a>
 and <a href="https://github.com/go-gitea/gitea/blob/dc812f8ba5bf1c123fa948afed15c4309da8fb45/models/models.go#L67">models/models.go</a>.</p>

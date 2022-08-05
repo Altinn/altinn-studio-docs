@@ -117,7 +117,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -217,7 +217,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -297,7 +297,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -1113,84 +1113,84 @@ if(host != "localhost")
 </div>
 <h2 id="add-images-to-the-application">Add images to the application</h2>
 <p>Adding images is done in <em>FormLayout.json</em> by using the image component. Alternative text is useful for scenarios when the image cannot be loaded for any reason, or for users that use screen readers. This can be added as a text resource, defined in <em>resource.[language].json</em>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#ff79c6">&#34;data&#34;</span>: {
-    <span style="color:#ff79c6">&#34;layout&#34;</span>: [
-      {
-        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;616071dc-90b1-4ce5-8d18-492844828a41&#34;</span>,
-        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Image&#34;</span>,
-        <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
-          <span style="color:#ff79c6">&#34;altTextImg&#34;</span>: <span style="color:#f1fa8c">&#34;imgAltText&#34;</span>
-        },
-        <span style="color:#ff79c6">&#34;image&#34;</span>: {
-          <span style="color:#ff79c6">&#34;src&#34;</span>: {
-            <span style="color:#ff79c6">&#34;nb&#34;</span>: <span style="color:#f1fa8c">&#34;https://example.com/image_nb.png&#34;</span>
-          },
-          <span style="color:#ff79c6">&#34;width&#34;</span>: <span style="color:#f1fa8c">&#34;100%&#34;</span>,
-          <span style="color:#ff79c6">&#34;align&#34;</span>: <span style="color:#f1fa8c">&#34;center&#34;</span>
-        }
-      }
-    ]
-  }
-}
-</code></pre></div><p>The image can also have separate sources for different languages. The default source is <em>nb</em>, and this source will be used for any language that does not define a separate source for the image. Below is an example with different sources for <em>nb</em> and <em>en</em>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#ff79c6">&#34;data&#34;</span>: {
-    <span style="color:#ff79c6">&#34;layout&#34;</span>: [
-      {
-        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;616071dc-90b1-4ce5-8d18-492844828a41&#34;</span>,
-        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Image&#34;</span>,
-        <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
-          <span style="color:#ff79c6">&#34;altTextImg&#34;</span>: <span style="color:#f1fa8c">&#34;imgAltText&#34;</span>
-        },
-        <span style="color:#ff79c6">&#34;image&#34;</span>: {
-          <span style="color:#ff79c6">&#34;src&#34;</span>: {
-            <span style="color:#ff79c6">&#34;nb&#34;</span>: <span style="color:#f1fa8c">&#34;https://example.com/image_nb.png&#34;</span>,
-            <span style="color:#ff79c6">&#34;en&#34;</span>: <span style="color:#f1fa8c">&#34;https://example.com/image_en.png&#34;</span>
-          },
-          <span style="color:#ff79c6">&#34;width&#34;</span>: <span style="color:#f1fa8c">&#34;100%&#34;</span>,
-          <span style="color:#ff79c6">&#34;align&#34;</span>: <span style="color:#f1fa8c">&#34;center&#34;</span>
-        }
-      }
-    ]
-  }
-}
-</code></pre></div><h2 id="hosting-images-from-apps">Hosting images from apps</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;data&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;layout&#34;</span>: [
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;616071dc-90b1-4ce5-8d18-492844828a41&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Image&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;altTextImg&#34;</span>: <span style="color:#f1fa8c">&#34;imgAltText&#34;</span>
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;image&#34;</span>: {
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;src&#34;</span>: {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;nb&#34;</span>: <span style="color:#f1fa8c">&#34;https://example.com/image_nb.png&#34;</span>
+</span></span><span style="display:flex;"><span>          },
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;width&#34;</span>: <span style="color:#f1fa8c">&#34;100%&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;align&#34;</span>: <span style="color:#f1fa8c">&#34;center&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>The image can also have separate sources for different languages. The default source is <em>nb</em>, and this source will be used for any language that does not define a separate source for the image. Below is an example with different sources for <em>nb</em> and <em>en</em>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;data&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;layout&#34;</span>: [
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;616071dc-90b1-4ce5-8d18-492844828a41&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Image&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;altTextImg&#34;</span>: <span style="color:#f1fa8c">&#34;imgAltText&#34;</span>
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;image&#34;</span>: {
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;src&#34;</span>: {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;nb&#34;</span>: <span style="color:#f1fa8c">&#34;https://example.com/image_nb.png&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;en&#34;</span>: <span style="color:#f1fa8c">&#34;https://example.com/image_en.png&#34;</span>
+</span></span><span style="display:flex;"><span>          },
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;width&#34;</span>: <span style="color:#f1fa8c">&#34;100%&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;align&#34;</span>: <span style="color:#f1fa8c">&#34;center&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="hosting-images-from-apps">Hosting images from apps</h2>
 <p>If the image should be loaded from the app, you need to set up static hosting of files in the application. This is automatically set up for applications created after december 2021. For older applications, you should follow the steps below.
 This is configured in <em>App/Startup.cs</em>, in the <em>Configure</em> method. This will host all files that is inside the <code>/app/wwwroot</code> folder. If this folder does not exist, it needs to be created.
 If you want to refer to the file <code>app/wwwroot/bilde_nb.png</code> it can be reached at the following relative url <code>/org/app-name/bilde_nb.png</code></p>
 <p><em>applicationId</em> is a variable from a few lines above containing <em>org/app-name</em> from <code>applicationmetadata.json</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">void</span> Configure(IApplicationBuilder app, IWebHostEnvironment env)
-  {
-    <span style="color:#6272a4">// ...
-</span><span style="color:#6272a4"></span>    app.UseRouting();
-<span style="display:block;width:100%;background-color:#3d3f4a">    app.UseStaticFiles(<span style="color:#f1fa8c">&#39;/&#39;</span> + applicationId);
-</span>    app.UseAuthentication();
-    <span style="color:#6272a4">// ...
-</span><span style="color:#6272a4"></span>  }
-</code></pre></div><p>In <em>FormLayout.json</em> the reference to the image should be a relative url that starts with <em>/org/app-name</em> similar to what was set up as the static hosting.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-C#" data-lang="C#"><span style="display:flex;"><span><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">void</span> Configure(IApplicationBuilder app, IWebHostEnvironment env)
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// ...</span>
+</span></span><span style="display:flex;"><span>    app.UseRouting();
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>    app.UseStaticFiles(<span style="color:#f1fa8c">&#39;/&#39;</span> + applicationId);
+</span></span><span style="display:flex;"><span>    app.UseAuthentication();
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// ...</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><p>In <em>FormLayout.json</em> the reference to the image should be a relative url that starts with <em>/org/app-name</em> similar to what was set up as the static hosting.
 You can also use the custom prefix <code>wwwroot</code> (without a starting <code>/</code>), that will be replaced with <em>/org/app-name</em> before the image is loaded.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#ff79c6">&#34;data&#34;</span>: {
-    <span style="color:#ff79c6">&#34;layout&#34;</span>: [
-      {
-        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;616071dc-90b1-4ce5-8d18-492844828a41&#34;</span>,
-        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Image&#34;</span>,
-        <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
-          <span style="color:#ff79c6">&#34;altTextImg&#34;</span>: <span style="color:#f1fa8c">&#34;imgAltText&#34;</span>
-        },
-        <span style="color:#ff79c6">&#34;image&#34;</span>: {
-          <span style="color:#ff79c6">&#34;src&#34;</span>: {
-            <span style="color:#ff79c6">&#34;nb&#34;</span>: <span style="color:#f1fa8c">&#34;wwwroot/bilde_nb.png&#34;</span>
-          },
-          <span style="color:#ff79c6">&#34;width&#34;</span>: <span style="color:#f1fa8c">&#34;100%&#34;</span>,
-          <span style="color:#ff79c6">&#34;align&#34;</span>: <span style="color:#f1fa8c">&#34;center&#34;</span>
-        }
-      }
-    ]
-  }
-}
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;data&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;layout&#34;</span>: [
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;616071dc-90b1-4ce5-8d18-492844828a41&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Image&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;altTextImg&#34;</span>: <span style="color:#f1fa8c">&#34;imgAltText&#34;</span>
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;image&#34;</span>: {
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;src&#34;</span>: {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;nb&#34;</span>: <span style="color:#f1fa8c">&#34;wwwroot/bilde_nb.png&#34;</span>
+</span></span><span style="display:flex;"><span>          },
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;width&#34;</span>: <span style="color:#f1fa8c">&#34;100%&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;align&#34;</span>: <span style="color:#f1fa8c">&#34;center&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
 
 <footer class=" footline" ></footer>
                 </div>

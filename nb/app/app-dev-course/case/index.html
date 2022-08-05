@@ -381,13 +381,13 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/metadata/"><span>Metadata</span></a></li>
       <li class="dd-item">
         <a href="/nb/api/apps/instances/"><span>Instanser</span></a></li>
       <li class="dd-item">
-        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/data-elements/tags/"><span>Tags</span></a></li></ul></li>
       <li class="dd-item">
@@ -441,9 +441,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/community/about/"><span>Om</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/community/about/goals/"><span>Mål</span></a></li>
+        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li>
       <li class="dd-item">
-        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li></ul></li>
+        <a href="/nb/community/about/goals/"><span>Mål</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/community/contributing/"><span>Bidra til utvikling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -684,7 +684,7 @@ I en første versjon er det tilstrekkelig at kun ett av disse språkene støttes
 <li>formatering av tekst</li>
 </ul>
 <p><a href="/app/app-dev-course/modul2/infoside_tilflyttere.pdf">Skisse på informasjonsside</a></p>
-<figure><a href="/app/app-dev-course/modul2/kommune-logo.png"><img src="/app/app-dev-course/modul2/kommune-logo.png" alt="&ldquo;Sogndal kommunevåpen&rdquo;" title="Et bilde av Sogndals kommunevåpen som kan benyttes i applikasjonen" /></a><figcaption><h4>Et bilde av Sogndals kommunevåpen som kan benyttes i applikasjonen</h4></figcaption></figure>
+<figure><a href="/app/app-dev-course/modul2/kommune-logo.png"><img src="/app/app-dev-course/modul2/kommune-logo.png" alt="&amp;ldquo;Sogndal kommunevåpen&amp;rdquo;" title="Et bilde av Sogndals kommunevåpen som kan benyttes i applikasjonen" /></a><figcaption><h4>Et bilde av Sogndals kommunevåpen som kan benyttes i applikasjonen</h4></figcaption></figure>
 
 		</div>
 	</div>
@@ -711,9 +711,9 @@ I en første versjon er det tilstrekkelig at kun ett av disse språkene støttes
 <ul>
 <li>Brukeren har ikke svart bekreftende på at skjemaet gjelder deres situasjon</li>
 <li>Bruker skal sendes til en side med følgende tekst:
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-md" data-lang="md">Dette skjemaet er ikke for deg.
-Se en oversikt over andre tilbud i kommunen her.
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-md" data-lang="md"><span style="display:flex;"><span>Dette skjemaet er ikke for deg.
+</span></span><span style="display:flex;"><span>Se en oversikt over andre tilbud i kommunen her.
+</span></span></code></pre></div></li>
 <li>Linje 2 i teksten skal være en hyperlenke som peker på <a href="https://www.sogndal.kommune.no/">https://www.sogndal.kommune.no/</a></li>
 <li>Det skal ikke være mulig å navigere til andre skjemasider etter denne.</li>
 </ul>
@@ -799,9 +799,9 @@ basert på hvilken sektor de har krysset av for.</p>
 			<p>Vi ønsker at dersom brukeren velger <code>IKT (data/it)</code> under bransje at det vises en tekst med en lenke til en av våre stillingsutlysninger.</p>
 <ul>
 <li>Under bransje-valget skal følgende tekst presenteres
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-md" data-lang="md">Vi ser at du besitter kompetanse vi trenger i kommunen.
-Se en oversikt over våre ledige stillinger her.
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-md" data-lang="md"><span style="display:flex;"><span>Vi ser at du besitter kompetanse vi trenger i kommunen.
+</span></span><span style="display:flex;"><span>Se en oversikt over våre ledige stillinger her.
+</span></span></code></pre></div></li>
 <li>Linje 2 i teksten skal være en hyperlenke som peker på <a href="https://sogndal.easycruit.com/index.html">https://sogndal.easycruit.com/index.html</a></li>
 </ul>
 <p>Tekst og lenke skal <strong>kun</strong> vises om man har valgt <code>IKT (data/it)</code> i alle andre tilfeller skal dette være skjult.</p>
@@ -842,13 +842,13 @@ og samtykker (indirekte) til dette ved å sende inn skjemaet.</p>
 </ul>
 <h3 id="tekster">Tekster</h3>
 <p>Vi ønsker at brukeren skal presenteres med følgende tekst før innsending</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-md" data-lang="md">Du er nå klar for å sende inn melding om tilflytting til Sogndal kommune.
-
-Ved å sende inn dette skjemaet samtykker du til at dataen du har fylt ut kan lagres og benyttes
-til å tilpasse kommunens tilbud til deg de neste 18 månedene.
-
-Før du sender inn vil vi anbefale å se over svarene dine. Du kan ikke endre svarene etter at du har sendt inn.
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-md" data-lang="md"><span style="display:flex;"><span>Du er nå klar for å sende inn melding om tilflytting til Sogndal kommune.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Ved å sende inn dette skjemaet samtykker du til at dataen du har fylt ut kan lagres og benyttes
+</span></span><span style="display:flex;"><span>til å tilpasse kommunens tilbud til deg de neste 18 månedene.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Før du sender inn vil vi anbefale å se over svarene dine. Du kan ikke endre svarene etter at du har sendt inn.
+</span></span></code></pre></div>
 		</div>
 	</div>
 </div>
@@ -896,8 +896,8 @@ Tidligere bosteder skal inneholde følgende felter:</p>
 			<p>Grunnet en personlig vendetta blant en av Sogndal-kommunes ansatte ønsker vi at om innflytter fyller inn
 postnummer <code>4619</code> som en av tidligere bosteder <strong>IKKE</strong> skal få lov til å flytte inn i Sogndal.</p>
 <p>Her ønsker vi at det skal dukke opp en feilmelding på det aktuelle feltet med følgende tekst:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-md" data-lang="md">Du er ikke velkommen til vår kommune. Beklager!
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-md" data-lang="md"><span style="display:flex;"><span>Du er ikke velkommen til vår kommune. Beklager!
+</span></span></code></pre></div>
 		</div>
 	</div>
 </div>

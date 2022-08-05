@@ -381,13 +381,13 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/metadata/"><span>Metadata</span></a></li>
       <li class="dd-item">
         <a href="/nb/api/apps/instances/"><span>Instanser</span></a></li>
       <li class="dd-item">
-        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/data-elements/tags/"><span>Tags</span></a></li></ul></li>
       <li class="dd-item">
@@ -441,9 +441,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/community/about/"><span>Om</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/community/about/goals/"><span>Mål</span></a></li>
+        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li>
       <li class="dd-item">
-        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li></ul></li>
+        <a href="/nb/community/about/goals/"><span>Mål</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/community/contributing/"><span>Bidra til utvikling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -566,64 +566,64 @@ if(host != "localhost")
 <p>De returnete persondataene kan brukes til å fylle ut andre felter i datamodellen.</p>
 <h3 id="personoppslag-eksempel">Personoppslag eksempel</h3>
 <p>Tjenesten kan benyttes fra alle &ldquo;handlers&rdquo; i logikk klassene i en app. Nedenfor har vi laget et eksempel som gjør oppslag i <code>ProcessDataWrite</code> metoden i <code>DataProcessingHandler</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;<span style="color:#8be9fd">bool</span>&gt; ProcessDataWrite(
-    Instance instance, Guid? dataId, <span style="color:#8be9fd">object</span> data)
-{
-    <span style="color:#ff79c6">if</span> (data <span style="color:#ff79c6">is</span> MessageV1 message)
-    {
-        Person person = <span style="color:#ff79c6">await</span> <span style="color:#bd93f9">_</span>personLookup.GetPerson(
-            message.Personnummer, 
-            message.Etternavn, 
-            CancellationToken.None);
-
-        message.Fornavn = person.FirstName;
-        <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">true</span>;
-    }
-
-    <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">false</span>;
-}
-</code></pre></div><p>For at dette skal fungere må vi gjøre et par andre endringer i <code>DataProcessingHandler</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C#" data-lang="C#"><span style="display:flex;"><span><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;<span style="color:#8be9fd">bool</span>&gt; ProcessDataWrite(
+</span></span><span style="display:flex;"><span>    Instance instance, Guid? dataId, <span style="color:#8be9fd">object</span> data)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> (data <span style="color:#ff79c6">is</span> MessageV1 message)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        Person person = <span style="color:#ff79c6">await</span> _personLookup.GetPerson(
+</span></span><span style="display:flex;"><span>            message.Personnummer, 
+</span></span><span style="display:flex;"><span>            message.Etternavn, 
+</span></span><span style="display:flex;"><span>            CancellationToken.None);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        message.Fornavn = person.FirstName;
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">true</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">false</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>For at dette skal fungere må vi gjøre et par andre endringer i <code>DataProcessingHandler</code>.</p>
 <p>Legg til et privat felt <code>_personLookup</code> for tjenesten og oppdater klassens konstruktør til å ta inn en instanse av tjenesten som input. Set det private feltet i konstruktøren.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#ff79c6">private</span> <span style="color:#ff79c6">readonly</span> IPersonLookup <span style="color:#bd93f9">_</span>personLookup;
-
-<span style="color:#ff79c6">public</span> DataProcessingHandler(IPersonLookup personLookup)
-{
-    <span style="color:#bd93f9">_</span>personLookup = personLookup;
-}
-</code></pre></div><p>Endringene i <code>DataProcessingHandler</code> konstruktøren medfører at man også må gjøre endringer i konstruktøren til <code>App</code> klassen. Legg til <code>IPersonLookup</code> som input parameter og bruk verdien som input i konstruktøren til <code>DataProcessingHandler</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#ff79c6">public</span> App(
-    ...
-    IText textService,
-<span style="display:block;width:100%;background-color:#3d3f4a">    IPersonLookup personLookup,
-</span>    IHttpContextAccessor httpContextAccessor) : <span style="color:#ff79c6">base</span>(...)
-{
-    <span style="color:#bd93f9">_l</span>ogger = logger;
-    <span style="color:#bd93f9">_</span>validationHandler = <span style="color:#ff79c6">new</span> ValidationHandler(httpContextAccessor);
-<span style="display:block;width:100%;background-color:#3d3f4a">    <span style="color:#bd93f9">_d</span>ataProcessingHandler = <span style="color:#ff79c6">new</span> DataProcessingHandler(personLookup);
-</span>    <span style="color:#bd93f9">_</span>instantiationHandler = <span style="color:#ff79c6">new</span> InstantiationHandler(profileService, registerService);
-    <span style="color:#bd93f9">_</span>pdfHandler = <span style="color:#ff79c6">new</span> PdfHandler();
-}
-</code></pre></div><h3 id="håndtering-av-feil">Håndtering av feil</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C#" data-lang="C#"><span style="display:flex;"><span><span style="color:#ff79c6">private</span> <span style="color:#ff79c6">readonly</span> IPersonLookup _personLookup;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">public</span> DataProcessingHandler(IPersonLookup personLookup)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    _personLookup = personLookup;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Endringene i <code>DataProcessingHandler</code> konstruktøren medfører at man også må gjøre endringer i konstruktøren til <code>App</code> klassen. Legg til <code>IPersonLookup</code> som input parameter og bruk verdien som input i konstruktøren til <code>DataProcessingHandler</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-C#" data-lang="C#"><span style="display:flex;"><span><span style="color:#ff79c6">public</span> App(
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>    IText textService,
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>    IPersonLookup personLookup,
+</span></span><span style="display:flex;"><span>    IHttpContextAccessor httpContextAccessor) : <span style="color:#ff79c6">base</span>(...)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    _logger = logger;
+</span></span><span style="display:flex;"><span>    _validationHandler = <span style="color:#ff79c6">new</span> ValidationHandler(httpContextAccessor);
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>    _dataProcessingHandler = <span style="color:#ff79c6">new</span> DataProcessingHandler(personLookup);
+</span></span><span style="display:flex;"><span>    _instantiationHandler = <span style="color:#ff79c6">new</span> InstantiationHandler(profileService, registerService);
+</span></span><span style="display:flex;"><span>    _pdfHandler = <span style="color:#ff79c6">new</span> PdfHandler();
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="håndtering-av-feil">Håndtering av feil</h3>
 <p>Uten flere endringer enn de som er beskrevet over, vil app backend begynne å svare med statuskode <code>429 - TooManyRequests</code> hvis brukeren har oppgitt feil data for mange ganger. Denne statuskoden er for øyeblikket ikke håndtert av frontend delen av app koden. Dette vil i utganspunktet resultere i &ldquo;ukjent feil&rdquo; som kan unngås ved å legge inn håndtering av exceptions. Det kan legges inn kode som fanger opp PlatformHttpException med en response med statuskode 429, men det er i dag ingen god innebygget mekanisme som kan brukes til å informere brukeren om hvorfor noe gikk galt. Det man eventuelt kan gjøre er å benytte et felt i datamodellen.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#ff79c6">try</span>
-{
-    ...
-    <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">true</span>;
-}
-<span style="color:#ff79c6">catch</span> (PlatformHttpException phex)
-{
-    <span style="color:#ff79c6">switch</span> (phex.Response.StatusCode)
-    {
-        <span style="color:#ff79c6">case</span> HttpStatusCode.TooManyRequests:
-            <span style="color:#6272a4">// Add corrective messures
-</span><span style="color:#6272a4"></span>            <span style="color:#ff79c6">break</span>;
-        <span style="color:#ff79c6">case</span> HttpStatusCode.NotFound:
-            <span style="color:#6272a4">// Add corrective messures
-</span><span style="color:#6272a4"></span>            <span style="color:#ff79c6">break</span>;
-    }
-    <span style="color:#ff79c6">throw</span>;
-}
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C#" data-lang="C#"><span style="display:flex;"><span><span style="color:#ff79c6">try</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">true</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">catch</span> (PlatformHttpException phex)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">switch</span> (phex.Response.StatusCode)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">case</span> HttpStatusCode.TooManyRequests:
+</span></span><span style="display:flex;"><span>            <span style="color:#6272a4">// Add corrective messures</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">break</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">case</span> HttpStatusCode.NotFound:
+</span></span><span style="display:flex;"><span>            <span style="color:#6272a4">// Add corrective messures</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">break</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">throw</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
 
 <footer class=" footline" ></footer>
                 </div>

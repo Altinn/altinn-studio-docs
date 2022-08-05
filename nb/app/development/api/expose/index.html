@@ -381,13 +381,13 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/metadata/"><span>Metadata</span></a></li>
       <li class="dd-item">
         <a href="/nb/api/apps/instances/"><span>Instanser</span></a></li>
       <li class="dd-item">
-        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/data-elements/tags/"><span>Tags</span></a></li></ul></li>
       <li class="dd-item">
@@ -441,9 +441,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/community/about/"><span>Om</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/community/about/goals/"><span>Mål</span></a></li>
+        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li>
       <li class="dd-item">
-        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li></ul></li>
+        <a href="/nb/community/about/goals/"><span>Mål</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/community/contributing/"><span>Bidra til utvikling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -567,24 +567,24 @@ Dette gir høy fleksibiltet til å endre og modifisere applikasjonene.</p>
 <p>For å kunne eksponere et nytt API i applikasjonen må det legges til en eller flere API kontrollere.</p>
 <p>Nedenfor vises et eksempel fra en API controller som er lagt til i en gitt app. 
 Her settes det opp hvilken path API skal lytte på og logikken.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#ff79c6">using</span> System;
-<span style="color:#ff79c6">using</span> System.Threading.Tasks;
-<span style="color:#ff79c6">using</span> Microsoft.AspNetCore.Mvc;
-
-<span style="color:#ff79c6">namespace</span> Altinn.App.Api.Controllers
-{
-<span style="color:#50fa7b">    [ApiController]</span>
-<span style="display:block;width:100%;background-color:#3d3f4a"><span style="color:#50fa7b">    [Route(&#34;{org}/{app}/CustomApi&#34;)]</span>
-</span>    <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">CustomApiController</span> : ControllerBase
-    {
-<span style="display:block;width:100%;background-color:#3d3f4a"><span style="color:#50fa7b">        [HttpGet(&#34;TimeInfo&#34;)]</span>
-</span>        <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;ActionResult&gt; Get()
-        {
-            <span style="color:#ff79c6">return</span> Ok(DateTime.Now);
-        }
-    }
-}
-</code></pre></div><figure><a href="apiresponse1.png"><img src="apiresponse1.png" alt="Test av API i nettleser" title="API respons" /></a><figcaption><h4>API respons</h4></figcaption></figure>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-C#" data-lang="C#"><span style="display:flex;"><span><span style="color:#ff79c6">using</span> System;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> System.Threading.Tasks;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> Microsoft.AspNetCore.Mvc;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">namespace</span> Altinn.App.Api.Controllers
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span><span style="color:#50fa7b">    [ApiController]</span>
+</span></span><span style="display:flex; background-color:#3d3f4a"><span><span style="color:#50fa7b">    [Route(&#34;{org}/{app}/CustomApi&#34;)]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">CustomApiController</span> : ControllerBase
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex; background-color:#3d3f4a"><span><span style="color:#50fa7b">        [HttpGet(&#34;TimeInfo&#34;)]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;ActionResult&gt; Get()
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">return</span> Ok(DateTime.Now);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><figure><a href="apiresponse1.png"><img src="apiresponse1.png" alt="Test av API i nettleser" title="API respons" /></a><figcaption><h4>API respons</h4></figcaption></figure>
 <p>Koden kan ses i <a href="https://altinn.studio/repos/ttd/mva/src/branch/master/App/controllers/CustomApiController.cs">dette repositoriet</a>.</p>
 <p>I dokumentasjonen til ASP.NET kan du lese flere detaljer om <a href="https://docs.microsoft.com/en-us/aspnet/core/web-api/">mulighetene for å eksponere API</a>.</p>
 

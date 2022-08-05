@@ -109,7 +109,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -209,7 +209,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -281,7 +281,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -1113,14 +1113,14 @@ if(host != "localhost")
 <p>These configurations cover where to read and store data for the general commands, 
 as well as setting up base addresses for both Platform Storage and the app owner to interact with.</p>
 <p>Below are the default values, further follows a description of each property.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#ff79c6">&#34;StorageBaseAddress&#34;</span>: <span style="color:#f1fa8c">&#34;https://platform.tt02.altinn.no/storage/api/v1&#34;</span>,
-  <span style="color:#ff79c6">&#34;AppBaseAddress&#34;</span>: <span style="color:#f1fa8c">&#34;https://{org}.apps.tt02.altinn.no&#34;</span>,
-  <span style="color:#ff79c6">&#34;StorageOutputFolder&#34;</span>: <span style="color:#f1fa8c">&#34;c:/storage/Output&#34;</span>,
-  <span style="color:#ff79c6">&#34;StorageInputFolder&#34;</span>: <span style="color:#f1fa8c">&#34;c:/storage/Input&#34;</span>,
-  <span style="color:#ff79c6">&#34;CommandDefinitionFile&#34;</span>: <span style="color:#f1fa8c">&#34;C:/storage/CommandDefs/Commands.json&#34;</span>
-}
-</code></pre></div><table>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;StorageBaseAddress&#34;</span>: <span style="color:#f1fa8c">&#34;https://platform.tt02.altinn.no/storage/api/v1&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;AppBaseAddress&#34;</span>: <span style="color:#f1fa8c">&#34;https://{org}.apps.tt02.altinn.no&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;StorageOutputFolder&#34;</span>: <span style="color:#f1fa8c">&#34;c:/storage/Output&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;StorageInputFolder&#34;</span>: <span style="color:#f1fa8c">&#34;c:/storage/Input&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;CommandDefinitionFile&#34;</span>: <span style="color:#f1fa8c">&#34;C:/storage/CommandDefs/Commands.json&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><table>
 <thead>
 <tr>
 <th>Name</th>
@@ -1159,14 +1159,14 @@ as well as enabling an automatic exchange into an Altinn Token before sending a 
 <p><a href="https://github.com/Altinn/altinn-apiclient-maskinporten">A closer description of the config values is available here.</a></p>
 <p>Your maskinporten setting should look something like the example below. 
 Note that <code>ExchangeToAltinnToken</code> is set to <code>true</code>, and the scopes that are required. for interacting with an app or the platform.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">  <span style="color:#f1fa8c">&#34;MaskinportenSettings&#34;</span>: {
-    <span style="color:#ff79c6">&#34;Environment&#34;</span>: <span style="color:#f1fa8c">&#34;ver2&#34;</span>,
-    <span style="color:#ff79c6">&#34;ClientId&#34;</span>: <span style="color:#f1fa8c">&#34;e15abbbc-36ad-4300-abe9-021c9a245e20&#34;</span>,
-    <span style="color:#ff79c6">&#34;Scope&#34;</span>: <span style="color:#f1fa8c">&#34;altinn:serviceowner altinn:serviceowner/instances.read altinn:serviceowner/instances.write&#34;</span>,
-    <span style="color:#ff79c6">&#34;EncodedJwk&#34;</span>: <span style="color:#f1fa8c">&#34;eyJwIjoiMms2RlZMRW9iVVY0dmpjRjRCVWNLOUhasdfasdfarhgawfN2YXE5eE95a3NyS1Q345435S19oNV45645635423545t45t54wrgsdfgsfdgsfd444aefasdf5NzdFcWhGTGtaSVAzSmhZTlA0MEZOc1EifQ==&#34;</span>,
-    <span style="color:#ff79c6">&#34;ExhangeToAltinnToken&#34;</span>: <span style="color:#ff79c6">true</span>
-  }
-</code></pre></div><h2 id="instantiation-configuration">Instantiation configuration</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>  <span style="color:#f1fa8c">&#34;MaskinportenSettings&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;Environment&#34;</span>: <span style="color:#f1fa8c">&#34;ver2&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;ClientId&#34;</span>: <span style="color:#f1fa8c">&#34;e15abbbc-36ad-4300-abe9-021c9a245e20&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;Scope&#34;</span>: <span style="color:#f1fa8c">&#34;altinn:serviceowner altinn:serviceowner/instances.read altinn:serviceowner/instances.write&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;EncodedJwk&#34;</span>: <span style="color:#f1fa8c">&#34;eyJwIjoiMms2RlZMRW9iVVY0dmpjRjRCVWNLOUhasdfasdfarhgawfN2YXE5eE95a3NyS1Q345435S19oNV45645635423545t45t54wrgsdfgsfdgsfd444aefasdf5NzdFcWhGTGtaSVAzSmhZTlA0MEZOc1EifQ==&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;ExhangeToAltinnToken&#34;</span>: <span style="color:#ff79c6">true</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><h2 id="instantiation-configuration">Instantiation configuration</h2>
 <p>The instantiation configuration is used by the batch command to identify folders to read/write from and to, 
 as well as to find the mappings for Altinn App entities such as applicationId and dataType.</p>
 <p>Below is a description of each property in the config, further follows an example of an instantiation configuration.</p>
@@ -1200,20 +1200,20 @@ as well as to find the mappings for Altinn App entities such as applicationId an
 </tr>
 </tbody>
 </table>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#f1fa8c">&#34;InstantiationConfig&#34;</span>: {
-    <span style="color:#ff79c6">&#34;InputFolder&#34;</span>: <span style="color:#f1fa8c">&#34;C:/altinn-batch/input&#34;</span>,
-    <span style="color:#ff79c6">&#34;OutputFolder&#34;</span>: <span style="color:#f1fa8c">&#34;C:/altinn-batch/output/&#34;</span>,
-    <span style="color:#ff79c6">&#34;ErrorFolder&#34;</span>: <span style="color:#f1fa8c">&#34;C:/altinn-batch/error/&#34;</span>,
-    <span style="color:#ff79c6">&#34;ApplicationIdLookup&#34;</span>: {
-      <span style="color:#ff79c6">&#34;5681&#34;</span>: <span style="color:#f1fa8c">&#34;ttd/apps-test&#34;</span>,
-      <span style="color:#ff79c6">&#34;1337&#34;</span>: <span style="color:#f1fa8c">&#34;ttd/apps-test-prod&#34;</span>,
-    },
-    <span style="color:#ff79c6">&#34;DataTypeLookup&#34;</span>: {
-      <span style="color:#ff79c6">&#34;6823&#34;</span>: <span style="color:#f1fa8c">&#34;default&#34;</span>,
-      <span style="color:#ff79c6">&#34;1337&#34;</span>: <span style="color:#f1fa8c">&#34;Kursdomene_BliTjenesteeier_M_2020-05-25_5703_34553_SERES&#34;</span>
-    }
-  }
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#f1fa8c">&#34;InstantiationConfig&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;InputFolder&#34;</span>: <span style="color:#f1fa8c">&#34;C:/altinn-batch/input&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;OutputFolder&#34;</span>: <span style="color:#f1fa8c">&#34;C:/altinn-batch/output/&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;ErrorFolder&#34;</span>: <span style="color:#f1fa8c">&#34;C:/altinn-batch/error/&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;ApplicationIdLookup&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;5681&#34;</span>: <span style="color:#f1fa8c">&#34;ttd/apps-test&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;1337&#34;</span>: <span style="color:#f1fa8c">&#34;ttd/apps-test-prod&#34;</span>,
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;DataTypeLookup&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;6823&#34;</span>: <span style="color:#f1fa8c">&#34;default&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;1337&#34;</span>: <span style="color:#f1fa8c">&#34;Kursdomene_BliTjenesteeier_M_2020-05-25_5703_34553_SERES&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div>
 
 <footer class=" footline" ></footer>
                 </div>

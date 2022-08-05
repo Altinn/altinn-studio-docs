@@ -117,7 +117,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -217,7 +217,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -297,7 +297,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -1118,21 +1118,21 @@ if(host != "localhost")
 <p>To override a value in this file you need do add it as a child to the <em>deployment</em> section in <em>deployment/values.yaml</em></p>
 <p>An example where initial scale is overridden.</p>
 <p>The values.yaml in the centralized chart defines <em>replicaCount</em> at the root as follows:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#ff79c6">replicaCount</span>: <span style="color:#bd93f9">2</span>
-...
-</code></pre></div><p>To override this in your <em>deployment/values.yaml</em> you add it as a child to the deployment section:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#ff79c6">deployment</span>:
-  <span style="color:#ff79c6">replicaCount</span>: <span style="color:#bd93f9">3</span>
-</code></pre></div><div class="notices warning" >
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ff79c6">replicaCount</span>: <span style="color:#bd93f9">2</span>
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><p>To override this in your <em>deployment/values.yaml</em> you add it as a child to the deployment section:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ff79c6">deployment</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">replicaCount</span>: <span style="color:#bd93f9">3</span>
+</span></span></code></pre></div><div class="notices warning" >
 Note the addition of "deployment:" and that the "replicaCount" is indented with two spaces (yaml-indents are spaces and not tab, your yaml will not be valid with tab indents!)
 </div>
 <h2 id="scale">Scale</h2>
 <h3 id="initial-scale">Initial scale</h3>
 <p>The initial scale is controlled by the field <code>replicaCount</code>. If autoscaling is enabled the autoscaler will override this value.
 Example where initial scale is set to 2:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#ff79c6">deployment</span>:
-  <span style="color:#ff79c6">replicaCount</span>: <span style="color:#bd93f9">2</span>
-</code></pre></div><h3 id="autoscaling-configuration">Autoscaling configuration</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ff79c6">deployment</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">replicaCount</span>: <span style="color:#bd93f9">2</span>
+</span></span></code></pre></div><h3 id="autoscaling-configuration">Autoscaling configuration</h3>
 <p>From version <a href="/community/changelog/deployment/v2">2.0.0</a> of the deployment helm-chart autoscaling is available and enabled by default.</p>
 <p>Autoscaling leverages <a href="https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/">Horizontal Pod Autoscaler</a> 
 to automatically scale your application based on CPU utilization.</p>
@@ -1142,18 +1142,18 @@ to automatically scale your application based on CPU utilization.</p>
 <li><em>autoscaling</em> when and how the autoscaling should happen</li>
 </ol>
 <p>Defaults if not overridden in <em>deployment/values.yaml</em></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#ff79c6">deployment</span>:
-  <span style="color:#ff79c6">autoscaling</span>:
-    <span style="color:#ff79c6">enabled</span>: <span style="color:#ff79c6">true</span>
-    <span style="color:#ff79c6">replicas</span>:
-      <span style="color:#ff79c6">min</span>: <span style="color:#bd93f9">2</span>
-      <span style="color:#ff79c6">max</span>: <span style="color:#bd93f9">10</span>
-    <span style="color:#ff79c6">avgCpuUtilization</span>: <span style="color:#bd93f9">70</span>
-    <span style="color:#ff79c6">behavior</span>:
-      <span style="color:#ff79c6">stabilizationWindowSeconds</span>:
-        <span style="color:#ff79c6">scaleUp</span>: <span style="color:#bd93f9">0</span>
-        <span style="color:#ff79c6">scaleDown</span>: <span style="color:#bd93f9">120</span>
-</code></pre></div><h4 id="deploymentautoscalingreplicas">deployment.autoscaling.replicas</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ff79c6">deployment</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">autoscaling</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">enabled</span>: <span style="color:#ff79c6">true</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">replicas</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">min</span>: <span style="color:#bd93f9">2</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">max</span>: <span style="color:#bd93f9">10</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">avgCpuUtilization</span>: <span style="color:#bd93f9">70</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">behavior</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">stabilizationWindowSeconds</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">scaleUp</span>: <span style="color:#bd93f9">0</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">scaleDown</span>: <span style="color:#bd93f9">120</span>
+</span></span></code></pre></div><h4 id="deploymentautoscalingreplicas">deployment.autoscaling.replicas</h4>
 <p><strong>min</strong>: The lowest number of pods the autoscaler is allowed to scale down to.
 <strong>max</strong>: The highest number of pods the autoscaler is allowed to scale up to.</p>
 <h4 id="deploymentautoscalingavgcpuutilization">deployment.autoscaling.avgCpuUtilization</h4>
@@ -1170,21 +1170,21 @@ Leave some resources that can handle the load while the extra capacity is provis
 <p>Setting good requests and limits you need to know the app well, e.g. what tasks is it meant to perform and how it does it. 
 We try to set sane defaults, but they might not be suited for your workloads.</p>
 <p>Defaults if not overridden in <em>deployment/values.yaml</em></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#ff79c6">deplyoment</span>:
-  <span style="color:#ff79c6">resources</span>:
-    <span style="color:#ff79c6">requests</span>:
-      <span style="color:#ff79c6">cpu</span>: 300m
-      <span style="color:#ff79c6">memory</span>: 256Mi
-</code></pre></div><p>All values available, the values are only provided as an example.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#ff79c6">deplyoment</span>:
-  <span style="color:#ff79c6">resources</span>:
-    <span style="color:#ff79c6">requests</span>:
-      <span style="color:#ff79c6">cpu</span>: 200m
-      <span style="color:#ff79c6">memory</span>: 256Mi
-    <span style="color:#ff79c6">limits</span>:
-      <span style="color:#ff79c6">cpu</span>: 1000m
-      <span style="color:#ff79c6">memory</span>: 512Mi
-</code></pre></div><h4 id="deploymentresourcesrequests">deployment.resources.requests</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ff79c6">deplyoment</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">resources</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">requests</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">cpu</span>: 300m
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">memory</span>: 256Mi
+</span></span></code></pre></div><p>All values available, the values are only provided as an example.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ff79c6">deplyoment</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">resources</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">requests</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">cpu</span>: 200m
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">memory</span>: 256Mi
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">limits</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">cpu</span>: 1000m
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">memory</span>: 512Mi
+</span></span></code></pre></div><h4 id="deploymentresourcesrequests">deployment.resources.requests</h4>
 <p>This section in the yaml defines the resources that will be reserved by the kubelet for each pod of the app.</p>
 <p>Requests are used when the kubernetes scheduler decides what node the pod should run on. This will limit the number of pods that can run on a node.</p>
 <p>Requests are also used by the Horizontal Pod Autoscaler to determine if the app should scale up or down.</p>
@@ -1200,38 +1200,38 @@ We try to set sane defaults, but they might not be suited for your workloads.</p
 <h2 id="linkerd">Linkerd</h2>
 <p>By default all services are add to the Linkerd service mesh.</p>
 <p>We strongly recommend not changing this setting as it add mutual TLS and other security features to all communication between services in the cluster.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#ff79c6">deployment</span>:
-...
-  <span style="color:#ff79c6">linkerd</span>:
-    <span style="color:#ff79c6">enabled</span>: <span style="color:#ff79c6">true</span>
-...
-</code></pre></div><h2 id="volumes-and-volumemounts">Volumes and VolumeMounts</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ff79c6">deployment</span>:
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">linkerd</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">enabled</span>: <span style="color:#ff79c6">true</span>
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><h2 id="volumes-and-volumemounts">Volumes and VolumeMounts</h2>
 <p>This section defines volumes mounted into folders available to the application.
 There are some default mounts the default functionality needs to communicate with Altinn Platform.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#ff79c6">deployment</span>:
-...
-  <span style="color:#ff79c6">volumes</span>:
-    - <span style="color:#ff79c6">name </span>: datakeys
-      <span style="color:#ff79c6">persistentVolumeClaim</span>:
-        <span style="color:#ff79c6">claimName</span>: keys
-    - <span style="color:#ff79c6">name</span>: accesstoken
-      <span style="color:#ff79c6">secret</span>:
-        <span style="color:#ff79c6">secretName</span>: accesstoken
-</code></pre></div><p>At the time of writing there is one case for adding other Volumes: <a href="../secrets">Secrets loaded from Azure Key Vault</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ff79c6">deployment</span>:
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">volumes</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#ff79c6">name </span>: datakeys
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">persistentVolumeClaim</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">claimName</span>: keys
+</span></span><span style="display:flex;"><span>    - <span style="color:#ff79c6">name</span>: accesstoken
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">secret</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">secretName</span>: accesstoken
+</span></span></code></pre></div><p>At the time of writing there is one case for adding other Volumes: <a href="../secrets">Secrets loaded from Azure Key Vault</a></p>
 <h2 id="service">Service</h2>
 <p>In the service definition you can change the port forwarding rules to your application, most likely this is something you do not need to change.</p>
 <p>If your application runs on a different port than 5005, set deployment.service.internalPort to the port your app is running on.</p>
 <p>Defaults are:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#ff79c6">deployment</span>:
-...
-  <span style="color:#ff79c6">service</span>:
-    <span style="color:#ff79c6">name</span>: deployment
-    <span style="color:#ff79c6">type</span>: ClusterIP
-    <span style="color:#ff79c6">externalPort</span>: <span style="color:#bd93f9">80</span>
-    <span style="color:#6272a4">## If your application is running on another port, change only the internal port.</span>
-<span style="display:block;width:100%;background-color:#3d3f4a">    <span style="color:#ff79c6">internalPort</span>: <span style="color:#bd93f9">5005</span>
-</span>...
-</code></pre></div><h2 id="sections-overridden-at-deploytime">Sections overridden at deploytime</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ff79c6">deployment</span>:
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">service</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">name</span>: deployment
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">type</span>: ClusterIP
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">externalPort</span>: <span style="color:#bd93f9">80</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">## If your application is running on another port, change only the internal port.</span>
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>    <span style="color:#ff79c6">internalPort</span>: <span style="color:#bd93f9">5005</span>
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><h2 id="sections-overridden-at-deploytime">Sections overridden at deploytime</h2>
 <ul>
 <li>image</li>
 <li>ingressRoute</li>

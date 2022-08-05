@@ -117,7 +117,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -217,7 +217,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -297,7 +297,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -1153,7 +1153,7 @@ Someone in the municipality has created a sketch of the informationpage.</p>
 <li>Formating of text</li>
 </ul>
 <p><a href="/app/app-dev-course/modul2/infoside_tilflyttere.pdf">Sketch of information page</a></p>
-<figure><a href="/app/app-dev-course/modul2/kommune-logo.png"><img src="/app/app-dev-course/modul2/kommune-logo.png" alt="&ldquo;Sogndal coats of arms&rdquo;" title="A picture of the coats of arms of Sogndal that may be used in the application." /></a><figcaption><h4>A picture of the coats of arms of Sogndal that may be used in the application.</h4></figcaption></figure>
+<figure><a href="/app/app-dev-course/modul2/kommune-logo.png"><img src="/app/app-dev-course/modul2/kommune-logo.png" alt="&amp;ldquo;Sogndal coats of arms&amp;rdquo;" title="A picture of the coats of arms of Sogndal that may be used in the application." /></a><figcaption><h4>A picture of the coats of arms of Sogndal that may be used in the application.</h4></figcaption></figure>
 <h3 id="useful-docmentation">Useful docmentation</h3>
 <ul>
 <li><a href="/app/development/ux/texts/#formatting-of-texts">Formatting of texts</a></li>
@@ -1278,68 +1278,68 @@ For information about other offers in the municipality click here.
 <li><a href="../../../api/models/instance/#instanceowner">Description of the InstanceOwner object</a></li>
 </ul>
 <h3 id="help-with-code-calculating-age-from-social-security-number">Help with code: Calculating age from social security number</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">private</span> <span style="color:#ff79c6">static</span> <span style="color:#8be9fd">int</span> CalculateAge(<span style="color:#8be9fd">string</span> sosialSecNumber)
-{
-    <span style="color:#8be9fd">int</span> MAX_D_NUMBER = <span style="color:#bd93f9">71</span>;
-    <span style="color:#8be9fd">int</span> MIN_D_NUMBER = <span style="color:#bd93f9">41</span>;
-    <span style="color:#8be9fd">int</span> MAX_TEST_NUMBER = <span style="color:#bd93f9">92</span>;
-    <span style="color:#8be9fd">int</span> MIN_TEST_NUMBER = <span style="color:#bd93f9">81</span>;
-    <span style="color:#8be9fd">int</span> START_D_NUMBER = <span style="color:#bd93f9">40</span>;
-    <span style="color:#8be9fd">int</span> START_TEST_NUMBER = <span style="color:#bd93f9">80</span>;
-    <span style="color:#8be9fd">string</span> stringDay = sosialSecNumber.Substring(<span style="color:#bd93f9">0</span>, <span style="color:#bd93f9">2</span>);
-    <span style="color:#8be9fd">string</span> stringMonth = sosialSecNumber.Substring(<span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">2</span>);
-    <span style="color:#8be9fd">string</span> stringYear = sosialSecNumber.Substring(<span style="color:#bd93f9">4</span>, <span style="color:#bd93f9">2</span>);
-    <span style="color:#8be9fd">string</span> stringIndivid = sosialSecNumber.Substring(<span style="color:#bd93f9">6</span>, <span style="color:#bd93f9">3</span>);
-    <span style="color:#8be9fd">int</span> day = <span style="color:#8be9fd">int</span>.Parse(stringDay);
-    <span style="color:#8be9fd">int</span> month = <span style="color:#8be9fd">int</span>.Parse(stringMonth);
-    <span style="color:#8be9fd">int</span> year = <span style="color:#8be9fd">int</span>.Parse(stringYear);
-    <span style="color:#8be9fd">int</span> individ = <span style="color:#8be9fd">int</span>.Parse(stringIndivid);
-    <span style="color:#6272a4">// Get day if D-number
-</span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">if</span> (MAX_D_NUMBER &gt;= day &amp;&amp; MIN_D_NUMBER &lt;= day)
-    {
-        day -= START_D_NUMBER;
-    }
-    <span style="color:#6272a4">// Get month if TestUser-number
-</span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">if</span> (MAX_TEST_NUMBER &gt;= month &amp;&amp; MIN_TEST_NUMBER &lt;= month)
-    {
-        month -= START_TEST_NUMBER;
-    }
-    <span style="color:#6272a4">// find century
-</span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">if</span> (year &gt; <span style="color:#bd93f9">54</span> &amp;&amp; (individ &gt;= <span style="color:#bd93f9">500</span> &amp;&amp; individ &lt; <span style="color:#bd93f9">750</span>))
-    {
-        <span style="color:#6272a4">// 1855-1899
-</span><span style="color:#6272a4"></span>        year += <span style="color:#bd93f9">1800</span>;
-    }
-    <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">if</span> (year &gt; <span style="color:#bd93f9">39</span> &amp;&amp; (individ &gt;= <span style="color:#bd93f9">900</span> &amp;&amp; individ &lt; <span style="color:#bd93f9">1000</span>))
-    {
-        <span style="color:#6272a4">// 1940-1999
-</span><span style="color:#6272a4"></span>        year += <span style="color:#bd93f9">1900</span>;
-    }
-    <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">if</span> (year &lt; <span style="color:#bd93f9">40</span> &amp;&amp; (individ &gt;= <span style="color:#bd93f9">500</span> &amp;&amp; individ &lt; <span style="color:#bd93f9">1000</span>))
-    {
-        <span style="color:#6272a4">// 2000-2039
-</span><span style="color:#6272a4"></span>        year += <span style="color:#bd93f9">2000</span>;
-    }
-    <span style="color:#ff79c6">else</span>
-    {
-        year += <span style="color:#bd93f9">1900</span>;
-    }
-    <span style="color:#6272a4">// calculate age
-</span><span style="color:#6272a4"></span>    <span style="color:#8be9fd">int</span> age = DateTime.Now.Year - year;
-    <span style="color:#ff79c6">if</span> (DateTime.Now.Month &lt; month)
-    {
-        age -= <span style="color:#bd93f9">1</span>;
-    }
-    <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">if</span> (DateTime.Now.Month == month)
-    {
-        <span style="color:#ff79c6">if</span> (DateTime.Now.Day &lt; day)
-        {
-            age -= <span style="color:#bd93f9">1</span>;
-        }
-    }
-    <span style="color:#ff79c6">return</span> age;
-}
-</code></pre></div><h3 id="comprehension-check">Comprehension check</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#ff79c6">private</span> <span style="color:#ff79c6">static</span> <span style="color:#8be9fd">int</span> CalculateAge(<span style="color:#8be9fd">string</span> sosialSecNumber)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">int</span> MAX_D_NUMBER = <span style="color:#bd93f9">71</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">int</span> MIN_D_NUMBER = <span style="color:#bd93f9">41</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">int</span> MAX_TEST_NUMBER = <span style="color:#bd93f9">92</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">int</span> MIN_TEST_NUMBER = <span style="color:#bd93f9">81</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">int</span> START_D_NUMBER = <span style="color:#bd93f9">40</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">int</span> START_TEST_NUMBER = <span style="color:#bd93f9">80</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">string</span> stringDay = sosialSecNumber.Substring(<span style="color:#bd93f9">0</span>, <span style="color:#bd93f9">2</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">string</span> stringMonth = sosialSecNumber.Substring(<span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">2</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">string</span> stringYear = sosialSecNumber.Substring(<span style="color:#bd93f9">4</span>, <span style="color:#bd93f9">2</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">string</span> stringIndivid = sosialSecNumber.Substring(<span style="color:#bd93f9">6</span>, <span style="color:#bd93f9">3</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">int</span> day = <span style="color:#8be9fd">int</span>.Parse(stringDay);
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">int</span> month = <span style="color:#8be9fd">int</span>.Parse(stringMonth);
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">int</span> year = <span style="color:#8be9fd">int</span>.Parse(stringYear);
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">int</span> individ = <span style="color:#8be9fd">int</span>.Parse(stringIndivid);
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// Get day if D-number</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> (MAX_D_NUMBER &gt;= day &amp;&amp; MIN_D_NUMBER &lt;= day)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        day -= START_D_NUMBER;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// Get month if TestUser-number</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> (MAX_TEST_NUMBER &gt;= month &amp;&amp; MIN_TEST_NUMBER &lt;= month)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        month -= START_TEST_NUMBER;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// find century</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> (year &gt; <span style="color:#bd93f9">54</span> &amp;&amp; (individ &gt;= <span style="color:#bd93f9">500</span> &amp;&amp; individ &lt; <span style="color:#bd93f9">750</span>))
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">// 1855-1899</span>
+</span></span><span style="display:flex;"><span>        year += <span style="color:#bd93f9">1800</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">if</span> (year &gt; <span style="color:#bd93f9">39</span> &amp;&amp; (individ &gt;= <span style="color:#bd93f9">900</span> &amp;&amp; individ &lt; <span style="color:#bd93f9">1000</span>))
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">// 1940-1999</span>
+</span></span><span style="display:flex;"><span>        year += <span style="color:#bd93f9">1900</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">if</span> (year &lt; <span style="color:#bd93f9">40</span> &amp;&amp; (individ &gt;= <span style="color:#bd93f9">500</span> &amp;&amp; individ &lt; <span style="color:#bd93f9">1000</span>))
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">// 2000-2039</span>
+</span></span><span style="display:flex;"><span>        year += <span style="color:#bd93f9">2000</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">else</span>
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        year += <span style="color:#bd93f9">1900</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// calculate age</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">int</span> age = DateTime.Now.Year - year;
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> (DateTime.Now.Month &lt; month)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        age -= <span style="color:#bd93f9">1</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">if</span> (DateTime.Now.Month == month)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">if</span> (DateTime.Now.Day &lt; day)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            age -= <span style="color:#bd93f9">1</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> age;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="comprehension-check">Comprehension check</h3>
 <ul>
 <li>Is it possible to change a prefilled value once it is set?</li>
 <li>How can you prevent a user from changing a prefilled value?</li>

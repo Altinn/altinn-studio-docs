@@ -381,13 +381,13 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/metadata/"><span>Metadata</span></a></li>
       <li class="dd-item">
         <a href="/nb/api/apps/instances/"><span>Instanser</span></a></li>
       <li class="dd-item">
-        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/data-elements/tags/"><span>Tags</span></a></li></ul></li>
       <li class="dd-item">
@@ -441,9 +441,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/community/about/"><span>Om</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/community/about/goals/"><span>Mål</span></a></li>
+        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li>
       <li class="dd-item">
-        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li></ul></li>
+        <a href="/nb/community/about/goals/"><span>Mål</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/community/contributing/"><span>Bidra til utvikling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -571,23 +571,23 @@ if(host != "localhost")
 </nav><h2 id="overview">Overview</h2>
 <p>A data element consist of two parts: its metadata document and the actual data blob. This API work primarily with the blob while keeping the metadata document updated.</p>
 <p><strong>basePath</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">{org}/{appname}/instances/{instanceOwnerPartyId}/{instanceGuid}/data
-</code></pre></div><h2 id="get-data">Get data</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>{org}/{appname}/instances/{instanceOwnerPartyId}/{instanceGuid}/data
+</span></span></code></pre></div><h2 id="get-data">Get data</h2>
 <p>Endpoint for downloading the data blob.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET basePath/{dataGuid}
-Accept: application/{xml/json}
-</code></pre></div><p>The response will depend on the type of blob. There are currently 2 primary types: form data based on a model and attachments. An Accept header in a request will be considered only when the requested data element is connected to a data model. The header is then used to pick a serializer for the data.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>GET basePath/{dataGuid}
+</span></span><span style="display:flex;"><span>Accept: application/{xml/json}
+</span></span></code></pre></div><p>The response will depend on the type of blob. There are currently 2 primary types: form data based on a model and attachments. An Accept header in a request will be considered only when the requested data element is connected to a data model. The header is then used to pick a serializer for the data.</p>
 <h3 id="response-with-form-data">Response with form data</h3>
 <p>A response with form data will either be a json or xml serialized version of the data model depending on the <strong>Accept</strong> header in the request. The value <strong>application/xml</strong> will result in an XML document and the value <strong>application/json</strong> will result inn a JSON document.</p>
 <h3 id="response-with-attachment">Response with attachment</h3>
 <p>A response with a file attachment will be a file stream. Content-Type will be the same as the original value given when the file was uploaded. The same is true for the file name.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">Content-Disposition: attachment; filename=cute_cat.png; filename*=UTF-8&#39;&#39;cute_cat.png
-Content-Length: 16994
-Content-Type: image/png
-</code></pre></div><h2 id="upload-data">Upload data</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>Content-Disposition: attachment; filename=cute_cat.png; filename*=UTF-8&#39;&#39;cute_cat.png
+</span></span><span style="display:flex;"><span>Content-Length: 16994
+</span></span><span style="display:flex;"><span>Content-Type: image/png
+</span></span></code></pre></div><h2 id="upload-data">Upload data</h2>
 <p>Endpoint for uploading a new data element on a specific instance.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">POST basePath?dataType={data type name}
-</code></pre></div><p>The <strong>dataType</strong> parameter is required and should reference one of the <a href="../../models/app-metadata/#datatype">data types defined on the application</a>. Data types with an <strong>appLogic</strong> property are linked to a form and will have data validation and calculation rules associated with them. Data types without an <strong>appLogic</strong> property will be handeled as an attachment and streamed directly to storage.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>POST basePath?dataType={data type name}
+</span></span></code></pre></div><p>The <strong>dataType</strong> parameter is required and should reference one of the <a href="../../models/app-metadata/#datatype">data types defined on the application</a>. Data types with an <strong>appLogic</strong> property are linked to a form and will have data validation and calculation rules associated with them. Data types without an <strong>appLogic</strong> property will be handeled as an attachment and streamed directly to storage.</p>
 <p>Request Content-Type is handled a little differently between the two cases:</p>
 <ol>
 <li>If a request is uploading form data, the Content-Type is used by Altinn to deserialize the request into a strongly typed object. A request must either be <strong>application/json</strong> or <strong>application/xml</strong>. No other Content-Types are supported. Content-Type is <strong>not</strong> validated against allowed Content-Types on the data type.</li>
@@ -605,69 +605,68 @@ Content-Type: image/png
 </li>
 </ol>
 <h3 id="uploading-form-data-as-applicationjson">Uploading form data as application/json</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">Content-Type: application/json
-
-{
-    <span style="color:#ff79c6">&#34;dataFormatProvider&#34;</span>: <span style="color:#f1fa8c">&#34;SERES&#34;</span>,
-    <span style="color:#ff79c6">&#34;dataFormatId&#34;</span>: <span style="color:#f1fa8c">&#34;5703&#34;</span>,
-    <span style="color:#ff79c6">&#34;dataFormatVersion&#34;</span>: <span style="color:#f1fa8c">&#34;34553&#34;</span>,
-    <span style="color:#ff79c6">&#34;Tjenesteeier&#34;</span>: <span style="color:#ff79c6">null</span>,
-    <span style="color:#ff79c6">&#34;Kontaktperson&#34;</span>: {
-        <span style="color:#ff79c6">&#34;navn&#34;</span>: <span style="color:#f1fa8c">&#34;Sophie Salt&#34;</span>,
-        <span style="color:#ff79c6">&#34;epost&#34;</span>: <span style="color:#f1fa8c">&#34;1337@altinnstudiotestusers.com&#34;</span>,
-        <span style="color:#ff79c6">&#34;telefonnummer&#34;</span>: <span style="color:#f1fa8c">&#34;90001337&#34;</span>
-    },
-    <span style="color:#ff79c6">&#34;OEnsketBruk&#34;</span>: <span style="color:#ff79c6">null</span>
-}
-
-</code></pre></div><h3 id="uploading-form-data-as-applicationxml">Uploading form data as application/xml</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">Content-Type: application/xml
-
-<span style="color:#ff79c6">&lt;BliTjenesteeier_M</span> <span style="color:#50fa7b">xmlns:xsi=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span> <span style="color:#50fa7b">xmlns:xsd=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema&#34;</span> <span style="color:#50fa7b">dataFormatProvider=</span><span style="color:#f1fa8c">&#34;SERES&#34;</span> <span style="color:#50fa7b">dataFormatId=</span><span style="color:#f1fa8c">&#34;5703&#34;</span> <span style="color:#50fa7b">dataFormatVersion=</span><span style="color:#f1fa8c">&#34;34553&#34;</span><span style="color:#ff79c6">&gt;</span>
-    <span style="color:#ff79c6">&lt;Kontaktperson&gt;</span>
-        <span style="color:#ff79c6">&lt;navn&gt;</span>Sophie Salt<span style="color:#ff79c6">&lt;/navn&gt;</span>
-        <span style="color:#ff79c6">&lt;epost&gt;</span>1337@altinnstudiotestusers.com<span style="color:#ff79c6">&lt;/epost&gt;</span>
-        <span style="color:#ff79c6">&lt;telefonnummer&gt;</span>90001337<span style="color:#ff79c6">&lt;/telefonnummer&gt;</span>
-    <span style="color:#ff79c6">&lt;/Kontaktperson&gt;</span>
-<span style="color:#ff79c6">&lt;/BliTjenesteeier_M&gt;</span>
-</code></pre></div><h3 id="uploading-an-attachment">Uploading an attachment</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>Content-Type: application/json
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;dataFormatProvider&#34;</span>: <span style="color:#f1fa8c">&#34;SERES&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;dataFormatId&#34;</span>: <span style="color:#f1fa8c">&#34;5703&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;dataFormatVersion&#34;</span>: <span style="color:#f1fa8c">&#34;34553&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;Tjenesteeier&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;Kontaktperson&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;navn&#34;</span>: <span style="color:#f1fa8c">&#34;Sophie Salt&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;epost&#34;</span>: <span style="color:#f1fa8c">&#34;1337@altinnstudiotestusers.com&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;telefonnummer&#34;</span>: <span style="color:#f1fa8c">&#34;90001337&#34;</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;OEnsketBruk&#34;</span>: <span style="color:#ff79c6">null</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="uploading-form-data-as-applicationxml">Uploading form data as application/xml</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>Content-Type: application/xml
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&lt;BliTjenesteeier_M</span> <span style="color:#50fa7b">xmlns:xsi=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span> <span style="color:#50fa7b">xmlns:xsd=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema&#34;</span> <span style="color:#50fa7b">dataFormatProvider=</span><span style="color:#f1fa8c">&#34;SERES&#34;</span> <span style="color:#50fa7b">dataFormatId=</span><span style="color:#f1fa8c">&#34;5703&#34;</span> <span style="color:#50fa7b">dataFormatVersion=</span><span style="color:#f1fa8c">&#34;34553&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;Kontaktperson&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;navn&gt;</span>Sophie Salt<span style="color:#ff79c6">&lt;/navn&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;epost&gt;</span>1337@altinnstudiotestusers.com<span style="color:#ff79c6">&lt;/epost&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;telefonnummer&gt;</span>90001337<span style="color:#ff79c6">&lt;/telefonnummer&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;/Kontaktperson&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&lt;/BliTjenesteeier_M&gt;</span>
+</span></span></code></pre></div><h3 id="uploading-an-attachment">Uploading an attachment</h3>
 <p>An example of a request uploading a PDF file.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">Content-Type: application/pdf
-Content-Disposition: attachment; filename=&#34;receipt.pdf&#34;; filename*=UTF-8&#39;&#39;receipt.pdf
-Content-Length: 16994
-
-%PDF-1.4
-%Óëéá
-1 0 obj
-...
-</code></pre></div><h3 id="response-example">Response example</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>Content-Type: application/pdf
+</span></span><span style="display:flex;"><span>Content-Disposition: attachment; filename=&#34;receipt.pdf&#34;; filename*=UTF-8&#39;&#39;receipt.pdf
+</span></span><span style="display:flex;"><span>Content-Length: 16994
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>%PDF-1.4
+</span></span><span style="display:flex;"><span>%Óëéá
+</span></span><span style="display:flex;"><span>1 0 obj
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><h3 id="response-example">Response example</h3>
 <p>The endpoint returns the data element metadata document that was created.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;692ee7df-82a9-4bba-b2f2-c8c4dac69aff&#34;</span>,
-    <span style="color:#ff79c6">&#34;instanceGuid&#34;</span>: <span style="color:#f1fa8c">&#34;762011d1-d341-4c0a-8641-d8a104e83d30&#34;</span>,
-    <span style="color:#ff79c6">&#34;dataType&#34;</span>: <span style="color:#f1fa8c">&#34;default&#34;</span>,
-    <span style="color:#ff79c6">&#34;contentType&#34;</span>: <span style="color:#f1fa8c">&#34;application/xml&#34;</span>,
-    <span style="color:#ff79c6">&#34;blobStoragePath&#34;</span>: <span style="color:#f1fa8c">&#34;org/app/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&#34;</span>,
-    <span style="color:#ff79c6">&#34;selfLinks&#34;</span>: {
-        <span style="color:#ff79c6">&#34;apps&#34;</span>: <span style="color:#f1fa8c">&#34;{appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&#34;</span>,
-        <span style="color:#ff79c6">&#34;platform&#34;</span>: <span style="color:#f1fa8c">&#34;{storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&#34;</span>
-    },
-    <span style="color:#ff79c6">&#34;filename&#34;</span>: <span style="color:#f1fa8c">&#34;default.xml&#34;</span>,
-    <span style="color:#ff79c6">&#34;created&#34;</span>: <span style="color:#f1fa8c">&#34;2019-03-06T15:00:23Z&#34;</span>,
-    <span style="color:#ff79c6">&#34;createdBy&#34;</span>: <span style="color:#f1fa8c">&#34;org23&#34;</span>,
-    <span style="color:#ff79c6">&#34;lastChanged&#34;</span>: <span style="color:#f1fa8c">&#34;2019-03-07T15:00:23Z&#34;</span>,
-    <span style="color:#ff79c6">&#34;lastChangedBy&#34;</span>: <span style="color:#f1fa8c">&#34;org23&#34;</span>,
-    <span style="color:#ff79c6">&#34;size&#34;</span>: <span style="color:#bd93f9">20001</span>,
-    <span style="color:#ff79c6">&#34;locked&#34;</span>: <span style="color:#ff79c6">false</span>
-}
-</code></pre></div><h2 id="replace-data">Replace data</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;692ee7df-82a9-4bba-b2f2-c8c4dac69aff&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;instanceGuid&#34;</span>: <span style="color:#f1fa8c">&#34;762011d1-d341-4c0a-8641-d8a104e83d30&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;dataType&#34;</span>: <span style="color:#f1fa8c">&#34;default&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;contentType&#34;</span>: <span style="color:#f1fa8c">&#34;application/xml&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;blobStoragePath&#34;</span>: <span style="color:#f1fa8c">&#34;org/app/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;selfLinks&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;apps&#34;</span>: <span style="color:#f1fa8c">&#34;{appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;platform&#34;</span>: <span style="color:#f1fa8c">&#34;{storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&#34;</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;filename&#34;</span>: <span style="color:#f1fa8c">&#34;default.xml&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;created&#34;</span>: <span style="color:#f1fa8c">&#34;2019-03-06T15:00:23Z&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;createdBy&#34;</span>: <span style="color:#f1fa8c">&#34;org23&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;lastChanged&#34;</span>: <span style="color:#f1fa8c">&#34;2019-03-07T15:00:23Z&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;lastChangedBy&#34;</span>: <span style="color:#f1fa8c">&#34;org23&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;size&#34;</span>: <span style="color:#bd93f9">20001</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;locked&#34;</span>: <span style="color:#ff79c6">false</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="replace-data">Replace data</h2>
 <p>Endpoint for replacing the content of an existing data element with new data. The new data must match the data type of the data element it is replacing.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">PUT basePath/{dataGuid}
-</code></pre></div><p>The endpoint works exactly like the endpoint for uploading a new data element.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>PUT basePath/{dataGuid}
+</span></span></code></pre></div><p>The endpoint works exactly like the endpoint for uploading a new data element.</p>
 <h2 id="delete-data">Delete data</h2>
 <p>Endpoint for deleting an existing data element. It is currently not possible to delete the data for a form this way.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">DELETE basePath/{dataGuid}
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>DELETE basePath/{dataGuid}
+</span></span></code></pre></div>
 
 <footer class=" footline" ></footer>
                 </div>

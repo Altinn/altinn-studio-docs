@@ -381,13 +381,13 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/metadata/"><span>Metadata</span></a></li>
       <li class="dd-item">
         <a href="/nb/api/apps/instances/"><span>Instanser</span></a></li>
       <li class="dd-item">
-        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/data-elements/tags/"><span>Tags</span></a></li></ul></li>
       <li class="dd-item">
@@ -441,9 +441,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/community/about/"><span>Om</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/community/about/goals/"><span>Mål</span></a></li>
+        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li>
       <li class="dd-item">
-        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li></ul></li>
+        <a href="/nb/community/about/goals/"><span>Mål</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/community/contributing/"><span>Bidra til utvikling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -571,27 +571,27 @@ if(host != "localhost")
 <li>textService</li>
 </ul>
 <p>Your App constructor should then look something like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"> <span style="color:#ff79c6">public</span> App(
-            IAppResources appResourcesService,
-            ILogger&lt;App&gt; logger,
-            IData dataService,
-            IProcess processService,
-            IPdfService pdfService,
-            IProfile profileService,
-            IRegister registerService,
-            IPrefill prefillService,
-            IInstance instanceService,
-            IOptions&lt;GeneralSettings&gt; settings,
-            IText textService,
-            IHttpContextAccessor httpContextAccessor) : <span style="color:#ff79c6">base</span>(
-                appResourcesService,
-                logger,
-                dataService,
-                pdfService,
-                prefillService,
-                instanceService,
-                httpContextAccessor)
-</code></pre></div><p>It might be that you don&rsquo;t use any of the removed services in you app code either, then you should remove those from the App constructor as well.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span> <span style="color:#ff79c6">public</span> App(
+</span></span><span style="display:flex;"><span>            IAppResources appResourcesService,
+</span></span><span style="display:flex;"><span>            ILogger&lt;App&gt; logger,
+</span></span><span style="display:flex;"><span>            IData dataService,
+</span></span><span style="display:flex;"><span>            IProcess processService,
+</span></span><span style="display:flex;"><span>            IPdfService pdfService,
+</span></span><span style="display:flex;"><span>            IProfile profileService,
+</span></span><span style="display:flex;"><span>            IRegister registerService,
+</span></span><span style="display:flex;"><span>            IPrefill prefillService,
+</span></span><span style="display:flex;"><span>            IInstance instanceService,
+</span></span><span style="display:flex;"><span>            IOptions&lt;GeneralSettings&gt; settings,
+</span></span><span style="display:flex;"><span>            IText textService,
+</span></span><span style="display:flex;"><span>            IHttpContextAccessor httpContextAccessor) : <span style="color:#ff79c6">base</span>(
+</span></span><span style="display:flex;"><span>                appResourcesService,
+</span></span><span style="display:flex;"><span>                logger,
+</span></span><span style="display:flex;"><span>                dataService,
+</span></span><span style="display:flex;"><span>                pdfService,
+</span></span><span style="display:flex;"><span>                prefillService,
+</span></span><span style="display:flex;"><span>                instanceService,
+</span></span><span style="display:flex;"><span>                httpContextAccessor)
+</span></span></code></pre></div><p>It might be that you don&rsquo;t use any of the removed services in you app code either, then you should remove those from the App constructor as well.</p>
 <p>If you have implemented custom code to control Pdf generation, and depending on how you have done this, you have a couple options when it comes to what you need to do to resolve the breaking change. However the end result should be the same.</p>
 <ol>
 <li>
@@ -602,39 +602,39 @@ This is when you have added custom code in PdfHandler.cs. You should continue to
 <p>Make sure the PdfHandler class implements the ICustomPdfHandler interface.<br>
 Navigate to PdfHandler.cs and add <code>: ICustomPdfHandler</code> after the class name. The class should allready have the method defined in the interface.
 When adding the <code>ICustomPdfHandler</code>interface you also need to add a using statement <code>using Altinn.App.PlatformServices.Interface;</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#6272a4">/// &lt;summary&gt;
-</span><span style="color:#6272a4">/// Handler for formatting PDF.
-</span><span style="color:#6272a4">/// &lt;/summary&gt;
-</span><span style="color:#6272a4"></span><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">PdfHandler</span> : ICustomPdfHandler
-{
-    <span style="color:#6272a4">/// &lt;summary&gt;
-</span><span style="color:#6272a4"></span>    <span style="color:#6272a4">/// Method to format PDF dynamic
-</span><span style="color:#6272a4"></span>    <span style="color:#6272a4">/// &lt;/summary&gt;
-</span><span style="color:#6272a4"></span>    <span style="color:#6272a4">/// &lt;example&gt;
-</span><span style="color:#6272a4"></span>    <span style="color:#6272a4">///     if (data.GetType() == typeof(Skjema)
-</span><span style="color:#6272a4"></span>    <span style="color:#6272a4">///     {
-</span><span style="color:#6272a4"></span>    <span style="color:#6272a4">///     // need to create object if not there
-</span><span style="color:#6272a4"></span>    <span style="color:#6272a4">///     layoutSettings.Components.ExcludeFromPdf.Add(&#34;a23234234&#34;);
-</span><span style="color:#6272a4"></span>    <span style="color:#6272a4">///     }
-</span><span style="color:#6272a4"></span>    <span style="color:#6272a4">/// &lt;/example&gt;
-</span><span style="color:#6272a4"></span>    <span style="color:#6272a4">/// &lt;param name=&#34;layoutSettings&#34;&gt;the layoutsettings&lt;/param&gt;
-</span><span style="color:#6272a4"></span>    <span style="color:#6272a4">/// &lt;param name=&#34;data&#34;&gt;data object&lt;/param&gt;
-</span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;LayoutSettings&gt; FormatPdf(LayoutSettings layoutSettings, <span style="color:#8be9fd">object</span> data)
-    {
-        <span style="color:#6272a4">// Your code here
-</span><span style="color:#6272a4"></span>        <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">await</span> Task.FromResult(layoutSettings);
-    }
-}
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#6272a4">/// &lt;summary&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">/// Handler for formatting PDF.</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">/// &lt;/summary&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">PdfHandler</span> : ICustomPdfHandler
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">/// &lt;summary&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">/// Method to format PDF dynamic</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">/// &lt;/summary&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">/// &lt;example&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">///     if (data.GetType() == typeof(Skjema)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">///     {</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">///     // need to create object if not there</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">///     layoutSettings.Components.ExcludeFromPdf.Add(&#34;a23234234&#34;);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">///     }</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">/// &lt;/example&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">/// &lt;param name=&#34;layoutSettings&#34;&gt;the layoutsettings&lt;/param&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">/// &lt;param name=&#34;data&#34;&gt;data object&lt;/param&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;LayoutSettings&gt; FormatPdf(LayoutSettings layoutSettings, <span style="color:#8be9fd">object</span> data)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">// Your code here</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">await</span> Task.FromResult(layoutSettings);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></li>
 <li>
 <p>Register the PdfHandler implementation in Startup.cs<br>
 Add the following line</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp">services.AddTransient&lt;ICustomPdfHandler, PdfHandler&gt;();
-</code></pre></div><p>You should add it above the registration of your application</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp">services.AddTransient&lt;ICustomPdfHandler, PdfHandler&gt;();
-<span style="color:#6272a4">// Altinn App implementation service (The concrete implementation of logic from Application repository)
-</span><span style="color:#6272a4"></span>services.AddTransient&lt;IAltinnApp, AppLogic.App&gt;();
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span>services.AddTransient&lt;ICustomPdfHandler, PdfHandler&gt;();
+</span></span></code></pre></div><p>You should add it above the registration of your application</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span>services.AddTransient&lt;ICustomPdfHandler, PdfHandler&gt;();
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">// Altinn App implementation service (The concrete implementation of logic from Application repository)</span>
+</span></span><span style="display:flex;"><span>services.AddTransient&lt;IAltinnApp, AppLogic.App&gt;();
+</span></span></code></pre></div></li>
 <li>
 <p>Your custom implementation will now be injected into the PdfService implementation and be called during the Pdf generation process.
 When adding a custom PdfHandler you also need the <code>using Altinn.App.AppLogic.Print;</code> statement.</p>
@@ -644,39 +644,39 @@ When adding a custom PdfHandler you also need the <code>using Altinn.App.AppLogi
 <li>
 <p><strong>Custom code in FormatPdf method</strong><br>
 This the old way when you have your code directly in the overridden FormatPdf method in App.cs in your application.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">override</span> <span style="color:#ff79c6">async</span> Task&lt;LayoutSettings&gt; FormatPdf(LayoutSettings layoutSettings, <span style="color:#8be9fd">object</span> data)
-{
-    <span style="color:#6272a4">// You have code here...
-</span><span style="color:#6272a4"></span>}
-</code></pre></div><ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">override</span> <span style="color:#ff79c6">async</span> Task&lt;LayoutSettings&gt; FormatPdf(LayoutSettings layoutSettings, <span style="color:#8be9fd">object</span> data)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// You have code here...</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ol>
 <li>
 <p>Create a new class PdfHandler.cs and have it implement the ICustomPdfHandler interface</p>
 </li>
 <li>
 <p>Move your custom code to the FormatPdf method of the new class. You should then have a implementation similar to the example in step 1.1 above:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">PdfHandler</span> : ICustomPdfHandler
-{
-    <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;LayoutSettings&gt; FormatPdf(LayoutSettings layoutSettings, <span style="color:#8be9fd">object</span> data)
-    {
-        <span style="color:#6272a4">// Your code here
-</span><span style="color:#6272a4"></span>        <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">await</span> Task.FromResult(layoutSettings);
-    }
-}
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">PdfHandler</span> : ICustomPdfHandler
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;LayoutSettings&gt; FormatPdf(LayoutSettings layoutSettings, <span style="color:#8be9fd">object</span> data)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">// Your code here</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">await</span> Task.FromResult(layoutSettings);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></li>
 </ol>
 </li>
 </ol>
 <h2 id="2-obsolete-method-getoptionid-removed-from-appappbaseialtinnapp">2. Obsolete method GetOptionId removed from App/AppBase/IAltinnApp</h2>
 <p>In <a href="../../v4/whats-new/">version 4.24.0</a> we introduced a new way of supporting dynamic options making the GetOptionId methods in obsolete. The methods have now been removed and you should use the new way of implementing options as described <a href="../../../../../app/development/data/options/">in the documentation</a></p>
 <p>When you update you app you should then remove the following from App.cs as this method is removed from AppBase.cs:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp">        <span style="color:#6272a4">/// &lt;inheritdoc /&gt;
-</span><span style="color:#6272a4"></span><span style="color:#ff79c6">#pragma warning disable CS0672 // Member overrides obsolete member
-</span><span style="color:#ff79c6"></span>        <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">override</span> Task&lt;AppOptions&gt; GetOptions(<span style="color:#8be9fd">string</span> id, AppOptions options)
-<span style="color:#ff79c6">#pragma warning restore CS0672 // Member overrides obsolete member
-</span><span style="color:#ff79c6"></span>        {
-            <span style="color:#ff79c6">return</span> Task.FromResult(options);
-        }
-</code></pre></div><h2 id="3-obsolete-method-runappevent-removed-from-appappbaseialtinnapp">3. Obsolete method RunAppEvent removed from App/AppBase/IAltinnApp</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span>        <span style="color:#6272a4">/// &lt;inheritdoc /&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">#pragma warning disable CS0672 // Member overrides obsolete member</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">override</span> Task&lt;AppOptions&gt; GetOptions(<span style="color:#8be9fd">string</span> id, AppOptions options)
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">#pragma warning restore CS0672 // Member overrides obsolete member</span>
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">return</span> Task.FromResult(options);
+</span></span><span style="display:flex;"><span>        }
+</span></span></code></pre></div><h2 id="3-obsolete-method-runappevent-removed-from-appappbaseialtinnapp">3. Obsolete method RunAppEvent removed from App/AppBase/IAltinnApp</h2>
 <p>The RunAppEvent method is a old construct for hooking into various application events. This have been made obsolete by having concrete method overrides for each type of event as <a href="/technology/architecture/components/application/construction/altinn-apps/app/app-backend/applogic-events/">described in the documentation</a>. The RunAppEvent method was passed in an <code>AppEventType</code> enum which specified the type of event that was fired. You would then need to have code checking the type and performing the logic needed. The table below shows the old enum values and their corresponding new methods that should be used instead.</p>
 <table>
 <thead>
@@ -722,23 +722,23 @@ This the old way when you have your code directly in the overridden FormatPdf me
 </table>
 <p>The AppEventType.cs has been removed. This was referenced and used in App.cs - both the using reference and usage needs to be removed.</p>
 <p>Delete the following:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#ff79c6">using</span> Altinn.App.Common.Enums;
-</code></pre></div><p>and</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#6272a4">/// &lt;summary&gt;
-</span><span style="color:#6272a4">/// Run app event
-</span><span style="color:#6272a4">/// &lt;/summary&gt;
-</span><span style="color:#6272a4">/// &lt;remarks&gt;DEPRECATED METHOD, USE EVENT SPECIFIC METHOD INSTEAD&lt;/remarks&gt;
-</span><span style="color:#6272a4">/// &lt;param name=&#34;appEvent&#34;&gt;The app event type&lt;/param&gt;
-</span><span style="color:#6272a4">/// &lt;param name=&#34;model&#34;&gt;The service model&lt;/param&gt;
-</span><span style="color:#6272a4">/// &lt;param name=&#34;modelState&#34;&gt;The model state&lt;/param&gt;
-</span><span style="color:#6272a4">/// &lt;returns&gt;True if the event was handled&lt;/returns&gt;
-</span><span style="color:#6272a4"></span><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">override</span> <span style="color:#ff79c6">async</span> Task&lt;<span style="color:#8be9fd">bool</span>&gt; RunAppEvent(AppEventType appEvent, <span style="color:#8be9fd">object</span> model, ModelStateDictionary modelState = <span style="color:#ff79c6">null</span>)
-{
-    <span style="color:#bd93f9">_l</span>ogger.LogInformation(<span style="color:#f1fa8c">$&#34;RunAppEvent {appEvent}&#34;</span>);
-
-    <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">await</span> Task.FromResult(<span style="color:#ff79c6">true</span>);
-}
-</code></pre></div><p>The <code>RunAppEvent</code>method should be replaced with the appropriate methods as described above.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#ff79c6">using</span> Altinn.App.Common.Enums;
+</span></span></code></pre></div><p>and</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#6272a4">/// &lt;summary&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">/// Run app event</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">/// &lt;/summary&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">/// &lt;remarks&gt;DEPRECATED METHOD, USE EVENT SPECIFIC METHOD INSTEAD&lt;/remarks&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">/// &lt;param name=&#34;appEvent&#34;&gt;The app event type&lt;/param&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">/// &lt;param name=&#34;model&#34;&gt;The service model&lt;/param&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">/// &lt;param name=&#34;modelState&#34;&gt;The model state&lt;/param&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">/// &lt;returns&gt;True if the event was handled&lt;/returns&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">override</span> <span style="color:#ff79c6">async</span> Task&lt;<span style="color:#8be9fd">bool</span>&gt; RunAppEvent(AppEventType appEvent, <span style="color:#8be9fd">object</span> model, ModelStateDictionary modelState = <span style="color:#ff79c6">null</span>)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    _logger.LogInformation(<span style="color:#f1fa8c">$&#34;RunAppEvent {appEvent}&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">await</span> Task.FromResult(<span style="color:#ff79c6">true</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>The <code>RunAppEvent</code>method should be replaced with the appropriate methods as described above.</p>
 <h2 id="4-obsolete-methods-runcalculation-removed-from-appbaseialtinnapp">4. Obsolete methods RunCalculation removed from AppBase/IAltinnApp</h2>
 <p><a href="../../../../../community/changelog/app-nuget/">In version 4.7.0</a> the RunCalculation method was replaced with the methods RunProcessDataRead and RunProcessDataWrite. RunCalculation has now been removed and those that have code in this method needs to move this to either RunProcessDataRead or RunProcessDataWrite.</p>
 <p>The process to update is:</p>

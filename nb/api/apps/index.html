@@ -381,13 +381,13 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/metadata/"><span>Metadata</span></a></li>
       <li class="dd-item">
         <a href="/nb/api/apps/instances/"><span>Instanser</span></a></li>
       <li class="dd-item">
-        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/data-elements/tags/"><span>Tags</span></a></li></ul></li>
       <li class="dd-item">
@@ -441,9 +441,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/community/about/"><span>Om</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/community/about/goals/"><span>Mål</span></a></li>
+        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li>
       <li class="dd-item">
-        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li></ul></li>
+        <a href="/nb/community/about/goals/"><span>Mål</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/community/contributing/"><span>Bidra til utvikling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -563,33 +563,33 @@ if(host != "localhost")
 <p>De API funksjonene som er dokumentert her er standard funksjoner i en app basert på app malen i Altinn Studio. Applikasjonseiere kan fritt gjøre endringer, men det er relativt trygt å annta at fjerning av funksjoner vil være ekstremt skjeldent. Enhver app med tillegg eller endringer skal ha sin egen dokumentasjon publisert av applikasjonseieren.</p>
 <p>Alle app API adresser starter med samme navn og filsti, men de varierer fra en app til en annen basert på eier av app og app navn.</p>
 <p><strong>Test miljø (TT02)</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">https://{org}.apps.tt02.altinn.no/{org}/{appname}
-</code></pre></div><p><strong>Produksjon</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">https://{org}.apps.altinn.no/{org}/{appname}
-</code></pre></div><p>URL&rsquo;en identifiserer app eier spesifikt domene ved hjelp av applikasjonseier sitt kortnavn <strong>org</strong>, og identifiserer spesifikk app ved hjelp av både kortnavnet til applikasjonseier og navnet på appen; <strong>org/appname</strong>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>https://{org}.apps.tt02.altinn.no/{org}/{appname}
+</span></span></code></pre></div><p><strong>Produksjon</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>https://{org}.apps.altinn.no/{org}/{appname}
+</span></span></code></pre></div><p>URL&rsquo;en identifiserer app eier spesifikt domene ved hjelp av applikasjonseier sitt kortnavn <strong>org</strong>, og identifiserer spesifikk app ved hjelp av både kortnavnet til applikasjonseier og navnet på appen; <strong>org/appname</strong>.</p>
 <ul class="children children-li js-moveChildrenFrom">
-<pre><code>    &lt;li&gt;
-            &lt;a href=&quot;/nb/api/apps/metadata/&quot;&gt;App metadata&lt;/a&gt;
-            &lt;p&gt;App API for å få metadata informasjon for appen.&lt;/p&gt;
-            &lt;/li&gt;&lt;li&gt;
-            &lt;a href=&quot;/nb/api/apps/instances/&quot;&gt;Instanser&lt;/a&gt;
-            &lt;p&gt;App API å jobbe med forekomster av en app.&lt;/p&gt;
-            &lt;/li&gt;&lt;li&gt;
-            &lt;a href=&quot;/nb/api/apps/data-elements/&quot;&gt;Data-elementer&lt;/a&gt;
-            &lt;p&gt;API å jobbe med dataelementene knyttet til en app instans.&lt;/p&gt;
-            &lt;/li&gt;&lt;li&gt;
-            &lt;a href=&quot;/nb/api/apps/stateless-data-elements/&quot;&gt;Tilstandsløse data&lt;/a&gt;
-            &lt;p&gt;API til å arbeide med dateelementer uten tilstand som ikke er knyttet til en instans.&lt;/p&gt;
-            &lt;/li&gt;&lt;li&gt;
-            &lt;a href=&quot;/nb/api/apps/process/&quot;&gt;Prosess&lt;/a&gt;
-            &lt;p&gt;API endepunkter for å lede en instans gjennom prosessen som er definert.&lt;/p&gt;
-            &lt;/li&gt;&lt;li&gt;
-            &lt;a href=&quot;/nb/api/apps/validation/&quot;&gt;Validering&lt;/a&gt;
-            &lt;p&gt;Validering API-endepunktene for instanser og dataelementer.&lt;/p&gt;
-            &lt;/li&gt;&lt;li&gt;
-            &lt;a href=&quot;/nb/api/apps/spec/&quot;&gt;OpenAPI (swagger) for Apps&lt;/a&gt;
-            &lt;p&gt;&lt;/p&gt;
-            &lt;/li&gt;
+<pre><code>	&lt;li&gt;
+			&lt;a href=&quot;/nb/api/apps/metadata/&quot;&gt;App metadata&lt;/a&gt;
+			&lt;p&gt;App API for å få metadata informasjon for appen.&lt;/p&gt;
+			&lt;/li&gt;&lt;li&gt;
+			&lt;a href=&quot;/nb/api/apps/instances/&quot;&gt;Instanser&lt;/a&gt;
+			&lt;p&gt;App API å jobbe med forekomster av en app.&lt;/p&gt;
+			&lt;/li&gt;&lt;li&gt;
+			&lt;a href=&quot;/nb/api/apps/data-elements/&quot;&gt;Data-elementer&lt;/a&gt;
+			&lt;p&gt;API å jobbe med dataelementene knyttet til en app instans.&lt;/p&gt;
+			&lt;/li&gt;&lt;li&gt;
+			&lt;a href=&quot;/nb/api/apps/stateless-data-elements/&quot;&gt;Tilstandsløse data&lt;/a&gt;
+			&lt;p&gt;API til å arbeide med dateelementer uten tilstand som ikke er knyttet til en instans.&lt;/p&gt;
+			&lt;/li&gt;&lt;li&gt;
+			&lt;a href=&quot;/nb/api/apps/process/&quot;&gt;Prosess&lt;/a&gt;
+			&lt;p&gt;API endepunkter for å lede en instans gjennom prosessen som er definert.&lt;/p&gt;
+			&lt;/li&gt;&lt;li&gt;
+			&lt;a href=&quot;/nb/api/apps/validation/&quot;&gt;Validering&lt;/a&gt;
+			&lt;p&gt;Validering API-endepunktene for instanser og dataelementer.&lt;/p&gt;
+			&lt;/li&gt;&lt;li&gt;
+			&lt;a href=&quot;/nb/api/apps/spec/&quot;&gt;OpenAPI (swagger) for Apps&lt;/a&gt;
+			&lt;p&gt;&lt;/p&gt;
+			&lt;/li&gt;
 </code></pre>
 </ul>
 

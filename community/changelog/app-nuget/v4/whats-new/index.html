@@ -117,7 +117,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -217,7 +217,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -297,7 +297,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -1152,27 +1152,26 @@ if(host != "localhost")
 </nav><h2 id="4341-06042022---support-for-specifying-shipment-type-for-eformidling-shipment">4.34.1 (06.04.2022) - Support for specifying shipment type for eFormidling shipment</h2>
 <p>This release makes it possible to specify the shipment type for an eFormidling shipment.</p>
 <p>Extend the <code>eFormidling</code> section i applicationmetadata.json with the new property <code>dpfShipmentType</code> as shown below.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">  <span style="color:#f1fa8c">&#34;eFormidling&#34;</span>: {
-    ...
-    <span style="color:#ff79c6">&#34;dpfShipmentType&#34;</span>: <span style="color:#f1fa8c">&#34;altinn3.skjema&#34;</span>
-  }
-</code></pre></div><h2 id="4330-15032022---support-for-turning-off-pdf-generation">4.33.0 (15.03.2022) - Support for turning off PDF generation</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>  <span style="color:#f1fa8c">&#34;eFormidling&#34;</span>: {
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;dpfShipmentType&#34;</span>: <span style="color:#f1fa8c">&#34;altinn3.skjema&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><h2 id="4330-15032022---support-for-turning-off-pdf-generation">4.33.0 (15.03.2022) - Support for turning off PDF generation</h2>
 <p>This release makes it possible to turn of PDF generation for a given form</p>
 <p>This is defined in ApplicationMetaData for the given DataType. Default is true</p>
 <p>Example</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-      <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;melding&#34;</span>,
-      <span style="color:#ff79c6">&#34;allowedContentTypes&#34;</span>: [ <span style="color:#f1fa8c">&#34;application/xml&#34;</span> ],
-      <span style="color:#ff79c6">&#34;maxCount&#34;</span>: <span style="color:#bd93f9">1</span>,
-      <span style="color:#ff79c6">&#34;appLogic&#34;</span>: {
-        <span style="color:#ff79c6">&#34;autoCreate&#34;</span>: <span style="color:#ff79c6">false</span>,
-        <span style="color:#ff79c6">&#34;ClassRef&#34;</span>: <span style="color:#f1fa8c">&#34;App.IntegrationTestsRef.Data.apps.dibk.nabovarsel.Melding&#34;</span>
-      },
-      <span style="color:#ff79c6">&#34;taskId&#34;</span>: <span style="color:#f1fa8c">&#34;Task_1&#34;</span>,
-      <span style="color:#ff79c6">&#34;enablePdfCreation&#34;</span> : <span style="color:#ff79c6">false</span>
-    }
-
-</code></pre></div><h2 id="4320-14032022---person-lookup-service-client">4.32.0 (14.03.2022) - Person lookup service client</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;melding&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;allowedContentTypes&#34;</span>: [ <span style="color:#f1fa8c">&#34;application/xml&#34;</span> ],
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;maxCount&#34;</span>: <span style="color:#bd93f9">1</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;appLogic&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;autoCreate&#34;</span>: <span style="color:#ff79c6">false</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;ClassRef&#34;</span>: <span style="color:#f1fa8c">&#34;App.IntegrationTestsRef.Data.apps.dibk.nabovarsel.Melding&#34;</span>
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;taskId&#34;</span>: <span style="color:#f1fa8c">&#34;Task_1&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;enablePdfCreation&#34;</span> : <span style="color:#ff79c6">false</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><h2 id="4320-14032022---person-lookup-service-client">4.32.0 (14.03.2022) - Person lookup service client</h2>
 <p>The platform application Register has been given a new endpoint that can be used to verify correct national identity number. This version of the app template packages have a new person lookup client that can be used to perform lookups with the new endpoint in Register.</p>
 <h2 id="4311-10032022---fixed-bug-related-to-prefill-and-enriched-instance-events-with-person-identification-number">4.31.1 (10.03.2022) - Fixed bug related to prefill and enriched instance events with person identification number</h2>
 <ul>
@@ -1194,35 +1193,35 @@ enable the readiness and liveness probes.</p>
 </li>
 <li>
 <p>In the function  <code>ConfigureServices</code>, add the line</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">services.AddHealthChecks().AddCheck&lt;HealthCheck&gt;(<span style="color:#f1fa8c">&#34;default_health_check&#34;</span>);
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span>services.AddHealthChecks().AddCheck&lt;HealthCheck&gt;(<span style="color:#f1fa8c">&#34;default_health_check&#34;</span>);
+</span></span></code></pre></div></li>
 <li>
 <p>In the function <code>Configure</code> add the line</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">app.UseHealthChecks(<span style="color:#f1fa8c">&#34;/health&#34;</span>);
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span>app.UseHealthChecks(<span style="color:#f1fa8c">&#34;/health&#34;</span>);
+</span></span></code></pre></div></li>
 </ol>
 </li>
 <li>
 <p>In <code>deployment/Chart.yaml</code> the reference to the Altinn Helm Chart should be updated to version <code>2.1.0</code></p>
 <p>The final result should resemble this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#ff79c6">apiVersion</span>: v1
-<span style="color:#ff79c6">description</span>: A Helm chart for Kubernetes
-<span style="color:#ff79c6">name</span>: deployment
-<span style="color:#ff79c6">version</span>: <span style="color:#bd93f9">1.1.0</span>
-
-<span style="color:#ff79c6">dependencies</span>:
-- <span style="color:#ff79c6">name</span>: deployment
-   <span style="color:#ff79c6">repository</span>: https://charts.altinn.studio/
-   <span style="color:#ff79c6">version</span>: <span style="color:#bd93f9">2.1.0</span>
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ff79c6">apiVersion</span>: v1
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">description</span>: A Helm chart for Kubernetes
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">name</span>: deployment
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">version</span>: <span style="color:#bd93f9">1.1.0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">dependencies</span>:
+</span></span><span style="display:flex;"><span>- <span style="color:#ff79c6">name</span>: deployment
+</span></span><span style="display:flex;"><span>   <span style="color:#ff79c6">repository</span>: https://charts.altinn.studio/
+</span></span><span style="display:flex;"><span>   <span style="color:#ff79c6">version</span>: <span style="color:#bd93f9">2.1.0</span>
+</span></span></code></pre></div></li>
 <li>
 <p>In <code>deployment/values.yaml</code> under <code>deployment</code>, add</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#ff79c6">readiness</span>:
-  <span style="color:#ff79c6">enabled</span>: <span style="color:#ff79c6">true</span>
-
-<span style="color:#ff79c6">liveness</span>:
-  <span style="color:#ff79c6">enabled</span>: <span style="color:#ff79c6">true</span>
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ff79c6">readiness</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">enabled</span>: <span style="color:#ff79c6">true</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">liveness</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">enabled</span>: <span style="color:#ff79c6">true</span>
+</span></span></code></pre></div></li>
 </ol>
 <p><strong>NOTE</strong> identation is imporant in yaml files. <code>readiness</code> og <code>liveness</code> must be on the level below <code>deployment</code>,
 and at the same level av <code>volumeMounts</code> og <code>volumes</code>.</p>
@@ -1262,16 +1261,16 @@ of the application through Altinn Studio is still under development.</p>
 <h2 id="4172-2021-10-27---added-api-for-instansiation-with-key-value-prefil">4.17.2 (2021-10-27) - Added API for instansiation with key-value prefil</h2>
 <p>It is now possible to instantiate with keyValue prefill through a new instantiation API.</p>
 <p>You can also use prefill in custom code. This will require that the app implements the latest version of <code>App.cs</code> which includes the following method</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#">  <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">override</span> <span style="color:#ff79c6">async</span> Task RunDataCreation(Instance instance, <span style="color:#8be9fd">object</span> data, Dictionary&lt;<span style="color:#8be9fd">string</span>, <span style="color:#8be9fd">string</span>&gt; prefill)
-        {
-           <span style="color:#ff79c6">await</span> <span style="color:#bd93f9">_</span>instantiationHandler.DataCreation(instance, data, prefill);
-        }
-</code></pre></div><p>And the latest <code>InstansiationHandler.cs</code> with the method signature</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#">  <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task DataCreation(Instance instance, <span style="color:#8be9fd">object</span> data, Dictionary&lt;<span style="color:#8be9fd">string</span>, <span style="color:#8be9fd">string</span>&gt; prefill)
-        {
-            <span style="color:#ff79c6">await</span> Task.CompletedTask;
-        }
-</code></pre></div><h2 id="4160-2021-10-07---added-api-for-tagging-of-data-elements">4.16.0 (2021-10-07) - Added API for tagging of data elements</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c#" data-lang="c#"><span style="display:flex;"><span>  <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">override</span> <span style="color:#ff79c6">async</span> Task RunDataCreation(Instance instance, <span style="color:#8be9fd">object</span> data, Dictionary&lt;<span style="color:#8be9fd">string</span>, <span style="color:#8be9fd">string</span>&gt; prefill)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>           <span style="color:#ff79c6">await</span> _instantiationHandler.DataCreation(instance, data, prefill);
+</span></span><span style="display:flex;"><span>        }
+</span></span></code></pre></div><p>And the latest <code>InstansiationHandler.cs</code> with the method signature</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c#" data-lang="c#"><span style="display:flex;"><span>  <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task DataCreation(Instance instance, <span style="color:#8be9fd">object</span> data, Dictionary&lt;<span style="color:#8be9fd">string</span>, <span style="color:#8be9fd">string</span>&gt; prefill)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">await</span> Task.CompletedTask;
+</span></span><span style="display:flex;"><span>        }
+</span></span></code></pre></div><h2 id="4160-2021-10-07---added-api-for-tagging-of-data-elements">4.16.0 (2021-10-07) - Added API for tagging of data elements</h2>
 <p>It&rsquo;s now possible to save tags on a data element. To support this there are 3 new API endpoints for listing existing tags, adding a tag, and to remove a tag from a data element.</p>
 <p>This change is associated with issue <a href="https://github.com/Altinn/altinn-studio/issues/6861">6861</a> on github.</p>
 <p>There is more information about the new API under the app API documentation.</p>
@@ -1286,19 +1285,19 @@ Swagger for the endpoint is updated to reflect possible response codes.</p>
 <h2 id="4140-2021-09-13---partial-support-for-namespace-xml">4.14.0 (2021-09-13) - Partial support for namespace XML</h2>
 <p>The code that deserializes XML has been updated to support namespace declaration in the root element.</p>
 <p>Example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;Skjema</span> <span style="color:#50fa7b">xmlns=</span><span style="color:#f1fa8c">&#34;urn:no:altinn:skjema:v1&#34;</span><span style="color:#ff79c6">&gt;</span>
-   <span style="color:#ff79c6">&lt;Navn&gt;</span>Altinn<span style="color:#ff79c6">&lt;/Navn&gt;</span>
-<span style="color:#ff79c6">&lt;/Skjema&gt;</span>
-</code></pre></div><p>Deserialization occurs when an external system uses the app API to submit a new form, when they overwrite an existing form, and when an app retrieves a form from blob storage.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#ff79c6">&lt;Skjema</span> <span style="color:#50fa7b">xmlns=</span><span style="color:#f1fa8c">&#34;urn:no:altinn:skjema:v1&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#ff79c6">&lt;Navn&gt;</span>Altinn<span style="color:#ff79c6">&lt;/Navn&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&lt;/Skjema&gt;</span>
+</span></span></code></pre></div><p>Deserialization occurs when an external system uses the app API to submit a new form, when they overwrite an existing form, and when an app retrieves a form from blob storage.</p>
 <p>The change is not automatically used by all apps that update to this version. For the change to take properly effect the C# class that represents the model must be updated. The class needs to be decorated with an XmlRootAttribute with the Namespace property set to the correct namespace.</p>
 <p>Example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#50fa7b">[XmlRoot(ElementName = &#34;Skjema&#34;, Namespace = &#34;urn:no:altinn:skjema:v1&#34;)]</span>
-<span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Skjema</span> {
-<span style="color:#50fa7b">    [MaxLength(100)]</span>
-<span style="color:#50fa7b">    [XmlElement(&#34;Navn&#34;)]</span>
-    <span style="color:#ff79c6">public</span> <span style="color:#8be9fd">string</span> Navn { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; }
-}
-</code></pre></div><p>This change must be done manually for all old and new models. The model editor in altinn.studio has not be updated to do this automatically.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#50fa7b">[XmlRoot(ElementName = &#34;Skjema&#34;, Namespace = &#34;urn:no:altinn:skjema:v1&#34;)]</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Skjema</span> {
+</span></span><span style="display:flex;"><span><span style="color:#50fa7b">    [MaxLength(100)]</span>
+</span></span><span style="display:flex;"><span><span style="color:#50fa7b">    [XmlElement(&#34;Navn&#34;)]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">public</span> <span style="color:#8be9fd">string</span> Navn { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>This change must be done manually for all old and new models. The model editor in altinn.studio has not be updated to do this automatically.</p>
 <h2 id="4130-2021-09-03---event-for-changed-substatus-on-instance">4.13.0 (2021-09-03) - Event for changed substatus on instance</h2>
 <p>Changing the substatus of an instance triggers an event <code>app.instance.substatus.changed</code> which can be subscribed to in the event component.</p>
 <p>This solves issue <a href="https://github.com/Altinn/altinn-studio/issues/6691">#6691</a></p>

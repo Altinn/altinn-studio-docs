@@ -109,7 +109,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -209,7 +209,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -281,7 +281,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -1106,66 +1106,66 @@ if(host != "localhost")
 <p>Any time the state or props of a component is updated, the component re-renders.</p>
 <h3 id="class-components">Class components</h3>
 <p>Class components are React components defined as classes. We used class components when we started building Altinn Studio, and most of the components for the Altinn Studio applications are still class components.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#6272a4">// Example component
-</span><span style="color:#6272a4"></span><span style="color:#ff79c6">import</span> <span style="color:#ff79c6">*</span> as React from React
-
-<span style="color:#ff79c6">export</span> <span style="color:#ff79c6">interface</span> IExampleComponentProps {
-  id<span style="color:#ff79c6">:</span> string;
-  title<span style="color:#ff79c6">:</span> string;
-}
-
-<span style="color:#ff79c6">export</span> <span style="color:#ff79c6">interface</span> IExampleComponentState {
-  value<span style="color:#ff79c6">:</span> string;
-}
-
-<span style="color:#ff79c6">export</span> <span style="color:#ff79c6">class</span> ExampleComponent <span style="color:#ff79c6">extends</span> 
-React.Component&lt;<span style="color:#ff79c6">IExampleComponentProps</span>, <span style="color:#50fa7b">IExampleComponentState</span>&gt; {
-  <span style="color:#ff79c6">public</span> onChange <span style="color:#ff79c6">=</span> (event<span style="color:#ff79c6">:</span> any) =&gt; {
-    setState(event.target.value);
-  }
-
-  <span style="color:#ff79c6">public</span> render(
-    &lt;<span style="color:#ff79c6">div</span> <span style="color:#50fa7b">id</span><span style="color:#ff79c6">=</span>{<span style="color:#ff79c6">this</span>.props.id}&gt;
-      &lt;<span style="color:#ff79c6">label</span> <span style="color:#50fa7b">htmlFor</span><span style="color:#ff79c6">=</span>{<span style="color:#f1fa8c">`input-</span><span style="color:#f1fa8c">${</span><span style="color:#ff79c6">this</span>.props.id<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">`</span>}&gt;{<span style="color:#ff79c6">this</span>.props.title}&lt;/<span style="color:#ff79c6">label</span>&gt;
-      &lt;<span style="color:#ff79c6">input</span>
-        <span style="color:#50fa7b">id</span><span style="color:#ff79c6">=</span>{<span style="color:#f1fa8c">`input-</span><span style="color:#f1fa8c">${</span><span style="color:#ff79c6">this</span>.props.id<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">`</span>}
-        <span style="color:#50fa7b">value</span><span style="color:#ff79c6">=</span>{<span style="color:#ff79c6">this</span>.state.value}
-        <span style="color:#50fa7b">onChange</span><span style="color:#ff79c6">=</span>{<span style="color:#ff79c6">this</span>.onChange}
-      /&gt;
-    &lt;/<span style="color:#ff79c6">div</span>&gt;
-  );
-}
-</code></pre></div><p>Read more about class components <a href="https://reactjs.org/docs/react-component.html">here</a>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#6272a4">// Example component
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span><span style="color:#ff79c6">import</span> <span style="color:#ff79c6">*</span> as React from React
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">export</span> <span style="color:#ff79c6">interface</span> IExampleComponentProps {
+</span></span><span style="display:flex;"><span>  id<span style="color:#ff79c6">:</span> string;
+</span></span><span style="display:flex;"><span>  title<span style="color:#ff79c6">:</span> string;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">export</span> <span style="color:#ff79c6">interface</span> IExampleComponentState {
+</span></span><span style="display:flex;"><span>  value<span style="color:#ff79c6">:</span> string;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">export</span> <span style="color:#ff79c6">class</span> ExampleComponent <span style="color:#ff79c6">extends</span> 
+</span></span><span style="display:flex;"><span>React.Component&lt;<span style="color:#ff79c6">IExampleComponentProps</span>, <span style="color:#50fa7b">IExampleComponentState</span>&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">public</span> onChange <span style="color:#ff79c6">=</span> (event<span style="color:#ff79c6">:</span> any) =&gt; {
+</span></span><span style="display:flex;"><span>    setState(event.target.value);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">public</span> render(
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff79c6">div</span> <span style="color:#50fa7b">id</span><span style="color:#ff79c6">=</span>{<span style="color:#ff79c6">this</span>.props.id}&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#ff79c6">label</span> <span style="color:#50fa7b">htmlFor</span><span style="color:#ff79c6">=</span>{<span style="color:#f1fa8c">`input-</span><span style="color:#f1fa8c">${</span><span style="color:#ff79c6">this</span>.props.id<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">`</span>}&gt;{<span style="color:#ff79c6">this</span>.props.title}&lt;/<span style="color:#ff79c6">label</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#ff79c6">input</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#50fa7b">id</span><span style="color:#ff79c6">=</span>{<span style="color:#f1fa8c">`input-</span><span style="color:#f1fa8c">${</span><span style="color:#ff79c6">this</span>.props.id<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">`</span>}
+</span></span><span style="display:flex;"><span>        <span style="color:#50fa7b">value</span><span style="color:#ff79c6">=</span>{<span style="color:#ff79c6">this</span>.state.value}
+</span></span><span style="display:flex;"><span>        <span style="color:#50fa7b">onChange</span><span style="color:#ff79c6">=</span>{<span style="color:#ff79c6">this</span>.onChange}
+</span></span><span style="display:flex;"><span>      /&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#ff79c6">div</span>&gt;
+</span></span><span style="display:flex;"><span>  );
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Read more about class components <a href="https://reactjs.org/docs/react-component.html">here</a>.</p>
 <p>When writing a new component, or refactoring an existing class component, use hooks where possible.</p>
 <h3 id="functional-components---react-hooks">Functional components - React hooks</h3>
 <p>Hooks are new in React 16.8, and allow us to use state directly in functional components - components that are defined as functions. Using functional components with hooks results in cleaner, shorter code. Most of the components for the Altinn Apps applications are functional components using hooks.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#6272a4">// Example component
-</span><span style="color:#6272a4"></span><span style="color:#ff79c6">import</span> <span style="color:#ff79c6">*</span> as React from React
-
-<span style="color:#ff79c6">export</span> <span style="color:#ff79c6">interface</span> IExampleComponentProps {
-  id<span style="color:#ff79c6">:</span> string;
-  title<span style="color:#ff79c6">:</span> string;
-}
-
-<span style="color:#ff79c6">export</span> <span style="color:#8be9fd;font-style:italic">function</span> ExampleComponent(props<span style="color:#ff79c6">:</span> IExampleComponentProps) <span style="color:#ff79c6">:</span> JSX.Element {
-  <span style="color:#ff79c6">const</span> [value, setValue] <span style="color:#ff79c6">=</span> React.useState&lt;<span style="color:#ff79c6">string</span>&gt;(<span style="color:#f1fa8c">&#39;&#39;</span>);
-  
-  <span style="color:#ff79c6">const</span> onChange <span style="color:#ff79c6">=</span> (event<span style="color:#ff79c6">:</span> any) =&gt; {
-    setValue(event.target.value);
-  }
-
-  <span style="color:#ff79c6">return</span>(
-    &lt;<span style="color:#ff79c6">div</span> <span style="color:#50fa7b">id</span><span style="color:#ff79c6">=</span>{props.id}&gt;
-      &lt;<span style="color:#ff79c6">label</span> <span style="color:#50fa7b">htmlFor</span><span style="color:#ff79c6">=</span>{<span style="color:#f1fa8c">`input-</span><span style="color:#f1fa8c">${</span>props.id<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">`</span>}&gt;{props.title}&lt;/<span style="color:#ff79c6">label</span>&gt;
-      &lt;<span style="color:#ff79c6">input</span>
-        <span style="color:#50fa7b">id</span><span style="color:#ff79c6">=</span>{<span style="color:#f1fa8c">`input-</span><span style="color:#f1fa8c">${</span>props.id<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">`</span>}
-        <span style="color:#50fa7b">value</span><span style="color:#ff79c6">=</span>{value}
-        <span style="color:#50fa7b">onChange</span><span style="color:#ff79c6">=</span>{onChange}
-      /&gt;
-    &lt;/<span style="color:#ff79c6">div</span>&gt;
-  );
-}
-</code></pre></div><p>Read more about React hooks <a href="https://reactjs.org/docs/hooks-intro.html">here</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#6272a4">// Example component
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span><span style="color:#ff79c6">import</span> <span style="color:#ff79c6">*</span> as React from React
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">export</span> <span style="color:#ff79c6">interface</span> IExampleComponentProps {
+</span></span><span style="display:flex;"><span>  id<span style="color:#ff79c6">:</span> string;
+</span></span><span style="display:flex;"><span>  title<span style="color:#ff79c6">:</span> string;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">export</span> <span style="color:#8be9fd;font-style:italic">function</span> ExampleComponent(props<span style="color:#ff79c6">:</span> IExampleComponentProps) <span style="color:#ff79c6">:</span> JSX.Element {
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> [value, setValue] <span style="color:#ff79c6">=</span> React.useState&lt;<span style="color:#ff79c6">string</span>&gt;(<span style="color:#f1fa8c">&#39;&#39;</span>);
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> onChange <span style="color:#ff79c6">=</span> (event<span style="color:#ff79c6">:</span> any) =&gt; {
+</span></span><span style="display:flex;"><span>    setValue(event.target.value);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">return</span>(
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff79c6">div</span> <span style="color:#50fa7b">id</span><span style="color:#ff79c6">=</span>{props.id}&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#ff79c6">label</span> <span style="color:#50fa7b">htmlFor</span><span style="color:#ff79c6">=</span>{<span style="color:#f1fa8c">`input-</span><span style="color:#f1fa8c">${</span>props.id<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">`</span>}&gt;{props.title}&lt;/<span style="color:#ff79c6">label</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#ff79c6">input</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#50fa7b">id</span><span style="color:#ff79c6">=</span>{<span style="color:#f1fa8c">`input-</span><span style="color:#f1fa8c">${</span>props.id<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">`</span>}
+</span></span><span style="display:flex;"><span>        <span style="color:#50fa7b">value</span><span style="color:#ff79c6">=</span>{value}
+</span></span><span style="display:flex;"><span>        <span style="color:#50fa7b">onChange</span><span style="color:#ff79c6">=</span>{onChange}
+</span></span><span style="display:flex;"><span>      /&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#ff79c6">div</span>&gt;
+</span></span><span style="display:flex;"><span>  );
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Read more about React hooks <a href="https://reactjs.org/docs/hooks-intro.html">here</a></p>
 <h2 id="links">Links</h2>
 <ul>
 <li><a href="https://reactjs.org/docs/react-component.html">Documentation for react components</a></li>

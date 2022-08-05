@@ -117,7 +117,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -217,7 +217,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -297,7 +297,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -1118,21 +1118,21 @@ This is new functionality. Setup must be done manually as of today. Support for 
 <p>Display of summary is set up in the same manner as the other form components in a form. 
 You can choose to have the summary on it&rsquo;s own page, or on the same page as other form components.</p>
 <p>The summary component is very simple, and refers to the <em>component</em> that is to be summarized and the <em>page</em> this is on. Example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;summary-1&#34;</span>,
-    <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Summary&#34;</span>,
-<span style="display:block;width:100%;background-color:#3d3f4a">    <span style="color:#ff79c6">&#34;componentRef&#34;</span>: <span style="color:#f1fa8c">&#34;&lt;komponent-id&gt;&#34;</span>,
-</span>    <span style="color:#ff79c6">&#34;pageRef&#34;</span>: <span style="color:#f1fa8c">&#34;&lt;side komponenten er definert på&gt;&#34;</span>
-},
-</code></pre></div><p>The component displays a summary of data from the specified component. In addition, the user gets the opportunity to 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;summary-1&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Summary&#34;</span>,
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>    <span style="color:#ff79c6">&#34;componentRef&#34;</span>: <span style="color:#f1fa8c">&#34;&lt;komponent-id&gt;&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;pageRef&#34;</span>: <span style="color:#f1fa8c">&#34;&lt;side komponenten er definert på&gt;&#34;</span>
+</span></span><span style="display:flex;"><span>},
+</span></span></code></pre></div><p>The component displays a summary of data from the specified component. In addition, the user gets the opportunity to 
 return to the relevant component/page to make changes.</p>
 <p>The display differs depending on which form component the summary refers to.</p>
 <p>Note: PDF-generating does not support a summary page, so it has to be excluded by changing <code>ui/Settings.json</code></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#f1fa8c">&#34;pages&#34;</span>: 
-      { 
-        <span style="color:#ff79c6">&#34;excludeFromPdf&#34;</span>: [ <span style="color:#f1fa8c">&#34;name-of-summary-page&#34;</span> ]
-      }
-</code></pre></div><h3 id="simple-form-component">Simple form component</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#f1fa8c">&#34;pages&#34;</span>: 
+</span></span><span style="display:flex;"><span>      { 
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;excludeFromPdf&#34;</span>: [ <span style="color:#f1fa8c">&#34;name-of-summary-page&#34;</span> ]
+</span></span><span style="display:flex;"><span>      }
+</span></span></code></pre></div><h3 id="simple-form-component">Simple form component</h3>
 <p>These are components that are only connected to one field in the data model. E.g. Input, Dropdown, Checkbox/Radio, etc.</p>
 <figure><a href="simple-summary.png"><img src="simple-summary.png" alt="Summary simple form component" title="Summary simple form component" /></a><figcaption><h4>Summary simple form component</h4></figcaption></figure>
 <p>The summary displays the prompt for the form component and attached data. If there is an active error message
@@ -1160,54 +1160,54 @@ repeating group.</p>
 </ul>
 <h4 id="example">Example</h4>
 <p>With the following setup of a nested group in layout:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;main-group&#34;</span>,
-  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Group&#34;</span>,
-  <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
-    <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;Hovedgruppe&#34;</span>
-  },
-  <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {
-    <span style="color:#ff79c6">&#34;group&#34;</span>: <span style="color:#f1fa8c">&#34;model.mainGroup&#34;</span>
-  },
-  <span style="color:#ff79c6">&#34;children&#34;</span>: [
-    <span style="color:#f1fa8c">&#34;nested-group-1&#34;</span>
-  ],
-  ... // remaining setup of component
-},
-{
-  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;nested-group-1&#34;</span>,
-  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Group&#34;</span>,
-  <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
-    <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;Undergruppe&#34;</span>
-  },
-  <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {
-    <span style="color:#ff79c6">&#34;group&#34;</span>: <span style="color:#f1fa8c">&#34;model.mainGroup.subGroup&#34;</span>
-  },
-  <span style="color:#ff79c6">&#34;children&#34;</span>: [
-    <span style="color:#f1fa8c">&#34;input-field-1&#34;</span>
-  ],
-  ... // remaining setup of component
-},
-{
-  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;input-field-1&#34;</span>,
-  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Input&#34;</span>,
-  <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
-    <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;Skriv inn noe her&#34;</span>
-  },
-  <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {
-    <span style="color:#ff79c6">&#34;group&#34;</span>: <span style="color:#f1fa8c">&#34;model.mainGroup.subGroup.field1&#34;</span>
-  },
-  ... // remaining setup of component
-}
-</code></pre></div><p>Set up the summary in the following manner:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;summary-1&#34;</span>,
-  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Summary&#34;</span>,
-  <span style="color:#ff79c6">&#34;componentRef&#34;</span>: <span style="color:#f1fa8c">&#34;main-group&#34;</span>,
-  <span style="color:#ff79c6">&#34;pageRef&#34;</span>: <span style="color:#f1fa8c">&#34;FormLayout&#34;</span>,
-<span style="display:block;width:100%;background-color:#3d3f4a">  <span style="color:#ff79c6">&#34;largeGroup&#34;</span>: <span style="color:#ff79c6">true</span>,
-</span>}
-</code></pre></div><figure><a href="nested-group-summary.png"><img src="nested-group-summary.png" alt="Summary nested repeating group" title="Summary nested repeating group" /></a><figcaption><h4>Summary nested repeating group</h4></figcaption></figure>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;main-group&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Group&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;Hovedgruppe&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;group&#34;</span>: <span style="color:#f1fa8c">&#34;model.mainGroup&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;children&#34;</span>: [
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;nested-group-1&#34;</span>
+</span></span><span style="display:flex;"><span>  ],
+</span></span><span style="display:flex;"><span>  ... <span style="color:#6272a4">// remaining setup of component
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>},
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;nested-group-1&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Group&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;Undergruppe&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;group&#34;</span>: <span style="color:#f1fa8c">&#34;model.mainGroup.subGroup&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;children&#34;</span>: [
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;input-field-1&#34;</span>
+</span></span><span style="display:flex;"><span>  ],
+</span></span><span style="display:flex;"><span>  ... <span style="color:#6272a4">// remaining setup of component
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>},
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;input-field-1&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Input&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;Skriv inn noe her&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;group&#34;</span>: <span style="color:#f1fa8c">&#34;model.mainGroup.subGroup.field1&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  ... <span style="color:#6272a4">// remaining setup of component
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>}
+</span></span></code></pre></div><p>Set up the summary in the following manner:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;summary-1&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Summary&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;componentRef&#34;</span>: <span style="color:#f1fa8c">&#34;main-group&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;pageRef&#34;</span>: <span style="color:#f1fa8c">&#34;FormLayout&#34;</span>,
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>  <span style="color:#ff79c6">&#34;largeGroup&#34;</span>: <span style="color:#ff79c6">true</span>,
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><figure><a href="nested-group-summary.png"><img src="nested-group-summary.png" alt="Summary nested repeating group" title="Summary nested repeating group" /></a><figcaption><h4>Summary nested repeating group</h4></figcaption></figure>
 <h2 id="categories">Categories</h2>
 <p>It is possible to group the summaries in different categories to make a summary page
 more clear. This is done by using the existing <em>group</em> component, without setting it up
@@ -1215,148 +1215,148 @@ as a repeating group.</p>
 <p>The fields in the summary are then displayed with a title, which is set in the <code>title</code> field for <code>textResourceBindings</code> for 
 the group component. See the example below.</p>
 <figure><a href="category-summary.png"><img src="category-summary.png" alt="Fields grouped under one category" title="Fields grouped under one category" /></a><figcaption><h4>Fields grouped under one category</h4></figcaption></figure>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;personalia-group&#34;</span>,
-  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Group&#34;</span>,
-  <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
-    <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;Personalia&#34;</span>
-  },
-  <span style="color:#ff79c6">&#34;children&#34;</span>: [
-    <span style="color:#f1fa8c">&#34;summary-1&#34;</span>,
-    <span style="color:#f1fa8c">&#34;summary-2&#34;</span>,
-    <span style="color:#f1fa8c">&#34;summary-3&#34;</span>
-  ]
-},
-{
-  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;summary-1&#34;</span>,
-  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Summary&#34;</span>,
-  <span style="color:#ff79c6">&#34;componentRef&#34;</span>: <span style="color:#f1fa8c">&#34;d566c79c-3e3e-445b-be25-a404508f6607&#34;</span>,
-  <span style="color:#ff79c6">&#34;pageRef&#34;</span>: <span style="color:#f1fa8c">&#34;personalia&#34;</span>
-},
-{
-  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;summary-2&#34;</span>,
-  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Summary&#34;</span>,
-  <span style="color:#ff79c6">&#34;componentRef&#34;</span>: <span style="color:#f1fa8c">&#34;22a60bf0-d5b7-4b45-9ac9-c266b6ad3716&#34;</span>,
-  <span style="color:#ff79c6">&#34;pageRef&#34;</span>: <span style="color:#f1fa8c">&#34;personalia&#34;</span>
-},
-{
-  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;summary-3&#34;</span>,
-  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Summary&#34;</span>,
-  <span style="color:#ff79c6">&#34;componentRef&#34;</span>: <span style="color:#f1fa8c">&#34;d497737b-67b2-4e03-87a9-43f58579c938&#34;</span>,
-  <span style="color:#ff79c6">&#34;pageRef&#34;</span>: <span style="color:#f1fa8c">&#34;personalia&#34;</span>
-},
-</code></pre></div><h2 id="example-on-summary-page">Example on summary page</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;personalia-group&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Group&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;Personalia&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;children&#34;</span>: [
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;summary-1&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;summary-2&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;summary-3&#34;</span>
+</span></span><span style="display:flex;"><span>  ]
+</span></span><span style="display:flex;"><span>},
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;summary-1&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Summary&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;componentRef&#34;</span>: <span style="color:#f1fa8c">&#34;d566c79c-3e3e-445b-be25-a404508f6607&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;pageRef&#34;</span>: <span style="color:#f1fa8c">&#34;personalia&#34;</span>
+</span></span><span style="display:flex;"><span>},
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;summary-2&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Summary&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;componentRef&#34;</span>: <span style="color:#f1fa8c">&#34;22a60bf0-d5b7-4b45-9ac9-c266b6ad3716&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;pageRef&#34;</span>: <span style="color:#f1fa8c">&#34;personalia&#34;</span>
+</span></span><span style="display:flex;"><span>},
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;summary-3&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Summary&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;componentRef&#34;</span>: <span style="color:#f1fa8c">&#34;d497737b-67b2-4e03-87a9-43f58579c938&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;pageRef&#34;</span>: <span style="color:#f1fa8c">&#34;personalia&#34;</span>
+</span></span><span style="display:flex;"><span>},
+</span></span></code></pre></div><h2 id="example-on-summary-page">Example on summary page</h2>
 <p>Below is an example of a summary page, with setup in the layout file. Since the summary is set up 
 in the layout files in the same way as other components, you can also include other form components as texts
 when needed.</p>
 <figure><a href="summary.png"><img src="summary.png" alt="Summary example" title="Summary example" /></a><figcaption><h4>Summary example</h4></figcaption></figure>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#ff79c6">&#34;$schema&#34;</span>:  <span style="color:#f1fa8c">&#34;https://altinncdn.no/schemas/json/layout/layout.schema.v1.json&#34;</span>,
-  <span style="color:#ff79c6">&#34;data&#34;</span>: {
-    <span style="color:#ff79c6">&#34;layout&#34;</span>: [
-      {
-        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;send-in-text&#34;</span>,
-        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Paragraph&#34;</span>,
-        <span style="color:#ff79c6">&#34;componentType&#34;</span>: <span style="color:#bd93f9">1</span>,
-        <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
-          <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;finish&#34;</span>
-        },
-        <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {}
-      },
-      {
-        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;personalia-group&#34;</span>,
-        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Group&#34;</span>,
-        <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
-          <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;Personalia&#34;</span>
-        },
-        <span style="color:#ff79c6">&#34;children&#34;</span>: [
-          <span style="color:#f1fa8c">&#34;summary-1&#34;</span>,
-          <span style="color:#f1fa8c">&#34;summary-2&#34;</span>,
-          <span style="color:#f1fa8c">&#34;summary-3&#34;</span>
-        ]
-      },
-      {
-        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;summary-1&#34;</span>,
-        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Summary&#34;</span>,
-        <span style="color:#ff79c6">&#34;componentRef&#34;</span>: <span style="color:#f1fa8c">&#34;d566c79c-3e3e-445b-be25-a404508f6607&#34;</span>,
-        <span style="color:#ff79c6">&#34;pageRef&#34;</span>: <span style="color:#f1fa8c">&#34;personalia&#34;</span>
-      },
-      {
-        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;summary-2&#34;</span>,
-        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Summary&#34;</span>,
-        <span style="color:#ff79c6">&#34;componentRef&#34;</span>: <span style="color:#f1fa8c">&#34;22a60bf0-d5b7-4b45-9ac9-c266b6ad3716&#34;</span>,
-        <span style="color:#ff79c6">&#34;pageRef&#34;</span>: <span style="color:#f1fa8c">&#34;personalia&#34;</span>
-      },
-      {
-        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;summary-3&#34;</span>,
-        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Summary&#34;</span>,
-        <span style="color:#ff79c6">&#34;componentRef&#34;</span>: <span style="color:#f1fa8c">&#34;d497737b-67b2-4e03-87a9-43f58579c938&#34;</span>,
-        <span style="color:#ff79c6">&#34;pageRef&#34;</span>: <span style="color:#f1fa8c">&#34;personalia&#34;</span>
-      },
-      {
-        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;drugs-group&#34;</span>,
-        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Group&#34;</span>,
-        <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
-          <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;Rus- og dopingmidler&#34;</span>
-        },
-        <span style="color:#ff79c6">&#34;children&#34;</span>: [
-          <span style="color:#f1fa8c">&#34;summary-4&#34;</span>,
-          <span style="color:#f1fa8c">&#34;summary-5&#34;</span>,
-          <span style="color:#f1fa8c">&#34;summary-6&#34;</span>,
-          <span style="color:#f1fa8c">&#34;summary-7&#34;</span>
-        ]
-      },
-      {
-        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;summary-4&#34;</span>,
-        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Summary&#34;</span>,
-        <span style="color:#ff79c6">&#34;componentRef&#34;</span>: <span style="color:#f1fa8c">&#34;064c0033-8996-4825-85fc-2a19fe654400&#34;</span>,
-        <span style="color:#ff79c6">&#34;pageRef&#34;</span>: <span style="color:#f1fa8c">&#34;drugs&#34;</span>
-      },
-      {
-        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;summary-5&#34;</span>,
-        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Summary&#34;</span>,
-        <span style="color:#ff79c6">&#34;componentRef&#34;</span>: <span style="color:#f1fa8c">&#34;7f22e523-3f6d-4371-a5dd-233dc41af824&#34;</span>,
-        <span style="color:#ff79c6">&#34;pageRef&#34;</span>: <span style="color:#f1fa8c">&#34;drugs&#34;</span>
-      },
-      {
-        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;summary-6&#34;</span>,
-        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Summary&#34;</span>,
-        <span style="color:#ff79c6">&#34;componentRef&#34;</span>: <span style="color:#f1fa8c">&#34;18a7c709-ae2f-48b3-b6f6-bd631f5d8d56&#34;</span>,
-        <span style="color:#ff79c6">&#34;pageRef&#34;</span>: <span style="color:#f1fa8c">&#34;drugs&#34;</span>
-      },
-      {
-        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;summary-7&#34;</span>,
-        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Summary&#34;</span>,
-        <span style="color:#ff79c6">&#34;componentRef&#34;</span>: <span style="color:#f1fa8c">&#34;b7417cf9-f806-4835-a3d1-424c8d094d5f&#34;</span>,
-        <span style="color:#ff79c6">&#34;pageRef&#34;</span>: <span style="color:#f1fa8c">&#34;drugs&#34;</span>
-      },
-      {
-        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;summary-group-1&#34;</span>,
-        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Summary&#34;</span>,
-        <span style="color:#ff79c6">&#34;componentRef&#34;</span>: <span style="color:#f1fa8c">&#34;arbeidserfaring-group&#34;</span>,
-        <span style="color:#ff79c6">&#34;pageRef&#34;</span>: <span style="color:#f1fa8c">&#34;work&#34;</span>
-      },
-      {
-        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;summary-8&#34;</span>,
-        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Summary&#34;</span>,
-        <span style="color:#ff79c6">&#34;componentRef&#34;</span>: <span style="color:#f1fa8c">&#34;25f720db-5784-4c95-a530-43f0bf523466&#34;</span>,
-        <span style="color:#ff79c6">&#34;pageRef&#34;</span>: <span style="color:#f1fa8c">&#34;attachment&#34;</span>
-      },
-      {
-        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;312afa87-c2a9-4ef1-a681-26cc47462878&#34;</span>,
-        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Button&#34;</span>,
-        <span style="color:#ff79c6">&#34;componentType&#34;</span>: <span style="color:#bd93f9">9</span>,
-        <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
-          <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;Send inn&#34;</span>
-        },
-        <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {},
-        <span style="color:#ff79c6">&#34;textResourceId&#34;</span>: <span style="color:#f1fa8c">&#34;Standard.Button.Button&#34;</span>,
-        <span style="color:#ff79c6">&#34;customType&#34;</span>: <span style="color:#f1fa8c">&#34;Standard&#34;</span>
-      }
-    ]
-  }
-}
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;$schema&#34;</span>:  <span style="color:#f1fa8c">&#34;https://altinncdn.no/schemas/json/layout/layout.schema.v1.json&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;data&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;layout&#34;</span>: [
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;send-in-text&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Paragraph&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;componentType&#34;</span>: <span style="color:#bd93f9">1</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;finish&#34;</span>
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {}
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;personalia-group&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Group&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;Personalia&#34;</span>
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;children&#34;</span>: [
+</span></span><span style="display:flex;"><span>          <span style="color:#f1fa8c">&#34;summary-1&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#f1fa8c">&#34;summary-2&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#f1fa8c">&#34;summary-3&#34;</span>
+</span></span><span style="display:flex;"><span>        ]
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;summary-1&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Summary&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;componentRef&#34;</span>: <span style="color:#f1fa8c">&#34;d566c79c-3e3e-445b-be25-a404508f6607&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;pageRef&#34;</span>: <span style="color:#f1fa8c">&#34;personalia&#34;</span>
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;summary-2&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Summary&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;componentRef&#34;</span>: <span style="color:#f1fa8c">&#34;22a60bf0-d5b7-4b45-9ac9-c266b6ad3716&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;pageRef&#34;</span>: <span style="color:#f1fa8c">&#34;personalia&#34;</span>
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;summary-3&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Summary&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;componentRef&#34;</span>: <span style="color:#f1fa8c">&#34;d497737b-67b2-4e03-87a9-43f58579c938&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;pageRef&#34;</span>: <span style="color:#f1fa8c">&#34;personalia&#34;</span>
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;drugs-group&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Group&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;Rus- og dopingmidler&#34;</span>
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;children&#34;</span>: [
+</span></span><span style="display:flex;"><span>          <span style="color:#f1fa8c">&#34;summary-4&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#f1fa8c">&#34;summary-5&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#f1fa8c">&#34;summary-6&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#f1fa8c">&#34;summary-7&#34;</span>
+</span></span><span style="display:flex;"><span>        ]
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;summary-4&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Summary&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;componentRef&#34;</span>: <span style="color:#f1fa8c">&#34;064c0033-8996-4825-85fc-2a19fe654400&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;pageRef&#34;</span>: <span style="color:#f1fa8c">&#34;drugs&#34;</span>
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;summary-5&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Summary&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;componentRef&#34;</span>: <span style="color:#f1fa8c">&#34;7f22e523-3f6d-4371-a5dd-233dc41af824&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;pageRef&#34;</span>: <span style="color:#f1fa8c">&#34;drugs&#34;</span>
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;summary-6&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Summary&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;componentRef&#34;</span>: <span style="color:#f1fa8c">&#34;18a7c709-ae2f-48b3-b6f6-bd631f5d8d56&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;pageRef&#34;</span>: <span style="color:#f1fa8c">&#34;drugs&#34;</span>
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;summary-7&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Summary&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;componentRef&#34;</span>: <span style="color:#f1fa8c">&#34;b7417cf9-f806-4835-a3d1-424c8d094d5f&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;pageRef&#34;</span>: <span style="color:#f1fa8c">&#34;drugs&#34;</span>
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;summary-group-1&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Summary&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;componentRef&#34;</span>: <span style="color:#f1fa8c">&#34;arbeidserfaring-group&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;pageRef&#34;</span>: <span style="color:#f1fa8c">&#34;work&#34;</span>
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;summary-8&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Summary&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;componentRef&#34;</span>: <span style="color:#f1fa8c">&#34;25f720db-5784-4c95-a530-43f0bf523466&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;pageRef&#34;</span>: <span style="color:#f1fa8c">&#34;attachment&#34;</span>
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;312afa87-c2a9-4ef1-a681-26cc47462878&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Button&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;componentType&#34;</span>: <span style="color:#bd93f9">9</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;Send inn&#34;</span>
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {},
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;textResourceId&#34;</span>: <span style="color:#f1fa8c">&#34;Standard.Button.Button&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;customType&#34;</span>: <span style="color:#f1fa8c">&#34;Standard&#34;</span>
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
 
 <footer class=" footline" ></footer>
                 </div>

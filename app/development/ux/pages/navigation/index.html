@@ -117,7 +117,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -217,7 +217,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -297,7 +297,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -1115,16 +1115,16 @@ if(host != "localhost")
 <figure><a href="nav-button-next.png"><img src="nav-button-next.png" alt="Navigation buttons" title="Navigation buttons" /></a><figcaption><h4>Navigation buttons</h4></figcaption></figure>
 <h2 id="add-button-for-navigation">Add button for navigation</h2>
 <p>Button for navigation is added to all layout files where it is needed. If you want the button to appear at the bottom of the page, it has to be added at the bottom in the layout file. Configuration example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;nav-page2&#34;</span>,
-  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;NavigationButtons&#34;</span>,
-  <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
-    <span style="color:#ff79c6">&#34;next&#34;</span>: <span style="color:#f1fa8c">&#34;next&#34;</span>,
-    <span style="color:#ff79c6">&#34;back&#34;</span>: <span style="color:#f1fa8c">&#34;back&#34;</span>
-  },
-  <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {}
-}
-</code></pre></div><p>It is also possible to show a <code>back</code> button together with the <code>next</code> button by adding the parameter <code>showBackButton: true</code> in the button configuration.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;nav-page2&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;NavigationButtons&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;next&#34;</span>: <span style="color:#f1fa8c">&#34;next&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;back&#34;</span>: <span style="color:#f1fa8c">&#34;back&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {}
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>It is also possible to show a <code>back</code> button together with the <code>next</code> button by adding the parameter <code>showBackButton: true</code> in the button configuration.</p>
 <figure><a href="nav-button-next-prev.png"><img src="nav-button-next-prev.png" alt="Navigation buttons with back arrow" title="Navigation buttons with back arrow" /></a><figcaption><h4>Navigation buttons with back arrow</h4></figcaption></figure>
 <table>
 <thead>
@@ -1161,22 +1161,21 @@ The Navigaion Bar lists all pages in the application, and is not suited for use 
 <p>On big screens, all pages will be visible. If there is not enough space on one line, the list will break and the rest of the pages will go on the next line. On smaller screens, all pages will be hidden in a menu. The current page is shown in the menu, and when the menu is clicked, all pages will show.</p>
 <figure><a href="navigationbar-mobile.png"><img src="navigationbar-mobile.png" alt="Navigation Bar mobile - closed and open" title="Navigation Bar mobile - closed and open" /></a><figcaption><h4>Navigation Bar mobile - closed and open</h4></figcaption></figure>
 <p>The Navigation Bar is added to all layout files. Configuration example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;navbar-page-1&#34;</span>,
-  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;NavigationBar&#34;</span>
-}
-</code></pre></div><h3 id="change-texts-on-navigationbar-buttons">Change texts on navigationbar buttons</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;navbar-page-1&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;NavigationBar&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="change-texts-on-navigationbar-buttons">Change texts on navigationbar buttons</h3>
 <p>The text in the navigation bar buttons will by default use the filename of the page without the extension. F.ex if you have <code>page1.json</code> and <code>page2.json</code>, the buttons will contain <code>page1</code> and <code>page2</code>. To override these texts, you can add texts in the <code>resources.XX.json</code>, where the <code>id</code> is the filename without extension. Example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;page1&#34;</span>,
-  <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;First page&#34;</span>
-},
-{
-  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;page2&#34;</span>,
-  <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;Last page&#34;</span>
-},
-
-</code></pre></div><h2 id="order">Order</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;page1&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;First page&#34;</span>
+</span></span><span style="display:flex;"><span>},
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;page2&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;Last page&#34;</span>
+</span></span><span style="display:flex;"><span>},
+</span></span></code></pre></div><h2 id="order">Order</h2>
 <p>Default order for the pages is alphabetically. Besides this you can name each page as you wish, and the filename is what will be used. To ensure the pages appear in a specific order, you could prefix them with numbers, f.ex:</p>
 <pre tabindex="0"><code>|- App/
   |- ui/
@@ -1185,29 +1184,29 @@ The Navigaion Bar lists all pages in the application, and is not suited for use 
       |- 2.secondPage.json
       |- 3.aFinalPage.json
 </code></pre><p>It is also possible to override the order on the pages in the <code>Settings.json</code> file found under <code>App/ui/</code>, by setting the <code>pages.order</code> property. Example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#ff79c6">&#34;pages&#34;</span>: {
-    <span style="color:#ff79c6">&#34;order&#34;</span>: [<span style="color:#f1fa8c">&#34;side2&#34;</span>, <span style="color:#f1fa8c">&#34;side1&#34;</span>]
-  }
-}
-</code></pre></div><div class="notices info" >
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;pages&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;order&#34;</span>: [<span style="color:#f1fa8c">&#34;side2&#34;</span>, <span style="color:#f1fa8c">&#34;side1&#34;</span>]
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="notices info" >
 Functionality for dynamically deciding which page should be next is not something that is currently supported.
 </div>
 <h2 id="validation-on-page-navigation">Validation on page navigation</h2>
 <p>It is possible to trigger validation when the user tries to navigate to a different page. This can be done by adding the string <code>validatePage</code> to the <code>triggers</code> in the navigation button component. Example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;7cbc1c00-4c8c-42b6-bcef-12b3c4c45373&#34;</span>,
-  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;NavigationButtons&#34;</span>,
-  <span style="color:#ff79c6">&#34;componentType&#34;</span>: <span style="color:#f1fa8c">&#34;NavigationButtons&#34;</span>,
-  <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
-    <span style="color:#ff79c6">&#34;next&#34;</span>: <span style="color:#f1fa8c">&#34;Neste&#34;</span>,
-    <span style="color:#ff79c6">&#34;back&#34;</span>: <span style="color:#f1fa8c">&#34;Tilbake&#34;</span>
-  },
-  <span style="color:#ff79c6">&#34;triggers&#34;</span>: [<span style="color:#f1fa8c">&#34;validatePage&#34;</span>],
-  <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {},
-  <span style="color:#ff79c6">&#34;showBackButton&#34;</span>: <span style="color:#ff79c6">true</span>
- }
-</code></pre></div><p>If there are errors on the page, the user will be prevented from moving forward until this is fixed. If <code>validatePage</code> is added as a trigger, the ID of the element that triggers the validation will be sent as a header <code>LayoutId</code> to the backend. This makes it possible to customize the backend validtaions based on which page the user triggers the validation from.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;7cbc1c00-4c8c-42b6-bcef-12b3c4c45373&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;NavigationButtons&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;componentType&#34;</span>: <span style="color:#f1fa8c">&#34;NavigationButtons&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;next&#34;</span>: <span style="color:#f1fa8c">&#34;Neste&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;back&#34;</span>: <span style="color:#f1fa8c">&#34;Tilbake&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;triggers&#34;</span>: [<span style="color:#f1fa8c">&#34;validatePage&#34;</span>],
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {},
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;showBackButton&#34;</span>: <span style="color:#ff79c6">true</span>
+</span></span><span style="display:flex;"><span> }
+</span></span></code></pre></div><p>If there are errors on the page, the user will be prevented from moving forward until this is fixed. If <code>validatePage</code> is added as a trigger, the ID of the element that triggers the validation will be sent as a header <code>LayoutId</code> to the backend. This makes it possible to customize the backend validtaions based on which page the user triggers the validation from.
 It is also possible to trigger validation on all pages by adding <code>validateAllPages</code> in <code>triggers</code>.</p>
 
 

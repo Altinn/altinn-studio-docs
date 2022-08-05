@@ -109,7 +109,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -209,7 +209,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -281,7 +281,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -1111,9 +1111,10 @@ if(host != "localhost")
         <h2 class="post-title"><a href="/technology/tools/jest/">Jest</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>&ldquo;Jest is a delightful JavaScript Testing Framework with a focus on simplicity.&rdquo;
+        <p>
+&ldquo;Jest is a delightful JavaScript Testing Framework with a focus on simplicity.&rdquo;
 Jest testing framework is used for front-end testing. You can read more about how to test with Jest here.
-Links  https://jestjs.io https://github.com/facebook/jest   <a class="read-more" href="/technology/tools/jest/">&raquo;</a></p>
+Links https://jestjs.io https://github.com/facebook/jest  <a class="read-more" href="/technology/tools/jest/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         
@@ -1136,7 +1137,7 @@ Links  https://jestjs.io https://github.com/facebook/jest   <a class="read-more"
     <section class="post-excerpt">
         <p>Bruk av Redux Store i Containere og Components. Kort oppsummert (TL;DR) Send &ldquo;ID&rdquo; eller andre identifikatorer via Props til komponenten og la komponenten hente data fra Redux Store.
 Utfordring (Why?) Hvis en del av Redux Store sendes som Props så vil komponenten re-rendres ved endringer av denne Prop/Store. Det er ønskelig at komponenter ikke rendrer unødvendig.
-Re-rendring trigges av…  Endring av Props. Endring av State som endrer Props.  Kilder  Redux best practices Common pitfalls  Filtrering av Redux Store i mapStateToProps() ved help av Selector Kort oppsummert (TL;DR) Bruk Memoized Selector for å filtrere Redux Store til Props når Redux Store er stor. <a class="read-more" href="/technology/tools/react/architecture/">&raquo;</a></p>
+Re-rendring trigges av… Endring av Props. Endring av State som endrer Props. Kilder Redux best practices Common pitfalls Filtrering av Redux Store i mapStateToProps() ved help av Selector Kort oppsummert (TL;DR) Bruk Memoized Selector for å filtrere Redux Store til Props når Redux Store er stor. <a class="read-more" href="/technology/tools/react/architecture/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         
@@ -1160,7 +1161,7 @@ Re-rendring trigges av…  Endring av Props. Endring av State som endrer Props. 
         <p>Kubernetes is described as container orchitrastion. That means how containers are run, exposed and all other operations that might be done on a container.
 Both Altinn Studio and Altinn Studio Apps consists of many different applications running in docker containers. For the Altinn Studio Apps solution this could possible over time be many thousands containers running different end user apps.
 Kubernetes is used to manage the containers.
-Links  https://kubernetes.io https://github. <a class="read-more" href="/technology/tools/kubernetes/">&raquo;</a></p>
+Links https://kubernetes.io https://github. <a class="read-more" href="/technology/tools/kubernetes/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         
@@ -1179,10 +1180,11 @@ Links  https://kubernetes.io https://github. <a class="read-more" href="/technol
         <h2 class="post-title"><a href="/technology/tools/markdown/">Markdown</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>We&rsquo;re writing all our documentation using markdown, and we use Hugo for converting the markdown to HTML.
+        <p>
+We&rsquo;re writing all our documentation using markdown, and we use Hugo for converting the markdown to HTML.
 Markdown is also used to format text in apps developed in Altinn Studio.
 Altinn ❤️ Markdown.
-Links  https://daringfireball.net/projects/markdown/ https://en.wikipedia.org/wiki/Markdown https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet https://code.visualstudio.com/docs/languages/markdown https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one   <a class="read-more" href="/technology/tools/markdown/">&raquo;</a></p>
+Links https://daringfireball.net/projects/markdown/ https://en.wikipedia.org/wiki/Markdown https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet https://code.visualstudio.com/docs/languages/markdown https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one  <a class="read-more" href="/technology/tools/markdown/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         
@@ -1202,7 +1204,7 @@ Links  https://daringfireball.net/projects/markdown/ https://en.wikipedia.org/wi
     </header>
     <section class="post-excerpt">
         <p>Material UI is used in Altinn Studio as the React UI library. Material UI was chosen because
- It is based on the Google&rsquo;s material design. It focuses exclusively on the React components Can use responsive components provided by the library Can override the style to customize the component to match the application requirements Can save time by using the components in the library instead of creating it from scratch (for example, the navigation drawers, application bar) It uses JSS as a styling solution that exposes a low-level API which helps in advanced overriding and theming mechanism  React router is a third party routing library used in Altinn Studio to trigger navigation within the application. <a class="read-more" href="/technology/tools/material-ui/">&raquo;</a></p>
+It is based on the Google&rsquo;s material design. It focuses exclusively on the React components Can use responsive components provided by the library Can override the style to customize the component to match the application requirements Can save time by using the components in the library instead of creating it from scratch (for example, the navigation drawers, application bar) It uses JSS as a styling solution that exposes a low-level API which helps in advanced overriding and theming mechanism React router is a third party routing library used in Altinn Studio to trigger navigation within the application. <a class="read-more" href="/technology/tools/material-ui/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         
@@ -1223,8 +1225,9 @@ Links  https://daringfireball.net/projects/markdown/ https://en.wikipedia.org/wi
         <h2 class="post-title"><a href="/technology/tools/nginx/">Nginx</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Nginx is used as the load balancer in the Altinn Studio solution. It routes traffic between Repos and Designer, itself running in a docker container.
-Links  https://www.nginx.org https://github.com/nginx/nginx https://hub.docker.com/_/nginx   <a class="read-more" href="/technology/tools/nginx/">&raquo;</a></p>
+        <p>
+Nginx is used as the load balancer in the Altinn Studio solution. It routes traffic between Repos and Designer, itself running in a docker container.
+Links https://www.nginx.org https://github.com/nginx/nginx https://hub.docker.com/_/nginx  <a class="read-more" href="/technology/tools/nginx/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         
@@ -1243,9 +1246,10 @@ Links  https://www.nginx.org https://github.com/nginx/nginx https://hub.docker.c
         <h2 class="post-title"><a href="/technology/tools/node-js/">Node.js</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Our front-end is built on top of open source javascript/typescript packages from the Node.js ecosystem.
+        <p>
+Our front-end is built on top of open source javascript/typescript packages from the Node.js ecosystem.
 We&rsquo;ve also published our design system on npm.
-Links  https://nodejs.org https://github.com/nodejs/node/ https://hub.docker.com/_/node https://code.visualstudio.com/docs/nodejs/nodejs-tutorial   <a class="read-more" href="/technology/tools/node-js/">&raquo;</a></p>
+Links https://nodejs.org https://github.com/nodejs/node/ https://hub.docker.com/_/node https://code.visualstudio.com/docs/nodejs/nodejs-tutorial  <a class="read-more" href="/technology/tools/node-js/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         
@@ -1262,8 +1266,9 @@ Links  https://nodejs.org https://github.com/nodejs/node/ https://hub.docker.com
         <h2 class="post-title"><a href="/technology/tools/prometheus/">Prometheus</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Prometheus is an open-source systems monitoring and alerting toolkit that we use for monitoring.
-Links  https://prometheus.io https://github.com/prometheus/prometheus   <a class="read-more" href="/technology/tools/prometheus/">&raquo;</a></p>
+        <p>
+Prometheus is an open-source systems monitoring and alerting toolkit that we use for monitoring.
+Links https://prometheus.io https://github.com/prometheus/prometheus  <a class="read-more" href="/technology/tools/prometheus/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         
@@ -1282,7 +1287,7 @@ Links  https://prometheus.io https://github.com/prometheus/prometheus   <a class
         <h2 class="post-title"><a href="/technology/tools/react/">React</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Modulært rammeverk for å utvikle UI komponenter som kan gjenbrukes flere steder i løsningen. Hvert React komponent har en tilstand som gir den data i henhold til hvor i applikasjonen brukeren er og hvilke handlinger som foretas. Vedlikeholdt av Facebook, under MIT lisens.  Slik React blir brukt Uten redux  Ved bruk av higher order components kan tilstand sendes fra rot-komponenten nedover i komponent-hierarkiet. Rot-komponenten håndterer alt av state, og sender callbacks ned i komponentene, slik at det er mulig og legge til, fjerne og endre komponeter. <a class="read-more" href="/technology/tools/react/">&raquo;</a></p>
+        <p>Modulært rammeverk for å utvikle UI komponenter som kan gjenbrukes flere steder i løsningen. Hvert React komponent har en tilstand som gir den data i henhold til hvor i applikasjonen brukeren er og hvilke handlinger som foretas. Vedlikeholdt av Facebook, under MIT lisens. Slik React blir brukt Uten redux Ved bruk av higher order components kan tilstand sendes fra rot-komponenten nedover i komponent-hierarkiet. Rot-komponenten håndterer alt av state, og sender callbacks ned i komponentene, slik at det er mulig og legge til, fjerne og endre komponeter. <a class="read-more" href="/technology/tools/react/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         
@@ -1303,7 +1308,7 @@ Links  https://prometheus.io https://github.com/prometheus/prometheus   <a class
         <h2 class="post-title"><a href="/technology/tools/react/redux/">Redux</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Applikasjonstilstandshåndtering En felles tilstand for hele applikasjonen Tilstanden styres av Actions som håndteres av Reducere som igjen populerer tilstanden.  En Action kan f.eks. være &ldquo;FETCH_POSTNUMMER&rdquo; Når en slik actions kjøres, så vil en Reducer ta imot og oppdatere tilstanden slik at det er i tilstanden at applikasjonen nå henter postnummer. Når er hentingen er fullført, vil man f.eks. sende en action &ldquo;FETCH_POSTNUMMER_FULFILLED&rdquo; som har postnummer-data med som parameter. Reducer håndterer denne handlingen og setter postnummer-data i applikasjonens tilstand. <a class="read-more" href="/technology/tools/react/redux/">&raquo;</a></p>
+        <p>Applikasjonstilstandshåndtering En felles tilstand for hele applikasjonen Tilstanden styres av Actions som håndteres av Reducere som igjen populerer tilstanden. En Action kan f.eks. være &ldquo;FETCH_POSTNUMMER&rdquo; Når en slik actions kjøres, så vil en Reducer ta imot og oppdatere tilstanden slik at det er i tilstanden at applikasjonen nå henter postnummer. Når er hentingen er fullført, vil man f.eks. sende en action &ldquo;FETCH_POSTNUMMER_FULFILLED&rdquo; som har postnummer-data med som parameter. Reducer håndterer denne handlingen og setter postnummer-data i applikasjonens tilstand. <a class="read-more" href="/technology/tools/react/redux/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         

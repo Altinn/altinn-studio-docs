@@ -381,13 +381,13 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/metadata/"><span>Metadata</span></a></li>
       <li class="dd-item">
         <a href="/nb/api/apps/instances/"><span>Instanser</span></a></li>
       <li class="dd-item">
-        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/data-elements/tags/"><span>Tags</span></a></li></ul></li>
       <li class="dd-item">
@@ -441,9 +441,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/community/about/"><span>Om</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/community/about/goals/"><span>Mål</span></a></li>
+        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li>
       <li class="dd-item">
-        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li></ul></li>
+        <a href="/nb/community/about/goals/"><span>Mål</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/community/contributing/"><span>Bidra til utvikling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -574,124 +574,124 @@ if(host != "localhost")
 </nav><h2 id="overview">Overview</h2>
 <p>An <a href="../../models/instance">instance</a> can be regarded as an envelope or folder where data is collected and exchanged between the application user and owner. The instance document is a way for Altinn and external parties to track the state of one specific data exchange. How long an instance lives and how many interactions there are between the application owner and user will vary from one app to another. Advanced apps will have their own documentation.</p>
 <p><strong>basePath</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">{org}/{appname}/instances
-</code></pre></div><h2 id="get-instance">Get instance</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>{org}/{appname}/instances
+</span></span></code></pre></div><h2 id="get-instance">Get instance</h2>
 <p>Endpoint for downloading the instance metadata document for a specific instance. The app API does not have an endpoint for listing instances. The Storage API in the Platform has a query endpoint that can be used for this purpose.</p>
 <p>Use this endpoint for instances that are active, and the owner party id and instance guid for the instance are known. External systems that work with an instance over multiple sessions might want to keep these values (or full URL) stored on their end to limit the need to query this information multiple times.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET {basePath}/{instanceOwnerPartyId}/{instanceGuid}
-</code></pre></div><h2 id="get-active-instances">Get active instances</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>GET {basePath}/{instanceOwnerPartyId}/{instanceGuid}
+</span></span></code></pre></div><h2 id="get-active-instances">Get active instances</h2>
 <p>Endepunkt for å liste aktive instanser for en avgiver.</p>
 <p>Dette endepunktet kan benyttes for å avgjøre om en ny instans av en app skal opprettes eller om det er mer hensiktsmessig å fortsette utfylling av en eksisterende instans.
 Merk at objektet som returneres er en liste med forenklede instansobjekt og at <code>LastChangedBy</code> inneholder navnet på den sist aktive entiteten i stedet for id.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[
-	{
-		<span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;1337/bffd2c17-9d93-49f4-b504-3d0ece2402c7&#34;</span>,
-		<span style="color:#ff79c6">&#34;lastChanged&#34;</span>: <span style="color:#f1fa8c">&#34;2021-09-23T10:19:43&#34;</span>,
-		<span style="color:#ff79c6">&#34;lastChangedBy&#34;</span>: <span style="color:#f1fa8c">&#34;Sophie Salt&#34;</span>
-	},
-    {
-		<span style="color:#ff79c6">&#34;instanceId&#34;</span>: <span style="color:#f1fa8c">&#34;1337/agfd2c17-4d93-49f4-b504-3d0ece2402d8&#34;</span>,
-		<span style="color:#ff79c6">&#34;lastChanged&#34;</span>: <span style="color:#f1fa8c">&#34;2021-07-11T22:14:02&#34;</span>,
-		<span style="color:#ff79c6">&#34;lastChangedBy&#34;</span>: <span style="color:#f1fa8c">&#34;Sophie Salt&#34;</span>
-	}
-]
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET {basePath}/{instanceOwnerPartyId}/active
-</code></pre></div><h2 id="create-instance">Create instance</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>[
+</span></span><span style="display:flex;"><span>	{
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;1337/bffd2c17-9d93-49f4-b504-3d0ece2402c7&#34;</span>,
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">&#34;lastChanged&#34;</span>: <span style="color:#f1fa8c">&#34;2021-09-23T10:19:43&#34;</span>,
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">&#34;lastChangedBy&#34;</span>: <span style="color:#f1fa8c">&#34;Sophie Salt&#34;</span>
+</span></span><span style="display:flex;"><span>	},
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">&#34;instanceId&#34;</span>: <span style="color:#f1fa8c">&#34;1337/agfd2c17-4d93-49f4-b504-3d0ece2402d8&#34;</span>,
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">&#34;lastChanged&#34;</span>: <span style="color:#f1fa8c">&#34;2021-07-11T22:14:02&#34;</span>,
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">&#34;lastChangedBy&#34;</span>: <span style="color:#f1fa8c">&#34;Sophie Salt&#34;</span>
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>]
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>GET {basePath}/{instanceOwnerPartyId}/active
+</span></span></code></pre></div><h2 id="create-instance">Create instance</h2>
 <p>Altinn assigns a unique identifier to all users that wish to report data. We call this id <em>instanceOwner.partyId</em>. 
 If you do not know this, you should provide the official identity number, e.g national identification number for persons or organisation number for organisations,
 and in some case user name. This should be provided as part of the payload to the creation request.
 Altinn will look up this identifier and replace it with the instanceOwner.partyId. The official identity number will be stored in the instance metadata.</p>
 <p>Data elements can be provided as part of the creation request, but can also be uploaded at a later time.</p>
 <p>The client specifies the instance owner and may set a number of the metadata fields of the instance by attaching the following form:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-    <span style="color:#ff79c6">&#34;appId&#34;</span> : <span style="color:#f1fa8c">&#34;org/app&#34;</span>,
-    <span style="color:#ff79c6">&#34;instanceOwner&#34;</span>: {
-        <span style="color:#ff79c6">&#34;personNumber&#34;</span>: <span style="color:#f1fa8c">&#34;12247918309&#34;</span>,
-        <span style="color:#ff79c6">&#34;organisationNumber&#34;</span>: <span style="color:#ff79c6">null</span>
-    },
-    <span style="color:#ff79c6">&#34;dueBefore&#34;</span>: <span style="color:#f1fa8c">&#34;2019-06-01T12:00:00Z&#34;</span>,
-    <span style="color:#ff79c6">&#34;visibleAfter&#34;</span>: <span style="color:#f1fa8c">&#34;2019-05-20T00:00:00Z&#34;</span>
-}
-</code></pre></div><p>Notice that all dates must be expressed in <strong>Utc (Zulu)</strong> time zone and represented according to ISO 8601!</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;appId&#34;</span> : <span style="color:#f1fa8c">&#34;org/app&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;instanceOwner&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;personNumber&#34;</span>: <span style="color:#f1fa8c">&#34;12247918309&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;organisationNumber&#34;</span>: <span style="color:#ff79c6">null</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;dueBefore&#34;</span>: <span style="color:#f1fa8c">&#34;2019-06-01T12:00:00Z&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;visibleAfter&#34;</span>: <span style="color:#f1fa8c">&#34;2019-05-20T00:00:00Z&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Notice that all dates must be expressed in <strong>Utc (Zulu)</strong> time zone and represented according to ISO 8601!</p>
 <p>Data elements (files) can be attached to the initial request as a <em>multipart/form-data</em> or as <em>attachments</em>.
 The name of the parts must correspond to element types defined in the application metadata.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">POST {basePath}
-</code></pre></div><figure><a href="instantiate-for-an-instance-owner.png"><img src="instantiate-for-an-instance-owner.png" alt="Flow chart for instantiation" title="Instantiate for instance owner" /></a><figcaption><h4>Instantiate for instance owner</h4></figcaption></figure>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>POST {basePath}
+</span></span></code></pre></div><figure><a href="instantiate-for-an-instance-owner.png"><img src="instantiate-for-an-instance-owner.png" alt="Flow chart for instantiation" title="Instantiate for instance owner" /></a><figcaption><h4>Instantiate for instance owner</h4></figcaption></figure>
 <p>A multipart/formdata should contain the instance json document and the data element files of the instance.
 The first part should be <em>instance</em> which contains the json template to create an instance from.</p>
 <p>The subsequent parts must have a name that correspond to the element types defined in application metadata.
 They may have a filename. Hence the <em>model1</em> and <em>certificate</em> names correspond to data types defined in the application metadata.
 If additional data elements are required they must be defined in the application metadata.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">Content-Type: multipart/form-data; boundary=&#34;abcdefg&#34;
-
---abcdefg
-Content-Type: application/json; charset=utf-8
-<span style="display:block;width:100%;background-color:#3d3f4a">Content-Disposition: form-data; name=&#34;instance&#34;
-</span>{ ... }
-
---abcdefg
-Content-Type: application/xml
-<span style="display:block;width:100%;background-color:#3d3f4a">Content-Disposition: form-data; name=&#34;model1&#34;
-</span>&lt;xml&gt; ... &lt;/xml&gt;
-
---abcdefg
-Content-Type: application/pdf
-<span style="display:block;width:100%;background-color:#3d3f4a">Content-Disposition: form-data; name=&#34;certificate&#34;; filename=certificate.pdf
-</span>%PDF-1.4
-%Óëéá
-1 0 obj
-...
-
---abcdefg--
-</code></pre></div><p>This call will return the instance metadata document that was created.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>Content-Type: multipart/form-data; boundary=&#34;abcdefg&#34;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>--abcdefg
+</span></span><span style="display:flex;"><span>Content-Type: application/json; charset=utf-8
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>Content-Disposition: form-data; name=&#34;instance&#34;
+</span></span><span style="display:flex;"><span>{ ... }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>--abcdefg
+</span></span><span style="display:flex;"><span>Content-Type: application/xml
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>Content-Disposition: form-data; name=&#34;model1&#34;
+</span></span><span style="display:flex;"><span>&lt;xml&gt; ... &lt;/xml&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>--abcdefg
+</span></span><span style="display:flex;"><span>Content-Type: application/pdf
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>Content-Disposition: form-data; name=&#34;certificate&#34;; filename=certificate.pdf
+</span></span><span style="display:flex;"><span>%PDF-1.4
+</span></span><span style="display:flex;"><span>%Óëéá
+</span></span><span style="display:flex;"><span>1 0 obj
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>--abcdefg--
+</span></span></code></pre></div><p>This call will return the instance metadata document that was created.</p>
 <h2 id="simplified-instansiation">Simplified instansiation</h2>
 <p>For scenarios where the multipart is not required there is a new API that is simpler. 
 It supports both key-value prefilling and copying data from an archived instance.</p>
 <p>The endpoint is available at</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">POST {basePath}/create
-</code></pre></div><p>Required body differs for the two features, and examples of the request body are available below.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>POST {basePath}/create
+</span></span></code></pre></div><p>Required body differs for the two features, and examples of the request body are available below.</p>
 <h3 id="instantiation-with-key-value-prefill">Instantiation with key-value prefill</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-    
-    <span style="color:#ff79c6">&#34;instanceOwner&#34;</span>: {
-        <span style="color:#ff79c6">&#34;personNumber&#34;</span>: <span style="color:#f1fa8c">&#34;12247918309&#34;</span>,
-        <span style="color:#ff79c6">&#34;organisationNumber&#34;</span>: <span style="color:#ff79c6">null</span>
-    },
-    <span style="color:#ff79c6">&#34;prefill&#34;</span>: {
-        <span style="color:#ff79c6">&#34;navnGarantist&#34;</span> : <span style="color:#f1fa8c">&#34;Ole Hansen&#34;</span>
-     },
-    <span style="color:#ff79c6">&#34;dueBefore&#34;</span>: <span style="color:#f1fa8c">&#34;2019-06-01T12:00:00Z&#34;</span>,
-    <span style="color:#ff79c6">&#34;visibleAfter&#34;</span>: <span style="color:#f1fa8c">&#34;2019-05-20T00:00:00Z&#34;</span>
-}
-</code></pre></div><h3 id="instantiation-from-archived-instance">Instantiation from archived instance</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-    
-    <span style="color:#ff79c6">&#34;instanceOwner&#34;</span>: {
-        <span style="color:#ff79c6">&#34;partyId&#34;</span>:<span style="color:#f1fa8c">&#34;50002108&#34;</span>,
-        <span style="color:#ff79c6">&#34;personNumber&#34;</span>: <span style="color:#ff79c6">null</span>,
-        <span style="color:#ff79c6">&#34;organisationNumber&#34;</span>: <span style="color:#ff79c6">null</span>
-    },
-    <span style="color:#ff79c6">&#34;sourceInstanceId&#34;</span>: <span style="color:#f1fa8c">&#34;50002108/049622b8-ea06-40f6-9f1b-26ceb7566232&#34;</span>
-}
-</code></pre></div><h2 id="update-sub-status">Update sub status</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;instanceOwner&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;personNumber&#34;</span>: <span style="color:#f1fa8c">&#34;12247918309&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;organisationNumber&#34;</span>: <span style="color:#ff79c6">null</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;prefill&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;navnGarantist&#34;</span> : <span style="color:#f1fa8c">&#34;Ole Hansen&#34;</span>
+</span></span><span style="display:flex;"><span>     },
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;dueBefore&#34;</span>: <span style="color:#f1fa8c">&#34;2019-06-01T12:00:00Z&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;visibleAfter&#34;</span>: <span style="color:#f1fa8c">&#34;2019-05-20T00:00:00Z&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="instantiation-from-archived-instance">Instantiation from archived instance</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;instanceOwner&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;partyId&#34;</span>:<span style="color:#f1fa8c">&#34;50002108&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;personNumber&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;organisationNumber&#34;</span>: <span style="color:#ff79c6">null</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;sourceInstanceId&#34;</span>: <span style="color:#f1fa8c">&#34;50002108/049622b8-ea06-40f6-9f1b-26ceb7566232&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="update-sub-status">Update sub status</h2>
 <p>The instance <a href="../../../app/development/api/instance/#substatus">sub status</a> is used to give an end user further details about the state of their instance. Currently, only application owner is allowed to update substatus for an instance. Include the new substatus in the body of the requests as a json.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">PUT {basePath}/{instanceOwnerPartyId}/{instanceGuid}/substatus
-</code></pre></div><p><strong>Request body</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-    <span style="color:#ff79c6">&#34;label&#34;</span>: <span style="color:#f1fa8c">&#34;some.label&#34;</span>,
-    <span style="color:#ff79c6">&#34;description&#34;</span>: <span style="color:#f1fa8c">&#34;Beskrivelse i klarteskst&#34;</span>
-}
-</code></pre></div><p>The values can be referencing text resource names from the language files or be regular text.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>PUT {basePath}/{instanceOwnerPartyId}/{instanceGuid}/substatus
+</span></span></code></pre></div><p><strong>Request body</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;label&#34;</span>: <span style="color:#f1fa8c">&#34;some.label&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;description&#34;</span>: <span style="color:#f1fa8c">&#34;Beskrivelse i klarteskst&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>The values can be referencing text resource names from the language files or be regular text.</p>
 <h2 id="complete-instance">Complete instance</h2>
 <p>Endpoint used by application owner to mark an instance as completed. Technically this only means that the instance is no longer needed by the application owner.</p>
 <p>Altinn will permanently delete an instance and all the data, if both application owner and a user with the necessary rights indicate on the instance that they no longer have a need for it.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">POST {basePath}/{instanceOwnerPartyId}/{instanceGuid}/complete
-</code></pre></div><p>The request does not use the request body for anything even though it is a POST request.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>POST {basePath}/{instanceOwnerPartyId}/{instanceGuid}/complete
+</span></span></code></pre></div><p>The request does not use the request body for anything even though it is a POST request.</p>
 <h2 id="delete-instance">Delete instance</h2>
 <p>Endpoint for marking an instance as deleted. This can be used by both application owner and user to delete an instance. The endpoint has an optional parameter called <strong>hard</strong> that can be used to indicate the type of delete that is wanted. Setting the parameter to false or simply omitting it, will move the instance to a recycle bin. Hard delete means that the instance will be unrecoverable.</p>
 <p>Instances that where active might be permanently deleted by Altinn within a few days. Archived instances will be permanently deleted if both application owner and a user with the necessary rights indicate on the instance that they no longer have a need for it.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">DELETE {basePath}/{instanceOwnerPartyId}/{instanceGuid}?hard=true
-</code></pre></div><p>The endpoint does not use the request body for anything.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>DELETE {basePath}/{instanceOwnerPartyId}/{instanceGuid}?hard=true
+</span></span></code></pre></div><p>The endpoint does not use the request body for anything.</p>
 <p>There are no Application API endpoint for recovering instances in the recycle bin.</p>
 
 

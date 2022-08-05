@@ -117,7 +117,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -217,7 +217,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -297,7 +297,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -1115,64 +1115,64 @@ A group that is repeating in the data model must also be set up as repeating in 
 </ul>
 <figure><a href="repeating-groups-demo.gif"><img src="repeating-groups-demo.gif" alt="Form with repeating group" title="Form with repeating group" /></a><figcaption><h4>Form with repeating group</h4></figcaption></figure>
 <p>Setup in <code>FormLayout.json</code> from the example above:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span>{
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>  <span style="color:#ff79c6">&#34;data&#34;</span>: {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>    <span style="color:#ff79c6">&#34;layout&#34;</span>: [
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>      {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;gruppe-1&#34;</span>,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Group&#34;</span>,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>        <span style="color:#ff79c6">&#34;children&#34;</span>: [
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>          <span style="color:#f1fa8c">&#34;ac555386-ac2b-47a0-bb1b-842f8612eddb&#34;</span>,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>          <span style="color:#f1fa8c">&#34;5c079cd4-c80c-44ea-b8b8-18e323267a37&#34;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>        ],
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span>        <span style="color:#ff79c6">&#34;maxCount&#34;</span>: <span style="color:#bd93f9">3</span>,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span>        <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span>          <span style="color:#ff79c6">&#34;group&#34;</span>: <span style="color:#f1fa8c">&#34;spesifisering-grp-5836&#34;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span>        },
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span>        <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span>          <span style="color:#ff79c6">&#34;header&#34;</span>: <span style="color:#f1fa8c">&#34;person&#34;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span>        }
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span>      },
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span>      {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span>        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;ac555386-ac2b-47a0-bb1b-842f8612eddb&#34;</span>,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span>        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Checkboxes&#34;</span>,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span>        <span style="color:#ff79c6">&#34;componentType&#34;</span>: <span style="color:#bd93f9">5</span>,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span>        <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span>          <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;Avkrysningsboks&#34;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span>        },
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span>        <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span>          <span style="color:#ff79c6">&#34;simpleBinding&#34;</span>: <span style="color:#f1fa8c">&#34;klage-grp-5805.spesifisering-grp-5836.KlageSpesifisering-datadef-25457.value&#34;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span>        },
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29</span>        <span style="color:#ff79c6">&#34;options&#34;</span>: [
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30</span>          {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31</span>            <span style="color:#ff79c6">&#34;label&#34;</span>: <span style="color:#f1fa8c">&#34;25795.OppgavegiverNavnPreutfyltdatadef25795.Label&#34;</span>,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32</span>            <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;Verdi1&#34;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33</span>          },
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34</span>          {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35</span>            <span style="color:#ff79c6">&#34;label&#34;</span>: <span style="color:#f1fa8c">&#34;25796.OppgavegiverAdressePreutfyltdatadef25796.Label&#34;</span>,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36</span>            <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;Verdi2&#34;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37</span>          }
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38</span>        ],
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39</span>        <span style="color:#ff79c6">&#34;required&#34;</span>: <span style="color:#ff79c6">true</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40</span>      },
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41</span>      {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42</span>        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;5c079cd4-c80c-44ea-b8b8-18e323267a37&#34;</span>,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43</span>        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;AddressComponent&#34;</span>,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44</span>        <span style="color:#ff79c6">&#34;componentType&#34;</span>: <span style="color:#bd93f9">11</span>,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45</span>        <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46</span>          <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;Adresse&#34;</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47</span>        },
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48</span>        <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49</span>          <span style="color:#ff79c6">&#34;address&#34;</span>: <span style="color:#f1fa8c">&#34;klage-grp-5805.spesifisering-grp-5836.KlageSpesifiseringg-datadef-12345.value&#34;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50</span>        },
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51</span>        <span style="color:#ff79c6">&#34;simplified&#34;</span>: <span style="color:#ff79c6">true</span>,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52</span>        <span style="color:#ff79c6">&#34;readOnly&#34;</span>: <span style="color:#ff79c6">false</span>,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53</span>        <span style="color:#ff79c6">&#34;required&#34;</span>: <span style="color:#ff79c6">true</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54</span>      }
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">55</span>    ]
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">56</span>  }
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">57</span>}
-</code></pre></div><h2 id="file-attachment-in-repeating-groups">File attachment in repeating groups</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>{
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>  <span style="color:#ff79c6">&#34;data&#34;</span>: {
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>    <span style="color:#ff79c6">&#34;layout&#34;</span>: [
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>      {
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;gruppe-1&#34;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Group&#34;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>        <span style="color:#ff79c6">&#34;children&#34;</span>: [
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>          <span style="color:#f1fa8c">&#34;ac555386-ac2b-47a0-bb1b-842f8612eddb&#34;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>          <span style="color:#f1fa8c">&#34;5c079cd4-c80c-44ea-b8b8-18e323267a37&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>        ],
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>        <span style="color:#ff79c6">&#34;maxCount&#34;</span>: <span style="color:#bd93f9">3</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>        <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>          <span style="color:#ff79c6">&#34;group&#34;</span>: <span style="color:#f1fa8c">&#34;spesifisering-grp-5836&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>        },
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>        <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>          <span style="color:#ff79c6">&#34;header&#34;</span>: <span style="color:#f1fa8c">&#34;person&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span>        }
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span>      },
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span>      {
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span>        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;ac555386-ac2b-47a0-bb1b-842f8612eddb&#34;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span>        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Checkboxes&#34;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span><span>        <span style="color:#ff79c6">&#34;componentType&#34;</span>: <span style="color:#bd93f9">5</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span><span>        <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span><span>          <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;Avkrysningsboks&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span><span>        },
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span><span>        <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span><span>          <span style="color:#ff79c6">&#34;simpleBinding&#34;</span>: <span style="color:#f1fa8c">&#34;klage-grp-5805.spesifisering-grp-5836.KlageSpesifisering-datadef-25457.value&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span><span>        },
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29</span><span>        <span style="color:#ff79c6">&#34;options&#34;</span>: [
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30</span><span>          {
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31</span><span>            <span style="color:#ff79c6">&#34;label&#34;</span>: <span style="color:#f1fa8c">&#34;25795.OppgavegiverNavnPreutfyltdatadef25795.Label&#34;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32</span><span>            <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;Verdi1&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33</span><span>          },
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34</span><span>          {
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35</span><span>            <span style="color:#ff79c6">&#34;label&#34;</span>: <span style="color:#f1fa8c">&#34;25796.OppgavegiverAdressePreutfyltdatadef25796.Label&#34;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36</span><span>            <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;Verdi2&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37</span><span>          }
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38</span><span>        ],
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39</span><span>        <span style="color:#ff79c6">&#34;required&#34;</span>: <span style="color:#ff79c6">true</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40</span><span>      },
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41</span><span>      {
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42</span><span>        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;5c079cd4-c80c-44ea-b8b8-18e323267a37&#34;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43</span><span>        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;AddressComponent&#34;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44</span><span>        <span style="color:#ff79c6">&#34;componentType&#34;</span>: <span style="color:#bd93f9">11</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45</span><span>        <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46</span><span>          <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;Adresse&#34;</span> 
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47</span><span>        },
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48</span><span>        <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49</span><span>          <span style="color:#ff79c6">&#34;address&#34;</span>: <span style="color:#f1fa8c">&#34;klage-grp-5805.spesifisering-grp-5836.KlageSpesifiseringg-datadef-12345.value&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50</span><span>        },
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51</span><span>        <span style="color:#ff79c6">&#34;simplified&#34;</span>: <span style="color:#ff79c6">true</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52</span><span>        <span style="color:#ff79c6">&#34;readOnly&#34;</span>: <span style="color:#ff79c6">false</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53</span><span>        <span style="color:#ff79c6">&#34;required&#34;</span>: <span style="color:#ff79c6">true</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54</span><span>      }
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">55</span><span>    ]
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">56</span><span>  }
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">57</span><span>}
+</span></span></code></pre></div><h2 id="file-attachment-in-repeating-groups">File attachment in repeating groups</h2>
 <div class="notices warning" >
 This is new functionality. Setup must be done manually for now.
 </div>
@@ -1185,52 +1185,52 @@ that belongs to each file attachment and send this together with the rest of the
 want a reference to a file attachment together with the form data on the receivers end.</p>
 <figure><a href="attachments-demo.gif"><img src="attachments-demo.gif" alt="Example on file attachment in repeating group with attached data model" title="Example on file attachment in repeating group with attached data model" /></a><figcaption><h4>Example on file attachment in repeating group with attached data model</h4></figcaption></figure>
 <p>The following is an example of a data model expecting a reference to an uploaded file attachment.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xsd" data-lang="xsd"><span style="color:#ff79c6">&lt;xsd:schema</span> <span style="color:#50fa7b">xmlns:xsd=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema&#34;</span> <span style="color:#50fa7b">elementFormDefault=</span><span style="color:#f1fa8c">&#34;qualified&#34;</span> <span style="color:#50fa7b">attributeFormDefault=</span><span style="color:#f1fa8c">&#34;unqualified&#34;</span><span style="color:#ff79c6">&gt;</span>
-  <span style="color:#ff79c6">&lt;xsd:element</span> <span style="color:#50fa7b">name=</span><span style="color:#f1fa8c">&#34;FamilieMedlemmer&#34;</span> <span style="color:#50fa7b">type=</span><span style="color:#f1fa8c">&#34;Skjema&#34;</span> <span style="color:#ff79c6">/&gt;</span>
-  <span style="color:#ff79c6">&lt;xsd:complexType</span> <span style="color:#50fa7b">name=</span><span style="color:#f1fa8c">&#34;Skjema&#34;</span><span style="color:#ff79c6">&gt;</span>
-    <span style="color:#ff79c6">&lt;xsd:sequence&gt;</span>
-      <span style="color:#ff79c6">&lt;xsd:element</span> <span style="color:#50fa7b">name=</span><span style="color:#f1fa8c">&#34;FamilyMember&#34;</span> <span style="color:#50fa7b">type=</span><span style="color:#f1fa8c">&#34;FamilyMember&#34;</span> <span style="color:#50fa7b">maxOccurs=</span><span style="color:#f1fa8c">&#34;99&#34;</span> <span style="color:#ff79c6">/&gt;</span>
-    <span style="color:#ff79c6">&lt;/xsd:sequence&gt;</span>
-    <span style="color:#ff79c6">&lt;xsd:anyAttribute</span> <span style="color:#ff79c6">/&gt;</span>
-  <span style="color:#ff79c6">&lt;/xsd:complexType&gt;</span>
-  <span style="color:#ff79c6">&lt;xsd:complexType</span> <span style="color:#50fa7b">name=</span><span style="color:#f1fa8c">&#34;FamilyMember&#34;</span><span style="color:#ff79c6">&gt;</span>
-    <span style="color:#ff79c6">&lt;xsd:sequence&gt;</span>
-      <span style="color:#ff79c6">&lt;xsd:element</span> <span style="color:#50fa7b">name=</span><span style="color:#f1fa8c">&#34;FirstName&#34;</span> <span style="color:#50fa7b">type=</span><span style="color:#f1fa8c">&#34;xsd:string&#34;</span> <span style="color:#ff79c6">/&gt;</span>
-<span style="display:block;width:100%;background-color:#3d3f4a">      <span style="color:#ff79c6">&lt;xsd:element</span> <span style="color:#50fa7b">name=</span><span style="color:#f1fa8c">&#34;Picture&#34;</span> <span style="color:#50fa7b">type=</span><span style="color:#f1fa8c">&#34;xsd:string&#34;</span> <span style="color:#ff79c6">/&gt;</span>
-</span>    <span style="color:#ff79c6">&lt;/xsd:sequence&gt;</span>
-  <span style="color:#ff79c6">&lt;/xsd:complexType&gt;</span>
-<span style="color:#ff79c6">&lt;/xsd:schema&gt;</span>
-</code></pre></div><p>This is connected to the file upload component in the group:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;picture&#34;</span>,
-  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;FileUpload&#34;</span>,
-  <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
-    <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;Picture&#34;</span>
-  },
-  <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {
-<span style="display:block;width:100%;background-color:#3d3f4a">    <span style="color:#ff79c6">&#34;simpleBinding&#34;</span>: <span style="color:#f1fa8c">&#34;FamilyMember.Picture&#34;</span>
-</span>  },
-  <span style="color:#ff79c6">&#34;maxFileSizeInMB&#34;</span>: <span style="color:#bd93f9">25</span>,
-  <span style="color:#ff79c6">&#34;maxNumberOfAttachments&#34;</span>: <span style="color:#bd93f9">1</span>,
-  <span style="color:#ff79c6">&#34;minNumberOfAttachments&#34;</span>: <span style="color:#bd93f9">1</span>,
-  <span style="color:#ff79c6">&#34;displayMode&#34;</span>: <span style="color:#f1fa8c">&#34;simple&#34;</span>,
-  <span style="color:#ff79c6">&#34;required&#34;</span>: <span style="color:#ff79c6">true</span>
-}
-</code></pre></div><p>In cases where it is allowed to upload multiple files to the same file attachment component, use a data model attachment 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-xsd" data-lang="xsd"><span style="display:flex;"><span><span style="color:#ff79c6">&lt;xsd:schema</span> <span style="color:#50fa7b">xmlns:xsd=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema&#34;</span> <span style="color:#50fa7b">elementFormDefault=</span><span style="color:#f1fa8c">&#34;qualified&#34;</span> <span style="color:#50fa7b">attributeFormDefault=</span><span style="color:#f1fa8c">&#34;unqualified&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;xsd:element</span> <span style="color:#50fa7b">name=</span><span style="color:#f1fa8c">&#34;FamilieMedlemmer&#34;</span> <span style="color:#50fa7b">type=</span><span style="color:#f1fa8c">&#34;Skjema&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;xsd:complexType</span> <span style="color:#50fa7b">name=</span><span style="color:#f1fa8c">&#34;Skjema&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;xsd:sequence&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;xsd:element</span> <span style="color:#50fa7b">name=</span><span style="color:#f1fa8c">&#34;FamilyMember&#34;</span> <span style="color:#50fa7b">type=</span><span style="color:#f1fa8c">&#34;FamilyMember&#34;</span> <span style="color:#50fa7b">maxOccurs=</span><span style="color:#f1fa8c">&#34;99&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;/xsd:sequence&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;xsd:anyAttribute</span> <span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;/xsd:complexType&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;xsd:complexType</span> <span style="color:#50fa7b">name=</span><span style="color:#f1fa8c">&#34;FamilyMember&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;xsd:sequence&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;xsd:element</span> <span style="color:#50fa7b">name=</span><span style="color:#f1fa8c">&#34;FirstName&#34;</span> <span style="color:#50fa7b">type=</span><span style="color:#f1fa8c">&#34;xsd:string&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>      <span style="color:#ff79c6">&lt;xsd:element</span> <span style="color:#50fa7b">name=</span><span style="color:#f1fa8c">&#34;Picture&#34;</span> <span style="color:#50fa7b">type=</span><span style="color:#f1fa8c">&#34;xsd:string&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;/xsd:sequence&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;/xsd:complexType&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&lt;/xsd:schema&gt;</span>
+</span></span></code></pre></div><p>This is connected to the file upload component in the group:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;picture&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;FileUpload&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;Picture&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>    <span style="color:#ff79c6">&#34;simpleBinding&#34;</span>: <span style="color:#f1fa8c">&#34;FamilyMember.Picture&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;maxFileSizeInMB&#34;</span>: <span style="color:#bd93f9">25</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;maxNumberOfAttachments&#34;</span>: <span style="color:#bd93f9">1</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;minNumberOfAttachments&#34;</span>: <span style="color:#bd93f9">1</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;displayMode&#34;</span>: <span style="color:#f1fa8c">&#34;simple&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;required&#34;</span>: <span style="color:#ff79c6">true</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>In cases where it is allowed to upload multiple files to the same file attachment component, use a data model attachment 
 of the type <code>list</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xsd" data-lang="xsd">  <span style="color:#ff79c6">&lt;xsd:complexType</span> <span style="color:#50fa7b">name=</span><span style="color:#f1fa8c">&#34;FamilyMember&#34;</span><span style="color:#ff79c6">&gt;</span>
-    <span style="color:#ff79c6">&lt;xsd:sequence&gt;</span>
-      <span style="color:#ff79c6">&lt;xsd:element</span> <span style="color:#50fa7b">name=</span><span style="color:#f1fa8c">&#34;FirstName&#34;</span> <span style="color:#50fa7b">type=</span><span style="color:#f1fa8c">&#34;xsd:string&#34;</span> <span style="color:#ff79c6">/&gt;</span>
-<span style="display:block;width:100%;background-color:#3d3f4a">      <span style="color:#ff79c6">&lt;xsd:element</span> <span style="color:#50fa7b">name=</span><span style="color:#f1fa8c">&#34;Pictures&#34;</span> <span style="color:#50fa7b">type=</span><span style="color:#f1fa8c">&#34;xsd:string&#34;</span> <span style="color:#50fa7b">maxOccurs=</span><span style="color:#f1fa8c">&#34;5&#34;</span> <span style="color:#ff79c6">/&gt;</span>
-</span>    <span style="color:#ff79c6">&lt;/xsd:sequence&gt;</span>
-  <span style="color:#ff79c6">&lt;/xsd:complexType&gt;</span>
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  [...]
-  <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {
-<span style="display:block;width:100%;background-color:#3d3f4a">    <span style="color:#ff79c6">&#34;list&#34;</span>: <span style="color:#f1fa8c">&#34;FamilyMember.Pictures&#34;</span>
-</span>  }
-}
-</code></pre></div><p>The receiving end will then receive a list of multiple unique ID&rsquo;s, one for each attachment.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-xsd" data-lang="xsd"><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;xsd:complexType</span> <span style="color:#50fa7b">name=</span><span style="color:#f1fa8c">&#34;FamilyMember&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;xsd:sequence&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;xsd:element</span> <span style="color:#50fa7b">name=</span><span style="color:#f1fa8c">&#34;FirstName&#34;</span> <span style="color:#50fa7b">type=</span><span style="color:#f1fa8c">&#34;xsd:string&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>      <span style="color:#ff79c6">&lt;xsd:element</span> <span style="color:#50fa7b">name=</span><span style="color:#f1fa8c">&#34;Pictures&#34;</span> <span style="color:#50fa7b">type=</span><span style="color:#f1fa8c">&#34;xsd:string&#34;</span> <span style="color:#50fa7b">maxOccurs=</span><span style="color:#f1fa8c">&#34;5&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;/xsd:sequence&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;/xsd:complexType&gt;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  [...]
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>    <span style="color:#ff79c6">&#34;list&#34;</span>: <span style="color:#f1fa8c">&#34;FamilyMember.Pictures&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>The receiving end will then receive a list of multiple unique ID&rsquo;s, one for each attachment.
 The same unique ID will also be displayed in
 the PDF receipt - but it is recommended to <a href="/app/development/ux/pdf/#exclude-components">hide this</a>, as attachments
 are shown seperately on the receipt page and the unique ID can become confusing to the users.</p>

@@ -381,13 +381,13 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/metadata/"><span>Metadata</span></a></li>
       <li class="dd-item">
         <a href="/nb/api/apps/instances/"><span>Instanser</span></a></li>
       <li class="dd-item">
-        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/data-elements/tags/"><span>Tags</span></a></li></ul></li>
       <li class="dd-item">
@@ -441,9 +441,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/community/about/"><span>Om</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/community/about/goals/"><span>Mål</span></a></li>
+        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li>
       <li class="dd-item">
-        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li></ul></li>
+        <a href="/nb/community/about/goals/"><span>Mål</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/community/contributing/"><span>Bidra til utvikling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -591,23 +591,23 @@ if(host != "localhost")
 </tbody>
 </table>
 <p>Konfigurasjonen til en app med to definerte datafelter vil se slik ut:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#f1fa8c">&#34;dataFields&#34;</span>: [
-  {
-  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;AnsettelseAntAar&#34;</span>,
-  <span style="color:#ff79c6">&#34;path&#34;</span>: <span style="color:#f1fa8c">&#34;OpplysningerOmArbeidstakeren-grp-8819.Arbeidsforhold-grp-8856.AnsattAar-datadef-33267.value&#34;</span>,
-  <span style="color:#ff79c6">&#34;dataTypeId&#34;</span>: <span style="color:#f1fa8c">&#34;default&#34;</span>
-  },
-  {
-  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;Navn&#34;</span>,
-  <span style="color:#ff79c6">&#34;path&#34;</span>: <span style="color:#f1fa8c">&#34;OpplysningerOmArbeidstakeren-grp-8819.OpplysningerOmArbeidstakeren-grp-8855.AnsattNavn-datadef-1223.value&#34;</span>,
-  <span style="color:#ff79c6">&#34;dataTypeId&#34;</span>: <span style="color:#f1fa8c">&#34;default&#34;</span>
-  }]
-</code></pre></div><p>Resultatet vil være en liste på instansobjektet med verdier fra de konfigurerte feltete:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#f1fa8c">&#34;dataValues&#34;</span>: {
-    <span style="color:#ff79c6">&#34;AnsettelseAntAar&#34;</span>: <span style="color:#bd93f9">10</span>,
-    <span style="color:#ff79c6">&#34;Navn&#34;</span>: <span style="color:#f1fa8c">&#34;Ola Nordmann&#34;</span>
-}
-</code></pre></div><p>Legg merke til at det på instansobjektet heter <code>dataValues</code> mens når det konfigureres heter <code>dataFields</code>, det er fordi 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#f1fa8c">&#34;dataFields&#34;</span>: [
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;AnsettelseAntAar&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;path&#34;</span>: <span style="color:#f1fa8c">&#34;OpplysningerOmArbeidstakeren-grp-8819.Arbeidsforhold-grp-8856.AnsattAar-datadef-33267.value&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;dataTypeId&#34;</span>: <span style="color:#f1fa8c">&#34;default&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;Navn&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;path&#34;</span>: <span style="color:#f1fa8c">&#34;OpplysningerOmArbeidstakeren-grp-8819.OpplysningerOmArbeidstakeren-grp-8855.AnsattNavn-datadef-1223.value&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;dataTypeId&#34;</span>: <span style="color:#f1fa8c">&#34;default&#34;</span>
+</span></span><span style="display:flex;"><span>  }]
+</span></span></code></pre></div><p>Resultatet vil være en liste på instansobjektet med verdier fra de konfigurerte feltete:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#f1fa8c">&#34;dataValues&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;AnsettelseAntAar&#34;</span>: <span style="color:#bd93f9">10</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;Navn&#34;</span>: <span style="color:#f1fa8c">&#34;Ola Nordmann&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Legg merke til at det på instansobjektet heter <code>dataValues</code> mens når det konfigureres heter <code>dataFields</code>, det er fordi 
 <code>dataValues</code>er resultatet av konfigureringen som gjøres på <code>dataFields</code>.</p>
 <h2 id="manuelt">Manuelt</h2>
 <p>For å legge til dataverdier manuelt benyttes metoden <code>UpdateDataValues</code> fra IInstance interfacet. Det er den samme metoden som kalles når dataverdier populeres fra konfigurasjon og den sørger for å flette sammen verdiene til en liste.</p>
@@ -617,16 +617,16 @@ Har man ikke unike id'er vil verdier overskrives, og man har ingen garanti for h
 </div>
 <p>Eksemplet under viser hvordan man kan sette datavedier manuelt. I dette tilfellet gjøres det ved å gjøre legge inn kode 
 i <code>RunProcessTaskEnd</code> i <code>App.cs</code> som kjører når en task avsluttes.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">override</span> <span style="color:#ff79c6">async</span> Task RunProcessTaskEnd(<span style="color:#8be9fd">string</span> taskId, Instance instance)
-{
-    <span style="color:#8be9fd">var</span> customDataValues = <span style="color:#ff79c6">new</span> DataValues() { Values = <span style="color:#ff79c6">new</span> Dictionary&lt;<span style="color:#8be9fd">string</span>, <span style="color:#8be9fd">string</span>&gt;() { { <span style="color:#f1fa8c">&#34;customKey&#34;</span>, <span style="color:#f1fa8c">&#34;customValue&#34;</span> } } };
-    <span style="color:#8be9fd">var</span> (instanceOwnerPartyId, instanceGuid) = InstanceHelper.DeconstructInstanceIdFromUrl(<span style="color:#bd93f9">_</span>httpContextAccessor.HttpContext.Request.Path.Value);
-
-    <span style="color:#ff79c6">await</span> <span style="color:#bd93f9">_</span>instanceService.UpdateDataValues(instanceOwnerPartyId, instanceGuid, customDataValues);
-
-    <span style="color:#ff79c6">await</span> Task.CompletedTask;
-}
-</code></pre></div><div class="notices warning" >
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">override</span> <span style="color:#ff79c6">async</span> Task RunProcessTaskEnd(<span style="color:#8be9fd">string</span> taskId, Instance instance)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">var</span> customDataValues = <span style="color:#ff79c6">new</span> DataValues() { Values = <span style="color:#ff79c6">new</span> Dictionary&lt;<span style="color:#8be9fd">string</span>, <span style="color:#8be9fd">string</span>&gt;() { { <span style="color:#f1fa8c">&#34;customKey&#34;</span>, <span style="color:#f1fa8c">&#34;customValue&#34;</span> } } };
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">var</span> (instanceOwnerPartyId, instanceGuid) = InstanceHelper.DeconstructInstanceIdFromUrl(_httpContextAccessor.HttpContext.Request.Path.Value);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">await</span> _instanceService.UpdateDataValues(instanceOwnerPartyId, instanceGuid, customDataValues);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">await</span> Task.CompletedTask;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="notices warning" >
 Man bør også tenke gjennom når man trenger disse verdiene på instansobjektet slik at man ikke gjør unødvendige api kall og dermed får en dårligere ytelse på applikasjonen.
 </div>
 

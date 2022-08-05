@@ -109,7 +109,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -209,7 +209,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -281,7 +281,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -1107,26 +1107,24 @@ which antipatterns to avoid.</p>
 This use of <code>.Result</code> ties up the thread that could be doing other useful work, but even more serious
 it might cause a deadlock.</p>
 <p>Instead of implementations like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"> <span style="color:#ff79c6">public</span> Party GetCurrentParty()
- {
-     UserContext userContext = <span style="color:#bd93f9">_</span>userHelper.GetUserContext(HttpContext).Result;
-     <span style="color:#8be9fd">int</span> userId = userContext.UserId;
-     <span style="color:#8be9fd">string</span> cookieValue = Request.Cookies[<span style="color:#bd93f9">_</span>settings.GetAltinnPartyCookieName];
-     <span style="color:#8be9fd">int</span>.TryParse(cookieValue, <span style="color:#ff79c6">out</span> <span style="color:#8be9fd">int</span> partyId);
-     (...)
- }
-
-</code></pre></div><p>Try using this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"> <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Party GetCurrentParty()
- {
-    UserContext userContext = <span style="color:#ff79c6">await</span> <span style="color:#bd93f9">_</span>userHelper.GetUserContext(HttpContext);
-    <span style="color:#8be9fd">int</span> userId = userContext.UserId;
-    <span style="color:#8be9fd">string</span> cookieValue = Request.Cookies[<span style="color:#bd93f9">_</span>settings.GetAltinnPartyCookieName];
-    <span style="color:#8be9fd">int</span>.TryParse(cookieValue, <span style="color:#ff79c6">out</span> <span style="color:#8be9fd">int</span> partyId);
-    (...)
- }
-
-</code></pre></div><p>Whenever in a method that needs to call an asynchronous method, make the method itself asynchronous.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span> <span style="color:#ff79c6">public</span> Party GetCurrentParty()
+</span></span><span style="display:flex;"><span> {
+</span></span><span style="display:flex;"><span>     UserContext userContext = _userHelper.GetUserContext(HttpContext).Result;
+</span></span><span style="display:flex;"><span>     <span style="color:#8be9fd">int</span> userId = userContext.UserId;
+</span></span><span style="display:flex;"><span>     <span style="color:#8be9fd">string</span> cookieValue = Request.Cookies[_settings.GetAltinnPartyCookieName];
+</span></span><span style="display:flex;"><span>     <span style="color:#8be9fd">int</span>.TryParse(cookieValue, <span style="color:#ff79c6">out</span> <span style="color:#8be9fd">int</span> partyId);
+</span></span><span style="display:flex;"><span>     (...)
+</span></span><span style="display:flex;"><span> }
+</span></span></code></pre></div><p>Try using this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span> <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Party GetCurrentParty()
+</span></span><span style="display:flex;"><span> {
+</span></span><span style="display:flex;"><span>    UserContext userContext = <span style="color:#ff79c6">await</span> _userHelper.GetUserContext(HttpContext);
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">int</span> userId = userContext.UserId;
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">string</span> cookieValue = Request.Cookies[_settings.GetAltinnPartyCookieName];
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">int</span>.TryParse(cookieValue, <span style="color:#ff79c6">out</span> <span style="color:#8be9fd">int</span> partyId);
+</span></span><span style="display:flex;"><span>    (...)
+</span></span><span style="display:flex;"><span> }
+</span></span></code></pre></div><p>Whenever in a method that needs to call an asynchronous method, make the method itself asynchronous.</p>
 
 
 <footer class=" footline" ></footer>

@@ -109,7 +109,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -209,7 +209,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -281,7 +281,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -1104,89 +1104,89 @@ Nå består den av api koblinger, kalkuleringer og dynamikk regler.</p>
 <h3 id="api-connections">API connections</h3>
 <p>Strukturen under beskriver api koblinger til et skjema. Objektet inneholder koblingene og informajson knyttet til api&rsquo;ene som er i bruk. 
 ClientParams og apiResponseMapping viser mapping til datamodellen. externalApiId viser kobling til api&rsquo;er som kan brukes.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#f1fa8c">&#34;data&#34;</span>: {
-  <span style="color:#ff79c6">&#34;externalApi&#34;</span>: {
-    <span style="color:#ff79c6">&#34;APIs&#34;</span>: {
-      <span style="color:#ff79c6">&#34;connections&#34;</span>: {
-        <span style="color:#ff79c6">&#34;c5dadba0-9707-11e8-9c4d-6f48d2b86ea7&#34;</span>: {
-          <span style="color:#ff79c6">&#34;externalApiId&#34;</span>: <span style="color:#f1fa8c">&#34;id1&#34;</span>,
-          <span style="color:#ff79c6">&#34;clientParams&#34;</span>: {
-            <span style="color:#ff79c6">&#34;pnr&#34;</span>: <span style="color:#f1fa8c">&#34;skattyterinfor.kontakt.kontaktpersonPostnummer.value&#34;</span>
-          },
-          <span style="color:#ff79c6">&#34;metaParams&#34;</span>: {
-            <span style="color:#ff79c6">&#34;clientUrl&#34;</span>: <span style="color:#f1fa8c">&#34;fgdb&#34;</span>
-          },
-          <span style="color:#ff79c6">&#34;apiResponseMapping&#34;</span>: {
-            <span style="color:#ff79c6">&#34;skattyterinfor.kontakt.kontaktpersonPoststed.value&#34;</span>: <span style="color:#f1fa8c">&#34;result&#34;</span>
-          }
-        }
-      },
-      <span style="color:#ff79c6">&#34;externalApisById&#34;</span>: {
-        <span style="color:#ff79c6">&#34;id1&#34;</span>: {
-          <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;id1&#34;</span>,
-          <span style="color:#ff79c6">&#34;name&#34;</span>: <span style="color:#f1fa8c">&#34;Bring postnummer API&#34;</span>,
-          <span style="color:#ff79c6">&#34;shortname&#34;</span>: <span style="color:#f1fa8c">&#34;Postnummer&#34;</span>,
-          <span style="color:#ff79c6">&#34;uri&#34;</span>: <span style="color:#f1fa8c">&#34;https://api.bring.com/shippingguide/api/postalCode.json?&#34;</span>,
-          <span style="color:#ff79c6">&#34;description&#34;</span>: <span style="color:#f1fa8c">&#34;Api for å hente poststed basert på postnummer&#34;</span>,
-          <span style="color:#ff79c6">&#34;clientParams&#34;</span>: {
-            <span style="color:#ff79c6">&#34;pnr&#34;</span>: {
-              <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;queryString&#34;</span>,
-              <span style="color:#ff79c6">&#34;name&#34;</span>: <span style="color:#f1fa8c">&#34;pnr&#34;</span>,
-              <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;&#34;</span>,
-              <span style="color:#ff79c6">&#34;required&#34;</span>: <span style="color:#ff79c6">true</span>,
-              <span style="color:#ff79c6">&#34;example&#34;</span>: <span style="color:#f1fa8c">&#34;Example: 2050&#34;</span>
-            }
-          },
-          <span style="color:#ff79c6">&#34;metaParams&#34;</span>: {
-            <span style="color:#ff79c6">&#34;clientUrl&#34;</span>: {
-              <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;queryString&#34;</span>,
-              <span style="color:#ff79c6">&#34;name&#34;</span>: <span style="color:#f1fa8c">&#34;clientUrl&#34;</span>,
-              <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;&#34;</span>,
-              <span style="color:#ff79c6">&#34;required&#34;</span>: <span style="color:#ff79c6">true</span>,
-              <span style="color:#ff79c6">&#34;example&#34;</span>: <span style="color:#f1fa8c">&#34;Example: http://www.sitename.com&#34;</span>,
-              <span style="color:#ff79c6">&#34;urlEncode&#34;</span>: <span style="color:#ff79c6">true</span>
-            }
-          }
-        }
-      },
-      <span style="color:#ff79c6">&#34;externalApisIds&#34;</span>: [
-        <span style="color:#f1fa8c">&#34;id1&#34;</span>
-      ]
-    }
-  }
-</code></pre></div><h3 id="rule-connections">Rule connections</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#f1fa8c">&#34;data&#34;</span>: {
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;externalApi&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;APIs&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;connections&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;c5dadba0-9707-11e8-9c4d-6f48d2b86ea7&#34;</span>: {
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;externalApiId&#34;</span>: <span style="color:#f1fa8c">&#34;id1&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;clientParams&#34;</span>: {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;pnr&#34;</span>: <span style="color:#f1fa8c">&#34;skattyterinfor.kontakt.kontaktpersonPostnummer.value&#34;</span>
+</span></span><span style="display:flex;"><span>          },
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;metaParams&#34;</span>: {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;clientUrl&#34;</span>: <span style="color:#f1fa8c">&#34;fgdb&#34;</span>
+</span></span><span style="display:flex;"><span>          },
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;apiResponseMapping&#34;</span>: {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;skattyterinfor.kontakt.kontaktpersonPoststed.value&#34;</span>: <span style="color:#f1fa8c">&#34;result&#34;</span>
+</span></span><span style="display:flex;"><span>          }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;externalApisById&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;id1&#34;</span>: {
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;id1&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;name&#34;</span>: <span style="color:#f1fa8c">&#34;Bring postnummer API&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;shortname&#34;</span>: <span style="color:#f1fa8c">&#34;Postnummer&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;uri&#34;</span>: <span style="color:#f1fa8c">&#34;https://api.bring.com/shippingguide/api/postalCode.json?&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;description&#34;</span>: <span style="color:#f1fa8c">&#34;Api for å hente poststed basert på postnummer&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;clientParams&#34;</span>: {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;pnr&#34;</span>: {
+</span></span><span style="display:flex;"><span>              <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;queryString&#34;</span>,
+</span></span><span style="display:flex;"><span>              <span style="color:#ff79c6">&#34;name&#34;</span>: <span style="color:#f1fa8c">&#34;pnr&#34;</span>,
+</span></span><span style="display:flex;"><span>              <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;&#34;</span>,
+</span></span><span style="display:flex;"><span>              <span style="color:#ff79c6">&#34;required&#34;</span>: <span style="color:#ff79c6">true</span>,
+</span></span><span style="display:flex;"><span>              <span style="color:#ff79c6">&#34;example&#34;</span>: <span style="color:#f1fa8c">&#34;Example: 2050&#34;</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>          },
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;metaParams&#34;</span>: {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;clientUrl&#34;</span>: {
+</span></span><span style="display:flex;"><span>              <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;queryString&#34;</span>,
+</span></span><span style="display:flex;"><span>              <span style="color:#ff79c6">&#34;name&#34;</span>: <span style="color:#f1fa8c">&#34;clientUrl&#34;</span>,
+</span></span><span style="display:flex;"><span>              <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;&#34;</span>,
+</span></span><span style="display:flex;"><span>              <span style="color:#ff79c6">&#34;required&#34;</span>: <span style="color:#ff79c6">true</span>,
+</span></span><span style="display:flex;"><span>              <span style="color:#ff79c6">&#34;example&#34;</span>: <span style="color:#f1fa8c">&#34;Example: http://www.sitename.com&#34;</span>,
+</span></span><span style="display:flex;"><span>              <span style="color:#ff79c6">&#34;urlEncode&#34;</span>: <span style="color:#ff79c6">true</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>          }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;externalApisIds&#34;</span>: [
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#34;id1&#34;</span>
+</span></span><span style="display:flex;"><span>      ]
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><h3 id="rule-connections">Rule connections</h3>
 <p>Strukturen under beskriver regler lagt til i et skjema. Objektet inneholder koblingene til regler som finnes på et skjema. 
 I objektet er det spesifisert hvilken metode som skal brukes, hvilke felter i datamodellen som skal knyttes til input objektet til metoden
 og hvilke felt i datamodellen som skal knyttes til funsjonens output verdi.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#f1fa8c">&#34;ruleConnection&#34;</span>: {
-    <span style="color:#ff79c6">&#34;d180e210-9707-11e8-9c4d-6f48d2b86ea7&#34;</span>: {
-        <span style="color:#ff79c6">&#34;selectedFunction&#34;</span>: <span style="color:#f1fa8c">&#34;ruleFunctionName&#34;</span>,
-        <span style="color:#ff79c6">&#34;inputParams&#34;</span>: {
-            <span style="color:#ff79c6">&#34;inputParam1&#34;</span>: <span style="color:#f1fa8c">&#34;skattyterinfor.info.enhetOrganisasjonsnummer.value&#34;</span>,
-            <span style="color:#ff79c6">&#34;inputParam2&#34;</span>: <span style="color:#f1fa8c">&#34;skattyterinfor.kontakt.kontaktpersonEPost.value&#34;</span>
-        },
-        <span style="color:#ff79c6">&#34;outParams&#34;</span>: {
-            <span style="color:#ff79c6">&#34;outParam0&#34;</span>: <span style="color:#f1fa8c">&#34;klage.spesifisering.klageSpesifisering.value&#34;</span>
-        }
-    }
-}
-</code></pre></div><h3 id="conditional-rendering-connections">Conditional rendering connections</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#f1fa8c">&#34;ruleConnection&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;d180e210-9707-11e8-9c4d-6f48d2b86ea7&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;selectedFunction&#34;</span>: <span style="color:#f1fa8c">&#34;ruleFunctionName&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;inputParams&#34;</span>: {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;inputParam1&#34;</span>: <span style="color:#f1fa8c">&#34;skattyterinfor.info.enhetOrganisasjonsnummer.value&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;inputParam2&#34;</span>: <span style="color:#f1fa8c">&#34;skattyterinfor.kontakt.kontaktpersonEPost.value&#34;</span>
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;outParams&#34;</span>: {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;outParam0&#34;</span>: <span style="color:#f1fa8c">&#34;klage.spesifisering.klageSpesifisering.value&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="conditional-rendering-connections">Conditional rendering connections</h3>
 <p>Strukturen under beskriver dynamikk lagt til i et skjema. Objektet inneholder koblingene mellom skjema og dynamiske regler som finnes på et skjema. 
 I objektet er det spesifisert hvilken metode som skal brukes, hvilke felter i datamodellen som skal knyttes til input objektet til metoden og 
 mapping mellom regelen og elementer i skjemaet.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#f1fa8c">&#34;conditionalRendering&#34;</span>: {
-    <span style="color:#ff79c6">&#34;d841b430-9707-11e8-9c4d-6f48d2b86ea7&#34;</span>: {
-        <span style="color:#ff79c6">&#34;selectedFunction&#34;</span>: <span style="color:#f1fa8c">&#34;conditionalFunctionName&#34;</span>,
-        <span style="color:#ff79c6">&#34;inputParams&#34;</span>: {
-            <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;skattyterinfor.info.oppgavegiverAdressePreutfylt.value&#34;</span>
-        },
-        <span style="color:#ff79c6">&#34;selectedAction&#34;</span>: <span style="color:#f1fa8c">&#34;Hide&#34;</span>,
-        <span style="color:#ff79c6">&#34;selectedFields&#34;</span>: {
-            <span style="color:#ff79c6">&#34;d8416610-9707-11e8-9c4d-6f48d2b86ea7&#34;</span>: <span style="color:#f1fa8c">&#34;94bb4f87-3428-4f2e-9b6a-6ff358ebd173&#34;</span>
-        }
-    }
-}
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#f1fa8c">&#34;conditionalRendering&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;d841b430-9707-11e8-9c4d-6f48d2b86ea7&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;selectedFunction&#34;</span>: <span style="color:#f1fa8c">&#34;conditionalFunctionName&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;inputParams&#34;</span>: {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;skattyterinfor.info.oppgavegiverAdressePreutfylt.value&#34;</span>
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;selectedAction&#34;</span>: <span style="color:#f1fa8c">&#34;Hide&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;selectedFields&#34;</span>: {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;d8416610-9707-11e8-9c4d-6f48d2b86ea7&#34;</span>: <span style="color:#f1fa8c">&#34;94bb4f87-3428-4f2e-9b6a-6ff358ebd173&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
 
 <footer class=" footline" ></footer>
                 </div>

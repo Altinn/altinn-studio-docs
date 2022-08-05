@@ -109,7 +109,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -209,7 +209,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -281,7 +281,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -1107,31 +1107,31 @@ support for authentication must be configured.</p>
 <figure><a href="authorization-box.png"><img src="authorization-box.png" alt="Authorization box" title="Authorization box in Swagger" /></a><figcaption><h4>Authorization box in Swagger</h4></figcaption></figure>
 <p>The authorization box above is created with the configuration below. 
 It enables the user provide a JWT token to the requests that are sent through Swagger as a bearer token.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">c.AddSecurityDefinition(<span style="color:#f1fa8c">&#34;Bearer&#34;</span>, <span style="color:#ff79c6">new</span> OpenApiSecurityScheme
-{
-    In = ParameterLocation.Header,
-    Description = <span style="color:#f1fa8c">&#34;Please enter JWT token&#34;</span>,
-    Name = <span style="color:#f1fa8c">&#34;Authorization&#34;</span>,
-    Type = SecuritySchemeType.Http,
-    BearerFormat = <span style="color:#f1fa8c">&#34;JWT&#34;</span>,
-    Scheme = <span style="color:#f1fa8c">&#34;bearer&#34;</span>
-});
-
-c.AddSecurityRequirement(<span style="color:#ff79c6">new</span> OpenApiSecurityRequirement
-{
-    {
-        <span style="color:#ff79c6">new</span> OpenApiSecurityScheme
-        {
-            Reference = <span style="color:#ff79c6">new</span> OpenApiReference
-            {
-                Type = ReferenceType.SecurityScheme,
-                Id = <span style="color:#f1fa8c">&#34;Bearer&#34;</span>
-            }
-        },
-        Array.Empty&lt;<span style="color:#8be9fd">string</span>&gt;()
-    }
-});
-</code></pre></div><p><a href="https://github.com/domaindrivendev/Swashbuckle.AspNetCore#add-security-definitions-and-requirements">Further documentation on setting up security definitions and requirements
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span>c.AddSecurityDefinition(<span style="color:#f1fa8c">&#34;Bearer&#34;</span>, <span style="color:#ff79c6">new</span> OpenApiSecurityScheme
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    In = ParameterLocation.Header,
+</span></span><span style="display:flex;"><span>    Description = <span style="color:#f1fa8c">&#34;Please enter JWT token&#34;</span>,
+</span></span><span style="display:flex;"><span>    Name = <span style="color:#f1fa8c">&#34;Authorization&#34;</span>,
+</span></span><span style="display:flex;"><span>    Type = SecuritySchemeType.Http,
+</span></span><span style="display:flex;"><span>    BearerFormat = <span style="color:#f1fa8c">&#34;JWT&#34;</span>,
+</span></span><span style="display:flex;"><span>    Scheme = <span style="color:#f1fa8c">&#34;bearer&#34;</span>
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>c.AddSecurityRequirement(<span style="color:#ff79c6">new</span> OpenApiSecurityRequirement
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">new</span> OpenApiSecurityScheme
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            Reference = <span style="color:#ff79c6">new</span> OpenApiReference
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                Type = ReferenceType.SecurityScheme,
+</span></span><span style="display:flex;"><span>                Id = <span style="color:#f1fa8c">&#34;Bearer&#34;</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        Array.Empty&lt;<span style="color:#8be9fd">string</span>&gt;()
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><p><a href="https://github.com/domaindrivendev/Swashbuckle.AspNetCore#add-security-definitions-and-requirements">Further documentation on setting up security definitions and requirements
 is available here.</a></p>
 <h2 id="set-up-schema-filter">Set up schema filter</h2>
 <p>The swagger documentation contains examples of each schema that is used in the request and/or response of the APIs. 
@@ -1142,71 +1142,71 @@ First a schema filter class that implements the interface <em>ISchemaFilter</em>
 Secondly, the filter class must be registered in the <em>AddSwaggerGen</em> method in <code>Program.cs</code>.</p>
 <p>The result of running a schema through a filter when generating the OpenAPI specification
 is shown below.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[
-  {
-    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;8fb5a622-87e7-4f5e-b25e-215c93c3b86b&#34;</span>,
-    <span style="color:#ff79c6">&#34;source&#34;</span>: <span style="color:#f1fa8c">&#34;https://ttd.apps.altinn.no/ttd/apps-test/instances/50015641/a72223a3-926b-4095-a2a6-bacc10815f2d&#34;</span>,
-    <span style="color:#ff79c6">&#34;specversion&#34;</span>: <span style="color:#f1fa8c">&#34;1.0&#34;</span>,
-    <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;app.instance.created&#34;</span>,
-    <span style="color:#ff79c6">&#34;subject&#34;</span>: <span style="color:#f1fa8c">&#34;/party/50015641&#34;</span>,
-    <span style="color:#ff79c6">&#34;alternativesubject&#34;</span>: <span style="color:#f1fa8c">&#34;/person/27124902369&#34;</span>,
-    <span style="color:#ff79c6">&#34;time&#34;</span>: <span style="color:#f1fa8c">&#34;2020-10-29T07:22:19.438039Z&#34;</span>
-  }
-]
-</code></pre></div><h3 id="implementation-example">Implementation example</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>[
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;8fb5a622-87e7-4f5e-b25e-215c93c3b86b&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;source&#34;</span>: <span style="color:#f1fa8c">&#34;https://ttd.apps.altinn.no/ttd/apps-test/instances/50015641/a72223a3-926b-4095-a2a6-bacc10815f2d&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;specversion&#34;</span>: <span style="color:#f1fa8c">&#34;1.0&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;app.instance.created&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;subject&#34;</span>: <span style="color:#f1fa8c">&#34;/party/50015641&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;alternativesubject&#34;</span>: <span style="color:#f1fa8c">&#34;/person/27124902369&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;time&#34;</span>: <span style="color:#f1fa8c">&#34;2020-10-29T07:22:19.438039Z&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>]
+</span></span></code></pre></div><h3 id="implementation-example">Implementation example</h3>
 <p>This example implements a schema filter for the <em>CloudEvent</em> model. 
 The full implementation is shown below and then broken down to explain each part.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">SchemaExampleFilter</span> : ISchemaFilter
-{
-    <span style="color:#6272a4">/// &lt;inheritdoc/&gt;
-</span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">void</span> Apply(OpenApiSchema schema, SchemaFilterContext context)
-    {
-        <span style="color:#ff79c6">if</span>(context.Type.Name ==  nameof(CloudEvent)){
-            schema.Example = <span style="color:#ff79c6">new</span> OpenApiObject
-                {
-<span style="color:#50fa7b">                    [&#34;id&#34;]</span> = <span style="color:#ff79c6">new</span> OpenApiString(Guid.NewGuid().ToString()),
-<span style="color:#50fa7b">                    [&#34;source&#34;]</span> = <span style="color:#ff79c6">new</span> OpenApiString(<span style="color:#f1fa8c">&#34;https://ttd.apps.altinn.no/ttd/apps-test/instances/50015641/a72223a3-926b-4095-a2a6-bacc10815f2d&#34;</span>),
-<span style="color:#50fa7b">                    [&#34;specversion&#34;]</span> = <span style="color:#ff79c6">new</span> OpenApiString(<span style="color:#f1fa8c">&#34;1.0&#34;</span>),
-<span style="color:#50fa7b">                    [&#34;type&#34;]</span> = <span style="color:#ff79c6">new</span> OpenApiString(<span style="color:#f1fa8c">&#34;app.instance.created&#34;</span>),
-<span style="color:#50fa7b">                    [&#34;subject&#34;]</span> = <span style="color:#ff79c6">new</span> OpenApiString(<span style="color:#f1fa8c">&#34;/party/50015641&#34;</span>),
-<span style="color:#50fa7b">                    [&#34;alternativesubject&#34;]</span> = <span style="color:#ff79c6">new</span> OpenApiString(<span style="color:#f1fa8c">&#34;/person/27124902369&#34;</span>),
-<span style="color:#50fa7b">                    [&#34;time&#34;]</span> = <span style="color:#ff79c6">new</span> OpenApiString(<span style="color:#f1fa8c">&#34;2020-10-29T07:22:19.438039Z&#34;</span>)
-                };
-        }
-
-        <span style="color:#ff79c6">return</span>;
-    }
-}
-</code></pre></div><p>The class <em>SchemaExampleFilter</em> is created and it implements the interface <em>ISchemaFilter</em>.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">SchemaExampleFilter</span> : ISchemaFilter
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">/// &lt;inheritdoc/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">void</span> Apply(OpenApiSchema schema, SchemaFilterContext context)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">if</span>(context.Type.Name ==  nameof(CloudEvent)){
+</span></span><span style="display:flex;"><span>            schema.Example = <span style="color:#ff79c6">new</span> OpenApiObject
+</span></span><span style="display:flex;"><span>                {
+</span></span><span style="display:flex;"><span><span style="color:#50fa7b">                    [&#34;id&#34;]</span> = <span style="color:#ff79c6">new</span> OpenApiString(Guid.NewGuid().ToString()),
+</span></span><span style="display:flex;"><span><span style="color:#50fa7b">                    [&#34;source&#34;]</span> = <span style="color:#ff79c6">new</span> OpenApiString(<span style="color:#f1fa8c">&#34;https://ttd.apps.altinn.no/ttd/apps-test/instances/50015641/a72223a3-926b-4095-a2a6-bacc10815f2d&#34;</span>),
+</span></span><span style="display:flex;"><span><span style="color:#50fa7b">                    [&#34;specversion&#34;]</span> = <span style="color:#ff79c6">new</span> OpenApiString(<span style="color:#f1fa8c">&#34;1.0&#34;</span>),
+</span></span><span style="display:flex;"><span><span style="color:#50fa7b">                    [&#34;type&#34;]</span> = <span style="color:#ff79c6">new</span> OpenApiString(<span style="color:#f1fa8c">&#34;app.instance.created&#34;</span>),
+</span></span><span style="display:flex;"><span><span style="color:#50fa7b">                    [&#34;subject&#34;]</span> = <span style="color:#ff79c6">new</span> OpenApiString(<span style="color:#f1fa8c">&#34;/party/50015641&#34;</span>),
+</span></span><span style="display:flex;"><span><span style="color:#50fa7b">                    [&#34;alternativesubject&#34;]</span> = <span style="color:#ff79c6">new</span> OpenApiString(<span style="color:#f1fa8c">&#34;/person/27124902369&#34;</span>),
+</span></span><span style="display:flex;"><span><span style="color:#50fa7b">                    [&#34;time&#34;]</span> = <span style="color:#ff79c6">new</span> OpenApiString(<span style="color:#f1fa8c">&#34;2020-10-29T07:22:19.438039Z&#34;</span>)
+</span></span><span style="display:flex;"><span>                };
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>The class <em>SchemaExampleFilter</em> is created and it implements the interface <em>ISchemaFilter</em>.
 The interface contains a single public method</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">void</span> Apply(OpenApiSchema schema, SchemaFilterContext context)
-{
-}
-</code></pre></div><p>The <em>context</em> object will have details on the current type an example may be provided for. 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">void</span> Apply(OpenApiSchema schema, SchemaFilterContext context)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>The <em>context</em> object will have details on the current type an example may be provided for. 
 We choose to match the types using <em>context.Type.Name</em> and <em>nameof()</em>.</p>
 <p>The example is an <em>OpenApiObject</em> and is bound to the <em>Example</em> property of the input parameter <em>schema</em>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">schema.Example = <span style="color:#ff79c6">new</span> OpenApiObject
-{
-<span style="color:#50fa7b">    [&#34;id&#34;]</span> = <span style="color:#ff79c6">new</span> OpenApiString(Guid.NewGuid().ToString()),
-<span style="color:#50fa7b">    [&#34;source&#34;]</span> = <span style="color:#ff79c6">new</span> OpenApiString(<span style="color:#f1fa8c">&#34;https://ttd.apps.altinn.no/ttd/apps-test/instances/50015641/a72223a3-926b-4095-a2a6-bacc10815f2d&#34;</span>),
-<span style="color:#50fa7b">    [&#34;specversion&#34;]</span> = <span style="color:#ff79c6">new</span> OpenApiString(<span style="color:#f1fa8c">&#34;1.0&#34;</span>),
-<span style="color:#50fa7b">    [&#34;type&#34;]</span> = <span style="color:#ff79c6">new</span> OpenApiString(<span style="color:#f1fa8c">&#34;app.instance.created&#34;</span>),
-<span style="color:#50fa7b">    [&#34;subject&#34;]</span> = <span style="color:#ff79c6">new</span> OpenApiString(<span style="color:#f1fa8c">&#34;/party/50015641&#34;</span>),
-<span style="color:#50fa7b">    [&#34;alternativesubject&#34;]</span> = <span style="color:#ff79c6">new</span> OpenApiString(<span style="color:#f1fa8c">&#34;/person/27124902369&#34;</span>),
-<span style="color:#50fa7b">    [&#34;time&#34;]</span> = <span style="color:#ff79c6">new</span> OpenApiString(<span style="color:#f1fa8c">&#34;2020-10-29T07:22:19.438039Z&#34;</span>)
-};
-</code></pre></div><p>Note that we use <em>OpenApiString</em> for many of the types, this is to simply the setup on our part,
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span>schema.Example = <span style="color:#ff79c6">new</span> OpenApiObject
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span><span style="color:#50fa7b">    [&#34;id&#34;]</span> = <span style="color:#ff79c6">new</span> OpenApiString(Guid.NewGuid().ToString()),
+</span></span><span style="display:flex;"><span><span style="color:#50fa7b">    [&#34;source&#34;]</span> = <span style="color:#ff79c6">new</span> OpenApiString(<span style="color:#f1fa8c">&#34;https://ttd.apps.altinn.no/ttd/apps-test/instances/50015641/a72223a3-926b-4095-a2a6-bacc10815f2d&#34;</span>),
+</span></span><span style="display:flex;"><span><span style="color:#50fa7b">    [&#34;specversion&#34;]</span> = <span style="color:#ff79c6">new</span> OpenApiString(<span style="color:#f1fa8c">&#34;1.0&#34;</span>),
+</span></span><span style="display:flex;"><span><span style="color:#50fa7b">    [&#34;type&#34;]</span> = <span style="color:#ff79c6">new</span> OpenApiString(<span style="color:#f1fa8c">&#34;app.instance.created&#34;</span>),
+</span></span><span style="display:flex;"><span><span style="color:#50fa7b">    [&#34;subject&#34;]</span> = <span style="color:#ff79c6">new</span> OpenApiString(<span style="color:#f1fa8c">&#34;/party/50015641&#34;</span>),
+</span></span><span style="display:flex;"><span><span style="color:#50fa7b">    [&#34;alternativesubject&#34;]</span> = <span style="color:#ff79c6">new</span> OpenApiString(<span style="color:#f1fa8c">&#34;/person/27124902369&#34;</span>),
+</span></span><span style="display:flex;"><span><span style="color:#50fa7b">    [&#34;time&#34;]</span> = <span style="color:#ff79c6">new</span> OpenApiString(<span style="color:#f1fa8c">&#34;2020-10-29T07:22:19.438039Z&#34;</span>)
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p>Note that we use <em>OpenApiString</em> for many of the types, this is to simply the setup on our part,
 and will not be communicated to the end user as the type to use.</p>
 <p>Finally the class must be registered as a schema filter in <em>Program.cs</em>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">    services.AddSwaggerGen(c =&gt;
-    {
-        c.SwaggerDoc(<span style="color:#f1fa8c">&#34;v1&#34;</span>, <span style="color:#ff79c6">new</span> OpenApiInfo { Title = <span style="color:#f1fa8c">&#34;Altinn Platform Events&#34;</span>, Version = <span style="color:#f1fa8c">&#34;v1&#34;</span> });
-        IncludeXmlComments(c);
-        c.EnableAnnotations();
-
-<span style="display:block;width:100%;background-color:#3d3f4a">        c.SchemaFilter&lt;SchemaExampleFilter&gt;();
-</span>    });
-</code></pre></div><figure><a href="cloudevent-200-example.png"><img src="cloudevent-200-example.png" alt="The result of the schema filter as seen in Swagger" title="The result of the schema filter as seen in Swagger" /></a><figcaption><h4>The result of the schema filter as seen in Swagger</h4></figcaption></figure>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span>    services.AddSwaggerGen(c =&gt;
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        c.SwaggerDoc(<span style="color:#f1fa8c">&#34;v1&#34;</span>, <span style="color:#ff79c6">new</span> OpenApiInfo { Title = <span style="color:#f1fa8c">&#34;Altinn Platform Events&#34;</span>, Version = <span style="color:#f1fa8c">&#34;v1&#34;</span> });
+</span></span><span style="display:flex;"><span>        IncludeXmlComments(c);
+</span></span><span style="display:flex;"><span>        c.EnableAnnotations();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>        c.SchemaFilter&lt;SchemaExampleFilter&gt;();
+</span></span><span style="display:flex;"><span>    });
+</span></span></code></pre></div><figure><a href="cloudevent-200-example.png"><img src="cloudevent-200-example.png" alt="The result of the schema filter as seen in Swagger" title="The result of the schema filter as seen in Swagger" /></a><figcaption><h4>The result of the schema filter as seen in Swagger</h4></figcaption></figure>
 <h2 id="set-up-request-body-filter">Set up request body filter</h2>
 <p>When using schema filters, it is only possible to provide a single example per schema. 
 In the case where the schema in the request body can have many variants where all could have the benefit of being exemplified in Swagger, 
@@ -1216,61 +1216,61 @@ First, a request body filter class that implements the interface <em>IRequestBod
 Secondly, the filter class must be registered in the <em>AddSwaggerGen</em> method in <code>Program.cs</code>.</p>
 <p>The result of running a request body through a filter when generating the OpenAPI specification
 is shown below for the <a href="https://github.com/Altinn/altinn-events/blob/main/src/Events/Models/SubscriptionRequestModel.cs">SubscriptionRequestModel</a>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#ff79c6">&#34;source&#34;</span>: <span style="color:#f1fa8c">&#34;https://ttd.apps.altinn.no/ttd/apps-test/instances/50015641/a72223a3-926b-4095-a2a6-bacc10815f2d&#34;</span>,
-  <span style="color:#ff79c6">&#34;specversion&#34;</span>: <span style="color:#f1fa8c">&#34;1.0&#34;</span>,
-  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;app.instance.created&#34;</span>,
-  <span style="color:#ff79c6">&#34;subject&#34;</span>: <span style="color:#f1fa8c">&#34;/party/50015677&#34;</span>
-}
-</code></pre></div><h3 id="implementation-example-1">Implementation example</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;source&#34;</span>: <span style="color:#f1fa8c">&#34;https://ttd.apps.altinn.no/ttd/apps-test/instances/50015641/a72223a3-926b-4095-a2a6-bacc10815f2d&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;specversion&#34;</span>: <span style="color:#f1fa8c">&#34;1.0&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;app.instance.created&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;subject&#34;</span>: <span style="color:#f1fa8c">&#34;/party/50015677&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="implementation-example-1">Implementation example</h3>
 <p>This example implements a request body filter for the <em>SubscriptionRequestModel</em>. 
 The full implementation is shown below.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">RequestBodyExampleFilter</span> : IRequestBodyFilter
-{
-    <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">void</span> Apply(OpenApiRequestBody requestBody, RequestBodyFilterContext context)
-    {
-        <span style="color:#ff79c6">if</span>(context.BodyParameterDescription.Type.Name == nameof(CloudEventRequestModel)){
-            OpenApiMediaType appJson = requestBody.Content[<span style="color:#f1fa8c">&#34;application/json&#34;</span>];
-
-            List&lt;(<span style="color:#8be9fd">string</span> Name, OpenApiObject Value)&gt; examples = <span style="color:#ff79c6">new</span>()
-            {
-                (<span style="color:#f1fa8c">&#34;Instance created event with alternative subject&#34;</span>,
-                CreateOpenApiObject(<span style="color:#ff79c6">new</span> List&lt;(<span style="color:#8be9fd">string</span> Name, <span style="color:#8be9fd">string</span> Value)&gt;()
-                {
-                    (<span style="color:#f1fa8c">&#34;source&#34;</span>, <span style="color:#f1fa8c">&#34;https://ttd.apps.altinn.no/ttd/apps-test/instances/50015641/a72223a3-926b-4095-a2a6-bacc10815f2d&#34;</span>),
-                    (<span style="color:#f1fa8c">&#34;specversion&#34;</span>,  <span style="color:#f1fa8c">&#34;1.0&#34;</span>),
-                    (<span style="color:#f1fa8c">&#34;type&#34;</span>,  <span style="color:#f1fa8c">&#34;app.instance.created&#34;</span>),
-                    (<span style="color:#f1fa8c">&#34;subject&#34;</span>,  <span style="color:#f1fa8c">&#34;/party/50015641&#34;</span>),
-                    (<span style="color:#f1fa8c">&#34;alternativesubject&#34;</span>, <span style="color:#f1fa8c">&#34;/person/01017512345&#34;</span>)
-                })),
-                (<span style="color:#f1fa8c">&#34;Instance created event without alternative subject&#34;</span>,
-                CreateOpenApiObject(<span style="color:#ff79c6">new</span> List&lt;(<span style="color:#8be9fd">string</span> Name, <span style="color:#8be9fd">string</span> Value)&gt;()
-                {
-                    (<span style="color:#f1fa8c">&#34;source&#34;</span>, <span style="color:#f1fa8c">&#34;https://ttd.apps.altinn.no/ttd/apps-test/instances/50067592/f3c92d96-0eb3-4532-a16f-bcafd94bde3a&#34;</span>),
-                    (<span style="color:#f1fa8c">&#34;specversion&#34;</span>,  <span style="color:#f1fa8c">&#34;1.0&#34;</span>),
-                    (<span style="color:#f1fa8c">&#34;type&#34;</span>,  <span style="color:#f1fa8c">&#34;app.instance.created&#34;</span>),
-                    (<span style="color:#f1fa8c">&#34;subject&#34;</span>,  <span style="color:#f1fa8c">&#34;/party/50067592&#34;</span>)
-                }))
-            };
-
-            examples.ForEach(entry =&gt; appJson.Examples.Add(entry.Name, <span style="color:#ff79c6">new</span> OpenApiExample { Value = entry.Value }));
-
-            requestBody.Content[<span style="color:#f1fa8c">&#34;application/json&#34;</span>] = appJson;
-        }
-
-        <span style="color:#ff79c6">return</span>;
-    }
-}
-</code></pre></div><p>Finally the class must be registered as a schema filter in <em>Program.cs</em>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">    services.AddSwaggerGen(c =&gt;
-    {
-        c.SwaggerDoc(<span style="color:#f1fa8c">&#34;v1&#34;</span>, <span style="color:#ff79c6">new</span> OpenApiInfo { Title = <span style="color:#f1fa8c">&#34;Altinn Platform Events&#34;</span>, Version = <span style="color:#f1fa8c">&#34;v1&#34;</span> });
-        IncludeXmlComments(c);
-        c.EnableAnnotations();
-
-<span style="display:block;width:100%;background-color:#3d3f4a">        c.RequestBodyFilter&lt;RequestBodyExampleFilter&gt;();
-</span>    });
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">RequestBodyExampleFilter</span> : IRequestBodyFilter
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">void</span> Apply(OpenApiRequestBody requestBody, RequestBodyFilterContext context)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">if</span>(context.BodyParameterDescription.Type.Name == nameof(CloudEventRequestModel)){
+</span></span><span style="display:flex;"><span>            OpenApiMediaType appJson = requestBody.Content[<span style="color:#f1fa8c">&#34;application/json&#34;</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            List&lt;(<span style="color:#8be9fd">string</span> Name, OpenApiObject Value)&gt; examples = <span style="color:#ff79c6">new</span>()
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                (<span style="color:#f1fa8c">&#34;Instance created event with alternative subject&#34;</span>,
+</span></span><span style="display:flex;"><span>                CreateOpenApiObject(<span style="color:#ff79c6">new</span> List&lt;(<span style="color:#8be9fd">string</span> Name, <span style="color:#8be9fd">string</span> Value)&gt;()
+</span></span><span style="display:flex;"><span>                {
+</span></span><span style="display:flex;"><span>                    (<span style="color:#f1fa8c">&#34;source&#34;</span>, <span style="color:#f1fa8c">&#34;https://ttd.apps.altinn.no/ttd/apps-test/instances/50015641/a72223a3-926b-4095-a2a6-bacc10815f2d&#34;</span>),
+</span></span><span style="display:flex;"><span>                    (<span style="color:#f1fa8c">&#34;specversion&#34;</span>,  <span style="color:#f1fa8c">&#34;1.0&#34;</span>),
+</span></span><span style="display:flex;"><span>                    (<span style="color:#f1fa8c">&#34;type&#34;</span>,  <span style="color:#f1fa8c">&#34;app.instance.created&#34;</span>),
+</span></span><span style="display:flex;"><span>                    (<span style="color:#f1fa8c">&#34;subject&#34;</span>,  <span style="color:#f1fa8c">&#34;/party/50015641&#34;</span>),
+</span></span><span style="display:flex;"><span>                    (<span style="color:#f1fa8c">&#34;alternativesubject&#34;</span>, <span style="color:#f1fa8c">&#34;/person/01017512345&#34;</span>)
+</span></span><span style="display:flex;"><span>                })),
+</span></span><span style="display:flex;"><span>                (<span style="color:#f1fa8c">&#34;Instance created event without alternative subject&#34;</span>,
+</span></span><span style="display:flex;"><span>                CreateOpenApiObject(<span style="color:#ff79c6">new</span> List&lt;(<span style="color:#8be9fd">string</span> Name, <span style="color:#8be9fd">string</span> Value)&gt;()
+</span></span><span style="display:flex;"><span>                {
+</span></span><span style="display:flex;"><span>                    (<span style="color:#f1fa8c">&#34;source&#34;</span>, <span style="color:#f1fa8c">&#34;https://ttd.apps.altinn.no/ttd/apps-test/instances/50067592/f3c92d96-0eb3-4532-a16f-bcafd94bde3a&#34;</span>),
+</span></span><span style="display:flex;"><span>                    (<span style="color:#f1fa8c">&#34;specversion&#34;</span>,  <span style="color:#f1fa8c">&#34;1.0&#34;</span>),
+</span></span><span style="display:flex;"><span>                    (<span style="color:#f1fa8c">&#34;type&#34;</span>,  <span style="color:#f1fa8c">&#34;app.instance.created&#34;</span>),
+</span></span><span style="display:flex;"><span>                    (<span style="color:#f1fa8c">&#34;subject&#34;</span>,  <span style="color:#f1fa8c">&#34;/party/50067592&#34;</span>)
+</span></span><span style="display:flex;"><span>                }))
+</span></span><span style="display:flex;"><span>            };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            examples.ForEach(entry =&gt; appJson.Examples.Add(entry.Name, <span style="color:#ff79c6">new</span> OpenApiExample { Value = entry.Value }));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            requestBody.Content[<span style="color:#f1fa8c">&#34;application/json&#34;</span>] = appJson;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Finally the class must be registered as a schema filter in <em>Program.cs</em>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span>    services.AddSwaggerGen(c =&gt;
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        c.SwaggerDoc(<span style="color:#f1fa8c">&#34;v1&#34;</span>, <span style="color:#ff79c6">new</span> OpenApiInfo { Title = <span style="color:#f1fa8c">&#34;Altinn Platform Events&#34;</span>, Version = <span style="color:#f1fa8c">&#34;v1&#34;</span> });
+</span></span><span style="display:flex;"><span>        IncludeXmlComments(c);
+</span></span><span style="display:flex;"><span>        c.EnableAnnotations();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>        c.RequestBodyFilter&lt;RequestBodyExampleFilter&gt;();
+</span></span><span style="display:flex;"><span>    });
+</span></span></code></pre></div>
 
 <footer class=" footline" ></footer>
                 </div>

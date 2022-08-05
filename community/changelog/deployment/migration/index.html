@@ -117,7 +117,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -217,7 +217,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -297,7 +297,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -1125,31 +1125,30 @@ if(host != "localhost")
 │   ├── middleware.yaml
 │   └── service.yaml
 └── values.yaml
-
 </code></pre><p>and the content of your <code>deployment/Chart.yaml</code> is similar to this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#ff79c6">apiVersion</span>: v1
-<span style="color:#ff79c6">description</span>: A Helm chart for Kubernetes
-<span style="color:#6272a4"># name can only be lowercase. It is used in the templats.</span>
-<span style="color:#ff79c6">name</span>: deployment
-<span style="color:#ff79c6">version</span>: <span style="color:#bd93f9">1.1.0</span>
-</code></pre></div><p>Your app is using the old deployment strategy and you should follow the steps below to upgrade to the new deployment strategy, as described <a href="#migrating-to-new-deployment-strategy">here</a>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ff79c6">apiVersion</span>: v1
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">description</span>: A Helm chart for Kubernetes
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># name can only be lowercase. It is used in the templats.</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">name</span>: deployment
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">version</span>: <span style="color:#bd93f9">1.1.0</span>
+</span></span></code></pre></div><p>Your app is using the old deployment strategy and you should follow the steps below to upgrade to the new deployment strategy, as described <a href="#migrating-to-new-deployment-strategy">here</a>.</p>
 <p>If the deployment folder in your app is similar to this:</p>
 <pre tabindex="0"><code>deployment
 ├── .helmignore
 ├── Chart.yaml
 └── values.yaml
 </code></pre><p>And your <code>deployment/Chart.yaml</code> is similar to this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#ff79c6">apiVersion</span>: v1
-<span style="color:#ff79c6">description</span>: A Helm chart for Kubernetes
-<span style="color:#6272a4"># name can only be lowercase. It is used in the templats.</span>
-<span style="color:#ff79c6">name</span>: deployment
-<span style="color:#ff79c6">version</span>: <span style="color:#bd93f9">1.1.0</span>
-
-<span style="color:#ff79c6">dependencies</span>:
-- <span style="color:#ff79c6">name</span>: deployment
-  <span style="color:#ff79c6">repository</span>: https://charts.altinn.studio/
-  <span style="color:#ff79c6">version</span>: <span style="color:#bd93f9">1.1.0</span>
-</code></pre></div><p>You are using the latest deployment strategy.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ff79c6">apiVersion</span>: v1
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">description</span>: A Helm chart for Kubernetes
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># name can only be lowercase. It is used in the templats.</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">name</span>: deployment
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">version</span>: <span style="color:#bd93f9">1.1.0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">dependencies</span>:
+</span></span><span style="display:flex;"><span>- <span style="color:#ff79c6">name</span>: deployment
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">repository</span>: https://charts.altinn.studio/
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">version</span>: <span style="color:#bd93f9">1.1.0</span>
+</span></span></code></pre></div><p>You are using the latest deployment strategy.</p>
 <p>How to configure your deployment is documented <a href="/app/development/configuration/deployment">here</a></p>
 <div class="notices info" >
 Newer version are available. If the new version is a major version please note that there could be breaking changes.
@@ -1159,130 +1158,130 @@ Newer version are available. If the new version is a major version please note t
 <ol>
 <li>Delete the folder <code>templates</code> in the <code>deployment</code> folder.</li>
 <li>Append the dependency of altinns deployment chart to your Chart.yaml
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#ff79c6">dependencies</span>:
-- <span style="color:#ff79c6">name</span>: deployment
-  <span style="color:#ff79c6">repository</span>: https://charts.altinn.studio/
-  <span style="color:#ff79c6">version</span>: <span style="color:#bd93f9">1.1.0</span>
-</code></pre></div><p>Your Chart.yaml should now look like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#ff79c6">apiVersion</span>: v1
-<span style="color:#ff79c6">description</span>: A Helm chart for Kubernetes
-<span style="color:#6272a4"># name can only be lowercase. It is used in the templats.</span>
-<span style="color:#ff79c6">name</span>: deployment
-<span style="color:#ff79c6">version</span>: <span style="color:#bd93f9">1.1.0</span>
-
-<span style="color:#ff79c6">dependencies</span>:
-- <span style="color:#ff79c6">name</span>: deployment
-  <span style="color:#ff79c6">repository</span>: https://charts.altinn.studio/
-  <span style="color:#ff79c6">version</span>: <span style="color:#bd93f9">1.1.0</span>
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ff79c6">dependencies</span>:
+</span></span><span style="display:flex;"><span>- <span style="color:#ff79c6">name</span>: deployment
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">repository</span>: https://charts.altinn.studio/
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">version</span>: <span style="color:#bd93f9">1.1.0</span>
+</span></span></code></pre></div>Your Chart.yaml should now look like this:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ff79c6">apiVersion</span>: v1
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">description</span>: A Helm chart for Kubernetes
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># name can only be lowercase. It is used in the templats.</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">name</span>: deployment
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">version</span>: <span style="color:#bd93f9">1.1.0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">dependencies</span>:
+</span></span><span style="display:flex;"><span>- <span style="color:#ff79c6">name</span>: deployment
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">repository</span>: https://charts.altinn.studio/
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">version</span>: <span style="color:#bd93f9">1.1.0</span>
+</span></span></code></pre></div></li>
 <li>Add a new line at the top of your values.yaml containing the string <code>deployment:</code> and indent all the old lines with two spaces (yaml treats spaces and tab diffrently so check that you add spaces) <br><br>Given that your values.yaml looked like this:
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#ff79c6">replicaCount</span>: <span style="color:#bd93f9">3</span>
-
-<span style="color:#ff79c6">image</span>:
-<span style="color:#6272a4"># Set &#34;repository&#34; name of your image for manual Helm install and upgrade.</span>
-  <span style="color:#ff79c6">repository</span>:
-  <span style="color:#ff79c6">tag</span>: latest
-  <span style="color:#ff79c6">pullPolicy</span>: Always
-  <span style="color:#ff79c6">pullSecrets</span>:
-    <span style="color:#6272a4"># Change this to the name of your pull secret</span>
-    - <span style="color:#ff79c6">name</span>: acr-secret
-
-<span style="color:#ff79c6">service</span>:
-<span style="color:#ff79c6">name</span>: deployment
-<span style="color:#ff79c6">type</span>: ClusterIP
-<span style="color:#ff79c6">externalPort</span>: <span style="color:#bd93f9">80</span>
-<span style="color:#6272a4"># If your application is running on another port, change only the internal port.</span>
-<span style="color:#ff79c6">internalPort</span>: <span style="color:#bd93f9">5005</span>
-
-<span style="color:#ff79c6">linkerd</span>:
-  <span style="color:#ff79c6">enabled</span>: <span style="color:#ff79c6">true</span>
-
-<span style="color:#ff79c6">ingressRoute</span>:
-  <span style="color:#ff79c6">name</span>: Will be inserted during deploy
-  <span style="color:#ff79c6">entryPoints</span>:
-    - http
-    - https
-  <span style="color:#ff79c6">routes</span>:
-    - <span style="color:#ff79c6">match</span>: Will be inserted during deploy
-      <span style="color:#ff79c6">kind</span>: Rule
-      <span style="color:#ff79c6">services</span>:
-        - <span style="color:#ff79c6">name</span>: Will be inserted during deploy
-          <span style="color:#ff79c6">port</span>: <span style="color:#bd93f9">80</span>
-      <span style="color:#ff79c6">middlewares</span>:
-        - <span style="color:#ff79c6">name</span>: hsts-header
-  <span style="color:#ff79c6">tls</span>:
-    <span style="color:#ff79c6">options</span>:
-      <span style="color:#ff79c6">name</span>: tls-options
-    <span style="color:#ff79c6">secretName</span>: ssl-cert
-
-<span style="color:#ff79c6">volumeMounts</span>:
-  - <span style="color:#ff79c6">name</span>: datakeys
-    <span style="color:#ff79c6">mountPath</span>: /mnt/keys
-  - <span style="color:#ff79c6">name</span>: accesstoken
-    <span style="color:#ff79c6">mountPath</span>: <span style="color:#f1fa8c">&#34;/accesstoken&#34;</span>
-
-<span style="color:#ff79c6">volumes</span>:
-  - <span style="color:#ff79c6">name </span>: datakeys
-    <span style="color:#ff79c6">persistentVolumeClaim</span>:
-      <span style="color:#ff79c6">claimName</span>: keys
-  - <span style="color:#ff79c6">name</span>: accesstoken
-    <span style="color:#ff79c6">secret</span>:
-    <span style="color:#ff79c6">secretName</span>: accesstoken
-</code></pre></div><p>After you have made your changes it should look like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#ff79c6">deployment</span>:
-  <span style="color:#ff79c6">replicaCount</span>: <span style="color:#bd93f9">3</span>
-
-  <span style="color:#ff79c6">image</span>:
-    <span style="color:#6272a4"># Set &#34;repository&#34; name of your image for manual Helm install and upgrade.</span>
-    <span style="color:#ff79c6">repository</span>:
-    <span style="color:#ff79c6">tag</span>: latest
-    <span style="color:#ff79c6">pullPolicy</span>: Always
-    <span style="color:#ff79c6">pullSecrets</span>:
-    <span style="color:#6272a4"># Change this to the name of your pull secret</span>
-      - <span style="color:#ff79c6">name</span>: acr-secret
-
-  <span style="color:#ff79c6">service</span>:
-    <span style="color:#ff79c6">name</span>: deployment
-    <span style="color:#ff79c6">type</span>: ClusterIP
-    <span style="color:#ff79c6">externalPort</span>: <span style="color:#bd93f9">80</span>
-    <span style="color:#6272a4"># If your application is running on another port, change only the internal port.</span>
-    <span style="color:#ff79c6">internalPort</span>: <span style="color:#bd93f9">5005</span>
-
-  <span style="color:#ff79c6">linkerd</span>:
-    <span style="color:#ff79c6">enabled</span>: <span style="color:#ff79c6">true</span>
-
-  <span style="color:#ff79c6">ingressRoute</span>:
-    <span style="color:#ff79c6">name</span>: Will be inserted during deploy
-    <span style="color:#ff79c6">entryPoints</span>:
-      - http
-      - https
-    <span style="color:#ff79c6">routes</span>:
-      - <span style="color:#ff79c6">match</span>: Will be inserted during deploy
-        <span style="color:#ff79c6">kind</span>: Rule
-        <span style="color:#ff79c6">services</span>:
-          - <span style="color:#ff79c6">name</span>: Will be inserted during deploy
-            <span style="color:#ff79c6">port</span>: <span style="color:#bd93f9">80</span>
-        <span style="color:#ff79c6">middlewares</span>:
-          - <span style="color:#ff79c6">name</span>: hsts-header
-    <span style="color:#ff79c6">tls</span>:
-      <span style="color:#ff79c6">options</span>:
-        <span style="color:#ff79c6">name</span>: tls-options
-      <span style="color:#ff79c6">secretName</span>: ssl-cert
-
-  <span style="color:#ff79c6">volumeMounts</span>:
-    - <span style="color:#ff79c6">name</span>: datakeys
-      <span style="color:#ff79c6">mountPath</span>: /mnt/keys
-    - <span style="color:#ff79c6">name</span>: accesstoken
-      <span style="color:#ff79c6">mountPath</span>: <span style="color:#f1fa8c">&#34;/accesstoken&#34;</span>
-
-  <span style="color:#ff79c6">volumes</span>:
-    - <span style="color:#ff79c6">name </span>: datakeys
-      <span style="color:#ff79c6">persistentVolumeClaim</span>:
-        <span style="color:#ff79c6">claimName</span>: keys
-    - <span style="color:#ff79c6">name</span>: accesstoken
-      <span style="color:#ff79c6">secret</span>:
-        <span style="color:#ff79c6">secretName</span>: accesstoken
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ff79c6">replicaCount</span>: <span style="color:#bd93f9">3</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">image</span>:
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># Set &#34;repository&#34; name of your image for manual Helm install and upgrade.</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">repository</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">tag</span>: latest
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">pullPolicy</span>: Always
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">pullSecrets</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Change this to the name of your pull secret</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#ff79c6">name</span>: acr-secret
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">service</span>:
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">name</span>: deployment
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">type</span>: ClusterIP
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">externalPort</span>: <span style="color:#bd93f9">80</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># If your application is running on another port, change only the internal port.</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">internalPort</span>: <span style="color:#bd93f9">5005</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">linkerd</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">enabled</span>: <span style="color:#ff79c6">true</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">ingressRoute</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">name</span>: Will be inserted during deploy
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">entryPoints</span>:
+</span></span><span style="display:flex;"><span>    - http
+</span></span><span style="display:flex;"><span>    - https
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">routes</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#ff79c6">match</span>: Will be inserted during deploy
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">kind</span>: Rule
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">services</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#ff79c6">name</span>: Will be inserted during deploy
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">port</span>: <span style="color:#bd93f9">80</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">middlewares</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#ff79c6">name</span>: hsts-header
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">tls</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">options</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">name</span>: tls-options
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">secretName</span>: ssl-cert
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">volumeMounts</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#ff79c6">name</span>: datakeys
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">mountPath</span>: /mnt/keys
+</span></span><span style="display:flex;"><span>  - <span style="color:#ff79c6">name</span>: accesstoken
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">mountPath</span>: <span style="color:#f1fa8c">&#34;/accesstoken&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">volumes</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#ff79c6">name </span>: datakeys
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">persistentVolumeClaim</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">claimName</span>: keys
+</span></span><span style="display:flex;"><span>  - <span style="color:#ff79c6">name</span>: accesstoken
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">secret</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">secretName</span>: accesstoken
+</span></span></code></pre></div>After you have made your changes it should look like this:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ff79c6">deployment</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">replicaCount</span>: <span style="color:#bd93f9">3</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">image</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Set &#34;repository&#34; name of your image for manual Helm install and upgrade.</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">repository</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">tag</span>: latest
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">pullPolicy</span>: Always
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">pullSecrets</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Change this to the name of your pull secret</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ff79c6">name</span>: acr-secret
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">service</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">name</span>: deployment
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">type</span>: ClusterIP
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">externalPort</span>: <span style="color:#bd93f9">80</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># If your application is running on another port, change only the internal port.</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">internalPort</span>: <span style="color:#bd93f9">5005</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">linkerd</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">enabled</span>: <span style="color:#ff79c6">true</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">ingressRoute</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">name</span>: Will be inserted during deploy
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">entryPoints</span>:
+</span></span><span style="display:flex;"><span>      - http
+</span></span><span style="display:flex;"><span>      - https
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">routes</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ff79c6">match</span>: Will be inserted during deploy
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">kind</span>: Rule
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">services</span>:
+</span></span><span style="display:flex;"><span>          - <span style="color:#ff79c6">name</span>: Will be inserted during deploy
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">port</span>: <span style="color:#bd93f9">80</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">middlewares</span>:
+</span></span><span style="display:flex;"><span>          - <span style="color:#ff79c6">name</span>: hsts-header
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">tls</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">options</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">name</span>: tls-options
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">secretName</span>: ssl-cert
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">volumeMounts</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#ff79c6">name</span>: datakeys
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">mountPath</span>: /mnt/keys
+</span></span><span style="display:flex;"><span>    - <span style="color:#ff79c6">name</span>: accesstoken
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">mountPath</span>: <span style="color:#f1fa8c">&#34;/accesstoken&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">volumes</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#ff79c6">name </span>: datakeys
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">persistentVolumeClaim</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">claimName</span>: keys
+</span></span><span style="display:flex;"><span>    - <span style="color:#ff79c6">name</span>: accesstoken
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">secret</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">secretName</span>: accesstoken
+</span></span></code></pre></div></li>
 </ol>
 <p>Commit and push your changes to gitea and your next deploy will use the new deployment strategy</p>
 

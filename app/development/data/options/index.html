@@ -117,7 +117,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -217,7 +217,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -297,7 +297,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -1116,65 +1116,64 @@ Checkbox, Dropdown, and RadioButton components will automatically be able to fet
 <h2 id="static-codelists-from-the-application-repository">Static codelists from the application repository</h2>
 <p>By adding json based option files in the application repository, the application will automatically read the file and expose it through the options api. For this to work, the files must be placed in the <code>App/options/</code> folder and be named according to the following conventions <code>{optionId}.json</code> for the application to recognize them.</p>
 <p>For example if you have a list of countries in a file named <code>countries.json</code>, the optionId would be <code>countries</code>, and would be exposed through the api at <code>{org}/{app}/api/options/countries</code>. The static codelists should be in a special format as shown below:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[
-    {
-        <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;norway&#34;</span>,
-        <span style="color:#ff79c6">&#34;label&#34;</span>: <span style="color:#f1fa8c">&#34;Norge&#34;</span>
-    },
-    {
-        <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;denmark&#34;</span>,
-        <span style="color:#ff79c6">&#34;label&#34;</span>: <span style="color:#f1fa8c">&#34;Danmark&#34;</span>
-    },
-    {
-        <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;sweden&#34;</span>,
-        <span style="color:#ff79c6">&#34;label&#34;</span>: <span style="color:#f1fa8c">&#34;country.label.sweden&#34;</span>
-    }
-]
-</code></pre></div><p>Note that the <code>label</code> field can be a key to a text resource (as shown above for sweden) or plain text.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>[
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;norway&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;label&#34;</span>: <span style="color:#f1fa8c">&#34;Norge&#34;</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;denmark&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;label&#34;</span>: <span style="color:#f1fa8c">&#34;Danmark&#34;</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;sweden&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;label&#34;</span>: <span style="color:#f1fa8c">&#34;country.label.sweden&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>]
+</span></span></code></pre></div><p>Note that the <code>label</code> field can be a key to a text resource (as shown above for sweden) or plain text.</p>
 <h2 id="dynamic-codelists-generated-runtime">Dynamic codelists generated runtime</h2>
 <p>As an alternative to the static files you can have code that determines what the lists should be during runtime. This makes it possible to expose dynamic values that for instance are filtered or looked up in external sources. Dynamic codelists can either be open and accessible to all or secured and limited to those with read access to the instance.</p>
 <p>In versions prior to 4.24.0 this was done by overriding the <code>GetOptions</code> method in <code>App.cs</code>. This method is now deprecated and is replaced by putting the option code in separate classes implementing an interface and registering the implementation in the application dependency injection container. This allows for better separation, inject dependencies into the constructor, pass in language and other query parameters and generally handle all aspects of the implementation as you see fit.</p>
 <p>For codelists that are open you implement the <code>IAppOptionsProvider</code> interface and for codelists that should be secured you implement the <code>IInstanceAppOptionsProvider</code> interface. The pattern is the same for both, and the models returned is the same, but the implementation is kept separate to avoid exposing data that should be secured.</p>
 <h3 id="open-dynamic-codelists">Open dynamic codelists</h3>
 <p>Below you find an example of how to implement a open custom options provider. The url will will still be exposed from the same endpoint as before <code>{org}/{app}/api/options/countires</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#ff79c6">using</span> Altinn.App.Common.Models;
-<span style="color:#ff79c6">using</span> Altinn.App.PlatformServices.Options;
-<span style="color:#ff79c6">using</span> System.Collections.Generic;
-<span style="color:#ff79c6">using</span> System.Threading.Tasks;
-
-<span style="color:#ff79c6">namespace</span> Altinn.App.Core
-{
-    <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">CountryAppOptionsProvider</span> : IAppOptionsProvider
-    {
-        <span style="color:#ff79c6">public</span> <span style="color:#8be9fd">string</span> Id { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; } = <span style="color:#f1fa8c">&#34;countries&#34;</span>;
-
-        <span style="color:#ff79c6">public</span> Task&lt;AppOptions&gt; GetAppOptionsAsync(<span style="color:#8be9fd">string</span> language, Dictionary&lt;<span style="color:#8be9fd">string</span>, <span style="color:#8be9fd">string</span>&gt; keyValuePairs)
-        {
-            <span style="color:#8be9fd">var</span> options = <span style="color:#ff79c6">new</span> AppOptions
-            {
-                Options = <span style="color:#ff79c6">new</span> List&lt;AppOption&gt;
-                    {
-                        <span style="color:#ff79c6">new</span> AppOption
-                        {
-                            Label = <span style="color:#f1fa8c">&#34;Norway&#34;</span>,
-                            Value = <span style="color:#f1fa8c">&#34;47&#34;</span>
-                        },
-                        <span style="color:#ff79c6">new</span> AppOption
-                        {
-                            Label = <span style="color:#f1fa8c">&#34;Sweden&#34;</span>,
-                            Value = <span style="color:#f1fa8c">&#34;46&#34;</span>
-                        }
-                    }
-            };
-
-            <span style="color:#ff79c6">return</span> Task.FromResult(options);
-        }
-    }
-}
-
-</code></pre></div><p>For your implementation to be picked up you need to add the following line in your <code>Startup.cs</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp">services.AddTransient&lt;IAppOptionsProvider, CountryAppOptionsProvider&gt;();
-</code></pre></div><p>Note that you can have multiple registrations of this interface. The correct implementation is resolved by finding the one with the correct id.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C#" data-lang="C#"><span style="display:flex;"><span><span style="color:#ff79c6">using</span> Altinn.App.Common.Models;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> Altinn.App.PlatformServices.Options;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> System.Collections.Generic;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> System.Threading.Tasks;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">namespace</span> Altinn.App.Core
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">CountryAppOptionsProvider</span> : IAppOptionsProvider
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">public</span> <span style="color:#8be9fd">string</span> Id { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; } = <span style="color:#f1fa8c">&#34;countries&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">public</span> Task&lt;AppOptions&gt; GetAppOptionsAsync(<span style="color:#8be9fd">string</span> language, Dictionary&lt;<span style="color:#8be9fd">string</span>, <span style="color:#8be9fd">string</span>&gt; keyValuePairs)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#8be9fd">var</span> options = <span style="color:#ff79c6">new</span> AppOptions
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                Options = <span style="color:#ff79c6">new</span> List&lt;AppOption&gt;
+</span></span><span style="display:flex;"><span>                    {
+</span></span><span style="display:flex;"><span>                        <span style="color:#ff79c6">new</span> AppOption
+</span></span><span style="display:flex;"><span>                        {
+</span></span><span style="display:flex;"><span>                            Label = <span style="color:#f1fa8c">&#34;Norway&#34;</span>,
+</span></span><span style="display:flex;"><span>                            Value = <span style="color:#f1fa8c">&#34;47&#34;</span>
+</span></span><span style="display:flex;"><span>                        },
+</span></span><span style="display:flex;"><span>                        <span style="color:#ff79c6">new</span> AppOption
+</span></span><span style="display:flex;"><span>                        {
+</span></span><span style="display:flex;"><span>                            Label = <span style="color:#f1fa8c">&#34;Sweden&#34;</span>,
+</span></span><span style="display:flex;"><span>                            Value = <span style="color:#f1fa8c">&#34;46&#34;</span>
+</span></span><span style="display:flex;"><span>                        }
+</span></span><span style="display:flex;"><span>                    }
+</span></span><span style="display:flex;"><span>            };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">return</span> Task.FromResult(options);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>For your implementation to be picked up you need to add the following line in your <code>Startup.cs</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span>services.AddTransient&lt;IAppOptionsProvider, CountryAppOptionsProvider&gt;();
+</span></span></code></pre></div><p>Note that you can have multiple registrations of this interface. The correct implementation is resolved by finding the one with the correct id.</p>
 <p>The interface has a property <code>Id</code>, which should be set to the optionId, and a method <code>GetAppOptionsAsync</code> for resolving the options. This method accepts a language code and a dictionary of key/value pairs. Both parameters will typically be query parameters picked up from the controller and passed in. Allthough language could be put in the dictionary as well it&rsquo;s decided to be explicit on this particular parameter.</p>
 <blockquote>
 <p>Language codes should be based on ISO 639-1 or the W3C IANA Language Subtag Registry. The latter is built uppon the ISO 639-1 standard but is guaranties uniques of the codes, where as ISO 639-1 have conflicting usage for some codes.</p>
@@ -1186,108 +1185,107 @@ Checkbox, Dropdown, and RadioButton components will automatically be able to fet
 <p>If you want to expose options that are sensitive you can use <code>IInstanceAppOptionsProvider</code>, which will validate that the user has read rights defined in the authorization policy defined in the app&rsquo;s <code>policy.xml</code>-file.
 Below you find an example of how to implement a secured custom options provider. The <code>IInstanceAppOptionsProvider</code> interface must be implemented, and a <code>secure</code>-prop must be added to the component.
 The following option will be exposed at <code>/{org}/{app}/instances/{instanceOwnerId}/{instanceGUID}/options/children</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#ff79c6">using</span> System.Collections.Generic;
-<span style="color:#ff79c6">using</span> System.Threading.Tasks;
-<span style="color:#ff79c6">using</span> Altinn.App.Common.Models;
-<span style="color:#ff79c6">using</span> Altinn.App.PlatformServices.Models;
-
-<span style="color:#ff79c6">namespace</span> Altinn.App.Core
-{
-    <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">ChildrenAppOptionsProvider</span> : IInstanceAppOptionsProvider
-    {
-        <span style="color:#ff79c6">public</span> <span style="color:#8be9fd">string</span> Id { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; } = <span style="color:#f1fa8c">&#34;children&#34;</span>;
-
-        <span style="color:#ff79c6">public</span> Task&lt;AppOptions&gt; GetInstanceAppOptionsAsync(InstanceIdentifier instanceIdentifier, <span style="color:#8be9fd">string</span> language, Dictionary&lt;<span style="color:#8be9fd">string</span>, <span style="color:#8be9fd">string</span>&gt; keyValuePairs)
-        {
-            <span style="color:#6272a4">// ...
-</span><span style="color:#6272a4"></span>            <span style="color:#6272a4">// Some custom code to get the list of children from the instance owner
-</span><span style="color:#6272a4"></span>            <span style="color:#6272a4">// ...
-</span><span style="color:#6272a4"></span>
-            <span style="color:#8be9fd">var</span> options = <span style="color:#ff79c6">new</span> AppOptions
-            {
-                Options = <span style="color:#ff79c6">new</span> List&lt;AppOption&gt;
-                    {
-                        <span style="color:#ff79c6">new</span> AppOption
-                        {
-                            Label = <span style="color:#f1fa8c">&#34;Ole&#34;</span>,
-                            Value = <span style="color:#f1fa8c">&#34;1&#34;</span>
-                        },
-                        <span style="color:#ff79c6">new</span> AppOption
-                        {
-                            Label = <span style="color:#f1fa8c">&#34;Dole&#34;</span>,
-                            Value = <span style="color:#f1fa8c">&#34;2&#34;</span>
-                        },
-                        <span style="color:#ff79c6">new</span> AppOption
-                        {
-                            Label = <span style="color:#f1fa8c">&#34;Doffen&#34;</span>,
-                            Value = <span style="color:#f1fa8c">&#34;3&#34;</span>
-                        }
-                    }
-            };
-
-            <span style="color:#ff79c6">return</span> Task.FromResult(options);
-        }
-    }
-}
-
-</code></pre></div><p>For your implementation to be picked up you need to add the following line in your <code>Startup.cs</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp">services.AddTransient&lt;IInstanceAppOptionsProvider, ChildrenAppOptionsProvider&gt;();
-</code></pre></div><p>Note that you can have multiple registrations of this interface. The correct implementation is resolved by finding the one with the correct id.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C#" data-lang="C#"><span style="display:flex;"><span><span style="color:#ff79c6">using</span> System.Collections.Generic;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> System.Threading.Tasks;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> Altinn.App.Common.Models;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> Altinn.App.PlatformServices.Models;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">namespace</span> Altinn.App.Core
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">ChildrenAppOptionsProvider</span> : IInstanceAppOptionsProvider
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">public</span> <span style="color:#8be9fd">string</span> Id { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; } = <span style="color:#f1fa8c">&#34;children&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">public</span> Task&lt;AppOptions&gt; GetInstanceAppOptionsAsync(InstanceIdentifier instanceIdentifier, <span style="color:#8be9fd">string</span> language, Dictionary&lt;<span style="color:#8be9fd">string</span>, <span style="color:#8be9fd">string</span>&gt; keyValuePairs)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#6272a4">// ...</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#6272a4">// Some custom code to get the list of children from the instance owner</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#6272a4">// ...</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#8be9fd">var</span> options = <span style="color:#ff79c6">new</span> AppOptions
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                Options = <span style="color:#ff79c6">new</span> List&lt;AppOption&gt;
+</span></span><span style="display:flex;"><span>                    {
+</span></span><span style="display:flex;"><span>                        <span style="color:#ff79c6">new</span> AppOption
+</span></span><span style="display:flex;"><span>                        {
+</span></span><span style="display:flex;"><span>                            Label = <span style="color:#f1fa8c">&#34;Ole&#34;</span>,
+</span></span><span style="display:flex;"><span>                            Value = <span style="color:#f1fa8c">&#34;1&#34;</span>
+</span></span><span style="display:flex;"><span>                        },
+</span></span><span style="display:flex;"><span>                        <span style="color:#ff79c6">new</span> AppOption
+</span></span><span style="display:flex;"><span>                        {
+</span></span><span style="display:flex;"><span>                            Label = <span style="color:#f1fa8c">&#34;Dole&#34;</span>,
+</span></span><span style="display:flex;"><span>                            Value = <span style="color:#f1fa8c">&#34;2&#34;</span>
+</span></span><span style="display:flex;"><span>                        },
+</span></span><span style="display:flex;"><span>                        <span style="color:#ff79c6">new</span> AppOption
+</span></span><span style="display:flex;"><span>                        {
+</span></span><span style="display:flex;"><span>                            Label = <span style="color:#f1fa8c">&#34;Doffen&#34;</span>,
+</span></span><span style="display:flex;"><span>                            Value = <span style="color:#f1fa8c">&#34;3&#34;</span>
+</span></span><span style="display:flex;"><span>                        }
+</span></span><span style="display:flex;"><span>                    }
+</span></span><span style="display:flex;"><span>            };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">return</span> Task.FromResult(options);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>For your implementation to be picked up you need to add the following line in your <code>Startup.cs</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span>services.AddTransient&lt;IInstanceAppOptionsProvider, ChildrenAppOptionsProvider&gt;();
+</span></span></code></pre></div><p>Note that you can have multiple registrations of this interface. The correct implementation is resolved by finding the one with the correct id.</p>
 <p>The interface has a property <code>Id</code>, which should be set to the optionId, and a method <code>GetInstanceAppOptionsAsync</code> for resolving the options. This method accepts a language code and a dictionary of key/value pairs. Both parameters will typically be query parameters picked up from the controller and passed in. Allthough language could be put in the dictionary as well it&rsquo;s decided to be explicit on this particular parameter. These parameters are the same as for the open variant of options, in addition the instance id (which identifies both the instance owner and the instance itself) will be passed in.</p>
 <p>The final configuration needed is the <code>secure</code>-boolean on the component. Example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">      {
-        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;dropdown-component&#34;</span>,
-        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Dropdown&#34;</span>,
-        <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
-          <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;Some title&#34;</span>,
-          <span style="color:#ff79c6">&#34;description&#34;</span>: <span style="color:#f1fa8c">&#34;Some description&#34;</span>
-        },
-        <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {
-          <span style="color:#ff79c6">&#34;simpleBinding&#34;</span>: <span style="color:#f1fa8c">&#34;some.field&#34;</span>
-        },
-        <span style="color:#ff79c6">&#34;required&#34;</span>: <span style="color:#ff79c6">true</span>,
-        <span style="color:#ff79c6">&#34;optionsId&#34;</span>: <span style="color:#f1fa8c">&#34;children&#34;</span>,
-<span style="display:block;width:100%;background-color:#3d3f4a">        <span style="color:#ff79c6">&#34;secure&#34;</span>: <span style="color:#ff79c6">true</span>
-</span>      }
-</code></pre></div><h2 id="connect-the-component-to-options-code-list">Connect the component to options (code list)</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;dropdown-component&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Dropdown&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;Some title&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;description&#34;</span>: <span style="color:#f1fa8c">&#34;Some description&#34;</span>
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;simpleBinding&#34;</span>: <span style="color:#f1fa8c">&#34;some.field&#34;</span>
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;required&#34;</span>: <span style="color:#ff79c6">true</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;optionsId&#34;</span>: <span style="color:#f1fa8c">&#34;children&#34;</span>,
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>        <span style="color:#ff79c6">&#34;secure&#34;</span>: <span style="color:#ff79c6">true</span>
+</span></span><span style="display:flex;"><span>      }
+</span></span></code></pre></div><h2 id="connect-the-component-to-options-code-list">Connect the component to options (code list)</h2>
 <p>This is done by adding the optionId you would like to refer to either through the component UI in Designer or direcytly in <code>FormLayout.json</code> as shown below:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;8e6f7b2f-fcf0-438d-8336-c1a8e1e03f44&#34;</span>,
-    <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Dropdown&#34;</span>,    
-    <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {},
-    <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {},
-    <span style="color:#ff79c6">&#34;optionsId&#34;</span>: <span style="color:#f1fa8c">&#34;countries&#34;</span>,
-}
-</code></pre></div><h2 id="pass-query-parameters-when-fetching-options">Pass query parameters when fetching options</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;8e6f7b2f-fcf0-438d-8336-c1a8e1e03f44&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Dropdown&#34;</span>,    
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {},
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {},
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;optionsId&#34;</span>: <span style="color:#f1fa8c">&#34;countries&#34;</span>,
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="pass-query-parameters-when-fetching-options">Pass query parameters when fetching options</h2>
 <p>Options supports query parameters when making the api call. <code>language</code> is added automatically, and you can also add custom parameters by defining <code>mapping</code> on the component.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;c66d7b69-2e18-4786-af44-1fa913853618&#34;</span>,
-    <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Dropdown&#34;</span>,
-    <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
-        <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;NyGarantiLoyvetype&#34;</span>
-    },
-    <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {
-        <span style="color:#ff79c6">&#34;simpleBinding&#34;</span>: <span style="color:#f1fa8c">&#34;soknad.nyGaranti.loyvetype&#34;</span>
-    },
-    <span style="color:#ff79c6">&#34;required&#34;</span>: <span style="color:#ff79c6">true</span>,
-    <span style="color:#ff79c6">&#34;optionsId&#34;</span>: <span style="color:#f1fa8c">&#34;loyvetyper&#34;</span>,
-    <span style="color:#ff79c6">&#34;mapping&#34;</span>: {
-        <span style="color:#ff79c6">&#34;soknad.transportorOrgnummer&#34;</span>: <span style="color:#f1fa8c">&#34;orgnummer&#34;</span>
-    }
-},
-</code></pre></div><p>In the example above, the query parameter <code>orgnummer={nr}</code>, where <code>{nr}</code> is the value of <code>soknad.transportorOrgnummer</code> will be set.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;c66d7b69-2e18-4786-af44-1fa913853618&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Dropdown&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;NyGarantiLoyvetype&#34;</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;simpleBinding&#34;</span>: <span style="color:#f1fa8c">&#34;soknad.nyGaranti.loyvetype&#34;</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;required&#34;</span>: <span style="color:#ff79c6">true</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;optionsId&#34;</span>: <span style="color:#f1fa8c">&#34;loyvetyper&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;mapping&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;soknad.transportorOrgnummer&#34;</span>: <span style="color:#f1fa8c">&#34;orgnummer&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>},
+</span></span></code></pre></div><p>In the example above, the query parameter <code>orgnummer={nr}</code>, where <code>{nr}</code> is the value of <code>soknad.transportorOrgnummer</code> will be set.
 If an option is setup with mapping and the given data field changes app-frontend will refetch the option. This can be used to dynamicly decide which choices are availibable based on information given by the end user.</p>
 <div class="notices warning" >
 During PDF-generation the app will try to call the same option endpoint as app-frontend does.
 We currently has a weakness where mapping paramteres not are included in this request, see issue [#7903.](https://github.com/Altinn/altinn-studio/issues/7903)
 <p>A possible workaround here is to return an empty array when the PDF-generator asks for options with empty query params, example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#">            <span style="color:#8be9fd">string</span> someArg = keyValuePairs.GetValueOrDefault(<span style="color:#f1fa8c">&#34;someArg&#34;</span>);
-            <span style="color:#8be9fd">string</span> someOtherArg = keyValuePairs.GetValueOrDefault(<span style="color:#f1fa8c">&#34;someOtherArg&#34;</span>);
-
-            <span style="color:#ff79c6">if</span> (<span style="color:#8be9fd">string</span>.IsNullOrEmpty(someArg) || <span style="color:#8be9fd">string</span>.IsNullOrEmpty(someOtherArg)) {
-                <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">await</span> Task.FromResult(<span style="color:#ff79c6">new</span> List&lt;AppOption&gt;());
-            }
-</code></pre></div><p>Notice that this wil result in the option value and not the label being present as the end users answer.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c#" data-lang="c#"><span style="display:flex;"><span>            <span style="color:#8be9fd">string</span> someArg = keyValuePairs.GetValueOrDefault(<span style="color:#f1fa8c">&#34;someArg&#34;</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#8be9fd">string</span> someOtherArg = keyValuePairs.GetValueOrDefault(<span style="color:#f1fa8c">&#34;someOtherArg&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">if</span> (<span style="color:#8be9fd">string</span>.IsNullOrEmpty(someArg) || <span style="color:#8be9fd">string</span>.IsNullOrEmpty(someOtherArg)) {
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">await</span> Task.FromResult(<span style="color:#ff79c6">new</span> List&lt;AppOption&gt;());
+</span></span><span style="display:flex;"><span>            }
+</span></span></code></pre></div><p>Notice that this wil result in the option value and not the label being present as the end users answer.</p>
 </div>
 <h2 id="options-based-on-repeating-groups-from-redux">Options based on repeating groups from Redux</h2>
 <p>Traditional options are based on resources fetched from the backend. 
@@ -1296,17 +1294,17 @@ A use case here would typically be if the user fills out a repeating list of dat
 <h3 id="configuration">Configuration</h3>
 <p>To set up options from redux we have set up a new property on <code>RadioButtons</code>, <code>Checkboxes</code>, and <code>Dropdown</code>-components called <code>source</code>. 
 This property contains the fields <code>group</code>, <code>label</code>, and <code>value</code>. Example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">      {
-        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;dropdown-component-id&#34;</span>,
-        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Dropdown&#34;</span>,
-        ...
-        <span style="color:#ff79c6">&#34;source&#34;</span>: {
-          <span style="color:#ff79c6">&#34;group&#34;</span>: <span style="color:#f1fa8c">&#34;some.group&#34;</span>,
-          <span style="color:#ff79c6">&#34;label&#34;</span>: <span style="color:#f1fa8c">&#34;dropdown.label&#34;</span>,
-          <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;some.group[{0}].someField&#34;</span>
-        }
-      },
-</code></pre></div><p>Explanation:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;dropdown-component-id&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Dropdown&#34;</span>,
+</span></span><span style="display:flex;"><span>        ...
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;source&#34;</span>: {
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;group&#34;</span>: <span style="color:#f1fa8c">&#34;some.group&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;label&#34;</span>: <span style="color:#f1fa8c">&#34;dropdown.label&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;some.group[{0}].someField&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      },
+</span></span></code></pre></div><p>Explanation:</p>
 <ul>
 <li><strong>group</strong> - the group field in the data model to base the options on</li>
 <li><strong>label</strong> - a reference to a text id to be used as the label for each iteration of the group, see more below.</li>
@@ -1316,26 +1314,26 @@ This property contains the fields <code>group</code>, <code>label</code>, and <c
 <p>As for the <strong>label</strong> property, we have to define a text resource that can be used as a label for each repetition of the group.
 This follows similar syntax as the <strong>value</strong>, and will also be familiar if you have used <a href="../../ux/texts">variables in text</a>.</p>
 <p>Example text resource connected:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#ff79c6">&#34;language&#34;</span>: <span style="color:#f1fa8c">&#34;nb&#34;</span>,
-  <span style="color:#ff79c6">&#34;resources&#34;</span>: [
-    {
-      <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;dropdown.label&#34;</span>,
-      <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;Person: {0}, Age: {1}&#34;</span>,
-      <span style="color:#ff79c6">&#34;variables&#34;</span>: [
-        {
-          <span style="color:#ff79c6">&#34;key&#34;</span>: <span style="color:#f1fa8c">&#34;some.group[{0}].name&#34;</span>,
-          <span style="color:#ff79c6">&#34;dataSource&#34;</span>: <span style="color:#f1fa8c">&#34;dataModel.default&#34;</span>
-        },
-        {
-          <span style="color:#ff79c6">&#34;key&#34;</span>: <span style="color:#f1fa8c">&#34;some.group[{0}].age&#34;</span>,
-          <span style="color:#ff79c6">&#34;dataSource&#34;</span>: <span style="color:#f1fa8c">&#34;dataModel.default&#34;</span>
-        }
-      ]
-    }
-  ]
-}
-</code></pre></div><p>In the example above we have two parameters in the text which is referencing fields in the group. 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;language&#34;</span>: <span style="color:#f1fa8c">&#34;nb&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;resources&#34;</span>: [
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;dropdown.label&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;Person: {0}, Age: {1}&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;variables&#34;</span>: [
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;key&#34;</span>: <span style="color:#f1fa8c">&#34;some.group[{0}].name&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;dataSource&#34;</span>: <span style="color:#f1fa8c">&#34;dataModel.default&#34;</span>
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;key&#34;</span>: <span style="color:#f1fa8c">&#34;some.group[{0}].age&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;dataSource&#34;</span>: <span style="color:#f1fa8c">&#34;dataModel.default&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      ]
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  ]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>In the example above we have two parameters in the text which is referencing fields in the group. 
 We also recognize the <code>[{0}]</code> syntax in the <code>key</code> prop which enables the usage of this label for each index in the group.</p>
 
 

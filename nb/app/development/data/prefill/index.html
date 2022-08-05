@@ -381,13 +381,13 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/metadata/"><span>Metadata</span></a></li>
       <li class="dd-item">
         <a href="/nb/api/apps/instances/"><span>Instanser</span></a></li>
       <li class="dd-item">
-        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/data-elements/tags/"><span>Tags</span></a></li></ul></li>
       <li class="dd-item">
@@ -441,9 +441,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/community/about/"><span>Om</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/community/about/goals/"><span>Mål</span></a></li>
+        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li>
       <li class="dd-item">
-        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li></ul></li>
+        <a href="/nb/community/about/goals/"><span>Mål</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/community/contributing/"><span>Bidra til utvikling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -578,17 +578,17 @@ Navnet på filen skal inneholde navnet på datamodellen og ha postfix &ldquo;.pr
 Dersom datamodellen din heter <em>appModel</em> skal du nå kunne finne disse tre filene i mappen:
 <em>appModel.metadata.json</em>, <em>appModel.schema.json</em>, <em>appModel.prefill.json</em></p>
 <p>Lim inn innholdet nedenfor i filen.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-    <span style="color:#ff79c6">&#34;$schema&#34;</span>: <span style="color:#f1fa8c">&#34;https://altinncdn.no/schemas/json/prefill/prefill.schema.v1.json&#34;</span>,
-    <span style="color:#ff79c6">&#34;allowOverwrite&#34;</span>: <span style="color:#ff79c6">true</span>,
-    <span style="color:#ff79c6">&#34;ER&#34;</span>: {
-    },
-    <span style="color:#ff79c6">&#34;DSF&#34;</span>: {
-    },
-    <span style="color:#ff79c6">&#34;UserProfile&#34;</span>: {
-    }
-}
-</code></pre></div><h3 id="konfigurering-av-_prefilljson_">Konfigurering av <em>prefill.json</em></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;$schema&#34;</span>: <span style="color:#f1fa8c">&#34;https://altinncdn.no/schemas/json/prefill/prefill.schema.v1.json&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;allowOverwrite&#34;</span>: <span style="color:#ff79c6">true</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;ER&#34;</span>: {
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;DSF&#34;</span>: {
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;UserProfile&#34;</span>: {
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="konfigurering-av-_prefilljson_">Konfigurering av <em>prefill.json</em></h3>
 <ul>
 <li>
 <p><strong>$schema</strong> peker på json schema definisjonen til filen. Nåværende versjon er v1.<br>
@@ -604,27 +604,27 @@ Instansiering vil feile dersom man forsøker å preutfylle ER-data, men ikke har
 </li>
 </ul>
 <p>Eksempelet nedenfor vil populere feltet <em>Datamodell.Organisasjon.Organisasjonsnummer</em> med organisasjonsnummeret hentet fra enhetsregisteret.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#f1fa8c">&#34;ER&#34;</span>: {
-    <span style="color:#ff79c6">&#34;OrgNumber&#34;</span>:<span style="color:#f1fa8c">&#34;Datamodell.Organisasjon.Organisasjonsnummer&#34;</span>
-}
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#f1fa8c">&#34;ER&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;OrgNumber&#34;</span>:<span style="color:#f1fa8c">&#34;Datamodell.Organisasjon.Organisasjonsnummer&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
 <li><strong>DSF</strong> her legger man inn felter fra datamodellen som skal preutfylles med data fra folkeregistret.
 Feltet som preutfylles med DSF-data vil kun få en verdi dersom man instansierer på vegne av en person.
 Instansiering vil feile dersom man forsøker å preutfylle DSF-data, men ikke har en person tilgjengelig.</li>
 </ul>
 <p>Eksempelet nedenfor vil populere feltet <em>Datamodell.Person.Nummer</em> med telefonnummer henter fra folkeregistret.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#f1fa8c">&#34;DSF&#34;</span>: {
-   <span style="color:#ff79c6">&#34;TelephoneNumber&#34;</span>:<span style="color:#f1fa8c">&#34;Datamodell.Person.Nummer&#34;</span>
-}
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#f1fa8c">&#34;DSF&#34;</span>: {
+</span></span><span style="display:flex;"><span>   <span style="color:#ff79c6">&#34;TelephoneNumber&#34;</span>:<span style="color:#f1fa8c">&#34;Datamodell.Person.Nummer&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
 <li><strong>UserProfile</strong> her legger man inn telter fra datamodellen som skal preutfylles med data fra brukerens profil i Altinn.
 Merk at det er den innloggede brukeren om instansierer man henter ut data for.</li>
 </ul>
 <p>Eksempelet nedenfor vil populere feltet _Datamodell.Bruker.Epost med epost hentet fra brukerens profil i Altinn.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#f1fa8c">&#34;UserProfile&#34;</span>: {
-    <span style="color:#ff79c6">&#34;Email&#34;</span>:<span style="color:#f1fa8c">&#34;Datamodell.Bruker.Epost&#34;</span>
-}
-</code></pre></div><h3 id="tilgjengelige-prefill-verdier">Tilgjengelige prefill verdier</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#f1fa8c">&#34;UserProfile&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;Email&#34;</span>:<span style="color:#f1fa8c">&#34;Datamodell.Bruker.Epost&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="tilgjengelige-prefill-verdier">Tilgjengelige prefill verdier</h3>
 <p>JSON-schema definisjonen av prefill-filen er også tilgjengelig <a href="https://altinncdn.no/schemas/json/prefill/prefill.schema.v1.json">her</a>.<br>
 Bruken av et schema gjør at editorer, <a href="https://code.visualstudio.com/docs/languages/json#_mapping-in-the-json">f.eks. Visual Studio Code</a>,
 kan validere og tilby intellisense for raskere editering.</p>
@@ -701,65 +701,65 @@ Tilgjengelige verdier for prefill inkluderer:</p>
 det være seg resultet fra et API-kall, beregninger gjort under instansiering, eller annen logikk.
 Dette implementeres i metoden <em>DataCreation</em> i filen <em>InstansiationHandler.cs</em> som finnes i applikasjonsrepoet under <code>App/logic</code>.</p>
 <p>Eksempelet nedenfor populerer feltet <em>Bruker.FulltNavn</em> i modellen <em>Datamodell</em> med verdien &ldquo;Test Testesen&rdquo;.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task DataCreation(Instance instance, <span style="color:#8be9fd">object</span> data)
-{
-    <span style="color:#ff79c6">if</span> (data.GetType() == <span style="color:#ff79c6">typeof</span>(Datamodell))
-    {
-        Datamodell model = (Datamodell)data;
-<span style="display:block;width:100%;background-color:#3d3f4a">        model.Bruker.FulltNavn = <span style="color:#f1fa8c">&#34;Test Testesen&#34;</span>;
-</span>    }
-}
-</code></pre></div><p>Bytt ut <em>Datamodell</em> med navnet på C# klassen som er blitt generert basert på xsd-en som
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-C#" data-lang="C#"><span style="display:flex;"><span><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task DataCreation(Instance instance, <span style="color:#8be9fd">object</span> data)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> (data.GetType() == <span style="color:#ff79c6">typeof</span>(Datamodell))
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        Datamodell model = (Datamodell)data;
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>        model.Bruker.FulltNavn = <span style="color:#f1fa8c">&#34;Test Testesen&#34;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Bytt ut <em>Datamodell</em> med navnet på C# klassen som er blitt generert basert på xsd-en som
 ble lastet opp i Altinn Studio. Dersom du bruker en egnet kodeeditor vil du kunne definere felter
 som skal populeres ved bruk av intellisense.</p>
 <p>Vær oppmerksom på at dersom du har komplekse typer i modellen din, må disse instansieres før man kan
 tilegne en verdi til ett av typens underelementer. Se eksempel nedenfor der vi legger til grunn at &lsquo;Bruker&rsquo;
 og &lsquo;Name&rsquo; er egne C# klasser.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task DataCreation(Instance instance, <span style="color:#8be9fd">object</span> data)
-{
-    <span style="color:#ff79c6">if</span> (data.GetType() == <span style="color:#ff79c6">typeof</span>(Datamodell))
-    {
-        Datamodell model = (Datamodell)data;
-        Bruker b = <span style="color:#ff79c6">new</span> Bruker();
-        b.Navn = <span style="color:#ff79c6">new</span> Name();
-        b.Navn.FulltNavn = <span style="color:#f1fa8c">&#34;Test Testesen&#34;</span>;
-    }
-}
-</code></pre></div><h3 id="instansiering-med-prefill">Instansiering med prefill</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C#" data-lang="C#"><span style="display:flex;"><span><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task DataCreation(Instance instance, <span style="color:#8be9fd">object</span> data)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> (data.GetType() == <span style="color:#ff79c6">typeof</span>(Datamodell))
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        Datamodell model = (Datamodell)data;
+</span></span><span style="display:flex;"><span>        Bruker b = <span style="color:#ff79c6">new</span> Bruker();
+</span></span><span style="display:flex;"><span>        b.Navn = <span style="color:#ff79c6">new</span> Name();
+</span></span><span style="display:flex;"><span>        b.Navn.FulltNavn = <span style="color:#f1fa8c">&#34;Test Testesen&#34;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="instansiering-med-prefill">Instansiering med prefill</h3>
 <p>Altinn apper støtter instansiering med prefill.
 Skjemadataen legges ved i en multipart i instansieringsrequesten som sendes til appen.
 Nedenfor ser du et eksempel på en request for å instansiere en app med prefill for partyId 12345.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">Content-Type: multipart/form-data; boundary=&#34;abcdefg&#34;
-Body:
-
---abcdefg
-Content-Type: application/json; charset=utf-8
-Content-Disposition: form-data; name=&#34;instance&#34;
-
-{
-    &#34;instanceOwner&#34;: {
-<span style="display:block;width:100%;background-color:#3d3f4a">        &#34;PartyId&#34; : &#34;12345&#34;
-</span>    }
-}
-
---abcdefg
-Content-Type: application/xml
-Content-Disposition: form-data; name=&#34;Endring-av-navn&#34;
-
-&lt;?xml version=&#34;1.0&#34;?&gt;
-&lt;Skjema xmlns:xsi=&#34;http://www.w3.org/2001/XMLSchema-instance&#34; xmlns:xsd=&#34;http://www.w3.org/2001/XMLSchema&#34; skjemanummer=&#34;1533&#34; spesifikasjonsnummer=&#34;11172&#34; blankettnummer=&#34;RF-1453&#34; tittel=&#34;Endring av navn&#34; gruppeid=&#34;9308&#34;&gt;
-&lt;Innledning-grp-9309 gruppeid=&#34;9309&#34;&gt;
-    &lt;NavneendringenGjelderFor-grp-9310 gruppeid=&#34;9310&#34;&gt;
-    &lt;SubjektFornavnFolkeregistrert-datadef-34730 orid=&#34;34730&#34;&gt;Ola Nordmann&lt;/SubjektFornavnFolkeregistrert-datadef-34730&gt;
-    &lt;/NavneendringenGjelderFor-grp-9310&gt;
-    &lt;Kontaktinformasjon-grp-9311 gruppeid=&#34;9311&#34;&gt;
-    &lt;MelderFultnavn orid=&#34;34735&#34;&gt;LANGØY MADS&lt;/MelderFultnavn&gt;
-    &lt;/Kontaktinformasjon-grp-9311&gt;
-&lt;/Innledning-grp-9309&gt;
-&lt;/Skjema&gt;
-
---abcdefg--
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>Content-Type: multipart/form-data; boundary=&#34;abcdefg&#34;
+</span></span><span style="display:flex;"><span>Body:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>--abcdefg
+</span></span><span style="display:flex;"><span>Content-Type: application/json; charset=utf-8
+</span></span><span style="display:flex;"><span>Content-Disposition: form-data; name=&#34;instance&#34;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    &#34;instanceOwner&#34;: {
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>        &#34;PartyId&#34; : &#34;12345&#34;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>--abcdefg
+</span></span><span style="display:flex;"><span>Content-Type: application/xml
+</span></span><span style="display:flex;"><span>Content-Disposition: form-data; name=&#34;Endring-av-navn&#34;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;?xml version=&#34;1.0&#34;?&gt;
+</span></span><span style="display:flex;"><span>&lt;Skjema xmlns:xsi=&#34;http://www.w3.org/2001/XMLSchema-instance&#34; xmlns:xsd=&#34;http://www.w3.org/2001/XMLSchema&#34; skjemanummer=&#34;1533&#34; spesifikasjonsnummer=&#34;11172&#34; blankettnummer=&#34;RF-1453&#34; tittel=&#34;Endring av navn&#34; gruppeid=&#34;9308&#34;&gt;
+</span></span><span style="display:flex;"><span>&lt;Innledning-grp-9309 gruppeid=&#34;9309&#34;&gt;
+</span></span><span style="display:flex;"><span>    &lt;NavneendringenGjelderFor-grp-9310 gruppeid=&#34;9310&#34;&gt;
+</span></span><span style="display:flex;"><span>    &lt;SubjektFornavnFolkeregistrert-datadef-34730 orid=&#34;34730&#34;&gt;Ola Nordmann&lt;/SubjektFornavnFolkeregistrert-datadef-34730&gt;
+</span></span><span style="display:flex;"><span>    &lt;/NavneendringenGjelderFor-grp-9310&gt;
+</span></span><span style="display:flex;"><span>    &lt;Kontaktinformasjon-grp-9311 gruppeid=&#34;9311&#34;&gt;
+</span></span><span style="display:flex;"><span>    &lt;MelderFultnavn orid=&#34;34735&#34;&gt;LANGØY MADS&lt;/MelderFultnavn&gt;
+</span></span><span style="display:flex;"><span>    &lt;/Kontaktinformasjon-grp-9311&gt;
+</span></span><span style="display:flex;"><span>&lt;/Innledning-grp-9309&gt;
+</span></span><span style="display:flex;"><span>&lt;/Skjema&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>--abcdefg--
+</span></span></code></pre></div>
 
 <footer class=" footline" ></footer>
                 </div>

@@ -117,7 +117,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -217,7 +217,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -297,7 +297,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -1119,10 +1119,8 @@ if(host != "localhost")
     <section class="post-excerpt">
         <p>The frontend is made up of several React applications. Each application covers a functional area.
 Structure The applications are grouped by the 3 solutions:
- Altinn Studio (Designer) Altinn Apps Altinn Platform (Receipt)  Altinn Studio Designer 
-Altinn Apps &amp; Platform 
-Technologies and frameworks  https://reactjs.org/ https://redux.js.org/ https://redux-saga.js.org/ https://material-ui.com/  Architecture Each frontend runs within a .NET web application, where the transpiled javascript &amp; CSS are referenced.
- For Altinn Studio Designer and Altinn. <a class="read-more" href="/community/contributing/handbook/front-end/getting-started/">&raquo;</a></p>
+Altinn Studio (Designer) Altinn Apps Altinn Platform (Receipt) Altinn Studio Designer Altinn Apps &amp; Platform Technologies and frameworks https://reactjs.org/ https://redux.js.org/ https://redux-saga.js.org/ https://material-ui.com/ Architecture Each frontend runs within a .NET web application, where the transpiled javascript &amp; CSS are referenced.
+For Altinn Studio Designer and Altinn.Platform.Receipt, these files are deployed as part of the application itself. <a class="read-more" href="/community/contributing/handbook/front-end/getting-started/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         
@@ -1141,10 +1139,11 @@ Technologies and frameworks  https://reactjs.org/ https://redux.js.org/ https://
         <h2 class="post-title"><a href="/community/contributing/handbook/front-end/developing/">Developing locally</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>App frontend   Follow the instructions here to set up an app to run locally, up to step 5 (do not do step 6 yet.)
- Make sure Altinn Studio is not running. If it is, run  docker-compose downfrom altinn-studio/src/studio before proceeding with the instructions linked above.
-  Follow the steps in app-frontend-react repository for how to serve app-frontend locally.
-  Run the app (from &lt;path-to-app&gt;/App/): <a class="read-more" href="/community/contributing/handbook/front-end/developing/">&raquo;</a></p>
+        <p>App frontend Follow the instructions here to set up an app to run locally, up to step 5 (do not do step 6 yet.)
+Make sure Altinn Studio is not running. If it is, run docker-compose down from altinn-studio/src/studio before proceeding with the instructions linked above.
+Follow the steps in app-frontend-react repository for how to serve app-frontend locally.
+Run the app (from &lt;path-to-app&gt;/App/):
+dotnet run or run it directly from VS Code. <a class="read-more" href="/community/contributing/handbook/front-end/developing/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         
@@ -1164,7 +1163,7 @@ Technologies and frameworks  https://reactjs.org/ https://redux.js.org/ https://
     </header>
     <section class="post-excerpt">
         <p>When selecting an issue from the backlog, assign yourself to the issue and set it to the Developing pipeline in the Altinn Tjenester 3.0 - DevOps Team board
-App frontend  Create a new branch from master.  Naming convention for branches is bug/&lt;issue number&gt;-&lt;short description&gt; or feature/&lt;issue number&gt;-&lt;short description&gt;, depending on the issue type.   Code your changes and test them by running an app locally. Run unit tests  Update any failing tests Add new tests when needed   Make sure you update the version in altinn-app-frontend/package. <a class="read-more" href="/community/contributing/handbook/front-end/routine/">&raquo;</a></p>
+App frontend Create a new branch from master. Naming convention for branches is bug/&lt;issue number&gt;-&lt;short description&gt; or feature/&lt;issue number&gt;-&lt;short description&gt;, depending on the issue type. Code your changes and test them by running an app locally. Run unit tests Update any failing tests Add new tests when needed Make sure you update the version in altinn-app-frontend/package. <a class="read-more" href="/community/contributing/handbook/front-end/routine/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         
@@ -1252,7 +1251,7 @@ Redux Toolkit As of 2021, we have started using Redux Toolkit rather than the tr
     <section class="post-excerpt">
         <p>Debugging Google Chrome has many debugging tools, but most used in altinn.studio is breakpoints in the react-code.
 This allows for code to run, and pause at the desired codeline, so the developer can then inspect different values that is present when the desired code is ran.
-Debugging tools  Google Chrome React Devtools Google Chrome Redux Devtools   <a class="read-more" href="/community/contributing/handbook/front-end/debug/">&raquo;</a></p>
+Debugging tools Google Chrome React Devtools Google Chrome Redux Devtools  <a class="read-more" href="/community/contributing/handbook/front-end/debug/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         
@@ -1272,7 +1271,7 @@ Debugging tools  Google Chrome React Devtools Google Chrome Redux Devtools   <a 
     </header>
     <section class="post-excerpt">
         <p>Change of name app This is an app which should only be used to run automated tests against. It contains these components:
- Title Input Textarea Checkbox Radio button Attachment Datepicker Button   Rules The rules appends the text from the text feilds for new first, middle and last name and displays in a new field. The relevant code:
+Title Input Textarea Checkbox Radio button Attachment Datepicker Button Rules The rules appends the text from the text feilds for new first, middle and last name and displays in a new field. The relevant code:
 nyttNavn: (obj) =&gt; { obj.fornavn = obj.fornavn ? obj.fornavn + &#39; &#39; : &#39;&#39;; obj. <a class="read-more" href="/community/contributing/handbook/test/automated-test-app/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
@@ -1292,7 +1291,7 @@ nyttNavn: (obj) =&gt; { obj.fornavn = obj.fornavn ? obj.fornavn + &#39; &#39; : 
         <h2 class="post-title"><a href="/community/contributing/handbook/back-end/app-template-and-deps/">App template and deps</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Process for updating app template and its dependencies Updating app template (Template files + depentent supporting projects)  Complete changes in template Get PR approved Push alpha nugets &amp; update reference in Altinn.Apps/AppTemplate Merge to master Complete testing of new feature Once testing is completed and successful Create new branch. Push nugets without alpha based on the branch Duplicate changes in Altinn Studio template Update nuget reference in Altinn Studio template. <a class="read-more" href="/community/contributing/handbook/back-end/app-template-and-deps/">&raquo;</a></p>
+        <p>Process for updating app template and its dependencies Updating app template (Template files + depentent supporting projects) Complete changes in template Get PR approved Push alpha nugets &amp; update reference in Altinn.Apps/AppTemplate Merge to master Complete testing of new feature Once testing is completed and successful Create new branch. Push nugets without alpha based on the branch Duplicate changes in Altinn Studio template Update nuget reference in Altinn Studio template. Updating Altinn Platform and app template Code that requires changes in platform are merged in a seperate PR The platform code must be rolled out to all environments. <a class="read-more" href="/community/contributing/handbook/back-end/app-template-and-deps/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         

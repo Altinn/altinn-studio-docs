@@ -117,7 +117,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -217,7 +217,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -297,7 +297,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -1113,39 +1113,39 @@ two method calls.</p>
 <p>Update target framework and package dependencies</p>
 <p>Navigate to you application repository and find <code>App.csproj</code> in the <code>App</code> folder.</p>
 <p>Update target framework to .Net 5 by replacing</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;TargetFramework&gt;</span>netcoreapp3.1<span style="color:#ff79c6">&lt;/TargetFramework&gt;</span>
-</code></pre></div><p>with</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;TargetFramework&gt;</span>net5.0<span style="color:#ff79c6">&lt;/TargetFramework&gt;</span>
-</code></pre></div><p>In the same file, update the Altinn.App.* package references to version 4.0.0.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.Api&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;4.0.0&#34;</span><span style="color:#ff79c6">&gt;</span>
-  <span style="color:#ff79c6">&lt;CopyToOutputDirectory&gt;</span>lib\$(TargetFramework)\*.xml<span style="color:#ff79c6">&lt;/CopyToOutputDirectory&gt;</span>
-<span style="color:#ff79c6">&lt;/PackageReference&gt;</span>
-<span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.Common&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;4.0.0&#34;</span> <span style="color:#ff79c6">/&gt;</span>
-<span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.PlatformServices&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;4.0.0&#34;</span> <span style="color:#ff79c6">/&gt;</span>
-</code></pre></div><p>The changes in the file should match the image below:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#ff79c6">&lt;TargetFramework&gt;</span>netcoreapp3.1<span style="color:#ff79c6">&lt;/TargetFramework&gt;</span>
+</span></span></code></pre></div><p>with</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#ff79c6">&lt;TargetFramework&gt;</span>net5.0<span style="color:#ff79c6">&lt;/TargetFramework&gt;</span>
+</span></span></code></pre></div><p>In the same file, update the Altinn.App.* package references to version 4.0.0.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.Api&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;4.0.0&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;CopyToOutputDirectory&gt;</span>lib\$(TargetFramework)\*.xml<span style="color:#ff79c6">&lt;/CopyToOutputDirectory&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&lt;/PackageReference&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.Common&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;4.0.0&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.PlatformServices&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;4.0.0&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+</span></span></code></pre></div><p>The changes in the file should match the image below:</p>
 <figure><a href="appproj-changes.png"><img src="appproj-changes.png" alt="Changes in App.csproj" title="Changes in App.csproj" /></a><figcaption><h4>Changes in App.csproj</h4></figcaption></figure>
 </li>
 <li>
 <p>Update Dockerfile to use .Net 5 images</p>
 <p>The Dockerfile can be found in the root folder of the application repository.</p>
 <p>Update build image by replacing</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Dockerfile" data-lang="Dockerfile"><span style="color:#ff79c6">FROM</span><span style="color:#f1fa8c"> mcr.microsoft.com/dotnet/core/sdk:3.1-alpine AS build</span>
-</code></pre></div><p>with</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Dockerfile" data-lang="Dockerfile"><span style="color:#ff79c6">FROM</span><span style="color:#f1fa8c"> mcr.microsoft.com/dotnet/sdk:5.0-alpine AS build</span>
-</code></pre></div><p>And update the runtime image by replacing</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Dockerfile" data-lang="Dockerfile"><span style="color:#ff79c6">FROM</span><span style="color:#f1fa8c"> mcr.microsoft.com/dotnet/core/aspnet:3.1-alpine AS final</span>
-</code></pre></div><p>with</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Dockerfile" data-lang="Dockerfile"><span style="color:#ff79c6">FROM</span><span style="color:#f1fa8c"> mcr.microsoft.com/dotnet/aspnet:5.0-alpine AS final</span>
-</code></pre></div><p>The changes in the file should match the image below:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Dockerfile" data-lang="Dockerfile"><span style="display:flex;"><span><span style="color:#ff79c6">FROM</span><span style="color:#f1fa8c"> mcr.microsoft.com/dotnet/core/sdk:3.1-alpine AS build</span>
+</span></span></code></pre></div><p>with</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Dockerfile" data-lang="Dockerfile"><span style="display:flex;"><span><span style="color:#ff79c6">FROM</span><span style="color:#f1fa8c"> mcr.microsoft.com/dotnet/sdk:5.0-alpine AS build</span>
+</span></span></code></pre></div><p>And update the runtime image by replacing</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Dockerfile" data-lang="Dockerfile"><span style="display:flex;"><span><span style="color:#ff79c6">FROM</span><span style="color:#f1fa8c"> mcr.microsoft.com/dotnet/core/aspnet:3.1-alpine AS final</span>
+</span></span></code></pre></div><p>with</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Dockerfile" data-lang="Dockerfile"><span style="display:flex;"><span><span style="color:#ff79c6">FROM</span><span style="color:#f1fa8c"> mcr.microsoft.com/dotnet/aspnet:5.0-alpine AS final</span>
+</span></span></code></pre></div><p>The changes in the file should match the image below:</p>
 <figure><a href="dockerfile-updates.png"><img src="dockerfile-updates.png" alt="Changes in the Dockerfile" title="Changes in the Dockerfile" /></a><figcaption><h4>Changes in the Dockerfile</h4></figcaption></figure>
 </li>
 <li>
 <p>Replace references to services with call to extension method</p>
 <p>In the <code>App</code> folder you will also find <code>Startup.cs</code></p>
 <p>Several lines of code will be removed and replaced with the two lines below.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">services.AddAppServices(Configuration, <span style="color:#bd93f9">_</span>env);
-services.AddPlatformServices(Configuration, <span style="color:#bd93f9">_</span>env);      
-</code></pre></div><p>The code that should be removed from the file is marked in pink in the pictures below, 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span>services.AddAppServices(Configuration, _env);
+</span></span><span style="display:flex;"><span>services.AddPlatformServices(Configuration, _env);      
+</span></span></code></pre></div><p>The code that should be removed from the file is marked in pink in the pictures below, 
 which cover one section of the file each.</p>
 <p>Depending on how many custom changes you have made in your file the line numbers might not match.
 Do not worry, the services should still be grouped togheter roughly as shown in the picture.

@@ -381,13 +381,13 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/metadata/"><span>Metadata</span></a></li>
       <li class="dd-item">
         <a href="/nb/api/apps/instances/"><span>Instanser</span></a></li>
       <li class="dd-item">
-        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/data-elements/tags/"><span>Tags</span></a></li></ul></li>
       <li class="dd-item">
@@ -441,9 +441,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/community/about/"><span>Om</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/community/about/goals/"><span>Mål</span></a></li>
+        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li>
       <li class="dd-item">
-        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li></ul></li>
+        <a href="/nb/community/about/goals/"><span>Mål</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/community/contributing/"><span>Bidra til utvikling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -578,69 +578,69 @@ For at applikasjonen din skal kunne sende instansdata videre til eFormidling må
 </div>
 <p>Dersom man har behov for integrasjon med eFormidling i applikasjonen må dette aktiveres.</p>
 <p>I filen <em>appsettings.json</em> i mappen <em>App</em> må følgende legges til i seksjonen <em>AppSettings</em></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#f1fa8c">&#34;EnableEFormidling&#34;</span>:  <span style="color:#ff79c6">true</span>
-</code></pre></div><p>I tillegg må det i samme fil opprettes en ny seksjon; <em>EFormidlingClientSettings</em>.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#f1fa8c">&#34;EnableEFormidling&#34;</span>:  <span style="color:#ff79c6">true</span>
+</span></span></code></pre></div><p>I tillegg må det i samme fil opprettes en ny seksjon; <em>EFormidlingClientSettings</em>.
 Innholdet i kodesnutten nedenfor kan kopieres i sin helhet.
 Denne setter opp url til integrasjonspunktet.
 Lenken peker på mocken som kan kjøres opp lokalt.
 <a href="#lokal-test-av-applikasjon-med-eformidling">Les mer om oppsettet av eFormidlings mocken her</a>.</p>
 <p>Når en app deployes til TT02 eller produksjon vil denne verdien overskrives
 og peke mot integrasjonspunktet i Altinn Platform.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#f1fa8c">&#34;EFormidlingClientSettings&#34;</span>: {
-   <span style="color:#ff79c6">&#34;BaseUrl&#34;</span>: <span style="color:#f1fa8c">&#34;http://localhost:9093/api/&#34;</span>
- }
-</code></pre></div><p>Dersom det ikke er ønskelig å teste integrasjonen med eFormidling når man kjører applikasjonen lokalt kan man overstyre
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#f1fa8c">&#34;EFormidlingClientSettings&#34;</span>: {
+</span></span><span style="display:flex;"><span>   <span style="color:#ff79c6">&#34;BaseUrl&#34;</span>: <span style="color:#f1fa8c">&#34;http://localhost:9093/api/&#34;</span>
+</span></span><span style="display:flex;"><span> }
+</span></span></code></pre></div><p>Dersom det ikke er ønskelig å teste integrasjonen med eFormidling når man kjører applikasjonen lokalt kan man overstyre
 denne konfigurasjonen i <em>appsettings.Development.json</em>.</p>
 <p>Opprett <code>AppSettings</code> seksjonen dersom den ikke finnes og sett <code>EnableEFormidling</code> til false.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#f1fa8c">&#34;AppSettings&#34;</span>: {
-    <span style="color:#ff79c6">&#34;EnableEFormidling&#34;</span>: <span style="color:#ff79c6">false</span>
-}
-</code></pre></div><h2 id="legge-til-støtte-for-eformidling-i-appcs">Legge til støtte for eFormidling i App.cs</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#f1fa8c">&#34;AppSettings&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;EnableEFormidling&#34;</span>: <span style="color:#ff79c6">false</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="legge-til-støtte-for-eformidling-i-appcs">Legge til støtte for eFormidling i App.cs</h2>
 <p>Neste steg for å få støtte for eFormidling i tjenesten din er å tilgjengeliggjøre services som appen behøver.
 Endringene skal alle gjøres i filen <em>App.cs</em> som ligger i mappen _App/logic.</p>
 <p>Øverst i filen, blant bibliotekreferansene legges disse tre linjene til.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">using</span> Altinn.Common.EFormidlingClient.Models;
-<span style="color:#ff79c6">using</span> Altinn.Common.EFormidlingClient;
-<span style="color:#ff79c6">using</span> Altinn.Common.AccessTokenClient.Services;
-</code></pre></div><p>Videre skal vi injecte services i konstruktøren til både klassen og base klassen.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#ff79c6">using</span> Altinn.Common.EFormidlingClient.Models;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> Altinn.Common.EFormidlingClient;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> Altinn.Common.AccessTokenClient.Services;
+</span></span></code></pre></div><p>Videre skal vi injecte services i konstruktøren til både klassen og base klassen.</p>
 <p>Konstruktøren vil se ut som eksempelet nedenfor, men hvilke services som sendes med kan variere fra tjeneste til tjeneste,
 så her er kun et eksempel på det vanligste oppsettet.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">public</span> App(
-IAppResources appResourcesService,
-(...)
-IHttpContextAccessor httpContextAccessor):<span style="color:#ff79c6">base</span>(
-appResourcesService,
-(...)
-httpContextAccessor)
-</code></pre></div><p>Listen med services i konstruktøren skal utvides med de fire servicene vist nedenfor.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">IEFormidlingClient eformidlingClient,
-IOptions&lt;AppSettings&gt; appsettings,
-IAccessTokenGenerator tokenGenerator,
-IOptions&lt;PlatformSettings&gt; platformSettings
-</code></pre></div><p>Videre skal disse servicene sendes med videre til baseklassen, da er det kun navnene som sendes med og ikke typene.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">eformidlingClient,
-appsettings,
-platformSettings,
-tokenGenerator
-</code></pre></div><p>Endelig resultat skal se slik ut:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">public</span> App(
-IAppResources appResourcesService,
-(...)
-IHttpContextAccessor httpContextAccessor,
-IEFormidlingClient eformidlingClient,
-IOptions&lt;AppSettings&gt; appsettings,
-IAccessTokenGenerator tokenGenerator,
-IOptions&lt;PlatformSettings&gt; platformSettings):<span style="color:#ff79c6">base</span>(
-appResourcesService,
-(...)
-httpContextAccessor,
-eformidlingClient,
-appsettings,
-platformSettings,
-tokenGenerator)
-</code></pre></div><h2 id="konfigurere-nøkkelverdier-for-eformidling-i-applikasjonen-din">Konfigurere nøkkelverdier for eFormidling i applikasjonen din</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#ff79c6">public</span> App(
+</span></span><span style="display:flex;"><span>IAppResources appResourcesService,
+</span></span><span style="display:flex;"><span>(...)
+</span></span><span style="display:flex;"><span>IHttpContextAccessor httpContextAccessor):<span style="color:#ff79c6">base</span>(
+</span></span><span style="display:flex;"><span>appResourcesService,
+</span></span><span style="display:flex;"><span>(...)
+</span></span><span style="display:flex;"><span>httpContextAccessor)
+</span></span></code></pre></div><p>Listen med services i konstruktøren skal utvides med de fire servicene vist nedenfor.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span>IEFormidlingClient eformidlingClient,
+</span></span><span style="display:flex;"><span>IOptions&lt;AppSettings&gt; appsettings,
+</span></span><span style="display:flex;"><span>IAccessTokenGenerator tokenGenerator,
+</span></span><span style="display:flex;"><span>IOptions&lt;PlatformSettings&gt; platformSettings
+</span></span></code></pre></div><p>Videre skal disse servicene sendes med videre til baseklassen, da er det kun navnene som sendes med og ikke typene.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span>eformidlingClient,
+</span></span><span style="display:flex;"><span>appsettings,
+</span></span><span style="display:flex;"><span>platformSettings,
+</span></span><span style="display:flex;"><span>tokenGenerator
+</span></span></code></pre></div><p>Endelig resultat skal se slik ut:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#ff79c6">public</span> App(
+</span></span><span style="display:flex;"><span>IAppResources appResourcesService,
+</span></span><span style="display:flex;"><span>(...)
+</span></span><span style="display:flex;"><span>IHttpContextAccessor httpContextAccessor,
+</span></span><span style="display:flex;"><span>IEFormidlingClient eformidlingClient,
+</span></span><span style="display:flex;"><span>IOptions&lt;AppSettings&gt; appsettings,
+</span></span><span style="display:flex;"><span>IAccessTokenGenerator tokenGenerator,
+</span></span><span style="display:flex;"><span>IOptions&lt;PlatformSettings&gt; platformSettings):<span style="color:#ff79c6">base</span>(
+</span></span><span style="display:flex;"><span>appResourcesService,
+</span></span><span style="display:flex;"><span>(...)
+</span></span><span style="display:flex;"><span>httpContextAccessor,
+</span></span><span style="display:flex;"><span>eformidlingClient,
+</span></span><span style="display:flex;"><span>appsettings,
+</span></span><span style="display:flex;"><span>platformSettings,
+</span></span><span style="display:flex;"><span>tokenGenerator)
+</span></span></code></pre></div><h2 id="konfigurere-nøkkelverdier-for-eformidling-i-applikasjonen-din">Konfigurere nøkkelverdier for eFormidling i applikasjonen din</h2>
 <p>Det kreves en del metadata om eFormidlingsforsendelsen og denne defineres i applicationmetadata.json_.
-Filen finner du i repoet under mappen _App/config_.</p>
+Filen finner du i repoet under mappen <em>App/config</em>.</p>
 <p>Opprett seksjonen <code>eFormidling</code> og fyll ut verdier for følgende parametre.</p>
 <table>
 <thead>
@@ -695,65 +695,65 @@ Filen finner du i repoet under mappen _App/config_.</p>
 <p>* per Januar 2022 støttes kun DPF.</p>
 <p>** tilgjengelige prosesser for mottaker er tilgjengelig på <a href="https://platform.altinn.no/eformidling/api/capabilities/%7Bmottaker-orgnummer%7D">https://platform.altinn.no/eformidling/api/capabilities/{mottaker-orgnummer}</a></p>
 <p>Et eksempel for en konfigurasjon i application metadata:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#f1fa8c">&#34;eFormidling&#34;</span>: {
-    <span style="color:#ff79c6">&#34;serviceId&#34;</span>: <span style="color:#f1fa8c">&#34;DPF&#34;</span>,
-    <span style="color:#ff79c6">&#34;dpfShipmentType&#34;</span>: <span style="color:#f1fa8c">&#34;altinn3.skjema&#34;</span>,
-    <span style="color:#ff79c6">&#34;process&#34;</span>: <span style="color:#f1fa8c">&#34;urn:no:difi:profile:arkivmelding:administrasjon:ver1.0&#34;</span>,
-    <span style="color:#ff79c6">&#34;dataTypes&#34;</span>: [ <span style="color:#f1fa8c">&#34;ref-data-as-pdf&#34;</span> ],
-    <span style="color:#ff79c6">&#34;sendAfterTaskId&#34;</span>: <span style="color:#f1fa8c">&#34;Task_2&#34;</span>,
-    <span style="color:#ff79c6">&#34;receiver&#34;</span>: <span style="color:#f1fa8c">&#34;910075918&#34;</span>,
-    <span style="color:#ff79c6">&#34;standard&#34;</span>: <span style="color:#f1fa8c">&#34;urn:no:difi:arkivmelding:xsd::arkivmelding&#34;</span>,
-    <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;arkivmelding&#34;</span>,
-    <span style="color:#ff79c6">&#34;typeVersion&#34;</span>: <span style="color:#f1fa8c">&#34;2.0&#34;</span>,
-    <span style="color:#ff79c6">&#34;securityLevel&#34;</span>:  <span style="color:#bd93f9">3</span>
-}
-</code></pre></div><h2 id="generering-av-metadata-til-forsendelsen-i-applikasjonen">Generering av metadata til forsendelsen i applikasjonen</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#f1fa8c">&#34;eFormidling&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;serviceId&#34;</span>: <span style="color:#f1fa8c">&#34;DPF&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;dpfShipmentType&#34;</span>: <span style="color:#f1fa8c">&#34;altinn3.skjema&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;process&#34;</span>: <span style="color:#f1fa8c">&#34;urn:no:difi:profile:arkivmelding:administrasjon:ver1.0&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;dataTypes&#34;</span>: [ <span style="color:#f1fa8c">&#34;ref-data-as-pdf&#34;</span> ],
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;sendAfterTaskId&#34;</span>: <span style="color:#f1fa8c">&#34;Task_2&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;receiver&#34;</span>: <span style="color:#f1fa8c">&#34;910075918&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;standard&#34;</span>: <span style="color:#f1fa8c">&#34;urn:no:difi:arkivmelding:xsd::arkivmelding&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;arkivmelding&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;typeVersion&#34;</span>: <span style="color:#f1fa8c">&#34;2.0&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;securityLevel&#34;</span>:  <span style="color:#bd93f9">3</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="generering-av-metadata-til-forsendelsen-i-applikasjonen">Generering av metadata til forsendelsen i applikasjonen</h2>
 <p>Apputvikler er selv ansvarlig for å sette opp meldingen til en forsendelse som skal via eFormidling.
 <a href="https://docs.digdir.no/eformidling_nm_message.html#meldingstypene">Les om de ulike meldingstypene tilgjengelig i eFormidling.</a></p>
 <p>Dette gjøres ved å legge til funksjonen nedenfor i <em>App.cs</em>.</p>
 <p>Forventet output fra denne metoden er en tuppel som inneholder navnet på metadatafilen som første element
 og en stream med metadataen som andre element.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#6272a4">/// &lt;inheritdoc /&gt;
-</span><span style="color:#6272a4"></span><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">override</span> <span style="color:#ff79c6">async</span> Task&lt;(<span style="color:#8be9fd">string</span>, Stream)&gt; GenerateEFormidlingMetadata(Instance instance)
-{
-    Altinn.Common.EFormidlingClient.Models.Arkivmelding arkivmelding = <span style="color:#ff79c6">new</span> ();
-
-    <span style="color:#6272a4">// bygg opp arkivmeldingen eller annet metadataobjekt her.
-</span><span style="color:#6272a4"></span>
-    MemoryStream stream = <span style="color:#ff79c6">new</span> MemoryStream();
-    XmlSerializer serializer = <span style="color:#ff79c6">new</span> XmlSerializer(<span style="color:#ff79c6">typeof</span>(Altinn.Common.EFormidlingClient.Models.Arkivmelding));
-    serializer.Serialize(stream, arkivmelding);
-    stream.Position = <span style="color:#bd93f9">0</span>;
-    StreamContent streamContent = <span style="color:#ff79c6">new</span> StreamContent(stream);
-    streamContent.Headers.ContentType = MediaTypeHeaderValue.Parse(<span style="color:#f1fa8c">&#34;application/xml&#34;</span>);
-    <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">await</span> Task.FromResult((<span style="color:#f1fa8c">&#34;arkivmelding.xml&#34;</span>, stream));
-}
-</code></pre></div><h2 id="sette-mottaker-for-forsendelse-i-applikasjonslogikken">Sette mottaker for forsendelse i applikasjonslogikken</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#6272a4">/// &lt;inheritdoc /&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">override</span> <span style="color:#ff79c6">async</span> Task&lt;(<span style="color:#8be9fd">string</span>, Stream)&gt; GenerateEFormidlingMetadata(Instance instance)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    Altinn.Common.EFormidlingClient.Models.Arkivmelding arkivmelding = <span style="color:#ff79c6">new</span> ();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// bygg opp arkivmeldingen eller annet metadataobjekt her.</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    MemoryStream stream = <span style="color:#ff79c6">new</span> MemoryStream();
+</span></span><span style="display:flex;"><span>    XmlSerializer serializer = <span style="color:#ff79c6">new</span> XmlSerializer(<span style="color:#ff79c6">typeof</span>(Altinn.Common.EFormidlingClient.Models.Arkivmelding));
+</span></span><span style="display:flex;"><span>    serializer.Serialize(stream, arkivmelding);
+</span></span><span style="display:flex;"><span>    stream.Position = <span style="color:#bd93f9">0</span>;
+</span></span><span style="display:flex;"><span>    StreamContent streamContent = <span style="color:#ff79c6">new</span> StreamContent(stream);
+</span></span><span style="display:flex;"><span>    streamContent.Headers.ContentType = MediaTypeHeaderValue.Parse(<span style="color:#f1fa8c">&#34;application/xml&#34;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">await</span> Task.FromResult((<span style="color:#f1fa8c">&#34;arkivmelding.xml&#34;</span>, stream));
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="sette-mottaker-for-forsendelse-i-applikasjonslogikken">Sette mottaker for forsendelse i applikasjonslogikken</h2>
 <p>I App.cs kan man overstyre metoden som henter ut mottaker av forsendelsen fra applicationmetadata.json_.
 Denne funksjonaliteten kan benyttes dersom mottaker av forsendelsen skal avgjøres dynamisk.</p>
 <p>Det må tre steg til for å sette mottaker i applikasjonslogikken, og alle endringer gjøres i <em>App.cs</em>.</p>
 <ol>
 <li>Øverst i filen må det legges til en referanse til eFormidlings biblioteket.</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">using</span> Altinn.Common.EFormidlingClient.Models.SBD;
-</code></pre></div><ol start="2">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#ff79c6">using</span> Altinn.Common.EFormidlingClient.Models.SBD;
+</span></span></code></pre></div><ol start="2">
 <li>
 <p>Legg til denne funksjonen i klassen.
 Forventet output fra denne metoden er en liste som inneholder minst ett receiver-objekt.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">override</span> <span style="color:#ff79c6">async</span> Task&lt;List&lt;Receiver&gt;&gt; GetEFormidlingReceivers(Instance instance)
-{
-    Identifier identifier = <span style="color:#ff79c6">new</span> Identifier
-    {
-        Authority = <span style="color:#f1fa8c">&#34;iso6523-actorid-upis&#34;</span>
-    };
-
-    <span style="color:#6272a4">// 0192 prefix for all Norwegian organisations.
-</span><span style="color:#6272a4"></span>    identifier.Value = <span style="color:#f1fa8c">&#34;[INSERT ORGANISATION NUMBER HERE WITH PREFIX `0192:`]&#34;</span> ;
-
-    Receiver receiver = <span style="color:#ff79c6">new</span> Receiver { Identifier = identifier };
-    <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">new</span> List&lt;Receiver&gt; { receiver };
-}
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">override</span> <span style="color:#ff79c6">async</span> Task&lt;List&lt;Receiver&gt;&gt; GetEFormidlingReceivers(Instance instance)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    Identifier identifier = <span style="color:#ff79c6">new</span> Identifier
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        Authority = <span style="color:#f1fa8c">&#34;iso6523-actorid-upis&#34;</span>
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// 0192 prefix for all Norwegian organisations.</span>
+</span></span><span style="display:flex;"><span>    identifier.Value = <span style="color:#f1fa8c">&#34;[INSERT ORGANISATION NUMBER HERE WITH PREFIX `0192:`]&#34;</span> ;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    Receiver receiver = <span style="color:#ff79c6">new</span> Receiver { Identifier = identifier };
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">new</span> List&lt;Receiver&gt; { receiver };
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></li>
 <li>
 <p>Legg til egen logikk for å populere <em>identifier.Value</em> i funksjonen.
 Merk at det kun er norske organisasjonsnummer som støttes,
@@ -778,8 +778,8 @@ I tillegg til Altinn Localtest og applikasjonen er det to ting som må kjøre:</
 </li>
 <li>
 <p>Klon repoet som inneholder eFormidling mocken med følgende commando</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cmd" data-lang="cmd">git clone --branch development https://github.com/felleslosninger/efm-mocks.git
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cmd" data-lang="cmd"><span style="display:flex;"><span>git clone --branch development https://github.com/felleslosninger/efm-mocks.git
+</span></span></code></pre></div></li>
 <li>
 <p><a href="https://docs.digdir.no/eformidling_download_ip.html">Last ned integrasjonspunktet herfra</a>. Dette kan plasseres på samme nivå som mappen <code>efm-mocks</code>.</p>
 </li>

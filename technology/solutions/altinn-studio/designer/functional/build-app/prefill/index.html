@@ -109,7 +109,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -209,7 +209,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -281,7 +281,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -1107,17 +1107,17 @@ In order to use this auto-complete feature you need to use an IDE or text editor
 As of now there is no auto complete on the target fields.</p>
 <p>The target fields are case insensitve, so writing <code>Skattyterinforgrp5801.Infogrp5802.OppgavegiverNavnPreutfyltdatadef25795.value</code> is the same as <code>skattyterinforgrp5801.infogrp5802.oppgavegiverNavnPreutfyltdatadef25795.value</code>.</p>
 <p>To get started using prefill you can copy the following template into your repository:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-    <span style="color:#ff79c6">&#34;$schema&#34;</span>: <span style="color:#f1fa8c">&#34;https://altinncdn.no/schemas/json/prefill/prefill.schema.v1.json&#34;</span>,
-	<span style="color:#ff79c6">&#34;allowOverwrite&#34;</span>: <span style="color:#ff79c6">false</span>,
-	<span style="color:#ff79c6">&#34;ER&#34;</span>: {
-	},
-	<span style="color:#ff79c6">&#34;DSF&#34;</span>: {
-	},
-	<span style="color:#ff79c6">&#34;UserProfile&#34;</span>: {
-	}
-}
-</code></pre></div><p>The easiest way to work on the configuration file is to clone your repository locally, and edit the file in your preferred editor.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;$schema&#34;</span>: <span style="color:#f1fa8c">&#34;https://altinncdn.no/schemas/json/prefill/prefill.schema.v1.json&#34;</span>,
+</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">&#34;allowOverwrite&#34;</span>: <span style="color:#ff79c6">false</span>,
+</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">&#34;ER&#34;</span>: {
+</span></span><span style="display:flex;"><span>	},
+</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">&#34;DSF&#34;</span>: {
+</span></span><span style="display:flex;"><span>	},
+</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">&#34;UserProfile&#34;</span>: {
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>The easiest way to work on the configuration file is to clone your repository locally, and edit the file in your preferred editor.
 To do this open a terminal and run</p>
 <ul>
 <li><code>git clone https://altinn.studio/repos/[ORG]/[APP].git</code></li>
@@ -1133,19 +1133,19 @@ To do this open a terminal and run</p>
 <p>The <code>allowOverwrite </code> field is a flag to determine if existing values in the app data model can be overwritten by prefill data.</p>
 <p>Below is an example of a prefill where two fields are connected to the name from DFS and user name from the user profile,
 and we have allowed prefill values to overwrite values in the data model:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-	<span style="color:#ff79c6">&#34;$schema&#34;</span>: <span style="color:#f1fa8c">&#34;https://altinncdn.no/schemas/json/prefill/prefill.schema.v1.json&#34;</span>,
-	<span style="color:#ff79c6">&#34;allowOverwrite&#34;</span>: <span style="color:#ff79c6">true</span>,
-	<span style="color:#ff79c6">&#34;ER&#34;</span>: {
-	},
-	<span style="color:#ff79c6">&#34;DSF&#34;</span>: {
-<span style="display:block;width:100%;background-color:#3d3f4a">		<span style="color:#ff79c6">&#34;Name&#34;</span>: <span style="color:#f1fa8c">&#34;Skattyterinforgrp5801.infogrp5802.OppgavegiverNavnPreutfyltdatadef25795.value&#34;</span>
-</span>	},
-	<span style="color:#ff79c6">&#34;UserProfile&#34;</span>: {
-<span style="display:block;width:100%;background-color:#3d3f4a">		<span style="color:#ff79c6">&#34;UserName&#34;</span>: <span style="color:#f1fa8c">&#34;Skattyterinforgrp5801.infogrp5802.OppgavegiverAdressePreutfyltdatadef25796.value&#34;</span>
-</span>	}
-}
-</code></pre></div><p><a href="https://github.com/Altinn/altinn-studio/labels/area%2Fprefill">See issues related to prefill on Github</a>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">&#34;$schema&#34;</span>: <span style="color:#f1fa8c">&#34;https://altinncdn.no/schemas/json/prefill/prefill.schema.v1.json&#34;</span>,
+</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">&#34;allowOverwrite&#34;</span>: <span style="color:#ff79c6">true</span>,
+</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">&#34;ER&#34;</span>: {
+</span></span><span style="display:flex;"><span>	},
+</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">&#34;DSF&#34;</span>: {
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>		<span style="color:#ff79c6">&#34;Name&#34;</span>: <span style="color:#f1fa8c">&#34;Skattyterinforgrp5801.infogrp5802.OppgavegiverNavnPreutfyltdatadef25795.value&#34;</span>
+</span></span><span style="display:flex;"><span>	},
+</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">&#34;UserProfile&#34;</span>: {
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>		<span style="color:#ff79c6">&#34;UserName&#34;</span>: <span style="color:#f1fa8c">&#34;Skattyterinforgrp5801.infogrp5802.OppgavegiverAdressePreutfyltdatadef25796.value&#34;</span>
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><a href="https://github.com/Altinn/altinn-studio/labels/area%2Fprefill">See issues related to prefill on Github</a>.</p>
 
 
 <footer class=" footline" ></footer>

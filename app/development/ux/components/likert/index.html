@@ -117,7 +117,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -217,7 +217,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -297,7 +297,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -1117,135 +1117,135 @@ Likert uses the same concept as repeating groups.</p>
 <h2 id="example">Example</h2>
 <p>The Likert component requires that you have a data model with a list. This list must contain objects with questions and answers.
 Example on setup of data model in App/logic/InstantiationHandler.cs:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task DataCreation(Instance instance, <span style="color:#8be9fd">object</span> data)
-        {
-
-            <span style="color:#ff79c6">if</span> (data <span style="color:#ff79c6">is</span> Survey)
-            {
-                <span style="color:#8be9fd">var</span> survey = data <span style="color:#ff79c6">as</span> Survey;
-
-                survey.Questions = <span style="color:#ff79c6">new</span> List&lt;Question&gt; {
-                    <span style="color:#ff79c6">new</span> Question {
-                        Id = <span style="color:#f1fa8c">&#34;question-1&#34;</span>,
-                        Answer = <span style="color:#f1fa8c">&#34;&#34;</span>
-                    },
-                    <span style="color:#ff79c6">new</span> Question {
-                        Id = <span style="color:#f1fa8c">&#34;question-2&#34;</span>,
-                        Answer = <span style="color:#f1fa8c">&#34;&#34;</span>
-                    },
-                    <span style="color:#ff79c6">new</span> Question {
-                        Id = <span style="color:#f1fa8c">&#34;question-3&#34;</span>,
-                        Answer = <span style="color:#f1fa8c">&#34;&#34;</span>
-                    }
-                }
-            }
-
-            <span style="color:#ff79c6">await</span> Task.CompletedTask;
-        }
-</code></pre></div><p>Example on definition of likert component in layout.json:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[
-  {
-    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;likert-group&#34;</span>,
-    <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Group&#34;</span>,
-    <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
-      <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;Skolearbeid&#34;</span>,
-      <span style="color:#ff79c6">&#34;description&#34;</span>: <span style="color:#f1fa8c">&#34;På de neste spørsmålene skal du svare i kontekst av klasserommet.&#34;</span>
-    },
-    <span style="color:#ff79c6">&#34;maxCount&#34;</span>: <span style="color:#bd93f9">99</span>,
-    <span style="color:#ff79c6">&#34;children&#34;</span>: [
-      <span style="color:#f1fa8c">&#34;likert-row&#34;</span>
-    ],
-    <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {
-      <span style="color:#ff79c6">&#34;group&#34;</span>: <span style="color:#f1fa8c">&#34;Questions&#34;</span>
-    },
-    <span style="color:#ff79c6">&#34;edit&#34;</span>: {
-      <span style="color:#ff79c6">&#34;mode&#34;</span>: <span style="color:#f1fa8c">&#34;likert&#34;</span>
-    }
-  },
-  {
-    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;likert-row&#34;</span>,
-    <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Likert&#34;</span>,
-    <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
-      <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;likert-row-title&#34;</span>
-    },
-    <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {
-      <span style="color:#ff79c6">&#34;simpleBinding&#34;</span>: <span style="color:#f1fa8c">&#34;Questions.Answer&#34;</span>
-    },
-    <span style="color:#ff79c6">&#34;optionsId&#34;</span>: <span style="color:#f1fa8c">&#34;likertOptions&#34;</span>,
-    <span style="color:#ff79c6">&#34;required&#34;</span>: <span style="color:#ff79c6">false</span>,
-    <span style="color:#ff79c6">&#34;readOnly&#34;</span>: <span style="color:#ff79c6">false</span>
-  }
-]
-</code></pre></div><div class="notices warning" >
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c#" data-lang="c#"><span style="display:flex;"><span><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task DataCreation(Instance instance, <span style="color:#8be9fd">object</span> data)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">if</span> (data <span style="color:#ff79c6">is</span> Survey)
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                <span style="color:#8be9fd">var</span> survey = data <span style="color:#ff79c6">as</span> Survey;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                survey.Questions = <span style="color:#ff79c6">new</span> List&lt;Question&gt; {
+</span></span><span style="display:flex;"><span>                    <span style="color:#ff79c6">new</span> Question {
+</span></span><span style="display:flex;"><span>                        Id = <span style="color:#f1fa8c">&#34;question-1&#34;</span>,
+</span></span><span style="display:flex;"><span>                        Answer = <span style="color:#f1fa8c">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>                    },
+</span></span><span style="display:flex;"><span>                    <span style="color:#ff79c6">new</span> Question {
+</span></span><span style="display:flex;"><span>                        Id = <span style="color:#f1fa8c">&#34;question-2&#34;</span>,
+</span></span><span style="display:flex;"><span>                        Answer = <span style="color:#f1fa8c">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>                    },
+</span></span><span style="display:flex;"><span>                    <span style="color:#ff79c6">new</span> Question {
+</span></span><span style="display:flex;"><span>                        Id = <span style="color:#f1fa8c">&#34;question-3&#34;</span>,
+</span></span><span style="display:flex;"><span>                        Answer = <span style="color:#f1fa8c">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>                    }
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">await</span> Task.CompletedTask;
+</span></span><span style="display:flex;"><span>        }
+</span></span></code></pre></div><p>Example on definition of likert component in layout.json:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>[
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;likert-group&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Group&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;Skolearbeid&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;description&#34;</span>: <span style="color:#f1fa8c">&#34;På de neste spørsmålene skal du svare i kontekst av klasserommet.&#34;</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;maxCount&#34;</span>: <span style="color:#bd93f9">99</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;children&#34;</span>: [
+</span></span><span style="display:flex;"><span>      <span style="color:#f1fa8c">&#34;likert-row&#34;</span>
+</span></span><span style="display:flex;"><span>    ],
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;group&#34;</span>: <span style="color:#f1fa8c">&#34;Questions&#34;</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;edit&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;mode&#34;</span>: <span style="color:#f1fa8c">&#34;likert&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;likert-row&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Likert&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;likert-row-title&#34;</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;simpleBinding&#34;</span>: <span style="color:#f1fa8c">&#34;Questions.Answer&#34;</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;optionsId&#34;</span>: <span style="color:#f1fa8c">&#34;likertOptions&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;required&#34;</span>: <span style="color:#ff79c6">false</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;readOnly&#34;</span>: <span style="color:#ff79c6">false</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>]
+</span></span></code></pre></div><div class="notices warning" >
 The Likert-component works the same as RadioButtons and CheckBoxes.
 </div>
 <p>OptionsId is linked to the codelist-file (likertOptions.json)</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[
-      {
-        <span style="color:#ff79c6">&#34;label&#34;</span>: <span style="color:#f1fa8c">&#34;Alltid&#34;</span>,
-        <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;1&#34;</span>
-      },
-      {
-        <span style="color:#ff79c6">&#34;label&#34;</span>: <span style="color:#f1fa8c">&#34;Nesten alltid&#34;</span>,
-        <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;2&#34;</span>
-      },
-      {
-        <span style="color:#ff79c6">&#34;label&#34;</span>: <span style="color:#f1fa8c">&#34;Ofte&#34;</span>,
-        <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;3&#34;</span>
-      },
-      {
-        <span style="color:#ff79c6">&#34;label&#34;</span>: <span style="color:#f1fa8c">&#34;Noen ganger&#34;</span>,
-        <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;4&#34;</span>
-      },
-      {
-        <span style="color:#ff79c6">&#34;label&#34;</span>: <span style="color:#f1fa8c">&#34;Sjelden&#34;</span>,
-        <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;5&#34;</span>
-      }
-    ]
-</code></pre></div><p>To connect text for each row you need to create a connection between the data model and the Likert&rsquo;s textResourceBinding.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>[
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;label&#34;</span>: <span style="color:#f1fa8c">&#34;Alltid&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;1&#34;</span>
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;label&#34;</span>: <span style="color:#f1fa8c">&#34;Nesten alltid&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;2&#34;</span>
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;label&#34;</span>: <span style="color:#f1fa8c">&#34;Ofte&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;3&#34;</span>
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;label&#34;</span>: <span style="color:#f1fa8c">&#34;Noen ganger&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;4&#34;</span>
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;label&#34;</span>: <span style="color:#f1fa8c">&#34;Sjelden&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;5&#34;</span>
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    ]
+</span></span></code></pre></div><p>To connect text for each row you need to create a connection between the data model and the Likert&rsquo;s textResourceBinding.
 This can be done in the text-resourcefiles:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[
-  {
-    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;question-1&#34;</span>,
-    <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;Gjør du leksene dine?&#34;</span>
-  },
-  {
-    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;question-2&#34;</span>,
-    <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;Fungerer kalkulatoren din?&#34;</span>
-  },
-  {
-    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;question-3&#34;</span>,
-    <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;Er pulten din ryddig?&#34;</span>
-  },
-  {
-    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;likert-row-title&#34;</span>,
-    <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;{0}&#34;</span>,
-    <span style="color:#ff79c6">&#34;variables&#34;</span>: [
-      {
-        <span style="color:#ff79c6">&#34;key&#34;</span>: <span style="color:#f1fa8c">&#34;Questions[{0}].Id&#34;</span>,
-        <span style="color:#ff79c6">&#34;dataSource&#34;</span>: <span style="color:#f1fa8c">&#34;dataModel.default&#34;</span>
-      }
-    ]
-  }
-]
-</code></pre></div><h3 id="filter-out-questions-with-start-and-end">Filter out questions with start and end</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>[
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;question-1&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;Gjør du leksene dine?&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;question-2&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;Fungerer kalkulatoren din?&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;question-3&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;Er pulten din ryddig?&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;likert-row-title&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;{0}&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;variables&#34;</span>: [
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;key&#34;</span>: <span style="color:#f1fa8c">&#34;Questions[{0}].Id&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;dataSource&#34;</span>: <span style="color:#f1fa8c">&#34;dataModel.default&#34;</span>
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>]
+</span></span></code></pre></div><h3 id="filter-out-questions-with-start-and-end">Filter out questions with start and end</h3>
 <p>You can choose to filter out rows you do not wish to include in the Likert by using start and stop:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#ff79c6">&#34;edit&#34;</span>: {
-    <span style="color:#ff79c6">&#34;mode&#34;</span>: <span style="color:#f1fa8c">&#34;likert&#34;</span>,
-    <span style="color:#ff79c6">&#34;filter&#34;</span>: [
-      {
-        <span style="color:#ff79c6">&#34;key&#34;</span>: <span style="color:#f1fa8c">&#34;start&#34;</span>,
-        <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;1&#34;</span>
-      },
-      {
-        <span style="color:#ff79c6">&#34;key&#34;</span>: <span style="color:#f1fa8c">&#34;stop&#34;</span>,
-        <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;10&#34;</span>
-      }
-    ]
-  }
-}
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;edit&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;mode&#34;</span>: <span style="color:#f1fa8c">&#34;likert&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;filter&#34;</span>: [
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;key&#34;</span>: <span style="color:#f1fa8c">&#34;start&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;1&#34;</span>
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;key&#34;</span>: <span style="color:#f1fa8c">&#34;stop&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;10&#34;</span>
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
 
 <footer class=" footline" ></footer>
                 </div>

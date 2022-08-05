@@ -109,7 +109,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -209,7 +209,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -281,7 +281,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -1132,14 +1132,14 @@ For each functional event there is described which AppLogic events that is trigg
 <p>Instansiation is when the end user, end user system or organisation instansiates a new app instance.
 Events connected to instansiation can contain logic that can prefill the datamodell
 or validate if the user or system is allowed to instansiate that app.</p>
-<figure><a href="swimlane_instansiation.svg"><img src="swimlane_instansiation.svg" alt="&ldquo;Instantiation swimlane&rdquo;" title="Instantiation swimlane" /></a><figcaption><h4>Instantiation swimlane</h4></figcaption></figure>
+<figure><a href="swimlane_instansiation.svg"><img src="swimlane_instansiation.svg" alt="&amp;ldquo;Instantiation swimlane&amp;rdquo;" title="Instantiation swimlane" /></a><figcaption><h4>Instantiation swimlane</h4></figcaption></figure>
 <p>The below sequence diagram shows how the app-logic events are combined with other logic for a requesting to start an app in the app catalogue.</p>
-<figure><a href="instansiation_sequence.svg"><img src="instansiation_sequence.svg" alt="&ldquo;Instantiation sequence&rdquo;" title="Instantiation sequence" /></a><figcaption><h4>Instantiation sequence</h4></figcaption></figure>
+<figure><a href="instansiation_sequence.svg"><img src="instansiation_sequence.svg" alt="&amp;ldquo;Instantiation sequence&amp;rdquo;" title="Instantiation sequence" /></a><figcaption><h4>Instantiation sequence</h4></figcaption></figure>
 <h3 id="load-form-data-get">Load form data (GET)</h3>
 <p>Loading of form data can be performed by the App Frontend or an end user system that needs to get
 the latest updated form data.</p>
 <p>The following events will be performed</p>
-<figure><a href="swimlane_getformdata.svg"><img src="swimlane_getformdata.svg" alt="&ldquo;GetFormData swimlane&rdquo;" title="GetFormData swimlane" /></a><figcaption><h4>GetFormData swimlane</h4></figcaption></figure>
+<figure><a href="swimlane_getformdata.svg"><img src="swimlane_getformdata.svg" alt="&amp;ldquo;GetFormData swimlane&amp;rdquo;" title="GetFormData swimlane" /></a><figcaption><h4>GetFormData swimlane</h4></figcaption></figure>
 <h3 id="storing-of-form-data-post">Storing of form data (POST)</h3>
 <p>Update of form data can happen when frontend (REACT app) sends data to backend
 or a end user system does the same. When an update happend there is defined serveral
@@ -1154,16 +1154,16 @@ logic related to this event that could perform calculation, validation, API call
 <li>Update - Calculation is runned before data is stored in to the database.</li>
 </ul>
 <p>The order of events are:</p>
-<figure><a href="events_post.svg"><img src="events_post.svg" alt="&ldquo;Event order diagram&rdquo;" title="Order of events" /></a><figcaption><h4>Order of events</h4></figcaption></figure>
+<figure><a href="events_post.svg"><img src="events_post.svg" alt="&amp;ldquo;Event order diagram&amp;rdquo;" title="Order of events" /></a><figcaption><h4>Order of events</h4></figcaption></figure>
 <h3 id="update-form-data-put">Update form data (PUT)</h3>
 <p>Update of form data happens when the frontend or external end user systems/applications 
 want to update a existing form connected to an app instance</p>
 <p>The following events happens:</p>
-<figure><a href="swimlane_updateformdata.svg"><img src="swimlane_updateformdata.svg" alt="&ldquo;Update form data diagram&rdquo;" title="Update form data" /></a><figcaption><h4>Update form data</h4></figcaption></figure>
+<figure><a href="swimlane_updateformdata.svg"><img src="swimlane_updateformdata.svg" alt="&amp;ldquo;Update form data diagram&amp;rdquo;" title="Update form data" /></a><figcaption><h4>Update form data</h4></figcaption></figure>
 <h3 id="validation">Validation</h3>
 <p>Validation is triggered from App Frontend or from end user system.</p>
 <p>The below sequence diagram shows the application events:</p>
-<figure><a href="validation_sequence.svg"><img src="validation_sequence.svg" alt="&ldquo;Validation sequence diagram&rdquo;" title="Validation sequence" /></a><figcaption><h4>Validation sequence</h4></figcaption></figure>
+<figure><a href="validation_sequence.svg"><img src="validation_sequence.svg" alt="&amp;ldquo;Validation sequence diagram&amp;rdquo;" title="Validation sequence" /></a><figcaption><h4>Validation sequence</h4></figcaption></figure>
 
 
 <footer class=" footline" ></footer>

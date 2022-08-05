@@ -109,7 +109,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -209,7 +209,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -281,7 +281,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -1149,10 +1149,10 @@ Overall Concept In Altinn there will over time be thousands of different digital
     <section class="post-excerpt">
         <p>Below you find some functional scenarios for use of events functionality in Altinn 3
 Org waiting on ProcessComplete for a given app In this scenario, an org is waiting on end-users to complete one given app.
-  System (consumer) authenticates using Maskinporten and requests scope for org
-  System exchanges Maskinporten token to an Altinn token. Scopes is included in new token.
-  System calls
-GET {platformurl}/events/api/v1/app/{org}/{app}?from={lastchanged}&amp;eventType=instance.process.completed   Event component verifies that scope matches request <a class="read-more" href="/technology/architecture/capabilities/runtime/integration/events/scenarios/">&raquo;</a></p>
+System (consumer) authenticates using Maskinporten and requests scope for org
+System exchanges Maskinporten token to an Altinn token. Scopes is included in new token.
+System calls
+GET {platformurl}/events/api/v1/app/{org}/{app}?from={lastchanged}&amp;eventType=instance.process.completed Event component verifies that scope matches request <a class="read-more" href="/technology/architecture/capabilities/runtime/integration/events/scenarios/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         

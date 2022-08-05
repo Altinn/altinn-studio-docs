@@ -381,13 +381,13 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/metadata/"><span>Metadata</span></a></li>
       <li class="dd-item">
         <a href="/nb/api/apps/instances/"><span>Instanser</span></a></li>
       <li class="dd-item">
-        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/data-elements/tags/"><span>Tags</span></a></li></ul></li>
       <li class="dd-item">
@@ -441,9 +441,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/community/about/"><span>Om</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/community/about/goals/"><span>Mål</span></a></li>
+        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li>
       <li class="dd-item">
-        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li></ul></li>
+        <a href="/nb/community/about/goals/"><span>Mål</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/community/contributing/"><span>Bidra til utvikling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -571,23 +571,23 @@ if(host != "localhost")
 </nav><h2 id="oversikt">Oversikt</h2>
 <p>API&rsquo;et for tags (stikkord) på data elementer har endepunkter for å liste ut tags, legge til en tag, samt sletting av tag.</p>
 <p><strong>baseSti</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">{org}/{appname}/instances/{instanceOwnerPartyId}/{instanceGuid}/data/{dataGuid}/
-</code></pre></div><h2 id="hent-tags">Hent tags</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>{org}/{appname}/instances/{instanceOwnerPartyId}/{instanceGuid}/data/{dataGuid}/
+</span></span></code></pre></div><h2 id="hent-tags">Hent tags</h2>
 <p>Endepunkt for å laste ned listen med tags som allerede er lagt til på et data element.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET baseSti/tags
-Accept: application/json
-</code></pre></div><h2 id="legge-til-tag">Legge til tag</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>GET baseSti/tags
+</span></span><span style="display:flex;"><span>Accept: application/json
+</span></span></code></pre></div><h2 id="legge-til-tag">Legge til tag</h2>
 <p>Endepunkt for å legge til en ny tag.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">POST baseSti/tags
-Content-Type: application/json
-
-&#34;bokstaver&#34;
-</code></pre></div><p>API kallet må inneholde det nye ordet i anførselstegn. Dette er en JSON representasjon av en enkel tekst og Content-Type skal være application/json. Ordet kan inneholde bokstaver fra alle verdens språk.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>POST baseSti/tags
+</span></span><span style="display:flex;"><span>Content-Type: application/json
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&#34;bokstaver&#34;
+</span></span></code></pre></div><p>API kallet må inneholde det nye ordet i anførselstegn. Dette er en JSON representasjon av en enkel tekst og Content-Type skal være application/json. Ordet kan inneholde bokstaver fra alle verdens språk.</p>
 <p>Svaret på et kall vil inneholde listen over alle tags lagt til på data elementet inkludert det nye ordet.</p>
 <h2 id="slett-tag">Slett tag</h2>
 <p>Endepunkt for å fjerne en tag fra et data element.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">DELETE baseSti/tags/{tag}
-</code></pre></div><p>Svaret vil gi http status kode 204 hvis operasjonen lykkes.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>DELETE baseSti/tags/{tag}
+</span></span></code></pre></div><p>Svaret vil gi http status kode 204 hvis operasjonen lykkes.</p>
 
 
 <footer class=" footline" ></footer>

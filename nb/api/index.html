@@ -381,13 +381,13 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/metadata/"><span>Metadata</span></a></li>
       <li class="dd-item">
         <a href="/nb/api/apps/instances/"><span>Instanser</span></a></li>
       <li class="dd-item">
-        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/data-elements/tags/"><span>Tags</span></a></li></ul></li>
       <li class="dd-item">
@@ -441,9 +441,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/community/about/"><span>Om</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/community/about/goals/"><span>Mål</span></a></li>
+        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li>
       <li class="dd-item">
-        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li></ul></li>
+        <a href="/nb/community/about/goals/"><span>Mål</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/community/contributing/"><span>Bidra til utvikling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -569,15 +569,15 @@ if(host != "localhost")
 <p>The application API is an API that provides access to specific instances of a specific app. The API provides features for working with data elements while keeping the metadata document for the instance and its data elements updated. The instance level endpoints revolves around moving an instance through its defined process and controlling some instance level settings.</p>
 <p>Metadata for an app is the second job of the app API. There are endpoint that give access to the metadata of the app itself, its data types and process description.</p>
 <p>Every app will expose almost identical endpoints and functionality. External parties should need only one client implementation across all app APIs. Technically there is nothing preventing an application owner from adding or making changes to the API, but in those cases it is probably an application with a different process flow. In these cases, the application might require some special handling, and additional documentation should be provided by the application owner.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">https://{org}.apps.altinn.no/{org}/{appname}
-</code></pre></div><p>The URL identifies the application owner specific hostname using the short name <strong>org</strong>, and the identificator of the app consisting of both the application owner short name and the name of the app <strong>org/appname</strong>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>https://{org}.apps.altinn.no/{org}/{appname}
+</span></span></code></pre></div><p>The URL identifies the application owner specific hostname using the short name <strong>org</strong>, and the identificator of the app consisting of both the application owner short name and the name of the app <strong>org/appname</strong>.</p>
 <h3 id="platform-api">Platform API</h3>
 <p>The Platform APIs are primarily made to support the applications hosted on the platform, but a lot of endpoints can be used directly by both application owners and users. Primarily on the Authentication, Events and Storage APIs.</p>
 <p>The Storage API provides access to all instances across all applications. It can be used to access metadata about applications, instances, data elements and instance activitylog (events), as well as the actual data content. This API should be the preferred method for application owners to download data associated with instances created based on their applications. Application users can use it if they need a form of message box or want to retrieve archived instances and their data.</p>
 <p>The Authentication API provides methods for authentication.</p>
 <p>The Events API provides access to the Events component endpoint for listing events. This can be used sporadically to query Altinn for events that have occured in the solution.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">https://platform.altinn.no
-</code></pre></div><h2 id="api-user-groups">API user groups</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>https://platform.altinn.no
+</span></span></code></pre></div><h2 id="api-user-groups">API user groups</h2>
 <p>There are primarily two groups of users of the Altinn APIs. The first group consists of applications and systems used by the owners of the Apps hosted by Altinn. This group is called <em>Application Owners</em>. The second group consists of organisations and people using the Apps to communicate with the application owners. This group is called <em>Application Users</em>.</p>
 <p>The two groups have many similar needs, but there are some differences in what type of tasks they need to perform. All new APIs is technically available to both groups, but some endpoints have authorization to allow only on of the groups.</p>
 <h3 id="application-owners">Application Owners</h3>

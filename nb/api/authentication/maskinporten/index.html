@@ -381,13 +381,13 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/metadata/"><span>Metadata</span></a></li>
       <li class="dd-item">
         <a href="/nb/api/apps/instances/"><span>Instanser</span></a></li>
       <li class="dd-item">
-        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/data-elements/tags/"><span>Tags</span></a></li></ul></li>
       <li class="dd-item">
@@ -441,9 +441,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/community/about/"><span>Om</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/community/about/goals/"><span>Mål</span></a></li>
+        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li>
       <li class="dd-item">
-        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li></ul></li>
+        <a href="/nb/community/about/goals/"><span>Mål</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/community/contributing/"><span>Bidra til utvikling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -578,22 +578,22 @@ så har du tilgang til selvbetjening for <a href="https://samarbeid.digdir.no/ma
 <h2 id="tilgang-som-tjenesteeier">Tilgang som tjenesteeier</h2>
 <p>For å kunne hente data fra Storage i Altinn 3 via API som tjenesteeier, så må man opprette en integrasjon (klient) i Maskinporten, med nødvendige scopes.</p>
 <p>Følgende scopes er opprettet av Altinn, og delegert til tjenesteeier. Disse scopene behøves for å benytte APIene relatert til instanser som tjenesteeier:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">altinn<span style="color:#ff79c6">:</span>serviceowner<span style="color:#ff79c6">/</span>instances.read
-altinn<span style="color:#ff79c6">:</span>serviceowner<span style="color:#ff79c6">/</span>instances.write
-</code></pre></div><p>Klienter med <em>write</em> scope kan bl.a. instansiere apper på vegne av bruker via appens eget API, laste opp data, oppdatere metadata og prosess-status.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span>altinn<span style="color:#ff79c6">:</span>serviceowner<span style="color:#ff79c6">/</span>instances.read
+</span></span><span style="display:flex;"><span>altinn<span style="color:#ff79c6">:</span>serviceowner<span style="color:#ff79c6">/</span>instances.write
+</span></span></code></pre></div><p>Klienter med <em>write</em> scope kan bl.a. instansiere apper på vegne av bruker via appens eget API, laste opp data, oppdatere metadata og prosess-status.
 Klienter med <em>read</em> scope kan kun lese data, metadata og events.</p>
 <p>I de fleste tilfeller så vile en klient for tjenesteeier ha behov for begge scopene.</p>
 <p>Oppretting av klient kan gjøres via API eller i Samarbeidsportalen.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">POST https://integrasjon.difi.no/clients/
-{
-    &#34;integration_type&#34;: &#34;maskinporten&#34;,
-    &#34;client_name&#34;: &#34;DIHE testklient for instanser&#34;,
-    &#34;client_type&#34;: &#34;CONFIDENTIAL&#34;,
-    &#34;description&#34;: &#34;Klient for å hente data fra mine apper&#34;,
-    &#34;scopes&#34;: [ &#34;altinn:serviceowner/instances.read&#34;, &#34;altinn:serviceowner/instances.write&#34; ],
-    &#34;token_reference&#34;: &#34;SELF_CONTAINED&#34;
-}
-</code></pre></div><figure><a href="new-integration.png"><img src="new-integration.png" alt="Ny integrasjon" title="Opprette ny integrasjon (klient) i samarbeidsportalen. Husk å velge riktig miljø." /></a><figcaption><h4>Opprette ny integrasjon (klient) i samarbeidsportalen. Husk å velge riktig miljø.</h4></figcaption></figure>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>POST https://integrasjon.difi.no/clients/
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    &#34;integration_type&#34;: &#34;maskinporten&#34;,
+</span></span><span style="display:flex;"><span>    &#34;client_name&#34;: &#34;DIHE testklient for instanser&#34;,
+</span></span><span style="display:flex;"><span>    &#34;client_type&#34;: &#34;CONFIDENTIAL&#34;,
+</span></span><span style="display:flex;"><span>    &#34;description&#34;: &#34;Klient for å hente data fra mine apper&#34;,
+</span></span><span style="display:flex;"><span>    &#34;scopes&#34;: [ &#34;altinn:serviceowner/instances.read&#34;, &#34;altinn:serviceowner/instances.write&#34; ],
+</span></span><span style="display:flex;"><span>    &#34;token_reference&#34;: &#34;SELF_CONTAINED&#34;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><figure><a href="new-integration.png"><img src="new-integration.png" alt="Ny integrasjon" title="Opprette ny integrasjon (klient) i samarbeidsportalen. Husk å velge riktig miljø." /></a><figcaption><h4>Opprette ny integrasjon (klient) i samarbeidsportalen. Husk å velge riktig miljø.</h4></figcaption></figure>
 <h2 id="veksle-til-altinn-token">Veksle til Altinn Token</h2>
 <p>Altinn godtar ikke Maskinporten API direkte. Disse må veksles inn i Altinn token. Se detaljer i scenario under.</p>
 <h2 id="mer-informasjon">Mer informasjon</h2>

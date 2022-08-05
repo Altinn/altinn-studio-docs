@@ -381,13 +381,13 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/metadata/"><span>Metadata</span></a></li>
       <li class="dd-item">
         <a href="/nb/api/apps/instances/"><span>Instanser</span></a></li>
       <li class="dd-item">
-        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/data-elements/tags/"><span>Tags</span></a></li></ul></li>
       <li class="dd-item">
@@ -441,9 +441,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/community/about/"><span>Om</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/community/about/goals/"><span>Mål</span></a></li>
+        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li>
       <li class="dd-item">
-        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li></ul></li>
+        <a href="/nb/community/about/goals/"><span>Mål</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/community/contributing/"><span>Bidra til utvikling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -576,42 +576,42 @@ have been uploaded and are valid.
 If the result of the validation is that nothing is missing or wrong, the action will update the instance with information indicating that the instance is valid.
 The response will be an empty array. In the case of validation issues the response will provide an array of the identified issues.
 Validation of a full instance use validation of data as described in the chapter below.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET https://{org}.apps.at21.altinn.cloud/{org}/{app}/instances/{instanceOwnerPartyId}/{instanceId}/validate
-</code></pre></div><p>Example response:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[
-    {
-        <span style="color:#ff79c6">&#34;severity&#34;</span>: <span style="color:#f1fa8c">&#34;Error&#34;</span>,
-        <span style="color:#ff79c6">&#34;scope&#34;</span>: <span style="color:#f1fa8c">&#34;INSTANCE&#34;</span>,
-        <span style="color:#ff79c6">&#34;targetId&#34;</span>: <span style="color:#ff79c6">null</span>,
-        <span style="color:#ff79c6">&#34;field&#34;</span>: <span style="color:#ff79c6">null</span>,
-        <span style="color:#ff79c6">&#34;code&#34;</span>: <span style="color:#f1fa8c">&#34;TooManyDataElementsOfType&#34;</span>,
-        <span style="color:#ff79c6">&#34;description&#34;</span>: <span style="color:#f1fa8c">&#34;TooManyDataElementsOfType&#34;</span>
-    }
-]
-</code></pre></div><h2 id="validate-stored-data">Validate stored data</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>GET https://{org}.apps.at21.altinn.cloud/{org}/{app}/instances/{instanceOwnerPartyId}/{instanceId}/validate
+</span></span></code></pre></div><p>Example response:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>[
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;severity&#34;</span>: <span style="color:#f1fa8c">&#34;Error&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;scope&#34;</span>: <span style="color:#f1fa8c">&#34;INSTANCE&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;targetId&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;field&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;code&#34;</span>: <span style="color:#f1fa8c">&#34;TooManyDataElementsOfType&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;description&#34;</span>: <span style="color:#f1fa8c">&#34;TooManyDataElementsOfType&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>]
+</span></span></code></pre></div><h2 id="validate-stored-data">Validate stored data</h2>
 <p>This action will validate a specific data element already uploaded and stored in Altinn.
 The logic validates that the data element has the correct Content-Type, that it isn&rsquo;t too large and so on. Data elements with
 a model bound to them will be validated against the model (Schema).</p>
 <p>Validation will also check that the data element being validated is required for the current task in the process.
 If the data is validated during a task different from what is intended, the validator will give a warning.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET https://{org}.apps.at21.altinn.cloud/{org}/{app}/instances/{instanceOwnerPartyId}/{instanceId}/data/{dataid}/validate
-</code></pre></div><p>Example response:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[
-    {
-        <span style="color:#ff79c6">&#34;severity&#34;</span>: <span style="color:#f1fa8c">&#34;Error&#34;</span>,
-        <span style="color:#ff79c6">&#34;scope&#34;</span>: <span style="color:#f1fa8c">&#34;default&#34;</span>,
-        <span style="color:#ff79c6">&#34;targetId&#34;</span>: <span style="color:#ff79c6">null</span>,
-        <span style="color:#ff79c6">&#34;field&#34;</span>: <span style="color:#ff79c6">null</span>,
-        <span style="color:#ff79c6">&#34;code&#34;</span>: <span style="color:#f1fa8c">&#34;MissingContentType&#34;</span>,
-        <span style="color:#ff79c6">&#34;description&#34;</span>: <span style="color:#f1fa8c">&#34;MissingContentType&#34;</span>
-    }
-]
-</code></pre></div><h3 id="validate-data">Validate data</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>GET https://{org}.apps.at21.altinn.cloud/{org}/{app}/instances/{instanceOwnerPartyId}/{instanceId}/data/{dataid}/validate
+</span></span></code></pre></div><p>Example response:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>[
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;severity&#34;</span>: <span style="color:#f1fa8c">&#34;Error&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;scope&#34;</span>: <span style="color:#f1fa8c">&#34;default&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;targetId&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;field&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;code&#34;</span>: <span style="color:#f1fa8c">&#34;MissingContentType&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;description&#34;</span>: <span style="color:#f1fa8c">&#34;MissingContentType&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>]
+</span></span></code></pre></div><h3 id="validate-data">Validate data</h3>
 <p>The application will provide a method to validate the datamodel without creating a instance of the data. Data must be provided as formdata.
 The validate method takes a data file of an dataType and performs validation on that file. It returns a validation report.</p>
 <figure><a href="data-validate.png"><img src="data-validate.png" alt="Flowchart for data validation" title="Validate data" /></a><figcaption><h4>Validate data</h4></figcaption></figure>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">PUT {appPath}/validate?dataType=modelA
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>PUT {appPath}/validate?dataType=modelA
+</span></span></code></pre></div>
 
 <footer class=" footline" ></footer>
                 </div>

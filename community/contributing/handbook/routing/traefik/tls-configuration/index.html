@@ -109,7 +109,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -209,7 +209,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -281,7 +281,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -1098,46 +1098,46 @@ if(host != "localhost")
             </div>
           </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/development">development</a><a class="label label-default" href="https://docs.altinn.studio/tags/routing">routing</a><a class="label label-default" href="https://docs.altinn.studio/tags/traefik">traefik</a><a class="label label-default" href="https://docs.altinn.studio/tags/tls">tls</a></div><div id="body-inner"><h1 class="a-fontBold">TLS in Traefik 2.0</h1>
               <p class="a-leadText" id="leadText">How to set up TLS</p><h4 id="tls-sertificates-stored-as-secrets-on-the-cluster">TLS sertificates stored as secrets on the cluster</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#ff79c6">apiVersion</span>: v1
-<span style="color:#ff79c6">kind</span>: Secret
-<span style="color:#ff79c6">metadata</span>:
-  <span style="color:#ff79c6">name</span>: altinn-tls-secret
-<span style="color:#ff79c6">data</span>:
-  <span style="color:#ff79c6">tls.crt</span>: [[BASE 64 ENCODED CERTIFICATE]]
-  <span style="color:#ff79c6">tls.key</span>: [[BASE 64 ENCODED PRIVATE KEY]]
-</code></pre></div><h4 id="tls-options">TLS Options</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ff79c6">apiVersion</span>: v1
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">kind</span>: Secret
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">name</span>: altinn-tls-secret
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">data</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">tls.crt</span>: [[BASE 64 ENCODED CERTIFICATE]]
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">tls.key</span>: [[BASE 64 ENCODED PRIVATE KEY]]
+</span></span></code></pre></div><h4 id="tls-options">TLS Options</h4>
 <p>To set up TLS options we need to use the custom resource TLSOption. A basic set up of this is:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#ff79c6">apiVersion</span>: traefik.containo.us/v1alpha1
-<span style="color:#ff79c6">kind</span>: TLSOption
-<span style="color:#ff79c6">metadata</span>:
-  <span style="color:#ff79c6">name</span>: altinn-tls-options
-  <span style="color:#ff79c6">namespace</span>: default
-<span style="color:#ff79c6">spec</span>:
-  <span style="color:#ff79c6">minVersion</span>: VersionTLS12
-</code></pre></div><h4 id="adding-tls-to-an-ingress-route">Adding TLS to an Ingress Route</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ff79c6">apiVersion</span>: traefik.containo.us/v1alpha1
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">kind</span>: TLSOption
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">name</span>: altinn-tls-options
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">namespace</span>: default
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">spec</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">minVersion</span>: VersionTLS12
+</span></span></code></pre></div><h4 id="adding-tls-to-an-ingress-route">Adding TLS to an Ingress Route</h4>
 <p>Add a tls attribute to the spec if the ingress route, with secretName (secret that contains the TLS certificate and private key) and optionally
 a <code>options</code>-attribute with the name of the TLSOption we made and the namespace (if nothing is specified when creating the secret it would be in the <code>default</code> namespace).</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#ff79c6">apiVersion</span>: traefik.containo.us/v1alpha1
-<span style="color:#ff79c6">kind</span>: IngressRoute
-<span style="color:#ff79c6">metadata</span>:
-  <span style="color:#ff79c6">name</span>: altinn-runtime
-<span style="color:#ff79c6">spec</span>:
-  <span style="color:#ff79c6">entryPoints</span>:
-    - web
-    - websecure
-  <span style="color:#ff79c6">routes</span>:
-    - <span style="color:#ff79c6">match</span>: Host(`dev.altinn.studio`)
-      <span style="color:#6272a4"># priority: 25</span>
-      <span style="color:#ff79c6">kind</span>: Rule
-      <span style="color:#ff79c6">services</span>:
-        - <span style="color:#ff79c6">name</span>: altinn-runtime
-          <span style="color:#ff79c6">port</span>: <span style="color:#bd93f9">5005</span>
-  <span style="color:#ff79c6">tls</span>:
-    <span style="color:#ff79c6">secretName</span>: altinn-tls-secret
-    <span style="color:#ff79c6">options</span>: <span style="color:#6272a4">#Optional</span>
-      <span style="color:#ff79c6">name</span>: altinn-tls-options
-      <span style="color:#ff79c6">namespace</span>: default
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ff79c6">apiVersion</span>: traefik.containo.us/v1alpha1
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">kind</span>: IngressRoute
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">name</span>: altinn-runtime
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">spec</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">entryPoints</span>:
+</span></span><span style="display:flex;"><span>    - web
+</span></span><span style="display:flex;"><span>    - websecure
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">routes</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#ff79c6">match</span>: Host(`dev.altinn.studio`)
+</span></span><span style="display:flex;"><span>      <span style="color:#6272a4"># priority: 25</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">kind</span>: Rule
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">services</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#ff79c6">name</span>: altinn-runtime
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">port</span>: <span style="color:#bd93f9">5005</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">tls</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">secretName</span>: altinn-tls-secret
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">options</span>: <span style="color:#6272a4">#Optional</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">name</span>: altinn-tls-options
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">namespace</span>: default
+</span></span></code></pre></div>
 
 <footer class=" footline" ></footer>
                 </div>

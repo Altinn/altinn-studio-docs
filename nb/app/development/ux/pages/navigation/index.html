@@ -381,13 +381,13 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/metadata/"><span>Metadata</span></a></li>
       <li class="dd-item">
         <a href="/nb/api/apps/instances/"><span>Instanser</span></a></li>
       <li class="dd-item">
-        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/data-elements/tags/"><span>Tags</span></a></li></ul></li>
       <li class="dd-item">
@@ -441,9 +441,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/community/about/"><span>Om</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/community/about/goals/"><span>Mål</span></a></li>
+        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li>
       <li class="dd-item">
-        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li></ul></li>
+        <a href="/nb/community/about/goals/"><span>Mål</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/community/contributing/"><span>Bidra til utvikling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -573,16 +573,16 @@ if(host != "localhost")
 <figure><a href="nav-button-next.png"><img src="nav-button-next.png" alt="Navigeringsknapper" title="Navigeringsknapper" /></a><figcaption><h4>Navigeringsknapper</h4></figcaption></figure>
 <h2 id="legge-til-knapp-for-navigering">Legge til knapp for navigering</h2>
 <p>Knapp for navigering legges inn i alle layout-filer der det er behov. Om man ønsker at den skal dukke opp nederst på siden, må den legges inn nederst i layout-filen. Eksempel vises under</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;nav-page2&#34;</span>,
-  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;NavigationButtons&#34;</span>,
-  <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
-    <span style="color:#ff79c6">&#34;next&#34;</span>: <span style="color:#f1fa8c">&#34;next&#34;</span>,
-    <span style="color:#ff79c6">&#34;back&#34;</span>: <span style="color:#f1fa8c">&#34;back&#34;</span>
-  },
-  <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {}
-}
-</code></pre></div><p>Det er også mulighet for å vise en <code>tilbake</code>-knapp sammen med <code>neste</code>-knappen, ved å legge til parameteren <code>&quot;showBackButton&quot;: true</code> på komponenten.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;nav-page2&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;NavigationButtons&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;next&#34;</span>: <span style="color:#f1fa8c">&#34;next&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;back&#34;</span>: <span style="color:#f1fa8c">&#34;back&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {}
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Det er også mulighet for å vise en <code>tilbake</code>-knapp sammen med <code>neste</code>-knappen, ved å legge til parameteren <code>&quot;showBackButton&quot;: true</code> på komponenten.</p>
 <figure><a href="nav-button-next-prev.png"><img src="nav-button-next-prev.png" alt="Navigeringsknapper med tilbakeknapp" title="Navigeringsknapper med tilbakeknapp" /></a><figcaption><h4>Navigeringsknapper med tilbakeknapp</h4></figcaption></figure>
 <table>
 <thead>
@@ -619,22 +619,21 @@ Navigasjonsbar lister opp alle sider i appen, og egner seg derfor ikke til bruk 
 <p>På store skjermer vil alle sider listes opp. Dersom det ikke er plass på en linje, vil listen brytes og fortsette på neste linje. På mindre skjermer vil alle sider være skjult i en meny. Den siden som er aktiv vil vises i menyen. Når menyen klikkes på, vil en liste over alle sider vises.</p>
 <figure><a href="navigationbar-mobile.png"><img src="navigationbar-mobile.png" alt="Navigasjonsbar mobil - lukket og åpen" title="Navigasjonsbar mobil - lukket og åpen" /></a><figcaption><h4>Navigasjonsbar mobil - lukket og åpen</h4></figcaption></figure>
 <p>Navigasjonsbar legges inn i alle layoutfiler der den skal brukes. Eksempel på konfigurasjon:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;navbar-page-1&#34;</span>,
-  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;NavigationBar&#34;</span>
-}
-</code></pre></div><h3 id="endre-tekster-på-navigasjonsbarknapper">Endre tekster på navigasjonsbarknapper</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;navbar-page-1&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;NavigationBar&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="endre-tekster-på-navigasjonsbarknapper">Endre tekster på navigasjonsbarknapper</h3>
 <p>Teksten på navigasjonsbarknappene vil som standard bruke filnavnet på siden uten filendelsen. F.eks om man har <code>side1.json</code> og <code>side2.json</code> vil navigasjonsknappene hete <code>side1</code> og <code>side2</code>. For å overstyre disse tekstene, kan du legge til tekster i <code>resources.XX.json</code>, hvor <code>id</code> er navnet på filen uten filendelse. Eksempel:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;side1&#34;</span>,
-  <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;Første side&#34;</span>
-},
-{
-  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;side2&#34;</span>,
-  <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;Siste side&#34;</span>
-},
-
-</code></pre></div><h2 id="rekkefølge">Rekkefølge</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;side1&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;Første side&#34;</span>
+</span></span><span style="display:flex;"><span>},
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;side2&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;Siste side&#34;</span>
+</span></span><span style="display:flex;"><span>},
+</span></span></code></pre></div><h2 id="rekkefølge">Rekkefølge</h2>
 <p>Standard rekkefølge for sidene er alfabetisk. Utover det kan man navngi hver side som man ønsker, det er da filnavnet som gjelder her. For å sikre at sidene kommer i ønsket rekkefølge kan man f.eks. sette en prefix med tall foran sidenavnet i filnavn. F.eks:</p>
 <pre tabindex="0"><code>|- App/
   |- ui/
@@ -643,30 +642,30 @@ Navigasjonsbar lister opp alle sider i appen, og egner seg derfor ikke til bruk 
       |- 2.secondPage.json
       |- 3.aFinalPage.json
 </code></pre><p>Det er også mulig å styre rekkefølgen på sidene ved hjelp av <code>Settings.json</code> under <code>App/ui/</code>. Dette gjøres på følgende vis:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#ff79c6">&#34;pages&#34;</span>: {
-    <span style="color:#ff79c6">&#34;order&#34;</span>: [<span style="color:#f1fa8c">&#34;side2&#34;</span>, <span style="color:#f1fa8c">&#34;side1&#34;</span>]
-  }
-}
-</code></pre></div><p>Her vil sidene da vises i rekkefølgen spesifisert i <code>pages.order</code>. Om denne array&rsquo;en ikke settes i repo så vil man bruke alfabetisk rekkefølge som utgangspunkt for rekkefølgen på sidene.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;pages&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;order&#34;</span>: [<span style="color:#f1fa8c">&#34;side2&#34;</span>, <span style="color:#f1fa8c">&#34;side1&#34;</span>]
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Her vil sidene da vises i rekkefølgen spesifisert i <code>pages.order</code>. Om denne array&rsquo;en ikke settes i repo så vil man bruke alfabetisk rekkefølge som utgangspunkt for rekkefølgen på sidene.</p>
 <div class="notices info" >
 Funksjonalitet for å kunne dynamisk bestemme hvilken side som er neste er ikke noe som støttes i denne versionen av funksjonaliteten.
 </div>
 <h2 id="validering-ved-sidebytte">Validering ved sidebytte</h2>
 <p>Det er mulig å trigge validering i det brukeren prøver å bevege seg til neste side. Dette kan gjøres ved å legge til strengen <code>validatePage</code> i <code>triggers</code> på navigasjons-knapp komponenten. Eksempel:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;7cbc1c00-4c8c-42b6-bcef-12b3c4c45373&#34;</span>,
-  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;NavigationButtons&#34;</span>,
-  <span style="color:#ff79c6">&#34;componentType&#34;</span>: <span style="color:#f1fa8c">&#34;NavigationButtons&#34;</span>,
-  <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
-    <span style="color:#ff79c6">&#34;next&#34;</span>: <span style="color:#f1fa8c">&#34;Neste&#34;</span>,
-    <span style="color:#ff79c6">&#34;back&#34;</span>: <span style="color:#f1fa8c">&#34;Tilbake&#34;</span>
-  },
-  <span style="color:#ff79c6">&#34;triggers&#34;</span>: [<span style="color:#f1fa8c">&#34;validatePage&#34;</span>],
-  <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {},
-  <span style="color:#ff79c6">&#34;showBackButton&#34;</span>: <span style="color:#ff79c6">true</span>
- }
-</code></pre></div><p>Ved å legge til <code>validatePage</code> i triggers vil app-frontend kjøre valideringene på den aktuelle siden i det brukeren navigerer til neste side. Om det er feilmeldinger på siden vil brukeren bli hindret i å gå videre før dette er rettet opp. Om <code>validatePage</code> er lagt til som en trigger vil også id&rsquo;en på siden som trigger valideringen sendes ved som en header <code>LayoutId</code> til valideringene som kjøres på serversiden. Dette muliggjør å skreddersy backend-valideringene basert på hvilken side brukeren trigger valideringen fra.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;7cbc1c00-4c8c-42b6-bcef-12b3c4c45373&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;NavigationButtons&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;componentType&#34;</span>: <span style="color:#f1fa8c">&#34;NavigationButtons&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;next&#34;</span>: <span style="color:#f1fa8c">&#34;Neste&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;back&#34;</span>: <span style="color:#f1fa8c">&#34;Tilbake&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;triggers&#34;</span>: [<span style="color:#f1fa8c">&#34;validatePage&#34;</span>],
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {},
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;showBackButton&#34;</span>: <span style="color:#ff79c6">true</span>
+</span></span><span style="display:flex;"><span> }
+</span></span></code></pre></div><p>Ved å legge til <code>validatePage</code> i triggers vil app-frontend kjøre valideringene på den aktuelle siden i det brukeren navigerer til neste side. Om det er feilmeldinger på siden vil brukeren bli hindret i å gå videre før dette er rettet opp. Om <code>validatePage</code> er lagt til som en trigger vil også id&rsquo;en på siden som trigger valideringen sendes ved som en header <code>LayoutId</code> til valideringene som kjøres på serversiden. Dette muliggjør å skreddersy backend-valideringene basert på hvilken side brukeren trigger valideringen fra.</p>
 <p>Det er også mulig å trigge validering på alle sider ved å legge til <code>validateAllPages</code> i <code>triggers</code>.</p>
 
 

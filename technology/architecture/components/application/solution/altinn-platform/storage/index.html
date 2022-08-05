@@ -109,7 +109,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -209,7 +209,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -281,7 +281,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -1117,72 +1117,72 @@ It provides a registry of all <em>applications</em> metadata, data types and eve
 An instance replaces Altinn2 Message.
 An instanceOwner is a person/company that reports information via Altinn.
 An appId refers to the application information element which defines the metadata about the application.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;60238/762011d1-d341-4c0a-8641-d8a104e83d30&#34;</span>,
-    <span style="color:#ff79c6">&#34;appId&#34;</span>: <span style="color:#f1fa8c">&#34;test/sailor&#34;</span>,
-    <span style="color:#ff79c6">&#34;org&#34;</span>: <span style="color:#f1fa8c">&#34;test&#34;</span>,
-    <span style="color:#ff79c6">&#34;instanceOwner&#34;</span>: {
-        <span style="color:#ff79c6">&#34;partyId&#34;</span>: <span style="color:#f1fa8c">&#34;60238&#34;</span>
-    },
-    <span style="color:#ff79c6">&#34;created&#34;</span>: <span style="color:#f1fa8c">&#34;2019-03-06T13:46:48.6882148+01:00&#34;</span>,
-    <span style="color:#ff79c6">&#34;createdBy&#34;</span>: <span style="color:#f1fa8c">&#34;user32&#34;</span>,
-    <span style="color:#ff79c6">&#34;lastChanged&#34;</span>: <span style="color:#f1fa8c">&#34;2019-03-07T23:59:49+01:00&#34;</span>,
-    <span style="color:#ff79c6">&#34;lastChangedBy&#34;</span>: <span style="color:#f1fa8c">&#34;user34&#34;</span>,
-    <span style="color:#ff79c6">&#34;dueBefore&#34;</span>: <span style="color:#f1fa8c">&#34;2019-06-10T00:00:00.00Z&#34;</span>,
-    <span style="color:#ff79c6">&#34;visibleAfter&#34;</span>: <span style="color:#ff79c6">null</span>,
-    <span style="color:#ff79c6">&#34;title&#34;</span>: {
-        <span style="color:#ff79c6">&#34;nb&#34;</span>: <span style="color:#f1fa8c">&#34;Færder påmelding 2019&#34;</span>,
-        <span style="color:#ff79c6">&#34;en&#34;</span>: <span style="color:#f1fa8c">&#34;Fearder Race Registration 2019&#34;</span>
-    },
-    <span style="color:#ff79c6">&#34;process&#34;</span>: {
-        <span style="color:#ff79c6">&#34;started&#34;</span>: <span style="color:#f1fa8c">&#34;2019-09-25T09:32:44.20Z&#34;</span>,
-        <span style="color:#ff79c6">&#34;currentTask&#34;</span>: {
-            <span style="color:#ff79c6">&#34;started&#34;</span>: <span style="color:#f1fa8c">&#34;2019-10-10T32:22.00Z&#34;</span>,
-            <span style="color:#ff79c6">&#34;elementId&#34;</span>: <span style="color:#f1fa8c">&#34;Data_1&#34;</span>,
-            <span style="color:#ff79c6">&#34;name&#34;</span>: <span style="color:#f1fa8c">&#34;Fyll ut&#34;</span>,
-            <span style="color:#ff79c6">&#34;altinnTaskType&#34;</span>: <span style="color:#f1fa8c">&#34;data&#34;</span>,
-            <span style="color:#ff79c6">&#34;validated&#34;</span>: {
-                <span style="color:#ff79c6">&#34;timestamp&#34;</span>: <span style="color:#f1fa8c">&#34;2019-10-04T12:00.00Z&#34;</span>,
-                <span style="color:#ff79c6">&#34;canCompleteTask&#34;</span>: <span style="color:#ff79c6">true</span>
-            }
-        }
-    },
-    <span style="color:#ff79c6">&#34;status&#34;</span>: {
-        <span style="color:#ff79c6">&#34;softDeleted&#34;</span>: <span style="color:#ff79c6">null</span>,
-        <span style="color:#ff79c6">&#34;archived&#34;</span>: <span style="color:#f1fa8c">&#34;2019-12-20T20:30:33.233Z&#34;</span>,
-        <span style="color:#ff79c6">&#34;hardDelete&#34;</span>: <span style="color:#ff79c6">null</span>,
-        <span style="color:#ff79c6">&#34;readStatus&#34;</span>: <span style="color:#f1fa8c">&#34;Read&#34;</span>,
-        <span style="color:#ff79c6">&#34;substatus&#34;</span>:{
-            <span style="color:#ff79c6">&#34;label&#34;</span>:<span style="color:#f1fa8c">&#34;substatus.accepted.label&#34;</span>,
-            <span style="color:#ff79c6">&#34;description&#34;</span>:<span style="color:#f1fa8c">&#34;substatus.accepted.description&#34;</span>
-        }
-    },
-    <span style="color:#ff79c6">&#34;data&#34;</span>: [
-        {
-            <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;692ee7df-82a9-4bba-b2f2-c8c4dac69aff&#34;</span>,
-            <span style="color:#ff79c6">&#34;dataType&#34;</span>: <span style="color:#f1fa8c">&#34;boatdata&#34;</span>,
-            <span style="color:#ff79c6">&#34;contentType&#34;</span>: <span style="color:#f1fa8c">&#34;application/json&#34;</span>,
-            <span style="color:#ff79c6">&#34;blobStoragePath&#34;</span>: <span style="color:#f1fa8c">&#34;test/sailor/60238/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff.json&#34;</span>,
-            <span style="color:#ff79c6">&#34;filename&#34;</span>: <span style="color:#f1fa8c">&#34;davidsyacht.json&#34;</span>,
-            <span style="color:#ff79c6">&#34;created&#34;</span>: <span style="color:#f1fa8c">&#34;2019-03-06T15:00:23+01:00&#34;</span>,
-            <span style="color:#ff79c6">&#34;createdBy&#34;</span>: <span style="color:#f1fa8c">&#34;XXX&#34;</span>,
-            <span style="color:#ff79c6">&#34;size&#34;</span>: <span style="color:#bd93f9">2003</span>,
-            <span style="color:#ff79c6">&#34;locked&#34;</span>: <span style="color:#ff79c6">true</span>
-        },
-        {
-            <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;999911d1-d341-4c0a-8641-d8a104e83d30&#34;</span>,
-            <span style="color:#ff79c6">&#34;dataType&#34;</span>: <span style="color:#f1fa8c">&#34;crewlist&#34;</span>,
-            <span style="color:#ff79c6">&#34;contentType&#34;</span>: <span style="color:#f1fa8c">&#34;text/xml&#34;</span>,
-            <span style="color:#ff79c6">&#34;blobStoragePath&#34;</span>: <span style="color:#f1fa8c">&#34;test/sailor/60238/762011d1-d341-4c0a-8641-d8a104e83d30/data/999911d1-d341-4c0a-8641-d8a104e83d30&#34;</span>,
-            <span style="color:#ff79c6">&#34;filename&#34;</span>: <span style="color:#f1fa8c">&#34;crewLIst.xml&#34;</span>,
-            <span style="color:#ff79c6">&#34;created&#34;</span>: <span style="color:#f1fa8c">&#34;2019-03-07T23:59:49+01:00&#34;</span>,
-            <span style="color:#ff79c6">&#34;createdBy&#34;</span>: <span style="color:#f1fa8c">&#34;XXX&#34;</span>,
-            <span style="color:#ff79c6">&#34;lastChanged&#34;</span>: <span style="color:#f1fa8c">&#34;2019-03-10T23:59:49+01:00&#34;</span>,
-            <span style="color:#ff79c6">&#34;lastChangedBy&#34;</span>: <span style="color:#f1fa8c">&#34;XXX&#34;</span>
-        }
-    ]
-}
-</code></pre></div><h3 id="instance-type">Instance type</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;60238/762011d1-d341-4c0a-8641-d8a104e83d30&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;appId&#34;</span>: <span style="color:#f1fa8c">&#34;test/sailor&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;org&#34;</span>: <span style="color:#f1fa8c">&#34;test&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;instanceOwner&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;partyId&#34;</span>: <span style="color:#f1fa8c">&#34;60238&#34;</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;created&#34;</span>: <span style="color:#f1fa8c">&#34;2019-03-06T13:46:48.6882148+01:00&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;createdBy&#34;</span>: <span style="color:#f1fa8c">&#34;user32&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;lastChanged&#34;</span>: <span style="color:#f1fa8c">&#34;2019-03-07T23:59:49+01:00&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;lastChangedBy&#34;</span>: <span style="color:#f1fa8c">&#34;user34&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;dueBefore&#34;</span>: <span style="color:#f1fa8c">&#34;2019-06-10T00:00:00.00Z&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;visibleAfter&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;title&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;nb&#34;</span>: <span style="color:#f1fa8c">&#34;Færder påmelding 2019&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;en&#34;</span>: <span style="color:#f1fa8c">&#34;Fearder Race Registration 2019&#34;</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;process&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;started&#34;</span>: <span style="color:#f1fa8c">&#34;2019-09-25T09:32:44.20Z&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;currentTask&#34;</span>: {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;started&#34;</span>: <span style="color:#f1fa8c">&#34;2019-10-10T32:22.00Z&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;elementId&#34;</span>: <span style="color:#f1fa8c">&#34;Data_1&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;name&#34;</span>: <span style="color:#f1fa8c">&#34;Fyll ut&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;altinnTaskType&#34;</span>: <span style="color:#f1fa8c">&#34;data&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;validated&#34;</span>: {
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">&#34;timestamp&#34;</span>: <span style="color:#f1fa8c">&#34;2019-10-04T12:00.00Z&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">&#34;canCompleteTask&#34;</span>: <span style="color:#ff79c6">true</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;status&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;softDeleted&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;archived&#34;</span>: <span style="color:#f1fa8c">&#34;2019-12-20T20:30:33.233Z&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;hardDelete&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;readStatus&#34;</span>: <span style="color:#f1fa8c">&#34;Read&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;substatus&#34;</span>:{
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;label&#34;</span>:<span style="color:#f1fa8c">&#34;substatus.accepted.label&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;description&#34;</span>:<span style="color:#f1fa8c">&#34;substatus.accepted.description&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;data&#34;</span>: [
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;692ee7df-82a9-4bba-b2f2-c8c4dac69aff&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;dataType&#34;</span>: <span style="color:#f1fa8c">&#34;boatdata&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;contentType&#34;</span>: <span style="color:#f1fa8c">&#34;application/json&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;blobStoragePath&#34;</span>: <span style="color:#f1fa8c">&#34;test/sailor/60238/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff.json&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;filename&#34;</span>: <span style="color:#f1fa8c">&#34;davidsyacht.json&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;created&#34;</span>: <span style="color:#f1fa8c">&#34;2019-03-06T15:00:23+01:00&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;createdBy&#34;</span>: <span style="color:#f1fa8c">&#34;XXX&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;size&#34;</span>: <span style="color:#bd93f9">2003</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;locked&#34;</span>: <span style="color:#ff79c6">true</span>
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;999911d1-d341-4c0a-8641-d8a104e83d30&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;dataType&#34;</span>: <span style="color:#f1fa8c">&#34;crewlist&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;contentType&#34;</span>: <span style="color:#f1fa8c">&#34;text/xml&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;blobStoragePath&#34;</span>: <span style="color:#f1fa8c">&#34;test/sailor/60238/762011d1-d341-4c0a-8641-d8a104e83d30/data/999911d1-d341-4c0a-8641-d8a104e83d30&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;filename&#34;</span>: <span style="color:#f1fa8c">&#34;crewLIst.xml&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;created&#34;</span>: <span style="color:#f1fa8c">&#34;2019-03-07T23:59:49+01:00&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;createdBy&#34;</span>: <span style="color:#f1fa8c">&#34;XXX&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;lastChanged&#34;</span>: <span style="color:#f1fa8c">&#34;2019-03-10T23:59:49+01:00&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;lastChangedBy&#34;</span>: <span style="color:#f1fa8c">&#34;XXX&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="instance-type">Instance type</h3>
 <table>
 <thead>
 <tr>
@@ -1387,85 +1387,85 @@ their own process as complete with regards to an instance.</p>
 <p>Create a new instance of an app for a given instance owner. 
 Post with query params that identifies the appId and the instance owner. 
 An instance object can be sent as json data to set certian values.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">POST /instances?appId=test/sailor
-{ &#34;instanceOwner&#34;: { &#34;partyId&#34;: &#34;60238&#34; }}
-</code></pre></div><p>Get information about one instance.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET /instances/{instanceId}
-</code></pre></div><p>Get (query) all instances that an instance owner has</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET /instances/{instanceOwnerPartyId}
-</code></pre></div><p>Query all instances of an application owner&rsquo;s organisation</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET /instances?org={org}
-</code></pre></div><p>Delete a specific instance (also deletes its data).</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">DELETE /instances/{instanceId}
-</code></pre></div><p>Update read status of an instance. UpdatedState can hold values: &ldquo;read&rdquo;, &ldquo;unread&rdquo;, &ldquo;updatedSinceLastReview&rdquo;</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">PUT /instances/{instanceId}/readstatus?status={updatedState}
-</code></pre></div><p>Update substatus of an instance.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">PUT /instances/{instanceId}/substatus
-</code></pre></div><h3 id="data-service">Data service</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>POST /instances?appId=test/sailor
+</span></span><span style="display:flex;"><span>{ &#34;instanceOwner&#34;: { &#34;partyId&#34;: &#34;60238&#34; }}
+</span></span></code></pre></div><p>Get information about one instance.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>GET /instances/{instanceId}
+</span></span></code></pre></div><p>Get (query) all instances that an instance owner has</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>GET /instances/{instanceOwnerPartyId}
+</span></span></code></pre></div><p>Query all instances of an application owner&rsquo;s organisation</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>GET /instances?org={org}
+</span></span></code></pre></div><p>Delete a specific instance (also deletes its data).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>DELETE /instances/{instanceId}
+</span></span></code></pre></div><p>Update read status of an instance. UpdatedState can hold values: &ldquo;read&rdquo;, &ldquo;unread&rdquo;, &ldquo;updatedSinceLastReview&rdquo;</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>PUT /instances/{instanceId}/readstatus?status={updatedState}
+</span></span></code></pre></div><p>Update substatus of an instance.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>PUT /instances/{instanceId}/substatus
+</span></span></code></pre></div><h3 id="data-service">Data service</h3>
 <p>A data element is a file that contains a specific form element of an instance.
 It may be structured file, e.g. json, xml, or it may be a binary file, e.g. pdf.
 The application metadata restricts the types of form elements that are allowed {dataType}.</p>
 <p>Get a specific data element</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET /instances/{instanceId}/data/{dataId}
-</code></pre></div><p>Post to create a specific data element. Content a file (as MultipartContent).
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>GET /instances/{instanceId}/data/{dataId}
+</span></span></code></pre></div><p>Post to create a specific data element. Content a file (as MultipartContent).
 After success the instance&rsquo;s data section is updated, with the appropriate dataId guid
 that is used to identify the specific data element</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">POST /instances/{instanceId}/data?dataType={dataType}
-</code></pre></div><p>Put to replace a specific data element. Delete to remove data element.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">PUT /instances/{instanceId}/data/{dataId}
-</code></pre></div><p>Notice that PDFs, such as receipts or simmilar, is handled the same way as data elements.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>POST /instances/{instanceId}/data?dataType={dataType}
+</span></span></code></pre></div><p>Put to replace a specific data element. Delete to remove data element.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>PUT /instances/{instanceId}/data/{dataId}
+</span></span></code></pre></div><p>Notice that PDFs, such as receipts or simmilar, is handled the same way as data elements.</p>
 <h2 id="application">Application</h2>
 <p>Application metadata used to validate data element types in instances. And to provide application events.</p>
 <p>Resource: /applications/test/sailor</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;test/sailor&#34;</span>,
-    <span style="color:#ff79c6">&#34;versionId&#34;</span>: <span style="color:#f1fa8c">&#34;v32.23-xyp&#34;</span>,
-    <span style="color:#ff79c6">&#34;org&#34;</span>: <span style="color:#f1fa8c">&#34;test&#34;</span>,
-    <span style="color:#ff79c6">&#34;app&#34;</span>: <span style="color:#f1fa8c">&#34;sailor&#34;</span>,
-    <span style="color:#ff79c6">&#34;created&#34;</span>: <span style="color:#f1fa8c">&#34;2019-03-06T13:46:48.6882148+01:00&#34;</span>,
-    <span style="color:#ff79c6">&#34;createdBy&#34;</span>: <span style="color:#f1fa8c">&#34;XXX&#34;</span>,
-    <span style="color:#ff79c6">&#34;title&#34;</span>: { <span style="color:#ff79c6">&#34;nb&#34;</span>: <span style="color:#f1fa8c">&#34;Testapplikasjon&#34;</span>, <span style="color:#ff79c6">&#34;en&#34;</span>: <span style="color:#f1fa8c">&#34;Test Application&#34;</span> },
-    <span style="color:#ff79c6">&#34;processId&#34;</span>: <span style="color:#f1fa8c">&#34;standard&#34;</span>,
-    <span style="color:#ff79c6">&#34;validFrom&#34;</span>: <span style="color:#f1fa8c">&#34;2019-04-01T12:14:22+01:00&#34;</span>,
-    <span style="color:#ff79c6">&#34;validTo&#34;</span>: <span style="color:#ff79c6">null</span>,
-    <span style="color:#ff79c6">&#34;maxSize&#34;</span>: <span style="color:#ff79c6">null</span>,
-    <span style="color:#ff79c6">&#34;dataTypes&#34;</span>: [
-        {
-            <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;boatdata&#34;</span>,
-            <span style="color:#ff79c6">&#34;description&#34;</span>: {<span style="color:#ff79c6">&#34;nb&#34;</span>: <span style="color:#f1fa8c">&#34;Båtdata&#34;</span>, <span style="color:#ff79c6">&#34;en&#34;</span>: <span style="color:#f1fa8c">&#34;Boat data&#34;</span>},
-            <span style="color:#ff79c6">&#34;allowedContentTypes&#34;</span>: [<span style="color:#f1fa8c">&#34;application/json&#34;</span>],
-            <span style="color:#ff79c6">&#34;taskId&#34;</span>: <span style="color:#f1fa8c">&#34;Task_1&#34;</span>,
-            <span style="color:#ff79c6">&#34;appLogic&#34;</span>: {
-                <span style="color:#ff79c6">&#34;autoCreate&#34;</span>: <span style="color:#ff79c6">true</span>,
-                <span style="color:#ff79c6">&#34;classRef&#34;</span>: <span style="color:#f1fa8c">&#34;Skjema&#34;</span>,
-                <span style="color:#ff79c6">&#34;schemaRef&#34;</span>: <span style="color:#f1fa8c">&#34;schemas/boatname&#34;</span>
-            },
-            <span style="color:#ff79c6">&#34;maxSize&#34;</span>: <span style="color:#bd93f9">200000</span>,
-            <span style="color:#ff79c6">&#34;maxCount&#34;</span>: <span style="color:#bd93f9">1</span>
-        },
-        {
-            <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;crewlist&#34;</span>,
-            <span style="color:#ff79c6">&#34;allowedContentTypes&#34;</span>: [<span style="color:#f1fa8c">&#34;application/xml&#34;</span>],
-            <span style="color:#ff79c6">&#34;taskId&#34;</span>: <span style="color:#f1fa8c">&#34;Task_2&#34;</span>,
-            <span style="color:#ff79c6">&#34;appLogic&#34;</span>: {
-                <span style="color:#ff79c6">&#34;autoCreate&#34;</span>: <span style="color:#ff79c6">false</span>,
-                <span style="color:#ff79c6">&#34;classRef&#34;</span>: <span style="color:#f1fa8c">&#34;CrewList&#34;</span>,
-                <span style="color:#ff79c6">&#34;schemaRef&#34;</span>: <span style="color:#f1fa8c">&#34;schemas/crewlist&#34;</span>
-            },
-            <span style="color:#ff79c6">&#34;maxSize&#34;</span>: <span style="color:#ff79c6">null</span>,
-            <span style="color:#ff79c6">&#34;minCount&#34;</span>: <span style="color:#bd93f9">1</span>,
-            <span style="color:#ff79c6">&#34;maxCount&#34;</span>: <span style="color:#bd93f9">3</span>
-        },
-        {
-            <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;certificate&#34;</span>,
-            <span style="color:#ff79c6">&#34;allowedContentType&#34;</span>: [<span style="color:#f1fa8c">&#34;application/pdf&#34;</span>],
-            <span style="color:#ff79c6">&#34;appLogic&#34;</span>: <span style="color:#ff79c6">null</span>,
-            <span style="color:#ff79c6">&#34;maxSize&#34;</span>: <span style="color:#ff79c6">null</span>,
-            <span style="color:#ff79c6">&#34;maxCount&#34;</span>: <span style="color:#bd93f9">1</span>
-        }
-    ]
-}
-</code></pre></div><h3 id="application-type">Application type</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;test/sailor&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;versionId&#34;</span>: <span style="color:#f1fa8c">&#34;v32.23-xyp&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;org&#34;</span>: <span style="color:#f1fa8c">&#34;test&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;app&#34;</span>: <span style="color:#f1fa8c">&#34;sailor&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;created&#34;</span>: <span style="color:#f1fa8c">&#34;2019-03-06T13:46:48.6882148+01:00&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;createdBy&#34;</span>: <span style="color:#f1fa8c">&#34;XXX&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;title&#34;</span>: { <span style="color:#ff79c6">&#34;nb&#34;</span>: <span style="color:#f1fa8c">&#34;Testapplikasjon&#34;</span>, <span style="color:#ff79c6">&#34;en&#34;</span>: <span style="color:#f1fa8c">&#34;Test Application&#34;</span> },
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;processId&#34;</span>: <span style="color:#f1fa8c">&#34;standard&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;validFrom&#34;</span>: <span style="color:#f1fa8c">&#34;2019-04-01T12:14:22+01:00&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;validTo&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;maxSize&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;dataTypes&#34;</span>: [
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;boatdata&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;description&#34;</span>: {<span style="color:#ff79c6">&#34;nb&#34;</span>: <span style="color:#f1fa8c">&#34;Båtdata&#34;</span>, <span style="color:#ff79c6">&#34;en&#34;</span>: <span style="color:#f1fa8c">&#34;Boat data&#34;</span>},
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;allowedContentTypes&#34;</span>: [<span style="color:#f1fa8c">&#34;application/json&#34;</span>],
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;taskId&#34;</span>: <span style="color:#f1fa8c">&#34;Task_1&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;appLogic&#34;</span>: {
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">&#34;autoCreate&#34;</span>: <span style="color:#ff79c6">true</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">&#34;classRef&#34;</span>: <span style="color:#f1fa8c">&#34;Skjema&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">&#34;schemaRef&#34;</span>: <span style="color:#f1fa8c">&#34;schemas/boatname&#34;</span>
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;maxSize&#34;</span>: <span style="color:#bd93f9">200000</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;maxCount&#34;</span>: <span style="color:#bd93f9">1</span>
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;crewlist&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;allowedContentTypes&#34;</span>: [<span style="color:#f1fa8c">&#34;application/xml&#34;</span>],
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;taskId&#34;</span>: <span style="color:#f1fa8c">&#34;Task_2&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;appLogic&#34;</span>: {
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">&#34;autoCreate&#34;</span>: <span style="color:#ff79c6">false</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">&#34;classRef&#34;</span>: <span style="color:#f1fa8c">&#34;CrewList&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">&#34;schemaRef&#34;</span>: <span style="color:#f1fa8c">&#34;schemas/crewlist&#34;</span>
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;maxSize&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;minCount&#34;</span>: <span style="color:#bd93f9">1</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;maxCount&#34;</span>: <span style="color:#bd93f9">3</span>
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;certificate&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;allowedContentType&#34;</span>: [<span style="color:#f1fa8c">&#34;application/pdf&#34;</span>],
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;appLogic&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;maxSize&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;maxCount&#34;</span>: <span style="color:#bd93f9">1</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="application-type">Application type</h3>
 <table>
 <thead>
 <tr>
@@ -1576,16 +1576,16 @@ that is used to identify the specific data element</p>
 </tbody>
 </table>
 <h4 id="example">Example</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;receipt&#34;</span>,
-    <span style="color:#ff79c6">&#34;allowedContentTypes&#34;</span>: [<span style="color:#f1fa8c">&#34;image/jpeg&#34;</span>, <span style="color:#f1fa8c">&#34;image/png&#34;</span>],
-    <span style="color:#ff79c6">&#34;taskId&#34;</span>: <span style="color:#f1fa8c">&#34;Task_1&#34;</span>,
-    <span style="color:#ff79c6">&#34;appLogic&#34;</span>: <span style="color:#ff79c6">null</span>,
-    <span style="color:#ff79c6">&#34;maxSize&#34;</span>: <span style="color:#bd93f9">20</span>,
-    <span style="color:#ff79c6">&#34;minCount&#34;</span>: <span style="color:#bd93f9">1</span>,
-    <span style="color:#ff79c6">&#34;maxCount&#34;</span>: <span style="color:#bd93f9">3</span>
-}
-</code></pre></div><p>In order to complete process task <strong>Task_1</strong> the user must upload at least one image. It can be either a jpg or png below 20 MB. The user is allowed to upload additional 2 images. The application does not have any business logic associated with the data type.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;receipt&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;allowedContentTypes&#34;</span>: [<span style="color:#f1fa8c">&#34;image/jpeg&#34;</span>, <span style="color:#f1fa8c">&#34;image/png&#34;</span>],
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;taskId&#34;</span>: <span style="color:#f1fa8c">&#34;Task_1&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;appLogic&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;maxSize&#34;</span>: <span style="color:#bd93f9">20</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;minCount&#34;</span>: <span style="color:#bd93f9">1</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;maxCount&#34;</span>: <span style="color:#bd93f9">3</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>In order to complete process task <strong>Task_1</strong> the user must upload at least one image. It can be either a jpg or png below 20 MB. The user is allowed to upload additional 2 images. The application does not have any business logic associated with the data type.</p>
 <h3 id="applicationlogic">ApplicationLogic</h3>
 <p>The ApplicationLogic model describes the connection between a data type and a corresponding data model in the application. This is required for all data types associated with an XSD or JSON Schema. In most cases it also implies that there is a UI with a form the user can fill in.</p>
 <table>
@@ -1616,28 +1616,28 @@ that is used to identify the specific data element</p>
 </table>
 <h3 id="operations-1">Operations</h3>
 <p>Get a list of all Applications</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET /applications
-</code></pre></div><p>Get metadata about a specific application</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET /applications/{appId}
-</code></pre></div><p>Get application events.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET /applications/{appId}/events
-</code></pre></div><h2 id="instanceevent">InstanceEvent</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>GET /applications
+</span></span></code></pre></div><p>Get metadata about a specific application</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>GET /applications/{appId}
+</span></span></code></pre></div><p>Get application events.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>GET /applications/{appId}/events
+</span></span></code></pre></div><h2 id="instanceevent">InstanceEvent</h2>
 <p>User actions on an instance trigger instance events such as <em>created</em>, <em>saved</em>, _submitted, <em>deleted</em>, and <em>undeleted</em>.
 The events are associated with an instance, a user and an instance owner and generated by the application and stored in CosmosDB.</p>
 <p>Format of the JSON object stored in the database.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-    <span style="color:#ff79c6">&#34;id&#34;</span>:<span style="color:#f1fa8c">&#34;6dff32bc-0928-4ae8-937c-b362d6941c89&#34;</span>,
-    <span style="color:#ff79c6">&#34;instanceId&#34;</span>: <span style="color:#f1fa8c">&#34;60238/5c6b1a71-2e1f-447a-ae2f-d1807dcffbfb&#34;</span>,
-    <span style="color:#ff79c6">&#34;eventType&#34;</span>: <span style="color:#f1fa8c">&#34;deleted&#34;</span>,
-    <span style="color:#ff79c6">&#34;created&#34;</span>: <span style="color:#f1fa8c">&#34;2019-05-02T13:08:21.981476Z&#34;</span>,
-    <span style="color:#ff79c6">&#34;instanceOwnerPartyId&#34;</span>: <span style="color:#f1fa8c">&#34;60238&#34;</span>,
-    <span style="color:#ff79c6">&#34;user&#34;</span>: {
-        <span style="color:#ff79c6">&#34;userId&#34;</span>: <span style="color:#bd93f9">3</span>,
-        <span style="color:#ff79c6">&#34;authenticationLevel&#34;</span>: <span style="color:#bd93f9">1</span>,
-        <span style="color:#ff79c6">&#34;enduserSystemId&#34;</span>: <span style="color:#bd93f9">2</span>
-    }
-}
-</code></pre></div><h3 id="instance-event-type">Instance Event type</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;id&#34;</span>:<span style="color:#f1fa8c">&#34;6dff32bc-0928-4ae8-937c-b362d6941c89&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;instanceId&#34;</span>: <span style="color:#f1fa8c">&#34;60238/5c6b1a71-2e1f-447a-ae2f-d1807dcffbfb&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;eventType&#34;</span>: <span style="color:#f1fa8c">&#34;deleted&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;created&#34;</span>: <span style="color:#f1fa8c">&#34;2019-05-02T13:08:21.981476Z&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;instanceOwnerPartyId&#34;</span>: <span style="color:#f1fa8c">&#34;60238&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;user&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;userId&#34;</span>: <span style="color:#bd93f9">3</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;authenticationLevel&#34;</span>: <span style="color:#bd93f9">1</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;enduserSystemId&#34;</span>: <span style="color:#bd93f9">2</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="instance-event-type">Instance Event type</h3>
 <table>
 <thead>
 <tr>
@@ -1700,22 +1700,22 @@ The events are associated with an instance, a user and an instance owner and gen
 </tbody>
 </table>
 <h3 id="operations-2">Operations</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET /instances/{instanceId}/events
-</code></pre></div><p>Create an event. POST with body. 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>GET /instances/{instanceId}/events
+</span></span></code></pre></div><p>Create an event. POST with body. 
 <strong>Note</strong> id and createDateTime is set by the system and should not be included in the json object.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">POST /instances/{instanceId}/events
-</code></pre></div><p>Get all instance events for a specific instance.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET /instances/{instanceId}/events
-</code></pre></div><p>Get all instance events for a specific instance filtered by event types</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET /instances/{instanceId}/events?eventTypes={eventTypeA},{eventTypeB}
-</code></pre></div><p>Get all instance events for a specific instance within a time frame
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>POST /instances/{instanceId}/events
+</span></span></code></pre></div><p>Get all instance events for a specific instance.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>GET /instances/{instanceId}/events
+</span></span></code></pre></div><p>Get all instance events for a specific instance filtered by event types</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>GET /instances/{instanceId}/events?eventTypes={eventTypeA},{eventTypeB}
+</span></span></code></pre></div><p>Get all instance events for a specific instance within a time frame
 The times are strings defined in UTC-format. E.g. &ldquo;2019-05-03T12:55:23&rdquo;</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET /instances/{instanceId}/events?from={fromtime}&amp;to={totime}
-</code></pre></div><p>Get all instance events for a specific instance within a time frame filtered by event types</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET /instances/{instanceId}/events?from={fromtime}&amp;to={totime}&amp;eventTypes={eventTypeA},{eventTypeB}
-</code></pre></div><p>Delete all instance events for a specific instance. DELETE request.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">DELETE /instances/{instanceId}/events
-</code></pre></div><h2 id="messageboxinstance">MessageBoxInstance</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>GET /instances/{instanceId}/events?from={fromtime}&amp;to={totime}
+</span></span></code></pre></div><p>Get all instance events for a specific instance within a time frame filtered by event types</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>GET /instances/{instanceId}/events?from={fromtime}&amp;to={totime}&amp;eventTypes={eventTypeA},{eventTypeB}
+</span></span></code></pre></div><p>Delete all instance events for a specific instance. DELETE request.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>DELETE /instances/{instanceId}/events
+</span></span></code></pre></div><h2 id="messageboxinstance">MessageBoxInstance</h2>
 <p>A message box instance is a compressed instance object stripped for data that is
 not relevant for the Altinn II message box. In addition some properties from the application
 metadata such as application title are included in the object.</p>
@@ -1804,20 +1804,20 @@ metadata such as application title are included in the object.</p>
 <h3 id="operations-3">Operations</h3>
 <p>Get a single instance in message box instance format in (optional) preffered language. Default lanugage is norsk bokmål (nb).
 Available language specifications: en, nb, nn-NO.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET /sbl/instances/{instanceOwnerPartyId}/{instanceId}?language={languageId}
-</code></pre></div><p>Get list of all instances for an instance owner in a specific state, with a visible dateTime that has passed and (optional) preffered language.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>GET /sbl/instances/{instanceOwnerPartyId}/{instanceId}?language={languageId}
+</span></span></code></pre></div><p>Get list of all instances for an instance owner in a specific state, with a visible dateTime that has passed and (optional) preffered language.
 Available states: active, deleted, archived.
 Available language specifications: en, nb, nn-NO.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET /sbl/instances/{instanceOwnerPartyId}?state={instanceState}&amp;language={languageId}
-</code></pre></div><p>Search instances based on query parameters
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>GET /sbl/instances/{instanceOwnerPartyId}?state={instanceState}&amp;language={languageId}
+</span></span></code></pre></div><p>Search instances based on query parameters
 All query parameters are optional.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET /sbl/instances/search?instanceOwner.partyId={instanceOwnerPartyId}&amp;language={languageId}&amp;appId={applicationId}
-</code></pre></div><p>Mark an instance for deletion in storage. Set parameter hard equal to true or false to indicate soft or hard deletion.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>GET /sbl/instances/search?instanceOwner.partyId={instanceOwnerPartyId}&amp;language={languageId}&amp;appId={applicationId}
+</span></span></code></pre></div><p>Mark an instance for deletion in storage. Set parameter hard equal to true or false to indicate soft or hard deletion.
 Calling this endpoint will not the delete the instance from Storage, simply mark is as deleted.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">DELETE /sbl/instances/{instanceOwnerPartyId}/{instanceId}?hard={true/false}
-</code></pre></div><p>Restore a soft deleted instance.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">PUT /sbl/instances/{instanceOwnerPartyId}/{instanceId}/undelete
-</code></pre></div><h2 id="processhistory">ProcessHistory</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>DELETE /sbl/instances/{instanceOwnerPartyId}/{instanceId}?hard={true/false}
+</span></span></code></pre></div><p>Restore a soft deleted instance.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>PUT /sbl/instances/{instanceOwnerPartyId}/{instanceId}/undelete
+</span></span></code></pre></div><h2 id="processhistory">ProcessHistory</h2>
 <p>The process history is a list comprised of process history events for a given instance.</p>
 <h3 id="processhistoryitem-type">ProcessHistoryItem type</h3>
 <table>
@@ -1858,8 +1858,8 @@ Calling this endpoint will not the delete the instance from Storage, simply mark
 </table>
 <h3 id="operations-4">Operations</h3>
 <p>Get process history for a given instance</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET /instances/{instanceOwnerPartyId}/{instanceId}/process/history
-</code></pre></div><h2 id="texts">Texts</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>GET /instances/{instanceOwnerPartyId}/{instanceId}/process/history
+</span></span></code></pre></div><h2 id="texts">Texts</h2>
 <p>Represents text resources for an application.</p>
 <h3 id="text-type">Text type</h3>
 <table>
@@ -1895,25 +1895,25 @@ Calling this endpoint will not the delete the instance from Storage, simply mark
 </table>
 <p>The <code>id</code> and <code>org</code> fields are generated by the system, and should not be included when using POST the text resource object.
 Example of an text element that should be sent during a POST:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-    <span style="color:#ff79c6">&#34;language&#34;</span>: <span style="color:#f1fa8c">&#34;nb&#34;</span>,
-    <span style="color:#ff79c6">&#34;resources:&#34;</span>: [
-        {<span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;some_id&#34;</span>, <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;some value&#34;</span>},
-        {<span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;some_other_id&#34;</span>, <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;some other value&#34;</span>},
-        {<span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;yet_another_id&#34;</span>, <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;Text containing two variables: {0} and {1}.&#34;</span>,
-         <span style="color:#ff79c6">&#34;variables&#34;</span>:[
-            {
-            <span style="color:#ff79c6">&#34;key&#34;</span>: <span style="color:#f1fa8c">&#34;dataSouce.TextKey_1&#34;</span>,
-            <span style="color:#ff79c6">&#34;dataSource&#34;</span>: <span style="color:#f1fa8c">&#34;dataModel.dataModelName&#34;</span>
-            },
-            {
-            <span style="color:#ff79c6">&#34;key&#34;</span>: <span style="color:#f1fa8c">&#34;dataSouce.TextKey_2&#34;</span>,
-            <span style="color:#ff79c6">&#34;dataSource&#34;</span>: <span style="color:#f1fa8c">&#34;dataModel.dataModelName&#34;</span>
-            }]
-        }
-    ]
-}
-</code></pre></div><h3 id="textresource-type">TextResource type</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;language&#34;</span>: <span style="color:#f1fa8c">&#34;nb&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;resources:&#34;</span>: [
+</span></span><span style="display:flex;"><span>        {<span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;some_id&#34;</span>, <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;some value&#34;</span>},
+</span></span><span style="display:flex;"><span>        {<span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;some_other_id&#34;</span>, <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;some other value&#34;</span>},
+</span></span><span style="display:flex;"><span>        {<span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;yet_another_id&#34;</span>, <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;Text containing two variables: {0} and {1}.&#34;</span>,
+</span></span><span style="display:flex;"><span>         <span style="color:#ff79c6">&#34;variables&#34;</span>:[
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;key&#34;</span>: <span style="color:#f1fa8c">&#34;dataSouce.TextKey_1&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;dataSource&#34;</span>: <span style="color:#f1fa8c">&#34;dataModel.dataModelName&#34;</span>
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;key&#34;</span>: <span style="color:#f1fa8c">&#34;dataSouce.TextKey_2&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;dataSource&#34;</span>: <span style="color:#f1fa8c">&#34;dataModel.dataModelName&#34;</span>
+</span></span><span style="display:flex;"><span>            }]
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="textresource-type">TextResource type</h3>
 <table>
 <thead>
 <tr>
@@ -1964,14 +1964,14 @@ Example of an text element that should be sent during a POST:</p>
 </table>
 <h3 id="operations-5">Operations</h3>
 <p>Create a new text resource for an application.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">POST /applications/{appId}/texts
-</code></pre></div><p>Get a specific text resource for an application.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET /applications/{appId}/texts/{language}
-</code></pre></div><p>Update a specific text resource for an application.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">PUT /applications/{appId}/texts/{language}
-</code></pre></div><p>Delete a specific text resource for an application.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">DELETE /applications/{appId}/texts/{language}
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>POST /applications/{appId}/texts
+</span></span></code></pre></div><p>Get a specific text resource for an application.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>GET /applications/{appId}/texts/{language}
+</span></span></code></pre></div><p>Update a specific text resource for an application.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>PUT /applications/{appId}/texts/{language}
+</span></span></code></pre></div><p>Delete a specific text resource for an application.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>DELETE /applications/{appId}/texts/{language}
+</span></span></code></pre></div>
 
 <footer class=" footline" ></footer>
                 </div>

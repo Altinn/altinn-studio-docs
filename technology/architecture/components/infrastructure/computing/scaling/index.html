@@ -109,7 +109,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -209,7 +209,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -281,7 +281,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -1120,22 +1120,22 @@ the resources allocatable when used in AKS. This information is important to not
 <p>In Kubernetes, it is possible to set resource limitations for each pod deployed to a Kubernetes cluster.
 In addition, we can define the number of minimum resources required for the pod.</p>
 <p>. Below there is a general example where the minimum CPU is set to 100milliCPU and maximum to 250milliCPU.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">kind: Pod
-apiVersion: v1
-metadata:   
-  name: mypod
-spec:
-  containers:
-  - name: mypod
-    image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
-    resources:
-      requests:
-        cpu: 100m
-        memory: 128Mi
-      limits:
-        cpu: 250m
-        memory: 256Mi
-</code></pre></div><p>Read about best practice for <a href="https://docs.microsoft.com/en-us/azure/aks/developer-best-practices-resource-management">managing resources in Azure Kubernetes Services</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>kind: Pod
+</span></span><span style="display:flex;"><span>apiVersion: v1
+</span></span><span style="display:flex;"><span>metadata:   
+</span></span><span style="display:flex;"><span>  name: mypod
+</span></span><span style="display:flex;"><span>spec:
+</span></span><span style="display:flex;"><span>  containers:
+</span></span><span style="display:flex;"><span>  - name: mypod
+</span></span><span style="display:flex;"><span>    image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
+</span></span><span style="display:flex;"><span>    resources:
+</span></span><span style="display:flex;"><span>      requests:
+</span></span><span style="display:flex;"><span>        cpu: 100m
+</span></span><span style="display:flex;"><span>        memory: 128Mi
+</span></span><span style="display:flex;"><span>      limits:
+</span></span><span style="display:flex;"><span>        cpu: 250m
+</span></span><span style="display:flex;"><span>        memory: 256Mi
+</span></span></code></pre></div><p>Read about best practice for <a href="https://docs.microsoft.com/en-us/azure/aks/developer-best-practices-resource-management">managing resources in Azure Kubernetes Services</a></p>
 <h3 id="scaling-org-clusters">Scaling org clusters</h3>
 <p>There are currently <a href="https://www.altinn.no/en/about-altinn/the-altinn-co-operation/">more than 50 orgs</a> hosting digital services 
 in the Altinn 2 platform.</p>

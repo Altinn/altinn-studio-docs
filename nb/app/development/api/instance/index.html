@@ -381,13 +381,13 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/metadata/"><span>Metadata</span></a></li>
       <li class="dd-item">
         <a href="/nb/api/apps/instances/"><span>Instanser</span></a></li>
       <li class="dd-item">
-        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/data-elements/tags/"><span>Tags</span></a></li></ul></li>
       <li class="dd-item">
@@ -441,9 +441,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/community/about/"><span>Om</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/community/about/goals/"><span>Mål</span></a></li>
+        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li>
       <li class="dd-item">
-        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li></ul></li>
+        <a href="/nb/community/about/goals/"><span>Mål</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/community/contributing/"><span>Bidra til utvikling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -576,16 +576,16 @@ Substatus vil vises frem både i meldingsboksen i Altinn og på kvitteringssiden
 Substatus er et enkelt objekt som inneholder <code>label</code> og <code>description</code>. Disse feltene kan enten inneholde ren tekst, eller en tekstnøkkel som referer til applikasjonstekstene. Verdt å merke seg at vi ikke støtter variabler i tekst for disse tekstene.
 I meldingsboksen er det satt en begrensning på 25 tegn på <code>label</code>, og inneholder label mer enn 25 tegn vil bare de 22 første tegnene bli brukt og &ldquo;&hellip;&rdquo; lagt til på slutten.</p>
 <p>Eksempel på et substatus-objekt:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-    <span style="color:#ff79c6">&#34;label&#34;</span>: <span style="color:#f1fa8c">&#34;some.label&#34;</span>,
-    <span style="color:#ff79c6">&#34;description&#34;</span>: <span style="color:#f1fa8c">&#34;Beskrivelse i klarteskst&#34;</span>
-}
-</code></pre></div><p>Under ser du du eksempler på hvordan substatus ser ut i meldingsboksen og i kvitteringen hvor substatusen er satt opp på følgende måte:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-    <span style="color:#ff79c6">&#34;label&#34;</span>: <span style="color:#f1fa8c">&#34;Godkjent&#34;</span>,
-    <span style="color:#ff79c6">&#34;description&#34;</span>: <span style="color:#f1fa8c">&#34;Din søknad er godkjent av kongen.&#34;</span>
-}
-</code></pre></div><figure><a href="meldingsboks.png"><img src="meldingsboks.png" alt="Substatus i meldingsboks" title="Substatus i meldingsboks" /></a><figcaption><h4>Substatus i meldingsboks</h4></figcaption></figure>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;label&#34;</span>: <span style="color:#f1fa8c">&#34;some.label&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;description&#34;</span>: <span style="color:#f1fa8c">&#34;Beskrivelse i klarteskst&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Under ser du du eksempler på hvordan substatus ser ut i meldingsboksen og i kvitteringen hvor substatusen er satt opp på følgende måte:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;label&#34;</span>: <span style="color:#f1fa8c">&#34;Godkjent&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;description&#34;</span>: <span style="color:#f1fa8c">&#34;Din søknad er godkjent av kongen.&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><figure><a href="meldingsboks.png"><img src="meldingsboks.png" alt="Substatus i meldingsboks" title="Substatus i meldingsboks" /></a><figcaption><h4>Substatus i meldingsboks</h4></figcaption></figure>
 <figure><a href="app.png"><img src="app.png" alt="Substatus i kvitteringen" title="Substatus i kvitteringen" /></a><figcaption><h4>Substatus i kvitteringen</h4></figcaption></figure>
 <h2 id="automatisert-sletting-av-utkast">Automatisert sletting av utkast</h2>
 <p>Som applikasjonseier kan man i noen tilfeller ønske å slette sluttbrukerens utkast av en tjeneste dersom det har gått en viss tid siden instansiering. 

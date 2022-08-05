@@ -381,13 +381,13 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/metadata/"><span>Metadata</span></a></li>
       <li class="dd-item">
         <a href="/nb/api/apps/instances/"><span>Instanser</span></a></li>
       <li class="dd-item">
-        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/data-elements/tags/"><span>Tags</span></a></li></ul></li>
       <li class="dd-item">
@@ -441,9 +441,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/community/about/"><span>Om</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/community/about/goals/"><span>Mål</span></a></li>
+        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li>
       <li class="dd-item">
-        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li></ul></li>
+        <a href="/nb/community/about/goals/"><span>Mål</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/community/contributing/"><span>Bidra til utvikling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -592,7 +592,7 @@ if(host != "localhost")
 <h2 id="modul-1---forståelsessjekk-laste-opp-datamodell">Modul 1 - Forståelsessjekk: Laste opp datamodell</h2>
 <h3 id="hvilken-data-er-det-tjenesteeier-ønsker-å-samle-inn-her">Hvilken data er det tjenesteeier ønsker å samle inn her?</h3>
 <p>Datamodellen består av ett hovedelement: innflytter.
-Dette elementet består igjen av en del underobjekter som_Fornavn_, _Etternavn_, og _Mellomnavn_. I tillegg er det noen sammensatte elementer som _Adresse_,_Kontaktinformasjon_ og _Arbeidsinformasjon_.</p>
+Dette elementet består igjen av en del underobjekter som_Fornavn_, <em>Etternavn</em>, og <em>Mellomnavn</em>. I tillegg er det noen sammensatte elementer som <em>Adresse</em>,<em>Kontaktinformasjon</em> og <em>Arbeidsinformasjon</em>.</p>
 <h3 id="hvilken-effekt-har-minoccurs-i-datamodellen-du-vil-se-at-feltet-har-ulik-verdi-for-_inflytterfornavn_-og-_inflyttermellomnavn_">Hvilken effekt har <strong>&lt;minOccurs&gt;</strong> i datamodellen? Du vil se at feltet har ulik verdi for <em>Inflytter.Fornavn</em> og <em>Inflytter.Mellomnavn</em></h3>
 <p>minOccurs_ sier noe om hvor mange ganger objektet minst må ære nevnt.</p>
 <p><code>minOccurs = 0</code> vil si at feltet ikke er påkrevd,
@@ -626,28 +626,28 @@ Raskeste veien til mål er ofte å søke etter navnet på feltet som komponenten
 <h3 id="ved-å-endre-én-linje-i-_formlayoutjson_-er-det-mulig-å-endre-komponenten-knyttet-til-mellomnavn-til-et-input-felt-for-et-langt-svar-hvilken-endring-kreves">Ved å endre én linje i <em>FormLayout.json</em> er det mulig å endre komponenten knyttet til mellomnavn til et input felt for et langt svar. Hvilken endring kreves?</h3>
 <p>Løsningen er å endre <code>type</code>-feltet fra <em>Input</em> til <em>TextArea</em>
 som vist nedenfor.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;mellomnavn&#34;</span>,
-  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;TextArea&#34;</span>,
-  <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
-    <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;innflytter.mellomnavn&#34;</span>
-  },
-  <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {
-    <span style="color:#ff79c6">&#34;simpleBinding&#34;</span>: <span style="color:#f1fa8c">&#34;Innflytter.Mellomnavn&#34;</span>
-  },
-  <span style="color:#ff79c6">&#34;required&#34;</span>: <span style="color:#ff79c6">true</span>,
-  <span style="color:#ff79c6">&#34;readOnly&#34;</span>: <span style="color:#ff79c6">false</span>
-},
-</code></pre></div><h2 id="modul-1---forståelsessjekk-redigere-tekster">Modul 1 - Forståelsessjekk: Redigere tekster</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;mellomnavn&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;TextArea&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;innflytter.mellomnavn&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;simpleBinding&#34;</span>: <span style="color:#f1fa8c">&#34;Innflytter.Mellomnavn&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;required&#34;</span>: <span style="color:#ff79c6">true</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;readOnly&#34;</span>: <span style="color:#ff79c6">false</span>
+</span></span><span style="display:flex;"><span>},
+</span></span></code></pre></div><h2 id="modul-1---forståelsessjekk-redigere-tekster">Modul 1 - Forståelsessjekk: Redigere tekster</h2>
 <h3 id="hvordan-får-du-inn-engelsk-språkstøtte-i-applikasjonen">Hvordan får du inn engelsk språkstøtte i applikasjonen?</h3>
 <p>For alle nye repoer vil <em>resources.nb.json</em> autogenereresmappen <em>config/texts</em>.
 For å få støtte for engelsk i en applikasjon må file_resources.en.json_ opprettes.
-Merk at language popertyen øverst i filen må settes til **en**.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-<span style="color:#ff79c6">&#34;language&#34;</span>: <span style="color:#f1fa8c">&#34;en&#34;</span>,
-<span style="color:#ff79c6">&#34;resources&#34;</span>: []
-}
-</code></pre></div><h3 id="hvis-vi-en-dag-skal-støtte-ukrainsk-hvilken-språkkode-vil-du-da-måtte-annotere-filen-med">Hvis vi en dag skal støtte Ukrainsk, hvilken språkkode vil du da måtte annotere filen med?</h3>
+Merk at language popertyen øverst i filen må settes til <strong>en</strong>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&#34;language&#34;</span>: <span style="color:#f1fa8c">&#34;en&#34;</span>,
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&#34;resources&#34;</span>: []
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="hvis-vi-en-dag-skal-støtte-ukrainsk-hvilken-språkkode-vil-du-da-måtte-annotere-filen-med">Hvis vi en dag skal støtte Ukrainsk, hvilken språkkode vil du da måtte annotere filen med?</h3>
 <p>Ifølge <a href="https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes">listen over ISO 639-1 koder</a> så er koden for ukrainsk <code>uk</code>.</p>
 <h3 id="hvis-en-tekstnøkkel-refert-til-i-formlayourjson-ikke-finnes-i-tekstressursene-hva-vil-vises-da">Hvis en tekstnøkkel refert til i FormLayour.json ikke finnes i tekstressursene, hva vil vises da?</h3>
 <p>Hvis nevnte tekstnøkkel ikke finnes i tekstressursfilen vil tekstnøkkelen vises i stedet.</p>
@@ -676,29 +676,29 @@ Merk at language popertyen øverst i filen må settes til **en**.</p>
 <h3 id="ikke-alle-norske-innbyggere-har-et-personnr-noen-får-tildelt-et-d-nummerhttpsjusleksikonnowikifc3b8dselsnummerd-nummer-hvordan-må-koden-din-justeres-for-å-ta-hensyn-til-dette-dersom-alder-skal-baseres-på-et-f-nr-eller-d-nr-som-sluttbruker-selv-taster-inn">Ikke alle norske innbyggere har et personnr, noen får tildelt et <a href="https://jusleksikon.no/wiki/F%C3%B8dselsnummer#D-nummer">D-nummer</a>. Hvordan må koden din justeres for å ta hensyn til dette dersom alder skal baseres på et f-nr eller d-nr som sluttbruker selv taster inn?</h3>
 <pre tabindex="0"><code class="language-rich" data-lang="rich">Et D-nummer er ellevesifret, som ordinære fødselsnummer, og består av en modifisert sekssifret fødselsdato og et femsifret personnummer. Fødselsdatoen modifiseres ved at det legges til 4 på det første sifferet: en person født 1. januar 1980 får dermed fødselsdato 410180, mens en som er født 31. januar 1980 får 710180.
 </code></pre><p>Én måte å gå fra et vilkårlig f- eller d-nummer til en streng for fødselsdato på formatet <code>dd-MM-yy</code> er:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">static</span> <span style="color:#8be9fd">string</span> GetDOB(<span style="color:#8be9fd">string</span> fOrDNumber){
-  List&lt;<span style="color:#8be9fd">string</span>&gt; firstCharsInDNumber = <span style="color:#ff79c6">new</span>(){<span style="color:#f1fa8c">&#34;4&#34;</span>, <span style="color:#f1fa8c">&#34;5&#34;</span>, <span style="color:#f1fa8c">&#34;6&#34;</span>, <span style="color:#f1fa8c">&#34;7&#34;</span> };
-
-  <span style="color:#8be9fd">var</span> fOrDNumberArray = fOrDNumber.ToCharArray();
-
-  <span style="color:#8be9fd">char</span>[] dobArray = <span style="color:#ff79c6">new</span> <span style="color:#8be9fd">char</span>[<span style="color:#bd93f9">6</span>];
-  Array.Copy(fOrDNumberArray, dobArray, <span style="color:#bd93f9">6</span>);
-
-  <span style="color:#8be9fd">char</span> firstChar = dobArray[<span style="color:#bd93f9">0</span>];
-  <span style="color:#8be9fd">int</span> firstInt = <span style="color:#bd93f9">0</span>;
-
-  <span style="color:#ff79c6">if</span>(firstCharsInDNumber.Contains(firstChar.ToString()))
-  {
-    firstInt = firstChar - <span style="color:#bd93f9">4</span>;
-    dobArray[<span style="color:#bd93f9">0</span>] = (<span style="color:#8be9fd">char</span>)firstInt;
-  }
-
-  <span style="color:#8be9fd">string</span> dobString = <span style="color:#f1fa8c">$&#34;{dobArray[0]}{dobArray[1]}.{dobArray[2]}{dobArray[3]}.{dobArray[4]}{dobArray[5]}&#34;</span>;
-  <span style="color:#6272a4">// verify that it is a valid date
-</span><span style="color:#6272a4"></span>  DateTime.ParseExact(dobString, <span style="color:#f1fa8c">&#34;dd.MM.yy&#34;</span>, CultureInfo.InvariantCulture);
-  <span style="color:#ff79c6">return</span> dobString;
-}
-</code></pre></div><h2 id="modul-3---forståelsessjekk-deploye-applikasjon">Modul 3 - Forståelsessjekk: Deploye applikasjon</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">static</span> <span style="color:#8be9fd">string</span> GetDOB(<span style="color:#8be9fd">string</span> fOrDNumber){
+</span></span><span style="display:flex;"><span>  List&lt;<span style="color:#8be9fd">string</span>&gt; firstCharsInDNumber = <span style="color:#ff79c6">new</span>(){<span style="color:#f1fa8c">&#34;4&#34;</span>, <span style="color:#f1fa8c">&#34;5&#34;</span>, <span style="color:#f1fa8c">&#34;6&#34;</span>, <span style="color:#f1fa8c">&#34;7&#34;</span> };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd">var</span> fOrDNumberArray = fOrDNumber.ToCharArray();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd">char</span>[] dobArray = <span style="color:#ff79c6">new</span> <span style="color:#8be9fd">char</span>[<span style="color:#bd93f9">6</span>];
+</span></span><span style="display:flex;"><span>  Array.Copy(fOrDNumberArray, dobArray, <span style="color:#bd93f9">6</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd">char</span> firstChar = dobArray[<span style="color:#bd93f9">0</span>];
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd">int</span> firstInt = <span style="color:#bd93f9">0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">if</span>(firstCharsInDNumber.Contains(firstChar.ToString()))
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    firstInt = firstChar - <span style="color:#bd93f9">4</span>;
+</span></span><span style="display:flex;"><span>    dobArray[<span style="color:#bd93f9">0</span>] = (<span style="color:#8be9fd">char</span>)firstInt;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd">string</span> dobString = <span style="color:#f1fa8c">$&#34;{dobArray[0]}{dobArray[1]}.{dobArray[2]}{dobArray[3]}.{dobArray[4]}{dobArray[5]}&#34;</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">// verify that it is a valid date</span>
+</span></span><span style="display:flex;"><span>  DateTime.ParseExact(dobString, <span style="color:#f1fa8c">&#34;dd.MM.yy&#34;</span>, CultureInfo.InvariantCulture);
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">return</span> dobString;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="modul-3---forståelsessjekk-deploye-applikasjon">Modul 3 - Forståelsessjekk: Deploye applikasjon</h2>
 <h3 id="er-det-mulig-å-ha-to-versjoner-av-en-applikasjon-i-tt02-samtidig">Er det mulig å ha to versjoner av en applikasjon i TT02 samtidig?</h3>
 <p>Nei, det er kun mulig å ha én versjon av applikasjonen ute i et miljø av gangen.
 Deployer man en annen versjon vil eksisterende versjon av applikasjonen overskrives.</p>

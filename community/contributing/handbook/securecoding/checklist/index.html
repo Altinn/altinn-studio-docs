@@ -109,7 +109,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -209,7 +209,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -281,7 +281,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -1111,46 +1111,46 @@ if(host != "localhost")
 <h4 id="2-does-api-requires-authenticted-user">2. Does API requires authenticted user?</h4>
 <p>All API&rsquo;s need to require authenticated user or system. For .Net core application this means that it need to have the [Authorize] tag</p>
 <p><a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/Storage/Controllers/InstancesController.cs#L284">Example from InstancesController in Storage</a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#50fa7b">[Authorize]</span>
-<span style="color:#50fa7b">[HttpPost]</span>
-<span style="color:#50fa7b">[Consumes(&#34;application/json&#34;)]</span>
-<span style="color:#50fa7b">[ProducesResponseType(StatusCodes.Status201Created)]</span>
-<span style="color:#50fa7b">[ProducesResponseType(StatusCodes.Status400BadRequest)]</span>
-<span style="color:#50fa7b">[Produces(&#34;application/json&#34;)]</span>
-<span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;ActionResult&lt;Instance&gt;&gt; Post(<span style="color:#8be9fd">string</span> appId, [FromBody] Instance instance)
-</code></pre></div><h4 id="3-does-api-validate-correct-authorization-policy">3. Does API validate correct authorization policy?</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c#" data-lang="c#"><span style="display:flex;"><span><span style="color:#50fa7b">[Authorize]</span>
+</span></span><span style="display:flex;"><span><span style="color:#50fa7b">[HttpPost]</span>
+</span></span><span style="display:flex;"><span><span style="color:#50fa7b">[Consumes(&#34;application/json&#34;)]</span>
+</span></span><span style="display:flex;"><span><span style="color:#50fa7b">[ProducesResponseType(StatusCodes.Status201Created)]</span>
+</span></span><span style="display:flex;"><span><span style="color:#50fa7b">[ProducesResponseType(StatusCodes.Status400BadRequest)]</span>
+</span></span><span style="display:flex;"><span><span style="color:#50fa7b">[Produces(&#34;application/json&#34;)]</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;ActionResult&lt;Instance&gt;&gt; Post(<span style="color:#8be9fd">string</span> appId, [FromBody] Instance instance)
+</span></span></code></pre></div><h4 id="3-does-api-validate-correct-authorization-policy">3. Does API validate correct authorization policy?</h4>
 <p>For each API the developer needs to identify the correct authorization policy required to be validated.</p>
 <p>This could be that read or write access need to be authorized.</p>
 <p><a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/Storage/Controllers/InstancesController.cs#L356">Example from InstancesController in Storage</a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#50fa7b">[Authorize(Policy = AuthzConstants.POLICY_INSTANCE_DELETE)]</span>
-<span style="color:#50fa7b">[HttpDelete(&#34;{instanceOwnerPartyId:int}/{instanceGuid:guid}&#34;)]</span>
-<span style="color:#50fa7b">[ProducesResponseType(StatusCodes.Status200OK)]</span>
-<span style="color:#50fa7b">[ProducesResponseType(StatusCodes.Status204NoContent)]</span>
-<span style="color:#50fa7b">[ProducesResponseType(StatusCodes.Status400BadRequest)]</span>
-<span style="color:#50fa7b">[ProducesResponseType(StatusCodes.Status404NotFound)]</span>
-<span style="color:#50fa7b">[Produces(&#34;application/json&#34;)]</span>
-<span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;ActionResult&lt;Instance&gt;&gt; Delete(<span style="color:#8be9fd">int</span> instanceOwnerPartyId, Guid instanceGuid, [FromQuery] <span style="color:#8be9fd">bool</span> hard)
-</code></pre></div><p>This is related to <a href="https://owasp.org/www-project-top-ten/2017/A5_2017-Broken_Access_Control">OWASP Top 10 no 5.</a> and <a href="http://cwe.mitre.org/data/definitions/862.html">CWE-862</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c#" data-lang="c#"><span style="display:flex;"><span><span style="color:#50fa7b">[Authorize(Policy = AuthzConstants.POLICY_INSTANCE_DELETE)]</span>
+</span></span><span style="display:flex;"><span><span style="color:#50fa7b">[HttpDelete(&#34;{instanceOwnerPartyId:int}/{instanceGuid:guid}&#34;)]</span>
+</span></span><span style="display:flex;"><span><span style="color:#50fa7b">[ProducesResponseType(StatusCodes.Status200OK)]</span>
+</span></span><span style="display:flex;"><span><span style="color:#50fa7b">[ProducesResponseType(StatusCodes.Status204NoContent)]</span>
+</span></span><span style="display:flex;"><span><span style="color:#50fa7b">[ProducesResponseType(StatusCodes.Status400BadRequest)]</span>
+</span></span><span style="display:flex;"><span><span style="color:#50fa7b">[ProducesResponseType(StatusCodes.Status404NotFound)]</span>
+</span></span><span style="display:flex;"><span><span style="color:#50fa7b">[Produces(&#34;application/json&#34;)]</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;ActionResult&lt;Instance&gt;&gt; Delete(<span style="color:#8be9fd">int</span> instanceOwnerPartyId, Guid instanceGuid, [FromQuery] <span style="color:#8be9fd">bool</span> hard)
+</span></span></code></pre></div><p>This is related to <a href="https://owasp.org/www-project-top-ten/2017/A5_2017-Broken_Access_Control">OWASP Top 10 no 5.</a> and <a href="http://cwe.mitre.org/data/definitions/862.html">CWE-862</a></p>
 <h4 id="4-dont-run-application-with-to-high-priveliges">4. Dont run application with to high priveliges.</h4>
 <p>Are the docker containers running with the correct priveliges?</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">securityContext:
-    runAsUser: 1000
-    runAsGroup: 3000
-    allowPrivilegeEscalation: false
-</code></pre></div><p>Example from <a href="https://github.com/Altinn/altinn-studio/blob/master/src/studio/AppTemplates/AspNet/Dockerfile">Dockerfile</a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">RUN addgroup -g 3000 dotnet &amp;&amp; adduser -u 1000 -G dotnet -D -s /bin/false dotnet
-USER dotnet
-RUN mkdir /tmp/logtelemetry
-</code></pre></div><h4 id="5-protect-against-cross-site-requeste-forgery">5. Protect against Cross-site requeste forgery</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>securityContext:
+</span></span><span style="display:flex;"><span>    runAsUser: 1000
+</span></span><span style="display:flex;"><span>    runAsGroup: 3000
+</span></span><span style="display:flex;"><span>    allowPrivilegeEscalation: false
+</span></span></code></pre></div><p>Example from <a href="https://github.com/Altinn/altinn-studio/blob/master/src/studio/AppTemplates/AspNet/Dockerfile">Dockerfile</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>RUN addgroup -g 3000 dotnet &amp;&amp; adduser -u 1000 -G dotnet -D -s /bin/false dotnet
+</span></span><span style="display:flex;"><span>USER dotnet
+</span></span><span style="display:flex;"><span>RUN mkdir /tmp/logtelemetry
+</span></span></code></pre></div><h4 id="5-protect-against-cross-site-requeste-forgery">5. Protect against Cross-site requeste forgery</h4>
 <p>It is important that every endpoint that is exposed to users validates antiforgery tokens to make
 sure we protect against Cross-site request forgery.</p>
 <p>As part of the platform their has been created a <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Apps/AppTemplates/AspNet/Altinn.App.Api/Filters/ValidateAntiforgeryTokenIfAuthCookieAuthorizationFilter.cs">custom authorization filter</a> to protect against CSRF for endpoints beeing access by using cookie
 or token.  This is enabled with using [AutoValidateAntiforgeryTokenIfAuthCookie] on methods or controllers.</p>
 <p><a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Apps/AppTemplates/AspNet/Altinn.App.Api/Controllers/DataController.cs#L28">Example from datacontroller</a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#50fa7b">[AutoValidateAntiforgeryTokenIfAuthCookie]</span>
-<span style="color:#50fa7b">[Route(&#34;{org}/{app}/instances/{instanceOwnerPartyId:int}/{instanceGuid:guid}/data&#34;)]</span>
-<span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">DataController</span> : ControllerBase
-</code></pre></div><h3 id="frontend">Frontend</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c#" data-lang="c#"><span style="display:flex;"><span><span style="color:#50fa7b">[AutoValidateAntiforgeryTokenIfAuthCookie]</span>
+</span></span><span style="display:flex;"><span><span style="color:#50fa7b">[Route(&#34;{org}/{app}/instances/{instanceOwnerPartyId:int}/{instanceGuid:guid}/data&#34;)]</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">DataController</span> : ControllerBase
+</span></span></code></pre></div><h3 id="frontend">Frontend</h3>
 
 
 <footer class=" footline" >

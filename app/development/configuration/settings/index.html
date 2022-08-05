@@ -117,7 +117,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -217,7 +217,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -297,7 +297,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -1116,48 +1116,48 @@ if(host != "localhost")
 <h2 id="appsettingsjson">appsettings.json</h2>
 <p>The first and simplest source for configuration information are the <code>appsettings</code> files. Every new app which is created will come with an existing <code>appsettings.json</code> file. This file is read by an app during startup independently of what environment the app runs in. This means the file should only contain settings which are equal in all environments. The file contains some settings that are already in use and the values are in large part meant for a development environment where the application is run within <a href="https://github.com/Altinn/altinn-studio/blob/master/LOCALAPP.md">LocalTest</a></p>
 <p>In appsettings.json the values are organized in different sections. It is not recommended to add new values to the existing sections, creating new sections is recommended. The following sections are reserved to avoid collisions: <code>Kestrel</code>, <code>AppSettings</code>, <code>GeneralSettings</code>, <code>PlatformSettings</code>, <code>PEPSettings</code>, <code>ApplicationInsights</code>, <code>kvSettings</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#ff79c6">&#34;ExampleSection&#34;</span>: {
-    <span style="color:#ff79c6">&#34;ExampleValue&#34;</span>: <span style="color:#f1fa8c">&#34;Verdi lest inn i alle miljøer, men kanskje overstyrt av miljøspesifikke kilder&#34;</span>
-  },
-  <span style="color:#ff79c6">&#34;AppSettings&#34;</span>: {
-      ...
-  },
-  <span style="color:#ff79c6">&#34;GeneralSettings&#34;</span>: {
-      ...
-  },
-  <span style="color:#ff79c6">&#34;PlatformSettings&#34;</span>: {
-    <span style="color:#ff79c6">&#34;ApiStorageEndpoint&#34;</span>: <span style="color:#f1fa8c">&#34;http://localhost:5101/storage/api/v1/&#34;</span>,
-    <span style="color:#ff79c6">&#34;ApiRegisterEndpoint&#34;</span>: <span style="color:#f1fa8c">&#34;http://localhost:5101/register/api/v1/&#34;</span>,
-    ...
-  },
-  <span style="color:#ff79c6">&#34;ApplicationInsights&#34;</span>: {
-    <span style="color:#ff79c6">&#34;InstrumentationKey&#34;</span>: <span style="color:#f1fa8c">&#34;retrieved from environment at runtime&#34;</span>
-  }
-}
-</code></pre></div><p>In the future new apps will have a designated section which is simple to expand. In the meantime we refer to <a href="https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1">Microsoft&rsquo;s own documentation</a> for how this should be done.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;ExampleSection&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;ExampleValue&#34;</span>: <span style="color:#f1fa8c">&#34;Verdi lest inn i alle miljøer, men kanskje overstyrt av miljøspesifikke kilder&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;AppSettings&#34;</span>: {
+</span></span><span style="display:flex;"><span>      ...
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;GeneralSettings&#34;</span>: {
+</span></span><span style="display:flex;"><span>      ...
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;PlatformSettings&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;ApiStorageEndpoint&#34;</span>: <span style="color:#f1fa8c">&#34;http://localhost:5101/storage/api/v1/&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;ApiRegisterEndpoint&#34;</span>: <span style="color:#f1fa8c">&#34;http://localhost:5101/register/api/v1/&#34;</span>,
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;ApplicationInsights&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;InstrumentationKey&#34;</span>: <span style="color:#f1fa8c">&#34;retrieved from environment at runtime&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>In the future new apps will have a designated section which is simple to expand. In the meantime we refer to <a href="https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1">Microsoft&rsquo;s own documentation</a> for how this should be done.</p>
 <h3 id="environment-specific-appsettings">Environment specific appsettings</h3>
 <p>A new app will contain a set of environment specific appsettings files: <code>appsettings.Development.json</code>, <code>appsettings.Staging.json</code> and <code>appsettings.Production.json</code>. These files are read in their respective environments. The TT02-environment is defined as staging and the production environment is defined as Production.</p>
 <p>Every file should contain the values which are unique or different in at least one of the environments. Examples of values that vary from environment to environment is the &ldquo;timeout&rdquo; values. You might want an app to wait longer for a response from an external API during development than what you want to allow during production.</p>
 <h4 id="appsettingsdevelopmentjson">appsettings.Development.json</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#ff79c6">&#34;ExampleSection&#34;</span>: {
-    <span style="color:#ff79c6">&#34;ExampleValue&#34;</span>: <span style="color:#f1fa8c">&#34;Verdi lest inn kun for utviklingsmiljø&#34;</span>
-  }
-}
-</code></pre></div><h4 id="appsettingsstagingjson">appsettings.Staging.json</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#ff79c6">&#34;ExampleSection&#34;</span>: {
-    <span style="color:#ff79c6">&#34;ExampleValue&#34;</span>: <span style="color:#f1fa8c">&#34;Verdi lest inn kun for TT02&#34;</span>
-  }
-}
-</code></pre></div><h4 id="appsettingsproductionjson">appsettings.Production.json</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#ff79c6">&#34;ExampleSection&#34;</span>: {
-    <span style="color:#ff79c6">&#34;ExampleValue&#34;</span>: <span style="color:#f1fa8c">&#34;Verdi lest inn kun for produksjon&#34;</span>
-  }
-}
-</code></pre></div><h2 id="environment-variables">Environment variables</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;ExampleSection&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;ExampleValue&#34;</span>: <span style="color:#f1fa8c">&#34;Verdi lest inn kun for utviklingsmiljø&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="appsettingsstagingjson">appsettings.Staging.json</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;ExampleSection&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;ExampleValue&#34;</span>: <span style="color:#f1fa8c">&#34;Verdi lest inn kun for TT02&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="appsettingsproductionjson">appsettings.Production.json</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;ExampleSection&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;ExampleValue&#34;</span>: <span style="color:#f1fa8c">&#34;Verdi lest inn kun for produksjon&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="environment-variables">Environment variables</h2>
 <p>Standard behaviour for an ASP.Net application is to read Environment variables. This is also done for an app, but it isn&rsquo;t possible for an app developer to create or change any of these values. Altinn 3 considers the other method of controlling Environment specific variables to be covered by appsettings and KeyVault.</p>
 <h2 id="command-line-arguments">Command line arguments</h2>
 <p>It is technically possible to override all other data sources by using command line arguments. It is however not possible to use this to change values from one environment to another.</p>

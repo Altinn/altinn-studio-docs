@@ -381,13 +381,13 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/metadata/"><span>Metadata</span></a></li>
       <li class="dd-item">
         <a href="/nb/api/apps/instances/"><span>Instanser</span></a></li>
       <li class="dd-item">
-        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/data-elements/tags/"><span>Tags</span></a></li></ul></li>
       <li class="dd-item">
@@ -441,9 +441,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/community/about/"><span>Om</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/community/about/goals/"><span>Mål</span></a></li>
+        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li>
       <li class="dd-item">
-        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li></ul></li>
+        <a href="/nb/community/about/goals/"><span>Mål</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/community/contributing/"><span>Bidra til utvikling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -577,7 +577,7 @@ if(host != "localhost")
         <h2 class="post-title"><a href="/nb/community/changelog/storage-interfaces/v2/">v2</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>2.5.10 Dependency on .NETStandard2.0  The package was changed to depend on .NetStandard2.0 in place of .NetStandard2.1. This should ensure that applications based on .NET Framework 4.7 can use the package.  2.5.9 Expanded the eFormidlingContract with SecurityLevel  eFormidlingContract model was given a new property holding security level information. #5740  2.5.8 Extended eFormidlingContract with additional parameters  eFormidlingContract model was given three new properties to support eFormidling in apps. <a class="read-more" href="/nb/community/changelog/storage-interfaces/v2/">&raquo;</a></p>
+        <p>2.5.10 Dependency on .NETStandard2.0 The package was changed to depend on .NetStandard2.0 in place of .NetStandard2.1. This should ensure that applications based on .NET Framework 4.7 can use the package. 2.5.9 Expanded the eFormidlingContract with SecurityLevel eFormidlingContract model was given a new property holding security level information. #5740 2.5.8 Extended eFormidlingContract with additional parameters eFormidlingContract model was given three new properties to support eFormidling in apps. #5740 2.5.7 Extended eFormidlingContract with a new property: sendAfterTaskId eFormidlingContract model was given a new property to identify which task should trigger an eFormidling shipment. <a class="read-more" href="/nb/community/changelog/storage-interfaces/v2/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         
@@ -616,8 +616,8 @@ A process is represented by an process modell in BPMN/XML notation. Each task ha
     <section class="post-excerpt">
         <p>Instance events All instance events, e.g. creation, read, save, change process state, &hellip;
 GET {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/events Example of event data.
-{ &#34;id&#34;:&#34;6dff32bc-0928-4ae8-937c-b362d6941c89&#34;, &#34;instanceId&#34;: &#34;60238/5c6b1a71-2e1f-447a-ae2f-d1807dcffbfb&#34;, &#34;eventType&#34;: &#34;deleted&#34;, &#34;created&#34;: &#34;2019-05-02T13:08:21.981476Z&#34;, &#34;instanceOwnerPartyId&#34;: &#34;60238&#34;, &#34;user&#34;: { &#34;userId&#34;: 338829, &#34;authenticationLevel&#34;: 1, &#34;enduserSystemId&#34;: 2 }, &#34;process&#34;: { &#34;started&#34;: &#34;2019-05-01T12:45:01.3233Z&#34;, &#34;startEvent&#34;: &#34;Start_22&#34;, &#34;currentTask&#34;: { &#34;elementId&#34;: &#34;Task_2&#34; } } } Application events (for application owners)  WARNING: This section will be redesigned
- Selected instance events. Created, first read, change process state. <a class="read-more" href="/nb/api/storage/instance-events/">&raquo;</a></p>
+{ &#34;id&#34;:&#34;6dff32bc-0928-4ae8-937c-b362d6941c89&#34;, &#34;instanceId&#34;: &#34;60238/5c6b1a71-2e1f-447a-ae2f-d1807dcffbfb&#34;, &#34;eventType&#34;: &#34;deleted&#34;, &#34;created&#34;: &#34;2019-05-02T13:08:21.981476Z&#34;, &#34;instanceOwnerPartyId&#34;: &#34;60238&#34;, &#34;user&#34;: { &#34;userId&#34;: 338829, &#34;authenticationLevel&#34;: 1, &#34;enduserSystemId&#34;: 2 }, &#34;process&#34;: { &#34;started&#34;: &#34;2019-05-01T12:45:01.3233Z&#34;, &#34;startEvent&#34;: &#34;Start_22&#34;, &#34;currentTask&#34;: { &#34;elementId&#34;: &#34;Task_2&#34; } } } Application events (for application owners) WARNING: This section will be redesigned
+Selected instance events. Created, first read, change process state. <a class="read-more" href="/nb/api/storage/instance-events/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         
@@ -680,7 +680,7 @@ In App/views/Home/Index.cshtml, replace the line
         <p>We have added a new PDF handler to make it possible to hide pages and components in PDF.
 The new version of the Altinn.App.* packages have breaking changes:
 Updating to this version will require changes in multiple files.
- Updated package dependencies
+Updated package dependencies
 Navigate to you application repository and find App.csproj in the App folder.
 Update nuget dependencies in App.csproj to version 3.0.0. &lt;PackageReference Include=&#34;Altinn.App.Api&#34; Version=&#34;3.0.0&#34; /&gt; &lt;PackageReference Include=&#34;Altinn.App.Common&#34; Version=&#34;3.0.0&#34; /&gt; &lt;PackageReference Include=&#34;Altinn. <a class="read-more" href="/nb/community/changelog/app-nuget/v3/breaking-changes/">&raquo;</a></p>
     </section>
@@ -702,7 +702,7 @@ Update nuget dependencies in App.csproj to version 3.0.0. &lt;PackageReference I
         <p>Altinn.App.* librarires target .Net 5 now, which requires that the application does the same.
 In addition, all references to app and platform services have been moved from Startup.cs and should be replaced with two method calls.
 Follow the instructions below to ensure that the app is compatible with version 4 of the Altinn.App.* packages.
-  Update target framework and package dependencies
+Update target framework and package dependencies
 Navigate to you application repository and find App.csproj in the App folder. <a class="read-more" href="/nb/community/changelog/app-nuget/v4/breaking-changes/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
@@ -722,7 +722,7 @@ Navigate to you application repository and find App.csproj in the App folder. <a
     <section class="post-excerpt">
         <p>1. PDF generation implementation moved out from AppBase/IAltinnApp All code related the generation of Pdf has been extracted from AppBase.cs and moved into PdfService.cs which in turn implements IPdfService. This opens up and allows us as service developers to replace the default Pdf implementation entirely.
 Since App.cs passes parameteres to AppBase.cs you need to remove thos no longer in use in the call to base(...) in the cosntructor:
- processService settings textService  Your App constructor should then look something like this: <a class="read-more" href="/nb/community/changelog/app-nuget/v5/breaking-changes/">&raquo;</a></p>
+processService settings textService Your App constructor should then look something like this: <a class="read-more" href="/nb/community/changelog/app-nuget/v5/breaking-changes/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         
@@ -741,7 +741,7 @@ Since App.cs passes parameteres to AppBase.cs you need to remove thos no longer 
     <section class="post-excerpt">
         <p>Alpha Release
 This is a alpha relase and is not used by default in new applications. Currently the v6 is a technical update only and introduces no new features compared to the latest 5.x.x version. It&rsquo;s under consideration to include restructuring of app template, originally planned for the next major release, in this version as well to reduce the number of packages introducing breaking changes.
-Altinn.App.* librarires target . <a class="read-more" href="/nb/community/changelog/app-nuget/v6/breaking-changes/">&raquo;</a></p>
+Altinn.App.* librarires target .Net 6 now, which requires that the application does the same. <a class="read-more" href="/nb/community/changelog/app-nuget/v6/breaking-changes/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         

@@ -109,7 +109,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -209,7 +209,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -281,7 +281,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -1136,21 +1136,21 @@ defining which resource, subject and which action it targets.</p>
 </table>
 <h3 id="example">Example</h3>
 <p>The below example show a part of XACML 3.0 Policy where a resource is identified.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
-  <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
-<span style="display:block;width:100%;background-color:#3d3f4a">    <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>skd<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
-</span>    <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:org&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
-  <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
-  <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
-<span style="display:block;width:100%;background-color:#3d3f4a">    <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>taxreport<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
-</span>    <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:app&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
-  <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
-  <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
-<span style="display:block;width:100%;background-color:#3d3f4a">    <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>instansiate<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
-</span>    <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:event&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
-  <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
-<span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
-</code></pre></div><h2 id="subject-attributes">Subject Attributes</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>    <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>skd<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:org&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>    <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>taxreport<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:app&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>    <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>instansiate<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:event&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
+</span></span></code></pre></div><h2 id="subject-attributes">Subject Attributes</h2>
 <p>The subject part of the target for the rule defines who the rule target.</p>
 <table>
 <thead>
@@ -1172,36 +1172,36 @@ defining which resource, subject and which action it targets.</p>
 </table>
 <h3 id="examples">Examples</h3>
 <p>Example with role code:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
-  <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
-<span style="display:block;width:100%;background-color:#3d3f4a">    <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>regna<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
-</span>    <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:rolecode&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:subject-category:access-subject&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
-  <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
-<span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
-</code></pre></div><p>Example with org:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
-  <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
-<span style="display:block;width:100%;background-color:#3d3f4a">    <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>skd<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
-</span>    <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:org&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:subject-category:access-subject&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
-  <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
-<span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
-</code></pre></div><h2 id="action-attributes">Action Attributes</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>    <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>regna<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:rolecode&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:subject-category:access-subject&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
+</span></span></code></pre></div><p>Example with org:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>    <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>skd<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:org&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:subject-category:access-subject&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
+</span></span></code></pre></div><h2 id="action-attributes">Action Attributes</h2>
 <p>Example with read action:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
-<span style="display:block;width:100%;background-color:#3d3f4a">    <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>read<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
-</span>      <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:action:action-id&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:action&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
-    <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
-<span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
-</code></pre></div><h2 id="obligation">Obligation</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>    <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>read<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:action:action-id&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:action&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
+</span></span></code></pre></div><h2 id="obligation">Obligation</h2>
 <p>The obligation part is used to define information that should be used by PEP.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;xacml:ObligationExpressions&gt;</span>
-    <span style="color:#ff79c6">&lt;xacml:ObligationExpression</span> <span style="color:#50fa7b">FulfillOn=</span><span style="color:#f1fa8c">&#34;Permit&#34;</span> <span style="color:#50fa7b">ObligationId=</span><span style="color:#f1fa8c">&#34;urn:altinn:obligation:authenticationLevel1&#34;</span><span style="color:#ff79c6">&gt;</span>
-      <span style="color:#ff79c6">&lt;xacml:AttributeAssignmentExpression</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:obligation1-assignment1&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:altinn:minimum-authenticationlevel&#34;</span><span style="color:#ff79c6">&gt;</span>
-<span style="display:block;width:100%;background-color:#3d3f4a">        <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#integer&#34;</span><span style="color:#ff79c6">&gt;</span>2<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
-</span>      <span style="color:#ff79c6">&lt;/xacml:AttributeAssignmentExpression&gt;</span>
-    <span style="color:#ff79c6">&lt;/xacml:ObligationExpression&gt;</span>
-  <span style="color:#ff79c6">&lt;/xacml:ObligationExpressions&gt;</span>
-</code></pre></div><h2 id="full-examples">Full examples</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#ff79c6">&lt;xacml:ObligationExpressions&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;xacml:ObligationExpression</span> <span style="color:#50fa7b">FulfillOn=</span><span style="color:#f1fa8c">&#34;Permit&#34;</span> <span style="color:#50fa7b">ObligationId=</span><span style="color:#f1fa8c">&#34;urn:altinn:obligation:authenticationLevel1&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;xacml:AttributeAssignmentExpression</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:obligation1-assignment1&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:altinn:minimum-authenticationlevel&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>        <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#integer&#34;</span><span style="color:#ff79c6">&gt;</span>2<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;/xacml:AttributeAssignmentExpression&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;/xacml:ObligationExpression&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;/xacml:ObligationExpressions&gt;</span>
+</span></span></code></pre></div><h2 id="full-examples">Full examples</h2>
 <p>On Github you can look at some full <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Authorization/IntegrationTests/Data/Xacml/3.0/AltinnApps/skd/taxreport/policy.xml">policy examples</a></p>
 
 

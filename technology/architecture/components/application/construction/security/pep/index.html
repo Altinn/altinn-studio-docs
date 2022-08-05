@@ -109,7 +109,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -209,7 +209,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -281,7 +281,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -1129,73 +1129,72 @@ Based on the <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Al
 <p>The PEP validates any obligation from the PDP like minimum authentication level. If this is not valid, the request will be denied (HTTP 403).</p>
 <h3 id="configuration">Configuration</h3>
 <p>The application needs to have a startup configuration to enable the different standard PEPs</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#">         services.AddAuthorization(options =&gt;
-            {
-                options.AddPolicy(AuthzConstants.POLICY_INSTANCE_READ, policy =&gt; policy.Requirements.Add(<span style="color:#ff79c6">new</span> AppAccessRequirement(<span style="color:#f1fa8c">&#34;read&#34;</span>)));
-                options.AddPolicy(AuthzConstants.POLICY_INSTANCE_WRITE, policy =&gt; policy.Requirements.Add(<span style="color:#ff79c6">new</span> AppAccessRequirement(<span style="color:#f1fa8c">&#34;write&#34;</span>)));
-                options.AddPolicy(AuthzConstants.POLICY_INSTANCE_DELETE, policy =&gt; policy.Requirements.Add(<span style="color:#ff79c6">new</span> AppAccessRequirement(<span style="color:#f1fa8c">&#34;delete&#34;</span>)));
-                options.AddPolicy(AuthzConstants.POLICY_INSTANCE_COMPLETE, policy =&gt; policy.Requirements.Add(<span style="color:#ff79c6">new</span> AppAccessRequirement(<span style="color:#f1fa8c">&#34;complete&#34;</span>)));
-                options.AddPolicy(AuthzConstants.POLICY_SCOPE_APPDEPLOY, policy =&gt; policy.Requirements.Add(<span style="color:#ff79c6">new</span> ScopeAccessRequirement(<span style="color:#f1fa8c">&#34;altinn:appdeploy&#34;</span>)));
-                options.AddPolicy(AuthzConstants.POLICY_SCOPE_INSTANCE_READ, policy =&gt; policy.Requirements.Add(<span style="color:#ff79c6">new</span> ScopeAccessRequirement(<span style="color:#f1fa8c">&#34;altinn:instances.read&#34;</span>)));
-                options.AddPolicy(AuthzConstants.POLICY_STUDIO_DESIGNER, policy =&gt; policy.Requirements.Add(<span style="color:#ff79c6">new</span> ClaimAccessRequirement(<span style="color:#f1fa8c">&#34;urn:altinn:app&#34;</span>, <span style="color:#f1fa8c">&#34;studio.designer&#34;</span>)));
-            });
-
-</code></pre></div><p>Example from <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/Storage/Startup.cs">Storage Startup</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c#" data-lang="c#"><span style="display:flex;"><span>         services.AddAuthorization(options =&gt;
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                options.AddPolicy(AuthzConstants.POLICY_INSTANCE_READ, policy =&gt; policy.Requirements.Add(<span style="color:#ff79c6">new</span> AppAccessRequirement(<span style="color:#f1fa8c">&#34;read&#34;</span>)));
+</span></span><span style="display:flex;"><span>                options.AddPolicy(AuthzConstants.POLICY_INSTANCE_WRITE, policy =&gt; policy.Requirements.Add(<span style="color:#ff79c6">new</span> AppAccessRequirement(<span style="color:#f1fa8c">&#34;write&#34;</span>)));
+</span></span><span style="display:flex;"><span>                options.AddPolicy(AuthzConstants.POLICY_INSTANCE_DELETE, policy =&gt; policy.Requirements.Add(<span style="color:#ff79c6">new</span> AppAccessRequirement(<span style="color:#f1fa8c">&#34;delete&#34;</span>)));
+</span></span><span style="display:flex;"><span>                options.AddPolicy(AuthzConstants.POLICY_INSTANCE_COMPLETE, policy =&gt; policy.Requirements.Add(<span style="color:#ff79c6">new</span> AppAccessRequirement(<span style="color:#f1fa8c">&#34;complete&#34;</span>)));
+</span></span><span style="display:flex;"><span>                options.AddPolicy(AuthzConstants.POLICY_SCOPE_APPDEPLOY, policy =&gt; policy.Requirements.Add(<span style="color:#ff79c6">new</span> ScopeAccessRequirement(<span style="color:#f1fa8c">&#34;altinn:appdeploy&#34;</span>)));
+</span></span><span style="display:flex;"><span>                options.AddPolicy(AuthzConstants.POLICY_SCOPE_INSTANCE_READ, policy =&gt; policy.Requirements.Add(<span style="color:#ff79c6">new</span> ScopeAccessRequirement(<span style="color:#f1fa8c">&#34;altinn:instances.read&#34;</span>)));
+</span></span><span style="display:flex;"><span>                options.AddPolicy(AuthzConstants.POLICY_STUDIO_DESIGNER, policy =&gt; policy.Requirements.Add(<span style="color:#ff79c6">new</span> ClaimAccessRequirement(<span style="color:#f1fa8c">&#34;urn:altinn:app&#34;</span>, <span style="color:#f1fa8c">&#34;studio.designer&#34;</span>)));
+</span></span><span style="display:flex;"><span>            });
+</span></span></code></pre></div><p>Example from <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/Storage/Startup.cs">Storage Startup</a></p>
 <p>The API needs to have enabled PEP for a given API operation</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#50fa7b">     [Authorize(Policy = AuthzConstants.POLICY_INSTANCE_WRITE)]</span>
-<span style="color:#50fa7b">        [HttpDelete(&#34;data/{dataGuid:guid}&#34;)]</span>
-<span style="color:#50fa7b">        [ProducesResponseType(StatusCodes.Status200OK)]</span>
-<span style="color:#50fa7b">        [ProducesResponseType(StatusCodes.Status400BadRequest)]</span>
-<span style="color:#50fa7b">        [ProducesResponseType(StatusCodes.Status404NotFound)]</span>
-<span style="color:#50fa7b">        [Produces(&#34;application/json&#34;)]</span>
-        <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;ActionResult&lt;DataElement&gt;&gt; Delete(<span style="color:#8be9fd">int</span> instanceOwnerPartyId, Guid instanceGuid, Guid dataGuid)
-        {
-</code></pre></div><p>Example from <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/Storage/Controllers/DataController.cs">DataController</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c#" data-lang="c#"><span style="display:flex;"><span><span style="color:#50fa7b">     [Authorize(Policy = AuthzConstants.POLICY_INSTANCE_WRITE)]</span>
+</span></span><span style="display:flex;"><span><span style="color:#50fa7b">        [HttpDelete(&#34;data/{dataGuid:guid}&#34;)]</span>
+</span></span><span style="display:flex;"><span><span style="color:#50fa7b">        [ProducesResponseType(StatusCodes.Status200OK)]</span>
+</span></span><span style="display:flex;"><span><span style="color:#50fa7b">        [ProducesResponseType(StatusCodes.Status400BadRequest)]</span>
+</span></span><span style="display:flex;"><span><span style="color:#50fa7b">        [ProducesResponseType(StatusCodes.Status404NotFound)]</span>
+</span></span><span style="display:flex;"><span><span style="color:#50fa7b">        [Produces(&#34;application/json&#34;)]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;ActionResult&lt;DataElement&gt;&gt; Delete(<span style="color:#8be9fd">int</span> instanceOwnerPartyId, Guid instanceGuid, Guid dataGuid)
+</span></span><span style="display:flex;"><span>        {
+</span></span></code></pre></div><p>Example from <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/Storage/Controllers/DataController.cs">DataController</a></p>
 <h2 id="custom-pep">Custom PEP</h2>
 <p>For some scenarious it is not possible to authorize the request based on API parameters.</p>
 <p>This cases requires a custom PEP that is implemented as part of API logic.</p>
 <p>In the example below a list of elements is retreived from database and we need to filter elements before they are returned based on what user is authorized for.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#50fa7b">       [Authorize]</span>
-<span style="color:#50fa7b">        [HttpGet(&#34;{instanceOwnerPartyId:int}/{instanceGuid:guid}&#34;)]</span>
-        <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;ActionResult&gt; GetMessageBoxInstance(
-            <span style="color:#8be9fd">int</span> instanceOwnerPartyId,
-            Guid instanceGuid,
-<span style="color:#50fa7b">            [FromQuery]</span> <span style="color:#8be9fd">string</span> language)
-        {
-            <span style="color:#8be9fd">string</span>[] acceptedLanguages = { <span style="color:#f1fa8c">&#34;en&#34;</span>, <span style="color:#f1fa8c">&#34;nb&#34;</span>, <span style="color:#f1fa8c">&#34;nn&#34;</span> };
-            <span style="color:#8be9fd">string</span> languageId = <span style="color:#f1fa8c">&#34;nb&#34;</span>;
-
-            <span style="color:#ff79c6">if</span> (language != <span style="color:#ff79c6">null</span> &amp;&amp; acceptedLanguages.Contains(language.ToLower()))
-            {
-                languageId = language;
-            }
-
-            <span style="color:#8be9fd">string</span> instanceId = <span style="color:#f1fa8c">$&#34;{instanceOwnerPartyId}/{instanceGuid}&#34;</span>;
-
-            Instance instance = <span style="color:#ff79c6">await</span> <span style="color:#bd93f9">_</span>instanceRepository.GetOne(instanceId, instanceOwnerPartyId);
-
-            <span style="color:#ff79c6">if</span> (instance == <span style="color:#ff79c6">null</span>)
-            {
-                <span style="color:#ff79c6">return</span> NotFound(<span style="color:#f1fa8c">$&#34;Could not find instance {instanceId}&#34;</span>);
-            }
-
-            List&lt;MessageBoxInstance&gt; authorizedInstanceList =
-                <span style="color:#ff79c6">await</span> <span style="color:#bd93f9">_</span>authorizationHelper.AuthorizeMesseageBoxInstances(
-                    HttpContext.User, <span style="color:#ff79c6">new</span> List&lt;Instance&gt; { instance });
-            <span style="color:#ff79c6">if</span> (authorizedInstanceList.Count &lt;= <span style="color:#bd93f9">0</span>)
-            {
-                <span style="color:#ff79c6">return</span> Forbid();
-            }
-
-            MessageBoxInstance authorizedInstance = authorizedInstanceList.First();
-
-            <span style="color:#6272a4">// get app texts and exchange all text keys.
-</span><span style="color:#6272a4"></span>            List&lt;TextResource&gt; texts = <span style="color:#ff79c6">await</span> <span style="color:#bd93f9">_</span>textRepository.Get(<span style="color:#ff79c6">new</span> List&lt;<span style="color:#8be9fd">string</span>&gt; { instance.AppId }, languageId);
-            InstanceHelper.ReplaceTextKeys(<span style="color:#ff79c6">new</span> List&lt;MessageBoxInstance&gt; { authorizedInstance }, texts, languageId);
-
-            <span style="color:#ff79c6">return</span> Ok(authorizedInstance);
-        }
-</code></pre></div><p>Example from <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/Storage/Controllers/MessageboxInstancesController.cs">MessageboxInstancesController</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c#" data-lang="c#"><span style="display:flex;"><span><span style="color:#50fa7b">       [Authorize]</span>
+</span></span><span style="display:flex;"><span><span style="color:#50fa7b">        [HttpGet(&#34;{instanceOwnerPartyId:int}/{instanceGuid:guid}&#34;)]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;ActionResult&gt; GetMessageBoxInstance(
+</span></span><span style="display:flex;"><span>            <span style="color:#8be9fd">int</span> instanceOwnerPartyId,
+</span></span><span style="display:flex;"><span>            Guid instanceGuid,
+</span></span><span style="display:flex;"><span><span style="color:#50fa7b">            [FromQuery]</span> <span style="color:#8be9fd">string</span> language)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#8be9fd">string</span>[] acceptedLanguages = { <span style="color:#f1fa8c">&#34;en&#34;</span>, <span style="color:#f1fa8c">&#34;nb&#34;</span>, <span style="color:#f1fa8c">&#34;nn&#34;</span> };
+</span></span><span style="display:flex;"><span>            <span style="color:#8be9fd">string</span> languageId = <span style="color:#f1fa8c">&#34;nb&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">if</span> (language != <span style="color:#ff79c6">null</span> &amp;&amp; acceptedLanguages.Contains(language.ToLower()))
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                languageId = language;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#8be9fd">string</span> instanceId = <span style="color:#f1fa8c">$&#34;{instanceOwnerPartyId}/{instanceGuid}&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            Instance instance = <span style="color:#ff79c6">await</span> _instanceRepository.GetOne(instanceId, instanceOwnerPartyId);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">if</span> (instance == <span style="color:#ff79c6">null</span>)
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">return</span> NotFound(<span style="color:#f1fa8c">$&#34;Could not find instance {instanceId}&#34;</span>);
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            List&lt;MessageBoxInstance&gt; authorizedInstanceList =
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">await</span> _authorizationHelper.AuthorizeMesseageBoxInstances(
+</span></span><span style="display:flex;"><span>                    HttpContext.User, <span style="color:#ff79c6">new</span> List&lt;Instance&gt; { instance });
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">if</span> (authorizedInstanceList.Count &lt;= <span style="color:#bd93f9">0</span>)
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">return</span> Forbid();
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            MessageBoxInstance authorizedInstance = authorizedInstanceList.First();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#6272a4">// get app texts and exchange all text keys.</span>
+</span></span><span style="display:flex;"><span>            List&lt;TextResource&gt; texts = <span style="color:#ff79c6">await</span> _textRepository.Get(<span style="color:#ff79c6">new</span> List&lt;<span style="color:#8be9fd">string</span>&gt; { instance.AppId }, languageId);
+</span></span><span style="display:flex;"><span>            InstanceHelper.ReplaceTextKeys(<span style="color:#ff79c6">new</span> List&lt;MessageBoxInstance&gt; { authorizedInstance }, texts, languageId);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">return</span> Ok(authorizedInstance);
+</span></span><span style="display:flex;"><span>        }
+</span></span></code></pre></div><p>Example from <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/Storage/Controllers/MessageboxInstancesController.cs">MessageboxInstancesController</a></p>
 
 
 <footer class=" footline" >

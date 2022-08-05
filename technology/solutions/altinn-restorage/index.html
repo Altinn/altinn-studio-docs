@@ -109,7 +109,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -209,7 +209,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -281,7 +281,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -1158,61 +1158,61 @@ Hopefully, making it clear how to include new files into the project and where t
 </li>
 <li>
 <p>Make the class an extention of the <em>IBaseCmd</em> interface.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">    <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">NewCommand</span> : IBaseCmd
-    {
-    }
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span>    <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">NewCommand</span> : IBaseCmd
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div></li>
 <li>
 <p>The command attribute must be set on the class
 It is possible to add more parameters, explore which ones might be usefor for your command.
 The ones listed below are suggested as a minimum for all commands. The <em>name</em> parameter is
 what will be used to navigate to this command when running the app. <em>Note that the name should be all lower case.</em></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">using</span> McMaster.Extensions.CommandLineUtils;
-<span style="color:#50fa7b">
-</span><span style="color:#50fa7b">[Command(
-</span><span style="color:#50fa7b">    Name = &#34;newcommand&#34;,
-</span><span style="color:#50fa7b">    OptionsComparison = StringComparison.InvariantCultureIgnoreCase,
-</span><span style="color:#50fa7b">    UnrecognizedArgumentHandling = UnrecognizedArgumentHandling.CollectAndContinue)]</span>
-    <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">NewCommand</span> :IBaseCmd
-    {
-    }
-</code></pre></div><p>Note that the McMaster nugetpackage is references in the class.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#ff79c6">using</span> McMaster.Extensions.CommandLineUtils;
+</span></span><span style="display:flex;"><span><span style="color:#50fa7b">
+</span></span></span><span style="display:flex;"><span><span style="color:#50fa7b">[Command(
+</span></span></span><span style="display:flex;"><span><span style="color:#50fa7b">    Name = &#34;newcommand&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#50fa7b">    OptionsComparison = StringComparison.InvariantCultureIgnoreCase,
+</span></span></span><span style="display:flex;"><span><span style="color:#50fa7b">    UnrecognizedArgumentHandling = UnrecognizedArgumentHandling.CollectAndContinue)]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">NewCommand</span> :IBaseCmd
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><p>Note that the McMaster nugetpackage is references in the class.</p>
 </li>
 <li>
 <p>Inlcude the override of the OnExecuteAsync from the base class.
 The implementation below will show the help for the command and then complete the task.
 If the command does not have any sub commands simply remove <code>app.ShowHelp();</code> and include your own implementation.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#6272a4">/// &lt;inheritdoc/&gt;
-</span><span style="color:#6272a4"></span><span style="color:#ff79c6">protected</span> <span style="color:#ff79c6">override</span> Task OnExecuteAsync(CommandLineApplication app)
-{
-    app.ShowHelp();
-    <span style="color:#ff79c6">return</span> Task.CompletedTask;
-}
-</code></pre></div><p>Place all logic and operations you wish to be executed when the command is called.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#6272a4">/// &lt;inheritdoc/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">protected</span> <span style="color:#ff79c6">override</span> Task OnExecuteAsync(CommandLineApplication app)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    app.ShowHelp();
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> Task.CompletedTask;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Place all logic and operations you wish to be executed when the command is called.
 If you require any input parameters check the how to section for this below.</p>
 </li>
 <li>
 <p>The new command should now be included in <em>Program.cs</em>.
 This is so that the command is recognized and executed when inputed in the running program.</p>
 <p>Add a new parameter:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">private</span> <span style="color:#ff79c6">static</span> <span style="color:#ff79c6">readonly</span> CommandLineApplication&lt;NewCommand&gt; <span style="color:#bd93f9">_</span>newCommandCmd = <span style="color:#ff79c6">new</span> CommandLineApplication&lt;NewCommand&gt;();
-</code></pre></div><p>In the Task function the standard conventions are set for the new command and all DI services are made available.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#bd93f9">_</span>newCommandCmd.Conventions
-            .UseDefaultConventions()
-            .UseConstructorInjection(serviceProvider);
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#ff79c6">private</span> <span style="color:#ff79c6">static</span> <span style="color:#ff79c6">readonly</span> CommandLineApplication&lt;NewCommand&gt; _newCommandCmd = <span style="color:#ff79c6">new</span> CommandLineApplication&lt;NewCommand&gt;();
+</span></span></code></pre></div><p>In the Task function the standard conventions are set for the new command and all DI services are made available.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span>_newCommandCmd.Conventions
+</span></span><span style="display:flex;"><span>            .UseDefaultConventions()
+</span></span><span style="display:flex;"><span>            .UseConstructorInjection(serviceProvider);
+</span></span></code></pre></div></li>
 <li>
 <p>Finally the command must be added to the switch case that identifies the input and routes it to the correct 
 CommandLineApplication. Extend the switch case a shown below.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">case</span> <span style="color:#f1fa8c">&#34;newcommand&#34;</span>:
-    <span style="color:#ff79c6">await</span> <span style="color:#bd93f9">_</span>newCommandCmd.ExecuteAsync(args);
-    <span style="color:#ff79c6">break</span>;
-</code></pre></div><p>The standard error message in the default clause of the loop
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#ff79c6">case</span> <span style="color:#f1fa8c">&#34;newcommand&#34;</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">await</span> _newCommandCmd.ExecuteAsync(args);
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">break</span>;
+</span></span></code></pre></div><p>The standard error message in the default clause of the loop
 should also be modified to include the new command.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">default</span>:
-    Console.WriteLine(<span style="color:#f1fa8c">$&#34;Unknown argument {string.Join(&#34;</span> <span style="color:#f1fa8c">&#34;, args)}, Valid commands are data, instance and settings.&#34;</span>);
-    <span style="color:#ff79c6">break</span>;
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#ff79c6">default</span>:
+</span></span><span style="display:flex;"><span>    Console.WriteLine(<span style="color:#f1fa8c">$&#34;Unknown argument {string.Join(&#34;</span> <span style="color:#f1fa8c">&#34;, args)}, Valid commands are data, instance and settings.&#34;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">break</span>;
+</span></span></code></pre></div></li>
 </ol>
 <h4 id="-add-a-new-sub-command">&hellip; add a new sub command</h4>
 <ol>
@@ -1224,30 +1224,30 @@ The class should share a name with the sub command.</p>
 <li>
 <p>The command attribute must be set on the class
 <em>Name</em> should be in lower case and match the class name. Note that the McMaster nugetpackage must be references to use the Command attribute.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#50fa7b">[Command(
-</span><span style="color:#50fa7b">    Name = &#34;newsubcommand&#34;,
-</span><span style="color:#50fa7b">    OptionsComparison = StringComparison.InvariantCultureIgnoreCase,
-</span><span style="color:#50fa7b">    UnrecognizedArgumentHandling = UnrecognizedArgumentHandling.CollectAndContinue)]</span>
-<span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">NewSubCommand</span> :IBaseCmd
-{
-}
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#50fa7b">[Command(
+</span></span></span><span style="display:flex;"><span><span style="color:#50fa7b">    Name = &#34;newsubcommand&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#50fa7b">    OptionsComparison = StringComparison.InvariantCultureIgnoreCase,
+</span></span></span><span style="display:flex;"><span><span style="color:#50fa7b">    UnrecognizedArgumentHandling = UnrecognizedArgumentHandling.CollectAndContinue)]</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">NewSubCommand</span> :IBaseCmd
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></li>
 <li>
 <p>The root command must include a reference for the new subcommand, so navigate back to newCommand.cs
 Add the following attribute to the class <code>[Subcommand(typeof(NewSubCommand))]</code>.
 If the class has multiple sub commands simply comma seperate them as such:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#50fa7b">[Subcommand(typeof(NewSubCommandA),typeof(NewSubCommandB), typeof(NewSubCommandC))]</span>
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#50fa7b">[Subcommand(typeof(NewSubCommandA),typeof(NewSubCommandB), typeof(NewSubCommandC))]</span>
+</span></span></code></pre></div></li>
 <li>
 <p>Make the class an extention of <em>IBaseCmd</em> and include an override of the <em>OnExecuteAsync</em> method.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">NewCommand</span> : IBaseCmd
-{
-    <span style="color:#ff79c6">protected</span> <span style="color:#ff79c6">override</span> Task OnExecuteAsync(CommandLineApplication app)
-    {
-        <span style="color:#ff79c6">return</span> Task.CompletedTask;
-    }
-}
-</code></pre></div><p>OnExecuteAsync will be triggered whenver the subcommand is called, so this is where all logic
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">NewCommand</span> : IBaseCmd
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">protected</span> <span style="color:#ff79c6">override</span> Task OnExecuteAsync(CommandLineApplication app)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> Task.CompletedTask;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>OnExecuteAsync will be triggered whenver the subcommand is called, so this is where all logic
 should be implemented. If you require input parameters check the how to below. If you require
 services through dependency injection a constructor should be included in the blass.</p>
 </li>
@@ -1255,14 +1255,14 @@ services through dependency injection a constructor should be included in the bl
 <h4 id="-add-a-new-option-to-a-command">&hellip; add a new option to a command</h4>
 <p>An option is simply implemented as a public property in the command class with an <em>option</em> attribute included.
 There are several input parameters for the options attribute. The ones belowe are what we suggest, but feel free to add more parameters if you require.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#50fa7b">[Option(
-</span><span style="color:#50fa7b">    CommandOptionType.SingleValue,
-</span><span style="color:#50fa7b">    ShortName = &#34;dg&#34;,
-</span><span style="color:#50fa7b">    LongName = &#34;dataGuid&#34;,
-</span><span style="color:#50fa7b">    ShowInHelpText = true,
-</span><span style="color:#50fa7b">    Description = &#34;DataGuid for the data element.&#34;)]</span>
-<span style="color:#ff79c6">public</span> <span style="color:#8be9fd">string</span> DataGuid { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; }
-</code></pre></div><p>Not that the command class is not instantiated with each new command, so if you have some optional parameters, ensure that these are reset for their default value 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#50fa7b">[Option(
+</span></span></span><span style="display:flex;"><span><span style="color:#50fa7b">    CommandOptionType.SingleValue,
+</span></span></span><span style="display:flex;"><span><span style="color:#50fa7b">    ShortName = &#34;dg&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#50fa7b">    LongName = &#34;dataGuid&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#50fa7b">    ShowInHelpText = true,
+</span></span></span><span style="display:flex;"><span><span style="color:#50fa7b">    Description = &#34;DataGuid for the data element.&#34;)]</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">public</span> <span style="color:#8be9fd">string</span> DataGuid { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; }
+</span></span></code></pre></div><p>Not that the command class is not instantiated with each new command, so if you have some optional parameters, ensure that these are reset for their default value 
 after the command is executed.</p>
 <h4 id="-validate-an-option">&hellip; validate an option</h4>
 <p>Instead of validating the format of an option that is shared by several commands in each command where it is used
@@ -1279,10 +1279,10 @@ See <a href="https://github.com/Altinn/altinn-tools/blob/master/AltinnReStorage/
 Depending on the required lifetime of the service you will have to use one of the
 implementations below.</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">services.AddScoped&lt;IService, Service&gt;();
-services.AddSingleton&lt;IService, Service&gt;();
-services.AddTransien&lt;IService, Service&gt;();
-</code></pre></div><p>Documentation on service lifetim is available
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span>services.AddScoped&lt;IService, Service&gt;();
+</span></span><span style="display:flex;"><span>services.AddSingleton&lt;IService, Service&gt;();
+</span></span><span style="display:flex;"><span>services.AddTransien&lt;IService, Service&gt;();
+</span></span></code></pre></div><p>Documentation on service lifetim is available
 <a href="https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-3.1#service-lifetimes">here</a>.</p>
 
 

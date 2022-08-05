@@ -117,7 +117,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -217,7 +217,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -297,7 +297,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -1109,8 +1109,8 @@ if(host != "localhost")
   </ul>
 </nav><h2 id="overview">Overview</h2>
 <p>An <a href="../../models/instance">instance</a> works as a form of envelope or folder where data can be collected and exchanged between the user and owner of the application. The instance document is a way for Altinn and external parties to track the state of one specific data exchange. How long an instance can live and how many interactions there can be between the application owner and user will vary from one app to another. Advanced Apps will have their own documentation.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">basePath = https://{hostname}/storage/api/v1/instances
-</code></pre></div><h2 id="query-instances">Query instances</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>basePath = https://{hostname}/storage/api/v1/instances
+</span></span></code></pre></div><h2 id="query-instances">Query instances</h2>
 <p>It is possible to query instances based on a number of query parameters.</p>
 <p>Application owners can search for from a single application or across all applications that they have.
 Using this endpoint requires the scope &lsquo;altinn:instances.read&rsquo;. And query parameter &lsquo;org&rsquo; or &lsquo;appId&rsquo; must be included in the request.</p>
@@ -1149,14 +1149,14 @@ Note that hard deleted instances are only included if an application owner retri
 </ul>
 <p><strong>Some examples</strong>:</p>
 <p>Get all instances of application <em>org/app</em>, that is at process task with id <em>Task_2</em> (which is Submit, see process definition), and has last changed date greater than <em>2019-05-01</em>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET {storagePath}/instances?appId=org/app&amp;process.currentTask=Task_2&amp;lastChanged=gt:2019-05-01
-</code></pre></div><p>Get all instances of all applications of a given application owner <em>org</em> that has ended date greater than 2020-03-10.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET {storagePath}/instances?org=org&amp;process.ended=gt:2020-03-10
-</code></pre></div><p>Get all instances of all applications of a given application owner <em>org</em> that has not already been confirmed completed by <em>org</em>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET {storagePath}/instances?org=org&amp;excludeConfirmedBy=org
-</code></pre></div><p>Get all instances of an application that are at a specific process task e.g. <em>Task_1</em>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET {storagePath}/instances?appId={org}/{app}&amp;process.currentTask={taskId}
-</code></pre></div><p>On query parameters specifying date time you can use the following operators:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>GET {storagePath}/instances?appId=org/app&amp;process.currentTask=Task_2&amp;lastChanged=gt:2019-05-01
+</span></span></code></pre></div><p>Get all instances of all applications of a given application owner <em>org</em> that has ended date greater than 2020-03-10.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>GET {storagePath}/instances?org=org&amp;process.ended=gt:2020-03-10
+</span></span></code></pre></div><p>Get all instances of all applications of a given application owner <em>org</em> that has not already been confirmed completed by <em>org</em>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>GET {storagePath}/instances?org=org&amp;excludeConfirmedBy=org
+</span></span></code></pre></div><p>Get all instances of an application that are at a specific process task e.g. <em>Task_1</em>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>GET {storagePath}/instances?appId={org}/{app}&amp;process.currentTask={taskId}
+</span></span></code></pre></div><p>On query parameters specifying date time you can use the following operators:</p>
 <ul>
 <li>gt: - greater than</li>
 <li>gte: - greater than or equal to</li>
@@ -1165,24 +1165,24 @@ Note that hard deleted instances are only included if an application owner retri
 <li>eq: - equal (can also be blank)</li>
 </ul>
 <p>They can be combined to define a range:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">dueBefore=gt:2019-02&amp;dueBefore=lt:2019-03-01
-</code></pre></div><p>The query returns a result object (page) which includes a collection of instances that matched the query. 100 instances is returned by default. Use <em>size</em> to get more or less instances per page. To get to the next page you have to use the <em>continuationToken</em> present in the <em>next</em> link.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>dueBefore=gt:2019-02&amp;dueBefore=lt:2019-03-01
+</span></span></code></pre></div><p>The query returns a result object (page) which includes a collection of instances that matched the query. 100 instances is returned by default. Use <em>size</em> to get more or less instances per page. To get to the next page you have to use the <em>continuationToken</em> present in the <em>next</em> link.</p>
 <p>The instances endpoint returns a query result object with information about how many total hits <em>totalHits</em> that the query matched and how many objects returned <em>count</em>.</p>
 <p>The endpoint supports <em>application/json</em>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">Accept: application/json
-{
-    <span style="color:#ff79c6">&#34;totalHits&#34;</span>: <span style="color:#bd93f9">234</span>,
-    <span style="color:#ff79c6">&#34;count&#34;</span>: <span style="color:#bd93f9">50</span>,
-    <span style="color:#ff79c6">&#34;self&#34;</span>: <span style="color:#f1fa8c">&#34;{storagePath}/instances?appId=org/app&amp;size=50&#34;</span>,
-    <span style="color:#ff79c6">&#34;next&#34;</span>: <span style="color:#f1fa8c">&#34;{storagePath}/instances?appId=org/app&amp;size=50&amp;continuationToken=%257b%2522token%2522%253a%2522%252bRID%...&#34;</span>
-    <span style="color:#f1fa8c">&#34;instances&#34;</span>: [
-            {...},
-            {...},
-            ...
-      ]
-    }
-}
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>Accept: application/json
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;totalHits&#34;</span>: <span style="color:#bd93f9">234</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;count&#34;</span>: <span style="color:#bd93f9">50</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;self&#34;</span>: <span style="color:#f1fa8c">&#34;{storagePath}/instances?appId=org/app&amp;size=50&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;next&#34;</span>: <span style="color:#f1fa8c">&#34;{storagePath}/instances?appId=org/app&amp;size=50&amp;continuationToken=%257b%2522token%2522%253a%2522%252bRID%...&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;instances&#34;</span>: [
+</span></span><span style="display:flex;"><span>            {...},
+</span></span><span style="display:flex;"><span>            {...},
+</span></span><span style="display:flex;"><span>            ...
+</span></span><span style="display:flex;"><span>      ]
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
 
 <footer class=" footline" ></footer>
                 </div>

@@ -381,13 +381,13 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/metadata/"><span>Metadata</span></a></li>
       <li class="dd-item">
         <a href="/nb/api/apps/instances/"><span>Instanser</span></a></li>
       <li class="dd-item">
-        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/data-elements/tags/"><span>Tags</span></a></li></ul></li>
       <li class="dd-item">
@@ -441,9 +441,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/community/about/"><span>Om</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/community/about/goals/"><span>Mål</span></a></li>
+        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li>
       <li class="dd-item">
-        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li></ul></li>
+        <a href="/nb/community/about/goals/"><span>Mål</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/community/contributing/"><span>Bidra til utvikling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -618,26 +618,26 @@ Her er ligger konfigurasjonen for alle datatyper knyttet til applikasjonen,
 både skjemadata (app model data) og vedlegg. Feltet <em>appLogic</em> som man også vil se blant noen av objektene
 i listen skal kun brukes for skjemadata.</p>
 <p>Nedenfor er det to eksempler på  <code>dataTypes</code>-instanser i en applikasjon fra en deployet applikasjon.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"> <span style="color:#f1fa8c">&#34;dataTypes&#34;</span>: [
-    {
-      <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;53a50f0d-2345-448d-9fba-f18e6bbe71f8&#34;</span>,
-      <span style="color:#ff79c6">&#34;taskId&#34;</span>: <span style="color:#f1fa8c">&#34;Task_1&#34;</span>,
-      <span style="color:#ff79c6">&#34;maxSize&#34;</span>: <span style="color:#bd93f9">25</span>,
-      <span style="color:#ff79c6">&#34;maxCount&#34;</span>: <span style="color:#bd93f9">1</span>,
-      <span style="color:#ff79c6">&#34;minCount&#34;</span>: <span style="color:#bd93f9">1</span>,
-      <span style="color:#ff79c6">&#34;allowedContentTypes&#34;</span>:[<span style="color:#f1fa8c">&#34;application/pdf&#34;</span>]
-    },
-    {
-      <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;attest&#34;</span>,
-      <span style="color:#ff79c6">&#34;taskId&#34;</span>: <span style="color:#f1fa8c">&#34;Task_1&#34;</span>,
-      <span style="color:#ff79c6">&#34;maxSize&#34;</span>: <span style="color:#bd93f9">25</span>,
-      <span style="color:#ff79c6">&#34;maxCount&#34;</span>: <span style="color:#bd93f9">1</span>,
-      <span style="color:#ff79c6">&#34;minCount&#34;</span>: <span style="color:#bd93f9">0</span>,
-      <span style="color:#ff79c6">&#34;allowedContributers&#34;</span>: [<span style="color:#f1fa8c">&#34;org:nav&#34;</span>, <span style="color:#f1fa8c">&#34;orgNo:XXXXXXXXXX&#34;</span>],
-      <span style="color:#ff79c6">&#34;grouping&#34;</span>: <span style="color:#f1fa8c">&#34;Attester&#34;</span>,
-    }
-  ]
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span> <span style="color:#f1fa8c">&#34;dataTypes&#34;</span>: [
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;53a50f0d-2345-448d-9fba-f18e6bbe71f8&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;taskId&#34;</span>: <span style="color:#f1fa8c">&#34;Task_1&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;maxSize&#34;</span>: <span style="color:#bd93f9">25</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;maxCount&#34;</span>: <span style="color:#bd93f9">1</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;minCount&#34;</span>: <span style="color:#bd93f9">1</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;allowedContentTypes&#34;</span>:[<span style="color:#f1fa8c">&#34;application/pdf&#34;</span>]
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;attest&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;taskId&#34;</span>: <span style="color:#f1fa8c">&#34;Task_1&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;maxSize&#34;</span>: <span style="color:#bd93f9">25</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;maxCount&#34;</span>: <span style="color:#bd93f9">1</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;minCount&#34;</span>: <span style="color:#bd93f9">0</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;allowedContributers&#34;</span>: [<span style="color:#f1fa8c">&#34;org:nav&#34;</span>, <span style="color:#f1fa8c">&#34;orgNo:XXXXXXXXXX&#34;</span>],
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;grouping&#34;</span>: <span style="color:#f1fa8c">&#34;Attester&#34;</span>,
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  ]
+</span></span></code></pre></div><ul>
 <li>
 <p><strong>Id</strong> på vedleggstypen.
 Denne vil settes som en GUID dersom man bruker vedleggskomponent fra Altinn Studio slik man ser i det første elementet i dataTypes-listen.

@@ -109,7 +109,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -209,7 +209,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -281,7 +281,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -1124,36 +1124,36 @@ The Altinn.App.* packages has been updated to support autodelete when process en
 <p>Updated package dependencies
 Navigate to you application repository and find <code>App.csproj</code> in the <code>App</code> folder.
 Update nuget dependencies in <code>App.csproj</code> to version 2.0.0.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.Api&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;2.0.0&#34;</span> <span style="color:#ff79c6">/&gt;</span>
-<span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.Common&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;2.0.0&#34;</span> <span style="color:#ff79c6">/&gt;</span>
-<span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.PlatformServices&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;2.0.0&#34;</span> <span style="color:#ff79c6">/&gt;</span>
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.Api&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;2.0.0&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.Common&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;2.0.0&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.PlatformServices&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;2.0.0&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+</span></span></code></pre></div></li>
 <li>
 <p>Changes in App.cs</p>
 <p>Change constructor:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">public</span> App(
-IAppResources appResourcesService,
-ILogger&lt;App&gt; logger,
-IData dataService,
-IProcess processService,
-IPDF pdfService,
-IProfile profileService,
-IRegister registerService,
-IPrefill prefillService
-) : <span style="color:#ff79c6">base</span>(appResourcesService, logger, dataService, processService, pdfService, prefillService)
-</code></pre></div><p>to:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">public</span> App(
-  IAppResources appResourcesService,
-  ILogger&lt;App&gt; logger,
-  IData dataService,
-  IProcess processService,
-  IPDF pdfService,
-  IProfile profileService,
-  IRegister registerService,
-  IPrefill prefillService,
-  IInstance instanceService
-  ) : <span style="color:#ff79c6">base</span>(appResourcesService, logger, dataService, processService, pdfService, prefillService, instanceService)
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#ff79c6">public</span> App(
+</span></span><span style="display:flex;"><span>IAppResources appResourcesService,
+</span></span><span style="display:flex;"><span>ILogger&lt;App&gt; logger,
+</span></span><span style="display:flex;"><span>IData dataService,
+</span></span><span style="display:flex;"><span>IProcess processService,
+</span></span><span style="display:flex;"><span>IPDF pdfService,
+</span></span><span style="display:flex;"><span>IProfile profileService,
+</span></span><span style="display:flex;"><span>IRegister registerService,
+</span></span><span style="display:flex;"><span>IPrefill prefillService
+</span></span><span style="display:flex;"><span>) : <span style="color:#ff79c6">base</span>(appResourcesService, logger, dataService, processService, pdfService, prefillService)
+</span></span></code></pre></div><p>to:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#ff79c6">public</span> App(
+</span></span><span style="display:flex;"><span>  IAppResources appResourcesService,
+</span></span><span style="display:flex;"><span>  ILogger&lt;App&gt; logger,
+</span></span><span style="display:flex;"><span>  IData dataService,
+</span></span><span style="display:flex;"><span>  IProcess processService,
+</span></span><span style="display:flex;"><span>  IPDF pdfService,
+</span></span><span style="display:flex;"><span>  IProfile profileService,
+</span></span><span style="display:flex;"><span>  IRegister registerService,
+</span></span><span style="display:flex;"><span>  IPrefill prefillService,
+</span></span><span style="display:flex;"><span>  IInstance instanceService
+</span></span><span style="display:flex;"><span>  ) : <span style="color:#ff79c6">base</span>(appResourcesService, logger, dataService, processService, pdfService, prefillService, instanceService)
+</span></span></code></pre></div></li>
 </ol>
 <h2 id="designer-moves-formlayoutjson-from-appui-to-appuilayouts">Designer moves FormLayout.json from app/ui to app/ui/layouts</h2>
 <p>In order to support multiple pages in an app we have done some restructuring of the app-template. When you are doing changes in Altinn Designer for your app the updated FormLayout.json will be put under the new structure.
@@ -1162,10 +1162,10 @@ For apps that have nuget references to <code>Altinn.App.Api</code>, <code>Altinn
 <li>
 <p>Navigate to you application repository and find <code>App.csproj</code> in the <code>App</code> folder.
 Update nuget dependencies in <code>App.csproj</code> to version 1.2.0-alpha or newer. We recommend updating to latest version which is currently at <code>1.3.1</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.Api&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;1.3.1&#34;</span> <span style="color:#ff79c6">/&gt;</span>
-<span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.Common&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;1.3.1&#34;</span> <span style="color:#ff79c6">/&gt;</span>
-<span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.PlatformServices&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;1.3.1&#34;</span> <span style="color:#ff79c6">/&gt;</span>
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.Api&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;1.3.1&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.Common&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;1.3.1&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.PlatformServices&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;1.3.1&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+</span></span></code></pre></div></li>
 <li>
 <p>If there are some breaking changes when updating the nuget-version this should be documented below.</p>
 </li>
@@ -1178,39 +1178,39 @@ Update nuget dependencies in <code>App.csproj</code> to version 1.2.0-alpha or n
 <p>Updated package dependencies
 Navigate to you application repository and find <code>App.csproj</code> in the <code>App</code> folder.
 Update nuget dependencies in <code>App.csproj</code> to version 1.1.11-alpha or newer..</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.Api&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;1.1.11-alpha&#34;</span> <span style="color:#ff79c6">/&gt;</span>
-<span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.Common&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;1.1.11-alpha&#34;</span> <span style="color:#ff79c6">/&gt;</span>
-<span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.PlatformServices&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;1.1.11-alpha&#34;</span> <span style="color:#ff79c6">/&gt;</span>
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.Api&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;1.1.11-alpha&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.Common&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;1.1.11-alpha&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.PlatformServices&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;1.1.11-alpha&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+</span></span></code></pre></div></li>
 <li>
 <p>Changes in Startup.cs:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">services.AddHttpClient&lt;IEvents, EventsAppSI&gt;();
-</code></pre></div><p>Startup already have multiple similar lines with calls to AddHttpClient. Add the new line anywhere among them.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span>services.AddHttpClient&lt;IEvents, EventsAppSI&gt;();
+</span></span></code></pre></div><p>Startup already have multiple similar lines with calls to AddHttpClient. Add the new line anywhere among them.</p>
 <p>This will probably also require two new lines at the top of the file:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">using</span> Altinn.App.PlatformServices.Implementation;
-<span style="color:#ff79c6">using</span> Altinn.App.PlatformServices.Interface;
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#ff79c6">using</span> Altinn.App.PlatformServices.Implementation;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> Altinn.App.PlatformServices.Interface;
+</span></span></code></pre></div></li>
 <li>
 <p>Changes in appsettings.json:</p>
 </li>
 </ol>
 <p>A new property has been included in called <code>PlatformSettings.ApiEventsEndpoint</code>.
 The value here is used for local test and will be replaced during deploy to test and production environments.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#f1fa8c">&#34;PlatformSettings&#34;</span>: {
-  ...
-    <span style="color:#ff79c6">&#34;ApiEventsEndpoint&#34;</span>: <span style="color:#f1fa8c">&#34;http://localhost:5101/events/api/v1/&#34;</span>
-}
-|```
-
-The default behaviour of the logic is to not send events. To override this there is a new setting called `AppSettings:RegisterEventsWithEventsComponent`.
-Update the appsettings file by adding an entry in the AppSettings section:
-
-```json
-<span style="color:#f1fa8c">&#34;AppSettings&#34;</span>: {
-  ...
-  <span style="color:#ff79c6">&#34;RegisterEventsWithEventsComponent&#34;</span>: <span style="color:#ff79c6">false</span>
-}
-</code></pre></div><p>Change the setting to true if the app should create and send events. Please note that the feature is under continued development and still considered experimental.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#f1fa8c">&#34;PlatformSettings&#34;</span>: {
+</span></span><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;ApiEventsEndpoint&#34;</span>: <span style="color:#f1fa8c">&#34;http://localhost:5101/events/api/v1/&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>|```
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>The default behaviour of the logic is to not send events. To override this there is a new setting called `AppSettings:RegisterEventsWithEventsComponent`.
+</span></span><span style="display:flex;"><span>Update the appsettings file by adding an entry in the AppSettings section:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>```json
+</span></span><span style="display:flex;"><span><span style="color:#f1fa8c">&#34;AppSettings&#34;</span>: {
+</span></span><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;RegisterEventsWithEventsComponent&#34;</span>: <span style="color:#ff79c6">false</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Change the setting to true if the app should create and send events. Please note that the feature is under continued development and still considered experimental.</p>
 <h2 id="support-for-deleting-instances-from-endpoint-in-app">Support for deleting instances from endpoint in app</h2>
 <p><a href="https://github.com/Altinn/altinn-studio/issues/4871">#4871</a> was fixed with in release of 1.1.10-alpha of the app nugets.
 <strong>This change only affects users and app owners that try to delete an instance.</strong></p>
@@ -1223,25 +1223,25 @@ If you are running a newer release, skip to step 2.</p>
 <li>
 <p>Navigate to you application repository and find <code>App.csproj</code> in the <code>App</code> folder.
 Update nuget dependencies in <code>App.csproj</code> to version 1.1.10-alpha or newer..</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.Api&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;1.1.10-alpha&#34;</span> <span style="color:#ff79c6">/&gt;</span>
-<span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.Common&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;1.1.10-alpha&#34;</span> <span style="color:#ff79c6">/&gt;</span>
-<span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.PlatformServices&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;1.1.10-alpha&#34;</span> <span style="color:#ff79c6">/&gt;</span>
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.Api&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;1.1.10-alpha&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.Common&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;1.1.10-alpha&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.PlatformServices&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;1.1.10-alpha&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+</span></span></code></pre></div></li>
 <li>
 <p>Navigate to you application repository and find <code>Startup.cs</code> in the <code>App</code> folder.
 Add a new line to the <code>services.AddAuthorization</code>-section. 
 The following should be added</p>
 <p><code>options.AddPolicy(&quot;InstanceDelete&quot;, policy =&gt; policy.Requirements.Add(new AppAccessRequirement(&quot;delete&quot;)));</code></p>
 <p>and the final result should look like this</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">  services.AddAuthorization(options =&gt;
-         {
-             options.AddPolicy(<span style="color:#f1fa8c">&#34;InstanceRead&#34;</span>, policy =&gt; policy.Requirements.Add(<span style="color:#ff79c6">new</span> AppAccessRequirement(<span style="color:#f1fa8c">&#34;read&#34;</span>)));
-             options.AddPolicy(<span style="color:#f1fa8c">&#34;InstanceWrite&#34;</span>, policy =&gt; policy.Requirements.Add(<span style="color:#ff79c6">new</span> AppAccessRequirement(<span style="color:#f1fa8c">&#34;write&#34;</span>)));
-             options.AddPolicy(<span style="color:#f1fa8c">&#34;InstanceDelete&#34;</span>, policy =&gt; policy.Requirements.Add(<span style="color:#ff79c6">new</span> AppAccessRequirement(<span style="color:#f1fa8c">&#34;delete&#34;</span>)));
-             options.AddPolicy(<span style="color:#f1fa8c">&#34;InstanceInstantiate&#34;</span>, policy =&gt; policy.Requirements.Add(<span style="color:#ff79c6">new</span> AppAccessRequirement(<span style="color:#f1fa8c">&#34;instantiate&#34;</span>)));
-             options.AddPolicy(<span style="color:#f1fa8c">&#34;InstanceComplete&#34;</span>, policy =&gt; policy.Requirements.Add(<span style="color:#ff79c6">new</span> AppAccessRequirement(<span style="color:#f1fa8c">&#34;complete&#34;</span>)));
-         });
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span>  services.AddAuthorization(options =&gt;
+</span></span><span style="display:flex;"><span>         {
+</span></span><span style="display:flex;"><span>             options.AddPolicy(<span style="color:#f1fa8c">&#34;InstanceRead&#34;</span>, policy =&gt; policy.Requirements.Add(<span style="color:#ff79c6">new</span> AppAccessRequirement(<span style="color:#f1fa8c">&#34;read&#34;</span>)));
+</span></span><span style="display:flex;"><span>             options.AddPolicy(<span style="color:#f1fa8c">&#34;InstanceWrite&#34;</span>, policy =&gt; policy.Requirements.Add(<span style="color:#ff79c6">new</span> AppAccessRequirement(<span style="color:#f1fa8c">&#34;write&#34;</span>)));
+</span></span><span style="display:flex;"><span>             options.AddPolicy(<span style="color:#f1fa8c">&#34;InstanceDelete&#34;</span>, policy =&gt; policy.Requirements.Add(<span style="color:#ff79c6">new</span> AppAccessRequirement(<span style="color:#f1fa8c">&#34;delete&#34;</span>)));
+</span></span><span style="display:flex;"><span>             options.AddPolicy(<span style="color:#f1fa8c">&#34;InstanceInstantiate&#34;</span>, policy =&gt; policy.Requirements.Add(<span style="color:#ff79c6">new</span> AppAccessRequirement(<span style="color:#f1fa8c">&#34;instantiate&#34;</span>)));
+</span></span><span style="display:flex;"><span>             options.AddPolicy(<span style="color:#f1fa8c">&#34;InstanceComplete&#34;</span>, policy =&gt; policy.Requirements.Add(<span style="color:#ff79c6">new</span> AppAccessRequirement(<span style="color:#f1fa8c">&#34;complete&#34;</span>)));
+</span></span><span style="display:flex;"><span>         });
+</span></span></code></pre></div></li>
 <li>
 <p>If deleting instances should be available for the application owner this must be explicitly stated in the application policy. 
 The requred rule is documented <a href="https://altinn.github.io/docs/altinn-studio/app-creation/autorisasjon/regelbibliotek/#org-can-delete-an-instance-of-orgapp-in-any-task-or-event">here</a>.</p>
@@ -1255,10 +1255,10 @@ When you are running apps locally, we are using the default behaviour (directory
 <p>User may experience errors posting data when the app is restarted or when multiple replicas are used.</p>
 <h3 id="how-to-fix-1">How to fix</h3>
 <p>You need to add the environment variable in the <code>deployment.yaml</code> file. If you have not done any changes to the file previously, you can copy the file from <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Apps/AppTemplates/AspNet/deployment/templates/deployment.yaml">here</a>, otherwise you need to update the file directly. Both the name of the environment variable and the value must be set as follows:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#ff79c6">env</span>:
-  - <span style="color:#ff79c6">name</span>: ALTINN_KEYS_DIRECTORY
-    <span style="color:#ff79c6">value</span>: <span style="color:#f1fa8c">&#34;/mnt/keys&#34;</span>
-</code></pre></div><figure><a href="4843-deployment.png"><img src="4843-deployment.png" alt="4843-deployment" title="Deployment.yaml file" /></a><figcaption><h4>Deployment.yaml file</h4></figcaption></figure>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ff79c6">env</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#ff79c6">name</span>: ALTINN_KEYS_DIRECTORY
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">value</span>: <span style="color:#f1fa8c">&#34;/mnt/keys&#34;</span>
+</span></span></code></pre></div><figure><a href="4843-deployment.png"><img src="4843-deployment.png" alt="4843-deployment" title="Deployment.yaml file" /></a><figcaption><h4>Deployment.yaml file</h4></figcaption></figure>
 <h2 id="build-pipeline-failed-on-task-build-and-push-docker-image-to-acr">Build pipeline failed on task: Build and push docker image to acr</h2>
 <p>A namespace was renamed in <code>Altinn.App.PlatformServices</code> Version=&ldquo;1.1.2-alpha causing the build of the application to fail
 if references to this namespace isn&rsquo;t changed.</p>
@@ -1266,8 +1266,8 @@ if references to this namespace isn&rsquo;t changed.</p>
 <h3 id="errors-2">Errors</h3>
 <p>Build pipeline fails due to failing task: <em>Build and push docker image to acr</em>.</p>
 <p>Expanding the task reveals error message:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Startup.cs<span style="color:#ff79c6">(</span>5,35<span style="color:#ff79c6">)</span>: error CS0234: The <span style="color:#8be9fd;font-style:italic">type</span> or namespace name <span style="color:#f1fa8c">&#39;Extentions&#39;</span> does not exist in the namespace <span style="color:#f1fa8c">&#39;Altinn.App.PlatformServices&#39;</span> <span style="color:#ff79c6">(</span>are you missing an assembly reference?<span style="color:#ff79c6">)</span><span style="color:#f1fa8c">&#34;.
-</span></code></pre></div><p>Screenshot of the failing build pipeline.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>Startup.cs<span style="color:#ff79c6">(</span>5,35<span style="color:#ff79c6">)</span>: error CS0234: The <span style="color:#8be9fd;font-style:italic">type</span> or namespace name <span style="color:#f1fa8c">&#39;Extentions&#39;</span> does not exist in the namespace <span style="color:#f1fa8c">&#39;Altinn.App.PlatformServices&#39;</span> <span style="color:#ff79c6">(</span>are you missing an assembly reference?<span style="color:#ff79c6">)</span><span style="color:#f1fa8c">&#34;.
+</span></span></span></code></pre></div><p>Screenshot of the failing build pipeline.
 <img src="breaking-change-namespace-rename.png" alt="Build error in pipeline" title="Build error in pipeline"></p>
 <h3 id="how-to-fix-2">How to fix</h3>
 <ol>
@@ -1295,18 +1295,18 @@ at the network traffic during instantiation, users will see that the call to <co
 <ol>
 <li>Navigate to you application repository and find <code>App.csproj</code> in the <code>App</code> folder. 
 Update nuget dependencies in <code>App.csproj</code> from 1.0.86. to version 1.1.0-alpha.
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.Api&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;1.0.86-alpha&#34;</span> <span style="color:#ff79c6">/&gt;</span>
-<span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.Common&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;1.0.86-alpha&#34;</span> <span style="color:#ff79c6">/&gt;</span>
-<span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.PlatformServices&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;1.0.86-alpha&#34;</span> <span style="color:#ff79c6">/&gt;</span>
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.Api&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;1.0.86-alpha&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.Common&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;1.0.86-alpha&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.PlatformServices&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;1.0.86-alpha&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+</span></span></code></pre></div></li>
 <li>Modify the function <em>ConfigureServices()</em> in  <em>App/Startup.cs</em>.</li>
 </ol>
 <p>Include the lines below in the function.
 Anywhere would do, but we suggest referencing the memory cache after _ services.AddControllersWithViews()_ 
 and the HttpClient in the same section as the other AppSI services.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">services.AddMemoryCache();
-services.AddHttpClient&lt;IText, TextAppSI&gt;();
-</code></pre></div><p>Your code changes should match the image below.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span>services.AddMemoryCache();
+</span></span><span style="display:flex;"><span>services.AddHttpClient&lt;IText, TextAppSI&gt;();
+</span></span></code></pre></div><p>Your code changes should match the image below.</p>
 <figure><a href="breaking-change-4451.png"><img src="breaking-change-4451.png" alt="Diff in code" title="Diff in code" /></a><figcaption><h4>Diff in code</h4></figcaption></figure>
 <h2 id="new-endpoint-introduced-in-altinnappsapi-exposing-application-text-resources">New endpoint introduced in Altinn.Apps.Api exposing application text resources</h2>
 <p>Introduced with issue: <a href="https://github.com/Altinn/altinn-studio/issues/4451">#4451</a> and nuget 1.1.0.-alpha.<br>
@@ -1318,9 +1318,9 @@ modify the function <em>ConfigureServices()</em> in  <em>App/Startup.cs</em>.</p
 <p>Include the lines below in the function.
 Anywhere would do, but we suggest referencing the memory cache after _ services.AddControllersWithViews()_ 
 and the HttpClient in the same section as the other AppSI services.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">services.AddMemoryCache();
-services.AddHttpClient&lt;IText, TextAppSI&gt;();
-</code></pre></div><p>Your code changes should match the image below.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span>services.AddMemoryCache();
+</span></span><span style="display:flex;"><span>services.AddHttpClient&lt;IText, TextAppSI&gt;();
+</span></span></code></pre></div><p>Your code changes should match the image below.</p>
 <figure><a href="breaking-change-4451.png"><img src="breaking-change-4451.png" alt="Diff in code" title="Diff in code" /></a><figcaption><h4>Diff in code</h4></figcaption></figure>
 <h2 id="platform-authorization-introduced-for-platform-register-and-profile">Platform authorization introduced for Platform Register and Profile</h2>
 <p>Introduced with issue: <a href="https://github.com/altinn/altinn-studio/issues/4162">#4162</a> and Release: v2020.23.<br>
@@ -1342,10 +1342,10 @@ or inspect your code. Be ware that indentation is important when working with .y
 <li>Update nuget dependencies in <code>App.csproj</code> to version 1.0.86-alpha.
 Navigate to you application repository and find <code>App.csproj</code> in the <code>App</code> folder.
 Upgrade the three Altinn.App nugetpackages to version 1.0.86.
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">    <span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.Api&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;1.0.86-alpha&#34;</span> <span style="color:#ff79c6">/&gt;</span>
-    <span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.Common&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;1.0.86-alpha&#34;</span> <span style="color:#ff79c6">/&gt;</span>
-    <span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.PlatformServices&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;1.0.86-alpha&#34;</span> <span style="color:#ff79c6">/&gt;</span>
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.Api&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;1.0.86-alpha&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.Common&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;1.0.86-alpha&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.PlatformServices&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;1.0.86-alpha&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+</span></span></code></pre></div></li>
 <li>Update <code>Startup.cs</code> in the <code>App</code> folder in your application repository.
 If no custom changes have been made to this file since you created the application, simply replace the content of the file with
 <a href="https://raw.githubusercontent.com/Altinn/altinn-studio/e6b43fb8c3e71c16ca4a3bb47a5ff6f208b71854/src/studio/AppTemplates/AspNet/App/Startup.cs">this code</a>.
@@ -1385,39 +1385,39 @@ If you do experience any problems with submitting/validating form data even with
 <p>XSD:</p>
 </li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;xs:schema</span> <span style="color:#50fa7b">xmlns:xs=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema&#34;</span><span style="color:#ff79c6">&gt;</span>
-  <span style="color:#6272a4">&lt;!--title=&#39;Eksempel xsd skjema&#39; lang=&#39;NOB&#39;--&gt;</span>
-  <span style="color:#ff79c6">&lt;xs:element</span> <span style="color:#50fa7b">name=</span><span style="color:#f1fa8c">&#34;Skjema&#34;</span><span style="color:#ff79c6">&gt;</span>
-    <span style="color:#ff79c6">&lt;xs:complexType&gt;</span>
-      <span style="color:#ff79c6">&lt;xs:sequence&gt;</span>
-        <span style="color:#ff79c6">&lt;xs:element</span> <span style="color:#50fa7b">minOccurs=</span><span style="color:#f1fa8c">&#34;0&#34;</span> <span style="color:#50fa7b">ref=</span><span style="color:#f1fa8c">&#34;SomeGroup-grp-1111&#34;</span> <span style="color:#ff79c6">/&gt;&lt;/xs:element&gt;</span>
-      <span style="color:#ff79c6">&lt;/xs:sequence&gt;</span>
-      <span style="color:#ff79c6">&lt;xs:anyAttribute</span> <span style="color:#ff79c6">/&gt;</span>
-    <span style="color:#ff79c6">&lt;/xs:complexType&gt;</span>
-  <span style="color:#ff79c6">&lt;/xs:element&gt;</span>
-<span style="display:block;width:100%;background-color:#3d3f4a">  <span style="color:#ff79c6">&lt;xs:element</span> <span style="color:#50fa7b">name=</span><span style="color:#f1fa8c">&#34;SomeGroup-grp-1111&#34;</span><span style="color:#ff79c6">&gt;</span>
-</span>    <span style="color:#ff79c6">&lt;xs:complexType&gt;</span>
-      <span style="color:#ff79c6">&lt;xs:sequence&gt;</span>
-        <span style="color:#ff79c6">&lt;xs:element</span> <span style="color:#50fa7b">minOccurs=</span><span style="color:#f1fa8c">&#34;0&#34;</span> <span style="color:#50fa7b">ref=</span><span style="color:#f1fa8c">&#34;SomeField-datadef-12345&#34;</span> <span style="color:#ff79c6">/&gt;</span>
-      <span style="color:#ff79c6">&lt;/xs:sequence&gt;</span>
-      <span style="color:#ff79c6">&lt;xs:attribute</span> <span style="color:#50fa7b">fixed=</span><span style="color:#f1fa8c">&#34;1111&#34;</span> <span style="color:#50fa7b">name=</span><span style="color:#f1fa8c">&#34;gruppeid&#34;</span> <span style="color:#50fa7b">type=</span><span style="color:#f1fa8c">&#34;xs:positiveInteger&#34;</span> <span style="color:#50fa7b">use=</span><span style="color:#f1fa8c">&#34;required&#34;</span> <span style="color:#ff79c6">/&gt;</span>
-    <span style="color:#ff79c6">&lt;/xs:complexType&gt;</span>
-  <span style="color:#ff79c6">&lt;/xs:element&gt;</span>
-<span style="display:block;width:100%;background-color:#3d3f4a">  <span style="color:#ff79c6">&lt;xs:element</span> <span style="color:#50fa7b">name=</span><span style="color:#f1fa8c">&#34;SomeField-datadef-12345&#34;</span><span style="color:#ff79c6">&gt;</span>
-</span>      <span style="color:#ff79c6">&lt;xs:simpleContent&gt;</span>
-        <span style="color:#ff79c6">&lt;xs:extension</span> <span style="color:#50fa7b">base=</span><span style="color:#f1fa8c">&#34;SomeTextformat&#34;</span><span style="color:#ff79c6">&gt;</span>
-          <span style="color:#ff79c6">&lt;xs:attribute</span> <span style="color:#50fa7b">fixed=</span><span style="color:#f1fa8c">&#34;12345&#34;</span> <span style="color:#50fa7b">name=</span><span style="color:#f1fa8c">&#34;orid&#34;</span> <span style="color:#50fa7b">type=</span><span style="color:#f1fa8c">&#34;xs:positiveInteger&#34;</span> <span style="color:#50fa7b">use=</span><span style="color:#f1fa8c">&#34;required&#34;</span> <span style="color:#ff79c6">/&gt;</span>
-        <span style="color:#ff79c6">&lt;/xs:extension&gt;</span>
-      <span style="color:#ff79c6">&lt;/xs:simpleContent&gt;</span>
-    <span style="color:#ff79c6">&lt;/xs:complexType&gt;</span>
-  <span style="color:#ff79c6">&lt;/xs:element&gt;</span>
-  <span style="color:#ff79c6">&lt;xs:simpleType</span> <span style="color:#50fa7b">name=</span><span style="color:#f1fa8c">&#34;SomeTextformat&#34;</span><span style="color:#ff79c6">&gt;</span>
-    <span style="color:#ff79c6">&lt;xs:restriction</span> <span style="color:#50fa7b">base=</span><span style="color:#f1fa8c">&#34;xs:string&#34;</span><span style="color:#ff79c6">&gt;</span>
-      <span style="color:#ff79c6">&lt;xs:length</span> <span style="color:#50fa7b">value=</span><span style="color:#f1fa8c">&#34;11&#34;</span> <span style="color:#ff79c6">/&gt;</span>
-    <span style="color:#ff79c6">&lt;/xs:restriction&gt;</span>
-  <span style="color:#ff79c6">&lt;/xs:simpleType&gt;</span>
-<span style="color:#ff79c6">&lt;/xs:schema&gt;</span>
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#ff79c6">&lt;xs:schema</span> <span style="color:#50fa7b">xmlns:xs=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">&lt;!--title=&#39;Eksempel xsd skjema&#39; lang=&#39;NOB&#39;--&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;xs:element</span> <span style="color:#50fa7b">name=</span><span style="color:#f1fa8c">&#34;Skjema&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;xs:complexType&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;xs:sequence&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;xs:element</span> <span style="color:#50fa7b">minOccurs=</span><span style="color:#f1fa8c">&#34;0&#34;</span> <span style="color:#50fa7b">ref=</span><span style="color:#f1fa8c">&#34;SomeGroup-grp-1111&#34;</span> <span style="color:#ff79c6">/&gt;&lt;/xs:element&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;/xs:sequence&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;xs:anyAttribute</span> <span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;/xs:complexType&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;/xs:element&gt;</span>
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>  <span style="color:#ff79c6">&lt;xs:element</span> <span style="color:#50fa7b">name=</span><span style="color:#f1fa8c">&#34;SomeGroup-grp-1111&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;xs:complexType&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;xs:sequence&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;xs:element</span> <span style="color:#50fa7b">minOccurs=</span><span style="color:#f1fa8c">&#34;0&#34;</span> <span style="color:#50fa7b">ref=</span><span style="color:#f1fa8c">&#34;SomeField-datadef-12345&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;/xs:sequence&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;xs:attribute</span> <span style="color:#50fa7b">fixed=</span><span style="color:#f1fa8c">&#34;1111&#34;</span> <span style="color:#50fa7b">name=</span><span style="color:#f1fa8c">&#34;gruppeid&#34;</span> <span style="color:#50fa7b">type=</span><span style="color:#f1fa8c">&#34;xs:positiveInteger&#34;</span> <span style="color:#50fa7b">use=</span><span style="color:#f1fa8c">&#34;required&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;/xs:complexType&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;/xs:element&gt;</span>
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>  <span style="color:#ff79c6">&lt;xs:element</span> <span style="color:#50fa7b">name=</span><span style="color:#f1fa8c">&#34;SomeField-datadef-12345&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;xs:simpleContent&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;xs:extension</span> <span style="color:#50fa7b">base=</span><span style="color:#f1fa8c">&#34;SomeTextformat&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&lt;xs:attribute</span> <span style="color:#50fa7b">fixed=</span><span style="color:#f1fa8c">&#34;12345&#34;</span> <span style="color:#50fa7b">name=</span><span style="color:#f1fa8c">&#34;orid&#34;</span> <span style="color:#50fa7b">type=</span><span style="color:#f1fa8c">&#34;xs:positiveInteger&#34;</span> <span style="color:#50fa7b">use=</span><span style="color:#f1fa8c">&#34;required&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;/xs:extension&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;/xs:simpleContent&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;/xs:complexType&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;/xs:element&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;xs:simpleType</span> <span style="color:#50fa7b">name=</span><span style="color:#f1fa8c">&#34;SomeTextformat&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;xs:restriction</span> <span style="color:#50fa7b">base=</span><span style="color:#f1fa8c">&#34;xs:string&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;xs:length</span> <span style="color:#50fa7b">value=</span><span style="color:#f1fa8c">&#34;11&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;/xs:restriction&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;/xs:simpleType&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&lt;/xs:schema&gt;</span>
+</span></span></code></pre></div><ul>
 <li>Old format for data model binding: <code>someGroupgrp1111.someFielddatatef12345.value</code>.</li>
 <li>New format for data model binding: <code>SomeGroup-grp-1111.SomeField-datadef-12345</code>.</li>
 </ul>
@@ -1431,18 +1431,18 @@ The operations in question has now been removed and replaced with operations tha
 <p>The methods that have been removed were used by an app when an instantiation were done by the Application owner.
 More specifically if the instanceOwnerPartyId were unknown.
 The instantiation request would then have the Person number or organization number instead, and the Register operation would be used to identify the correct party id.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">POST https://{org}.apps.tt<span style="color:#bd93f9">02</span>.altinn.no/{app-id}/instances/
-
-{
-  <span style="color:#ff79c6">&#34;appId&#34;</span> : <span style="color:#f1fa8c">&#34;org/app&#34;</span>,
-  <span style="color:#ff79c6">&#34;instanceOwner&#34;</span>: {
-    <span style="color:#ff79c6">&#34;personNumber&#34;</span>: <span style="color:#f1fa8c">&#34;12247918309&#34;</span>,
-    <span style="color:#ff79c6">&#34;organisationNumber&#34;</span>: <span style="color:#ff79c6">null</span>,
-    <span style="color:#ff79c6">&#34;instanceOwnerPartyId&#34;</span>: <span style="color:#ff79c6">null</span>
-  },
-  ...
-}
-</code></pre></div><h3 id="how-to-fix-8">How to fix</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>POST https:<span style="color:#6272a4">//{org}.apps.tt02.altinn.no/{app-id}/instances/
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;appId&#34;</span> : <span style="color:#f1fa8c">&#34;org/app&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;instanceOwner&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;personNumber&#34;</span>: <span style="color:#f1fa8c">&#34;12247918309&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;organisationNumber&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;instanceOwnerPartyId&#34;</span>: <span style="color:#ff79c6">null</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="how-to-fix-8">How to fix</h3>
 <p>Any issues related to this change can be fixed by upgrading to the latest version of <a href="https://www.nuget.org/packages/Altinn.App.PlatformServices/">Altinn.App.PlatformServices</a>.
 This means the App must be updated and a the new version deployed to all environments. Existing instances are not affected.</p>
 <h2 id="deploy-pipeline-fails-with-error-upgrade-failed">Deploy pipeline fails with error: UPGRADE FAILED</h2>
@@ -1470,10 +1470,10 @@ Remember to pull the latest version in altinn.studio before attempting to re-dep
 Be ware of indentation here. Two spaces are used as indent for sub sections.</p>
 </li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#ff79c6">selector</span>:
-  <span style="color:#ff79c6">matchLabels</span>:
-    <span style="color:#ff79c6">app</span>: {{ template &#34;name&#34; . }}
-</code></pre></div><h2 id="send-in--validation-fails-with-ukjent-feil">Send-in / Validation fails with &lsquo;Ukjent feil&rsquo;</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ff79c6">selector</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">matchLabels</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">app</span>: {{ template &#34;name&#34; . }}
+</span></span></code></pre></div><h2 id="send-in--validation-fails-with-ukjent-feil">Send-in / Validation fails with &lsquo;Ukjent feil&rsquo;</h2>
 <p>Introduced with issue: <a href="https://github.com/Altinn/altinn-studio/issues/3927">#3927</a>.</p>
 <p>There was a vulnerability in the solution allowing to update a whole instance object
 using an endpoint in app backend or storage. This has been solved by refactoring app backend
@@ -1485,10 +1485,10 @@ In network you can see that the &lsquo;validate&rsquo;-request receives a 500 co
 <h3 id="how-to-fix-10">How to fix</h3>
 <p>Navigate to you application repository and find App.csproj.
 Upgrade the three Altinn.App nugetpackages to version 1.0.78.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.Api&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;1.0.78-alpha&#34;</span> <span style="color:#ff79c6">/&gt;</span>
-<span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.Common&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;1.0.78-alpha&#34;</span> <span style="color:#ff79c6">/&gt;</span>
-<span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.PlatformServices&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;1.0.78-alpha&#34;</span> <span style="color:#ff79c6">/&gt;</span>
-</code></pre></div><h2 id="validation-fails-for-attachments-in-some-cases-after-30032020">Validation fails for attachments in some cases after 30.03.2020</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.Api&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;1.0.78-alpha&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.Common&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;1.0.78-alpha&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.PlatformServices&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;1.0.78-alpha&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+</span></span></code></pre></div><h2 id="validation-fails-for-attachments-in-some-cases-after-30032020">Validation fails for attachments in some cases after 30.03.2020</h2>
 <p>Introduced with issues: <a href="https://github.com/Altinn/altinn-studio/issues/1925">#1925</a> and <a href="https://github.com/Altinn/altinn-studio/issues/3915">#3915</a>.</p>
 <p>In Altinn Studio, all data types that were created from a FileUpload component were set with <code>allowedContentTypes: [application/octet-stream]</code> as default.</p>
 <p>This was also set for all uploads from the app. This has now been changed, so that the 
@@ -1518,30 +1518,30 @@ Find the template files <a href="https://github.com/Altinn/altinn-studio/tree/ma
 <h4 id="applogicvalidationvalidationhandlercs">App/logic/Validation/ValidationHandler.cs</h4>
 <ol>
 <li>Add a reference to <em>Altinn.Platform.Storage.Interface.Models</em> by including the snippet below amongst the using statements.
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">using</span> Altinn.Platform.Storage.Interface.Models;
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#ff79c6">using</span> Altinn.Platform.Storage.Interface.Models;
+</span></span></code></pre></div></li>
 <li>Add the function below in the class.
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task ValidateTask(Instance instance, <span style="color:#8be9fd">string</span> taskId, ModelStateDictionary validationResults)
-{
-    <span style="color:#ff79c6">await</span> Task.CompletedTask;
-}
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task ValidateTask(Instance instance, <span style="color:#8be9fd">string</span> taskId, ModelStateDictionary validationResults)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">await</span> Task.CompletedTask;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></li>
 </ol>
 <h4 id="applogicappcs">App/logic/App.cs</h4>
 <ol>
 <li>Rename function <code>RunValidation</code> to <code>RunDataValidation</code></li>
 <li>Add the function below in the class</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#6272a4">/// &lt;summary&gt;
-</span><span style="color:#6272a4">/// Run validation event to perform custom validations
-</span><span style="color:#6272a4">/// &lt;/summary&gt;
-</span><span style="color:#6272a4">/// &lt;param name=&#34;validationResults&#34;&gt;Object to contain any validation errors/warnings&lt;/param&gt;
-</span><span style="color:#6272a4">/// &lt;returns&gt;Value indicating if the form is valid or not&lt;/returns&gt;
-</span><span style="color:#6272a4"></span><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">override</span> <span style="color:#ff79c6">async</span> Task RunTaskValidation(Instance instance, <span style="color:#8be9fd">string</span> taskId, ModelStateDictionary validationResults)
-{
-    <span style="color:#ff79c6">await</span> <span style="color:#bd93f9">_</span>validationHandler.ValidateTask(instance, taskId, validationResults);
-}
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#6272a4">/// &lt;summary&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">/// Run validation event to perform custom validations</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">/// &lt;/summary&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">/// &lt;param name=&#34;validationResults&#34;&gt;Object to contain any validation errors/warnings&lt;/param&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">/// &lt;returns&gt;Value indicating if the form is valid or not&lt;/returns&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">override</span> <span style="color:#ff79c6">async</span> Task RunTaskValidation(Instance instance, <span style="color:#8be9fd">string</span> taskId, ModelStateDictionary validationResults)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">await</span> _validationHandler.ValidateTask(instance, taskId, validationResults);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
 
 <footer class=" footline" ></footer>
                 </div>

@@ -109,7 +109,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -209,7 +209,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -281,7 +281,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -1125,8 +1125,8 @@ Required configurations are <a href="../configuration/#top-level-configurations"
 <h3 id="getinstances">GetInstances</h3>
 <p>This command downloads all application instances and stores them in the configured StorageOutputFolder.
 Note that all instances, regardless of state, are downloaded.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Application GetInstances <span style="color:#8be9fd;font-style:italic">org</span><span style="color:#ff79c6">={</span>org<span style="color:#ff79c6">}</span> <span style="color:#8be9fd;font-style:italic">app</span><span style="color:#ff79c6">={</span>app<span style="color:#ff79c6">}</span>
-</code></pre></div><h2 id="batch-command">Batch command</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>Application GetInstances <span style="color:#8be9fd;font-style:italic">org</span><span style="color:#ff79c6">={</span>org<span style="color:#ff79c6">}</span> <span style="color:#8be9fd;font-style:italic">app</span><span style="color:#ff79c6">={</span>app<span style="color:#ff79c6">}</span>
+</span></span></code></pre></div><h2 id="batch-command">Batch command</h2>
 <p>The batch command allows you to interact with an application through providing batches of data.</p>
 <p>Some configurations are required to be in place before running the batch command.
 Read about the setup of <a href="../configuration/#maskinporten-settings">MaskinportenSettings</a> and <a href="../configuration/#instantiation-configuration">IntantiationConfig</a>.</p>
@@ -1139,23 +1139,23 @@ Read about the setup of <a href="../configuration/#maskinporten-settings">Maskin
 <p>GetData fetches data elements from Storage. Data can be fetched for an application with different filter criteria or data can be fetch for a specific owner and instance.</p>
 <p>Examples:</p>
 <p>Below is an example for fetching a specific data element</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Storage GetData <span style="color:#8be9fd;font-style:italic">ownerId</span><span style="color:#ff79c6">={</span>ownerId<span style="color:#ff79c6">}</span> <span style="color:#8be9fd;font-style:italic">instanceId</span><span style="color:#ff79c6">={</span>instanceId<span style="color:#ff79c6">}</span>  <span style="color:#8be9fd;font-style:italic">dataId</span><span style="color:#ff79c6">={</span>dataId<span style="color:#ff79c6">}</span>
-</code></pre></div><p>Below is an example for fetching all data elements for an application instances where the process is completed</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Storage GetData <span style="color:#8be9fd;font-style:italic">appId</span><span style="color:#ff79c6">=</span>&lt;applicationId&gt; <span style="color:#8be9fd;font-style:italic">processIsComplete</span><span style="color:#ff79c6">=</span><span style="color:#8be9fd;font-style:italic">true</span>
-</code></pre></div><h3 id="getinstance">GetInstance</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>Storage GetData <span style="color:#8be9fd;font-style:italic">ownerId</span><span style="color:#ff79c6">={</span>ownerId<span style="color:#ff79c6">}</span> <span style="color:#8be9fd;font-style:italic">instanceId</span><span style="color:#ff79c6">={</span>instanceId<span style="color:#ff79c6">}</span>  <span style="color:#8be9fd;font-style:italic">dataId</span><span style="color:#ff79c6">={</span>dataId<span style="color:#ff79c6">}</span>
+</span></span></code></pre></div><p>Below is an example for fetching all data elements for an application instances where the process is completed</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>Storage GetData <span style="color:#8be9fd;font-style:italic">appId</span><span style="color:#ff79c6">=</span>&lt;applicationId&gt; <span style="color:#8be9fd;font-style:italic">processIsComplete</span><span style="color:#ff79c6">=</span><span style="color:#8be9fd;font-style:italic">true</span>
+</span></span></code></pre></div><h3 id="getinstance">GetInstance</h3>
 <p>GetInstance fetches the metadata of an instance from Platform Storage. 
 An option <code>savetofile</code> is available for storing the instance object to a file, rather than write it in the console.
 The json-file will be available in the configured StorageOutputFolder.</p>
 <p>Examples:</p>
 <p>Below is an example for fetching an instance object and writing it to the console</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Storage GetInstance <span style="color:#8be9fd;font-style:italic">ownerId</span><span style="color:#ff79c6">={</span>ownerId<span style="color:#ff79c6">}</span> <span style="color:#8be9fd;font-style:italic">instanceId</span><span style="color:#ff79c6">={</span>instanceId<span style="color:#ff79c6">}</span> 
-</code></pre></div><p>The command below will save the instance data to a file.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>Storage GetInstance <span style="color:#8be9fd;font-style:italic">ownerId</span><span style="color:#ff79c6">={</span>ownerId<span style="color:#ff79c6">}</span> <span style="color:#8be9fd;font-style:italic">instanceId</span><span style="color:#ff79c6">={</span>instanceId<span style="color:#ff79c6">}</span> 
+</span></span></code></pre></div><p>The command below will save the instance data to a file.
 <code>Storage GetInstance ownerId=50042027 instanceId=d1e27067-fcce-461c-88b3-ff0d94631a40 savetofile</code></p>
 <h3 id="uploaddata">UploadData</h3>
 <p>Upload uploads a data element to storage, for instance a receipt.</p>
 <p>Example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Storage UploadData <span style="color:#8be9fd;font-style:italic">ownerId</span><span style="color:#ff79c6">={</span>ownerId<span style="color:#ff79c6">}</span> <span style="color:#8be9fd;font-style:italic">instanceId</span><span style="color:#ff79c6">={</span>instanceId<span style="color:#ff79c6">}</span> <span style="color:#8be9fd;font-style:italic">elementType</span><span style="color:#ff79c6">={</span>elementType<span style="color:#ff79c6">}</span> <span style="color:#8be9fd;font-style:italic">file</span><span style="color:#ff79c6">={</span>filepath<span style="color:#ff79c6">}</span>
-</code></pre></div><p>The command options defines application owner and to which instance the data shall attached and the full path to the file that shall be uploaded.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>Storage UploadData <span style="color:#8be9fd;font-style:italic">ownerId</span><span style="color:#ff79c6">={</span>ownerId<span style="color:#ff79c6">}</span> <span style="color:#8be9fd;font-style:italic">instanceId</span><span style="color:#ff79c6">={</span>instanceId<span style="color:#ff79c6">}</span> <span style="color:#8be9fd;font-style:italic">elementType</span><span style="color:#ff79c6">={</span>elementType<span style="color:#ff79c6">}</span> <span style="color:#8be9fd;font-style:italic">file</span><span style="color:#ff79c6">={</span>filepath<span style="color:#ff79c6">}</span>
+</span></span></code></pre></div><p>The command options defines application owner and to which instance the data shall attached and the full path to the file that shall be uploaded.</p>
 <h2 id="help-command">Help command</h2>
 <p>The Help command displays help information that is registered on commands, subcommands and options according command line options.</p>
 <p>Examples:</p>

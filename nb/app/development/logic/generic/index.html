@@ -381,13 +381,13 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/metadata/"><span>Metadata</span></a></li>
       <li class="dd-item">
         <a href="/nb/api/apps/instances/"><span>Instanser</span></a></li>
       <li class="dd-item">
-        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/data-elements/tags/"><span>Tags</span></a></li></ul></li>
       <li class="dd-item">
@@ -441,9 +441,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/community/about/"><span>Om</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/community/about/goals/"><span>Mål</span></a></li>
+        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li>
       <li class="dd-item">
-        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li></ul></li>
+        <a href="/nb/community/about/goals/"><span>Mål</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/community/contributing/"><span>Bidra til utvikling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -572,17 +572,17 @@ som er tilgjengelig i UI-editoren via  <em>f(x)</em>-ikonet øverst til høyre.<
 <figure><a href="ui-editor-logic-menu.png?height=300px"><img src="ui-editor-logic-menu.png?height=300px" alt="Logikkmeny" title="Logikkmeny" /></a><figcaption><h4>Logikkmeny</h4></figcaption></figure>
 <p>De kan også redigeres direkte fra applikasjonsrepoet, under folderen <code>App/logic</code> (for serverside applikasjonslogikk) eller folderen <code>App/ui</code> (for dynamikk).
 Denne folderen inneholder som standard følgende filer:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#">🗀 App/
-  🗀 logic/
-    🗀 DataProcessing/
-      🗎 DataProcessingHandler.cs
-    🗀 Print/
-      🗎 PdfHandler.cs
-    🗀 Validation/
-      🗎 ValidationHandler.cs
-    🗎 App.cs
-    🗎 InstantiationHandler.cs
-</code></pre></div><p>Flere filer kan legges til her når det er nødvendig.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C#" data-lang="C#"><span style="display:flex;"><span>🗀 App/
+</span></span><span style="display:flex;"><span>  🗀 logic/
+</span></span><span style="display:flex;"><span>    🗀 DataProcessing/
+</span></span><span style="display:flex;"><span>      🗎 DataProcessingHandler.cs
+</span></span><span style="display:flex;"><span>    🗀 Print/
+</span></span><span style="display:flex;"><span>      🗎 PdfHandler.cs
+</span></span><span style="display:flex;"><span>    🗀 Validation/
+</span></span><span style="display:flex;"><span>      🗎 ValidationHandler.cs
+</span></span><span style="display:flex;"><span>    🗎 App.cs
+</span></span><span style="display:flex;"><span>    🗎 InstantiationHandler.cs
+</span></span></code></pre></div><p>Flere filer kan legges til her når det er nødvendig.</p>
 <p>Et komplett prosjekt med eksempler på serverside applikasjonslogikk ligger <a href="https://dev.altinn.studio/repos/ttd/webdemo2">her</a>.</p>
 
 

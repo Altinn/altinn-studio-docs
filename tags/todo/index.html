@@ -117,7 +117,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -217,7 +217,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -297,7 +297,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -1165,8 +1165,9 @@ Revert local commit git reset --soft HEAD~1 Azure CLI az login --use-device-code
     </header>
     <section class="post-excerpt">
         <p>NOTE: Outdated stuff alert! Needs to be updated. Runtime is no longer deployed as part of Studio.
-The diagram below show the different applications that is part this.
-Repository Gitea is used as Repository in Altinn Studio App Development solution. There is one instance of Gitea running in a docker container in the solution. It uses cloud service database and cloud file share for configuration and remote repos. <a class="read-more" href="/technology/architecture/capabilities/devops/softwareconfiguration/deployment/altinn-studio/">&raquo;</a></p>
+The diagram below show the different applications that is part this.
+Repository Gitea is used as Repository in Altinn Studio App Development solution. There is one instance of Gitea running in a docker container in the solution. It uses cloud service database and cloud file share for configuration and remote repos.
+The Repository is accessed both from the designer application and from code IDE&rsquo;s from app developers computers. <a class="read-more" href="/technology/architecture/capabilities/devops/softwareconfiguration/deployment/altinn-studio/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         
@@ -1184,7 +1185,7 @@ Repository Gitea is used as Repository in Altinn Studio App Development solution
     </header>
     <section class="post-excerpt">
         <p>The different parameters can be configured either in Altinn Studio UI or through modifying the configuration files in the application repository.
-Supported App Parameters  party type requirements  Not (yet) supported App parameters  Valid to Valid from  See all issues related to App-Parameters on Github. <a class="read-more" href="/technology/solutions/altinn-studio/designer/functional/build-app/app-parameters/">&raquo;</a></p>
+Supported App Parameters party type requirements Not (yet) supported App parameters Valid to Valid from See all issues related to App-Parameters on Github. <a class="read-more" href="/technology/solutions/altinn-studio/designer/functional/build-app/app-parameters/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         
@@ -1291,7 +1292,7 @@ Sofware Linking &amp; Packaging The project has the capability to build packages
         <h2 class="post-title"><a href="/technology/solutions/altinn-studio/repos/structure/calculationhandler/">CalculationHandler.cs</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Arbeidet med POC har føreløpig ikke konkludert angående bruk av denne filen. Vil jobbesvidere med i MVP.Overordnet &lsquo;CalculationHandler.cs&rsquo; er en C# klasse hvor tjenesteutvikler kan plassere forretningslogikk som gjør kalkuleringer.
+        <p>Arbeidet med POC har føreløpig ikke konkludert angående bruk av denne filen. Vil jobbesvidere med i MVP.Overordnet &lsquo;CalculationHandler.cs&rsquo; er en C# klasse hvor tjenesteutvikler kan plassere forretningslogikk som gjør kalkuleringer.
 Format Standard C# kode som kan gjøre bortimot alt.
 Uavklart: Hvordan Tjenester 3.0 skal validere/verifisere denne logikken.
 Utvikling Under opprettelse av en tjeneste vil en tom CalculationHandler opprettes.

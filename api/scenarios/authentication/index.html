@@ -117,7 +117,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -217,7 +217,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -297,7 +297,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -1115,41 +1115,40 @@ if(host != "localhost")
 <p>To provide an API in maskinporten Altinn has to do two operations.</p>
 <ol>
 <li>As API-provider Altinn registres a scope in <em>Maskinporten</em>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">POST /scopes
-{
-    <span style="color:#ff79c6">&#34;prefix&#34;</span>: <span style="color:#f1fa8c">&#34;altinn&#34;</span>,
-    <span style="color:#ff79c6">&#34;subscope&#34;</span>: <span style="color:#f1fa8c">&#34;instances/metadata.read&#34;</span>,
-    <span style="color:#ff79c6">&#34;description&#34;</span>: <span style="color:#f1fa8c">&#34;Clients can access metadata for all instances for all apps of the organisation&#34;</span>
-}
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>POST /scopes
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;prefix&#34;</span>: <span style="color:#f1fa8c">&#34;altinn&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;subscope&#34;</span>: <span style="color:#f1fa8c">&#34;instances/metadata.read&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;description&#34;</span>: <span style="color:#f1fa8c">&#34;Clients can access metadata for all instances for all apps of the organisation&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></li>
 <li>As API-provider Altinn has to give access to its scope for a given organisation
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">PUT /scopes/access/889640782?scope=altinn:apps.read
-</code></pre></div><p>Here we have given organisation 889640782 access to the scope <code>altinn:instances/metadata.read</code>.
-The organisation must then create a client that uses the scope.</p>
-</li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>PUT /scopes/access/889640782?scope=altinn:apps.read
+</span></span></code></pre></div>Here we have given organisation 889640782 access to the scope <code>altinn:instances/metadata.read</code>.
+The organisation must then create a client that uses the scope.</li>
 </ol>
 <h4 id="api-consumer">API-consumer</h4>
 <p>To access the Altinn API an organisation must create a client.</p>
 <ol>
 <li>As API-consumer the organisation must create a client in <em>Maskinporten</em> with scopes provided by Altinn:
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">POST /clients
-{
-    <span style="color:#ff79c6">&#34;client_name&#34;</span>: <span style="color:#f1fa8c">&#34;altinnOrgRead&#34;</span>,
-    <span style="color:#ff79c6">&#34;client_type&#34;</span>: <span style="color:#f1fa8c">&#34;CONFIDENTIAL&#34;</span>,
-    <span style="color:#ff79c6">&#34;description&#34;</span>: <span style="color:#f1fa8c">&#34;Client for accessing the my orgs app data&#34;</span>,
-<span style="display:block;width:100%;background-color:#3d3f4a">    <span style="color:#ff79c6">&#34;scopes&#34;</span>: [ <span style="color:#f1fa8c">&#34;altinn:instances/metadata.read&#34;</span> ],
-</span>    <span style="color:#ff79c6">&#34;token_reference&#34;</span>: <span style="color:#f1fa8c">&#34;SELF_CONTAINED&#34;</span>
-}
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>POST /clients
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;client_name&#34;</span>: <span style="color:#f1fa8c">&#34;altinnOrgRead&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;client_type&#34;</span>: <span style="color:#f1fa8c">&#34;CONFIDENTIAL&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;description&#34;</span>: <span style="color:#f1fa8c">&#34;Client for accessing the my orgs app data&#34;</span>,
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>    <span style="color:#ff79c6">&#34;scopes&#34;</span>: [ <span style="color:#f1fa8c">&#34;altinn:instances/metadata.read&#34;</span> ],
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;token_reference&#34;</span>: <span style="color:#f1fa8c">&#34;SELF_CONTAINED&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></li>
 </ol>
 <h3 id="scopes">Scopes</h3>
 <p>scope names must follow the following regexp:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-perl" data-lang="perl"><span style="color:#ff79c6">^</span>([a<span style="color:#ff79c6">-</span>z0<span style="color:#ff79c6">-</span><span style="color:#bd93f9">9</span>]<span style="color:#ff79c6">+\/</span>?)<span style="color:#ff79c6">+</span>[a<span style="color:#ff79c6">-</span>z0<span style="color:#ff79c6">-</span><span style="color:#bd93f9">9</span>]<span style="color:#ff79c6">+</span>(<span style="color:#ff79c6">\.</span>[a<span style="color:#ff79c6">-</span>z0<span style="color:#ff79c6">-</span><span style="color:#bd93f9">9</span>]<span style="color:#ff79c6">+</span>)?<span style="color:#8be9fd;font-style:italic">$?</span>
-</code></pre></div><p>It means that we cannot have <code>-</code> or <code>_</code> in scope names.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-perl" data-lang="perl"><span style="display:flex;"><span><span style="color:#ff79c6">^</span>([a<span style="color:#ff79c6">-</span>z0<span style="color:#ff79c6">-</span><span style="color:#bd93f9">9</span>]<span style="color:#ff79c6">+\/</span>?)<span style="color:#ff79c6">+</span>[a<span style="color:#ff79c6">-</span>z0<span style="color:#ff79c6">-</span><span style="color:#bd93f9">9</span>]<span style="color:#ff79c6">+</span>(<span style="color:#ff79c6">\.</span>[a<span style="color:#ff79c6">-</span>z0<span style="color:#ff79c6">-</span><span style="color:#bd93f9">9</span>]<span style="color:#ff79c6">+</span>)?<span style="color:#8be9fd;font-style:italic">$?</span>
+</span></span></code></pre></div><p>It means that we cannot have <code>-</code> or <code>_</code> in scope names.</p>
 <h4 id="all-instances-scope">All instances scope</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">altinn<span style="color:#ff79c6">:</span>serviceowner<span style="color:#ff79c6">/</span>instances.read
-altinn<span style="color:#ff79c6">:</span>serviceowner<span style="color:#ff79c6">/</span>instances.write
-</code></pre></div><p>This is the most general scope which can be given to an organisation by Altinn.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span>altinn<span style="color:#ff79c6">:</span>serviceowner<span style="color:#ff79c6">/</span>instances.read
+</span></span><span style="display:flex;"><span>altinn<span style="color:#ff79c6">:</span>serviceowner<span style="color:#ff79c6">/</span>instances.write
+</span></span></code></pre></div><p>This is the most general scope which can be given to an organisation by Altinn.
 It means that the application owner can create a client that can access all instances of apps issued by that application owner.</p>
 <p>Clients with <em>write</em> scope will be able to instantiate applications through direct access to the app&rsquo;s api, update metadata,
 update process state, upload data, validate data, and change process of an instance.</p>
@@ -1160,116 +1159,116 @@ update process state, upload data, validate data, and change process of an insta
 <p>This token has to be validated and replaced with an <em>Altinn JWT access token</em> which should be used to access the apis.</p>
 <h4 id="maskinporten-jwt-access-token-input">Maskinporten JWT access token (input)</h4>
 <p>Client provides a self-contained access-token.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">Autorization: Bearer eyJraWQiOiJIdFlaMU1UbFZXUGNCV0JQVWV3TmxZd1RCRklicU1Hb081OFJ4bmN6TWJNIiwiYWxnIjoiUlMyNTYifQ.eyJhdWQiOiJ0ZXN0X3JwIiwic2NvcGUiOiJ ...
-GET /authentication/api/v1/exchange/maskinporten
-</code></pre></div><p>The token looks something like this (after base64-decoding):</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#ff79c6">&#34;kid&#34;</span>: <span style="color:#f1fa8c">&#34;HtYZ1MTlVWPcBWBPUewNlYwTBFIbqMGoO58RxnczMbM&#34;</span>,
-  <span style="color:#ff79c6">&#34;alg&#34;</span>: <span style="color:#f1fa8c">&#34;RS256&#34;</span>
-}
-.
-{
-  <span style="color:#ff79c6">&#34;aud&#34;</span>: <span style="color:#f1fa8c">&#34;https://tt02.altinn.no/maskinporten-api/&#34;</span>,
-  <span style="color:#ff79c6">&#34;scope&#34;</span>: <span style="color:#f1fa8c">&#34;altinn:instances.write&#34;</span>,
-  <span style="color:#ff79c6">&#34;iss&#34;</span>: <span style="color:#f1fa8c">&#34;https://oidc-ver2.difi.no/idporten-oidc-provider/&#34;</span>,
-  <span style="color:#ff79c6">&#34;client_amr&#34;</span>: <span style="color:#f1fa8c">&#34;virksomhetssertifikat&#34;</span>,
-  <span style="color:#ff79c6">&#34;token_type&#34;</span>: <span style="color:#f1fa8c">&#34;Bearer&#34;</span>,
-  <span style="color:#ff79c6">&#34;exp&#34;</span>: <span style="color:#bd93f9">1571935870</span>,
-  <span style="color:#ff79c6">&#34;iat&#34;</span>: <span style="color:#bd93f9">1571923870</span>,
-  <span style="color:#ff79c6">&#34;client_id&#34;</span>: <span style="color:#f1fa8c">&#34;0de19f7a-f5fa-45d1-874c-3d2e88ce97d9&#34;</span>,
-<span style="display:block;width:100%;background-color:#3d3f4a">  <span style="color:#ff79c6">&#34;client_orgno&#34;</span>: <span style="color:#f1fa8c">&#34;974760673&#34;</span>,
-</span>  <span style="color:#ff79c6">&#34;jti&#34;</span>: <span style="color:#f1fa8c">&#34;U3HMLIY8b_X454CADQzfttSuWpCADPQhc57iZXVF_Ac&#34;</span>,
-<span style="display:block;width:100%;background-color:#3d3f4a">  <span style="color:#ff79c6">&#34;consumer&#34;</span>: {
-</span><span style="display:block;width:100%;background-color:#3d3f4a">    <span style="color:#ff79c6">&#34;authority&#34;</span>: <span style="color:#f1fa8c">&#34;iso6523-actorid-upis&#34;</span>,
-</span><span style="display:block;width:100%;background-color:#3d3f4a">    <span style="color:#ff79c6">&#34;ID&#34;</span>: <span style="color:#f1fa8c">&#34;0192:974760673&#34;</span>
-</span><span style="display:block;width:100%;background-color:#3d3f4a">  }
-</span>}
-.
-&lt;&lt;signature&gt;&gt;
-</code></pre></div><p>Maksinporten provides the legal <code>consumer</code> (the client) in ISO 6523 format. The <code>client_orgno</code> claim is deprecated.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>Autorization: Bearer eyJraWQiOiJIdFlaMU1UbFZXUGNCV0JQVWV3TmxZd1RCRklicU1Hb081OFJ4bmN6TWJNIiwiYWxnIjoiUlMyNTYifQ.eyJhdWQiOiJ0ZXN0X3JwIiwic2NvcGUiOiJ ...
+</span></span><span style="display:flex;"><span>GET /authentication/api/v1/exchange/maskinporten
+</span></span></code></pre></div><p>The token looks something like this (after base64-decoding):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;kid&#34;</span>: <span style="color:#f1fa8c">&#34;HtYZ1MTlVWPcBWBPUewNlYwTBFIbqMGoO58RxnczMbM&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;alg&#34;</span>: <span style="color:#f1fa8c">&#34;RS256&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>.
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;aud&#34;</span>: <span style="color:#f1fa8c">&#34;https://tt02.altinn.no/maskinporten-api/&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;scope&#34;</span>: <span style="color:#f1fa8c">&#34;altinn:instances.write&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;iss&#34;</span>: <span style="color:#f1fa8c">&#34;https://oidc-ver2.difi.no/idporten-oidc-provider/&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;client_amr&#34;</span>: <span style="color:#f1fa8c">&#34;virksomhetssertifikat&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;token_type&#34;</span>: <span style="color:#f1fa8c">&#34;Bearer&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;exp&#34;</span>: <span style="color:#bd93f9">1571935870</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;iat&#34;</span>: <span style="color:#bd93f9">1571923870</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;client_id&#34;</span>: <span style="color:#f1fa8c">&#34;0de19f7a-f5fa-45d1-874c-3d2e88ce97d9&#34;</span>,
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>  <span style="color:#ff79c6">&#34;client_orgno&#34;</span>: <span style="color:#f1fa8c">&#34;974760673&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;jti&#34;</span>: <span style="color:#f1fa8c">&#34;U3HMLIY8b_X454CADQzfttSuWpCADPQhc57iZXVF_Ac&#34;</span>,
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>  <span style="color:#ff79c6">&#34;consumer&#34;</span>: {
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>    <span style="color:#ff79c6">&#34;authority&#34;</span>: <span style="color:#f1fa8c">&#34;iso6523-actorid-upis&#34;</span>,
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>    <span style="color:#ff79c6">&#34;ID&#34;</span>: <span style="color:#f1fa8c">&#34;0192:974760673&#34;</span>
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>.
+</span></span><span style="display:flex;"><span>&lt;&lt;signature&gt;&gt;
+</span></span></code></pre></div><p>Maksinporten provides the legal <code>consumer</code> (the client) in ISO 6523 format. The <code>client_orgno</code> claim is deprecated.</p>
 <h4 id="the-altinn-jwt-access-token-output">The Altinn JWT Access token (output)</h4>
 <p>The convert operation validates the incoming token and generates a new JWT token with the same scope as the token.
 The scopes is copied. The <code>orgNumber</code> and <code>org</code> is added by the token converter.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#ff79c6">&#34;scope&#34;</span>: <span style="color:#f1fa8c">&#34;altinn:instances.read altinn:instances.write&#34;</span>,
-  <span style="color:#ff79c6">&#34;token_type&#34;</span>: <span style="color:#f1fa8c">&#34;Bearer&#34;</span>,
-  <span style="color:#ff79c6">&#34;exp&#34;</span>: <span style="color:#bd93f9">1571996946</span>,
-  <span style="color:#ff79c6">&#34;iat&#34;</span>: <span style="color:#bd93f9">1571995146</span>,
-  <span style="color:#ff79c6">&#34;client_id&#34;</span>: <span style="color:#f1fa8c">&#34;0de19f7a-f5fa-45d1-874c-3d2e88ce97d9&#34;</span>,
-  <span style="color:#ff79c6">&#34;client_orgno&#34;</span>: <span style="color:#f1fa8c">&#34;974760673&#34;</span>,
-  <span style="color:#ff79c6">&#34;jti&#34;</span>: <span style="color:#f1fa8c">&#34;BcNIAuZKXdjpECmmwalAm-pcBp0iNc56T6eXhlxNBZE&#34;</span>,
-  <span style="color:#ff79c6">&#34;consumer&#34;</span>: {
-    <span style="color:#ff79c6">&#34;authority&#34;</span>: <span style="color:#f1fa8c">&#34;iso6523-actorid-upis&#34;</span>,
-    <span style="color:#ff79c6">&#34;ID&#34;</span>: <span style="color:#f1fa8c">&#34;0192:974760673&#34;</span>
-  },
-<span style="display:block;width:100%;background-color:#3d3f4a">  <span style="color:#ff79c6">&#34;org&#34;</span>: <span style="color:#f1fa8c">&#34;brg&#34;</span>,
-</span><span style="display:block;width:100%;background-color:#3d3f4a">  <span style="color:#ff79c6">&#34;orgNumber&#34;</span>: <span style="color:#bd93f9">974760673</span>,
-</span>  <span style="color:#ff79c6">&#34;iss&#34;</span>: <span style="color:#f1fa8c">&#34;https://platform.altinn.cloud/&#34;</span>,
-  <span style="color:#ff79c6">&#34;AuthenticateMethod&#34;</span>: <span style="color:#f1fa8c">&#34;maskinporten&#34;</span>,
-  <span style="color:#ff79c6">&#34;AuthenticationLevel&#34;</span>: <span style="color:#bd93f9">3</span>,
-  <span style="color:#ff79c6">&#34;nbf&#34;</span>: <span style="color:#bd93f9">1571995146</span>
-}
-.
-&lt;&lt;signature&gt;&gt;
-</code></pre></div><h2 id="authentication-for-end-user-system">Authentication for end user system</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;scope&#34;</span>: <span style="color:#f1fa8c">&#34;altinn:instances.read altinn:instances.write&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;token_type&#34;</span>: <span style="color:#f1fa8c">&#34;Bearer&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;exp&#34;</span>: <span style="color:#bd93f9">1571996946</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;iat&#34;</span>: <span style="color:#bd93f9">1571995146</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;client_id&#34;</span>: <span style="color:#f1fa8c">&#34;0de19f7a-f5fa-45d1-874c-3d2e88ce97d9&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;client_orgno&#34;</span>: <span style="color:#f1fa8c">&#34;974760673&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;jti&#34;</span>: <span style="color:#f1fa8c">&#34;BcNIAuZKXdjpECmmwalAm-pcBp0iNc56T6eXhlxNBZE&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;consumer&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;authority&#34;</span>: <span style="color:#f1fa8c">&#34;iso6523-actorid-upis&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;ID&#34;</span>: <span style="color:#f1fa8c">&#34;0192:974760673&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>  <span style="color:#ff79c6">&#34;org&#34;</span>: <span style="color:#f1fa8c">&#34;brg&#34;</span>,
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>  <span style="color:#ff79c6">&#34;orgNumber&#34;</span>: <span style="color:#bd93f9">974760673</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;iss&#34;</span>: <span style="color:#f1fa8c">&#34;https://platform.altinn.cloud/&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;AuthenticateMethod&#34;</span>: <span style="color:#f1fa8c">&#34;maskinporten&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;AuthenticationLevel&#34;</span>: <span style="color:#bd93f9">3</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;nbf&#34;</span>: <span style="color:#bd93f9">1571995146</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>.
+</span></span><span style="display:flex;"><span>&lt;&lt;signature&gt;&gt;
+</span></span></code></pre></div><h2 id="authentication-for-end-user-system">Authentication for end user system</h2>
 <p>End user systems should be authentication with <a href="https://difi.github.io/felleslosninger/idporten_overordnet.html">ID-porten</a>.
 When authenticated the system may exchange an access token provided by ID-porten with an Altinn token by instructions below.</p>
 <h4 id="exchange-of-jwt-token-1">Exchange of JWT token</h4>
 <p>This token has to be validated and replaced with an <em>Altinn JWT access token</em> which should be used to access the apis.</p>
 <h5 id="id-porten-jwt-access-token-input">ID-porten JWT access token (input)</h5>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">Autorization: Bearer eyJraWQiOiJjWmswME1rbTVIQzRnN3Z0NmNwUDVGSFpMS0pzdzhmQkFJdUZiUzRSVEQ0IiwiYWxnIjoiUlMyNTYifQ.eyJhdF9 ...
-GET /authentication/api/v1/exchange/id-porten
-</code></pre></div><p>The token looks something like this (after decoding):</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#ff79c6">&#34;kid&#34;</span>: <span style="color:#f1fa8c">&#34;cZk00Mkm5HC4g7vt6cpP5FHZLKJsw8fBAIuFbS4RTD4&#34;</span>,
-  <span style="color:#ff79c6">&#34;alg&#34;</span>: <span style="color:#f1fa8c">&#34;RS256&#34;</span>
-}
-.
-{
-  <span style="color:#ff79c6">&#34;at_hash&#34;</span>: <span style="color:#f1fa8c">&#34;IF-jpSLtMjzoHdEhLq9pnw&#34;</span>,
-  <span style="color:#ff79c6">&#34;sub&#34;</span>: <span style="color:#f1fa8c">&#34;PZcxQYOR_ylbrlj69pXn_HdTmrpDRpA3X0rTyOEyN5I=&#34;</span>,
-  <span style="color:#ff79c6">&#34;amr&#34;</span>: [
-    <span style="color:#f1fa8c">&#34;Minid-PIN&#34;</span>
-  ],
-  <span style="color:#ff79c6">&#34;iss&#34;</span>: <span style="color:#f1fa8c">&#34;https://oidc-ver2.difi.no/idporten-oidc-provider/&#34;</span>,
-  <span style="color:#ff79c6">&#34;pid&#34;</span>: <span style="color:#f1fa8c">&#34;191080XXXXX&#34;</span>,
-  <span style="color:#ff79c6">&#34;locale&#34;</span>: <span style="color:#f1fa8c">&#34;nb&#34;</span>,
-  <span style="color:#ff79c6">&#34;nonce&#34;</span>: <span style="color:#f1fa8c">&#34;1584978003167642&#34;</span>,
-  <span style="color:#ff79c6">&#34;sid&#34;</span>: <span style="color:#f1fa8c">&#34;bQDBkJmjrX3bx2agu4q7BS5QW6TPf9CHnJX11vEthZg&#34;</span>,
-  <span style="color:#ff79c6">&#34;aud&#34;</span>: <span style="color:#f1fa8c">&#34;38e634d9-5682-44ae-9b60-db636efe3156&#34;</span>,
-  <span style="color:#ff79c6">&#34;acr&#34;</span>: <span style="color:#f1fa8c">&#34;Level3&#34;</span>,
-  <span style="color:#ff79c6">&#34;auth_time&#34;</span>: <span style="color:#bd93f9">1584978021</span>,
-  <span style="color:#ff79c6">&#34;exp&#34;</span>: <span style="color:#bd93f9">1584978141</span>,
-  <span style="color:#ff79c6">&#34;iat&#34;</span>: <span style="color:#bd93f9">1584978021</span>,
-  <span style="color:#ff79c6">&#34;jti&#34;</span>: <span style="color:#f1fa8c">&#34;_Og8JT1zMKzzHFB4WoVCdvqzmEpoY1hPhLa47bieJ94&#34;</span>
-}
-.
-&lt;&lt;signature&gt;&gt;
-</code></pre></div><h5 id="the-altinn-jwt-access-token-output-1">The Altinn JWT Access token (output)</h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>Autorization: Bearer eyJraWQiOiJjWmswME1rbTVIQzRnN3Z0NmNwUDVGSFpMS0pzdzhmQkFJdUZiUzRSVEQ0IiwiYWxnIjoiUlMyNTYifQ.eyJhdF9 ...
+</span></span><span style="display:flex;"><span>GET /authentication/api/v1/exchange/id-porten
+</span></span></code></pre></div><p>The token looks something like this (after decoding):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;kid&#34;</span>: <span style="color:#f1fa8c">&#34;cZk00Mkm5HC4g7vt6cpP5FHZLKJsw8fBAIuFbS4RTD4&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;alg&#34;</span>: <span style="color:#f1fa8c">&#34;RS256&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>.
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;at_hash&#34;</span>: <span style="color:#f1fa8c">&#34;IF-jpSLtMjzoHdEhLq9pnw&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;sub&#34;</span>: <span style="color:#f1fa8c">&#34;PZcxQYOR_ylbrlj69pXn_HdTmrpDRpA3X0rTyOEyN5I=&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;amr&#34;</span>: [
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;Minid-PIN&#34;</span>
+</span></span><span style="display:flex;"><span>  ],
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;iss&#34;</span>: <span style="color:#f1fa8c">&#34;https://oidc-ver2.difi.no/idporten-oidc-provider/&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;pid&#34;</span>: <span style="color:#f1fa8c">&#34;191080XXXXX&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;locale&#34;</span>: <span style="color:#f1fa8c">&#34;nb&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;nonce&#34;</span>: <span style="color:#f1fa8c">&#34;1584978003167642&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;sid&#34;</span>: <span style="color:#f1fa8c">&#34;bQDBkJmjrX3bx2agu4q7BS5QW6TPf9CHnJX11vEthZg&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;aud&#34;</span>: <span style="color:#f1fa8c">&#34;38e634d9-5682-44ae-9b60-db636efe3156&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;acr&#34;</span>: <span style="color:#f1fa8c">&#34;Level3&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;auth_time&#34;</span>: <span style="color:#bd93f9">1584978021</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;exp&#34;</span>: <span style="color:#bd93f9">1584978141</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;iat&#34;</span>: <span style="color:#bd93f9">1584978021</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;jti&#34;</span>: <span style="color:#f1fa8c">&#34;_Og8JT1zMKzzHFB4WoVCdvqzmEpoY1hPhLa47bieJ94&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>.
+</span></span><span style="display:flex;"><span>&lt;&lt;signature&gt;&gt;
+</span></span></code></pre></div><h5 id="the-altinn-jwt-access-token-output-1">The Altinn JWT Access token (output)</h5>
 <p>The exchange operation validates the incomming token and generates a new JWT token that contains user data
 retrieved from the database using the provided pid (person identification number) and pre-existing data from the ID-porten token.</p>
 <p><code>pid</code> is referred to as ssn (social security number) i Altinn Platform.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#ff79c6">&#34;nameid&#34;</span>: <span style="color:#f1fa8c">&#34;20000011&#34;</span>,
-  <span style="color:#ff79c6">&#34;urn:altinn:userid&#34;</span>: <span style="color:#f1fa8c">&#34;20000011&#34;</span>,
-  <span style="color:#ff79c6">&#34;urn:altinn:username&#34;</span>: <span style="color:#f1fa8c">&#34;&#34;</span>,
-  <span style="color:#ff79c6">&#34;urn:altinn:partyid&#34;</span>: <span style="color:#bd93f9">50002119</span>,
-  <span style="color:#ff79c6">&#34;urn:altinn:authenticatemethod&#34;</span>: <span style="color:#f1fa8c">&#34;Minid-PIN&#34;</span>,
-  <span style="color:#ff79c6">&#34;urn:altinn:authlevel&#34;</span>: <span style="color:#bd93f9">3</span>,
-  <span style="color:#ff79c6">&#34;amr&#34;</span>: <span style="color:#f1fa8c">&#34;Minid-PIN&#34;</span>,
-<span style="display:block;width:100%;background-color:#3d3f4a">  <span style="color:#ff79c6">&#34;pid&#34;</span>: <span style="color:#f1fa8c">&#34;191080XXXXX&#34;</span>,
-</span>  <span style="color:#ff79c6">&#34;locale&#34;</span>: <span style="color:#f1fa8c">&#34;nb&#34;</span>,
-  <span style="color:#ff79c6">&#34;nonce&#34;</span>: <span style="color:#f1fa8c">&#34;1585045781364132&#34;</span>,
-  <span style="color:#ff79c6">&#34;sid&#34;</span>: <span style="color:#f1fa8c">&#34;BYSqEpVGRrh6rElmnzzTjcU0roC95rxNCC2kAsB2hmY&#34;</span>,
-  <span style="color:#ff79c6">&#34;acr&#34;</span>: <span style="color:#f1fa8c">&#34;Level3&#34;</span>,
-  <span style="color:#ff79c6">&#34;auth_time&#34;</span>: <span style="color:#bd93f9">1585045793</span>,
-  <span style="color:#ff79c6">&#34;exp&#34;</span>: <span style="color:#bd93f9">1585047785</span>,
-  <span style="color:#ff79c6">&#34;iat&#34;</span>: <span style="color:#bd93f9">1585045985</span>,
-  <span style="color:#ff79c6">&#34;nbf&#34;</span>: <span style="color:#bd93f9">1585045985</span>
-}
-.
-&lt;&lt;signature&gt;&gt;
-</code></pre></div><h2 id="open-id-connect-configuration">Open ID Connect configuration</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;nameid&#34;</span>: <span style="color:#f1fa8c">&#34;20000011&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;urn:altinn:userid&#34;</span>: <span style="color:#f1fa8c">&#34;20000011&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;urn:altinn:username&#34;</span>: <span style="color:#f1fa8c">&#34;&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;urn:altinn:partyid&#34;</span>: <span style="color:#bd93f9">50002119</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;urn:altinn:authenticatemethod&#34;</span>: <span style="color:#f1fa8c">&#34;Minid-PIN&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;urn:altinn:authlevel&#34;</span>: <span style="color:#bd93f9">3</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;amr&#34;</span>: <span style="color:#f1fa8c">&#34;Minid-PIN&#34;</span>,
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>  <span style="color:#ff79c6">&#34;pid&#34;</span>: <span style="color:#f1fa8c">&#34;191080XXXXX&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;locale&#34;</span>: <span style="color:#f1fa8c">&#34;nb&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;nonce&#34;</span>: <span style="color:#f1fa8c">&#34;1585045781364132&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;sid&#34;</span>: <span style="color:#f1fa8c">&#34;BYSqEpVGRrh6rElmnzzTjcU0roC95rxNCC2kAsB2hmY&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;acr&#34;</span>: <span style="color:#f1fa8c">&#34;Level3&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;auth_time&#34;</span>: <span style="color:#bd93f9">1585045793</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;exp&#34;</span>: <span style="color:#bd93f9">1585047785</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;iat&#34;</span>: <span style="color:#bd93f9">1585045985</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;nbf&#34;</span>: <span style="color:#bd93f9">1585045985</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>.
+</span></span><span style="display:flex;"><span>&lt;&lt;signature&gt;&gt;
+</span></span></code></pre></div><h2 id="open-id-connect-configuration">Open ID Connect configuration</h2>
 <div class="notices warning" >
 This is work-in-progress. The response is still missing required information and might be inconsistent with actual authentication mechanisms.
 </div>

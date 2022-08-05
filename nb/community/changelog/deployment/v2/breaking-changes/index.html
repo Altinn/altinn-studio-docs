@@ -381,13 +381,13 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/metadata/"><span>Metadata</span></a></li>
       <li class="dd-item">
         <a href="/nb/api/apps/instances/"><span>Instanser</span></a></li>
       <li class="dd-item">
-        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/data-elements/tags/"><span>Tags</span></a></li></ul></li>
       <li class="dd-item">
@@ -441,9 +441,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/community/about/"><span>Om</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/community/about/goals/"><span>Mål</span></a></li>
+        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li>
       <li class="dd-item">
-        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li></ul></li>
+        <a href="/nb/community/about/goals/"><span>Mål</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/community/contributing/"><span>Bidra til utvikling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -567,11 +567,11 @@ if(host != "localhost")
 <li>Standard antall replikas ved start er endret fra 1 til 2 og autoskalering påskrudd som standard (min: 2, max: 10)
 Hvis din applikasjon kun kan ha en replika må overstyres i <code>deployment/values.yaml</code></li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#ff79c6">deployment</span>:
-<span style="display:block;width:100%;background-color:#3d3f4a">  <span style="color:#ff79c6">replicaCount</span>: <span style="color:#bd93f9">1</span>
-</span>  <span style="color:#ff79c6">autoscaling</span>:
-<span style="display:block;width:100%;background-color:#3d3f4a">    <span style="color:#ff79c6">enabled</span>: <span style="color:#ff79c6">false</span>
-</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ff79c6">deployment</span>:
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>  <span style="color:#ff79c6">replicaCount</span>: <span style="color:#bd93f9">1</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">autoscaling</span>:
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>    <span style="color:#ff79c6">enabled</span>: <span style="color:#ff79c6">false</span>
+</span></span></code></pre></div>
 
 <footer class=" footline" ></footer>
                 </div>

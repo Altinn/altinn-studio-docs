@@ -109,7 +109,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -209,7 +209,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -281,7 +281,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -1126,95 +1126,95 @@ concepts are the same in both cases.</p>
 <p>This is where the overall states are stored. Each state is stored here as an object.</p>
 <h3 id="actions">Actions</h3>
 <p>Actions are the events that are triggered when a change is made. An action contains the action type, and any metadata needed to complete the action. For example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="color:#ff79c6">export</span> <span style="color:#ff79c6">interface</span> IUpdateFormData <span style="color:#ff79c6">extends</span> Action {
-  field: <span style="color:#8be9fd">string</span>;
-  data: <span style="color:#8be9fd">any</span>;
-  componentId: <span style="color:#8be9fd">string</span>;
-}
-
-<span style="color:#ff79c6">export</span> <span style="color:#8be9fd;font-style:italic">function</span> updateFormData(field: <span style="color:#8be9fd">string</span>, data: <span style="color:#8be9fd">any</span>, componentId: <span style="color:#8be9fd">string</span>)<span style="color:#ff79c6">:</span> IUpdateFormData {
-  <span style="color:#ff79c6">return</span> {
-    <span style="color:#ff79c6">type</span><span style="color:#ff79c6">:</span> actionTypes.UPDATE_FORM_DATA,
-    field,
-    data,
-    componentId,
-  };
-}
-</code></pre></div><p>In this example, a change in form data can trigger the <code>updateFormData</code> action, which contains an object with the action type, as well as the data/metadata.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#ff79c6">export</span> <span style="color:#ff79c6">interface</span> IUpdateFormData <span style="color:#ff79c6">extends</span> Action {
+</span></span><span style="display:flex;"><span>  field: <span style="color:#8be9fd">string</span>;
+</span></span><span style="display:flex;"><span>  data: <span style="color:#8be9fd">any</span>;
+</span></span><span style="display:flex;"><span>  componentId: <span style="color:#8be9fd">string</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">export</span> <span style="color:#8be9fd;font-style:italic">function</span> updateFormData(field: <span style="color:#8be9fd">string</span>, data: <span style="color:#8be9fd">any</span>, componentId: <span style="color:#8be9fd">string</span>)<span style="color:#ff79c6">:</span> IUpdateFormData {
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">return</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">type</span><span style="color:#ff79c6">:</span> actionTypes.UPDATE_FORM_DATA,
+</span></span><span style="display:flex;"><span>    field,
+</span></span><span style="display:flex;"><span>    data,
+</span></span><span style="display:flex;"><span>    componentId,
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>In this example, a change in form data can trigger the <code>updateFormData</code> action, which contains an object with the action type, as well as the data/metadata.</p>
 <h3 id="sagas">Sagas</h3>
 <p>Redux saga is the middleware used to process information before the store is updated (i.e. before the reducer does its work).</p>
 <p>An example is asyncronous calls to backend APIs to get data, or submit data.</p>
 <p>Each saga defines methods that complete different tasks, connected to actions. These methods are called via listeners that listen to the actions that are being dispatched. There are different sagas for all the different functional areas.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="color:#6272a4">/**
-</span><span style="color:#6272a4"> * Define the saga for the UPDATE_FORM_DATA event
-</span><span style="color:#6272a4"> */</span>
-<span style="color:#8be9fd;font-style:italic">function</span><span style="color:#ff79c6">*</span> updateFormDataSaga(action: <span style="color:#8be9fd">ActionType</span>) {
-  <span style="color:#ff79c6">try</span> {
-    <span style="color:#6272a4">// fetch some data
-</span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">const</span> relevantData <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">yield</span> selectRelevantStateObjects(...);
-    ...
-    <span style="color:#6272a4">// process the data
-</span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">const</span> processedData <span style="color:#ff79c6">=</span> doRelevantLogic(relevantData);
-    ...
-    <span style="color:#6272a4">// trigger a new action to update the store
-</span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">yield</span> call(updateFormDataSagaFulfilled, processedData, ... );
-  } <span style="color:#ff79c6">catch</span> (err) {
-    <span style="color:#ff79c6">yield</span> call(updateFormDataSagaRejected, err);
-  }
-}
-
-<span style="color:#6272a4">/**
-</span><span style="color:#6272a4"> * Define a listener for the UPDATE_FORM_DATA event
-</span><span style="color:#6272a4"> */</span>
-<span style="color:#ff79c6">export</span> <span style="color:#8be9fd;font-style:italic">function</span><span style="color:#ff79c6">*</span> watchUpdateFormDataSaga()<span style="color:#ff79c6">:</span> SagaIterator {
-  <span style="color:#ff79c6">yield</span> takeLatest(FormFillerActionTypes.UPDATE_FORM_DATA, updateFormDataSaga);
-}
-</code></pre></div><h3 id="reducers">Reducers</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#6272a4">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"> * Define the saga for the UPDATE_FORM_DATA event
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">function</span><span style="color:#ff79c6">*</span> updateFormDataSaga(action: <span style="color:#8be9fd">ActionType</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">try</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// fetch some data
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">const</span> relevantData <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">yield</span> selectRelevantStateObjects(...);
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// process the data
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">const</span> processedData <span style="color:#ff79c6">=</span> doRelevantLogic(relevantData);
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// trigger a new action to update the store
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">yield</span> call(updateFormDataSagaFulfilled, processedData, ... );
+</span></span><span style="display:flex;"><span>  } <span style="color:#ff79c6">catch</span> (err) {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">yield</span> call(updateFormDataSagaRejected, err);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"> * Define a listener for the UPDATE_FORM_DATA event
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">export</span> <span style="color:#8be9fd;font-style:italic">function</span><span style="color:#ff79c6">*</span> watchUpdateFormDataSaga()<span style="color:#ff79c6">:</span> SagaIterator {
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">yield</span> takeLatest(FormFillerActionTypes.UPDATE_FORM_DATA, updateFormDataSaga);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="reducers">Reducers</h3>
 <p>Redux reducers are used to update the different states in the store. There is one reduer per state. The reducers listen to the actions that are dispatched when changes are made, and update the state accordingly.</p>
 <p>Example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="color:#ff79c6">const</span> initialState: <span style="color:#8be9fd">IFormDataState</span> <span style="color:#ff79c6">=</span> {
-  formData<span style="color:#ff79c6">:</span> {},
-  error: <span style="color:#8be9fd">null</span>,
-};
-
-<span style="color:#ff79c6">const</span> FormDataReducer: <span style="color:#8be9fd">Reducer</span>&lt;<span style="color:#ff79c6">IFormDataState</span>&gt; <span style="color:#ff79c6">=</span> (
-  state: <span style="color:#8be9fd">IFormDataState</span> <span style="color:#ff79c6">=</span> initialState,
-  action?: <span style="color:#8be9fd">Action</span>,
-)<span style="color:#ff79c6">:</span> IFormDataState <span style="color:#ff79c6">=&gt;</span> {
-  <span style="color:#ff79c6">if</span> (<span style="color:#ff79c6">!</span>action) {
-    <span style="color:#ff79c6">return</span> state;
-  }
-
-  <span style="color:#ff79c6">switch</span> (action.<span style="color:#ff79c6">type</span>) {
-    <span style="color:#ff79c6">case</span> actionTypes.UPDATE_FORM_DATA_FULFILLED<span style="color:#ff79c6">:</span> {
-      <span style="color:#ff79c6">const</span> { field, data } <span style="color:#ff79c6">=</span> action <span style="color:#ff79c6">as</span> IUpdateFormDataFulfilled;
-      <span style="color:#ff79c6">return</span> Immutable&lt;<span style="color:#ff79c6">IFormDataState</span>&gt;(state, {
-        formData<span style="color:#ff79c6">:</span> {
-          $setField<span style="color:#ff79c6">:</span> {
-            field,
-            data,
-          },
-        },
-      });
-    }
-
-    <span style="color:#ff79c6">case</span> actionTypes.UPDATE_FORM_DATA_REJECTED<span style="color:#ff79c6">:</span> {
-      <span style="color:#ff79c6">const</span> { error } <span style="color:#ff79c6">=</span> action <span style="color:#ff79c6">as</span> IUpdateFormDataRejected;
-      <span style="color:#ff79c6">return</span> Immutable&lt;<span style="color:#ff79c6">IFormDataState</span>&gt;(state, {
-        error<span style="color:#ff79c6">:</span> {
-          $set: <span style="color:#8be9fd">error</span>,
-        },
-      });
-    }
-
-    <span style="color:#ff79c6">default</span><span style="color:#ff79c6">:</span> {
-      <span style="color:#ff79c6">return</span> state;
-    }
-  }
-};
-
-<span style="color:#ff79c6">export</span> <span style="color:#ff79c6">default</span> FormDataReducer;
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#ff79c6">const</span> initialState: <span style="color:#8be9fd">IFormDataState</span> <span style="color:#ff79c6">=</span> {
+</span></span><span style="display:flex;"><span>  formData<span style="color:#ff79c6">:</span> {},
+</span></span><span style="display:flex;"><span>  error: <span style="color:#8be9fd">null</span>,
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> FormDataReducer: <span style="color:#8be9fd">Reducer</span>&lt;<span style="color:#ff79c6">IFormDataState</span>&gt; <span style="color:#ff79c6">=</span> (
+</span></span><span style="display:flex;"><span>  state: <span style="color:#8be9fd">IFormDataState</span> <span style="color:#ff79c6">=</span> initialState,
+</span></span><span style="display:flex;"><span>  action?: <span style="color:#8be9fd">Action</span>,
+</span></span><span style="display:flex;"><span>)<span style="color:#ff79c6">:</span> IFormDataState <span style="color:#ff79c6">=&gt;</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">if</span> (<span style="color:#ff79c6">!</span>action) {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> state;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">switch</span> (action.<span style="color:#ff79c6">type</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">case</span> actionTypes.UPDATE_FORM_DATA_FULFILLED<span style="color:#ff79c6">:</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">const</span> { field, data } <span style="color:#ff79c6">=</span> action <span style="color:#ff79c6">as</span> IUpdateFormDataFulfilled;
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">return</span> Immutable&lt;<span style="color:#ff79c6">IFormDataState</span>&gt;(state, {
+</span></span><span style="display:flex;"><span>        formData<span style="color:#ff79c6">:</span> {
+</span></span><span style="display:flex;"><span>          $setField<span style="color:#ff79c6">:</span> {
+</span></span><span style="display:flex;"><span>            field,
+</span></span><span style="display:flex;"><span>            data,
+</span></span><span style="display:flex;"><span>          },
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>      });
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">case</span> actionTypes.UPDATE_FORM_DATA_REJECTED<span style="color:#ff79c6">:</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">const</span> { error } <span style="color:#ff79c6">=</span> action <span style="color:#ff79c6">as</span> IUpdateFormDataRejected;
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">return</span> Immutable&lt;<span style="color:#ff79c6">IFormDataState</span>&gt;(state, {
+</span></span><span style="display:flex;"><span>        error<span style="color:#ff79c6">:</span> {
+</span></span><span style="display:flex;"><span>          $set: <span style="color:#8be9fd">error</span>,
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>      });
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">default</span><span style="color:#ff79c6">:</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">return</span> state;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">export</span> <span style="color:#ff79c6">default</span> FormDataReducer;
+</span></span></code></pre></div>
 
 <footer class=" footline" ></footer>
                 </div>

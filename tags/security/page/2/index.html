@@ -109,7 +109,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -209,7 +209,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -281,7 +281,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -1161,7 +1161,7 @@ Delegation Policies Delegation of rights will be performed in Altinn II platform
         <p>The rules for this is defined as XACML 3.0 Policy documents.
 Currently the PAP is using an editor to manual edit the XACML Policy Template
 See application development guidelines for details how to do that.
- &lt;li&gt;&lt;a href=&quot;/technology/architecture/components/application/solution/altinn-studio/designer/pap/xacmlpolicy/&quot;&gt;Authorization - Altinn Apps - Policy&lt;/a&gt;&lt;p&gt;Description of the XACML Policy defined for a app.&lt;/p&gt;&lt;/li&gt;  <a class="read-more" href="/technology/architecture/components/application/solution/altinn-studio/designer/pap/">&raquo;</a></p>
+&lt;li&gt;&lt;a href=&quot;/technology/architecture/components/application/solution/altinn-studio/designer/pap/xacmlpolicy/&quot;&gt;Authorization - Altinn Apps - Policy&lt;/a&gt;&lt;p&gt;Description of the XACML Policy defined for a app.&lt;/p&gt;&lt;/li&gt; <a class="read-more" href="/technology/architecture/components/application/solution/altinn-studio/designer/pap/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         
@@ -1253,7 +1253,7 @@ See construction components on details how the PEP are created. <a class="read-m
     <section class="post-excerpt">
         <p>Without this information it would be impossible for the PDP to evaluate the context request in many scenarios.
 For the Altinn Platform there are serveral Policy Information Points:
- Altinn II Authorization - Get information about roles a user or system has for a given party Storage PIP - Get attributes about the resource in the decision request. (what kind of app, who is the reportee of the data, what is the current process state)  The number of PIP are expected to grow in the future. <a class="read-more" href="/technology/architecture/components/application/solution/altinn-platform/authorization/pip/">&raquo;</a></p>
+Altinn II Authorization - Get information about roles a user or system has for a given party Storage PIP - Get attributes about the resource in the decision request. (what kind of app, who is the reportee of the data, what is the current process state) The number of PIP are expected to grow in the future. <a class="read-more" href="/technology/architecture/components/application/solution/altinn-platform/authorization/pip/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         
@@ -1274,7 +1274,7 @@ For the Altinn Platform there are serveral Policy Information Points:
     <section class="post-excerpt">
         <p>An app needs to have defined a Authoriation Policy that will be imported in to Policy Retrieval Point when a app is deloyed to a Altinn Apps/Platform environment.
 The policy format follows XACML 3.0 and for every rule in the policy, there is attributes defining which resource, subject and which action it targets.
-Resource Attributes    Attribute Description     Org The org part of the resource attribute defines which org that owns the app. <a class="read-more" href="/technology/architecture/components/application/solution/altinn-studio/designer/pap/xacmlpolicy/">&raquo;</a></p>
+Resource Attributes Attribute Description Org The org part of the resource attribute defines which org that owns the app. <a class="read-more" href="/technology/architecture/components/application/solution/altinn-studio/designer/pap/xacmlpolicy/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         
@@ -1324,7 +1324,8 @@ See construction components how PRP is built. <a class="read-more" href="/techno
 The service registry will contain information about the service resources
 See Github #24
 Type of resources There are different types of resources that can be registrated
- Altinn 3 apps - Refered with org/app id Altinn 2 Services - Refered with externalServiceCode and EditionCode Service Resources  Altinn 3 Apps Apps hosted in Altinn 3 Apps will be registred in the Altinn Service Registry. <a class="read-more" href="/technology/architecture/components/application/solution/altinn-platform/authorization/resourceregistry/">&raquo;</a></p>
+Altinn 3 apps - Refered with org/app id Altinn 2 Services - Refered with externalServiceCode and EditionCode Service Resources Altinn 3 Apps Apps hosted in Altinn 3 Apps will be registred in the Altinn Service Registry.
+The referenced id would be org/app <a class="read-more" href="/technology/architecture/components/application/solution/altinn-platform/authorization/resourceregistry/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         

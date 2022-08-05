@@ -381,13 +381,13 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/metadata/"><span>Metadata</span></a></li>
       <li class="dd-item">
         <a href="/nb/api/apps/instances/"><span>Instanser</span></a></li>
       <li class="dd-item">
-        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/data-elements/tags/"><span>Tags</span></a></li></ul></li>
       <li class="dd-item">
@@ -441,9 +441,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/community/about/"><span>Om</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/community/about/goals/"><span>Mål</span></a></li>
+        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li>
       <li class="dd-item">
-        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li></ul></li>
+        <a href="/nb/community/about/goals/"><span>Mål</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/community/contributing/"><span>Bidra til utvikling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -598,7 +598,7 @@ Ved å samle inn data om tilflyttere på et tidlig tidspunkt kan kommunen legge 
     <section class="post-excerpt">
         <p>Dette intro-kurset er delt opp i seks moduler og dekker et fiktivt case for Sogndal kommune. I løpet av disse seks modulene vil du ha vært innom den mest sentrale funksjonaliteten for en Altinn App, samt testing av applikasjonen lokalt og i testmiljø.
 Tre ting må være på plass før du går i gang med dette kurset.
- En bruker i Altinn Studio Ditt lokale utviklingsmiljø er satt opp med støtte for utvikling og testing av apps Tilgang til en organisasjon med et testmiljø*  * En forutsetning for modul 3. <a class="read-more" href="/nb/app/app-dev-course/">&raquo;</a></p>
+En bruker i Altinn Studio Ditt lokale utviklingsmiljø er satt opp med støtte for utvikling og testing av apps Tilgang til en organisasjon med et testmiljø* * En forutsetning for modul 3. <a class="read-more" href="/nb/app/app-dev-course/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         
@@ -623,7 +623,7 @@ Tre ting må være på plass før du går i gang med dette kurset.
     <section class="post-excerpt">
         <p>I denne modulen skal du basert på kravene fra Sogndal kommune sette opp førstesiden til applikasjonen for tilflyttere og verifisere at ting ser ut som forventet lokalt.
 Temaer som dekkes i denne modulen:
- Opprette ny applikasjon Legge til datamodell og knytte felter Utvikle en app i lokalt utviklingsmiljø Redigering av tekstressurser Teste applikasjon i lokalt utviklingsmiljø (LocalTest)  Oppgaver Vis/skjul innholdOpprette ny applikasjonOpprett applikasjonen i Altinn Studio med organisasjonen du har tilgang til som eier. <a class="read-more" href="/nb/app/app-dev-course/modul1/">&raquo;</a></p>
+Opprette ny applikasjon Legge til datamodell og knytte felter Utvikle en app i lokalt utviklingsmiljø Redigering av tekstressurser Teste applikasjon i lokalt utviklingsmiljø (LocalTest) Oppgaver Vis/skjul innholdOpprette ny applikasjonOpprett applikasjonen i Altinn Studio med organisasjonen du har tilgang til som eier. <a class="read-more" href="/nb/app/app-dev-course/modul1/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         
@@ -650,7 +650,7 @@ Temaer som dekkes i denne modulen:
     <section class="post-excerpt">
         <p>I denne modulen skal du videreutvikle applikasjonen du laget i modul 1 for å oppfylle flere av kravene fra Sogndal kommune.
 Temaer som dekkes i denne modulen:
- Flere sider Bildekomponent Sporvalg Prefill  Oppgaver Vis/skjul innholdLegge til infosideFor skjemaer der det samles inn eller gis mye informasjon vil det forbedre brukeropplevelsen dersom man deler applikasjonen opp i flere sider.
+Flere sider Bildekomponent Sporvalg Prefill Oppgaver Vis/skjul innholdLegge til infosideFor skjemaer der det samles inn eller gis mye informasjon vil det forbedre brukeropplevelsen dersom man deler applikasjonen opp i flere sider.
 La oss se nærmere på hvordan man kan opprette en ny side i applikasjonen som vises før brukeren kommer til første datainnsamlingsside som ble laget i modul 1. <a class="read-more" href="/nb/app/app-dev-course/modul2/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
@@ -674,9 +674,9 @@ La oss se nærmere på hvordan man kan opprette en ny side i applikasjonen som v
         <h2 class="post-title"><a href="/nb/app/app-dev-course/modul3/">Modul 3</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Denne modulen krever at du er medlem av en organisasjon som har et etablert testmiljø for Altinn Apps. Dersom dette ikke er tilfellet, går du bare videre til neste modul.I denne modulen skal du bygge og deploye applikasjonen til Altinns testmiljø (TT02) og verifisere at alt fungerer som forventet også der.
+        <p>Denne modulen krever at du er medlem av en organisasjon som har et etablert testmiljø for Altinn Apps. Dersom dette ikke er tilfellet, går du bare videre til neste modul.I denne modulen skal du bygge og deploye applikasjonen til Altinns testmiljø (TT02) og verifisere at alt fungerer som forventet også der.
 Temaer som dekkes i denne modulen:
- Sette egendefinerte krav for ressursbruk Bygg av applikasjon Deploy av applikasjon  Oppgaver Vis/skjul innholdSette egendefinerte krav for ressursbrukAlle applikasjoner kommer med et standardoppsett for ressursbruk og skalering i applikasjonsclusteret. <a class="read-more" href="/nb/app/app-dev-course/modul3/">&raquo;</a></p>
+Sette egendefinerte krav for ressursbruk Bygg av applikasjon Deploy av applikasjon Oppgaver Vis/skjul innholdSette egendefinerte krav for ressursbrukAlle applikasjoner kommer med et standardoppsett for ressursbruk og skalering i applikasjonsclusteret. <a class="read-more" href="/nb/app/app-dev-course/modul3/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         
@@ -703,7 +703,7 @@ Temaer som dekkes i denne modulen:
     <section class="post-excerpt">
         <p>I denne modulen skal du utvide applikasjonen du har laget i foregående moduler for å støtte enda fler av kravene til Sogndal kommune.
 Temaer som dekkes i denne modulen:
- Kodelister/Options Dynamikk  Oppgaver Vis/skjul innholdInnsamling av arbeidsopplysningerI mange applikasjoner er det behov for å gi brukeren et sett med svaralternativer for et datafelt. Svaralternativene refereres dette til som kodelister eller options.
+Kodelister/Options Dynamikk Oppgaver Vis/skjul innholdInnsamling av arbeidsopplysningerI mange applikasjoner er det behov for å gi brukeren et sett med svaralternativer for et datafelt. Svaralternativene refereres dette til som kodelister eller options.
 I Altinn Studio er dette støttet i form av radioknapper, avkrysningsbokser og nedtrekkslister. <a class="read-more" href="/nb/app/app-dev-course/modul4/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
@@ -731,8 +731,9 @@ I Altinn Studio er dette støttet i form av radioknapper, avkrysningsbokser og n
     <section class="post-excerpt">
         <p>I denne modulen skal du legge til et prosessteg i applikasjonen.
 Temaer som dekkes i denne modulen:
- Prosess Brekreftelsessteg Autorisasjonsregler Validering Overstyre standardtekster  Oppgaver Vis/skjul innholdUtvide prosess med et bekreftelsesstegEn Altinn App har en prosessflyt som beskriver de ulike stegene i flyten. Standardflyten for en nyopprettet applikasjon består av én task, et utfyllingssteg.
-Din oppgave er å utvide standard prosessflyten med et bekreftelsessteg som illustrert nedenfor. <a class="read-more" href="/nb/app/app-dev-course/modul5/">&raquo;</a></p>
+Prosess Brekreftelsessteg Autorisasjonsregler Validering Overstyre standardtekster Oppgaver Vis/skjul innholdUtvide prosess med et bekreftelsesstegEn Altinn App har en prosessflyt som beskriver de ulike stegene i flyten. Standardflyten for en nyopprettet applikasjon består av én task, et utfyllingssteg.
+Din oppgave er å utvide standard prosessflyten med et bekreftelsessteg som illustrert nedenfor.
+Standard prosessflyter er tilgjengelig på GitHub. <a class="read-more" href="/nb/app/app-dev-course/modul5/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         
@@ -765,7 +766,7 @@ Din oppgave er å utvide standard prosessflyten med et bekreftelsessteg som illu
     <section class="post-excerpt">
         <p>I denne modulen skal du utvide applikasjonen du har laget i foregående moduler for å støtte mer av funksjonaliteten som Sogndal kommune ønsker.
 Temaer som dekkes i denne modulen:
- Repeterende grupper Validering Dataprosessering  Oppgaver Vis/skjul innholdRepeterende grupperKrav fra kommunen For å kunne skreddersy et best mulig tilbud til nye innflyttere ønsker vi oss en oversikt over tidligere bosteder til innflytteren.
+Repeterende grupper Validering Dataprosessering Oppgaver Vis/skjul innholdRepeterende grupperKrav fra kommunen For å kunne skreddersy et best mulig tilbud til nye innflyttere ønsker vi oss en oversikt over tidligere bosteder til innflytteren.
 På datasiden ønsker vi at det legges opp til at brukeren kan fylle inn tidligere bosteder. <a class="read-more" href="/nb/app/app-dev-course/modul6/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
@@ -793,9 +794,9 @@ På datasiden ønsker vi at det legges opp til at brukeren kan fylle inn tidlige
         <h2 class="post-title"><a href="/nb/app/app-dev-course/modul7/">Modul 7</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>MERK: Denne modulen er fortsatt under utvikling. Ta en titt innom på et senere tidspunkt så er den nok blitt enda bedre!I denne modulen er det en samling med frittstående utvidelser av applikasjonen. De trenger ikke å løses i rekkefølge.
+        <p>MERK: Denne modulen er fortsatt under utvikling. Ta en titt innom på et senere tidspunkt så er den nok blitt enda bedre!I denne modulen er det en samling med frittstående utvidelser av applikasjonen. De trenger ikke å løses i rekkefølge.
 Temaer som dekkes i denne modulen:
- Oppsummmeringsside Stateless applikasjon Variabler i tekst Bruk av eksternt API Konfigurasjon av Meldingsboks Presentasjonstekster  Oppgaver Vis/skjul innholdOppsummeringssideKrav fra kommunen Sogndal kommune opplever at enkelte innsendinger inneholder feilopplysninger og skrivefeil som skaper unødig arbeid for saksbehandlere. <a class="read-more" href="/nb/app/app-dev-course/modul7/">&raquo;</a></p>
+Oppsummmeringsside Stateless applikasjon Variabler i tekst Bruk av eksternt API Konfigurasjon av Meldingsboks Presentasjonstekster Oppgaver Vis/skjul innholdOppsummeringssideKrav fra kommunen Sogndal kommune opplever at enkelte innsendinger inneholder feilopplysninger og skrivefeil som skaper unødig arbeid for saksbehandlere. <a class="read-more" href="/nb/app/app-dev-course/modul7/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         
@@ -814,7 +815,7 @@ Temaer som dekkes i denne modulen:
         <h2 class="post-title"><a href="/nb/app/app-dev-course/losningsforslag/">Løsningsforslag</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Løsingsforslag - Applikasjonskode  Modul 1 Modul 2 Modul 3 Modul 4 Modul 5 Modul 6  Modul 1 - Forståelsessjekk: Laste opp datamodell Hvilken data er det tjenesteeier ønsker å samle inn her? Datamodellen består av ett hovedelement: innflytter. Dette elementet består igjen av en del underobjekter som_Fornavn_, _Etternavn_, og _Mellomnavn_. I tillegg er det noen sammensatte elementer som _Adresse_,_Kontaktinformasjon_ og _Arbeidsinformasjon_.
+        <p>Løsingsforslag - Applikasjonskode Modul 1 Modul 2 Modul 3 Modul 4 Modul 5 Modul 6 Modul 1 - Forståelsessjekk: Laste opp datamodell Hvilken data er det tjenesteeier ønsker å samle inn her? Datamodellen består av ett hovedelement: innflytter. Dette elementet består igjen av en del underobjekter som_Fornavn_, Etternavn, og Mellomnavn. I tillegg er det noen sammensatte elementer som Adresse,Kontaktinformasjon og Arbeidsinformasjon.
 Hvilken effekt har &lt;minOccurs&gt; i datamodellen? Du vil se at feltet har ulik verdi for Inflytter. <a class="read-more" href="/nb/app/app-dev-course/losningsforslag/">&raquo;</a></p>
     </section>
     <footer class=" footline" >

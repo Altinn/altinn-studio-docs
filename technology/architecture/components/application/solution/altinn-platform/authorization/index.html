@@ -109,7 +109,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -209,7 +209,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -281,7 +281,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -1148,21 +1148,21 @@ Use the authorization API to manage authorizations in altinn platform.</p>
 <p>A party is a person whom  you can represent and perform a request on his behalf. A logged in user can retrieve a list of parties that he/she can represent.</p>
 <h4 id="operations">Operations</h4>
 <p>Get a list of parties that the user can represent. The userid is sent as parameter.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET /authorization/api/v1/parties?userid={userid}
-</code></pre></div><p>Validate that a given user is allowed to represent a given party. The partyid and userid are sent as parameters.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET /authorization/api/v1/parties/{partyId}/validate?userid={userid}
-</code></pre></div><h3 id="roles">Roles</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>GET /authorization/api/v1/parties?userid={userid}
+</span></span></code></pre></div><p>Validate that a given user is allowed to represent a given party. The partyid and userid are sent as parameters.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>GET /authorization/api/v1/parties/{partyId}/validate?userid={userid}
+</span></span></code></pre></div><h3 id="roles">Roles</h3>
 <p>A role in altinn offers or denies right to the logged in user to perform an action or group of actions for him or on behalf of someone.</p>
 <h4 id="operations-1">Operations</h4>
 <p>Get a list of roles that the user can perform for the selected party.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET /authorization/api/v1/roles
-</code></pre></div><h3 id="policies">Policies</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>GET /authorization/api/v1/roles
+</span></span></code></pre></div><h3 id="policies">Policies</h3>
 <p>A set of polices contains authorization rules.</p>
 <h4 id="operations-2">Operations</h4>
 <p>Stores / updates rules for a given app, defined in the query string.
 The rules are sent in the body of the request. Reade more about the <a href="prp">policy format</a>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">POST /authorization/api/v1/policies?org=org&amp;app=app
-</code></pre></div><h2 id="altinn-authorization---future">Altinn Authorization - Future</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>POST /authorization/api/v1/policies?org=org&amp;app=app
+</span></span></code></pre></div><h2 id="altinn-authorization---future">Altinn Authorization - Future</h2>
 <p>In the coming years, Authorization will be modernized from being a part of Altinn 2 monolith to a cloud-native architecture.</p>
 <p>The diagram below shows the different solution components.</p>
 <figure><a href="authorization_solution_components_future.drawio.svg"><img src="authorization_solution_components_future.drawio.svg" alt="Future solution Altinn Authorization" title="Future solution Altinn Authorization" /></a><figcaption><h4>Future solution Altinn Authorization</h4></figcaption></figure>
@@ -1197,34 +1197,34 @@ The rules are sent in the body of the request. Reade more about the <a href="prp
 <p>This is the core PDP responsible to evaluate if the user should get access to a given resource.</p>
 <p>Depends on Altinn Access Groups for groups information and Altinn Access Policies for policy information.</p>
 <ul class="children children-li js-moveChildrenFrom">
-<pre><code>    &lt;li&gt;
-            &lt;a href=&quot;/technology/architecture/components/application/solution/altinn-platform/authorization/accessgroups/&quot;&gt;Access Groups&lt;/a&gt;
-            &lt;p&gt;Access groups&lt;/p&gt;
-            &lt;/li&gt;&lt;li&gt;
-            &lt;a href=&quot;/technology/architecture/components/application/solution/altinn-platform/authorization/contexthandler/&quot;&gt;Context Handler&lt;/a&gt;
-            &lt;p&gt;The responsibility to the Context Handler is to enrich a decision request sent from a PEP so it can be evaluated by PDP.&lt;/p&gt;
-            &lt;/li&gt;&lt;li&gt;
-            &lt;a href=&quot;/technology/architecture/components/application/solution/altinn-platform/authorization/pap/&quot;&gt;Policy Administration Point&lt;/a&gt;
-            &lt;p&gt;The Policy Administration Point is responsible for creating and modifying the different authorization policies used by the PDP&lt;/p&gt;
-            &lt;/li&gt;&lt;li&gt;
-            &lt;a href=&quot;/technology/architecture/components/application/solution/altinn-platform/authorization/pdp/&quot;&gt;Policy Decision Point&lt;/a&gt;
-            &lt;p&gt;The Policy Decision Point is responsible to evaluate if users and systems is authorized to perform the requested operation on a resource.&lt;/p&gt;
-            &lt;/li&gt;&lt;li&gt;
-            &lt;a href=&quot;/technology/architecture/components/application/solution/altinn-platform/authorization/pep/&quot;&gt;Policy Enforcement Point&lt;/a&gt;
-            &lt;p&gt;In Altinn Platform there are PEP&amp;#39;s that enforce access to different types of API&lt;/p&gt;
-            &lt;/li&gt;&lt;li&gt;
-            &lt;a href=&quot;/technology/architecture/components/application/solution/altinn-platform/authorization/pip/&quot;&gt;Policy Information Point&lt;/a&gt;
-            &lt;p&gt;The Policy Information Point(s) are responsible for providing needed information to the context handler so it can enrich the context request.&lt;/p&gt;
-            &lt;/li&gt;&lt;li&gt;
-            &lt;a href=&quot;/technology/architecture/components/application/solution/altinn-platform/authorization/prp/&quot;&gt;Policy Retrieval Point&lt;/a&gt;
-            &lt;p&gt;The Policy Retrieval Point is the functionality where Policy Decision Point (PDP) can retrieve the policy defined for an app resource.&lt;/p&gt;
-            &lt;/li&gt;&lt;li&gt;
-            &lt;a href=&quot;/technology/architecture/components/application/solution/altinn-platform/authorization/resourceregistry/&quot;&gt;Resource Registry&lt;/a&gt;
-            &lt;p&gt;The Resource Registry&lt;/p&gt;
-            &lt;/li&gt;&lt;li&gt;
-            &lt;a href=&quot;/technology/architecture/components/application/solution/altinn-platform/authorization/xacml/&quot;&gt;XACML - Altinn Studio&lt;/a&gt;
-            &lt;p&gt;XACML stands for &amp;#34;eXtensible Access Control Markup Language&amp;#34;.&lt;/p&gt;
-            &lt;/li&gt;
+<pre><code>	&lt;li&gt;
+			&lt;a href=&quot;/technology/architecture/components/application/solution/altinn-platform/authorization/accessgroups/&quot;&gt;Access Groups&lt;/a&gt;
+			&lt;p&gt;Access groups&lt;/p&gt;
+			&lt;/li&gt;&lt;li&gt;
+			&lt;a href=&quot;/technology/architecture/components/application/solution/altinn-platform/authorization/contexthandler/&quot;&gt;Context Handler&lt;/a&gt;
+			&lt;p&gt;The responsibility to the Context Handler is to enrich a decision request sent from a PEP so it can be evaluated by PDP.&lt;/p&gt;
+			&lt;/li&gt;&lt;li&gt;
+			&lt;a href=&quot;/technology/architecture/components/application/solution/altinn-platform/authorization/pap/&quot;&gt;Policy Administration Point&lt;/a&gt;
+			&lt;p&gt;The Policy Administration Point is responsible for creating and modifying the different authorization policies used by the PDP&lt;/p&gt;
+			&lt;/li&gt;&lt;li&gt;
+			&lt;a href=&quot;/technology/architecture/components/application/solution/altinn-platform/authorization/pdp/&quot;&gt;Policy Decision Point&lt;/a&gt;
+			&lt;p&gt;The Policy Decision Point is responsible to evaluate if users and systems is authorized to perform the requested operation on a resource.&lt;/p&gt;
+			&lt;/li&gt;&lt;li&gt;
+			&lt;a href=&quot;/technology/architecture/components/application/solution/altinn-platform/authorization/pep/&quot;&gt;Policy Enforcement Point&lt;/a&gt;
+			&lt;p&gt;In Altinn Platform there are PEP&amp;#39;s that enforce access to different types of API&lt;/p&gt;
+			&lt;/li&gt;&lt;li&gt;
+			&lt;a href=&quot;/technology/architecture/components/application/solution/altinn-platform/authorization/pip/&quot;&gt;Policy Information Point&lt;/a&gt;
+			&lt;p&gt;The Policy Information Point(s) are responsible for providing needed information to the context handler so it can enrich the context request.&lt;/p&gt;
+			&lt;/li&gt;&lt;li&gt;
+			&lt;a href=&quot;/technology/architecture/components/application/solution/altinn-platform/authorization/prp/&quot;&gt;Policy Retrieval Point&lt;/a&gt;
+			&lt;p&gt;The Policy Retrieval Point is the functionality where Policy Decision Point (PDP) can retrieve the policy defined for an app resource.&lt;/p&gt;
+			&lt;/li&gt;&lt;li&gt;
+			&lt;a href=&quot;/technology/architecture/components/application/solution/altinn-platform/authorization/resourceregistry/&quot;&gt;Resource Registry&lt;/a&gt;
+			&lt;p&gt;The Resource Registry&lt;/p&gt;
+			&lt;/li&gt;&lt;li&gt;
+			&lt;a href=&quot;/technology/architecture/components/application/solution/altinn-platform/authorization/xacml/&quot;&gt;XACML - Altinn Studio&lt;/a&gt;
+			&lt;p&gt;XACML stands for &amp;#34;eXtensible Access Control Markup Language&amp;#34;.&lt;/p&gt;
+			&lt;/li&gt;
 </code></pre>
 </ul>
 

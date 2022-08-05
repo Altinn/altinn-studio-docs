@@ -117,7 +117,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -217,7 +217,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -297,7 +297,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -1160,7 +1160,7 @@ Format API connections Strukturen under beskriver api koblinger til et skjema. O
         <h2 class="post-title"><a href="/technology/solutions/altinn-studio/repos/structure/serviceimplementation/">ServiceImplementation.cs</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Arbeidet med POC har føreløpig ikke konkludert angående bruk av denne filen. Vil jobbesvidere med i MVP.Overordnet &lsquo;ServiceImplementation.cs&rsquo; er hovedgrensesnittet mellom Altinn Core runtime og foretningslogikken i tjenesten som kjører på server.
+        <p>Arbeidet med POC har føreløpig ikke konkludert angående bruk av denne filen. Vil jobbesvidere med i MVP.Overordnet &lsquo;ServiceImplementation.cs&rsquo; er hovedgrensesnittet mellom Altinn Core runtime og foretningslogikken i tjenesten som kjører på server.
 Format &lsquo;ServiceImplementation.cs&rsquo; implementerer grensesnittet IServiceImplementation som har følgende metoder definert.
 object CreateNewServiceModel(); Metode som oppretter nytt datamodell objekt basert på den datamodellen som tjenesten definerer
 void SetServiceModel(object model); Metode som gjør at plattformen kan tilgjengeliggjøre en populert datamodell til tjenesteimplementasjonen <a class="read-more" href="/technology/solutions/altinn-studio/repos/structure/serviceimplementation/">&raquo;</a></p>
@@ -1268,21 +1268,23 @@ See development application components to get a overview over tools and applicat
         <h2 class="post-title"><a href="/technology/solutions/altinn-studio/repos/structure/">Data Structure for Repos</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Under arbeid... Her må det gjøres en større opprydding i filstrukturen.Overordnet struktur Gitea
-├── altinn
-│ ├── common
-│ │ ├── text &hellip;
-│ │ └── widgets &hellip;
+        <p>Under arbeid... Her må det gjøres en større opprydding i filstrukturen.Overordnet struktur Gitea
+├── altinn
+│ ├── common
+│ │ ├── text &hellip;
+│ │ └── widgets &hellip;
 │ │ └── README.md
-│ ├── codelists
-│ │ ├── countries.json
-│ │ └── &hellip;
+│ ├── codelists
+│ │ ├── countries.json
+│ │ └── &hellip;
 │ │ └── README.md
-│ └── &hellip;
+│ └── &hellip;
 │
-├── org-x
-│ ├── org-x
-│ │ ├── settings. <a class="read-more" href="/technology/solutions/altinn-studio/repos/structure/">&raquo;</a></p>
+├── org-x
+│ ├── org-x
+│ │ ├── settings.json
+│ │ ├── text &hellip;
+│ │ ├── models &hellip; <a class="read-more" href="/technology/solutions/altinn-studio/repos/structure/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         
@@ -1321,7 +1323,7 @@ Texts in the editor are written in a ini-file that is converted to a simple JSON
         <h2 class="post-title"><a href="/technology/solutions/altinn-studio/repos/structure/validationhandler/">ValidationHandler.cs</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Arbeidet med POC har føreløpig ikke konkludert angående bruk av denne filen. Vil jobbesvidere med i MVP.Overordnet &lsquo;ValidationHandler.cs&rsquo; er en C# klasse hvor tjenesteutvikler kan plassere forretningslogikk som gjør valideringer
+        <p>Arbeidet med POC har føreløpig ikke konkludert angående bruk av denne filen. Vil jobbesvidere med i MVP.Overordnet &lsquo;ValidationHandler.cs&rsquo; er en C# klasse hvor tjenesteutvikler kan plassere forretningslogikk som gjør valideringer
 Format Standard C# kode som kan gjøre bortimot alt.
 Uavklart: Hvordan Tjenester 3.0 skal validere/verifisere denne logikken.
 Utvikling Under opprettelse av en tjeneste vil en tom ValidationnHandler opprettes.

@@ -117,7 +117,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -217,7 +217,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -297,7 +297,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -1109,10 +1109,10 @@ Roboto font that was used previously.</p>
 <p>Once an app is upgraded to use v3 of the app frontend, all CSS expects the Altinn-DIN font to be loaded.
 In order for the app to display fonts as expected, the font that is loaded with the app must be updated.</p>
 <p>In <code>App/views/Home/Index.cshtml</code>, replace the line</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">link</span> <span style="color:#50fa7b">href</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;https://altinncdn.no/fonts/roboto/latin/roboto.css&#34;</span> <span style="color:#50fa7b">rel</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;stylesheet&#34;</span>&gt;
-</code></pre></div><p>with</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">link</span> <span style="color:#50fa7b">href</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;https://altinncdn.no/fonts/altinn-din/altinn-din.css&#34;</span> <span style="color:#50fa7b">rel</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;stylesheet&#34;</span>&gt;
-</code></pre></div><p>The updated file, referring to v3 of app frontend, should reflect the changes of the file on the right:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#ff79c6">link</span> <span style="color:#50fa7b">href</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;https://altinncdn.no/fonts/roboto/latin/roboto.css&#34;</span> <span style="color:#50fa7b">rel</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;stylesheet&#34;</span>&gt;
+</span></span></code></pre></div><p>with</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#ff79c6">link</span> <span style="color:#50fa7b">href</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;https://altinncdn.no/fonts/altinn-din/altinn-din.css&#34;</span> <span style="color:#50fa7b">rel</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;stylesheet&#34;</span>&gt;
+</span></span></code></pre></div><p>The updated file, referring to v3 of app frontend, should reflect the changes of the file on the right:</p>
 <figure><a href="v3-diff.png"><img src="v3-diff.png" alt="Diff when upgrading to v3 of app frontend" title="Diff when upgrading to v3 of app frontend" /></a><figcaption><h4>Diff when upgrading to v3 of app frontend</h4></figcaption></figure>
 
 

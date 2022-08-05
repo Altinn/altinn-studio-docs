@@ -117,7 +117,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -217,7 +217,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -297,7 +297,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -1168,28 +1168,28 @@ The fastest way is often to search the name of the field that the component is a
 <h3 id="by-changing-one-line-in-_formlayoutjson_-it-is-possible-to-change-the-component-attached-to-middle-name-to-an-input-field-for-a-long-answer-what-change-is-required">By changing one line in <em>FormLayout.json</em> it is possible to change the component attached to middle name to an input field for a long answer. What change is required?</h3>
 <p>The solution is to change the <code>type</code> field from <em>Input</em> to <em>TextArea</em>
 as shown below</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;mellomnavn&#34;</span>,
-  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;TextArea&#34;</span>,
-  <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
-    <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;innflytter.mellomnavn&#34;</span>
-  },
-  <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {
-    <span style="color:#ff79c6">&#34;simpleBinding&#34;</span>: <span style="color:#f1fa8c">&#34;Innflytter.Mellomnavn&#34;</span>
-  },
-  <span style="color:#ff79c6">&#34;required&#34;</span>: <span style="color:#ff79c6">true</span>,
-  <span style="color:#ff79c6">&#34;readOnly&#34;</span>: <span style="color:#ff79c6">false</span>
-},
-</code></pre></div><h2 id="module-1---comprehension-check-edit-texts">Module 1 - Comprehension check: Edit texts</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;mellomnavn&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;TextArea&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;innflytter.mellomnavn&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;simpleBinding&#34;</span>: <span style="color:#f1fa8c">&#34;Innflytter.Mellomnavn&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;required&#34;</span>: <span style="color:#ff79c6">true</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;readOnly&#34;</span>: <span style="color:#ff79c6">false</span>
+</span></span><span style="display:flex;"><span>},
+</span></span></code></pre></div><h2 id="module-1---comprehension-check-edit-texts">Module 1 - Comprehension check: Edit texts</h2>
 <h3 id="how-do-you-implement-english-language-support-in-the-application">How do you implement english language support in the application?</h3>
 <p>_resources.nb.json will be autogenerated in all new repositories in the folder <em>config/texts</em>.
 To support english in an application, the file <em>resources.en.json</em> must be created.
 Note that the language property at the top of the file must be set to <strong>en</strong>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-<span style="color:#ff79c6">&#34;language&#34;</span>: <span style="color:#f1fa8c">&#34;en&#34;</span>
-<span style="color:#f1fa8c">&#34;reources&#34;</span>: []
-}
-</code></pre></div><h3 id="if-we-one-day-were-to-support-ukrainian-which-language-code-would-you-then-need-to-annotate-the-file-with">If we one day were to support ukrainian, which language code would you then need to annotate the file with?</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&#34;language&#34;</span>: <span style="color:#f1fa8c">&#34;en&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f1fa8c">&#34;reources&#34;</span>: []
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="if-we-one-day-were-to-support-ukrainian-which-language-code-would-you-then-need-to-annotate-the-file-with">If we one day were to support ukrainian, which language code would you then need to annotate the file with?</h3>
 <p>According to <a href="https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes">the list of ISO 639-1 codes</a>, the code for ukranian is <code>uk</code>.</p>
 <h3 id="if-a-text-key-referred-to-in-formlayoutjson-does-not-exist-in-the-text-resources-what-will-appear-on-the-screen">If a text key referred to in FormLayout.json does not exist in the text resources, what will appear on the screen?</h3>
 <p>If said text key does not exist inthe text resource file, the text key will be displayed instead.</p>
@@ -1218,29 +1218,29 @@ Note that the language property at the top of the file must be set to <strong>en
 <h3 id="not-all-norwegian-citizens-have-a-social-security-number-some-get-assigned-a-d-numberhttpsjusleksikonnowikifc3b8dselsnummerd-nummer-how-will-you-have-to-adjust-your-code-to-take-this-into-account-if-for-example-age-is-based-on-a-f-number-or-d-number-that-the-user-themselves-enter">Not all norwegian citizens have a social security number, some get assigned a <a href="https://jusleksikon.no/wiki/F%C3%B8dselsnummer#D-nummer">D-number</a>. How will you have to adjust your code to take this into account if for example age is based on a F-number or D-number that the user themselves enter?</h3>
 <pre tabindex="0"><code class="language-rich" data-lang="rich">A D-number is eleven digit, like normal social security numbers, and consists of a modified six digit birthdate and a five digit personal number. The birth date is modified by adding 4 to the first digit: a person born january 1st 1980 will then get the birth date 410180, while one born january 31st 1980 will get 710180.
 </code></pre><p>One way to go from any f- or d-number to a string for birth date on the format <code>dd-MM-yy</code> is:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">static</span> <span style="color:#8be9fd">string</span> GetDOB(<span style="color:#8be9fd">string</span> fOrDNumber){
-  List&lt;<span style="color:#8be9fd">string</span>&gt; firstCharsInDNumber = <span style="color:#ff79c6">new</span>(){<span style="color:#f1fa8c">&#34;4&#34;</span>, <span style="color:#f1fa8c">&#34;5&#34;</span>, <span style="color:#f1fa8c">&#34;6&#34;</span>, <span style="color:#f1fa8c">&#34;7&#34;</span> };
-
-  <span style="color:#8be9fd">var</span> fOrDNumberArray = fOrDNumber.ToCharArray();
-
-  <span style="color:#8be9fd">char</span>[] dobArray = <span style="color:#ff79c6">new</span> <span style="color:#8be9fd">char</span>[<span style="color:#bd93f9">6</span>];
-  Array.Copy(fOrDNumberArray, dobArray, <span style="color:#bd93f9">6</span>);
-
-  <span style="color:#8be9fd">char</span> firstChar = dobArray[<span style="color:#bd93f9">0</span>];
-  <span style="color:#8be9fd">int</span> firstInt = <span style="color:#bd93f9">0</span>;
-
-  <span style="color:#ff79c6">if</span>(firstCharsInDNumber.Contains(firstChar.ToString()))
-  {
-    firstInt = firstChar - <span style="color:#bd93f9">4</span>;
-    dobArray[<span style="color:#bd93f9">0</span>] = (<span style="color:#8be9fd">char</span>)firstInt;
-  }
-
-  <span style="color:#8be9fd">string</span> dobString = <span style="color:#f1fa8c">$&#34;{dobArray[0]}{dobArray[1]}.{dobArray[2]}{dobArray[3]}.{dobArray[4]}{dobArray[5]}&#34;</span>;
-  <span style="color:#6272a4">// verify that it is a valid date
-</span><span style="color:#6272a4"></span>  DateTime.ParseExact(dobString, <span style="color:#f1fa8c">&#34;dd.MM.yy&#34;</span>, CultureInfo.InvariantCulture);
-  <span style="color:#ff79c6">return</span> dobString;
-}
-</code></pre></div><h2 id="modue-3---comprehension-check-deploy-application">Modue 3 - Comprehension check: Deploy application</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">static</span> <span style="color:#8be9fd">string</span> GetDOB(<span style="color:#8be9fd">string</span> fOrDNumber){
+</span></span><span style="display:flex;"><span>  List&lt;<span style="color:#8be9fd">string</span>&gt; firstCharsInDNumber = <span style="color:#ff79c6">new</span>(){<span style="color:#f1fa8c">&#34;4&#34;</span>, <span style="color:#f1fa8c">&#34;5&#34;</span>, <span style="color:#f1fa8c">&#34;6&#34;</span>, <span style="color:#f1fa8c">&#34;7&#34;</span> };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd">var</span> fOrDNumberArray = fOrDNumber.ToCharArray();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd">char</span>[] dobArray = <span style="color:#ff79c6">new</span> <span style="color:#8be9fd">char</span>[<span style="color:#bd93f9">6</span>];
+</span></span><span style="display:flex;"><span>  Array.Copy(fOrDNumberArray, dobArray, <span style="color:#bd93f9">6</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd">char</span> firstChar = dobArray[<span style="color:#bd93f9">0</span>];
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd">int</span> firstInt = <span style="color:#bd93f9">0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">if</span>(firstCharsInDNumber.Contains(firstChar.ToString()))
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    firstInt = firstChar - <span style="color:#bd93f9">4</span>;
+</span></span><span style="display:flex;"><span>    dobArray[<span style="color:#bd93f9">0</span>] = (<span style="color:#8be9fd">char</span>)firstInt;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd">string</span> dobString = <span style="color:#f1fa8c">$&#34;{dobArray[0]}{dobArray[1]}.{dobArray[2]}{dobArray[3]}.{dobArray[4]}{dobArray[5]}&#34;</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">// verify that it is a valid date</span>
+</span></span><span style="display:flex;"><span>  DateTime.ParseExact(dobString, <span style="color:#f1fa8c">&#34;dd.MM.yy&#34;</span>, CultureInfo.InvariantCulture);
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">return</span> dobString;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="modue-3---comprehension-check-deploy-application">Modue 3 - Comprehension check: Deploy application</h2>
 <h3 id="is-it-possible-to-have-two-versions-of-one-application-in-tt02-at-the-same-time">Is it possible to have two versions of one application in TT02 at the same time?</h3>
 <p>No, it is only possible to have one version of the application out in the environment at once.
 If you deploy a different version, the existing version of the application will be overwritten.</p>

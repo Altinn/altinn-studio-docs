@@ -109,7 +109,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -209,7 +209,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -281,7 +281,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -1115,75 +1115,74 @@ WARNING: Component library will be documented when the [task](https://github.com
 <ul>
 <li>Reacy Styleguidist supports inline comments. Props <em>should</em> have inline comments.</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#ff79c6">export</span> <span style="color:#ff79c6">interface</span> IAltinnButtonComponentProvidedProps <span style="color:#ff79c6">extends</span> WithStyles<span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">typeof</span> styles<span style="color:#ff79c6">&gt;</span> {
-  <span style="color:#6272a4">/** Button ID */</span>
-  id<span style="color:#ff79c6">?:</span> any;
-  <span style="color:#6272a4">/** @ignore */</span>
-  classes<span style="color:#ff79c6">:</span> any;
-  <span style="color:#6272a4">/** Text shown on button */</span>
-  btnText<span style="color:#ff79c6">:</span> string;
-  <span style="color:#6272a4">/** onClick function */</span>
-  onClickFunction<span style="color:#ff79c6">?:</span> any;
-  <span style="color:#6272a4">/** Class objects created with Material-Ui&#39;s createStyle */</span>
-  className<span style="color:#ff79c6">?:</span> any;
-  <span style="color:#6272a4">/** Secondary styling */</span>
-  secondaryButton<span style="color:#ff79c6">?:</span> <span style="color:#ff79c6">boolean</span>;
-  <span style="color:#6272a4">/** Disabled styling */</span>
-  disabled<span style="color:#ff79c6">?:</span> <span style="color:#ff79c6">boolean</span>;
-}
-</code></pre></div><h3 id="example-markdown">Example markdown</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown"><span style="font-weight:bold">### Default button
-</span><span style="font-weight:bold"></span>
-<span style="color:#f1fa8c">```jsx
-</span><span style="color:#f1fa8c"></span>&lt;<span style="color:#ff79c6">AltinnButton</span>
-  <span style="color:#50fa7b">btnText</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;Altinn button with some text&#39;</span>
-/&gt;
-<span style="color:#f1fa8c">```</span>
-
-<span style="font-weight:bold">### Disabled button
-</span><span style="font-weight:bold"></span>
-<span style="color:#f1fa8c">```jsx
-</span><span style="color:#f1fa8c"></span>&lt;<span style="color:#ff79c6">AltinnButton</span>
-  <span style="color:#50fa7b">btnText</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;Disabled button&#39;</span>
-  <span style="color:#50fa7b">disabled</span><span style="color:#ff79c6">=</span>{<span style="color:#ff79c6">true</span>}
-/&gt;
-<span style="color:#f1fa8c">```</span>
-
-<span style="font-weight:bold">### Secondary button
-</span><span style="font-weight:bold"></span>
-<span style="color:#f1fa8c">```jsx
-</span><span style="color:#f1fa8c"></span>&lt;<span style="color:#ff79c6">AltinnButton</span>
-  <span style="color:#50fa7b">btnText</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;Secondary button&#39;</span>
-  <span style="color:#50fa7b">secondaryButton</span><span style="color:#ff79c6">=</span>{<span style="color:#ff79c6">true</span>}
-/&gt;
-<span style="color:#f1fa8c">```</span>
-
-<span style="font-weight:bold">### Click function
-</span><span style="font-weight:bold"></span>
-Altinn button supports onClickFunction via the onClickFunction prop.
-
-<span style="color:#f1fa8c">```jsx
-</span><span style="color:#f1fa8c"></span><span style="color:#ff79c6">const</span> myFunc <span style="color:#ff79c6">=</span> () =&gt; {
-  console.log(<span style="color:#f1fa8c">&#39;My Function&#39;</span>);
-}
-&lt;<span style="color:#ff79c6">AltinnButton</span>
-  <span style="color:#50fa7b">btnText</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;Button with onClickFunction&#39;</span>
-  <span style="color:#50fa7b">onClickFunction</span><span style="color:#ff79c6">=</span>{myFunc}
-/&gt;
-<span style="color:#f1fa8c">```</span>
-
-<span style="font-weight:bold">### Styling
-</span><span style="font-weight:bold"></span>
-Altinn button also supports Material-UI class objects (classes.someObject) passed via the optional className prop.
-
-```jsx static
-&lt;<span style="color:#ff79c6">AltinnButton</span>
-  <span style="color:#50fa7b">btnText</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;Secondary button&#39;</span>
-  <span style="color:#50fa7b">className</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">{classes.someClassObject}</span>
-/&gt;
-```
-
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#ff79c6">export</span> <span style="color:#ff79c6">interface</span> IAltinnButtonComponentProvidedProps <span style="color:#ff79c6">extends</span> WithStyles<span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">typeof</span> styles<span style="color:#ff79c6">&gt;</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">/** Button ID */</span>
+</span></span><span style="display:flex;"><span>  id<span style="color:#ff79c6">?:</span> any;
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">/** @ignore */</span>
+</span></span><span style="display:flex;"><span>  classes<span style="color:#ff79c6">:</span> any;
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">/** Text shown on button */</span>
+</span></span><span style="display:flex;"><span>  btnText<span style="color:#ff79c6">:</span> string;
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">/** onClick function */</span>
+</span></span><span style="display:flex;"><span>  onClickFunction<span style="color:#ff79c6">?:</span> any;
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">/** Class objects created with Material-Ui&#39;s createStyle */</span>
+</span></span><span style="display:flex;"><span>  className<span style="color:#ff79c6">?:</span> any;
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">/** Secondary styling */</span>
+</span></span><span style="display:flex;"><span>  secondaryButton<span style="color:#ff79c6">?:</span> <span style="color:#ff79c6">boolean</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">/** Disabled styling */</span>
+</span></span><span style="display:flex;"><span>  disabled<span style="color:#ff79c6">?:</span> <span style="color:#ff79c6">boolean</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="example-markdown">Example markdown</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span><span style="font-weight:bold">### Default button
+</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span>
+</span></span><span style="display:flex;"><span><span style="color:#f1fa8c">```jsx
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c"></span>&lt;<span style="color:#ff79c6">AltinnButton</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">btnText</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;Altinn button with some text&#39;</span>
+</span></span><span style="display:flex;"><span>/&gt;
+</span></span><span style="display:flex;"><span><span style="color:#f1fa8c">```</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">### Disabled button
+</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span>
+</span></span><span style="display:flex;"><span><span style="color:#f1fa8c">```jsx
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c"></span>&lt;<span style="color:#ff79c6">AltinnButton</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">btnText</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;Disabled button&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">disabled</span><span style="color:#ff79c6">=</span>{<span style="color:#ff79c6">true</span>}
+</span></span><span style="display:flex;"><span>/&gt;
+</span></span><span style="display:flex;"><span><span style="color:#f1fa8c">```</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">### Secondary button
+</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span>
+</span></span><span style="display:flex;"><span><span style="color:#f1fa8c">```jsx
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c"></span>&lt;<span style="color:#ff79c6">AltinnButton</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">btnText</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;Secondary button&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">secondaryButton</span><span style="color:#ff79c6">=</span>{<span style="color:#ff79c6">true</span>}
+</span></span><span style="display:flex;"><span>/&gt;
+</span></span><span style="display:flex;"><span><span style="color:#f1fa8c">```</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">### Click function
+</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span>
+</span></span><span style="display:flex;"><span>Altinn button supports onClickFunction via the onClickFunction prop.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f1fa8c">```jsx
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c"></span><span style="color:#ff79c6">const</span> myFunc <span style="color:#ff79c6">=</span> () =&gt; {
+</span></span><span style="display:flex;"><span>  console.log(<span style="color:#f1fa8c">&#39;My Function&#39;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#ff79c6">AltinnButton</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">btnText</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;Button with onClickFunction&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">onClickFunction</span><span style="color:#ff79c6">=</span>{myFunc}
+</span></span><span style="display:flex;"><span>/&gt;
+</span></span><span style="display:flex;"><span><span style="color:#f1fa8c">```</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">### Styling
+</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span>
+</span></span><span style="display:flex;"><span>Altinn button also supports Material-UI class objects (classes.someObject) passed via the optional className prop.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>```jsx static
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#ff79c6">AltinnButton</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">btnText</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;Secondary button&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">className</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">{classes.someClassObject}</span>
+</span></span><span style="display:flex;"><span>/&gt;
+</span></span><span style="display:flex;"><span>```
+</span></span></code></pre></div>
 
 <footer class=" footline" ></footer>
                 </div>

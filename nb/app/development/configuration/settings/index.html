@@ -381,13 +381,13 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/metadata/"><span>Metadata</span></a></li>
       <li class="dd-item">
         <a href="/nb/api/apps/instances/"><span>Instanser</span></a></li>
       <li class="dd-item">
-        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/data-elements/tags/"><span>Tags</span></a></li></ul></li>
       <li class="dd-item">
@@ -441,9 +441,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/community/about/"><span>Om</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/community/about/goals/"><span>Mål</span></a></li>
+        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li>
       <li class="dd-item">
-        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li></ul></li>
+        <a href="/nb/community/about/goals/"><span>Mål</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/community/contributing/"><span>Bidra til utvikling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -574,48 +574,48 @@ if(host != "localhost")
 <h2 id="appsettingsjson">appsettings.json</h2>
 <p>Første og enkleste kilde til konfigurasjonsinformasjon er <code>appsettings</code> filene. En hver ny app som blir laget vil komme med en eksisterende <code>appsettings.json</code> fil. Denne filen blir lest inn av en App under oppstart uavhengig av hvilke miljø Appen kjører i. Det vil si at den bør inneholde standarinnstillinger og innstillinger som er lik i alle miljøer. Filen har allerede en del innstillinger som er i bruk og verdiene er i stor grad beregnet for et utviklingsmiljø hvor man kjører <a href="https://github.com/Altinn/altinn-studio/blob/master/LOCALAPP.md">LocalTest</a>.</p>
 <p>I appsettings.json filene organiseres verdier i ulike seksjoner. Det anbefales å ikke legge til nye verdier i de eksisterende seksjonene, men isteden lage nye seksjoner. Følgende seksjoner er reservert for å unngå kollisjoner: <code>Kestrel</code>, <code>AppSettings</code>, <code>GeneralSettings</code>, <code>PlatformSettings</code>, <code>PEPSettings</code>, <code>ApplicationInsights</code>, <code>kvSettings</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#ff79c6">&#34;ExampleSection&#34;</span>: {
-    <span style="color:#ff79c6">&#34;ExampleValue&#34;</span>: <span style="color:#f1fa8c">&#34;Verdi lest inn i alle miljøer, men kanskje overstyrt av miljøspesifikke kilder&#34;</span>
-  },
-  <span style="color:#ff79c6">&#34;AppSettings&#34;</span>: {
-      ...
-  },
-  <span style="color:#ff79c6">&#34;GeneralSettings&#34;</span>: {
-      ...
-  },
-  <span style="color:#ff79c6">&#34;PlatformSettings&#34;</span>: {
-    <span style="color:#ff79c6">&#34;ApiStorageEndpoint&#34;</span>: <span style="color:#f1fa8c">&#34;http://localhost:5101/storage/api/v1/&#34;</span>,
-    <span style="color:#ff79c6">&#34;ApiRegisterEndpoint&#34;</span>: <span style="color:#f1fa8c">&#34;http://localhost:5101/register/api/v1/&#34;</span>,
-    ...
-  },
-  <span style="color:#ff79c6">&#34;ApplicationInsights&#34;</span>: {
-    <span style="color:#ff79c6">&#34;InstrumentationKey&#34;</span>: <span style="color:#f1fa8c">&#34;retrieved from environment at runtime&#34;</span>
-  }
-}
-</code></pre></div><p>I fremtiden vil en ny App få med en egen seksjon som det skal være enkelt å utvide. I mellomtiden refereres det til <a href="https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1">Microsoft sin dokumentasjon</a> for hvordan dette kan gjøres.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;ExampleSection&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;ExampleValue&#34;</span>: <span style="color:#f1fa8c">&#34;Verdi lest inn i alle miljøer, men kanskje overstyrt av miljøspesifikke kilder&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;AppSettings&#34;</span>: {
+</span></span><span style="display:flex;"><span>      ...
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;GeneralSettings&#34;</span>: {
+</span></span><span style="display:flex;"><span>      ...
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;PlatformSettings&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;ApiStorageEndpoint&#34;</span>: <span style="color:#f1fa8c">&#34;http://localhost:5101/storage/api/v1/&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;ApiRegisterEndpoint&#34;</span>: <span style="color:#f1fa8c">&#34;http://localhost:5101/register/api/v1/&#34;</span>,
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;ApplicationInsights&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;InstrumentationKey&#34;</span>: <span style="color:#f1fa8c">&#34;retrieved from environment at runtime&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>I fremtiden vil en ny App få med en egen seksjon som det skal være enkelt å utvide. I mellomtiden refereres det til <a href="https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1">Microsoft sin dokumentasjon</a> for hvordan dette kan gjøres.</p>
 <h3 id="miljøspesifikke-appsettings">Miljøspesifikke appsettings</h3>
 <p>En ny app vil også inneholde et set med miljøspesifikke appsettings filer: <code>appsettings.Development.json</code>, <code>appsettings.Staging.json</code> og <code>appsettings.Production.json</code>. Disse filene blir lest inn kun i det aktuelle miljøet. TT02-miljøet er definert som Staging og produksjonsmiljøet er definert som Production.</p>
 <p>Hver fil skal altså ha verdier som er unike eller anderledes i minst ett annet miljø. Et eksempel på en type verdi som kan variere fra miljø til miljø er &ldquo;timeout&rdquo; verdier. Hvis man ønsker at en App skal vente lengre på respons fra et eksternt API under utvikling enn det man ønsker å tillate i produksjon.</p>
 <h4 id="appsettingsdevelopmentjson">appsettings.Development.json</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#ff79c6">&#34;ExampleSection&#34;</span>: {
-    <span style="color:#ff79c6">&#34;ExampleValue&#34;</span>: <span style="color:#f1fa8c">&#34;Verdi lest inn kun for utviklingsmiljø&#34;</span>
-  }
-}
-</code></pre></div><h4 id="appsettingsstagingjson">appsettings.Staging.json</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#ff79c6">&#34;ExampleSection&#34;</span>: {
-    <span style="color:#ff79c6">&#34;ExampleValue&#34;</span>: <span style="color:#f1fa8c">&#34;Verdi lest inn kun for TT02&#34;</span>
-  }
-}
-</code></pre></div><h4 id="appsettingsproductionjson">appsettings.Production.json</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#ff79c6">&#34;ExampleSection&#34;</span>: {
-    <span style="color:#ff79c6">&#34;ExampleValue&#34;</span>: <span style="color:#f1fa8c">&#34;Verdi lest inn kun for produksjon&#34;</span>
-  }
-}
-</code></pre></div><h2 id="miljøvariabler">Miljøvariabler</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;ExampleSection&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;ExampleValue&#34;</span>: <span style="color:#f1fa8c">&#34;Verdi lest inn kun for utviklingsmiljø&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="appsettingsstagingjson">appsettings.Staging.json</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;ExampleSection&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;ExampleValue&#34;</span>: <span style="color:#f1fa8c">&#34;Verdi lest inn kun for TT02&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="appsettingsproductionjson">appsettings.Production.json</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;ExampleSection&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;ExampleValue&#34;</span>: <span style="color:#f1fa8c">&#34;Verdi lest inn kun for produksjon&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="miljøvariabler">Miljøvariabler</h2>
 <p>Standard oppførsel til en ASP.Net applikasjon er å lese inn miljøvariabler. Dette gjøres også for en App, men det er ikke mulig for en Apputvikler å lage eller endre noen verdier per i dag. Altinn 3 mener at denne måten å styre miljøspesifikke verdier på dekkes av appsettings og KeyVault.</p>
 <h2 id="kommandolinjeargumenter">Kommandolinjeargumenter</h2>
 <p>Det er teknisk mulig å overstyre alle andre data kilder ved hjelp av kommandolinjeargumenter. Det er derimot ikke mulig å bruke dette til å endre verdier fra et miljø til et annet.</p>

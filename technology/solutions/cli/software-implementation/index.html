@@ -109,7 +109,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -209,7 +209,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -281,7 +281,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -1111,20 +1111,20 @@ The file is part of the project as an embedded resource but can be modified and 
 <p>The CLI Application searches for the file at startup, the <strong>CommandDefinitionFile</strong> is search first.</p>
 <h2 id="application-settings">Application settings</h2>
 <p>Setting which is required for the CLI Application is defined in the appsettings.json file. Initial content of this file is:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#ff79c6">&#34;APIBaseAddress&#34;</span>: <span style="color:#f1fa8c">&#34;https://platform.at21.altinn.cloud/storage/api/v1&#34;</span>,
-  <span style="color:#ff79c6">&#34;AppAPIBaseAddress&#34;</span>: <span style="color:#f1fa8c">&#34;https://{org}.apps.at21.altinn.cloud&#34;</span>,
-  <span style="color:#ff79c6">&#34;UseLiveClient&#34;</span>: <span style="color:#f1fa8c">&#34;True&#34;</span>,
-  <span style="color:#ff79c6">&#34;StorageOutputFolder&#34;</span>: <span style="color:#f1fa8c">&#34;c:/storage/Output&#34;</span>,
-  <span style="color:#ff79c6">&#34;StorageInputFolder&#34;</span>: <span style="color:#f1fa8c">&#34;c:/storage/Input&#34;</span>,
-  <span style="color:#ff79c6">&#34;CommandDefinitionFile&#34;</span>: <span style="color:#f1fa8c">&#34;C:/storage/CommandDefs/Commands.json&#34;</span>,
-  <span style="color:#ff79c6">&#34;MaskinportenBaseAddress&#34;</span>: <span style="color:#f1fa8c">&#34;https://oidc-ver2.difi.no/idporten-oidc-provider&#34;</span>,
-  <span style="color:#ff79c6">&#34;AuthBaseAddress&#34;</span>: <span style="color:#f1fa8c">&#34;https://platform.at21.altinn.cloud/authentication/api/v1&#34;</span>,
-  <span style="color:#ff79c6">&#34;tokenSettings&#34;</span>: {
-
-  }
-}
-</code></pre></div><table>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;APIBaseAddress&#34;</span>: <span style="color:#f1fa8c">&#34;https://platform.at21.altinn.cloud/storage/api/v1&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;AppAPIBaseAddress&#34;</span>: <span style="color:#f1fa8c">&#34;https://{org}.apps.at21.altinn.cloud&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;UseLiveClient&#34;</span>: <span style="color:#f1fa8c">&#34;True&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;StorageOutputFolder&#34;</span>: <span style="color:#f1fa8c">&#34;c:/storage/Output&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;StorageInputFolder&#34;</span>: <span style="color:#f1fa8c">&#34;c:/storage/Input&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;CommandDefinitionFile&#34;</span>: <span style="color:#f1fa8c">&#34;C:/storage/CommandDefs/Commands.json&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;MaskinportenBaseAddress&#34;</span>: <span style="color:#f1fa8c">&#34;https://oidc-ver2.difi.no/idporten-oidc-provider&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;AuthBaseAddress&#34;</span>: <span style="color:#f1fa8c">&#34;https://platform.at21.altinn.cloud/authentication/api/v1&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;tokenSettings&#34;</span>: {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><table>
 <thead>
 <tr>
 <th>Setting</th>
@@ -1134,7 +1134,7 @@ The file is part of the project as an embedded resource but can be modified and 
 <tbody>
 <tr>
 <td>Addresse</td>
-<td>Defines the base part of API' Url. The specific address to be used is selected by dedicated ClinetWrapper which forwards it to the HttpClientWrapper which computes a complete URL.</td>
+<td>Defines the base part of API&rsquo; Url. The specific address to be used is selected by dedicated ClinetWrapper which forwards it to the HttpClientWrapper which computes a complete URL.</td>
 </tr>
 <tr>
 <td>StorageInputFolder</td>
@@ -1153,24 +1153,24 @@ The file is part of the project as an embedded resource but can be modified and 
 <h2 id="kommando-definisjon">Kommando Definisjon</h2>
 <p>The command definition file, CommandDefs.json defines all commands with subcommands and options which can be &ldquo;executed&rdquo; i the CLI application.
 The file is initially a resource is the development project. New commands can be added following this format:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#ff79c6">&#34;Name&#34;</span>: <span style="color:#f1fa8c">&#34;Login&#34;</span>,
-  <span style="color:#ff79c6">&#34;SubCommands&#34;</span>: [
-    {
-      <span style="color:#ff79c6">&#34;Name&#34;</span>: <span style="color:#f1fa8c">&#34;Maskinporten&#34;</span>,
-      <span style="color:#ff79c6">&#34;Options&#34;</span>: [
-        {
-          <span style="color:#ff79c6">&#34;Name&#34;</span>: <span style="color:#f1fa8c">&#34;clientId&#34;</span>,
-          <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Guid&#34;</span>,
-          <span style="color:#ff79c6">&#34;valuerange&#34;</span>: <span style="color:#f1fa8c">&#34;&#34;</span>,
-          <span style="color:#ff79c6">&#34;description&#34;</span>: <span style="color:#f1fa8c">&#34;client guid id&#34;</span>,
-          <span style="color:#ff79c6">&#34;apiname&#34;</span>: <span style="color:#f1fa8c">&#34;clientid&#34;</span>
-        },
-      ]
-    }
-  ]
-}
-</code></pre></div><p>First element <em>Name</em>: defines the command name, next <em>Name</em> defines the subcommand name. No other parameters can be defined on this level. Options is an array with following elements:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;Name&#34;</span>: <span style="color:#f1fa8c">&#34;Login&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;SubCommands&#34;</span>: [
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;Name&#34;</span>: <span style="color:#f1fa8c">&#34;Maskinporten&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;Options&#34;</span>: [
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;Name&#34;</span>: <span style="color:#f1fa8c">&#34;clientId&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Guid&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;valuerange&#34;</span>: <span style="color:#f1fa8c">&#34;&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;description&#34;</span>: <span style="color:#f1fa8c">&#34;client guid id&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;apiname&#34;</span>: <span style="color:#f1fa8c">&#34;clientid&#34;</span>
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>      ]
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  ]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>First element <em>Name</em>: defines the command name, next <em>Name</em> defines the subcommand name. No other parameters can be defined on this level. Options is an array with following elements:</p>
 <table>
 <thead>
 <tr>
@@ -1310,12 +1310,12 @@ Register means in this context to scan the application for classes that implemen
 <p>The actual CLI implementation consist in reading the keyboard and forward it to the ApplicationManager</p>
 <h3 id="logging">Logging</h3>
 <p>Logger is injected to the registered command and is configured as a part of the service registration. Logging is default configured to output on console and file for all log levels.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#">Log.Logger = <span style="color:#ff79c6">new</span> LoggerConfiguration()
-    .MinimumLevel.Debug()
-    .WriteTo.File(<span style="color:#f1fa8c">&#34;log.txt&#34;</span>, LogEventLevel.Information)
-    .WriteTo.Console(restrictedToMinimumLevel: LogEventLevel.Information)
-    .CreateLogger();
-</code></pre></div><h3 id="applicationmanager">ApplicationManager</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C#" data-lang="C#"><span style="display:flex;"><span>Log.Logger = <span style="color:#ff79c6">new</span> LoggerConfiguration()
+</span></span><span style="display:flex;"><span>    .MinimumLevel.Debug()
+</span></span><span style="display:flex;"><span>    .WriteTo.File(<span style="color:#f1fa8c">&#34;log.txt&#34;</span>, LogEventLevel.Information)
+</span></span><span style="display:flex;"><span>    .WriteTo.Console(restrictedToMinimumLevel: LogEventLevel.Information)
+</span></span><span style="display:flex;"><span>    .CreateLogger();
+</span></span></code></pre></div><h3 id="applicationmanager">ApplicationManager</h3>
 <p>The ApplicationManager instantiates command and eventually subcommand from the two first console input parameters.
 The parameters are used as search criteria’s for finding relevant command/subcommand classes.
 If a match is found command line input option parameters will be matched and validated against selectable options.</p>
@@ -1326,121 +1326,121 @@ That makes the command available for the generic code which is selecting a comma
 <p>The selection is based on the implementation of the ICommand interface and the Name property which must match the command name on the command line.
 The command itself is executed by calling any of the the command class Run methods.</p>
 <p>There exist two Run commands, one with the SubCommand as parameter and one with a list of command line input parameters that is called if no subcommand is specified.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">interface</span> ICommand
-{
-  <span style="color:#6272a4">/// &lt;summary&gt;
-</span><span style="color:#6272a4"></span>  <span style="color:#6272a4">/// Run the supported command handler
-</span><span style="color:#6272a4"></span>  <span style="color:#6272a4">/// &lt;/summary&gt;
-</span><span style="color:#6272a4"></span>  <span style="color:#6272a4">/// &lt;param name=&#34;commandHandler&#34;&gt;the command handler to execute&lt;/param&gt;
-</span><span style="color:#6272a4"></span>  <span style="color:#ff79c6">void</span> Run(ISubCommandHandler commandHandler = <span style="color:#ff79c6">null</span>);
-
-  <span style="color:#6272a4">/// &lt;summary&gt;
-</span><span style="color:#6272a4"></span>  <span style="color:#6272a4">/// Parses the dictionary and run command. Used mainly by Help
-</span><span style="color:#6272a4"></span>  <span style="color:#6272a4">/// &lt;/summary&gt;
-</span><span style="color:#6272a4"></span>  <span style="color:#6272a4">/// &lt;param name=&#34;input&#34;&gt;Dictionary with the cli input paramters&lt;/param&gt;
-</span><span style="color:#6272a4"></span>  <span style="color:#ff79c6">void</span> Run(Dictionary&lt;<span style="color:#8be9fd">string</span>, <span style="color:#8be9fd">string</span>&gt; input);
-
-  <span style="color:#6272a4">/// &lt;summary&gt;
-</span><span style="color:#6272a4"></span>  <span style="color:#6272a4">/// Gets the name of the service
-</span><span style="color:#6272a4"></span>  <span style="color:#6272a4">/// &lt;/summary&gt;
-</span><span style="color:#6272a4"></span>  <span style="color:#8be9fd">string</span> Name { <span style="color:#ff79c6">get</span>; }
-}
-</code></pre></div><h3 id="subcommand">SubCommand</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">interface</span> ISubCommandHandler : IValidate
-{
-    <span style="color:#6272a4">/// &lt;summary&gt;
-</span><span style="color:#6272a4"></span>    <span style="color:#6272a4">/// 
-</span><span style="color:#6272a4"></span>    <span style="color:#6272a4">/// &lt;/summary&gt;
-</span><span style="color:#6272a4"></span>    <span style="color:#6272a4">/// &lt;returns&gt;&lt;/returns&gt;
-</span><span style="color:#6272a4"></span>    <span style="color:#8be9fd">bool</span> Run(); 
-
-    <span style="color:#6272a4">/// &lt;summary&gt;
-</span><span style="color:#6272a4"></span>    <span style="color:#6272a4">/// Name of the command handler
-</span><span style="color:#6272a4"></span>    <span style="color:#6272a4">/// &lt;/summary&gt;
-</span><span style="color:#6272a4"></span>    <span style="color:#8be9fd">string</span> Name { <span style="color:#ff79c6">get</span>; }
-
-    <span style="color:#6272a4">/// &lt;summary&gt;
-</span><span style="color:#6272a4"></span>    <span style="color:#6272a4">/// Name of the command for which the command is implemented
-</span><span style="color:#6272a4"></span>    <span style="color:#6272a4">/// &lt;/summary&gt;
-</span><span style="color:#6272a4"></span>    <span style="color:#8be9fd">string</span> CommandProvider { <span style="color:#ff79c6">get</span>; }
-
-    <span style="color:#6272a4">/// &lt;summary&gt;
-</span><span style="color:#6272a4"></span>    <span style="color:#6272a4">/// Dictionary with cli input options
-</span><span style="color:#6272a4"></span>    <span style="color:#6272a4">/// &lt;/summary&gt;
-</span><span style="color:#6272a4"></span>    Dictionary&lt;<span style="color:#8be9fd">string</span>,<span style="color:#8be9fd">string</span>&gt; DictOptions { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; }
-
-    <span style="color:#6272a4">/// &lt;summary&gt;
-</span><span style="color:#6272a4"></span>    <span style="color:#6272a4">/// 
-</span><span style="color:#6272a4"></span>    <span style="color:#6272a4">/// &lt;/summary&gt;
-</span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">public</span> List&lt;IOption&gt; SelectableCliOptions { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; }
-
-    <span style="color:#6272a4">/// &lt;summary&gt;
-</span><span style="color:#6272a4"></span>    <span style="color:#6272a4">/// Dictionary with cli input options
-</span><span style="color:#6272a4"></span>    <span style="color:#6272a4">/// &lt;/summary&gt;
-</span><span style="color:#6272a4"></span>    List&lt;IOption&gt; CliOptions { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; }
-
-    <span style="color:#6272a4">/// &lt;summary&gt;
-</span><span style="color:#6272a4"></span>    <span style="color:#6272a4">/// Dictionary with cli input options
-</span><span style="color:#6272a4"></span>    <span style="color:#6272a4">/// &lt;/summary&gt;
-</span><span style="color:#6272a4"></span>    IFileWrapper CliFileWrapper { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; }
-
-    <span style="color:#6272a4">/// &lt;summary&gt;
-</span><span style="color:#6272a4"></span>    <span style="color:#6272a4">/// Builds the options that can control the command.
-</span><span style="color:#6272a4"></span>    <span style="color:#6272a4">/// &lt;/summary&gt;
-</span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">void</span> BuildSelectableCommands();
-}
-</code></pre></div><h3 id="option">Option</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C#" data-lang="C#"><span style="display:flex;"><span><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">interface</span> <span style="color:#50fa7b">ICommand</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">/// &lt;summary&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">/// Run the supported command handler</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">/// &lt;/summary&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">/// &lt;param name=&#34;commandHandler&#34;&gt;the command handler to execute&lt;/param&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">void</span> Run(ISubCommandHandler commandHandler = <span style="color:#ff79c6">null</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">/// &lt;summary&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">/// Parses the dictionary and run command. Used mainly by Help</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">/// &lt;/summary&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">/// &lt;param name=&#34;input&#34;&gt;Dictionary with the cli input paramters&lt;/param&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">void</span> Run(Dictionary&lt;<span style="color:#8be9fd">string</span>, <span style="color:#8be9fd">string</span>&gt; input);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">/// &lt;summary&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">/// Gets the name of the service</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">/// &lt;/summary&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd">string</span> Name { <span style="color:#ff79c6">get</span>; }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="subcommand">SubCommand</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C#" data-lang="C#"><span style="display:flex;"><span><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">interface</span> <span style="color:#50fa7b">ISubCommandHandler</span> : IValidate
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">/// &lt;summary&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">/// </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">/// &lt;/summary&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">/// &lt;returns&gt;&lt;/returns&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">bool</span> Run(); 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">/// &lt;summary&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">/// Name of the command handler</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">/// &lt;/summary&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">string</span> Name { <span style="color:#ff79c6">get</span>; }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">/// &lt;summary&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">/// Name of the command for which the command is implemented</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">/// &lt;/summary&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">string</span> CommandProvider { <span style="color:#ff79c6">get</span>; }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">/// &lt;summary&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">/// Dictionary with cli input options</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">/// &lt;/summary&gt;</span>
+</span></span><span style="display:flex;"><span>    Dictionary&lt;<span style="color:#8be9fd">string</span>,<span style="color:#8be9fd">string</span>&gt; DictOptions { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">/// &lt;summary&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">/// </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">/// &lt;/summary&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">public</span> List&lt;IOption&gt; SelectableCliOptions { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">/// &lt;summary&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">/// Dictionary with cli input options</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">/// &lt;/summary&gt;</span>
+</span></span><span style="display:flex;"><span>    List&lt;IOption&gt; CliOptions { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">/// &lt;summary&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">/// Dictionary with cli input options</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">/// &lt;/summary&gt;</span>
+</span></span><span style="display:flex;"><span>    IFileWrapper CliFileWrapper { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">/// &lt;summary&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">/// Builds the options that can control the command.</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">/// &lt;/summary&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">void</span> BuildSelectableCommands();
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="option">Option</h3>
 <p>An Option binds the definitions specified at the command line to a definition defined in the CommandDefinition file.
 The handling of the option is as described in the ApplicationManager description partly done by generic code.
 Partly means here creation of correct option type based on the option&rsquo;s type definition property and the activation of validation.</p>
 <p>The actual validation is implemented in the option class itself.
 An Option base class is implemented with basic functionality like the TryParse method that is used as a part of the validation of the NumberOption type.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#6272a4">/// &lt;summary&gt;
-</span><span style="color:#6272a4">/// Interface that defines the propertioes and methods that
-</span><span style="color:#6272a4">/// shall be implemented by an Option class
-</span><span style="color:#6272a4">/// &lt;/summary&gt;
-</span><span style="color:#6272a4"></span><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">interface</span> IOption : IValidate
-{
-    <span style="color:#6272a4">/// &lt;summary&gt;
-</span><span style="color:#6272a4"></span>    <span style="color:#6272a4">/// The Name og the oprtion that must match the Name 
-</span><span style="color:#6272a4"></span>    <span style="color:#6272a4">/// of the otion in the CommandDefinition file
-</span><span style="color:#6272a4"></span>    <span style="color:#6272a4">/// &lt;/summary&gt;
-</span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">public</span> <span style="color:#8be9fd">string</span> Name { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>;  }
-
-    <span style="color:#6272a4">/// &lt;summary&gt;
-</span><span style="color:#6272a4"></span>    <span style="color:#6272a4">/// The name of the opsjon in ther API. 
-</span><span style="color:#6272a4"></span>    <span style="color:#6272a4">/// &lt;/summary&gt;
-</span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">public</span> <span style="color:#8be9fd">string</span> ApiName { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; }
-
-    <span style="color:#6272a4">/// &lt;summary&gt;
-</span><span style="color:#6272a4"></span>    <span style="color:#6272a4">/// The value of the option as a string
-</span><span style="color:#6272a4"></span>    <span style="color:#6272a4">/// &lt;/summary&gt;
-</span><span style="color:#6272a4"></span>    <span style="color:#8be9fd">string</span> Value { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; }
-
-    <span style="color:#6272a4">/// &lt;summary&gt;
-</span><span style="color:#6272a4"></span>    <span style="color:#6272a4">///  Defines if the option is defined with a vlue in
-</span><span style="color:#6272a4"></span>    <span style="color:#6272a4">///  the command line 
-</span><span style="color:#6272a4"></span>    <span style="color:#6272a4">/// &lt;/summary&gt;
-</span><span style="color:#6272a4"></span>    <span style="color:#8be9fd">bool</span> IsAssigned { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; }
-
-    <span style="color:#6272a4">/// &lt;summary&gt;
-</span><span style="color:#6272a4"></span>    <span style="color:#6272a4">/// The description of the option that will be used by help
-</span><span style="color:#6272a4"></span>    <span style="color:#6272a4">/// &lt;/summary&gt;
-</span><span style="color:#6272a4"></span>    <span style="color:#8be9fd">string</span> Description { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; }
-
-    <span style="color:#6272a4">/// &lt;summary&gt;
-</span><span style="color:#6272a4"></span>    <span style="color:#6272a4">/// Valid range for the paramtere. 
-</span><span style="color:#6272a4"></span>    <span style="color:#6272a4">/// &lt;/summary&gt;
-</span><span style="color:#6272a4"></span>    <span style="color:#8be9fd">string</span> Range { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; }
-
-    <span style="color:#6272a4">/// &lt;summary&gt;
-</span><span style="color:#6272a4"></span>    <span style="color:#6272a4">/// Gets the typed value of the option as defined 
-</span><span style="color:#6272a4"></span>    <span style="color:#6272a4">/// in the option definition
-</span><span style="color:#6272a4"></span>    <span style="color:#6272a4">/// &lt;/summary&gt;
-</span><span style="color:#6272a4"></span>    <span style="color:#6272a4">/// &lt;returns&gt;&lt;/returns&gt;
-</span><span style="color:#6272a4"></span>    <span style="color:#8be9fd">object</span> GetValue();
-}
-</code></pre></div><p>A set of Option classes is implemented to cover the most used system types.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C#" data-lang="C#"><span style="display:flex;"><span><span style="color:#6272a4">/// &lt;summary&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">/// Interface that defines the propertioes and methods that</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">/// shall be implemented by an Option class</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">/// &lt;/summary&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">interface</span> <span style="color:#50fa7b">IOption</span> : IValidate
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">/// &lt;summary&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">/// The Name og the oprtion that must match the Name </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">/// of the otion in the CommandDefinition file</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">/// &lt;/summary&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">public</span> <span style="color:#8be9fd">string</span> Name { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>;  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">/// &lt;summary&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">/// The name of the opsjon in ther API. </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">/// &lt;/summary&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">public</span> <span style="color:#8be9fd">string</span> ApiName { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">/// &lt;summary&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">/// The value of the option as a string</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">/// &lt;/summary&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">string</span> Value { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">/// &lt;summary&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">///  Defines if the option is defined with a vlue in</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">///  the command line </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">/// &lt;/summary&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">bool</span> IsAssigned { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">/// &lt;summary&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">/// The description of the option that will be used by help</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">/// &lt;/summary&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">string</span> Description { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">/// &lt;summary&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">/// Valid range for the paramtere. </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">/// &lt;/summary&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">string</span> Range { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">/// &lt;summary&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">/// Gets the typed value of the option as defined </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">/// in the option definition</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">/// &lt;/summary&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">/// &lt;returns&gt;&lt;/returns&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">object</span> GetValue();
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>A set of Option classes is implemented to cover the most used system types.
 Mapping from the type set in the definition file to a C# class is shown in the table in the subchapter <strong>Valid Data Types</strong>.
 The main reasons for implementing dedicated classes is the possibility to implement generic handling of them
 together with the advantage of implementing separate code in them like validation.</p>

@@ -117,7 +117,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -217,7 +217,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -297,7 +297,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -1160,26 +1160,26 @@ Configuration of all data types supported in the application can be found here,
 both form data (app model data) and file attachments. The field <em>appLogic</em>, that can also be found among some of the objects
 in the list, should only be used for form data.</p>
 <p>Below there are two examples of <code>dataTypes</code>-instances from a deployed application.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"> <span style="color:#f1fa8c">&#34;dataTypes&#34;</span>: [
-    {
-      <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;53a50f0d-2345-448d-9fba-f18e6bbe71f8&#34;</span>,
-      <span style="color:#ff79c6">&#34;taskId&#34;</span>: <span style="color:#f1fa8c">&#34;Task_1&#34;</span>,
-      <span style="color:#ff79c6">&#34;maxSize&#34;</span>: <span style="color:#bd93f9">25</span>,
-      <span style="color:#ff79c6">&#34;maxCount&#34;</span>: <span style="color:#bd93f9">1</span>,
-      <span style="color:#ff79c6">&#34;minCount&#34;</span>: <span style="color:#bd93f9">1</span>,
-      <span style="color:#ff79c6">&#34;allowedContentTypes&#34;</span>:[<span style="color:#f1fa8c">&#34;application/pdf&#34;</span>]
-    },
-    {
-      <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;attest&#34;</span>,
-      <span style="color:#ff79c6">&#34;taskId&#34;</span>: <span style="color:#f1fa8c">&#34;Task_1&#34;</span>,
-      <span style="color:#ff79c6">&#34;maxSize&#34;</span>: <span style="color:#bd93f9">25</span>,
-      <span style="color:#ff79c6">&#34;maxCount&#34;</span>: <span style="color:#bd93f9">1</span>,
-      <span style="color:#ff79c6">&#34;minCount&#34;</span>: <span style="color:#bd93f9">0</span>,
-      <span style="color:#ff79c6">&#34;allowedContributers&#34;</span>: [<span style="color:#f1fa8c">&#34;org:nav&#34;</span>, <span style="color:#f1fa8c">&#34;orgNo:XXXXXXXXXX&#34;</span>],
-      <span style="color:#ff79c6">&#34;grouping&#34;</span>: <span style="color:#f1fa8c">&#34;Attester&#34;</span>,
-    }
-  ]
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span> <span style="color:#f1fa8c">&#34;dataTypes&#34;</span>: [
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;53a50f0d-2345-448d-9fba-f18e6bbe71f8&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;taskId&#34;</span>: <span style="color:#f1fa8c">&#34;Task_1&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;maxSize&#34;</span>: <span style="color:#bd93f9">25</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;maxCount&#34;</span>: <span style="color:#bd93f9">1</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;minCount&#34;</span>: <span style="color:#bd93f9">1</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;allowedContentTypes&#34;</span>:[<span style="color:#f1fa8c">&#34;application/pdf&#34;</span>]
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;attest&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;taskId&#34;</span>: <span style="color:#f1fa8c">&#34;Task_1&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;maxSize&#34;</span>: <span style="color:#bd93f9">25</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;maxCount&#34;</span>: <span style="color:#bd93f9">1</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;minCount&#34;</span>: <span style="color:#bd93f9">0</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;allowedContributers&#34;</span>: [<span style="color:#f1fa8c">&#34;org:nav&#34;</span>, <span style="color:#f1fa8c">&#34;orgNo:XXXXXXXXXX&#34;</span>],
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;grouping&#34;</span>: <span style="color:#f1fa8c">&#34;Attester&#34;</span>,
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  ]
+</span></span></code></pre></div><ul>
 <li>
 <p><strong>Id</strong> on the attachment type
 This will be set as a GUID if you use an attachment component from Altinn Studio like the one you can find in the first element in the dataTypes list.
@@ -1203,7 +1203,7 @@ If the value is 0 then it is not required to upload a file attachment of this ty
 <li>
 <p><strong>allowedContributors</strong> specifies who is allowed to create and/or modify file attachments of this type.
 This is specified on the format <code>{key}:{value}</code>.
-Allowed keys include: &lsquo;org&rsquo;; three letter abbreviation for organization and *orgNo'; organization number.
+Allowed keys include: &lsquo;org&rsquo;; three letter abbreviation for organization and *orgNo&rsquo;; organization number.
 It is as of today not possible to specify an organization that is not registered as a service owner.</p>
 </li>
 <li>

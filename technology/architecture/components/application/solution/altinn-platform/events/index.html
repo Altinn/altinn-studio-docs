@@ -109,7 +109,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -209,7 +209,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -281,7 +281,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -1106,8 +1106,8 @@ if(host != "localhost")
 <p>The API&rsquo;s is structured so the URLs are filtered queries into the events storage.</p>
 <h4 id="instances-events-for-org">Instances events for Org</h4>
 <h5 id="endpoint">Endpoint</h5>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET path: platform.altinn.no/events/api/v1/app/{org}/{appName}
-</code></pre></div><h5 id="usage">Usage</h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>GET path: platform.altinn.no/events/api/v1/app/{org}/{appName}
+</span></span></code></pre></div><h5 id="usage">Usage</h5>
 <p>This will be used by application owners to identify changes on instances for their applications.</p>
 <h5 id="authorization">Authorization</h5>
 <p>We will use scopes from Maskinporten to authorize access. In this way, it should also be possible for an org to delegate access to
@@ -1182,35 +1182,35 @@ events for a given org/app.</p>
 <h5 id="response">Response</h5>
 <p>Response includes a <em>next</em> header that can be used to get the events following the last event returned by the response.
 Query parameter <em>after</em> is inserted or replaced and holds the id of the last event returned in the reponse.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">https://platform.tt02.altinn.no/events/api/v1/app/ttd/apps-test?after=5beae524-0b3d-4e3b-bf40-450575eaf5d6&amp;from=2020-10-01 11:35:00
-</code></pre></div><p>Response body includes a list of cloud events on the form</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[
-    {
-        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;8c99c887-3861-4c2a-9ac9-178a20b1ee70&#34;</span>,
-        <span style="color:#ff79c6">&#34;source&#34;</span>: <span style="color:#f1fa8c">&#34;https://nav.apps.altinn.no/nav/app/instances/1234324/6fb3f738-6800-4f29-9f3e-1c66862656cd&#34;</span>,
-        <span style="color:#ff79c6">&#34;specversion&#34;</span>: <span style="color:#f1fa8c">&#34;1.x-wip&#34;</span>,
-        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;instance.created&#34;</span>,
-        <span style="color:#ff79c6">&#34;subject&#34;</span>: <span style="color:#f1fa8c">&#34;party/567890&#34;</span>,
-        <span style="color:#ff79c6">&#34;time&#34;</span>: <span style="color:#f1fa8c">&#34;2020-10-13T15:46:02.557971Z&#34;</span>,
-        <span style="color:#ff79c6">&#34;alternativesubject&#34;</span>: <span style="color:#f1fa8c">&#34;/person/01038712345&#34;</span>,
-        <span style="color:#ff79c6">&#34;data&#34;</span>: <span style="color:#f1fa8c">&#34;data field&#34;</span>
-    },
-    {
-        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;5beae524-0b3d-4e3b-bf40-450575eaf5d6&#34;</span>,
-        <span style="color:#ff79c6">&#34;source&#34;</span>: <span style="color:#f1fa8c">&#34;https://nav.apps.altinn.no/nav/app/instances/1234324/6fb3f738-6800-4f29-9f3e-1c66862656cd&#34;</span>,
-        <span style="color:#ff79c6">&#34;specversion&#34;</span>: <span style="color:#f1fa8c">&#34;1.x-wip&#34;</span>,
-        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;instance.deleted&#34;</span>,
-        <span style="color:#ff79c6">&#34;subject&#34;</span>: <span style="color:#f1fa8c">&#34;party/567890&#34;</span>,
-        <span style="color:#ff79c6">&#34;time&#34;</span>: <span style="color:#f1fa8c">&#34;2020-10-14T10:33:33.022379Z&#34;</span>,
-        <span style="color:#ff79c6">&#34;alternativesubject&#34;</span>: <span style="color:#f1fa8c">&#34;/person/01038712345&#34;</span>,
-        <span style="color:#ff79c6">&#34;data&#34;</span>: <span style="color:#f1fa8c">&#34;data field&#34;</span>
-    }
-]
-</code></pre></div><h3 id="events-for-a-given-party">Events for a given party</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>https://platform.tt02.altinn.no/events/api/v1/app/ttd/apps-test?after=5beae524-0b3d-4e3b-bf40-450575eaf5d6&amp;from=2020-10-01 11:35:00
+</span></span></code></pre></div><p>Response body includes a list of cloud events on the form</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>[
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;8c99c887-3861-4c2a-9ac9-178a20b1ee70&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;source&#34;</span>: <span style="color:#f1fa8c">&#34;https://nav.apps.altinn.no/nav/app/instances/1234324/6fb3f738-6800-4f29-9f3e-1c66862656cd&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;specversion&#34;</span>: <span style="color:#f1fa8c">&#34;1.x-wip&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;instance.created&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;subject&#34;</span>: <span style="color:#f1fa8c">&#34;party/567890&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;time&#34;</span>: <span style="color:#f1fa8c">&#34;2020-10-13T15:46:02.557971Z&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;alternativesubject&#34;</span>: <span style="color:#f1fa8c">&#34;/person/01038712345&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;data&#34;</span>: <span style="color:#f1fa8c">&#34;data field&#34;</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;5beae524-0b3d-4e3b-bf40-450575eaf5d6&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;source&#34;</span>: <span style="color:#f1fa8c">&#34;https://nav.apps.altinn.no/nav/app/instances/1234324/6fb3f738-6800-4f29-9f3e-1c66862656cd&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;specversion&#34;</span>: <span style="color:#f1fa8c">&#34;1.x-wip&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;instance.deleted&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;subject&#34;</span>: <span style="color:#f1fa8c">&#34;party/567890&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;time&#34;</span>: <span style="color:#f1fa8c">&#34;2020-10-14T10:33:33.022379Z&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;alternativesubject&#34;</span>: <span style="color:#f1fa8c">&#34;/person/01038712345&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;data&#34;</span>: <span style="color:#f1fa8c">&#34;data field&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>]
+</span></span></code></pre></div><h3 id="events-for-a-given-party">Events for a given party</h3>
 <p>A very common scenario is that a party needs to know about events for the party itself or other party that party has a relationship for (client, child unit++).</p>
 <h5 id="endpoint-1">Endpoint</h5>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET platform.altinn.no/events/api/v1/app/party
-</code></pre></div><h5 id="usage-1">Usage</h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>GET platform.altinn.no/events/api/v1/app/party
+</span></span></code></pre></div><h5 id="usage-1">Usage</h5>
 <p>This is used by end users to see events for a given party.
 This will list all changes for a given party, identified with a partyId, person number or organisation number.</p>
 <h5 id="authorization-1">Authorization</h5>
@@ -1287,22 +1287,22 @@ This way there would be no need to verify the current state of an instance.</p>
 <h5 id="response-1">Response</h5>
 <p>Response includes a <em>next</em> header that can be used to get the events following the last event returned by the response.
 Query parameter <em>after</em> is inserted or replaced and holds the id of the last event returned in the reponse.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">https://platform.tt02.altinn.no/events/api/v1/app/party?after=5beae524-0b3d-4e3b-bf40-450575eaf5d6&amp;from=2020-10-01 11:35:00
-</code></pre></div><p>We have this example</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[{
-  <span style="color:#ff79c6">&#34;source&#34;</span>:  <span style="color:#f1fa8c">&#34;https://skd.apps.altinn.no/skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8&#34;</span>,
-  <span style="color:#ff79c6">&#34;subject&#34;</span>: <span style="color:#f1fa8c">&#34;party/234234422&#34;</span>,
-<span style="display:block;width:100%;background-color:#3d3f4a">  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;instance.process.completed&#34;</span>,
-</span>  <span style="color:#ff79c6">&#34;time&#34;</span>:  <span style="color:#f1fa8c">&#34;2020-02-20T09:06:50.3736712Z&#34;</span>,
-  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;91f2388f-bd8c-4647-8684-fd9f68af5b14&#34;</span>,
-  <span style="color:#ff79c6">&#34;ssid&#34;</span>:<span style="color:#f1fa8c">&#34;orgno:974760673&#34;</span>
-}]
-</code></pre></div><p>To be able to read this event, the authenticated party is required to have the rights for SKD/Skattmelding for the party 234234422.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>https://platform.tt02.altinn.no/events/api/v1/app/party?after=5beae524-0b3d-4e3b-bf40-450575eaf5d6&amp;from=2020-10-01 11:35:00
+</span></span></code></pre></div><p>We have this example</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>[{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;source&#34;</span>:  <span style="color:#f1fa8c">&#34;https://skd.apps.altinn.no/skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;subject&#34;</span>: <span style="color:#f1fa8c">&#34;party/234234422&#34;</span>,
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;instance.process.completed&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;time&#34;</span>:  <span style="color:#f1fa8c">&#34;2020-02-20T09:06:50.3736712Z&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;91f2388f-bd8c-4647-8684-fd9f68af5b14&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;ssid&#34;</span>:<span style="color:#f1fa8c">&#34;orgno:974760673&#34;</span>
+</span></span><span style="display:flex;"><span>}]
+</span></span></code></pre></div><p>To be able to read this event, the authenticated party is required to have the rights for SKD/Skattmelding for the party 234234422.
 This is something it gets throug roles for that specific application.</p>
 <h3 id="adding-events">Adding events</h3>
 <h5 id="endpoint-2">Endpoint</h5>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">POST {platformurl}/events/api/v1/app
-</code></pre></div><p>This returns the created ID for the event.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>POST {platformurl}/events/api/v1/app
+</span></span></code></pre></div><p>This returns the created ID for the event.</p>
 <h5 id="usage-2">Usage</h5>
 <p>This is used by the application to publish app events.
 Events are submitted as <a href="https://cloudevents.io/">CloudEvents</a>.</p>
@@ -1355,29 +1355,29 @@ The following attributes is used by the Events component.</p>
 </tbody>
 </table>
 <p>We have this example</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[{
-    <span style="color:#ff79c6">&#34;specversion&#34;</span>: <span style="color:#f1fa8c">&#34;1.0&#34;</span>, 
-    <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;instance.created&#34;</span>,
-<span style="display:block;width:100%;background-color:#3d3f4a">    <span style="color:#ff79c6">&#34;source&#34;</span>:  <span style="color:#f1fa8c">&#34;skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8&#34;</span>,
-</span>    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;91f2388f-bd8c-4647-8684-fd9f68af5b14&#34;</span>,
-    <span style="color:#ff79c6">&#34;time&#34;</span>: <span style="color:#f1fa8c">&#34;2020-02-20T08:00:06.4014168Z&#34;</span>,
-    <span style="color:#ff79c6">&#34;subject&#34;</span>: <span style="color:#f1fa8c">&#34;party/234234422&#34;</span>,
-    <span style="color:#ff79c6">&#34;alternativesubject&#34;</span>: <span style="color:#f1fa8c">&#34;party/131555662&#34;</span>
-}]
-</code></pre></div><h3 id="adding-subscription">Adding Subscription</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>[{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;specversion&#34;</span>: <span style="color:#f1fa8c">&#34;1.0&#34;</span>, 
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;instance.created&#34;</span>,
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>    <span style="color:#ff79c6">&#34;source&#34;</span>:  <span style="color:#f1fa8c">&#34;skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;91f2388f-bd8c-4647-8684-fd9f68af5b14&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;time&#34;</span>: <span style="color:#f1fa8c">&#34;2020-02-20T08:00:06.4014168Z&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;subject&#34;</span>: <span style="color:#f1fa8c">&#34;party/234234422&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;alternativesubject&#34;</span>: <span style="color:#f1fa8c">&#34;party/131555662&#34;</span>
+</span></span><span style="display:flex;"><span>}]
+</span></span></code></pre></div><h3 id="adding-subscription">Adding Subscription</h3>
 <h5 id="endpoint-3">Endpoint</h5>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">POST {platformurl}/events/api/v1/subscriptions/
-</code></pre></div><p>This returns the created subscription with IDs</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>POST {platformurl}/events/api/v1/subscriptions/
+</span></span></code></pre></div><p>This returns the created subscription with IDs</p>
 <h5 id="usage-3">Usage</h5>
 <p>This is used by the consumer to add a subscription.</p>
 <p>The consumer needs to ba an org authenticated with maskinporten or a end user autenticated with ID-porten</p>
 <p>We have this example that adds a subscription for all events for the app ttd/apps-test to be pushed
 to a Slack webhook</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-    <span style="color:#ff79c6">&#34;endPoint&#34;</span>: <span style="color:#f1fa8c">&#34;https://hooks.slack.com/services/TSRSASBVNF3/ADRRSDSSSAahttsasdfasFO3w83456ss&#34;</span>,
-    <span style="color:#ff79c6">&#34;sourceFilter&#34;</span>: <span style="color:#f1fa8c">&#34;https://ttd.apps.at21.altinn.cloud/ttd/apps-test&#34;</span>
-<span style="display:block;width:100%;background-color:#3d3f4a">}
-</span></code></pre></div><h3 id="api-documentation">API Documentation</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;endPoint&#34;</span>: <span style="color:#f1fa8c">&#34;https://hooks.slack.com/services/TSRSASBVNF3/ADRRSDSSSAahttsasdfasFO3w83456ss&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;sourceFilter&#34;</span>: <span style="color:#f1fa8c">&#34;https://ttd.apps.at21.altinn.cloud/ttd/apps-test&#34;</span>
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>}
+</span></span></code></pre></div><h3 id="api-documentation">API Documentation</h3>
 <p>The full detail for this API is described <a href="/api/events/spec">here</a>.</p>
 <h2 id="push-functions">Push Functions</h2>
 <p>A important part of the Events components are three different Azure Functions that is responsible for the following</p>

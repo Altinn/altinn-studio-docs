@@ -117,7 +117,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -217,7 +217,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -297,7 +297,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -1112,64 +1112,64 @@ if(host != "localhost")
 <p>The returned person data can be used to populate additional fields in the model.</p>
 <h3 id="person-lookup-example">Person lookup example</h3>
 <p>The service can be used in any of the handlers in the logic namespace. Below we&rsquo;ve created an example using the <code>ProcessDataWrite</code> method in <code>DataProcessingHandler</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;<span style="color:#8be9fd">bool</span>&gt; ProcessDataWrite(
-    Instance instance, Guid? dataId, <span style="color:#8be9fd">object</span> data)
-{
-    <span style="color:#ff79c6">if</span> (data <span style="color:#ff79c6">is</span> MessageV1 message)
-    {
-        Person person = <span style="color:#ff79c6">await</span> <span style="color:#bd93f9">_</span>personLookup.GetPerson(
-            message.Personnummer, 
-            message.Etternavn, 
-            CancellationToken.None);
-
-        message.Fornavn = person.FirstName;
-        <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">true</span>;
-    }
-
-    <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">false</span>;
-}
-</code></pre></div><p>For this to work we&rsquo;ll need to do a few other changes in <code>DataProcessingHandler</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C#" data-lang="C#"><span style="display:flex;"><span><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;<span style="color:#8be9fd">bool</span>&gt; ProcessDataWrite(
+</span></span><span style="display:flex;"><span>    Instance instance, Guid? dataId, <span style="color:#8be9fd">object</span> data)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> (data <span style="color:#ff79c6">is</span> MessageV1 message)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        Person person = <span style="color:#ff79c6">await</span> _personLookup.GetPerson(
+</span></span><span style="display:flex;"><span>            message.Personnummer, 
+</span></span><span style="display:flex;"><span>            message.Etternavn, 
+</span></span><span style="display:flex;"><span>            CancellationToken.None);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        message.Fornavn = person.FirstName;
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">true</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">false</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>For this to work we&rsquo;ll need to do a few other changes in <code>DataProcessingHandler</code>.</p>
 <p>Add a private field for the lookup service and change the constructor to take an instance of the service. Initialize the field in the body of the constructor.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#ff79c6">private</span> <span style="color:#ff79c6">readonly</span> IPersonLookup <span style="color:#bd93f9">_</span>personLookup;
-
-<span style="color:#ff79c6">public</span> DataProcessingHandler(IPersonLookup personLookup)
-{
-    <span style="color:#bd93f9">_</span>personLookup = personLookup;
-}
-</code></pre></div><p>The changes to the <code>DataProcessingHandler</code> constructor also force us to update the constructor call from the <code>App</code> class constructor. Add <code>IPersonLookup</code> as an input parameter and use the parameter value as input to the constructor of <code>DataProcessingHandler</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#ff79c6">public</span> App(
-    ...
-    IText textService,
-<span style="display:block;width:100%;background-color:#3d3f4a">    IPersonLookup personLookup,
-</span>    IHttpContextAccessor httpContextAccessor) : <span style="color:#ff79c6">base</span>(...)
-{
-    <span style="color:#bd93f9">_l</span>ogger = logger;
-    <span style="color:#bd93f9">_</span>validationHandler = <span style="color:#ff79c6">new</span> ValidationHandler(httpContextAccessor);
-<span style="display:block;width:100%;background-color:#3d3f4a">    <span style="color:#bd93f9">_d</span>ataProcessingHandler = <span style="color:#ff79c6">new</span> DataProcessingHandler(personLookup);
-</span>    <span style="color:#bd93f9">_</span>instantiationHandler = <span style="color:#ff79c6">new</span> InstantiationHandler(profileService, registerService);
-    <span style="color:#bd93f9">_</span>pdfHandler = <span style="color:#ff79c6">new</span> PdfHandler();
-}
-</code></pre></div><h3 id="a-note-on-exception-handling">A note on exception handling</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C#" data-lang="C#"><span style="display:flex;"><span><span style="color:#ff79c6">private</span> <span style="color:#ff79c6">readonly</span> IPersonLookup _personLookup;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">public</span> DataProcessingHandler(IPersonLookup personLookup)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    _personLookup = personLookup;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>The changes to the <code>DataProcessingHandler</code> constructor also force us to update the constructor call from the <code>App</code> class constructor. Add <code>IPersonLookup</code> as an input parameter and use the parameter value as input to the constructor of <code>DataProcessingHandler</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-C#" data-lang="C#"><span style="display:flex;"><span><span style="color:#ff79c6">public</span> App(
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>    IText textService,
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>    IPersonLookup personLookup,
+</span></span><span style="display:flex;"><span>    IHttpContextAccessor httpContextAccessor) : <span style="color:#ff79c6">base</span>(...)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    _logger = logger;
+</span></span><span style="display:flex;"><span>    _validationHandler = <span style="color:#ff79c6">new</span> ValidationHandler(httpContextAccessor);
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>    _dataProcessingHandler = <span style="color:#ff79c6">new</span> DataProcessingHandler(personLookup);
+</span></span><span style="display:flex;"><span>    _instantiationHandler = <span style="color:#ff79c6">new</span> InstantiationHandler(profileService, registerService);
+</span></span><span style="display:flex;"><span>    _pdfHandler = <span style="color:#ff79c6">new</span> PdfHandler();
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="a-note-on-exception-handling">A note on exception handling</h3>
 <p>With no other changes than those above, the app backend will return response code <code>429 - TooManyRequests</code> if the user has been typing in invalid data too many times. This response code is currently not handled by the frontend react application which results in an &ldquo;unknown error&rdquo;. This can be avoided with exception handling that singles out any <code>PlatformHttpException</code> with a response with status code 429, but there are currently no built in mechanism to convey to the user why a request failed. A workaround for this limitation is to use a property on the data model.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#ff79c6">try</span>
-{
-    ...
-    <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">true</span>;
-}
-<span style="color:#ff79c6">catch</span> (PlatformHttpException phex)
-{
-    <span style="color:#ff79c6">switch</span> (phex.Response.StatusCode)
-    {
-        <span style="color:#ff79c6">case</span> HttpStatusCode.TooManyRequests:
-            <span style="color:#6272a4">// Add corrective messures
-</span><span style="color:#6272a4"></span>            <span style="color:#ff79c6">break</span>;
-        <span style="color:#ff79c6">case</span> HttpStatusCode.NotFound:
-            <span style="color:#6272a4">// Add corrective messures
-</span><span style="color:#6272a4"></span>            <span style="color:#ff79c6">break</span>;
-    }
-    <span style="color:#ff79c6">throw</span>;
-}
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C#" data-lang="C#"><span style="display:flex;"><span><span style="color:#ff79c6">try</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">true</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">catch</span> (PlatformHttpException phex)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">switch</span> (phex.Response.StatusCode)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">case</span> HttpStatusCode.TooManyRequests:
+</span></span><span style="display:flex;"><span>            <span style="color:#6272a4">// Add corrective messures</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">break</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">case</span> HttpStatusCode.NotFound:
+</span></span><span style="display:flex;"><span>            <span style="color:#6272a4">// Add corrective messures</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">break</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">throw</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
 
 <footer class=" footline" ></footer>
                 </div>

@@ -381,13 +381,13 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/metadata/"><span>Metadata</span></a></li>
       <li class="dd-item">
         <a href="/nb/api/apps/instances/"><span>Instanser</span></a></li>
       <li class="dd-item">
-        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/data-elements/tags/"><span>Tags</span></a></li></ul></li>
       <li class="dd-item">
@@ -441,9 +441,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/community/about/"><span>Om</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/community/about/goals/"><span>Mål</span></a></li>
+        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li>
       <li class="dd-item">
-        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li></ul></li>
+        <a href="/nb/community/about/goals/"><span>Mål</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/community/contributing/"><span>Bidra til utvikling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -579,96 +579,96 @@ så markeres instansen som klar for sletting og vil saneres fra Altinns database
 <code>&quot;autoDeleteOnProcessEnd&quot;: true</code>.</p>
 <h2 id="automatisk-sletting-av-instans">Automatisk sletting av instans</h2>
 <p>Eksempel på konfigurasjon i  <code>applicationmetadata.json</code> for instanser:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;ttd/apps-test-prod&#34;</span>,
-  <span style="color:#ff79c6">&#34;org&#34;</span>: <span style="color:#f1fa8c">&#34;ttd&#34;</span>,
-  <span style="color:#ff79c6">&#34;title&#34;</span>: {
-    <span style="color:#ff79c6">&#34;nb&#34;</span>: <span style="color:#f1fa8c">&#34;apps-test-prod&#34;</span>
-  },
-  <span style="color:#ff79c6">&#34;dataTypes&#34;</span>: [
-    {
-      <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;default&#34;</span>,
-      <span style="color:#ff79c6">&#34;allowedContentTypes&#34;</span>: [
-        <span style="color:#f1fa8c">&#34;application/xml&#34;</span>
-      ],
-      <span style="color:#ff79c6">&#34;appLogic&#34;</span>: {
-        <span style="color:#ff79c6">&#34;autoCreate&#34;</span>: <span style="color:#ff79c6">true</span>,
-        <span style="color:#ff79c6">&#34;classRef&#34;</span>: <span style="color:#f1fa8c">&#34;Altinn.App.Models.Skjema&#34;</span>
-      },
-      <span style="color:#ff79c6">&#34;taskId&#34;</span>: <span style="color:#f1fa8c">&#34;Task_1&#34;</span>,
-      <span style="color:#ff79c6">&#34;maxCount&#34;</span>: <span style="color:#bd93f9">1</span>,
-      <span style="color:#ff79c6">&#34;minCount&#34;</span>: <span style="color:#bd93f9">1</span>
-    },
-    {
-      <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;ref-data-as-pdf&#34;</span>,
-      <span style="color:#ff79c6">&#34;allowedContentTypes&#34;</span>: [
-        <span style="color:#f1fa8c">&#34;application/pdf&#34;</span>
-      ],
-      <span style="color:#ff79c6">&#34;maxCount&#34;</span>: <span style="color:#bd93f9">0</span>,
-      <span style="color:#ff79c6">&#34;minCount&#34;</span>: <span style="color:#bd93f9">0</span>
-    },
-    {
-      <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;6aa7d237-f20f-4d42-9361-0c84cf1a8ed0&#34;</span>,
-      <span style="color:#ff79c6">&#34;allowedContentTypes&#34;</span>: [],
-      <span style="color:#ff79c6">&#34;taskId&#34;</span>: <span style="color:#f1fa8c">&#34;Task_1&#34;</span>,
-      <span style="color:#ff79c6">&#34;maxSize&#34;</span>: <span style="color:#bd93f9">1</span>,
-      <span style="color:#ff79c6">&#34;maxCount&#34;</span>: <span style="color:#bd93f9">3</span>,
-      <span style="color:#ff79c6">&#34;minCount&#34;</span>: <span style="color:#bd93f9">1</span>
-    }
-  ],
-  <span style="color:#ff79c6">&#34;partyTypesAllowed&#34;</span>: {
-    <span style="color:#ff79c6">&#34;bankruptcyEstate&#34;</span>: <span style="color:#ff79c6">false</span>,
-    <span style="color:#ff79c6">&#34;organisation&#34;</span>: <span style="color:#ff79c6">false</span>,
-    <span style="color:#ff79c6">&#34;person&#34;</span>: <span style="color:#ff79c6">false</span>,
-    <span style="color:#ff79c6">&#34;subUnit&#34;</span>: <span style="color:#ff79c6">false</span>
-  },
-  <span style="color:#ff79c6">&#34;created&#34;</span>: <span style="color:#f1fa8c">&#34;2020-06-04T12:11:36.9601284Z&#34;</span>,
-  <span style="color:#ff79c6">&#34;createdBy&#34;</span>: <span style="color:#f1fa8c">&#34;someone&#34;</span>,
-  <span style="color:#ff79c6">&#34;lastChanged&#34;</span>: <span style="color:#f1fa8c">&#34;2020-06-04T12:11:36.9601305Z&#34;</span>,
-  <span style="color:#ff79c6">&#34;lastChangedBy&#34;</span>: <span style="color:#f1fa8c">&#34;someone&#34;</span>,
-<span style="display:block;width:100%;background-color:#3d3f4a">  <span style="color:#ff79c6">&#34;autoDeleteOnProcessEnd&#34;</span>: <span style="color:#ff79c6">true</span>
-</span>}
-</code></pre></div><h2 id="automatisk-sletting-av-data">Automatisk sletting av data</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;ttd/apps-test-prod&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;org&#34;</span>: <span style="color:#f1fa8c">&#34;ttd&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;title&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;nb&#34;</span>: <span style="color:#f1fa8c">&#34;apps-test-prod&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;dataTypes&#34;</span>: [
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;default&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;allowedContentTypes&#34;</span>: [
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#34;application/xml&#34;</span>
+</span></span><span style="display:flex;"><span>      ],
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;appLogic&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;autoCreate&#34;</span>: <span style="color:#ff79c6">true</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;classRef&#34;</span>: <span style="color:#f1fa8c">&#34;Altinn.App.Models.Skjema&#34;</span>
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;taskId&#34;</span>: <span style="color:#f1fa8c">&#34;Task_1&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;maxCount&#34;</span>: <span style="color:#bd93f9">1</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;minCount&#34;</span>: <span style="color:#bd93f9">1</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;ref-data-as-pdf&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;allowedContentTypes&#34;</span>: [
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#34;application/pdf&#34;</span>
+</span></span><span style="display:flex;"><span>      ],
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;maxCount&#34;</span>: <span style="color:#bd93f9">0</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;minCount&#34;</span>: <span style="color:#bd93f9">0</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;6aa7d237-f20f-4d42-9361-0c84cf1a8ed0&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;allowedContentTypes&#34;</span>: [],
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;taskId&#34;</span>: <span style="color:#f1fa8c">&#34;Task_1&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;maxSize&#34;</span>: <span style="color:#bd93f9">1</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;maxCount&#34;</span>: <span style="color:#bd93f9">3</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;minCount&#34;</span>: <span style="color:#bd93f9">1</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  ],
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;partyTypesAllowed&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;bankruptcyEstate&#34;</span>: <span style="color:#ff79c6">false</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;organisation&#34;</span>: <span style="color:#ff79c6">false</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;person&#34;</span>: <span style="color:#ff79c6">false</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;subUnit&#34;</span>: <span style="color:#ff79c6">false</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;created&#34;</span>: <span style="color:#f1fa8c">&#34;2020-06-04T12:11:36.9601284Z&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;createdBy&#34;</span>: <span style="color:#f1fa8c">&#34;someone&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;lastChanged&#34;</span>: <span style="color:#f1fa8c">&#34;2020-06-04T12:11:36.9601305Z&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;lastChangedBy&#34;</span>: <span style="color:#f1fa8c">&#34;someone&#34;</span>,
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>  <span style="color:#ff79c6">&#34;autoDeleteOnProcessEnd&#34;</span>: <span style="color:#ff79c6">true</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="automatisk-sletting-av-data">Automatisk sletting av data</h2>
 <p>Eksempel på konfigurasjon i  <code>applicationmetadata.json</code> for data type:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#f1fa8c">&#34;dataTypes&#34;</span>:[
-	{
-		<span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;Skjema&#34;</span>,
-		<span style="color:#ff79c6">&#34;allowedContentTypes&#34;</span>: [
-			<span style="color:#f1fa8c">&#34;application/xml&#34;</span>
-		],
-		<span style="color:#ff79c6">&#34;appLogic&#34;</span>: {
-			<span style="color:#ff79c6">&#34;autoCreate&#34;</span>: <span style="color:#ff79c6">true</span>,
-			<span style="color:#ff79c6">&#34;classRef&#34;</span>: <span style="color:#f1fa8c">&#34;Altinn.App.Models.skjema&#34;</span>,
-			<span style="color:#ff79c6">&#34;allowAnonymousOnStateless&#34;</span>: <span style="color:#ff79c6">false</span>,
-<span style="display:block;width:100%;background-color:#3d3f4a">			<span style="color:#ff79c6">&#34;autoDeleteOnProcessEnd&#34;</span>: <span style="color:#ff79c6">true</span>
-</span>		},
-		<span style="color:#ff79c6">&#34;taskId&#34;</span>: <span style="color:#f1fa8c">&#34;Task_1&#34;</span>,
-		<span style="color:#ff79c6">&#34;maxCount&#34;</span>: <span style="color:#bd93f9">1</span>,
-		<span style="color:#ff79c6">&#34;minCount&#34;</span>: <span style="color:#bd93f9">1</span>,
-		<span style="color:#ff79c6">&#34;enablePdfCreation&#34;</span>: <span style="color:#ff79c6">true</span>
-	},
-	{
-		<span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;ref-data-as-pdf&#34;</span>,
-		<span style="color:#ff79c6">&#34;allowedContentTypes&#34;</span>: [
-			<span style="color:#f1fa8c">&#34;application/pdf&#34;</span>
-		],
-		<span style="color:#ff79c6">&#34;maxCount&#34;</span>: <span style="color:#bd93f9">0</span>,
-		<span style="color:#ff79c6">&#34;minCount&#34;</span>: <span style="color:#bd93f9">0</span>,
-		<span style="color:#ff79c6">&#34;enablePdfCreation&#34;</span>: <span style="color:#ff79c6">true</span>
-	},
-	{
-		<span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;vedleggA&#34;</span>,
-		<span style="color:#ff79c6">&#34;taskId&#34;</span>: <span style="color:#f1fa8c">&#34;Task_1&#34;</span>,
-		<span style="color:#ff79c6">&#34;maxSize&#34;</span>: <span style="color:#bd93f9">25</span>,
-		<span style="color:#ff79c6">&#34;maxCount&#34;</span>: <span style="color:#bd93f9">1</span>,
-		<span style="color:#ff79c6">&#34;minCount&#34;</span>: <span style="color:#bd93f9">1</span>,
-		<span style="color:#ff79c6">&#34;enablePdfCreation&#34;</span>: <span style="color:#ff79c6">true</span>,
-		<span style="color:#ff79c6">&#34;appLogic&#34;</span>: {
-<span style="display:block;width:100%;background-color:#3d3f4a">			<span style="color:#ff79c6">&#34;autoDeleteOnProcessEnd&#34;</span>: <span style="color:#ff79c6">true</span>
-</span>		}
-  }
-]
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#f1fa8c">&#34;dataTypes&#34;</span>:[
+</span></span><span style="display:flex;"><span>	{
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;Skjema&#34;</span>,
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">&#34;allowedContentTypes&#34;</span>: [
+</span></span><span style="display:flex;"><span>			<span style="color:#f1fa8c">&#34;application/xml&#34;</span>
+</span></span><span style="display:flex;"><span>		],
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">&#34;appLogic&#34;</span>: {
+</span></span><span style="display:flex;"><span>			<span style="color:#ff79c6">&#34;autoCreate&#34;</span>: <span style="color:#ff79c6">true</span>,
+</span></span><span style="display:flex;"><span>			<span style="color:#ff79c6">&#34;classRef&#34;</span>: <span style="color:#f1fa8c">&#34;Altinn.App.Models.skjema&#34;</span>,
+</span></span><span style="display:flex;"><span>			<span style="color:#ff79c6">&#34;allowAnonymousOnStateless&#34;</span>: <span style="color:#ff79c6">false</span>,
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>			<span style="color:#ff79c6">&#34;autoDeleteOnProcessEnd&#34;</span>: <span style="color:#ff79c6">true</span>
+</span></span><span style="display:flex;"><span>		},
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">&#34;taskId&#34;</span>: <span style="color:#f1fa8c">&#34;Task_1&#34;</span>,
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">&#34;maxCount&#34;</span>: <span style="color:#bd93f9">1</span>,
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">&#34;minCount&#34;</span>: <span style="color:#bd93f9">1</span>,
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">&#34;enablePdfCreation&#34;</span>: <span style="color:#ff79c6">true</span>
+</span></span><span style="display:flex;"><span>	},
+</span></span><span style="display:flex;"><span>	{
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;ref-data-as-pdf&#34;</span>,
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">&#34;allowedContentTypes&#34;</span>: [
+</span></span><span style="display:flex;"><span>			<span style="color:#f1fa8c">&#34;application/pdf&#34;</span>
+</span></span><span style="display:flex;"><span>		],
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">&#34;maxCount&#34;</span>: <span style="color:#bd93f9">0</span>,
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">&#34;minCount&#34;</span>: <span style="color:#bd93f9">0</span>,
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">&#34;enablePdfCreation&#34;</span>: <span style="color:#ff79c6">true</span>
+</span></span><span style="display:flex;"><span>	},
+</span></span><span style="display:flex;"><span>	{
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;vedleggA&#34;</span>,
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">&#34;taskId&#34;</span>: <span style="color:#f1fa8c">&#34;Task_1&#34;</span>,
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">&#34;maxSize&#34;</span>: <span style="color:#bd93f9">25</span>,
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">&#34;maxCount&#34;</span>: <span style="color:#bd93f9">1</span>,
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">&#34;minCount&#34;</span>: <span style="color:#bd93f9">1</span>,
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">&#34;enablePdfCreation&#34;</span>: <span style="color:#ff79c6">true</span>,
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">&#34;appLogic&#34;</span>: {
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>			<span style="color:#ff79c6">&#34;autoDeleteOnProcessEnd&#34;</span>: <span style="color:#ff79c6">true</span>
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>]
+</span></span></code></pre></div>
 
 <footer class=" footline" ></footer>
                 </div>

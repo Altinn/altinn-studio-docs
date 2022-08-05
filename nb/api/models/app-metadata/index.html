@@ -381,13 +381,13 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/metadata/"><span>Metadata</span></a></li>
       <li class="dd-item">
         <a href="/nb/api/apps/instances/"><span>Instanser</span></a></li>
       <li class="dd-item">
-        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/data-elements/tags/"><span>Tags</span></a></li></ul></li>
       <li class="dd-item">
@@ -441,9 +441,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/community/about/"><span>Om</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/community/about/goals/"><span>Mål</span></a></li>
+        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li>
       <li class="dd-item">
-        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li></ul></li>
+        <a href="/nb/community/about/goals/"><span>Mål</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/community/contributing/"><span>Bidra til utvikling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -880,68 +880,68 @@ An application configured to enable eFormidling integration in combination with 
 </table>
 <h2 id="complete-example">Complete example</h2>
 <p>This is a complete app metadata document with data types.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;ttd/bli-applikasjonseier&#34;</span>,
-    <span style="color:#ff79c6">&#34;versionId&#34;</span>: <span style="color:#ff79c6">null</span>,
-    <span style="color:#ff79c6">&#34;org&#34;</span>: <span style="color:#f1fa8c">&#34;ttd&#34;</span>,
-    <span style="color:#ff79c6">&#34;title&#34;</span>: {
-        <span style="color:#ff79c6">&#34;nb&#34;</span>: <span style="color:#f1fa8c">&#34;Bli applikasjonseier&#34;</span>
-    },
-    <span style="color:#ff79c6">&#34;validFrom&#34;</span>: <span style="color:#ff79c6">null</span>,
-    <span style="color:#ff79c6">&#34;validTo&#34;</span>: <span style="color:#ff79c6">null</span>,
-    <span style="color:#ff79c6">&#34;processId&#34;</span>: <span style="color:#ff79c6">null</span>,
-    <span style="color:#ff79c6">&#34;dataTypes&#34;</span>: [
-        {
-            <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;Kursdomene_BliTjenesteeier_M_2020-05-25_5703_34553_SERES&#34;</span>,
-            <span style="color:#ff79c6">&#34;description&#34;</span>: <span style="color:#ff79c6">null</span>,
-            <span style="color:#ff79c6">&#34;allowedContentTypes&#34;</span>: [
-                <span style="color:#f1fa8c">&#34;application/xml&#34;</span>
-            ],
-            <span style="color:#ff79c6">&#34;allowedContributers&#34;</span>: <span style="color:#ff79c6">null</span>,
-            <span style="color:#ff79c6">&#34;appLogic&#34;</span>: {
-                <span style="color:#ff79c6">&#34;autoCreate&#34;</span>: <span style="color:#ff79c6">true</span>,
-                <span style="color:#ff79c6">&#34;classRef&#34;</span>: <span style="color:#f1fa8c">&#34;Altinn.App.Models.BliTjenesteeier_M&#34;</span>,
-                <span style="color:#ff79c6">&#34;schemaRef&#34;</span>: <span style="color:#ff79c6">null</span>
-            },
-            <span style="color:#ff79c6">&#34;taskId&#34;</span>: <span style="color:#f1fa8c">&#34;Task_1&#34;</span>,
-            <span style="color:#ff79c6">&#34;maxSize&#34;</span>: <span style="color:#ff79c6">null</span>,
-            <span style="color:#ff79c6">&#34;maxCount&#34;</span>: <span style="color:#bd93f9">1</span>,
-            <span style="color:#ff79c6">&#34;minCount&#34;</span>: <span style="color:#bd93f9">1</span>,
-            <span style="color:#ff79c6">&#34;grouping&#34;</span>: <span style="color:#ff79c6">null</span>
-        },
-        {
-            <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;ref-data-as-pdf&#34;</span>,
-            <span style="color:#ff79c6">&#34;description&#34;</span>: <span style="color:#ff79c6">null</span>,
-            <span style="color:#ff79c6">&#34;allowedContentTypes&#34;</span>: [
-                <span style="color:#f1fa8c">&#34;application/pdf&#34;</span>
-            ],
-            <span style="color:#ff79c6">&#34;allowedContributers&#34;</span>: <span style="color:#ff79c6">null</span>,
-            <span style="color:#ff79c6">&#34;appLogic&#34;</span>: <span style="color:#ff79c6">null</span>,
-            <span style="color:#ff79c6">&#34;taskId&#34;</span>: <span style="color:#ff79c6">null</span>,
-            <span style="color:#ff79c6">&#34;maxSize&#34;</span>: <span style="color:#ff79c6">null</span>,
-            <span style="color:#ff79c6">&#34;maxCount&#34;</span>: <span style="color:#bd93f9">0</span>,
-            <span style="color:#ff79c6">&#34;minCount&#34;</span>: <span style="color:#bd93f9">0</span>,
-            <span style="color:#ff79c6">&#34;grouping&#34;</span>: <span style="color:#ff79c6">null</span>
-        }
-    ],
-    <span style="color:#ff79c6">&#34;partyTypesAllowed&#34;</span>: {
-        <span style="color:#ff79c6">&#34;bankruptcyEstate&#34;</span>: <span style="color:#ff79c6">true</span>,
-        <span style="color:#ff79c6">&#34;organisation&#34;</span>: <span style="color:#ff79c6">true</span>,
-        <span style="color:#ff79c6">&#34;person&#34;</span>: <span style="color:#ff79c6">true</span>,
-        <span style="color:#ff79c6">&#34;subUnit&#34;</span>: <span style="color:#ff79c6">true</span>
-    },
-    <span style="color:#ff79c6">&#34;messageBoxConfig&#34;</span>:{
-        <span style="color:#ff79c6">&#34;hideSettings&#34;</span>:{
-            <span style="color:#ff79c6">&#34;hideOnTask&#34;</span>:[<span style="color:#f1fa8c">&#34;Task_3&#34;</span>]
-        }
-    },
-    <span style="color:#ff79c6">&#34;autoDeleteOnProcessEnd&#34;</span>: <span style="color:#ff79c6">false</span>,
-    <span style="color:#ff79c6">&#34;created&#34;</span>: <span style="color:#f1fa8c">&#34;2020-07-17T08:26:21.5707559Z&#34;</span>,
-    <span style="color:#ff79c6">&#34;createdBy&#34;</span>: <span style="color:#f1fa8c">&#34;sandgrainone&#34;</span>,
-    <span style="color:#ff79c6">&#34;lastChanged&#34;</span>: <span style="color:#f1fa8c">&#34;2020-07-17T08:26:21.5708691Z&#34;</span>,
-    <span style="color:#ff79c6">&#34;lastChangedBy&#34;</span>: <span style="color:#f1fa8c">&#34;sandgrainone&#34;</span>
-}
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;ttd/bli-applikasjonseier&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;versionId&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;org&#34;</span>: <span style="color:#f1fa8c">&#34;ttd&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;title&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;nb&#34;</span>: <span style="color:#f1fa8c">&#34;Bli applikasjonseier&#34;</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;validFrom&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;validTo&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;processId&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;dataTypes&#34;</span>: [
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;Kursdomene_BliTjenesteeier_M_2020-05-25_5703_34553_SERES&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;description&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;allowedContentTypes&#34;</span>: [
+</span></span><span style="display:flex;"><span>                <span style="color:#f1fa8c">&#34;application/xml&#34;</span>
+</span></span><span style="display:flex;"><span>            ],
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;allowedContributers&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;appLogic&#34;</span>: {
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">&#34;autoCreate&#34;</span>: <span style="color:#ff79c6">true</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">&#34;classRef&#34;</span>: <span style="color:#f1fa8c">&#34;Altinn.App.Models.BliTjenesteeier_M&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">&#34;schemaRef&#34;</span>: <span style="color:#ff79c6">null</span>
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;taskId&#34;</span>: <span style="color:#f1fa8c">&#34;Task_1&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;maxSize&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;maxCount&#34;</span>: <span style="color:#bd93f9">1</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;minCount&#34;</span>: <span style="color:#bd93f9">1</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;grouping&#34;</span>: <span style="color:#ff79c6">null</span>
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;ref-data-as-pdf&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;description&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;allowedContentTypes&#34;</span>: [
+</span></span><span style="display:flex;"><span>                <span style="color:#f1fa8c">&#34;application/pdf&#34;</span>
+</span></span><span style="display:flex;"><span>            ],
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;allowedContributers&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;appLogic&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;taskId&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;maxSize&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;maxCount&#34;</span>: <span style="color:#bd93f9">0</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;minCount&#34;</span>: <span style="color:#bd93f9">0</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;grouping&#34;</span>: <span style="color:#ff79c6">null</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    ],
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;partyTypesAllowed&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;bankruptcyEstate&#34;</span>: <span style="color:#ff79c6">true</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;organisation&#34;</span>: <span style="color:#ff79c6">true</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;person&#34;</span>: <span style="color:#ff79c6">true</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;subUnit&#34;</span>: <span style="color:#ff79c6">true</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;messageBoxConfig&#34;</span>:{
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;hideSettings&#34;</span>:{
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;hideOnTask&#34;</span>:[<span style="color:#f1fa8c">&#34;Task_3&#34;</span>]
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;autoDeleteOnProcessEnd&#34;</span>: <span style="color:#ff79c6">false</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;created&#34;</span>: <span style="color:#f1fa8c">&#34;2020-07-17T08:26:21.5707559Z&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;createdBy&#34;</span>: <span style="color:#f1fa8c">&#34;sandgrainone&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;lastChanged&#34;</span>: <span style="color:#f1fa8c">&#34;2020-07-17T08:26:21.5708691Z&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;lastChangedBy&#34;</span>: <span style="color:#f1fa8c">&#34;sandgrainone&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
 
 <footer class=" footline" ></footer>
                 </div>

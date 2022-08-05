@@ -117,7 +117,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -217,7 +217,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -297,7 +297,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -1108,35 +1108,35 @@ if(host != "localhost")
   </ul>
 </nav><h2 id="instance-events">Instance events</h2>
 <p>All instance events, e.g. creation, read, save, change process state, &hellip;</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/events
-</code></pre></div><p>Example of event data.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-    <span style="color:#ff79c6">&#34;id&#34;</span>:<span style="color:#f1fa8c">&#34;6dff32bc-0928-4ae8-937c-b362d6941c89&#34;</span>,
-    <span style="color:#ff79c6">&#34;instanceId&#34;</span>: <span style="color:#f1fa8c">&#34;60238/5c6b1a71-2e1f-447a-ae2f-d1807dcffbfb&#34;</span>,
-    <span style="color:#ff79c6">&#34;eventType&#34;</span>: <span style="color:#f1fa8c">&#34;deleted&#34;</span>,
-    <span style="color:#ff79c6">&#34;created&#34;</span>: <span style="color:#f1fa8c">&#34;2019-05-02T13:08:21.981476Z&#34;</span>,
-    <span style="color:#ff79c6">&#34;instanceOwnerPartyId&#34;</span>: <span style="color:#f1fa8c">&#34;60238&#34;</span>,
-    <span style="color:#ff79c6">&#34;user&#34;</span>: {
-        <span style="color:#ff79c6">&#34;userId&#34;</span>: <span style="color:#bd93f9">338829</span>,
-        <span style="color:#ff79c6">&#34;authenticationLevel&#34;</span>: <span style="color:#bd93f9">1</span>,
-        <span style="color:#ff79c6">&#34;enduserSystemId&#34;</span>: <span style="color:#bd93f9">2</span>
-    },
-    <span style="color:#ff79c6">&#34;process&#34;</span>: {
-        <span style="color:#ff79c6">&#34;started&#34;</span>: <span style="color:#f1fa8c">&#34;2019-05-01T12:45:01.3233Z&#34;</span>,
-        <span style="color:#ff79c6">&#34;startEvent&#34;</span>: <span style="color:#f1fa8c">&#34;Start_22&#34;</span>,
-        <span style="color:#ff79c6">&#34;currentTask&#34;</span>: {
-            <span style="color:#ff79c6">&#34;elementId&#34;</span>: <span style="color:#f1fa8c">&#34;Task_2&#34;</span>
-        }
-    }
-}
-</code></pre></div><h3 id="application-events-for-application-owners">Application events (for application owners)</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>GET {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/events
+</span></span></code></pre></div><p>Example of event data.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;id&#34;</span>:<span style="color:#f1fa8c">&#34;6dff32bc-0928-4ae8-937c-b362d6941c89&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;instanceId&#34;</span>: <span style="color:#f1fa8c">&#34;60238/5c6b1a71-2e1f-447a-ae2f-d1807dcffbfb&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;eventType&#34;</span>: <span style="color:#f1fa8c">&#34;deleted&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;created&#34;</span>: <span style="color:#f1fa8c">&#34;2019-05-02T13:08:21.981476Z&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;instanceOwnerPartyId&#34;</span>: <span style="color:#f1fa8c">&#34;60238&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;user&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;userId&#34;</span>: <span style="color:#bd93f9">338829</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;authenticationLevel&#34;</span>: <span style="color:#bd93f9">1</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;enduserSystemId&#34;</span>: <span style="color:#bd93f9">2</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;process&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;started&#34;</span>: <span style="color:#f1fa8c">&#34;2019-05-01T12:45:01.3233Z&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;startEvent&#34;</span>: <span style="color:#f1fa8c">&#34;Start_22&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;currentTask&#34;</span>: {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;elementId&#34;</span>: <span style="color:#f1fa8c">&#34;Task_2&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="application-events-for-application-owners">Application events (for application owners)</h3>
 <blockquote>
 <p><strong>WARNING</strong>: This section will be redesigned</p>
 </blockquote>
 <p>Selected instance events. Created, first read, change process state. Optinally specified by application developer.</p>
 <p>Events can be queried. May be piped.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET {storagePath}/applications/org/app/events?created=gte:2019-03-30&amp;process.currentTask=Task_2
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>GET {storagePath}/applications/org/app/events?created=gte:2019-03-30&amp;process.currentTask=Task_2
+</span></span></code></pre></div>
 
 <footer class=" footline" ></footer>
                 </div>

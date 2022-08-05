@@ -109,7 +109,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -209,7 +209,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -281,7 +281,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -1113,92 +1113,92 @@ if(host != "localhost")
 <h5 id="shared-components-should-utilize-styled-componentshttpsmaterial-uicomguidesinteroperabilitystyled-components-which-can-write-props-directly-in-the-css-styling">Shared components should utilize &ldquo;<a href="https://material-ui.com/guides/interoperability/#styled-components">Styled Components</a>&rdquo; which can write Props directly in the CSS styling.</h5>
 <h5 id="the-alternative-way-is-handling-styling-via-props-is-leveraging-inline-styling-combined-with-material-uis-jss-when-using-inline-styling-the-components-styling-will-be-configured-in-two-different-places">The alternative way is handling styling via props is leveraging &ldquo;inline styling&rdquo; combined with Material-UI&rsquo;s JSS. When using inline styling, the component&rsquo;s styling will be configured in two different places.</h5>
 <p><em>Inline style example</em></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-tsx" data-lang="tsx">&lt;<span style="color:#ff79c6">FormControl</span>
-  <span style="color:#50fa7b">fullWidth</span><span style="color:#ff79c6">=</span>{<span style="color:#ff79c6">true</span>}
-  <span style="color:#50fa7b">style</span><span style="color:#ff79c6">=</span>{{
-    width: <span style="color:#8be9fd">this.props.width</span> <span style="color:#ff79c6">?</span> <span style="color:#ff79c6">this</span>.props.width : <span style="color:#8be9fd">null</span>,
-  }}
-&gt;
-</code></pre></div><p><em>Styled Components example</em></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-tsx" data-lang="tsx"><span style="color:#ff79c6">const</span> theme <span style="color:#ff79c6">=</span> createMuiTheme(altinnTheme);
-
-<span style="color:#ff79c6">const</span> StyledPopper <span style="color:#ff79c6">=</span> styled(({ ...otherProps }) <span style="color:#ff79c6">=&gt;</span> (
-  &lt;<span style="color:#ff79c6">Popper</span> {<span style="color:#50fa7b">...otherProps</span>} /&gt;
-))<span style="color:#f1fa8c">`
-</span><span style="color:#f1fa8c">    color: </span><span style="color:#f1fa8c">${</span>theme.altinnPalette.primary.black<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">;
-</span><span style="color:#f1fa8c">    background: </span><span style="color:#f1fa8c">${</span>theme.altinnPalette.primary.redLight<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">;
-</span><span style="color:#f1fa8c">    border-radius: 0;
-</span><span style="color:#f1fa8c">    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25);
-</span><span style="color:#f1fa8c">    font-size: 16px;
-</span><span style="color:#f1fa8c">    padding: 24px;
-</span><span style="color:#f1fa8c">    max-width: 550px;
-</span><span style="color:#f1fa8c">    margin-top: 10px;
-</span><span style="color:#f1fa8c">    z-index: </span><span style="color:#f1fa8c">${</span>(props) <span style="color:#ff79c6">=&gt;</span> props.zIndex <span style="color:#ff79c6">||</span> <span style="color:#bd93f9">1</span><span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">
-</span><span style="color:#f1fa8c">`</span>;
-
-<span style="color:#ff79c6">class</span> AltinnPopper <span style="color:#ff79c6">extends</span> React.Component&lt;<span style="color:#ff79c6">IAltinnPopperComponentProvidedProps</span>, <span style="color:#50fa7b">IAltinnPopperComponentState</span>&gt; {
-  <span style="color:#ff79c6">public</span> render() {
-    <span style="color:#ff79c6">const</span> open <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">Boolean</span>(<span style="color:#ff79c6">this</span>.props.anchorEl);
-    <span style="color:#ff79c6">return</span> (
-      &lt;<span style="color:#ff79c6">StyledPopper</span>
-        <span style="color:#50fa7b">open</span><span style="color:#ff79c6">=</span>{open}
-        <span style="color:#50fa7b">anchorEl</span><span style="color:#ff79c6">=</span>{<span style="color:#ff79c6">this</span>.props.anchorEl}
-        <span style="color:#50fa7b">placement</span><span style="color:#ff79c6">=</span>{<span style="color:#f1fa8c">&#39;bottom-start&#39;</span>}
-      &gt;
-        {<span style="color:#ff79c6">this</span>.props.message}
-      &lt;/<span style="color:#ff79c6">StyledPopper</span>&gt;
-    );
-  }
-}
-
-<span style="color:#ff79c6">export</span> <span style="color:#ff79c6">default</span> AltinnPopper;
-</code></pre></div><h4 id="exception">Exception</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tsx" data-lang="tsx"><span style="display:flex;"><span>&lt;<span style="color:#ff79c6">FormControl</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">fullWidth</span><span style="color:#ff79c6">=</span>{<span style="color:#ff79c6">true</span>}
+</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">style</span><span style="color:#ff79c6">=</span>{{
+</span></span><span style="display:flex;"><span>    width: <span style="color:#8be9fd">this.props.width</span> <span style="color:#ff79c6">?</span> <span style="color:#ff79c6">this</span>.props.width : <span style="color:#8be9fd">null</span>,
+</span></span><span style="display:flex;"><span>  }}
+</span></span><span style="display:flex;"><span>&gt;
+</span></span></code></pre></div><p><em>Styled Components example</em></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tsx" data-lang="tsx"><span style="display:flex;"><span><span style="color:#ff79c6">const</span> theme <span style="color:#ff79c6">=</span> createMuiTheme(altinnTheme);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> StyledPopper <span style="color:#ff79c6">=</span> styled(({ ...otherProps }) <span style="color:#ff79c6">=&gt;</span> (
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#ff79c6">Popper</span> {<span style="color:#50fa7b">...otherProps</span>} /&gt;
+</span></span><span style="display:flex;"><span>))<span style="color:#f1fa8c">`
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">    color: </span><span style="color:#f1fa8c">${</span>theme.altinnPalette.primary.black<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">;
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">    background: </span><span style="color:#f1fa8c">${</span>theme.altinnPalette.primary.redLight<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">;
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">    border-radius: 0;
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25);
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">    font-size: 16px;
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">    padding: 24px;
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">    max-width: 550px;
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">    margin-top: 10px;
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">    z-index: </span><span style="color:#f1fa8c">${</span>(props) <span style="color:#ff79c6">=&gt;</span> props.zIndex <span style="color:#ff79c6">||</span> <span style="color:#bd93f9">1</span><span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">`</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">class</span> AltinnPopper <span style="color:#ff79c6">extends</span> React.Component&lt;<span style="color:#ff79c6">IAltinnPopperComponentProvidedProps</span>, <span style="color:#50fa7b">IAltinnPopperComponentState</span>&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">public</span> render() {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">const</span> open <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">Boolean</span>(<span style="color:#ff79c6">this</span>.props.anchorEl);
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> (
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#ff79c6">StyledPopper</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#50fa7b">open</span><span style="color:#ff79c6">=</span>{open}
+</span></span><span style="display:flex;"><span>        <span style="color:#50fa7b">anchorEl</span><span style="color:#ff79c6">=</span>{<span style="color:#ff79c6">this</span>.props.anchorEl}
+</span></span><span style="display:flex;"><span>        <span style="color:#50fa7b">placement</span><span style="color:#ff79c6">=</span>{<span style="color:#f1fa8c">&#39;bottom-start&#39;</span>}
+</span></span><span style="display:flex;"><span>      &gt;
+</span></span><span style="display:flex;"><span>        {<span style="color:#ff79c6">this</span>.props.message}
+</span></span><span style="display:flex;"><span>      &lt;/<span style="color:#ff79c6">StyledPopper</span>&gt;
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">export</span> <span style="color:#ff79c6">default</span> AltinnPopper;
+</span></span></code></pre></div><h4 id="exception">Exception</h4>
 <p>There will be examples where &ldquo;Styled Components&rdquo; are hard to configure using some of Material-UI&rsquo;s components where &ldquo;Props&rdquo; with styling needs to be passed down to sub-components. Then the regular CreateStyles method from Material-UI needs to be leveraged and can be used in a combination with Styled Components.</p>
 <p><em>Styled object example</em></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-tsx" data-lang="tsx"><span style="color:#ff79c6">const</span> styles <span style="color:#ff79c6">=</span> {
-  searchBoxInput<span style="color:#ff79c6">:</span> {
-    fontSize<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;16px&#39;</span>,
-    color<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;#000000&#39;</span>,
-    padding<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;6px&#39;</span>,
-  },
-  searchBoxIcon<span style="color:#ff79c6">:</span> {
-    color<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;#000000&#39;</span>,
-    fontSize<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;30px&#39;</span>,
-    marginRight<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;10px&#39;</span>,
-  },
-};
-</code></pre></div><p><em>React component, with Styled Component AND &lsquo;classes.searchBoxInput&rsquo; from Styled Object example above.</em></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-tsx" data-lang="tsx"><span style="color:#ff79c6">class</span> AltinnSearchInput <span style="color:#ff79c6">extends</span> React.Component&lt;<span style="color:#ff79c6">IAltinnSearchInputComponentProvidedProps</span>, <span style="color:#50fa7b">IAltinnSearchInputComponentState</span>&gt; {
-  <span style="color:#ff79c6">public</span> render() {
-    <span style="color:#ff79c6">const</span> { classes } <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">this</span>.props;
-    <span style="color:#ff79c6">return</span> (
-      &lt;<span style="color:#ff79c6">StyledFormControl</span>
-        <span style="color:#50fa7b">id</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;StyledForm&#39;</span>
-        <span style="color:#50fa7b">fullWidth</span><span style="color:#ff79c6">=</span>{<span style="color:#ff79c6">true</span>}
-      &gt;
-        &lt;<span style="color:#ff79c6">TextField</span>
-          <span style="color:#50fa7b">id</span><span style="color:#ff79c6">=</span>{<span style="color:#ff79c6">this</span>.props.id}
-          <span style="color:#50fa7b">placeholder</span><span style="color:#ff79c6">=</span>{<span style="color:#ff79c6">this</span>.props.placeholder}
-          <span style="color:#50fa7b">onChange</span><span style="color:#ff79c6">=</span>{<span style="color:#ff79c6">this</span>.props.onChangeFunction}
-          <span style="color:#50fa7b">InputProps</span><span style="color:#ff79c6">=</span>{{
-            disableUnderline: <span style="color:#8be9fd">true</span>,
-            startAdornment<span style="color:#ff79c6">:</span>
-              &lt;<span style="color:#ff79c6">InputAdornment</span>
-                <span style="color:#50fa7b">position</span><span style="color:#ff79c6">=</span>{<span style="color:#f1fa8c">&#39;end&#39;</span>}
-                <span style="color:#50fa7b">classes</span><span style="color:#ff79c6">=</span>{{ root: <span style="color:#8be9fd">classNames</span>(classes.searchBoxIcon) }}
-              &gt;
-                &lt;<span style="color:#ff79c6">i</span> <span style="color:#50fa7b">className</span><span style="color:#ff79c6">=</span>{<span style="color:#f1fa8c">&#39;ai ai-search&#39;</span>} /&gt;
-              &lt;/<span style="color:#ff79c6">InputAdornment</span>&gt;,
-              classes<span style="color:#ff79c6">:</span> { root: <span style="color:#8be9fd">classNames</span>(classes.searchBoxInput) },
-          }}
-        /&gt;
-      &lt;/<span style="color:#ff79c6">StyledFormControl</span>&gt;
-    );
-  }
-}
-
-<span style="color:#ff79c6">export</span> <span style="color:#ff79c6">default</span> withStyles(styles)(AltinnSearchInput);
-</code></pre></div><h3 id="contained-components">Contained Components</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tsx" data-lang="tsx"><span style="display:flex;"><span><span style="color:#ff79c6">const</span> styles <span style="color:#ff79c6">=</span> {
+</span></span><span style="display:flex;"><span>  searchBoxInput<span style="color:#ff79c6">:</span> {
+</span></span><span style="display:flex;"><span>    fontSize<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;16px&#39;</span>,
+</span></span><span style="display:flex;"><span>    color<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;#000000&#39;</span>,
+</span></span><span style="display:flex;"><span>    padding<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;6px&#39;</span>,
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  searchBoxIcon<span style="color:#ff79c6">:</span> {
+</span></span><span style="display:flex;"><span>    color<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;#000000&#39;</span>,
+</span></span><span style="display:flex;"><span>    fontSize<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;30px&#39;</span>,
+</span></span><span style="display:flex;"><span>    marginRight<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;10px&#39;</span>,
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p><em>React component, with Styled Component AND &lsquo;classes.searchBoxInput&rsquo; from Styled Object example above.</em></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tsx" data-lang="tsx"><span style="display:flex;"><span><span style="color:#ff79c6">class</span> AltinnSearchInput <span style="color:#ff79c6">extends</span> React.Component&lt;<span style="color:#ff79c6">IAltinnSearchInputComponentProvidedProps</span>, <span style="color:#50fa7b">IAltinnSearchInputComponentState</span>&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">public</span> render() {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">const</span> { classes } <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">this</span>.props;
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> (
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#ff79c6">StyledFormControl</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#50fa7b">id</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;StyledForm&#39;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#50fa7b">fullWidth</span><span style="color:#ff79c6">=</span>{<span style="color:#ff79c6">true</span>}
+</span></span><span style="display:flex;"><span>      &gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#ff79c6">TextField</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#50fa7b">id</span><span style="color:#ff79c6">=</span>{<span style="color:#ff79c6">this</span>.props.id}
+</span></span><span style="display:flex;"><span>          <span style="color:#50fa7b">placeholder</span><span style="color:#ff79c6">=</span>{<span style="color:#ff79c6">this</span>.props.placeholder}
+</span></span><span style="display:flex;"><span>          <span style="color:#50fa7b">onChange</span><span style="color:#ff79c6">=</span>{<span style="color:#ff79c6">this</span>.props.onChangeFunction}
+</span></span><span style="display:flex;"><span>          <span style="color:#50fa7b">InputProps</span><span style="color:#ff79c6">=</span>{{
+</span></span><span style="display:flex;"><span>            disableUnderline: <span style="color:#8be9fd">true</span>,
+</span></span><span style="display:flex;"><span>            startAdornment<span style="color:#ff79c6">:</span>
+</span></span><span style="display:flex;"><span>              &lt;<span style="color:#ff79c6">InputAdornment</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#50fa7b">position</span><span style="color:#ff79c6">=</span>{<span style="color:#f1fa8c">&#39;end&#39;</span>}
+</span></span><span style="display:flex;"><span>                <span style="color:#50fa7b">classes</span><span style="color:#ff79c6">=</span>{{ root: <span style="color:#8be9fd">classNames</span>(classes.searchBoxIcon) }}
+</span></span><span style="display:flex;"><span>              &gt;
+</span></span><span style="display:flex;"><span>                &lt;<span style="color:#ff79c6">i</span> <span style="color:#50fa7b">className</span><span style="color:#ff79c6">=</span>{<span style="color:#f1fa8c">&#39;ai ai-search&#39;</span>} /&gt;
+</span></span><span style="display:flex;"><span>              &lt;/<span style="color:#ff79c6">InputAdornment</span>&gt;,
+</span></span><span style="display:flex;"><span>              classes<span style="color:#ff79c6">:</span> { root: <span style="color:#8be9fd">classNames</span>(classes.searchBoxInput) },
+</span></span><span style="display:flex;"><span>          }}
+</span></span><span style="display:flex;"><span>        /&gt;
+</span></span><span style="display:flex;"><span>      &lt;/<span style="color:#ff79c6">StyledFormControl</span>&gt;
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">export</span> <span style="color:#ff79c6">default</span> withStyles(styles)(AltinnSearchInput);
+</span></span></code></pre></div><h3 id="contained-components">Contained Components</h3>
 <p>Contained components are React components which are not shared in other parts of the React application. It&rsquo;s encouraged to consider the styling order above.</p>
 
 

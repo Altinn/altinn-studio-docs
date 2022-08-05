@@ -109,7 +109,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -209,7 +209,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -281,7 +281,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -1123,31 +1123,31 @@ There are many advantages of using serilog</p>
 <li>Provides prebuilt enrichers through nuget. These add more value and information to the log events. This can be used to filter events in Application Insights.</li>
 </ul>
 <h4 id="step-one---init-logger-in-programcs">Step one - Init logger in Program.cs</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">static</span> IWebHostBuilder CreateWebHostBuilder(<span style="color:#8be9fd">string</span>[] args) =&gt;
-    WebHost.CreateDefaultBuilder(args)
-        .ConfigureLogging((hostingContext, logging) =&gt;
-    {
-        logging.ClearProviders();
-        Serilog.ILogger logger = 
-            <span style="color:#ff79c6">new</span> LoggerConfiguration()
-                .WriteTo.Console()
-                .CreateLogger();
-
-        logging.AddProvider(<span style="color:#ff79c6">new</span> SerilogLoggerProvider(logger));
-    });
-</code></pre></div><h4 id="step-two---inject-logger-where-it-is-needed">Step two - inject logger where it is needed</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">private</span> ILogger logger;
-
-<span style="color:#ff79c6">public</span> ApplicationsController(
-    IApplicationRepository repository, 
-    ILogger logger)
-{
-    <span style="color:#ff79c6">this</span>.logger = logger;
-    <span style="color:#ff79c6">this</span>.repository = repository;
-}
-</code></pre></div><h4 id="step-three---log-error">Step three - log error</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#bd93f9">_l</span>ogger.LogError(exception, <span style="color:#f1fa8c">&#34;Unable to process request...&#34;</span>);
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">static</span> IWebHostBuilder CreateWebHostBuilder(<span style="color:#8be9fd">string</span>[] args) =&gt;
+</span></span><span style="display:flex;"><span>    WebHost.CreateDefaultBuilder(args)
+</span></span><span style="display:flex;"><span>        .ConfigureLogging((hostingContext, logging) =&gt;
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        logging.ClearProviders();
+</span></span><span style="display:flex;"><span>        Serilog.ILogger logger = 
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">new</span> LoggerConfiguration()
+</span></span><span style="display:flex;"><span>                .WriteTo.Console()
+</span></span><span style="display:flex;"><span>                .CreateLogger();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        logging.AddProvider(<span style="color:#ff79c6">new</span> SerilogLoggerProvider(logger));
+</span></span><span style="display:flex;"><span>    });
+</span></span></code></pre></div><h4 id="step-two---inject-logger-where-it-is-needed">Step two - inject logger where it is needed</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#ff79c6">private</span> ILogger logger;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">public</span> ApplicationsController(
+</span></span><span style="display:flex;"><span>    IApplicationRepository repository, 
+</span></span><span style="display:flex;"><span>    ILogger logger)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">this</span>.logger = logger;
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">this</span>.repository = repository;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="step-three---log-error">Step three - log error</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span>_logger.LogError(exception, <span style="color:#f1fa8c">&#34;Unable to process request...&#34;</span>);
+</span></span></code></pre></div>
 
 <footer class=" footline" ></footer>
                 </div>

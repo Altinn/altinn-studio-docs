@@ -109,7 +109,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -209,7 +209,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -281,7 +281,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -1191,20 +1191,20 @@ Currently, the only approved OIDC providers in Altinn are  FEIDE and UIDP have b
 </tr>
 </tbody>
 </table>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#f1fa8c">&#34;OidcProviders&#34;</span>: {
-    <span style="color:#ff79c6">&#34;altinn&#34;</span>: {
-      <span style="color:#ff79c6">&#34;Issuer&#34;</span>: <span style="color:#f1fa8c">&#34;https://idprovider.azurewebsites.net/&#34;</span>,
-      <span style="color:#ff79c6">&#34;AuthorizationEndpoint&#34;</span>: <span style="color:#f1fa8c">&#34;https://idprovider.azurewebsites.net/authorize&#34;</span>,
-      <span style="color:#ff79c6">&#34;TokenEndpoint&#34;</span>: <span style="color:#f1fa8c">&#34;https://idprovider.azurewebsites.net/api/token&#34;</span>,
-      <span style="color:#ff79c6">&#34;WellKnownConfigEndpoint&#34;</span>: <span style="color:#f1fa8c">&#34;https://idporten.azurewebsites.net/api/v1/openid/.well-known/openid-configuration&#34;</span>,
-      <span style="color:#ff79c6">&#34;LogoutEndpoint&#34;</span>: <span style="color:#f1fa8c">&#34;https://idporten.azurewebsites.net/api/v1/logout&#34;</span>,
-      <span style="color:#ff79c6">&#34;ClientId&#34;</span>: <span style="color:#f1fa8c">&#34;asdf34argf&#34;</span>,
-      <span style="color:#ff79c6">&#34;ExternalIdentityClaim&#34;</span>: <span style="color:#f1fa8c">&#34;sub&#34;</span>,
-      <span style="color:#ff79c6">&#34;UserNamePrefix&#34;</span>: <span style="color:#f1fa8c">&#34;UIDP_&#34;</span>,
-      <span style="color:#ff79c6">&#34;IncludeIssInRedirectUri&#34;</span>: <span style="color:#ff79c6">true</span>,
-      <span style="color:#ff79c6">&#34;ProviderClaims&#34;</span>: [ <span style="color:#f1fa8c">&#34;locale&#34;</span>, <span style="color:#f1fa8c">&#34;urn:feide:role&#34;</span>, <span style="color:#f1fa8c">&#34;sub&#34;</span> ]
-    }
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#f1fa8c">&#34;OidcProviders&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;altinn&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;Issuer&#34;</span>: <span style="color:#f1fa8c">&#34;https://idprovider.azurewebsites.net/&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;AuthorizationEndpoint&#34;</span>: <span style="color:#f1fa8c">&#34;https://idprovider.azurewebsites.net/authorize&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;TokenEndpoint&#34;</span>: <span style="color:#f1fa8c">&#34;https://idprovider.azurewebsites.net/api/token&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;WellKnownConfigEndpoint&#34;</span>: <span style="color:#f1fa8c">&#34;https://idporten.azurewebsites.net/api/v1/openid/.well-known/openid-configuration&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;LogoutEndpoint&#34;</span>: <span style="color:#f1fa8c">&#34;https://idporten.azurewebsites.net/api/v1/logout&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;ClientId&#34;</span>: <span style="color:#f1fa8c">&#34;asdf34argf&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;ExternalIdentityClaim&#34;</span>: <span style="color:#f1fa8c">&#34;sub&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;UserNamePrefix&#34;</span>: <span style="color:#f1fa8c">&#34;UIDP_&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;IncludeIssInRedirectUri&#34;</span>: <span style="color:#ff79c6">true</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;ProviderClaims&#34;</span>: [ <span style="color:#f1fa8c">&#34;locale&#34;</span>, <span style="color:#f1fa8c">&#34;urn:feide:role&#34;</span>, <span style="color:#f1fa8c">&#34;sub&#34;</span> ]
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div>
 
 <footer class=" footline" ></footer>
                 </div>

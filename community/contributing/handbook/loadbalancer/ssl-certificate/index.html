@@ -109,7 +109,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -209,7 +209,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -281,7 +281,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -1103,12 +1103,12 @@ if(host != "localhost")
 <h3 id="extracting-the-values-from-the-pfx-file">Extracting the values from the pfx file</h3>
 <p>With openssl installed and in path, open a terminal and type the command</p>
 <h4 id="extracting-the-private-key">Extracting the private key</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ openssl pkcs12 -in &lt;filename.pfx&gt; -nocerts -nodes -out star.altinn.studio.key
-</code></pre></div><h4 id="extracting-the-certificate">Extracting the certificate</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ openssl pkcs12 -in &lt;filename.pfx&gt; -clcerts -nokeys -out star.altinn.studio.cert
-</code></pre></div><h4 id="extracting-the-ca-certificates">Extracting the CA certificates</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ openssl pkcs12 -in &lt;filename.pfx&gt; -cacerts -nokeys -chain -out star.altinn.studio.ca.cert
-</code></pre></div><h3 id="assembling-a-ssltls-bundle">Assembling a SSL/TLS bundle</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ openssl pkcs12 -in &lt;filename.pfx&gt; -nocerts -nodes -out star.altinn.studio.key
+</span></span></code></pre></div><h4 id="extracting-the-certificate">Extracting the certificate</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ openssl pkcs12 -in &lt;filename.pfx&gt; -clcerts -nokeys -out star.altinn.studio.cert
+</span></span></code></pre></div><h4 id="extracting-the-ca-certificates">Extracting the CA certificates</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ openssl pkcs12 -in &lt;filename.pfx&gt; -cacerts -nokeys -chain -out star.altinn.studio.ca.cert
+</span></span></code></pre></div><h3 id="assembling-a-ssltls-bundle">Assembling a SSL/TLS bundle</h3>
 <p>After extracting all the certificate and keys, you will have 3 new files in the same directory that you have the .pfx file. These files will be:</p>
 <ul>
 <li><code>star.altinn.studio.key</code></li>
@@ -1119,15 +1119,15 @@ if(host != "localhost")
 <p>In the file <code>star.altinn.studio.ca.crt</code> you will have 2 certificate, one intermediate and a root certificate. The root certificate doesn&rsquo;t need to be in the SSL/TLS bundle, so copy the second certificate block (including the <code>-----BEGIN CERTIFICATE-----</code> and <code>-----END CERTIFICATE-----</code>) in this file and paste it at the bottom in <code>star.altinn.studio.crt</code>-file.</p>
 <h3 id="using-the-ssltls-values-in-the-kubernetes-pod">Using the SSL/TLS values in the kubernetes pod</h3>
 <p>Kubernetes encodes secrets with base64, so you will need to encode the contents of <code>star.altinn.studio.cert</code> and <code>star.altinn.studio.key</code> files. And create a secret in the kubernetes cluster. The secret can be defined like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#ff79c6">apiVersion</span>: v1
-<span style="color:#ff79c6">kind</span>: Secret
-<span style="color:#ff79c6">metadata</span>:
-  <span style="color:#ff79c6">name</span>: ssl-cert
-<span style="color:#ff79c6">type</span>: Opaque
-<span style="color:#ff79c6">data</span>:
-	 <span style="color:#ff79c6">star.altinn.studio.cert</span>: &lt;BASE 64 ENCODED SSL/TLS-BUNDLE&gt;
-	 <span style="color:#ff79c6">star.altinn.studio.key</span>: &lt;BASE 64 ENCODED PRIVATE KEY&gt;
-</code></pre></div><p>The names under <code>data</code> will be the filenames mounted on the kubernetes pods (these will have to match with the filenames defined in the nginx.conf config file, which is a configmap).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ff79c6">apiVersion</span>: v1
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">kind</span>: Secret
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">name</span>: ssl-cert
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">type</span>: Opaque
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">data</span>:
+</span></span><span style="display:flex;"><span>	 <span style="color:#ff79c6">star.altinn.studio.cert</span>: &lt;BASE 64 ENCODED SSL/TLS-BUNDLE&gt;
+</span></span><span style="display:flex;"><span>	 <span style="color:#ff79c6">star.altinn.studio.key</span>: &lt;BASE 64 ENCODED PRIVATE KEY&gt;
+</span></span></code></pre></div><p>The names under <code>data</code> will be the filenames mounted on the kubernetes pods (these will have to match with the filenames defined in the nginx.conf config file, which is a configmap).</p>
 <p>nginx.conf:</p>
 <pre tabindex="0"><code>
 ...

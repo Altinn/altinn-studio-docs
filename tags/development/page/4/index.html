@@ -117,7 +117,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -217,7 +217,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -297,7 +297,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -1171,7 +1171,7 @@ Download .pfx file At the moment of writing this guide, we store our *.altinn.st
         <h2 class="post-title"><a href="/community/contributing/handbook/azure-devops/pipelines/">Pipelines</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Quality checklist Build pipelines Release pipelines  Quality Checklist  all sensitive information is marked as secret. Read more about setting variables as secret here. verify that no sensitive information is available in the exported API JSON definition (https://dev.azure.com/brreg/d0be3bbb-9145-4490-8d76-fd8024277467/_apis/pipelines/{definitionId}) make sure that no secrets are shared with forks of github repos if you are using a github integrated pipeline. Read more about that here. if it exists a built in task for the job the pipeline should do, this should be prefered over writing your own scripts. <a class="read-more" href="/community/contributing/handbook/azure-devops/pipelines/">&raquo;</a></p>
+        <p>Quality checklist Build pipelines Release pipelines Quality Checklist all sensitive information is marked as secret. Read more about setting variables as secret here. verify that no sensitive information is available in the exported API JSON definition (https://dev.azure.com/brreg/d0be3bbb-9145-4490-8d76-fd8024277467/_apis/pipelines/{definitionId}) make sure that no secrets are shared with forks of github repos if you are using a github integrated pipeline. Read more about that here. if it exists a built in task for the job the pipeline should do, this should be prefered over writing your own scripts. <a class="read-more" href="/community/contributing/handbook/azure-devops/pipelines/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         
@@ -1210,9 +1210,9 @@ Usage Dispatching a message event is done the following way:
     </header>
     <section class="post-excerpt">
         <p>NOTE: Work in progress.
-Install PostgreSQL and pgAdmin4 Follow the instructions on https://www.postgresql.org/download/
+Install PostgreSQL and pgAdmin4 Follow the instructions on https://www.postgresql.org/download/
 Set up database Open pgAdmin 4. We will be working on the PostgreSQL 13 server.
-  Right click on Databases and select Create.   Fill inn database name eventsdb and click Save.   You should now be able to see a new database in the list. If you don&rsquo;t - right click the server and select REFRESH. <a class="read-more" href="/community/contributing/handbook/postgres/">&raquo;</a></p>
+Right click on Databases and select Create. Fill inn database name eventsdb and click Save. You should now be able to see a new database in the list. If you don&rsquo;t - right click the server and select REFRESH. Set up admin user Right click on Login/Group Roles , select Create and Login/Group Roles. <a class="read-more" href="/community/contributing/handbook/postgres/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         
@@ -1231,7 +1231,7 @@ Set up database Open pgAdmin 4. We will be working on the PostgreSQL 13 server.
     <section class="post-excerpt">
         <p>Postman To test API endpoints the tool postman enables easy configuration and setup of various HTTP requests, read more about postman here.
 Authentication Several of the exposed APIs requires various cookies, for instance authentication and gitea information. To be able to do requests against these APIs the cookies have to be included in the HTTP request, and configured in postman. The cookies can be found in the following way:
- In your browser login to dev. <a class="read-more" href="/community/contributing/handbook/test/postman/">&raquo;</a></p>
+In your browser login to dev. <a class="read-more" href="/community/contributing/handbook/test/postman/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         
@@ -1252,9 +1252,9 @@ Authentication Several of the exposed APIs requires various cookies, for instanc
         <h2 class="post-title"><a href="/community/contributing/handbook/rest/">RESTful APIs (Representation State Transfer)</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>This page is work-in-progress. This is a proposed api which most likely is going to change.REST REST is an architectural style for designing loosely coupled applications over HTTP which was coined by Rob Fielding in 2000. We will define services according to REST.
-  REST APIs should start with /api so that we with ease can differentiate between an rest api call and a ux-application call.
-  REST APIs should start with a short word to indicate the logical domain or group of apis. <a class="read-more" href="/community/contributing/handbook/rest/">&raquo;</a></p>
+        <p>This page is work-in-progress. This is a proposed api which most likely is going to change.REST REST is an architectural style for designing loosely coupled applications over HTTP which was coined by Rob Fielding in 2000. We will define services according to REST.
+REST APIs should start with /api so that we with ease can differentiate between an rest api call and a ux-application call.
+REST APIs should start with a short word to indicate the logical domain or group of apis. <a class="read-more" href="/community/contributing/handbook/rest/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         
@@ -1273,7 +1273,7 @@ Authentication Several of the exposed APIs requires various cookies, for instanc
         <h2 class="post-title"><a href="/community/contributing/handbook/routing/">Routing</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Routing  &lt;li&gt;&lt;a href=&quot;/community/contributing/handbook/routing/nginx/&quot;&gt;Nginx routing&lt;/a&gt;&lt;p&gt;Information about routing with nginx&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/community/contributing/handbook/routing/traefik/&quot;&gt;Traefik routing&lt;/a&gt;&lt;p&gt;&lt;/p&gt;&lt;/li&gt;  <a class="read-more" href="/community/contributing/handbook/routing/">&raquo;</a></p>
+        <p>Routing &lt;li&gt;&lt;a href=&quot;/community/contributing/handbook/routing/nginx/&quot;&gt;Nginx routing&lt;/a&gt;&lt;p&gt;Information about routing with nginx&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/community/contributing/handbook/routing/traefik/&quot;&gt;Traefik routing&lt;/a&gt;&lt;p&gt;&lt;/p&gt;&lt;/li&gt; <a class="read-more" href="/community/contributing/handbook/routing/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         
@@ -1314,10 +1314,10 @@ Planning phase During the planning phase, the requirements for features are gath
     </header>
     <section class="post-excerpt">
         <p>Summary Styling in React is done per component using a combination of Material-UI and compatible JSS.
- Components shall not be styled with CSS classes in .CSS files.
- Different component types should use different styling methods, or a combination.
+Components shall not be styled with CSS classes in .CSS files.
+Different component types should use different styling methods, or a combination.
 Proposed order of styling methods The following order is proposed when considering styling methods:
- Styled Components (Accepts props, logic, theming) Material-UI&rsquo;s JSS (Accepts theming) Inline Styling, the React way (Accepts props, logic, theming. <a class="read-more" href="/community/contributing/handbook/front-end/styling/">&raquo;</a></p>
+Styled Components (Accepts props, logic, theming) Material-UI&rsquo;s JSS (Accepts theming) Inline Styling, the React way (Accepts props, logic, theming. <a class="read-more" href="/community/contributing/handbook/front-end/styling/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         

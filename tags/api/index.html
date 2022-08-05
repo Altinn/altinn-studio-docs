@@ -117,7 +117,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -217,7 +217,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -297,7 +297,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -1118,7 +1118,7 @@ if(host != "localhost")
     </header>
     <section class="post-excerpt">
         <p>Application The Application model is the main model for metadata for the application.
-   Name Description     id A gobally unique id for the application. The value has two parts separated by a &lsquo;/&rsquo; character. The first part is the short name of the application owner and the second part is the name of the app.   versionId The current version of the application. (Currently not in use. <a class="read-more" href="/api/models/app-metadata/">&raquo;</a></p>
+Name Description id A gobally unique id for the application. The value has two parts separated by a &lsquo;/&rsquo; character. The first part is the short name of the application owner and the second part is the name of the app. versionId The current version of the application. (Currently not in use.) org The short name of the application owner. <a class="read-more" href="/api/models/app-metadata/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         
@@ -1155,7 +1155,7 @@ GET {basePath}/api/v1/applicationmetadata Get Application texts Get text resourc
     </header>
     <section class="post-excerpt">
         <p>Instance The Instance model is the main model of an instance. An instance can be regarded as an envelope or folder where data is collected and exchanged between the application user and owner. The instance document is a way for Altinn and external parties to track the state of one specific data exchange.
-Properties    Name Description     id A gobally unique id for the instance. <a class="read-more" href="/api/models/instance/">&raquo;</a></p>
+Properties Name Description id A gobally unique id for the instance. The value has two parts separated by a &lsquo;/&rsquo; character. <a class="read-more" href="/api/models/instance/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         
@@ -1190,7 +1190,7 @@ Properties    Name Description     id A gobally unique id for the instance. <a c
     </header>
     <section class="post-excerpt">
         <p>DataElement The data element model is the main model for metadata related to a specific data element. A data element can be any data associated with an instance. The two most common type of data is the actual form data and attachments.
-Properties    Name Description     id A globally unique id for the data element.   instanceGuid The globally unique id for the instance the data element is associated with. <a class="read-more" href="/api/models/data-element/">&raquo;</a></p>
+Properties Name Description id A globally unique id for the data element. instanceGuid The globally unique id for the instance the data element is associated with. dataType The name of the data type describing the requirements of the data element. <a class="read-more" href="/api/models/data-element/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         
@@ -1209,7 +1209,7 @@ Properties    Name Description     id A globally unique id for the data element.
     <section class="post-excerpt">
         <p>Authentication for application owners Application owners should be authenticated with Maskinporten.
 API provisioning in Maskinporten API-provider To provide an API in maskinporten Altinn has to do two operations.
- As API-provider Altinn registres a scope in Maskinporten POST /scopes { &#34;prefix&#34;: &#34;altinn&#34;, &#34;subscope&#34;: &#34;instances/metadata.read&#34;, &#34;description&#34;: &#34;Clients can access metadata for all instances for all apps of the organisation&#34; }  As API-provider Altinn has to give access to its scope for a given organisation PUT /scopes/access/889640782? <a class="read-more" href="/api/scenarios/authentication/">&raquo;</a></p>
+As API-provider Altinn registres a scope in Maskinporten POST /scopes { &#34;prefix&#34;: &#34;altinn&#34;, &#34;subscope&#34;: &#34;instances/metadata.read&#34;, &#34;description&#34;: &#34;Clients can access metadata for all instances for all apps of the organisation&#34; } As API-provider Altinn has to give access to its scope for a given organisation PUT /scopes/access/889640782? <a class="read-more" href="/api/scenarios/authentication/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         
@@ -1264,7 +1264,7 @@ GET basePath/{dataGuid} Accept: application/{xml/json} The response will depend 
     </header>
     <section class="post-excerpt">
         <p>k6 is a developer-centric, free and open-source load testing tool built for making performance testing a productive and enjoyable experience. read more about K6 here
-Set up k6 tests  Clone the k6 tests from GitHub Repo Install docker and make sure the drive having the k6 tests is shared. Open cmd and download the latest k6 docker image docker pull loadimpact/k6  How to write k6 tests  Find the area/collection where the new test has to be added. <a class="read-more" href="/community/contributing/handbook/test/k6/">&raquo;</a></p>
+Set up k6 tests Clone the k6 tests from GitHub Repo Install docker and make sure the drive having the k6 tests is shared. Open cmd and download the latest k6 docker image docker pull loadimpact/k6 How to write k6 tests Find the area/collection where the new test has to be added. <a class="read-more" href="/community/contributing/handbook/test/k6/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         
@@ -1287,7 +1287,7 @@ Set up k6 tests  Clone the k6 tests from GitHub Repo Install docker and make sur
     <section class="post-excerpt">
         <p>Postman To test API endpoints the tool postman enables easy configuration and setup of various HTTP requests, read more about postman here.
 Authentication Several of the exposed APIs requires various cookies, for instance authentication and gitea information. To be able to do requests against these APIs the cookies have to be included in the HTTP request, and configured in postman. The cookies can be found in the following way:
- In your browser login to dev. <a class="read-more" href="/community/contributing/handbook/test/postman/">&raquo;</a></p>
+In your browser login to dev. <a class="read-more" href="/community/contributing/handbook/test/postman/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         

@@ -1730,6 +1730,18 @@
                 href="https://docs.altinn.studio/nb/"
                 />
   </url><url>
+    <loc>https://docs.altinn.studio/nb/community/about/open-source/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/community/about/open-source/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/community/about/open-source/"
+                />
+  </url><url>
     <loc>https://docs.altinn.studio/nb/tags/api/</loc>
     <xhtml:link
                 rel="alternate"
@@ -1754,6 +1766,8 @@
                 href="https://docs.altinn.studio/nb/app/testing/local/apitests/"
                 />
   </url><url>
+    <loc>https://docs.altinn.studio/nb/tags/app/</loc>
+  </url><url>
     <loc>https://docs.altinn.studio/nb/api/apps/</loc>
     <xhtml:link
                 rel="alternate"
@@ -1765,8 +1779,6 @@
                 hreflang="nb"
                 href="https://docs.altinn.studio/nb/api/apps/"
                 />
-  </url><url>
-    <loc>https://docs.altinn.studio/nb/tags/app/</loc>
   </url><url>
     <loc>https://docs.altinn.studio/nb/community/roadmap/studio/appowner/</loc>
     <xhtml:link
@@ -1780,18 +1792,6 @@
                 href="https://docs.altinn.studio/nb/community/roadmap/studio/appowner/"
                 />
   </url><url>
-    <loc>https://docs.altinn.studio/nb/community/devops/teams/apps/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://docs.altinn.studio/community/devops/teams/apps/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="nb"
-                href="https://docs.altinn.studio/nb/community/devops/teams/apps/"
-                />
-  </url><url>
     <loc>https://docs.altinn.studio/nb/tags/apps/</loc>
     <xhtml:link
                 rel="alternate"
@@ -1802,6 +1802,18 @@
                 rel="alternate"
                 hreflang="nb"
                 href="https://docs.altinn.studio/nb/tags/apps/"
+                />
+  </url><url>
+    <loc>https://docs.altinn.studio/nb/community/devops/teams/apps/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/community/devops/teams/apps/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/community/devops/teams/apps/"
                 />
   </url><url>
     <loc>https://docs.altinn.studio/nb/api/authentication/</loc>
@@ -2010,6 +2022,8 @@
                 href="https://docs.altinn.studio/nb/tags/datamodel/"
                 />
   </url><url>
+    <loc>https://docs.altinn.studio/nb/tags/dataprosessering/</loc>
+  </url><url>
     <loc>https://docs.altinn.studio/nb/app/development/logic/dataprocessing/</loc>
     <xhtml:link
                 rel="alternate"
@@ -2021,8 +2035,6 @@
                 hreflang="nb"
                 href="https://docs.altinn.studio/nb/app/development/logic/dataprocessing/"
                 />
-  </url><url>
-    <loc>https://docs.altinn.studio/nb/tags/dataprosessering/</loc>
   </url><url>
     <loc>https://docs.altinn.studio/nb/app/testing/local/debug/</loc>
     <xhtml:link
@@ -2098,6 +2110,8 @@
   </url><url>
     <loc>https://docs.altinn.studio/nb/app/launched-apps/digdir/</loc>
   </url><url>
+    <loc>https://docs.altinn.studio/nb/tags/dynamikk/</loc>
+  </url><url>
     <loc>https://docs.altinn.studio/nb/app/development/logic/dynamic/</loc>
     <xhtml:link
                 rel="alternate"
@@ -2109,8 +2123,6 @@
                 hreflang="nb"
                 href="https://docs.altinn.studio/nb/app/development/logic/dynamic/"
                 />
-  </url><url>
-    <loc>https://docs.altinn.studio/nb/tags/dynamikk/</loc>
   </url><url>
     <loc>https://docs.altinn.studio/nb/app/development/api/expose/</loc>
     <xhtml:link
@@ -2148,6 +2160,18 @@
                 rel="alternate"
                 hreflang="nb"
                 href="https://docs.altinn.studio/nb/app/development/ux/fields/grouping/"
+                />
+  </url><url>
+    <loc>https://docs.altinn.studio/nb/community/contributing/handbook/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/community/contributing/handbook/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/community/contributing/handbook/"
                 />
   </url><url>
     <loc>https://docs.altinn.studio/nb/community/changelog/deployment/v1/whats-new/</loc>
@@ -2232,18 +2256,6 @@
                 rel="alternate"
                 hreflang="nb"
                 href="https://docs.altinn.studio/nb/community/changelog/app-nuget/v6/whats-new/"
-                />
-  </url><url>
-    <loc>https://docs.altinn.studio/nb/community/contributing/handbook/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://docs.altinn.studio/community/contributing/handbook/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="nb"
-                href="https://docs.altinn.studio/nb/community/contributing/handbook/"
                 />
   </url><url>
     <loc>https://docs.altinn.studio/nb/app/development/ux/fields/settings/</loc>
@@ -2346,6 +2358,18 @@
                 href="https://docs.altinn.studio/nb/tags/losningsforslag/"
                 />
   </url><url>
+    <loc>https://docs.altinn.studio/nb/community/about/goals/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/community/about/goals/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/community/about/goals/"
+                />
+  </url><url>
     <loc>https://docs.altinn.studio/nb/app/development/configuration/process/message/</loc>
     <xhtml:link
                 rel="alternate"
@@ -2382,18 +2406,6 @@
                 href="https://docs.altinn.studio/nb/api/models/"
                 />
   </url><url>
-    <loc>https://docs.altinn.studio/nb/community/about/goals/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://docs.altinn.studio/community/about/goals/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="nb"
-                href="https://docs.altinn.studio/nb/community/about/goals/"
-                />
-  </url><url>
     <loc>https://docs.altinn.studio/nb/tags/needstranslation/</loc>
     <xhtml:link
                 rel="alternate"
@@ -2404,6 +2416,18 @@
                 rel="alternate"
                 hreflang="nb"
                 href="https://docs.altinn.studio/nb/tags/needstranslation/"
+                />
+  </url><url>
+    <loc>https://docs.altinn.studio/nb/tags/openapi/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/tags/openapi/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/tags/openapi/"
                 />
   </url><url>
     <loc>https://docs.altinn.studio/nb/api/apps/spec/</loc>
@@ -2454,18 +2478,6 @@
                 href="https://docs.altinn.studio/nb/api/storage/spec/"
                 />
   </url><url>
-    <loc>https://docs.altinn.studio/nb/tags/openapi/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://docs.altinn.studio/tags/openapi/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="nb"
-                href="https://docs.altinn.studio/nb/tags/openapi/"
-                />
-  </url><url>
     <loc>https://docs.altinn.studio/nb/app/launched-apps/digdir/oed/</loc>
     <xhtml:link
                 rel="alternate"
@@ -2502,18 +2514,6 @@
                 href="https://docs.altinn.studio/nb/app/testing/local/apitests/org/"
                 />
   </url><url>
-    <loc>https://docs.altinn.studio/nb/community/devops/teams/platform/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://docs.altinn.studio/community/devops/teams/platform/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="nb"
-                href="https://docs.altinn.studio/nb/community/devops/teams/platform/"
-                />
-  </url><url>
     <loc>https://docs.altinn.studio/nb/tags/platform/</loc>
     <xhtml:link
                 rel="alternate"
@@ -2524,6 +2524,18 @@
                 rel="alternate"
                 hreflang="nb"
                 href="https://docs.altinn.studio/nb/tags/platform/"
+                />
+  </url><url>
+    <loc>https://docs.altinn.studio/nb/community/devops/teams/platform/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/community/devops/teams/platform/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/community/devops/teams/platform/"
                 />
   </url><url>
     <loc>https://docs.altinn.studio/nb/tags/policy/</loc>
@@ -2890,18 +2902,6 @@
                 href="https://docs.altinn.studio/nb/community/changelog/deployment/v2/"
                 />
   </url><url>
-    <loc>https://docs.altinn.studio/nb/app/development/logic/validation/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://docs.altinn.studio/app/development/logic/validation/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="nb"
-                href="https://docs.altinn.studio/nb/app/development/logic/validation/"
-                />
-  </url><url>
     <loc>https://docs.altinn.studio/nb/tags/validering/</loc>
     <xhtml:link
                 rel="alternate"
@@ -2914,16 +2914,16 @@
                 href="https://docs.altinn.studio/nb/tags/validering/"
                 />
   </url><url>
-    <loc>https://docs.altinn.studio/nb/community/about/open-source/</loc>
+    <loc>https://docs.altinn.studio/nb/app/development/logic/validation/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://docs.altinn.studio/community/about/open-source/"
+                href="https://docs.altinn.studio/app/development/logic/validation/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="nb"
-                href="https://docs.altinn.studio/nb/community/about/open-source/"
+                href="https://docs.altinn.studio/nb/app/development/logic/validation/"
                 />
   </url>
 </urlset>

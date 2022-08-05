@@ -381,13 +381,13 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/metadata/"><span>Metadata</span></a></li>
       <li class="dd-item">
         <a href="/nb/api/apps/instances/"><span>Instanser</span></a></li>
       <li class="dd-item">
-        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/data-elements/tags/"><span>Tags</span></a></li></ul></li>
       <li class="dd-item">
@@ -441,9 +441,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/community/about/"><span>Om</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/community/about/goals/"><span>Mål</span></a></li>
+        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li>
       <li class="dd-item">
-        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li></ul></li>
+        <a href="/nb/community/about/goals/"><span>Mål</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/community/contributing/"><span>Bidra til utvikling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -573,33 +573,33 @@ basert input fra sluttbruker på forutgående deler av skjemaet.</p>
 <h2 id="trigge-kalkulering-av-sporvalg-fra-frontend">Trigge kalkulering av sporvalg fra frontend</h2>
 <p>Appen vil gjøre et initielt kall for å kalkulere rekkefølgen ved innlasting. For å trigge kalkuleringingen av sporvalg på sidebytte må man legge inn dette som en trigger på den aktuelle navigasjons-komponenten man ønsker.
 Dette gjøres ved å legge til <code>calculatePageOrder</code> som en del av triggers. Eksempel:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;navigation-button&#34;</span>,
-    <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;NavigationButtons&#34;</span>,
-    <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
-        <span style="color:#ff79c6">&#34;next&#34;</span>: <span style="color:#f1fa8c">&#34;Neste&#34;</span>,
-        <span style="color:#ff79c6">&#34;back&#34;</span>: <span style="color:#f1fa8c">&#34;Tilbake&#34;</span>
-    },
-    <span style="color:#ff79c6">&#34;triggers&#34;</span>: [<span style="color:#f1fa8c">&#34;calculatePageOrder&#34;</span>],
-    <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {},
-    <span style="color:#ff79c6">&#34;showBackButton&#34;</span>: <span style="color:#ff79c6">true</span>
-}
-</code></pre></div><p>Her vil frontend da gjøre kallet mot apiet definert i appen og benytte listen som returneres til å avgjøre hvilke side den går til i det brukeren trykker neste.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;navigation-button&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;NavigationButtons&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;next&#34;</span>: <span style="color:#f1fa8c">&#34;Neste&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;back&#34;</span>: <span style="color:#f1fa8c">&#34;Tilbake&#34;</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;triggers&#34;</span>: [<span style="color:#f1fa8c">&#34;calculatePageOrder&#34;</span>],
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {},
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;showBackButton&#34;</span>: <span style="color:#ff79c6">true</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Her vil frontend da gjøre kallet mot apiet definert i appen og benytte listen som returneres til å avgjøre hvilke side den går til i det brukeren trykker neste.
 Denne rekkefølgen blir også lagret i staten frontend slik at navigering vil fungere både frem og tilbake på den gitte rekkefølgen man returnerer fra backend.</p>
 <p>Om man ønsker å trigge kalkulering på hvert eneste sidebytte kan dette gjøres ved å enten legge inn <code>calculatePageOrder</code> som en del av <code>triggers</code> for alle
 navigasjonskomponentene man har i applikasjonen, eller legge til en trigger i <code>Settings.json</code> under <code>pages</code>-seksjonen. Eksempel:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#ff79c6">&#34;$schema&#34;</span>: <span style="color:#f1fa8c">&#34;https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json&#34;</span>,
-  <span style="color:#ff79c6">&#34;pages&#34;</span>: {
-    <span style="color:#ff79c6">&#34;order&#34;</span>: [
-      <span style="color:#f1fa8c">&#34;Side1&#34;</span>,
-      <span style="color:#f1fa8c">&#34;Side2&#34;</span>,
-      <span style="color:#f1fa8c">&#34;Side3&#34;</span>
-    ],
-    <span style="color:#ff79c6">&#34;triggers&#34;</span>: [<span style="color:#f1fa8c">&#34;calculatePageOrder&#34;</span>]
-  }
-}
-</code></pre></div><p>Om <code>triggers</code> er satt på navigasjonskomponenten vil denne overstyre <code>triggers</code> som settes i Settings.json, på denne måten er det mulig å styre default-oppførsel på komponentnivå om ønskelig.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;$schema&#34;</span>: <span style="color:#f1fa8c">&#34;https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;pages&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;order&#34;</span>: [
+</span></span><span style="display:flex;"><span>      <span style="color:#f1fa8c">&#34;Side1&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f1fa8c">&#34;Side2&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f1fa8c">&#34;Side3&#34;</span>
+</span></span><span style="display:flex;"><span>    ],
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;triggers&#34;</span>: [<span style="color:#f1fa8c">&#34;calculatePageOrder&#34;</span>]
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Om <code>triggers</code> er satt på navigasjonskomponenten vil denne overstyre <code>triggers</code> som settes i Settings.json, på denne måten er det mulig å styre default-oppførsel på komponentnivå om ønskelig.</p>
 <h2 id="sette-opp-sporvalg-backend-nuget-versjon--500">Sette opp sporvalg backend (nuget versjon &gt; 5.0.0)</h2>
 <p>For å overstyre standard sporvalg må det gjøres to endringer.</p>
 <ol>
@@ -610,31 +610,31 @@ navigasjonskomponentene man har i applikasjonen, eller legge til en trigger i <c
 <p>Opprett en ny klasse i din applikasjon f.eks under mappen App/logic/Pages (mappen er ikke opprettet som standard).
 Denne klassen må implementere interfacet IPageOrder.
 Interfacet inneholder en metode med navn <em>GetPageOrder</em>. Forventet output fra denne er en sortert liste over navnene på de relevante sidene i applikasjonen.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">using</span> System;
-<span style="color:#ff79c6">using</span> System.Collections.Generic;
-<span style="color:#ff79c6">using</span> System.Threading.Tasks;
-<span style="color:#ff79c6">using</span> Altinn.App.Models;
-<span style="color:#ff79c6">using</span> Altinn.App.Services.Interface;
-<span style="color:#ff79c6">using</span> Altinn.App.PlatformServices.Models;
-
-<span style="color:#ff79c6">namespace</span> Altinn.App.AppLogic.Pages
-{
-    <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">CustomOrder</span> : IPageOrder
-    {
-        <span style="color:#6272a4">/// &lt;inheritdoc /&gt;
-</span><span style="color:#6272a4"></span>        <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;List&lt;<span style="color:#8be9fd">string</span>&gt;&gt; GetPageOrder(AppIdentifier appIdentifier, InstanceIdentifier instanceIdentifier, <span style="color:#8be9fd">string</span> layoutSetId, <span style="color:#8be9fd">string</span> currentPage, <span style="color:#8be9fd">string</span> dataTypeId, <span style="color:#8be9fd">object</span> formData)
-        {
-            List&lt;<span style="color:#8be9fd">string</span>&gt; pageOrder = <span style="color:#ff79c6">new</span> List&lt;<span style="color:#8be9fd">string</span>&gt;();
-            
-            <span style="color:#6272a4">// Implementer din logikk her.
-</span><span style="color:#6272a4"></span>            
-            <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">await</span> Task.FromResult(pageOrder);
-        }
-
-    }
-
-}
-</code></pre></div><p>Funksjonen får inn en rekke parametere som kan være nyttig dersom man skal benytte skjemadata
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#ff79c6">using</span> System;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> System.Collections.Generic;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> System.Threading.Tasks;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> Altinn.App.Models;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> Altinn.App.Services.Interface;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> Altinn.App.PlatformServices.Models;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">namespace</span> Altinn.App.AppLogic.Pages
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">CustomOrder</span> : IPageOrder
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">/// &lt;inheritdoc /&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;List&lt;<span style="color:#8be9fd">string</span>&gt;&gt; GetPageOrder(AppIdentifier appIdentifier, InstanceIdentifier instanceIdentifier, <span style="color:#8be9fd">string</span> layoutSetId, <span style="color:#8be9fd">string</span> currentPage, <span style="color:#8be9fd">string</span> dataTypeId, <span style="color:#8be9fd">object</span> formData)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            List&lt;<span style="color:#8be9fd">string</span>&gt; pageOrder = <span style="color:#ff79c6">new</span> List&lt;<span style="color:#8be9fd">string</span>&gt;();
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            <span style="color:#6272a4">// Implementer din logikk her.</span>
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">await</span> Task.FromResult(pageOrder);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Funksjonen får inn en rekke parametere som kan være nyttig dersom man skal benytte skjemadata
 eller annen informasjon om sluttbruker til å kalkulere sporvalget.</p>
 <ul>
 <li>
@@ -650,30 +650,30 @@ Dersom applikasjonen ikke har layout set vil denne strengen være tom. Basert p�
 ut standard siderekkefølge som er definert i applikasjonen:</p>
 </li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">List&lt;<span style="color:#8be9fd">string</span>&gt; pageOrder = <span style="color:#ff79c6">new</span> List&lt;<span style="color:#8be9fd">string</span>&gt;();
-
-<span style="color:#ff79c6">if</span> (<span style="color:#8be9fd">string</span>.IsNullOrEmpty(layoutSetId))
-{
-    pageOrder = <span style="color:#bd93f9">_</span>appResourcesService.GetLayoutSettings().Pages.Order;
-}
-<span style="color:#ff79c6">else</span>
-{
-    pageOrder = <span style="color:#bd93f9">_</span>appResourcesService.GetLayoutSettingsForSet(layoutSetId).Pages.Order;
-}
-</code></pre></div><p>Dette forutsetter at servicen <code>IAppResources</code> gjøres tilgjengelig i klassen. 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span>List&lt;<span style="color:#8be9fd">string</span>&gt; pageOrder = <span style="color:#ff79c6">new</span> List&lt;<span style="color:#8be9fd">string</span>&gt;();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">if</span> (<span style="color:#8be9fd">string</span>.IsNullOrEmpty(layoutSetId))
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    pageOrder = _appResourcesService.GetLayoutSettings().Pages.Order;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">else</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    pageOrder = _appResourcesService.GetLayoutSettingsForSet(layoutSetId).Pages.Order;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Dette forutsetter at servicen <code>IAppResources</code> gjøres tilgjengelig i klassen. 
 Da servicen allerede er tilgjengelig via dependency injectes inn i klasen er det kun to steg som kreves.</p>
 <ol>
 <li>Opprett en privat variabel i staten av klassen.</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">private</span> <span style="color:#ff79c6">readonly</span> IAppResources <span style="color:#bd93f9">_</span>appResourcesService;
-</code></pre></div><ol start="2">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#ff79c6">private</span> <span style="color:#ff79c6">readonly</span> IAppResources _appResourcesService;
+</span></span></code></pre></div><ol start="2">
 <li>Definer en konstruktør som tar inn IAppResources og setter private variabelen som ble opprettet i steg 1.</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">public</span> CustomOrder(IAppResources appResourcesService)
-{
-    <span style="color:#bd93f9">_</span>appResourcesService = appResourcesService;
-}
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#ff79c6">public</span> CustomOrder(IAppResources appResourcesService)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    _appResourcesService = appResourcesService;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
 <li>
 <p><em>CurrentPage</em> Siden man ønsker å navigere fra vil være spesifisert i denne parameteren.</p>
 </li>
@@ -686,52 +686,52 @@ Dette kan du sjekke ved å finne klassenavnet på C# filen i App/models-mappen.<
 <h2 id="reflektere-sporvalg-i-kvittering-pdf">Reflektere sporvalg i kvittering (PDF)</h2>
 <p>Som applikasjonsutvikler må man selv sørge for å reflektere de sporvalgene som gjøres i PDFen som opprettes i slutten av hver task. 
 I <code>App.cs</code> finnes funksjonen <code>FormatPdf</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">override</span> <span style="color:#ff79c6">async</span> Task&lt;LayoutSettings&gt; FormatPdf(LayoutSettings layoutSettings, <span style="color:#8be9fd">object</span> data)
-{
-    <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">await</span> <span style="color:#bd93f9">_</span>pdfHandler.FormatPdf(layoutSettings, data);
-}
-</code></pre></div><p>Som input til metoden får man <code>layoutSettings</code> som inneholder default siderekkefølge under propertyen <code>layoutSettings.Pages.Order</code>.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">override</span> <span style="color:#ff79c6">async</span> Task&lt;LayoutSettings&gt; FormatPdf(LayoutSettings layoutSettings, <span style="color:#8be9fd">object</span> data)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">await</span> _pdfHandler.FormatPdf(layoutSettings, data);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Som input til metoden får man <code>layoutSettings</code> som inneholder default siderekkefølge under propertyen <code>layoutSettings.Pages.Order</code>.
 I tillegg får man skjemadataen som er knyttet til steget som skal avsluttes. Denne kan parses til en C# modell som beskrevet lengere oppe på denne siden.</p>
 <p>Ved å manipulere <code>layoutSettings.Pages.Order</code> i denne metoden vil man kunne duplisere de sporvalgene som er gjort for sluttbruker.
 MERK! Kallet til PDF handler, vist nedenfor, må ikke fjernes fra <code>FormatPDF</code> metoden dersom du har implementert ytterlig logikk for kvitteringen i <code>PDFHandler.cs</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">return</span> <span style="color:#ff79c6">await</span> <span style="color:#bd93f9">_</span>pdfHandler.FormatPdf(layoutSettings, data);
-</code></pre></div><p>For å unngå å duplisere logikk vil vi anbefale å lage en metode som manipulerer siderekkefølgen basert på skjemadata og kalle denne både fra <code>FormatPdf</code>og <code>GetPageOrder</code>.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#ff79c6">return</span> <span style="color:#ff79c6">await</span> _pdfHandler.FormatPdf(layoutSettings, data);
+</span></span></code></pre></div><p>For å unngå å duplisere logikk vil vi anbefale å lage en metode som manipulerer siderekkefølgen basert på skjemadata og kalle denne både fra <code>FormatPdf</code>og <code>GetPageOrder</code>.
 Et kodeeksempel på en slik implementasjon følger. Denne kan for eksempel legges i samme klasse som implementerer interfacet IPageOrder for å holde alle logikk for rekkefølge på samme sted.</p>
 <p>I klassen som implementerer logikk for siderekkefølge:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;List&lt;<span style="color:#8be9fd">string</span>&gt;&gt; GetPageOrder(AppIdentifier appIdentifier, InstanceIdentifier instanceIdentifier, <span style="color:#8be9fd">string</span> layoutSetId, <span style="color:#8be9fd">string</span> currentPage, <span style="color:#8be9fd">string</span> dataTypeId, <span style="color:#8be9fd">object</span> formData)
-{
-    List&lt;<span style="color:#8be9fd">string</span>&gt; pageOrder = <span style="color:#ff79c6">new</span> List&lt;<span style="color:#8be9fd">string</span>&gt;();
-
-    <span style="color:#ff79c6">if</span> (<span style="color:#8be9fd">string</span>.IsNullOrEmpty(layoutSetId))
-    {
-        pageOrder = <span style="color:#bd93f9">_</span>appResourcesService.GetLayoutSettings().Pages.Order;
-    }
-    <span style="color:#ff79c6">else</span>
-    {
-        pageOrder = <span style="color:#bd93f9">_</span>appResourcesService.GetLayoutSettingsForSet(layoutSetId).Pages.Order;
-    }
-    UpdatePageOrder(pageOrder, (FavorittArtist)formData);
-    <span style="color:#ff79c6">return</span> pageOrder;
-}
-
-<span style="color:#ff79c6">public</span> <span style="color:#ff79c6">void</span> UpdatePageOrder(List&lt;<span style="color:#8be9fd">string</span>&gt; pageOrder, FavorittArtist formdata)
-{
-    <span style="color:#ff79c6">if</span> (formdata.EnGodNrTo.Contains(<span style="color:#f1fa8c">&#34;Tix&#34;</span>))
-    {
-        pageOrder.Remove(<span style="color:#f1fa8c">&#34;Prince&#34;</span>);
-    }
-    <span style="color:#ff79c6">else</span>
-    {
-        pageOrder.Remove(<span style="color:#f1fa8c">&#34;Tix&#34;</span>);
-    }
-}        
-</code></pre></div><p>Metoden kalles i sin tur fra metoden <code>FormatPdf</code> i <code>App.cs</code></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">override</span> <span style="color:#ff79c6">async</span> Task&lt;LayoutSettings&gt; FormatPdf(LayoutSettings layoutSettings, <span style="color:#8be9fd">object</span> data)
-{
-    UpdatePageOrder(layoutSettings.Pages.Order, (FavorittArtist)data);
-    <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">await</span> <span style="color:#bd93f9">_</span>pdfHandler.FormatPdf(layoutSettings, data);
-}
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;List&lt;<span style="color:#8be9fd">string</span>&gt;&gt; GetPageOrder(AppIdentifier appIdentifier, InstanceIdentifier instanceIdentifier, <span style="color:#8be9fd">string</span> layoutSetId, <span style="color:#8be9fd">string</span> currentPage, <span style="color:#8be9fd">string</span> dataTypeId, <span style="color:#8be9fd">object</span> formData)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    List&lt;<span style="color:#8be9fd">string</span>&gt; pageOrder = <span style="color:#ff79c6">new</span> List&lt;<span style="color:#8be9fd">string</span>&gt;();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> (<span style="color:#8be9fd">string</span>.IsNullOrEmpty(layoutSetId))
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        pageOrder = _appResourcesService.GetLayoutSettings().Pages.Order;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">else</span>
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        pageOrder = _appResourcesService.GetLayoutSettingsForSet(layoutSetId).Pages.Order;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    UpdatePageOrder(pageOrder, (FavorittArtist)formData);
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> pageOrder;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">void</span> UpdatePageOrder(List&lt;<span style="color:#8be9fd">string</span>&gt; pageOrder, FavorittArtist formdata)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> (formdata.EnGodNrTo.Contains(<span style="color:#f1fa8c">&#34;Tix&#34;</span>))
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        pageOrder.Remove(<span style="color:#f1fa8c">&#34;Prince&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">else</span>
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        pageOrder.Remove(<span style="color:#f1fa8c">&#34;Tix&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}        
+</span></span></code></pre></div><p>Metoden kalles i sin tur fra metoden <code>FormatPdf</code> i <code>App.cs</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">override</span> <span style="color:#ff79c6">async</span> Task&lt;LayoutSettings&gt; FormatPdf(LayoutSettings layoutSettings, <span style="color:#8be9fd">object</span> data)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    UpdatePageOrder(layoutSettings.Pages.Order, (FavorittArtist)data);
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">await</span> _pdfHandler.FormatPdf(layoutSettings, data);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
 
 <footer class=" footline" ></footer>
                 </div>

@@ -117,7 +117,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -217,7 +217,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -297,7 +297,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -1105,33 +1105,33 @@ if(host != "localhost")
 <p>The features documented here are the default features of any app created based on the app template in Altinn Studio. Application owners are free to make changes to this, but it is probably safe to say that removal of features will be extremly rare. Any app with changes to its API should have its own documentation published by the application owner.</p>
 <p>All app API endpoints have the same URL base path that will vary based on application owner and application name.</p>
 <p><strong>Test environment (TT02)</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">https://{org}.apps.tt02.altinn.no/{org}/{appname}
-</code></pre></div><p><strong>Production</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">https://{org}.apps.altinn.no/{org}/{appname}
-</code></pre></div><p>The URL identifies the application owner specific hostname using the short name <strong>org</strong>, and the identificator of the app consisting of both the application owner short name and the name of the app; <strong>org/appname</strong>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>https://{org}.apps.tt02.altinn.no/{org}/{appname}
+</span></span></code></pre></div><p><strong>Production</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>https://{org}.apps.altinn.no/{org}/{appname}
+</span></span></code></pre></div><p>The URL identifies the application owner specific hostname using the short name <strong>org</strong>, and the identificator of the app consisting of both the application owner short name and the name of the app; <strong>org/appname</strong>.</p>
 <ul class="children children-li js-moveChildrenFrom">
-<pre><code>    &lt;li&gt;
-            &lt;a href=&quot;/api/apps/metadata/&quot;&gt;App metadata&lt;/a&gt;
-            &lt;p&gt;The app API to get metadata information for the app.&lt;/p&gt;
-            &lt;/li&gt;&lt;li&gt;
-            &lt;a href=&quot;/api/apps/instances/&quot;&gt;Instances&lt;/a&gt;
-            &lt;p&gt;The app API to work with instances of an app&lt;/p&gt;
-            &lt;/li&gt;&lt;li&gt;
-            &lt;a href=&quot;/api/apps/data-elements/&quot;&gt;Data elements&lt;/a&gt;
-            &lt;p&gt;The app API to work with the data elements associated with an instance.&lt;/p&gt;
-            &lt;/li&gt;&lt;li&gt;
-            &lt;a href=&quot;/api/apps/stateless-data-elements/&quot;&gt;Stateless data elements&lt;/a&gt;
-            &lt;p&gt;The app API to work with stateless date elements not associated with an instance&lt;/p&gt;
-            &lt;/li&gt;&lt;li&gt;
-            &lt;a href=&quot;/api/apps/process/&quot;&gt;Process&lt;/a&gt;
-            &lt;p&gt;The process API endpoints to lead an instance through the defined process.&lt;/p&gt;
-            &lt;/li&gt;&lt;li&gt;
-            &lt;a href=&quot;/api/apps/validation/&quot;&gt;Validation&lt;/a&gt;
-            &lt;p&gt;The validation API endpoints for instances and data elements.&lt;/p&gt;
-            &lt;/li&gt;&lt;li&gt;
-            &lt;a href=&quot;/api/apps/spec/&quot;&gt;OpenAPI (swagger) for Apps&lt;/a&gt;
-            &lt;p&gt;&lt;/p&gt;
-            &lt;/li&gt;
+<pre><code>	&lt;li&gt;
+			&lt;a href=&quot;/api/apps/metadata/&quot;&gt;App metadata&lt;/a&gt;
+			&lt;p&gt;The app API to get metadata information for the app.&lt;/p&gt;
+			&lt;/li&gt;&lt;li&gt;
+			&lt;a href=&quot;/api/apps/instances/&quot;&gt;Instances&lt;/a&gt;
+			&lt;p&gt;The app API to work with instances of an app&lt;/p&gt;
+			&lt;/li&gt;&lt;li&gt;
+			&lt;a href=&quot;/api/apps/data-elements/&quot;&gt;Data elements&lt;/a&gt;
+			&lt;p&gt;The app API to work with the data elements associated with an instance.&lt;/p&gt;
+			&lt;/li&gt;&lt;li&gt;
+			&lt;a href=&quot;/api/apps/stateless-data-elements/&quot;&gt;Stateless data elements&lt;/a&gt;
+			&lt;p&gt;The app API to work with stateless date elements not associated with an instance&lt;/p&gt;
+			&lt;/li&gt;&lt;li&gt;
+			&lt;a href=&quot;/api/apps/process/&quot;&gt;Process&lt;/a&gt;
+			&lt;p&gt;The process API endpoints to lead an instance through the defined process.&lt;/p&gt;
+			&lt;/li&gt;&lt;li&gt;
+			&lt;a href=&quot;/api/apps/validation/&quot;&gt;Validation&lt;/a&gt;
+			&lt;p&gt;The validation API endpoints for instances and data elements.&lt;/p&gt;
+			&lt;/li&gt;&lt;li&gt;
+			&lt;a href=&quot;/api/apps/spec/&quot;&gt;OpenAPI (swagger) for Apps&lt;/a&gt;
+			&lt;p&gt;&lt;/p&gt;
+			&lt;/li&gt;
 </code></pre>
 </ul>
 

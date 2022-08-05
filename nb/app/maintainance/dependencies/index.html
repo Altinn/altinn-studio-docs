@@ -381,13 +381,13 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/metadata/"><span>Metadata</span></a></li>
       <li class="dd-item">
         <a href="/nb/api/apps/instances/"><span>Instanser</span></a></li>
       <li class="dd-item">
-        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/data-elements/tags/"><span>Tags</span></a></li></ul></li>
       <li class="dd-item">
@@ -441,9 +441,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/community/about/"><span>Om</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/community/about/goals/"><span>Mål</span></a></li>
+        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li>
       <li class="dd-item">
-        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li></ul></li>
+        <a href="/nb/community/about/goals/"><span>Mål</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/community/contributing/"><span>Bidra til utvikling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -590,14 +590,14 @@ Da kan du automatisk se hva som er nyeste versjon av alle pakker når du åpner 
 <li>Finn fram referansene til bibliotekene i appen. Referansene til biblioteker ligger i filen <code>App/App.csproj</code> i appens repo.</li>
 </ul>
 <p>F.eks.:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;ItemGroup&gt;</span>
-  <span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.Api&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;3.0.0&#34;</span> <span style="color:#ff79c6">/&gt;</span>
-  <span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.Common&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;3.0.0&#34;</span> <span style="color:#ff79c6">/&gt;</span>
-  <span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.PlatformServices&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;3.0.0&#34;</span> <span style="color:#ff79c6">/&gt;</span>
-  <span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Microsoft.Extensions.Logging.Debug&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;3.1.3&#34;</span> <span style="color:#ff79c6">/&gt;</span>
-  <span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Microsoft.VisualStudio.Web.CodeGeneration.Design&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;3.1.2&#34;</span> <span style="color:#ff79c6">/&gt;</span>
-<span style="color:#ff79c6">&lt;/ItemGroup&gt;</span>
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#ff79c6">&lt;ItemGroup&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.Api&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;3.0.0&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.Common&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;3.0.0&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.PlatformServices&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;3.0.0&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Microsoft.Extensions.Logging.Debug&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;3.1.3&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Microsoft.VisualStudio.Web.CodeGeneration.Design&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;3.1.2&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&lt;/ItemGroup&gt;</span>
+</span></span></code></pre></div><ul>
 <li>Sjekk om det har kommet en oppdatert versjon av bibliotekene:
 <ul>
 <li><a href="https://www.nuget.org/packages/Altinn.App.Api">Altinn.App.Api</a></li>
@@ -630,35 +630,35 @@ Om det kommer en ny <em>major</em> versjon må man eksplisitt oppdatere appen ti
 <ul>
 <li>Referansen til altinn-app-frontend.<strong>js</strong>-filen som er app frontend koden.</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">script</span> <span style="color:#50fa7b">src</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;https://altinncdn.no/toolkits/altinn-app-frontend/&lt;VERSJONSNUMMER&gt;/altinn-app-frontend.js&#34;</span>&gt;&lt;/<span style="color:#ff79c6">script</span>&gt;
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#ff79c6">script</span> <span style="color:#50fa7b">src</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;https://altinncdn.no/toolkits/altinn-app-frontend/&lt;VERSJONSNUMMER&gt;/altinn-app-frontend.js&#34;</span>&gt;&lt;/<span style="color:#ff79c6">script</span>&gt;
+</span></span></code></pre></div><ul>
 <li>Referansen til altinn-app-frontend.<strong>css</strong> som inneholder styling for app frontend.</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">script</span> <span style="color:#50fa7b">src</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;https://altinncdn.no/toolkits/altinn-app-frontend/&lt;VERSJONSNUMMER&gt;/altinn-app-frontend.css&#34;</span>&gt;&lt;/<span style="color:#ff79c6">script</span>&gt;
-</code></pre></div><p>Søk etter filnavnet (<code>altinn-app-frontend.js</code> eller <code>altinn-app-frontend.css</code>) og erstatt versjonsnummeret (f.eks. 1) med ønsket versjonsnummer (f.eks. 2).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#ff79c6">script</span> <span style="color:#50fa7b">src</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;https://altinncdn.no/toolkits/altinn-app-frontend/&lt;VERSJONSNUMMER&gt;/altinn-app-frontend.css&#34;</span>&gt;&lt;/<span style="color:#ff79c6">script</span>&gt;
+</span></span></code></pre></div><p>Søk etter filnavnet (<code>altinn-app-frontend.js</code> eller <code>altinn-app-frontend.css</code>) og erstatt versjonsnummeret (f.eks. 1) med ønsket versjonsnummer (f.eks. 2).</p>
 <p><em>Husk:</em> Dersom man setter kun <em>major versjon</em> (f.eks. 2), så vil alle oppdateringer innenfor denne major versjoner (bugfix, ny funksjonalitet som ikke er breaking) komme med automatisk. Dersom man setter en <em>spesifikk versjon</em> (f.eks. 2.0.0) så vil appen hente akkurat denne versjonen, helt til referansen evt. oppdateres til å bruke en annen versjon.</p>
 <h2 id="deployment">Deployment</h2>
 <p>Deployment utføres ved hjelp av helm charts. Standard deployment oppsett for apps hentes fra altinn-studio sitt helm repository.</p>
 <p>Er du i tvil om du benytter siste deployment strategi kan du følge migreringsguiden <a href="/nb/community/changelog/deployment/migration">her</a></p>
 <p>For å finne siste versjon av helm-charten kan du enten sjekke releases av charten deployment <a href="https://github.com/Altinn/altinn-studio-charts/releases">her</a>
 eller legge inn <a href="https://helm.sh/">helm</a> repoet lokalt og søke i dette på følgende måte:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#6272a4"># Legg til helm altinn-studio helm repo</span>
-helm repo add altinn-studio https://charts.altinn.studio
-
-<span style="color:#6272a4"># Søk for versjoner av altinn-studio/deployment charten</span>
-helm search repo -l altinn-studio/deployment
-</code></pre></div><p>Hvis det er ny versjon av helm charten sjekk <a href="/nb/community/changelog/deployment/">changelog</a> for å se hva som er oppdatert i versjonen.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#6272a4"># Legg til helm altinn-studio helm repo</span>
+</span></span><span style="display:flex;"><span>helm repo add altinn-studio https://charts.altinn.studio
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># Søk for versjoner av altinn-studio/deployment charten</span>
+</span></span><span style="display:flex;"><span>helm search repo -l altinn-studio/deployment
+</span></span></code></pre></div><p>Hvis det er ny versjon av helm charten sjekk <a href="/nb/community/changelog/deployment/">changelog</a> for å se hva som er oppdatert i versjonen.</p>
 <p>For å ta i bruk en ny versjon oppdater versjon under dependencies i <code>deployment/Chart.yaml</code></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#ff79c6">apiVersion</span>: v1
-<span style="color:#ff79c6">description</span>: A Helm chart for Kubernetes
-<span style="color:#ff79c6">name</span>: deployment
-<span style="color:#ff79c6">version</span>: <span style="color:#bd93f9">1.1.0</span>
-
-<span style="color:#ff79c6">dependencies</span>:
-- <span style="color:#ff79c6">name</span>: deployment
-  <span style="color:#ff79c6">repository</span>: https://charts.altinn.studio/
-<span style="display:block;width:100%;background-color:#3d3f4a">  <span style="color:#ff79c6">version</span>: <span style="color:#bd93f9">1.1.0</span>                                &lt;--- Oppdater her
-</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ff79c6">apiVersion</span>: v1
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">description</span>: A Helm chart for Kubernetes
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">name</span>: deployment
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">version</span>: <span style="color:#bd93f9">1.1.0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">dependencies</span>:
+</span></span><span style="display:flex;"><span>- <span style="color:#ff79c6">name</span>: deployment
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">repository</span>: https://charts.altinn.studio/
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>  <span style="color:#ff79c6">version</span>: <span style="color:#bd93f9">1.1.0</span>                                &lt;--- Oppdater her
+</span></span></code></pre></div>
 
 <footer class=" footline" ></footer>
                 </div>

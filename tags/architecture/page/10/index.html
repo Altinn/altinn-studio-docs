@@ -109,7 +109,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -209,7 +209,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -281,7 +281,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -1136,7 +1136,8 @@ User Profile User profile in Altinn Studio Repostories lets the app developer ma
 The service registry will contain information about the service resources
 See Github #24
 Type of resources There are different types of resources that can be registrated
- Altinn 3 apps - Refered with org/app id Altinn 2 Services - Refered with externalServiceCode and EditionCode Service Resources  Altinn 3 Apps Apps hosted in Altinn 3 Apps will be registred in the Altinn Service Registry. <a class="read-more" href="/technology/architecture/components/application/solution/altinn-platform/authorization/resourceregistry/">&raquo;</a></p>
+Altinn 3 apps - Refered with org/app id Altinn 2 Services - Refered with externalServiceCode and EditionCode Service Resources Altinn 3 Apps Apps hosted in Altinn 3 Apps will be registred in the Altinn Service Registry.
+The referenced id would be org/app <a class="read-more" href="/technology/architecture/components/application/solution/altinn-platform/authorization/resourceregistry/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         
@@ -1181,10 +1182,10 @@ Altinn 2 is a monolith where all digital services run on the same servers. This 
     <section class="post-excerpt">
         <p>Below you find some functional scenarios for use of events functionality in Altinn 3
 Org waiting on ProcessComplete for a given app In this scenario, an org is waiting on end-users to complete one given app.
-  System (consumer) authenticates using Maskinporten and requests scope for org
-  System exchanges Maskinporten token to an Altinn token. Scopes is included in new token.
-  System calls
-GET {platformurl}/events/api/v1/app/{org}/{app}?from={lastchanged}&amp;eventType=instance.process.completed   Event component verifies that scope matches request <a class="read-more" href="/technology/architecture/capabilities/runtime/integration/events/scenarios/">&raquo;</a></p>
+System (consumer) authenticates using Maskinporten and requests scope for org
+System exchanges Maskinporten token to an Altinn token. Scopes is included in new token.
+System calls
+GET {platformurl}/events/api/v1/app/{org}/{app}?from={lastchanged}&amp;eventType=instance.process.completed Event component verifies that scope matches request <a class="read-more" href="/technology/architecture/capabilities/runtime/integration/events/scenarios/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         
@@ -1203,7 +1204,7 @@ GET {platformurl}/events/api/v1/app/{org}/{app}?from={lastchanged}&amp;eventType
         <h2 class="post-title"><a href="/technology/architecture/capabilities/runtime/security/">Security Enforcement Capabilities</a></h2>
     </header>
     <section class="post-excerpt">
-        <p> &lt;li&gt;&lt;a href=&quot;/technology/architecture/capabilities/runtime/security/authentication/&quot;&gt;Authentication Capabilities&lt;/a&gt;&lt;p&gt;The different solutions need different types of Authentication capabilties to support the different users and systems.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/technology/architecture/capabilities/runtime/security/authorization/&quot;&gt;Authorization&lt;/a&gt;&lt;p&gt;The Altinn 3 platform has very powerful and flexible authorization capabilities.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/technology/architecture/capabilities/runtime/security/encryption/&quot;&gt;Encryption&lt;/a&gt;&lt;p&gt;Description of the encryption architecture&lt;/p&gt;&lt;/li&gt;  <a class="read-more" href="/technology/architecture/capabilities/runtime/security/">&raquo;</a></p>
+        <p>&lt;li&gt;&lt;a href=&quot;/technology/architecture/capabilities/runtime/security/authentication/&quot;&gt;Authentication Capabilities&lt;/a&gt;&lt;p&gt;The different solutions need different types of Authentication capabilties to support the different users and systems.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/technology/architecture/capabilities/runtime/security/authorization/&quot;&gt;Authorization&lt;/a&gt;&lt;p&gt;The Altinn 3 platform has very powerful and flexible authorization capabilities.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/technology/architecture/capabilities/runtime/security/encryption/&quot;&gt;Encryption&lt;/a&gt;&lt;p&gt;Description of the encryption architecture&lt;/p&gt;&lt;/li&gt; <a class="read-more" href="/technology/architecture/capabilities/runtime/security/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         
@@ -1222,7 +1223,7 @@ GET {platformurl}/events/api/v1/app/{org}/{app}?from={lastchanged}&amp;eventType
     <section class="post-excerpt">
         <p>For a solutions like Altinn Studio, Altinn Apps and Altinn Platform security is a important aspect.
 The security architecture is based on the following reference model
- &lt;li&gt;&lt;a href=&quot;/technology/architecture/components/application/construction/security/jwtcookie/&quot;&gt;JWTCookieAuthentication&lt;/a&gt;&lt;p&gt;This is the description of JWTCookieAuthentication.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/technology/architecture/components/application/construction/security/pep/&quot;&gt;Policy Enforcement Point&lt;/a&gt;&lt;p&gt;There are different types of Policy Enforcement Points in the Altinn 3 platform.&lt;/p&gt;&lt;/li&gt;  <a class="read-more" href="/technology/architecture/components/application/construction/security/">&raquo;</a></p>
+&lt;li&gt;&lt;a href=&quot;/technology/architecture/components/application/construction/security/jwtcookie/&quot;&gt;JWTCookieAuthentication&lt;/a&gt;&lt;p&gt;This is the description of JWTCookieAuthentication.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/technology/architecture/components/application/construction/security/pep/&quot;&gt;Policy Enforcement Point&lt;/a&gt;&lt;p&gt;There are different types of Policy Enforcement Points in the Altinn 3 platform.&lt;/p&gt;&lt;/li&gt; <a class="read-more" href="/technology/architecture/components/application/construction/security/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         
@@ -1268,7 +1269,7 @@ See development application components to get a overview over tools and applicat
     <section class="post-excerpt">
         <p>API Controllers Storage exposes functionality throug API controllers.
 The following controllers exist:
- Applications Data InstanceEvents Instances MessageboxInstances Process  Dependencie Storage components
+Applications Data InstanceEvents Instances MessageboxInstances Process Dependencie Storage components
 See complete list of dependencies in Altinn.Platform.Storage.csproj file for storage.
 Docker configuration Storage listen on port 5010.
 See DockerFile for details. <a class="read-more" href="/technology/architecture/components/application/construction/altinn-platform/storage/">&raquo;</a></p>
@@ -1292,7 +1293,7 @@ See DockerFile for details. <a class="read-more" href="/technology/architecture/
     <section class="post-excerpt">
         <p>Cosmos DB Azure Cosmos DB is a fully managed NoSQL database for modern app development. Single-digit millisecond response times, and automatic and instant scalability, guarantee speed at any scale. Business continuity is assured with SLA-backed availability and enterprise-grade security.
 Altinn 3 uses Cosmos DB to store metadata about data in Altinn.
- applications: applications dataElements: data elements instanceEvents: instance events instances: instance information leases: used by Azure Functions texts: Applications texts  Azure CosmosDB is configured with one Write Region and one read region. <a class="read-more" href="/technology/architecture/components/infrastructure/storage/">&raquo;</a></p>
+applications: applications dataElements: data elements instanceEvents: instance events instances: instance information leases: used by Azure Functions texts: Applications texts Azure CosmosDB is configured with one Write Region and one read region. <a class="read-more" href="/technology/architecture/components/infrastructure/storage/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         
@@ -1313,7 +1314,7 @@ Altinn 3 uses Cosmos DB to store metadata about data in Altinn.
     <section class="post-excerpt">
         <p>The standard defines a declarative fine-grained, attribute-based access control policy language, an architecture, and a processing model describing how to evaluate access requests according to the rules defined in policies.
 The Altinn Studio and Altinn Studio Apps solution uses the XACML standard for the following
- XACML Reference Architecture: Used as input for defining the Altinn Studio Apps authorization architecture XACML Policy: Used to define the authorization rules for apps XACML Request: Format used for PEP to call PDP XACML Response: Format used for response from PDP to PEP. <a class="read-more" href="/technology/architecture/components/application/solution/altinn-platform/authorization/xacml/">&raquo;</a></p>
+XACML Reference Architecture: Used as input for defining the Altinn Studio Apps authorization architecture XACML Policy: Used to define the authorization rules for apps XACML Request: Format used for PEP to call PDP XACML Response: Format used for response from PDP to PEP. <a class="read-more" href="/technology/architecture/components/application/solution/altinn-platform/authorization/xacml/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         

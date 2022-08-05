@@ -381,13 +381,13 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/metadata/"><span>Metadata</span></a></li>
       <li class="dd-item">
         <a href="/nb/api/apps/instances/"><span>Instanser</span></a></li>
       <li class="dd-item">
-        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/data-elements/tags/"><span>Tags</span></a></li></ul></li>
       <li class="dd-item">
@@ -441,9 +441,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/community/about/"><span>Om</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/community/about/goals/"><span>Mål</span></a></li>
+        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li>
       <li class="dd-item">
-        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li></ul></li>
+        <a href="/nb/community/about/goals/"><span>Mål</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/community/contributing/"><span>Bidra til utvikling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -585,53 +585,53 @@ Dette returnerer et sett med detaljer om landet som er oppgitt.</p>
 Dette kan gjøres manuelt eller ved hjelp av verktøy som tilbyr slik generering.</p>
 <p>I dette eksempelet er responsobjektet stort og inneholder langt mer data enn den vi er interessert i.</p>
 <p>Her er et lite utklipp av responsobjektet for Norge.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[
-	{
-		<span style="color:#ff79c6">&#34;name&#34;</span>: {
-			<span style="color:#ff79c6">&#34;common&#34;</span>: <span style="color:#f1fa8c">&#34;Norway&#34;</span>,
-			<span style="color:#ff79c6">&#34;official&#34;</span>: <span style="color:#f1fa8c">&#34;Kingdom of Norway&#34;</span>,
-			<span style="color:#ff79c6">&#34;nativeName&#34;</span>: {}
-		},
-		<span style="color:#ff79c6">&#34;idd&#34;</span>: {},
-<span style="display:block;width:100%;background-color:#3d3f4a">		<span style="color:#ff79c6">&#34;capital&#34;</span>: [
-</span><span style="display:block;width:100%;background-color:#3d3f4a">			<span style="color:#f1fa8c">&#34;Oslo&#34;</span>
-</span><span style="display:block;width:100%;background-color:#3d3f4a">		],
-</span>		<span style="color:#ff79c6">&#34;altSpellings&#34;</span>: [],
-<span style="display:block;width:100%;background-color:#3d3f4a">		<span style="color:#ff79c6">&#34;region&#34;</span>: <span style="color:#f1fa8c">&#34;Europe&#34;</span>,
-</span>		<span style="color:#ff79c6">&#34;subregion&#34;</span>: <span style="color:#f1fa8c">&#34;Northern Europe&#34;</span>,
-		<span style="color:#ff79c6">&#34;languages&#34;</span>: {},
-		<span style="color:#ff79c6">&#34;translations&#34;</span>: {},
-		<span style="color:#ff79c6">&#34;latlng&#34;</span>: [
-			<span style="color:#bd93f9">62</span>,
-			<span style="color:#bd93f9">10</span>
-		],
-		<span style="color:#ff79c6">&#34;landlocked&#34;</span>: <span style="color:#ff79c6">false</span>,
-		<span style="color:#ff79c6">&#34;borders&#34;</span>: [],
-		<span style="color:#ff79c6">&#34;area&#34;</span>: <span style="color:#bd93f9">323802</span>,
-		<span style="color:#ff79c6">&#34;demonyms&#34;</span>: {},
-		<span style="color:#ff79c6">&#34;flag&#34;</span>: <span style="color:#f1fa8c">&#34;🇳🇴&#34;</span>,
-		<span style="color:#ff79c6">&#34;maps&#34;</span>: {},
-		<span style="color:#ff79c6">&#34;population&#34;</span>: <span style="color:#bd93f9">5379475</span>,
-		<span style="color:#ff79c6">&#34;postalCode&#34;</span>: {
-			<span style="color:#ff79c6">&#34;format&#34;</span>: <span style="color:#f1fa8c">&#34;###&#34;</span>,
-			<span style="color:#ff79c6">&#34;regex&#34;</span>: <span style="color:#f1fa8c">&#34;^(\\d{4})$&#34;</span>
-		}
-	}
-]
-</code></pre></div><p>I applikasjonen ønsker vi kun å ta med oss dataen på de markerte linjene, altså hovedstad og region.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>[
+</span></span><span style="display:flex;"><span>	{
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">&#34;name&#34;</span>: {
+</span></span><span style="display:flex;"><span>			<span style="color:#ff79c6">&#34;common&#34;</span>: <span style="color:#f1fa8c">&#34;Norway&#34;</span>,
+</span></span><span style="display:flex;"><span>			<span style="color:#ff79c6">&#34;official&#34;</span>: <span style="color:#f1fa8c">&#34;Kingdom of Norway&#34;</span>,
+</span></span><span style="display:flex;"><span>			<span style="color:#ff79c6">&#34;nativeName&#34;</span>: {}
+</span></span><span style="display:flex;"><span>		},
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">&#34;idd&#34;</span>: {},
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>		<span style="color:#ff79c6">&#34;capital&#34;</span>: [
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>			<span style="color:#f1fa8c">&#34;Oslo&#34;</span>
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>		],
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">&#34;altSpellings&#34;</span>: [],
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>		<span style="color:#ff79c6">&#34;region&#34;</span>: <span style="color:#f1fa8c">&#34;Europe&#34;</span>,
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">&#34;subregion&#34;</span>: <span style="color:#f1fa8c">&#34;Northern Europe&#34;</span>,
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">&#34;languages&#34;</span>: {},
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">&#34;translations&#34;</span>: {},
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">&#34;latlng&#34;</span>: [
+</span></span><span style="display:flex;"><span>			<span style="color:#bd93f9">62</span>,
+</span></span><span style="display:flex;"><span>			<span style="color:#bd93f9">10</span>
+</span></span><span style="display:flex;"><span>		],
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">&#34;landlocked&#34;</span>: <span style="color:#ff79c6">false</span>,
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">&#34;borders&#34;</span>: [],
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">&#34;area&#34;</span>: <span style="color:#bd93f9">323802</span>,
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">&#34;demonyms&#34;</span>: {},
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">&#34;flag&#34;</span>: <span style="color:#f1fa8c">&#34;🇳🇴&#34;</span>,
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">&#34;maps&#34;</span>: {},
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">&#34;population&#34;</span>: <span style="color:#bd93f9">5379475</span>,
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">&#34;postalCode&#34;</span>: {
+</span></span><span style="display:flex;"><span>			<span style="color:#ff79c6">&#34;format&#34;</span>: <span style="color:#f1fa8c">&#34;###&#34;</span>,
+</span></span><span style="display:flex;"><span>			<span style="color:#ff79c6">&#34;regex&#34;</span>: <span style="color:#f1fa8c">&#34;^(\\d{4})$&#34;</span>
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>]
+</span></span></code></pre></div><p>I applikasjonen ønsker vi kun å ta med oss dataen på de markerte linjene, altså hovedstad og region.
 Vi lager et minimalistisk responsobjekt som kun inneholder de feltene vi er interessert i.</p>
 <p>I mappen <em>App/models</em> opprettes det en ny fil <code>Country.cs</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#ff79c6">using</span> System.Collections.Generic;
-
-<span style="color:#ff79c6">namespace</span> Altinn.App.models
-{
-    <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Country</span>
-    {
-        <span style="color:#ff79c6">public</span> List&lt;<span style="color:#8be9fd">string</span>&gt; Capital { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; }
-        <span style="color:#ff79c6">public</span> <span style="color:#8be9fd">string</span> Region { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; }  
-    }
-}
-</code></pre></div><p><code>Country</code>-objektet består av feltene <code>Capital</code> og <code>Region</code>.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C#" data-lang="C#"><span style="display:flex;"><span><span style="color:#ff79c6">using</span> System.Collections.Generic;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">namespace</span> Altinn.App.models
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Country</span>
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">public</span> List&lt;<span style="color:#8be9fd">string</span>&gt; Capital { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; }
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">public</span> <span style="color:#8be9fd">string</span> Region { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; }  
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><code>Country</code>-objektet består av feltene <code>Capital</code> og <code>Region</code>.
 <code>Capital</code> er en liste med strenger, da et land kan ha flere hovesteder.</p>
 <p>I dette eksempelt krever ikke APIet et komplekst request-objekt og dermed kan vi nøye oss med den ene modellen.
 Skulle det være behov for et request-objekt kan dette opprettes på samme måte.</p>
@@ -642,235 +642,234 @@ Det gjør at vi kan benytte oss av styrkene til .NET med dependency injection og
 i den nye mappen opprettes filen <code>ICountryClient.cs</code>.</p>
 <p>Interfaces består av én metode <code>GetCountry</code> som tar inn en streng og returnerer et <em>Country</em>-objekt.</p>
 <p>Definer interfacet som vist nedenfor.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#ff79c6">using</span> System.Threading.Tasks;
-
-<span style="color:#ff79c6">using</span> Altinn.App.models;
-
-<span style="color:#ff79c6">namespace</span> Altinn.App.client
-{
-    <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">interface</span> ICountryClient
-    {
-        <span style="color:#6272a4">/// &lt;summary&gt;
-</span><span style="color:#6272a4"></span>        <span style="color:#6272a4">/// Retrieves metadata about the provided country.
-</span><span style="color:#6272a4"></span>        <span style="color:#6272a4">/// &lt;/summary&gt;
-</span><span style="color:#6272a4"></span>        <span style="color:#6272a4">/// &lt;param name=&#34;country&#34;&gt;The name of the country&lt;/param&gt;
-</span><span style="color:#6272a4"></span>        <span style="color:#6272a4">/// &lt;returns&gt;A country object&lt;/returns&gt;
-</span><span style="color:#6272a4"></span>        <span style="color:#ff79c6">public</span> Task&lt;Country&gt; GetCountry(<span style="color:#8be9fd">string</span> country);
-    }
-}
-</code></pre></div><p>Returobjektet er omkranset av <code>Task&lt;...&gt;</code> denne er lagt inn for å vise til at kallet som skal gjøres
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C#" data-lang="C#"><span style="display:flex;"><span><span style="color:#ff79c6">using</span> System.Threading.Tasks;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> Altinn.App.models;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">namespace</span> Altinn.App.client
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">interface</span> <span style="color:#50fa7b">ICountryClient</span>
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">/// &lt;summary&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">/// Retrieves metadata about the provided country.</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">/// &lt;/summary&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">/// &lt;param name=&#34;country&#34;&gt;The name of the country&lt;/param&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">/// &lt;returns&gt;A country object&lt;/returns&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">public</span> Task&lt;Country&gt; GetCountry(<span style="color:#8be9fd">string</span> country);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Returobjektet er omkranset av <code>Task&lt;...&gt;</code> denne er lagt inn for å vise til at kallet som skal gjøres
 vil være asynkront.</p>
 <h2 id="implementere-klient">Implementere klient</h2>
 <p>Det er klienten som inneholder koden som gjør kallet mot APIer og omformer resultatet til <code>Country</code>-modellen 
 som forventes i retur av funksjonene som kaller klienten.</p>
 <p>Den fulle implementasjonen av <em>Country</em>-klienten er vist nedenfor.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#ff79c6">using</span> System;
-<span style="color:#ff79c6">using</span> System.Collections.Generic;
-<span style="color:#ff79c6">using</span> System.Linq;
-<span style="color:#ff79c6">using</span> System.Net.Http;
-<span style="color:#ff79c6">using</span> System.Text.Json;
-<span style="color:#ff79c6">using</span> System.Threading.Tasks;
-
-<span style="color:#ff79c6">using</span> Altinn.App.models;
-
-<span style="color:#ff79c6">using</span> Microsoft.Extensions.Logging;
-
-<span style="color:#ff79c6">namespace</span> Altinn.App.client
-{
-    <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">CountryClient</span> : ICountryClient
-    {
-        HttpClient <span style="color:#bd93f9">_</span>client;
-        ILogger&lt;ICountryClient&gt; <span style="color:#bd93f9">_l</span>ogger;
-        JsonSerializerOptions <span style="color:#bd93f9">_</span>serializerOptions;
-
-        <span style="color:#ff79c6">public</span> CountryClient(HttpClient client, ILogger&lt;ICountryClient&gt; logger)
-        {
-            <span style="color:#bd93f9">_l</span>ogger = logger;
-
-            <span style="color:#bd93f9">_</span>client = client;
-            <span style="color:#bd93f9">_</span>client.BaseAddress = <span style="color:#ff79c6">new</span> Uri(<span style="color:#f1fa8c">&#34;https://restcountries.com/v3.1&#34;</span>);
-            
-            <span style="color:#bd93f9">_</span>serializerOptions = <span style="color:#ff79c6">new</span>()
-            {
-                PropertyNameCaseInsensitive = <span style="color:#ff79c6">true</span>
-            };
-        }
-
-        <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;Country&gt; GetCountry(<span style="color:#8be9fd">string</span> country)
-        {
-            <span style="color:#8be9fd">string</span> query = <span style="color:#f1fa8c">$&#34;name/{country}&#34;</span>;
-
-            HttpResponseMessage res = <span style="color:#ff79c6">await</span> <span style="color:#bd93f9">_</span>client.GetAsync(query);
-
-            <span style="color:#ff79c6">if</span> (res.IsSuccessStatusCode)
-            {
-                <span style="color:#8be9fd">string</span> resString = <span style="color:#ff79c6">await</span> res.Content.ReadAsStringAsync();
-               
-                List&lt;Country&gt; countryResponse = JsonSerializer.Deserialize&lt;List&lt;Country&gt;&gt;(resString, <span style="color:#bd93f9">_</span>serializerOptions);
-
-                <span style="color:#ff79c6">return</span> countryResponse.Any() ? countryResponse.First() : <span style="color:#ff79c6">null</span>;
-            }
-            <span style="color:#ff79c6">else</span>
-            {
-                <span style="color:#bd93f9">_l</span>ogger.LogError(<span style="color:#f1fa8c">&#34;Retrieving country {country} failed with status code {statusCode}&#34;</span>, country, res.StatusCode);
-                <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">null</span>;
-            }
-        }
-    }
-}
-
-</code></pre></div><p>Øverst i filen finner du referansen til alle namespace som klassen er avhengig av</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">using</span> System;
-<span style="color:#ff79c6">using</span> System.Linq;
-<span style="color:#ff79c6">using</span> System.Net.Http;
-<span style="color:#ff79c6">using</span> System.Text.Json;
-<span style="color:#ff79c6">using</span> System.Threading.Tasks;
-
-<span style="color:#ff79c6">using</span> Altinn.App.models;
-
-<span style="color:#ff79c6">using</span> Microsoft.Extensions.Logging;
-</code></pre></div><p>Videre definerer vi klassen og hvilket interface den arver fra</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">CountryClient</span> : ICountryClient
-</code></pre></div><p>Videre er tre private objekter _<em>client</em>, __logger og _<em>serializerOptions</em></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">private</span> <span style="color:#ff79c6">readonly</span> HttpClient <span style="color:#bd93f9">_</span>client;
-<span style="color:#ff79c6">private</span> <span style="color:#ff79c6">readonly</span> ILogger&lt;ICountryClient&gt; <span style="color:#bd93f9">_l</span>ogger;
-<span style="color:#ff79c6">private</span> <span style="color:#ff79c6">readonly</span> JsonSerializerOptions <span style="color:#bd93f9">_</span>serializerOptions;
-</code></pre></div><p>Understrek foran navnet er kun en navnekonvensjon og har ingen effekt.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C#" data-lang="C#"><span style="display:flex;"><span><span style="color:#ff79c6">using</span> System;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> System.Collections.Generic;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> System.Linq;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> System.Net.Http;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> System.Text.Json;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> System.Threading.Tasks;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> Altinn.App.models;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> Microsoft.Extensions.Logging;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">namespace</span> Altinn.App.client
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">CountryClient</span> : ICountryClient
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        HttpClient _client;
+</span></span><span style="display:flex;"><span>        ILogger&lt;ICountryClient&gt; _logger;
+</span></span><span style="display:flex;"><span>        JsonSerializerOptions _serializerOptions;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">public</span> CountryClient(HttpClient client, ILogger&lt;ICountryClient&gt; logger)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            _logger = logger;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            _client = client;
+</span></span><span style="display:flex;"><span>            _client.BaseAddress = <span style="color:#ff79c6">new</span> Uri(<span style="color:#f1fa8c">&#34;https://restcountries.com/v3.1&#34;</span>);
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            _serializerOptions = <span style="color:#ff79c6">new</span>()
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                PropertyNameCaseInsensitive = <span style="color:#ff79c6">true</span>
+</span></span><span style="display:flex;"><span>            };
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;Country&gt; GetCountry(<span style="color:#8be9fd">string</span> country)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#8be9fd">string</span> query = <span style="color:#f1fa8c">$&#34;name/{country}&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            HttpResponseMessage res = <span style="color:#ff79c6">await</span> _client.GetAsync(query);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">if</span> (res.IsSuccessStatusCode)
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                <span style="color:#8be9fd">string</span> resString = <span style="color:#ff79c6">await</span> res.Content.ReadAsStringAsync();
+</span></span><span style="display:flex;"><span>               
+</span></span><span style="display:flex;"><span>                List&lt;Country&gt; countryResponse = JsonSerializer.Deserialize&lt;List&lt;Country&gt;&gt;(resString, _serializerOptions);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">return</span> countryResponse.Any() ? countryResponse.First() : <span style="color:#ff79c6">null</span>;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">else</span>
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                _logger.LogError(<span style="color:#f1fa8c">&#34;Retrieving country {country} failed with status code {statusCode}&#34;</span>, country, res.StatusCode);
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">null</span>;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Øverst i filen finner du referansen til alle namespace som klassen er avhengig av</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#ff79c6">using</span> System;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> System.Linq;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> System.Net.Http;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> System.Text.Json;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> System.Threading.Tasks;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> Altinn.App.models;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> Microsoft.Extensions.Logging;
+</span></span></code></pre></div><p>Videre definerer vi klassen og hvilket interface den arver fra</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">CountryClient</span> : ICountryClient
+</span></span></code></pre></div><p>Videre er tre private objekter _<em>client</em>, __logger og _<em>serializerOptions</em></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#ff79c6">private</span> <span style="color:#ff79c6">readonly</span> HttpClient _client;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">private</span> <span style="color:#ff79c6">readonly</span> ILogger&lt;ICountryClient&gt; _logger;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">private</span> <span style="color:#ff79c6">readonly</span> JsonSerializerOptions _serializerOptions;
+</span></span></code></pre></div><p>Understrek foran navnet er kun en navnekonvensjon og har ingen effekt.</p>
 <ul>
 <li>_<em>client</em> vil i konstruktøren populeres med en http-klient.</li>
 <li>_<em>logger</em> vil i konstruktøren populeres med en logger slik at man kan logge feilmeldinger og annet i klassen</li>
 <li>_<em>serializerOptions</em> vil i konstruktøren instansieres og konfigureres for å kunne deserialisere responsen fra APIet.</li>
 </ul>
 <p>Videre i klassen defineres konstruktøren.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">public</span> CountryClient(HttpClient client, ILogger&lt;ICountryClient&gt; logger)
-{
-      <span style="color:#bd93f9">_l</span>ogger = logger;
-      <span style="color:#bd93f9">_</span>client = client;
-      <span style="color:#bd93f9">_</span>client.BaseAddress = <span style="color:#ff79c6">new</span> Uri(<span style="color:#f1fa8c">&#34;https://restcountries.com/v3.1&#34;</span>);
-      
-      <span style="color:#bd93f9">_</span>serializerOptions = <span style="color:#ff79c6">new</span>()
-      {
-          PropertyNameCaseInsensitive = <span style="color:#ff79c6">true</span>
-      };
-}
-</code></pre></div><p>Objekter populeres dersom de kommer som input i konstruktøren og andre objekter instansieres.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#ff79c6">public</span> CountryClient(HttpClient client, ILogger&lt;ICountryClient&gt; logger)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>      _logger = logger;
+</span></span><span style="display:flex;"><span>      _client = client;
+</span></span><span style="display:flex;"><span>      _client.BaseAddress = <span style="color:#ff79c6">new</span> Uri(<span style="color:#f1fa8c">&#34;https://restcountries.com/v3.1&#34;</span>);
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span>      _serializerOptions = <span style="color:#ff79c6">new</span>()
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>          PropertyNameCaseInsensitive = <span style="color:#ff79c6">true</span>
+</span></span><span style="display:flex;"><span>      };
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Objekter populeres dersom de kommer som input i konstruktøren og andre objekter instansieres.
 Skulle du ha behov for å bruke en av de andre servicene som er registeret i applikasjonen er det bare å
 sende den inn i konstruktøren og opprette et privat objekt for å kunne ta det i bruk i klassen slik vi har gjort
 med _<em>logger</em>  eller _<em>client</em>.</p>
 <p>Videre i klassen finner du implementasjonen av metoden <code>GetCountry</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;Country&gt; GetCountry(<span style="color:#8be9fd">string</span> country)
-{
-    <span style="color:#8be9fd">string</span> query = <span style="color:#f1fa8c">$&#34;name/{country}&#34;</span>;
-    HttpResponseMessage res = <span style="color:#ff79c6">await</span> <span style="color:#bd93f9">_</span>client.GetAsync(query);
-
-    <span style="color:#ff79c6">if</span> (res.IsSuccessStatusCode)
-    {
-        <span style="color:#8be9fd">string</span> resString = <span style="color:#ff79c6">await</span> res.Content.ReadAsStringAsync();
-
-        List&lt;Country&gt; countryResponse = JsonSerializer.Deserialize&lt;List&lt;Country&gt;&gt;(resString, <span style="color:#bd93f9">_</span>serializerOptions);
-
-        <span style="color:#ff79c6">return</span> countryResponse.Any() ? countryResponse.First() : <span style="color:#ff79c6">null</span>;
-    }
-    <span style="color:#ff79c6">else</span>
-    {
-        <span style="color:#bd93f9">_l</span>ogger.LogError(<span style="color:#f1fa8c">&#34;Retrieving country {country} failed with status code {statusCode}&#34;</span>, country, res.StatusCode);
-        <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">null</span>;
-    }
-}
-</code></pre></div><p>Her gjøres det en sjekk på at statuskoden på API-kallet er en suksess-kode før vi deserialiseres og returnerer objektet.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;Country&gt; GetCountry(<span style="color:#8be9fd">string</span> country)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">string</span> query = <span style="color:#f1fa8c">$&#34;name/{country}&#34;</span>;
+</span></span><span style="display:flex;"><span>    HttpResponseMessage res = <span style="color:#ff79c6">await</span> _client.GetAsync(query);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> (res.IsSuccessStatusCode)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#8be9fd">string</span> resString = <span style="color:#ff79c6">await</span> res.Content.ReadAsStringAsync();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        List&lt;Country&gt; countryResponse = JsonSerializer.Deserialize&lt;List&lt;Country&gt;&gt;(resString, _serializerOptions);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> countryResponse.Any() ? countryResponse.First() : <span style="color:#ff79c6">null</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">else</span>
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        _logger.LogError(<span style="color:#f1fa8c">&#34;Retrieving country {country} failed with status code {statusCode}&#34;</span>, country, res.StatusCode);
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">null</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Her gjøres det en sjekk på at statuskoden på API-kallet er en suksess-kode før vi deserialiseres og returnerer objektet.
 Dersom det ikke er en suksess-statuskode logger vi en feil og returnerer null.</p>
 <h2 id="registrere-klienten-i-applikasjonen">Registrere klienten i applikasjonen</h2>
 <p>Når interface og klient er implementert kan den registreres i <em>App/Program.cs</em> (.NET 6) eller i <em>App/Startup.cs</em> (.NET 5) for bruk i applikasjonen.</p>
 <p>I metoden <code>ConfigureServices</code> legger vi til kodelinjen nedenfor</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#">services.AddHttpClient&lt;ICountryClient, CountryClient&gt;();
-</code></pre></div><h2 id="benytte-klient-i-applikasjonslogikk">Benytte klient i applikasjonslogikk</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C#" data-lang="C#"><span style="display:flex;"><span>services.AddHttpClient&lt;ICountryClient, CountryClient&gt;();
+</span></span></code></pre></div><h2 id="benytte-klient-i-applikasjonslogikk">Benytte klient i applikasjonslogikk</h2>
 <p>For å berrike skjemadata må vi koble klienten vår på logikken i <em>App/logic/DataProcessingHandler.cs</em> i metoden <em>ProcessDataWrite</em>.</p>
 <p>Først må klienten tilgjengeliggjøres ved å <em>injecte</em> den inn i konstruktøren til klassen.
 DataProcessingHandler har ingen konstruktør i utgangspunktet så den må opprettes i klasse.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"> <span style="color:#ff79c6">public</span> DataProcessingHandler()
-{
-}
-</code></pre></div><p>Videre kan vi opprette et privat objekt for klienten, injecte den i konstruktøren og assigne den til det private objektet. 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span> <span style="color:#ff79c6">public</span> DataProcessingHandler()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Videre kan vi opprette et privat objekt for klienten, injecte den i konstruktøren og assigne den til det private objektet. 
 Resultatet blir seende slik ut:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">private</span> <span style="color:#ff79c6">readonly</span> ICountryClient <span style="color:#bd93f9">_</span>countryClient;
-
-<span style="color:#ff79c6">public</span> DataProcessingHandler(ICountryClient countryClient)
-{
-    <span style="color:#bd93f9">_</span>countryClient = countryClient;
-}
-</code></pre></div><p>_<em>countryClient</em> er nå tilgjengelig i DataProcessingHandler og vi er klare til å implementere logikken i ProcessDataWrite.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;<span style="color:#8be9fd">bool</span>&gt; ProcessDataWrite(Instance instance, Guid? dataId, <span style="color:#8be9fd">object</span> data)
-{
-    <span style="color:#ff79c6">if</span> (data.GetType() == <span style="color:#ff79c6">typeof</span>(skjema))
-    {
-        skjema skjema = (skjema)data;
-        <span style="color:#ff79c6">if</span> (!<span style="color:#8be9fd">string</span>.IsNullOrEmpty(skjema.land))
-        {
-            Country country = <span style="color:#ff79c6">await</span> <span style="color:#bd93f9">_</span>countryClient.GetCountry(skjema.land.Trim());
-
-            <span style="color:#ff79c6">if</span> (country != <span style="color:#ff79c6">null</span>)
-            {
-                skjema.hovedstad = <span style="color:#8be9fd">string</span>.Join(<span style="color:#f1fa8c">&#34;,&#34;</span>, country.Capital);
-                skjema.region = country.Region;
-            }
-            <span style="color:#ff79c6">else</span>
-            {
-                skjema.hovedstad = skjema.region = <span style="color:#8be9fd">string</span>.Empty;
-            }
-
-            <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">true</span>;
-        }
-        <span style="color:#ff79c6">else</span>
-        {
-            skjema.hovedstad = <span style="color:#8be9fd">string</span>.Empty;
-            skjema.region = <span style="color:#8be9fd">string</span>.Empty;
-        }
-    }
-    <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">await</span> Task.FromResult(<span style="color:#ff79c6">false</span>);
-}
-</code></pre></div><p>Prøver du å bygge applikasjonen nå vil du få en feil.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#ff79c6">private</span> <span style="color:#ff79c6">readonly</span> ICountryClient _countryClient;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">public</span> DataProcessingHandler(ICountryClient countryClient)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    _countryClient = countryClient;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>_<em>countryClient</em> er nå tilgjengelig i DataProcessingHandler og vi er klare til å implementere logikken i ProcessDataWrite.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;<span style="color:#8be9fd">bool</span>&gt; ProcessDataWrite(Instance instance, Guid? dataId, <span style="color:#8be9fd">object</span> data)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> (data.GetType() == <span style="color:#ff79c6">typeof</span>(skjema))
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        skjema skjema = (skjema)data;
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">if</span> (!<span style="color:#8be9fd">string</span>.IsNullOrEmpty(skjema.land))
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            Country country = <span style="color:#ff79c6">await</span> _countryClient.GetCountry(skjema.land.Trim());
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">if</span> (country != <span style="color:#ff79c6">null</span>)
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                skjema.hovedstad = <span style="color:#8be9fd">string</span>.Join(<span style="color:#f1fa8c">&#34;,&#34;</span>, country.Capital);
+</span></span><span style="display:flex;"><span>                skjema.region = country.Region;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">else</span>
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                skjema.hovedstad = skjema.region = <span style="color:#8be9fd">string</span>.Empty;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">true</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">else</span>
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            skjema.hovedstad = <span style="color:#8be9fd">string</span>.Empty;
+</span></span><span style="display:flex;"><span>            skjema.region = <span style="color:#8be9fd">string</span>.Empty;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">await</span> Task.FromResult(<span style="color:#ff79c6">false</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Prøver du å bygge applikasjonen nå vil du få en feil.
 DataProcessingHandler instansieres i App.cs, så alle dependecies må og inn i denne filen 
 og så sendes videre i konstruktøren til DataProcessingHandler.</p>
 <p>I filen <em>App/logic/App.cs</em> gjøres følgende endringer</p>
 <ul>
 <li>
 <p>legg til en referanse til namespaces til klienten øverst i filen</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">using</span> Altinn.App.client;
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#ff79c6">using</span> Altinn.App.client;
+</span></span></code></pre></div></li>
 <li>
 <p><em>Inject</em> <code>ICountryClient</code> nederst i App.cs-konstruktøren.</p>
 <p>Dette er gjort på linje 14.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#ff79c6">public</span> App(
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>    IAppResources appResourcesService,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>    ILogger&lt;App&gt; logger,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>    IData dataService,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>    IProcess processService,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>    IPDF pdfService,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>    IProfile profileService,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>    IRegister registerService,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>    IPrefill prefillService,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>    IInstance instanceService,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span>    IOptions&lt;GeneralSettings&gt; settings,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span>    IText textService,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span>    IHttpContextAccessor httpContextAccessor,
-<span style="display:block;width:100%;background-color:#3d3f4a"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span>    ICountryClient countryClient) : <span style="color:#ff79c6">base</span>(
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span>        appResourcesService,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span>        logger,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span>        dataService,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span>        processService,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span>        pdfService,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span>        prefillService,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span>        instanceService,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span>        registerService,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span>        settings,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span>        profileService,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span>        textService,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span>        httpContextAccessor)
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#ff79c6">public</span> App(
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>    IAppResources appResourcesService,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>    ILogger&lt;App&gt; logger,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>    IData dataService,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>    IProcess processService,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>    IPDF pdfService,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>    IProfile profileService,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>    IRegister registerService,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>    IPrefill prefillService,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>    IInstance instanceService,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>    IOptions&lt;GeneralSettings&gt; settings,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>    IText textService,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>    IHttpContextAccessor httpContextAccessor,
+</span></span><span style="display:flex; background-color:#3d3f4a"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>    ICountryClient countryClient) : <span style="color:#ff79c6">base</span>(
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>        appResourcesService,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>        logger,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span>        dataService,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span>        processService,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span>        pdfService,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span>        prefillService,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span>        instanceService,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span><span>        registerService,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span><span>        settings,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span><span>        profileService,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span><span>        textService,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span><span>        httpContextAccessor)
+</span></span></code></pre></div></li>
 <li>
 <p>Legg til countryClient i konstruktøren til DataProcessingHandler</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#bd93f9">_d</span>ataProcessingHandler = <span style="color:#ff79c6">new</span> DataProcessingHandler(countryClient);
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span>_dataProcessingHandler = <span style="color:#ff79c6">new</span> DataProcessingHandler(countryClient);
+</span></span></code></pre></div></li>
 </ul>
 <h2 id="caching-av-responsdata">Caching av responsdata</h2>
 <p>En ulempe med eksempelet slikt det står nå er at man for hver gang skjemaet lagres vil man gjøre et kall
@@ -880,89 +879,89 @@ det tilhører ikke vil endre seg hyppig. Har vi hentet informasjon om Norge kan 
 i en tidsperiode, så man slipper å gjøre kallet igjen.</p>
 <p>Kodeendringene beskrives ikke steg for steg, men er vist i sin helhet nedenfor. 
 Det kreves kun endringer i <em>CountryClient.cs</em>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">using</span> Altinn.App.models;
-
-<span style="color:#ff79c6">using</span> Microsoft.Extensions.Caching.Memory;
-<span style="color:#ff79c6">using</span> Microsoft.Extensions.Logging;
-
-<span style="color:#ff79c6">using</span> System;
-<span style="color:#ff79c6">using</span> System.Collections.Generic;
-<span style="color:#ff79c6">using</span> System.Linq;
-<span style="color:#ff79c6">using</span> System.Net.Http;
-<span style="color:#ff79c6">using</span> System.Text.Json;
-<span style="color:#ff79c6">using</span> System.Threading.Tasks;
-
-<span style="color:#ff79c6">namespace</span> Altinn.App.client
-{
-    <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">CountryClient</span> : ICountryClient
-    {
-        <span style="color:#ff79c6">private</span> <span style="color:#ff79c6">readonly</span> HttpClient <span style="color:#bd93f9">_</span>client;
-        <span style="color:#ff79c6">private</span> <span style="color:#ff79c6">readonly</span> ILogger&lt;ICountryClient&gt; <span style="color:#bd93f9">_l</span>ogger;
-        <span style="color:#ff79c6">private</span> <span style="color:#ff79c6">readonly</span> JsonSerializerOptions <span style="color:#bd93f9">_</span>serializerOptions;
-        <span style="color:#ff79c6">private</span> <span style="color:#ff79c6">readonly</span> IMemoryCache <span style="color:#bd93f9">_</span>memoryCache;
-        <span style="color:#ff79c6">private</span> <span style="color:#ff79c6">readonly</span> MemoryCacheEntryOptions <span style="color:#bd93f9">_</span>cacheOptions;
-
-        <span style="color:#ff79c6">public</span> CountryClient(HttpClient client, ILogger&lt;ICountryClient&gt; logger, IMemoryCache memoryCache)
-        {
-            <span style="color:#bd93f9">_l</span>ogger = logger;
-
-            <span style="color:#bd93f9">_</span>client = client;
-            <span style="color:#bd93f9">_</span>client.BaseAddress = <span style="color:#ff79c6">new</span> Uri(<span style="color:#f1fa8c">&#34;https://restcountries.com/v3.1/&#34;</span>);
-
-            <span style="color:#bd93f9">_</span>serializerOptions = <span style="color:#ff79c6">new</span>()
-            {
-                PropertyNameCaseInsensitive = <span style="color:#ff79c6">true</span>
-            };
-
-            <span style="color:#bd93f9">_</span>memoryCache = memoryCache;
-            <span style="color:#bd93f9">_</span>cacheOptions = <span style="color:#ff79c6">new</span>()
-            {
-                AbsoluteExpirationRelativeToNow = TimeSpan.FromHours(<span style="color:#bd93f9">24</span>)
-            };
-        }
-
-        <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;Country&gt; GetCountry(<span style="color:#8be9fd">string</span> country)
-        {
-            <span style="color:#8be9fd">string</span> uniqueCacheKey = <span style="color:#f1fa8c">&#34;Country_&#34;</span> + country;
-
-            <span style="color:#6272a4">// Check if country is present in cache, if so return from cache
-</span><span style="color:#6272a4"></span>            <span style="color:#ff79c6">if</span> (<span style="color:#bd93f9">_</span>memoryCache.TryGetValue(uniqueCacheKey, <span style="color:#ff79c6">out</span> Country outputCountry))
-            {
-                <span style="color:#ff79c6">return</span> outputCountry;
-            }
-
-            <span style="color:#8be9fd">string</span> query = <span style="color:#f1fa8c">$&#34;name/{country}&#34;</span>;
-
-            HttpResponseMessage res = <span style="color:#ff79c6">await</span> <span style="color:#bd93f9">_</span>client.GetAsync(query);
-
-            <span style="color:#ff79c6">if</span> (res.IsSuccessStatusCode)
-            {
-                <span style="color:#8be9fd">string</span> resString = <span style="color:#ff79c6">await</span> res.Content.ReadAsStringAsync();
-
-                List&lt;Country&gt; countryResponse = JsonSerializer.Deserialize&lt;List&lt;Country&gt;&gt;(resString, <span style="color:#bd93f9">_</span>serializerOptions);
-
-                <span style="color:#ff79c6">if</span> (countryResponse.Any())
-                {
-                    outputCountry = countryResponse.First();
-
-                    <span style="color:#6272a4">// Add response country to cache
-</span><span style="color:#6272a4"></span>                    <span style="color:#bd93f9">_</span>memoryCache.Set(uniqueCacheKey, outputCountry, <span style="color:#bd93f9">_</span>cacheOptions);
-                    <span style="color:#ff79c6">return</span> outputCountry;
-                }
-                <span style="color:#ff79c6">else</span>
-                {
-                    <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">null</span>;
-                }
-            }
-            <span style="color:#ff79c6">else</span>
-            {
-                <span style="color:#bd93f9">_l</span>ogger.LogError(<span style="color:#f1fa8c">&#34;Retrieving country {country} failed with status code {statusCode}&#34;</span>, country, res.StatusCode);
-                <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">null</span>;
-            }
-        }
-    }
-}
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#ff79c6">using</span> Altinn.App.models;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> Microsoft.Extensions.Caching.Memory;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> Microsoft.Extensions.Logging;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> System;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> System.Collections.Generic;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> System.Linq;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> System.Net.Http;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> System.Text.Json;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> System.Threading.Tasks;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">namespace</span> Altinn.App.client
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">CountryClient</span> : ICountryClient
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">private</span> <span style="color:#ff79c6">readonly</span> HttpClient _client;
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">private</span> <span style="color:#ff79c6">readonly</span> ILogger&lt;ICountryClient&gt; _logger;
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">private</span> <span style="color:#ff79c6">readonly</span> JsonSerializerOptions _serializerOptions;
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">private</span> <span style="color:#ff79c6">readonly</span> IMemoryCache _memoryCache;
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">private</span> <span style="color:#ff79c6">readonly</span> MemoryCacheEntryOptions _cacheOptions;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">public</span> CountryClient(HttpClient client, ILogger&lt;ICountryClient&gt; logger, IMemoryCache memoryCache)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            _logger = logger;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            _client = client;
+</span></span><span style="display:flex;"><span>            _client.BaseAddress = <span style="color:#ff79c6">new</span> Uri(<span style="color:#f1fa8c">&#34;https://restcountries.com/v3.1/&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            _serializerOptions = <span style="color:#ff79c6">new</span>()
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                PropertyNameCaseInsensitive = <span style="color:#ff79c6">true</span>
+</span></span><span style="display:flex;"><span>            };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            _memoryCache = memoryCache;
+</span></span><span style="display:flex;"><span>            _cacheOptions = <span style="color:#ff79c6">new</span>()
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                AbsoluteExpirationRelativeToNow = TimeSpan.FromHours(<span style="color:#bd93f9">24</span>)
+</span></span><span style="display:flex;"><span>            };
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;Country&gt; GetCountry(<span style="color:#8be9fd">string</span> country)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#8be9fd">string</span> uniqueCacheKey = <span style="color:#f1fa8c">&#34;Country_&#34;</span> + country;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#6272a4">// Check if country is present in cache, if so return from cache</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">if</span> (_memoryCache.TryGetValue(uniqueCacheKey, <span style="color:#ff79c6">out</span> Country outputCountry))
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">return</span> outputCountry;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#8be9fd">string</span> query = <span style="color:#f1fa8c">$&#34;name/{country}&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            HttpResponseMessage res = <span style="color:#ff79c6">await</span> _client.GetAsync(query);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">if</span> (res.IsSuccessStatusCode)
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                <span style="color:#8be9fd">string</span> resString = <span style="color:#ff79c6">await</span> res.Content.ReadAsStringAsync();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                List&lt;Country&gt; countryResponse = JsonSerializer.Deserialize&lt;List&lt;Country&gt;&gt;(resString, _serializerOptions);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">if</span> (countryResponse.Any())
+</span></span><span style="display:flex;"><span>                {
+</span></span><span style="display:flex;"><span>                    outputCountry = countryResponse.First();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#6272a4">// Add response country to cache</span>
+</span></span><span style="display:flex;"><span>                    _memoryCache.Set(uniqueCacheKey, outputCountry, _cacheOptions);
+</span></span><span style="display:flex;"><span>                    <span style="color:#ff79c6">return</span> outputCountry;
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">else</span>
+</span></span><span style="display:flex;"><span>                {
+</span></span><span style="display:flex;"><span>                    <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">null</span>;
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">else</span>
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                _logger.LogError(<span style="color:#f1fa8c">&#34;Retrieving country {country} failed with status code {statusCode}&#34;</span>, country, res.StatusCode);
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">null</span>;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
 
 <footer class=" footline" ></footer>
                 </div>

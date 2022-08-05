@@ -117,7 +117,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -217,7 +217,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -297,7 +297,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -1117,9 +1117,9 @@ if(host != "localhost")
         <h2 class="post-title"><a href="/community/contributing/handbook/rest/">RESTful APIs (Representation State Transfer)</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>This page is work-in-progress. This is a proposed api which most likely is going to change.REST REST is an architectural style for designing loosely coupled applications over HTTP which was coined by Rob Fielding in 2000. We will define services according to REST.
-  REST APIs should start with /api so that we with ease can differentiate between an rest api call and a ux-application call.
-  REST APIs should start with a short word to indicate the logical domain or group of apis. <a class="read-more" href="/community/contributing/handbook/rest/">&raquo;</a></p>
+        <p>This page is work-in-progress. This is a proposed api which most likely is going to change.REST REST is an architectural style for designing loosely coupled applications over HTTP which was coined by Rob Fielding in 2000. We will define services according to REST.
+REST APIs should start with /api so that we with ease can differentiate between an rest api call and a ux-application call.
+REST APIs should start with a short word to indicate the logical domain or group of apis. <a class="read-more" href="/community/contributing/handbook/rest/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         
@@ -1199,8 +1199,8 @@ A process is represented by an process modell in BPMN/XML notation. Each task ha
     <section class="post-excerpt">
         <p>Instance events All instance events, e.g. creation, read, save, change process state, &hellip;
 GET {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/events Example of event data.
-{ &#34;id&#34;:&#34;6dff32bc-0928-4ae8-937c-b362d6941c89&#34;, &#34;instanceId&#34;: &#34;60238/5c6b1a71-2e1f-447a-ae2f-d1807dcffbfb&#34;, &#34;eventType&#34;: &#34;deleted&#34;, &#34;created&#34;: &#34;2019-05-02T13:08:21.981476Z&#34;, &#34;instanceOwnerPartyId&#34;: &#34;60238&#34;, &#34;user&#34;: { &#34;userId&#34;: 338829, &#34;authenticationLevel&#34;: 1, &#34;enduserSystemId&#34;: 2 }, &#34;process&#34;: { &#34;started&#34;: &#34;2019-05-01T12:45:01.3233Z&#34;, &#34;startEvent&#34;: &#34;Start_22&#34;, &#34;currentTask&#34;: { &#34;elementId&#34;: &#34;Task_2&#34; } } } Application events (for application owners)  WARNING: This section will be redesigned
- Selected instance events. Created, first read, change process state. <a class="read-more" href="/api/storage/instance-events/">&raquo;</a></p>
+{ &#34;id&#34;:&#34;6dff32bc-0928-4ae8-937c-b362d6941c89&#34;, &#34;instanceId&#34;: &#34;60238/5c6b1a71-2e1f-447a-ae2f-d1807dcffbfb&#34;, &#34;eventType&#34;: &#34;deleted&#34;, &#34;created&#34;: &#34;2019-05-02T13:08:21.981476Z&#34;, &#34;instanceOwnerPartyId&#34;: &#34;60238&#34;, &#34;user&#34;: { &#34;userId&#34;: 338829, &#34;authenticationLevel&#34;: 1, &#34;enduserSystemId&#34;: 2 }, &#34;process&#34;: { &#34;started&#34;: &#34;2019-05-01T12:45:01.3233Z&#34;, &#34;startEvent&#34;: &#34;Start_22&#34;, &#34;currentTask&#34;: { &#34;elementId&#34;: &#34;Task_2&#34; } } } Application events (for application owners) WARNING: This section will be redesigned
+Selected instance events. Created, first read, change process state. <a class="read-more" href="/api/storage/instance-events/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         
@@ -1256,7 +1256,7 @@ See all issues for API-Expose on Github <a class="read-more" href="/technology/s
     <section class="post-excerpt">
         <p>For å forenkle dette kan en mulig løsning være å støtte en type gjenbrukbar asset av type &ldquo;API-plugins&rdquo;, som gjør det enkelt å gjøre kall.
 En ukjent faktor er den kommende &ldquo;API-katalogen&rdquo;, og hvilke egenskaper den vil tilby.
- Enkel bruk av API&rsquo;er. Se på det som gjøres i eBevis. Må bort fra dagens mappere.  Dette er et område som ikke ble sett på i PoC.
+Enkel bruk av API&rsquo;er. Se på det som gjøres i eBevis. Må bort fra dagens mappere. Dette er et område som ikke ble sett på i PoC.
 See all issues related to API-Usage on Github. <a class="read-more" href="/technology/solutions/altinn-studio/designer/functional/build-app/api-use/">&raquo;</a></p>
     </section>
     <footer class=" footline" >

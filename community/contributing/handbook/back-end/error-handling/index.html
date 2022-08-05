@@ -109,7 +109,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -209,7 +209,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -281,7 +281,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -1100,27 +1100,27 @@ if(host != "localhost")
 <p>Exception handling is the act of catching an exception with the intention of handling the situation so that normal execution flow can continue. It should not be used as any part of an expected execution flow. It should also be avoided if the situation continue to be unrecoverable.</p>
 <p>.Net core provides a default middleware <em>UseExceptionHandler</em> that will catch exceptions and log them. You can read more about this <a href="https://docs.microsoft.com/en-us/aspnet/core/fundamentals/error-handling?view=aspnetcore-3.1">here</a>. This is the preferred mechanism when it comes to dealing with errors the application logic is unable to handle elegantly on its own. The middleware should be configured to generate a response that is appropriate for the running environment.</p>
 <p>Exceptions that can be handled by the application logic should be handled as soon and as specific as possible. The following example is found in the platform Storage application. More specifically the <a href="https://github.com/Altinn/altinn-studio/blob/0ff6a8d1dde279578fdab3b0a4403da001601a50/src/Altinn.Platform/Altinn.Platform.Storage/Storage/Controllers/DataController.cs#L494">DataController.GetDataElementAsync</a> method.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">ActionResult errorMessage;
-<span style="color:#ff79c6">try</span>
-{
-    DataElement dataElement = 
-        <span style="color:#ff79c6">await</span> <span style="color:#bd93f9">_d</span>ataRepository.Read(instanceGuid, dataGuid);
-
-    <span style="color:#ff79c6">return</span> (dataElement, <span style="color:#ff79c6">null</span>);
-}
-<span style="color:#ff79c6">catch</span> (DocumentClientException dce)
-{
-    <span style="color:#ff79c6">if</span> (dce.StatusCode == HttpStatusCode.NotFound)
-    {
-        errorMessage = 
-            NotFound(<span style="color:#f1fa8c">$&#34;Unable to find any data element with id: {dataGuid}.&#34;</span>);
-    }
-    <span style="color:#ff79c6">else</span>
-    {
-        <span style="color:#ff79c6">throw</span>;
-    }
-}
-</code></pre></div><p>In this example the try..catch is interested only in the DocumentClientException, and on top of that only when the StatusCode is NotFound. All other exceptions and exception reasons are ignored and will end up in the .Net Core middleware.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span>ActionResult errorMessage;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">try</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    DataElement dataElement = 
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">await</span> _dataRepository.Read(instanceGuid, dataGuid);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> (dataElement, <span style="color:#ff79c6">null</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">catch</span> (DocumentClientException dce)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> (dce.StatusCode == HttpStatusCode.NotFound)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        errorMessage = 
+</span></span><span style="display:flex;"><span>            NotFound(<span style="color:#f1fa8c">$&#34;Unable to find any data element with id: {dataGuid}.&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">else</span>
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">throw</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>In this example the try..catch is interested only in the DocumentClientException, and on top of that only when the StatusCode is NotFound. All other exceptions and exception reasons are ignored and will end up in the .Net Core middleware.</p>
 <h3 id="api-response">API Response</h3>
 <p>Exceptions that are handled by application logic can result in almost any response. The outcome will depend on the type of exception and how it is handled:</p>
 <ul>
@@ -1134,25 +1134,25 @@ if(host != "localhost")
 <h3 id="middleware-configuration">Middleware configuration</h3>
 <p>Handling of unrecoverable errors should be done by the built in middleware mentioned previously. The configuration should be different between production environments and other environments. In development and staging environments the middleware should allow detailed exception information to be exposed by the API.</p>
 <p>Configuration of the middleware is done in the <a href="https://github.com/Altinn/altinn-studio/blob/0ff6a8d1dde279578fdab3b0a4403da001601a50/src/Altinn.Platform/Altinn.Platform.Storage/Storage/Startup.cs#L210">Startup.Configure</a> method. This is an example from the platform Storage application:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">if</span> (env.IsDevelopment() || env.IsStaging())
-{
-    app.UseDeveloperExceptionPage();
-}
-<span style="color:#ff79c6">else</span>
-{
-    app.UseExceptionHandler(<span style="color:#f1fa8c">&#34;/storage/api/v1/error&#34;</span>);
-}
-</code></pre></div><p>This configuration requires an ErrorController that can handle the server side redirect performed by the middleware. The following code sample is a stipped version of the <a href="https://github.com/Altinn/altinn-studio/blob/0ff6a8d1dde279578fdab3b0a4403da001601a50/src/Altinn.Platform/Altinn.Platform.Authentication/Authentication/Controllers/ErrorController.cs">ErrorController</a> in the platform Storage application:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#50fa7b">[ApiController]</span>
-<span style="color:#50fa7b">[ApiExplorerSettings(IgnoreApi = true)]</span>
-<span style="color:#50fa7b">[AllowAnonymous]</span>
-<span style="color:#50fa7b">[Route(&#34;storage/api/v1&#34;)]</span>
-<span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">ErrorController</span> : ControllerBase
-{
-<span style="color:#50fa7b">    [Route(&#34;error&#34;)]</span>
-    <span style="color:#ff79c6">public</span> IActionResult Error() =&gt; Problem();
-}
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#ff79c6">if</span> (env.IsDevelopment() || env.IsStaging())
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    app.UseDeveloperExceptionPage();
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">else</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    app.UseExceptionHandler(<span style="color:#f1fa8c">&#34;/storage/api/v1/error&#34;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>This configuration requires an ErrorController that can handle the server side redirect performed by the middleware. The following code sample is a stipped version of the <a href="https://github.com/Altinn/altinn-studio/blob/0ff6a8d1dde279578fdab3b0a4403da001601a50/src/Altinn.Platform/Altinn.Platform.Authentication/Authentication/Controllers/ErrorController.cs">ErrorController</a> in the platform Storage application:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#50fa7b">[ApiController]</span>
+</span></span><span style="display:flex;"><span><span style="color:#50fa7b">[ApiExplorerSettings(IgnoreApi = true)]</span>
+</span></span><span style="display:flex;"><span><span style="color:#50fa7b">[AllowAnonymous]</span>
+</span></span><span style="display:flex;"><span><span style="color:#50fa7b">[Route(&#34;storage/api/v1&#34;)]</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">ErrorController</span> : ControllerBase
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span><span style="color:#50fa7b">    [Route(&#34;error&#34;)]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">public</span> IActionResult Error() =&gt; Problem();
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
 
 <footer class=" footline" ></footer>
                 </div>

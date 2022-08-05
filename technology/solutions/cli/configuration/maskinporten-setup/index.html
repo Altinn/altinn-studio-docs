@@ -109,7 +109,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -209,7 +209,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -281,7 +281,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -1103,26 +1103,26 @@ if(host != "localhost")
 <p>Login to <a href="https://samarbeid.digdir.no/">Samarbeidsportalen</a>.<br>
 Choose <code>Selvbetjening</code> -&gt; <code>Integrasjoner</code> for the environment you want.<br>
 <code>Ver2</code> is test and <code>Produksjon</code> is production.</p>
-<figure><a href="selvbetjening.png"><img src="selvbetjening.png" alt="&ldquo;Samarbeidsportalen&rdquo;" title="Samarbeidsportalen" /></a><figcaption><h4>Samarbeidsportalen</h4></figcaption></figure>
+<figure><a href="selvbetjening.png"><img src="selvbetjening.png" alt="&amp;ldquo;Samarbeidsportalen&amp;rdquo;" title="Samarbeidsportalen" /></a><figcaption><h4>Samarbeidsportalen</h4></figcaption></figure>
 <p>Choose <code>Ny integrasjon</code>.</p>
-<figure><a href="integrasjon_ny.png"><img src="integrasjon_ny.png" alt="&ldquo;New integration&rdquo;" title="New integration" /></a><figcaption><h4>New integration</h4></figcaption></figure>
+<figure><a href="integrasjon_ny.png"><img src="integrasjon_ny.png" alt="&amp;ldquo;New integration&amp;rdquo;" title="New integration" /></a><figcaption><h4>New integration</h4></figcaption></figure>
 <p>Fill in the scheme like below and then <code>Opprett</code>. We has named our example-client Altinn CLI Client.<br>
 The tree scopes you need is <code>altinn:serviceowner</code>, <code>altinn:serviceowner/instances.read</code> and <code>altinn:serviceowner/instances.write</code></p>
-<figure><a href="integrasjon_utfylling.png"><img src="integrasjon_utfylling.png" alt="&ldquo;Add values for integration&rdquo;" title="Add values for integration" /></a><figcaption><h4>Add values for integration</h4></figcaption></figure>
+<figure><a href="integrasjon_utfylling.png"><img src="integrasjon_utfylling.png" alt="&amp;ldquo;Add values for integration&amp;rdquo;" title="Add values for integration" /></a><figcaption><h4>Add values for integration</h4></figcaption></figure>
 <p>The value of <code>Integrasjonens identifikator</code> value will be the <code>CLientId</code> in <code>appsettings.json</code> for Altinn CLI.</p>
 <p>Now we can add own public keys. First we must generate a new JSON Web Key.
 In this example we use <a href="https://mkjwk.org/">mkjwk.org</a>.
 Fill in values like the example below and <code>Generate</code>.</p>
-<figure><a href="jwk_ny.png"><img src="jwk_ny.png" alt="&ldquo;New JWK&rdquo;" title="New JWK" /></a><figcaption><h4>New JWK</h4></figcaption></figure>
+<figure><a href="jwk_ny.png"><img src="jwk_ny.png" alt="&amp;ldquo;New JWK&amp;rdquo;" title="New JWK" /></a><figcaption><h4>New JWK</h4></figcaption></figure>
 <p>Then you will get keys like this.</p>
-<figure><a href="jwk.png"><img src="jwk.png" alt="&ldquo;The JWK&rdquo;" title="The JWK" /></a><figcaption><h4>The JWK</h4></figcaption></figure>
+<figure><a href="jwk.png"><img src="jwk.png" alt="&amp;ldquo;The JWK&amp;rdquo;" title="The JWK" /></a><figcaption><h4>The JWK</h4></figcaption></figure>
 <p>This public key we will add to our client in Samarbeidsportalen.
 Press <code>Egne public nøkler</code></p>
-<figure><a href="public_nokler.png"><img src="public_nokler.png" alt="&ldquo;Own public keys&rdquo;" title="Own public keys" /></a><figcaption><h4>Own public keys</h4></figcaption></figure>
+<figure><a href="public_nokler.png"><img src="public_nokler.png" alt="&amp;ldquo;Own public keys&amp;rdquo;" title="Own public keys" /></a><figcaption><h4>Own public keys</h4></figcaption></figure>
 <p>The key must be stored in an array so add [].</p>
-<figure><a href="nokkel_1.png"><img src="nokkel_1.png" alt="&ldquo;Add array&rdquo;" title="Add array" /></a><figcaption><h4>Add array</h4></figcaption></figure>
+<figure><a href="nokkel_1.png"><img src="nokkel_1.png" alt="&amp;ldquo;Add array&amp;rdquo;" title="Add array" /></a><figcaption><h4>Add array</h4></figcaption></figure>
 <p>Copy the public key from the JSON Web key (marked 1 in the picture) and paste this into the array. Press <code>Legg til</code>.</p>
-<figure><a href="nokkel_2.png"><img src="nokkel_2.png" alt="&ldquo;Add public key&rdquo;" title="Add public key" /></a><figcaption><h4>Add public key</h4></figcaption></figure>
+<figure><a href="nokkel_2.png"><img src="nokkel_2.png" alt="&amp;ldquo;Add public key&amp;rdquo;" title="Add public key" /></a><figcaption><h4>Add public key</h4></figcaption></figure>
 <p>Now the client in maskinporten is complete.</p>
 <p>The last part will be to use the public and private keypair in the Altinn CLI application.
 Copy this (marked 2 in the picture) and Base64 encode it. <a href="https://www.base64encode.org/">Base64encode.org</a> can be used for encoding. 

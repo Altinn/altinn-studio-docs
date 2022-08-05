@@ -109,7 +109,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -209,7 +209,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -281,7 +281,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -1103,359 +1103,359 @@ if(host != "localhost")
 
 <h2 id="org-can-instantiate-an-instance-of-orgapp">[ORG] can instantiate an instance of [ORG]/[APP]</h2>
 <p>[ORG_1] og [ORG_2] kan her være like eller ulike. I tilfellet at de er ulike vil [ORG_1] tilsvare applikasjonseieren og [ORG_2] være en annen organisasjon som får lov til å instansiere.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;xacml:Rule</span> <span style="color:#50fa7b">RuleId=</span><span style="color:#f1fa8c">&#34;urn:altinn:example:ruleid:[RULE_ID]&#34;</span> <span style="color:#50fa7b">Effect=</span><span style="color:#f1fa8c">&#34;Permit&#34;</span><span style="color:#ff79c6">&gt;</span>
-<span style="display:block;width:100%;background-color:#3d3f4a">  <span style="color:#ff79c6">&lt;xacml:Description&gt;</span>[ORG_2] can instantiate an instance of [ORG_1]/[APP]<span style="color:#ff79c6">&lt;/xacml:Description&gt;</span>
-</span>  <span style="color:#ff79c6">&lt;xacml:Target&gt;</span>
-    <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
-      <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
-        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
-<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>[ORG_2]<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
-</span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:org&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:subject-category:access-subject&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
-        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
-      <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
-    <span style="color:#ff79c6">&lt;/xacml:AnyOf&gt;</span>
-    <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
-      <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
-        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
-<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>[ORG_1]<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
-</span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:org&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
-        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
-        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
-<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>[APP]<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
-</span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:app&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
-        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
-      <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
-    <span style="color:#ff79c6">&lt;/xacml:AnyOf&gt;</span>
-    <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
-      <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
-        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
-<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>instantiate<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
-</span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:action:action-id&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:action&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
-        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
-      <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
-    <span style="color:#ff79c6">&lt;/xacml:AnyOf&gt;</span>
-  <span style="color:#ff79c6">&lt;/xacml:Target&gt;</span>
-<span style="color:#ff79c6">&lt;/xacml:Rule&gt;</span>
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#ff79c6">&#34;$schema&#34;</span>: <span style="color:#f1fa8c">&#34;https://altinncdn.no/schemas/json/policy/policy.schema.v1.json&#34;</span>,
-  <span style="color:#ff79c6">&#34;Policy&#34;</span>: {
-    <span style="color:#ff79c6">&#34;Rules&#34;</span>: [
-      {
-        <span style="color:#ff79c6">&#34;Effect&#34;</span>: <span style="color:#f1fa8c">&#34;Permit&#34;</span>,
-        <span style="color:#ff79c6">&#34;Description&#34;</span>: <span style="color:#f1fa8c">&#34;[ORG_2] can instantiate an instance of [ORG_1]/[APP]&#34;</span>,
-        <span style="color:#ff79c6">&#34;Subjects&#34;</span>: [
-<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#f1fa8c">&#34;org:[ORG_2]&#34;</span>
-</span>        ],
-        <span style="color:#ff79c6">&#34;Resources&#34;</span>: [
-<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#f1fa8c">&#34;app:[ORG_1]/[APP]&#34;</span>
-</span>        ],
-        <span style="color:#ff79c6">&#34;Actions&#34;</span>: [
-<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#f1fa8c">&#34;instantiate&#34;</span>
-</span>        ]
-      }
-    ]
-  }
-}
-</code></pre></div><h2 id="user-with-role-regna-can-read-instances-of-orgapp-when-it-is-in-task_1">User with role REGNA can read instances of [ORG]/[APP] when it is in Task_1</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#ff79c6">&lt;xacml:Rule</span> <span style="color:#50fa7b">RuleId=</span><span style="color:#f1fa8c">&#34;urn:altinn:example:ruleid:[RULE_ID]&#34;</span> <span style="color:#50fa7b">Effect=</span><span style="color:#f1fa8c">&#34;Permit&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>  <span style="color:#ff79c6">&lt;xacml:Description&gt;</span>[ORG_2] can instantiate an instance of [ORG_1]/[APP]<span style="color:#ff79c6">&lt;/xacml:Description&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;xacml:Target&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>[ORG_2]<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:org&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:subject-category:access-subject&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;/xacml:AnyOf&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>[ORG_1]<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:org&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>[APP]<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:app&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;/xacml:AnyOf&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>instantiate<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:action:action-id&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:action&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;/xacml:AnyOf&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;/xacml:Target&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&lt;/xacml:Rule&gt;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;$schema&#34;</span>: <span style="color:#f1fa8c">&#34;https://altinncdn.no/schemas/json/policy/policy.schema.v1.json&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;Policy&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;Rules&#34;</span>: [
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;Effect&#34;</span>: <span style="color:#f1fa8c">&#34;Permit&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;Description&#34;</span>: <span style="color:#f1fa8c">&#34;[ORG_2] can instantiate an instance of [ORG_1]/[APP]&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;Subjects&#34;</span>: [
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>          <span style="color:#f1fa8c">&#34;org:[ORG_2]&#34;</span>
+</span></span><span style="display:flex;"><span>        ],
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;Resources&#34;</span>: [
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>          <span style="color:#f1fa8c">&#34;app:[ORG_1]/[APP]&#34;</span>
+</span></span><span style="display:flex;"><span>        ],
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;Actions&#34;</span>: [
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>          <span style="color:#f1fa8c">&#34;instantiate&#34;</span>
+</span></span><span style="display:flex;"><span>        ]
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="user-with-role-regna-can-read-instances-of-orgapp-when-it-is-in-task_1">User with role REGNA can read instances of [ORG]/[APP] when it is in Task_1</h2>
 <p>Ved å endre på rolle og task i denne regelen vil du kunne gi rettigheter til å lese instansdata på en gitt task i prosessflyten.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;xacml:Rule</span> <span style="color:#50fa7b">RuleId=</span><span style="color:#f1fa8c">&#34;urn:altinn:example:ruleid:[RULE_ID]&#34;</span> <span style="color:#50fa7b">Effect=</span><span style="color:#f1fa8c">&#34;Permit&#34;</span><span style="color:#ff79c6">&gt;</span>
-<span style="display:block;width:100%;background-color:#3d3f4a">  <span style="color:#ff79c6">&lt;xacml:Description&gt;</span>User with role REGNA can read instances of [ORG]/[APP] when it is in Task_1<span style="color:#ff79c6">&lt;/xacml:Description&gt;</span>
-</span>  <span style="color:#ff79c6">&lt;xacml:Target&gt;</span>
-    <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
-      <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
-        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:function:string-equal-ignore-case&#34;</span><span style="color:#ff79c6">&gt;</span>
-<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>REGNA<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
-</span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:rolecode&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:subject-category:access-subject&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
-        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
-      <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>  
-    <span style="color:#ff79c6">&lt;/xacml:AnyOf&gt;</span>
-    <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
-      <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
-        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
-<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>[ORG]<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
-</span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:org&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
-        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
-        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
-<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>[APP]<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
-</span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:app&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
-        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
-        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
-<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>Task_1<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
-</span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:task&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
-        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
-      <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
-    <span style="color:#ff79c6">&lt;/xacml:AnyOf&gt;</span>
-    <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
-      <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
-      <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
-<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>read<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
-</span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:action:action-id&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:action&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
-        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
-      <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
-    <span style="color:#ff79c6">&lt;/xacml:AnyOf&gt;</span>
-  <span style="color:#ff79c6">&lt;/xacml:Target&gt;</span>
-<span style="color:#ff79c6">&lt;/xacml:Rule&gt;</span>
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#ff79c6">&#34;$schema&#34;</span>: <span style="color:#f1fa8c">&#34;https://altinncdn.no/schemas/json/policy/policy.schema.v1.json&#34;</span>,
-  <span style="color:#ff79c6">&#34;Policy&#34;</span>: {
-    <span style="color:#ff79c6">&#34;Rules&#34;</span>: [
-      {
-        <span style="color:#ff79c6">&#34;Effect&#34;</span>: <span style="color:#f1fa8c">&#34;Permit&#34;</span>,
-        <span style="color:#ff79c6">&#34;Description&#34;</span>: <span style="color:#f1fa8c">&#34;User with role REGNA can read instances of [ORG]/[APP] when it is in Task_1&#34;</span>,
-        <span style="color:#ff79c6">&#34;Subjects&#34;</span>: [
-<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#f1fa8c">&#34;role:REGNA&#34;</span>
-</span>        ],
-        <span style="color:#ff79c6">&#34;Resources&#34;</span>: [
-<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#f1fa8c">&#34;app:[ORG]/[APP]/Task_1&#34;</span>
-</span>        ],
-        <span style="color:#ff79c6">&#34;Actions&#34;</span>: [
-<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#f1fa8c">&#34;read&#34;</span>
-</span>        ]
-      }
-    ]
-  }
-}
-</code></pre></div><h2 id="org-can-write-to-an-instance-of-orgapp-in-any-task-or-event">[ORG] can write to an instance of [ORG]/[APP] in any task or event</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#ff79c6">&lt;xacml:Rule</span> <span style="color:#50fa7b">RuleId=</span><span style="color:#f1fa8c">&#34;urn:altinn:example:ruleid:[RULE_ID]&#34;</span> <span style="color:#50fa7b">Effect=</span><span style="color:#f1fa8c">&#34;Permit&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>  <span style="color:#ff79c6">&lt;xacml:Description&gt;</span>User with role REGNA can read instances of [ORG]/[APP] when it is in Task_1<span style="color:#ff79c6">&lt;/xacml:Description&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;xacml:Target&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:function:string-equal-ignore-case&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>REGNA<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:rolecode&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:subject-category:access-subject&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>  
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;/xacml:AnyOf&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>[ORG]<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:org&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>[APP]<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:app&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>Task_1<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:task&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;/xacml:AnyOf&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>read<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:action:action-id&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:action&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;/xacml:AnyOf&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;/xacml:Target&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&lt;/xacml:Rule&gt;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;$schema&#34;</span>: <span style="color:#f1fa8c">&#34;https://altinncdn.no/schemas/json/policy/policy.schema.v1.json&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;Policy&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;Rules&#34;</span>: [
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;Effect&#34;</span>: <span style="color:#f1fa8c">&#34;Permit&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;Description&#34;</span>: <span style="color:#f1fa8c">&#34;User with role REGNA can read instances of [ORG]/[APP] when it is in Task_1&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;Subjects&#34;</span>: [
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>          <span style="color:#f1fa8c">&#34;role:REGNA&#34;</span>
+</span></span><span style="display:flex;"><span>        ],
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;Resources&#34;</span>: [
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>          <span style="color:#f1fa8c">&#34;app:[ORG]/[APP]/Task_1&#34;</span>
+</span></span><span style="display:flex;"><span>        ],
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;Actions&#34;</span>: [
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>          <span style="color:#f1fa8c">&#34;read&#34;</span>
+</span></span><span style="display:flex;"><span>        ]
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="org-can-write-to-an-instance-of-orgapp-in-any-task-or-event">[ORG] can write to an instance of [ORG]/[APP] in any task or event</h2>
 <p>Denne regelen kan brukes dersom applikasjonseier skal kunne oppdatere instanser uavhengig av hvor de er i prosessflyten sin.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;xacml:Rule</span> <span style="color:#50fa7b">RuleId=</span><span style="color:#f1fa8c">&#34;urn:altinn:example:ruleid:[RULE_ID]&#34;</span> <span style="color:#50fa7b">Effect=</span><span style="color:#f1fa8c">&#34;Permit&#34;</span><span style="color:#ff79c6">&gt;</span>
-<span style="display:block;width:100%;background-color:#3d3f4a">  <span style="color:#ff79c6">&lt;xacml:Description&gt;</span>[ORG] can write to instances of [ORG]/[APP] in any task or event<span style="color:#ff79c6">&lt;/xacml:Description&gt;</span>
-</span>  <span style="color:#ff79c6">&lt;xacml:Target&gt;</span>
-    <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
-      <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
-        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
-<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>[ORG]<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
-</span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:org&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:subject-category:access-subject&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
-        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
-      <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
-    <span style="color:#ff79c6">&lt;/xacml:AnyOf&gt;</span>
-    <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
-      <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
-        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
-<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>[ORG]<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
-</span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:org&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
-        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
-        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
-<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>[APP]<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
-</span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:app&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
-        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
-      <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
-    <span style="color:#ff79c6">&lt;/xacml:AnyOf&gt;</span>
-    <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
-      <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
-        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
-<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>write<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
-</span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:action:action-id&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:action&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
-        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
-      <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
-    <span style="color:#ff79c6">&lt;/xacml:AnyOf&gt;</span>
-  <span style="color:#ff79c6">&lt;/xacml:Target&gt;</span>
-<span style="color:#ff79c6">&lt;/xacml:Rule&gt;</span>
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#ff79c6">&#34;$schema&#34;</span>: <span style="color:#f1fa8c">&#34;https://altinncdn.no/schemas/json/policy/policy.schema.v1.json&#34;</span>,
-  <span style="color:#ff79c6">&#34;Policy&#34;</span>: {
-    <span style="color:#ff79c6">&#34;Rules&#34;</span>: [
-      {
-        <span style="color:#ff79c6">&#34;Effect&#34;</span>: <span style="color:#f1fa8c">&#34;Permit&#34;</span>,
-        <span style="color:#ff79c6">&#34;Description&#34;</span>: <span style="color:#f1fa8c">&#34;[ORG] can write to instances of [ORG]/[APP] in any task or event&#34;</span>,
-        <span style="color:#ff79c6">&#34;Subjects&#34;</span>: [
-<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#f1fa8c">&#34;org:[ORG]&#34;</span>
-</span>        ],
-        <span style="color:#ff79c6">&#34;Resources&#34;</span>: [
-<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#f1fa8c">&#34;app:[ORG]/[APP]&#34;</span>
-</span>        ],
-        <span style="color:#ff79c6">&#34;Actions&#34;</span>: [
-<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#f1fa8c">&#34;write&#34;</span>
-</span>        ]
-      }
-    ]
-  }
-}
-</code></pre></div><h2 id="user-with-role-regna-or-dagl-can-confirm-instances-of-orgapp-when-it-is-in-task_2">User with role REGNA or DAGL can confirm instances of [ORG]/[APP] when it is in Task_2</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#ff79c6">&lt;xacml:Rule</span> <span style="color:#50fa7b">RuleId=</span><span style="color:#f1fa8c">&#34;urn:altinn:example:ruleid:[RULE_ID]&#34;</span> <span style="color:#50fa7b">Effect=</span><span style="color:#f1fa8c">&#34;Permit&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>  <span style="color:#ff79c6">&lt;xacml:Description&gt;</span>[ORG] can write to instances of [ORG]/[APP] in any task or event<span style="color:#ff79c6">&lt;/xacml:Description&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;xacml:Target&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>[ORG]<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:org&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:subject-category:access-subject&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;/xacml:AnyOf&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>[ORG]<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:org&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>[APP]<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:app&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;/xacml:AnyOf&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>write<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:action:action-id&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:action&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;/xacml:AnyOf&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;/xacml:Target&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&lt;/xacml:Rule&gt;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;$schema&#34;</span>: <span style="color:#f1fa8c">&#34;https://altinncdn.no/schemas/json/policy/policy.schema.v1.json&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;Policy&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;Rules&#34;</span>: [
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;Effect&#34;</span>: <span style="color:#f1fa8c">&#34;Permit&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;Description&#34;</span>: <span style="color:#f1fa8c">&#34;[ORG] can write to instances of [ORG]/[APP] in any task or event&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;Subjects&#34;</span>: [
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>          <span style="color:#f1fa8c">&#34;org:[ORG]&#34;</span>
+</span></span><span style="display:flex;"><span>        ],
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;Resources&#34;</span>: [
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>          <span style="color:#f1fa8c">&#34;app:[ORG]/[APP]&#34;</span>
+</span></span><span style="display:flex;"><span>        ],
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;Actions&#34;</span>: [
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>          <span style="color:#f1fa8c">&#34;write&#34;</span>
+</span></span><span style="display:flex;"><span>        ]
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="user-with-role-regna-or-dagl-can-confirm-instances-of-orgapp-when-it-is-in-task_2">User with role REGNA or DAGL can confirm instances of [ORG]/[APP] when it is in Task_2</h2>
 <p>Denne reglen begrenser rettigheten til å bekrefte en instans i en bestemt task til kun to roller.
 Ved å enten modifisere task eller roller vil du her kunne sette regler for hvem som får bekrefte instansen i ulike faser av prosessen.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;xacml:Rule</span> <span style="color:#50fa7b">RuleId=</span><span style="color:#f1fa8c">&#34;urn:altinn:example:ruleid:[RULE_ID]&#34;</span> <span style="color:#50fa7b">Effect=</span><span style="color:#f1fa8c">&#34;Permit&#34;</span><span style="color:#ff79c6">&gt;</span>
-<span style="display:block;width:100%;background-color:#3d3f4a">  <span style="color:#ff79c6">&lt;xacml:Description&gt;</span>User with role REGNA or DAGL can confirm instances of [ORG]/[APP] when it is in Task_2<span style="color:#ff79c6">&lt;/xacml:Description&gt;</span>
-</span>  <span style="color:#ff79c6">&lt;xacml:Target&gt;</span>
-    <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
-      <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
-        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:function:string-equal-ignore-case&#34;</span><span style="color:#ff79c6">&gt;</span>
-<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>REGNA<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
-</span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:rolecode&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:subject-category:access-subject&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
-        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
-      <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
-      <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
-        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:function:string-equal-ignore-case&#34;</span><span style="color:#ff79c6">&gt;</span>
-<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>DAGL<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
-</span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:rolecode&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:subject-category:access-subject&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
-        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
-      <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
-    <span style="color:#ff79c6">&lt;/xacml:AnyOf&gt;</span>
-    <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
-      <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
-        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
-<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>[ORG]<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
-</span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:org&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
-        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
-        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
-<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>[APP]<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
-</span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:app&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
-        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
-        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
-<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>Task_2<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
-</span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:task&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
-        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
-      <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
-    <span style="color:#ff79c6">&lt;/xacml:AnyOf&gt;</span>
-    <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
-      <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
-      <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
-<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>confirm<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
-</span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:action:action-id&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:action&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
-        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
-      <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
-    <span style="color:#ff79c6">&lt;/xacml:AnyOf&gt;</span>
-  <span style="color:#ff79c6">&lt;/xacml:Target&gt;</span>
-<span style="color:#ff79c6">&lt;/xacml:Rule&gt;</span>
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#ff79c6">&#34;$schema&#34;</span>: <span style="color:#f1fa8c">&#34;https://altinncdn.no/schemas/json/policy/policy.schema.v1.json&#34;</span>,
-  <span style="color:#ff79c6">&#34;Policy&#34;</span>: {
-    <span style="color:#ff79c6">&#34;Rules&#34;</span>: [
-      {
-        <span style="color:#ff79c6">&#34;Effect&#34;</span>: <span style="color:#f1fa8c">&#34;Permit&#34;</span>,
-        <span style="color:#ff79c6">&#34;Description&#34;</span>: <span style="color:#f1fa8c">&#34;User with role REGNA or DAGL can confirm instances of [ORG]/[APP] when it is in Task_2&#34;</span>,
-        <span style="color:#ff79c6">&#34;Subjects&#34;</span>: [
-<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#f1fa8c">&#34;role:REGNA&#34;</span>,
-</span><span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#f1fa8c">&#34;role:DAGL&#34;</span>
-</span>        ],
-        <span style="color:#ff79c6">&#34;Resources&#34;</span>: [
-<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#f1fa8c">&#34;app:[ORG]/[APP]/Task_2&#34;</span>
-</span>        ],
-        <span style="color:#ff79c6">&#34;Actions&#34;</span>: [
-<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#f1fa8c">&#34;confirm&#34;</span>
-</span>        ]
-      }
-    ]
-  }
-}
-</code></pre></div><h2 id="user-with-role-regna-can-read-instanes-of-orgapp-when-it-is-in-endevent_1">User with role REGNA can read instanes of [ORG]/[APP] when it is in EndEvent_1</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#ff79c6">&lt;xacml:Rule</span> <span style="color:#50fa7b">RuleId=</span><span style="color:#f1fa8c">&#34;urn:altinn:example:ruleid:[RULE_ID]&#34;</span> <span style="color:#50fa7b">Effect=</span><span style="color:#f1fa8c">&#34;Permit&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>  <span style="color:#ff79c6">&lt;xacml:Description&gt;</span>User with role REGNA or DAGL can confirm instances of [ORG]/[APP] when it is in Task_2<span style="color:#ff79c6">&lt;/xacml:Description&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;xacml:Target&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:function:string-equal-ignore-case&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>REGNA<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:rolecode&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:subject-category:access-subject&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:function:string-equal-ignore-case&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>DAGL<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:rolecode&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:subject-category:access-subject&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;/xacml:AnyOf&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>[ORG]<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:org&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>[APP]<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:app&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>Task_2<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:task&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;/xacml:AnyOf&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>confirm<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:action:action-id&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:action&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;/xacml:AnyOf&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;/xacml:Target&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&lt;/xacml:Rule&gt;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;$schema&#34;</span>: <span style="color:#f1fa8c">&#34;https://altinncdn.no/schemas/json/policy/policy.schema.v1.json&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;Policy&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;Rules&#34;</span>: [
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;Effect&#34;</span>: <span style="color:#f1fa8c">&#34;Permit&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;Description&#34;</span>: <span style="color:#f1fa8c">&#34;User with role REGNA or DAGL can confirm instances of [ORG]/[APP] when it is in Task_2&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;Subjects&#34;</span>: [
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>          <span style="color:#f1fa8c">&#34;role:REGNA&#34;</span>,
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>          <span style="color:#f1fa8c">&#34;role:DAGL&#34;</span>
+</span></span><span style="display:flex;"><span>        ],
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;Resources&#34;</span>: [
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>          <span style="color:#f1fa8c">&#34;app:[ORG]/[APP]/Task_2&#34;</span>
+</span></span><span style="display:flex;"><span>        ],
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;Actions&#34;</span>: [
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>          <span style="color:#f1fa8c">&#34;confirm&#34;</span>
+</span></span><span style="display:flex;"><span>        ]
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="user-with-role-regna-can-read-instanes-of-orgapp-when-it-is-in-endevent_1">User with role REGNA can read instanes of [ORG]/[APP] when it is in EndEvent_1</h2>
 <p>Denne regler tillatter en bruker med den gitte rollen å lese instansdata etter at prosessen er avsluttet.
 Dette vil bl.a. inkludere å laste ned vedlegg og kvitteringer knyttet til instansen.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;xacml:Rule</span> <span style="color:#50fa7b">RuleId=</span><span style="color:#f1fa8c">&#34;urn:altinn:example:ruleid:[RULE_ID]&#34;</span> <span style="color:#50fa7b">Effect=</span><span style="color:#f1fa8c">&#34;Permit&#34;</span><span style="color:#ff79c6">&gt;</span>
-<span style="display:block;width:100%;background-color:#3d3f4a">  <span style="color:#ff79c6">&lt;xacml:Description&gt;</span>User with role REGNA can read instanes of [ORG]/[APP] when it is in EndEvent_1<span style="color:#ff79c6">&lt;/xacml:Description&gt;</span>
-</span>  <span style="color:#ff79c6">&lt;xacml:Target&gt;</span>
-    <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
-      <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
-        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:function:string-equal-ignore-case&#34;</span><span style="color:#ff79c6">&gt;</span>
-<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>REGNA<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
-</span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:rolecode&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:subject-category:access-subject&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
-        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
-      <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
-    <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
-      <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
-        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
-<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>[ORG]<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
-</span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:org&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
-        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
-        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
-<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>[APP]<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
-</span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:app&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
-        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
-        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
-<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>EndEvent_1<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
-</span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:end-event&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
-        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
-      <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
-    <span style="color:#ff79c6">&lt;/xacml:AnyOf&gt;</span>
-    <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
-      <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
-        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
-<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>read<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
-</span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:action:action-id&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:action&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
-        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
-      <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
-    <span style="color:#ff79c6">&lt;/xacml:AnyOf&gt;</span>
-  <span style="color:#ff79c6">&lt;/xacml:Target&gt;</span>
-<span style="color:#ff79c6">&lt;/xacml:Rule&gt;</span>
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#ff79c6">&#34;$schema&#34;</span>: <span style="color:#f1fa8c">&#34;https://altinncdn.no/schemas/json/policy/policy.schema.v1.json&#34;</span>,
-  <span style="color:#ff79c6">&#34;Policy&#34;</span>: {
-    <span style="color:#ff79c6">&#34;Rules&#34;</span>: [
-      {
-        <span style="color:#ff79c6">&#34;Effect&#34;</span>: <span style="color:#f1fa8c">&#34;Permit&#34;</span>,
-        <span style="color:#ff79c6">&#34;Description&#34;</span>: <span style="color:#f1fa8c">&#34;User with role REGNA can read instanes of [ORG]/[APP] when it is in EndEvent_1&#34;</span>,
-        <span style="color:#ff79c6">&#34;Subjects&#34;</span>: [
-<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#f1fa8c">&#34;role:REGNA&#34;</span>
-</span>        ],
-        <span style="color:#ff79c6">&#34;Resources&#34;</span>: [
-<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#f1fa8c">&#34;app:[ORG]/[APP]/EndEvent_1&#34;</span>
-</span>        ],
-        <span style="color:#ff79c6">&#34;Actions&#34;</span>: [
-<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#f1fa8c">&#34;read&#34;</span>
-</span>        ]
-      }
-    ]
-  }
-}
-</code></pre></div><h2 id="rule-that-defines-that-org-can-complete-an-instance-of-orgapp-which-state-is-at-the-end-event">Rule that defines that [ORG] can complete an instance of [ORG]/[APP] which state is at the end event.</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#ff79c6">&lt;xacml:Rule</span> <span style="color:#50fa7b">RuleId=</span><span style="color:#f1fa8c">&#34;urn:altinn:example:ruleid:[RULE_ID]&#34;</span> <span style="color:#50fa7b">Effect=</span><span style="color:#f1fa8c">&#34;Permit&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>  <span style="color:#ff79c6">&lt;xacml:Description&gt;</span>User with role REGNA can read instanes of [ORG]/[APP] when it is in EndEvent_1<span style="color:#ff79c6">&lt;/xacml:Description&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;xacml:Target&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:function:string-equal-ignore-case&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>REGNA<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:rolecode&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:subject-category:access-subject&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>[ORG]<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:org&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>[APP]<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:app&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>EndEvent_1<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:end-event&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;/xacml:AnyOf&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>read<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:action:action-id&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:action&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;/xacml:AnyOf&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;/xacml:Target&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&lt;/xacml:Rule&gt;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;$schema&#34;</span>: <span style="color:#f1fa8c">&#34;https://altinncdn.no/schemas/json/policy/policy.schema.v1.json&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;Policy&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;Rules&#34;</span>: [
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;Effect&#34;</span>: <span style="color:#f1fa8c">&#34;Permit&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;Description&#34;</span>: <span style="color:#f1fa8c">&#34;User with role REGNA can read instanes of [ORG]/[APP] when it is in EndEvent_1&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;Subjects&#34;</span>: [
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>          <span style="color:#f1fa8c">&#34;role:REGNA&#34;</span>
+</span></span><span style="display:flex;"><span>        ],
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;Resources&#34;</span>: [
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>          <span style="color:#f1fa8c">&#34;app:[ORG]/[APP]/EndEvent_1&#34;</span>
+</span></span><span style="display:flex;"><span>        ],
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;Actions&#34;</span>: [
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>          <span style="color:#f1fa8c">&#34;read&#34;</span>
+</span></span><span style="display:flex;"><span>        ]
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="rule-that-defines-that-org-can-complete-an-instance-of-orgapp-which-state-is-at-the-end-event">Rule that defines that [ORG] can complete an instance of [ORG]/[APP] which state is at the end event.</h2>
 <p>Denne regelen tillatter applikasjonseier å utføre en kvittering på at de er ferdig med en instans. Instansen må ha en fullført process.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;xacml:Rule</span> <span style="color:#50fa7b">RuleId=</span><span style="color:#f1fa8c">&#34;urn:altinn:example:ruleid:5&#34;</span> <span style="color:#50fa7b">Effect=</span><span style="color:#f1fa8c">&#34;Permit&#34;</span><span style="color:#ff79c6">&gt;</span>
-<span style="display:block;width:100%;background-color:#3d3f4a">  <span style="color:#ff79c6">&lt;xacml:Description&gt;</span>Rule that defines that [ORG] can complete an instance of [ORG]/[APP] which state is at the end event.<span style="color:#ff79c6">&lt;/xacml:Description&gt;</span>
-</span>  <span style="color:#ff79c6">&lt;xacml:Target&gt;</span>
-    <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
-      <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
-        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
-<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>[ORG]<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
-</span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:org&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:subject-category:access-subject&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
-        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
-      <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
-    <span style="color:#ff79c6">&lt;/xacml:AnyOf&gt;</span>
-    <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
-      <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
-        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
-<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>[ORG]<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
-</span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:org&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
-        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
-        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
-<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>[APP]<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
-</span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:app&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
-        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
-        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
-<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>EndEvent_1<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
-</span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:end-event&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
-        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
-      <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
-    <span style="color:#ff79c6">&lt;/xacml:AnyOf&gt;</span>
-    <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
-      <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
-        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
-<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>complete<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
-</span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:action:action-id&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:action&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
-        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
-      <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
-    <span style="color:#ff79c6">&lt;/xacml:AnyOf&gt;</span>
-  <span style="color:#ff79c6">&lt;/xacml:Target&gt;</span>
-<span style="color:#ff79c6">&lt;/xacml:Rule&gt;</span>
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#ff79c6">&#34;$schema&#34;</span>: <span style="color:#f1fa8c">&#34;https://altinncdn.no/schemas/json/policy/policy.schema.v1.json&#34;</span>,
-  <span style="color:#ff79c6">&#34;Policy&#34;</span>: {
-    <span style="color:#ff79c6">&#34;Rules&#34;</span>: [
-      {
-        <span style="color:#ff79c6">&#34;Effect&#34;</span>: <span style="color:#f1fa8c">&#34;Permit&#34;</span>,
-        <span style="color:#ff79c6">&#34;Description&#34;</span>: <span style="color:#f1fa8c">&#34;Rule that defines that [ORG] can complete an instance of [ORG]/[APP] which state is at the end event.&#34;</span>,
-        <span style="color:#ff79c6">&#34;Subjects&#34;</span>: [
-<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#f1fa8c">&#34;org:[ORG]&#34;</span>
-</span>        ],
-        <span style="color:#ff79c6">&#34;Resources&#34;</span>: [
-<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#f1fa8c">&#34;app:[ORG]/[APP]/EndEvent_1&#34;</span>
-</span>        ],
-        <span style="color:#ff79c6">&#34;Actions&#34;</span>: [
-<span style="display:block;width:100%;background-color:#3d3f4a">          <span style="color:#f1fa8c">&#34;complete&#34;</span>
-</span>        ]
-      }
-    ]
-  }
-}
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#ff79c6">&lt;xacml:Rule</span> <span style="color:#50fa7b">RuleId=</span><span style="color:#f1fa8c">&#34;urn:altinn:example:ruleid:5&#34;</span> <span style="color:#50fa7b">Effect=</span><span style="color:#f1fa8c">&#34;Permit&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>  <span style="color:#ff79c6">&lt;xacml:Description&gt;</span>Rule that defines that [ORG] can complete an instance of [ORG]/[APP] which state is at the end event.<span style="color:#ff79c6">&lt;/xacml:Description&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;xacml:Target&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>[ORG]<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:org&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:subject-category:access-subject&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;/xacml:AnyOf&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>[ORG]<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:org&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>[APP]<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:app&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>EndEvent_1<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:end-event&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;/xacml:AnyOf&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>complete<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:action:action-id&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:action&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;/xacml:AnyOf&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;/xacml:Target&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&lt;/xacml:Rule&gt;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;$schema&#34;</span>: <span style="color:#f1fa8c">&#34;https://altinncdn.no/schemas/json/policy/policy.schema.v1.json&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;Policy&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;Rules&#34;</span>: [
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;Effect&#34;</span>: <span style="color:#f1fa8c">&#34;Permit&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;Description&#34;</span>: <span style="color:#f1fa8c">&#34;Rule that defines that [ORG] can complete an instance of [ORG]/[APP] which state is at the end event.&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;Subjects&#34;</span>: [
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>          <span style="color:#f1fa8c">&#34;org:[ORG]&#34;</span>
+</span></span><span style="display:flex;"><span>        ],
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;Resources&#34;</span>: [
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>          <span style="color:#f1fa8c">&#34;app:[ORG]/[APP]/EndEvent_1&#34;</span>
+</span></span><span style="display:flex;"><span>        ],
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;Actions&#34;</span>: [
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>          <span style="color:#f1fa8c">&#34;complete&#34;</span>
+</span></span><span style="display:flex;"><span>        ]
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
 
 <footer class=" footline" >
 	

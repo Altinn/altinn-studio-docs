@@ -381,13 +381,13 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/metadata/"><span>Metadata</span></a></li>
       <li class="dd-item">
         <a href="/nb/api/apps/instances/"><span>Instanser</span></a></li>
       <li class="dd-item">
-        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/data-elements/tags/"><span>Tags</span></a></li></ul></li>
       <li class="dd-item">
@@ -441,9 +441,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/community/about/"><span>Om</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/community/about/goals/"><span>Mål</span></a></li>
+        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li>
       <li class="dd-item">
-        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li></ul></li>
+        <a href="/nb/community/about/goals/"><span>Mål</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/community/contributing/"><span>Bidra til utvikling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -574,8 +574,8 @@ Se hvordan du oppdaterer nugetreferanser for applikasjonen din [her](../update/#
 <p>Generering og lagring av events er ikke enablet som default i applikasjonene per 22.10.2020.
 Det må derfor et manuelt steg til for at applikasjonen din skal generere events.</p>
 <p>I filen <code>appsettings.json</code> i mappen <em>App</em> må følgende legges til i seksjonen <em>AppSettings</em></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#f1fa8c">&#34;RegisterEventsWithEventsComponent&#34;</span>: <span style="color:#ff79c6">true</span>
-</code></pre></div><h2 id="pushe-egendefinerte-events-i-applikasjonen-din">Pushe egendefinerte events i applikasjonen din</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#f1fa8c">&#34;RegisterEventsWithEventsComponent&#34;</span>: <span style="color:#ff79c6">true</span>
+</span></span></code></pre></div><h2 id="pushe-egendefinerte-events-i-applikasjonen-din">Pushe egendefinerte events i applikasjonen din</h2>
 <p>Servicen <code>IEvents</code> er eksponert i applikasjonen og kan dependency injectes
 i den klassen der du har behov for å generere et egendefinert event.</p>
 <p>Metoden <em>AddEvent</em> krever navnet på eventypen og instansen som input.</p>
@@ -583,112 +583,112 @@ i den klassen der du har behov for å generere et egendefinert event.</p>
 <p>I denne seksjonen finner du et eksempel på hvordan man kan generere
 et egendefinert event ved instansiering av applikasjonen.</p>
 <p>Logikken er implementert i <code>InstantiationHandler.cs</code></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">using</span> Altinn.App.Services.Interface;
-<span style="color:#ff79c6">using</span> Altinn.App.PlatformServices.Interface;
-<span style="color:#ff79c6">using</span> Altinn.App.Services.Models.Validation;
-<span style="color:#ff79c6">using</span> Altinn.Platform.Storage.Interface.Models;
-<span style="color:#ff79c6">using</span> System.Threading.Tasks;
-<span style="color:#6272a4">// using Altinn.App.Models; // Uncomment this line to refer to app model(s)
-</span><span style="color:#6272a4"></span>
-<span style="color:#ff79c6">namespace</span> Altinn.App.AppLogic
-{
-    <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">InstantiationHandler</span>
-    {
-        <span style="color:#ff79c6">private</span> IProfile <span style="color:#bd93f9">_</span>profileService;
-        <span style="color:#ff79c6">private</span> IRegister <span style="color:#bd93f9">_</span>registerService;
-        <span style="color:#ff79c6">private</span> IEvents <span style="color:#bd93f9">_</span>eventsService;
-
-        <span style="color:#6272a4">/// &lt;summary&gt;
-</span><span style="color:#6272a4"></span>        <span style="color:#6272a4">/// Set up access to profile and register services
-</span><span style="color:#6272a4"></span>        <span style="color:#6272a4">/// &lt;/summary&gt;
-</span><span style="color:#6272a4"></span>        <span style="color:#ff79c6">public</span> InstantiationHandler(IProfile profileService, IRegister registerService, IEvents eventsService)
-        {
-            <span style="color:#bd93f9">_</span>profileService = profileService;
-            <span style="color:#bd93f9">_</span>registerService = registerService;
-            <span style="color:#bd93f9">_</span>eventsService = eventsService;
-        }
-
-        <span style="color:#6272a4">/// &lt;summary&gt;
-</span><span style="color:#6272a4"></span>        <span style="color:#6272a4">/// Run validations related to instantiation
-</span><span style="color:#6272a4"></span>        <span style="color:#6272a4">/// &lt;/summary&gt;
-</span><span style="color:#6272a4"></span>        <span style="color:#6272a4">/// &lt;example&gt;
-</span><span style="color:#6272a4"></span>        <span style="color:#6272a4">/// if ([some condition])
-</span><span style="color:#6272a4"></span>        <span style="color:#6272a4">/// {
-</span><span style="color:#6272a4"></span>        <span style="color:#6272a4">///     return new ValidationResult(&#34;[error message]&#34;);
-</span><span style="color:#6272a4"></span>        <span style="color:#6272a4">/// }
-</span><span style="color:#6272a4"></span>        <span style="color:#6272a4">/// return null;
-</span><span style="color:#6272a4"></span>        <span style="color:#6272a4">/// &lt;/example&gt;
-</span><span style="color:#6272a4"></span>        <span style="color:#6272a4">/// &lt;param name=&#34;instance&#34;&gt;&lt;/param&gt;
-</span><span style="color:#6272a4"></span>        <span style="color:#6272a4">/// &lt;param name=&#34;validationResults&#34;&gt;&lt;/param&gt;
-</span><span style="color:#6272a4"></span>        <span style="color:#6272a4">/// &lt;returns&gt;The validation result object (null if no errors) &lt;/returns&gt;
-</span><span style="color:#6272a4"></span>        <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;InstantiationValidationResult&gt; RunInstantiationValidation(Instance instance)
-        {
-            <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">await</span> Task.FromResult((InstantiationValidationResult)<span style="color:#ff79c6">null</span>);
-        }
-
-        <span style="color:#6272a4">/// &lt;summary&gt;
-</span><span style="color:#6272a4"></span>        <span style="color:#6272a4">/// Run events related to instantiation
-</span><span style="color:#6272a4"></span>        <span style="color:#6272a4">/// &lt;/summary&gt;
-</span><span style="color:#6272a4"></span>        <span style="color:#6272a4">/// &lt;remarks&gt;
-</span><span style="color:#6272a4"></span>        <span style="color:#6272a4">/// For example custom prefill.
-</span><span style="color:#6272a4"></span>        <span style="color:#6272a4">/// &lt;/remarks&gt;
-</span><span style="color:#6272a4"></span>        <span style="color:#6272a4">/// &lt;param name=&#34;instance&#34;&gt;Instance information&lt;/param&gt;
-</span><span style="color:#6272a4"></span>        <span style="color:#6272a4">/// &lt;param name=&#34;data&#34;&gt;The data object created&lt;/param&gt;
-</span><span style="color:#6272a4"></span>        <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task DataCreation(Instance instance, <span style="color:#8be9fd">object</span> data)
-        {
-            <span style="color:#ff79c6">await</span> <span style="color:#bd93f9">_</span>eventsService.AddEvent(<span style="color:#f1fa8c">&#34;app.test.event&#34;</span>, instance);
-            <span style="color:#ff79c6">await</span> Task.CompletedTask;
-        }
-    }
-}
-</code></pre></div><ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#ff79c6">using</span> Altinn.App.Services.Interface;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> Altinn.App.PlatformServices.Interface;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> Altinn.App.Services.Models.Validation;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> Altinn.Platform.Storage.Interface.Models;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> System.Threading.Tasks;
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">// using Altinn.App.Models; // Uncomment this line to refer to app model(s)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">namespace</span> Altinn.App.AppLogic
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">InstantiationHandler</span>
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">private</span> IProfile _profileService;
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">private</span> IRegister _registerService;
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">private</span> IEvents _eventsService;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">/// &lt;summary&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">/// Set up access to profile and register services</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">/// &lt;/summary&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">public</span> InstantiationHandler(IProfile profileService, IRegister registerService, IEvents eventsService)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            _profileService = profileService;
+</span></span><span style="display:flex;"><span>            _registerService = registerService;
+</span></span><span style="display:flex;"><span>            _eventsService = eventsService;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">/// &lt;summary&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">/// Run validations related to instantiation</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">/// &lt;/summary&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">/// &lt;example&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">/// if ([some condition])</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">/// {</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">///     return new ValidationResult(&#34;[error message]&#34;);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">/// }</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">/// return null;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">/// &lt;/example&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">/// &lt;param name=&#34;instance&#34;&gt;&lt;/param&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">/// &lt;param name=&#34;validationResults&#34;&gt;&lt;/param&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">/// &lt;returns&gt;The validation result object (null if no errors) &lt;/returns&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;InstantiationValidationResult&gt; RunInstantiationValidation(Instance instance)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">await</span> Task.FromResult((InstantiationValidationResult)<span style="color:#ff79c6">null</span>);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">/// &lt;summary&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">/// Run events related to instantiation</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">/// &lt;/summary&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">/// &lt;remarks&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">/// For example custom prefill.</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">/// &lt;/remarks&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">/// &lt;param name=&#34;instance&#34;&gt;Instance information&lt;/param&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">/// &lt;param name=&#34;data&#34;&gt;The data object created&lt;/param&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task DataCreation(Instance instance, <span style="color:#8be9fd">object</span> data)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">await</span> _eventsService.AddEvent(<span style="color:#f1fa8c">&#34;app.test.event&#34;</span>, instance);
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">await</span> Task.CompletedTask;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ol>
 <li>
 <p>Den private variabelen for servicen inkluderes i klassen</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">private</span> IEvents <span style="color:#bd93f9">_</span>eventsService;
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#ff79c6">private</span> IEvents _eventsService;
+</span></span></code></pre></div></li>
 <li>
 <p>Namespce for IEvents må inkluderes i klassen. 
 Legg til linjen nedenfor blant de andre <em>using</em>-statements øverst i filen.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">using</span> Altinn.App.PlatformServices.Interface;
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#ff79c6">using</span> Altinn.App.PlatformServices.Interface;
+</span></span></code></pre></div></li>
 <li>
 <p>IEvents servicen dependency injectes inn i klassen. Og den private variabelen blir assignet en verdi.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">    <span style="color:#ff79c6">public</span> InstantiationHandler(IProfile profileService, IRegister registerService, IEvents eventsService)
-    {
-        <span style="color:#bd93f9">_</span>profileService = profileService;
-        <span style="color:#bd93f9">_</span>registerService = registerService;
-        <span style="color:#bd93f9">_</span>eventsService = eventsService;
-    }
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span>    <span style="color:#ff79c6">public</span> InstantiationHandler(IProfile profileService, IRegister registerService, IEvents eventsService)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        _profileService = profileService;
+</span></span><span style="display:flex;"><span>        _registerService = registerService;
+</span></span><span style="display:flex;"><span>        _eventsService = eventsService;
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div></li>
 <li>
 <p>I metoden der man har behov for å genere et event kaller man på servicen.</p>
 <p>Her har det egendefinerte eventet fått navnet <code>app.test.event</code>,
 i tillegg sendes instansen med. Denne brukes til å populere resterende metadata om eventet.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">await</span> <span style="color:#bd93f9">_</span>eventsService.AddEvent(<span style="color:#f1fa8c">&#34;app.test.event&#34;</span>, instance);  
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#ff79c6">await</span> _eventsService.AddEvent(<span style="color:#f1fa8c">&#34;app.test.event&#34;</span>, instance);  
+</span></span></code></pre></div></li>
 <li>
 <p>Dersom du prøver å bygge løsningen nå vil det feile.</p>
 <p>IEvents vil mangle der InstantiationHandler instansieres. Naviger til <code>App.cs</code>
 og dependency inject servicen inn i konstruktøren til App.</p>
 <p>Videre må tjenesten legges til i kallet der InstantiationHandler instansieres som vist nedenfor.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">public</span> App(
-    IAppResources appResourcesService,
-    ILogger&lt;App&gt; logger,
-    IData dataService,
-    IProcess processService,
-    IPDF pdfService,
-    IProfile profileService,
-    IRegister registerService,
-    IPrefill prefillService,
-    IEvents eventsService
-    ) : <span style="color:#ff79c6">base</span>(appResourcesService, logger, dataService, processService, pdfService, prefillService)
-{
-    <span style="color:#bd93f9">_l</span>ogger = logger;
-    <span style="color:#bd93f9">_</span>validationHandler = <span style="color:#ff79c6">new</span> ValidationHandler();
-    <span style="color:#bd93f9">_</span>calculationHandler = <span style="color:#ff79c6">new</span> CalculationHandler();
-    <span style="color:#bd93f9">_</span>instantiationHandler = <span style="color:#ff79c6">new</span> InstantiationHandler(profileService, registerService, eventsService);
-}
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#ff79c6">public</span> App(
+</span></span><span style="display:flex;"><span>    IAppResources appResourcesService,
+</span></span><span style="display:flex;"><span>    ILogger&lt;App&gt; logger,
+</span></span><span style="display:flex;"><span>    IData dataService,
+</span></span><span style="display:flex;"><span>    IProcess processService,
+</span></span><span style="display:flex;"><span>    IPDF pdfService,
+</span></span><span style="display:flex;"><span>    IProfile profileService,
+</span></span><span style="display:flex;"><span>    IRegister registerService,
+</span></span><span style="display:flex;"><span>    IPrefill prefillService,
+</span></span><span style="display:flex;"><span>    IEvents eventsService
+</span></span><span style="display:flex;"><span>    ) : <span style="color:#ff79c6">base</span>(appResourcesService, logger, dataService, processService, pdfService, prefillService)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    _logger = logger;
+</span></span><span style="display:flex;"><span>    _validationHandler = <span style="color:#ff79c6">new</span> ValidationHandler();
+</span></span><span style="display:flex;"><span>    _calculationHandler = <span style="color:#ff79c6">new</span> CalculationHandler();
+</span></span><span style="display:flex;"><span>    _instantiationHandler = <span style="color:#ff79c6">new</span> InstantiationHandler(profileService, registerService, eventsService);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></li>
 <li>
 <p>Applikasjonen din er nå klar til å generere et egendefinert event under instansiering.
 Dette er mulig å <a href="https://github.com/Altinn/altinn-studio/blob/master/LOCALAPP.md">teste lokalt</a> før det evt. deployes til et testmiljø.</p>

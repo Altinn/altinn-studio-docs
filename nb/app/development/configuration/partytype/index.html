@@ -381,13 +381,13 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/metadata/"><span>Metadata</span></a></li>
       <li class="dd-item">
         <a href="/nb/api/apps/instances/"><span>Instanser</span></a></li>
       <li class="dd-item">
-        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/data-elements/tags/"><span>Tags</span></a></li></ul></li>
       <li class="dd-item">
@@ -441,9 +441,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/community/about/"><span>Om</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/community/about/goals/"><span>Mål</span></a></li>
+        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li>
       <li class="dd-item">
-        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li></ul></li>
+        <a href="/nb/community/about/goals/"><span>Mål</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/community/contributing/"><span>Bidra til utvikling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -574,13 +574,13 @@ På denne siden krysser du av for de aktørtypene en app er tilgjengelig for. Hv
 <h2 id="justere-i-applicationmetadatajson">Justere i applicationmetadata.json</h2>
 <p>Hvis du foretrekker å jobbe i kode, finner du muligheten til å justere hvilke aktørtyper som kan benytte en app i <code>applicationmetadata.json</code> som ligger i mappa <code>App/config</code> i app-repositoryet. 
 Eksempelet under viser samme innstillinger som skjermdumpen.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">  <span style="color:#f1fa8c">&#34;partyTypesAllowed&#34;</span>: {
-    <span style="color:#ff79c6">&#34;bankruptcyEstate&#34;</span>: <span style="color:#ff79c6">false</span>,
-    <span style="color:#ff79c6">&#34;organisation&#34;</span>: <span style="color:#ff79c6">true</span>,
-    <span style="color:#ff79c6">&#34;person&#34;</span>: <span style="color:#ff79c6">false</span>,
-    <span style="color:#ff79c6">&#34;subUnit&#34;</span>: <span style="color:#ff79c6">true</span>
-  },
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>  <span style="color:#f1fa8c">&#34;partyTypesAllowed&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;bankruptcyEstate&#34;</span>: <span style="color:#ff79c6">false</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;organisation&#34;</span>: <span style="color:#ff79c6">true</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;person&#34;</span>: <span style="color:#ff79c6">false</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;subUnit&#34;</span>: <span style="color:#ff79c6">true</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span></code></pre></div>
 
 <footer class=" footline" ></footer>
                 </div>

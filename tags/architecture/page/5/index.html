@@ -109,7 +109,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -209,7 +209,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -281,7 +281,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -1159,8 +1159,7 @@ Sofware Linking &amp; Packaging The project has the capability to build packages
     </header>
     <section class="post-excerpt">
         <p>Components relationship The figure below shows the relationship between the different componentes in the technical architecture and the capabilities they provide.
-
- &lt;li&gt;&lt;a href=&quot;/technology/architecture/components/application/&quot;&gt;Application Components&lt;/a&gt;&lt;p&gt;The Application Components is split in to solution-specific application components, application construction components and non-solution application components.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/technology/architecture/components/data/&quot;&gt;Data Components&lt;/a&gt;&lt;p&gt;Data is the most important part of the solutions in Altinn.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/technology/architecture/components/infrastructure/&quot;&gt;Infrastructure components&lt;/a&gt;&lt;p&gt;Altinn 3 is hosted in public cloud, and all infrastructure components are cloud based. <a class="read-more" href="/technology/architecture/components/">&raquo;</a></p>
+&lt;li&gt;&lt;a href=&quot;/technology/architecture/components/application/&quot;&gt;Application Components&lt;/a&gt;&lt;p&gt;The Application Components is split in to solution-specific application components, application construction components and non-solution application components.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/technology/architecture/components/data/&quot;&gt;Data Components&lt;/a&gt;&lt;p&gt;Data is the most important part of the solutions in Altinn.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/technology/architecture/components/infrastructure/&quot;&gt;Infrastructure components&lt;/a&gt;&lt;p&gt;Altinn 3 is hosted in public cloud, and all infrastructure components are cloud based. <a class="read-more" href="/technology/architecture/components/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         
@@ -1180,7 +1179,7 @@ Sofware Linking &amp; Packaging The project has the capability to build packages
         <p>Azure Kubernetes Services Altinn 3 uses Kubernetes to manage all our containerized applications.
 Azure Kubernetes Services (AKS) is a fully managed Kubernetes used by Altinn 3.
 For each environment (Production, Application Test, Performance Test, and Integration Test) there is AKS cluster for Altinn Platform and the orgs set up for that specific environment.
-The Kubernetes masters are managed by Azure. Our DevOps team only manages and maintains the agent nodes. As a managed Kubernetes service, AKS is free - Microsoft only charges for the agent nodes within your clusters, not for the masters. <a class="read-more" href="/technology/architecture/components/infrastructure/computing/">&raquo;</a></p>
+The Kubernetes masters are managed by Azure. Our DevOps team only manages and maintains the agent nodes. <a class="read-more" href="/technology/architecture/components/infrastructure/computing/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         
@@ -1199,7 +1198,8 @@ The Kubernetes masters are managed by Azure. Our DevOps team only manages and ma
         <h2 class="post-title"><a href="/technology/architecture/components/data/conceptual/">Conceptual</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Description Instance Usage Storage  <a class="read-more" href="/technology/architecture/components/data/conceptual/">&raquo;</a></p>
+        <p>
+Description Instance Usage Storage  <a class="read-more" href="/technology/architecture/components/data/conceptual/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         
@@ -1217,7 +1217,7 @@ The Kubernetes masters are managed by Azure. Our DevOps team only manages and ma
     </header>
     <section class="post-excerpt">
         <p>As an example, a decision request could contain only userId and instanceId together with the action requested.
-&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt; &lt;Request xsi:schemaLocation=&#34;urn:oasis:names:tc:xacml:3.0:core:schema:wd-17 http://docs.oasis-open.org/xacml/3.0/xacml-core-v3-schema-wd-17.xsd&#34; ReturnPolicyIdList=&#34;false&#34; CombinedDecision=&#34;false&#34; xmlns=&#34;urn:oasis:names:tc:xacml:3.0:core:schema:wd-17&#34; xmlns:xsi=&#34;http://www.w3.org/2001/XMLSchema-instance&#34;&gt; &lt;Attributes Category=&#34;urn:oasis:names:tc:xacml:1.0:subject-category:access-subject&#34;&gt; &lt;Attribute IncludeInResult=&#34;false&#34; AttributeId=&#34;urn:altinn:user-id&#34;&gt; &lt;AttributeValue DataType=&#34;http://www.w3.org/2001/XMLSchema#string&#34;&gt;15468&lt;/AttributeValue&gt;  &lt;/Attribute&gt; &lt;/Attributes&gt; &lt;Attributes Category=&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&#34;&gt; &lt;Attribute IncludeInResult=&#34;false&#34; AttributeId=&#34;urn:altinn:instance-id&#34;&gt; &lt;AttributeValue DataType=&#34;http://www.w3.org/2001/XMLSchema#string&#34;&gt;cbdc7b44-9442-4fe0-854b-da278bf0b0e&lt;/AttributeValue&gt;  &lt;/Attribute&gt; &lt;/Attributes&gt; &lt;Attributes Category=&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:action&#34;&gt; &lt;Attribute IncludeInResult=&#34;false&#34; AttributeId=&#34;urn:oasis:names:tc:xacml:1.0:action:action-id&#34;&gt; &lt;AttributeValue DataType=&#34;http://www.w3.org/2001/XMLSchema#string&#34;&gt;Read&lt;/AttributeValue&gt;  &lt;/Attribute&gt; &lt;/Attributes&gt; &lt;Attributes Category=&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:environment&#34; /&gt; &lt;/Request&gt; The enriched decision request contains all the needed attributes for subject and resource so PDP can identify the correct policy and evauluate the request based on it. <a class="read-more" href="/technology/architecture/components/application/solution/altinn-platform/authorization/contexthandler/">&raquo;</a></p>
+&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt; &lt;Request xsi:schemaLocation=&#34;urn:oasis:names:tc:xacml:3.0:core:schema:wd-17 http://docs.oasis-open.org/xacml/3.0/xacml-core-v3-schema-wd-17.xsd&#34; ReturnPolicyIdList=&#34;false&#34; CombinedDecision=&#34;false&#34; xmlns=&#34;urn:oasis:names:tc:xacml:3.0:core:schema:wd-17&#34; xmlns:xsi=&#34;http://www.w3.org/2001/XMLSchema-instance&#34;&gt; &lt;Attributes Category=&#34;urn:oasis:names:tc:xacml:1.0:subject-category:access-subject&#34;&gt; &lt;Attribute IncludeInResult=&#34;false&#34; AttributeId=&#34;urn:altinn:user-id&#34;&gt; &lt;AttributeValue DataType=&#34;http://www.w3.org/2001/XMLSchema#string&#34;&gt;15468&lt;/AttributeValue&gt; &lt;/Attribute&gt; &lt;/Attributes&gt; &lt;Attributes Category=&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&#34;&gt; &lt;Attribute IncludeInResult=&#34;false&#34; AttributeId=&#34;urn:altinn:instance-id&#34;&gt; &lt;AttributeValue DataType=&#34;http://www.w3.org/2001/XMLSchema#string&#34;&gt;cbdc7b44-9442-4fe0-854b-da278bf0b0e&lt;/AttributeValue&gt; &lt;/Attribute&gt; &lt;/Attributes&gt; &lt;Attributes Category=&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:action&#34;&gt; &lt;Attribute IncludeInResult=&#34;false&#34; AttributeId=&#34;urn:oasis:names:tc:xacml:1.0:action:action-id&#34;&gt; &lt;AttributeValue DataType=&#34;http://www.w3.org/2001/XMLSchema#string&#34;&gt;Read&lt;/AttributeValue&gt; &lt;/Attribute&gt; &lt;/Attributes&gt; &lt;Attributes Category=&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:environment&#34; /&gt; &lt;/Request&gt; The enriched decision request contains all the needed attributes for subject and resource so PDP can identify the correct policy and evauluate the request based on it. <a class="read-more" href="/technology/architecture/components/application/solution/altinn-platform/authorization/contexthandler/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         
@@ -1262,7 +1262,7 @@ Data Enrichment &amp; Aggregation A application developer can define data enrich
     </header>
     <section class="post-excerpt">
         <p>Altinn Studio, Altinn Apps and Altinn Platform is created to give the government, the citizens and the businesses of Norway a effective way to share data and retrieve data.
- &lt;li&gt;&lt;a href=&quot;/technology/architecture/components/data/conceptual/&quot;&gt;Conceptual&lt;/a&gt;&lt;p&gt;The conceptual data model describes the data entities in the solutions and their relatiohip.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/technology/architecture/components/data/logical/&quot;&gt;Logical datamodel&lt;/a&gt;&lt;p&gt;The logcical datamodel describes the data entities that is stored.&lt;/p&gt;&lt;/li&gt;  <a class="read-more" href="/technology/architecture/components/data/">&raquo;</a></p>
+&lt;li&gt;&lt;a href=&quot;/technology/architecture/components/data/conceptual/&quot;&gt;Conceptual&lt;/a&gt;&lt;p&gt;The conceptual data model describes the data entities in the solutions and their relatiohip.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/technology/architecture/components/data/logical/&quot;&gt;Logical datamodel&lt;/a&gt;&lt;p&gt;The logcical datamodel describes the data entities that is stored.&lt;/p&gt;&lt;/li&gt; <a class="read-more" href="/technology/architecture/components/data/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         

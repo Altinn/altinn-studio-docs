@@ -117,7 +117,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -217,7 +217,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -297,7 +297,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -1111,97 +1111,97 @@ if(host != "localhost")
 <li>Updated package dependencies<br>
 Navigate to you application repository and find <code>App.csproj</code> in the <code>App</code> folder.<br>
 Update nuget dependencies in <code>App.csproj</code> to version 3.0.0.
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.Api&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;3.0.0&#34;</span> <span style="color:#ff79c6">/&gt;</span>
-<span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.Common&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;3.0.0&#34;</span> <span style="color:#ff79c6">/&gt;</span>
-<span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.PlatformServices&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;3.0.0&#34;</span> <span style="color:#ff79c6">/&gt;</span>
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.Api&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;3.0.0&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.Common&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;3.0.0&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.PlatformServices&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;3.0.0&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+</span></span></code></pre></div></li>
 <li>Create a new file for a new class called PdfHandler in the logic/Print folder <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Apps/AppTemplates/AspNet/App/logic/Print/PdfHandler.cs">File from template</a>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">using</span> System.Threading.Tasks;
-<span style="color:#ff79c6">using</span> Altinn.App.Common.Models; 
-<span style="color:#ff79c6">namespace</span> Altinn.App.AppLogic.Print
-{
-  <span style="color:#6272a4">/// &lt;summary&gt;
-</span><span style="color:#6272a4"></span>  <span style="color:#6272a4">/// Handler for formatting PDF.
-</span><span style="color:#6272a4"></span>  <span style="color:#6272a4">/// &lt;/summary&gt;
-</span><span style="color:#6272a4"></span>  <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">PdfHandler</span>
-  {
-    <span style="color:#6272a4">/// &lt;summary&gt;
-</span><span style="color:#6272a4"></span>    <span style="color:#6272a4">/// Method to format PDF dynamic
-</span><span style="color:#6272a4"></span>    <span style="color:#6272a4">/// &lt;/summary&gt;
-</span><span style="color:#6272a4"></span>    <span style="color:#6272a4">/// &lt;param name=&#34;layoutSettings&#34;&gt;the layoutsettings&lt;/param&gt;
-</span><span style="color:#6272a4"></span>    <span style="color:#6272a4">/// &lt;param name=&#34;data&#34;&gt;data object&lt;/param&gt;
-</span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;LayoutSettings&gt; FormatPdf(LayoutSettings layoutSettings, <span style="color:#8be9fd">object</span> data)
-    {
-        <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">await</span> Task.FromResult(layoutSettings);
-    }
-  }
-}
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#ff79c6">using</span> System.Threading.Tasks;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> Altinn.App.Common.Models; 
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">namespace</span> Altinn.App.AppLogic.Print
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">/// &lt;summary&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">/// Handler for formatting PDF.</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">/// &lt;/summary&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">PdfHandler</span>
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">/// &lt;summary&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">/// Method to format PDF dynamic</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">/// &lt;/summary&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">/// &lt;param name=&#34;layoutSettings&#34;&gt;the layoutsettings&lt;/param&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">/// &lt;param name=&#34;data&#34;&gt;data object&lt;/param&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;LayoutSettings&gt; FormatPdf(LayoutSettings layoutSettings, <span style="color:#8be9fd">object</span> data)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">await</span> Task.FromResult(layoutSettings);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></li>
 <li>Changes to the App.cs file<br>
 Add using
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">using</span> Altinn.App.AppLogic.Print;
-<span style="color:#ff79c6">using</span> Microsoft.Extensions.Options;
-<span style="color:#ff79c6">using</span> Microsoft.AspNetCore.Http;
-<span style="color:#ff79c6">using</span> Altinn.App.Services.Configuration;
-</code></pre></div><p>Add a new private field below InstantiationHandler</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">  <span style="color:#ff79c6">private</span> <span style="color:#ff79c6">readonly</span> PdfHandler <span style="color:#bd93f9">_</span>pdfHandler;
-</code></pre></div><p>Change constructor from:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">public</span> App(
-  IAppResources appResourcesService,
-  ILogger&lt;App&gt; logger,
-  IData dataService,
-  IProcess processService,
-  IPDF pdfService,
-  IProfile profileService,
-  IRegister registerService,
-  IPrefill prefillService,
-  IInstance instanceService
-  ) : <span style="color:#ff79c6">base</span>(appResourcesService, logger, dataService, processService, pdfService, prefillService, instanceService)
-</code></pre></div><p>to:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">public</span> App(
-  IAppResources appResourcesService,
-  ILogger&lt;App&gt; logger,
-  IData dataService,
-  IProcess processService,
-  IPDF pdfService,
-  IProfile profileService,
-  IRegister registerService,
-  IPrefill prefillService,
-  IInstance instanceService,
-  IOptions&lt;GeneralSettings&gt; settings,
-  IText textService,
-  IHttpContextAccessor httpContextAccessor) : <span style="color:#ff79c6">base</span>(
-    appResourcesService,
-    logger,
-    dataService,
-    processService,
-    pdfService,
-    prefillService,
-    instanceService,
-    registerService,
-    settings,
-    profileService,
-    textService,
-    httpContextAccessor)
-{
-  <span style="color:#bd93f9">_l</span>ogger = logger;
-  <span style="color:#bd93f9">_</span>validationHandler = <span style="color:#ff79c6">new</span> ValidationHandler(httpContextAccessor);
-  <span style="color:#bd93f9">_</span>calculationHandler = <span style="color:#ff79c6">new</span> CalculationHandler();
-  <span style="color:#bd93f9">_</span>instantiationHandler = <span style="color:#ff79c6">new</span> InstantiationHandler(profileService, registerService);
-  <span style="color:#bd93f9">_</span>pdfHandler = <span style="color:#ff79c6">new</span> PdfHandler();
-}
-</code></pre></div><p>Add method</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#6272a4">/// &lt;summary&gt;
-</span><span style="color:#6272a4">/// Hook to run logic to hide pages or components when generatring PDF
-</span><span style="color:#6272a4">/// &lt;/summary&gt;
-</span><span style="color:#6272a4">/// &lt;param name=&#34;layoutSettings&#34;&gt;The layoutsettings. Can be null and need to be created in method&lt;/param&gt;
-</span><span style="color:#6272a4">/// &lt;param name=&#34;data&#34;&gt;The data that there is generated PDF from&lt;/param&gt;
-</span><span style="color:#6272a4">/// &lt;returns&gt;Layoutsetting with possible hidden fields or pages&lt;/returns&gt;
-</span><span style="color:#6272a4"></span><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">override</span> <span style="color:#ff79c6">async</span> Task&lt;LayoutSettings&gt; FormatPdf(LayoutSettings layoutSettings, <span style="color:#8be9fd">object</span> data)
-{
-    <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">await</span> <span style="color:#bd93f9">_</span>pdfHandler.FormatPdf(layoutSettings, data);
-}
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#ff79c6">using</span> Altinn.App.AppLogic.Print;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> Microsoft.Extensions.Options;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> Microsoft.AspNetCore.Http;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> Altinn.App.Services.Configuration;
+</span></span></code></pre></div>Add a new private field below InstantiationHandler
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span>  <span style="color:#ff79c6">private</span> <span style="color:#ff79c6">readonly</span> PdfHandler _pdfHandler;
+</span></span></code></pre></div>Change constructor from:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#ff79c6">public</span> App(
+</span></span><span style="display:flex;"><span>  IAppResources appResourcesService,
+</span></span><span style="display:flex;"><span>  ILogger&lt;App&gt; logger,
+</span></span><span style="display:flex;"><span>  IData dataService,
+</span></span><span style="display:flex;"><span>  IProcess processService,
+</span></span><span style="display:flex;"><span>  IPDF pdfService,
+</span></span><span style="display:flex;"><span>  IProfile profileService,
+</span></span><span style="display:flex;"><span>  IRegister registerService,
+</span></span><span style="display:flex;"><span>  IPrefill prefillService,
+</span></span><span style="display:flex;"><span>  IInstance instanceService
+</span></span><span style="display:flex;"><span>  ) : <span style="color:#ff79c6">base</span>(appResourcesService, logger, dataService, processService, pdfService, prefillService, instanceService)
+</span></span></code></pre></div>to:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#ff79c6">public</span> App(
+</span></span><span style="display:flex;"><span>  IAppResources appResourcesService,
+</span></span><span style="display:flex;"><span>  ILogger&lt;App&gt; logger,
+</span></span><span style="display:flex;"><span>  IData dataService,
+</span></span><span style="display:flex;"><span>  IProcess processService,
+</span></span><span style="display:flex;"><span>  IPDF pdfService,
+</span></span><span style="display:flex;"><span>  IProfile profileService,
+</span></span><span style="display:flex;"><span>  IRegister registerService,
+</span></span><span style="display:flex;"><span>  IPrefill prefillService,
+</span></span><span style="display:flex;"><span>  IInstance instanceService,
+</span></span><span style="display:flex;"><span>  IOptions&lt;GeneralSettings&gt; settings,
+</span></span><span style="display:flex;"><span>  IText textService,
+</span></span><span style="display:flex;"><span>  IHttpContextAccessor httpContextAccessor) : <span style="color:#ff79c6">base</span>(
+</span></span><span style="display:flex;"><span>    appResourcesService,
+</span></span><span style="display:flex;"><span>    logger,
+</span></span><span style="display:flex;"><span>    dataService,
+</span></span><span style="display:flex;"><span>    processService,
+</span></span><span style="display:flex;"><span>    pdfService,
+</span></span><span style="display:flex;"><span>    prefillService,
+</span></span><span style="display:flex;"><span>    instanceService,
+</span></span><span style="display:flex;"><span>    registerService,
+</span></span><span style="display:flex;"><span>    settings,
+</span></span><span style="display:flex;"><span>    profileService,
+</span></span><span style="display:flex;"><span>    textService,
+</span></span><span style="display:flex;"><span>    httpContextAccessor)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  _logger = logger;
+</span></span><span style="display:flex;"><span>  _validationHandler = <span style="color:#ff79c6">new</span> ValidationHandler(httpContextAccessor);
+</span></span><span style="display:flex;"><span>  _calculationHandler = <span style="color:#ff79c6">new</span> CalculationHandler();
+</span></span><span style="display:flex;"><span>  _instantiationHandler = <span style="color:#ff79c6">new</span> InstantiationHandler(profileService, registerService);
+</span></span><span style="display:flex;"><span>  _pdfHandler = <span style="color:#ff79c6">new</span> PdfHandler();
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>Add method
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#6272a4">/// &lt;summary&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">/// Hook to run logic to hide pages or components when generatring PDF</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">/// &lt;/summary&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">/// &lt;param name=&#34;layoutSettings&#34;&gt;The layoutsettings. Can be null and need to be created in method&lt;/param&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">/// &lt;param name=&#34;data&#34;&gt;The data that there is generated PDF from&lt;/param&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">/// &lt;returns&gt;Layoutsetting with possible hidden fields or pages&lt;/returns&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">override</span> <span style="color:#ff79c6">async</span> Task&lt;LayoutSettings&gt; FormatPdf(LayoutSettings layoutSettings, <span style="color:#8be9fd">object</span> data)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">await</span> _pdfHandler.FormatPdf(layoutSettings, data);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></li>
 </ol>
 
 

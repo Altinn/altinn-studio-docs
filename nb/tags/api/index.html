@@ -381,13 +381,13 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/metadata/"><span>Metadata</span></a></li>
       <li class="dd-item">
         <a href="/nb/api/apps/instances/"><span>Instanser</span></a></li>
       <li class="dd-item">
-        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/data-elements/tags/"><span>Tags</span></a></li></ul></li>
       <li class="dd-item">
@@ -441,9 +441,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/community/about/"><span>Om</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/community/about/goals/"><span>Mål</span></a></li>
+        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li>
       <li class="dd-item">
-        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li></ul></li>
+        <a href="/nb/community/about/goals/"><span>Mål</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/community/contributing/"><span>Bidra til utvikling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -576,7 +576,7 @@ if(host != "localhost")
     </header>
     <section class="post-excerpt">
         <p>Application The Application model is the main model for metadata for the application.
-   Name Description     id A gobally unique id for the application. The value has two parts separated by a &lsquo;/&rsquo; character. The first part is the short name of the application owner and the second part is the name of the app.   versionId The current version of the application. (Currently not in use. <a class="read-more" href="/nb/api/models/app-metadata/">&raquo;</a></p>
+Name Description id A gobally unique id for the application. The value has two parts separated by a &lsquo;/&rsquo; character. The first part is the short name of the application owner and the second part is the name of the app. versionId The current version of the application. (Currently not in use.) org The short name of the application owner. <a class="read-more" href="/nb/api/models/app-metadata/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         
@@ -617,7 +617,7 @@ GET {basePath}/api/v1/applicationmetadata Get Application texts Get text resourc
     </header>
     <section class="post-excerpt">
         <p>Instance The Instance model is the main model of an instance. An instance can be regarded as an envelope or folder where data is collected and exchanged between the application user and owner. The instance document is a way for Altinn and external parties to track the state of one specific data exchange.
-Properties    Name Description     id A gobally unique id for the instance. <a class="read-more" href="/nb/api/models/instance/">&raquo;</a></p>
+Properties Name Description id A gobally unique id for the instance. The value has two parts separated by a &lsquo;/&rsquo; character. <a class="read-more" href="/nb/api/models/instance/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         
@@ -656,7 +656,7 @@ Properties    Name Description     id A gobally unique id for the instance. <a c
     </header>
     <section class="post-excerpt">
         <p>DataElement The data element model is the main model for metadata related to a specific data element. A data element can be any data associated with an instance. The two most common type of data is the actual form data and attachments.
-Properties    Name Description     id A globally unique id for the data element.   instanceGuid The globally unique id for the instance the data element is associated with. <a class="read-more" href="/nb/api/models/data-element/">&raquo;</a></p>
+Properties Name Description id A globally unique id for the data element. instanceGuid The globally unique id for the instance the data element is associated with. dataType The name of the data type describing the requirements of the data element. <a class="read-more" href="/nb/api/models/data-element/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         
@@ -677,7 +677,7 @@ Properties    Name Description     id A globally unique id for the data element.
     <section class="post-excerpt">
         <p>Authentication for application owners Application owners should be authenticated with Maskinporten.
 API provisioning in Maskinporten API-provider To provide an API in maskinporten Altinn has to do two operations.
- As API-provider Altinn registres a scope in Maskinporten POST /scopes { &#34;prefix&#34;: &#34;altinn&#34;, &#34;subscope&#34;: &#34;instances/metadata.read&#34;, &#34;description&#34;: &#34;Clients can access metadata for all instances for all apps of the organisation&#34; }  As API-provider Altinn has to give access to its scope for a given organisation PUT /scopes/access/889640782? <a class="read-more" href="/nb/api/scenarios/authentication/">&raquo;</a></p>
+As API-provider Altinn registres a scope in Maskinporten POST /scopes { &#34;prefix&#34;: &#34;altinn&#34;, &#34;subscope&#34;: &#34;instances/metadata.read&#34;, &#34;description&#34;: &#34;Clients can access metadata for all instances for all apps of the organisation&#34; } As API-provider Altinn has to give access to its scope for a given organisation PUT /scopes/access/889640782? <a class="read-more" href="/nb/api/scenarios/authentication/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         
