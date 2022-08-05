@@ -21,7 +21,7 @@ In this module you will further develop the application you created in [module 1
 
 {{% expandlarge id="add-infopage" header="Add Info Page" %}}
 
-For forms were a lot of information is given or collected,
+For forms where a lot of information is given or collected,
 the user experience will improve if the application is divided in several pages.
 
 Let's take a closer look at how you can create a new page in the application that is
