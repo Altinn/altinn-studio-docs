@@ -6,7 +6,7 @@ tags: [apps, training, repeating groups, validation, data processing, consume AP
 weight: 20
 ---
 
-In this module you will expand the application you have built in the previous modules to support more of [the functionality that the municipality of Sogndal wishes to implement](../case/#demands-from-the-muncipality).
+In this module you will expand the application you have built in the previous modules to support more of [the functionality that the municipality of Sogndal wishes to implement](../case/#requirements-from-the-municipality).
 
 **Topics covered in this module**
 - Repeating groups

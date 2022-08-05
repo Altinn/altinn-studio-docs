@@ -7,7 +7,7 @@ tags: [apps, training, prefill, sporvalg]
 weight: 20
 ---
 
-In this module you will further develop the application you created in [module 1](../modul1) to fulfil more of [the requirements from the municipality of Sogndal](../case/#demands-from-the-muncipality).
+In this module you will further develop the application you created in [module 1](../modul1) to fulfil more of [the requirements from the municipality of Sogndal](../case/#requirements-from-the-municipality).
 
 **Themes covered in this module:**
 

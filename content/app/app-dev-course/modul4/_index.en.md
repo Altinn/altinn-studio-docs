@@ -6,7 +6,7 @@ tags: [apps, training, options, code lists, dynamics ]
 weight: 20
 ---
 
-In this module you're expanding the application you made in the previous modules to support even more of the [requirements of the municipality of Sogndal](../case/#demands-from-the-muncipality).
+In this module you're expanding the application you made in the previous modules to support even more of the [requirements of the municipality of Sogndal](../case/#requirements-from-the-municipality).
 
 **Topics covered in this module:**
 
@@ -128,7 +128,7 @@ The text and link should **only** be visible if the user has chosen `IKT (data/i
 
 ### Useful documentation
 - [Add functions for dynamics](/app/development/logic/dynamic/#add-or-edit-functions-for-dynamics)
-- [Examples of use of dynamic in form](/app/development/logic/dynamic/#example-usage-of-dynamics-on-an-appe)
+- [Examples of use of dynamic in form](/app/development/logic/dynamic/#example-usage-of-dynamics-on-an-app)
 
 ### Knowledge check
 - If you add a new function to `RuleHandlerHelper` - where will these functions run?

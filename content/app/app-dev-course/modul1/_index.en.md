@@ -41,7 +41,7 @@ There is a wish that one or more of the words "newcomer" and "Sogndal" is includ
 
 
 {{% expandlarge id="upload-datamodel" header="Upload data model" %}}
-The municipality of Sogndal has created [a data model](app/app-dev-course/modul1/datamodel.xsd)
+The municipality of Sogndal has created [a data model](/app/app-dev-course/modul1/datamodel.xsd)
 that represents data they wish to collect from future residents.
 
 {{% notice info %}}
