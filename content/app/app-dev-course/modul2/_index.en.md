@@ -100,8 +100,8 @@ Based on the answer, the user will be sent to either _Track 1_ or _Track 2_.
 - The user should then be sent to a page with the following text:
 
     ```rich
-    This form is not for you.
-    For information about other offers in the municipality click here.
+    Dette skjemaet er ikke for deg.
+    Se en oversikt over andre tilbud i kommunen her.
     ```
 
 - Line 2 in the text should be a link directing to:

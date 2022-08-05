@@ -45,7 +45,7 @@ Due to a personal vendetta among one of the employees in the municipality of Sog
 should **NOT** be allowed to move to Sogndal. In this case, an error message should appear at the field in question with the following text:
 
 ```rich
-You are not welcome to our municipality. Sorry!
+Du er ikke velkommen til vår kommune. Beklager!
 ```
 
 ### Useful documentation

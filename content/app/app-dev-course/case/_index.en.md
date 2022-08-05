@@ -93,8 +93,8 @@ Based on the answer, the user will be sent to either _Track 1_ or _Track 2_.
 - The user has stated that the form does not apply to them
 - The user should then be sent to a page with the following text:
     ```md
-    This form is not for you.
-    For information about other offers in the municipality click here.
+    Dette skjemaet er ikke for deg.
+    Se en oversikt over andre tilbud i kommunen her.
     ```
 - Line 2 in the text should be a link directing to https://www.sogndal.kommune.no/
 - It should not be possible to navigate to other pages of the form from this one.
@@ -175,12 +175,12 @@ At this point in the workflow the user should be able to
 The user should be presented with the following text before submitting the form.
 
 ```md
-You are now ready to submit a notification of moving to Sogndal.
+Du er nå klar for å sende inn melding om tilflytting til Sogndal kommune.
 
-By submitting this form you consent to the data you have entered being saved and used
-for customizing the municipality's offers to you during the next 18 months.
+Ved å sende inn dette skjemaet samtykker du til at dataen du har fylt ut kan lagres og benyttes
+til å tilpasse kommunens tilbud til deg de neste 18 månedene.
 
-Before you submit we recommend looking over your answers. You cannot change the answers after submitting.
+Før du sender inn vil vi anbefale å se over svarene dine. Du kan ikke endre svarene etter at du har sendt inn.
 ```
 {{% /expandlarge %}}
 
@@ -208,7 +208,7 @@ postal code `4619` as a previous residence should **NOT** be allowed to move to 
 In this case, an error message should appear at the field in question with the following text:
 
 ```md
-You are not welcome to our municipality. Sorry!
+Du er ikke velkommen til vår kommune. Beklager!
 ```
 
 {{% /expandlarge %}}
