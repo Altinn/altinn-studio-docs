@@ -13,7 +13,7 @@ In this module you are adding a process step in the application.
 - Confirmation step
 - Authorization rules
 - Validation
-- Overrule standard texts
+- Replace standard texts
 
 ## Tasks
 
@@ -87,18 +87,19 @@ Update the policy file so that it's authorization rules cover the new process st
 {{% /expandlarge %}}
 
 
-{{% expandlarge id="confirmation" header="Overrule standard texts for confirmation page" %}}
+{{% expandlarge id="confirmation" header="Replace standard texts for confirmation page" %}}
 
 ### Requirements from the municipality
 
 The user should be presented with the following text before submitting the form.
 
 ```rich
-You are now ready to submit a notification of moving to Sogndal.
+Du er nå klar for å sende inn melding om tilflytting til Sogndal kommune.
 
-By submitting this form you consent to the data you have entered being saved and used for customizing the municipality's offers to you during the next 18 months.
+Ved å sende inn dette skjemaet samtykker du til at dataen du har fylt ut kan lagres og benyttes
+til å tilpasse kommunens tilbud til deg de neste 18 månedene.
 
-Before you submit we recommend looking over your answers. You cannot change the answers after submitting them..
+Før du sender inn vil vi anbefale å se over svarene dine. Du kan ikke endre svarene etter at du har sendt inn.
 ```
 
 ### Useful documentation
