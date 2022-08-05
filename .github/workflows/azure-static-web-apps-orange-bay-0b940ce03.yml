@@ -10,19 +10,6 @@ on:
       - master
 
 jobs:
-  build_job:
-    if: (github.event_name == 'pull_request' && github.event.action != 'closed' && github.event.pull_request.head.repo.full_name != github.repository)
-    runs-on: ubuntu-latest
-    name: Build Job
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v3
-    - name: Setup Hugo
-      uses: peaceiris/actions-hugo@v2
-      with:
-        hugo-version: 'latest'
-    - name: Build
-      run: hugo
   build_and_deploy_job:
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed' && github.event.pull_request.head.repo.full_name == github.repository)
     runs-on: ubuntu-latest
