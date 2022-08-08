@@ -419,7 +419,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -427,7 +427,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -435,7 +435,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -521,7 +521,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -825,7 +825,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/technology/architecture/components/application/construction/altinn-platform/authentication/"><span>Authentication</span></a></li>
       <li class="dd-item">
-        <a href="/technology/architecture/components/application/construction/altinn-platform/authorization/"><span>Authorization</span></a></li>
+        <a href="/technology/architecture/components/application/construction/altinn-platform/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/construction/altinn-platform/authorization/acessgroups/"><span>Access Groups</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/technology/architecture/components/application/construction/altinn-platform/events/"><span>Events</span></a></li>
       <li class="dd-item">
@@ -1100,13 +1102,34 @@ if(host != "localhost")
 	
 	    <a class="newer-posts" href="/tags/architecture/page/7/">&larr; Previous Pages</a>
 	
-	<span class="page-number">Page 8 on 10</span>
+	<span class="page-number">Page 8 on 11</span>
 	
 	    <a class="older-posts" href="/tags/architecture/page/9/">Next Pages &rarr;</a>
 	
 </nav>
 
 	</div><article class="post technology">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/technology/architecture/components/application/nonsolutionspecific/operations/">Operations Application</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Application Performance Monitoring Some monitoring is done from Azure Portal with help of Azure Monitor Appliation Insight and other tools avaiable.
+PasS and &amp; IaaS configuration There are serveral ways PasS and &amp; IaaS resources are configured &amp; managed
+Azure Portal Azure CLI Azure mobile app &lt;li&gt;&lt;a href=&quot;/technology/architecture/components/application/nonsolutionspecific/operations/backupandrecovery/&quot;&gt;Backup and recovery&lt;/a&gt;&lt;p&gt;All data created in the different solutions are backed up so it is possible to restore it in case of data loss. <a class="read-more" href="/technology/architecture/components/application/nonsolutionspecific/operations/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+        
+
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+        
+    </footer>
+</article>
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/platform/oscloudplatform/">Operating Systems &amp; Cloud Platform</a></h2>
     </header>
@@ -1311,36 +1334,13 @@ Download as Visio
         
     </footer>
 </article>
-<article class="post technology">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/technology/architecture/capabilities/devops/platformoperations/">Platform Operations Management Capabilities</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>PaaS &amp; IaaS Management Capabilities Automation &amp; Scheduling (batch, scripts) This include running scripts for infrastructure and jobs both manual and scheduled.
-See operations application components for details about tools and applications used.
-Infrastructure Configuration &amp; Management The Altinn 3 platform is a large platform with serveral 100 cloud resources. The architecture provides serveral capabilityes to configure and manage all of this resource.
-See details here.
-Backup &amp; Recovery The Altinn 3 platform has the capability to backup and restore data created by applications hosted in Altinn Apps. <a class="read-more" href="/technology/architecture/capabilities/devops/platformoperations/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-        
-
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/devops/">devops</a>
-            
-        
-    </footer>
-</article>
 <div style="margin-bottom:2rem"></div>
 
 	<nav class="pagination" role="navigation">
 	
 	    <a class="newer-posts" href="/tags/architecture/page/7/">&larr; Previous Pages</a>
 	
-	<span class="page-number">Page 8 on 10</span>
+	<span class="page-number">Page 8 on 11</span>
 	
 	    <a class="older-posts" href="/tags/architecture/page/9/">Next Pages &rarr;</a>
 	

@@ -1582,6 +1582,13 @@
 	"content": "\n.NET Core is the cross-platform and open source development framework used in Altinn 3. ASP.NET Core is used for developing APIs.\nWe\u0026rsquo;ve also published a few packages on nuget.org.\nAltinn ❤️ dotnet.\nLinks Documentation Download License Roadmap Docker Hub Runtime ASP.NET "
 },
 {
+	"uri": "https://docs.altinn.studio/technology/architecture/components/application/construction/altinn-platform/authorization/acessgroups/",
+	"title": "Application construction components - Altinn Access Groups",
+	"tags": ["architecture", "solution"],
+	"description": "The Access Group component in Altinn platform is constructed as an asp.net core 6 web API application deployed as a docker container to a Kubernetes cluster.",
+	"content": "\nAPI Theare\n"
+},
+{
 	"uri": "https://docs.altinn.studio/technology/architecture/components/application/solution/altinn-platform/authorization/accessgroups/",
 	"title": "Access Groups",
 	"tags": ["architecture", "security", "authorization", "xacml"],

@@ -1874,6 +1874,8 @@
   </url><url>
     <loc>https://docs.altinn.studio/technology/tools/dotnet-core/</loc>
   </url><url>
+    <loc>https://docs.altinn.studio/technology/architecture/components/application/construction/altinn-platform/authorization/acessgroups/</loc>
+  </url><url>
     <loc>https://docs.altinn.studio/technology/architecture/components/application/solution/altinn-platform/authorization/accessgroups/</loc>
   </url><url>
     <loc>https://docs.altinn.studio/technology/architecture/capabilities/runtime/security/authentication/accesstoken/</loc>

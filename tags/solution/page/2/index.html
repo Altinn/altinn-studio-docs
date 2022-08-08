@@ -427,7 +427,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -435,7 +435,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -443,7 +443,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -529,7 +529,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -833,7 +833,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/technology/architecture/components/application/construction/altinn-platform/authentication/"><span>Authentication</span></a></li>
       <li class="dd-item">
-        <a href="/technology/architecture/components/application/construction/altinn-platform/authorization/"><span>Authorization</span></a></li>
+        <a href="/technology/architecture/components/application/construction/altinn-platform/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/construction/altinn-platform/authorization/acessgroups/"><span>Access Groups</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/technology/architecture/components/application/construction/altinn-platform/events/"><span>Events</span></a></li>
       <li class="dd-item">
@@ -1116,6 +1118,26 @@ if(host != "localhost")
 
 	</div><article class="post technology">
     <header class="post-header">
+        <h2 class="post-title"><a href="/technology/architecture/components/application/solution/altinn-apps/">Solution-specific application components Altinn Apps</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Functionality in Altinn Apps are located in the apps deployed to the Altinn Apps functionality.
+This functionality depends on what kind of application template the app is based on and what the app developer have added in addition. <a class="read-more" href="/technology/architecture/components/application/solution/altinn-apps/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+        
+
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
+            
+        
+    </footer>
+</article>
+<article class="post technology">
+    <header class="post-header">
         <h2 class="post-title"><a href="/technology/solutions/altinn-apps/">Altinn Apps</a></h2>
     </header>
     <section class="post-excerpt">
@@ -1293,28 +1315,6 @@ Welcome Screen The welcome screen gives information to the user.
 Dashboard Dashboard let the app developer search and find applications developed in Altinn Studio. It possible to search across all orgs the developer has access to.
 App Creation App creation functionaliy lets the app developer create applications.
 During this process the app developer can select the org that will own the app and the repository name for that app. <a class="read-more" href="/technology/architecture/components/application/solution/altinn-studio/designer/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-        
-
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
-            
-        
-    </footer>
-</article>
-<article class="post technology">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/technology/architecture/components/application/nonsolutionspecific/development/">Development Applications</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Application Lifecycle Management Applications Requirement &amp; Release Management Use cases are defined in Github. We have defined differen types of template to support creation of user stories.
-Releases are managed on Github.
-See releases here.
-Manual &amp; Automated Test Tools Functional Test Automated browser testing and WCAG testing using Cypress. Unit Test Jest framework used for unit testing front-end. More details here. xunit used for unit testing back-end. Service &amp; API Test API testing is done using Postman. <a class="read-more" href="/technology/architecture/components/application/nonsolutionspecific/development/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         

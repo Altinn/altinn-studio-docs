@@ -419,7 +419,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/"><span>Community</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -427,7 +427,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/about/open-source/"><span>Open source</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
       <li class="dd-item">
@@ -435,7 +435,7 @@ if(host != "localhost")
           <a href="/community/contributing/intro/">
             <span>Intro for developers</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -521,7 +521,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
           <a href="/community/contributing/handbook/securecoding/checklist/">
             <span>Code Checklist</span></a></li></ul></li>
       <li class="dd-item">
@@ -825,7 +825,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/technology/architecture/components/application/construction/altinn-platform/authentication/"><span>Authentication</span></a></li>
       <li class="dd-item">
-        <a href="/technology/architecture/components/application/construction/altinn-platform/authorization/"><span>Authorization</span></a></li>
+        <a href="/technology/architecture/components/application/construction/altinn-platform/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/construction/altinn-platform/authorization/acessgroups/"><span>Access Groups</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/technology/architecture/components/application/construction/altinn-platform/events/"><span>Events</span></a></li>
       <li class="dd-item">
@@ -1100,13 +1102,36 @@ if(host != "localhost")
 	
 	    <a class="newer-posts" href="/tags/architecture/page/5/">&larr; Previous Pages</a>
 	
-	<span class="page-number">Page 6 on 10</span>
+	<span class="page-number">Page 6 on 11</span>
 	
 	    <a class="older-posts" href="/tags/architecture/page/7/">Next Pages &rarr;</a>
 	
 </nav>
 
 	</div><article class="post technology">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/technology/architecture/components/application/solution/altinn-studio/designer/">Solution-specific application components Altinn Studio Designer</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Altinn Studio Designer contains serveral functional components/modules.
+Welcome Screen The welcome screen gives information to the user.
+Dashboard Dashboard let the app developer search and find applications developed in Altinn Studio. It possible to search across all orgs the developer has access to.
+App Creation App creation functionaliy lets the app developer create applications.
+During this process the app developer can select the org that will own the app and the repository name for that app. <a class="read-more" href="/technology/architecture/components/application/solution/altinn-studio/designer/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+        
+
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+        
+    </footer>
+</article>
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/nonsolutionspecific/development/">Development Applications</a></h2>
     </header>
@@ -1305,35 +1330,13 @@ Citizens receives data from the public agencies and sends data to the public age
         
     </footer>
 </article>
-<article class="post technology">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/technology/architecture/components/platform/integration/">Integration Components</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Gateway Software The gateway used is Azure Application Gateway. This is responsible for forwarding traffic to Api management or direct to the different Kubernetes Clusters.
-Read more about Azure Application Gateway.
-Api Management &amp; Gateway Sw Azure API managmenet is used as API management. This is a managed service.
-Read more about Azure API Management.
-Data Access Libraries We use various libraries to interact with different data stores.
-Integration Libraries We use integration libraries to interact with different external and internal components. <a class="read-more" href="/technology/architecture/components/platform/integration/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-        
-
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
-            
-        
-    </footer>
-</article>
 <div style="margin-bottom:2rem"></div>
 
 	<nav class="pagination" role="navigation">
 	
 	    <a class="newer-posts" href="/tags/architecture/page/5/">&larr; Previous Pages</a>
 	
-	<span class="page-number">Page 6 on 10</span>
+	<span class="page-number">Page 6 on 11</span>
 	
 	    <a class="older-posts" href="/tags/architecture/page/7/">Next Pages &rarr;</a>
 	
