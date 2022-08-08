@@ -186,7 +186,7 @@ Moving on you will want to test your changes continuously in LocalTest.
 ### Useful documentation
 - [How to set up LocalTest](https://github.com/Altinn/altinn-studio/blob/master/LOCALAPP.md)
 - [Debugging of application](/app/testing/local/debug/)
-- [Available test-users in LocalTest](/nb/app/testing/local/testusers/)
+- [Available test-users in LocalTest](/app/testing/local/testusers/)
 {{% /expandlarge %}}
 
 
