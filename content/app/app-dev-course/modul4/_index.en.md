@@ -6,7 +6,7 @@ tags: [apps, training, options, code lists, dynamics ]
 weight: 20
 ---
 
-In this module you're expanding the application you made in the previous modules to support even more of the [requirements of the municipality of Sogndal](../case/#demands-from-the-muncipality).
+In this module you're expanding the application you made in the previous modules to support even more of the [requirements of the municipality of Sogndal](../case/#requirements-from-the-municipality).
 
 **Topics covered in this module:**
 
@@ -24,6 +24,7 @@ In Altinn Studio this is supported in the form of radio buttons, checkboxes and 
 
 {{% notice info %}}
 There are three ways to set up code lists in Altinn today
+
 1. Directly on the component through Altinn Studio or manually in _FormLayout.json_\*
 2. In a static json-file referred to in the component
 3. Programmatic in the application logic
@@ -39,22 +40,18 @@ The municipality of Sogndal wishes to collect information on the newcomers worki
 
 ### In Altinn Studio
 
-1. Create a new form page to collect data about working conditions
+  1. Create a new form page to collect data about working conditions
+  2. Set up a **radio button** component for _Sector_. Create the answer options `Offentlig` and `private` manually.
+  3. Set up a **check box** component for _Industry_.
+     Choose _Kodeliste_ as method for adding checkboxes and add _Kodeliste ID_ `industry`
 
-2. Set up a **radio button** component for _Sector_. Create the answer options `Offentlig` and `private` manually.
+     The rest of the setup for this component is done locally
+  4. Set up a **dropdown list** for _Years in work force_
+     Add _Kodeliste ID_ `years-in-work-force`
 
-3. Set up a **check box** component for _Industry_.
-   Choose _Kodeliste_ as method for adding checkboxes and add _Kodeliste ID_ `industry`
-
-   The rest of the setup for this component is done locally
-
-4. Set up a **dropdown list** for _Years in work force_
-   Add _Kodeliste ID_ `years-in-work-force`
-
-   The rest of the setup for this component is done locally
-
-5. _Commit_ and _Push_ your changes to master, 
-   and _Pull_ the changes to your local development environment.
+     The rest of the setup for this component is done locally
+  5. _Commit_ and _Push_ your changes to master, 
+     and _Pull_ the changes to your local development environment.
 
 ### In Local Development environment
 
@@ -79,7 +76,7 @@ The municipality of Sogndal wishes to collect information on the newcomers worki
 - [How to set up dynamic code lists](/app/development/data/options/#dynamic-codelists-generated-runtime)
 - [Secured dynamic options](/app/development/data/options/#secured-dynamic-options)
 
-### Comprehension check
+### Knowledge check
 - What is the difference between static and dynamic options?
 - What will the area of use be for secured dynamic options?
 
@@ -100,18 +97,18 @@ We want the user to be presented with a different set of options for the industr
 based on which sector they are in.
 
 - Private sector: [Standard list of industries](../industry.json)
-- Public sector: `State` and `Muncipality`
+- Public sector: `State` and `Municipality`
 
 ### Useful documentation
 - [How to pass query parameters when fetching options](/app/development/data/options/#pass-query-parameters-when-fetching-options)
 
-### Comprehension check
+### Knowledge check
 - If a list of options is set up with mapping towards the data model - what happens when the field in question changes value?
 - What happens with the chosen value on a field connected to an option-list that is retrieved over again from the server side?
 
 {{% /expandlarge %}}
 
-{{% expandlarge id="dynamic-formview" header="tailored offer for IT-competence" %}}
+{{% expandlarge id="dynamic-formview" header="Tailored offer for IT-competence" %}}
 
 ### Requirements from the municipality
 
@@ -120,8 +117,8 @@ If the user chooses `IKT (data/it)` under industry, a text with a link to our ov
 - Below the industry choice, the following text should appear
 
     ```rich
-    We see that you have the competence we need in Sogndal.
-    Here is an overview of vacant positions.
+    Vi ser at du besitter kompetanse vi trenger i kommunen.
+    Se en oversikt over våre ledige stillinger her.
     ```
 
 - Line 2 in the text should be a link that directs to: 
@@ -131,9 +128,9 @@ The text and link should **only** be visible if the user has chosen `IKT (data/i
 
 ### Useful documentation
 - [Add functions for dynamics](/app/development/logic/dynamic/#add-or-edit-functions-for-dynamics)
-- [Exanples of use of dynamic in form](/app/development/logic/dynamic/#example-usage-of-dynamics-on-an-appe)
+- [Examples of use of dynamic in form](/app/development/logic/dynamic/#example-usage-of-dynamics-on-an-app)
 
-### Comprehension check
+### Knowledge check
 - If you add a new function to `RuleHandlerHelper` - where will these functions run?
   - Would dynamic work without this defined?
 - What is the correlation between functions defined in `RuleHandlerObject` and the file `RuleConfiguration.json`?

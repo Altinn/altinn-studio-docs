@@ -1,6 +1,6 @@
 ---
-title: Casedescription
-description: Description of the muncipalitys requirements and wishes for the service.
+title: Case description
+description: Description of the municipalitys requirements and wishes for the service.
 linktitle: Case
 tags: [apps, case, training]
 weight: 10
@@ -14,12 +14,12 @@ who is moving to Sogndal over the next six months.
 By collecting data about newcomers at an early point, the municipality may facilitate 
 and customize the services to the newcomers before the first moving box has even been packed.
 
-Sogndal has a few demands for the services described in the sections below.
+Sogndal has a few requirements for the services described in the sections below.
 
-## Demands from the muncipality
+## Requirements from the municipality
 
 ### Naming
-{{% expandlarge id="navngivning-expandable" header="Krav" %}}
+{{% expandlarge id="naming-expandable" header="Requirements" %}}
 
 - The application must have a sensible name that makes it easy to find it again among the large number
 of repositories, Sogndal keeps in Altinn Studio.
@@ -32,7 +32,7 @@ There is a wish that one or more of the words "newcomer" and "Sogndal" is includ
 {{% /expandlarge %}}
 
 ### First page of datacollecting
-{{% expandlarge id="forste-side-datainnsamling-expandable" header="Krav" %}}
+{{% expandlarge id="first-page-datacollecting-expandable" header="Requirements" %}}
 
 - Name and age of the person who is a newcomer
   - Firstname
@@ -50,7 +50,7 @@ There is a wish that one or more of the words "newcomer" and "Sogndal" is includ
 {{% /expandlarge %}}
 
 ### Texts
-{{% expandlarge id="tekster-expandable" header="Krav" %}}
+{{% expandlarge id="texts-expandable" header="Requirements" %}}
 
 - All input fields should have descriptive labels that clarify what should be filled in.
 - The application must be available in bokmål, nynorsk and english.
@@ -60,7 +60,7 @@ There is a wish that one or more of the words "newcomer" and "Sogndal" is includ
 {{% /expandlarge %}}
 
 ### Information page
-{{% expandlarge id="infoside-expandable" header="Krav" %}}
+{{% expandlarge id="infopage-expandable" header="Requirements" %}}
 
 Someone in the municipality has created a sketch of the information page.
 
@@ -77,7 +77,7 @@ The following is desirable to be similar in the application:
 
 
 ### Dynamic tracks
-{{% expandlarge id="sporvalg-expandable" header="Krav" %}}
+{{% expandlarge id="dynamic-tracks-expandable" header="Requirements" %}}
 
 A user who does not meet the requirements for the form should be stopped as early as possible in the process.
 
@@ -85,7 +85,7 @@ On the information page, the user should be able to state whether the form appli
 
 How this is done is optional, and the field `Innflytter.KanBrukeSkjema` in the datamodel is possible to use for this purpose.
 
-Based on the answer, the user will be sent to either _Track 1_ or _Track_ 2_.
+Based on the answer, the user will be sent to either _Track 1_ or _Track 2_.
 
 
 ### Track 1
@@ -93,8 +93,8 @@ Based on the answer, the user will be sent to either _Track 1_ or _Track_ 2_.
 - The user has stated that the form does not apply to them
 - The user should then be sent to a page with the following text:
     ```md
-    This form is not for you.
-    For information about other offers in the municipality click here.
+    Dette skjemaet er ikke for deg.
+    Se en oversikt over andre tilbud i kommunen her.
     ```
 - Line 2 in the text should be a link directing to https://www.sogndal.kommune.no/
 - It should not be possible to navigate to other pages of the form from this one.
@@ -107,7 +107,7 @@ Based on the answer, the user will be sent to either _Track 1_ or _Track_ 2_.
 {{% /expandlarge %}}
 
 ### Prefilling og personal information
-{{% expandlarge id="prefill-expandable" header="Krav" %}}
+{{% expandlarge id="prefill-expandable" header="Requirements" %}}
 
 - The following should be prefilled for the user:
   - First name: Innflytter.fornavn
@@ -123,26 +123,26 @@ Based on the answer, the user will be sent to either _Track 1_ or _Track_ 2_.
 
 
 ### Different data basis for public and private sector
-{{% expandlarge id="options-expandable" header="Krav" %}}
+{{% expandlarge id="options-expandable" header="Requirements" %}}
 
 We want the user to be presented with a different set of options for the industry choice
 based on which sector they are in.
 
 - Private sector: [Standard list of industries](../industry.json)
-- Public sector: `State` and `Muncipality`
+- Public sector: `State` and `Municipality`
 
 {{% /expandlarge %}}
 
 
 ### Tailored offer for IT competence
-{{% expandlarge id="dynamics-expandable" header="Krav" %}}
+{{% expandlarge id="dynamics-expandable" header="Requirements" %}}
 
 If the user chooses `IKT (data/it)` under industry, a text with a link to our overview of vacant positions should appear.
 
 - Below the industry choice, the following text should appear
     ```md
-    We see that you have the competence we need in Sogndal.
-    Here is an overview of our vacant positions.
+    Vi ser at du besitter kompetanse vi trenger i kommunen.
+    Se en oversikt over våre ledige stillinger her.
     ```
 - Line 2 in the text should be a link that directs to https://sogndal.easycruit.com/index.html
 
@@ -152,8 +152,8 @@ this will be hidden.
 {{% /expandlarge %}}
 
 
-### Confirmation before submission Bekreftelse før innsending
-{{% expandlarge id="bekreftelse-expandable" header="Krav" %}}
+### Confirmation before submission
+{{% expandlarge id="confirmation-expandable" header="Requirements" %}}
 
 The user should be presented with the data that will be used and consents (indirectly) to this
 by submitting the form.
@@ -175,17 +175,17 @@ At this point in the workflow the user should be able to
 The user should be presented with the following text before submitting the form.
 
 ```md
-You are now ready to submit a notification of moving to Sogndal.
+Du er nå klar for å sende inn melding om tilflytting til Sogndal kommune.
 
-By submitting this form you consent to the data you have entered being saved and used
-for customizing the municipality's offers to you during the next 18 months.
+Ved å sende inn dette skjemaet samtykker du til at dataen du har fylt ut kan lagres og benyttes
+til å tilpasse kommunens tilbud til deg de neste 18 månedene.
 
-Before you submit we recommend looking over your answers. You cannot change the answers after submitting.
+Før du sender inn vil vi anbefale å se over svarene dine. Du kan ikke endre svarene etter at du har sendt inn.
 ```
 {{% /expandlarge %}}
 
 ### Obtaining previous residences
-{{% expandlarge id="bosteder-expandable" header="Krav" %}}
+{{% expandlarge id="residences-expandable" header="Requirements" %}}
 
 To be able to tailor the best possible offers to newcomers we wish to obtain an overview of former residences of the newcomer.
 
@@ -200,7 +200,7 @@ It should be possible to enter up to 10 former residences.
 {{% /expandlarge %}}
 
 ### Validation previous residences
-{{% expandlarge id="vendetta-expandable" header="Krav" %}}
+{{% expandlarge id="vendetta-expandable" header="Requirements" %}}
 
 Due to a personal vendetta among one of the employees in the municipality of Sogndal, a user who enters 
 postal code `4619` as a previous residence should **NOT** be allowed to move to Sogndal.
@@ -208,13 +208,13 @@ postal code `4619` as a previous residence should **NOT** be allowed to move to 
 In this case, an error message should appear at the field in question with the following text:
 
 ```md
-You are not welcome to our municipality. Sorry!
+Du er ikke velkommen til vår kommune. Beklager!
 ```
 
 {{% /expandlarge %}}
 
 ### Data processing of invalid street address
-{{% expandlarge id="dataprossesering-expandable" header="Krav" %}}
+{{% expandlarge id="dataprocessing-expandable" header="Requirements" %}}
 
 One of the data processors of Sogndal is sick of manually correcting a street address that often is being incorrectly entered by newcomers.
 Therefore, we wish to programmatic correct this while the user is filling out the app.

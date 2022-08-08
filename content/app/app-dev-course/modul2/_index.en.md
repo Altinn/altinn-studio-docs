@@ -7,7 +7,7 @@ tags: [apps, training, prefill, sporvalg]
 weight: 20
 ---
 
-In this module you will further develop the application you created in [module 1](../modul1) to fulfil more of [the requirements from the municipality of Sogndal](../case/#demands-from-the-muncipality).
+In this module you will further develop the application you created in [module 1](../modul1) to fulfil more of [the requirements from the municipality of Sogndal](../case/#requirements-from-the-municipality).
 
 **Themes covered in this module:**
 
@@ -21,7 +21,7 @@ In this module you will further develop the application you created in [module 1
 
 {{% expandlarge id="add-infopage" header="Add Info Page" %}}
 
-For forms were a lot of information is given or collected,
+For forms where a lot of information is given or collected,
 the user experience will improve if the application is divided in several pages.
 
 Let's take a closer look at how you can create a new page in the application that is
@@ -66,7 +66,7 @@ The following is desirable to be similar in the application:
 - [File setup with multiple pages](/app/development/ux/pages/#setup)
 - [Administrate order of muntliple pages](/app/development/ux/pages/navigation/#order)
 
-### Comprehension check
+### Knowledge check
 - Which file in the application repository has to be adjusted if you wish to manually change the page order of existing pages?
 - If you wish to rename a page, but Altinn Studio is not available, which files will need to be updated?
 - How can you get a text to break if the text string is not long enough to break naturally?
@@ -91,7 +91,7 @@ On the information page, the user should be able to state whether the form appli
 
 How this is done is optional, and the field `Innflytter.KanBrukeSkjema` in the datamodel is possible to use for this purpose.
 
-Based on the answer, the user will be sent to either _Track 1_ or _Track_ 2_.
+Based on the answer, the user will be sent to either _Track 1_ or _Track 2_.
 
 ### Track 1
 
@@ -100,8 +100,8 @@ Based on the answer, the user will be sent to either _Track 1_ or _Track_ 2_.
 - The user should then be sent to a page with the following text:
 
     ```rich
-    This form is not for you.
-    For information about other offers in the municipality click here.
+    Dette skjemaet er ikke for deg.
+    Se en oversikt over andre tilbud i kommunen her.
     ```
 
 - Line 2 in the text should be a link directing to:
@@ -120,7 +120,7 @@ https://www.sogndal.kommune.no/
 - [How to set up dynamic tracks](/app/development/ux/pages/tracks/)
 - [Formatting of texts](/app/development/ux/texts/#formatting-of-texts)
 
-### Comprehension check
+### Knowledge check
 - If a user goes back and changes their answer on the info page, will they then be displayed the data collecting pages? If not, what changes can you introduce to support this in your application?
 - If dynamic tracks is implemented further into the workflow and a user changes a choice, what will happen with the form data that was filled out prior to this, if the page is now hidden from the user?
 {{% /expandlarge %}}
@@ -218,7 +218,7 @@ private static int CalculateAge(string sosialSecNumber)
 }
 ```
 
-### Comprehension check
+### Knowledge check
 - Is it possible to change a prefilled value once it is set?
 - How can you prevent a user from changing a prefilled value?
 - Not all norwegian citizens have a social security number,
