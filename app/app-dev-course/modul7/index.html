@@ -1103,7 +1103,7 @@ if(host != "localhost")
             </div>
           </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/apps">apps</a><a class="label label-default" href="https://docs.altinn.studio/tags/training">training</a></div><div id="body-inner"><h1 class="a-fontBold">Module 7</h1>
               <p class="a-leadText" id="leadText">Standalone extensions of the app</p><div class="notices warning" >
-NOTE! This module is still under development. Come back later and it will probably be even better!
+NOTE: This module is still under development. Come back later and it will probably be even better!
 </div>
 <p>In this module there are a collection of standalone extensions of the application. They do not require being solved in order.</p>
 <p><strong>Topics covered in this module:</strong></p>
@@ -1115,30 +1115,30 @@ NOTE! This module is still under development. Come back later and it will probab
 <li>Configuration of message box</li>
 <li>Presentation texts</li>
 </ul>
-<h3 id="tasks">Tasks</h3>
+<h2 id="tasks">Tasks</h2>
 
 
 <div class="card adocs-expand">
 	<div>
-		<a data-toggle="collapse" href="#summary_page" role="tab" aria-expanded="false" class="a-collapse-title no-decoration collapsed a-h3">
+		<a data-toggle="collapse" href="#Summary-page" role="tab" aria-expanded="false" class="a-collapse-title no-decoration collapsed a-h3">
 			<span class="a-dropdownCircleArrow">
 			<i class="ai ai-expand ai-sm"><span class="sr-only">Vis/skjul innhold</span></i>
 			</span>
 			Summary page
 		</a>
 	</div>
-	<div id="summary_page" class="a-collapseContent collapse" role="tabpanel">
+	<div id="Summary-page" class="a-collapseContent collapse" role="tabpanel">
 		<div class="a-collapseContent-inside">
-			<h3 id="requirements-from-the-muncipality">Requirements from the muncipality</h3>
+			<h3 id="requirements-from-the-municipality">Requirements from the municipality</h3>
 <p>The municipality of Sogndal are experiencing an issue where some submissions contain incorrect information and typos that create unnecessary work for the caseworkers.
 To avoid people submitting incorrect information, the municipality wishes that the user is presented with a summary page displaying the filled out information.</p>
-<p>The muncipality of Sogndal wants to use the categories <strong>Personalia</strong> for the users personal information and <strong>Work</strong> for the users work history.</p>
+<p>The municipality of Sogndal wants to use the categories <strong>Personalia</strong> for the users personal information and <strong>Work</strong> for the users work history.</p>
 <h3 id="useful-documentation">Useful documentation</h3>
 <ul>
 <li><a href="/app/development/ux/pages/summary/">How to set up summary view of filled out form</a></li>
 <li><a href="/app/development/ux/pages/summary/#categories">Categories in summary</a></li>
 </ul>
-<h3 id="comprehension-check">Comprehension check</h3>
+<h3 id="knowledge-check">Knowledge check</h3>
 <ul>
 <li>Why should the summary page be ignore in the PDF generation?</li>
 </ul>
@@ -1159,7 +1159,7 @@ To avoid people submitting incorrect information, the municipality wishes that t
 	</div>
 	<div id="stateless" class="a-collapseContent collapse" role="tabpanel">
 		<div class="a-collapseContent-inside">
-			<h3 id="requirements-from-the-muncipality">Requirements from the muncipality</h3>
+			<h3 id="requirements-from-the-municipality">Requirements from the municipality</h3>
 <p>The municipality of Sogndal has discovered that there is a lot of traffic from people who do not meet the requirements of the application.
 For each of these users an instance is created and saved to the database. This creates unnecessary expenses.</p>
 <p>Therefore, Sogndal wants the information page to be shown as a &ldquo;stateless&rdquo; part of the application, and that you from here can choose to create
@@ -1170,7 +1170,7 @@ an instance if you meet the requirements.</p>
 <li><a href="/app/development/configuration/stateless/#configuration">Configuring stateless applications</a></li>
 <li><a href="/app/development/configuration/stateless/">Starting instance from stateless form</a></li>
 </ul>
-<h3 id="comprehension-check">Comprehension check</h3>
+<h3 id="knowledge-check">Knowledge check</h3>
 <ul>
 <li>What data is saved for stateless applications?</li>
 </ul>
@@ -1191,7 +1191,7 @@ an instance if you meet the requirements.</p>
 	</div>
 	<div id="variables-in-text" class="a-collapseContent collapse" role="tabpanel">
 		<div class="a-collapseContent-inside">
-			<h3 id="requirements-from-the-muncipality">Requirements from the muncipality</h3>
+			<h3 id="requirements-from-the-municipality">Requirements from the municipality</h3>
 <p>IT competence is highly sought out. In <strong>module 4</strong> we set up a tailored offer for those with IT competence.</p>
 <p>The municipality of Sogndal has had a look t the numbers and seen that this is generating insufficient trafikk to the job postings.
 To try to improve this, we want the offer to be even more tailored.</p>
@@ -1206,7 +1206,7 @@ Here is an overview of our vacant positions.
 <ul>
 <li><a href="/app/development/ux/texts/#variables-in-texts">Variables in texts</a></li>
 </ul>
-<h3 id="comprehension-check">Comprehension check</h3>
+<h3 id="knowledge-check">Knowledge check</h3>
 <ul>
 <li>What is displayed as part of the text about the relevant variable, but has now value in the data model?</li>
 </ul>
@@ -1243,8 +1243,8 @@ https://fraktguide.bring.no/fraktguide/api/postalCode.json?country=no&amp;pnr={p
 <li>The number of calls to Bring&rsquo;s API should be limited to maximum of once a day per postal code</li>
 </ul>
 <h3 id="useful-documentation">Useful documentation</h3>
-<p><a href="/app/development/api/consume/">Consumpion of external API</a></p>
-<h3 id="comprehension-check">Comprehension check</h3>
+<p><a href="/app/development/api/consume/">Consumption of external API</a></p>
+<h3 id="knowledge-check">Knowledge check</h3>
 <ul>
 <li>How many times maximum will you make an API call in 24 hours with a <em>memorycache</em> if the application is running with three replicas?</li>
 </ul>
@@ -1265,9 +1265,9 @@ https://fraktguide.bring.no/fraktguide/api/postalCode.json?country=no&amp;pnr={p
 	</div>
 	<div id="messagebox" class="a-collapseContent collapse" role="tabpanel">
 		<div class="a-collapseContent-inside">
-			<h3 id="requirements-from-the-muncipality">Requirements from the muncipality</h3>
+			<h3 id="requirements-from-the-municipality">Requirements from the municipality</h3>
 <h3 id="useful-documentation">Useful documentation</h3>
-<h3 id="comprhension-check">Comprhension check</h3>
+<h3 id="knowledge-check">Knowledge check</h3>
 
 		</div>
 	</div>
@@ -1285,9 +1285,9 @@ https://fraktguide.bring.no/fraktguide/api/postalCode.json?country=no&amp;pnr={p
 	</div>
 	<div id="presentation-texts" class="a-collapseContent collapse" role="tabpanel">
 		<div class="a-collapseContent-inside">
-			<h3 id="requirements-from-the-muncipality">Requirements from the muncipality</h3>
+			<h3 id="requirements-from-the-municipality">Requirements from the municipality</h3>
 <h3 id="useful-documentation">Useful documentation</h3>
-<h3 id="comprhension-check">Comprhension check</h3>
+<h3 id="knowledge-check">Knowledge check</h3>
 
 		</div>
 	</div>
@@ -1305,9 +1305,9 @@ https://fraktguide.bring.no/fraktguide/api/postalCode.json?country=no&amp;pnr={p
 	</div>
 	<div id="Events" class="a-collapseContent collapse" role="tabpanel">
 		<div class="a-collapseContent-inside">
-			<h3 id="requirements-from-the-muncipality">Requirements from the muncipality</h3>
+			<h3 id="requirements-from-the-municipality">Requirements from the municipality</h3>
 <h3 id="useful-documentation">Useful documentation</h3>
-<h3 id="comprhension-check">Comprhension check</h3>
+<h3 id="knowledge-check">Knowledge check</h3>
 
 		</div>
 	</div>

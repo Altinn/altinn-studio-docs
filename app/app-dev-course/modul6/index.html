@@ -1102,7 +1102,7 @@ if(host != "localhost")
                 <span class="links"><a href='/app/'>Create apps</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/app-dev-course/'>Intro course</a> <span class='adocs-breadcrumb-divider'> / </span> Module 6</span>
             </div>
           </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/apps">apps</a><a class="label label-default" href="https://docs.altinn.studio/tags/training">training</a><a class="label label-default" href="https://docs.altinn.studio/tags/repeating-groups">repeating groups</a><a class="label label-default" href="https://docs.altinn.studio/tags/validation">validation</a><a class="label label-default" href="https://docs.altinn.studio/tags/data-processing">data processing</a><a class="label label-default" href="https://docs.altinn.studio/tags/consume-api">consume API</a></div><div id="body-inner"><h1 class="a-fontBold">Module 6</h1>
-              <p class="a-leadText" id="leadText">Expansion of form with repeating group</p><p>In this module you will expand the application you have built in the previous modules to support more of <a href="../case/#demands-from-the-muncipality">the functionality that the municipality of Sogndal wishes to implement</a>.</p>
+              <p class="a-leadText" id="leadText">Expansion of form with repeating group</p><p>In this module you will expand the application you have built in the previous modules to support more of <a href="../case/#requirements-from-the-municipality">the functionality that the municipality of Sogndal wishes to implement</a>.</p>
 <p><strong>Topics covered in this module</strong></p>
 <ul>
 <li>Repeating groups</li>
@@ -1123,7 +1123,7 @@ if(host != "localhost")
 	</div>
 	<div id="rep-groups" class="a-collapseContent collapse" role="tabpanel">
 		<div class="a-collapseContent-inside">
-			<h3 id="requirements-from-the-muncipality">Requirements from the muncipality</h3>
+			<h3 id="requirements-from-the-municipality">Requirements from the municipality</h3>
 <p>To be able to tailor the best possible offers to newcomers we wish to obtain an overview of former residences of the newcomer.</p>
 <p>On the data page there should be an option to enter previous residences. Previous residences should contain the following fields:</p>
 <ul>
@@ -1137,7 +1137,7 @@ if(host != "localhost")
 <li><a href="/app/development/ux/fields/grouping/setup/">Setup of field grouping</a></li>
 <li><a href="/app/development/ux/fields/grouping/repeating/">Setup of repeating groups</a></li>
 </ul>
-<h3 id="comprehension-check">Comprehension check</h3>
+<h3 id="knowledge-check">Knowledge check</h3>
 <ul>
 <li>What field in the data model decides if an element is repeating?</li>
 <li>How many repetitions are allowed for the field <code>TidligereBosteder</code>?</li>
@@ -1154,22 +1154,22 @@ if(host != "localhost")
 			<span class="a-dropdownCircleArrow">
 			<i class="ai ai-expand ai-sm"><span class="sr-only">Vis/skjul innhold</span></i>
 			</span>
-			Valdiation
+			Validation
 		</a>
 	</div>
 	<div id="validation" class="a-collapseContent collapse" role="tabpanel">
 		<div class="a-collapseContent-inside">
-			<h3 id="requirements-from-the-muncipality">Requirements from the muncipality</h3>
+			<h3 id="requirements-from-the-municipality">Requirements from the municipality</h3>
 <p>Due to a personal vendetta among one of the employees in the municipality of Sogndal, a user who enters the postal code <code>4619</code> as a previous residence
 should <strong>NOT</strong> be allowed to move to Sogndal. In this case, an error message should appear at the field in question with the following text:</p>
-<pre tabindex="0"><code class="language-rich" data-lang="rich">You are not welcome to our municipality. Sorry!
+<pre tabindex="0"><code class="language-rich" data-lang="rich">Du er ikke velkommen til vår kommune. Beklager!
 </code></pre><h3 id="useful-documentation">Useful documentation</h3>
 <ul>
 <li><a href="/app/development/logic/validation/#server-side-validation">Server-side validation</a></li>
 <li><a href="/app/development/logic/validation/#how-to-add-custom-validation">How to implement custom validation</a></li>
 <li><a href="/app/development/logic/validation/#single-field-validation">Single field validations</a></li>
 </ul>
-<h3 id="comprehension-check">Comprehension check</h3>
+<h3 id="knowledge-check">Knowledge check</h3>
 <ul>
 <li>When are validations server-side running?</li>
 <li>Why should validations added on the client side also be duplicated server-side?</li>
@@ -1201,7 +1201,7 @@ In all other cases, the field should remain the same.</p>
 <li><a href="/app/development/logic/dataprocessing/">Data processing</a></li>
 <li><a href="/app/development/logic/calculation/#calculation">Calculation</a></li>
 </ul>
-<h3 id="comprehension-check">Comprehension check</h3>
+<h3 id="knowledge-check">Knowledge check</h3>
 <ul>
 <li>When is data processing running?</li>
 <li>What seperates <code>ProcessDataWrite</code> and <code>ProcessDataRead</code>?</li>
@@ -1211,7 +1211,7 @@ In all other cases, the field should remain the same.</p>
 		</div>
 	</div>
 </div>
-<h3 id="summary">Summary</h3>
+<h2 id="summary">Summary</h2>
 <p>In this module you have had a look at <strong>repeating groups</strong> and how this is configured as a part of the user interface.
 We have also had a look at how to set up custom <strong>validations</strong> in the backend for cases that will not be defined as a part of restrictions in the data model.
 Lastly, we have looked at how to set up <strong>data processing</strong> that enables manipulation of data runtime.</p>

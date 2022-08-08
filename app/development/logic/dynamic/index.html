@@ -1108,7 +1108,7 @@ if(host != "localhost")
     <li><a href="#introduction">Introduction</a></li>
     <li><a href="#add-or-edit-functions-for-dynamics">Add or edit functions for dynamics</a></li>
     <li><a href="#configure-dynamics-for-ui-components">Configure dynamics for UI components</a></li>
-    <li><a href="#example-usage-of-dynamics-on-an-appe">Example usage of dynamics on an appE</a></li>
+    <li><a href="#example-usage-of-dynamics-on-an-app">Example usage of dynamics on an app</a></li>
     <li><a href="#dynamics-in-repeating-groups">Dynamics in repeating groups</a></li>
     <li><a href="#example-with-more-complex-dynamics">Example with more complex dynamics</a></li>
     <li><a href="#dynamics-in-pdf">Dynamics in PDF</a></li>
@@ -1119,23 +1119,24 @@ if(host != "localhost")
 <li>Calculations -  do calculations on the client side, and update the fields with new value.</li>
 <li>Show/hide fields - decide if fields should be hidden or displayed based on form values.</li>
 </ul>
-<p>There is two ways to add and change dynamics for an Altinn App:</p>
+<p>There are two ways to add and change dynamics for an Altinn App:</p>
 <ol>
 <li>Directly in Altinn Studio under <em>Lage</em>-tab. Select <em>Rediger dynamikk</em> in the right menu.</li>
+<li>In a local development environment by working in the file <code>RuleHandler.js</code> which can be found in the <code>App/ui</code> folder.</li>
 </ol>
-<p>All dynamics are written as Javascript function in the <em>RuleHandler</em> file.
+<p>All dynamics are written as Javascript functions in the <em>RuleHandler</em> file.
 Functions that are defined in this file can be configured to run for selected fields in the app.</p>
 <div class="notices info" >
-The dynamic code to show/hide fields or perform calculations should be set up so that it handles eventual errors in the input gracefully.
-They should for instance handle empty fields or strings where you expect numbers with out crashing.
-If the dynamic does not work as expected, take a look at the code that defines the dynamic and verify that is handles errors.
+The dynamic code to show/hide fields or perform calculations should be set up so that it handles possible errors in the input gracefully.
+It should for instance handle empty fields or strings where you expect numbers without crashing.
+If the dynamic does not work as expected, take a look at the code that defines the dynamic and verify that it handles errors.
 </div>
 <div class="notices warning" >
-MERK: in order to support dynamics in older browsers the code defined in `RuleHandler.js` must be written in the version of ECMA-script as the given browser supports.
+NOTE: in order to support dynamics in older browsers the code defined in `RuleHandler.js` must be written in the version of ECMA-script as the given browser supports.
 For IE11 this is ECMA-script 5.
 </div>
 <h2 id="add-or-edit-functions-for-dynamics">Add or edit functions for dynamics</h2>
-<p>In the file <code>RuleHandler.js</code> there exists two javascript objects:</p>
+<p>There are two javascript objects in the file <code>RuleHandler.js</code>:</p>
 <ul>
 <li><code>ruleHandlerObject</code> - functions for calculations</li>
 <li><code>conditionalRuleHandlerObject</code> - functions for hiding/showing fields</li>
@@ -1268,18 +1269,17 @@ To be able to configure dynamics in studio the functions must be defined in the 
 <li>Select the wanted rule. Or add a function, as described in the sections above. <img src="rules-select-rule.png" alt="Select a rule"></li>
 <li>Configure which field(s) that should be used as <em>input</em> for the function - this is fields in the data model. 
 <img src="rules-configure.png" alt="Configure dynamics"></li>
-<li>Select which component(s) that should be affected by the rule (recieve value or be shown/hidden) - this is components in the layout.</li>
-</ol>
+<li>Select which component(s) that should be affected by the rule (recieve value or be shown/hidden) - this is components in the layout.
 <ul>
 <li>For rules for hiding/showing elements several fields can be selected for the same rule.</li>
 </ul>
-<ol start="6">
+</li>
 <li>Save the configuration.</li>
-<li>Test that the rules works as expected..</li>
+<li>Test that the rules works as expected.</li>
 </ol>
-<p>Existing configured rules is shown inthe right menu, and can be edited/deleted.</p>
+<p>Existing configured rules is shown in the right menu, and can be edited/deleted.</p>
 <p>The configuration can also be seen in the file <code>App/ui/RuleConfiguration.json</code>. This can be manually edited if necessary.</p>
-<h2 id="example-usage-of-dynamics-on-an-appe">Example usage of dynamics on an appE</h2>
+<h2 id="example-usage-of-dynamics-on-an-app">Example usage of dynamics on an app</h2>
 <p>Scenario:</p>
 <p>An app with a UI with several fields for input. One of these fields is a radio button with the options &ldquo;Yes&rdquo; and &ldquo;No&rdquo;.
 Depending on what the user selects, different content is to be displayed:</p>
@@ -1310,8 +1310,8 @@ Depending on what the user selects, different content is to be displayed:</p>
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>Here two function has been added which checks if the value is &ldquo;Yes&rdquo; or not.
-After this code is added, the rules can be configured in studio. The results is displayed below:</p>
+</span></span></code></pre></div><p>Here, two functions have been added which checks if the value is &ldquo;Yes&rdquo; or not.
+After this code is added, the rules can be configured in studio. The results are displayed below:</p>
 <figure><a href="dynamics-test.gif"><img src="dynamics-test.gif" alt="Test of dynamics screenshot" title="Test of dynamics example" /></a><figcaption><h4>Test of dynamics example</h4></figcaption></figure>
 <h2 id="dynamics-in-repeating-groups">Dynamics in repeating groups</h2>
 <p>It is also possible to add dynamics within a repeating group. This requires that the rule is configured in Altinn Studio as 
@@ -1426,7 +1426,7 @@ An app has two sets of radiobuttons (yes/no) and a checkbox.</p>
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h3 id="alternative-2">Alternative 2</h3>
-<p>This can also be configured by using hte same condition to show both the second set of radiobuttons and the checkbox.
+<p>This can also be configured by using the same condition to show both the second set of radiobuttons and the checkbox.
 In addition a rule that removes the value from the second set of radiobuttons if the user selects <code>No</code> in the first set:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> ruleHandlerObject <span style="color:#ff79c6">=</span> {
 </span></span><span style="display:flex;"><span>  clearField<span style="color:#ff79c6">:</span> (obj) =&gt; {

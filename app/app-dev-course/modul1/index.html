@@ -1102,7 +1102,7 @@ if(host != "localhost")
                 <span class="links"><a href='/app/'>Create apps</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/app-dev-course/'>Intro course</a> <span class='adocs-breadcrumb-divider'> / </span> Module 1</span>
             </div>
           </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/apps">apps</a><a class="label label-default" href="https://docs.altinn.studio/tags/training">training</a><a class="label label-default" href="https://docs.altinn.studio/tags/datamodel">datamodel</a><a class="label label-default" href="https://docs.altinn.studio/tags/localtest">localtest</a><a class="label label-default" href="https://docs.altinn.studio/tags/texts">texts</a></div><div id="body-inner"><h1 class="a-fontBold">Module 1</h1>
-              <p class="a-leadText" id="leadText">Create app in Studio, set up local development environment and local test</p><p>In this module you will, based on the demands of the municipality of Sogndal,
+              <p class="a-leadText" id="leadText">Create app in Studio, set up local development environment and local test</p><p>In this module you will, based on the requirements of the municipality of Sogndal,
 be setting up the first page of your application for newcomers and verify that everything looks as expected locally.</p>
 <p><strong>Topics covered in this module:</strong></p>
 <ul>
@@ -1161,7 +1161,7 @@ so the year does not need to be taken into account.</p>
 	</div>
 	<div id="upload-datamodel" class="a-collapseContent collapse" role="tabpanel">
 		<div class="a-collapseContent-inside">
-			<p>The muncipality of Sogndal has created <a href="datamodel.xsd">a data model</a>
+			<p>The municipality of Sogndal has created <a href="/app/app-dev-course/modul1/datamodel.xsd">a data model</a>
 that represents data they wish to collect from future residents.</p>
 <div class="notices info" ><p>As an app developer you will in some cases have to create a data model 
 for a service yourself. You will then be able to use the data modelling tool in 
@@ -1169,12 +1169,18 @@ Altinn Studio (launching Spring 2022), or use an existing data model as a starti
 edit it in for example Visual Studio or a text editing program of your own choosing.</p>
 </div>
 <ol>
-<li><a href="datamodel.xsd">Download the xsd-file</a>, open it in a text editing program
-and take a closer look at the contents.</li>
-<li><a href="/app/development/data/data-model/#upload--show-data-model">Upload the data model in Altinn Studio</a></li>
-<li>Push the changes to master and take a closer look at the files in the folder <code>App/models</code></li>
+<li>
+<p><a href="datamodel.xsd">Download the xsd-file</a>, open it in a text editing program
+and take a closer look at the contents.</p>
+</li>
+<li>
+<p><a href="/app/development/data/data-model/#upload--show-data-model">Upload the data model in Altinn Studio</a></p>
+</li>
+<li>
+<p>Push the changes to master and take a closer look at the files in the folder <code>App/models</code></p>
+</li>
 </ol>
-<h3 id="comprehension-check">Comprehension check</h3>
+<h3 id="knowledge-check">Knowledge check</h3>
 <ul>
 <li>Which data is it the service owner wishes to collect here?</li>
 <li>Which effect has <strong>&lt;minOccurs&gt;</strong> in the data model? You may notice that the field has a different value for <em>Innflytter.Fornavn</em> and <em>Innflytter.Mellomnavn</em></li>
@@ -1222,7 +1228,7 @@ In a first edition it is sufficient that only one of these languages is availabl
 <li><a href="/app/development/ux/texts/#formatting-of-texts">Formatting of texts</a></li>
 <li><a href="https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes">ISO 639-1 standard</a></li>
 </ul>
-<h3 id="comprehension-check">Comprehension check</h3>
+<h3 id="knowledge-check">Knowledge check</h3>
 <p>In Altinn we support three languages: bokmål, nynorsk and english.</p>
 <ul>
 <li>How do you get english language support in the application?</li>
@@ -1279,7 +1285,7 @@ or manually in the json-file that describes the appearance of a from page <em>Fo
 <li><a href="/technology/solutions/altinn-studio/designer/functional/build-app/ui-designer/components/">Available components in Altinn Studio</a></li>
 <li><a href="/app/design/guidelines/components/">Guidelines for using components</a></li>
 </ul>
-<h3 id="comprehension-check">Comprehension check</h3>
+<h3 id="knowledge-check">Knowledge check</h3>
 <p>In your application repository you will find <em>FormLayout.json</em> in the folder <code>App/ui/layouts</code>. The JSON file describes the form page you have created in
 Altinn Studio, given that you have pushed your changes to master.</p>
 <ul>
@@ -1354,7 +1360,7 @@ Alternatively, you may use the <code>dotnet run watch</code> when you start the 
 		</div>
 	</div>
 </div>
-<h3 id="summary">Summary</h3>
+<h2 id="summary">Summary</h2>
 <p>In this module you have created an application in Altinn Studio, uploaded a data model
 and set up a form page that connects components to some of the fields in the data model.
 Furthermore, you have cloned the repository locally to further develop the application in your local development environment.</p>
@@ -1362,7 +1368,7 @@ Furthermore, you have cloned the repository locally to further develop the appli
 <p><strong>Remember to <em>push</em> your local changes to make them available in Altinn Studio when you are happy with them.</strong></p>
 <h3 id="solution">Solution</h3>
 <p>If you have not completed all the steps, we have an <a href="https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/1">example of a solution</a> that you can use as inspiration.</p>
-<figure><a href="/app/app-dev-course/modul1/data-screenshot.png"><img src="/app/app-dev-course/modul1/data-screenshot.png" alt="Screenshot of data collecting page" title="Screen shot of data collecting page" /></a><figcaption><h4>Screen shot of data collecting page</h4></figcaption></figure>
+<figure><a href="/app/app-dev-course/modul1/data-screenshot.png"><img src="/app/app-dev-course/modul1/data-screenshot.png" alt="Screenshot of data collecting page" title="Screenshot of data collecting page" /></a><figcaption><h4>Screenshot of data collecting page</h4></figcaption></figure>
 
 
 <footer class=" footline" ></footer>
