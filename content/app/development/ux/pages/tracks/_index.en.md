@@ -53,8 +53,9 @@ If `triggers` is set on the navigation component, this will overrule `triggers` 
 
 To overrule default dynamic tracks, two changes must be made.
 
-1. Create a class implementing the interface [IPageOrder](https://github.com/Altinn/app-template-dotnet/blob/main/src/Altinn.App.PlatformServices/Interface/IPageOrder.cs)
-2. Register this class as a Transient in Startup.cs
+1. Create a class implementing the interface [IPageOrder](https://github.com/Altinn/app-lib-dotnet/blob/main/src/Altinn.App.PlatformServices/Interface/IPageOrder.cs)
+2. Register this class as a Transient in `Program.cs` in the method `ConfigureServices`. 
+   Typically like this: `services.AddTransient<IPageOrder, CustomOrder>();`
 
 ### Create separate class for controlling dynamic tracks
 

@@ -84,7 +84,7 @@ namespace Altinn.App.Core
 
 ```
 
-For your implementation to be picked up you need to add the following line in your `Startup.cs`:
+For your implementation to be picked up you need to add the following line in your `Startup.cs` (or `Program.cs` in .NET 6):
 ```csharp
 services.AddTransient<IAppOptionsProvider, CountryAppOptionsProvider>();
 ```
@@ -154,7 +154,7 @@ namespace Altinn.App.Core
 }
 
 ```
-For your implementation to be picked up you need to add the following line in your `Startup.cs`:
+For your implementation to be picked up you need to add the following line in your `Startup.cs` (or `Program.cs` in .NET 6):
 ```csharp
 services.AddTransient<IInstanceAppOptionsProvider, ChildrenAppOptionsProvider>();
 ```
