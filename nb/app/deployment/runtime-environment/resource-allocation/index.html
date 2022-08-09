@@ -379,7 +379,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/app/launched-apps/digdir/be-om-api-nokkel/"><span>Tilgang til REST API</span></a></li></ul></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/"><span>API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -561,7 +561,15 @@ if(host != "localhost")
                 <span class="links"><a href='/nb/app/'>Lage apper</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/app/deployment/'>Produksjonssetting</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/app/deployment/runtime-environment/'>Kjøremiljø</a> <span class='adocs-breadcrumb-divider'> / </span> Ressurserfordeling</span>
             </div>
           </div><div id="body-inner"><h1 class="a-fontBold">Ressurserfordeling</h1>
-              <p class="a-leadText" id="leadText">Hvilke ressurser fordeles i et cluster og hvordan?</p><p>Primært vil det være CPU og minne som fordeles. Man kan sette minimum (requests) og et tak (limit) for en container. Hvis en pod har flere containere vil kubernetes summere opp disse. I Altinn 3 benytter vi som default requests, dvs. minimum for hva en applikasjon vil legge beslag på.</p>
+              <p class="a-leadText" id="leadText">Hvilke ressurser fordeles i et cluster og hvordan?</p><h2>På denne siden:</h2><nav id="TableOfContents">
+  <ul>
+    <li><a href="#cpu">CPU</a></li>
+    <li><a href="#minne">Minne</a></li>
+    <li><a href="#hvordan-fungerer-ressursallokering-i-clusteret">Hvordan fungerer ressursallokering i clusteret?</a></li>
+  </ul>
+</nav><p>Primært vil det være CPU og minne som fordeles. Man kan sette minimum (requests) og et tak (limit) for en container.
+Hvis en pod har flere containere vil kubernetes summere opp disse.</p>
+<p>I Altinn 3 benytter vi som default requests, dvs. minimum for hva en applikasjon vil legge beslag på.</p>
 <h2 id="cpu">CPU</h2>
 <p>CPU spesifiseres i CPU enheter, hvor 1 CPU enhet = 1 fysisk CPU kjerne eller 1 virtuell kjerne. Man kan spesifisere fraksjoner og enten spesifisere 0.1 eller 100m (som leses hundre millicores). Vi anbefaler at man benytter m notasjonen og ikke desimal notasjonen slik at man skriver 1m og ikke 0.001 (som er det minste man kan spesifisere).</p>
 <p>Som standard har man 12 kjerner til fordeling i TT02, dvs. 12 000m, gitt dagens oppsett med 6 noder á 2 kjerner. Fra dette må vi trekke fra de systemtekniske containerne som kubernetes selv kjører, det tilsvarer ca. 30% av CPU, da er vi nede i 8000m til fordeling til Altinn 3 applikasjoner.</p>

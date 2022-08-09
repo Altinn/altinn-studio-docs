@@ -109,7 +109,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -209,7 +209,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -281,7 +281,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -923,7 +923,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/technology/solutions/cli/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/technology/solutions/cli/configuration/maskinporten-setup/"><span></span></a></li></ul></li>
+        <a href="/technology/solutions/cli/configuration/maskinporten-setup/"><span>Maskinporten setup</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/technology/solutions/cli/software-implementation/"><span>Software implementation</span></a></li></ul></li>
       <li class="dd-item">
@@ -1199,36 +1199,41 @@ The rules are sent in the body of the request. Reade more about the <a href="prp
 <p>This is the core PDP responsible to evaluate if the user should get access to a given resource.</p>
 <p>Depends on Altinn Access Groups for groups information and Altinn Access Policies for policy information.</p>
 <ul class="children children-li js-moveChildrenFrom">
-<pre><code>	&lt;li&gt;
-			&lt;a href=&quot;/technology/architecture/components/application/solution/altinn-platform/authorization/accessgroups/&quot;&gt;Access Groups&lt;/a&gt;
-			&lt;p&gt;Access groups&lt;/p&gt;
-			&lt;/li&gt;&lt;li&gt;
-			&lt;a href=&quot;/technology/architecture/components/application/solution/altinn-platform/authorization/contexthandler/&quot;&gt;Context Handler&lt;/a&gt;
-			&lt;p&gt;The responsibility to the Context Handler is to enrich a decision request sent from a PEP so it can be evaluated by PDP.&lt;/p&gt;
-			&lt;/li&gt;&lt;li&gt;
-			&lt;a href=&quot;/technology/architecture/components/application/solution/altinn-platform/authorization/pap/&quot;&gt;Policy Administration Point&lt;/a&gt;
-			&lt;p&gt;The Policy Administration Point is responsible for creating and modifying the different authorization policies used by the PDP&lt;/p&gt;
-			&lt;/li&gt;&lt;li&gt;
-			&lt;a href=&quot;/technology/architecture/components/application/solution/altinn-platform/authorization/pdp/&quot;&gt;Policy Decision Point&lt;/a&gt;
-			&lt;p&gt;The Policy Decision Point is responsible to evaluate if users and systems is authorized to perform the requested operation on a resource.&lt;/p&gt;
-			&lt;/li&gt;&lt;li&gt;
-			&lt;a href=&quot;/technology/architecture/components/application/solution/altinn-platform/authorization/pep/&quot;&gt;Policy Enforcement Point&lt;/a&gt;
-			&lt;p&gt;In Altinn Platform there are PEP&amp;#39;s that enforce access to different types of API&lt;/p&gt;
-			&lt;/li&gt;&lt;li&gt;
-			&lt;a href=&quot;/technology/architecture/components/application/solution/altinn-platform/authorization/pip/&quot;&gt;Policy Information Point&lt;/a&gt;
-			&lt;p&gt;The Policy Information Point(s) are responsible for providing needed information to the context handler so it can enrich the context request.&lt;/p&gt;
-			&lt;/li&gt;&lt;li&gt;
-			&lt;a href=&quot;/technology/architecture/components/application/solution/altinn-platform/authorization/prp/&quot;&gt;Policy Retrieval Point&lt;/a&gt;
-			&lt;p&gt;The Policy Retrieval Point is the functionality where Policy Decision Point (PDP) can retrieve the policy defined for an app resource.&lt;/p&gt;
-			&lt;/li&gt;&lt;li&gt;
-			&lt;a href=&quot;/technology/architecture/components/application/solution/altinn-platform/authorization/resourceregistry/&quot;&gt;Resource Registry&lt;/a&gt;
-			&lt;p&gt;The Resource Registry&lt;/p&gt;
-			&lt;/li&gt;&lt;li&gt;
-			&lt;a href=&quot;/technology/architecture/components/application/solution/altinn-platform/authorization/xacml/&quot;&gt;XACML - Altinn Studio&lt;/a&gt;
-			&lt;p&gt;XACML stands for &amp;#34;eXtensible Access Control Markup Language&amp;#34;.&lt;/p&gt;
-			&lt;/li&gt;
-</code></pre>
+
+	
+		<li>
+				<a href="/technology/architecture/components/application/solution/altinn-platform/authorization/accessgroups/">Access Groups</a>
+				<p>Access groups</p>
+				</li><li>
+				<a href="/technology/architecture/components/application/solution/altinn-platform/authorization/contexthandler/">Context Handler</a>
+				<p>The responsibility to the Context Handler is to enrich a decision request sent from a PEP so it can be evaluated by PDP.</p>
+				</li><li>
+				<a href="/technology/architecture/components/application/solution/altinn-platform/authorization/pap/">Policy Administration Point</a>
+				<p>The Policy Administration Point is responsible for creating and modifying the different authorization policies used by the PDP</p>
+				</li><li>
+				<a href="/technology/architecture/components/application/solution/altinn-platform/authorization/pdp/">Policy Decision Point</a>
+				<p>The Policy Decision Point is responsible to evaluate if users and systems is authorized to perform the requested operation on a resource.</p>
+				</li><li>
+				<a href="/technology/architecture/components/application/solution/altinn-platform/authorization/pep/">Policy Enforcement Point</a>
+				<p>In Altinn Platform there are PEP&#39;s that enforce access to different types of API</p>
+				</li><li>
+				<a href="/technology/architecture/components/application/solution/altinn-platform/authorization/pip/">Policy Information Point</a>
+				<p>The Policy Information Point(s) are responsible for providing needed information to the context handler so it can enrich the context request.</p>
+				</li><li>
+				<a href="/technology/architecture/components/application/solution/altinn-platform/authorization/prp/">Policy Retrieval Point</a>
+				<p>The Policy Retrieval Point is the functionality where Policy Decision Point (PDP) can retrieve the policy defined for an app resource.</p>
+				</li><li>
+				<a href="/technology/architecture/components/application/solution/altinn-platform/authorization/resourceregistry/">Resource Registry</a>
+				<p>The Resource Registry</p>
+				</li><li>
+				<a href="/technology/architecture/components/application/solution/altinn-platform/authorization/xacml/">XACML - Altinn Studio</a>
+				<p>XACML stands for &#34;eXtensible Access Control Markup Language&#34;.</p>
+				</li>
+	
 </ul>
+
+
+
 
 
 <footer class=" footline" ></footer>

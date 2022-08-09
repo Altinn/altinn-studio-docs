@@ -109,7 +109,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -209,7 +209,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -281,7 +281,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -923,7 +923,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/technology/solutions/cli/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/technology/solutions/cli/configuration/maskinporten-setup/"><span></span></a></li></ul></li>
+        <a href="/technology/solutions/cli/configuration/maskinporten-setup/"><span>Maskinporten setup</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/technology/solutions/cli/software-implementation/"><span>Software implementation</span></a></li></ul></li>
       <li class="dd-item">
@@ -1101,17 +1101,7 @@ if(host != "localhost")
                 <span class="links"><a href='/technology/'>Technology</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/technology/architecture/'>Architecture</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/technology/architecture/components/'>Components</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/technology/architecture/components/application/'>Application</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/technology/architecture/components/application/construction/'>Construction</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/technology/architecture/components/application/construction/altinn-studio/'>Altinn Studio</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/technology/architecture/components/application/construction/altinn-studio/designer/'>Designer</a> <span class='adocs-breadcrumb-divider'> / </span> Front-end</span>
             </div>
           </div><div id="body-inner"><h1 class="a-fontBold">Application construction components - Designer Front-end</h1>
-              <p class="a-leadText" id="leadText">Description of the application construction components for Altinn Studio Designer Front-end</p><ul class="children children-li js-moveChildrenFrom">
-<pre><code>	&lt;li&gt;
-			&lt;a href=&quot;/technology/architecture/components/application/construction/altinn-studio/designer/frontend/applications/&quot;&gt;Overview of frontend applications&lt;/a&gt;
-			&lt;p&gt;High-level description of the different applications used in Desgner frontend&lt;/p&gt;
-			&lt;/li&gt;&lt;li&gt;
-			&lt;a href=&quot;/technology/architecture/components/application/construction/altinn-studio/designer/frontend/structure/&quot;&gt;Designer frontend code strucure&lt;/a&gt;
-			&lt;p&gt;High-level overview of how the app frontend is structured&lt;/p&gt;
-			&lt;/li&gt;
-</code></pre>
-</ul>
-<p>The Designer frontend consists of multiple React + Redux applications. It is split into two top-level applications:</p>
+              <p class="a-leadText" id="leadText">Description of the application construction components for Altinn Studio Designer Front-end</p><p>The Designer frontend consists of multiple React + Redux applications. It is split into two top-level applications:</p>
 <ul>
 <li>dashboard</li>
 <li>app-development</li>
@@ -1126,13 +1116,29 @@ if(host != "localhost")
 <figure><a href="/community/contributing/handbook/front-end/getting-started/structure-studio.drawio.svg"><img src="/community/contributing/handbook/front-end/getting-started/structure-studio.drawio.svg" alt="High-level overview of Designer frontend applications" title="High-level overview of Designer frontend applications" /></a><figcaption><h4>High-level overview of Designer frontend applications</h4></figcaption></figure>
 <p>During build of the Designer application, the top-level applications are transpiled into javascript-files and CSS, which are copied into the Designer backends <code>wwwroot</code> folder and hosted there.
 The Designer backend is a web application with views, that reference the javascript files and CSS.</p>
-<div class="notices info" ><p><strong>NOTE:</strong> Parts of the front-end is currently built in .NET Core.
+<div class="notices info" >
+**NOTE:** Parts of the front-end is currently built in .NET Core.
 This will gradually be ported over to React as we work with the different functional areas. The exception here is the static landing page, which will remain
-as a custom view in the .NET application.</p>
+as a custom view in the .NET application.
 </div>
 <h2 id="react-architecture">React architecture</h2>
 <p>The front-end of Altinn Studio designer is set up using the same React + Redux architecture as the App frontend, take a look <a href="../../../altinn-apps/app/app-frontend/react">here</a> 
 for more details.</p>
+<ul class="children children-li js-moveChildrenFrom">
+
+	
+		<li>
+				<a href="/technology/architecture/components/application/construction/altinn-studio/designer/frontend/applications/">Overview of frontend applications</a>
+				<p>High-level description of the different applications used in Desgner frontend</p>
+				</li><li>
+				<a href="/technology/architecture/components/application/construction/altinn-studio/designer/frontend/structure/">Designer frontend code strucure</a>
+				<p>High-level overview of how the app frontend is structured</p>
+				</li>
+	
+</ul>
+
+
+
 
 
 <footer class=" footline" ></footer>

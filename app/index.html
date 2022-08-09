@@ -117,7 +117,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -217,7 +217,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -297,7 +297,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -931,7 +931,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/technology/solutions/cli/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/technology/solutions/cli/configuration/maskinporten-setup/"><span></span></a></li></ul></li>
+        <a href="/technology/solutions/cli/configuration/maskinporten-setup/"><span>Maskinporten setup</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/technology/solutions/cli/software-implementation/"><span>Software implementation</span></a></li></ul></li>
       <li class="dd-item">
@@ -1117,33 +1117,38 @@ but anyone can log into <a href="https://altinn.studio">altinn.studio</a> and ch
 <p>If you have questions or feedback, then you can contact us on <a href="https://altinnstudio.slack.com">Slack</a>
 or <a href="https://github.com/Altinn/altinn-studio/issues/new/choose">GitHub</a>, or just keep on reading this documentation.</p>
 <ul class="children children-li js-moveChildrenFrom">
-<pre><code>	&lt;li&gt;
-			&lt;a href=&quot;/app/getting-started/&quot;&gt;Get started&lt;/a&gt;
-			&lt;p&gt;Get started so you can develop apps in Altinn Studio.&lt;/p&gt;
-			&lt;/li&gt;&lt;li&gt;
-			&lt;a href=&quot;/app/app-dev-course/&quot;&gt;Intro course&lt;/a&gt;
-			&lt;p&gt;An introductory course to app development with Altinn Studio and local dev tools.&lt;/p&gt;
-			&lt;/li&gt;&lt;li&gt;
-			&lt;a href=&quot;/app/design/&quot;&gt;Design and planning&lt;/a&gt;
-			&lt;p&gt;To make the service as good as possible for the users, it is important to start by focusing on the users and understand their needs. Before you start developing, we recommend that you create a prototype and perform a user test.&lt;/p&gt;
-			&lt;/li&gt;&lt;li&gt;
-			&lt;a href=&quot;/app/development/&quot;&gt;Development&lt;/a&gt;
-			&lt;p&gt;How to create and edit apps in Altinn Studio.&lt;/p&gt;
-			&lt;/li&gt;&lt;li&gt;
-			&lt;a href=&quot;/app/testing/&quot;&gt;Testing of apps&lt;/a&gt;
-			&lt;p&gt;Applications (apps) can be tested in the test environment, or locally.&lt;/p&gt;
-			&lt;/li&gt;&lt;li&gt;
-			&lt;a href=&quot;/app/deployment/&quot;&gt;Deployment of apps to production&lt;/a&gt;
-			&lt;p&gt;App owners can deploy their applications themselves.&lt;/p&gt;
-			&lt;/li&gt;&lt;li&gt;
-			&lt;a href=&quot;/app/maintainance/&quot;&gt;Maintenance of app in production&lt;/a&gt;
-			&lt;p&gt;Applications in production require regular maintenance and updates.&lt;/p&gt;
-			&lt;/li&gt;&lt;li&gt;
-			&lt;a href=&quot;/app/launched-apps/&quot;&gt;Launched apps&lt;/a&gt;
-			&lt;p&gt;Some of the apps that are in production, for information and inspiration.&lt;/p&gt;
-			&lt;/li&gt;
-</code></pre>
+
+	
+		<li>
+				<a href="/app/getting-started/">Get started</a>
+				<p>Get started so you can develop apps in Altinn Studio.</p>
+				</li><li>
+				<a href="/app/app-dev-course/">Intro course</a>
+				<p>An introductory course to app development with Altinn Studio and local dev tools.</p>
+				</li><li>
+				<a href="/app/design/">Design and planning</a>
+				<p>To make the service as good as possible for the users, it is important to start by focusing on the users and understand their needs. Before you start developing, we recommend that you create a prototype and perform a user test.</p>
+				</li><li>
+				<a href="/app/development/">Development</a>
+				<p>How to create and edit apps in Altinn Studio.</p>
+				</li><li>
+				<a href="/app/testing/">Testing of apps</a>
+				<p>Applications (apps) can be tested in the test environment, or locally.</p>
+				</li><li>
+				<a href="/app/deployment/">Deployment of apps to production</a>
+				<p>App owners can deploy their applications themselves.</p>
+				</li><li>
+				<a href="/app/maintainance/">Maintenance of app in production</a>
+				<p>Applications in production require regular maintenance and updates.</p>
+				</li><li>
+				<a href="/app/launched-apps/">Launched apps</a>
+				<p>Some of the apps that are in production, for information and inspiration.</p>
+				</li>
+	
 </ul>
+
+
+
 
 
 <footer class=" footline" ></footer>

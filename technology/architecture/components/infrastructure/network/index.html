@@ -109,7 +109,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -209,7 +209,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -281,7 +281,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -923,7 +923,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/technology/solutions/cli/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/technology/solutions/cli/configuration/maskinporten-setup/"><span></span></a></li></ul></li>
+        <a href="/technology/solutions/cli/configuration/maskinporten-setup/"><span>Maskinporten setup</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/technology/solutions/cli/software-implementation/"><span>Software implementation</span></a></li></ul></li>
       <li class="dd-item">
@@ -1098,7 +1098,15 @@ if(host != "localhost")
                 <span class="links"><a href='/technology/'>Technology</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/technology/architecture/'>Architecture</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/technology/architecture/components/'>Components</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/technology/architecture/components/infrastructure/'>Infrastructure</a> <span class='adocs-breadcrumb-divider'> / </span> Network</span>
             </div>
           </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/architecture">architecture</a><a class="label label-default" href="https://docs.altinn.studio/tags/infrastructure">infrastructure</a><a class="label label-default" href="https://docs.altinn.studio/tags/todo">todo</a></div><div id="body-inner"><h1 class="a-fontBold">Network componentens</h1>
-              <p class="a-leadText" id="leadText">All networking infrastructure is located in Azure.</p><p>Altinn 3 is based on different network components in Azure.</p>
+              <p class="a-leadText" id="leadText">All networking infrastructure is located in Azure.</p><h2>On this page:</h2><nav id="TableOfContents">
+  <ul>
+    <li><a href="#virtual-network">Virtual Network</a></li>
+    <li><a href="#azure-loadbalancer">Azure Loadbalancer</a></li>
+    <li><a href="#application-gateway">Application Gateway</a></li>
+    <li><a href="#ingress-controller">Ingress controller</a></li>
+    <li><a href="#expressroute">ExpressRoute</a></li>
+  </ul>
+</nav><p>Altinn 3 is based on different network components in Azure.</p>
 <h2 id="virtual-network">Virtual Network</h2>
 <p>As part of the Altinn 3 platform there is serveral Virtual Networks.  Each Kubernetes Cluster have their own Virtual Network.</p>
 <p>This increases security and isolates the different org cluster from eacother.</p>

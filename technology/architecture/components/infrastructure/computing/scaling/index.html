@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Traffic to Altinn varies widely during a year and scaling the compute resources correctly is important for stability and cost">
+    <meta name="description" content="Traffic to Altinn varies widely during a year and scaling the compute resources correctly is important for stability and cost.">
 
 <title>Scaling compute resources – Altinn</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
     <link href="/css/nucleus.css" rel="stylesheet">
@@ -109,7 +109,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -209,7 +209,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -281,7 +281,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -923,7 +923,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/technology/solutions/cli/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/technology/solutions/cli/configuration/maskinporten-setup/"><span></span></a></li></ul></li>
+        <a href="/technology/solutions/cli/configuration/maskinporten-setup/"><span>Maskinporten setup</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/technology/solutions/cli/software-implementation/"><span>Software implementation</span></a></li></ul></li>
       <li class="dd-item">
@@ -1099,16 +1099,22 @@ if(host != "localhost")
                 <span class="links"><a href='/technology/'>Technology</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/technology/architecture/'>Architecture</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/technology/architecture/components/'>Components</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/technology/architecture/components/infrastructure/'>Infrastructure</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/technology/architecture/components/infrastructure/computing/'>Compute</a> <span class='adocs-breadcrumb-divider'> / </span> Scaling</span>
             </div>
           </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/architecture">architecture</a><a class="label label-default" href="https://docs.altinn.studio/tags/infrastructure">infrastructure</a></div><div id="body-inner"><h1 class="a-fontBold">Scaling compute resources</h1>
-              <p class="a-leadText" id="leadText">Traffic to Altinn varies widely during a year and scaling the compute resources correctly is important for stability and cost</p><p>The below diagram shows how the number of unique users logged in to Altinn 2 varied through 2019.</p>
+              <p class="a-leadText" id="leadText">Traffic to Altinn varies widely during a year and scaling the compute resources correctly is important for stability and cost.</p><h2>On this page:</h2><nav id="TableOfContents">
+  <ul>
+    <li><a href="#cluster-autoscaler">Cluster Autoscaler</a></li>
+    <li><a href="#resource-reservations-in-azure-kubernetes-services">Resource Reservations in Azure Kubernetes Services</a></li>
+    <li><a href="#scaling-org-clusters">Scaling org clusters</a></li>
+  </ul>
+</nav><p>The below diagram shows how the number of unique users logged in to Altinn 2 varied through 2019.</p>
 <figure><a href="scalable.png"><img src="scalable.png" alt="Scalability aa " title="Unique users 2019 per day Altinn 2 platform" /></a><figcaption><h4>Unique users 2019 per day Altinn 2 platform</h4></figcaption></figure>
 <p>Altinn 2 is a monolith where all digital services run on the same servers. This means that days like the tax day when 
 there is this enormous spike in traffic will require that all servers are scaled up. It is also an on-prem solution where scaling needs to be planned weeks ahead.</p>
 <p>For Altinn 3 the story is completely different. Every organization has its separate Kubernetes cluster. Each of these 
 clusters can be scaled independently.</p>
-<h3 id="cluster-autoscaler">Cluster Autoscaler</h3>
+<h2 id="cluster-autoscaler">Cluster Autoscaler</h2>
 <p>Azure Kubernetes Services does support autoscaling of nodes and pods. Read more about <a href="https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler">cluster autoscaling.</a></p>
 <p>This is currently not been enabled.</p>
-<h3 id="resource-reservations-in-azure-kubernetes-services">Resource Reservations in Azure Kubernetes Services</h3>
+<h2 id="resource-reservations-in-azure-kubernetes-services">Resource Reservations in Azure Kubernetes Services</h2>
 <p>Node resources are utilized by AKS to make the node function as part of your cluster. This usage creates a discrepancy between the node&rsquo;s total resources and 
 the resources allocatable when used in AKS. This information is important to note when setting requests and limits for user deployed pods.</p>
 <p>For Altinn 3 this means the following</p>
@@ -1118,27 +1124,27 @@ the resources allocatable when used in AKS. This information is important to not
 <li>Standard_D8s_v3: 180 millicores reserved per node, 7820 millicores to use</li>
 </ul>
 <p>Read more about <a href="https://docs.microsoft.com/en-us/azure/aks/concepts-clusters-workloads#resource-reservations">resource reservations</a></p>
-<h4 id="resource-limitations">Resource limitations</h4>
+<h3 id="resource-limitations">Resource limitations</h3>
 <p>In Kubernetes, it is possible to set resource limitations for each pod deployed to a Kubernetes cluster.
 In addition, we can define the number of minimum resources required for the pod.</p>
 <p>. Below there is a general example where the minimum CPU is set to 100milliCPU and maximum to 250milliCPU.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>kind: Pod
-</span></span><span style="display:flex;"><span>apiVersion: v1
-</span></span><span style="display:flex;"><span>metadata:   
-</span></span><span style="display:flex;"><span>  name: mypod
-</span></span><span style="display:flex;"><span>spec:
-</span></span><span style="display:flex;"><span>  containers:
-</span></span><span style="display:flex;"><span>  - name: mypod
-</span></span><span style="display:flex;"><span>    image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
-</span></span><span style="display:flex;"><span>    resources:
-</span></span><span style="display:flex;"><span>      requests:
-</span></span><span style="display:flex;"><span>        cpu: 100m
-</span></span><span style="display:flex;"><span>        memory: 128Mi
-</span></span><span style="display:flex;"><span>      limits:
-</span></span><span style="display:flex;"><span>        cpu: 250m
-</span></span><span style="display:flex;"><span>        memory: 256Mi
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#ff79c6">kind</span>: Pod
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">apiVersion</span>: v1
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">metadata</span>:   
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">name</span>: mypod
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">spec</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">containers</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#ff79c6">name</span>: mypod
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">image</span>: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">resources</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">requests</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">cpu</span>: 100m
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">memory</span>: 128Mi
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">limits</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">cpu</span>: 250m
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">memory</span>: 256Mi
 </span></span></code></pre></div><p>Read about best practice for <a href="https://docs.microsoft.com/en-us/azure/aks/developer-best-practices-resource-management">managing resources in Azure Kubernetes Services</a></p>
-<h3 id="scaling-org-clusters">Scaling org clusters</h3>
+<h2 id="scaling-org-clusters">Scaling org clusters</h2>
 <p>There are currently <a href="https://www.altinn.no/en/about-altinn/the-altinn-co-operation/">more than 50 orgs</a> hosting digital services 
 in the Altinn 2 platform.</p>
 <p>They range from Tax Department, Police, the Civil Aviation Authority, and many more. Some have digital services used by 
@@ -1149,28 +1155,28 @@ others have digital services used only by 1 person during a year. Some have many
 <p>At the current time, we don&rsquo;t know what kind of CPU usage an average transaction requires.</p>
 <p>In this example, we assume that 1000 transactions require 1 CPU. (1000 milliCPU)</p>
 <p>This is probably not correct.</p>
-<h4 id="org-1">Org 1</h4>
+<h3 id="org-1">Org 1</h3>
 <p>SKD is the largest org in Altinn 2. Daily transactions vary between 2500 and 365.000.</p>
 <p>That would mean that SKD would need up to 192 nodes of  Standard_D2s_v3</p>
 <figure><a href="org1transactions.png"><img src="org1transactions.png" alt="Org 1" title="Number of daily transactions" /></a><figcaption><h4>Number of daily transactions</h4></figcaption></figure>
-<h4 id="org-2">Org 2</h4>
+<h3 id="org-2">Org 2</h3>
 <p>BRG is one of the larger orgs in Altinn.  Daily transactions vary between 300 and 14.000.</p>
 <p>That would mean that BRG would need up to 8 nodes of  Standard_D2s_v3</p>
 <figure><a href="org2transactions.png"><img src="org2transactions.png" alt="Org 2" title="Number of daily transactions" /></a><figcaption><h4>Number of daily transactions</h4></figcaption></figure>
-<h4 id="org-3">Org 3</h4>
+<h3 id="org-3">Org 3</h3>
 <p>HDIR is a medium org in Altinn. Daily transactions vary between 300 and 950.</p>
 <p>That would mean that HDIR would never need more than 3 nodes of  Standard_D2s_v3</p>
 <figure><a href="org3transactions.png"><img src="org3transactions.png" alt="Org 3" title="Number of daily transactions" /></a><figcaption><h4>Number of daily transactions</h4></figcaption></figure>
 <p>We have not yet decided how we will be doing scaling of org clusters. We have identified some approaches.</p>
-<h4 id="scaling-option-1">Scaling option 1</h4>
+<h3 id="scaling-option-1">Scaling option 1</h3>
 <p>The first option is manually scale both pods and nodes.</p>
 <p>This means that the Altinn Devops team would manually need to increase or decrease the number of nodes based on obeserved/expected usage.</p>
 <p>The number of pods for a specific application would also be manually set.</p>
-<h5 id="cons">Cons</h5>
+<h4 id="cons">Cons</h4>
 <ul>
 <li>Unknown of LoadBalancer is able to <a href="https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-distribution-mode">distribute traffic correctly</a></li>
 </ul>
-<h4 id="scaling-option-2">Scaling option 2</h4>
+<h3 id="scaling-option-2">Scaling option 2</h3>
 
 
 <footer class=" footline" ></footer>

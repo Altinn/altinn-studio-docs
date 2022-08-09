@@ -109,7 +109,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -209,7 +209,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -281,7 +281,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -923,7 +923,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/technology/solutions/cli/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/technology/solutions/cli/configuration/maskinporten-setup/"><span></span></a></li></ul></li>
+        <a href="/technology/solutions/cli/configuration/maskinporten-setup/"><span>Maskinporten setup</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/technology/solutions/cli/software-implementation/"><span>Software implementation</span></a></li></ul></li>
       <li class="dd-item">
@@ -1101,33 +1101,37 @@ if(host != "localhost")
           </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/architecture">architecture</a><a class="label label-default" href="https://docs.altinn.studio/tags/solution">solution</a></div><div id="body-inner"><h1 class="a-fontBold">Application construction components for Altinn Platform</h1>
               <p class="a-leadText" id="leadText">Altinn Platform consist of serveral components that is constructed with help of different frameworks and components.</p><p>See below for application contruction components for the different components in Altinn Platform.</p>
 <ul class="children children-li js-moveChildrenFrom">
-<pre><code>	&lt;li&gt;
-			&lt;a href=&quot;/technology/architecture/components/application/construction/altinn-platform/authentication/&quot;&gt;Application construction components - Altinn Platform Authentication&lt;/a&gt;
-			&lt;p&gt;The authentication component in Altinn platform is constructed as an asp.net core web API application deployed as a docker container to a Kubernetes cluster.&lt;/p&gt;
-			&lt;/li&gt;&lt;li&gt;
-			&lt;a href=&quot;/technology/architecture/components/application/construction/altinn-platform/authorization/&quot;&gt;Application construction components - Altinn Platform Authorization&lt;/a&gt;
-			&lt;p&gt;The authorization component in Altinn platform is constructed as an asp.net core web API application deployed as a docker container to a Kubernetes cluster.&lt;/p&gt;
-			&lt;/li&gt;&lt;li&gt;
-			&lt;a href=&quot;/technology/architecture/components/application/construction/altinn-platform/events/&quot;&gt;Application construction components - Altinn Platform Events&lt;/a&gt;
-			&lt;p&gt;The Events component in Altinn platform is constructed as an asp.net core web API application deployed as a docker container to a Kubernetes cluster.&lt;/p&gt;
-			&lt;/li&gt;&lt;li&gt;
-			&lt;a href=&quot;/technology/architecture/components/application/construction/altinn-platform/pdf/&quot;&gt;Application architecture pdf component - Altinn Platform&lt;/a&gt;
-			&lt;p&gt;The PDF component is created as an Spring Boot (Java) web application hosted in Kubernetes as a Docker container.&lt;/p&gt;
-			&lt;/li&gt;&lt;li&gt;
-			&lt;a href=&quot;/technology/architecture/components/application/construction/altinn-platform/profile/&quot;&gt;Application construction components - Altinn Platform Profile&lt;/a&gt;
-			&lt;p&gt;The profile component in Altinn platform is constructed as an asp.net core web API application deployed as a docker container to a Kubernetes cluster.&lt;/p&gt;
-			&lt;/li&gt;&lt;li&gt;
-			&lt;a href=&quot;/technology/architecture/components/application/construction/altinn-platform/receipt/&quot;&gt;Application architecture receipt component - Altinn Platform&lt;/a&gt;
-			&lt;p&gt;The receipt component is an application exposing a React receipt application, and internal APIs.&lt;/p&gt;
-			&lt;/li&gt;&lt;li&gt;
-			&lt;a href=&quot;/technology/architecture/components/application/construction/altinn-platform/register/&quot;&gt;Application construction components - Altinn Platform Register&lt;/a&gt;
-			&lt;p&gt;The register component in Altinn platform is constructed as an asp.net core web API application deployed as a docker container to a Kubernetes cluster.&lt;/p&gt;
-			&lt;/li&gt;&lt;li&gt;
-			&lt;a href=&quot;/technology/architecture/components/application/construction/altinn-platform/storage/&quot;&gt;Application Construction components - Storage&lt;/a&gt;
-			&lt;p&gt;The storage component is an application hosted in Kubernetes as a Docker container.&lt;/p&gt;
-			&lt;/li&gt;
-</code></pre>
+
+	
+		<li>
+				<a href="/technology/architecture/components/application/construction/altinn-platform/authentication/">Application construction components - Altinn Platform Authentication</a>
+				<p>The authentication component in Altinn platform is constructed as an asp.net core web API application deployed as a docker container to a Kubernetes cluster.</p>
+				</li><li>
+				<a href="/technology/architecture/components/application/construction/altinn-platform/authorization/">Application construction components - Altinn Platform Authorization</a>
+				<p>The authorization component in Altinn platform is constructed as an asp.net core web API application deployed as a docker container to a Kubernetes cluster.</p>
+				</li><li>
+				<a href="/technology/architecture/components/application/construction/altinn-platform/events/">Application construction components - Altinn Platform Events</a>
+				<p>The Events component in Altinn platform is constructed as an asp.net core web API application deployed as a docker container to a Kubernetes cluster.</p>
+				</li><li>
+				<a href="/technology/architecture/components/application/construction/altinn-platform/pdf/">Application architecture pdf component - Altinn Platform</a>
+				<p>The PDF component is created as an Spring Boot (Java) web application hosted in Kubernetes as a Docker container.</p>
+				</li><li>
+				<a href="/technology/architecture/components/application/construction/altinn-platform/profile/">Application construction components - Altinn Platform Profile</a>
+				<p>The profile component in Altinn platform is constructed as an asp.net core web API application deployed as a docker container to a Kubernetes cluster.</p>
+				</li><li>
+				<a href="/technology/architecture/components/application/construction/altinn-platform/receipt/">Application architecture receipt component - Altinn Platform</a>
+				<p>The receipt component is an application exposing a React receipt application, and internal APIs.</p>
+				</li><li>
+				<a href="/technology/architecture/components/application/construction/altinn-platform/register/">Application construction components - Altinn Platform Register</a>
+				<p>The register component in Altinn platform is constructed as an asp.net core web API application deployed as a docker container to a Kubernetes cluster.</p>
+				</li><li>
+				<a href="/technology/architecture/components/application/construction/altinn-platform/storage/">Application Construction components - Storage</a>
+				<p>The storage component is an application hosted in Kubernetes as a Docker container.</p>
+				</li>
+	
 </ul>
+
+
 
 
 <footer class=" footline" ></footer>

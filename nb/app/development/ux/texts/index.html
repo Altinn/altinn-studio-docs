@@ -379,7 +379,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/app/launched-apps/digdir/be-om-api-nokkel/"><span>Tilgang til REST API</span></a></li></ul></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/"><span>API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -859,20 +859,21 @@ Om det er ønskelig å endre på dette navnet kan det gjøres ved å legge til n
 </span></span></code></pre></div><h2 id="endre-tekster-på-kvitteringssiden-for-arkiv">Endre tekster på kvitteringssiden for arkiv</h2>
 <p>Tekster på kvitteringssiden kan overstyres av applikasjonen ved å spesifisere tekster i applikasjonens <code>config/texts/resource.xx.json</code> fil.</p>
 <div class="notices info" >
-Overstyring av tekster i kvitteringen vil ha påvirkning for alle kvitteringer for den gitte applikasjonen. Dette betyr at alle skjemaer som allerede er insendt vil også få det oppdaterte tekstene på kvitteringssiden. PDF filen som er generert vil ikke påvirkes av dette.
+Overstyring av tekster i kvitteringen vil ha påvirkning for alle kvitteringer for den gitte applikasjonen.
+Dette betyr at alle skjemaer som allerede er insendt vil også få det oppdaterte tekstene på kvitteringssiden. PDF filen som er generert vil ikke påvirkes av dette.
 </div>
 <p>Markdown og variabler kan benyttes i kvitteringstekstene. Det er kun mulig å hente variabler fra <code>Instance</code> (Se <a href="#datakilder">Data Sources</a> for detaljer)</p>
 <p>Dette er tekstnøklene som kan brukes for å overstyre standardtekstene:</p>
-<pre tabindex="0"><code>receipt_platform.attachments
-receipt_platform.date_sent
-receipt_platform.helper_text
-receipt_platform.is_sent
-receipt_platform.receipt
-receipt_platform.receiver
-receipt_platform.reference_number
-receipt_platform.sender
-receipt_platform.sent_content
-</code></pre><p>Hvis du for eksempel vil overstyre hjelpeteksten, kan du legge dette til i <code>config/texts/resource.nb.json</code> filen i applikasjonen:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>receipt_platform.attachments
+</span></span><span style="display:flex;"><span>receipt_platform.date_sent
+</span></span><span style="display:flex;"><span>receipt_platform.helper_text
+</span></span><span style="display:flex;"><span>receipt_platform.is_sent
+</span></span><span style="display:flex;"><span>receipt_platform.receipt
+</span></span><span style="display:flex;"><span>receipt_platform.receiver
+</span></span><span style="display:flex;"><span>receipt_platform.reference_number
+</span></span><span style="display:flex;"><span>receipt_platform.sender
+</span></span><span style="display:flex;"><span>receipt_platform.sent_content
+</span></span></code></pre></div><p>Hvis du for eksempel vil overstyre hjelpeteksten, kan du legge dette til i <code>config/texts/resource.nb.json</code> filen i applikasjonen:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;language&#34;</span>: <span style="color:#f1fa8c">&#34;nb&#34;</span>,
 </span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;resources&#34;</span>: [
@@ -884,8 +885,21 @@ receipt_platform.sent_content
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>Bildet nedenfor viser hvilke tekstnøkler som styrer hvilken del av brukergrensesnittet:</p>
 <figure><a href="archive-receipt-texts.png"><img src="archive-receipt-texts.png" alt="Tekster og tekstnøkler" title="Tekster og tekstnøkler" /></a><figcaption><h4>Tekster og tekstnøkler</h4></figcaption></figure>
-<p><strong>Merk!</strong> Disse tekstendringene vil <strong>ikke</strong> være synlige når du tester appen din lokalt, de synes kun i eksternt testmiljø, f.eks.<strong>TT02</strong>. Du vil se endringene når du åpner et allerede arkivert skjema fra Arkivet ved å trykke på knappen &ldquo;Se innsendt skjema&rdquo;. Per nå blir ikke disse modifiserte tekstene brukt under selve innsendingen av skjemaet (det ligger en sak på dette på github).
-<img src="https://user-images.githubusercontent.com/42466346/159928882-e3268bd4-6057-4ca5-aaf2-f417cffcc0f9.png" alt="image"></p>
+<p><strong>Merk!</strong> Disse tekstendringene vil <strong>ikke</strong> være synlige når du tester appen din lokalt, de synes kun i eksternt testmiljø, f.eks.<strong>TT02</strong>.
+Du vil se endringene når du åpner et allerede arkivert skjema fra Arkivet ved å trykke på knappen &ldquo;Se innsendt skjema&rdquo;.
+Per nå blir ikke disse modifiserte tekstene brukt under selve innsendingen av skjemaet (det ligger en sak på dette på github).</p>
+<p><img src="https://user-images.githubusercontent.com/42466346/159928882-e3268bd4-6057-4ca5-aaf2-f417cffcc0f9.png" alt="image"></p>
+<ul class="children children-li js-moveChildrenFrom">
+
+	
+		<li>
+				<a href="/nb/app/development/ux/texts/translation/">Oversettelse av tekster</a>
+				<p>Hvordan oversette tekster i applikasjonen.</p>
+				</li>
+	
+</ul>
+
+
 
 
 <footer class=" footline" ></footer>

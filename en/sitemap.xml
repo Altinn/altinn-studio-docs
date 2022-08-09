@@ -1870,8 +1870,6 @@
   </url><url>
     <loc>https://docs.altinn.studio/_header/</loc>
   </url><url>
-    <loc>https://docs.altinn.studio/technology/solutions/cli/configuration/maskinporten-setup/</loc>
-  </url><url>
     <loc>https://docs.altinn.studio/technology/tools/dotnet-core/</loc>
   </url><url>
     <loc>https://docs.altinn.studio/technology/architecture/components/application/construction/altinn-platform/authorization/acessgroups/</loc>
@@ -2751,6 +2749,8 @@
     <loc>https://docs.altinn.studio/tags/markdown/</loc>
   </url><url>
     <loc>https://docs.altinn.studio/technology/tools/markdown/</loc>
+  </url><url>
+    <loc>https://docs.altinn.studio/technology/solutions/cli/configuration/maskinporten-setup/</loc>
   </url><url>
     <loc>https://docs.altinn.studio/technology/tools/material-ui/</loc>
   </url><url>

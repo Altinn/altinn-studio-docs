@@ -109,7 +109,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -209,7 +209,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -281,7 +281,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -923,7 +923,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/technology/solutions/cli/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/technology/solutions/cli/configuration/maskinporten-setup/"><span></span></a></li></ul></li>
+        <a href="/technology/solutions/cli/configuration/maskinporten-setup/"><span>Maskinporten setup</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/technology/solutions/cli/software-implementation/"><span>Software implementation</span></a></li></ul></li>
       <li class="dd-item">
@@ -1204,7 +1204,8 @@ The token is generated with help of the Access Token generator and this is gener
     </header>
     <section class="post-excerpt">
         <p>Functionality in Altinn Apps are located in the apps deployed to the Altinn Apps functionality.
-This functionality depends on what kind of application template the app is based on and what the app developer have added in addition. <a class="read-more" href="/technology/architecture/components/application/solution/altinn-apps/">&raquo;</a></p>
+This functionality depends on what kind of application template the app is based on and what the app developer have added in addition.
+Solution-specific application components for App based on ASP.Net templateDescription of the Altinn Studio solution <a class="read-more" href="/technology/architecture/components/application/solution/altinn-apps/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         
@@ -1224,7 +1225,8 @@ This functionality depends on what kind of application template the app is based
     </header>
     <section class="post-excerpt">
         <p>See below for application contruction components for the different components in Altinn Platform.
-&lt;li&gt;&lt;a href=&quot;/technology/architecture/components/application/construction/altinn-platform/authentication/&quot;&gt;Application construction components - Altinn Platform Authentication&lt;/a&gt;&lt;p&gt;The authentication component in Altinn platform is constructed as an asp.net core web API application deployed as a docker container to a Kubernetes cluster.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/technology/architecture/components/application/construction/altinn-platform/authorization/&quot;&gt;Application construction components - Altinn Platform Authorization&lt;/a&gt;&lt;p&gt;The authorization component in Altinn platform is constructed as an asp.net core web API application deployed as a docker container to a Kubernetes cluster. <a class="read-more" href="/technology/architecture/components/application/construction/altinn-platform/">&raquo;</a></p>
+Application construction components - Altinn Platform AuthenticationThe authentication component in Altinn platform is constructed as an asp.net core web API application deployed as a docker container to a Kubernetes cluster.
+Application construction components - Altinn Platform AuthorizationThe authorization component in Altinn platform is constructed as an asp.net core web API application deployed as a docker container to a Kubernetes cluster. <a class="read-more" href="/technology/architecture/components/application/construction/altinn-platform/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         
@@ -1243,7 +1245,10 @@ This functionality depends on what kind of application template the app is based
         <h2 class="post-title"><a href="/technology/architecture/components/application/solution/altinn-platform/">Solution-specific application components Altinn Platform</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>The diagram below shows where the different functionality i located in the components. <a class="read-more" href="/technology/architecture/components/application/solution/altinn-platform/">&raquo;</a></p>
+        <p>The diagram below shows where the different functionality i located in the components.
+Application architecture authentication component - Altinn PlatformThe Authentication component is an a ASP.NET Core MVC Application exposing REST-API to Altinn Apps.
+Altinn Platform - AuthorizationThe authorization component provides functionality to authorize access to applications and components in Altinn Apps and Altinn Platform.
+Application architecture Events component - Altinn PlatformThe Events component is an a ASP. <a class="read-more" href="/technology/architecture/components/application/solution/altinn-platform/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         
@@ -1262,8 +1267,8 @@ This functionality depends on what kind of application template the app is based
         <h2 class="post-title"><a href="/technology/architecture/components/application/solution/altinn-studio/">Solution-specific application components Altinn Studio</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>
-&lt;li&gt;&lt;a href=&quot;/technology/architecture/components/application/solution/altinn-studio/designer/&quot;&gt;Solution-specific application components Altinn Studio Designer&lt;/a&gt;&lt;p&gt;Altinn Studio Designer is the custom appliaction where app developers manage and creates applications.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;/technology/architecture/components/application/solution/altinn-studio/repositories/&quot;&gt;Solution components Altinn Studio Repositories&lt;/a&gt;&lt;p&gt;In Altinn Studio Repos you find the functional components related to source control and access management of the application developer.&lt;/p&gt;&lt;/li&gt; <a class="read-more" href="/technology/architecture/components/application/solution/altinn-studio/">&raquo;</a></p>
+        <p>Solution-specific application components Altinn Studio DesignerAltinn Studio Designer is the custom appliaction where app developers manage and creates applications.
+Solution components Altinn Studio RepositoriesIn Altinn Studio Repos you find the functional components related to source control and access management of the application developer. <a class="read-more" href="/technology/architecture/components/application/solution/altinn-studio/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         

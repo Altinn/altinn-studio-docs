@@ -109,7 +109,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -209,7 +209,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -281,7 +281,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -923,7 +923,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/technology/solutions/cli/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/technology/solutions/cli/configuration/maskinporten-setup/"><span></span></a></li></ul></li>
+        <a href="/technology/solutions/cli/configuration/maskinporten-setup/"><span>Maskinporten setup</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/technology/solutions/cli/software-implementation/"><span>Software implementation</span></a></li></ul></li>
       <li class="dd-item">
@@ -1099,30 +1099,35 @@ if(host != "localhost")
           </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/development">development</a><a class="label label-default" href="https://docs.altinn.studio/tags/testing">testing</a></div><div id="body-inner"><h1 class="a-fontBold">Test</h1>
               <p class="a-leadText" id="leadText">Coding guidelines for tests</p><h3 id="coding-guidelines-for-tests">Coding guidelines for tests</h3>
 <ul class="children children-li js-moveChildrenFrom">
-<pre><code>	&lt;li&gt;
-			&lt;a href=&quot;/community/contributing/handbook/test/automated-test-app/&quot;&gt;App for automated test&lt;/a&gt;
-			&lt;p&gt;An app used solely for automated testing in the browser&lt;/p&gt;
-			&lt;/li&gt;&lt;li&gt;
-			&lt;a href=&quot;/community/contributing/handbook/test/cypress/&quot;&gt;Cypress&lt;/a&gt;
-			&lt;p&gt;Functional Testing of Altinn Studio and Altinn app-frontend with Cypress&lt;/p&gt;
-			&lt;/li&gt;&lt;li&gt;
-			&lt;a href=&quot;/community/contributing/handbook/test/k6/&quot;&gt;k6&lt;/a&gt;
-			&lt;p&gt;Performance and Functional Testing of API with K6&lt;/p&gt;
-			&lt;/li&gt;&lt;li&gt;
-			&lt;a href=&quot;/community/contributing/handbook/test/postman/&quot;&gt;Postman&lt;/a&gt;
-			&lt;p&gt;API Testing with postman&lt;/p&gt;
-			&lt;/li&gt;&lt;li&gt;
-			&lt;a href=&quot;/community/contributing/handbook/test/test-strategy/&quot;&gt;Test Strategy&lt;/a&gt;
-			&lt;p&gt;Test Strategy&lt;/p&gt;
-			&lt;/li&gt;&lt;li&gt;
-			&lt;a href=&quot;/community/contributing/handbook/test/unit-testing/&quot;&gt;Unit testing with Jest&lt;/a&gt;
-			&lt;p&gt;How to write jest test in altinn studio, what we know so far. This page summarizes how UI testing is performed with Jest and related libraries for Altinn Studio.&lt;/p&gt;
-			&lt;/li&gt;&lt;li&gt;
-			&lt;a href=&quot;/community/contributing/handbook/test/xunit-testing/&quot;&gt;Xunit Testing&lt;/a&gt;
-			&lt;p&gt;Xunit Testing&lt;/p&gt;
-			&lt;/li&gt;
-</code></pre>
+
+	
+		<li>
+				<a href="/community/contributing/handbook/test/automated-test-app/">App for automated test</a>
+				<p>An app used solely for automated testing in the browser</p>
+				</li><li>
+				<a href="/community/contributing/handbook/test/cypress/">Cypress</a>
+				<p>Functional Testing of Altinn Studio and Altinn app-frontend with Cypress</p>
+				</li><li>
+				<a href="/community/contributing/handbook/test/k6/">k6</a>
+				<p>Performance and Functional Testing of API with K6</p>
+				</li><li>
+				<a href="/community/contributing/handbook/test/postman/">Postman</a>
+				<p>API Testing with postman</p>
+				</li><li>
+				<a href="/community/contributing/handbook/test/test-strategy/">Test Strategy</a>
+				<p>Test Strategy</p>
+				</li><li>
+				<a href="/community/contributing/handbook/test/unit-testing/">Unit testing with Jest</a>
+				<p>How to write jest test in altinn studio, what we know so far. This page summarizes how UI testing is performed with Jest and related libraries for Altinn Studio.</p>
+				</li><li>
+				<a href="/community/contributing/handbook/test/xunit-testing/">Xunit Testing</a>
+				<p>Xunit Testing</p>
+				</li>
+	
 </ul>
+
+
+
 
 
 <footer class=" footline" ></footer>
