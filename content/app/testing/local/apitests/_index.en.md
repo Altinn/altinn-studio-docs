@@ -4,4 +4,4 @@ linktitle: API tests
 description: How to test app APIs locally.
 ---
 
-{{% children description="true" %}}
+{{<children>}}

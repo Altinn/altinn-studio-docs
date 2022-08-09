@@ -6,4 +6,4 @@ aliases:
 - /teknologi/altinnstudio/altinn-api/scenarios/
 ---
 
-{{% children description="true" depth="1" %}}
+{{<children>}}

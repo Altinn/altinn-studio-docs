@@ -29,3 +29,5 @@ tags: [tech, frontend, react]
 
 - https://reactjs.org 
 - https://github.com/facebook/react
+
+{{<children>}}

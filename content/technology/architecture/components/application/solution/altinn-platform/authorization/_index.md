@@ -181,4 +181,4 @@ Depends on Altinn Access Groups for groups information and Altinn Access Policie
 
 
 
-{{% children description="true" depth="1" %}}
+{{<children>}}

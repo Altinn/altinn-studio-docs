@@ -24,4 +24,4 @@ interact with the app APIs and the shared platform APIs.
 [Download as Visio](api-concept.vsdx).
 
 
-{{% children description="true" depth="1" %}}
+{{<children>}}
