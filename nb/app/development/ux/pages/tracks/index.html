@@ -381,7 +381,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/metadata/"><span>Metadata</span></a></li>
       <li class="dd-item">
@@ -603,8 +603,9 @@ navigasjonskomponentene man har i applikasjonen, eller legge til en trigger i <c
 <h2 id="sette-opp-sporvalg-backend-nuget-versjon--500">Sette opp sporvalg backend (nuget versjon &gt; 5.0.0)</h2>
 <p>For å overstyre standard sporvalg må det gjøres to endringer.</p>
 <ol>
-<li>Opprette en klasse som implementerer interfacet <a href="https://github.com/Altinn/app-template-dotnet/blob/main/src/Altinn.App.PlatformServices/Interface/IPageOrder.cs">IPageOrder</a></li>
-<li>Registrere denne klassen som en Transient i Startup.cs</li>
+<li>Opprette en klasse som implementerer interfacet <a href="https://github.com/Altinn/app-lib-dotnet/blob/main/src/Altinn.App.PlatformServices/Interface/IPageOrder.cs">IPageOrder</a></li>
+<li>Registrere denne klassen som en Transient i <code>Startup.cs</code> (eller <code>Program.cs</code> i .NET 6)
+Typisk <code>services.AddTransient&lt;IPageOrder, CustomOrder&gt;();</code> i metoden <code>ConfigureServices</code>.</li>
 </ol>
 <h3 id="opprette-egen-klasse-for-styring-av-sporvalg">Opprette egen klasse for styring av sporvalg</h3>
 <p>Opprett en ny klasse i din applikasjon f.eks under mappen App/logic/Pages (mappen er ikke opprettet som standard).

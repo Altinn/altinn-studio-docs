@@ -1147,8 +1147,9 @@ the navigation components in the application, or by adding a trigger in <code>Se
 <h2 id="setting-up-dynamic-tracks-backend-nuget-version--500">Setting up dynamic tracks backend (nuget version &gt; 5.0.0)</h2>
 <p>To overrule default dynamic tracks, two changes must be made.</p>
 <ol>
-<li>Create a class implementing the interface <a href="https://github.com/Altinn/app-template-dotnet/blob/main/src/Altinn.App.PlatformServices/Interface/IPageOrder.cs">IPageOrder</a></li>
-<li>Register this class as a Transient in Startup.cs</li>
+<li>Create a class implementing the interface <a href="https://github.com/Altinn/app-lib-dotnet/blob/main/src/Altinn.App.PlatformServices/Interface/IPageOrder.cs">IPageOrder</a></li>
+<li>Register this class as a Transient in <code>Program.cs</code> in the method <code>ConfigureServices</code>. 
+Typically like this: <code>services.AddTransient&lt;IPageOrder, CustomOrder&gt;();</code></li>
 </ol>
 <h3 id="create-separate-class-for-controlling-dynamic-tracks">Create separate class for controlling dynamic tracks</h3>
 <p>Create a new class in your application, e.g. under the folder App/logic/Pages (the folder is not created by default).

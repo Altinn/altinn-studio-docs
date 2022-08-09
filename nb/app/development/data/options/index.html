@@ -381,7 +381,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/metadata/"><span>Metadata</span></a></li>
       <li class="dd-item">
@@ -630,7 +630,7 @@ Kodelistene må være på et spesifikt format. Eksempel på en kodeliste som inn
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>For at denne implementasjonen skal plukkes opp av applikasjonen må den registreres i <code>Startup.cs</code>:</p>
+</span></span></code></pre></div><p>For at denne implementasjonen skal plukkes opp av applikasjonen må den registreres i <code>Startup.cs</code> (eller <code>Program.cs</code> i .NET 6):</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span>services.AddTransient&lt;IAppOptionsProvider, CountryAppOptionsProvider&gt;();
 </span></span></code></pre></div><p>Legg merke til at du kan ha mange implementasjoner av dette interfacet. Den rette implementasjonen finnes gjennom å se på hvilken kodeliste id det spørres etter.</p>
 <p>Interfacene har en egenskap <code>Id</code>, som skal settes til til den id&rsquo;en man skal spørre etter, og en metode <code>GetAppOptionsAsync</code> som returnerer selve kodelisten. Denne metoden tar i mot språk og en liste med key/value par som typisk er query parametre som plukkes opp av kontrolleren og sendes inn. Selv om språk kunne vært et key/value par og sånn sett hvert i listen, så er denne lagt utenfor for å være eksplisitt på språk.</p>
@@ -687,7 +687,7 @@ Her vil man få ut den oppsatte kodelisten i det appen får et kall mot <code>/{
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>For at denne implementasjonen skal plukkes opp av applikasjonen må den registreres i <code>Startup.cs</code>:</p>
+</span></span></code></pre></div><p>For at denne implementasjonen skal plukkes opp av applikasjonen må den registreres i <code>Startup.cs</code> (eller <code>Program.cs</code> i .NET 6):</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span>services.AddTransient&lt;IInstanceAppOptionsProvider, ChildrenAppOptionsProvider&gt;();
 </span></span></code></pre></div><p>Legg merke til at du kan ha mange implementasjoner av dette interfacet. Den rette implementasjonen finnes gjennom å se på hvilken kodeliste id det spørres etter.</p>
 <p>Interfacene har en egenskap <code>Id</code>, som skal settes til til den id&rsquo;en man skal spørre etter, og en metode <code>GetAppOptionsAsync</code> som returnerer selve kodelisten. Denne metoden tar i mot språk og en liste med key/value par som typisk er query parametre som plukkes opp av kontrolleren og sendes inn. Selv om språk kunne vært et key/value par og sånn sett hvert i listen, så er denne lagt utenfor for å være eksplisitt på språk.</p>
