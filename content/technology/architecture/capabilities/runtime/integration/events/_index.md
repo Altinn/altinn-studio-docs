@@ -316,3 +316,5 @@ Events are used in different scenarios in the platform.
   See [Instance Events](/technology/architecture/components/application/solution/altinn-platform/storage/#instanceevent) in Storage
 - **Application logic events** - These are events where app developers could implement logic to get a specific behavior.
   Calculation, validation ++ This type of event is probably not relevant to push to the event feed.  
+
+{{<children>}}

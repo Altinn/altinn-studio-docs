@@ -6,4 +6,4 @@ tags: [solution, architecture]
 weight: 102
 ---
 
-{{% children description="true" depth="1" %}}
+{{<children>}}

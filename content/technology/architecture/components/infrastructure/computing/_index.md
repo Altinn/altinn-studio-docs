@@ -1,7 +1,8 @@
 ---
 title: Compute components
 linktitle: Compute
-description: Compute components gives processor power to applications and software
+description: Compute components gives processor power to applications and software.
+toc: true
 tags: [architecture, infrastructure]
 ---
 
@@ -69,3 +70,5 @@ In Altinn 3 we use Azure Function Apps to the following
 ### Developer machines
 
 Our developer machines are hosted as virtual machines in Azure.
+
+{{<children>}}

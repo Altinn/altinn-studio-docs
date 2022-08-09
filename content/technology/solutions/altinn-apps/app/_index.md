@@ -14,4 +14,4 @@ the developers to create a Apps to support different types of functional needs.
 
 The current version contains support for simple user needs, but the platform and the app templates will get more functionality in the future.
 
-{{% children description="true" depth="1" %}}
+{{<children>}}

@@ -41,4 +41,4 @@ Påkrevd autentiseringsnivå er satt til 2 som default. Dette gjøres som en obl
 Hvis nivået settes til 4 må man definere at tjenesteier kan nå det via nivå 3 for maskinporten. Dette for at maskinporten er definert som nivå 3. 
 Se regelbibliotek for eksempel. Merk: Appen trenger nuget versjon `3.1.5` eller høyere versjon.
 
-{{% children description="true" %}}
+{{<children>}}

@@ -5,4 +5,4 @@ description: Designer is split in two applications. One frontend created in REAC
 ---
 
 
-{{% children description="true" depth="1" %}}
+{{<children>}}

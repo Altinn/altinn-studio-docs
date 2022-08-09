@@ -17,4 +17,4 @@ Some monitoring is done from [Azure Portal](https://azure.microsoft.com/en-us/fe
 - [Azure mobile app](https://azure.microsoft.com/en-us/features/azure-portal/mobile-app/)
 
 
-{{% children description="true" depth="1" %}}
+{{<children>}}

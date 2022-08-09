@@ -41,4 +41,4 @@ Reqired authentication level is set to 2 by default. This is done as an obligati
 If the required authentication level is set to 4 you have to define that the service owner can interact with it through level 3 authentification for Maskinporten.
 This is because Maskinporten is defined as level 3. See the rule library for examples. Notice: the app requires nuget version`3.1.5` or higher.
 
-{{% children description="true" %}}
+{{<children>}}

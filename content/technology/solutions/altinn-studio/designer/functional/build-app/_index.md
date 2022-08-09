@@ -6,4 +6,4 @@ description: Altinn Studio can been seen as a collection of different editors or
 
 To support building apps Altinn Studio have different functionality to building and configuring different aspects of the app. 
 
-{{% children description="true" depth="1" %}}
+{{<children>}}
