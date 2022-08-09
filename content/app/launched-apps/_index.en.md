@@ -1,22 +1,28 @@
 ---
 title: Launched apps
 description: Some of the apps that are in production, for information and inspiration.
-titleSup: NEW
+toc: true
 weight: 800
 ---
 
 ## July 2022
 
-- Oppstartveileder for enkeltpersonforetak (Brønnøysund Register Centre)  
+- Startup Tutorial for Sole proprietorships (Brønnøysund Register Centre)  
   [Info](https://www.altinn.no/oppstartsveileder/) | [Repo](https://altinn.studio/repos/brg/oppstartsveilederen) | [App](https://brg.apps.altinn.no/brg/oppstartsveilederen/)
-- Oppstartveileder for enkeltpersonforetak uten innlogging (Brønnøysund Register Centre)  
+- Startup Tutorial for Sole proprietorships, no login (Brønnøysund Register Centre)  
   [Info](https://www.altinn.no/oppstartsveileder/) | [Repo](https://altinn.studio/repos/brg/anonym-oppstartsveilederen) | [App](https://brg.apps.altinn.no/brg/anonym-oppstartsveilederen/)
   
 ## June 2022
 
 - Apply for authorisation for manual car care, wheel change and wheel storage (The Labour Inspection Authority).  
   [Info](https://www.altinn.no/en/forms-overview/labour-inspection-authority/sok-om-godkjenning-av-virksomhet-som-tilbyr-bilpleie-hjulskift-og-hjullagring/) | [Repo](https://altinn.studio/repos/dat/bilpleie-soknad) | [App](https://dat.apps.altinn.no/dat/bilpleie-soknad/)
-  
+
+## May 2022
+- Veileder for kvalitet i læremidler (Directorate for Education and Training)  
+  [Info](https://www.altinn.no/skjemaoversikt/utdanningsdirektoratet/veileder-for-kvalitet-i-laremidler-vfkl/) | [Repo](https://altinn.studio/repos/udir/vfkl) | [Kjørende tjeneste](https://udir.apps.altinn.no/udir/vfkl/)
+- Invitasjonsverktøy for vurdering av læremidler (Directorate for Education and Training)  
+  [Info](https://www.altinn.no/skjemaoversikt/utdanningsdirektoratet/invitasjonsverktoy-for-vurdering-av-laremidler-vfkl/) | [Repo](hhttps://altinn.studio/repos/udir/invitasjon-vfkl) | [Kjørende tjeneste](https://udir.apps.altinn.no/udir/invitasjon-vfkl/)
+
 ## April 2022
 
 - Nasjonalt arbeidstidsregister (STAMI).  
