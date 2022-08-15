@@ -178,8 +178,4 @@ Provides functionality to request consent and give consents
 This is the core PDP responsible to evaluate if the user should get access to a given resource. 
 
 Depends on Altinn Access Groups for groups information and Altinn Access Policies for policy information. 
-
-
-
-
 {{<children>}}
