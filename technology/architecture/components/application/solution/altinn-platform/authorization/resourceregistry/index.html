@@ -109,7 +109,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -209,7 +209,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -281,7 +281,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -1121,11 +1121,23 @@ if(host != "localhost")
 <h3 id="altinn-service-resource">Altinn Service Resource</h3>
 <p>The service resource would be any type of service provided by public or private organiazations</p>
 <ul>
-<li>API&rsquo;s exposing data <a href="exampleresource3.json">Example3</a></li>
-<li>Portal functionality in Altinn <a href="exampleresource1.json">Example 1</a></li>
+<li>API&rsquo;s exposing data <a href="exampleresource3.json">Example3</a> <a href="policysample3.xml">XACML</a></li>
+<li>Portal functionality in Altinn <a href="exampleresource1.json">Example 1</a> <a href="policysample3.xml">XACML</a></li>
 <li>Portal functionality in external portal <a href="exampleresource2.json">Example 2</a></li>
+<li>Samordna registermelding <a href="exampleresource4.json">Example 4</a> <a href="policysample4.xml">XACML</a></li>
 </ul>
-<h2 id="resource-regis">Resource Regis</h2>
+<h2 id="resource-repository">Resource repository</h2>
+<p>To store resources there are two options</p>
+<ul>
+<li>relational database</li>
+<li>document database</li>
+</ul>
+<p>A relational database will have less flexibility to change the information for a resource. Storing it as a json document 
+will improve flexibility.</p>
+<p>The search performance will be better with a relational database.</p>
+<p>The number of resources will probably also be limited. When all Altinn 2 services is migrated we will have between 1000-2000 service resouces.</p>
+<p>It will probably take many many years before there are more than 10.000 resources registrated.</p>
+<p>This points to that a document database is the best choice since it will give better flexibility and performance can be handled with caching.</p>
 
 
 <footer class=" footline" ></footer>
