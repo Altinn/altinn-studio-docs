@@ -9,4 +9,4 @@ weight: 900
 For informasjon om **hvordan man bruker** funksjonalitetene beskrevet her, se seksjonene om [apper](../../../app/) og [API](../../../api).
 {{% /panel %}}
 
-{{% children %}}
+{{<children>}}

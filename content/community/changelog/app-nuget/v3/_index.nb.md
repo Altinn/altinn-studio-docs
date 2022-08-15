@@ -4,4 +4,4 @@ description: Oversikt over endringer som ble introdusert i v3 av Altinn.App.* pa
 weight: 99
 ---
 
-{{% children description="true" depth="1" %}}
+{{<children>}}

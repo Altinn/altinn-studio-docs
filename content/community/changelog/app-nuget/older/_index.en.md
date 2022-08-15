@@ -4,4 +4,4 @@ description: Overview of changes introduced into app nuget packages up to (not i
 weight: 100
 ---
 
-{{% children description="true" depth="1" %}}
+{{<children>}}

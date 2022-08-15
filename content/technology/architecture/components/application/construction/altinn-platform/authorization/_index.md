@@ -111,4 +111,6 @@ some simple scenarios you would only need to reference a static XACML Policy.
 
 ### PIP
 
-If context handler need to enrich 
+If context handler need to enrich
+
+{{<children>}}
