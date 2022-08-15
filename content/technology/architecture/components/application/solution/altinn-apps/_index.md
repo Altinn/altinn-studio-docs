@@ -11,3 +11,4 @@ This functionality depends on what kind of application template the app is based
 
 ![Altinn Apps](altinnapps__solutionarchitecture.svg "Solution architecture")
 
+{{<children>}}

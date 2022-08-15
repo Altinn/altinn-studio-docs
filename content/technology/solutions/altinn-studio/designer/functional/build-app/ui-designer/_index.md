@@ -32,3 +32,5 @@ In the future Altinn Studio will support creating different UI for seperate data
 
 
 [See all Github issues for UI-editor](https://github.com/Altinn/altinn-studio/labels/area%2Fui-editor).
+
+{{<children>}}

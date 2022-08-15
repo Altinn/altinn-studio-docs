@@ -15,4 +15,4 @@ The below capability map shows the different runtime capabilities grouped by dif
 
 [Download as Visio](runtime_capabilities.vsdx)
 
-{{% children description="true" depth="1" %}}
+{{<children>}}

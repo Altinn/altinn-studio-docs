@@ -30,3 +30,5 @@ Some capabilities are provided by application and tools and other is provided by
 An example capability is to be able to configure the infrastructure.
 
 [Learn more about Altinn 3 DevOps capabilities](devops).
+
+{{<children>}}

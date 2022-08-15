@@ -33,3 +33,5 @@ The order form is called _"Publiser informasjon om tjeneste på Altinn PROD og T
 
 - In the field _"Tjenestekode"_, enter 9999 and in the field _"Utgavekode"_ enter 9999.
 - In the field _"Hvem skal bruke skjemaet"_ remember to specify which roles are required for using the app in addition to the description of who the app is ment for.
+
+{{<children>}}
