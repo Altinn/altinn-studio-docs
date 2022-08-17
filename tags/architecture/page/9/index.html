@@ -109,7 +109,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -209,7 +209,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -281,7 +281,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -741,6 +741,10 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/technology/architecture/components/application/solution/altinn-platform/authorization/accessgroups/"><span>Access Groups</span></a></li>
       <li class="dd-item">
+        <a href="/technology/architecture/components/application/solution/altinn-platform/authorization/accessmanagement/"><span>Access Management</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/solution/altinn-platform/authorization/accesspolicies/"><span>Access Policies</span></a></li>
+      <li class="dd-item">
         <a href="/technology/architecture/components/application/solution/altinn-platform/authorization/contexthandler/"><span>Context Handler</span></a></li>
       <li class="dd-item">
         <a href="/technology/architecture/components/application/solution/altinn-platform/authorization/pap/"><span>PAP</span></a></li>
@@ -1110,6 +1114,50 @@ if(host != "localhost")
 
 	</div><article class="post technology">
     <header class="post-header">
+        <h2 class="post-title"><a href="/technology/architecture/components/application/solution/altinn-platform/authorization/pip/">Policy Information Point</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Without this information it would be impossible for the PDP to evaluate the context request in many scenarios.
+For the Altinn Platform there are serveral Policy Information Points:
+Altinn II Authorization - Get information about roles a user or system has for a given party Storage PIP - Get attributes about the resource in the decision request. (what kind of app, who is the reportee of the data, what is the current process state) The number of PIP are expected to grow in the future. <a class="read-more" href="/technology/architecture/components/application/solution/altinn-platform/authorization/pip/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+        
+
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
+            
+        
+    </footer>
+</article>
+<article class="post technology">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/technology/architecture/components/platform/">Platform Components</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>The platform components can be structured in to different areas. The diagram below show the different areas and the platform components involved in Altinn Studio, Altinn Apps and Altinn Platform solutions.
+Download as Visio
+Data &amp; Reporting ComponentsData and Reporting Components hold the functionalities to manage data and create business reports.
+Integration ComponentsIntegration components are in charge of enabling communications between systems.
+Logic Executions ComponentsLogic execution components are in charge of modeling the application behavior, in terms of data processing and flow control, according to the application specifications. <a class="read-more" href="/technology/architecture/components/platform/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+        
+
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/infrastructure/">infrastructure</a>
+            
+        
+    </footer>
+</article>
+<article class="post technology">
+    <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/capabilities/devops/platformoperations/">Platform Operations Management Capabilities</a></h2>
     </header>
     <section class="post-excerpt">
@@ -1280,53 +1328,6 @@ See construction components how PRP is built. <a class="read-more" href="/techno
                 <a class="label label-default" href="https://docs.altinn.studio/tags/authorization/">authorization</a>
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/xacml/">xacml</a>
-            
-        
-    </footer>
-</article>
-<article class="post technology">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/technology/architecture/capabilities/devops/quality/">Quality Management Capabilities</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Quality Assurance &amp; Reviews All pull request in GitHub requires approved reviews of the changes before it can be merged in to the master branch.
-See current and earlier pull request.
-For infrastructure changes the pull request is done in Azure Devops with the same type of reviews.
-Defect Tracking &amp; Management Defects are tracked in Gitub as bugs. See active and closed bugs.
-Static SW Analysis Enablement Every pull requsts needs to adhere to code quality standard verifyed with static code analysis. <a class="read-more" href="/technology/architecture/capabilities/devops/quality/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-        
-
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/devops/">devops</a>
-            
-        
-    </footer>
-</article>
-<article class="post technology">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/technology/architecture/components/application/construction/altinn-platform/receipt/">Application architecture receipt component - Altinn Platform</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>The receipt frontend view is available at https://platform.at22.altinn.cloud/receipt/{instanceOwnerId}/{instanceId}.
-The receipt component also exposes apis that are intended for use by the receipt frontend. If you need information about the user, instance or party you should use their respective platform components.
-Receipt backend exposes two enitities through API endpoints prefixed with https://platform.at22.altinn.cloud/receipt/api/v1/; user and extendedInstance
-/users A user is the entity which is logged in in Altinn and performs actions for on behalf of an instance owner. <a class="read-more" href="/technology/architecture/components/application/construction/altinn-platform/receipt/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-        
-
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/receipt/">receipt</a>
             
         
     </footer>

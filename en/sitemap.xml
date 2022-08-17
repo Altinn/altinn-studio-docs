@@ -1876,6 +1876,10 @@
   </url><url>
     <loc>https://docs.altinn.studio/technology/architecture/components/application/solution/altinn-platform/authorization/accessgroups/</loc>
   </url><url>
+    <loc>https://docs.altinn.studio/technology/architecture/components/application/solution/altinn-platform/authorization/accessmanagement/</loc>
+  </url><url>
+    <loc>https://docs.altinn.studio/technology/architecture/components/application/solution/altinn-platform/authorization/accesspolicies/</loc>
+  </url><url>
     <loc>https://docs.altinn.studio/technology/architecture/capabilities/runtime/security/authentication/accesstoken/</loc>
   </url><url>
     <loc>https://docs.altinn.studio/technology/tools/alpine-linux/</loc>

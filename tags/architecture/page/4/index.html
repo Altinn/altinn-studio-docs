@@ -109,7 +109,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -209,7 +209,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -281,7 +281,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -741,6 +741,10 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/technology/architecture/components/application/solution/altinn-platform/authorization/accessgroups/"><span>Access Groups</span></a></li>
       <li class="dd-item">
+        <a href="/technology/architecture/components/application/solution/altinn-platform/authorization/accessmanagement/"><span>Access Management</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/solution/altinn-platform/authorization/accesspolicies/"><span>Access Policies</span></a></li>
+      <li class="dd-item">
         <a href="/technology/architecture/components/application/solution/altinn-platform/authorization/contexthandler/"><span>Context Handler</span></a></li>
       <li class="dd-item">
         <a href="/technology/architecture/components/application/solution/altinn-platform/authorization/pap/"><span>PAP</span></a></li>
@@ -1110,6 +1114,49 @@ if(host != "localhost")
 
 	</div><article class="post technology">
     <header class="post-header">
+        <h2 class="post-title"><a href="/technology/architecture/capabilities/devops/analysisanddesign/">Analysis &amp; Design Capabilities</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Analysis Enablement Capabilities Requirement Capture Requirements are gathered through:
+input on Github talks with organization For some pilots, we choose to create larger epics on Github to group requirements.
+Some example issues are
+The issue for supporting Sirius App for tax department The issue for supporting NSM POB See development application components to get an overview of the tools and applications we use.
+User story Definition The DevOps team has the capability to define user stories in our GitHub repository. <a class="read-more" href="/technology/architecture/capabilities/devops/analysisanddesign/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+        
+
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/devops/">devops</a>
+            
+        
+    </footer>
+</article>
+<article class="post technology">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/technology/architecture/components/application/construction/altinn-apps/app/">Application construction components App</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>The App developed in Altinn Studio is currently based on a ASP.NET application template that contains backend and frontend components.
+The app developer modifies and enhances the app with changing code and configuration in Altinn Studio or external devlopment tools like Visual Studio Code.
+The application is built and deployed as a Docker container in a Kubernetes Pod to a Kubernetes cluster. See deployment architecture for deployment details.
+In the future Altinn Studio will support apps based on different templates. <a class="read-more" href="/technology/architecture/components/application/construction/altinn-apps/app/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+        
+
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+        
+    </footer>
+</article>
+<article class="post technology">
+    <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/solution/altinn-apps/app/">Solution-specific application components for App based on ASP.Net template</a></h2>
     </header>
     <section class="post-excerpt">
@@ -1271,51 +1318,6 @@ Based on this information this API creates a JWT token with claims about the use
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
-            
-        
-    </footer>
-</article>
-<article class="post technology">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/technology/architecture/capabilities/runtime/security/authorization/">Authorization</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>The authorization capabilities are based around ABAC (Attribute-Based Access Controls) and the XACML 3.0 standard.
-These capabilities include:
-The capability to define wide/narrow authorization policies for apps. Rules can be valid for the whole application or only valid for a subset of resources. The capability to evaluate policies based on a request for a resource The capability to configure authorization policies for API endpoints The capability to enforce decision request (permit or deny) The capability to enrich decision request with needed information The capability to retrieve context information from different sources both regarding resources accessed and subjects doing that. <a class="read-more" href="/technology/architecture/capabilities/runtime/security/authorization/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-        
-
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
-            
-        
-    </footer>
-</article>
-<article class="post technology">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/technology/architecture/components/application/construction/altinn-platform/authorization/">Application construction components - Altinn Platform Authorization</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>The authorization component consists of several solution components.
-For a functional description see details in application solution components.
-The diagram below shows where the different solution components are located
-The Authorization component is constructed as a asp.net MVC application exposing API. The API communicates with the different solution components
-The below diagram shows the data flow including PEP.
-Decision API The decision API is the API that orchestrates the decision process. <a class="read-more" href="/technology/architecture/components/application/construction/altinn-platform/authorization/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-        
-
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
             
         
     </footer>

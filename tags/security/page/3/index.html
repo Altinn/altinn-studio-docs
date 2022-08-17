@@ -109,7 +109,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -209,7 +209,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -281,7 +281,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -741,6 +741,10 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/technology/architecture/components/application/solution/altinn-platform/authorization/accessgroups/"><span>Access Groups</span></a></li>
       <li class="dd-item">
+        <a href="/technology/architecture/components/application/solution/altinn-platform/authorization/accessmanagement/"><span>Access Management</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/solution/altinn-platform/authorization/accesspolicies/"><span>Access Policies</span></a></li>
+      <li class="dd-item">
         <a href="/technology/architecture/components/application/solution/altinn-platform/authorization/contexthandler/"><span>Context Handler</span></a></li>
       <li class="dd-item">
         <a href="/technology/architecture/components/application/solution/altinn-platform/authorization/pap/"><span>PAP</span></a></li>
@@ -1107,6 +1111,61 @@ if(host != "localhost")
 </nav>
 
 	</div><article class="post technology">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/technology/architecture/components/application/solution/altinn-platform/authorization/prp/">Policy Retrieval Point</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>During deployment of an app the rules for the app is added to the Altinn Storage.
+The rules are defined as a XACML 3.0 Policy document.
+For delegated rights Altinn II will provide the delegated policy.
+See Policy Adminstration Point for details about how the policies are created.
+See construction components how PRP is built. <a class="read-more" href="/technology/architecture/components/application/solution/altinn-platform/authorization/prp/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+        
+
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/authorization/">authorization</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/xacml/">xacml</a>
+            
+        
+    </footer>
+</article>
+<article class="post technology">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/technology/architecture/components/application/solution/altinn-platform/authorization/resourceregistry/">Resource Registry</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>WORK IN PROGRESS - NOT FINALIZED
+The service registry will contain information about the service resources
+See Github #24
+Type of resources There are different types of resources that can be registrated
+Altinn 3 apps - Refered with org/app id Altinn 2 Services - Refered with externalServiceCode and EditionCode Service Resources Altinn 3 Apps Apps hosted in Altinn 3 Apps will be registred in the Altinn Service Registry.
+The referenced id would be org/app <a class="read-more" href="/technology/architecture/components/application/solution/altinn-platform/authorization/resourceregistry/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+        
+
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/authorization/">authorization</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/xacml/">xacml</a>
+            
+        
+    </footer>
+</article>
+<article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/construction/security/">Security Enforcement Capabilities</a></h2>
     </header>

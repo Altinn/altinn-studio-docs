@@ -109,7 +109,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -209,7 +209,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -281,7 +281,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -741,6 +741,10 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/technology/architecture/components/application/solution/altinn-platform/authorization/accessgroups/"><span>Access Groups</span></a></li>
       <li class="dd-item">
+        <a href="/technology/architecture/components/application/solution/altinn-platform/authorization/accessmanagement/"><span>Access Management</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/solution/altinn-platform/authorization/accesspolicies/"><span>Access Policies</span></a></li>
+      <li class="dd-item">
         <a href="/technology/architecture/components/application/solution/altinn-platform/authorization/contexthandler/"><span>Context Handler</span></a></li>
       <li class="dd-item">
         <a href="/technology/architecture/components/application/solution/altinn-platform/authorization/pap/"><span>PAP</span></a></li>
@@ -1110,6 +1114,51 @@ if(host != "localhost")
 
 	</div><article class="post technology">
     <header class="post-header">
+        <h2 class="post-title"><a href="/technology/architecture/components/data/">Data Components</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Altinn Studio, Altinn Apps and Altinn Platform is created to give the government, the citizens and the businesses of Norway a effective way to share data and retrieve data.
+ConceptualThe conceptual data model describes the data entities in the solutions and their relatiohip.
+Logical datamodelThe logcical datamodel describes the data entities that is stored. <a class="read-more" href="/technology/architecture/components/data/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+        
+
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/infrastructure/">infrastructure</a>
+            
+        
+    </footer>
+</article>
+<article class="post technology">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/technology/architecture/components/platform/datareporting/">Data &amp; Reporting Components</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Reporting Software Dashboard and reporting server software Application Insights is used for dashboard and reporting services for the platform solutions.
+Data visualization software Application Insights is used for visualization.
+Data Stores Multi model database service Altinn Platform uses Azure Cosmos as a Multi model database service.
+Read more about Azure Cosmos DB.
+Relational DBMs We use Azure Database for PostgreSQL as a relational database for Gitea.
+Read more about Azure Database for PostgreSQL. <a class="read-more" href="/technology/architecture/components/platform/datareporting/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+        
+
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/infrastructure/">infrastructure</a>
+            
+        
+    </footer>
+</article>
+<article class="post technology">
+    <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/solution/altinn-studio/designer/">Solution-specific application components Altinn Studio Designer</a></h2>
     </header>
     <section class="post-excerpt">
@@ -1284,48 +1333,6 @@ Compute componentsCompute components gives processor power to applications and 
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/infrastructure/">infrastructure</a>
-            
-        
-    </footer>
-</article>
-<article class="post technology">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/technology/architecture/capabilities/devops/platformoperations/infrastructuremgmt/">Infrastructure management</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Over time it is expected that the Altinn 3 platform would consist of hundreds of Kubernetes clusters and other cloud resources.
-To be able to manage and configure all these cloud resources the architecture that is selected has several capabilities enabled with help of various tools and processes.
-Infrastructure Configuration and managment Capabilities Tools &amp; components For all solutions of Altinn 3 (Altinn Apps, Altinn Platform and Altinn Studio) we use some common tools to configure and manage infrastructure. <a class="read-more" href="/technology/architecture/capabilities/devops/platformoperations/infrastructuremgmt/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-        
-
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/infrastructure/">infrastructure</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/devops/">devops</a>
-            
-        
-    </footer>
-</article>
-<article class="post technology">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/technology/architecture/capabilities/runtime/integration/">Integration &amp; Data Transport Capabilties</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>In many ways you can say that Altinn is a integration hub for communication between the citizens, the businesses and the public entities in Norway.
-Data flows between the different actors using Altinns.
-Citizens receives data from the public agencies and sends data to the public agencies Business receives data from the public agencies and sends data to the public agencies Public agencies can share data with other public agencies ++ End-point enablement Applications created in Altinn Studio has build in API for communication with the different actors. <a class="read-more" href="/technology/architecture/capabilities/runtime/integration/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-        
-
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
             
         
     </footer>

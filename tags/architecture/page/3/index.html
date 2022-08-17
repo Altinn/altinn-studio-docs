@@ -109,7 +109,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -209,7 +209,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -281,7 +281,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -741,6 +741,10 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/technology/architecture/components/application/solution/altinn-platform/authorization/accessgroups/"><span>Access Groups</span></a></li>
       <li class="dd-item">
+        <a href="/technology/architecture/components/application/solution/altinn-platform/authorization/accessmanagement/"><span>Access Management</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/solution/altinn-platform/authorization/accesspolicies/"><span>Access Policies</span></a></li>
+      <li class="dd-item">
         <a href="/technology/architecture/components/application/solution/altinn-platform/authorization/contexthandler/"><span>Context Handler</span></a></li>
       <li class="dd-item">
         <a href="/technology/architecture/components/application/solution/altinn-platform/authorization/pap/"><span>PAP</span></a></li>
@@ -1156,10 +1160,59 @@ Instance An application instance is created when a instance owner (reportee) sta
         <h2 class="post-title"><a href="/technology/architecture/components/application/solution/altinn-platform/authorization/accessgroups/">Access Groups</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>WORK IN PROGRESS - NOT FINALIZED
-Access registry contains information about the sentral defined access groups.
+        <p>This is work in progressAccess registry contains information about the sentrally defined access groups.
 See Github #25
-AccessGroup defintion Type of group. Leaf or branch? Name of group in different languges AccessGroup identifier AccessGroup relationship Parent/child relantiship between AccessGroups Relationship for external roles (ER, AA, AccessGroup Membership MembershipID CoveredBy UserId Covered OfferedByParty AccessGroupId ValidTo? AccessGroup Delegation DelegatedByParty DelegatedByUserId DelegationType DelegatetDateTime AccessGroup History DelegatedBy AccessGroupID OfferedBy CoveredByUserId CoveredByPartyId ChangeType (created, deleted)  <a class="read-more" href="/technology/architecture/components/application/solution/altinn-platform/authorization/accessgroups/">&raquo;</a></p>
+Data model AccessGroup defintion Type of group. Leaf or branch? Name of group in different languges AccessGroup identifier AccessGroup relationship Parent/child relantiship between AccessGroups Relationship for external roles (ER, AA, AccessGroup Membership MembershipID CoveredBy UserId Covered OfferedByParty AccessGroupId ValidTo? AccessGroup Delegation DelegatedByParty DelegatedByUserId DelegationType DelegatetDateTime AccessGroup History DelegatedBy AccessGroupID OfferedBy CoveredByUserId CoveredByPartyId ChangeType (created, deleted) API See details of API in Github issue 25 <a class="read-more" href="/technology/architecture/components/application/solution/altinn-platform/authorization/accessgroups/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+        
+
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/authorization/">authorization</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/xacml/">xacml</a>
+            
+        
+    </footer>
+</article>
+<article class="post technology">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/technology/architecture/components/application/solution/altinn-platform/authorization/accessmanagement/">Access Management component</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>This is work in progressThe access management will provide the following functionality
+Delegate and revoke Altinn 2 roles Add and remove membership for Access Groups Delegate App and instance rights List access groups members List resources that is linked to access groups This design is in early phase. <a class="read-more" href="/technology/architecture/components/application/solution/altinn-platform/authorization/accessmanagement/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+        
+
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/authorization/">authorization</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/xacml/">xacml</a>
+            
+        
+    </footer>
+</article>
+<article class="post technology">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/technology/architecture/components/application/solution/altinn-platform/authorization/accesspolicies/">Access Policies component</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>This is work in progressWork in progress
+In Altinn 3 platform it will support different types of Access Policies based on XACML 3.0
+App Policies The App Policies are policies for Apps created in Altinn Studio. The policy is created in Altinn Studio and migrated to the Access Policy component when the app is deployed to a test or production environment.
+An app policy contains information about the different resources in an App and who and what kind of operations they are allowed to perform. <a class="read-more" href="/technology/architecture/components/application/solution/altinn-platform/authorization/accesspolicies/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         
@@ -1278,49 +1331,6 @@ Solution components Altinn Studio RepositoriesIn Altinn Studio Repos you find t
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
-            
-        
-    </footer>
-</article>
-<article class="post technology">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/technology/architecture/capabilities/devops/analysisanddesign/">Analysis &amp; Design Capabilities</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Analysis Enablement Capabilities Requirement Capture Requirements are gathered through:
-input on Github talks with organization For some pilots, we choose to create larger epics on Github to group requirements.
-Some example issues are
-The issue for supporting Sirius App for tax department The issue for supporting NSM POB See development application components to get an overview of the tools and applications we use.
-User story Definition The DevOps team has the capability to define user stories in our GitHub repository. <a class="read-more" href="/technology/architecture/capabilities/devops/analysisanddesign/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-        
-
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/devops/">devops</a>
-            
-        
-    </footer>
-</article>
-<article class="post technology">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/technology/architecture/components/application/construction/altinn-apps/app/">Application construction components App</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>The App developed in Altinn Studio is currently based on a ASP.NET application template that contains backend and frontend components.
-The app developer modifies and enhances the app with changing code and configuration in Altinn Studio or external devlopment tools like Visual Studio Code.
-The application is built and deployed as a Docker container in a Kubernetes Pod to a Kubernetes cluster. See deployment architecture for deployment details.
-In the future Altinn Studio will support apps based on different templates. <a class="read-more" href="/technology/architecture/components/application/construction/altinn-apps/app/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-        
-
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
             
         
     </footer>

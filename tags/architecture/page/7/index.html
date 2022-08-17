@@ -109,7 +109,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -209,7 +209,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -281,7 +281,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -741,6 +741,10 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/technology/architecture/components/application/solution/altinn-platform/authorization/accessgroups/"><span>Access Groups</span></a></li>
       <li class="dd-item">
+        <a href="/technology/architecture/components/application/solution/altinn-platform/authorization/accessmanagement/"><span>Access Management</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/solution/altinn-platform/authorization/accesspolicies/"><span>Access Policies</span></a></li>
+      <li class="dd-item">
         <a href="/technology/architecture/components/application/solution/altinn-platform/authorization/contexthandler/"><span>Context Handler</span></a></li>
       <li class="dd-item">
         <a href="/technology/architecture/components/application/solution/altinn-platform/authorization/pap/"><span>PAP</span></a></li>
@@ -1110,6 +1114,48 @@ if(host != "localhost")
 
 	</div><article class="post technology">
     <header class="post-header">
+        <h2 class="post-title"><a href="/technology/architecture/capabilities/devops/platformoperations/infrastructuremgmt/">Infrastructure management</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Over time it is expected that the Altinn 3 platform would consist of hundreds of Kubernetes clusters and other cloud resources.
+To be able to manage and configure all these cloud resources the architecture that is selected has several capabilities enabled with help of various tools and processes.
+Infrastructure Configuration and managment Capabilities Tools &amp; components For all solutions of Altinn 3 (Altinn Apps, Altinn Platform and Altinn Studio) we use some common tools to configure and manage infrastructure. <a class="read-more" href="/technology/architecture/capabilities/devops/platformoperations/infrastructuremgmt/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+        
+
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/infrastructure/">infrastructure</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/devops/">devops</a>
+            
+        
+    </footer>
+</article>
+<article class="post technology">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/technology/architecture/capabilities/runtime/integration/">Integration &amp; Data Transport Capabilties</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>In many ways you can say that Altinn is a integration hub for communication between the citizens, the businesses and the public entities in Norway.
+Data flows between the different actors using Altinns.
+Citizens receives data from the public agencies and sends data to the public agencies Business receives data from the public agencies and sends data to the public agencies Public agencies can share data with other public agencies ++ End-point enablement Applications created in Altinn Studio has build in API for communication with the different actors. <a class="read-more" href="/technology/architecture/capabilities/runtime/integration/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+        
+
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+        
+    </footer>
+</article>
+<article class="post technology">
+    <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/platform/integration/">Integration Components</a></h2>
     </header>
     <section class="post-excerpt">
@@ -1275,45 +1321,6 @@ Azure Loadbalancer In front of every AKS cluster there is a Azure Loadbalancer t
                 <a class="label label-default" href="https://docs.altinn.studio/tags/infrastructure/">infrastructure</a>
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/todo/">todo</a>
-            
-        
-    </footer>
-</article>
-<article class="post technology">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/technology/architecture/requirements/non_functional/">Non-Functional Requirements</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Architectural Concerns Architecture Concerns are categories of Non-Functional Requirements (NFRs) of a system that has been important defining this architecture. These are sometimes referred to as cross-cutting concerns or &ldquo;the -ilities&rdquo; because most of the words end with &ldquo;-ility.&rdquo;
-Performance Scalability The platform need to be highly scalable. The traffic in this types of solutions involves a large part of the countries citizens and the traffic is often concentrated around a few dates. <a class="read-more" href="/technology/architecture/requirements/non_functional/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-        
-
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
-            
-        
-    </footer>
-</article>
-<article class="post technology">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/technology/architecture/capabilities/runtime/security/authentication/oidcproviders/">OIDC Providers</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Each App in Altinn Apps can configure to use one of the pre-configured and approved OIDC providers.
-When redirecting the user to Altinn Authentication, by default ID-porten will be presented through Altinn 2 configuration.
-If authentication component has configured a specific OIDC provider and the app is configured to use this, the user will be redirected to login. Currently, the only approved OIDC providers in Altinn are FEIDE and UIDP have been approved OIDC providers in Altinn. <a class="read-more" href="/technology/architecture/capabilities/runtime/security/authentication/oidcproviders/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-        
-
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
             
         
     </footer>

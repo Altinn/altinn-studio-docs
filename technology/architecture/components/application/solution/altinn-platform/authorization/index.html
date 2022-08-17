@@ -109,7 +109,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -209,7 +209,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -281,7 +281,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -741,6 +741,10 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/technology/architecture/components/application/solution/altinn-platform/authorization/accessgroups/"><span>Access Groups</span></a></li>
       <li class="dd-item">
+        <a href="/technology/architecture/components/application/solution/altinn-platform/authorization/accessmanagement/"><span>Access Management</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/solution/altinn-platform/authorization/accesspolicies/"><span>Access Policies</span></a></li>
+      <li class="dd-item">
         <a href="/technology/architecture/components/application/solution/altinn-platform/authorization/contexthandler/"><span>Context Handler</span></a></li>
       <li class="dd-item">
         <a href="/technology/architecture/components/application/solution/altinn-platform/authorization/pap/"><span>PAP</span></a></li>
@@ -1165,7 +1169,11 @@ Use the authorization API to manage authorizations in altinn platform.</p>
 The rules are sent in the body of the request. Reade more about the <a href="prp">policy format</a>.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>POST /authorization/api/v1/policies?org=org&amp;app=app
 </span></span></code></pre></div><h2 id="altinn-authorization---future">Altinn Authorization - Future</h2>
-<p>In the coming years, Authorization will be modernized from being a part of Altinn 2 monolith to a cloud-native architecture.</p>
+<div class="notices warning" >
+This is work in progress
+</div>
+
+<p>In the coming years, Authorization will be <a href="https://github.com/Altinn/altinn-authorization/issues/23">modernized</a> from being a part of Altinn 2 monolith to a cloud-native architecture.</p>
 <p>The diagram below shows the different solution components.</p>
 <figure><a href="authorization_solution_components_future.drawio.svg"><img src="authorization_solution_components_future.drawio.svg" alt="Future solution Altinn Authorization" title="Future solution Altinn Authorization" /></a><figcaption><h4>Future solution Altinn Authorization</h4></figcaption></figure>
 <h3 id="altinn-access-management">Altinn Access Management</h3>
@@ -1175,6 +1183,7 @@ The rules are sent in the body of the request. Reade more about the <a href="prp
 <li>Administration of AccessGroups</li>
 <li>Possibility to delegate and revoke rights</li>
 </ul>
+<p><a href="https://github.com/Altinn/altinn-authorization-admin/issues/27">Github Issue</a></p>
 <h3 id="altinn-resource-registry">Altinn Resource Registry</h3>
 <p>This component will provide a register of</p>
 <ul>
@@ -1182,19 +1191,23 @@ The rules are sent in the body of the request. Reade more about the <a href="prp
 <li>Altinn 2 apps</li>
 <li>External services that are hosted in other platforms but registered in Altinn for authorization purposes.</li>
 </ul>
+<p><a href="https://github.com/Altinn/altinn-authorization/issues/24">Github issue</a></p>
 <p><a href="https://github.com/Altinn/altinn-authorization/issues/26">A POC is planned</a></p>
 <h3 id="altinn-access-groups">Altinn Access Groups</h3>
 <p>Altinn Access Groups component contains the Altinn defined Access Groups and information which is member of this groups.</p>
 <p>Exposes API to list and delegate Access Groups.</p>
+<p><a href="https://github.com/Altinn/altinn-authorization/issues/25">Github issue</a></p>
 <p><a href="https://github.com/Altinn/altinn-authorization/issues/28">A POC is planned</a></p>
 <h3 id="altinn-access-policies">Altinn Access Policies</h3>
 <p>Store for the different policies. Able to identify the correct policy based on Authorization Request.</p>
 <p>Have functionality to create delegated policies</p>
+<p><a href="https://github.com/Altinn/altinn-authorization/issues/27">Github issue</a></p>
 <p><a href="https://github.com/Altinn/altinn-authorization/issues/27">A POC is planned</a></p>
 <h3 id="altinn-access-information">Altinn Access Information</h3>
 <p>Altinn Access Information exposes API for Reportee, access groups, and rights for external consumers. Therefore, it needs to be highly scalable.</p>
 <h3 id="altinn-consent">Altinn Consent</h3>
 <p>Provides functionality to request consent and give consents</p>
+<p><a href="https://github.com/Altinn/altinn-authorization/issues/22">Github issue</a></p>
 <h3 id="altinn-policy-decision-point">Altinn Policy Decision Point</h3>
 <p>This is the core PDP responsible to evaluate if the user should get access to a given resource.</p>
 <p>Depends on Altinn Access Groups for groups information and Altinn Access Policies for policy information.</p>
@@ -1203,7 +1216,13 @@ The rules are sent in the body of the request. Reade more about the <a href="prp
 	
 		<li>
 				<a href="/technology/architecture/components/application/solution/altinn-platform/authorization/accessgroups/">Access Groups</a>
-				<p>Access groups</p>
+				<p>The Access Groups components is responsible for keeping track of membership of different Access Groups defined in Altinn.</p>
+				</li><li>
+				<a href="/technology/architecture/components/application/solution/altinn-platform/authorization/accessmanagement/">Access Management component</a>
+				<p>The Access Management provides functionality to end users for managing groups, roles and rights</p>
+				</li><li>
+				<a href="/technology/architecture/components/application/solution/altinn-platform/authorization/accesspolicies/">Access Policies component</a>
+				<p>The Access Policies component is the policy store for all access policies in Altinn platform.</p>
 				</li><li>
 				<a href="/technology/architecture/components/application/solution/altinn-platform/authorization/contexthandler/">Context Handler</a>
 				<p>The responsibility to the Context Handler is to enrich a decision request sent from a PEP so it can be evaluated by PDP.</p>

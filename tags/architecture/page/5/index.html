@@ -109,7 +109,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -209,7 +209,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -281,7 +281,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -741,6 +741,10 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/technology/architecture/components/application/solution/altinn-platform/authorization/accessgroups/"><span>Access Groups</span></a></li>
       <li class="dd-item">
+        <a href="/technology/architecture/components/application/solution/altinn-platform/authorization/accessmanagement/"><span>Access Management</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/solution/altinn-platform/authorization/accesspolicies/"><span>Access Policies</span></a></li>
+      <li class="dd-item">
         <a href="/technology/architecture/components/application/solution/altinn-platform/authorization/contexthandler/"><span>Context Handler</span></a></li>
       <li class="dd-item">
         <a href="/technology/architecture/components/application/solution/altinn-platform/authorization/pap/"><span>PAP</span></a></li>
@@ -1110,6 +1114,51 @@ if(host != "localhost")
 
 	</div><article class="post technology">
     <header class="post-header">
+        <h2 class="post-title"><a href="/technology/architecture/capabilities/runtime/security/authorization/">Authorization</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>The authorization capabilities are based around ABAC (Attribute-Based Access Controls) and the XACML 3.0 standard.
+These capabilities include:
+The capability to define wide/narrow authorization policies for apps. Rules can be valid for the whole application or only valid for a subset of resources. The capability to evaluate policies based on a request for a resource The capability to configure authorization policies for API endpoints The capability to enforce decision request (permit or deny) The capability to enrich decision request with needed information The capability to retrieve context information from different sources both regarding resources accessed and subjects doing that. <a class="read-more" href="/technology/architecture/capabilities/runtime/security/authorization/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+        
+
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
+            
+        
+    </footer>
+</article>
+<article class="post technology">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/technology/architecture/components/application/construction/altinn-platform/authorization/">Application construction components - Altinn Platform Authorization</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>The authorization component consists of several solution components.
+For a functional description see details in application solution components.
+The diagram below shows where the different solution components are located
+The Authorization component is constructed as a asp.net MVC application exposing API. The API communicates with the different solution components
+The below diagram shows the data flow including PEP.
+Decision API The decision API is the API that orchestrates the decision process. <a class="read-more" href="/technology/architecture/components/application/construction/altinn-platform/authorization/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+        
+
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
+            
+        
+    </footer>
+</article>
+<article class="post technology">
+    <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/capabilities/devops/platformoperations/backupandrecovery/">Backup &amp; Recovery</a></h2>
     </header>
     <section class="post-excerpt">
@@ -1275,51 +1324,6 @@ Data Enrichment &amp; Aggregation A application developer can define data enrich
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
-            
-        
-    </footer>
-</article>
-<article class="post technology">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/technology/architecture/components/data/">Data Components</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Altinn Studio, Altinn Apps and Altinn Platform is created to give the government, the citizens and the businesses of Norway a effective way to share data and retrieve data.
-ConceptualThe conceptual data model describes the data entities in the solutions and their relatiohip.
-Logical datamodelThe logcical datamodel describes the data entities that is stored. <a class="read-more" href="/technology/architecture/components/data/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-        
-
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/infrastructure/">infrastructure</a>
-            
-        
-    </footer>
-</article>
-<article class="post technology">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/technology/architecture/components/platform/datareporting/">Data &amp; Reporting Components</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Reporting Software Dashboard and reporting server software Application Insights is used for dashboard and reporting services for the platform solutions.
-Data visualization software Application Insights is used for visualization.
-Data Stores Multi model database service Altinn Platform uses Azure Cosmos as a Multi model database service.
-Read more about Azure Cosmos DB.
-Relational DBMs We use Azure Database for PostgreSQL as a relational database for Gitea.
-Read more about Azure Database for PostgreSQL. <a class="read-more" href="/technology/architecture/components/platform/datareporting/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-        
-
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/infrastructure/">infrastructure</a>
             
         
     </footer>

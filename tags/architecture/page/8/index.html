@@ -109,7 +109,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Create apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -209,7 +209,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -281,7 +281,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -289,7 +289,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/app/development/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
       <li class="dd-item">
@@ -741,6 +741,10 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/technology/architecture/components/application/solution/altinn-platform/authorization/accessgroups/"><span>Access Groups</span></a></li>
       <li class="dd-item">
+        <a href="/technology/architecture/components/application/solution/altinn-platform/authorization/accessmanagement/"><span>Access Management</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/solution/altinn-platform/authorization/accesspolicies/"><span>Access Policies</span></a></li>
+      <li class="dd-item">
         <a href="/technology/architecture/components/application/solution/altinn-platform/authorization/contexthandler/"><span>Context Handler</span></a></li>
       <li class="dd-item">
         <a href="/technology/architecture/components/application/solution/altinn-platform/authorization/pap/"><span>PAP</span></a></li>
@@ -1110,6 +1114,45 @@ if(host != "localhost")
 
 	</div><article class="post technology">
     <header class="post-header">
+        <h2 class="post-title"><a href="/technology/architecture/requirements/non_functional/">Non-Functional Requirements</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Architectural Concerns Architecture Concerns are categories of Non-Functional Requirements (NFRs) of a system that has been important defining this architecture. These are sometimes referred to as cross-cutting concerns or &ldquo;the -ilities&rdquo; because most of the words end with &ldquo;-ility.&rdquo;
+Performance Scalability The platform need to be highly scalable. The traffic in this types of solutions involves a large part of the countries citizens and the traffic is often concentrated around a few dates. <a class="read-more" href="/technology/architecture/requirements/non_functional/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+        
+
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+        
+    </footer>
+</article>
+<article class="post technology">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/technology/architecture/capabilities/runtime/security/authentication/oidcproviders/">OIDC Providers</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Each App in Altinn Apps can configure to use one of the pre-configured and approved OIDC providers.
+When redirecting the user to Altinn Authentication, by default ID-porten will be presented through Altinn 2 configuration.
+If authentication component has configured a specific OIDC provider and the app is configured to use this, the user will be redirected to login. Currently, the only approved OIDC providers in Altinn are FEIDE and UIDP have been approved OIDC providers in Altinn. <a class="read-more" href="/technology/architecture/capabilities/runtime/security/authentication/oidcproviders/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+        
+
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
+            
+        
+    </footer>
+</article>
+<article class="post technology">
+    <header class="post-header">
         <h2 class="post-title"><a href="/technology/architecture/components/application/nonsolutionspecific/operations/">Operations Application</a></h2>
     </header>
     <section class="post-excerpt">
@@ -1288,50 +1331,6 @@ See construction components on details how the PEP are created. <a class="read-m
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
-            
-        
-    </footer>
-</article>
-<article class="post technology">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/technology/architecture/components/application/solution/altinn-platform/authorization/pip/">Policy Information Point</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Without this information it would be impossible for the PDP to evaluate the context request in many scenarios.
-For the Altinn Platform there are serveral Policy Information Points:
-Altinn II Authorization - Get information about roles a user or system has for a given party Storage PIP - Get attributes about the resource in the decision request. (what kind of app, who is the reportee of the data, what is the current process state) The number of PIP are expected to grow in the future. <a class="read-more" href="/technology/architecture/components/application/solution/altinn-platform/authorization/pip/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-        
-
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
-            
-        
-    </footer>
-</article>
-<article class="post technology">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/technology/architecture/components/platform/">Platform Components</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>The platform components can be structured in to different areas. The diagram below show the different areas and the platform components involved in Altinn Studio, Altinn Apps and Altinn Platform solutions.
-Download as Visio
-Data &amp; Reporting ComponentsData and Reporting Components hold the functionalities to manage data and create business reports.
-Integration ComponentsIntegration components are in charge of enabling communications between systems.
-Logic Executions ComponentsLogic execution components are in charge of modeling the application behavior, in terms of data processing and flow control, according to the application specifications. <a class="read-more" href="/technology/architecture/components/platform/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-        
-
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/infrastructure/">infrastructure</a>
             
         
     </footer>
