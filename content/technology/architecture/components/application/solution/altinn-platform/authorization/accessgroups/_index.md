@@ -1,15 +1,19 @@
 ---
 title: Access Groups
 linktitle: Access Groups
-description: Access groups 
+description: The Access Groups components is responsible for keeping track of membership of different Access Groups defined in Altinn. 
 tags: [architecture, security, authorization, xacml]
 ---
 
-WORK IN PROGRESS - NOT FINALIZED
+{{<notice warning>}}
+This is work in progress
+{{</notice>}}
 
-Access registry contains information about the sentral defined access groups. 
+Access registry contains information about the sentrally [defined access groups](https://github.com/altinn/docs/blob/master/content/utviklingsguider/styring-av-tilgang/for-tjenesteeier/forslag-tilgangsgrupper.md). 
 
 See [Github #25](https://github.com/Altinn/altinn-authorization/issues/25)
+
+## Data model
 
 ### AccessGroup defintion
 
@@ -49,12 +53,14 @@ See [Github #25](https://github.com/Altinn/altinn-authorization/issues/25)
 
 ### 
 
-
 ![Hierar](dbmodel.drawio.svg "Db model")
 
 
 ![Hierar](hierchy.drawio.svg "Db model")
 
 
+## API
+
+See details of API in [Github issue 25](https://github.com/Altinn/altinn-authorization/issues/25)
 
 

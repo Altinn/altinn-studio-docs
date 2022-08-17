@@ -37,7 +37,9 @@ The reference id would be externalServiceCode/serviceeditionCode
 
 ### Altinn Service Resource
 
-The service resource would be any type of service provided by public or private organiazations
+The service resource would be any type of service provided by public or private organiazations. We will use [cpsv:PublicService](https://informasjonsforvaltning.github.io/cpsv-ap-no/#OffentligTjeneste) as inspiration to the data model.
+
+Some examples
 
 - API's exposing data [Example3](exampleresource3.json) [XACML](policysample3.xml)
 - Portal functionality in Altinn [Example 1](exampleresource1.json) [XACML](policysample3.xml)
