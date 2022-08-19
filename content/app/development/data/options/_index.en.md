@@ -219,6 +219,48 @@ Options supports query parameters when making the api call. `language` is added 
 In the example above, the query parameter `orgnummer={nr}`, where `{nr}` is the value of `soknad.transportorOrgnummer` will be set.
 If an option is setup with mapping and the given data field changes app-frontend will refetch the option. This can be used to dynamicly decide which choices are availibable based on information given by the end user.
 
+Passing query parameters from repeating groups is also supported by adding an index indicator for the relevant indexes. Example for a group:
+
+```json
+      {
+        "id": "dropdown-group",
+        "type": "Dropdown",
+        "textResourceBindings": {
+          "title": "Select city"
+        },
+        "dataModelBindings": {
+          "simpleBinding": "Group.City"
+        },
+        "required": true,
+        "optionsId": "cities",
+        "mapping": {
+          "Group[{0}].Country": "country"
+        }
+      },
+```
+
+For nested groups follows the same pattern but with an additional index indicator for the nested group:
+
+```json
+      {
+        "id": "dropdown-nested-group",
+        "type": "Dropdown",
+        "textResourceBindings": {
+          "title": "Select city"
+        },
+        "dataModelBindings": {
+          "simpleBinding": "Group.SubGroup.City"
+        },
+        "required": true,
+        "optionsId": "cities",
+        "mapping": {
+          "Group[{0}].SubGroup[{1}].Country": "country"
+        }
+      },
+```
+
+For a complete example on how this is setup see our [demo app.](https://altinn.studio/repos/ttd/dynamic-options-rep)
+
 {{%notice warning%}}
 During PDF-generation the app will try to call the same option endpoint as app-frontend does.
 We currently has a weakness where mapping paramteres not are included in this request, see issue [#7903.](https://github.com/Altinn/altinn-studio/issues/7903)
