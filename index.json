@@ -802,7 +802,7 @@
 	"title": "Azure DevOps",
 	"tags": ["development"],
 	"description": "Guidelines for working with resources in Azure DevOps",
-	"content": "\r\u0026lt;li\u0026gt;\r\u0026lt;a href=\u0026quot;/community/contributing/handbook/azure-devops/pipelines/\u0026quot;\u0026gt;Pipelines\u0026lt;/a\u0026gt;\r\u0026lt;p\u0026gt;Quality checklist and overview of pipelines in Azure DevOps\u0026lt;/p\u0026gt;\r\u0026lt;/li\u0026gt;\r\u0026lt;ul\u0026gt;\r\u0026lt;/ul\u0026gt;\rWe use Azure DevOps for building and deploying both our solution and the app owners applications.\n"
+	"content": "We use Azure DevOps for building and deploying both our solution and the app owners applications.\nPipelines\rQuality checklist and overview of pipelines in Azure DevOps\n"
 },
 {
 	"uri": "https://docs.altinn.studio/community/contributing/handbook/back-end/",
