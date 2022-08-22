@@ -566,6 +566,7 @@ if(host != "localhost")
   <ul>
     <li><a href="#trigge-kalkulering-av-sporvalg-fra-frontend">Trigge kalkulering av sporvalg fra frontend</a></li>
     <li><a href="#sette-opp-sporvalg-backend-nuget-versjon--500">Sette opp sporvalg backend (nuget versjon &gt; 5.0.0)</a></li>
+    <li><a href="#sette-opp-sporvalg-backend-nuget-versjon--500-1">Sette opp sporvalg backend (nuget versjon &lt; 5.0.0)</a></li>
     <li><a href="#reflektere-sporvalg-i-kvittering-pdf">Reflektere sporvalg i kvittering (PDF)</a></li>
   </ul>
 </nav><p>Dynamisk sporvalg i en applikasjon kan være nyttig dersom man ønsker å vise og/eller skjule enkelte sider 
@@ -683,6 +684,52 @@ Da servicen allerede er tilgjengelig via dependency injectes inn i klasen er det
 Her heter C# modellen til skjemadataen <code>Skjema</code> for din applikasjon kan det være et annet navn. 
 Dette kan du sjekke ved å finne klassenavnet på C# filen i App/models-mappen.</p>
 </li>
+</ul>
+<h2 id="sette-opp-sporvalg-backend-nuget-versjon--500-1">Sette opp sporvalg backend (nuget versjon &lt; 5.0.0)</h2>
+<div class="notices warning" >
+For at sporvalg skal fungere for statless applikasjoner må nuget oppgraderes til 5.0.0 eller senere
+</div>
+<p>I App.cs må man overstyre metoden som henter ut den standardrekkefølgen av sider som er definert i <code>Settings.json</code>
+Dette gjøres ved å legge til funksjonen nedenfor i App.cs.
+Forventet output fra denne metoden er en stortert liste som inneholder navnet på de relevante sidene i applikasjonen.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#6272a4">/// &lt;inheritdoc /&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">override</span> <span style="color:#ff79c6">async</span> Task&lt;List&lt;<span style="color:#8be9fd">string</span>&gt;&gt; GetPageOrder(<span style="color:#8be9fd">string</span> org, <span style="color:#8be9fd">string</span> app, <span style="color:#8be9fd">int</span> instanceOwnerId, Guid instanceGuid, <span style="color:#8be9fd">string</span> layoutSetId, <span style="color:#8be9fd">string</span> currentPage, <span style="color:#8be9fd">string</span> dataTypeId, <span style="color:#8be9fd">object</span> formData)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    List&lt;<span style="color:#8be9fd">string</span>&gt; pageOrder = <span style="color:#ff79c6">new</span> List&lt;<span style="color:#8be9fd">string</span>&gt;();
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// Implement your own logic here</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> pageOrder;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Funksjonen får inn en rekke parametere som kan være nyttig dersom man skal benytte skjemadata
+eller annen informasjon om sluttbruker til å kalkulere sporvalget.</p>
+<ul>
+<li><em>layoutSetId</em> Dersom appen din definerer flere layout set vil id på det gjeldende layout settet sendes inn.
+Dersom applikasjonen ikke har layout set vil denne strengen være tom. Basert på denne parameteren kan man hente
+ut standard siderekkefølge som er definert i applikasjonen:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span>List&lt;<span style="color:#8be9fd">string</span>&gt; pageOrder = <span style="color:#ff79c6">new</span> List&lt;<span style="color:#8be9fd">string</span>&gt;();
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">if</span> (<span style="color:#8be9fd">string</span>.IsNullOrEmpty(layoutSetId))
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    pageOrder = _appResourcesService.GetLayoutSettings().Pages.Order;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">else</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    pageOrder = _appResourcesService.GetLayoutSettingsForSet(layoutSetId).Pages.Order;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Dette forutsetter at servicen <code>IAppResources</code> gjøres tilgjengelig i App.cs. 
+Da servicen allerede dependency injectes inn i klasen er det kun to steg som kreves.</p>
+<ol>
+<li>Opprett en privat variabel i staten av klassen.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#ff79c6">private</span> <span style="color:#ff79c6">readonly</span> IAppResources _appResourcesService;
+</span></span></code></pre></div><ol start="2">
+<li>Definer den nye private variabelen lik servicen som sendes med i konstruktøren til App.cs</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span> _appResourcesService = appResourcesService;
+</span></span></code></pre></div><ul>
+<li><em>CurrentPage</em> Siden man ønsker å navigere fra vil være spesifisert i denne parameteren.</li>
+<li><em>FormData</em> inneholder skjemadataen. Den kan enkelt jobbes med som et objekt ved å caste den til riktig type <code>Skjema skjema = (Skjema)formData;</code>.
+Her heter C# modellen til skjemadataen <code>Skjema</code> for din applikasjon kan det være et annet navn. 
+Dette kan du sjekke ved å finne klassenavnet på C# filen i App/models-mappen.</li>
 </ul>
 <h2 id="reflektere-sporvalg-i-kvittering-pdf">Reflektere sporvalg i kvittering (PDF)</h2>
 <p>Som applikasjonsutvikler må man selv sørge for å reflektere de sporvalgene som gjøres i PDFen som opprettes i slutten av hver task. 
