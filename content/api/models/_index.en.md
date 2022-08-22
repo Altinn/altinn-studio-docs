@@ -8,4 +8,4 @@ aliases:
 ---
 
 
-{{% children description="true" depth="1" %}}
+{{<children>}}

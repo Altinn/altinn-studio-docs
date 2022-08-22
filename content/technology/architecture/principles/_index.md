@@ -13,7 +13,7 @@ aliases:
 The following architecture principles has been defined for the solutions. 
 The principles are document as suggested by [TOGAF](https://pubs.opengroup.org/architecture/togaf8-doc/arch/chap29.html). 
 
-The [architecture principles]() below is described like TOGAF recommends.
+The architecture principles below is described like TOGAF recommends.
 
 ## Free and open-source software
 

@@ -9,4 +9,4 @@ aliases:
 !["Altinn solutions diagram"](altinn-3-solution.svg "Altinn 3 solutions")
 
 
-{{% children description="true" depth="1" %}}
+{{<children>}}

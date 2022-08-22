@@ -109,7 +109,7 @@ In many cases, parties use professionals to handle their data in Altinn. These p
 
 Currently we only support persons and consumers. They need to be authenticated through ID-porten to set up a subscription for themself.
 
-Before any event is pushed 
+Before any event is pushed, the consumers access to the source of the event is authorized.
 
 ## Requirments
 
@@ -316,3 +316,5 @@ Events are used in different scenarios in the platform.
   See [Instance Events](/technology/architecture/components/application/solution/altinn-platform/storage/#instanceevent) in Storage
 - **Application logic events** - These are events where app developers could implement logic to get a specific behavior.
   Calculation, validation ++ This type of event is probably not relevant to push to the event feed.  
+
+{{<children>}}

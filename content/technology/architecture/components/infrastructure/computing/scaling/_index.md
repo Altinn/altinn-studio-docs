@@ -1,7 +1,8 @@
 ---
 title: Scaling compute resources
 linktitle: Scaling
-description: Traffic to Altinn varies widely during a year and scaling the compute resources correctly is important for stability and cost
+description: Traffic to Altinn varies widely during a year and scaling the compute resources correctly is important for stability and cost.
+toc: true
 tags: [architecture, infrastructure]
 ---
 
@@ -15,13 +16,13 @@ there is this enormous spike in traffic will require that all servers are scaled
 For Altinn 3 the story is completely different. Every organization has its separate Kubernetes cluster. Each of these 
 clusters can be scaled independently.
 
-### Cluster Autoscaler
+## Cluster Autoscaler
 
 Azure Kubernetes Services does support autoscaling of nodes and pods. Read more about [cluster autoscaling.](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler)
 
 This is currently not been enabled.
 
-### Resource Reservations in Azure Kubernetes Services
+## Resource Reservations in Azure Kubernetes Services
 
 Node resources are utilized by AKS to make the node function as part of your cluster. This usage creates a discrepancy between the node's total resources and 
 the resources allocatable when used in AKS. This information is important to note when setting requests and limits for user deployed pods.
@@ -34,14 +35,14 @@ For Altinn 3 this means the following
 
 Read more about [resource reservations](https://docs.microsoft.com/en-us/azure/aks/concepts-clusters-workloads#resource-reservations)
 
-#### Resource limitations
+### Resource limitations
 
 In Kubernetes, it is possible to set resource limitations for each pod deployed to a Kubernetes cluster.
 In addition, we can define the number of minimum resources required for the pod.
 
 . Below there is a general example where the minimum CPU is set to 100milliCPU and maximum to 250milliCPU.
 
-```txt
+```yml
 kind: Pod
 apiVersion: v1
 metadata:   
@@ -61,7 +62,7 @@ spec:
 
 Read about best practice for [managing resources in Azure Kubernetes Services](https://docs.microsoft.com/en-us/azure/aks/developer-best-practices-resource-management)
 
-### Scaling org clusters
+## Scaling org clusters
 
 There are currently [more than 50 orgs](https://www.altinn.no/en/about-altinn/the-altinn-co-operation/) hosting digital services 
 in the Altinn 2 platform. 
@@ -80,7 +81,7 @@ In this example, we assume that 1000 transactions require 1 CPU. (1000 milliCPU)
 
 This is probably not correct.
 
-#### Org 1
+### Org 1
 
 SKD is the largest org in Altinn 2. Daily transactions vary between 2500 and 365.000.
 
@@ -88,7 +89,7 @@ That would mean that SKD would need up to 192 nodes of  Standard_D2s_v3
 
 ![Org 1](org1transactions.png "Number of daily transactions")
 
-#### Org 2
+### Org 2
 
 BRG is one of the larger orgs in Altinn.  Daily transactions vary between 300 and 14.000.
 
@@ -96,7 +97,7 @@ That would mean that BRG would need up to 8 nodes of  Standard_D2s_v3
 
 ![Org 2](org2transactions.png "Number of daily transactions")
 
-#### Org 3
+### Org 3
 
 HDIR is a medium org in Altinn. Daily transactions vary between 300 and 950.
 
@@ -106,7 +107,7 @@ That would mean that HDIR would never need more than 3 nodes of  Standard_D2s_v3
 
 We have not yet decided how we will be doing scaling of org clusters. We have identified some approaches.
 
-#### Scaling option 1
+### Scaling option 1
 
 The first option is manually scale both pods and nodes.
 
@@ -114,9 +115,9 @@ This means that the Altinn Devops team would manually need to increase or decrea
 
 The number of pods for a specific application would also be manually set.
 
-##### Cons
+#### Cons
 
 - Unknown of LoadBalancer is able to [distribute traffic correctly](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-distribution-mode)
 
-#### Scaling option 2
+### Scaling option 2
 

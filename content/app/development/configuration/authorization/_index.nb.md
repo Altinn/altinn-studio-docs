@@ -1,15 +1,14 @@
 ---
-title: Authorization
-linktitle: Authorization
-description: How to define authorization rules (access management) for an app.
+title: Autorisasjon
+linktitle: Autorisasjon
+description: Hvordan definere autorisasjonsregler (tilgangsstyring) for en app.
 weight: 100
-tags: [translate-to-english]
 ---
 
 Autorisasjonsregler for en applikasjon er definert i en XACML Policy-fil som ligger i applikasjonsrepoet.
 XACML Policy-en inneholder en eller flere regler som definerer hvem som kan gjennomføre ulike aksjoner på ulike ressurser.
 
-Beskrivelse av XACML-strukturen og definisjon av regler finnes [her](/technology/architecture/components/application/solution/altinn-studio/designer/pap/xacmlpolicy/).
+Beskrivelse av XACML-strukturen og definisjon av regler finnes [her](/technology/architecture/components/application/solution/altinn-studio/designer/pap/xacmlpolicy/)
 
 XACML-filen kan endres i en valgfri teksteditor.
 
@@ -42,4 +41,4 @@ Påkrevd autentiseringsnivå er satt til 2 som default. Dette gjøres som en obl
 Hvis nivået settes til 4 må man definere at tjenesteier kan nå det via nivå 3 for maskinporten. Dette for at maskinporten er definert som nivå 3. 
 Se regelbibliotek for eksempel. Merk: Appen trenger nuget versjon `3.1.5` eller høyere versjon.
 
-{{% children description="true" %}}
+{{<children>}}

@@ -1,7 +1,7 @@
 ---
 title: Lanserte tjenester
 description: Noen av tjenestene som allerede er i produksjon, til informasjon og inspirasjon.
-titleSup: NY
+toc: true
 weight: 800
 ---
 
@@ -9,8 +9,20 @@ weight: 800
 
 - Oppstartveileder for enkeltpersonforetak (Brønnøysundregistrene)  
   [Info](https://www.altinn.no/oppstartsveileder/) | [Repo](https://altinn.studio/repos/brg/oppstartsveilederen) | [Kjørende tjeneste](https://brg.apps.altinn.no/brg/oppstartsveilederen/)
-- Oppstartveileder for enkeltpersonforetak uten innlogging (Brønnøysundregistrene)
+- Oppstartveileder for enkeltpersonforetak uten innlogging (Brønnøysundregistrene)  
   [Info](https://www.altinn.no/oppstartsveileder/) | [Repo](https://altinn.studio/repos/brg/anonym-oppstartsveilederen) | [Kjørende tjeneste](https://brg.apps.altinn.no/brg/anonym-oppstartsveilederen/)
+
+## Juni 2022
+
+- Søk om godkjenning av virksomhet som tilbyr bilpleie, hjulskift og hjullagring (Arbeidstilsynet)  
+  [Info](https://www.altinn.no/skjemaoversikt/arbeidstilsynet/sok-om-godkjenning-av-virksomhet-som-tilbyr-bilpleie-hjulskift-og-hjullagring/) | [Repo](https://altinn.studio/repos/dat/bilpleie-soknad) | [Kjørende tjeneste](https://dat.apps.altinn.no/dat/bilpleie-soknad/)
+
+## Mai 2022
+
+- Veileder for kvalitet i læremidler (Utdanningsdirektoratet)  
+  [Info](https://www.altinn.no/skjemaoversikt/utdanningsdirektoratet/veileder-for-kvalitet-i-laremidler-vfkl/) | [Repo](https://altinn.studio/repos/udir/vfkl) | [Kjørende tjeneste](https://udir.apps.altinn.no/udir/vfkl/)
+- Invitasjonsverktøy for vurdering av læremidler (Utdanningsdirektoratet)  
+  [Info](https://www.altinn.no/skjemaoversikt/utdanningsdirektoratet/invitasjonsverktoy-for-vurdering-av-laremidler-vfkl/) | [Repo](hhttps://altinn.studio/repos/udir/invitasjon-vfkl) | [Kjørende tjeneste](https://udir.apps.altinn.no/udir/invitasjon-vfkl/)
 
 ## April 2022
 

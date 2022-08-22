@@ -1,28 +1,24 @@
 ---
-title: Feilmeldinger
-description: Feilmeldinger forklarer brukeren hva som gikk galt og hvordan det kan rettes opp i.
+title: Error messages
+description: Error messages explain what what went wrong and how to correct it, to the user. 
 weight: 90
 ---
 
-Vær kort og tydelig i formuleringen av feilmeldingene og sørg for at brukeren vet hva som må gjøres for å komme 
-videre. Å skrive "Feltet er ikke fyllt ut korrekt" gir ikke brukeren en forklaring på hva som er feil. 
+Be short and precise in how error messages are formulated, and make sure that the user knows what is necessary to proceed. Writing "The field is not filled correctly" only explains that there's something wrong, but does not give any info on how to fix the problem. 
 
-### Eksempel på forklarende feilmeldinger:
-- "Postnummer må ha 4 siffer"
-- "Du må velge minst ett leveringsalternativ"
-- "For å sende inn skjemaet må du bekrefte at navnet er korrekt ved å huke av i avkrysningsboksen"
+### Examples of explanatory error messages:
+- "Zip code must have 4 digits"
+- "You must choose one delivery option"
+- "To submit the form you need to confirm that the name is correct by checking the name confirmation checkbox."
 
-Les mer om å formidle feil i skjema på [UU-tilsynets nettsider](https://www.uutilsynet.no/wcag-standarden/skjema/38#formidle_feil_i_skjema).
+Read more about error messaging on [UU-tilsynet's web pages (nb)](https://www.uutilsynet.no/wcag-standarden/skjema/38#formidle_feil_i_skjema).
 
-### Retningslinjer:
+### Guidelines:
 
-- Feilmeldingstekst bør gjenta nøkkelord fra label
-- Kravene for å fylle ut skjemaet riktig skal tydelig fremgå av skjemaet uten at brukeren trenger å få noen 
-feilmeldinger fra valideringen for å forstå dette.
-- Dersom skjemaet har feil når brukeren forsøker å gå videre, skal feilmeldingsboksen i toppen vise alle feilene 
-og lenke til de feltene feilen gjelder. Feilene skal forsvinne etterhvert som de blir utbedret. ⚠️ NB: Denne 
-funksjonaliteten er ikke tilgjengelig i Altinn Studio enda.
+- Error-messaging text should contain keywords from the label.
+- The requirements to submit the form correctly should be clearly indicated before any error messages appear.
+- If the form has faults when the user attempts to proceed, the error messaging box at the top of the screen should show all errors and link to the fields that are incorrectly formatted. ⚠️ NB: This functionality is currently unavailable in Altinn Studio
 
-### Eksempel på bruk:
+### Example of usage:
 {{% figma-example src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwnBveAG2ikUspFsQwM3GNE%2FPrototyping-av-skjematjenester%3Fnode-id%3D5711%253A2073" %}}
 

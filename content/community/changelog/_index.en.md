@@ -6,4 +6,4 @@ aliases:
 - /teknologi/altinnstudio/changelog/
 ---
 
-{{% children description="true" depth="1" sort="Weight" %}}
+{{<children>}}

@@ -60,7 +60,7 @@ Digital signing with BankID creates a digital signature of the data for the inst
 [See Github issue for details](https://github.com/Altinn/altinn-studio/issues/1326).
 
 
-### Lookup  (backlog)
+### Lookup (backlog)
 This is a task in a process where user/system can lookup external data with help of inputs from UI or API.
 
 
@@ -118,3 +118,5 @@ can verify the data and then confirm it.
 
 The process is the moved to a external validation task where the org is doing validation. The
 org can chose to complete the task or send the instance back to a earlier task for correction of the data.
+
+{{<children>}}

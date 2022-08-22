@@ -3,28 +3,27 @@ title: Prefilling data
 linktitle: Prefill
 description: How to configure prefill for an app.
 toc: true
-tags: [translate-to-english]
 weight: 200
 ---
 
-Altinn tilbyr i dag tre fremgangsmåter for å preutfylle data i en app for en sluttbruker.
-Disse metodene kan kombineres fritt for å oppnå ønsket resultat
+As of today, Altinn offers three methods for prefilling data in an app for a user.
+These methods can be combined freely to reach the desired result.
 
-## Prefill fra nasjonale register og brukerprofil
+## Prefill from national register and user profile
 
-Altinn apps støtter prefill med data fra Enhetsregisteret, Folkeregisteret og brukerprofil i Altinn.
+Altinn apps support prefill with data from the Central Coordinating Register (Enhetsregisteret), the National Population Register (Folkeregisteret) and user profile in Altinn.
 
-Ved å følge beskrivelsen nedenfor vil man under instansiering av et skjema preutfylle datamodellen med
-de definerte verdiene hentet fra Altinns database.
+By following the description below, you will during instantiation of a form prefill the data model with
+the defined values obtained from Altinns data base.
 
-### Oppsett av prefill i applikasjons repository
+### Setup of prefill in the application repository
 
-Opprett en ny json-fil i app repoet under `App/models`.
-Navnet på filen skal inneholde navnet på datamodellen og ha postfix ".prefill.json".
-Dersom datamodellen din heter _appModel_ skal du nå kunne finne disse tre filene i mappen:
+Create a new json file in the app repo under `App/models`.
+The name of the file should contain the name of the data model and have the postfix ".prefill.json".
+If the data model is called _appModel_ you should now be able to find these three files in the map:
 _appModel.metadata.json_, _appModel.schema.json_, _appModel.prefill.json_
 
-Lim inn innholdet nedenfor i filen.
+Paste the code below into the file.
 
 ```json
 {
@@ -39,18 +38,18 @@ Lim inn innholdet nedenfor i filen.
 }
 ```
 
-### Konfigurering av _prefill.json_
+### Configuration of _prefill.json_
 
-- **$schema** peker på json schema definisjonen til filen. Nåværende versjon er v1.  
-  Visual Studio Code vil pga. denne validere og tilby intellisense/autocomplete når du editerer filen lokalt.
+- **$schema** points to the json schema definition of the file. The current version is v1.
+  Because of this file, Visual Studio Code will validate and offer intellisense/autocomplete when you edit the file locally.
 
-- **allowOverwrite** avgjør om prefill definert i denne filen kan overskrive et felt i datamodellen dersom det allerede har en verdi.
+- **allowOverwrite** determines whether prefill defined in this file can overwrite a field in the data model if it already has a value.
 
-- **ER** her legger man inn felter fra datamodellen som skal preutfylles med data fra enhetsregisteret.
-Felt som preutfylles med ER-data vil kun få en verdi dersom man instansierer på vegne av en organisasjon.
-Instansiering vil feile dersom man forsøker å preutfylle ER-data, men ikke har en organisasjon tilgjengelig.
+- **ER** here you enter fields from the data model that are to be prefilled with data from the Central Coordinating Register.
+Fields that are prefilled with ER-data will only have a value if you instantiate on behalf of an organization.
+Instantiation will fail if you attempt to prefill ER-data, but do not have an organization available.
 
-Eksempelet nedenfor vil populere feltet _Datamodell.Organisasjon.Organisasjonsnummer_ med organisasjonsnummeret hentet fra enhetsregisteret.
+The example below will populate the field _Datamodell.Organisasjon.Organisasjonsnummer_ with the organization number retrieved from the Central Coordinating register.
 
 ```json
 "ER": {
@@ -58,11 +57,11 @@ Eksempelet nedenfor vil populere feltet _Datamodell.Organisasjon.Organisasjonsnu
 }
 ```
 
-- **DSF** her legger man inn felter fra datamodellen som skal preutfylles med data fra folkeregistret.
-Feltet som preutfylles med DSF-data vil kun få en verdi dersom man instansierer på vegne av en person.
-Instansiering vil feile dersom man forsøker å preutfylle DSF-data, men ikke har en person tilgjengelig.
+- **DSF** here you enter fields from the data model that are to be prefilled with data from the National Population Register.
+The field that is prefilled with DSF-data will only have a value if you instantiate on behalf of a person.
+Instatiation will fail if you attempt to prefill DSF-data, but do not have a person available.
 
-Eksempelet nedenfor vil populere feltet _Datamodell.Person.Nummer_ med telefonnummer henter fra folkeregistret.
+The example below will populate the field _Datamodell.Person.Nummer_ with the phone number retrieved from the National Population Register.
 
  ```json
 "DSF": {
@@ -70,10 +69,10 @@ Eksempelet nedenfor vil populere feltet _Datamodell.Person.Nummer_ med telefonnu
 }
 ```
 
-- **UserProfile** her legger man inn telter fra datamodellen som skal preutfylles med data fra brukerens profil i Altinn.
-Merk at det er den innloggede brukeren om instansierer man henter ut data for.
+- **UserProfile** here you enter fields from the data model that are to be prefilled with data from the users profile in Altinn.
+Note that it is the logged in user who instantiates the app the data is collected for.
 
-Eksempelet nedenfor vil populere feltet _Datamodell.Bruker.Epost med epost hentet fra brukerens profil i Altinn.
+The example below will populate the field _Datamodell.Bruker.Epost_ with the email retrieved from the users profile in Altinn.
 
 ```json
 "UserProfile": {
@@ -81,17 +80,17 @@ Eksempelet nedenfor vil populere feltet _Datamodell.Bruker.Epost med epost hente
 }
 ```
 
-### Tilgjengelige prefill verdier
+### Available prefill values
 
-JSON-schema definisjonen av prefill-filen er også tilgjengelig [her](https://altinncdn.no/schemas/json/prefill/prefill.schema.v1.json).  
-Bruken av et schema gjør at editorer, [f.eks. Visual Studio Code](https://code.visualstudio.com/docs/languages/json#_mapping-in-the-json),
-kan validere og tilby intellisense for raskere editering.
+The JSON-schema definition of the prefill file is also available [here](https://altinncdn.no/schemas/json/prefill/prefill.schema.v1.json).
+The use of a schema enables editors, [e.g. Visual Studio Code](https://code.visualstudio.com/docs/languages/json#_mapping-in-the-json),
+to validate and offer intellisense for faster editing.
 
-#### Folkeregisteret
+#### The National Population Register
 
-Personedataen som eksponeres er den tilknyttet personen som skjemaet instansieres på vegne av. Dersom Ola Nordman instansierer et skjema på vegne av 
-Kari Nordmann vil det være Kari sin data som eksponeres.
-Tilgjengelige verdier for prefill inkluderer:
+The personal data that is exposed is attached to the person the form is instantiated on behalf of. If Ola Nordmann were to instantiate a form on behalf of
+Kari Nordmann, it would be Kari's data that would be exposed.
+Available values for prefill includes:
 
 - SSN
 - Name
@@ -111,10 +110,10 @@ Tilgjengelige verdier for prefill inkluderer:
 - AddressPostalCode
 - AddressCity
 
-#### Enhetsregisteret
+#### The Central Coordinating Register
 
-Enheten som eksponeres er den tilknyttet organisasjons som et skjema blir instansiert på vegne av.
-Tilgjengelige verdier for prefill inkluderer:
+The unit exposed is that which is attached to the organization a form is instantiated on behalf of.
+Available values for prefill includes:
 
 - OrgNumber
 - Name
@@ -131,11 +130,11 @@ Tilgjengelige verdier for prefill inkluderer:
 - BusinessPostalCode
 - BusinessPostalCity
 
-#### Brukerprofil
+#### User profile
 
-Brukerprofilen som eksponeres er profilen til den som instansierer tjenesten. Dersom Ola Nordmann instansierer et skjema på vegne av Kari Nordmann 
-vil dataen som hentes ut herfra være knyttet til Ola. For objektene Party.Organization og Party.Person vil man finne igjen samme feltene som man ser i ER og DSF-prefill. Merk at Party.Organization vil være null om brukeren er logget inn som en privatperson, og tilsvarende for Party.Person om man er logget inn med en virksomhetsbruker. Preutfyllingen vil feile om objektet man preutfyller fra ikke finnes, så om man ønsker å dynamisk preutfylle basert på disse verdiene må dette settes opp som [egendefinert prefill.](##Egendefinert-prefill).
-Tilgjengelige verdier for prefill inkluderer:
+The user profile exposed is the profile belonging to the one who instantiatd the service. If Ola Nordmann instantiates a form on behalf of
+Kari Nordmann, the data retrieved from here would belong to Ola. For the objects Party.Organization and Party.Person, you will find the same fields that are included in ER and DSF-prefill. Note that Party.Organization will be null if the user is logged in as an individual, and the equivalent if they are logged in with a business user. The prefill will fail if the object you prefill from does not exist, so if you wish to dynamically prefill based on these values it has to be setup as [custom prefill.](#custom-prefill).
+Available values for prefill includes:
 
 - UserId
 - UserName
@@ -158,13 +157,13 @@ Tilgjengelige verdier for prefill inkluderer:
 - ProfileSettingPreference.PreSelectedPartyId
 - ProfileSettingsPreference.DoNotPromptForParty
 
-## Egendefinert prefill
+## Custom prefill
 
-Altinn apps muliggjør prefill av en instans med egendefinert data,
-det være seg resultet fra et API-kall, beregninger gjort under instansiering, eller annen logikk.
-Dette implementeres i metoden _DataCreation_ i filen _InstansiationHandler.cs_ som finnes i applikasjonsrepoet under `App/logic`.
+Altinn apps enable prefill of an instance with custom data,
+whether it is the result of an API call, calculations done under instantiation or other logic.
+This is implemented in the method _DataCreation_ in the file _InstantiationHandler.cs_ that can be found in the application repo under `App/logic`.
 
-Eksempelet nedenfor populerer feltet _Bruker.FulltNavn_ i modellen _Datamodell_ med verdien "Test Testesen".  
+The example below populates the field _Bruker.FulltNavn_ in the model _Datamodell_ with the value "Test Testesen".
 
 ```C# {hl_lines=[6]}
 public async Task DataCreation(Instance instance, object data)
@@ -177,13 +176,13 @@ public async Task DataCreation(Instance instance, object data)
 }
 ```
 
-Bytt ut _Datamodell_ med navnet på C# klassen som er blitt generert basert på xsd-en som
-ble lastet opp i Altinn Studio. Dersom du bruker en egnet kodeeditor vil du kunne definere felter
-som skal populeres ved bruk av intellisense.
+Replace _Data model_ with the name on the C# class that has been generated based 
+on the xsd uploaded to Altinn Studio. If you use a suitable code editor you will be able to define fields
+to be populated using intellisense.
 
-Vær oppmerksom på at dersom du har komplekse typer i modellen din, må disse instansieres før man kan
-tilegne en verdi til ett av typens underelementer. Se eksempel nedenfor der vi legger til grunn at 'Bruker'
-og 'Name' er egne C# klasser.
+Keep in mind that if you have complex types in your model, these will need to be instantiated before you can
+assign a value to one of the type's subelements. See the example below where we assume that `Bruker` and 
+`Name` are separate C# classes.
 
 ```C#
 public async Task DataCreation(Instance instance, object data)
@@ -198,11 +197,11 @@ public async Task DataCreation(Instance instance, object data)
 }
 ```
 
-### Instansiering med prefill
+### Instantiation with prefill
 
-Altinn apper støtter instansiering med prefill.
-Skjemadataen legges ved i en multipart i instansieringsrequesten som sendes til appen.
-Nedenfor ser du et eksempel på en request for å instansiere en app med prefill for partyId 12345.
+Altinn apps support instantiation with prefill.
+The form data is attached in a multipart in the instantiation request that is sent to the app.
+Below you will se an example of a requeest to instantiate an app with prefill for partyID 12345.
 
 ```http {hl_lines=[10]}
 Content-Type: multipart/form-data; boundary="abcdefg"

@@ -1,15 +1,14 @@
 ---
-title: Hjelpetekst
-description: Hjelpetekster er små tekstsnutter som kan benyttes for å gi brukeren ekstra veiledning i utfylling av skjemafelter. 
+title: Help texts
+description: Help texts are small text boxes that can be used to provide explanations to the user. 
 weight: 80
 ---
 
-Man kan også benytte feltet til å forklare et regelverk, fremmede begreper, eller utdype hvorfor man ber om informasjonen.  
+You can also use the help text field to explain rules, terms or explain why the information is necessary.
 
-### Retningslinjer:
-- Hjelpetekst plasseres i sammenheng med en label eller tittel som skal utdypes.
-- Dersom innholdet er avgjørende informasjon for at brukeren skal kunne fylle ut skjemaet riktig, bør det heller 
-plasseres i en infotekst i grensesnittet (under labelen). 
+### Guidelines:
+- Help texts are placed together with a label or title that needs further explanation. 
+- If information contained in a helper text is needed in order to answer the form correctly, **do not** use a help text, as required information should be placed in an info text in the UI (below the header).
 
-### Eksempel på bruk:
+### Example of usage:
 {{% figma-example src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwnBveAG2ikUspFsQwM3GNE%2FPrototyping-av-skjematjenester%3Fnode-id%3D5711%253A1788" %}}

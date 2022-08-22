@@ -53,8 +53,9 @@ Om `triggers` er satt på navigasjonskomponenten vil denne overstyre `triggers` 
 
 For å overstyre standard sporvalg må det gjøres to endringer.
 
-1. Opprette en klasse som implementerer interfacet [IPageOrder](https://github.com/Altinn/app-template-dotnet/blob/main/src/Altinn.App.PlatformServices/Interface/IPageOrder.cs)
-2. Registrere denne klassen som en Transient i Startup.cs
+1. Opprette en klasse som implementerer interfacet [IPageOrder](https://github.com/Altinn/app-lib-dotnet/blob/main/src/Altinn.App.PlatformServices/Interface/IPageOrder.cs)
+2. Registrere denne klassen som en Transient i `Startup.cs` (eller `Program.cs` i .NET 6)
+   Typisk `services.AddTransient<IPageOrder, CustomOrder>();` i metoden `ConfigureServices`.
 
 ### Opprette egen klasse for styring av sporvalg
 

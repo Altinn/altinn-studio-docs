@@ -1,5 +1,9 @@
+---
+title: Maskinporten setup
+description: Step-by-step guide on how to set up a client with Altinn-scopes and custom keys.
+---
+
 ## Setting up a maskinporten client with a custom key
-Below follows a step-by-step guide on how to set up a client with Altinn-scopes and custom keys.  
 
 To follow this guide you must have a user in `Samarbeidsportalen` with access to `Selvbetjening`.  
 [Read more about creating user in Samarbeidsportalen here.](https://docs.digdir.no/docs/Maskinporten/maskinporten_sjolvbetjening_web#opprette-bruker)

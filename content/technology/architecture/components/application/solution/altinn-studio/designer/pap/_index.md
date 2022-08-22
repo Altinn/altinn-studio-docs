@@ -9,6 +9,6 @@ The rules for this is defined as XACML 3.0 Policy documents.
 
 Currently the PAP is using an editor to manual edit the XACML Policy Template
 
-See [application development guidelines](../../../../../../../../app/development/configuration/authorisation/) for details how to do that.
+See [application development guidelines](../../../../../../../../app/development/configuration/authorization/) for details how to do that.
 
-{{% children description="true" depth="1" %}}
+{{<children>}}

@@ -3,22 +3,21 @@ title: Party types
 description: How to ensure that only specific types of party types can use an app.
 toc: true
 weight: 150
-tags: [translate-to-english]
 ---
 
-## Avgrense tilgang i Altinn Studio designer
+## Limit access using Altinn Studio designer
 
-I Altinn Studio designer finner du mulighet for å styre hvilke aktørtyper som har tilgang til en app i kategorien "Lage" i toppmenyen, på siden "Tilgangsstyring" representert ved låshull-ikonet.
-På denne siden krysser du av for de aktørtypene en app er tilgjengelig for. Hvis ingen (eller alle) aktørtyper er valgt, vil alle ha tilgang. Valget "Virksomhet" benyttes for tilfeller der det skal rapporteres på hovedenhet.
+You can limit which actors have access to an app by using the Altinn Studio Designer. Role access options are placed in the "Lage" category in the top menu, on the page "Tilgangsstyring", represented by the keyhole on the leftmost side menu.
+On this page you can mark the actor types the app should be accessible for. If none (or all) actor types are marked, everyone will have access. The option "Virksomhet" is used in cases where a report is filed on behalf of a company or other organization.
 
-Skjermdumpen under viser innstillingene for at alle organisasjonsnummer (både hovedenheter og underenheter) skal kunne bruke appen.
+The screenshot below shows the settings for full access to the application for all organization numbers (both main entity and sub entities).
 
-![GUI for å styre tilgang på aktørtyper](partytypeselector.png "GUI for å styre tilgang på aktørtyper")
+![GUI for controlling access between actor types](partytypeselector.png "GUI for controlling access between actor types")
 
-## Justere i applicationmetadata.json
+## Limit access by editing applicationmetadata.json
 
-Hvis du foretrekker å jobbe i kode, finner du muligheten til å justere hvilke aktørtyper som kan benytte en app i `applicationmetadata.json` som ligger i mappa `App/config` i app-repositoryet. 
-Eksempelet under viser samme innstillinger som skjermdumpen.
+If you prefer working with code, you can find the option to adjust access between actor types in `applicationmetadata.json`, which is located in the folder `App/config` in the app repository.
+The example below displays that same settings as the screenshot.
 
 ```json
   "partyTypesAllowed": {

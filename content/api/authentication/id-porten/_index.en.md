@@ -72,7 +72,7 @@ Flytdiagrammet nedenfor viser hvordan tokenet veksles inn.
 
 ![Innveksling av token](eus_login_process_updated.svg "Innveksling av token")
 
-Se detaljer i [Altinns API dokumentasjon](../../authentication/spec/#/Authentication/get_exchange__tokenProvider_).
+Se detaljer i [Altinns API dokumentasjon](../../authentication/spec) under metoden `GET /exchange/{tokenProvider}`.
 
 Sluttbrukere har i Altinn mulighet til å få oversikt over alle systemer og hvilke tilganger de har.
 

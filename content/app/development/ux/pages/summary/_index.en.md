@@ -4,20 +4,19 @@ linktitle: Summary
 description: How to set up the display of a summary of the completed form.
 toc: true
 weight: 30
-tags: [translate-to-english]
 ---
 
 {{%notice warning%}}
-Dette er helt ny funksjonalitet. Oppsett må gjøres manuelt inntil videre. Støtte for oppsett via Altinn Studio kommer på et senere tidspunkt..
+This is new functionality. Setup must be done manually as of today. Support for setup through Altinn Studio will be available at a later point in time.
 
-**MERK**: PDF-genereringen har per nå ikke støtte for oppsummerings-komponenten. For at PDF-generering skal fungere må enten alle oppsummerings-komponentene, eller hele oppsummerings-siden(e) ekskluderes fra PDF. Dette gjøres i `Settings.json`-filen knyttet til layout-filene. 
+**NOTE**: The PDF generation, as of today, does not support the summary component. For PDF generating to work, either all the summary components or the whole summary-page(s) must be excluded from PDF. This is done in the `Settings.json`-file attached to the layout-files. 
 {{%/notice%}}
 
-## Oppsett
-Visning av oppsummering settes opp på samme måte som øvrige skjema-komponenter i et skjema.
-Man kan velge å ha oppsummeringen på en egen side, eller på samme side som andre skjema-komponenter.
+## Setup
+Display of summary is set up in the same manner as the other form components in a form. 
+You can choose to have the summary on it's own page, or on the same page as other form components.
 
-Oppsummerings-komponenten er meget enkel, og refererer til _komponent_ som skal oppsummeres, og _siden_ denne ligger på. Eksempel:
+The summary component is very simple, and refers to the _component_ that is to be summarized and the _page_ this is on. Example:
 
 ```json {hl_lines=[4]}
 {
@@ -28,55 +27,55 @@ Oppsummerings-komponenten er meget enkel, og refererer til _komponent_ som skal 
 },
 ```
 
-Komponenten viser oppsummering av data fra den spesifiserte komponenten. I tillegg får sluttbruker mulighet
-til å gå tilbake til den aktuelle komponenten/siden for å gjøre endringer. 
+The component displays a summary of data from the specified component. In addition, the user gets the opportunity to 
+return to the relevant component/page to make changes.
 
-Visningen er litt forskjellig avhengig av hva slags skjemakomponent oppsummeringen refererer til.
+The display differs depending on which form component the summary refers to.
 
-Merk: PDF-generering støtter ikke oppsummering side, så må den ekskluderes ved å endre `ui/Settings.json`
+Note: PDF-generating does not support a summary page, so it has to be excluded by changing `ui/Settings.json`
 ```json
 "pages": 
       { 
-        "excludeFromPdf": [ "navn-til-oppsummering-side" ] 
+        "excludeFromPdf": [ "name-of-summary-page" ]
       }
 ```
-### Enkel skjemakomponent
-Dette er skjemakomponenter som kun er knyttet til 1 felt i datamodellen. F.eks. Input, Dropdown, Checkbox/Radio, osv.
+### Simple form component
+These are components that are only connected to one field in the data model. E.g. Input, Dropdown, Checkbox/Radio, etc.
 
-![Oppsummering enkel skjemakomponent](simple-summary.png "Oppsummering enkel skjemakomponent")
+![Summary simple form component](simple-summary.png "Summary simple form component")
 
-Oppsummeringen viser ledeteksten til skjemakomponenten, og tilknyttet data. Dersom det er en aktiv feilmelding
-knyttet til skjemakomponenten, vil dette også vises.
+The summary displays the prompt for the form component and attached data. If there is an active error message
+attached to the form component, this will also be displayed.
 
-![Oppsummering enkel skjemakomponent med feil](simple-summary-error.png "Oppsummering enkel skjemakomponent med feil")
+![Summary of simple form component with error](simple-summary-error.png "Summary of simple form component with error")
 
-### Adressekomponent
-Denne komponenten har flere felter som inngår. Visningen er lik som for en enkel skjemakomponent, 
-slik at feltene blir slått sammen til en enkel tekst. 
+### Address component
+This component includes multiple fields. The display is the same as that of a simple form component,
+so the fields are merged into a simple text.
 
-![Oppsummering adressekomponent, med feil](summary-address.png "Oppsummering adressekomponent, med feil")
+![Summary of address component, with error](summary-address.png "Summary of address component, with error")
 
-### Filvedlegg
-Oppsummeringsvisningen for filvedlegg viser en liste over de vedleggene som er lastet opp for den aktuelle
-komponenten.
+### File attachments
+The summary display for file attachments displays a list of the attachments that are uploaded for 
+the component in question.
 
-![Oppsummering vedleggskomponent](attachment-summary.png "Oppsummering vedleggskomponent")
+![Summary file attachment component](attachment-summary.png "Summary file attachment component")
 
-### Repeterende grupper
-![Oppsummering repeterende grupper](group-summary.png "Oppsummering repeterende grupper")
+### Repeating groups
+![Summary repeating groups](group-summary.png "Summary repeating groups")
 
-### Grupper i grupper
-Oppsummering støttes også for repeterende grupper _inne i_ repeterende grupper. Vi støtter kun ett nivå av 
-grupper i grupper. I dette tilfellet vises oppsummeringen av hvert innslag av gruppen på øverst nivå som en
-egen [kategori](#kategorier), og gruppen på nederste nivå vises på samme måte som vanlige repeterende
-grupper.
+### Nested groups
+Summary is also supported for nested repeating groups. We only support one level of
+nested groups. In this case, the summary of each element of the group at the top level is displayed
+as its own [category](#categories), and the group at the lowest level is displayed in the same manner as a normal
+repeating group.
 
-For å støtte oppsummeringsvisning av gruppe i gruppe må gjøre følgende oppsett i layout-filen:
-- Referere til _hovedgruppen_ i `componentRef` i Summary-komponenten
-- Sette `"largeGroup": true` på Summary-komponenten 
+To support summary display of nested groups, the following setup must be done in the layout-file:
+- Refer to _the main group_ in `componentRef` in the summary component
+- Set `"largeGroup": true` on the summary component
 
-#### Eksempel
-Med følgende oppsett av gruppe i gruppe i layout:
+#### Example
+With the following setup of a nested group in layout:
 
 ```json
 {
@@ -91,7 +90,7 @@ Med følgende oppsett av gruppe i gruppe i layout:
   "children": [
     "nested-group-1"
   ],
-  ... // resterende oppsett av komponent
+  ... // remaining setup of component
 },
 {
   "id": "nested-group-1",
@@ -105,7 +104,7 @@ Med følgende oppsett av gruppe i gruppe i layout:
   "children": [
     "input-field-1"
   ],
-  ... // resterende oppsett av komponent
+  ... // remaining setup of component
 },
 {
   "id": "input-field-1",
@@ -116,11 +115,11 @@ Med følgende oppsett av gruppe i gruppe i layout:
   "dataModelBindings": {
     "group": "model.mainGroup.subGroup.field1"
   },
-  ... // resterende oppsett av komponent
+  ... // remaining setup of component
 }
 ```
 
-Setter man opp oppsummering på følgende måte:
+Set up the summary in the following manner:
 ```json {hl_lines=[6]}
 {
   "id": "summary-1",
@@ -131,17 +130,17 @@ Setter man opp oppsummering på følgende måte:
 }
 ```
 
-![Oppsummering repeterende grupper i grupper](nested-group-summary.png "Oppsummering repeterende grupper i grupper")
+![Summary nested repeating group](nested-group-summary.png "Summary nested repeating group")
 
-## Kategorier
-Det er mulig å gruppere oppsummeringene i forskjellige kategorier, for å gjøre en ev. oppsummeringsside
-mer oversiktlig. Dette gjøres ved å bruke den eksisterende _gruppe_-komponenten, uten å sette den opp
-som en repeterende gruppe. 
+## Categories
+It is possible to group the summaries in different categories to make a summary page
+more clear. This is done by using the existing _group_ component, without setting it up
+as a repeating group.
 
-Feltene i oppsummeringen vises da med en tittel, som settes i `title`-feltet for `textResourceBindings` for 
-gruppe-komponenten. Se eksempel under.
+The fields in the summary are then displayed with a title, which is set in the `title` field for `textResourceBindings` for 
+the group component. See the example below.
 
-![Felter samlet under en kategori](category-summary.png "Felter samlet under en kategori")
+![Fields grouped under one category](category-summary.png "Fields grouped under one category")
 
 ```json
 {
@@ -176,12 +175,12 @@ gruppe-komponenten. Se eksempel under.
 },
 ```
 
-## Eksempel på oppsummeringsside
-Under er et eksempel på en oppsummeringsside, med oppsett i layout-filen. Da oppsummeringen settes opp
-i layout-filene på samme måte som andre komponenter, kan man også ha med andre skjemakomponenter som tekster
-ved behov.
+## Example on summary page
+Below is an example of a summary page, with setup in the layout file. Since the summary is set up 
+in the layout files in the same way as other components, you can also include other form components as texts
+when needed.
 
-![Oppsummering eksempel](summary.png "Oppsummering eksempel")
+![Summary example](summary.png "Summary example")
 
 ```json
 {

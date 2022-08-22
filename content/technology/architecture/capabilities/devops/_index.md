@@ -18,4 +18,4 @@ See below for a capability map and the different DevOps capability areas.
 
 [Full screen](devops_capabilities.svg)
 
-{{% children description="true" depth="1" %}}
+{{<children>}}

@@ -1,31 +1,32 @@
 ---
 title: Likert
+linktitle: Likert
 description: How to use a likert component
 toc: false
 weight: 40
-tags: [translate-to-english]
 ---
 
-{{%notice warning%}}
-Dette er helt ny funksjonalitet. Oppsett må gjøres manuelt inntil videre. Støtte for oppsett via Altinn Studio kommer
-snart.
 
-Merk at Likert-komponenten kun kan benyttes som del av en repeterende gruppe.
+{{%notice warning%}}
+This is new functionality. The setup must be done manually as of today. Support for setup through Altinn Studio 
+will be launched shortly.
+
+Note that the Likert-component only can be used as part of a repeating group.
 {{%/notice%}}
 
-## Desktop og mobil visning
+## Desktop and mobile view
 
-Likert komponenten vises som en liste ved smale skjermer og som en tabell ved brede skjermer.
-Likert utnytter seg av samme konsept som repeterende grupper.
+The Likert component is shown as a list on narrow screens and as a table on broad screens.
+Likert uses the same concept as repeating groups.
 
-![Desktop](desktop.png "Likert komponent ved bred (desktop) skjermstørrelse")
+![Desktop](desktop.png "Likert component on broad (desktop) screensize")
 
-![Mobil](mobile.png "Likert komponent ved smal (mobil) skjermstørrelse")
+![Mobile](mobile.png "Likert component on narrow (mobile) screensize")
 
-## Eksempel
+## Example
 
-Likert komponenten krever at du har en datamodel med en liste. Denne listen må innholde objekter med spørsmål og svar.
-Eksempel på oppsett av datamodel i App\logic\InstantiationHandler.cs:
+The Likert component requires that you have a data model with a list. This list must contain objects with questions and answers.
+Example on setup of data model in App/logic/InstantiationHandler.cs:
 
 ```c#
 public async Task DataCreation(Instance instance, object data)
@@ -55,7 +56,7 @@ public async Task DataCreation(Instance instance, object data)
         }
 ```
 
-Eksempel på definisjon av likert komponent i layout.json:
+Example on definition of likert component in layout.json:
 
 ```json
 [
@@ -93,10 +94,10 @@ Eksempel på definisjon av likert komponent i layout.json:
 ]
 ```
 {{%notice warning%}}
-Likert-komponenten fungerer likt som RadioButtons og CheckBoxes.
+The Likert-component works the same as RadioButtons and CheckBoxes.
 {{% /notice %}}
 
-OptionsId knyttes opp mot kodeliste-fil (likertOptions.json)
+OptionsId is linked to the codelist-file (likertOptions.json)
 
 ````json
 [
@@ -124,8 +125,8 @@ OptionsId knyttes opp mot kodeliste-fil (likertOptions.json)
 ````
 
 
-For å binde opp tekst for hver rad må man opprette en binding mellom datamodellen og likerten sin tekstResourcebinding.
-Dette kan gjøres i tekst-ressursfilene:
+To connect text for each row you need to create a connection between the data model and the Likert's textResourceBinding.
+This can be done in the text-resourcefiles:
 
 ```json
 [
@@ -154,9 +155,9 @@ Dette kan gjøres i tekst-ressursfilene:
 ]
 ```
 
-### Filtrer ut spørsmål med start og end
+### Filter out questions with start and end
 
-Du kan velge å filtrere rader du ikke ønsker å inkludere i likerten ved å benytte start og stop:
+You can choose to filter out rows you do not wish to include in the Likert by using start and stop:
 
 ```json
 {

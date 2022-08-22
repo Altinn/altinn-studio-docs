@@ -2,23 +2,22 @@
 title: Setup of field grouping
 linktitle: Setup
 description: General Setup for grouping fields in form.
-tags: [translate-to-english]
 weight: 1
 ---
 
-Felter i skjema kan settes opp til å bli del av en _gruppe_. Dette kan brukes til å f.eks. sette opp dynamikk på en enkelt gruppe av felter,
-i stedet for på hvert enkelt felt. I tillegg må felter kunnne grupperes for å støtte [repeterende grupper](#repeterende-grupper) i skjema.
+Fields in a form can be set up to be part of a _group_. This can be used to e.g. set up dynamic on a single group of fields,
+instead of on each single field. In addition, fields must be able to be grouped to support [repeating groups](../repeating) in a form.
 
-En gruppe settes opp i `FormLayout.json`, sammen med de andre komponentene i skjemaet. Dette kan enten gjøres manuelt direkte i filen,
-eller via skjemaeditor i Atinn Studio ved å bruke Gruppe-komponenten.
+A group is set up in `FormLayout.json`, together with the other components in the form. This can be done manually directly in the file, 
+or through form editor in Altinn Studio by using the group component.
 
-Noen punkter å notere seg ved manuelt oppsett:
+Some things to note when manually setting up:
 
-- Gruppen må ligge _før_ ev. komponenter som skal inngå i gruppen i FormLayout.json.
-- En gruppe _MÅ_ ha `type: "group"` satt for at den skal registreres som en gruppe
+- The group must be placed _before_ any components that are to be included in the group in FormLayout.json
+- A group _MUST_ have `type: "group"` set if it is to be recognized as a group
 
-Eksempel på en (repeterende) gruppe definert i `FormLayout.json` som inneholder 4 felter som kan repetere 3 ganger:
-En gruppe defineres på følgende måte i FormLayout.json:
+An example of a (repeating) group defined in `FormLayout.json` that contains four fields that can be repeated three times:
+A group is defined as follows in FormLayout.json:
 
 ```json {hl_lines=[3,"8-12"]}
 {
@@ -42,19 +41,19 @@ En gruppe defineres på følgende måte i FormLayout.json:
 }
 ```
 
-| Parameter             | Påkrevd | Beskrivelse                                                                                                                               |
-| --------------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| id                    | Ja      | Unik ID, tilsvarer ID på andre komponenter. Må være unik i FormLayout.json-filen.                                                         |
-| type                  | Ja      | MÅ være "group". Sier at dette er en gruppe.                                                                                              |
-| dataModelBindings     | Nei     | MÅ være satt for repeterende grupper, med `group`-parameteren som i eksempelet over. Skal peke på den repeterende gruppen i datamodellen. |
-| textResourceBindings  | Nei     | Kan være satt for repeterende grupper, se [beskrivelse.](#textResourceBindings)                                                            |
-| maxCount              | Ja      | Antall ganger en gruppe kan repetere. Settes til `1` om gruppen ikke er repeterende.                                                      |
-| children              | Ja      | Liste over de feltene som skal inngå i gruppen. Her brukes felt-id fra FormLayout.json                                                    |
-| tableHeaders          | Nei     | Liste over komponentener som skal inngå som en del av tabbel header feltene. Om ikke spesifisert så vises alle komponentene.              |                                                           |
+| Parameter             | Required | Description                                                                                                                                    |
+| --------------------- | -------- |------------------------------------------------------------------------------------------------------------------------------------------------|
+| id                    | Yes      | Unique ID, same as ID on other components. Must be unique in the FormLayout.json file.                                                         |
+| type                  | Yes      | MUST be 'group'. Says that this is a group.                                                                                                    |
+| dataModelBindings     | No       | MUST be set for repeating groups, with the `group`-parameter like in the example above. Should point to the repeating group in the data model. |
+| textResourceBindings  | No       | Can be set for repeating groups, see [description](#textresourcebindings).                                                                     |
+| maxCount              | Yes      | The number of times a group can repeat. Set to `1` if the group is not repeating.                                                              |
+| children              | Yes      | List of the fields that are to be included in the group. Field-id from FormLayout.json is used here.                                           |
+| tableHeaders          | No       | List of components that are to be included as part of the table header fields. If not specified, all components are displayed.                 |                                                           |
 
 ## textResourceBindings
-Det er mulig å legge til ulike nøkler i textResourceBindings for å overstyre default tekster.
-- `add_button` - blir lagt til på enden av "Legg til ny" teksten på knappen, og kan brukes til å f.eks ha tekst som sier "Legg til ny person". 
-- `save_button` - blir brukt som tekst i "Lagre"-knappen når brukeren fyller ut data.
-- `edit_button_open` - blir brukt som tekst i "Endre" knappen i tabellen når brukeren skal åpne et element.
-- `edit_button_close` - blir brukt som tekst i "Endre" knappen tabellen når brukeren skal lukke et element.
+It is possible to add different keys in textResourceBindings to overrule default texts.
+- `add_button` - is added at the end of the "Add new" text on the button, and can be used to e.g. get text that says "Add new person".
+- `save_button` - is used as text on the "Save"-button when the user is filling out data.
+- `edit_button_open` - is used as text on the "Edit"-button on the table when the user is opening an element.
+- `edit_button_close` - is used as text on the "Edit"-button on the table when the user is closing an element.
