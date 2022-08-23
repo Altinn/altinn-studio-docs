@@ -1140,9 +1140,13 @@ This is related to OWASP Top 10 no 1.
         <h2 class="post-title"><a href="/technology/architecture/components/application/solution/altinn-platform/authorization/accessgroups/">Access Groups</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>This is work in progressAccess registry contains information about the sentrally defined access groups.
+        <p>This is work in progressAccess registry contains information about the centrally defined access groups.
 See Github #25
-Data model AccessGroup defintion Type of group. Leaf or branch? Name of group in different languges AccessGroup identifier AccessGroup relationship Parent/child relantiship between AccessGroups Relationship for external roles (ER, AA, AccessGroup Membership MembershipID CoveredBy UserId Covered OfferedByParty AccessGroupId ValidTo? AccessGroup Delegation DelegatedByParty DelegatedByUserId DelegationType DelegatetDateTime AccessGroup History DelegatedBy AccessGroupID OfferedBy CoveredByUserId CoveredByPartyId ChangeType (created, deleted) API See details of API in Github issue 25 <a class="read-more" href="/technology/architecture/components/application/solution/altinn-platform/authorization/accessgroups/">&raquo;</a></p>
+The Access groups are grouped in one or more category trees.
+The category trees will be used to present the access groups in UI.
+Data model Category This model describes a category. This category could be of a different type
+Example
+Sector category Business type category Business size category ServiceOwner type category This to support presenting the access groups as part of different trees. <a class="read-more" href="/technology/architecture/components/application/solution/altinn-platform/authorization/accessgroups/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
         

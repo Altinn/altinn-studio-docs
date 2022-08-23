@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="The Access Groups components is responsible for keeping track of membership of different Access Groups defined in Altinn.">
+    <meta name="description" content="The Access Groups component is responsible for keeping track of membership of different Access Groups defined in Altinn.">
 
 <title>Access Groups – Altinn</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
     <link href="/css/nucleus.css" rel="stylesheet">
@@ -1105,23 +1105,46 @@ if(host != "localhost")
                 <span class="links"><a href='/technology/'>Technology</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/technology/architecture/'>Architecture</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/technology/architecture/components/'>Components</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/technology/architecture/components/application/'>Application</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/technology/architecture/components/application/solution/'>Solution</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/technology/architecture/components/application/solution/altinn-platform/'>Altinn Platform</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/technology/architecture/components/application/solution/altinn-platform/authorization/'>Authorization</a> <span class='adocs-breadcrumb-divider'> / </span> Access Groups</span>
             </div>
           </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/architecture">architecture</a><a class="label label-default" href="https://docs.altinn.studio/tags/security">security</a><a class="label label-default" href="https://docs.altinn.studio/tags/authorization">authorization</a><a class="label label-default" href="https://docs.altinn.studio/tags/xacml">xacml</a></div><div id="body-inner"><h1 class="a-fontBold">Access Groups</h1>
-              <p class="a-leadText" id="leadText">The Access Groups components is responsible for keeping track of membership of different Access Groups defined in Altinn.</p><div class="notices warning" >
+              <p class="a-leadText" id="leadText">The Access Groups component is responsible for keeping track of membership of different Access Groups defined in Altinn.</p><div class="notices warning" >
 This is work in progress
 </div>
 
-<p>Access registry contains information about the sentrally <a href="https://github.com/altinn/docs/blob/master/content/utviklingsguider/styring-av-tilgang/for-tjenesteeier/forslag-tilgangsgrupper.md">defined access groups</a>.</p>
+<p>Access registry contains information about the centrally  <a href="https://github.com/altinn/docs/blob/master/content/utviklingsguider/styring-av-tilgang/for-tjenesteeier/forslag-tilgangsgrupper.md">defined access groups</a>.</p>
 <p>See <a href="https://github.com/Altinn/altinn-authorization/issues/25">Github #25</a></p>
+<p>The Access groups are grouped in one or more category trees.</p>
+<p>The category trees will be used to present the access groups in UI.</p>
 <h2 id="data-model">Data model</h2>
+<h3 id="category">Category</h3>
+<p>This model describes a category. This category could be of a different type</p>
+<p>Example</p>
+<ul>
+<li>Sector category</li>
+<li>Business type category</li>
+<li>Business size category</li>
+<li>ServiceOwner type category</li>
+</ul>
+<p>This to support presenting the access groups as part of different trees.</p>
+<p>The properties</p>
+<ul>
+<li>Categoryid</li>
+<li>CategoryType</li>
+</ul>
+<h3 id="category-relationship">Category relationship</h3>
+<ul>
+<li>Parent Category</li>
+<li>Child Category</li>
+</ul>
 <h3 id="accessgroup-defintion">AccessGroup defintion</h3>
 <ul>
-<li>Type of group. Leaf or branch?</li>
 <li>Name of group in different languges</li>
 <li>AccessGroup identifier</li>
 </ul>
-<h3 id="accessgroup-relationship">AccessGroup relationship</h3>
+<h3 id="external-relationship">External Relationship</h3>
 <ul>
-<li>Parent/child relantiship between AccessGroups</li>
-<li>Relationship for external roles (ER, AA,</li>
+<li>ExternalSource (Like ER)</li>
+<li>ExternalID (Example DAGL, LEDE)</li>
+<li>PartyTypeFilter(AS, ENK)</li>
+<li>AccessGroupdID</li>
 </ul>
 <h3 id="accessgroup-membership">AccessGroup Membership</h3>
 <ul>
