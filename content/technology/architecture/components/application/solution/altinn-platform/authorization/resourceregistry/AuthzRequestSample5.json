@@ -10,7 +10,7 @@
           },
           {
             "AttributeId": "urn:altinn:apiscope",
-            "Value": "altinn:platform:skd:amelding"
+            "Value": "domstol.api/sc"
           }
         ]
       }
@@ -34,12 +34,12 @@
             "Value": "dodsbo.domstoladmin.api"
           },
           {
-            "AttributeId": "urn:altinn:eventype",
-            "Value": "urn:altinn:eventype"
+            "AttributeId": "urn:altinn:serviceresourcetype",
+            "Value": "event"
           },
           {
             "AttributeId": "urn:altinn:eventype",
-            "Value": "urn:altinn:eventype"
+            "Value": "no.altinn.events.digitalt-dodsbo.arving-lagt-til"
           }
         ]
       }
