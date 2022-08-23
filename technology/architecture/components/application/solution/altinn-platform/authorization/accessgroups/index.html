@@ -1114,26 +1114,25 @@ This is work in progress
 <p>The Access groups are grouped in one or more category trees.</p>
 <p>The category trees will be used to present the access groups in UI.</p>
 <h2 id="data-model">Data model</h2>
-<h3 id="category">Category</h3>
-<p>This model describes a category. This category could be of a different type</p>
-<p>Example</p>
-<ul>
-<li>Sector category</li>
-<li>Business type category</li>
-<li>Business size category</li>
-<li>ServiceOwner type category</li>
-</ul>
-<p>This to support presenting the access groups as part of different trees.</p>
+<h3 id="accessgroupcategory">AccessGroupCategory</h3>
+<p>This model describes a category. A category can have a parent category. If no parent is present, it is assumed to be a top category.</p>
+<p>The category will be used by ui to present the access group category hierky.</p>
 <p>The properties</p>
 <ul>
 <li>Categoryid</li>
-<li>CategoryType</li>
+<li>ParentCategory</li>
 </ul>
-<h3 id="category-relationship">Category relationship</h3>
+<h3 id="accessgroup-texts">AccessGroup texts</h3>
+<p>Texts for access groups or AccessGroupsCategory</p>
 <ul>
-<li>Parent Category</li>
-<li>Child Category</li>
+<li>CategoryId</li>
+<li>AccessGroupdId</li>
+<li>Langauge</li>
+<li>TextType</li>
+<li>Text</li>
 </ul>
+<h3 id="accessgroupcategory-1">AccessGroupCategory</h3>
+<p>Contains the reference between access groups and a category</p>
 <h3 id="accessgroup-defintion">AccessGroup defintion</h3>
 <ul>
 <li>Name of group in different languges</li>
