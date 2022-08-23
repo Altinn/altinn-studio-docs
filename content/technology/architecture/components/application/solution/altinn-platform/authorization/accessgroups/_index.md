@@ -19,9 +19,11 @@ The category trees will be used to present the access groups in UI.
 
 ## Data model
 
-### Category
+### AccessGroupCategory
 
 This model describes a category. A category can have a parent category. If no parent is present, it is assumed to be a top category.
+
+The category will be used by ui to present the access group category hierky.
 
 The properties
 - Categoryid
@@ -29,8 +31,7 @@ The properties
 
 ### AccessGroup texts
 
-Texts for access groups or cattegory
-
+Texts for access groups or AccessGroupsCategory
 
 - CategoryId
 - AccessGroupdId
@@ -38,11 +39,9 @@ Texts for access groups or cattegory
 - TextType
 - Text
 
-
 ### AccessGroupCategory
 
 Contains the reference between access groups and a category
-
 
 ### AccessGroup defintion
 

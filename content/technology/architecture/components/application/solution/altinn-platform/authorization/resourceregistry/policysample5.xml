@@ -19,6 +19,10 @@
             <xacml:AttributeDesignator AttributeId="urn:altinn:serviceresource" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
           </xacml:Match>
           <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+            <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">event</xacml:AttributeValue>
+            <xacml:AttributeDesignator AttributeId="urn:altinn:serviceresourcetype" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
+          </xacml:Match>
+          <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
             <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">no.altinn.events.digitalt-dodsbo.opprettet</xacml:AttributeValue>
             <xacml:AttributeDesignator AttributeId="urn:altinn:eventype" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
           </xacml:Match>
@@ -27,6 +31,10 @@
           <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
             <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">dodsbo.domstoladmin.api</xacml:AttributeValue>
             <xacml:AttributeDesignator AttributeId="urn:altinn:serviceresource" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
+          </xacml:Match>
+          <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+            <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">event</xacml:AttributeValue>
+            <xacml:AttributeDesignator AttributeId="urn:altinn:serviceresourcetype" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
           </xacml:Match>
           <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
             <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">no.altinn.events.digitalt-dodsbo.arving-lagt-til</xacml:AttributeValue>
@@ -60,6 +68,10 @@
           <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
             <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">dodsbo.domstoladmin.api</xacml:AttributeValue>
             <xacml:AttributeDesignator AttributeId="urn:altinn:serviceresource" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
+          </xacml:Match>
+         <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+            <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">event</xacml:AttributeValue>
+            <xacml:AttributeDesignator AttributeId="urn:altinn:serviceresourcetype" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
           </xacml:Match>
           <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
             <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">dodsbo.domstoladmin.api</xacml:AttributeValue>

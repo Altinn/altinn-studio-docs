@@ -1,0 +1,48 @@
+{
+  "Request": {
+    "ReturnPolicyIdList": true,
+    "AccessSubject": [
+      {
+        "Attribute": [
+          {
+            "AttributeId": "urn:altinn:orgnr",
+            "Value": "934382404"
+          },
+          {
+            "AttributeId": "urn:altinn:apiscope",
+            "Value": "altinn:platform:skd:amelding"
+          }
+        ]
+      }
+    ],
+    "Action": [
+      {
+        "Attribute": [
+          {
+            "AttributeId": "urn:oasis:names:tc:xacml:1.0:action:action-id",
+            "Value": "read",
+            "DataType": "http://www.w3.org/2001/XMLSchema#string"
+          }
+        ]
+      }
+    ],
+    "Resource": [
+      {
+        "Attribute": [
+          {
+            "AttributeId": "urn:altinn:serviceresource",
+            "Value": "dodsbo.domstoladmin.api"
+          },
+          {
+            "AttributeId": "urn:altinn:eventype",
+            "Value": "urn:altinn:eventype"
+          },
+          {
+            "AttributeId": "urn:altinn:eventype",
+            "Value": "urn:altinn:eventype"
+          }
+        ]
+      }
+    ]
+  }
+}
