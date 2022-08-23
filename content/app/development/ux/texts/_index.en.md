@@ -266,16 +266,16 @@ This is how the file looks after adding help texts:
 
 ## Change application title
 
-When you create an application you have a textresource witht he label `appName`.
+When you create an application you have a textresource witht he label `ServiceName`.
 This it the title of the application that will be displayed in several places in our solution, f.ex when an end user is filling out a form and when elements are displayed in the messagebox in altinn.no.
 
 The title of the application is located in two places in the application repository:
- 1. In the textresource with the key `appName`. 
+ 1. In the textresource with the key `ServiceName`. 
  2. In `applicationmetadata.json` in the `title` property. This file is located at `App/config/`.
 
  App owners are encouraged to add titles in bokmål, nynorsk and english. If a title is missing in the textresources the repository name will be used as a fallback, and may be shown to the end user.
 
-If you change `appName` from an IDE (f.ex Visual Studio Code), it is important to also update the title in `applicationmetadata.json`. If the title is changed from Altinn Studio on the "about" page or "languages" page, the `applicationmetadata.json` file is updated automatically.
+If you change `ServiceName` from an IDE (f.ex Visual Studio Code), it is important to also update the title in `applicationmetadata.json`. If the title is changed from Altinn Studio on the "about" page or "languages" page, the `applicationmetadata.json` file is updated automatically.
 
 ### Application title configuration example
 
