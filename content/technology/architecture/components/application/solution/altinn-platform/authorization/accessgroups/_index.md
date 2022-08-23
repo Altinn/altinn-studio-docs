@@ -21,26 +21,28 @@ The category trees will be used to present the access groups in UI.
 
 ### Category
 
-This model describes a category. This category could be of a different type
-
-Example
-
-- Sector category
-- Business type category
-- Business size category
-- ServiceOwner type category
-
-This to support presenting the access groups as part of different trees. 
+This model describes a category. A category can have a parent category. If no parent is present, it is assumed to be a top category.
 
 The properties
 - Categoryid
-- CategoryType
+- ParentCategory
+
+### AccessGroup texts
+
+Texts for access groups or cattegory
 
 
-### Category relationship
+- CategoryId
+- AccessGroupdId
+- Langauge
+- TextType
+- Text
 
-  - Parent Category
-  - Child Category
+
+### AccessGroupCategory
+
+Contains the reference between access groups and a category
+
 
 ### AccessGroup defintion
 
