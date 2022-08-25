@@ -1106,7 +1106,7 @@ if(host != "localhost")
           </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/architecture">architecture</a><a class="label label-default" href="https://docs.altinn.studio/tags/solution">solution</a></div><div id="body-inner"><h1 class="a-fontBold">Application construction components - Altinn Platform Events</h1>
               <p class="a-leadText" id="leadText">The Events component in Altinn platform is constructed as an asp.net core web API application deployed as a docker container to a Kubernetes cluster.</p><p>The Events components expose REST-APIs for publishing and subscribing to events. The Azure function are responsible for pushing events
 to subscriber webhooks. The below diagram shows the components</p>
-<figure><a href="/technology/architecture/capabilities/runtime/integration/events/event_architecture_custom.svg"><img src="/technology/architecture/capabilities/runtime/integration/events/event_architecture_custom.svg" alt="Event architecture diagram" title="Altinn Event Architecture" /></a><figcaption><h4>Altinn Event Architecture</h4></figcaption></figure>
+<figure><a href="altinn-events.drawio.svg"><img src="altinn-events.drawio.svg" alt="Event architecture diagram" title="Altinn Event Architecture" /></a><figcaption><h4>Altinn Event Architecture</h4></figcaption></figure>
 <p>When a publish request is received it will push the event document to the event storage.
 When a request is received it will query the events stored in the event storage.</p>
 <h2 id="api-controllers">Api controllers</h2>
