@@ -1,0 +1,4 @@
+
+<div class="v-container" {{ with .Get "id" }}id="{{.}}"{{ end }}>
+    {{.Inner | markdownify }}
+</div>
