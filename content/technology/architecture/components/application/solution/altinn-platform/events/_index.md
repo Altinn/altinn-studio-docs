@@ -10,7 +10,7 @@ In addition it contains serveral [Azure Functions](https://docs.microsoft.com/en
 
 See [event capabilities](/technology/architecture/capabilities/runtime/integration/events/) for functional description of the platforms event capabilities.
 
-![Event architecture diagram](/technology/architecture/capabilities/runtime/integration/events/event_architecture_custom.svg "Altinn Event Architecture")
+![Event architecture diagram](/technology/architecture/components/application/construction/altinn-platform/events/altinn-events.drawio.svg "Altinn Event Architecture")
 
 The solution is available at https://platform.altinn.cloud/events/api/v1.
 
