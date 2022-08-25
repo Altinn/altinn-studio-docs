@@ -26,11 +26,11 @@ and than you add username and password together
 
 the machine port for the actual authentication of the certificate, as well as an exchange of the machine port token together with the username and password.
 
-Administration of Enterprise users is documented [here] (https://altinn.github.io/docs/api/rest/kom-i-gang/virksomhetsbrukere/).
+Administration of Enterprise users is documented [here](https://altinn.github.io/docs/api/rest/kom-i-gang/virksomhetsbrukere/).
 
-Login and exchange of tokens are documents here [here] (https://altinn.github.io/docs/api/rest/kom-i-gang/virksomhet/#autentisering-med-virksomhetsbruker-og-maskinporten)
+Login and exchange of tokens are documents here [here](https://altinn.github.io/docs/api/rest/kom-i-gang/virksomhet/#autentisering-med-virksomhetsbruker-og-maskinporten)
 
-Postman example can be found [here] (https://github.com/Altinn/altinn-studio/blob/master/src/test/Postman/collections/Organization.postman_collection.json).
+Postman example can be found [here](https://github.com/Altinn/altinn-studio/blob/master/src/test/Postman/collections/Organization.postman_collection.json).
 
 Further use against the Altinn App API and Platform API is similar to having an Altinn token based on an ID port session.
 
