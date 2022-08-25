@@ -263,9 +263,9 @@ A user/system has completed the process for an instance.
 
 ### Event components
 
-The below diagram shows the different components in the proposed Event Architecture for Altinn 3.
+The below diagram shows the different components in the Event Architecture for Altinn 3.
 
-![Event architecture diagram](event_architecture_custom.svg "Altinn Event Architecture")
+![Event architecture diagram](/technology/architecture/components/application/construction/altinn-platform/events/altinn-events.drawio.svg "Altinn Event Architecture")
 
 More details can be in [solutions components](../../../../components/application/solution/altinn-platform/events/) with detailed API info of event component 
 and in [construction components](../../../../components/application/construction/altinn-platform/events/) you find the technical details how the components are constructed.
