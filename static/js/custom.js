@@ -22,8 +22,8 @@ $(document).ready(function() {
         $('#version-selector').append('<li id=li-'+id+'>' + id.replace(" ", ", ") + '</li>');
     });
 
-    $('*[class*=v-container]:first').css('display', 'block')
-    $('#version-selector li:first').addClass('active')
+    $('*[class*=v-container]:last').css('display', 'block')
+    $('#version-selector li:last').addClass('active')
 
     $('#version-selector li').click(function(e) { 
         var idToShow = $(this).text().split(",")[0]
