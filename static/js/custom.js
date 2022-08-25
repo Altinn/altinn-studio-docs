@@ -19,14 +19,14 @@ $(document).ready(function() {
         $(this).css('display', 'none')
 
         var id = $(this).attr('id');
-        $('#version-selector').append('<li id=li-'+id+'>' + id.replace(" ", ", ") + '</li>');
+        $('#version-selector').append('<li id='+id+'>' + id.replace(" ", ", ") + '</li>');
     });
 
     $('*[class*=v-container]:last').css('display', 'block')
     $('#version-selector li:last').addClass('active')
 
     $('#version-selector li').click(function(e) { 
-        var idToShow = $(this).text().split(",")[0]
+        var idToShow = $(this).text().split(",")[0].replace(".", "\\.")
 
         $('*[class*=v-container]').each(function() {
             $(this).css('display', 'none')
@@ -36,7 +36,7 @@ $(document).ready(function() {
             $(this).removeClass('active')
         });
 
-        $('*[id*='+idToShow+']').css('display', 'inline-block')
+        $("*[id*="+idToShow+"]").css('display', 'inline-block')
         $('li[id*='+idToShow+']').addClass('active')
     });
     /* end */
