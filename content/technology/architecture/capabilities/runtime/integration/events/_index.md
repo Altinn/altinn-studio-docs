@@ -289,6 +289,11 @@ A user/system has completed the process for an instance.
 
 ##### Example 4 : External Event
 
+Example for external event. This event is related to Digital Dødsbo hver Domstoladministration publish event about a new estate. 
+
+The service dodsbo.domstoladmin.api is registrated in Altinn Resource Registry and have an authorization policy that defines who can publish and consume events for this service.
+
+This is work in progress and not finalized.
 
 
 ```json {hl_lines=[4]}
