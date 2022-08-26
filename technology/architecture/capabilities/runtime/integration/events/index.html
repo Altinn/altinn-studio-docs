@@ -1237,10 +1237,10 @@ the events to a subscriber webhook.</p>
 <p>The reason for choosing cloud events are</p>
 <ul>
 <li>It is a standardized and open format as preferred by our architecture principles</li>
-<li>It backed by many and The specification is now under the <a href="https://www.cncf.io/">Cloud Native Computing Foundation</a></li>
+<li>It backed by many and <a href="https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md">The specification</a> is now under the <a href="https://www.cncf.io/">Cloud Native Computing Foundation</a></li>
 <li>It is flexible so it would support scenarios in the future</li>
 </ul>
-<p>Below you find a offical example. <a href="https://raw.githubusercontent.com/cloudevents/spec/master/spec.json">See full JSON Schema</a></p>
+<p>Below you find a offical example. <a href="https://raw.githubusercontent.com/cloudevents/spec/v1.0.2/cloudevents/formats/cloudevents.json">See full JSON Schema</a></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;specversion&#34;</span> : <span style="color:#f1fa8c">&#34;1.x-wip&#34;</span>,
 </span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;type&#34;</span> : <span style="color:#f1fa8c">&#34;com.github.pull.create&#34;</span>,
@@ -1253,57 +1253,83 @@ the events to a subscriber webhook.</p>
 </span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;datacontenttype&#34;</span> : <span style="color:#f1fa8c">&#34;text/xml&#34;</span>,
 </span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;data&#34;</span> : <span style="color:#f1fa8c">&#34;&lt;much wow=\&#34;xml\&#34;/&gt;&#34;</span>
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><ul>
-<li><code>specversion</code>: The version of the CloudEvents specification which the event uses. This enables the interpretation of the context.
-Compliant event producers MUST use a value of 1.x-wip when referring to this version of the specification.</li>
-<li><code>type</code>: This is the event type. Examples: instance.created, instance.process.paymentcompleted, instance.process.completed</li>
+</span></span></code></pre></div><h3 id="attributes-usage-in-altinn-events">Attributes usage in Altinn Events</h3>
+<p>The following attributes are used in Altinn Events</p>
+<ul>
+<li><code>specversion</code>: The version of the CloudEvents specification which the event uses. For Altinn Events the version is 1.0</li>
+<li><code>type</code>: This is the event type. Examples: instance.created, instance.process.paymentcompleted, instance.process.completed. Can be used for authorization</li>
 <li><code>source</code>: Describes what the event is related to. Will be used to filter event types. For an app it would typical be /{org}/{app}/{partyId}/{instanceGuid}.
-This would be used for consumers to look up a given instance.</li>
-<li><code>subject</code>: The party the event is related to. PartyID is used.</li>
+This would be used for consumers to look up a given instance. For external event producers. For external producers it could be a URI to the full source that implicit identifies the service registred in Altinn Resource Registry or
+a URN to a specific service in registry</li>
+<li><code>subject</code>: The party the event is related to. PartyID is used for Altinn Apps. External would use ssn or orgno or other id that makes sense for the producer.</li>
 <li><code>id</code>: Unique id for a given event.</li>
 <li><code>time</code>: The time the event was triggered. Set by the publisher.</li>
 <li><code>datacontenttype</code>: Optional. Content type of data value.
 This attribute enables data to carry any type of content, whereby format and encoding might differ from that of the chosen event format</li>
 <li><code>data</code>: Optional. Can contain a structure of data specific for an event type.</li>
 </ul>
-<p>In addition to the spec there is added alternativesubject as an <a href="https://github.com/cloudevents/spec/blob/master/primer.md#cloudevent-attribute-extensions">extension</a> to the event model.
-This will be used for socical secuirty number, organization number or other identifier in addition to the partyId found in subject property.</p>
+<h4 id="custom-extensions">Custom extensions</h4>
+<p>In addition to the event attributes from the spec there is added extensions as an <a href="https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/primer.md#cloudevent-attribute-extensions">extension</a> to the event model.</p>
+<h5 id="alternativesubject">alternativesubject</h5>
+<p>This will be used for socical secuirty number, organization number or other identifier in addition to the partyId found in subject property.</p>
 <p>Currently this can be</p>
 <ul>
 <li>fnr : social security number (11 digits)</li>
 <li>org: organization number (9 digits)</li>
 </ul>
 <p>The value will be prefixed</p>
-<h4 id="example-1">Example 1</h4>
+<h5 id="affectedentityuri">affectedentityuri</h5>
+<p>This can be used by external event producers where the source does not point to the URI where more information about an event can be retrived. 
+This is relevant where there are multiple producers for an event source.</p>
+<p>&ldquo;affectedentityuri&rdquo;: &ldquo;<a href="https://api.domstol.no/dodsbo-api/v1/dodsbo/91f2388f-bd8c-4647-8684-fd9f68af5b14%22">https://api.domstol.no/dodsbo-api/v1/dodsbo/91f2388f-bd8c-4647-8684-fd9f68af5b14&quot;</a>,</p>
+<h3 id="examples">Examples</h3>
+<p>Below you see some examples of Events</p>
+<h4 id="example-1--app-event">Example 1 : App Event</h4>
 <p>A instance has been created for a given party. It is not possible from the event itself to know who did it.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>[{
 </span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;source&#34;</span>:  <span style="color:#f1fa8c">&#34;https://skd.apps.altinn.no/skd/skattemelding/instances/1234324/6fb3f738-6800-4f29-9f3e-1c66862656cd&#34;</span>,
 </span></span><span style="display:flex; background-color:#3d3f4a"><span>  <span style="color:#ff79c6">&#34;subject&#34;</span>: <span style="color:#f1fa8c">&#34;party/1234324&#34;</span>,
 </span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;app.instance.created&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;specversion&#34;</span>: <span style="color:#f1fa8c">&#34;1.0&#34;</span>,
 </span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;time&#34;</span>: <span style="color:#f1fa8c">&#34;2020-02-20T08:00:06.4014168Z&#34;</span>,
 </span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;91f2388f-bd8c-4647-8684-fd9f68af5b14&#34;</span>,
 </span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;alternativesubject&#34;</span>: <span style="color:#f1fa8c">&#34;/person/01038712345&#34;</span>
 </span></span><span style="display:flex;"><span>}]
-</span></span></code></pre></div><h5 id="example-2">Example 2</h5>
+</span></span></code></pre></div><h5 id="example-2--app-event">Example 2 : App Event</h5>
 <p>A user has completed the confirmation1 task in the process.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>[{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;source&#34;</span>:  <span style="color:#f1fa8c">&#34;https://skd.apps.altinn.no/skd/skattemelding/instances/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8&#34;</span>,
 </span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;subject&#34;</span>: <span style="color:#f1fa8c">&#34;party/234234422&#34;</span>,
 </span></span><span style="display:flex; background-color:#3d3f4a"><span>  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;app.instance.process.movedTo.confirmation1&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;specversion&#34;</span>: <span style="color:#f1fa8c">&#34;1.0&#34;</span>,
 </span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;time&#34;</span>: <span style="color:#f1fa8c">&#34;2020-03-16T10:23:46.6443563Z&#34;</span>,
 </span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;91f2388f-bd8c-4647-8684-fd9f68af5b14&#34;</span>,
 </span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;alternativesubject&#34;</span>: <span style="color:#f1fa8c">&#34;/org/974760673&#34;</span>
-</span></span><span style="display:flex;"><span>}]
-</span></span></code></pre></div><h5 id="example-3">Example 3</h5>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h5 id="example-3--app-event">Example 3 : App Event</h5>
 <p>A user/system has completed the process for an instance.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>[{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;source&#34;</span>:  <span style="color:#f1fa8c">&#34;https://skd.apps.altinn.no/skd/skattemelding/instances/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8&#34;</span>,
 </span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;subject&#34;</span>: <span style="color:#f1fa8c">&#34;party/234234422&#34;</span>,
 </span></span><span style="display:flex; background-color:#3d3f4a"><span>  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;app.instance.process.completed&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;specversion&#34;</span>: <span style="color:#f1fa8c">&#34;1.0&#34;</span>,
 </span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;time&#34;</span>:  <span style="color:#f1fa8c">&#34;2020-02-20T09:06:50.3736712Z&#34;</span>,
 </span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;91f2388f-bd8c-4647-8684-fd9f68af5b14&#34;</span>,
 </span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;alternativesubject&#34;</span>: <span style="color:#f1fa8c">&#34;/org/974760673&#34;</span>
-</span></span><span style="display:flex;"><span>}]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h5 id="example-4--external-event">Example 4 : External Event</h5>
+<p>Example for external event. This event is related to Digital Dødsbo hver Domstoladministration publish event about a new estate.</p>
+<p>The service dodsbo.domstoladmin.api is registrated in Altinn Resource Registry and have an authorization policy that defines who can publish and consume events for this service.</p>
+<p>This is work in progress and not finalized.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;specversion&#34;</span>: <span style="color:#f1fa8c">&#34;1.0&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;digitalt-dodsbo.opprettet&#34;</span>,
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>    <span style="color:#ff79c6">&#34;source&#34;</span>: <span style="color:#f1fa8c">&#34;urn:altinn:events:dodsbo.domstoladmin.api&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;affectedentityuri&#34;</span>: <span style="color:#f1fa8c">&#34;https://api.domstol.no/dodsbo-api/v1/dodsbo/91f2388f-bd8c-4647-8684-fd9f68af5b14&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;subject&#34;</span>: <span style="color:#f1fa8c">&#34;person/12018212345&#34;</span>, <span style="color:#6272a4">// avgiver i de tilfellene det er relevant/nødvendig. eksterne har ikke noe forhold til &#34;party&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;288f71f2-8cbd-3442-1532-ac14f3fd9faa&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;time&#34;</span>: <span style="color:#f1fa8c">&#34;2020-02-20T08:00:06.4014168Z&#34;</span>
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h3 id="event-components">Event components</h3>
 <p>The below diagram shows the different components in the Event Architecture for Altinn 3.</p>
 <figure><a href="/technology/architecture/components/application/construction/altinn-platform/events/altinn-events.drawio.svg"><img src="/technology/architecture/components/application/construction/altinn-platform/events/altinn-events.drawio.svg" alt="Event architecture diagram" title="Altinn Event Architecture" /></a><figcaption><h4>Altinn Event Architecture</h4></figcaption></figure>
