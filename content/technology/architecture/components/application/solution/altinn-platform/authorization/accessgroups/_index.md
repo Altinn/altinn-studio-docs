@@ -56,5 +56,7 @@ See [Github #25](https://github.com/Altinn/altinn-authorization/issues/25)
 ![Hierar](hierchy.drawio.svg "Db model")
 
 
+The accessgroupes in 3.0 will replace roles in Altinn 2. 
+[Here](type-accessgroups) is a list of accessgroups that will be used. 
 
 

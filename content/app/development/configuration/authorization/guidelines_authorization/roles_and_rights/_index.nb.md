@@ -18,21 +18,21 @@ Eksterne roller for en aktør kan bare endres av den ansvarlige virksomheten som
 Altinn benytter roller fra følgende autorative register: 
 
 
-### Roller fra [Enhetsregisteret](https://www.brreg.no/om-oss/registrene-vare/om-enhetsregisteret/)
+#### Roller fra [Enhetsregisteret](https://www.brreg.no/om-oss/registrene-vare/om-enhetsregisteret/)
 Disse rollene benyttes når [aktøren](/technology/terms/#actor) er en virksomhet. 
 Du kan lese mer om hvilke roller fra Enhetsregisteret som benyttes i Altinn [her](roles_er)
 
-### Roller fra [Skatteeaten](https://www.skatteetaten.no/)
+#### Roller fra [Skatteeaten](https://www.skatteetaten.no/)
 Disse rollene benyttes når [aktøren](/technology/terms/#actor) er en virksomhet eller person 
 Du kan lese mer om hvilke roller fra Skatteetaten som benyttes [her](roles_ske)
 
-### Roller fra [Arbeidsgiver- og arbeidstakerregisteret](https://www.nav.no/no/bedrift/tjenester-og-skjemaer/aa-registeret-og-a-meldingen) (to be implemented)
+#### Roller fra [Arbeidsgiver- og arbeidstakerregisteret](https://www.nav.no/no/bedrift/tjenester-og-skjemaer/aa-registeret-og-a-meldingen) (to be implemented)
 
-### Roller om [Vergemål fra Statens sivilrettsforvaltning](https://www.sivilrett.no/vergemaalsordninga.556842.no.html) (to be implemented)
+#### Roller om [Vergemål fra Statens sivilrettsforvaltning](https://www.sivilrett.no/vergemaalsordninga.556842.no.html) (to be implemented)
 
-### Roller om [Foreldreansvar](https://www.skatteetaten.no/person/folkeregister/fodsel-og-navnevalg/foreldreansvar/) (to be implemented)
+#### Roller om [Foreldreansvar](https://www.skatteetaten.no/person/folkeregister/fodsel-og-navnevalg/foreldreansvar/) (to be implemented)
 
-### Roller fra [Advokatregisteret hos Tilsynsrådet for Advokater](https://tilsynet.no/register) (to be implmented)
+#### Roller fra [Advokatregisteret hos Tilsynsrådet for Advokater](https://tilsynet.no/register) (to be implmented)
 
 
 ## Altinn roller
@@ -41,8 +41,7 @@ Altinn roller kan (i motsetning til eksterne roller) administres og endres via A
 
 Du kan lese mer om hvilke roller fra Skatteetaten som benyttes [her](roles_altinn)
 
-### Altinn roller for virksomheter
-
-### Altinn roller for personer
-
-### Altinn roller for selvidentifiserte brukere
+## API for rolleinformasjon
+Det finnes et API for å slå opp informasjon om aller roller som er registrert i Altinn 2. 
+Dokumentasjon av API finnes [her](https://altinn.github.io/docs/api/rest/metadata/) under overskriften "Hente metadata om rolledefinisjoner i Altinn". 
+APIet er åpen to tilgjengelig for alle på lenken [https://www.altinn.no/api/metadata/roledefinitions](https://www.altinn.no/api/metadata/roledefinitions). 

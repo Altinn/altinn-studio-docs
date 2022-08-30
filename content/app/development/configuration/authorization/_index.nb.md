@@ -15,9 +15,7 @@ Beskrivelse av XACML-strukturen og definisjon av regler finnes [her](/technology
 XACML-filen kan endres i en valgfri teksteditor.
 
 **Sett deg inn i [veiledning for autorisasjonsregler](guidelines_authorization) før du konstruerer policyfil!**
-{{%notice warning%}}
-Autorisasjonsregler må som alt annet testes før applikasjonen lanseres for å verifisere at riktige roller har tilgang til nødvendig data.
-{{% /notice%}}
+
 ## Regler i applikasjonsmalen
 Når det opprettes en app i Altinn Studio basert på den nåværende asp.net malen vil det følge med en autogenerert XACML policy-fil.
 Reglene som er definert i denne filen er kort beskrevet nedenfor. 
