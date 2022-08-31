@@ -48,7 +48,7 @@
     "isLimitedToSpesificUsers": "false", 
     "isUsedByNorwegianCitiens": "true",
     "isUsedByNorwgianEnterprices": "true",
-    "isUsedBySelfIdentified users": "true"
+    "isUsedBySelfIdentified users": "true",
     "thematicArea": "http://publications.europa.eu/resource/authority/eurovoc/2468",
 
     "type": [],
