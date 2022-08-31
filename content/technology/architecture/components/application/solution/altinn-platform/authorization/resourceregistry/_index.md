@@ -45,6 +45,7 @@ Some examples
 - Portal functionality in Altinn [Example 1](exampleresource1.json) [XACML](policysample3.xml)
 - Portal functionality in external portal [Example 2](exampleresource2.json)
 - Samordna registermelding [Example 4](exampleresource4.json) [XACML](policysample4.xml)
+- Avtale om Arbeidstrening [Example 6](exampleresource6.json) [XACML](policysample6.xml)
 
 ## Resource repository
 
