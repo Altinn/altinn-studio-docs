@@ -221,6 +221,48 @@ Options støtter query parameters når det gjøres api kall. `language` er satt 
 I eksempelet over vil det bli satt på et query parameter `orgnummer={nr}`, hvor `{nr}` er verdien på feltet `soknad.transportorOrgnummer`.
 Om man setter opp en kobling til et datafelt og dette feltet endrer seg så vil app-frontend hente options på nytt. På denne måten kan man dynamisk styre hvilke valg som vises basert på informasjon gitt av sluttbruker.
 
+ Å sende med query parametere fra repeterende grupper er også støttet ved å legge ved en indeks-indikator for de relevante gruppene. Eksempel:
+
+```json
+      {
+        "id": "dropdown-group",
+        "type": "Dropdown",
+        "textResourceBindings": {
+          "title": "Select city"
+        },
+        "dataModelBindings": {
+          "simpleBinding": "Group.City"
+        },
+        "required": true,
+        "optionsId": "cities",
+        "mapping": {
+          "Group[{0}].Country": "country"
+        }
+      },
+```
+
+For nøsta repeterende grupper vil man følge det samme mønsteret, men med en ekstra indikator for den nøsta gruppa:
+
+```json
+      {
+        "id": "dropdown-nested-group",
+        "type": "Dropdown",
+        "textResourceBindings": {
+          "title": "Select city"
+        },
+        "dataModelBindings": {
+          "simpleBinding": "Group.SubGroup.City"
+        },
+        "required": true,
+        "optionsId": "cities",
+        "mapping": {
+          "Group[{0}].SubGroup[{1}].Country": "country"
+        }
+      },
+```
+
+For et komplett eksempel kan du se vår [demo app.](https://altinn.studio/repos/ttd/dynamic-options-rep)
+
 {{%notice warning%}}
 Under PDF-generering vil appen prøve å kalle det samme options-endepunktet som app-frontend gjør. 
 Vi har foreløpig en svakhet ved at eventuelle mapping-parametere ikke blir inkludert i denne forespørselen, se issue [#7903.](https://github.com/Altinn/altinn-studio/issues/7903)
