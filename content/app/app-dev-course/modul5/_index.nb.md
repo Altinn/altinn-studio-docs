@@ -102,7 +102,7 @@ Før du sender inn vil vi anbefale å se over svarene dine. Du kan ikke endre sv
 ```
 
 ### Nyttig dokumentasjon
-- [Tilpasning av brekreftelsessiden](/nb/app/development/configuration/process/customize/#bekreftelse-confirmation)
+- [Tilpasning av bekreftelsessiden](/nb/app/development/configuration/process/customize/#bekreftelse-confirmation)
 
 {{% /expandlarge %}}
 
