@@ -41,8 +41,8 @@ Det skal være mulig å legge inn opptill 10 tidligere bosteder.
 {{% expandlarge id="validering" header="Validering" %}}
 ### Krav fra kommunen
 
-Grunnet en personlig vendetta blant en av Sogndal-kommunes ansatte ønsker vi at om innflytter fyller inn postnummer `4619` som en av tidligere bosteder
-**IKKE** skal få lov til å flytte inn i Sogndal. Her ønsker vi at det skal dukke opp en feilmelding på det aktuelle feltet med følgende tekst:
+Grunnet en personlig vendetta blant en av Sogndal kommunes ansatte ønsker vi at om innflytter fyller inn postnummer `4619` som et av tidligere bosteder,
+skal denne **IKKE** få lov til å flytte inn i Sogndal. Her ønsker vi at det skal dukke opp en feilmelding på det aktuelle feltet med følgende tekst:
 
 ```rich
 Du er ikke velkommen til vår kommune. Beklager!
@@ -55,7 +55,7 @@ Du er ikke velkommen til vår kommune. Beklager!
 
 ### Forståelsessjekk
 - Når kjøres valideringer serverside?
-- Hvorfor burde valideringer som legges til på klientsiden også dupliseres serverside?
+- Hvorfor burde valideringer som legges til på klientsiden også dupliseres på serversiden?
 
 {{% /expandlarge %}}
 
@@ -63,7 +63,7 @@ Du er ikke velkommen til vår kommune. Beklager!
 {{% expandlarge id="processing" header="Dataprosessering" %}}
 ### Krav fra kommunen
 En av kommunens databehandlere har sett seg lei av å manuelt rette opp i en gateadresse som ofte blir skrevet feil av innflyttere.
-Vi ønsker derfor å programatisk fikse opp i dette under utfyllingen av appen.
+Vi ønsker derfor å programmatisk fikse opp i dette under utfyllingen av appen.
 
 Om sluttbruker fyller inn `Sesame Street 1` i feltet `Innflytter.Adresse.Gateadresse` skal dette automatisk rettes til `Sesamsgate 1`.
 I alle andre tilfeller skal feltet forbli urørt.
@@ -74,7 +74,7 @@ I alle andre tilfeller skal feltet forbli urørt.
 - [Kalkulering](/nb/app/development/logic/calculation/#kalkulering)
 
 ### Forståelsessjekk
-- Når blir Data processing kjørt?
+- Når blir dataprosessering kjørt?
 - Hva skiller `ProcessDataWrite` og `ProcessDataRead`?
 - Hva er forskjellen på DataProcessing og Calculations?
 
@@ -87,6 +87,6 @@ Vi har også sett på hvordan man setter opp custom **valideringer** i backend f
 Til slutt har vi sett på hvordan man kan sette opp **dataprosessering** som muliggjør manipulering av data runtime.
 
 ### Løsningsforslag
-Dersom du ikke har fått til alle stegene har vi et [løsningsforslag](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/6) som du kan hente inspirasjon fra.
+Dersom du ikke har fått til alle stegene, har vi et [løsningsforslag](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/6) som du kan hente inspirasjon fra.
 
 ![Skjermbilde av datainnsamlingsside med repeterende gruppe](/app/app-dev-course/modul6/data-rep-grupper-screenshot.png "Skjermbilde av datainnsamlingsside med repeterende gruppe")

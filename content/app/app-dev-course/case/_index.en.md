@@ -139,12 +139,12 @@ based on which sector they are in.
 
 If the user chooses `IKT (data/it)` under industry, a text with a link to our overview of vacant positions should appear.
 
-- Below the industry choice, the following text should appear
+- Below the industry choice, the following text should appear:
     ```md
     Vi ser at du besitter kompetanse vi trenger i kommunen.
     Se en oversikt over våre ledige stillinger her.
     ```
-- Line 2 in the text should be a link that directs to https://sogndal.easycruit.com/index.html
+- Line 2 in the text should be a link that directs to https://sogndal.easycruit.com/index.html.
 
 The text and link should **only** be visible if the user has chosen `IKT (data/it)`. In all other cases,
 this will be hidden.

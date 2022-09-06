@@ -23,7 +23,7 @@ I denne modulen skal du bygge og deploye applikasjonen til Altinns testmiljø (T
 {{% expandlarge id="endre-resursser" header="Sette egendefinerte krav for ressursbruk" %}}
 
 Alle applikasjoner kommer med et standardoppsett for ressursbruk og skalering i applikasjonsclusteret.
-Det oppsettet er mulig å overstyre dersom applikasjonen din skulle ha andre behov.
+Det oppsettet er det mulig å overstyre dersom applikasjonen din skulle ha andre behov.
 - Man kan endre antall replikas (instanser av applikasjonen som kjører samtidig)
 - Man kan endre reglene for hvor tidlig eller sent applikasjonen skal skalere antall instanser ut ifra CPU eller minnebruk
 - Man kan endre hvor mye ressurser som skal dedikeres til applikasjonens instanser i clusteret
@@ -51,9 +51,9 @@ Alle endringer knyttet til skalering og ressursbruk gjøres i `deployment/values
 
 {{% expandlarge id="bygge-applikasjon" header="Bygge applikasjon" %}}
 
-Når man referer til å bygge en applikasjon i Altinn Studio,
+Når man refererer til å bygge en applikasjon i Altinn Studio,
 betyr dette å opprette en versjon av applikasjonens nåværende tilstand
-som kan deployes til et eller flere miljø.
+som kan deployes til ett eller flere miljø.
 
 Opprett et nytt bygg for applikasjonen med versjonsnr `0.0.1`
 og legg til en beskrivende kommentar om hva versjonen inneholder.
@@ -67,12 +67,12 @@ og legg til en beskrivende kommentar om hva versjonen inneholder.
 {{% expandlarge id="deploye-applikasjon" header="Deploye applikasjon" %}}
 
 Ved å deploye en applikasjon til testmiljø vil man kunne teste alle integrasjoner.
-I tillegg benyttes TT02ofte til å verifisere at en applikasjon oppfører seg som forventet
+I tillegg benyttes TT02 ofte til å verifisere at en applikasjon oppfører seg som forventet
 før man deployer til produksjon.
 
 {{% notice info %}}
-For å kunne deploye en applikasjon til TT02
-må organisasjonen som eier applikasjonen ha et apps cluster i testmiljøet.
+For å kunne deploye en applikasjon til TT02,
+må organisasjonen som eier applikasjonen ha et apps-cluster i testmiljøet.
 I tillegg trenger utvikleren som skal deplopye applikasjonen [rollen Deploy-TT02](/nb/app/getting-started/access-management/studio/#deploy-tt02)
 for organisasjonen i Altinn Studio.
 {{% /notice %}}
@@ -93,14 +93,14 @@ for organisasjonen i Altinn Studio.
 {{% expandlarge id="instansiere-i-tt02" header="Teste applikasjonen i TT02" %}}
 
 På deploysiden finner du direktelenken til applikasjonen din.
-Den er på formatet _{org}.apps.tt02.altinn.no/{org}/{app}_
+Den er på formatet _{org}.apps.tt02.altinn.no/{org}/{app}_.
 
 
 Med mindre du er logget inn med en bruker fra før av,
 vil denne lenken ta deg til innloggingssiden til Altinn.
 Organisasjonen din bør ha tilgang på et sett med testbrukere, benytt en av disse for å logge inn.
 
-For interne ressurser i DigDir: Benytt deg av en av testbruker som du finner i [testdatasettet](https://pedia.altinn.cloud/testing/testdata/datasets/) og logg inn.
+For interne personer i Digdir: Benytt deg av en av testbruker som du finner i [testdatasettet](https://pedia.altinn.cloud/testing/testdata/datasets/) og logg inn.
 
 {{% /expandlarge %}}
 

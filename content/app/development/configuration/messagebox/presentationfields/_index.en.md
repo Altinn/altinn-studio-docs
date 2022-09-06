@@ -17,7 +17,7 @@ The data values are appended to the application title when the instance is displ
 Configuration of presentation fields is defined in `applicationmetadata.json`,
 which you can find in ythe appliation repository in the folder `App/config`.
 
-Add a new section named `presentationField` that consists of the proprties below
+Add a new section named `presentationField` that consists of the properties below.
 
  Name     | Description
 ----------|------------
@@ -29,16 +29,17 @@ The complete presentation fields configuration in an application might look like
 
 ```json
 "presentationFields": [
-{
-  "id": "Ansettelse",
-  "path": "OpplysningerOmArbeidstakeren-grp-8819.Arbeidsforhold-grp-8856.AnsattAar-datadef-33267.value",
-  "dataTypeId": "default"
-},
-{
-  "id": "Navn",
-  "path": "OpplysningerOmArbeidstakeren-grp-8819.OpplysningerOmArbeidstakeren-grp-8855.AnsattNavn-datadef-1223.value",
-  "dataTypeId": "default"
-}]
+  {
+    "id": "Ansettelse",
+    "path": "OpplysningerOmArbeidstakeren-grp-8819.Arbeidsforhold-grp-8856.AnsattAar-datadef-33267.value",
+    "dataTypeId": "default"
+  },
+  {
+    "id": "Navn",
+    "path": "OpplysningerOmArbeidstakeren-grp-8819.OpplysningerOmArbeidstakeren-grp-8855.AnsattNavn-datadef-1223.value",
+    "dataTypeId": "default"
+  }
+]
 ```
 
 ## Result

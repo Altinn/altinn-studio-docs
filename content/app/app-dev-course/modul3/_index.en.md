@@ -100,7 +100,7 @@ Unless you're already logged in with a user,
 this link will bring you to Altinn's login page.
 Your organization should have access to a set of test users, use one of these to log in.
 
-For internal resources in DigDir: Use one of the test users you can find in [the test data set](https://pedia.altinn.cloud/testing/testdata/datasets/) and log in.
+For internal people in Digdir: Use one of the test users you can find in [the test data set](https://pedia.altinn.cloud/testing/testdata/datasets/) and log in.
 
 {{% /expandlarge %}}
 
