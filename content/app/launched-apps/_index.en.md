@@ -5,6 +5,11 @@ toc: true
 weight: 800
 ---
 
+## September 2022
+
+- Melding om sikkerhetsrådgiver (The Norwegian Directorate for Civil Protection)  
+  [Info](https://www.altinn.no/en/forms-overview/the-norwegian-directorate-of-civil-protection-dsb/melding-om-sikkerhetsradgiver/) | [Repo](https://altinn.studio/repos/dsb/melding-om-sikkerhetsraadgiver) | [App](https://dsb.apps.altinn.no/dsb/melding-om-sikkerhetsraadgiver/)
+
 ## July 2022
 
 - Startup Tutorial for Sole proprietorships (Brønnøysund Register Centre)  
