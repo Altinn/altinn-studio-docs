@@ -15,24 +15,35 @@ $(document).ready(function() {
     }
 
     /* handles doc versions */
-    $('*[class*=v-container]').each(function() {
+    const contentVersionSelectorId = "content-version-selector";
+    const contentVersionContainerId = "content-version-container"
+    const contentVersionLabel = "content-version-label"
+
+    var containerCounter = 0
+
+    $('*[class*='+contentVersionContainerId+']').each(function() {
         $(this).css('display', 'none')
 
-        var id = $(this).attr('id');
-        $('#version-selector').append('<li id='+id+'>' + id.replace(" ", ", ") + '</li>');
+        let id = "version-container-" + containerCounter;
+        $(this).attr('id', id);
+
+        $('#'+contentVersionSelectorId+'').append('<li id='+id+'>' 
+            + $(this).find('#'+contentVersionLabel).text() + '</li>');
+
+        containerCounter++;
     });
 
-    $('*[class*=v-container]:last').css('display', 'block')
-    $('#version-selector li:last').addClass('active')
+    $('*[class*='+contentVersionContainerId+']:last').css('display', 'block')
+    $('#'+contentVersionSelectorId+' li:last').addClass('active')
 
-    $('#version-selector li').click(function(e) { 
-        var idToShow = $(this).text().split(",")[0].replace(".", "\\.")
+    $('#'+contentVersionSelectorId+' li').click(function(e) { 
+        let idToShow = $(this).attr('id');
 
-        $('*[class*=v-container]').each(function() {
+        $('*[class*='+contentVersionContainerId+']').each(function() {
             $(this).css('display', 'none')
         });
 
-        $('#version-selector li').each(function() {
+        $('#'+contentVersionSelectorId+' li').each(function() {
             $(this).removeClass('active')
         });
 

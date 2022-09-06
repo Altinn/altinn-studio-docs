@@ -6,9 +6,9 @@ toc: false
 weight: 200
 ---
 
-{{% version-selector %}}
+{{% content-version-selector %}}
 
-{{< version id="1.x 2.x" >}}
+{{< content-version-container version="1.x 2.x" >}}
 
 As of today, Altinn offers three methods for prefilling data in an app for a user.
 These methods can be combined freely to reach the desired result.
@@ -239,8 +239,8 @@ Content-Disposition: form-data; name="Endring-av-navn"
 
 --abcdefg--
 ```
-{{< /version >}}
+{{< /content-version-container >}}
 
-{{< version id="7.x" >}}
+{{< content-version-container version="7.x" >}}
 Test text, new version description
-{{< /version >}}
+{{< /content-version-container >}}

@@ -1,10 +1,10 @@
 
 /* Version control for docs */
-#version-selector {
+#content-version-selector {
     margin-bottom:18px;
 }
 
-#version-selector li {
+#content-version-selector li {
     list-style: none!important;
     display:inline-block;
     padding: 5px 20px;
@@ -12,15 +12,15 @@
     margin-right:5px;
 }
 
-#version-selector li.active {
+#content-version-selector li.active {
     background-color: #0062ba;
     color:white;
 }
 
-#version-selector li::before {
+#content-version-selector li::before {
     display: none!important;
 }
-#version-selector li:hover {
+#content-version-selector li:hover {
     background-color: #0062ba;
     color:white;
     cursor: pointer;
