@@ -1,6 +1,10 @@
 <div class="content-version-container">
 
-    <label id="content-version-label" hidden>{{ with .Get "version-label" }}{{.}}{{ end }}</label>
+    <label class="content-version-label" hidden>{{ with .Get "version-label" }}{{.}}{{ end }}</label>
+
+
+
+
 
     {{.Inner | markdownify }}
 </div>

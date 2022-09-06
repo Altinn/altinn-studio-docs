@@ -28,7 +28,7 @@ $(document).ready(function() {
         $(this).attr('id', id);
 
         $('#'+contentVersionSelectorId+'').append('<li id='+id+'>' 
-            + $(this).find('#'+contentVersionLabel).text() + '</li>');
+            + $(this).find('.'+contentVersionLabel).text() + '</li>');
 
         containerCounter++;
     });
