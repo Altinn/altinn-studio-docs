@@ -193,5 +193,12 @@ This is the core PDP responsible to evaluate if the user should get access to a 
 Depends on Altinn Access Groups for groups information and Altinn Access Policies for policy information. 
 
 
+### Altinn Resource Rights Registry
+
+A register that allows resource owner to control which organizations or person that can access a service resource.
+
+[Github Issue](https://github.com/Altinn/altinn-authorization/issues/53)
+
+
 {{<children>}}
 
