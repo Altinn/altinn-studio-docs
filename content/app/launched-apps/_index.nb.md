@@ -5,6 +5,12 @@ toc: true
 weight: 800
 ---
 
+## September 2022
+
+- Melding om sikkerhetsrådgiver (Direktoratet for samfunnssikkerhet og beredskap)  
+  [Info](https://www.altinn.no/skjemaoversikt/direktoratet-for-samfunnssikkerhet-og-beredskap/melding-om-sikkerhetsradgiver/) | [Repo](https://altinn.studio/repos/dsb/melding-om-sikkerhetsraadgiver) | [Kjørende tjeneste](https://dsb.apps.altinn.no/dsb/melding-om-sikkerhetsraadgiver/)
+
+
 ## Juli 2022
 
 - Oppstartveileder for enkeltpersonforetak (Brønnøysundregistrene)  
