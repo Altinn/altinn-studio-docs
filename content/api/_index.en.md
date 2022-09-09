@@ -9,25 +9,33 @@ aliases:
  - /teknologi/altinnstudio/altinn-api/
 ---
 
-## Primary data structures
+## The two primary data structures
 
-This will be an overview and explaination of the primary models used in Altinn 3. This document will not go into details or explain all properties of all models. The primary purpose of this is to form a basic understanding of the models before introducing the APIs.
+This will be an overview of the primary models used in Altinn 3. The primary purpose of this is to form a basic understanding of the models before introducing the APIs.
 
-![Instance](instance.drawio.svg "The relationship between Instance, DataElement and actual data.")
+![Instance](instance.drawio.svg "An instance can contain many data elements. Each data element must refer to a single data file.")
 
 ### Instance
 
-The Instance model is the main metadata document in Altinn 3. It is a form of container for all other documents, forms, structured and unstructured binary data collected during an interaction between an end user and the application owner. The number of documents and files being produced will depend on the app. 
+The Instance model is the main metadata document in Altinn 3. It is used by Altinn to keep track of the state of an interaction between an end user and the owner of an app. An instance must be associated with an app and a reportee as the instance owner.
 
-In a simple app an end user will fill in a form and submit it to the application owner. This would typically produce a one way interaction where only one or two documents are collected in the instance. In more advanced apps the number of documents and files would extend to multiple forms, attachments, and feedback or validation messages from the application owner. 
+Instances are also a little bit like containers for all other documents; forms and unstructured data collected during an interaction between an end user and the application owner. The number of documents and files being produced will depend on the app. 
+
+In a simple app, an end user will fill in a form and submit it to the application owner. This would typically produce a one way interaction where only one or two documents are collected in the instance. In more advanced apps the number of documents and files would extend to multiple forms, attachments, and feedback or validation messages from the application owner. 
+
+An instance can't reference data directly, but will hold a list of data elements with more information about collected data.
 
 ### DataElement
 
-The DataElement model is a metadata document for a specific form or file.
+The DataElement model is a metadata document for a specific form or binary file. The most important aspects of this document is that it holds information about where the actual data is being stored, and how the data is being used by the application. 
+
+Most apps will automatically create a data element to represent the form being filled out by the user. More advanced apps will also require the user to upload attachments or to fill in multiple forms.
+
+An instance can have many data elements, but each data element can not reference more than one data file.
 
 ## The APIs
 
-The new solution will have multiple APIs, but they can be divided in two groups. The app APIs and the Platform APIs.
+The Altinn 3 solution has multiple APIs, but they can be divided in two groups. The app APIs and the Platform APIs.
 
 ### App API
 
@@ -35,13 +43,13 @@ The application API is an API that provides access to specific instances of a sp
 
 Metadata for an app is the second job of the app API. There are endpoint that give access to the metadata of the app itself, its data types and process description.
 
-Every app will expose almost identical endpoints and functionality. External parties should need only one client implementation across all app APIs. Technically there is nothing preventing an application owner from adding or making changes to the API, but in those cases it is probably an application with a different process flow. In these cases, the application might require some special handling, and additional documentation should be provided by the application owner.
+Every app will expose almost identical endpoints and functionality. External parties should need only one client implementation across all app APIs. 
 
 ```http
 https://{org}.apps.altinn.no/{org}/{appname}
 ```
 
-The URL identifies the application owner specific hostname using the short name **org**, and the identificator of the app consisting of both the application owner short name and the name of the app **org/appname**. 
+The URL identifies the application owner specific hostname using the short name **org**, and the identificator of the app consisting of both the application owner short name and the name of the app. Combining the org and appname results in what we call the app id **org/appname**. 
 
 ### Platform API
 
