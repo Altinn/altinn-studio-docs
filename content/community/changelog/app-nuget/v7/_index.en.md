@@ -19,7 +19,7 @@ The goal behind this release:
 While it's a lot of changes, we think it's better to do them now rather than later when we have a lot more applications to upgrade.
 
 ## What's changed?
-On a high level, the following has changed:
+Read the following to get a high level overview over what's changed', then move to the [breaking changes](breaking-changes/_index.en.md) for how to upgrade.
 
 ### Nuget packages are restructured
 In V6 we had:
