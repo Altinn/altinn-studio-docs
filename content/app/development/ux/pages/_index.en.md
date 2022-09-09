@@ -3,19 +3,18 @@ title: Pages
 description: How to set up an app with multiple pages, tracks, summary or multiple layouts.
 toc: false
 weight: 10
-tags: [translate-to-english]
 ---
 
 {{%notice info%}}
-Oppsett av flere sider kan gjøres enten manuelt (som beskrevet under) eller direkte i skjema-editoren i Altinn Studio.
-Merk at siste side sluttbruker var innom nå caches slik at man kommer tilbake til denne siden når appen lastes inn på nytt.
+Setup of multiple pages can be done manually (as described below) or directly in the form editor in Altinn Studio.
+Note that the last page the user entered is cached so that they will return to this page when the app reloads.
 {{%/notice%}}
 
-## Oppsett
-For å få funksjonalitet for flere sider i skjema, **må** nuget-versjon til pakkene app'en bruker oppgraderes til versjon `1.2.0-alpha` _eller nyere_.
-Se instrukser for hvordan det gjøres [her](../../../maintainance/dependencies).
+## Setup
+To get funtionality for mutliple pages in a form, the nuget-version of the packages the app uses **must** be upgraded to version `1.2.0-alpha` _or newer_.
+See instructions for how that is done [here](../../../maintainance/dependencies).
 
-Flere sider i skjema (innenfor samme prosess-task) støttes ved å dele opp dagens layout-fil `App/ui/FormLayout.json` i en fil per side. Filene må legges i en mappe `App/ui/layouts`. Hver layout-fil må bruke samme format som den eksisterende `FormLayout.json` filen.  F.eks.:
+Multiple pages in a form (within the same process task) is supported by splitting up the current layout-file `App/ui/FormLayout.json` to one file per page. The files must be placed in a folder `App/ui/layouts`. Each layout file must use the same format as the existing `FormLayout.json` file. For example:
 
 ```
 |- App/
@@ -26,8 +25,8 @@ Flere sider i skjema (innenfor samme prosess-task) støttes ved å dele opp dage
       |- side3.json
 ```
 
-Anbefalt fremgangsmåte så lenge det er behov for å sette det opp manuelt, er å bruke ui-editoren i Altinn Studio for å legge inn alle komponentene inn i `FormLayout.json`, for å så kopiere de ut i sine respektive layout-filer, en for hver side man ønsker. `FormLayout.json` kan enten få nytt navn under `layouts`-mappen, eller slettes. 
+The recommended approach as long as there is a need to set it up manually, is to use the ui-editor in Altinn Studio to add all components to `FormLayout.json`, and then copy them to their respective layout files, one for each page you want. `FormLayout.json` can either be renamed under the `layouts` folder or be deleted.
 
-_Merk: `FormLayout.json` må enten flyttes (evt med nytt navn) inn i `layouts`-mappen, eller slettes. Dersom man har den gamle `FormLayout.json`-filen under `App/ui`-mappen som tidligere, vil kun denne brukes og alle filer under `App/ui/layouts`-mappen ignoreres._ 
+_Note: `FormLayout.json` must either be moved (can be renamed) into the `layouts` folder, or be deleted. If you have the old `FormLayout.json` file under the `App/ui` folder as it was, only this one will be used and all files under the `App/ui/layouts` folder will be ignored._
 
 {{<children>}}

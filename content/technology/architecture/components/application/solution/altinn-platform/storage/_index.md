@@ -94,7 +94,7 @@ An appId refers to the application information element which defines the metadat
 ### Instance type
 
 | Attribute                 | Type                                                | Description                                                             | User | Owner | App | Storage |
-| --------------------------| --------------------------------------------------- | ------------------------------------------------------------------------| ---- | ----- | --- | ------- |
+| --------------------------|-----------------------------------------------------| ------------------------------------------------------------------------| ---- | ----- | --- | ------- |
 | id                        | string                                              | unique id                                                               |      |       |     | C       |
 | appId                     | string                                              | application id                                                          |      |       |     | C       |
 | instanceOwner.partyId     | integer                                             | id of instance owner                                                    | C    | C     |     |         |
@@ -104,10 +104,10 @@ An appId refers to the application information element which defines the metadat
 | lastChangedBy             | string                                              | user id                                                                 |      |       |     | C       |
 | dueBefore                 | dateTime?                                           | deadline for submit                                                     |      | CU    |     |         |
 | visibleAfter              | dateTime?                                           | when visible for user                                                   |      | CU    |     |         |
-| process                   | [ProcessState](#processstate)                       | process state info                                                      |      |       | U   |         |
-| status                    | [InstanceStatus](#instanceStatus)                   | instance status info                                                    |      |       | U   | C       |
+| process                   | [ProcessState](/api/models/instance#processstate)   | process state info                                                      |      |       | U   |         |
+| status                    | [InstanceStatus](#instancestatus)                   | instance status info                                                    |      |       | U   | C       |
 | data                      | List<DataElement>                                   | data elements                                                           |      |       | CU  |         |
-| completeConfirmations     | List<[CompleteConfirmation](#completeConfirmation)> | List of stakeholders that are done with their processing the instance   |      |       | C   |         |
+| completeConfirmations     | List<[CompleteConfirmation](#completeconfirmation)> | List of stakeholders that are done with their processing the instance   |      |       | C   |         |
 
 C - creation time, U - can be updated
 

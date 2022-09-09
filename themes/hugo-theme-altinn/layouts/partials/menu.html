@@ -47,7 +47,7 @@
   {{- with .sect -}}
     {{- if .IsSection -}}
       {{ safeHTML .Params.head }}
-      <li class="dd-item{{if .IsAncestor $currentNode}} parent{{end}}{{if eq .File.UniqueID $currentFileUniqueID}} active{{end}}{{if .Params.alwaysopen}} parent{{end}}">
+      <li class="dd-item{{if .Params.alwaysopen}} parent{{end}}">
         <a href="{{ .RelPermalink}}"><span>{{safeHTML .Params.Pre}}{{.LinkTitle}}{{safeHTML .Params.Post}}</span>
           {{- if .Params.titleSup -}}
             <sup>{{.Params.titleSup}}</sup>
@@ -91,7 +91,7 @@
       </li>
     {{- else -}}
       {{- if not .Params.Hidden -}}
-        <li class="dd-item{{if eq .File.UniqueID $currentFileUniqueID}} active{{end}}">
+        <li class="dd-item">
           <a href="{{ .RelPermalink}}">
             <span>{{safeHTML .Params.Pre}}{{.LinkTitle}}{{safeHTML .Params.Post}}</span>
           {{- if $showvisitedlinks -}}

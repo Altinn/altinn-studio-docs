@@ -14,7 +14,7 @@ Slik går du frem:
 1. **Start alltid med å definere brukerbehov**  
    Tenk nøye gjennom hele prosessen fra et brukerperspektiv. Hva er utfordringen og hvem skal den løses for?
    Hva er databehovet? Lag gjerne en skisse til kommunikasjon med brukeren og test skissen på folk i målgruppen.
-   [Lese også vår guide til prototyping i Figma](../../design/figma/). God planlegging er nøkkelen til et godt resultat.
+   [Lese også vår guide til prototyping i Figma](../../design/prototype/). God planlegging er nøkkelen til et godt resultat.
    Sjekk Guide: [Hvordan jobbe brukerorientert?](https://www.altinndigital.no/kom-i-gang/hvordan-jobbe-brukerorientert/) for inspirasjon.
 2. **Få tilgang til systemer**  
    Hvis du ikke har utviklet tjenester i Altinn Studio før trenger du å [opprette en bruker](../first-time-setup/).

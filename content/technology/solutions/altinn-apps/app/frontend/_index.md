@@ -14,7 +14,7 @@ This frontend is a React based SPA (Singe Page Application) that uses configurat
 The UI-Render functionality in App Frontend render the UI based on configuration set in Altinn Studio.
 
 ### UI-Components
-The supported UI-components can be seen [here](/solutions/altinn-studio/functional/ui-designer/components/)
+The supported UI-components can be seen [here](/technology/solutions/altinn-studio/designer/functional/build-app/ui-designer/components/)
 
 
 ### Theming

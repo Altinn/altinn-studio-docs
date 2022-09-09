@@ -121,4 +121,84 @@ The rules are sent in the body of the request. Reade more about the [policy form
 POST /authorization/api/v1/policies?org=org&app=app
 ```
 
-{{% children description="true" depth="1" %}}
+## Altinn Authorization - Future
+
+{{<notice warning>}}
+This is work in progress
+{{</notice>}}
+
+In the coming years, Authorization will be [modernized](https://github.com/Altinn/altinn-authorization/issues/23) from being a part of Altinn 2 monolith to a cloud-native architecture.
+
+The diagram below shows the different solution components.
+
+![Future solution Altinn Authorization](authorization_solution_components_future.drawio.svg "Future solution Altinn Authorization")
+
+
+### Altinn Access Management
+
+This component will be the component responsible for the administration of access to self and organization
+
+- Giving the end-users an overview of which rights he and other has	
+- Administration of AccessGroups
+- Possibility to delegate and revoke rights
+
+[Github Issue](https://github.com/Altinn/altinn-authorization-admin/issues/27)
+
+### Altinn Resource Registry
+
+This component will provide a register of
+
+- Altinn 3 Apps
+- Altinn 2 apps
+- External services that are hosted in other platforms but registered in Altinn for authorization purposes.
+
+[Github issue](https://github.com/Altinn/altinn-authorization/issues/24)
+  
+[A POC is planned](https://github.com/Altinn/altinn-authorization/issues/26)
+
+### Altinn Access Groups
+
+Altinn Access Groups component contains the Altinn defined Access Groups and information which is member of this groups.
+
+Exposes API to list and delegate Access Groups.
+
+[Github issue](https://github.com/Altinn/altinn-authorization/issues/25)
+
+[A POC is planned](https://github.com/Altinn/altinn-authorization/issues/28)
+
+### Altinn Access Policies
+
+Store for the different policies. Able to identify the correct policy based on Authorization Request.
+
+Have functionality to create delegated policies
+
+[Github issue](https://github.com/Altinn/altinn-authorization/issues/27)
+
+[A POC is planned](https://github.com/Altinn/altinn-authorization/issues/27)
+
+### Altinn Access Information
+
+Altinn Access Information exposes API for Reportee, access groups, and rights for external consumers. Therefore, it needs to be highly scalable. 
+
+### Altinn Consent
+
+Provides functionality to request consent and give consents
+
+[Github issue](https://github.com/Altinn/altinn-authorization/issues/22)
+
+### Altinn Policy Decision Point
+
+This is the core PDP responsible to evaluate if the user should get access to a given resource. 
+
+Depends on Altinn Access Groups for groups information and Altinn Access Policies for policy information. 
+
+
+### Altinn Resource Rights Registry
+
+A register that allows resource owner to control which organizations or person that can access a service resource.
+
+[Github Issue](https://github.com/Altinn/altinn-authorization/issues/53)
+
+
+{{<children>}}
+

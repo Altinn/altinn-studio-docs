@@ -10,7 +10,7 @@ I denne modulen skal du legge til et prosessteg i applikasjonen.
 
 **Temaer som dekkes i denne modulen:**
 - Prosess
-- Brekreftelsessteg
+- Bekreftelsessteg
 - Autorisasjonsregler
 - Validering
 - Overstyre standardtekster
@@ -20,7 +20,7 @@ I denne modulen skal du legge til et prosessteg i applikasjonen.
 {{% expandlarge id="prosessbeskrivelse" header="Utvide prosess med et bekreftelsessteg" %}}
 
 En Altinn App har en prosessflyt som beskriver de ulike stegene i flyten.
-Standardflyten for en nyopprettet applikasjon består av én task, et utfyllingssteg.
+Standardflyten for en nyopprettet applikasjon består av én task og et utfyllingssteg.
 
 ![Standard prosessflyt illustrert](/app/app-dev-course/modul5/default-process.png)
 
@@ -66,7 +66,7 @@ Oppdater policyfilen, så den har autorisasjonsregler som dekker det nye prosess
 - Det skal være samme rollekrav for å fylle ut og bekrefte en instans.
 
 ### Nyttig dokumentasjon
-- [Regelbibliotek](/nb/app/development/configuration/authorisation/rules/)
+- [Regelbibliotek](/nb/app/development/configuration/authorization/rules/)
 - [Alle roller i Altinn](https://www.altinn.no/hjelp/skjema/alle-altinn-roller/)
 
 ### Forståelsessjekk
@@ -102,7 +102,7 @@ Før du sender inn vil vi anbefale å se over svarene dine. Du kan ikke endre sv
 ```
 
 ### Nyttig dokumentasjon
-- [Tilpasning av brekreftelsessiden](/nb/app/development/configuration/process/customize/#bekreftelse-confirmation)
+- [Tilpasning av bekreftelsessiden](/nb/app/development/configuration/process/customize/#bekreftelse-confirmation)
 
 {{% /expandlarge %}}
 

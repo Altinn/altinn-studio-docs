@@ -145,3 +145,10 @@ Scopes are always used together with the authorization rules for the specific ap
 * altinn:instances.write : Give system the right to access API for writing to instances
 * altinn:serviceowner/instances.read : Give orgs the right to access API for reading instances
 * altinn:serviceowner/instances.write  : Give orgs the right to access API for writing to instances
+
+
+## The Future
+
+The below show the future of Authorization Component. Work in progress
+
+![The future](../../../../components/application/solution/altinn-platform/authorization/authorizationdetailed2026.drawio.svg)

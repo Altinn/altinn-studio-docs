@@ -1,22 +1,19 @@
 ---
-title: Radioknapp
-description: Radioknapper brukes i tilfeller der brukeren skal velge et alternativ blant flere. Det samme gjelder nedtrekksliste, så vær bevisst på når du bruker hvilken.  
+title: Radio button
+description: Radio buttons are used in cases where the user is picking one of a group of options. The same applies to drop-down lists, so be conscious about which you choose to use. 
 weight: 60
 ---
 
-Radioknapper velges når:
-- Du ikke har for mange valgalternativer (Maks 7) 
-- Det ikke er et tydelig anbefalt valg
-- Når brukeren enkelt skal kunne sammenligne alternativene 
-- Du ønsker at brukeren skal lese alle alternativene
-- Valgalternativene er ukjent for brukeren
+### Radio buttons are picked when:
+- You don't have too many choices (max 7)
+- There is no obvious recommended choice
+- You want the user to consider and compare all alternatives
 
-### Retningslinjer:
-- Radioknapper skal stå foran tilhørende tekst, og skal aldri stå alene.
-- Deaktiverte radioknapper bør unngås. Dersom et valg ikke er tilgjengelig bør det heller fjernes og forklares 
-i tekst hvorfor det mangler. 
+### Guidelines
+- Radio buttons should always have a connected text, and should never be alone.
+- Deactivated radio buttons should be avoided. If an option is unavailable it 
+should be removed and the reason why explained in a text. 
 
-### Eksempel på bruk:
+### Example of use:
 
 {{% figma-example src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwnBveAG2ikUspFsQwM3GNE%2FPrototyping-av-skjematjenester%3Fnode-id%3D5655%253A1419" %}}
-

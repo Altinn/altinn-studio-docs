@@ -1,0 +1,48 @@
+{
+    "identifier":"skd_inntektsopplysninger",
+    "description": 
+         [
+            {
+            "language": "nb-NO",
+             "description": "Inntektsopplysninger" 
+            },
+            {
+                "language": "EN",
+                "description": "Inntektsopplysninger" 
+            }
+        ],
+    "title": 
+           [{
+                "title":"Inntektsopplysninger",
+                  "language":"nb-NO"
+            },
+            {
+                "title":"Inntektsopplysninger",
+                  "language":"nb-NO"
+            }],
+    "hasCompetentAuthority":
+          {
+              "organization": "991825827",
+              "orgcode":"digdir"
+          },
+     "contactpoint": 
+              [{
+                        "phone":"1231324",
+                        "email": "online@digdir.no"
+              }],
+          "isPartOf":"Inntektsopplysninger",
+          "homepage":"https://skatteetaten.no",
+           "status":"Completed", 
+           "thematicArea":[],
+           "type":[],
+            "sector":[],
+            "keyword":[
+                {
+                    "keyword":"delegation"
+                },
+                {
+                    "keyword":"access management"
+                }
+            ]          
+  
+  }

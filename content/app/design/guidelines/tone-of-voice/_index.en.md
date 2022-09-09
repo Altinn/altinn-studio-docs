@@ -1,81 +1,76 @@
 ---
-title: Språk
-description: Retningslinjene skal sørge for at vi får et ensrettet språk og forståelig innhold i tjenestene som lages i Altinn. 
+title: Language
+description: Guidelines should ensure common language and understandibility across services in Altinn. 
 weight: 20
-tags: [translate-to-english]
 ---
 
-Som hovedregel bør du bruke retningslinjene fra 
-[Språkrådet](https://www.sprakradet.no/klarsprak/om-skriving/generelle-skriverad-bokmal/) når du skriver. I tillegg har vi definert noen mer spesifikke regler for Altinn som vi anbefaler at du følger. 
+Usually you should use guidelines from the norwegian [language council (nb/nn)](https://www.sprakradet.no/klarsprak/om-skriving/generelle-skriverad-bokmal/) while writing. We have also defined some more specific rules for Altinn which we recommend following.
 
-Vi oppfordrer til at du skriver innholdet i tjenestene dine på både bokmål, nynorsk og engelsk. 
-## Generelle anbefalinger
-- Bruk et muntlig og lett språk
-- Skriv direkte til brukeren (bruk «du») 
-- Forklar hva som er neste steg 
-- Skriv kort, klart og klikkbart 
-- Skriv tekster som kan skummes 
-- Vær spesifikk om innholdet, men sørg samtidig for å bruke ord som alle kan forstå 
+We encurage writing form content in both bokmål, nynorsk and english.  
+## General recommendations
+- Write in a spoken and simple language
+- Write directly to the user (use "you")
+- Explain the next step
+- Write short, clearly and clickable
+- Write skimmable texts
+- Be specific about the content, but make sure to write it in a way so that everyone understands.
 
-### Unngå:
-- lange ord 
-- lange setninger  
-- kryptiske eller lyriske overskrifter  
-- flere poenger i samme setning 
-- flere poenger i samme avsnitt 
-- VERSALER (store bokstaver) 
+### Avoid:
+- Long words 
+- Long sentences  
+- Cryptic or lyrical labels
+- Multiple points in the same sentence 
+- Multiple points in the same paragraph 
+- CAPITALS (big letters) 
 
-### Lengde på tekst:
-- overskrifter: maks. 8 ord 
-- setninger: 15-20 ord
-- avsnitt: 40-80 ord 
+### Length of text:
+- Headlines/Labels: max. 8 words 
+- setninger: 15-20 words
+- paragraps: 40-80 words 
 
-## Skriv rett frem
-Formelt språk er ofte skrudd sammen slik at utsagnet (verbet) kommer sent i setningen. Det gjør at man må lese mange 
-ord før man får verbet. Det krever mer av leseren som må huske hva som stod tidlig i setningen. Verbet bør stå så 
-tidlig som mulig i setningen og bør stå så nært subjektet som mulig. 
+## Write with purpose
+Formal language is often put together in a way where the statement (verb) comes at the end of the sentence. 
+This means that the user has to read and remember many words before the actual content is reached. This demands more
+attention of the user, which has to process more information to read the sentence. 
+The verb should be as early as possible in the sentence, and as close to the subject as possible. 
 
-**Eksempel:**  
-Arbeidstaker har en del plikter som må oppfylles →
+**Example:**  
+The employer has some duties that must be completed →
 
+The employer must complete some duties
 
-Arbeidstaker må oppfylle en del plikter
+### Avoid verbal nouns
+Verbal nouns make the text unnecessary difficult to read.
+A verbal noun is a noun created from a verb, for example "to investigate" becomes "to do an investigation",
+where investigation is the verbal noun. Most verbal nouns end with "-ion".
 
-### Unngå verbalsubstantiver
-Verbalsubstantiver gjør teksten unødvendig tung å lese.
-Et verbalsubstantiv er et substantiv dannet av et verb, for eksempel at «å utrede» blir til «å foreta en utredning»,
-der utredning er selve verbalsubstantivet. De fleste verbalsubstantiv slutter på «-ing» og «-else».  
+A text with many verbal nouns often becomes abstract because it removes itself from the actions they really describe. 
+The text becomes more concrete when we use the verbs instead. 
 
-En tekst med mange verbalsubstantiver blir abstrakt fordi den fjerner seg fra de konkrete handlingene den egentlig beskriver.
-Teksten blir mer konkret når vi bruker verbene i stedet.  
+**Examples:**  
+- New inquiry → Inquire
+- Registration of error → Register error
 
-**Eksempler:**  
-- Ved avtaleinngå**elsen** → Da avtalen ble inngått
-- Ny henvend**else** → Kontakt oss
-- Innmeld**ing** av feil → Meld inn feil
+### Write activly, not passivly: 
+In legal language it is often written that something has to be done and that it isn't desired to say who should do it.
+In Altinn's solutions there are often multiple people who have to do something, but we can directly address the user. 
 
-### Skriv aktivt, ikke passivt: 
-I lovspråk blir det ofte skrevet at noe skal gjøres og det er ikke ønskelig å si noe om hvem som skal gjøre det.
-I Altinn sine løsninger vil det gjerne være flere enn en person som skal gjøre noe, men vi kan skrive direkte til brukeren likevel.
+**Example:**  
+Preperations and planning activities must be done ahead of development of a service. →
 
-**Eksempel:**  
-Forberedelser og planleggingsaktiviteter må gjennomføres før utviklingen av tjenesten(e) kan og bør starte → 
+Make preperations and plan well before you start developing your service.
 
-Gjør forberedelser og planlegg godt før du utvikler tjenesten. 
+## Seperation of numbers
+Correct and consequent seperation of numbers assist the user in reading and seperating different types of numbers.
+None of the numbers should be seperated by a comma, only by spaces. In fields where the user will write longer numbers, it is usefull to indicate the number of digits. 
 
+- Organisation numbers are seperated in groups of 3: 123 456 789
+- Bank account numbers are seperated into 4, 2 and 5: 1234 56 78901
+- SSN should be divided into 6 and 5: 123456 78901
+- Mobile numbers should be divided into 3, 2 and 3: 987 65 432
+- Land lines and fax is divided into groups of 2: 98 76 54 32
 
-## Oppdeling av tall
-Riktig og konsekvent oppdeling av tallene hjelper brukeren å lese og skille forskjellige typer nummer. 
-Ingen av nummerne skal skilles med punktum, kun mellomrom. I felt hvor brukeren skal skrive inn lengre nummer er 
-det hjelpsomt å indikere antall siffer.
-
-- Organisasjonsnummer deles opp i tre og tre: 123 456 789
-- Bankkonto deles opp i fire, to og fem: 1234 56 78901
-- Personnummer deles opp i seks og fem: 123456 78901
-- Mobilnummer deles opp i tre, to og tre: 987 65 432
-- Fasttelefon og faks deles opp i to og to: 98 76 54 32
-
-### Tid og dato
-- Klokkeslett skriver vi kun med timer og minutter, aldri sekunder. Klokkeslett skrives slik: 13:45
-- Dato skal som hovedregel skrives slik: 05.06.2017
-- Unntaksvis kan datoer skrives slik i løpende tekst: 5. juni 2017
+### Time and date
+- Time is only written with hours and minutes, never seconds. Time is written like this: 13:45 
+- Dates should mainly be written like this: 05.06.2017
+- Sometimes dates can be written in text: 5. juni 2017

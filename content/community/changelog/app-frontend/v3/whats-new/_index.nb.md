@@ -55,7 +55,7 @@ Oppdaterte eksterne avhengigheter for uke 17 av 2022.
 ## 3.35.0 (2022-04-28) - Merke påkrevde felter
 Endret standard visning av felter til at påkrevde felter markeres med en *, mens felter som er valgfrie
 ikke har noen markering. Valgfrie felter kan settes opp til å markeres med `(Valgfri)` via `labelSettings`-property
-på feltet i form layout. Se [her](https://docs.altinn.studio/app/development/ux/fields/settings/).
+på feltet i form layout. Se [her](/app/development/ux/fields/settings/).
 
 ## 3.34.4 (2022-04-28) - Fjernet overskrift om vedlegg når det ikke er noen vedlegg
 Under kvitteringen ble det vist en overskrift over listen med vedlegg. Etter det ble mulig å skru av generering av
@@ -77,7 +77,7 @@ Width deklarasjonen ble flyttet til inline styling for å løse problemet.
 Issue [#14](https://github.com/Altinn/app-frontend-react/issues/14). 
 
 ## 3.34.0 (2022-04-11) - Options fra Redux
-La til støtte for å sette opp options (kodelister) fra repeterende grupper i Redux staten. Les mer på [docs.](https://docs.altinn.studio/app/development/data/options/#options-based-on-repeating-groups-from-redux)
+La til støtte for å sette opp options (kodelister) fra repeterende grupper i Redux staten. Les mer på [docs.](/app/development/data/options/#options-based-on-repeating-groups-from-redux)
 Issue [#7626](https://github.com/Altinn/altinn-studio/issues/7626). 
 
 ## 3.33.5 (2022-04-11) - Oppdaterte ekstern avhengighet
@@ -388,7 +388,7 @@ Issue [#7183](https://github.com/Altinn/altinn-studio/issues/7183).
 Oppdaterte ekstern avhenghighet jsonpointer.
 Issue [#7317](https://github.com/Altinn/altinn-studio/issues/7317).
 
-## 3.14.1 (2021-11-11) -  Oppdaterte avhengigheter
+## 3.14.1 (2021-11-11) - Oppdaterte avhengigheter
 Oppdaterte eksterne avhengigheter for uke 45.
 Issue [#7317](https://github.com/Altinn/altinn-studio/issues/7317).
 

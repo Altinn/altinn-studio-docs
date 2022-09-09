@@ -3,19 +3,18 @@ title: Settings and environmental variables
 linktitle: Settings
 description: How to add configuration and environmental specific values so that they are available from app code.
 toc: true
-tags: [translate-to-english]
 weight: 500
 ---
 
-## Standard .NET konfigurasjon
+## Standard .NET configuration
 
-Altinn 3 sin App template baserer seg på en ASP.Net Core applikasjon og har med dette en rekke muligheter for å styre konfigurasjon av en App. Denne dokumentasjonen er derfor i stor grad utdrag fra eller linker til [Microsoft sin egen dokumentasjon](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/?view=aspnetcore-3.1). Det er derimot ikke alt som er mulig i en App da det er litt begrenset hva Altinn 3 gir av tilganger til miljøet en App kjører i.
+Altinn 3's app template is based on an ASP.Net Core application and has a multidude of possibilities for controlling configuration of an app. This documentation is therefore in large part quotes from or links to [Microsoft's own documentation](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/?view=aspnetcore-3.1). However, not everything is possible in an application because Altinn 3 does not give full access to the environment an app is run within. 
 
 ## appsettings.json
 
-Første og enkleste kilde til konfigurasjonsinformasjon er `appsettings` filene. En hver ny app som blir laget vil komme med en eksisterende `appsettings.json` fil. Denne filen blir lest inn av en App under oppstart uavhengig av hvilke miljø Appen kjører i. Det vil si at den bør inneholde standarinnstillinger og innstillinger som er lik i alle miljøer. Filen har allerede en del innstillinger som er i bruk og verdiene er i stor grad beregnet for et utviklingsmiljø hvor man kjører [LocalTest](https://github.com/Altinn/altinn-studio/blob/master/LOCALAPP.md). 
+The first and simplest source for configuration information are the `appsettings` files. Every new app which is created will come with an existing `appsettings.json` file. This file is read by an app during startup independently of what environment the app runs in. This means the file should only contain settings which are equal in all environments. The file contains some settings that are already in use and the values are in large part meant for a development environment where the application is run within [LocalTest](https://github.com/Altinn/altinn-studio/blob/master/LOCALAPP.md)
 
-I appsettings.json filene organiseres verdier i ulike seksjoner. Det anbefales å ikke legge til nye verdier i de eksisterende seksjonene, men isteden lage nye seksjoner. Følgende seksjoner er reservert for å unngå kollisjoner: `Kestrel`, `AppSettings`, `GeneralSettings`, `PlatformSettings`, `PEPSettings`, `ApplicationInsights`, `kvSettings`.
+In appsettings.json the values are organized in different sections. It is not recommended to add new values to the existing sections, creating new sections is recommended. The following sections are reserved to avoid collisions: `Kestrel`, `AppSettings`, `GeneralSettings`, `PlatformSettings`, `PEPSettings`, `ApplicationInsights`, `kvSettings`.
 
 ```json
 {
@@ -39,13 +38,13 @@ I appsettings.json filene organiseres verdier i ulike seksjoner. Det anbefales �
 }
 ```
 
-I fremtiden vil en ny App få med en egen seksjon som det skal være enkelt å utvide. I mellomtiden refereres det til [Microsoft sin dokumentasjon](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1) for hvordan dette kan gjøres.
+In the future new apps will have a designated section which is simple to expand. In the meantime we refer to [Microsoft's own documentation](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1) for how this should be done.
 
-### Miljøspesifikke appsettings
+### Environment specific appsettings
 
-En ny app vil også inneholde et set med miljøspesifikke appsettings filer: `appsettings.Development.json`, `appsettings.Staging.json` og `appsettings.Production.json`. Disse filene blir lest inn kun i det aktuelle miljøet. TT02-miljøet er definert som Staging og produksjonsmiljøet er definert som Production.
+A new app will contain a set of environment specific appsettings files: `appsettings.Development.json`, `appsettings.Staging.json` and `appsettings.Production.json`. These files are read in their respective environments. The TT02-environment is defined as staging and the production environment is defined as Production.
 
-Hver fil skal altså ha verdier som er unike eller anderledes i minst ett annet miljø. Et eksempel på en type verdi som kan variere fra miljø til miljø er "timeout" verdier. Hvis man ønsker at en App skal vente lengre på respons fra et eksternt API under utvikling enn det man ønsker å tillate i produksjon.
+Every file should contain the values which are unique or different in at least one of the environments. Examples of values that vary from environment to environment is the "timeout" values. You might want an app to wait longer for a response from an external API during development than what you want to allow during production.
 
 #### appsettings.Development.json
 ```json
@@ -74,16 +73,16 @@ Hver fil skal altså ha verdier som er unike eller anderledes i minst ett annet 
 }
 ```
 
-## Miljøvariabler
+## Environment variables
 
-Standard oppførsel til en ASP.Net applikasjon er å lese inn miljøvariabler. Dette gjøres også for en App, men det er ikke mulig for en Apputvikler å lage eller endre noen verdier per i dag. Altinn 3 mener at denne måten å styre miljøspesifikke verdier på dekkes av appsettings og KeyVault. 
+Standard behaviour for an ASP.Net application is to read Environment variables. This is also done for an app, but it isn't possible for an app developer to create or change any of these values. Altinn 3 considers the other method of controlling Environment specific variables to be covered by appsettings and KeyVault. 
 
-## Kommandolinjeargumenter
+## Command line arguments
 
-Det er teknisk mulig å overstyre alle andre data kilder ved hjelp av kommandolinjeargumenter. Det er derimot ikke mulig å bruke dette til å endre verdier fra et miljø til et annet.
+It is technically possible to override all other data sources by using command line arguments. It is however not possible to use this to change values from one environment to another.
 
 ## Azure KeyVault
 
-Hver applikasjonseier skal få tilgang til sitt eget Azure KeyVault for lagring av sensitive verdier. Altså verdier man ikke ønsker å ha synlig i kode eller konfigurasjonsfiler. Noen naturlig eksempler på dette er ting som brukernavn og passord for eksterne APIer en App skal benytte. Et sertifikat, privat nøkkel eller lignende.
+Every application owner should have access to their own Azure KeyVault for storage of sensitive values. Sensitive values includes values which you don't want to be visible in code or configuration files. Examples include usernames and passwords for external APIs, certificates, private keys, etc.
 
-Per i dag blir ikke verdier fra KeyVault lest inn i konfigurasjonsstyringen av en App. Isteden må man benytte Secrets komponenten. Dette er dokumentert under [hemmeligheter](../secrets).
+Currently values from KeyVault are not read into the configuration control of an App. Instead the secrets component is used. This is documented under [Secrets](../secrets).

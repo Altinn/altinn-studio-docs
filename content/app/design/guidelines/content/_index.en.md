@@ -1,33 +1,30 @@
 ---
-title: Innhold i skjema
-description: Forklar brukeren hva som skal til for å fylle ut skjemaet riktig og fordel innholdet i flere steg.
+title: Content in the form
+description: Explain what is needed to fill the form correctly to the user and divide the content into multiple steps.
 weight: 10
-tags: [translate-to-english]
 ---
 
-Brukeren skal ikke trenge å få feilmelding for å forstå hva som skal til for å fylle ut skjemaet riktig. Dette bør 
-tydelig komme frem i informasjonstekst i begynnelsen av skjemaet og i labels som tilhører hvert enkelt skjemafelt. 
+The user should not need an error message to understand what is required to fill out the application correctly. 
+It should be obvious in the informative text at the start of the form and in the labels for each input field.
 
-Som hovedregel bør man kun spørre om informasjon som er helt nødvendig å innhente. Du kan derfor opplyse i starten 
-av skjemaet om at alle felt er påkrevde og må fylles ut (for å slippe å markere alle som påkrevde). Frivillige 
-felt kan eventuelt markeres med "frivillig" i selve labelen til feltet.
+You should usually only ask about information that is strictly required to complete the task of the form. 
+With this in mind, you should inform the user of which fields are mandatory and which are not. 
+One suggested way to do this is to write (voluntary) in either the title or in an explanation of the input field.
 
-### Fordel innholdet i flere steg og bruk sporvalg
-En side med mye informasjon og flere oppgaver kan fort bli overveldende for en bruker. Prøv å del opp tjenesten 
-slik at brukeren bare har en oppgave per side. Dette kan for eksempel være et spørsmål brukeren må svare på eller 
-viktig informasjon som må leses. Dette kan gjøre det lettere for brukeren å fokusere på og forstå det du ber dem om.
+### Divide the content into multiple steps and use paths
+One long page with too much information and multiple tasks can quickly overwhelm a user. Try to divide your service
+up into pages in a way where the user only has one task per page. 
+This can for example be a question that the user has to answer or important information that the user must be aware of. 
+This simplifies the process for the user by only giving them one thing to focus on and understand at a time.
 
-Designet vi tilbyr nå er laget med utgangspunkt i dette konseptet. Et større antall komponenter kan føre til mye 
-scrolling og en mer uoversiktlig opplevelse for brukeren. 
-Se eksempel: [Starte enkeltpersonforetak](dsf).
+The design we are currently offering has been created with this concept in mind. Altinn 2 style sheets 
+can also be created within the Altinn 3 platform, but larger amounts of total components can lead to large amounts of scrolling
+and a more confusing experience for the user, and short pages with less content help remedy this confusion. 
+Example: [starting a sole proprietorship](https://brg.apps.altinn.no/brg/anonym-oppstartsveilederen/). 
 
-Brukeren skal slippe å svare på mer enn nødvendig. Dersom brukeren har svart nei på et spørsmål og du dermed kan 
-skjule flere av stegene for ham, kan du gjøre dette med 
-[dynamisk sporvalg](../../../development/ux/sporvalg/).
+The user should not be required to give more information than necessary. If the user has answered a question that leads to 
+another, you can decide to hide or show the question (or page) depending on their answer with [dynamic branching](../../../development/logic/dynamic/).
 
 ### Disabled
-Ved å vise skjemafelt som disabled forventer man at brukeren skal vite hvorfor de ikke kan bruke elementet, 
-men dette er ikke alltid tilfellet. Noen brukerer forstår heller ikke at feltet er deaktivert, som igjen kan 
-føre til forvirring. Bruk av disabled bør derfor unngås. Dersom en handlingen av en eller annen grunn ikke er 
-tillatt, kan dette i stedet forklares i en informasjonstekst.
-
+By showing fields as disabled you might expect that users know why they can't use the element, but this is not always the case.
+Some users do not understand that a field is deactivated, which can lead to further confusion. Because of this we recommend limiting your use of disabling elements, and possibly including a text to explain why it is disabled, should you choose to use this feature.
