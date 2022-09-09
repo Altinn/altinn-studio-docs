@@ -30,17 +30,21 @@ In V6 we had:
 In V7 we now have:
 * Altinn.App.Api (same, but api related implementations from Common and PlatformServices is moved in here)
 * Altinn.App.Core (previously Altinn.App.Common and Altinn.App.PlatformServices)
-* Altinn.App.SourceGenerator (new)
+* Altinn.App.SourceGenerator (new, we will generate source so you don't have to)
 
 This means that a lot of classes and interfaces have moved to new namespaces - don't worry, nothing is deleted, they just have a new home. But this will affect your using statements.
 
-## App.cs and AppBase.cs is gone (and most other c# files in the template)!
+### App.cs and AppBase.cs is gone (and most other c# files in the template)!
 Previously the way to extend the application was by having a `App.cs` class inheriting from `AppBase.cs` and overriding a set of methods. This was fragile with regards to us introducing breaking changes. This has now been replaced with a set of small interfaces that needs to be implemented in custom classes and registered in the services collection in `Program.cs`.
 
 The only c# file left in the template is now `Program.cs`. The `logic` folder and all subfolders and files is gone. The only reason to have other c# files is when you actually have custom implementations in some area. This also means that you can structure your application logic and namespaces the way you like. If you have custom implementations you should of course keep those. We will still generate a c# model in your model folder when you start working on the datamodel.
 
-## Program.cs is simplified
+### Program.cs is simplified
 `Program.cs` contained a lot of service registrations required for the application to work. We still need those registrations but most of them are now moved to the extension methods in `Altinn.App.Api` package and is added by calling `AddAltinnAppControllersWithViews` and `AddAltinnAppServices`. We have also added a method where you can place your custom code `RegisterCustomAppServices` making it easier to separate your code from ours when something changes in the future.
 
+### Documentation
+Previously our documentation reflected the current version only. Meaning when we introduced a new way of doing things, the old way was lost. For those still on older versions this was a problem since we the doc for the version they where on is gone.
+
+We have now introduced a version tag on the pages where the implementation differs from major to major version, making it easy to se both the old ways and the new.
 
 {{<children>}}
