@@ -4,4 +4,4 @@ description: Oversikt over endringer introdusert i v4 av Altinn.App.* pakkene.
 weight: 98
 ---
 
-{{% children description="true" depth="1" %}}
+{{<children>}}

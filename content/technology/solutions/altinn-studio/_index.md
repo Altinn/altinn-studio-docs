@@ -14,4 +14,4 @@ and process tasks.
 
 Altinn Studio consist of serveral parts.
 
-{{% children description="true" depth="1" %}}
+{{<children>}}

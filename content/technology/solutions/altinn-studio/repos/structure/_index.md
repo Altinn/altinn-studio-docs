@@ -101,4 +101,4 @@ Under arbeid... Her må det gjøres en større opprydding i filstrukturen.
 └── {{<icon name="fa-eye">}}[Alle brukere](https://try.gitea.io/explore/users)  
 
 
-{{% children description="true" depth="1" %}}
+{{<children>}}

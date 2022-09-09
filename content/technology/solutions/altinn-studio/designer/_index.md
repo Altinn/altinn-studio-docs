@@ -5,4 +5,4 @@ description: This is where developers create, modify, build and deploy apps. In 
 tags: [altinn-repos]
 --- 
 
-{{% children description="true" depth="1" %}}
+{{<children>}}

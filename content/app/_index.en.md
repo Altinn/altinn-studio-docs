@@ -17,4 +17,5 @@ but anyone can log into [altinn.studio](https://altinn.studio) and check out the
 If you have questions or feedback, then you can contact us on [Slack](https://altinnstudio.slack.com)
 or [GitHub](https://github.com/Altinn/altinn-studio/issues/new/choose), or just keep on reading this documentation.
 
-{{% children description="true" %}}
+
+{{<children>}}

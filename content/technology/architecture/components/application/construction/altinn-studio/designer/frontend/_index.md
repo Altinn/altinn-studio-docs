@@ -5,8 +5,6 @@ description: Description of the application construction components for Altinn S
 weight: 10
 ---
 
-{{% children depth="1" description="true" %}}
-
 The Designer frontend consists of multiple React + Redux applications. It is split into two top-level applications:
 - dashboard
 - app-development
@@ -35,3 +33,4 @@ as a custom view in the .NET application.
 The front-end of Altinn Studio designer is set up using the same React + Redux architecture as the App frontend, take a look [here](../../../altinn-apps/app/app-frontend/react) 
 for more details.
 
+{{<children>}}

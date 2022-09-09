@@ -12,4 +12,4 @@ components/parts of Altinn Apps.
 [Download as Visio](altinnapps_application_architecture.vsdx).
 
 
-{{% children description="true" depth="1" %}}
+{{<children>}}

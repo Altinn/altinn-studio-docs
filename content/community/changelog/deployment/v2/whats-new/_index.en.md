@@ -4,6 +4,39 @@ description: Overview of changes introduced in v2 of deployment.
 toc: true
 ---
 
+## 2.3.0
+
+### Changes introduced
+
+* Upgraded HorizontalPodAutoscaler from version _autoscaling/v2beta2_ to _autoscaling/v2_
+
+{{%notice warning%}}
+autoscaling/v2beta2 is deprecated in version 1.23+ of kubernetes and removed in version 1.26+
+Apps clusters will eventually be upgraded and deployment of apps using old chart versions will fail once cluster is upgraded to version 1.26+. 
+
+[AKS release calendar](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#aks-kubernetes-release-calendar)
+{{% /notice%}}
+
+[View release on Github](https://github.com/Altinn/altinn-studio-charts/releases/tag/deployment-2.3.0)
+
+## 2.2.0
+
+### Changes introduced
+
+* Make it possible to at custom annotations to pods in values.yaml
+ 
+
+### How to add pod annotations in values.yaml
+
+```yaml
+deployment:
+  podAnnotations:
+    key1: value1
+    key2: value2
+```
+
+[View release on Github](https://github.com/Altinn/altinn-studio-charts/releases/tag/deployment-2.2.0)
+
 ## 2.1.0
 
 {{%notice warning%}}
@@ -61,7 +94,7 @@ __13.__ Minimum consecutive failures for the probe to be considered failed after
 __14.__ How often (in seconds) to perform the probe
 
 
-
+[View release on Github](https://github.com/Altinn/altinn-studio-charts/releases/tag/deployment-2.1.0)
 
 ## 2.0.0
 
@@ -118,6 +151,8 @@ __14.__ CPU millicores reserved by the kubelet for each pod of this application.
 
 __15.__ Memory reserved by the kubelet for each pod of this application. Pods are allowed to consume more than this if it's available
 
+
+[View release on Github](https://github.com/Altinn/altinn-studio-charts/releases/tag/deployment-2.0.0)
 
 ### New optional field without default values available in values.yaml
 ```yaml {linenos=table}

@@ -7,4 +7,4 @@ tags: [architecture, solution]
 
 See below for application contruction components for the different components in Altinn Platform.
 
-{{% children description="true" depth="1" %}}
+{{<children>}}

@@ -1,27 +1,60 @@
 ---
 title: Access Groups
 linktitle: Access Groups
-description: Access groups 
+description: The Access Groups component is responsible for keeping track of membership of different Access Groups defined in Altinn. 
 tags: [architecture, security, authorization, xacml]
 ---
 
-WORK IN PROGRESS - NOT FINALIZED
+{{<notice warning>}}
+This is work in progress
+{{</notice>}}
 
-Access registry contains information about the sentral defined access groups. 
+Access registry contains information about the centrally  [defined access groups](https://github.com/altinn/docs/blob/master/content/utviklingsguider/styring-av-tilgang/for-tjenesteeier/forslag-tilgangsgrupper.md). 
 
 See [Github #25](https://github.com/Altinn/altinn-authorization/issues/25)
 
+The Access groups are grouped in one or more category trees. 
+
+The category trees will be used to present the access groups in UI.
+
+## Data model
+
+### AccessGroupCategory
+
+This model describes a category. A category can have a parent category. If no parent is present, it is assumed to be a top category.
+
+The category will be used by ui to present the access group category hierky.
+
+The properties
+- Categoryid
+- ParentCategory
+
+### AccessGroup texts
+
+Texts for access groups or AccessGroupsCategory
+
+- CategoryId
+- AccessGroupdId
+- Langauge
+- TextType
+- Text
+
+### AccessGroupCategory
+
+Contains the reference between access groups and a category
+
 ### AccessGroup defintion
 
-- Type of group. Leaf or branch?
 - Name of group in different languges
 - AccessGroup identifier
 
-### AccessGroup relationship
+### External Relationship
 
-- Parent/child relantiship between AccessGroups
-- Relationship for external roles (ER, AA, 
-  
+- ExternalSource (Like ER) 
+- ExternalID (Example DAGL, LEDE)
+- PartyTypeFilter(AS, ENK)
+- AccessGroupdID 
+
 ### AccessGroup Membership
 
 - MembershipID
@@ -49,14 +82,9 @@ See [Github #25](https://github.com/Altinn/altinn-authorization/issues/25)
 
 ### 
 
-
 ![Hierar](dbmodel.drawio.svg "Db model")
 
 
 ![Hierar](hierchy.drawio.svg "Db model")
-
-
-The accessgroupes in 3.0 will replace roles in Altinn 2. 
-[Here](type-accessgroups) is a list of accessgroups that will be used. 
 
 

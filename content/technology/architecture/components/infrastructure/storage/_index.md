@@ -2,6 +2,7 @@
 title: Storage componentens
 linktitle: Storage
 description: Altinn 3 uses different types of storage components.
+toc: true
 tags: [architecture, infrastructure]
 ---
 

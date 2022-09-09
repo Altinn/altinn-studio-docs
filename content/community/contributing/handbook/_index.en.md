@@ -16,4 +16,4 @@ read throught the whole development handbook in a logical order so that new deve
 
 The development handbook is a dynamic material and everybody should feel free to extend or correct articles when needed.
 
-{{% children description="true" depth="1" %}}
+{{<children>}}

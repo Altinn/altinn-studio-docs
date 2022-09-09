@@ -5,4 +5,4 @@ description: Overview of changes introduced into helm-chart for deployment.
 weight: 40
 ---
 
-{{% children %}}
+{{<children>}}
