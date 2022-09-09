@@ -5,7 +5,7 @@ description: Denne siden inneholder informajson om hvilke typer roller Altinn ha
 toc: true
 ---
 
-En rolle en en type fullmakt en bruker har på vegne av [aktøren](/technology/terms/#actor) som bruker skal opptre på vegne av. 
+En rolle er en type fullmakt en bruker har på vegne av [aktøren](/technology/terms/#actor) som bruker skal opptre på vegne av. 
 Roller kan gis til personer eller virksomheter. Disse identifiseres med fødselsnummer (fra Folkeregisteret) eller organisasjonsnummer (fra Enhetsregisteret). 
 Det finnes to hovedtyper av roller som man kan knytte en autorisasjonsregel til: Eksterne roller og Altinn roller.
 
@@ -26,14 +26,15 @@ Du kan lese mer om hvilke roller fra Enhetsregisteret som benyttes i Altinn [her
 Disse rollene benyttes når [aktøren](/technology/terms/#actor) er en virksomhet eller person 
 Du kan lese mer om hvilke roller fra Skatteetaten som benyttes [her](roles_ske)
 
-#### Roller fra [Arbeidsgiver- og arbeidstakerregisteret](https://www.nav.no/no/bedrift/tjenester-og-skjemaer/aa-registeret-og-a-meldingen) (to be implemented)
+#### Roller fra [Arbeidsgiver- og arbeidstakerregisteret](https://www.nav.no/no/bedrift/tjenester-og-skjemaer/aa-registeret-og-a-meldingen)
+Dette er ikke implmentert  i dag men ligger i backlogg som ny kilde til eksterne roller
 
-#### Roller om [Vergemål fra Statens sivilrettsforvaltning](https://www.sivilrett.no/vergemaalsordninga.556842.no.html) (to be implemented)
-
-#### Roller om [Foreldreansvar](https://www.skatteetaten.no/person/folkeregister/fodsel-og-navnevalg/foreldreansvar/) (to be implemented)
-
-#### Roller fra [Advokatregisteret hos Tilsynsrådet for Advokater](https://tilsynet.no/register) (to be implmented)
-
+#### Roller om [Vergemål fra Statens sivilrettsforvaltning](https://www.sivilrett.no/vergemaalsordninga.556842.no.html) 
+Dette er ikke implmentert  i dag men ligger i backlogg som ny kilde til eksterne roller
+#### Roller om [Foreldreansvar](https://www.skatteetaten.no/person/folkeregister/fodsel-og-navnevalg/foreldreansvar/) 
+Dette er ikke implmentert  i dag men ligger i backlogg som ny kilde til eksterne roller
+#### Roller fra [Advokatregisteret hos Tilsynsrådet for Advokater](https://tilsynet.no/register) 
+Dette er ikke implmentert  i dag men ligger i backlogg som ny kilde til eksterne roller
 
 ## Altinn roller
 Disse rollene benyttes når [aktøren](/technology/terms/#actor) er en virksomhet eller person. 
