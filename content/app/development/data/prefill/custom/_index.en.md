@@ -53,7 +53,7 @@ public async Task DataCreation(Instance instance, object data)
 {{< content-version-container version-label="v7" >}}
 In version 7 the way to do custom code instantiation has changed. We now use an dependency injection based approach insted of overriding methods. If you previously used to place your custom code in the DataCreation method in the _InstantiationHandler.cs_ class you will see that it's mostly the same.
 
-3. Create a class that implements the `IInstantiation` interface found in the `Altinn.App.Core.Features.Instantiation` namespace.
+1. Create a class that implements the `IInstantiation` interface found in the `Altinn.App.Core.Features.Instantiation` namespace.
 
    The example below populates the field _Bruker.FulltNavn_ in the model _Datamodell_ with the value "Test Testesen".
 
@@ -89,7 +89,7 @@ In version 7 the way to do custom code instantiation has changed. We now use an 
         }
     }
     ```
-4. Register you custom implementation in the _Program.cs_ class
+2. Register you custom implementation in the _Program.cs_ class
 
     ```C#
     services.AddTransient<IInstantiation, Instantiation>();
