@@ -168,7 +168,7 @@ Det vil se omtrent slik ut
 ## To radioknappalternativer eller avkrysningsbokser under hverandre
 Som standard kommer radioknapper eller checkboxer som har kun to svaralternativer, på én linje. Dersom man ønsker at svarene skal ligge på hver sin linje slik:
 
-![SvaralternativUnderHverandre](https://user-images.githubusercontent.com/42466346/177565112-ff5313f7-f56d-4421-bd17-b53f69308697.jpg)
+![SvaralternativUnderHverandre](radio-vertical-align.jpeg "Vertical align radiobuttons")
 
 må man legge til "layout":"column" for radioknappelementet på siden.
 ```json
