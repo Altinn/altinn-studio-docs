@@ -2,27 +2,26 @@
 title: Data model in Altinn Studio
 linktitle: Data model
 description: How to import or view the data model in Altinn Studio.
-tags: [translate-to-english]
 weight: 100
 ---
 
 {{% notice info %}}
-Det er planlagt datamodelleringsfunksjonalitet inn i Altinn Studio. Den midlertidige funksjonaliteten er derfor svært begrenset.
+Data modeling functionality is planned for Altinn Studio. The temporary functionality is therefore very limited.
 {{% /notice %}}
 
-## Laste opp / vise datamodell
-Datamodellen definerer hvilke data som kan sendes inn via en app, og hvilket format det skal sendes på.
-Per nå må datamodellen være definert som en XSD i et eksternt verktøy - gjerne [Seres Domeneklient](https://altinn.github.io/docs/seres/brukerveiledninger/domeneklient/).
+## Upload / show data model
+The data model defines which data can be submitted through an app and the format used when submitting.
+As of now, the data model must be defined as an XSD in an external tool - preferably [Seres Domain Client](https://altinn.github.io/docs/seres/brukerveiledninger/domeneklient/).
 
-Det må lastes opp en datamodell for hver app.
+A data model must be uploaded for each app.
 
-1. Åpne appen fra dashboardet
-2. Velg fanen Lage
-3. I navigasjonsmenyen velger du Datamodell ![Ikon i navigasjonsmenyen](datamodel-icon.png "Ikon i navigasjonsmenyen")
-4. Klikk på _Velg XSD_ og velg XSD-en i filvelgeren
-5. Klikk _Last opp_
+1. Open the app from the dash board
+2. Choose the tab Lage
+3. In the navigation menu choose Data model ![Icon in the navigation menu](datamodel-icon.png "Icon in the navigation menu")
+4. Click _Choose XSD_ and choose the XSD in the file picker
+5. Click _Upload_
 
-Datamodellen blir da parset, og alle nødvendige filer generert og lagret i app-repositoryet.
-Disse filene kan vises ved å velge de ulike fanene på datamodellsiden.
+The data model is then parsed and all necessary files are generated and saved in the app repository.
+These files can be viewed by choosing the different tabs on the data model page.
 
-![Legg til / vis datamodell](add-datamodel.png "Legg til / vis datamodell")
+![Add / show data model](add-datamodel.png "Add / show data model")

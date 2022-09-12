@@ -1,6 +1,6 @@
 ---
 title: Modul 1
-description: Opprette app i Studio, sette opp lokalt utviklingsmiljø og local test
+description: Opprette app i Studio, sette opp lokalt utviklingsmiljø og lokal test
 linktitle: Modul 1
 tags: [apps, training, datamodel, localtest, texts]
 weight: 20
@@ -41,7 +41,7 @@ Det er et ønske om at et eller flere av ordene  "tilflytter" og  "Sogndal" er m
 
 
 {{% expandlarge id="late-opp-datamodel" header="Laste opp datamodell" %}}
-Sogndal kommune har opprettet [en datamodell](/app/app-dev-course/modul1/datamodel.xsd)
+Sogndal kommune har opprettet [en datamodell](datamodel.xsd)
 som representerer data de ønsker å samle inn fra fremtidige innbyggere.
 
 {{% notice info %}}
@@ -52,7 +52,7 @@ redigere den i f.eks. Visual Studio eller et selvvalgt tekstredigeringsprogram.
 {{% /notice %}}
 
 
-1. [Last ned xsd-filen](/app/app-dev-course/modul1/datamodel.xsd), åpne den i et tekstredigeringsprogram
+1. [Last ned xsd-filen](datamodel.xsd), åpne den i et tekstredigeringsprogram
    og ta en nærmere titt på innholdet.
 2. [Last opp datamodellen i Altinn Studio](/nb/app/development/data/data-model/#laste-opp--vise-datamodell)
 3. Push endringene master og ta en nærmere titt på filene i mappen `App/models`
@@ -61,7 +61,7 @@ redigere den i f.eks. Visual Studio eller et selvvalgt tekstredigeringsprogram.
 ### Forståelsessjekk
 
 - Hvilken data er det tjenesteeier ønsker å samle inn her?
-- Hvilken effekt har **\<minOccurs\>** i datamodellen? Du vil se at feltet har ulik verdi for _Inflytter.Fornavn_ og _Inflytter.Mellomnavn_
+- Hvilken effekt har **\<minOccurs\>** i datamodellen? Du vil se at feltet har ulik verdi for _Innflytter.Fornavn_ og _Innflytter.Mellomnavn_.
 - Hvilke andre egenskaper er satt på feltet _Innflytter.Mellomnavn_?
 - Det er blitt generert en _.C#_, _.metadata.json_ og _.schema.json_ fil i tillegg til _.xsd_ filen som du lastet opp. Hva er sammenhengen mellom disse filene?
 - Enkelte restriksjoner fra datamodellen overføres ikke til _C#_-filen, hvilke? Det er og lagt til nye egenskaper, hvilke?
@@ -87,10 +87,10 @@ Det er mulig å koble tekster til komponenter både i Altinn Studio og lokalt.
 
 ### Krav fra kommunen
 
-- Alle inputfelter skal ha forklarende labels som beskriver hva som skal fylles inn
-- Applikasjonen må være tilgjengelig både på bokmål, nynorsk og engelsk
-   I en første versjon er det tilstrekkelig at kun ett av disse språkene støttes
-- Det er viktig at applikasjonens visningsnavn klinger godt og er beskrivende for tjenesten
+- Alle inputfelter skal ha forklarende labels som beskriver hva som skal fylles inn.
+- Applikasjonen må være tilgjengelig både på bokmål, nynorsk og engelsk.
+  I en første versjon er det tilstrekkelig at kun ett av disse språkene støttes.
+- Det er viktig at applikasjonens visningsnavn klinger godt og er beskrivende for tjenesten.
 
 
 ### Nyttig dokumentasjon
@@ -100,9 +100,9 @@ Det er mulig å koble tekster til komponenter både i Altinn Studio og lokalt.
 
 ### Forståelsessjekk
 
-I Altinn i dag støtter vi tre skriftspråk: bokmål, nynorsk og engelsk.
+I Altinn i dag støtter vi tre skriftspråk: Bokmål, nynorsk og engelsk.
 - Hvordan får du inn engelsk språkstøtte i applikasjonen?
-- Hvis vi en dag skal støtte Ukrainsk, hvilken språkkode vil du da måtte annotere filen med?
+- Hvis vi en dag skal støtte ukrainsk, hvilken språkkode vil du da måtte annotere filen med?
 - Hvis en tekstnøkkel refert til i FormLayout.json ikke finnes i tekstressursene, hva vil vises da?
 
 {{% /expandlarge %}}
@@ -130,29 +130,29 @@ Basert på kravene fra kommunen klarer du å sette opp den første skjemasiden i
   - Telefon
 
 ### Nyttig dokumentasjon
-- [Hvordan bygge et skjema med UI editor i Altinn Studio](nb/app/getting-started/navigation/designer/ui-editor/)
+- [Hvordan bygge et skjema med UI editor i Altinn Studio](/nb/app/getting-started/navigation/designer/ui-editor/)
 - [Tilgjengelige komponenter i Altinn Studio](/technology/solutions/altinn-studio/designer/functional/build-app/ui-designer/components/)
 - [Retningslinjer for bruk av komponenter](/nb/app/design/guidelines/components/)
 
 ### Forståelsessjekk
 
-I applikasjonsrepoet ditt finner du _FormLayout.json_ i mappen `App/ui/layouts`. JSON-filen beskriver skjemasiden du har satt opp i Altin Studio,
+I applikasjonsrepoet ditt finner du _FormLayout.json_ i mappen `App/ui/layouts`. JSON-filen beskriver skjemasiden du har satt opp i Altinn Studio,
 gitt at du har pushet endringene dine til master.
 
 - Finner du igjen komponenten som er koblet til e-post-feltet?
 - Hvilken endring kreves i denne filen dersom e-post-feltet ikke lenger skal være påkrevd?
 - Ved å endre én linje i _FormLayout.json_ er det mulig å endre komponenten knyttet til mellomnavn
-  til et input felt for et langt svar. Hvilken endring kreves?
+  til et inndatafelt for et langt svar. Hvilken endring kreves?
 {{% /expandlarge %}}
 
 
 {{% expandlarge id="laste-ned-app-lokalt" header="Laste ned applikasjonen lokalt" %}}
 
-Enkelte applikasjonsfeatures er det ikke støtte for å utvikle i Altinn Studio.
+Enkelte applikasjonsfunksjoner er det ikke støtte for å utvikle i Altinn Studio.
 Disse må utvikles i et lokalt utviklingsmiljø.
 
 Selve utviklingen kan gjøres i ditt foretrukne utviklerverktøy,
-men trenger du en anbefaling er [Visual Studio Code](https://code.visualstudio.com/Download) et godt alternativ.
+men trenger du en anbefaling, er [Visual Studio Code](https://code.visualstudio.com/Download) et godt alternativ.
 
 
 ### Nyttig dokumentasjon
@@ -163,7 +163,7 @@ men trenger du en anbefaling er [Visual Studio Code](https://code.visualstudio.c
 
 {{% expandlarge id="kjore-i-localtest" header="Kjøre appen i localtest" %}}
 
-Ved hjelp av en mock som kan spinnes opp lokalt av Altinn Plaform
+Ved hjelp av en mock som kan spinnes opp lokalt av Altinn Plattform
 er det mulig å gjøre enkel testing og verifikasjon av applikasjonen i det lokale utviklingsmiljøet.
 
 I denne oppgaven skal du få kjørt opp applikasjonen lokalt med støtte fra LocalTest.
@@ -174,7 +174,7 @@ Når du har fått appen opp og kjøre og logget inn med en testbruker, bør du h
 {{% notice info %}}
 Videre vil du ønske å teste endringene dine fortløpende i localtest.
 - Ved endringer knyttet til formLayout og andre _json_-filer holder det med en refresh (F5) i nettleser.
-- Ved endringer i prefill vil man måtte instansiere applikasjonen på nytt.
+- Ved endringer i forhåndsutfylling vil man måtte instansiere applikasjonen på nytt.
 - Ved endringer i _cs_-filer må applikasjonen stoppes og startes på nytt.
   Alternativt kan du benytte deg av `dotnet run watch` når du starter applikasjonen for hot reload.
 
@@ -196,9 +196,9 @@ Videre har du klonet repoet lokalt for å kunne videre applikasjonen i ditt loka
 
 Tjenesten skal kunne kjøres opp på din lokale maskin med local test og du skal kunne fylle inn feltene.
 
-**Husk å _pushe_ de lokale endringene dine, så de blir tilgjengelig i Altinn Studio når du er fornøyd**
+**Husk å _pushe_ de lokale endringene dine, så de blir tilgjengelige i Altinn Studio når du er fornøyd.**
 
 ### Løsningsforslag
-Dersom du ikke har fått til alle stegene har vi et [løsningsforslag](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/1) som du kan hente inspirasjon fra.
+Dersom du ikke har fått til alle stegene, har vi et [løsningsforslag](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/1) som du kan hente inspirasjon fra.
 
 ![Skjermbilde av datainnsamlingsside](/app/app-dev-course/modul1/data-screenshot.png "Skjermbilde av datainnsamlingsside")

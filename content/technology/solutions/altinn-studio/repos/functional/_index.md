@@ -8,7 +8,7 @@ tags: [altinn-repos]
 
 ![Eksempel-repository screenshot](t3-repositories.png "Eksempel-repository for tjenesten \"Starte Enkeltpersonforetak\"")
 
-"Altinn Repositories" er en frittstående [Git] versjonskontroll og [Application Lifecycle Management]-løsning, som både [Designer](../../designer/),
+"Altinn Repositories" er en frittstående [Git] versjonskontroll og [Application Lifecycle Management]-løsning, som både [Designer](../../designer),
 kodeeditorer og andre eksterne verktøy vil benytte som back-end og felles sted for å **lagre** og versjonere tjenestene som utvikles.
 
 Repositories har et GitHub-lignende brukergrensesnitt og både Git og REST-baserte tekniske grensesnitt.
@@ -27,7 +27,7 @@ Bilder fra Gitea benyttes som eksempler videre i denne dokumentasjonen.
 
 ## Funksjonalitet i "Repositories"
 
-Repositories inneholder et repository med versjonerte filer for hver [3.0-tjeneste](#3-0-tjeneste).
+Repositories inneholder et repository med versjonerte filer for hver [3.0-tjeneste](#30-tjeneste).
 Eksempel på typer filer som en "3.0-tjeneste" vil kunne bestå av er kode, tester, web-komponenter, layouts og stiler,
 oversettinger, arbeidsflyt og konfigurasjon.
 
@@ -89,7 +89,7 @@ editere i [markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheat
 
 ## Versjonering
 
-Hver eneste fil som en 3.0-tjeneste består av skal ha full versjonshistorikk, uavhengig av om man jobber mot filene via [Designer](../designer/)
+Hver eneste fil som en 3.0-tjeneste består av skal ha full versjonshistorikk, uavhengig av om man jobber mot filene via [Designer](../../designer)
 eller eksternt og distribuert/lokalt i en kodeeditor på egen maskin.
 Repositories sitt versjonskontrollsystem, som er basert på Git, er laget nettopp med tanke på dette.
 

@@ -5,35 +5,35 @@ toc: true
 weight: 400
 ---
 
-## Aktivere generering av events i applikasjonen din
+## Activate generation of events in your application
 
 {{%notice info%}}
-For at applikasjonen din skal kunne generere events må den referere til nugetversjon >= 1.2.4.
-Se hvordan du oppdaterer nugetreferanser for applikasjonen din [her](../update/#nuget-pakker).
+To allow generating events for your application it must refer to nuget version >= 1.2.4.
+See how you update nuget references for your application [here](../update/#nuget-packages).
 {{% /notice%}}
 
-Generering og lagring av events er ikke enablet som default i applikasjonene per 22.10.2020.
-Det må derfor et manuelt steg til for at applikasjonen din skal generere events.
+Generation and storing of events is not enabled by default in applications per 22.10.2020.
+Because of this, a manual step is required before your application can generate events.
 
-I filen `appsettings.json` i mappen _App_ må følgende legges til i seksjonen _AppSettings_
+In the file `appsettings.json` in the folder _App_ the following should be added into the section _AppSettings_
 
 ```json
 "RegisterEventsWithEventsComponent": true
 ```
 
-## Pushe egendefinerte events i applikasjonen din
+## Pushing self defined events into your application
 
-Servicen `IEvents` er eksponert i applikasjonen og kan dependency injectes
-i den klassen der du har behov for å generere et egendefinert event. 
+The service `IEvents` is exposed in the application and can be dependency injected
+into the class where you need to generate a self defined event.
 
-Metoden _AddEvent_ krever navnet på eventypen og instansen som input.
+The method _AddEvent_ requires the name of the eventtype and the instance as input
 
-### Kodeeksempel
+### Code example
 
-I denne seksjonen finner du et eksempel på hvordan man kan generere
-et egendefinert event ved instansiering av applikasjonen.
+In this section you can find an example of how to generate a self 
+defined event by instantiation within the application
 
-Logikken er implementert i `InstantiationHandler.cs`
+The logic is implemented in `InstantiationHandler.cs`
 
 ```cs
 using Altinn.App.Services.Interface;
@@ -96,20 +96,20 @@ namespace Altinn.App.AppLogic
 }
 ```
 
-1. Den private variabelen for servicen inkluderes i klassen
+1. The private variable in the service is included in the class
 
     ```cs
     private IEvents _eventsService;
     ```
 
-2. Namespce for IEvents må inkluderes i klassen. 
-    Legg til linjen nedenfor blant de andre _using_-statements øverst i filen.
+2. Namespace for IEvents must be included in the class. 
+    Add the line below among the other _using_ statements in the top of the file.
 
     ```cs
     using Altinn.App.PlatformServices.Interface;
     ```
 
-3. IEvents servicen dependency injectes inn i klassen. Og den private variabelen blir assignet en verdi.
+3. The IEvents service is dependency injected into the class. And the private variable is assigned a value.
 
     ```cs
         public InstantiationHandler(IProfile profileService, IRegister registerService, IEvents eventsService)
@@ -120,21 +120,21 @@ namespace Altinn.App.AppLogic
         }
     ```
 
-4. I metoden der man har behov for å genere et event kaller man på servicen.
+4. In the method where you need to generate an event you call the service.
 
-    Her har det egendefinerte eventet fått navnet `app.test.event`,
-    i tillegg sendes instansen med. Denne brukes til å populere resterende metadata om eventet.
+    Here the self defined event has received the name `app.test.event`,
+    in addition the instance is sent. This is used to populate remaining metadata about the event
 
     ```cs
     await _eventsService.AddEvent("app.test.event", instance);  
    ```
 
-5. Dersom du prøver å bygge løsningen nå vil det feile.
+5. If you try building the solution at this point, it will fail.
 
-    IEvents vil mangle der InstantiationHandler instansieres. Naviger til `App.cs`
-    og dependency inject servicen inn i konstruktøren til App.
+    IEvents will be missing the location where the InstantiationHandler is instantiated. 
+    Navigate to `App.cs`and dependency inject the service into App's constructor.
 
-    Videre må tjenesten legges til i kallet der InstantiationHandler instansieres som vist nedenfor.
+    Further the service must be added into the call where InstantiationHandler is instantiated as shown below.
 
     ```cs
     public App(
@@ -156,5 +156,5 @@ namespace Altinn.App.AppLogic
     }
     ```
 
-6. Applikasjonen din er nå klar til å generere et egendefinert event under instansiering.
-Dette er mulig å [teste lokalt](https://github.com/Altinn/altinn-studio/blob/master/LOCALAPP.md) før det evt. deployes til et testmiljø.
+6. Your application is now ready to generate a self defined event during instantiation.
+You can [test this locally](https://github.com/Altinn/altinn-studio/blob/master/LOCALAPP.md) before eventually deploying to a test environment.

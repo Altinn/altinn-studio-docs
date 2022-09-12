@@ -9,7 +9,7 @@ weight: 15
 ---
 
 Dette intro-kurset er delt opp i seks moduler og dekker et fiktivt case for Sogndal kommune.
-I løpet av disse seks modulene vil du ha vært innom den mest sentrale funksjonaliteten for en Altinn App,
+I løpet av disse seks modulene vil du ha vært innom den mest sentrale funksjonaliteten for en Altinn-app,
 samt testing av applikasjonen lokalt og i testmiljø.
 
 
@@ -28,5 +28,5 @@ Tre ting må være på plass før du går i gang med dette kurset.
 
 ### Les gjennom caset til Sogndal kommune, og jobb deg gjennom modul for modul.
 
-{{% children description="true" depth="1" %}}
+{{<children>}}
 

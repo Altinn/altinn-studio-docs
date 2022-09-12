@@ -100,7 +100,7 @@ Variabler i tekster kan inkluderes ved å følge oppsettet nedenfor. Det er vikt
 Det er per nå mulig å hente verdier fra 3 ulike datakilder. 
 
 1. Datamodel   
-   Ved å angi `dataModel.<dataModelNavn>` som datakilde kan man hente ut verdier fra felter i skjema som brukeren fyller ut. Data kan hentes fra felter uavhengig av om de er synlige eller ikke. Hvis bruker endrer på data i et felt referert i en variabel så vil teksten bli oppdatert når bruker forlater feltet. 
+   Ved å angi `dataModel.<dataModelNavn>` som datakilde kan man hente ut verdier fra felter i skjema som brukeren fyller ut. Data kan hentes fra felter uavhengig av om de er synlige eller ikke. Hvis bruker endrer på data i et felt referert i en variabel så vil teksten bli oppdatert når brukeren stopper å skrive i feltet. 
 2. Instillinger   
    Ved å angi `applicationSettings` som datakilde kan man hente ut verdier fra en spesiell seksjon i `appsettings.{miljø}.json` filen(e) med navn `FrontEndSettings`. Dette er en dynamisk liste man kan utvide uten å måtte gjøre endringer i kode. Dette gjør det mulig å ha ulike verdier fra miljø til miljø ved å ha andre verdier i de ulike `appsettings.{miljø}.json` filene. Vær obs på ulik bruk av stor bokstav i starten av nøkkel mellom `FrontEndSettings` og `applicationSettings`.
    ```json
@@ -376,14 +376,15 @@ Eksempel:
 Tekster på kvitteringssiden kan overstyres av applikasjonen ved å spesifisere tekster i applikasjonens `config/texts/resource.xx.json` fil.
 
 {{%notice info%}}
-Overstyring av tekster i kvitteringen vil ha påvirkning for alle kvitteringer for den gitte applikasjonen. Dette betyr at alle skjemaer som allerede er insendt vil også få det oppdaterte tekstene på kvitteringssiden. PDF filen som er generert vil ikke påvirkes av dette.
+Overstyring av tekster i kvitteringen vil ha påvirkning for alle kvitteringer for den gitte applikasjonen.
+Dette betyr at alle skjemaer som allerede er insendt vil også få det oppdaterte tekstene på kvitteringssiden. PDF filen som er generert vil ikke påvirkes av dette.
 {{% /notice%}}
 
 Markdown og variabler kan benyttes i kvitteringstekstene. Det er kun mulig å hente variabler fra `Instance` (Se [Data Sources](#datakilder) for detaljer)
 
 Dette er tekstnøklene som kan brukes for å overstyre standardtekstene:
 
-```
+```json
 receipt_platform.attachments
 receipt_platform.date_sent
 receipt_platform.helper_text
@@ -414,5 +415,10 @@ Bildet nedenfor viser hvilke tekstnøkler som styrer hvilken del av brukergrense
 
 ![Tekster og tekstnøkler](archive-receipt-texts.png "Tekster og tekstnøkler")
 
-**Merk!** Disse tekstendringene vil **ikke** være synlige når du tester appen din lokalt, de synes kun i eksternt testmiljø, f.eks.**TT02**. Du vil se endringene når du åpner et allerede arkivert skjema fra Arkivet ved å trykke på knappen "Se innsendt skjema". Per nå blir ikke disse modifiserte tekstene brukt under selve innsendingen av skjemaet (det ligger en sak på dette på github).
+**Merk!** Disse tekstendringene vil **ikke** være synlige når du tester appen din lokalt, de synes kun i eksternt testmiljø, f.eks.**TT02**.
+Du vil se endringene når du åpner et allerede arkivert skjema fra Arkivet ved å trykke på knappen "Se innsendt skjema".
+Per nå blir ikke disse modifiserte tekstene brukt under selve innsendingen av skjemaet (det ligger en sak på dette på github).
+
 ![image](https://user-images.githubusercontent.com/42466346/159928882-e3268bd4-6057-4ca5-aaf2-f417cffcc0f9.png)
+
+{{<children>}}

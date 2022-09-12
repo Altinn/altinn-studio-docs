@@ -13,11 +13,11 @@ This page show examples
 ### Process Interaction App Frontend - App Backend - 
 
 {{%excerpt%}}
-<object data="/technology/architecture/capabilities/runtime/processing/process/process_interaction.svg" type="image/svg+xml" style="width: 100%;  max-width: 800px;"></object>
+<object data="../process_interaction.svg" type="image/svg+xml" style="width: 100%;  max-width: 800px;"></object>
 {{% /excerpt%}}
 
 
-[Full Screen](/architecture/application/altinn-apps/app/app-backend/process/process_interaction.svg)
+[Full Screen](../process_interaction.svg)
 
 The above example show the following
 
@@ -42,16 +42,17 @@ The above example show the following
 ### Process Interaction End User System - App Backend - 
 
 {{%excerpt%}}
-<object data="/technology/architecture/capabilities/runtime/processing/process/process_interaction_eus.svg" type="image/svg+xml" style="width: 100%;  max-width: 800px;"></object>
+<object data="../process_interaction_eus.svg" type="image/svg+xml" style="width: 100%;  max-width: 800px;"></object>
 {{% /excerpt%}}
 
-[Full Screen](/technology/architecture/capabilities/runtime/processing/process/process_interaction_eus.svg)
+[Full Screen](../process_interaction_eus.svg)
 
 
 ### Process Interaction Sirius Use case 
 
 {{%excerpt%}}
-<object data="/technology/architecture/capabilities/runtime/processing/process/process_interaction_sirius.svg" type="image/svg+xml" style="width: 100%;  max-width: 800px;"></object>
+<object data="../process_interaction_sirius.svg" type="image/svg+xml" style="width: 100%;  max-width: 800px;"></object>
 {{% /excerpt%}}
 
-[Full Screen](/technology/architecture/capabilities/runtime/processing/process/process_interaction_sirius.svg)
+[Full Screen](../process_interaction_sirius.svg)
+

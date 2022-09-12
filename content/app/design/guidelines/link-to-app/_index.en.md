@@ -1,25 +1,24 @@
 ---
-title: Inngang til skjema
-description: For å gjøre opplevelsen til brukeren best mulig bør du tenke over hvordan du lenker til Altinn-appen fra din etat.
+title: Entering the form
+description: To make the user experience as best as possible you should think about how you link between your agency and the Altinn-app. 
 weight: 10
 ---
 
-Brukertester har vist at når brukerne starter på etaten/kommunens sider for å fylle ut et skjema og så blir sendt 
-videre til Altinn, får de ofte opplevelsen av at «plutselig var jeg i altinn». Innganger til skjema bør derfor 
-presenteres slik at det er tydelig at man går til Altinn, men samtidig slipper å gå innom unødvendige mellomledd. 
-"Start innsending" bør lenke direkte til skjemaet. Opplevelsen til bruker vil da også i større grad bli at man får 
-løst oppgaven i konteksten man er i, men at Altinn er brukt som løsning for innsending og historikk. 
+User testing has shown that when users engage with an agency or municipalities' website to fill out a form and 
+they are redirected to Altinn, they often experience "suddenly i was in Altinn". Because of this, entrances forms should 
+be presented in a way where it is clear that you will be sent to Altinn, while avoiding unnecessary intermediate steps.
+"Start application" should link directly to the form. The user experience will then be completed to a greater extent in the 
+current context, with Altinn being used as a solution for submitting and tracking its history. 
 
-![Forslag til hvordan man kan presentere et skjema fra en Etat/kommunes nettside](link-to-altinn.png "Inngang til et skjema i Altinn bør presenteres tydelig")
-
+![Example to how to present a form from an agency or municipal website](link-to-altinn.png "Inngang til et skjema i Altinn bør presenteres tydelig")
 
 {{% panel %}}
-**Integrerte komponenter** 
+**Integrted components* 
 
-I tett samarbeid med sentrale tjenesteeiere planlegger vi på sikt å kunne tilby komponenter som kan benyttes på 
-etatens nettsider, slik at brukerne kan løse oppgaven i den konteksten de er i. 
+In close cooperation with sentral service providers we are planning to offer components which can be used 
+on their websites to enable completing forms in their current context.
 
-Altinns brukere ønsker både løsning der de er og en samlet oversikt. Og de bør få begge deler. Men behovene dekkes 
-best på litt forskjellige måter.
+The users of Altinn want both a solution for where they are and a common overview. 
+Both options should be available but handled differently depending on their needs.
 
 {{% /panel %}}

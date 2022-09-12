@@ -11,28 +11,28 @@ Dynamics are events that happen on the client side. These can be separated in tw
 - Calculations -  do calculations on the client side, and update the fields with new value.
 - Show/hide fields - decide if fields should be hidden or displayed based on form values.  
 
-There is two ways to add and change dynamics for an Altinn App:
+There are two ways to add and change dynamics for an Altinn App:
 1. Directly in Altinn Studio under _Lage_-tab. Select _Rediger dynamikk_ in the right menu.
+2. In a local development environment by working in the file `RuleHandler.js` which can be found in the `App/ui` folder.
 
-All dynamics are written as Javascript function in the _RuleHandler_ file.
+All dynamics are written as Javascript functions in the _RuleHandler_ file.
 Functions that are defined in this file can be configured to run for selected fields in the app.
 
 
 {{%notice info%}}
-The dynamic code to show/hide fields or perform calculations should be set up so that it handles eventual errors in the input gracefully.
-They should for instance handle empty fields or strings where you expect numbers with out crashing.
-If the dynamic does not work as expected, take a look at the code that defines the dynamic and verify that is handles errors.
+The dynamic code to show/hide fields or perform calculations should be set up so that it handles possible errors in the input gracefully.
+It should for instance handle empty fields or strings where you expect numbers without crashing.
+If the dynamic does not work as expected, take a look at the code that defines the dynamic and verify that it handles errors.
 {{% /notice%}}
 
-{{%notice warning%}}
-MERK: in order to support dynamics in older browsers the code defined in `RuleHandler.js` must be written in the version of ECMA-script as the given browser supports.
+{{% notice warning %}}
+NOTE: in order to support dynamics in older browsers the code defined in `RuleHandler.js` must be written in the version of ECMA-script as the given browser supports.
 For IE11 this is ECMA-script 5.
-{{% /notice%}}
+{{% /notice %}}
 
 ## Add or edit functions for dynamics
 
-In the file `RuleHandler.js` there exists two javascript objects:
-
+There are two javascript objects in the file `RuleHandler.js`:
 
 - `ruleHandlerObject` - functions for calculations
 - `conditionalRuleHandlerObject` - functions for hiding/showing fields
@@ -163,15 +163,15 @@ var conditionalRuleHandlerHelper = {
 4. Configure which field(s) that should be used as _input_ for the function - this is fields in the data model. 
     ![Configure dynamics](rules-configure.png)
 5. Select which component(s) that should be affected by the rule (recieve value or be shown/hidden) - this is components in the layout.
-  - For rules for hiding/showing elements several fields can be selected for the same rule.
+     - For rules for hiding/showing elements several fields can be selected for the same rule.
 6. Save the configuration.
-7. Test that the rules works as expected..
+7. Test that the rules works as expected.
 
-Existing configured rules is shown inthe right menu, and can be edited/deleted.
+Existing configured rules is shown in the right menu, and can be edited/deleted.
 
 The configuration can also be seen in the file `App/ui/RuleConfiguration.json`. This can be manually edited if necessary.
 
-## Example usage of dynamics on an appE
+## Example usage of dynamics on an app
 
 Scenario:
 
@@ -207,8 +207,8 @@ var conditionalRuleHandlerHelper = {
 }
 ```
 
-Here two function has been added which checks if the value is "Yes" or not.
-After this code is added, the rules can be configured in studio. The results is displayed below:
+Here, two functions have been added which checks if the value is "Yes" or not.
+After this code is added, the rules can be configured in studio. The results are displayed below:
 
 ![Test of dynamics screenshot](dynamics-test.gif "Test of dynamics example")
 
@@ -333,7 +333,7 @@ var conditionalRuleHandlerHelper = {
 
 ### Alternative 2
 
-This can also be configured by using hte same condition to show both the second set of radiobuttons and the checkbox.
+This can also be configured by using the same condition to show both the second set of radiobuttons and the checkbox.
 In addition a rule that removes the value from the second set of radiobuttons if the user selects `No` in the first set:
 
 ```javascript
@@ -377,7 +377,7 @@ var conditionalRuleHandlerHelper = {
 ## Dynamics in PDF
 
 From nuget versions 3.0.0 it is also possible to add dynamics for the PDF. This is done in the PDF Handler.
-The application must include the `layout/ui/Settings.json` file defined [here](../../../../app/development/ux/pages/navigation/#rekkefølge).
+The application must include the `layout/ui/Settings.json` file defined [here](../../../../app/development/ux/pages/navigation/#order).
 
 Configuring dynamics in PDF is similar to how validations are added on the server side.
 

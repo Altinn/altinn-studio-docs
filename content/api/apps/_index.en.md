@@ -26,4 +26,4 @@ https://{org}.apps.altinn.no/{org}/{appname}
 
 The URL identifies the application owner specific hostname using the short name **org**, and the identificator of the app consisting of both the application owner short name and the name of the app; **org/appname**. 
 
-{{% children description="true" depth="1" %}}
+{{<children>}}

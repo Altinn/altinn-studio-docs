@@ -7,4 +7,4 @@ aliases:
     - "/altinn-studio-repos"
 --- 
 
-{{% children description="true" depth="1" %}}
+{{<children>}}

@@ -113,7 +113,7 @@ If you have implemented custom code to control Pdf generation, and depending on 
         ```
 
 ## 2. Obsolete method GetOptionId removed from App/AppBase/IAltinnApp
-In [version 4.24.0](../../v4/whats-new/_index.en.md) we introduced a new way of supporting dynamic options making the GetOptionId methods in obsolete. The methods have now been removed and you should use the new way of implementing options as described [in the documentation](../../../../../app/development/data/options/_index.en.md)
+In [version 4.24.0](../../v4/whats-new/) we introduced a new way of supporting dynamic options making the GetOptionId methods in obsolete. The methods have now been removed and you should use the new way of implementing options as described [in the documentation](../../../../../app/development/data/options/)
 
 When you update you app you should then remove the following from App.cs as this method is removed from AppBase.cs:
 ```csharp
@@ -127,7 +127,7 @@ When you update you app you should then remove the following from App.cs as this
 ```
 
 ## 3. Obsolete method RunAppEvent removed from App/AppBase/IAltinnApp
-The RunAppEvent method is a old construct for hooking into various application events. This have been made obsolete by having concrete method overrides for each type of event as [described in the documentation](../../../../../technology/architecture/components/application/construction/altinn-apps/app/app-backend/applogic-events/_index.md). The RunAppEvent method was passed in an `AppEventType` enum which specified the type of event that was fired. You would then need to have code checking the type and performing the logic needed. The table below shows the old enum values and their corresponding new methods that should be used instead.
+The RunAppEvent method is a old construct for hooking into various application events. This have been made obsolete by having concrete method overrides for each type of event as [described in the documentation](/technology/architecture/components/application/construction/altinn-apps/app/app-backend/applogic-events/). The RunAppEvent method was passed in an `AppEventType` enum which specified the type of event that was fired. You would then need to have code checking the type and performing the logic needed. The table below shows the old enum values and their corresponding new methods that should be used instead.
 
 | Enum                      |Corresponding method                       |
 | ---                       | ---                                       |
@@ -167,7 +167,7 @@ public override async Task<bool> RunAppEvent(AppEventType appEvent, object model
 The `RunAppEvent`method should be replaced with the appropriate methods as described above.
 
 ## 4. Obsolete methods RunCalculation removed from AppBase/IAltinnApp
-[In version 4.7.0](../../../../../community/changelog/app-nuget/_index.en.md) the RunCalculation method was replaced with the methods RunProcessDataRead and RunProcessDataWrite. RunCalculation has now been removed and those that have code in this method needs to move this to either RunProcessDataRead or RunProcessDataWrite.
+[In version 4.7.0](../../../../../community/changelog/app-nuget/) the RunCalculation method was replaced with the methods RunProcessDataRead and RunProcessDataWrite. RunCalculation has now been removed and those that have code in this method needs to move this to either RunProcessDataRead or RunProcessDataWrite.
 
 The process to update is:
 

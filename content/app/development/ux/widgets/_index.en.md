@@ -3,39 +3,38 @@ title: Widgets
 description: How to use compound components (widgets).
 toc: true
 weight: 60
-tags: [translate-to-english]
 ---
 
-## Hva er en widget?
-En widget er en kompleks komponent, sammensatt av en eller flere enkle skjemakomponenter - de skjemakomponentene som er tilgjengelige
-for bruk i Altinn Studio i dag. En widget er et verktøy i Altinn Studio som gjør det lettere å lage og gjenbruke layouts. 
+## What is a widget?
+A widget is a complex component, consisting of one or more simple form components - the form components available to use in
+Altinn Studio as of today. A widget is a tool in Altinn Studio that makes it easier to create and reuse layouts.
 
-## Hvordan bruke widgets
-Widgets er tilgjengelige i venstre-menyen i skjemaeditoren i Altinn Studio. Den kan dras inn i skjemasiden på samme måte som andre skjemakomponenter.
-Når en widget dras inn i skjema i Altinn Studio, legges de skjemakomponentene som er definert som del av widget'en til i layouten, sammen med ev. 
-standard oppsett som knytning til datamodell, tekster, osv. Når en widget er dratt inn i skjema, vil man kun se de skjemakomponentene som den er laget av.
-Disse kan redigeres som normalt i skjemaeditoren.
-Dersom det er tekster definert for widget'en, disse legges til i ressursfilene for tekster automatisk.
+## How to use widgets
+Widgets are available in the menu to the left in the form editor in Altinn Studio. It can be dragged into the form page in the same way as other form components.
+When a widget is dragged into the form in Altinn Studio, the form components that are defined as part of the widget are added to the layout, together with
+default setup such as connection to data model, texts, etc. When a widget is dragged into the form, you will be able to see the form components it consists of.
+These can be edited normally in the form editor.
+If there are texts defined for the widget, these are added to the resource files automatically.
 
-### Eksempel: Meldings-widget
+### Example: Message widget
 
-![Meldings-widget legges til i skjema](message-widget.gif "Meldings-widget legges til i skjema")
+![Message widget is added to form](message-widget.gif "Message widget is added to form")
 
-## Tilgjengelige widgets
+## Available widgets
 
-### Standard widgets
-Vi vil etter hvert kunne tilby en samling av forskjellige widgets, disse vil dukke opp automatisk i venstre-menyen i skjemaeditoren i Altinn Studio.
-Listen oppdateres etter hvert som nye widgets legges til. Per nå. er følgende widgets tilgjengelig:
+### Default widgets
+Eventually we will offer a collection of various widgets, these will appear automatically in the menu to the left in the form editor in Altinn Studio.
+The list is updated as new widgets are added. As of today the following widgets are available:
 
-| Navn | Beskrivelse | Skjermbilde | 
+| Name | Description | Screenshot  | 
 | ---- | ----------- | ----------- | 
-| Melding | Inneholder komponentene som utgjør en standard melding:<br><ul> <li>tittel<br><li>meldingstekst<br><li>vedlegg<br><li>navigasjonsknapp</ul><br> Tekstene er satt opp med referanse til felt i standard melding datamodell. Se [her](../../message) for mer info om meldinger. | ![Standard melding](message-app.png) | 
+| Message | Contains the components that make up a standard message:<br><ul> <li>title<br><li>message text<br><li>file attachment<br><li>navigation button</ul><br> The texts are set up with reference to fields in the standard message data model. See [here](../../configuration/process/message) for more info on messages. | ![Default message](message-app.png) | 
 
-### Egendefinerte widgets
-I tillegg til standard widgets som kommer opp automatisk i Altinn Studio, er det også mulig å definere sine egne widgets. En widget består av 3 deler:
+### Custom widgets
+In addition to default widgets that automatically appear in Altinn Studio, it is also possible to define custom widgets. A widget consists of three parts:
 
-- Komponenter: Dette er liste over komponentene som skal inngå, inkl. definisjon av disse komponentene. Dette settes opp på samme måte som i layout-filene, man kan f.eks. kopiere ut komponenter direkte fra en layout-fil.
-- Visnings-navn: Dette er teksten som vises i Altinn Studio, i menyen der widget'en ligger.
-- Tekstressurser: Dette er valgfritt, og er en liste over tekstressurser på de språk som man ønsker å ha med. Nyttig om komponentene f.eks. skal ha noen standard tekster de bruker.
+- Components: This is a list of all the components that should be included, including the definition of these components. This is set up in the same way as in the layout files, you can for example copy components directly from a layout file.
+- Display name: This is the text that is displayed in Altinn Studio, in the menu where the widget is placed.
+- Text resources: This is optional, and is a list of text resources of the languages you want to incorporate. This is useful if the components e.g. should have some default texts to use.
 
-Se [oppsett for meldings-widget](https://altinncdn.no/altinn-apps/widgets/message.json) for et konkret eksempel. Det fins også en [widget-mal](https://altinncdn.no/altinn-apps/widgets/widget-template.json) som kan lastes ned for å komme i gang.
+See [setup for message widget](https://altinncdn.no/altinn-apps/widgets/message.json) for a concrete example. There is also a [widget template](https://altinncdn.no/altinn-apps/widgets/widget-template.json) that can be downloaded to get started.

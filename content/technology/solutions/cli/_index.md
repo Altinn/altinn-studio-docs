@@ -13,4 +13,4 @@ The application can be used as it, or extended with custom functions developed b
 
 
 
-{{% children description="true" depth="1" %}}
+{{<children>}}

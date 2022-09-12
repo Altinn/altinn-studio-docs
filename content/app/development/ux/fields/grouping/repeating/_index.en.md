@@ -2,25 +2,23 @@
 title: Repeating groups
 linktitle: Repeating
 description: Setup for repeating groups.
-tags: [translate-to-english]
 weight: 2
 ---
 
-Grupper i datamodellen inneholder ett eller flere felter. Grupper er definert som _repeterende_ dersom de har `maxOccurs > 1` i xsd'en. 
-En gruppe som er repeterende i datamodellen må også settes opp som repeterende i skjemaet, ellers vil lagring av data feile.  
+Groups in the data model contain one or more fields. Groups are defined as _repeating_ if they have `maxOccurs > 1` in the xsd.
+A group that is repeating in the data model must also be set up as repeating in the form, if not, data saving will fail.
 
 
-## Eksempel 
+## Example
 
-Skjema med noen enkelt-felt, og en repeterende gruppe som:
+Form with some single-fields and a repeating group that:
 
-- inneholder 3 felter
-- kan repeteres opp til 3 ganger
-- har lagt til egen streng på "legg til" knappen
+- contains three fields
+- can be repeated up to three times
 
-![Skjema med repeterende gruppe](repeating-groups-demo.gif "Skjema med repeterende gruppe")
+![Form with repeating group](repeating-groups-demo.gif "Form with repeating group")
 
-Oppsett i `FormLayout.json` fra eksempelet over:
+Setup in `FormLayout.json` from the example above:
 
 ```json {linenos=inline}
 {
@@ -82,25 +80,25 @@ Oppsett i `FormLayout.json` fra eksempelet over:
 }
 ```
 
-## Attachments in repeating groups
+## File attachment in repeating groups
 
 {{%notice warning%}}
-This is brand new functionality. Setup is manual for now, support in Studio will arrive later.
+This is new functionality. Setup must be done manually for now.
 {{%/notice%}}
 
-In order to set up the file upload component in repeating groups, some additional configration is required.
+To set up file uploading components in repeating groups, some additional setup is required.
 
-When uploading attachments it can be difficult to identify which attachment belongs to which row in the repeating group,
-and in turn which part of the submitted data belongs to which attachment. For that reason, it is required to add data
-model bindings to the `FileUpload` component when used inside repeating groups, so that Altinn can populate the data
-model with a reference to the unique ID per attachment.
+When uploading file attachments it may be difficult to distinguish which file attachments belongs to which rows in the repeating group, 
+and thus which submitted information belongs to each attachment. Therefore, you must set up connections to
+the data model when file uploading are used in repeating groups, so that Altinn can fill out the unique identificator
+that belongs to each file attachment and send this together with the rest of the data in the instance.
 
-This option to have Altinn add references to attachments to the data model can also be used outside the context of
-repeating groups, in case references to attachment(s) are desired in the data model on the receiving end.
+The ability to place a reference to the file attachment in the data model can also be used outside of repeating groups if you
+want a reference to a file attachment together with the form data on the receivers end.
 
-![Example showing attachment uploads in repeating groups with data model](attachments-demo.gif "Example showing attachment uploads in repeating groups with data model")
+![Example on file attachment in repeating group with attached data model](attachments-demo.gif "Example on file attachment in repeating group with attached data model")
 
-Below is an example of showing a data model expecting a reference to an uploaded attachment:
+The following is an example of a data model expecting a reference to an uploaded file attachment.
 
 ```xsd {hl_lines=["12"]}
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
@@ -120,7 +118,7 @@ Below is an example of showing a data model expecting a reference to an uploaded
 </xsd:schema>
 ```
 
-This is bound to the file upload component inside a group:
+This is connected to the file upload component in the group:
 
 ```json {hl_lines=["8"]}
 {
@@ -140,8 +138,8 @@ This is bound to the file upload component inside a group:
 }
 ```
 
-In cases where multiple attachments are allowed for a single `FileUpload` component, use a `list` data model binding
-instead:
+In cases where it is allowed to upload multiple files to the same file attachment component, use a data model attachment 
+of the type `list`:
 
 ```xsd {hl_lines=[4]}
   <xsd:complexType name="FamilyMember">
@@ -161,6 +159,7 @@ instead:
 }
 ```
 
-The receiving end will get a list of multiple unique IDs, one for each attachment. The same unique ID will be displayed
-in the PDF receipt, but it is recommended to [hide this](/app/development/ux/pdf/#exclude-components), as attachments
-are shown separately on the receipt page and unique IDs can appear confusing to end users.
+The receiving end will then receive a list of multiple unique ID's, one for each attachment.
+The same unique ID will also be displayed in
+the PDF receipt - but it is recommended to [hide this](/app/development/ux/pdf/#exclude-components), as attachments
+are shown seperately on the receipt page and the unique ID can become confusing to the users.

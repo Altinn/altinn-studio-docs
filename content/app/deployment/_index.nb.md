@@ -34,3 +34,4 @@ Altinn vedlikeholder en [oversikt over alle tjenester i løsningen](https://www.
 - I feltet _"Tjenestekode"_, oppgi 9999 og i feltet _"Utgavekode"_ oppgi 9999
 - I feltet _"Hvem skal bruke skjemaet"_ husk å angi hvilke roller som er satt på tjenesten i tillegg til beskrivelsen av hvem tjenesten er for.
 
+{{<children>}}

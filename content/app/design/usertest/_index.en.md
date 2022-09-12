@@ -1,64 +1,67 @@
 ---
-title: Brukertest
-description: Det er alltid lurt å brukerteste i flere faser av prosjektet. Gjennom brukertester måler du om det du lager treffer brukernes behov. Det er en god investering å gjøre dette tidlig i prosjektet, slik at du ikke bruker penger på å utvikle en løsning som ikke løser utfordringene.
+title: User testing
+description: It is always a good idea to do user testing in multiple stages of a project. Through user testing you measure if your solution corresponds to the needs of the users. Doing this early in the project is a good investment, since you save time and money by avoiding developing a solution that doesn't match what it was trying to solve.
 weight: 10
 toc: true
-tags: [translate-to-english]
 ---
 
-Å brukerteste trenger ikke være veldig avansert, hverken med tanke på oppsett eller antall testpersoner. 
-En tommelfingerregel er at hvis du har testet på fem personer har du funnet 80 % av brukervennlighetsfeilene 
+User testing does not have to be advanced with setup, or the amount of test subjects in mind. 
+A rule of thumb is that if you have tested a system on 5 people you've discovered 80% of the usability flaws 
 ([Jacob Nielsen](https://www.nngroup.com/articles/why-you-only-need-to-test-with-5-users/)).
 
-Etter en brukertest vil det være ting å justere på. Det kan være større ting som navigasjon og flyt, men også små 
-justeringer som språk eller mindre endringer i interaksjonsdesignet. Hvis det er behov for å gjøre større endringer 
-kan det være lurt å ta en ny brukertest for å sjekke om justeringene har ønsket effekt.
+You will have to adjust your form after the usability testing. It could be bigger things, like navigation or flow, but also smaller 
+adjustments like language or alterations within the interaction-design. If larger changes are required it might be a good 
+idea to do another user test to check if the new changes have had the desired effect.
 
-Et tegn på om du har lykkes å lage en løsning som treffer brukernes behov er hvis de fleste brukerne i brukertesten 
-klarer å gjennomføre det de skal ha gjort på nettstedet eller løsningen din uten hjelp, og innenfor en fornuftig tidsramme. 
+A sign that you have succesfully created a solution that fits the users requirements is if most of the users in your 
+useability test are able to complete their task without your help, and within a reasonable timeframe. 
 
-## Brukertesting i Figma
+## Useablility testing in Figma
 
-Har du satt opp en prototype i Figma ved hjelp av vårt [Prototype-Kit](../prototype/)? Flott! Da kan du 
-benytte denne til brukertesting! 
+Have you set up a prototype in Figma by using our [Prototype-Kit](../prototype/)? Great! You can now 
+use this for useability testing! 
 
-Dersom du har lagt til flere steg i ditt skjema, må du huske å lenke mellom disse stegene. Dette gjør du ved å velge 
-"Prototype" oppe til høyre i Figma. Marker en ramme eller en knapp og legg merke til den lille hvite dotten som 
-vises til høyre på det du markerte. Denne dotten kan du ta tak i og dra til rammen du ønsker å gå til. 
+If you've added multiple steps in your form, you have to remember to link between these steps. 
+You can do this by choosing "Prototype" in the right-upper corner in Figma. Select a 
+frame or a button and notice the little white dot that shows up to the right of the item you selected. 
+This dot can be grabbed and pulled over to the frame you wish the button to lead to. 
 
-Det finnes en flyt for hvert startalternativ, samt en flyt for mobilskissene. Trykk på Play-knappen på prototypen 
-du vil starte. Etter at den er startet kan du bytte mellom de ulike flytene i venstremargen.
+There is a flow for every starting alternative, along with a flow for the mobile sketches. 
+Press the play button on the prototype you want to try out. After it has started you can switch 
+between the different flows in the left margin.
 
 ![Brukertesting i Figma](prototype-play.gif "Brukertesting i Figma")
 
-For å dele filen med testerne velger du “Share” oppe til høyre i vinduet. Du kan enten velge at filen skal være 
-åpen for alle som har lenken, eller at kun inviterte (via epost) skal få tilgang. 
+You can share the files with the testers if you click the "share" button in the top right of the window.
+you can either choose that the file should be open to anyone who opens the link, or that only people that 
+are invited (via email) should have access.
 
-## Gode råd for brukertesting
+## Good advice for user testing
 
-1. **Test tidlig med reelle brukere** Brukervennligheten kan kun måles om den blir testet på målgruppen til løsningen. 
-Å teste tidlig gjør det billigere å fikse eventuelle problemer som avdekkes.
-1. **Ufarliggjøre testen** Forklar testdeltageren at hensikten ikke er å teste hvor flinke de er, men at hovedfokuset 
-er på å avdekke eventuelle feil med tjenesten, slik at den kan bli enda bedre.
-2. **Be testpersonen om å tenke høyt.** For noen vil det å «tenke høyt» komme av seg selv, mens andre trenger et par 
-påminnelser innimellom. Ikke still ledende spørsmål, men vis at du ønsker å høre testpersonens tanker og tilbakemeldinger. 
-3. **Vær lyttende** Husk å gi testpersonen rom for tenkepauser og ha først og fremst en lyttende posisjon. 
-Avsett god tid, så du unngår stressende stemning. 
-4. **Minn deg selv på formålet med testen** Tilbakemeldinger fra testdeltager kan fort oppfattes som kritikk mot 
-eget arbeid, minn deg selv på at du ønsker jo tross alt at tjenesten skal bli så bra som mulig.
-## Uforme testoppgaver
-Bruk god tid på å formulere oppgavene til brukertesten, og gjør gjerne en pilottest i forkant for å avdekke feil 
-med selve testen. 
+1. **Test early with real users** The user friendliness can only be measured if it is tested on the solutions target userbase.
+testing early is cheaper than fixing eventual problems that are uncovered during production.
+1. **Render the test harmless** Explain to the test subject that the purpose of the test isn't to 
+test them, but to discover eventual mistakes or faults in the service so that it can be fixed or improved. 
+2. **Ask the test subject to think out loud.** For some, thinking out loud will come naturally while 
+3. others might need a reminder every once in a while.
+Don't ask leading questions, show that you want to hear the test subjects thoughts and their feedback.
+3. **Listen** Remember to give the test subject room for thought, and keep in 
+mind that you should focus on listening. Give the test more than enough time to avoid a stressed environment.
+4. **Remind yourself of the purpose of the test** 
+Feedback from the test subject can easily be interpreted as a critique of your 
+own work, remind yourself that you want the best result as possible for the quality of your service.
+## Creating tasks for the test
+Spend plenty of time formulating the tasks for your user test, doing a pilot-test ahead of the real one 
+will let you discover errors with the actual test.
 
-- Sett et klart mål for hva deltakeren skal prøve å oppnå.
-- Velg oppgaver som er relevante og troverdige
-- Ikke gi bort svaret eller gi for mange hint
+- Set a clear goal for what the participant is trying to achieve
+- choose tasks that are relevante and credible
+- Don't give away the answer or give to many hints
 
-Hos [gov.uk](https://www.gov.uk/service-manual/user-research/using-moderated-usability-testing) finner du flere 
-gode råd for å gjennomføre testen på best mulig måte.
-## Etter testen
-Når du har vært gjennom et par brukertester har du sannsynligvis funnet ting du bør forbedre i utformingen av 
-skjemaet eller formuleringen av innholdet. Vurder å kjøre en ekstra runde brukertesting etter du har gjort endringene.
+You can find more tips on how to complete the test in the best way possible on the site [gov.uk](https://www.gov.uk/service-manual/user-research/using-moderated-usability-testing) 
+## After the test 
+You have likely found some things that you should improve after you have completed a couple of usability tests.
+After any changes to the form layout or flow of your form you should consider doing another round of usability testing.
 
-Nå er du snart klar for utvikling! Husk også å se våre [retningslinjer](/../guidelines) for design 
-og innhold i skjemaene.
+
+You will soon be ready for developing! Remember to see our [guidelines for design and content](../guidelines) within the forms

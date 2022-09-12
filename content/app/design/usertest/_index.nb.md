@@ -59,5 +59,5 @@ gode råd for å gjennomføre testen på best mulig måte.
 Når du har vært gjennom et par brukertester har du sannsynligvis funnet ting du bør forbedre i utformingen av 
 skjemaet eller formuleringen av innholdet. Vurder å kjøre en ekstra runde brukertesting etter du har gjort endringene.
 
-Nå er du snart klar for utvikling! Husk også å se våre [retningslinjer](../guidelines) for design 
-og innhold i skjemaene.
+Nå er du snart klar for utvikling! Husk også å se våre [retningslinjer for design
+og innhold](../guidelines) i skjemaene.

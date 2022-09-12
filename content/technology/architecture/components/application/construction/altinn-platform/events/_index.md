@@ -9,7 +9,7 @@ tags: [architecture, solution]
 The Events components expose REST-APIs for publishing and subscribing to events. The Azure function are responsible for pushing events
 to subscriber webhooks. The below diagram shows the components
 
-![Event architecture diagram](/technology/architecture/capabilities/runtime/integration/events/event_architecture_custom.svg "Altinn Event Architecture")
+![Event architecture diagram](altinn-events.drawio.svg "Altinn Event Architecture")
 
 When a publish request is received it will push the event document to the event storage.
 When a request is received it will query the events stored in the event storage.
@@ -109,8 +109,7 @@ Events will be sequnced by sequence number that is the primary key of the Events
 
 ### Indexing
 
-We would need to have index on 
-
+The events table has indexes on the columns _subject_, _time_, _sourcefilter_.
 
 ## Functions
 

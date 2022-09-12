@@ -19,7 +19,7 @@ viktig informasjon som må leses. Dette kan gjøre det lettere for brukeren å f
 
 Designet vi tilbyr nå er laget med utgangspunkt i dette konseptet. Et større antall komponenter kan føre til mye 
 scrolling og en mer uoversiktlig opplevelse for brukeren. 
-Se eksempel: [Starte enkeltpersonforetak](dsf).
+Se eksempel: [Starte enkeltpersonforetak](https://brg.apps.altinn.no/brg/anonym-oppstartsveilederen/).
 
 Brukeren skal slippe å svare på mer enn nødvendig. Dersom brukeren har svart nei på et spørsmål og du dermed kan 
 skjule flere av stegene for ham, kan du gjøre dette med 

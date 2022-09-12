@@ -1,14 +1,11 @@
 ---
-title: Unit testing
-description: How to write jest test in altinn studio, what we know so far
+title: Unit testing with Jest
+linktitle: Unit testing
+description: How to write jest test in altinn studio, what we know so far. This page summarizes how UI testing is performed with Jest and related libraries for Altinn Studio.
 tags: [development, front-end, testing]
 weight: 100
+toc: true
 ---
-# Introduction to unit testing with Jest
-
-This page summarizes how UI testing is performed with Jest and related libraries for Altinn Studio.
-
-{{% table-of-contents %}}
 
 ## When should you write tests?
 Unit testing includes testing of javascript functions and react/UI components.

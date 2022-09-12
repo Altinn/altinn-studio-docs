@@ -1,6 +1,6 @@
 ---
 title: Modul 2
-description: Legge til flere sider, sporvalg og prefill
+description: Legge til flere sider, sporvalg og forhåndsutfylling
 
 linktitle: Modul 2
 tags: [apps, training, prefill, sporvalg]
@@ -14,7 +14,7 @@ I denne modulen skal du videreutvikle applikasjonen du laget i [modul 1](../modu
 - Flere sider
 - Bildekomponent
 - Sporvalg
-- Prefill
+- Forhåndsutfylling
 
 
 ## Oppgaver
@@ -30,7 +30,7 @@ som vises _før_ brukeren kommer til første datainnsamlingsside som ble laget i
 For å redigere ulike skjemasider i Altinn Studio må du:
 1. Logge inn i Altinn Studio
 2. Finne applikasjonen din på dashboardet og trykke _Rediger app_
-3. Navigér til _Lage_-fanenåpner
+3. Navigere til _Lage_-fanen
 4. Til høyre finner du området for administrasjon av skjemasider.
 
 {{% notice info %}}
@@ -55,8 +55,6 @@ Følgende er ønskelig at reflekteres i applikasjonen:
  - formatering av tekst
 
 [Skisse på informasjonsside](/app/app-dev-course/modul2/infoside_tilflyttere.pdf)
-
-[Skisse på informasjonsside (.docx)](/app/app-dev-course/modul2/infoside_tilflyttere.docx)
 
 !["Sogndal kommunevåpen"](/app/app-dev-course/modul2/kommune-logo.png "Et bilde av Sogndals kommunevåpen som kan benyttes i applikasjonen" )
 
@@ -106,7 +104,7 @@ Basert på svaret skal brukeren sendes videre til _Spor 1_ eller _Spor 2_.
     Se en oversikt over andre tilbud i kommunen her.
     ```
 
-- Linje 2 i teksten skal være en hyperlenke som peker på:
+- Linje 2 i teksten skal være en hyperlenke som peker på
 https://www.sogndal.kommune.no/
 
 
@@ -114,7 +112,7 @@ https://www.sogndal.kommune.no/
 
 ### Spor 2
 
-- Brukeren har svart bekreftende på at skjemaet gjelder deres situasjon
+- Brukeren har svart bekreftende på at skjemaet gjelder deres situasjon.
 
 - Brukeren sendes videre til datainnsamlingssidene.
 
@@ -123,22 +121,22 @@ https://www.sogndal.kommune.no/
 - [Formatering av tekst](/nb/app/development/ux/texts/#formatering-av-tekster)
 
 ### Forståelsessjekk
-- Hvis en bruker går tilbake og endrer svaret sitt på infosiden, får den da opp datainnsamlingssidene? Hvis ikke. Hvilke endringer kan du gjøre for å støtte dette i din applikasjon?
-- Dersom man har sporvalg på et senere tidspunkt i en arbeidsflyt og en sluttbruker endrer et valg. Hva skjer med skjemdataen man tidligere har fylt ut, dersom siden skjules for sluttbrukeren?
+- Hvis en bruker går tilbake og endrer svaret sitt på infosiden, får den da opp datainnsamlingssidene? Hvis ikke, hvilke endringer kan du gjøre for å støtte dette i din applikasjon?
+- Dersom man har sporvalg på et senere tidspunkt i en arbeidsflyt og en sluttbruker endrer et valg, hva skjer med skjemdataen man tidligere har fylt ut, dersom siden skjules for sluttbrukeren?
 {{% /expandlarge %}}
 
 
-{{% expandlarge id="prefill-expandable" header="Preutfylling av personopplysninger" %}}
+{{% expandlarge id="prefill-expandable" header="Forhåndsutfylling av personopplysninger" %}}
 
-En av fordelene til Altinn er at man allerede har metadata om både personer og virksomheter tilgjengelig. Ved hjelp av prefill kan man hente ned data om brukeren og presentere denne i en app, slik at de slipper å fylle inn disse feltene. Typiske prefillverdier vil være: navn, adresse, e-post ect.
+En av fordelene til Altinn er at man allerede har metadata om både personer og virksomheter tilgjengelig. Ved hjelp av forhåndsutfylling kan man hente ned data om brukerne og presentere den i utfylte felter, slik at de slipper å fylle dem ut selv. Typiske forhåndsutfyllingsverdier vil være navn, adresse, e-post osv.
 
-Dersom dataen er tilgjengelig i en av Altinns prefillkilder kan dette konfigureres mot et felt i datamodellen og automatisk populeres når skjemaet opprettes. Dersom man har andre behov for prefill kan dette løses med kode i applikasjonen.
+Dersom dataen er tilgjengelig i en av Altinns forhåndsutfyllingskilder, kan dette konfigureres mot et felt i datamodellen og automatisk populeres når skjemaet opprettes. Dersom man har andre behov for forhåndsutfylling, kan dette løses med kode i applikasjonen.
 
-I denne oppgaven flyttes fokus tilbake til den første datainnsamlingssiden, og målet er å preutfylle personopplysninger om sluttbrukeren for å spare brukeren litt tid.
+I denne oppgaven flyttes fokus tilbake til den første datainnsamlingssiden, og målet er å forhåndsutfylle personopplysninger om sluttbrukeren for å spare brukeren for tid.
 
 ### Krav fra kommunen
 
-- Følgende verdier skal preutfylles for brukeren:
+- Følgende verdier skal forhåndsutfylles for brukeren:
   - Fornavn: Innflytter.Fornavn
   - Mellomnavn: Innflytter.Mellomnavn
   - Etternavn: Innflytter.Etternavn
@@ -146,16 +144,18 @@ I denne oppgaven flyttes fokus tilbake til den første datainnsamlingssiden, og 
   - Telefonnummer: Innflytter.Kontaktinformasjon.Telefonnummer
   - Alder: Innflytter.Alder
 
-- Det skal **ikke** være mulig å endre preutfylt navn og alder
-- Det skal være mulig å endre preutfylt e-post og telefonnummer
+- Det skal **ikke** være mulig å endre forhåndsutfylt navn og alder
+- Det skal være mulig å endre forhåndsutfylt e-post og telefonnummer
 
 ### Nyttig dokumentasjon
-- [Tilgjengelige prefillkilder](https://altinncdn.no/schemas/json/prefill/prefill.schema.v1.json)
-- [Prefill fra nasjonale register og brukerprofil](/nb/app/development/data/prefill/#prefill-fra-nasjonale-register-og-brukerprofil)
-- [Egendefinert prefill](/nb/app/development/data/prefill/#egendefinert-prefill)
-- [Beskrivelse av InstanceOwner-objektet](../../../api/models/instance/#instanceowner)
+- [Tilgjengelige forhåndsutfyllingskilder](https://altinncdn.no/schemas/json/prefill/prefill.schema.v1.json)
+- [Forhåndsutfylling fra nasjonale registre og brukerprofil](/nb/app/development/data/prefill/#prefill-fra-nasjonale-register-og-brukerprofil)
+- [Egendefinert forhåndsutfylling](/nb/app/development/data/prefill/#egendefinert-prefill)
+- [Beskrivelse av InstanceOwner-objektet](../../../api/models/instance/#instanceowner) - Her finner man personnummeret.
+  Vær oppmerksom på at egenskapene refereres til med store forbokstaver i koden, ikke med små som i denne oversikten.
 
 ### Kodehjelp: Beregning av alder fra personnummer
+Denne funksjonen kan brukes til å beregne alder fra personnummeret. Det er viktig å legge til `using System;` øverst i filen for at den skal fungere.
 ```cs
 private static int CalculateAge(string sosialSecNumber)
 {
@@ -221,29 +221,29 @@ private static int CalculateAge(string sosialSecNumber)
 ```
 
 ### Forståelsessjekk
-- Er det mulig å endre en prefillverdi når den først er satt?
-- Hvordan kan man hindre at en prefillverdi endres av sluttbrukeren?
-- Ikke alle norske innbyggere har et personnr,
-  noen får tildelt et [D-nummer](https://jusleksikon.no/wiki/F%C3%B8dselsnummer#D-nummer). Hvordan må koden din justeres for å ta hensyn til dette dersom alder skal baseres på et f-nr eller d-nr som sluttbruker selv taster inn?
+- Er det mulig å endre en forhåndsutfylt verdi når den først er satt?
+- Hvordan kan man hindre at en forhåndsutfylt verdi endres av sluttbrukeren?
+- Ikke alle norske innbyggere har et fødselsnummer,
+  noen får tildelt et [D-nummer](https://jusleksikon.no/wiki/F%C3%B8dselsnummer#D-nummer). Hvordan må koden din justeres for å ta hensyn til dette dersom alder skal baseres på et fødselsnummer eller D-nummer som sluttbruker selv taster inn?
 {{% /expandlarge %}}
 
 
 ## Oppsummering
 
-I denne modulen har du utvided applikasjonen din med mer funksjonalitet i form av å,
-legge til flere sider, sette opp sporvalg for å styre brukerflyten og satt opp preutfylling av skjemafelter
-både med tilgjengelig datakilder i Altinn og custom kode.
+I denne modulen har du utvidet applikasjonen din med mer funksjonalitet i form av å
+legge til flere sider, sette opp sporvalg for å styre brukerflyten og sette opp forhåndsutfylling av skjemafelter
+både med tilgjengelige datakilder i Altinn og egendefinert kode.
 
-Tjenesten skal kunne kjøres opp på din lokale maskin med local test og du skal kunne teste begge brukerflytene og
-bekrefte at riktige felter blir preutfylt.
+Tjenesten skal kunne kjøres opp på din lokale maskin med lokal test og du skal kunne teste begge brukerflytene og
+bekrefte at riktige felter blir forhåndsutfylt.
 
-**Husk å _pushe_ de lokale endringene dine, så de blir tilgjengelig i Altinn Studio når du er fornøyd**
+**Husk å _pushe_ de lokale endringene dine, så de blir tilgjengelige i Altinn Studio når du er fornøyd**
 
 ### Løsningsforslag
 Dersom du ikke har fått til alle stegene har vi et [løsningsforslag](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/2) som du kan hente inspirasjon fra.
 
 ![Skjermbilde av infoside](/app/app-dev-course/modul2/infopage-screenshot.png "Skjermbilde av infoside")
 
-![Skjermbilde av preutfylt dataside](/app/app-dev-course/modul2/data-screenshot.png "Skjermbilde av preutfylt dataside")
+![Skjermbilde av forhåndsutfylt dataside](/app/app-dev-course/modul2/data-screenshot.png "Skjermbilde av forhåndsutfylt dataside")
 
 ![Skjermbilde av alternativ arbeidsflyt: denne siden er ikke for deg](/app/app-dev-course/modul2/ikke-for-deg-screenshot.png "Skjermbilde av alternativ arbeidsflyt: denne siden er ikke for deg")

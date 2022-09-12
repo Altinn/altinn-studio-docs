@@ -15,7 +15,6 @@ Skjema med noen enkelt-felt, og en repeterende gruppe som:
 
 - inneholder 3 felter
 - kan repeteres opp til 3 ganger
-- har lagt til egen streng på "legg til" knappen
 
 ![Skjema med repeterende gruppe](repeating-groups-demo.gif "Skjema med repeterende gruppe")
 

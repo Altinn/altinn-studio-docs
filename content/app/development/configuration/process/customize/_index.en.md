@@ -12,12 +12,12 @@ This page explains the different views and how they can be customized.
 
 ## Data 
 In this process task a form which the user can fill in data.
-The form can be edited using the [UI editor](../../ui-editor) or by changing `FormLayout.json` manually.
+The form can be edited using the [UI editor](../../../../getting-started/navigation/designer/ui-editor) or by changing `FormLayout.json` manually.
 
 ## Confirmation
 In this process task some standard texts are presented and the user can choose to *confirm* to go forward.
 
-These texts can be overridden by manually adding each defined text keys in the apps text resources. More information about how this is done can be found [here](../../tekster).
+These texts can be overridden by manually adding each defined text keys in the apps text resources. More information about how this is done can be found [here](../../../ux/texts).
 In the following section we will present an overview of the different texts that can be customized.
 
 ![Confirm view](confirm-step.png "Texts that can be customized in the confirm view")
@@ -55,7 +55,7 @@ Example of custom texts in the file  `resources.nb.json`:
 ```
 
 Note that in the example we have used the html-tag `<br/>` to make a line shift.
-For links and formatting [use markdown](../../tekster#formatering-av-tekster).
+For links and formatting [use markdown](../../../ux/texts#formatting-of-texts).
 
 This results in the following view:
 

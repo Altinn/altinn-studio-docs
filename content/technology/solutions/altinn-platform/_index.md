@@ -11,4 +11,4 @@ The components are deployed as microservices.
 
 See below for details about each component.
 
-{{% children description="true" depth="1" %}}
+{{<children>}}

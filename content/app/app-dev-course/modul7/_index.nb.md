@@ -10,7 +10,7 @@ weight: 20
 MERK: Denne modulen er fortsatt under utvikling. Ta en titt innom på et senere tidspunkt så er den nok blitt enda bedre!
 {{% /notice %}}
 
-I denne modulen er det en samling med frittstående utvidelser av applikasjonen. De trenger ikke å løses i rekkefølge.
+I denne modulen er det en samling med frittstående utvidelser av applikasjonen. De trenger ikke å løses i gitt rekkefølge.
 
 
 **Temaer som dekkes i denne modulen:**
@@ -18,7 +18,7 @@ I denne modulen er det en samling med frittstående utvidelser av applikasjonen.
 - Stateless applikasjon
 - Variabler i tekst
 - Bruk av eksternt API
-- Konfigurasjon av Meldingsboks
+- Konfigurasjon av meldingsboks
 - Presentasjonstekster
 
 ## Oppgaver
@@ -26,9 +26,9 @@ I denne modulen er det en samling med frittstående utvidelser av applikasjonen.
 {{% expandlarge id="Oppsummeringsside" header="Oppsummeringsside" %}}
 ### Krav fra kommunen
 Sogndal kommune opplever at enkelte innsendinger inneholder feilopplysninger og skrivefeil som skaper unødig arbeid for saksbehandlere.
-For å unngå at personer sender inn feil informasjon ønsker kommunen at brukeren presenteres for en oppsummmeringsside som viser hvilk
+For å unngå at personer sender inn feil informasjon, ønsker kommunen at brukeren presenteres for en oppsummmeringsside med informasjonen som vedkommende har oppgitt.
 
-Sogndal kommune ønsker at man benytter kategoriene **Personalia** om brukerens person-infomrasjon, og **Arbeid** om svarene gitt på brukerens arbeidshistorikk.
+Sogndal kommune ønsker at man benytter kategoriene **Personalia** om brukerens personinformasjon, og **Arbeid** om svarene gitt på brukerens arbeidshistorikk.
 
 ### Nyttig dokumentasjon
 - [Hvordan sette opp visning av oppsummering av utfylt skjema](/nb/app/development/ux/pages/summary/)
@@ -43,7 +43,7 @@ Sogndal kommune ønsker at man benytter kategoriene **Personalia** om brukerens 
 {{% expandlarge id="stateless" header="Stateless førsteside" %}}
 ### Krav fra kommunen
 Sogndal kommune har oppdaget at det er en del trafikk fra personer som ikke møter kriteriene i applikasjonen.
-For hver av disse brukerene blir det laget en instans lagret til databasen. Dette skaper unødige utgifter.
+For hver av disse brukerne blir det lagret en instans i databasen. Dette skaper unødige utgifter.
 
 Sogndal kommune ønsker derfor at informasjonssiden vises som en "stateless"-del av applikasjonen, og at man derfra kan velge å starte en instans om man
 møter kriteriene.
@@ -65,14 +65,14 @@ IT-kompetanse er svært ettertraktet. I **Modul 4** satt vi opp et skreddersydd 
 Sogndal kommune har sett på tallene og ser at det genererer for lite trafikk til stillingsutlysningene.
 For å prøve å forbedre dette ønsker vi at tilbudet blir enda litt mer skreddersydd.
 
-Vi ønsker at den originale teksten:
+Vi ønsker at den originale teksten;
 
 ```rich
 Vi ser at du besitter kompetanse vi trenger i kommunen.
 Se en oversikt over våre ledige stillinger her.
 ```
 
-Nå skal inneholde en personlig touch med brukerens navn. Teksten vi nå ønsker oss er:
+nå skal bli mer personlig med brukerens navn. Teksten vi nå ønsker oss er:
 
 ```rich
 Hei, {innsenders navn}! Vi ser at du besitter kompetanse vi trenger i kommunen.
@@ -90,14 +90,14 @@ Siste linje i teksten skal fortsatt være en lenke til stillingsutlysningene.
 {{% /expandlarge %}}
 
 {{% expandlarge id="api" header="Eksternt API" %}}
-I noen tilfeller vil man måtte ta i bruk eksterne API for å dekke alle behovene til en applikasjon. 
-Dette kan være for å berrike nedtrekkslister eller å presentere data til brukeren basert på informasjon de har oppgitt.
+I noen tilfeller vil man måtte ta i bruk eksterne APIer for å dekke alle behovene til en applikasjon. 
+Dette kan være for å berike nedtrekkslister eller å presentere data til brukeren basert på oppgitt informasjon.
 
-I denne oppgaven skal du implementere en klient som integrerer seg mot Bring sine APIer for å berrike adressen som 
+I denne oppgaven skal du implementere en klient som integrerer seg mot Bring sine APIer for å berike adressen som 
 sluttbruker oppgir med et poststed basert på postnummer. 
 
-APIet som skal benyttes er et postnummer oppslag tilgjengeliggjort av Bring. 
-Test det gjerne i nettleser med ulike postnummer.
+APIet som skal benyttes er et postnummeroppslag tilgjengeliggjort av Bring. 
+Test det gjerne i en nettleser med ulike postnumre.
 
 ```
 GET
@@ -105,16 +105,16 @@ https://fraktguide.bring.no/fraktguide/api/postalCode.json?country=no&pnr={postn
 ```
 
 ### Krav fra kommunen
- - Adresseinformasjonen skal samles inn via standard-input komponenter og ikke Altinns adressekomponent
+ - Adresseinformasjonen skal samles inn via standard inndatakomponenter og ikke Altinns adressekomponent
  - Poststed skal automatisk fylles ut for sluttbruker når postnummer er oppgitt
- - Poststed skal ikke være mulig å redigere 
- - Antall kall til Bring sitt API skal begrenses til maksimalt én gang om dager per postnummer
+ - Poststed skal det ikke være mulig å redigere
+ - Antall kall til Bring sitt API skal begrenses til maksimalt én gang om dagen per postnummer
 
 ### Nyttig dokumentasjon
-[Konsumering av eksterne API](nb/app/development/api/consume)
+[Konsumering av eksterne API](/nb/app/development/api/consume)
 
 ### Forståelsessjekk
-- Med en _memorycache_ hvor mange ganger vil man maksimalt gjøre et API-kall i løpet av et døgn dersom applikasjonen kjører med tre replikas
+- Med en _memorycache_, hvor mange ganger vil man maksimalt gjøre et API-kall i løpet av et døgn dersom applikasjonen kjører med tre replikas?
 {{% /expandlarge %}}
 
 {{% expandlarge id="messagebox" header="Vise og skjule elementer i meldingsboks" %}}

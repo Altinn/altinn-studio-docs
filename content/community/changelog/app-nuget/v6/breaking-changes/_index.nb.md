@@ -73,7 +73,7 @@ Follow the instructions below to ensure that the app is compatible with version 
     ```
 
 3. Update program.cs  
-   The structure of program.cs has changed for dot net 6. Copy code from [this file](https://github.com/Altinn/app-template-dotnet/blob/main/src/App/Program.cs). 
+   The structure of program.cs has changed for dot net 6. Copy code from [this file](https://github.com/Altinn/app-template-dotnet/blob/5bcad2d485b3806b127604f2434d3ab833a7d142/src/App/Program.cs). 
 
 4. Add custom service referances  
    If you have already added custom services and other changes to startup.cs and program.cs you need to add it to program.vs

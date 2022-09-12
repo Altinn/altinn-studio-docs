@@ -5,4 +5,4 @@ description: Oversikt over endringer introdusert i Altinn.Platform.Storage.Inter
 weigth: 30
 ---
 
-{{% children sort="Weight" description="true" depth="1" %}}
+{{<children>}}

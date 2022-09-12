@@ -1,30 +1,31 @@
 ---
 title: Validation
 description: How to add logic to validate form data?
-tags: [translate-to-english]
 toc: true
 ---
 
-## Introduksjon
+## Introduction
 
-Valideringer sørger for at brukerens input er gyldig med tanke på datamodellen,
-i tillegg til alle egendefinerte regler som settes opp for applikasjonen.
-Valideringer kan kjøres enten på klient (dvs. browseren) eller serversiden.
+Validations ensures that the user's input is valid with regard to the data model, 
+in addition to all custom rules that are set up for the application.
+Validations can be run either on the client- (the browser) or the server-side.
 
-## Klientside-validering
+Validations can also be set up to [trigger on page navigation](/app/development/ux/pages/navigation/#validation-on-page-navigation).
 
-Dette er validering som kjøres i browseren, FØR data er sendt til server for lagring. Dette gjør det mulig å gi raske tilbakemeldinger til 
-sluttbruker underveis i utfylling.
+## Client-side validation
 
-Klientside-validering baserer seg på datamodellen som hører til skjemaet, og bruker denne til å bestemme hva som er gyldig input i et felt.
-Helt konkret brukes JSON Schema utgaven av datamodellen for valideringen. Denne genereres automatisk når man laster opp XSD.
-Det går an å gjøre endringer i JSON schema direkte for å tilpasse valideringen ved behov.
+This is validation that is run in the browser, before data is sent to server for saving. This makes it possible to give quick feedback to 
+the user during the fillout process.
 
-**Merk at dersom man gjør tilpasninger i JSON schema manuelt, for å så oppdatere XSD og laste inn på nytt, vil nytt
-JSON schema også genereres, og alle manuelle tilpasninger må gjøres på nytt. Derfor er det anbefalt å gjøre endringer i XSD og/eller datamodelleringsverktøyet
-for at disse endringene skal reflekteres i JSON schema.**
+Client-side validation is based on the data model of the form, and uses this to determine what is valid input in a field.
+Specifically, the JSON schema version of the data model is used for validation. This is automatically generated when uploading an XSD.
+It is possible to make changes in the JSON schema file directly to adapt the validation when needed.
 
-Et eksempel på hvordan et felt kan defineres i JSON schema datamodellen er:
+**Note that if you make changes in the JSON schema manually, and then update the XSD and reupload it, a new 
+JSON schema will also be generated and all manual adaptations will have to be remade. It is therefore recommended to make changes in the XSD and/or the data modeling tool
+for these changes to be reflected in the JSON schema.**
+
+An example of how a field can be defined in the JSON schema data model is:
 
 ```json
 "someField": {
@@ -33,13 +34,13 @@ Et eksempel på hvordan et felt kan defineres i JSON schema datamodellen er:
 }
 ```
 
-Input i dette feltet vil valideres mot begrensningene som er satt opp, og en feilmelding vil vises dersom disse ikke møtes - i dette tilfellet, dersom 
-input er en tekst med lengde mer enn 4 karakterer.
+Input in this field will be validated towards the limits that are set, and an error message will appear if these are not met - in this case, if
+input is a text longer than four characters.
 
-### Standard feilmeldinger
-Det er satt opp standard feilmeldinger for alle valideringene som gjøres på klientsiden. Se oversikten under.
+### Default error messages
+Default error messages has been set up for all validations done on the client-side. See the overview below.
 
-| Regel     | Feilmelding bokmål            | Feilmelding nynorsk           | Feilmelding engelsk                   |
+| Rule      | Error message bokmål          | Error message nynorsk         | Error message english                 |
 | --------- | ----------------------------- | ----------------------------- | ------------------------------------- |
 | min       | 'Minste gyldig verdi er {0}'  | 'Minste gyldig verdi er {0}'  | 'Minimum valid value is {0}'          |
 | max       | 'Største gyldig verdi er {0}' | 'Største gyldig verdi er {0}' | 'Maximum valid value is {0}'          |
@@ -51,11 +52,16 @@ Det er satt opp standard feilmeldinger for alle valideringene som gjøres på kl
 | enum      | 'Kun verdiene {0} er tillatt' | 'Kun verdiene {0} er tillatt' | 'Only the values {0} are permitted'   |
 
 ### More about error messages for required fields
+For a smoother user experience, error messages for missing data in required fields won't be displayed automatically
+while filling out a form, unless validation is triggered [for a single field](#single-field-validation), when saving
+a [row in a repeating group](#group-validation) or
+[when navigating to another page](/app/development/ux/pages/navigation/#validation-on-page-navigation).
+
 The error message for required fields is as defined above, _"You have to fill out {0}"_. The `{0}` symbol is replaced with the field that
 the error message is shown for. This is done in the following way:
 - If `shortName` text is defined for the component, this is used. _This is a new text that is currently used only for this specific error message._
-- If `shortName` text is not defined, the `title` text for the component is used - this is the components label text.
-- In some special cases (Address component) where there are multiple fields within the component, the standard labels for the fields is used.
+- If the `shortName` text is not defined, the `title` text for the component is used - this is the components label text. The text will be converted to use a lowercase letter first, unless the text looks like an acronym.
+- In some special cases (Address component) where there are multiple fields within the component, the default labels for the fields is used.
 
 #### Example: Component with only `title`
 ```json
@@ -81,6 +87,8 @@ With resource texts:
 The error message would then be `"You have to fill out First name"`.
 
 #### Example: Component with `shortName`
+If the field's prompt is long or not suitable for use in the validation message, you can add a `shortName` text that can be used instead.
+_Note that this only applies to this specific validation message - the `shortName` text is not used otherwise in the solution as of now._
 ```json
 {
   "id": "firstName",
@@ -92,7 +100,6 @@ The error message would then be `"You have to fill out First name"`.
   ... //etc
 }
 ```
-
 With resource texts:
 
 ```json
@@ -110,11 +117,10 @@ With resource texts:
 The error message would then be `"You have to fill out your first name"`.
 
 ### Custom error messages
-It is possible to define custom error messages that will be displayed when a field doesn't pass the validation check. 
-This is done by including a parameter `errorMessage` where the field is defined in the JSON schema. 
+It is possible to define custom error messages that will be displayed when a field doesn't pass the validation check. This is done by including a parameter `errorMessage` where the field is defined in the JSON schema. 
 The JSON schema file is in the folder `App/models` and has a naming patterns as follows; `*.schema.json`,
 
-An example of how the extend the example previously presented with a custom error message:
+An example of how to extend the example previously presented with a custom error message:
 
 ```json  {hl_lines=[4]}
 "someField": {
@@ -148,32 +154,31 @@ Example:
 
 {{% notice warning %}}
 Note that when the XSD is changed, the custom error messages will de removed from the JSON schema.
-In the future, there will be support for setting custom error messages in the data modelling tool in Altinn Studio. 
-But for now, this ia manual job.
+In the future, there will be support for setting custom error messages in the data modelling tool in Altinn Studio. But for now, this is a manual job.
 {{% /notice %}}
 
-## Serverside-validering
+## Server-side validation
 
-Serverside-validering kan deles opp i to kategorier:
+Server-side validation can be split into two categories:
 
-- **Valideringer mot datamodell** - Disse kjører automatisk når brukeren prøver å sende inn skjemadata.
-- **Egendefinerte valideringer** - Disse skrives av applikasjonsutvikleren,
-og kjører når brukeren prøver å sende inn skjemadata eller flytte prosessen til et nytt steg.
+- **Validations against data model** - These run automatically whenever the user attempts to submit form data.
+- **Custom validations** - these are written by the application developer,
+and run when the user attempts to submit form data or move the process to a new step.
 
-## Hvordan legge til egendefinert validering
-Egendefinerte validering kan igjen deles opp i to kategorier; task-validering og data-validering.
-  - Task-validering vil kjøres hver gang validering trigges enten manuelt fra applikasjonen eller når man prøver å flytte seg framover i prosessen.
-  - Data-validering vil kjøre dersom man står på et steg som har definerte dataelementer knyttet til seg.
+## How to add custom validation
+Custom validation can also be split into two categories; task-validation and data-validation.
+- Task-validation will run each time validation is triggered either manually from the application or when you attempt to move forward in the process.
+- Data-validation will run if you're on a step that has defined data elements associated with it.
 
-Valideringer er skrevet i C#, i `ValidationHandler.cs` -filen i applikasjonsmalen.
-Filen kan aksesseres og endres i Altinn Studio via logikkmenyen, ved å velge _Rediger valideringer_,
-eller direkte i applikasjonsrepoet der ligger filen i `logic/Validation`-mappen.
+Validations are written in C#, in the `ValidationHandler.cs`-file in the application template.
+The file can be accessed and edited in Altinn Studio through the logic menu, by selecting _Rediger valideringer_,
+or directly in the application repo where the file is under the `logic/Validation`-folder.
 
-Endringer gjøres i `ValidateData` og `ValidateTask`-metodene (disse er tomme når appen lages).
-Førstnevnte får inn et dataobjekt og sistnevnte får inn instansen og taskId.
-For å legge til en valideringsfeil brukes `AddModelError`-metoden til `validationResults` object som sendes med i begge metodene.
+Changes are made in the `ValidateData` and `ValidateTask`-methods (these are empty when the app is made).
+The former takes in a data object and the latter takes in the instance and taskId.
+To add a validation error, the `AddModelError`-method of the `validationResult`-object, which is a parameter in both methods, is used.
 
-Et eksempel på en enkel data-validering som sjekker at feltet _FirstName_ ikke inneholder verdien _1337_, når rotelementet til modellen er `Skjema` er vist nedenfor:
+An example of a simple data validation that tests that the field _FirstName_ does not contain the value _1337_, when the root element of the model is `Skjema` is shown below:
 
 ```C# {hl_lines=[12]}
 public void ValidateData(object data, ModelStateDictionary validationResults)
@@ -200,11 +205,11 @@ public void ValidateData(object data, ModelStateDictionary validationResults)
 }
 ```
 
-Se kommentarer i koden over for en forklaring på hva de ulike delene gjør.
+See comments in code above for an expnation of what the different parts do.
 
-I det andre parameteret til metoden `AddModelError`, der det står "_Error: First name cannot contain the value '1337'_", kan man bruke en tekstnøkkel for en [tekst definert i ressursfilene](../../ux/texts) for språkstøtte. 
+In the other parameter of the method `AddModelError`, where it says "_Error: First name cannot contain the value '1337'_", you can use a text key for a [text defined in the resource files](../../ux/texts) for multilingual support.
 
-Et eksempel på en enkel task-validering som sjekker hvor lang tid brukeren har brukt på Task_1 og returnerer en feil dersom det har tatt lenger enn 3 dager.
+An example of a simple task validation that checks how long the user spent on Task_1 and returns an error if there has gone more than three days:
 
 ```C# {hl_lines=["5-6"]}
 public async Task ValidateTask(Instance instance, string taskId, ModelStateDictionary validationResults)
@@ -214,17 +219,17 @@ public async Task ValidateTask(Instance instance, string taskId, ModelStateDicti
     DateTime deadline = ((DateTime)instance.Created).AddDays(3);
     if (DateTime.UtcNow < deadline)
     {
-      validationResults.AddModelError("Task_1", $"Ferdigstilling av Task_1 har tatt for lang tid. Vennligst start på nytt.");
+      validationResults.AddModelError("Task_1", $"Completion of Task_1 has taken too long. Please start over.");
     }
   }
 }
 ```
 
-## Enkeltfeltvalidering
+## Single field validation
 
-Dersom det er behov for umiddelbar validering av et felt
-som ikke kan dekkes i klientsidevalideringen, 
-så kan man sette opp en trigger for validering på enkeltfelter i `formLayout.json`
+If there is a need for immediate validation of a field
+that can not be covered in the client side validation,
+you can set up a trigger for validation on single fields in `formLayout.json`
 
 ```json {hl_lines=[13]}
 {
@@ -257,16 +262,16 @@ så kan man sette opp en trigger for validering på enkeltfelter i `formLayout.j
 ```
 
 {{% notice warning %}}
-Merk at dersom du definerer at et felt skal trigge validering på serverside, så er det kun resultatet av denne valideringen som vil vises. Det vil si at dersom det er 
-annen klient-side validering som er definert, så vil en ev. server-validering av feltet overskrive disse. Pass derfor på å implementere alle nødvendige
-valideringer på feltet også på server-siden, det går an å legge flere feilmeldinger på samme felt ved behov.
+Note that if you define a field to trigger validation server-side, only the result of this validation will be displayed. Meaning,
+if there is another client-side validation defined, a possible server-side validation of the field will overwrite these. Therefore, you should make sure
+to implement all necessary validations on the server-side as well. It is possible to attach multiple error messages to the same field if needed.
 {{% /notice %}}
 
-Konfigurasjonen overfor vil resultere i at din egendefinerte validering i `ValidationHandler.cs`
-vil trigges hver gang feltet oppdaterer seg. Dersom du har behov for å vite hvilket
-felt som trigget valideringen er denne tilgjengelig i http-konteksten som en header på requesten ved navn _ValidationTriggerField_.
+The configuration above will result in your own custom validation in `ValidationHandler.cs` 
+being triggered each time the field is updated. If you need to know which field
+triggered the validation, this is available in the http-context as a header of the request named _ValidationTriggerField_.
 
-Et eksempel på en egendefinert validering der headerverdien hentes ut er vist nedenfor.
+An example of a custom validation where the header value is retrieved is shown below.
 
 ```csharp
  public async Task ValidateData(object data, ModelStateDictionary validationResults)
@@ -283,7 +288,7 @@ Et eksempel på en egendefinert validering der headerverdien hentes ut er vist n
 
       if (!kommune.Equals("Oslo"))
       {
-          validationResults.AddModelError(value[0], "Dette er ikke en gyldig kommune.");
+          validationResults.AddModelError(value[0], "This is not a valid municipality.");
       }
     }
 
@@ -291,14 +296,14 @@ Et eksempel på en egendefinert validering der headerverdien hentes ut er vist n
  }
 ```
 
-**OBS** Merk at validering av enkeltfelter bør implementeres slik at det kjører både på trigger og under generell validering.
-Eksempelet som omhandler flere komplekse valideringer viser hvordan dette kan implementeres.
+**NOTE** validation of single fields should be implemented in a way where it is both run on triggers and during general validation.
+The example that revolves multiple complex validations show how this can be implemented.
 
-Det er gjort flere ting for å få denne kodesnutten til å kjøre
+Several things has been done to get this code to run
 
-1. I _ValidationHandler.cs_ inkluderes `using Microsoft.Extensions.Primitives;` øverst i filen for å kunne ta i bruk `StringValues`. 
-2. I _App.cs_ inkluderes `using Microsoft.AspNetCore.Http;` øverst i filen for å kunne ta i bruk `IHttpContextAccessor`.
-3. I _App.cs_ dependency injectes `IHttpContextAccessor` i konstruktøren og sendes med videre til ValidationHandler.
+1. In _ValidationHandler.cs_ `using Microsoft.Extensions.Primitives;` is included at the top of the file to be able to use `StringValues`. 
+2. In _App.cs_ `using Microsoft.AspNetCore.Http;` is included at the top of the file to be able to use `IHttpContextAccessor`.
+3. In _App.cs_ `IHttpContextAccessor` is dependency injected in the constructor and passed along to ValidationHandler.
 
 ```cs {hl_lines=[10, 14]}
 public App(
@@ -320,14 +325,14 @@ public App(
         }
 ```
 
-Dersom man har flere komplekse valideringer som er tidkrevende er det anbefalt å implementere flere private metoder
-for validering av disse og bruke ValidationTriggerField til å avgjøre hvilken private metode som skal kjøres.
-Man kan bl.a. bruke en _switch statement_ for å oppnå dette.
+If there are multiple complex validations that are time consuming, it is recommended to implement several private methods
+to validate these and use ValidationTriggerField to determine which private method is to be run.
+You can e.g. use a _switch statement_ to accomplish this.
 
 ```cs
 public async Task ValidateData(object data, ModelStateDictionary validationResults)
 {
-    if (data is flyttemelding model))
+    if (data is flyttemelding model)
     {
         _httpContextAccessor.HttpContext.Request.Headers
             .TryGetValue("ValidationTriggerField", out StringValues value);
@@ -356,7 +361,7 @@ private void ValidateKommune(flyttemelding model, ModelStateDictionary validatio
     {
         validationResults.AddModelError(
             nameof(model.kommune), 
-            "Dette er ikke en gyldig kommune.");
+            "This is not a valid municipality.");
     }
 }
 private void ValidateBoAdresse(flyttemelding model, ModelStateDictionary validationResults)
@@ -365,19 +370,19 @@ private void ValidateBoAdresse(flyttemelding model, ModelStateDictionary validat
     {
         validationResults.AddModelError(
             nameof(model.boaddresse), 
-            "Boadresse kan ikke være lengere enn 150 tegn.");
+            "Address can not be longer than 150 characters.");
     }
 }
 ```
 
-### Spesifisere at valideringsfeil er fikset
-Når validering trigges av et enkelt felt, så vil alle tidligere valideringer på dette feltet fjernes i påvente av svar fra den siste valideringen.
-Dersom et felt trigger validering som oppdaterer/legger til feilmelding på flere felter på en gang, vil ikke disse fjernes selv om det ikke lenger er noen
-feil i disse feltene. Dette er fordi man ikke har noen måte å vite hvilke felter som ev. er validert ifm en enkeltfeltvalidering.
+### Specify that validation errors are fixed
+When validation is triggered by a single field, all former validations on this field will be removed pending a response from the last validation.
+If a field triggers validation that updates/adds an error message to multiple fields at once, these will not be removed even when there no longer are any
+errors in these fields. This is because there is no way to know which fields may have been validated through a single field validation.
 
-F.eks., dersom man har 2 felter: fornavn og etternavn. Begge felter trigger enkeltfeltvalidering, og dersom begge feltene har verdi så validerer man at fullt navn ikke
-kan være lengre enn 50 tegn. Feilmelding settes da på begge feltene. Dersom man retter opp i dette ved å endre fornavn, vil feilmeldingen fra fornavn-feltet forsvinne,
-men feilmeldingen som vises på etternavn-feltet vises fortsatt selv om valideringen ikke setter noen feilmeldinger på feltene.
+For example, if you have two fields; first name and last name. Both fields trigger single field validation, and if both fields have a value, you can validate that
+the full name can not be longer than 50 characters. An error message is then set on both fields. If you correct this by changing the first name, the error message from first name will
+disappear, but the error message on the last name field will still be displayed even though the validation does not set any error messages on the fields.
 
 ```C#
 private void ValidateFullName(Datamodell model, ModelStateDictionary validationResults)
@@ -386,21 +391,21 @@ private void ValidateFullName(Datamodell model, ModelStateDictionary validationR
     && model.fornavn.Length + model.etternavn.Length > 50)
   {
     validationResults.addModelError(nameof(model.fornavn),
-      "Fullt navn kan ikke være lengre enn 50 tegn.");
+      "Full name can not be longer than 50 characters.");
     validationResults.addModelError(nameof(model.etternavn),
-      "Fullt navn kan ikke være lengre enn 50 tegn.");
+      "Full name can not be longer than 50 characters.");
   }
 }
 ```
 
-For å kunne fjerne gamle feilmeldinger i et sånt tilfelle, er det lagt til støtte for å kunne spesifisere at en valideringsfeil er **fikset**. Da
-vil det aktuelle feltet kunne få beskjed om at en spesifikk feilmelding som den viser frem er fikset og skal skjules.
+To be able to remove old error messages in a case like this, there has been added support to be able to specify that a validation error has been **fixed**.
+Then, the field in question will be able to be notified that a specific error message that it is displaying has been fixed and can now be hidden.
 
-Dette gjøres ved å legge til en valideringsfeil i koden i det tilfellet der det ikke er noen feil i valideringen, 
-og sette `*FIXED*` foran selve feilmeldingen. Dette tilsvarer oppsettet for [myk validering](#myk-validering). 
-Denne prefixen gjør at feilmeldingen som settes fjernes fra det aktuelle feltet, eller ignoreres (dersom det ikke er noen feilmelding på feltet fra før).
+This is done by adding a validation error in the code in the case where there are no errors in the validation,
+and set `*FIXED*` in front of the error message itself. This corresponds to the setup for [soft validation](#soft-validations).
+This prefix causes the error message that is set to be removed from the field in question, or ignored (if there is no error message on the field already).
 
-Man kan da utvide eksempelet over for å støtte dette:
+You can now expand the example above to support this:
 
 ```C# {hl_lines=[14,16]}
 private void ValidateFullName(Datamodell model, ModelStateDictionary validationResults)
@@ -409,33 +414,33 @@ private void ValidateFullName(Datamodell model, ModelStateDictionary validationR
     && model.fornavn.Length + model.etternavn.Length > 50)
   {
     validationResults.addModelError(nameof(model.fornavn),
-      "Fullt navn kan ikke være lengre enn 50 tegn.");
+      "Full name can not be longer than 50 characters.");
     validationResults.addModelError(nameof(model.etternavn),
-      "Fullt navn kan ikke være lengre enn 50 tegn.");
+      "Full name can not be longer than 50 characters.");
   } 
   else
   {
     validationResults.addModelError(nameof(model.fornavn),
-      "*FIXED*Fullt navn kan ikke være lengre enn 50 tegn.");
+      "*FIXED*Full name can not be longer than 50 characters.");
     validationResults.addModelError(nameof(model.etternavn),
-      "*FIXED*Fullt navn kan ikke være lengre enn 50 tegn.");
+      "*FIXED*Full name can not be longer than 50 characters.");
   }
 }
 ```
 
-## Myke valideringer
+## Soft validations
 
-Myke valideringer er valideringsmeldinger som ikke stopper bruker fra å sende inn eller gå videre til neste steg i prosessen, men som benyttes til å gi brukeren ulike former for informasjon.
-Denne typen valideringer kan f.eks. brukes til å be brukeren om å verifisere input som virker feil eller rart, men som strengt tatt ikke er ugyldig, eller gi nyttig informasjon for videre utfylling.  
+Soft validations are validation messages that does not stop the user from submitting or move onto the next step of the process, but that are used to give the user different forms of information.
+These types of validations can for example be used to ask the user to verify input that seems wrong or strange, but which strictly speaking is not invalid, or give useful information for further filling out the form.
 
-Meldinger basert på myke validering vil vises en gang, men bruker kan velge å klikke seg videre uten å utføre endringer.
+Messages based on soft validation will be displayed once, but the user can choose to move on without making any changes.
 
-Myke valideringer legges til fra server-siden i validerings-logikken, på samme måte som vanlige validerings-feil. Forskjellen er at valideringsmeldingen
-må prefixes med typen validering man ønker å gi, f.eks `*WARNING*`. Dette vil da tolkes som en myk validering. Prefixen `*WARNING*` blir ikke synlig for sluttbruker.
+Soft validations are added from the server-side the application logic, in the same way as regular validation errors. The difference is that the validation message
+must be prefixed with the type of validation you want to give, e.g. `*WARNING*`. This will be interpreted as a soft validation. The prefix `*WARNING*` will not be displayed for the user.
 
-De tilgjengelige typene myke valideringer er `WARNING`, `INFO` og `SUCCESS`.
+The different types of soft validations are `WARNING`, `INFO` and `SUCCESS`.
 
-**Kodeeksempel**
+**Code example**
 
 ```csharp
 public async Task ValidateData(object data, ModelStateDictionary modelState)
@@ -462,20 +467,20 @@ public async Task ValidateData(object data, ModelStateDictionary modelState)
 }
 ```
 
-Eksempler på visning av de ulike valieringene ser du nedenfor:
+Examples on display of different validations below:
 
-!["Informasjonsmelding"](info-message.jpeg "Eksempel på informasjonsmelding (*INFO* - prefix)" )
+!["Information message"](info-message.jpeg "Example on information message (*INFO* - prefix)" )
 
-!["Suksessmelding"](success-message.jpeg "Eksempel på suksessmelding (*SUCCESS* - prefix)"))
+!["Success message"](success-message.jpeg "Example on success message (*SUCCESS* - prefix)")
 
-!["Informasjonsmelding"](warning-message.jpeg "Eksempel på advarselsmelding (*WARNING* - prefix)" )
+!["Warning message"](warning-message.jpeg "Example on warning message (*WARNING* - prefix)" )
 
-Det er også mulig å overstyre tittelen man ser på meldingene ved å legge til nøkklene `soft_validation.info_title`, `soft_validation.warning_title`, og `soft_validation.success_title` i tekstressursene om man ønsker å sette custom tittel.
+It is also possible to overrule the title you see on the messages by adding the keys `soft_validation.info_title`, `soft_validation.warning_title`, and `soft_validation.success_title` in the text resources if you want to set a custom title.
 
-## Gruppevalidering
+## Group validation
 
-Det er mulig å gjøre valideringer på en repeterende gruppe i det brukeren ønsker å lagre en gitt indeks.
-Dette gjøres ved å legge til en trigger på gruppe-komponenten i layoutfilen (f.eks `FormLayout.json`). Eksempel:
+It is possible to apply validations to a repeating group when the user saves a row in the group.
+This can be done by adding a trigger on the group component in the layout file (e.g. `FormLayout.json`). Example:
 
 ```json {hl_lines=[14]}
 {
@@ -491,7 +496,7 @@ Dette gjøres ved å legge til en trigger på gruppe-komponenten i layoutfilen (
         "dataModelBindings": {
             "group": "Endringsmelding-grp-9786.OversiktOverEndringene-grp-9788"
         },
-        "triggers": ["validation"]  // <--- Legg til denne
+        "triggers": ["validation"]  // <--- Add this
       },
       ...
     ]
@@ -499,11 +504,11 @@ Dette gjøres ved å legge til en trigger på gruppe-komponenten i layoutfilen (
 }
 ```
 
-Dette vil da sørge for at det vil kjøres validering på komponentene som er en del av gruppen på den aktuelle indeksen man jobber på.
-Om det finnes valideringsfeil så vil man stoppes fra å lagre gruppen før dette er rettet opp i.
+This will ensure that validation is run on the components that are a part of the group on the index you're working on.
+If there are validation errors you will be stopped from saving the group until this has been corrected.
 
-Om man legger til validering på gruppe-komponenten så vil det også gå et kall mot valideringen backend med en header som spesifiserer hvilken komponent som trigget valideringen: `ComponentId`.
-Valideringer er skrevet i C#, i `ValidationHandler.cs`-filen i applikasjonsmalen. I valideringen kan man så hente ut denne id'en og skreddersy eventuelle valideringer som skal gjøres backend, eksempel:
+If you add validation on the group component, a call will be made towards the validation back-end with a header specifying which component triggered the validation: `ComponentId`.
+Validations are written in C# in the `ValidationHandler.cs`-file in the application template. In the validation, you can then retrieve this id and tailor possible validations that should run back-end, example:
 
 ```cs
 public async Task ValidateData(object data, ModelStateDictionary validationResults)
@@ -518,14 +523,14 @@ public async Task ValidateData(object data, ModelStateDictionary validationResul
         switch (component)
         {
             case "demo-group":
-                // kjør valideringer spesifikke til gruppen
+                // run validations specific to the group
                 break;
             default:
-                // kjør valideringene i sin helhet
+                // run the validations in their entirety
                 break;
         }
     }
 }
 ```
 
-For tips til hvordan man løser komplekse valideringer se ekemplene under [enkeltfeltvalidering](#enkeltfeltvalidering).
+For tips on how you solve complex validations, see the examples under [single field validation](#single-field-validation).

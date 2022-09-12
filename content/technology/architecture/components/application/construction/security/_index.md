@@ -8,7 +8,7 @@ For a solutions like Altinn Studio, Altinn Apps and Altinn Platform security is 
 
 The security architecture is based on the following reference model
 
-{{% children description="true" depth="1" %}}
+{{<children>}}
 
 
 

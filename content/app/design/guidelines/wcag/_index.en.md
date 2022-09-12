@@ -1,61 +1,48 @@
 ---
-title: Tilgjengelighet
-description: God tilgjengelighet hjelper mennesker med funksjonshemninger å oppfatte innholdet vårt på en meningsfull måte. Ved å bruke Altinn 3 får du mye på kjøpet, men noen ting må du fortsatt huske på selv. 
+title: Accessibility
+description: Good accessibility helps people with disabilities access our services in a meaningful way. By using Altinn 3 large parts of your service is handled by us, but you still have to remember some things yourself.
 weight: 7
 weight: 30
 toc: true
-tags: [translate-to-english]
 ---
 
-Forskrift om universell utforming av IKT-løsninger stiller krav om at nettsider må oppfylle 35 av 61 suksesskriterier 
-i standarden [Retningslinjer for tilgjengelig webinnhold (WCAG) 2.0](https://www.w3.org/Translations/WCAG20-no/). Sjekk 
-ut [minimumskravene](https://www.uutilsynet.no/wcag-standarden/wcag-20-standarden/86) på UU-tilsynet som er omfattet 
-av forskriften.
-## Sjekkliste
+The regulation on universal design of ICT solutions require that websites and apps must meet 35 of 61 success criteria in the standard  [Guidelines for accessible web content (WCAG) 2.0. (nb)](https://www.w3.org/Translations/WCAG20-no/). Check out the [minimum requirements](https://www.uutilsynet.no/wcag-standarden/wcag-20-standarden/86) 
 
-- **Innholdsstruktur** Sjekk at du har en logisk struktur på overskrifter (H1 - H4), og at du ikke har noen tomme 
-overskriftselementer. Det er fort gjort å glemme et nivå. For å oppdage feil i innholdstrukturen kan det være nyttig å 
-benytte “Wave” som er et utvidelsesverktøy til chrome. [Last ned Wave til Chrome], installer og ikonet vil dukke opp 
-øverst til høyre i nettleseren.
+## Check list
+- **Content structure**  
+  Check that you have a logical structure of headings (H1 - H4), and that you don't have any empty heading elements. It is not uncommon to forget a level. "Wave" might be a usefull tool to discover errors in the content structure. Wave is an extension for Chrome which can be used to evaluate the accessibility of a website. [Download Wave for Chrome](https://chrome.google.com/webstore/detail/wave-evaluation-tool/jbbplnpkjmmeebjpijfedlgcdilocofh)
 
-[Last ned Wave til Chrome]: https://chrome.google.com/webstore/detail/wave-evaluation-tool/jbbplnpkjmmeebjpijfedlgcdilocofh
+- **Explanations and helper texts**  
+Check that links, labels and buttons have explanatory texts. Make an evaluation of what explanations and helper texts have to be connected to the input element. 
 
-- **Forklarende tekster og hjelpetekst** Sjekk at lenker, label og knapper har forklarende tekster. Ta en vurdering på 
-om ekstra beskrivelser og hjelpetekster må kobles til input elementet.
+- **Button vs link**  
+It is important to be conscious of using buttons and links, since screen readers can struggle with interpreting their functionality.
 
-- **Knapp vs lenke** Det er viktig at man er bevisst på om det blir brukt knapper eller lenker, da skjermlesere kan 
-få problemer med å tolke funksjonaliteten. 
-
-- **Feilmeldinger** Du er selv ansvarlig for at 
-[korrekte feilmeldinger](../components/error-message/) 
-blir lagt inn på hvert av skjemafeltene. 
-
+- **Error messages**  
+You are responsible for [correct error messages](../components/error-message/) being created for the form fields.
 
 {{% panel theme="warning" %}}
-**NB:** Skal du lage tjenester i egen løsning, der Altinns grensesnitt er usynlig for brukeren, må du selv huske på å 
-ta hensyn til øvrige [WCAG-krav](https://www.uutilsynet.no/wcag-standarden/nettsteder/711). 
+**NB:** When creating solutions for your internal service, where Altinn's user interface is hidden from the user, you have to make sure that you follow all [WCAG-demands](https://www.uutilsynet.no/wcag-standarden/nettsteder/711). 
 {{% /panel %}}
 
-## Hvordan teste
-Det er viktig at dere tester at tjenesten deres er tilgjengelig for alle. Dette vil ikke bare hjelpe deres tjeneste, 
-men det kan også belyse feil som har oppstått eller blitt oversett hos oss. Her er noen verktøy som kan brukes til 
-å gjøre enkle tester.
-### Tastaturnavigasjon
-Sjekk at alle knapper og inputfelter kan nåes ved tastaturnavigasjon.
+## How to test accessibility
+It's important that you test that your services are accessible to everyone. 
+This will help not just your service, but can also highlight mistakes or oversights made by us. 
+Here are some tools that can be used for simple testing of accessibility.
 
-### Skjermleser
-Gå gjennom flyten med en skjermleser som hjelpemiddel. Her kan du forsikre deg om at alt blir lest opp riktig og at 
-tekstene er beskrivende nok. 
+### Keyboard navigation
+check that all buttons and input fields can be reached by keyboard navigation (tab, arrowkeys, esc, etc.) 
 
-- **Mac:** VoiceOver er forhåndsinstallert på Apples mobiler og PCer. 
-[VoiceOver Brukerveiledning](https://support.apple.com/no-no/guide/voiceover/welcome/mac)
+### Screen reader
+Go through your service while using a screen reader as a helping device. This way you can ensure that everything is read out correctly and that the texts are sufficiently descriptive.
 
-- **Windows:** NVDA Screenreader er et gratis skjermleser verktøy laget av NV Access 
-[Om NVDA Screenreader](https://www.nvaccess.org/about-nvda/)
+- **Mac:** VoiceOver is preinstalled on apples mobiles and PCs. 
+[VoiceOver User walkthrough](https://support.apple.com/no-no/guide/voiceover/welcome/mac)
 
-## Kontrast
+- **Windows:** NVDA Screenreader is a free screen reader tool made by NV Access. 
+[About NVDA Screenreader](https://www.nvaccess.org/about-nvda/)
 
-Følgende fargekombinasjoner som er brukt på Altinn oppfyller kravene til kontrast i liten tekst. AA er minstekravet, 
-mens AAA er anbefalt, særlig for løpende tekst.
+## Contrast
 
+The following colour combinations that are used in Altinn fulfill the accessibility demands for contrast within small text. AA is the minimum requirement, while AAA is recommended, especially for body text
 {{% colorcontrast %}}

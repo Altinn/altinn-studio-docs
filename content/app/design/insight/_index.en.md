@@ -1,33 +1,25 @@
 ---
-title: Innsiktsfase
-description: Først av alt bør du samle prosjektgruppen og starte med å definere problemet. Hva er det dere skal løse og hvem skal det løses for?
+title: Preliminary considerations
+description: Before you do anything else you should gather the project group and start by defining your problem. What is it that you are trying to solve and for whom?
 weight: 1
-tags: [translate-to-english]
 ---
 
-## Tenk gjennom
+## Consider
 
-- **Hva er dagens utfordring?** Start med å definere problemet. Hva er det dere skal løse? Med et klart 
-avgrenset problem er det lettere å lage en klar løsning. Her kan det være en idé å samle prosjektgruppen, 
-komme vekk fra møtebordet og bruke post-its på veggene.
-- **Hvem er brukerne og hvilke behov har de?** Vi anbefaler at dere starter med å definere målgruppe og 
-brukerbehov så tidlig som mulig i prosjektet. Lag en oversikt over hvem brukerne er. I de fleste tilfellene 
-skal man lage løsninger som fungerer for flere brukergrupper. Er det innbyggere eller aktører i næringslivet? 
-Hvilken bakgrunn har de? Er de digitale eller ikke så vant til å bruke digitale tjenester? 
-I denne fasen gjøres det typisk innledende innsiktsarbeid i form av intervjuer, observasjoner eller fokusgruppe.
-- **Kontaktpunkter for brukeren** Sett opp en oversikt/brukerreise over brukerens kontaktpunkt. 
-Eksempel på hvordan en fragmentert brukerreise kan fortone seg: 
-![Kontaktpunkter](kontaktpunkter.png "Kontaktpunkter") Skal Altinn være skjult for 
-sluttbruker eller er det Altinns grensesnitt som skal benyttes? Stemmer dette med hvordan brukeren forventer 
-å få løst sin oppgave? Er det mulig å tilby brukerne den relevante delen av altinn i den konteksten de er i, 
-i stedet for å sende dem frem og tilbake?
-- **Hva er databehovet?** Behovet for en digital løsning starter gjerne med at det er behov for å samle inn 
-data. Start med å undersøke om andre har dataene du trenger og om disse er tilgjengelige for gjenbruk. Det 
-kan du sjekke i <a href="https://data.norge.no/">Felles datakatalog</a>. Hvis ikke - hvordan kan du spørre 
-på en måte som krever minst mulig av brukerne? Noen ganger kan det være en idé å prøve noe annet enn opplagte 
-løsninger hvor man spør i form av et skjema.
+- **What are the current challenges?** Start by defining the problem. What are you going to solve? 
+It is easier to create a solution with a clearly defined scope for your problem. It might be a good 
+idea to gather your project group, and to look for a nice wall to put post-it notes on.
+- **Who are the users and what are their needs?** 
+We recommend starting by defining your target audience and their requirements as early as possible during the project. 
+Create an overview of your users and who they are. In most cases your service should be usable by multiple user groups. 
+Are they citizens or do they represent a company? What background do they have? 
+Are they digitally inclined or not accustomed to digital services? 
+This phase normally starts with interviews, observations or a focus group.
+- **Points of contact for the user** Create an overview of the points of contact for the user. What does the customer see during their use of your service? 
+One way to do this is pictured below:
+![Points of contact](kontaktpunkter.png "Points of contact") Should Altinn be hidden from the end user or will you be using Altinns internal UI? Does this match how the user expects to complete their task? Is it possible to offer the customer the relevant part of Altinn in the context they are in, instead of sending them back and forth? 
+- **What data do you need?** The need for a digital solution usually starts with a need to gather data. Start by checking if someone else has the data you need, and if it is available for reuse. You can check for data in our <a href="https://data.norge.no/">common datacatalog</a>. If not - how can you request it in a way that requires the least effort by your users? Sometimes it could be an idea to try something different than than obvious
+solutions where you ask through a form. 
 {.connected-bullets}
 
-Når du har kommet deg gjennom innsiktsfasen og definert brukerbehov, anbefaler vi at du setter sammen en 
-prototype som kan brukertestes på relevante brukere. Dersom du skal lage et skjema, kan du bruke vårt 
-[prototype-Kit for Figma](../prototype).
+After working through the initial phase and defining the user requirements, we recommend that you set up a prototype that can be tested by relevant users. If you are creating a form, you can use our [prototype-Kit for Figma](../prototype).

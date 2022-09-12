@@ -24,4 +24,4 @@ https://{org}.apps.altinn.no/{org}/{appname}
 
 URL'en identifiserer app eier spesifikt domene ved hjelp av applikasjonseier sitt kortnavn **org**, og identifiserer spesifikk app ved hjelp av både kortnavnet til applikasjonseier og navnet på appen; **org/appname**.
 
-{{% children description="true" depth="1" %}}
+{{<children>}}
