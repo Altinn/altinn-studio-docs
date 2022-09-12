@@ -63,7 +63,7 @@ edit it in for example Visual Studio or a text editing program of your own choos
 ### Knowledge check
 
 - Which data is it the service owner wishes to collect here?
-- Which effect has **\<minOccurs\>** in the data model? You may notice that the field has a different value for _Innflytter.Fornavn_ and _Innflytter.Mellomnavn_
+- Which effect has **\<minOccurs\>** in the data model? You may notice that the field has a different value for _Innflytter.Fornavn_ and _Innflytter.Mellomnavn_.
 - Which other properties is set on the field _Innflytter.Mellomnavn_?
 - A _.C#_, _.metadata.json_ and _.schema.json_ file has been generated in addition to the _.xsd_ file you uploaded. What is the correlation between these files?
 - Some restrictions from the data model is not transferred to the _C#_-file, which ones? Some new properties has also been added, which ones?

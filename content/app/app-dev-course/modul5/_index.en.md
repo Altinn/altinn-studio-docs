@@ -25,6 +25,7 @@ The standard flow for a newly created application consists of one task; one fill
 ![Standard process flow illustrated](/app/app-dev-course/modul5/default-process.png)
 
 Your task is to expand the standard process flow with a confirmation step as illustrated below.
+The confirmation page is added automatically when the step is added to the BPMN file.
 
 ![Updated process flow illsutrated](/app/app-dev-course/modul5/updated-process.png)
 

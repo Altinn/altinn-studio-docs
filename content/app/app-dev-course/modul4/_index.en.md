@@ -55,7 +55,7 @@ The municipality of Sogndal wishes to collect information on the newcomers worki
 
 ### In Local Development environment
 
-1. The municipality of Sogndal has created a [code list](../industry.json) for **industries**. Download the file and place it correctly in the repository.
+1. The municipality of Sogndal has created [a code list for **industries**](../industry.json). Download the file and place it correctly in the repository.
 
 2. Set up the values in the code list for **Years in work force** directly in the application logic.
 
@@ -73,7 +73,6 @@ The municipality of Sogndal wishes to collect information on the newcomers worki
 ### Useful documentation
 
 - [How to set up static code lists](/app/development/data/options/#static-codelists-from-the-application-repository)
-- [How to set up dynamic code lists](/app/development/data/options/#dynamic-codelists-generated-runtime)
 - [Secured dynamic options](/app/development/data/options/#secured-dynamic-options)
 
 ### Knowledge check
@@ -101,6 +100,7 @@ based on which sector they are in.
 
 ### Useful documentation
 - [How to pass query parameters when fetching options](/app/development/data/options/#pass-query-parameters-when-fetching-options)
+- [How to set up dynamic code lists](/app/development/data/options/#dynamic-codelists-generated-runtime)
 
 ### Knowledge check
 - If a list of options is set up with mapping towards the data model - what happens when the field in question changes value?
