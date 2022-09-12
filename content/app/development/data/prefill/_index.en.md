@@ -2,9 +2,13 @@
 title: Prefilling data
 linktitle: Prefill
 description: How to configure prefill for an app.
-toc: true
+toc: false
 weight: 200
 ---
+
+{{% content-version-selector %}}
+
+{{< content-version-container version-label="1.x 2.x" >}}
 
 As of today, Altinn offers three methods for prefilling data in an app for a user.
 These methods can be combined freely to reach the desired result.
@@ -235,3 +239,8 @@ Content-Disposition: form-data; name="Endring-av-navn"
 
 --abcdefg--
 ```
+{{< /content-version-container >}}
+
+{{< content-version-container version-label="7.x" >}}
+Test text, new version description
+{{< /content-version-container >}}

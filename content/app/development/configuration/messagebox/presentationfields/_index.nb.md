@@ -10,13 +10,13 @@ skille mellom flere instanser av samme applikasjon.
 
 Ved å konfigurere presentasjonsfelter på en applikasjon vil man hente ut
 verdier fra skjemadataene og legge dette på instansobjektet.
-Disse verdiene benyttes i meldingsboksen i Altinn til å berrike tittelen til instansen med dataverdiene.
+Disse verdiene benyttes i meldingsboksen i Altinn til å berike tittelen til instansen med dataverdiene.
 
 ## Konfigurasjon
 
 Konfigurasjon av presentasjonsfelter gjøres i `applicationmetadata.json` som ligger i repoet under mappen `App/config`.
 
-Legg til en ny seksjon med navn `presentationField` med følgende underfelter
+Legg til en ny seksjon med navn `presentationField` med følgende underfelter:
 
  Navn     | Beskrivelse
 ----------|------------
@@ -28,16 +28,17 @@ Konfigurasjonen til en app med to definerte presentasjonsfelter vil se slik ut:
 
 ```json
 "presentationFields": [
-{
-  "id": "Ansettelse",
-  "path": "OpplysningerOmArbeidstakeren-grp-8819.Arbeidsforhold-grp-8856.AnsattAar-datadef-33267.value",
-  "dataTypeId": "default"
-},
-{
-  "id": "Navn",
-  "path": "OpplysningerOmArbeidstakeren-grp-8819.OpplysningerOmArbeidstakeren-grp-8855.AnsattNavn-datadef-1223.value",
-  "dataTypeId": "default"
-}]
+  {
+    "id": "Ansettelse",
+    "path": "OpplysningerOmArbeidstakeren-grp-8819.Arbeidsforhold-grp-8856.AnsattAar-datadef-33267.value",
+    "dataTypeId": "default"
+  },
+  {
+    "id": "Navn",
+    "path": "OpplysningerOmArbeidstakeren-grp-8819.OpplysningerOmArbeidstakeren-grp-8855.AnsattNavn-datadef-1223.value",
+    "dataTypeId": "default"
+  }
+]
 ```
 
 ## Resultat

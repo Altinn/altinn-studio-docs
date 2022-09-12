@@ -4,6 +4,40 @@ description: Oversikt over endringer som ble introdusert i v2 av deployment.
 toc: true
 ---
 
+## 2.3.0
+
+### Endringer innført
+
+* Oppgrader HorizontalPodAutoscaler fra versjon _autoscaling/v2beta2_ til _autoscaling/v2_
+
+{{%notice warning%}}
+autoscaling/v2beta2 er deprecated i versjon 1.23+ av kubernetes og blir fjernet i versjon 1.26+
+Apps kluster vil ettervert bli oppgradert og deployment av apps som bruker eldre versjoner vil feile når clustrene blir oppgradert til 1.26+
+
+[AKS release kalender](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#aks-kubernetes-release-calendar)
+{{% /notice%}}
+
+
+[Se release på Github](https://github.com/Altinn/altinn-studio-charts/releases/tag/deployment-2.3.0)
+
+## 2.2.0
+
+### Endringer innført
+
+* Muliggjør å sette pod annotasjoner i values.yaml
+ 
+
+### Hvordan sette pod annotasjoner i values.yaml
+
+```yaml
+deployment:
+  podAnnotations:
+    key1: value1
+    key2: value2
+```
+
+[Se release på Github](https://github.com/Altinn/altinn-studio-charts/releases/tag/deployment-2.2.0)
+
 ## 2.1.0
 
 {{%notice warning%}}
@@ -62,7 +96,7 @@ __13.__ Frekvens for livenessprobing
 
 __14.__ Hvor mange sekunder før livenessproben timer ut
 
-
+[Se release på Github](https://github.com/Altinn/altinn-studio-charts/releases/tag/deployment-2.1.0)
 
 ## 2.0.0
 
@@ -138,3 +172,5 @@ __5.__ Øvre grense for minne en pod kan benytte. Pods som forsøker å allokere
 ### Pull requests merged
 
 * [Horizontal Pod Autoscaler (PR #3)](https://github.com/Altinn/altinn-studio-charts/pull/3)
+
+[Se release på Github](https://github.com/Altinn/altinn-studio-charts/releases/tag/deployment-2.3.0)
