@@ -11,7 +11,7 @@ whether it is the result of an API call, calculations done under instantiation o
 
 {{% content-version-selector %}}
 
-{{< content-version-container version-label="v4, v5, v6" >}}
+{{<content-version-container version-label="v4, v5, v6">}}
 
 This is implemented in the method _DataCreation_ in the file _InstantiationHandler.cs_ that can be found in the application repo under `App/logic`.
 
@@ -48,12 +48,13 @@ public async Task DataCreation(Instance instance, object data)
     }
 }
 ```
-{{< /content-version-container >}}
+{{</content-version-container>}}
 
-{{< content-version-container version-label="v7" >}}
+{{<content-version-container version-label="v7">}}
 In version 7 the way to do custom code instantiation has changed. We now use an dependency injection based approach insted of overriding methods. If you previously used to place your custom code in the DataCreation method in the _InstantiationHandler.cs_ class you will see that it's mostly the same.
 
-1. Create a class that implements the `IInstantiation` interface found in the `Altinn.App.Core.Features.Instantiation` namespace.
+1. Create a class that implements the `IInstantiation` interface found in the `Altinn.App.Core.Features.Instantiation` namespace.  
+    You can place the file in any folder you like within your project, but we suggest you use meaningful namespaces like in any other .Net project.
     The example below populates the field _Bruker.FulltNavn_ in the model _Datamodell_ with the value "Test Testesen".
     ```C# {hl_lines=[23]}
     using System.Collections.Generic;
@@ -93,4 +94,4 @@ In version 7 the way to do custom code instantiation has changed. We now use an 
     ```
     This ensuers your custom code is known to the application and that it will be executed.
 
-{{< /content-version-container >}}
+{{</content-version-container>}}
