@@ -7,6 +7,10 @@ weight: 800
 
 ## September 2022
 
+- Skjema for innrapportering av gjenopprettingsplan (KRT-1226) (Financial Supervisory Authority of Norway)  
+  [Info](https://www.altinn.no/en/forms-overview/financial-supervisory-authority-of-norway/gjenopprettingsplaner/) | [Repo](https://altinn.studio/repos/krt/krt-1226a-1) | [App](https://krt.apps.altinn.no/krt/krt-1226a-1/)
+- Brudd på gjenopprettingsindikatorer (KRT-1228) (Financial Supervisory Authority of Norway)  
+  [Info](https://www.altinn.no/en/forms-overview/financial-supervisory-authority-of-norway/brudd-pa-gjenopprettingsindikatorer/) | [Repo](https://altinn.studio/repos/krt/krt-1228a-1) | [App](https://krt.apps.altinn.no/krt/krt-1228a-1/)
 - Melding om sikkerhetsrådgiver (The Norwegian Directorate for Civil Protection)  
   [Info](https://www.altinn.no/en/forms-overview/the-norwegian-directorate-of-civil-protection-dsb/melding-om-sikkerhetsradgiver/) | [Repo](https://altinn.studio/repos/dsb/melding-om-sikkerhetsraadgiver) | [App](https://dsb.apps.altinn.no/dsb/melding-om-sikkerhetsraadgiver/)
   

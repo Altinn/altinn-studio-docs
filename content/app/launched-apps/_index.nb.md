@@ -7,6 +7,10 @@ weight: 800
 
 ## September 2022
 
+- Skjema for innrapportering av gjenopprettingsplan (KRT-1226) (Finanstilsynet)  
+  [Info](https://www.altinn.no/skjemaoversikt/finanstilsynet/gjenopprettingsplaner/) | [Repo](https://altinn.studio/repos/krt/krt-1226a-1) | [Kjørende tjeneste](https://krt.apps.altinn.no/krt/krt-1226a-1/)
+- Brudd på gjenopprettingsindikatorer (KRT-1228) (Finanstilsynet)  
+  [Info](https://www.altinn.no/skjemaoversikt/finanstilsynet/brudd-pa-gjenopprettingsindikatorer/) | [Repo](https://altinn.studio/repos/krt/krt-1228a-1) | [Kjørende tjeneste](https://krt.apps.altinn.no/krt/krt-1228a-1/)
 - Melding om sikkerhetsrådgiver (Direktoratet for samfunnssikkerhet og beredskap)  
   [Info](https://www.altinn.no/skjemaoversikt/direktoratet-for-samfunnssikkerhet-og-beredskap/melding-om-sikkerhetsradgiver/) | [Repo](https://altinn.studio/repos/dsb/melding-om-sikkerhetsraadgiver) | [Kjørende tjeneste](https://dsb.apps.altinn.no/dsb/melding-om-sikkerhetsraadgiver/)
 
