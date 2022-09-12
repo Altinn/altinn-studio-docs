@@ -2,19 +2,16 @@
 title: Preutfylling av data (prefill)
 linktitle: Preutfylling
 description: Hvordan konfigurere prefill for en app.
-toc: true
+toc: false
 weight: 200
 ---
 
-Altinn tilbyr i dag tre fremgangsmåter for å preutfylle data i en app for en sluttbruker.
-Disse metodene kan kombineres fritt for å oppnå ønsket resultat
-
-## Prefill fra nasjonale register og brukerprofil
-
-Altinn apps støtter prefill med data fra Enhetsregisteret, Folkeregisteret og brukerprofil i Altinn.
+Ved bruk av kun konfigurasjon støtter Altinn apps prefill med data fra Enhetsregisteret, Folkeregisteret og brukerprofil i Altinn.
 
 Ved å følge beskrivelsen nedenfor vil man under instansiering av et skjema preutfylle datamodellen med
 de definerte verdiene hentet fra Altinns database.
+
+## Prefill fra nasjonale register og brukerprofil
 
 ### Oppsett av prefill i applikasjons repository
 
