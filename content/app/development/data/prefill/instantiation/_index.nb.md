@@ -1,9 +1,9 @@
 ---
-title: Instansiering med prefill
-linktitle: Preutfylling
+title: Preutfylling med http post
+linktitle: Http post
 description: Hvordan konfigurere prefill for en app ved bruk av http post requests.
 toc: false
-weight: 200
+weight: 400
 ---
 
 Altinn apper støtter instansiering med prefill.

@@ -1,6 +1,6 @@
 ---
-title: Prefilling data on POST request based instantiation
-linktitle: Instantiation
+title: Prefilling data on an http post request
+linktitle: Http post
 description: How to configure prefill for an app when creating a new instance from a http post request.
 toc: false
 weight: 400

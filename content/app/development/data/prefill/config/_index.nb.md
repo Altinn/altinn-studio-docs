@@ -1,6 +1,6 @@
 ---
-title: Preutfylling av data (prefill)
-linktitle: Preutfylling
+title: Preutfylling av data med konfigurasjon
+linktitle: Konfigurasjon
 description: Hvordan konfigurere prefill for en app.
 toc: false
 weight: 200
