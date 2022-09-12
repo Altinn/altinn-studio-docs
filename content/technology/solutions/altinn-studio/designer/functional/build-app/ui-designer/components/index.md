@@ -7,6 +7,8 @@ aliases:
     - "/ui-components"
 ---
 
+## Available UI components
+See documentation here: https://docs.altinn.studio/app/design/guidelines/components/
 ### Text components
 <table>
   <tbody>
@@ -17,7 +19,7 @@ aliases:
       <th>Default look</th>
     </tr>
     <tr>
-      <td>Title<br>("Header" in json)</td>
+      <td><a href="/app/design/guidelines/components/title-and-paragraph/">Title</a><br>("Header" in json)</td>
       <td>
         <ul>
           <li>Title text<br/>(text in json)</li>
@@ -27,7 +29,7 @@ aliases:
       <td><img alt="Title component - default look" src="display-title.png?width=700" title="Title component - default look" /></td>
     </tr>
     <tr>
-      <td>Paragraph</td>
+      <td><a href="/app/design/guidelines/components/title-and-paragraph/">Paragraph</a></td>
       <td>
         <ul>
           <li>Paragraph text</li>
@@ -49,7 +51,7 @@ aliases:
       <th>Default look</th>
     </tr>
     <tr>
-      <td>Input</td>
+      <td><a href="/app/design/guidelines/components/input/">Input</a></td>
       <td>
         <ul>
           <li>Link to data model</li>
@@ -60,7 +62,7 @@ aliases:
       <td><img alt="Input component - default look" src="display-input.png?width=700" title="Input component - default look" /></td>
     </tr>
     <tr>
-      <td>Checkboxes</td>
+      <td><a href="/app/design/guidelines/components/checkbox/">Checkboxes</a></td>
       <td>
         <ul>
           <li>Link to data model</li>
@@ -84,7 +86,7 @@ aliases:
       <td><img alt="Checkboxes component - default look" src="display-checkbox.png?width=700" title="Checkboxes component - default look" /></td>
     </tr>
     <tr>
-      <td>Radio buttons</td>
+      <td><a href="/app/design/guidelines/components/radiobutton/">Radio buttons</a></td>
       <td>
         <ul>
           <li>Link to data model</li>
@@ -110,7 +112,7 @@ aliases:
       </td>
     </tr>
         <tr>
-      <td>Dropdown</td>
+      <td><a href="/app/design/guidelines/components/select/">Dropdown</a></td>
       <td>
         <ul>
           <li>Link to data model</li>
@@ -139,7 +141,7 @@ aliases:
       <td><img alt="Text area component - default look" src="display-text-area.PNG?width=700" title="Text area component - default look" /></td>
     </tr>
     <tr>
-      <td>Datepicker</td>
+      <td><a href="/app/design/guidelines/components/date/">Datepicker</a></td>
       <td>
         <ul>
           <li>Link to data model</li>
@@ -151,7 +153,7 @@ aliases:
       <td><img alt="Text area component - default look" src="display-datepicker.png?width=700" title="Datepicker component - default look" /></td>
     </tr>
     <tr>
-      <td>Button</td>
+      <td><a href="/app/design/guidelines/components/button/">Button</a></td>
       <td>
         <ul>
           <li>Action (not configurable in MVP)</li>
@@ -162,7 +164,7 @@ aliases:
       <td>TBA</td>
     </tr>
     <tr>
-      <td>File Upload</td>
+      <td><a href="/app/design/guidelines/components/file-upload/">File Upload</a></td>
       <td>
         <ul>
           <li>Component mode</li>
@@ -231,7 +233,7 @@ NOTE: The address component is a proof of concept. The content/design of this co
       <td><img alt="Address (advanced mode) - default look" src="display-address-advanced.png?width=700" title="Address (advanced mode) - default look" /></td>
     </tr>
         <tr>
-      <td>Group<br/></td>
+      <td><a href="/app/development/ux/fields/grouping/">Group</a> <br/></td>
       <td>
         <ul>
           <li>Group id</li>
