@@ -165,7 +165,7 @@ This will look something like this:
 ![labelGrid example output](label-grid.png "labelGrid example output")
 
 ## Two radiobuttons or checkboxes vertically aligned
-By default radiobuttons and checkboxes with only two options will be displayed on one line. If you would like them to be displayed below each oter as this:
+By default radiobuttons and checkboxes with only two options will be displayed on one line. If you would like them to be displayed below each other as this:
 
 ![Vertical aligned radiobuttons](radio-vertical-align.jpeg "Vertical aligned radiobuttons")
 
