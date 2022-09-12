@@ -187,6 +187,7 @@ to be populated using intellisense.
 Keep in mind that if you have complex types in your model, these will need to be instantiated before you can
 assign a value to one of the type's subelements. See the example below where we assume that `Bruker` and 
 `Name` are separate C# classes.
+This does not apply if the element already is instantiated with information.
 
 ```C#
 public async Task DataCreation(Instance instance, object data)
