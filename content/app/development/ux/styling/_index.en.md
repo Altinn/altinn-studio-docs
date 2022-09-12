@@ -164,6 +164,37 @@ This will look something like this:
 
 ![labelGrid example output](label-grid.png "labelGrid example output")
 
+## Two radiobuttons or checkboxes vertically aligned
+By default radiobuttons and checkboxes with only two options will be displayed on one line. If you would like them to be displayed below each oter as this:
+
+![Vertical aligned radiobuttons](radio-vertical-align.jpeg "Vertical aligned radiobuttons")
+
+you need to change/add "layout":"column" in the component configuration.
+```json
+{
+        "id": "radio-under-hverandre",
+        "type": "RadioButtons",
+        "textResourceBindings": {
+          "title": "Vil du har to linjer når det kun er to svaralternativ?"
+        },
+        "dataModelBindings": {
+          "simpleBinding": "someRadiobuttonFieldWith2Options"
+        },
+        "options": [
+          {
+            "value": "1",
+            "label": "Ja"
+          },
+          {
+            "value": "0",
+            "label": "Nei"
+          }
+        ],
+        "required": true,
+        "layout": "column"
+      }
+```
+
 ## Formatting numbers
 Support has now been implemented to be able to specify formatting of numbers in input fields. This is done by adding a property `formatting` to
 the input component. Formatting options are documented in a [JSON-schema](https://altinncdn.no/schemas/json/component/number-format.schema.v1.json),
