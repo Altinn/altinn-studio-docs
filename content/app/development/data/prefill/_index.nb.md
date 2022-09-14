@@ -183,7 +183,6 @@ som skal populeres ved bruk av intellisense.
 Vær oppmerksom på at dersom du har komplekse typer i modellen din, må disse instansieres før man kan
 tilegne en verdi til ett av typens underelementer. Se eksempel nedenfor der vi legger til grunn at 'Bruker'
 og 'Name' er egne C#-klasser.
-Dette gjelder ikke hvis elementene allerede er instansiert med informasjon.
 
 ```C#
 public async Task DataCreation(Instance instance, object data)
