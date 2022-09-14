@@ -184,7 +184,7 @@ Replace _Data model_ with the name on the C# class that has been generated based
 on the xsd uploaded to Altinn Studio. If you use a suitable code editor you will be able to define fields
 to be populated using intellisense.
 
-Keep in mind that if you have complex types in your model, these will need to be instantiated before you can
+Keep in mind that if you have complex types in your model, you have to verify that they are instantiated before you can
 assign a value to one of the type's subelements. See the example below where we assume that `Bruker` and 
 `Name` are separate C# classes.
 This does not apply if the element already is instantiated with information.
