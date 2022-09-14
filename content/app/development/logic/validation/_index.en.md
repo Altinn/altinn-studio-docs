@@ -15,7 +15,7 @@ Validations can also be set up to [trigger on page navigation](/app/development/
 ## Client-side validation
 
 This is validation that is run in the browser, before data is sent to server for saving. This makes it possible to give quick feedback to 
-the user during the fillout process.
+the user during the process of filling out the form.
 
 Client-side validation is based on the data model of the form, and uses this to determine what is valid input in a field.
 Specifically, the JSON schema version of the data model is used for validation. This is automatically generated when uploading an XSD.
@@ -170,11 +170,32 @@ Custom validation can also be split into two categories; task-validation and dat
 - Task-validation will run each time validation is triggered either manually from the application or when you attempt to move forward in the process.
 - Data-validation will run if you're on a step that has defined data elements associated with it.
 
-Validations are written in C#, in the `ValidationHandler.cs`-file in the application template.
+Validations are written i C# and dependening on the version of the application template and Nuget packages you are using, the way the implementation is done varies slightly. In the earlier versions it's a pre-created file where you put your logic, while from version 7 and onwards you implement an interface in whatever class you like. The interface happens to be equal to the pre-defined class in the earlier versions. The examples below which referers to the methods to add your validation logic to is the same.
+
+{{% content-version-selector %}}
+
+{{<content-version-container version-label="v4, v5, v6">}}
+Validations should be added to the `ValidationHandler.cs`-file in the application template.
 The file can be accessed and edited in Altinn Studio through the logic menu, by selecting _Rediger valideringer_,
 or directly in the application repo where the file is under the `logic/Validation`-folder.
 
-Changes are made in the `ValidateData` and `ValidateTask`-methods (these are empty when the app is made).
+{{</content-version-container>}}
+
+{{<content-version-container version-label="v7">}}
+In version 7 the way to do custom code instantiation has changed. We now use an dependency injection based approach insted of overriding methods. If you previously used to place your custom code in the _ValidateData_ and _ValidateTask_ methods in the _ValidationHandler.cs_ class you will see that it's mostly the same.
+
+1. Create a class that implements the `IInstanceValidator` interface found in the `Altinn.App.Core.Features.Validation` namespace.  
+    You can name and place the file in any folder you like within your project, but we suggest you use meaningful namespaces like in any other .Net project.
+2. Register you custom implementation in the _Program.cs_ class
+    ```C#
+    services.AddTransient<IInstanceValidator, InstanceValidator>();
+    ```
+    This ensuers your custom code is known to the application and that it will be executed.    
+{{</content-version-container>}}
+
+From here on the examples should be valid for all versions:)
+
+Custom logic are added to the `ValidateData` and `ValidateTask`-methods.
 The former takes in a data object and the latter takes in the instance and taskId.
 To add a validation error, the `AddModelError`-method of the `validationResult`-object, which is a parameter in both methods, is used.
 
