@@ -102,7 +102,7 @@ Your organization should have access to a set of test users, use one of these to
 
 For internal people in Digdir: Use one of the test users you can find in [the test data set](https://pedia.altinn.cloud/testing/testdata/datasets/) and log in.
 
-**Test the different tracks and for pages to confirm that the behaviour is as expected.**
+**Test the different tracks and pages to confirm that the behaviour is as expected.**
 
 {{% /expandlarge %}}
 
