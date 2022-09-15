@@ -10,7 +10,7 @@ I denne modulen skal du legge til et prosessteg i applikasjonen.
 
 **Temaer som dekkes i denne modulen:**
 - Prosess
-- Brekreftelsessteg
+- Bekreftelsessteg
 - Autorisasjonsregler
 - Validering
 - Overstyre standardtekster
@@ -19,20 +19,21 @@ I denne modulen skal du legge til et prosessteg i applikasjonen.
 
 {{% expandlarge id="prosessbeskrivelse" header="Utvide prosess med et bekreftelsessteg" %}}
 
-En Altinn App har en prosessflyt som beskriver de ulike stegene i flyten.
-Standardflyten for en nyopprettet applikasjon består av én task, et utfyllingssteg.
+En Altinn-app har en prosessflyt som beskriver de ulike stegene i flyten.
+Standardflyten for en nyopprettet applikasjon består av én oppgave og ett utfyllingssteg.
 
 ![Standard prosessflyt illustrert](/app/app-dev-course/modul5/default-process.png)
 
-Din oppgave er å utvide standard prosessflyten med et bekreftelsessteg som illustrert nedenfor.
+Din oppgave er å utvide standardprosessflyten med et bekreftelsessteg som illustrert nedenfor.
+Bekreftelsessiden blir lagt til automatisk når man legger til dette i BPMN-filen.
 
 ![Oppdatert prosessflyt illustrert](/app/app-dev-course/modul5/updated-process.png)
 
 {{% notice info %}}
-[Standard prosessflyter er tilgjengelig på GitHub](https://github.com/Altinn/altinn-studio/tree/master/src/Altinn.Apps/AppTemplates/ProcessTemplates).
+[Standard prosessflyter er tilgjengelige på GitHub](https://github.com/Altinn/altinn-studio/tree/master/src/Altinn.Apps/AppTemplates/ProcessTemplates).
 Finner du den som passer til flyten vi ønsker å oppnå her?
 
-Har du lyst på en ekstra utfordring kan du redigere prosessflyten manuelt eller i en BPMN editor,
+Har du lyst på en ekstra utfordring, kan du redigere prosessflyten manuelt eller i et BPMN-redigeringsverktøy,
 og heller bruke [malen på prosessflyt med data og bekreftelsessteg](https://raw.githubusercontent.com/Altinn/altinn-studio/master/src/Altinn.Apps/AppTemplates/ProcessTemplates/Data_Confirmation_Process.bpmn) som fasit.
 {{% /notice %}}
 
@@ -51,8 +52,8 @@ På dette punktet i arbeidsflyten skal brukeren kunne:
 - [BPMN standard](https://en.wikipedia.org/wiki/Business_Process_Model_and_Notation)
 
 ### Forståelsessjekk
-- Hvilke Altinn-spesifikke egenskaper er satt på hver prosesstask?
-- Hvilke begrensninger vil en ekstern BPMN editor ha når man skal redigere prosessbeskrivelsen til en Altinn App?
+- Hvilke Altinn-spesifikke egenskaper er satt på hver prosessoppgave?
+- Hvilke begrensninger vil et eksternt BPMN-redigeringsverktøy ha når man skal redigere prosessbeskrivelsen til en Altinn-app?
 - Vil prosessflyten kunne gå begge veier? Fra utfylling til bekreftelse og fra bekreftelse til utfylling?
 {{% /expandlarge %}}
 
@@ -60,7 +61,7 @@ På dette punktet i arbeidsflyten skal brukeren kunne:
 {{% expandlarge id="autorisasjon" header="Legge til autorisasjonsregler for bekreftelsessteget" %}}
 
 Policy-filen til applikasjonen din er tilpasset standard prosessflyt.
-Oppdater policyfilen, så den har autorisasjonsregler som dekker det nye prosessteget.
+Oppdater policyfilen så den har autorisasjonsregler som dekker det nye prosessteget.
 
 ### Krav fra kommunen
 - Det skal være samme rollekrav for å fylle ut og bekrefte en instans.
@@ -70,20 +71,20 @@ Oppdater policyfilen, så den har autorisasjonsregler som dekker det nye prosess
 - [Alle roller i Altinn](https://www.altinn.no/hjelp/skjema/alle-altinn-roller/)
 
 ### Forståelsessjekk
-- Hva vil skje når prosessflyten går videre til bekreftelse-steget uten at autoriasjonsreglene er blitt oppdatert?
+- Hva vil skje når prosessflyten går videre til bekreftelsessteget uten at autoriasjonsreglene er blitt oppdatert?
 - Hva skjer dersom du ikke spesifiserer hvilke roller som har lov til å utføre en aksjon i en autorisasjonsregel?
 {{% /expandlarge %}}
 
 {{% expandlarge id="validation" header="Validering av innsender" %}}
 
 ### Krav fra kommunen
-- Det skal kun være mulig for brukeren som eier instansen å sende inn skjemaet, selv om andre måtte inneha de nødendigve rollene
+- Det skal kun være mulig for brukeren som eier instansen å sende inn skjemaet, selv om andre måtte inneha de nødendige rollene
 
 ### Nyttig dokumentasjon
 - [Egendefinert validering](/nb/app/development/logic/validation/#hvordan-legge-til-egendefinert-validering)
 
 ### Forståelsessjekk
-- Hvilken endring ville du foreslått for kunden for å kunne oppfylle dette kravet uten å legge inn egendefinerte valideringen på dette steget?
+- Hvilken endring ville du foreslått for kunden for å kunne oppfylle dette kravet uten å legge inn den egendefinerte valideringen på dette steget?
 {{% /expandlarge %}}
 
 
@@ -91,7 +92,7 @@ Oppdater policyfilen, så den har autorisasjonsregler som dekker det nye prosess
 
 ### Krav fra kommunen
 
-Vi ønsker at brukeren skal presenteres med følgende tekst før innsending
+Vi ønsker at brukeren skal presenteres med følgende tekst før innsending:
 
 ```rich
 Du er nå klar for å sende inn melding om tilflytting til Sogndal kommune.
@@ -102,21 +103,21 @@ Før du sender inn vil vi anbefale å se over svarene dine. Du kan ikke endre sv
 ```
 
 ### Nyttig dokumentasjon
-- [Tilpasning av brekreftelsessiden](/nb/app/development/configuration/process/customize/#bekreftelse-confirmation)
+- [Tilpasning av bekreftelsessiden](/nb/app/development/configuration/process/customize/#bekreftelse-confirmation)
 
 {{% /expandlarge %}}
 
 
 ## Oppsummering
 
-I denne modulen har du utvided applikasjonen din med et bekreftelsessteg, tilpasset visningen, og lagt til validering og autorisasjonsregler knyttet til prosessteget.
+I denne modulen har du utvidet applikasjonen din med et bekreftelsessteg, tilpasset visningen, og lagt til validering og autorisasjonsregler knyttet til prosessteget.
 
-Tjenesten skal kunne kjøres opp på din lokale maskin med local test
+Tjenesten skal kunne kjøres opp på din lokale maskin med lokal test
 og du skal kunne teste det nye prosessteget og bekrefte at visningen ser ut som ønsket.
 
-**Husk å _pushe_ de lokale endringene dine, så de blir tilgjengelig i Altinn Studio når du er fornøyd**
+**Husk å _pushe_ de lokale endringene dine, så de blir tilgjengelige i Altinn Studio når du er fornøyd**
 
 ### Løsningsforslag
-Dersom du ikke har fått til alle stegene har vi et [løsningsforslag](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/5) som du kan hente inspirasjon fra.
+Dersom du ikke har fått til alle stegene, har vi et [løsningsforslag](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/5) som du kan hente inspirasjon fra.
 
 ![Skjermbilde av bekreftelsesside](/app/app-dev-course/modul5/bekreftelsesside-screenshot.png "Skjermbilde av bekreftelsesside")

@@ -16,6 +16,7 @@ $(document).ready(function() {
 
     /* handles doc versions */
     const contentVersionSelectorId = "content-version-selector";
+
     const contentVersionTabsId = "content-version-tabs";
     const contentVersionContainerId = "content-version-container";
     const contentVersionLabelId = "content-version-label";

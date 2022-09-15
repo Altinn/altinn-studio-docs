@@ -10,6 +10,8 @@ Valideringer sørger for at brukerens input er gyldig med tanke på datamodellen
 i tillegg til alle egendefinerte regler som settes opp for applikasjonen.
 Valideringer kan kjøres enten på klient (dvs. browseren) eller serversiden.
 
+Man kan også sette opp validering til å [kjøre ved sidebytte](/nb/app/development/ux/pages/navigation/#validering-ved-sidebytte).
+
 ## Klientside-validering
 
 Dette er validering som kjøres i browseren, FØR data er sendt til server for lagring. Dette gjør det mulig å gi raske tilbakemeldinger til 
@@ -50,10 +52,15 @@ Det er satt opp standard feilmeldinger for alle valideringene som gjøres på kl
 | enum      | 'Kun verdiene {0} er tillatt' | 'Kun verdiene {0} er tillatt' | 'Only the values {0} are permitted'   |
 
 ### Spesielt om standard feilmelding for påkrevde felter
+For en smidigere brukeropplevelse vises ikke feilmeldinger for manglende utfylling av påkrevde felter under
+utfylling av et skjema, med mindre validering trigges [på et enkeltfelt](#enkeltfeltvalidering), ved lagring
+av [en rad i en repeterende gruppe](#gruppevalidering) eller
+[ved navigering til en annen side](/nb/app/development/ux/pages/navigation/#validering-ved-sidebytte).
+
 Feilmeldingen for påkrevde felter er _"Du må fylle ut {0}"_. Her blir `{0}` erstattet med det feltet som feilmeldingen gjelder for.
 Dette gjøres på følgende måte:
 - Bruker feltets `shortName` tekst. Dette er en ny tekst som kan settes opp pr. komponent på samme måte som ledetekst (`title`) settes i dag. _Denne teksten brukes pr nå KUN i forbindelse med feilmeldingen for påkrevde felter._ 
-- Om `shortName` ikke er definert brukes feltets `title` tekst (det som er definert som ledetekst for feltet).
+- Om `shortName` ikke er definert brukes feltets `title` tekst (det som er definert som ledetekst for feltet), og teksten vil bli forsøkt gjort om til en tekst med liten forbokstav (med mindre teksten ser ut som en forkortelse).
 - I noen spesialtilfeller (Adresse-komponenten) der det er flere felter i ett brukes de standard-tekstene som er definert for feltene i komponenten.
 
 #### Eksempel: Felt med kun `title`

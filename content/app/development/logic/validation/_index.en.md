@@ -10,6 +10,8 @@ Validations ensures that the user's input is valid with regard to the data model
 in addition to all custom rules that are set up for the application.
 Validations can be run either on the client- (the browser) or the server-side.
 
+Validations can also be set up to [trigger on page navigation](/app/development/ux/pages/navigation/#validation-on-page-navigation).
+
 ## Client-side validation
 
 This is validation that is run in the browser, before data is sent to server for saving. This makes it possible to give quick feedback to 
@@ -50,10 +52,15 @@ Default error messages has been set up for all validations done on the client-si
 | enum      | 'Kun verdiene {0} er tillatt' | 'Kun verdiene {0} er tillatt' | 'Only the values {0} are permitted'   |
 
 ### More about error messages for required fields
+For a smoother user experience, error messages for missing data in required fields won't be displayed automatically
+while filling out a form, unless validation is triggered [for a single field](#single-field-validation), when saving
+a [row in a repeating group](#group-validation) or
+[when navigating to another page](/app/development/ux/pages/navigation/#validation-on-page-navigation).
+
 The error message for required fields is as defined above, _"You have to fill out {0}"_. The `{0}` symbol is replaced with the field that
 the error message is shown for. This is done in the following way:
 - If `shortName` text is defined for the component, this is used. _This is a new text that is currently used only for this specific error message._
-- If the `shortName` text is not defined, the `title` text for the component is used - this is the components label text.
+- If the `shortName` text is not defined, the `title` text for the component is used - this is the components label text. The text will be converted to use a lowercase letter first, unless the text looks like an acronym.
 - In some special cases (Address component) where there are multiple fields within the component, the default labels for the fields is used.
 
 #### Example: Component with only `title`

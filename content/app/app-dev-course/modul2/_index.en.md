@@ -151,9 +151,11 @@ In this task, the focus has returned to the first data collecting page, and the 
 - [Available prefill sources](https://altinncdn.no/schemas/json/prefill/prefill.schema.v1.json)
 - [Prefill from national register and user profile](/app/development/data/prefill/#prefill-from-national-register-and-user-profile)
 - [Custom prefill](/app/development/data/prefill/#custom-prefill)
-- [Description of the InstanceOwner object](../../../api/models/instance/#instanceowner)
+- [Description of the InstanceOwner object](../../../api/models/instance/#instanceowner) - This is where the social security number can be found.
+  In the code, the properties are referred to with an uppercase first letter, not lowercase as in this overview.
 
 ### Help with code: Calculating age from social security number
+This function calculates the age from the social security number. It is important to add `using System;` to the top of the file in order to make it work.
 ```cs
 private static int CalculateAge(string sosialSecNumber)
 {

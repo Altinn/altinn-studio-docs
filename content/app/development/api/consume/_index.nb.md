@@ -10,7 +10,7 @@ ASP.NET Core har gode muligheter til å konsumere API.
 Dette kan være nyttig dersom man ønsker å eksponere organisasjonens
 egne API via en app eller har behov for data fra eksterne API i appen.
 
-På denne siden går vi gjennom et eksempel hvor et eksternt, åpent API benyttes til å berrike skjemadata.
+På denne siden går vi gjennom et eksempel hvor et eksternt, åpent API benyttes til å berike skjemadata.
 [Eksempelappen kan sees i sin helhet i Altinn Studio](https://altinn.studio/repos/ttd/consume-api-example).
 
 APIet som benyttes er [RestCountries v3](https://restcountries.com/#api-endpoints-v3) og det er 
@@ -19,7 +19,7 @@ Dette returnerer et sett med detaljer om landet som er oppgitt.
 
 Du kan studere responsen ved å kalle APIet fra nettleseren din: [https://restcountries.com/v3.1/name/Norway](https://restcountries.com/v3.1/name/Norway).
 
-Vi ønsker å berrike skjemaet med detaljer om et land som sluttbruker har fylt inn. 
+Vi ønsker å berike skjemaet med detaljer om et land som sluttbruker har fylt inn. 
 
 ## Opprettelse av API modeller
 
@@ -277,7 +277,8 @@ Dersom det ikke er en suksess-statuskode logger vi en feil og returnerer null.
 
 Når interface og klient er implementert kan den registreres i _App/Program.cs_ (.NET 6) eller i _App/Startup.cs_ (.NET 5) for bruk i applikasjonen.
 
-I metoden `ConfigureServices` legger vi til kodelinjen nedenfor
+I metoden `ConfigureServices` legger vi til kodelinjen nedenfor.
+I tillegg må `using Altinn.App.client;` legges til øverst i filen.
 
 ```C#
 services.AddHttpClient<ICountryClient, CountryClient>();
@@ -285,19 +286,19 @@ services.AddHttpClient<ICountryClient, CountryClient>();
 
 ## Benytte klient i applikasjonslogikk
 
-For å berrike skjemadata må vi koble klienten vår på logikken i _App/logic/DataProcessingHandler.cs_ i metoden _ProcessDataWrite_.
+For å berike skjemadata må vi koble klienten vår på logikken i _App/logic/DataProcessingHandler.cs_ i metoden _ProcessDataWrite_.
 
 Først må klienten tilgjengeliggjøres ved å _injecte_ den inn i konstruktøren til klassen.
 DataProcessingHandler har ingen konstruktør i utgangspunktet så den må opprettes i klasse. 
 
 ```cs
- public DataProcessingHandler()
+public DataProcessingHandler()
 {
 }
 ```
 
 Videre kan vi opprette et privat objekt for klienten, injecte den i konstruktøren og assigne den til det private objektet. 
-Resultatet blir seende slik ut: 
+Resultatet blir seende slik ut:
 
 ```cs
 private readonly ICountryClient _countryClient;
@@ -307,6 +308,7 @@ public DataProcessingHandler(ICountryClient countryClient)
     _countryClient = countryClient;
 }
 ```
+I tillegg må `using Altinn.App.client;` legges til også i denne filen.
 
 __countryClient_ er nå tilgjengelig i DataProcessingHandler og vi er klare til å implementere logikken i ProcessDataWrite. 
 
