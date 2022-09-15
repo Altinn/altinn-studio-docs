@@ -1,26 +1,32 @@
 
 /* Version control for docs */
-#content-version-selector {
-    margin-bottom:18px;
+#content-version-tabs {
+    margin-bottom:unset;
 }
 
-#content-version-selector li {
+.content-version-container {
+    border: 3px solid #0062ba;
+    padding:10px;
+}
+
+#content-version-tabs li {
     list-style: none!important;
     display:inline-block;
     padding: 5px 20px;
-    border: 2px solid #0062ba;
-    margin-right:5px;
+    border: 3px solid #0062ba;
+    border-bottom: unset;
+    margin-bottom: 0px;
 }
 
-#content-version-selector li.active {
+#content-version-tabs li.active {
     background-color: #0062ba;
     color:white;
 }
 
-#content-version-selector li::before {
+#content-version-tabs li::before {
     display: none!important;
 }
-#content-version-selector li:hover {
+#content-version-tabs li:hover {
     background-color: #0062ba;
     color:white;
     cursor: pointer;
