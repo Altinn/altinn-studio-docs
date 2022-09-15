@@ -1,12 +1,12 @@
 
 /* Version control for docs */
-#content-version-tabs {
-    margin-bottom:unset;
-}
-
-.content-version-container {
+.content-version-selector.border-box .content-version-container {
     border: 3px solid #0062ba;
     padding:10px;
+}
+
+#content-version-tabs {
+    margin-bottom:unset;
 }
 
 #content-version-tabs li {

@@ -1,4 +1,6 @@
-<div class="content-version-selector">
+<div class="content-version-selector {{ with .Get "classes" }}{{.}}{{ end }}">
+
+    
     <ul id="content-version-tabs"></ul>
 
     {{.Inner}}
