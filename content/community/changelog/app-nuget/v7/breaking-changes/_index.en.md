@@ -63,53 +63,24 @@ Steps:
 
 ### Upgrade and register DataProcessingHandler
 
-If your `App/logic/DataProcessing/DataProcessingHandler.cs` is similar to the following code you can delete the file and move on [TODO next step](). If not please follow the steps below.
+Custom logic while performing DataWrite or DataRead are from v7 handeled by registering a service class implementing `Altinn.App.Core.Features.DataProcessing.IDataProcessor`
+
+If your `App/logic/DataProcessing/DataProcessingHandler.cs` is similar to the following code you can delete the file and move on [Replace InstantiationHandler.cs and register new service](#replace-instantiationhandlercs-and-register-new-service).
 
 ```csharp
 using System;
 using System.Threading.Tasks;
 using Altinn.Platform.Storage.Interface.Models;
 
-//// using Altinn.App.Models; // <-- Uncomment this line to refer to app model(s)
-
 namespace Altinn.App.AppLogic.DataProcessing
 {
-    /// <summary>
-    /// Represents a business logic class responsible for running calculations on an instance.
-    /// </summary>
     public class DataProcessingHandler
     {
-        /// <summary>
-        /// Perform data processing on data read. When reading data from App API
-        /// </summary>
-        /// <example>
-        /// if (data.GetType() == typeof(Skjema)
-        /// {
-        ///     Skjema model = (Skjema)data;
-        ///     // Perform calculations and manipulation of data model here
-        /// }
-        /// </example>
-        /// <param name="instance">The instance that data belongs to</param>
-        /// <param name="dataId">The dataId for data if available</param>
-        /// <param name="data">The data as object</param>
         public async Task<bool> ProcessDataRead(Instance instance, Guid? dataId, object data)
         {
             return await Task.FromResult(false);
         }
 
-        /// <summary>
-        /// Perform data processing on data write. When posting and putting data against app
-        /// </summary>
-        /// <example>
-        /// if (data.GetType() == typeof(Skjema)
-        /// {
-        ///     Skjema model = (Skjema)data;
-        ///     // Perform calculations and manipulation of data model here
-        /// }
-        /// </example>
-        /// <param name="instance">The instance that data belongs to</param>
-        /// <param name="dataId">The dataId for data if available</param>
-        /// <param name="data">The data as object</param>
         public async Task<bool> ProcessDataWrite(Instance instance, Guid? dataId, object data)
         {
             return await Task.FromResult(false);
@@ -118,42 +89,308 @@ namespace Altinn.App.AppLogic.DataProcessing
 }
 ```
 
-1. `DataProcessingHandler` needs to implement `Altinn.App.Core.Features.DataProcessing.IDataProcessor`.
-
-    Change:
-    ```csharp
-    public class DataProcessingHandler
-    ```
-
-    to 
-
-    ```csharp
-    public class DataProcessingHandler: IDataProcessor
-    ```
-
-    Remember to add the using for `Altinn.App.Core.Features.DataProcessing`
-
-    ```csharp
+If you have custom code in this class complete the steps below:
+1. Create a new class named `DataProcessor` in the folder `App/logic/DataProcessing`, make the class implement the interface  `Altinn.App.Core.Features.DataProcessing.IDataProcessor`. The file should now look something like thsi:
+   
+   ```csharp
+   using System;
+    using System.Threading.Tasks;
     using Altinn.App.Core.Features.DataProcessing;
-    ```
+    using Altinn.Platform.Storage.Interface.Models;
 
-    Unless you have made changes to the method names this should be enough as the Interface is designed on the old DataProcessingHandler.
+    namespace Altinn.App.AppLogic.DataProcessing;
 
-2. Register your custom implementation of `IDataProcessor` in the method `RegisterCustomAppServices` `App/Program.cs`
+    public class DataProcessor : IDataProcessor
+    {
+        public async Task<bool> ProcessDataRead(Instance instance, Guid? dataId, object data)
+        {
+        }
+
+        public async Task<bool> ProcessDataWrite(Instance instance, Guid? dataId, object data)
+        {
+        }
+    }
+   ```
+
+2. Move your code from the file `App/logic/DataProcessing/DataProcessingHandler.cs` to the file you just created.
+3. Register `DataProcessor`  in the method `RegisterCustomAppServices` `App/Program.cs`
 
     ```csharp
-    void RegisterCustomAppServices(IServiceCollection services, IConfiguration config)
+     void RegisterCustomAppServices(IServiceCollection services, IConfiguration config)
     {
-      services.AddTransient<IDataProcessor, DataProcessingHandler>();
+      services.AddTransient<IDataProcessor, DataProcessor>();
+
+      // Other custom services
+    }
+    ```
+    Remember to add the necessary usings.
+4. Delete the old DataProcessingHandler.cs file
+
+### Replace InstantiationHandler.cs and register new service
+
+The logic that previously was defined in `App/logic/InstantiationHandler.cs` is now defined by implementing two interfaces
+
+* `IInstantiationProcessor` is used to do custom data/instance manipulation durin instantiation. Replaces the method `DataCreation` in `InstantiationHandler`
+* `IInstantiationValidator` is used to do custom validation during Instantiation. Replaces the method `RunInstantiationValidation` in `InstantiationHandler`
+
+If your `App/logic/InstantiationHandler.cs` looks like the code below you have no custom code here and can delete the class now (comments ommited for brevity).
+
+```csharp
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using Altinn.App.Services.Interface;
+using Altinn.App.Services.Models.Validation;
+using Altinn.Platform.Storage.Interface.Models;
+
+namespace Altinn.App.AppLogic
+{
+    public class InstantiationHandler
+    {
+        private IProfile _profileService;
+        private IRegister _registerService;
+
+        public InstantiationHandler(IProfile profileService, IRegister registerService)
+        {
+            _profileService = profileService;
+            _registerService = registerService;
+        }
+
+        public async Task<InstantiationValidationResult> RunInstantiationValidation(Instance instance)
+        {
+            return await Task.FromResult((InstantiationValidationResult)null);
+        }
+
+        public async Task DataCreation(Instance instance, object data, Dictionary<string, string> prefill)
+        {
+            await Task.CompletedTask;
+        }
+    }
+}
+```
+
+If you have custom code in the mehod `DataCreation` complete these steps:
+1. Create a new Class named `InstantiationProcessor.cs` in `App/logic/DataProcessing` and implement the interface `Altinn.App.Core.Features.DataProcessing.IInstantiationProcessor`. The class can be named or placed where you like, this is only a suggestion. The file should look something like this now:
+
+    ```csharp
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
+    using Altinn.App.Core.Features.DataProcessing;
+    using Altinn.Platform.Storage.Interface.Models;
+
+    namespace Altinn.App.AppLogic.DataProcessing;
+
+    public class InstantiationProcessor : IInstantiationProcessor
+    {
+        public async Task DataCreation(Instance instance, object data, Dictionary<string, string> prefill)
+        {
+            
+        }
+    }
+    ```
+
+2. Move all the code from `DataCreation` in `ÌnstantiationHandler.cs` into the method `DataCreation` in the class you just created.
+3. Register `InstantiationProcessor`  in the method `RegisterCustomAppServices` `App/Program.cs`
+
+    ```csharp
+     void RegisterCustomAppServices(IServiceCollection services, IConfiguration config)
+    {
+      services.AddTransient<IInstantiationProcessor, InstantiationProcessor>();
+
+      // Other custom services
+    }
+    ```
+    Remember to add the necessary usings.
+
+
+If you have custom code in the method `RunInstantiationValidation` complete the steps below, if not skip these steps:
+
+1. Create a new Class named `InstantiationValidator.cs` in `App/logic/Validation` and implement the interface `Altinn.App.Core.Features.Validation.IInstantiationValidator`. The class can be named or placed where you like, this is only a suggestion. 
+   The file should look something like this now:
+
+    ```csharp
+    using System.Threading.Tasks;
+    using Altinn.App.Core.Features.Validation;
+    using Altinn.App.Core.Models.Validation;
+    using Altinn.Platform.Storage.Interface.Models;
+
+    namespace Altinn.App.AppLogic.Validation;
+
+    public class InstantiationValidator : IInstantiationValidator
+    {
+        public async Task<InstantiationValidationResult> Validate(Instance instance)
+        {
+            
+        }
+    }
+    ```
+
+2. Move all the code from `RunInstantiationValidation` in `ÌnstantiationHandler.cs` into the method `Validate` in the class you just created.
+3. Register `InstantiationValidator`  in the method `RegisterCustomAppServices` `App/Program.cs`
+
+    ```csharp
+     void RegisterCustomAppServices(IServiceCollection services, IConfiguration config)
+    {
+      services.AddTransient<IInstantiationValidator, InstantiationValidator>();
 
       // Other custom services
     }
     ```
 
-    Remember to att the necessary usings.
+    Remember to add the necessary usings.
 
+You can now delete the file `App/logic/InstantiationHandler.cs`
+
+### Upgrade ValidationHandler.cs and register new service
+
+Custom data and task validation is in v7 handeled by registering a service class implementing `Altinn.App.Core.Features.Validation.IInstanceValidator`.
+
+If your `App/logic/Validation/ValidationHandler.cs` looks like the code below you have no custom code and can delete the file. Adn move on to [Upgrading custom PdfFormatting]().
+
+```csharp
+using System.Threading.Tasks;
+using Altinn.Platform.Storage.Interface.Models;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
+
+namespace Altinn.App.AppLogic.Validation
+{
+    public class ValidationHandler
+    {
+        private IHttpContextAccessor _httpContextAccessor;
+
+        public ValidationHandler(IHttpContextAccessor httpContextAccessor = null)
+        {
+            _httpContextAccessor = httpContextAccessor;
+        }
+
+        public async Task ValidateData(object data, ModelStateDictionary validationResults)
+        {
+            await Task.CompletedTask;
+        }
+
+        public async Task ValidateTask(Instance instance, string taskId, ModelStateDictionary validationResults)
+        {
+            await Task.CompletedTask;
+        }
+    }
+}
+```
+
+If you have custom code here complete the steps below:
+
+1. Create a new class named `InstanceValidator` in the folder `App/logic/Validation`, make the class implement the interface `Altinn.App.Core.Features.Validation.IInstanceValidator`. The file should now look something like this:
+
+    ```csharp
+    using System.Threading.Tasks;
+    using Altinn.App.Core.Features.Validation;
+    using Altinn.Platform.Storage.Interface.Models;
+    using Microsoft.AspNetCore.Mvc.ModelBinding;
+
+    namespace Altinn.App.AppLogic.Validation;
+
+    public class InstanceValidator : IInstanceValidator
+    {
+        public async Task ValidateData(object data, ModelStateDictionary validationResults)
+        {
+        }
+
+        public async Task ValidateTask(Instance instance, string taskId, ModelStateDictionary validationResults)
+        {
+        }
+    }
+    ```
+
+2. Move the code in `ValidateData` method in the old class `ValidatorHandler` to the new one in `InstanceValidator` class.
+3. Move the code in `ValidateTask` method in the old class `ValidatorHandler` to the new one in `InstanceValidator` class.
+4. Register `InstanceValidator`  in the method `RegisterCustomAppServices` `App/Program.cs`
+
+    ```csharp
+     void RegisterCustomAppServices(IServiceCollection services, IConfiguration config)
+    {
+      services.AddTransient<IInstanceValidator, InstanceValidator>();
+
+      // Other custom services
+    }
+    ```
+    Remember to add the necessary usings.
+
+5. Delete the ValidationHandler.cs file.
+
+### Upgrading Custom PDF formatting logic
+
+In previous versions dynamic customization was handled by registering a service implementing ICustomPdfHandler. In v7 this is done by registering a service implementing `Altinn.App.Core.Features.Pdf.IPdfFormatter`
+
+If your `App/logic/Pdf/PdfHandler.cs` looks like the following code you have no custom code and can delete the file and move on to [Updating PageOreder logic]()
+
+
+```csharp
+using System.Threading.Tasks;
+using Altinn.App.Common.Models;
+using Altinn.App.PlatformServices.Interface;
+
+namespace Altinn.App.AppLogic.Print
+{
+    public class PdfHandler: ICustomPdfHandler
+    {
+        public async Task<LayoutSettings> FormatPdf(LayoutSettings layoutSettings, object data)
+        {
+            return await Task.FromResult(layoutSettings);
+        }
+    }   
+}
+
+```
+
+If not, complete the steps below:
+1. Create a new class named `PdfFormatter` in the folder `App/logic/Pdf`. make the class implement the interface `Altinn.App.Core.Features.Pdf.IPdfFormatter`. The file should new look something like this:
+
+    ```csharp
+    using System.Threading.Tasks;
+    using Altinn.App.Core.Features.Pdf;
+    using Altinn.App.Core.Models;
+
+    namespace Altinn.App.AppLogic.Print
+    {
+        public class PdfHandler: IPdfFormatter
+        {
+            public async Task<LayoutSettings> FormatPdf(LayoutSettings layoutSettings, object data)
+            {
+            }
+        }   
+    }
+    ```
+
+2. Move youre code from ICustomPdfHandler to the newly created PdfFormatter class.
+3. Register `PdfFormatter`  in the method `RegisterCustomAppServices` `App/Program.cs`
+
+    ```csharp
+     void RegisterCustomAppServices(IServiceCollection services, IConfiguration config)
+    {
+      services.AddTransient<IPdfFormatter, PdfFormatter>();
+
+      // Other custom services
+    }
+    ```
+    Remember to add the necessary usings.
+5. Delete the old file 
+6. Remove the transient service registration of the old class from `Program.cs`. Should look something like this: `services.AddTransient<ICustomPdfHandler, PdfHandler>();` (remove it by deleteing the line)
+
+
+### Upgrading PageOrder.cs
+
+In v5 of the nugets tracks or pageorder was extracted in a non-breaking way from App.cs. The old way was deprecated in v6 and now removed in v7.
+
+The new way of defining page order in v5 has not really change in v7, but some interfaces has moved namespace.
+
+If you don't have any classes implementing IPageOrder you can safely move on to [Moving code form App.cs and removing it](#moving-code-from-appcs-and-removing-it)
+
+If you do have a class implementing IPageOrder here are some changes in namespace that might be helpful to know:
+* The namespace for IPageOrder has changed from __Altinn.App.Services.Interfaces__ to `Altinn.App.Core.Features.PageOrder`
+* The namespace for AppIdentifier has changed from __Altinn.App.PlatformSerices.Models__ to `Altinn.App.Core.Models`
+* The namespace for IAppResources has changed from __Altinn.App.PlatformSerices.Interface__ `Altinn.App.Core.Interface`
 
 ## Moving code from App.cs and removing it
+
 As we are going to extract code from App.cs and eventually removing it there is no need to pay attention to compilation error.
 
 The next sections will extract custom code from App.cs, if any, and move it to its new home.
@@ -174,10 +411,9 @@ If `RunProcessDataRead` and `RunProcessDataWrite` in `App/App.cs` looks like the
         }
 ```
 
-The code above is default code and only additional code should be copied.
 
-1. Move custom code in `RunProcessDataRead` to the method `ProcessDataRead` in `App/logic/DataProcessing/DataProcessingHandler.cs`
-2. Move custom code in `RunProcessDataWrite` to the method `ProcessDataWrite` in `App/logic/DataProcessing/DataProcessingHandler.cs`
+1. Move custom code in `RunProcessDataRead` to the method `ProcessDataRead` in `App/logic/DataProcessing/DataProcessor.cs` that was created in the step [Upgrade and register DataProcessingHadler](#upgrade-and-register-dataprocessinghandler)
+2. Move custom code in `RunProcessDataWrite` to the method `ProcessDataWrite` in `App/logic/DataProcessing/DataProcessor.cs`
 
 ### Moving custom code in RunDataValidation and RunTaskValidation
 
@@ -195,28 +431,94 @@ If `RunDataValidation`and `RunTaskValidation` looks like the code below you have
         }
 ```
 
-1. Move custom code in `RunDataValidation` to the method `ValidateData` in `App/logic/Validation/ValidationHandler.cs`
-2. Move custom code in `RunTaskValidation` to the method `ValidateTask` in `App/logic/Validation/ValidationHandler.cs`
+1. Move custom code in `RunDataValidation` to the method `ValidateData` in `App/logic/Validation/InstanceValidator.cs` that you created and registered here [Upgrade ValidationHandler.cs and register new service](#upgrade-validationhandlercs-and-register-new-service)
+2. Move custom code in `RunTaskValidation` to the method `ValidateTask` in `App/logic/Validation/InstanceValidator.cs`
 
 
-### Moving custom code in RunInstantiationValidation and RunDataCreation
+### Moving custom code in RunDataCreation
 
-If `RunInstantiationValidation` and `RunDataCreation` looks like the code below you have no custom code and can safely move on to [Moving custom code in RunProcessTaskEnd](#moving-custom-code-in-runprocesstaskend). If not complete the steps below.
+If `RunDataCreation` looks like the code below you have no custom code and can safely move on to [Moving custom code in RunInstantiationValidation](#moving-custom-code-in-runinstantiationvalidation). If not complete the steps below.
 
 ```csharp
-        public override async Task<InstantiationValidationResult> RunInstantiationValidation(Instance instance)
-        {
-            return await _instantiationHandler.RunInstantiationValidation(instance);
-        }
-
         public override async Task RunDataCreation(Instance instance, object data, Dictionary<string, string> prefill)
         {
             await _instantiationHandler.DataCreation(instance, data, prefill);
         }
 ```
 
-1. Move custom code in `RunInstantiationValidation` to the method `Validation` in `App/logic/InstantiationHandler.cs`
-2. Move custom code in `DataCreation` to the method `DataCreation` in `App/logic/InstantiationHandler.cs`
+1. If you haven't already: Create a new class named `InstantiationProcessor.cs` in `App/logic/DataProcessing` and implement the interface `Altinn.App.Core.Features.DataProcessing.IInstantiationProcessor`. The class can be named or placed where you like, this is only a suggestion. The file should look something like this now:
+
+    ```csharp
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
+    using Altinn.App.Core.Features.DataProcessing;
+    using Altinn.Platform.Storage.Interface.Models;
+
+    namespace Altinn.App.AppLogic.DataProcessing;
+
+    public class InstantiationProcessor : IInstantiationProcessor
+    {
+        public async Task DataCreation(Instance instance, object data, Dictionary<string, string> prefill)
+        {
+            
+        }
+    }
+    ```
+2. Move custom code in `DataCreation` to the method `DataCreation` in `App/logic/DataProcessing/InstantiationHandler.cs`
+3.     ```csharp
+     void RegisterCustomAppServices(IServiceCollection services, IConfiguration config)
+    {
+      services.AddTransient<IInstantiationProcessor, InstantiationProcessor>();
+
+      // Other custom services
+    }
+    ```
+    Remember to add the necessary usings.
+
+### Moving custom code in RunInstantiationValidation
+
+If `RunInstantiationValidation` looks like the code below you have no custom code and can safely move on to [Moving custom code in RunProcessTaskEnd](#moving-custom-code-in-runprocesstaskend). If not complete the steps below.
+
+```csharp
+        public override async Task<InstantiationValidationResult> RunInstantiationValidation(Instance instance)
+        {
+            return await _instantiationHandler.RunInstantiationValidation(instance);
+        }
+```
+
+1. If you haven't already: Create a new Class named `InstantiationValidator.cs` in `App/logic/Validation` and implement the interface `Altinn.App.Core.Features.Validation.IInstantiationValidator`. The class can be named or placed where you like, this is only a suggestion. 
+   The file should look something like this now:
+
+    ```csharp
+    using System.Threading.Tasks;
+    using Altinn.App.Core.Features.Validation;
+    using Altinn.App.Core.Models.Validation;
+    using Altinn.Platform.Storage.Interface.Models;
+
+    namespace Altinn.App.AppLogic.Validation;
+
+    public class InstantiationValidator : IInstantiationValidator
+    {
+        public async Task<InstantiationValidationResult> Validate(Instance instance)
+        {
+            
+        }
+    }
+    ```
+
+2. Move all the code from `RunInstantiationValidation` in `ÌnstantiationHandler.cs` into the method `Validate` in the class you just created.
+3. Register `InstantiationValidator`  in the method `RegisterCustomAppServices` `App/Program.cs`
+
+    ```csharp
+     void RegisterCustomAppServices(IServiceCollection services, IConfiguration config)
+    {
+      services.AddTransient<IInstantiationValidator, InstantiationValidator>();
+
+      // Other custom services
+    }
+    ```
+
+    Remember to add the necessary usings.
 
 ### Moving custom code in RunProcessTaskEnd
 
@@ -237,12 +539,8 @@ If `RunProcessTaskEnd` looks like the code below you have no custom code and can
 
     namespace Altinn.App.logic.TaskProcessors;
 
-    /// <summary>
-    /// Implementation of the ITaskProcessor interface.
-    /// </summary>
     public class TaskProcessor: ITaskProcessor
     {
-        /// <inheritdoc />
         public async Task ProcessTaskEnd(string taskId, Instance instance)
         {
             await Task.CompletedTask;
@@ -261,3 +559,21 @@ If `GetPageOrder` in `App/logic/App.cs` is not present you have no custom code a
 2. Move the code from `GetPageOrder` to the mehod `GetPageOrder` in the class you just created.
 3. Register your custom implementation of `IPageOrder` in the mehtod `RegisterCustomAppServices` inside `App/Program.cs`
 
+### Removing App.cs
+
+Now all youre custom code should be moved out of App.cs, take a look in the file and see if there is any code you need to move left.
+
+If you don't see any code worth keeping go ahead and delete the file. All of the logic Altinn used to have in this file is moved elsewhere and you no longer have to see it.
+
+
+## Noteable namespace changes
+
+This is truly not a complete list of alle the changes to namespace we have done in v7, for that see the actual PR on [Github]()
+
+The following list is some of the namespaces that have changed that we think will affect most of the applications
+
+* `Altinn.App.PlatformServices.Options` namespace is moved to `Altinn.App.Core.Features.Options`
+* `Altinn.App.Common.Models` namespace is moved to `Altinn.App.Core.Models`
+* `Altinn.App.PlaformServices.Interface.IPageOrder` interface is moved to the namespace: `Altinn.App.Core.Features.PageOrder`
+  
+There are alot of changes to namespaces so we strongly recomend using Visual Studio Code with the C# plugin installed. This will give you code help for importing and locating new or changes to namespaces.
