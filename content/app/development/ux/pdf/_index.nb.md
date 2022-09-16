@@ -9,15 +9,34 @@ Det er mulig å ekskludere enkelte komponenter, eller hele sider fra å bli med 
 Det er to måter å ekskludere data fra PDF på
 
 1. Via konfigurasjon i filen `Settings.json` under `App/ui`
-2. Programmatisk i filen `PdfHandler.cs` under `App/logic/Print`.
+2. Programmatisk
+   For den programatiske måten er det noen mindre forskjeller avhengig av hvilke versjon av applikasjonsmalen du er på.
+
+{{% content-version-selector %}}
+
+{{<content-version-container version-label="v4, v5, v6">}}
+I tidligere versjoner så gjøres endringene i `PdfHandler.cs` filen under `App/logic/Print` katalogen.
+{{</content-version-container>}}
+
+{{<content-version-container version-label="v7">}}
+I versjon 7 har vi endret måten vi gjør kode baserte tilpassninger på. Vi benytter nå _dependency injection_ i stedet for overstyring av metoder. Hvis du tidligere plasserte koden din i _FormatPdf_ metoden in _PdfHandler.cs_ klassen så vil du erfare at det er mer eller mindre det samme som nå gjøres.
+1. Opprett en klasse som implementerer `IInstanceValidator` grensesnittet som ligger i `Altinn.App.Core.Features.Validation` navnerommet.  
+    Du kan navngi og plassere filene i den mappestrukturen du selv ønsker i prosjektet ditt. Men vi anbefaler at du benytter meningsfulle navnerom som i et hvilket som helst annet .Net prosjekt.
+2. Registrer din implementering i _Program.cs_ klassen
+    ```C#
+    services.AddTran  sient<IInstanceValidator, InstanceValidator>();
+    ```
+    Dette sørger for at din kode er kjent for applikasjonen og at koden blir kjørt når den skal.
+{{</content-version-container>}}
+
+Siden `IPdfFormater` grensesnittet har samme metode som `PdfHandler.cs` klassen er resten av dokumentasjonen og eksemplene felles for alle versjoner.
+
 
 {{%notice info%}}
 Dersom en side/komponent alltid skal ekskluderes fra PDF er det anbefalt å sette det opp i konfigurasjonsfilen. 
 
 Dersom ekskludering av en side/komponent er avhengig av dynamikk _må_ dette gjøres programmatisk. 
 {{% /notice%}}
-
-
 
 ## Ekskludere sider 
 
