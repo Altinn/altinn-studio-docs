@@ -46,7 +46,7 @@ Konfigurasjonen av dette gjøres i `applicationmetadata.json`. Eksempel:
       "minCount": 0
     },
     {
-      "id": "Stateless",
+      "id": "Stateless-model",
       "allowedContentTypes": [
         "application/xml"
       ],
@@ -76,23 +76,23 @@ I `layout-sets.json` legger man så inn det aktuelle settet man referer til fra 
     "sets": [
       {
         "id": "stateless",
-        "dataType": "Stateless"
+        "dataType": "Stateless-model"
       }
     ]
   }
 ```
 
-I eksempelet over så referer layout-settet `stateless` til datamodellen `Stateless`. Eksempel app-struktur på en applikasjon som har satt opp på denne måten:
+I eksempelet over så referer layout-settet `stateless` til datamodellen `Stateless-model`. Eksempel app-struktur på en applikasjon som har satt opp på denne måten:
 
 ```text
 ├───App
     ├───config
     ├───logic
     ├───models
-    │       Stateless.cs
-    │       Stateless.metadata.json
-    │       Stateless.schema.json
-    │       Stateless.xsd
+    │       Stateless-model.cs
+    │       Stateless-model.metadata.json
+    │       Stateless-model.schema.json
+    │       Stateless-model.xsd
     ├───ui
         │   layout-sets.json
         │
@@ -141,7 +141,7 @@ Datatypen sitt `appLogic`-objekt må få en ny innstilling, `"allowAnonymousOnSt
       "minCount": 0
     },
     {
-      "id": "Stateless",
+      "id": "Stateless-model",
       "allowedContentTypes": [
         "application/xml"
       ],
