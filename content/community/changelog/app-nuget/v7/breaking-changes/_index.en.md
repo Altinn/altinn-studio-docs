@@ -240,7 +240,7 @@ You can now delete the file `App/logic/InstantiationHandler.cs`
 
 Custom data and task validation is in v7 handeled by registering a service class implementing `Altinn.App.Core.Features.Validation.IInstanceValidator`.
 
-If your `App/logic/Validation/ValidationHandler.cs` looks like the code below you have no custom code and can delete the file. Adn move on to [Upgrading custom PdfFormatting]().
+If your `App/logic/Validation/ValidationHandler.cs` looks like the code below you have no custom code and can delete the file. And move on to [Upgrading custom PdfFormatting]().
 
 ```csharp
 using System.Threading.Tasks;
@@ -298,7 +298,7 @@ If you have custom code here complete the steps below:
 3. Move the code in `ValidateTask` method in the old class `ValidatorHandler` to the new one in `InstanceValidator` class.
 4. Register `InstanceValidator`  in the method `RegisterCustomAppServices` `App/Program.cs`
     ```csharp
-     void RegisterCustomAppServices(IServiceCollection services, IConfiguration config)
+    void RegisterCustomAppServices(IServiceCollection services, IConfiguration config)
     {
       services.AddTransient<IInstanceValidator, InstanceValidator>();
 
@@ -380,65 +380,57 @@ If you do have a class implementing IPageOrder here are some changes in namespac
 
 ## Moving eFormidling code
 
-This next chapter only applies to applications which integrates with eFormidling. If your don't you can move on to [Moving code from App.cs and removing it](#moving-code-from-appcs-and-removing-it)
+This next chapter only applies to applications which integrates with eFormidling. If yours don't you can move on to [Moving code from App.cs and removing it](#moving-code-from-appcs-and-removing-it)
 
 To determin if your app is integrated agains eFormidling check if you have defined the method `GenerateEFormidlingMetadata` defined in `App/logic/App.cs`
 ### Move code from GenerateEFormidlingMetadata in App.cs
 
-Create a new class named `EFormidlingMetadata` in the folder `App/logic/EFormidling`. You can name and place the file whatever and wherever you like, this is just an suggestion.
+1. Create a new class named `EFormidlingMetadata` in the folder `App/logic/EFormidling`. You can name and place the file whatever and wherever you like, this is just an suggestion. Make the newly created class implement the interface `Altinn.App.Core.EFormidling.Interface.IEFormidlingMetadata`. The file should look something like this now:
+    ```csharp
+    using System.IO;
+    using System.Threading.Tasks;
+    using Altinn.App.Core.EFormidling.Interface;
+    using Altinn.Platform.Storage.Interface.Models;
 
-Make the newly created class implement the interface `Altinn.App.Core.EFormidling.Interface.IEFormidlingMetadata`. The file should look something like this now:
+    namespace Altinn.App.logic.EFormidling;
 
-```csharp
-using System.IO;
-using System.Threading.Tasks;
-using Altinn.App.Core.EFormidling.Interface;
-using Altinn.Platform.Storage.Interface.Models;
-
-namespace Altinn.App.logic.EFormidling;
-
-public class EFormidlingMetadata : IEFormidlingMetadata
-{
-    public Task<(string MetadataFilename, Stream Metadata)> GenerateEFormidlingMetadata(Instance instance)
+    public class EFormidlingMetadata : IEFormidlingMetadata
     {
-        
+        public Task<(string MetadataFilename, Stream Metadata)> GenerateEFormidlingMetadata(Instance instance)
+        {
+            
+        }
     }
-}
-```
-
-Move the code from the method `GenerateEFormidlingMetadata` in `App/logic/App.cs` to the method `GenerateEFormidlingMetadata` in the class you just created.
+    ```
+3. Move the code from the method `GenerateEFormidlingMetadata` in `App/logic/App.cs` to the method `GenerateEFormidlingMetadata` in the class you just created.
 
 
 ### Move code from GetEFormidlingReceivers in App.cs
 
 If you have no definition of `GetEFormidlingReceivers` in `App/logic/App.cs` you can move on to [Register Eformidling implementation](#register-eformidling-implementation). If it is defined complete the following steps
 
-Create a new class named `EFormidlingReceivers`in `App/logic/EFormidling`. You can name and place the file whatever and whereever you like, this is just an suggestion.
+1. Create a new class named `EFormidlingReceivers`in `App/logic/EFormidling`. You can name and place the file whatever and whereever you like, this is just an suggestion. Make the new class implement the interface `Altinn.App.Core.EFormidling.Interface.IEFormidlingReceivers`. The file should look something like this now:
+    ```csharp
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
+    using Altinn.App.Core.EFormidling.Interface;
+    using Altinn.Common.EFormidlingClient.Models.SBD;
+    using Altinn.Platform.Storage.Interface.Models;
 
-Make the new class implement the interface `Altinn.App.Core.EFormidling.Interface.IEFormidlingReceivers`. The file should look something like this now:
+    namespace Altinn.App.logic.EFormidling;
 
-```csharp
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using Altinn.App.Core.EFormidling.Interface;
-using Altinn.Common.EFormidlingClient.Models.SBD;
-using Altinn.Platform.Storage.Interface.Models;
-
-namespace Altinn.App.logic.EFormidling;
-
-public class EFormidlingReceivers : IEFormidlingReceivers
-{
-    public Task<List<Receiver>> GetEFormidlingReceivers(Instance instance)
+    public class EFormidlingReceivers : IEFormidlingReceivers
     {
+        public Task<List<Receiver>> GetEFormidlingReceivers(Instance instance)
+        {
+        }
     }
-}
-```
-
-Move the code from the method `GetEFormidlingReceivers` in `App/logic/App.cs` to the mwthod `GetEformidlingReceivers` in the class you just created.
+    ```
+2. Move the code from the method `GetEFormidlingReceivers` in `App/logic/App.cs` to the mwthod `GetEformidlingReceivers` in the class you just created.
 
 ### Register Eformidling implementation
 
-This step depends on the previous steps. If your code has custom logic for GetEFormidlingReceivers or not.
+This step depends on the previous steps. Whether your code has custom logic for GetEFormidlingReceivers or not.
 
 In the method `RegisterCustomAppServices` in `Program.cs` you need to register the eFormidling implementation.
 
@@ -453,12 +445,12 @@ void RegisterCustomAppServices(IServiceCollection services, IConfiguration confi
 
 This will register the default implementation of [IEFormidlingReceivers](https://github.com/Altinn/app-lib-dotnet/blob/chore/90-appbase-simplified/src/Altinn.App.Core/EFormidling/Implementation/DefaultEFormidlingReceivers.cs)
 
-If you have a custom implementation if `IEFormidlingReceivers` you should add your implementation as the second type parameter:
+If you have a custom implementation of `IEFormidlingReceivers` you should add your implementation as the second type parameter:
 
 ```csharp
 void RegisterCustomAppServices(IServiceCollection services, IConfiguration config)
 {
-    services.AddEFormidlingServices<EFormidlingMetadata>(config);
+    services.AddEFormidlingServices<EFormidlingMetadata, IEFormidlingReceivers>(config);
 }
 ```
 
@@ -485,7 +477,7 @@ If `RunProcessDataRead` and `RunProcessDataWrite` in `App/App.cs` looks like the
 ```
 
 
-1. Move custom code in `RunProcessDataRead` to the method `ProcessDataRead` in `App/logic/DataProcessing/DataProcessor.cs` that was created in the step [Upgrade and register DataProcessingHadler](#upgrade-and-register-dataprocessinghandler)
+1. Move custom code in `RunProcessDataRead` to the method `ProcessDataRead` in `App/logic/DataProcessing/DataProcessor.cs` that was created and registered in the step [Upgrade and register DataProcessingHadler](#upgrade-and-register-dataprocessinghandler)
 2. Move custom code in `RunProcessDataWrite` to the method `ProcessDataWrite` in `App/logic/DataProcessing/DataProcessor.cs`
 
 ### Moving custom code in RunDataValidation and RunTaskValidation
@@ -493,18 +485,18 @@ If `RunProcessDataRead` and `RunProcessDataWrite` in `App/App.cs` looks like the
 If `RunDataValidation`and `RunTaskValidation` looks like the code below you have no custom code and can safely move on to [Moving custom code in RunInstantiationValidation and RunDataCreation](#moving-custom-code-in-runinstantiationvalidation-and-rundatacreation). If not complete the steps below
 
 ```csharp
-        public override async Task RunDataValidation(object data, ModelStateDictionary validationResults)
-        {
-            await _validationHandler.ValidateData(data, validationResults);
-        }
+public override async Task RunDataValidation(object data, ModelStateDictionary validationResults)
+{
+    await _validationHandler.ValidateData(data, validationResults);
+}
 
-        public override async Task RunTaskValidation(Instance instance, string taskId, ModelStateDictionary validationResults)
-        {
-            await _validationHandler.ValidateTask(instance, taskId, validationResults);
-        }
+public override async Task RunTaskValidation(Instance instance, string taskId, ModelStateDictionary validationResults)
+{
+    await _validationHandler.ValidateTask(instance, taskId, validationResults);
+}
 ```
 
-1. Move custom code in `RunDataValidation` to the method `ValidateData` in `App/logic/Validation/InstanceValidator.cs` that you created and registered here [Upgrade ValidationHandler.cs and register new service](#upgrade-validationhandlercs-and-register-new-service)
+1. Move custom code in `RunDataValidation` to the method `ValidateData` in `App/logic/Validation/InstanceValidator.cs` that you created and registered here [Upgrade ValidationHandler.cs and register new service](#upgrade-validationhandlercs-and-register-new-service).
 2. Move custom code in `RunTaskValidation` to the method `ValidateTask` in `App/logic/Validation/InstanceValidator.cs`
 
 
@@ -513,10 +505,10 @@ If `RunDataValidation`and `RunTaskValidation` looks like the code below you have
 If `RunDataCreation` looks like the code below you have no custom code and can safely move on to [Moving custom code in RunInstantiationValidation](#moving-custom-code-in-runinstantiationvalidation). If not complete the steps below.
 
 ```csharp
-        public override async Task RunDataCreation(Instance instance, object data, Dictionary<string, string> prefill)
-        {
-            await _instantiationHandler.DataCreation(instance, data, prefill);
-        }
+public override async Task RunDataCreation(Instance instance, object data, Dictionary<string, string> prefill)
+{
+    await _instantiationHandler.DataCreation(instance, data, prefill);
+}
 ```
 
 1. If you haven't already: Create a new class named `InstantiationProcessor.cs` in `App/logic/DataProcessing` and implement the interface `Altinn.App.Core.Features.DataProcessing.IInstantiationProcessor`. The class can be named or placed where you like, this is only a suggestion. The file should look something like this now:
@@ -536,10 +528,10 @@ If `RunDataCreation` looks like the code below you have no custom code and can s
         }
     }
     ```
-2. Move custom code in `DataCreation` to the method `DataCreation` in `App/logic/DataProcessing/InstantiationHandler.cs`
+2. Move custom code in `DataCreation` to the method `DataCreation` in `App/logic/DataProcessing/InstantiationHandler.cs` that you created and registered here [Replace InstantiationHandler.cs and register new service](#replace-instantiationhandlercs-and-register-new-service)
 3. Register `InstantiationProcessor`  in the method `RegisterCustomAppServices` `App/Program.cs`
     ```csharp
-     void RegisterCustomAppServices(IServiceCollection services, IConfiguration config)
+    void RegisterCustomAppServices(IServiceCollection services, IConfiguration config)
     {
       services.AddTransient<IInstantiationProcessor, InstantiationProcessor>();
 
@@ -553,10 +545,10 @@ If `RunDataCreation` looks like the code below you have no custom code and can s
 If `RunInstantiationValidation` looks like the code below you have no custom code and can safely move on to [Moving custom code in RunProcessTaskEnd](#moving-custom-code-in-runprocesstaskend). If not complete the steps below.
 
 ```csharp
-        public override async Task<InstantiationValidationResult> RunInstantiationValidation(Instance instance)
-        {
-            return await _instantiationHandler.RunInstantiationValidation(instance);
-        }
+public override async Task<InstantiationValidationResult> RunInstantiationValidation(Instance instance)
+{
+    return await _instantiationHandler.RunInstantiationValidation(instance);
+}
 ```
 
 1. If you haven't already: Create a new Class named `InstantiationValidator.cs` in `App/logic/Validation` and implement the interface `Altinn.App.Core.Features.Validation.IInstantiationValidator`. The class can be named or placed where you like, this is only a suggestion. 
@@ -594,10 +586,10 @@ If `RunInstantiationValidation` looks like the code below you have no custom cod
 If `RunProcessTaskEnd` looks like the code below you have no custom code and can safely move on to [Moving custom code in GetPageOrder](). If not complete the steps below.
 
 ```csharp
-        public override async Task RunProcessTaskEnd(string taskId, Instance instance)
-        {
-            await Task.CompletedTask;
-        }
+public override async Task RunProcessTaskEnd(string taskId, Instance instance)
+{
+    await Task.CompletedTask;
+}
 ```
 
 1. Create a new class implementing the Interface `Altinn.App.Core.Interface.ITaskProcessor` you can name and place this class wherever you like, but as a suggestion you can create and place it in the folder `App/logic/TaskProcessors` and name the file TaskProcessor.
@@ -623,9 +615,35 @@ If `RunProcessTaskEnd` looks like the code below you have no custom code and can
 
 If `GetPageOrder` in `App/logic/App.cs` is not present you have no custom code and can safely move on the [Removing App.cs](#removing-app-cs). If not complete the steps below. 
 
-1. Create a new class implementing the interface `Altinn.App.Core.Features.PageOrder.IPageOrder` you can name and place this class wherever you like in your project, but a suggestion is to name it `PageOrder` and place it in the folder `App/logic/PageOrder`.
+1. Create a new class implementing the interface `Altinn.App.Core.Features.PageOrder.IPageOrder` you can name and place this class wherever you like in your project, but a suggestion is to name it `PageOrder` and place it in the folder `App/logic/PageOrder`. The file should look something like this now:
+   ```csharp
+   using System.Collections.Generic;
+   using System.Threading.Tasks;
+   using Altinn.App.Models;
+   using Altinn.App.Core.Features.PageOrder;
+   using Altinn.App.Core.Interface;
+   using Altinn.App.Core.Models;
+
+   namespace Altinn.App.AppLogic.PageOrder;
+
+   public class PageOrder : IPageOrder
+   {
+       public async Task<List<string>> GetPageOrder(AppIdentifier appIdentifier, InstanceIdentifier instanceIdentifier, string layoutSetId, string currentPage, string dataTypeId, object formData)
+       {
+       }
+   }
+   ```
 2. Move the code from `GetPageOrder` to the mehod `GetPageOrder` in the class you just created.
 3. Register your custom implementation of `IPageOrder` in the mehtod `RegisterCustomAppServices` inside `App/Program.cs`
+   ```csharp
+     void RegisterCustomAppServices(IServiceCollection services, IConfiguration config)
+    {
+      services.AddTransient<IPageOrder, PageOrder>();
+
+      // Other custom services
+    }
+    ```
+    Remember to add the necessary usings.
 
 ### Removing App.cs
 
@@ -645,5 +663,14 @@ The following list is some of the namespaces that have changed that we think wil
 * `Altinn.App.PlatformServices.Options` namespace is moved to `Altinn.App.Core.Features.Options`
 * `Altinn.App.Common.Models` namespace is moved to `Altinn.App.Core.Models`
 * `Altinn.App.PlaformServices.Interface.IPageOrder` interface is moved to the namespace: `Altinn.App.Core.Features.PageOrder`
-  
-There are alot of changes to namespaces so we strongly recomend using Visual Studio Code with the C# plugin installed. This will give you code help for importing and locating new or changes to
+* `Altinn.App.PlatformServices.Interface.ICustomPdfHandler` interface is moved and renamed to: `Altinn.App.Core.Features.Pdf.IPdfFormatter`
+
+## Recomended plugin for Visual Studio Code
+There are alot of changes to namespaces so we strongly recomend using Visual Studio Code with the C# plugin installed. This will give you code help for importing and locating new or changed interfaces.
+
+Plugin information:<br/>
+Name: _C#_<br/>
+Id: _ms-dotnettools.csharp_<br/>
+Description: _C# for Visual Studio Code (powered by OmniSharp)._<br/>
+Publisher: _Microsoft_<br/>
+VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp
