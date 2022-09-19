@@ -285,7 +285,7 @@ En mulig workaround her er å returnere en tom array i det PDF-generatoren spør
 Merk at dette vil resultere i at PDF vil vise verdien valgt og ikke label som sluttbrukers svar.
 {{% /notice%}}
 
-## Options (kodelister) basert på repeterende grupper i datamodellen
+## Options basert på repeterende grupper i datamodellen
 
 Tradisjonelle options baserer seg på ressurser hentet fra backend.
 Denne måten å gjøre ting på endrer seg litt på dette, da det muliggjør å sette opp en direkte kobling fra komponent til skjemadata som ligger lagret i app frontend.
