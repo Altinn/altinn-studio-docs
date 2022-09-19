@@ -11,7 +11,7 @@ Checkbox, Dropdown og RadioButton komponenter vil automatisk kunne hente ut en s
 
 ## Statisk kodeliste fra app-repo
 
-Ved å legge json-lister i options mappen i app repo vil appen automatisk lese denne filen og eksponere det gjennom options-apiet. 
+Ved å legge json-lister i options mappen i app repo vil appen automatisk lese denne filen og eksponere det gjennom options-apiet.
 Options filene må ligge under `App/options/` og vil bli differensiert ved hjelp av navngivningen på json-filen. F.eks `land.json`. Her vil da optionsId være `land`, og vil være eksponert gjennom endepunktet `{org}/{app}/api/options/land`.
 Kodelistene må være på et spesifikt format. Eksempel på en kodeliste som inneholder land (`App/options/land.json`):
 
@@ -43,6 +43,7 @@ I versjoner eldre enn 4.24.0 ble dette gjort ved å legge til kode i metoden `Ge
 For kodelister som er åpne implementerer man `IAppOptionsProvider` interfacet, mens for kodelister som skal være sikret implementerer man `IInstanceAppOptionsProvider`. Fremgangsmåten er den samme for begge to og modellen som returneres er lik. Men implementeringen holdes adskilt for ikke å eksponere verdier som skulle vært sikret.
 
 ### Åpne dynamiske kodelister
+
 Under finner du et eksempel på hvordan dette kan settes opp for en åpen kodeliste. Her vil man få ut den oppsatte kodelisten i det appen får et kall mot `{org}/{app}/api/options/countries`.
 
 ```C#
@@ -84,6 +85,7 @@ namespace Altinn.App.Core
 ```
 
 For at denne implementasjonen skal plukkes opp av applikasjonen må den registreres i `Startup.cs` (eller `Program.cs` i .NET 6):
+
 ```csharp
 services.AddTransient<IAppOptionsProvider, CountryAppOptionsProvider>();
 ```
@@ -92,9 +94,8 @@ Legg merke til at du kan ha mange implementasjoner av dette interfacet. Den rett
 
 Interfacene har en egenskap `Id`, som skal settes til til den id'en man skal spørre etter, og en metode `GetAppOptionsAsync` som returnerer selve kodelisten. Denne metoden tar i mot språk og en liste med key/value par som typisk er query parametre som plukkes opp av kontrolleren og sendes inn. Selv om språk kunne vært et key/value par og sånn sett hvert i listen, så er denne lagt utenfor for å være eksplisitt på språk.
 
-
 > Språkkoder bør baseres på ISO 639-1 standarden eller W3C IANA Language Subtag Registry standarden. Sistnevnte bygger på ISO 639-1 standarden men garanterer at alle kodene er unike, noe ISO 639-1 ikke gjør.
-> 
+>
 
 ### Sikrede dynamiske kodelister
 
@@ -156,6 +157,7 @@ namespace Altinn.App.Core
 ```
 
 For at denne implementasjonen skal plukkes opp av applikasjonen må den registreres i `Startup.cs` (eller `Program.cs` i .NET 6):
+
 ```csharp
 services.AddTransient<IInstanceAppOptionsProvider, ChildrenAppOptionsProvider>();
 ```
@@ -164,7 +166,7 @@ Legg merke til at du kan ha mange implementasjoner av dette interfacet. Den rett
 
 Interfacene har en egenskap `Id`, som skal settes til til den id'en man skal spørre etter, og en metode `GetAppOptionsAsync` som returnerer selve kodelisten. Denne metoden tar i mot språk og en liste med key/value par som typisk er query parametre som plukkes opp av kontrolleren og sendes inn. Selv om språk kunne vært et key/value par og sånn sett hvert i listen, så er denne lagt utenfor for å være eksplisitt på språk.
 
-Siste konfigurasjon som trengs er å legge til `secure`-boolean på den aktuelle komponenten. Eksempel: 
+Siste konfigurasjon som trengs er å legge til `secure`-boolean på den aktuelle komponenten. Eksempel:
 
 ```json {hl_lines=[13]}
       {
@@ -184,7 +186,9 @@ Siste konfigurasjon som trengs er å legge til `secure`-boolean på den aktuelle
 ```
 
 ## Koble en komponent til kodeliste
+
 Dette gjøres ved å legge til feltet optionsId som referer til hvilken option (kodeliste) man ønsker refere til. Eksempel:
+
 ```json
 {
     "id": "8e6f7b2f-fcf0-438d-8336-c1a8e1e03f44",
@@ -196,8 +200,8 @@ Dette gjøres ved å legge til feltet optionsId som referer til hvilken option (
 }
 ```
 
-
 ## Sende med query parametere ved henting av options
+
 Options støtter query parameters når det gjøres api kall. `language` er satt opp automatisk, men man kan også legge til egendefinerte parametere ved å sette opp `mapping` på den aktuelle komponenten.
 
 ```json
@@ -264,10 +268,11 @@ For nøsta repeterende grupper vil man følge det samme mønsteret, men med en e
 For et komplett eksempel kan du se vår [demo app.](https://altinn.studio/repos/ttd/dynamic-options-rep)
 
 {{%notice warning%}}
-Under PDF-generering vil appen prøve å kalle det samme options-endepunktet som app-frontend gjør. 
+Under PDF-generering vil appen prøve å kalle det samme options-endepunktet som app-frontend gjør.
 Vi har foreløpig en svakhet ved at eventuelle mapping-parametere ikke blir inkludert i denne forespørselen, se issue [#7903.](https://github.com/Altinn/altinn-studio/issues/7903)
 
 En mulig workaround her er å returnere en tom array i det PDF-generatoren spør om options med tomme query-parametere, eksempel:
+
 ```c#
             string someArg = keyValuePairs.GetValueOrDefault("someArg");
             string someOtherArg = keyValuePairs.GetValueOrDefault("someOtherArg");
@@ -280,13 +285,14 @@ En mulig workaround her er å returnere en tom array i det PDF-generatoren spør
 Merk at dette vil resultere i at PDF vil vise verdien valgt og ikke label som sluttbrukers svar.
 {{% /notice%}}
 
-## Options basert på repeterende grupper i Redux
+## Options basert på repeterende grupper i datamodellen
 
 Tradisjonelle options baserer seg på ressurser hentet fra backend.
 Denne måten å gjøre ting på endrer seg litt på dette, da det muliggjør å sette opp en direkte kobling fra komponent til skjemadata som ligger lagret i app frontend.
 Et typisk bruksområde for dette er om brukeren fyller ut en liste med data som man senere i skjema ønsker å kunne velge mellom i en nedtrekksliste eller liknende.
 
 ### Konfigurasjon
+
 For å sette opp options fra redux har vu laget en nytt objekt som kan brukes på komponentene `RadioButtons`, `Checkboxes` og `Dropdown` som vi har kalt `source`.
 Dette nye objektet inneholder feltene `group`, `label` og `value`. Eksempel:
 
@@ -304,6 +310,7 @@ Dette nye objektet inneholder feltene `group`, `label` og `value`. Eksempel:
 ```
 
 Forklaring:
+
 - **group** - gruppen i datamodellen man baserer options på.
 - **label** - en referanse til en text id som brukes som label for hver iterasjon av gruppen. Se mer under.
 - **value** - en referanse til det feltet i gruppen som skal bruke som option verdi. Legg merke til `[{0}]` syntaxen. Her vil `{0}` bli erstattet med den aktuelle indeksen for hvert element i gruppen.
@@ -313,7 +320,7 @@ Merk at **value** feltet må være unikt for hvert element. Om man ikke har et f
 For **label** feltet må vi definere en tekst ressurs som kan bli brukt som label for hver repetisjon av gruppen.
 Dette følger samme syntax som **value**, og vil være kjent for deg om du har brukt [variabler i tekst](../../ux/texts).
 
-Eksempel: 
+Eksempel:
 
 ```json
 {
@@ -338,4 +345,4 @@ Eksempel:
 ```
 
 I dette eksempelet har vi satt opp to parametere i teksten som refererer til felter i gruppen.
-Vi kjenner også igjen `[{0}]` syntaksen i `key` feltet som muliggjør gjenbruk av labelen for hver index i gruppen. 
+Vi kjenner også igjen `[{0}]` syntaksen i `key` feltet som muliggjør gjenbruk av labelen for hver index i gruppen.
