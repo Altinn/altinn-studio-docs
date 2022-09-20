@@ -13,7 +13,7 @@ bygges på fortløpende.
 Når man kommer til den nye siden for datamodellering vises en dialog med informasjon om 
 den nye siden. 
 Om man ikke ønsker å se denne hver gang man går inn på siden kan man velge _Ikke vis igjen_. 
-Da vil dialogen skjules så lenge man bruker samme PC og browser. 
+Da vil dialogen skjules så lenge man bruker samme PC og nettleser.
 
 ![Info om ny side](info-dialog.png "Info om ny side")
 
@@ -36,10 +36,10 @@ Tre-visning av datamodellen kan åpnes for å se en visuell representasjon av da
 ![Last opp / vis datamodell](view-model.png "Last opp / vis datamodell")
 
 ## Lage ny datamodell
-Det er mulig å opprette en ny datamodell fra bunnen av. Dette gjøres ved å:
+Det er mulig å opprette en ny datamodell fra bunnen av:
 
-1. Klikk på _Lag ny datamodell_
-2. Skriv inn navned på datamodellen i feltet
+1. Klikk på _Lag ny datamodell_.
+2. Skriv inn navnet på datamodellen i feltet.
 3. Klikk på _Opprett modell_.
 
 Datamodellen opprettes med et eksempelfelt som er kalt `e1`. 
@@ -53,7 +53,7 @@ Funksjonalitet for å redigere datamodell er under utvikling. Denne funksjonalit
 men bygges på fortløpende. 
 {{% /notice %}}
 
-For å redigere en datamodell må modellen være valgt in nedtrekkslisten. I tillegg må man velge _Rediger_
+For å redigere en datamodell må modellen være valgt i nedtrekkslisten. I tillegg må man velge _Rediger_
 øverst til høyre i modellverktøyet - da vil et panel for å redigere modellen vises på høyre side av 
 verktøyet.
 
@@ -62,17 +62,17 @@ for datamodelleringsverktøyet.
 
 ### Redigere navn på felt
 1. Klikk på feltet, og se at navnet på feltet vises i høyre-panelet.
-2. Endre navn til ønsket verdi
+2. Endre navn til ønsket verdi.
 3. Navnet oppdateres.
 
 ### Legge til nytt felt
-1. Klikk på noden du ønsker å legge til et felt på
-2. Klikk på de 3 prikkene til høyre for noden
-3. Velg _Legg til felt_ fra menyen
+1. Hold musepekeren over noden du ønsker å legge til et felt på.
+2. Klikk på de tre prikkene til høyre for noden.
+3. Velg _Legg til felt_ fra menyen.
 4. Feltet blir lagt til.
 
 ### Slette et felt
-1. Klikk på noden du ønsker å slette, og/eller
-2. Klikk på de 3 prikkene til høyre for noden
-3. Velg _Slett felt_ fra menyen
+1. Hold musepekeren over noden du ønsker å slette.
+2. Klikk på de tre prikkene til høyre for noden.
+3. Velg _Slett felt_ fra menyen.
 4. Feltet blir slettet.

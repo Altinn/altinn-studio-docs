@@ -56,7 +56,7 @@ models in the top toolbar.
 ## Edit data model
 {{% notice warning %}}
 This functionality is under development and will be limited. Functionality is added
-continuously, and new functinality will be documented when it is ready.
+continuously, and new functionality will be documented when it is ready.
 {{% /notice %}}
 
 To edit a model, select that model from the models dropdown in the top toolbar. Then click _Edit_
