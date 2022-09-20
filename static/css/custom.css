@@ -1,4 +1,31 @@
 
+/* Version control for docs */
+#content-version-selector {
+    margin-bottom:18px;
+}
+
+#content-version-selector li {
+    list-style: none!important;
+    display:inline-block;
+    padding: 5px 20px;
+    border: 2px solid #0062ba;
+    margin-right:5px;
+}
+
+#content-version-selector li.active {
+    background-color: #0062ba;
+    color:white;
+}
+
+#content-version-selector li::before {
+    display: none!important;
+}
+#content-version-selector li:hover {
+    background-color: #0062ba;
+    color:white;
+    cursor: pointer;
+}
+
 /* External links */
 
 a[href^=http]:not([href*='altinn.no']):not([href*='basefarm.net']):not([href*='local.altinn'])::after {

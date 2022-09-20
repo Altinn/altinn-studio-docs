@@ -1,7 +1,7 @@
 ---
 title: ASP.NET Web Application Template
 linktitle: ASP.NET Web
-description: Description of ASP.NET Web based App template for Altinn Apps
+description: Description of ASP.NET Web based App template.
 tags: [altinn-apps]
 ---
 
@@ -19,3 +19,5 @@ open-source framework for building modern cloud-based, Internet-connected applic
 Together with the added Altinn functionality in the template, it is a effective platform to build applications powered by Altinn Platform.
 
 Applications based on this templates are buildt as Docker Containers and hosted in Kubernetes.
+
+{{<children>}}

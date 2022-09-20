@@ -1,6 +1,6 @@
 ---
 title: Intro course
-description: An introductory course to app development with Altinn Studio and local dev tools. (Only available in Norwegian)
+description: An introductory course to app development with Altinn Studio and local dev tools.
 linktitle: Intro course
 tags: [apps, build, deploy, training]
 weight: 15
@@ -12,9 +12,9 @@ as well as testing the app locally and in a test environment.
 
 Three things have to be in order before you can get started with this course.
 
-1. [A user in Altinn Studio](/nb/app/getting-started/first-time-setup/#lag-en-bruker-i-altinn-studio)
+1. [A user in Altinn Studio](/app/getting-started/first-time-setup/#lag-en-bruker-i-altinn-studio)
 2. [Your local development environment is set up with support for development and testing of apps](https://github.com/Altinn/altinn-studio/blob/master/LOCALAPP.md#prerequisites)
-3. [Access to an organization with a test environment](/nb/app/getting-started/first-time-setup/#bli-del-av-en-organisasjon)*
+3. [Access to an organization with a test environment](/app/getting-started/first-time-setup/#bli-del-av-en-organisasjon)*
 
 \* A prerequisite for module 3. The remaining modules can be completed with full learning benefits without this being set up.
 
@@ -25,5 +25,6 @@ Three things have to be in order before you can get started with this course.
 
 ### Read through the municipality of Sogndal's case, and work through it module by module.
 
-{{% children description="true" depth="1" %}}
+{{<children>}}
+
 

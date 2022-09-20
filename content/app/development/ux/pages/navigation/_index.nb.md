@@ -99,9 +99,7 @@ Det er også mulig å styre rekkefølgen på sidene ved hjelp av `Settings.json`
 
 Her vil sidene da vises i rekkefølgen spesifisert i `pages.order`. Om denne array'en ikke settes i repo så vil man bruke alfabetisk rekkefølge som utgangspunkt for rekkefølgen på sidene.
 
-{{%notice info%}}
-Funksjonalitet for å kunne dynamisk bestemme hvilken side som er neste er ikke noe som støttes i denne versionen av funksjonaliteten.
-{{%/notice%}}
+Om du ønsker å dynamisk endre på rekkefølgen på sidene kan dette gjøres med [sporvalg.](../tracks/)
 
 ## Validering ved sidebytte
 Det er mulig å trigge validering i det brukeren prøver å bevege seg til neste side. Dette kan gjøres ved å legge til strengen `validatePage` i `triggers` på navigasjons-knapp komponenten. Eksempel:

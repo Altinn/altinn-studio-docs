@@ -171,11 +171,11 @@ The Altinn 3 will use the defined [CloudEvents](https://cloudevents.io/) specifi
 The reason for choosing cloud events are
 
 - It is a standardized and open format as preferred by our architecture principles
-- It backed by many and The specification is now under the [Cloud Native Computing Foundation](https://www.cncf.io/)
+- It backed by many and [The specification](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md) is now under the [Cloud Native Computing Foundation](https://www.cncf.io/)
 - It is flexible so it would support scenarios in the future
 
 
-Below you find a offical example. [See full JSON Schema](https://raw.githubusercontent.com/cloudevents/spec/master/spec.json)
+Below you find a offical example. [See full JSON Schema](https://raw.githubusercontent.com/cloudevents/spec/v1.0.2/cloudevents/formats/cloudevents.json)
 
 ```json
 {
@@ -192,12 +192,18 @@ Below you find a offical example. [See full JSON Schema](https://raw.githubuserc
 }
 ```
 
-- `specversion`: The version of the CloudEvents specification which the event uses. This enables the interpretation of the context.
-  Compliant event producers MUST use a value of 1.x-wip when referring to this version of the specification.
-- `type`: This is the event type. Examples: instance.created, instance.process.paymentcompleted, instance.process.completed
+
+### Attributes usage in Altinn Events
+
+The following attributes are used in Altinn Events
+
+
+- `specversion`: The version of the CloudEvents specification which the event uses. For Altinn Events the version is 1.0
+- `type`: This is the event type. Examples: instance.created, instance.process.paymentcompleted, instance.process.completed. Can be used for authorization
 - `source`: Describes what the event is related to. Will be used to filter event types. For an app it would typical be /{org}/{app}/{partyId}/{instanceGuid}.
-  This would be used for consumers to look up a given instance.
-- `subject`: The party the event is related to. PartyID is used.
+  This would be used for consumers to look up a given instance. For external event producers. For external producers it could be a URI to the full source that implicit identifies the service registred in Altinn Resource Registry or
+  a URN to a specific service in registry
+- `subject`: The party the event is related to. PartyID is used for Altinn Apps. External would use ssn or orgno or other id that makes sense for the producer.
 - `id`: Unique id for a given event.
 - `time`: The time the event was triggered. Set by the publisher.
 - `datacontenttype`: Optional. Content type of data value.
@@ -205,7 +211,13 @@ Below you find a offical example. [See full JSON Schema](https://raw.githubuserc
 - `data`: Optional. Can contain a structure of data specific for an event type.
 
 
-In addition to the spec there is added alternativesubject as an [extension](https://github.com/cloudevents/spec/blob/master/primer.md#cloudevent-attribute-extensions) to the event model.
+
+#### Custom extensions
+
+In addition to the event attributes from the spec there is added extensions as an [extension](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/primer.md#cloudevent-attribute-extensions) to the event model.
+
+##### alternativesubject
+
 This will be used for socical secuirty number, organization number or other identifier in addition to the partyId found in subject property.
 
 Currently this can be
@@ -215,7 +227,19 @@ Currently this can be
 
 The value will be prefixed
 
-#### Example 1
+##### affectedentityuri
+
+This can be used by external event producers where the source does not point to the URI where more information about an event can be retrived. 
+This is relevant where there are multiple producers for an event source. 
+
+"affectedentityuri": "https://api.domstol.no/dodsbo-api/v1/dodsbo/91f2388f-bd8c-4647-8684-fd9f68af5b14",
+
+
+### Examples
+
+Below you see some examples of Events
+
+#### Example 1 : App Event
 
 A instance has been created for a given party. It is not possible from the event itself to know who did it.
 
@@ -224,48 +248,71 @@ A instance has been created for a given party. It is not possible from the event
   "source":  "https://skd.apps.altinn.no/skd/skattemelding/instances/1234324/6fb3f738-6800-4f29-9f3e-1c66862656cd",
   "subject": "party/1234324",
   "type": "app.instance.created",
+  "specversion": "1.0",
   "time": "2020-02-20T08:00:06.4014168Z",
   "id": "91f2388f-bd8c-4647-8684-fd9f68af5b14",
   "alternativesubject": "/person/01038712345"
 }]
 ```
 
-
-##### Example 2
+##### Example 2 : App Event
 
 A user has completed the confirmation1 task in the process.
 
 ```json {hl_lines=[4]}
-[{
+{
   "source":  "https://skd.apps.altinn.no/skd/skattemelding/instances/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8",
   "subject": "party/234234422",
   "type": "app.instance.process.movedTo.confirmation1",
+  "specversion": "1.0",
   "time": "2020-03-16T10:23:46.6443563Z",
   "id": "91f2388f-bd8c-4647-8684-fd9f68af5b14",
   "alternativesubject": "/org/974760673"
-}]
+}
 ```
 
-##### Example 3
+##### Example 3 : App Event
 
 A user/system has completed the process for an instance.
 
 ```json {hl_lines=[4]}
-[{
+{
   "source":  "https://skd.apps.altinn.no/skd/skattemelding/instances/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8",
   "subject": "party/234234422",
   "type": "app.instance.process.completed",
+  "specversion": "1.0",
   "time":  "2020-02-20T09:06:50.3736712Z",
   "id": "91f2388f-bd8c-4647-8684-fd9f68af5b14",
   "alternativesubject": "/org/974760673"
-}]
+}
+```
+
+##### Example 4 : External Event
+
+Example for external event. This event is related to Digital Dødsbo hver Domstoladministration publish event about a new estate. 
+
+The service dodsbo.domstoladmin.api is registrated in Altinn Resource Registry and have an authorization policy that defines who can publish and consume events for this service.
+
+This is work in progress and not finalized.
+
+
+```json {hl_lines=[4]}
+{
+    "specversion": "1.0",
+    "type": "digitalt-dodsbo.opprettet",
+    "source": "urn:altinn:events:dodsbo.domstoladmin.api",
+    "affectedentityuri": "https://api.domstol.no/dodsbo-api/v1/dodsbo/91f2388f-bd8c-4647-8684-fd9f68af5b14",
+    "subject": "person/12018212345", // avgiver i de tilfellene det er relevant/nødvendig. eksterne har ikke noe forhold til "party"
+    "id": "288f71f2-8cbd-3442-1532-ac14f3fd9faa",
+    "time": "2020-02-20T08:00:06.4014168Z"
+}
 ```
 
 ### Event components
 
-The below diagram shows the different components in the proposed Event Architecture for Altinn 3.
+The below diagram shows the different components in the Event Architecture for Altinn 3.
 
-![Event architecture diagram](event_architecture_custom.svg "Altinn Event Architecture")
+![Event architecture diagram](/technology/architecture/components/application/construction/altinn-platform/events/altinn-events.drawio.svg "Altinn Event Architecture")
 
 More details can be in [solutions components](../../../../components/application/solution/altinn-platform/events/) with detailed API info of event component 
 and in [construction components](../../../../components/application/construction/altinn-platform/events/) you find the technical details how the components are constructed.
@@ -316,3 +363,5 @@ Events are used in different scenarios in the platform.
   See [Instance Events](/technology/architecture/components/application/solution/altinn-platform/storage/#instanceevent) in Storage
 - **Application logic events** - These are events where app developers could implement logic to get a specific behavior.
   Calculation, validation ++ This type of event is probably not relevant to push to the event feed.  
+
+{{<children>}}

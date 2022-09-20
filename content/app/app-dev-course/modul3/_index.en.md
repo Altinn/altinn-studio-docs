@@ -70,7 +70,7 @@ By deploying an application to a test environment you will be able to test all i
 In addition to this, TT02 is often used to verify an application is behaving as expected
 before deploying to production.
 
-{{% notice infor %}}
+{{% notice info %}}
 To be able to deploy an application to TT02,
 the organization that owns the application has to have an app cluster in the test environment.
 In addition to this, the developer deploying the application needs the [role Deploy-TT02](/app/getting-started/access-management/studio/#deploy-tt02)
@@ -83,7 +83,7 @@ for the organization in Altinn Studio.
 - [Deploy app to test environment](/app/testing/deploy/#deploy-av-app-til-testmiljø)
 - [Access control for the organization in Altinn Studio](/app/getting-started/access-management/studio/#tilgangsstyring-for-organisasjonen)
 
-### Comprehension check
+### Knowledge check
 - Is it possible to have two versions of one application in TT02 at the same time?
 - What happens if you deploy the same version of the application to the environment once more?
 - Will the application be available immediately after deployment?
@@ -100,7 +100,7 @@ Unless you're already logged in with a user,
 this link will bring you to Altinn's login page.
 Your organization should have access to a set of test users, use one of these to log in.
 
-For internal resources in DigDir: Use one of the test users you can find in [the test data set](https://pedia.altinn.cloud/testing/testdata/datasets/) and log in.
+For internal people in Digdir: Use one of the test users you can find in [the test data set](https://pedia.altinn.cloud/testing/testdata/datasets/) and log in.
 
 {{% /expandlarge %}}
 

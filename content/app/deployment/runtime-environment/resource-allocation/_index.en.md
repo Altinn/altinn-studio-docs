@@ -1,11 +1,15 @@
 ---
 title: Resource Allocation
-description: 
+description: Which resources are allocated in a cluster and how?
+toc: true
 weight: 40
 tags: [translate-to-english]
 ---
 
-Primært vil det være CPU og minne som fordeles. Man kan sette minimum (requests) og et tak (limit) for en container. Hvis en pod har flere containere vil kubernetes summere opp disse. I Altinn 3 benytter vi som default requests, dvs. minimum for hva en applikasjon vil legge beslag på. 
+Primært vil det være CPU og minne som fordeles. Man kan sette minimum (requests) og et tak (limit) for en container.
+Hvis en pod har flere containere vil kubernetes summere opp disse.
+
+I Altinn 3 benytter vi som default requests, dvs. minimum for hva en applikasjon vil legge beslag på. 
 
 ## CPU
 CPU spesifiseres i CPU enheter, hvor 1 CPU enhet = 1 fysisk CPU kjerne eller 1 virtuell kjerne. Man kan spesifisere fraksjoner og enten spesifisere 0.1 eller 100m (som leses hundre millicores). Vi anbefaler at man benytter m notasjonen og ikke desimal notasjonen slik at man skriver 1m og ikke 0.001 (som er det minste man kan spesifisere).

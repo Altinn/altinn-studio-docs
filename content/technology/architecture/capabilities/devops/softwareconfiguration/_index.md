@@ -28,3 +28,5 @@ The goal is to deliver continously.
 The devopsteam has the capability to orhecstrate deployes. Both autmatic and manual deploy is supported.
 
 See [development application components](../../../components/application/nonsolutionspecific/development/) to get a overview over tools and application we use.
+
+{{<children>}}

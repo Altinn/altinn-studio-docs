@@ -74,3 +74,5 @@ The recomendation is to clone the app repository and edit the code in a regular 
 As part of the application development process the developer defines the authorization policies for the app.
 
 [Read more about PAP and policies](pap).
+
+{{<children>}}

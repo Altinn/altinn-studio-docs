@@ -370,14 +370,15 @@ Eksempel:
 The texts on the receipt page can be overridden by the application by specifying the texts in the applications `config/texts/resource.xx.json` file.
 
 {{%notice info%}}
-Overriding any text in the receipt will have an effect on any receipt for the given application. This means that forms that are already submitted will also get the updated texts on the receipt page. The generated PDF will not be affected by this.
+Overriding any text in the receipt will have an effect on any receipt for the given application.
+This means that forms that are already submitted will also get the updated texts on the receipt page. The generated PDF will not be affected by this.
 {{% /notice%}}
 
 You can also use markdown and variables in the receipt. Currently you can only fetch variables from `Instance` (See [Data Sources](#data-sources) for details)
 
 These are the text id's that can be used to override the default platform texts:
 
-```
+```json
 receipt_platform.attachments
 receipt_platform.date_sent
 receipt_platform.helper_text
@@ -408,9 +409,11 @@ The image below shows which key controls which text in the UI
 
 ![Texts and text keys](archive-receipt-texts.png "Texts and text keys")
 
-**Note:** These text changes will **not** be visible in your local test environment, they will only be visible in the test environment **TT02**. To see the changes you must navigate from the Archive and press the "See submitted form". As of now the modified text will not be used while submitting your form.
+**Note:** These text changes will **not** be visible in your local test environment, they will only be visible in the test environment **TT02**.
+To see the changes you must navigate from the Archive and press the "See submitted form".
+As of now the modified text will not be used while submitting your form.
 
 ![image](https://user-images.githubusercontent.com/42466346/159927471-088aab00-3e82-4851-b94f-712bdc4094c9.png)
 
 
-
+{{<children>}}

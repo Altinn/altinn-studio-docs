@@ -6,7 +6,7 @@ tags: [apps, training, repeating groups, validation, data processing, consume AP
 weight: 20
 ---
 
-In this module you will expand the application you have built in the previous modules to support more of [the functionality that the municipality of Sogndal wishes to implement](../case/#demands-from-the-muncipality).
+In this module you will expand the application you have built in the previous modules to support more of [the functionality that the municipality of Sogndal wishes to implement](../case/#requirements-from-the-municipality).
 
 **Topics covered in this module**
 - Repeating groups
@@ -16,7 +16,7 @@ In this module you will expand the application you have built in the previous mo
 ## Tasks
 
 {{% expandlarge id="rep-groups" header="Repeating groups" %}}
-### Requirements from the muncipality
+### Requirements from the municipality
 
 To be able to tailor the best possible offers to newcomers we wish to obtain an overview of former residences of the newcomer.
 
@@ -31,21 +31,21 @@ It should be possible to enter up to 10 former residences.
 - [Setup of field grouping](/app/development/ux/fields/grouping/setup/)
 - [Setup of repeating groups](/app/development/ux/fields/grouping/repeating/)
 
-### Comprehension check
+### Knowledge check
 - What field in the data model decides if an element is repeating?
-- How many repetitions are allowed for the field `TidligereBosteder`? 
+- How many repetitions are allowed for the field `TidligereBosteder`?
 
 {{% /expandlarge %}}
 
 
-{{% expandlarge id="validation" header="Valdiation" %}}
-### Requirements from the muncipality
+{{% expandlarge id="validation" header="Validation" %}}
+### Requirements from the municipality
 
 Due to a personal vendetta among one of the employees in the municipality of Sogndal, a user who enters the postal code `4619` as a previous residence
 should **NOT** be allowed to move to Sogndal. In this case, an error message should appear at the field in question with the following text:
 
 ```rich
-You are not welcome to our municipality. Sorry!
+Du er ikke velkommen til vår kommune. Beklager!
 ```
 
 ### Useful documentation
@@ -53,7 +53,7 @@ You are not welcome to our municipality. Sorry!
 - [How to implement custom validation](/app/development/logic/validation/#how-to-add-custom-validation)
 - [Single field validations](/app/development/logic/validation/#single-field-validation)
 
-### Comprehension check
+### Knowledge check
 - When are validations server-side running?
 - Why should validations added on the client side also be duplicated server-side?
 
@@ -73,7 +73,7 @@ In all other cases, the field should remain the same.
 - [Data processing](/app/development/logic/dataprocessing/)
 - [Calculation](/app/development/logic/calculation/#calculation)
 
-### Comprehension check
+### Knowledge check
 - When is data processing running?
 - What seperates `ProcessDataWrite` and `ProcessDataRead`?
 - What is the difference between DataProcessing and Calculations?
@@ -81,7 +81,7 @@ In all other cases, the field should remain the same.
 {{% /expandlarge %}}
 
 
-### Summary
+## Summary
 In this module you have had a look at **repeating groups** and how this is configured as a part of the user interface.
 We have also had a look at how to set up custom **validations** in the backend for cases that will not be defined as a part of restrictions in the data model.
 Lastly, we have looked at how to set up **data processing** that enables manipulation of data runtime.

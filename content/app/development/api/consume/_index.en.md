@@ -290,9 +290,10 @@ To enrich the form data we need to include the use of our client in the logic in
 
 First the client must me made available by injecting it in the constructor of the class. 
 DataProcessingHandler does not have a constructor by default, so this needs to be created.
+In addition, `using Altinn.App.client;` must be added to the top of the file.
 
 ```cs
- public DataProcessingHandler()
+public DataProcessingHandler()
 {
 }
 ```
@@ -308,6 +309,7 @@ public DataProcessingHandler(ICountryClient countryClient)
     _countryClient = countryClient;
 }
 ```
+`using Altinn.App.client;` must be added to this file as well.
 
 __countryClient_ is now available in DataProcessingHandler, and we're ready to implement the logic in the _ProcessDataWrite_ method. 
 

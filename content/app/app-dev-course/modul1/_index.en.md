@@ -6,7 +6,7 @@ tags: [apps, training, datamodel, localtest, texts]
 weight: 20
 ---
 
-In this module you will, based on the demands of the municipality of Sogndal,
+In this module you will, based on the requirements of the municipality of Sogndal,
 be setting up the first page of your application for newcomers and verify that everything looks as expected locally.
 
 **Topics covered in this module:**
@@ -41,7 +41,7 @@ There is a wish that one or more of the words "newcomer" and "Sogndal" is includ
 
 
 {{% expandlarge id="upload-datamodel" header="Upload data model" %}}
-The muncipality of Sogndal has created [a data model](datamodel.xsd)
+The municipality of Sogndal has created [a data model](/app/app-dev-course/modul1/datamodel.xsd)
 that represents data they wish to collect from future residents.
 
 {{% notice info %}}
@@ -54,14 +54,16 @@ edit it in for example Visual Studio or a text editing program of your own choos
 
 1. [Download the xsd-file](datamodel.xsd), open it in a text editing program
    and take a closer look at the contents.
+
 2. [Upload the data model in Altinn Studio](/app/development/data/data-model/#upload--show-data-model)
+
 3. Push the changes to master and take a closer look at the files in the folder `App/models`
 
 
-### Comprehension check
+### Knowledge check
 
 - Which data is it the service owner wishes to collect here?
-- Which effect has **\<minOccurs\>** in the data model? You may notice that the field has a different value for _Innflytter.Fornavn_ and _Innflytter.Mellomnavn_
+- Which effect has **\<minOccurs\>** in the data model? You may notice that the field has a different value for _Innflytter.Fornavn_ and _Innflytter.Mellomnavn_.
 - Which other properties is set on the field _Innflytter.Mellomnavn_?
 - A _.C#_, _.metadata.json_ and _.schema.json_ file has been generated in addition to the _.xsd_ file you uploaded. What is the correlation between these files?
 - Some restrictions from the data model is not transferred to the _C#_-file, which ones? Some new properties has also been added, which ones?
@@ -98,7 +100,7 @@ It is possible to connect texts to components in both Altinn Studio and locally.
 - [Formatting of texts](/app/development/ux/texts/#formatting-of-texts)
 - [ISO 639-1 standard](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)
 
-### Comprehension check
+### Knowledge check
 
 In Altinn we support three languages: bokmål, nynorsk and english.
 - How do you get english language support in the application?
@@ -134,7 +136,7 @@ Based on the requirements from the municipality, can you now set up the first fo
 - [Available components in Altinn Studio](/technology/solutions/altinn-studio/designer/functional/build-app/ui-designer/components/)
 - [Guidelines for using components](/app/design/guidelines/components/)
 
-### Comprehension check
+### Knowledge check
 
 In your application repository you will find _FormLayout.json_ in the folder `App/ui/layouts`. The JSON file describes the form page you have created in
 Altinn Studio, given that you have pushed your changes to master.
@@ -184,11 +186,11 @@ Moving on you will want to test your changes continuously in LocalTest.
 ### Useful documentation
 - [How to set up LocalTest](https://github.com/Altinn/altinn-studio/blob/master/LOCALAPP.md)
 - [Debugging of application](/app/testing/local/debug/)
-- [Available test-users in LocalTest](/nb/app/testing/local/testusers/)
+- [Available test-users in LocalTest](/app/testing/local/testusers/)
 {{% /expandlarge %}}
 
 
-### Summary
+## Summary
 
 In this module you have created an application in Altinn Studio, uploaded a data model
 and set up a form page that connects components to some of the fields in the data model.
@@ -201,4 +203,4 @@ The service should be able to run on your local computer with LocalTest and you 
 ### Solution
 If you have not completed all the steps, we have an [example of a solution](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/1) that you can use as inspiration.
 
-![Screenshot of data collecting page](/app/app-dev-course/modul1/data-screenshot.png "Screen shot of data collecting page")
+![Screenshot of data collecting page](/app/app-dev-course/modul1/data-screenshot.png "Screenshot of data collecting page")

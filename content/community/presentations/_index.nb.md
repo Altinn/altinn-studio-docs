@@ -87,3 +87,7 @@ Foredraget er på engelsk, men er tekstet på både engelsk og norsk.
 
 - [Slides brukt under presentasjonen (pptx)](https://github.com/Altinn/altinn-studio-docs/raw/master/content/technology/files/altinn_3_ndc_2020_06_11.pptx)
 - [Behind the scenes](https://www.digdir.no/digitalisering-og-samordning/altinn-3-pa-norwegian-developer-conference/1779)
+
+## Fagprat med Digitaliseringsdirektoratet
+
+{{<youtube AvZSD5AofkQ>}}
