@@ -76,7 +76,7 @@ The width declaration was moved to inline styling instead to resolve this issue.
 Issue [#14](https://github.com/Altinn/app-frontend-react/issues/14). 
 
 ## 3.34.0 (2022-04-11) - Options from Redux
-Added possibility to setup options from repeating groupes in Redux. Read more on [docs.](/app/development/data/options/#options-based-on-repeating-groups-from-redux)
+Added possibility to setup options from repeating groupes in Redux. Read more on [docs.](/app/development/data/options/#options-based-on-repeating-groups-from-the-data-model)
 Issue [#7626](https://github.com/Altinn/altinn-studio/issues/7626). 
 
 ## 3.33.5 (2022-04-11) - External dependency patching
