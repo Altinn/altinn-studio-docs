@@ -65,41 +65,22 @@ on the right hand side of the top toolbar to enable editing and to show the edit
 **NB!** Remember to _save_ your model by clicking _Save_ when making changes. There is no auto-save
 feature currently for the data modelling tool.
 
-### Redigere navn på felt
-1. Klikk på feltet, og se at navnet på feltet vises i høyre-panelet.
-2. Endre navn til ønsket verdi
-3. Navnet oppdateres.
+### Edit field name
+1. Click on the field, and see that the data for the field is shown in the panel to the right.
+2. Change the name as wanted
+3. The name is updated in the tree view once you leave the field.
 
-### Legge til nytt felt
-1. Klikk på noden du ønsker å legge til et felt på
-2. Klikk på de 3 prikkene til høyre for noden
-3. Velg _Legg til felt_ fra menyen
-4. Feltet blir lagt til.
+Other properties of the field can be updated in the same way.
 
-### Slette et felt
-1. Klikk på noden du ønsker å slette, og/eller
-2. Klikk på de 3 prikkene til høyre for noden
-3. Velg _Slett felt_ fra menyen
-4. Feltet blir slettet.
+### Add a new field
+1. Click the node you want to add a field to, and/or
+2. Click the `...` on the right end of the node to open the context menu
+3. Choose `Add field` from the menu
+4. A new field is added
+5. Use the right hand panel to edit the properties of the field.
 
-
-{{% notice info %}}
-Data modeling functionality is planned for Altinn Studio. The temporary functionality is therefore very limited.
-{{% /notice %}}
-
-## Upload / show data model
-The data model defines which data can be submitted through an app and the format used when submitting.
-As of now, the data model must be defined as an XSD in an external tool - preferably [Seres Domain Client](https://altinn.github.io/docs/seres/brukerveiledninger/domeneklient/).
-
-A data model must be uploaded for each app.
-
-1. Open the app from the dash board
-2. Choose the tab Lage
-3. In the navigation menu choose Data model ![Icon in the navigation menu](datamodel-icon.png "Icon in the navigation menu")
-4. Click _Choose XSD_ and choose the XSD in the file picker
-5. Click _Upload_
-
-The data model is then parsed and all necessary files are generated and saved in the app repository.
-These files can be viewed by choosing the different tabs on the data model page.
-
-![Add / show data model](add-datamodel.png "Add / show data model")
+### Delete a field
+1. Click the node you want to delete, and/or
+2. Click the `...` on the right end of the node to open the context menu
+3. Chose `Delete field` from the menu
+4. The field is deleted
