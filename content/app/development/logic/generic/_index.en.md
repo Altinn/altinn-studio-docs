@@ -7,31 +7,13 @@ weight: 10
 
 ## Introduction
 
-The various files that are used to define logic can be found in the logic menu
+The various files that are used to define logic on the frontend can be found in the logic menu
 that is available in the UI editor through the _f(x)_-icon at the top right corner.
 
 ![Logic menu](ui-editor-logic-menu.png?height=300px "Logic menu")
 
-
-They can also be edited directly from the application repo, under the folder `App/logic` (for server-side application logic) or the folder `App/ui` (for dynamic behaviour in the GUI).
-This folder contains the following files by default:
-
-```C#
-🗀 App/
-  🗀 logic/
-    🗀 DataProcessing/
-      🗎 DataProcessingHandler.cs
-    🗀 Print/
-      🗎 PdfHandler.cs
-    🗀 Validation/
-      🗎 ValidationHandler.cs
-    🗎 App.cs
-    🗎 InstantiationHandler.cs
-```
-
-More files can be added when needed.
-
-A complete project with examples on server-side application logic can be found [here](https://dev.altinn.studio/repos/ttd/webdemo2).
+For backend the logic is done by implementing various interfaces. These are described in separate chapters for example in [data processing](../dataprocessing/). 
+A complete project with examples on server-side application logic can be found [in our training course application](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/master).
 
 {{%panel info%}}
 **NOTE:** The way you reference elements in the data model is different between OR and SERES type XSD's.
