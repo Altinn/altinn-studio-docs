@@ -61,6 +61,106 @@ This results in the following view:
 
 ![Confirm view](confirm-step-custom.png "Overridden texts in the confirm view")
 
+### Custom form layout
+
+For the confirm task the app developer has the possibility for configuring their own [layout set](../../../ux/pages/layout-sets/) with corresponding form layout definitions and other ui-configuration files which are included in the data step.
+
+This makes the confirmation page custumizable, and can use the components that is supported in Altinn Studio.
+
+Since the confirm step is not meant to be used for writing data, a good practice would be to use static components (header, paragraph) and set other components to `readOnly`.
+
+An example setup of the `layout-sets.json` where `Task_1` is a data step, and `Task_2` a confirmation step:
+
+```json
+{
+    "sets": [
+      {
+        "id": "simpel",
+        "dataType": "simpel",
+        "tasks": [
+          "Task_1"
+        ]
+      },
+      {
+        "id": "custom-receipt",
+        "dataType": "simpel",
+        "tasks": [
+          "Task_2"
+        ]
+      }
+    ]
+  }
+```
+
+Notice that the layout-set configuration for `Task_2` references the data model used in `Task_1`.
+
+Example `formLayout.json` file that presents data from the data model used in the `data`-task:
+
+```json
+{
+  "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
+  "data": {
+    "layout": [
+      {
+        "id": "paragraph",
+        "type": "Paragraph",
+        "textResourceBindings": {
+          "title": "paragraph"
+        }
+      },
+      {
+        "id": "name",
+        "type": "Input",
+        "textResourceBindings": {
+          "title": "name.label"
+        },
+        "dataModelBindings": {
+          "simpleBinding": "Felt1"
+        },
+        "required": true,
+        "readOnly": true
+      },
+      {
+        "id": "lastname",
+        "type": "Input",
+        "textResourceBindings": {
+          "title": "lastName.label"
+        },
+        "dataModelBindings": {
+          "simpleBinding": "Felt2"
+        },
+        "required": true,
+        "readOnly": true
+      }
+    ]
+  }
+}
+```
+
+The app structure would look look this:
+
+```txt
+├───App
+│   ├───config
+│   ├───logic
+│   ├───models
+|   | ...
+│   ├───ui
+│   │   ├───custom-receipt
+│   │   │   └───layouts
+|   |   |   └─── ...
+│   │   └───simpel
+│   │       └───layouts
+|   |   |   └─── ...
+
+```
+
+The end result:
+
+![Custom confirm view](custom_confirm_en.png "Custom confirm view")
+
+For a complete setup of this feature see our [example app.](https://altinn.studio/repos/ttd/custom-view-confirm)
+
 ## Feedback
 This is a process step where the application owner can validate the filled data to generate a feedback before the data is archived.
 
