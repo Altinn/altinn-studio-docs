@@ -88,8 +88,3 @@ Contains the reference between access groups and a category
 ![Hierar](hierchy.drawio.svg "Db model")
 
 
-## API
-
-See details of API in [Github issue 25](https://github.com/Altinn/altinn-authorization/issues/25)
-
-
