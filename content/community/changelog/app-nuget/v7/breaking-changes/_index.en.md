@@ -482,7 +482,7 @@ If `RunProcessDataRead` and `RunProcessDataWrite` in `App/App.cs` looks like the
 
 ### Moving custom code in RunDataValidation and RunTaskValidation
 
-If `RunDataValidation`and `RunTaskValidation` looks like the code below you have no custom code and can safely move on to [Moving custom code in RunInstantiationValidation and RunDataCreation](#moving-custom-code-in-runinstantiationvalidation-and-rundatacreation). If not complete the steps below
+If `RunDataValidation`and `RunTaskValidation` looks like the code below you have no custom code and can safely move on to [Moving custom code in RunInstantiationValidation and RunDataCreation](#moving-custom-code-in-rundatacreation). If not complete the steps below
 
 ```csharp
 public override async Task RunDataValidation(object data, ModelStateDictionary validationResults)
@@ -613,7 +613,7 @@ public override async Task RunProcessTaskEnd(string taskId, Instance instance)
 
 ### Moving custom code in GetPageOrder
 
-If `GetPageOrder` in `App/logic/App.cs` is not present you have no custom code and can safely move on the [Removing App.cs](#removing-app-cs). If not complete the steps below. 
+If `GetPageOrder` in `App/logic/App.cs` is not present you have no custom code and can safely move on the [Removing App.cs](#removing-appcs). If not complete the steps below. 
 
 1. Create a new class implementing the interface `Altinn.App.Core.Features.PageOrder.IPageOrder` you can name and place this class wherever you like in your project, but a suggestion is to name it `PageOrder` and place it in the folder `App/logic/PageOrder`. The file should look something like this now:
    ```csharp
