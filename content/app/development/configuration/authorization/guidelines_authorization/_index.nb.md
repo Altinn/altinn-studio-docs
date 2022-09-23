@@ -5,8 +5,8 @@ description: Autorisasjonsregler må defineres med omhu. Disse retningslinjene f
 toc: true
 ---
 
-Autorisasjonsregler er defineres i henhold til XACML 3.0-standarden. Reglene vil angi hvilke betingelser som må være til stede for å gi
-en bestemt bruker tilgang til å utføre ett eller flere trinn i en applikasjonens [definerte arbeidsprosess](/app/development/configuration/process/).
+Autorisasjonsregler defineres i henhold til XACML 3.0-standarden. Reglene vil angi hvilke betingelser som må være til stede for å gi
+en bestemt bruker tilgang til å utføre ett eller flere trinn i en applikasjons [definerte arbeidsprosess](/app/development/configuration/process/).
 
 ## Du må vite hva du gjør!
 Eier av tjenesten er selv ansvarlig for å lage autorisasjonsregler og velge riktige roller som gir tilgang til beskyttet informasjon. 
@@ -17,13 +17,13 @@ For å ta de riktige valgene når du lager autorisasjonsregler for appen din tre
 På denne [siden](https://altinn.github.io/docs/utviklingsguider/styring-av-tilgang/for-tjenesteeier/) kan du lese mer om Altinn Autorisasjon.
 
 ## Roller må velges med omhu!
-I konfigurasjonsfil for autorisasjons brukes roller for å definere hvem som har lov til å utføre hvilke handlinger.
+I konfigurasjonsfil for autorisasjon brukes roller for å definere hvem som har lov til å utføre hvilke handlinger.
 Altinn tilbyr et sett med roller som kan brukes som betingelse for å få tilgang til et bestemt trinn i arbeidsprosessen og informasjon som vises.
 
 Før du velger hvilken rolle du skal bruke, må du være sikker på at du har en god forståelse av hva disse rollene betyr og hva slags tjenester og informasjon som forventes at denne rollen har tilgang til.
-Det er viktig at autorisasjonsregler og valg av roller samsvarer med intensjoner og forventninger som adminitrator for aktøren har. 
-F eks forventer antagelig admnistrator at rollen "Skatt" gir tilgang til tjenester knyttet til f eks skatterapportering, men ikke at denne rollen gir tilgang til tjenester innen Lønn og personalområdet. 
-På samme måte skal man være forsiktig med å bruke f eks rollen "Kontaktperson" fra Enhetregistert" til å gi tilgang til tjenester med mindre man har vurdert grunnlaget for at denne får tilgang på en grundig måte. . 
+Det er viktig at autorisasjonsregler og valg av roller samsvarer med intensjoner og forventninger som administrator for aktøren har. 
+For eksempel forventer antagelig admnistrator at rollen "Skatt" gir tilgang til tjenester knyttet til for eksempel skatterapportering, men ikke at denne rollen gir tilgang til tjenester innen Lønn og personalområdet. 
+På samme måte skal man være forsiktig med å bruke for eksempel rollen "Kontaktperson" fra Enhetsregisteret til å gi tilgang til tjenester med mindre man har vurdert grunnlaget for at denne får tilgang på en grundig måte. 
 
 Hvis du ikke finner en rolle du synes passer må du ta kontakt med Altinn slik at vi kan vurdere om nye roller bør opprettes.
 
@@ -43,10 +43,10 @@ Som applikasjonseier må du alltid vurdere om intensjonene i beskrivelsen av rol
 ## Autorisasjonsregler må testes
 Autorisasjonsregler må som alt annet testes før applikasjonen lanseres for å verifisere at riktige roller har tilgang til nødvendig data.
 
-[Her](test_authorization_application) kan du lese våre anbefalinger knyttet til testing av autorisasjonsregler
+[Her](test_authorization_application) kan du lese våre anbefalinger knyttet til testing av autorisasjonsregler.
 
 
 ## Altinn kan pålegge å endre autorisasjonsregler
 Selv om det er applikasjonseierens ansvar å konstruere riktig autorisasjonsregel og velge riktige roller, vil Altinn gjennomføre stikkkontroller med autorisasjonsreglene for tjenester som settes i produksjon.
-Hvis vi oppdager det vi anser som feil bruk av Altinn Autorisasjon så vil vi, om nødvendig, ta tjenesten ut av produksjon eller pålegge endringer i autorisasjonsregler
+Hvis vi oppdager det vi anser som feil bruk av Altinn Autorisasjon så vil vi, om nødvendig, ta tjenesten ut av produksjon eller pålegge endringer i autorisasjonsregler.
 
