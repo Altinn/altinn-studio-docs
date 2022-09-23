@@ -286,7 +286,7 @@ services.AddHttpClient<ICountryClient, CountryClient>();
 
 ## Using the client in the application logic
 
-To enrich the form data we need to include the use of our client in the logic in the method _ProcessDataWrite_ in _App/logic/DataProcessingHandler.cs_.
+To enrich the form data we need to include the use of our client in the logic in the method _ProcessDataWrite_ in _App/logic/DataProcessingHandler.cs_ for versions prior to v7 of the application template. For v7 please refer to the documentation on [DataProcessing](../../logic/dataprocessing/).
 
 First the client must me made available by injecting it in the constructor of the class. 
 DataProcessingHandler does not have a constructor by default, so this needs to be created.

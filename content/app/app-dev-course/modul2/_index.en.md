@@ -149,8 +149,8 @@ In this task, the focus has returned to the first data collecting page, and the 
 
 ### Useful documentation
 - [Available prefill sources](https://altinncdn.no/schemas/json/prefill/prefill.schema.v1.json)
-- [Prefill from national register and user profile](/app/development/data/prefill/#prefill-from-national-register-and-user-profile)
-- [Custom prefill](/app/development/data/prefill/#custom-prefill)
+- [Prefill from national register and user profile](/app/development/data/prefill/config/)  
+- [Custom prefill](/app/development/data/prefill/custom)
 - [Description of the InstanceOwner object](../../../api/models/instance/#instanceowner) - This is where the social security number can be found.
   In the code, the properties are referred to with an uppercase first letter, not lowercase as in this overview.
 

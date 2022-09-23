@@ -130,7 +130,7 @@ Available values for prefill includes:
 #### User profile
 
 The user profile exposed is the profile belonging to the one who instantiatd the service. If Ola Nordmann instantiates a form on behalf of
-Kari Nordmann, the data retrieved from here would belong to Ola. For the objects Party.Organization and Party.Person, you will find the same fields that are included in ER and DSF-prefill. Note that Party.Organization will be null if the user is logged in as an individual, and the equivalent if they are logged in with a business user. The prefill will fail if the object you prefill from does not exist, so if you wish to dynamically prefill based on these values it has to be setup as [custom prefill.](#custom-prefill).
+Kari Nordmann, the data retrieved from here would belong to Ola. For the objects Party.Organization and Party.Person, you will find the same fields that are included in ER and DSF-prefill. Note that Party.Organization will be null if the user is logged in as an individual, and the equivalent if they are logged in with a business user. The prefill will fail if the object you prefill from does not exist, so if you wish to dynamically prefill based on these values it has to be setup as [custom prefill.](../custom/).
 Available values for prefill includes:
 
 - UserId

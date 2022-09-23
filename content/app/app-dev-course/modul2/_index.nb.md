@@ -149,8 +149,8 @@ I denne oppgaven flyttes fokus tilbake til den første datainnsamlingssiden, og 
 
 ### Nyttig dokumentasjon
 - [Tilgjengelige forhåndsutfyllingskilder](https://altinncdn.no/schemas/json/prefill/prefill.schema.v1.json)
-- [Forhåndsutfylling fra nasjonale registre og brukerprofil](/nb/app/development/data/prefill/#prefill-fra-nasjonale-register-og-brukerprofil)
-- [Egendefinert forhåndsutfylling](/nb/app/development/data/prefill/#egendefinert-prefill)
+- [Forhåndsutfylling fra nasjonale registre og brukerprofil](/nb/app/development/data/prefill/config/#prefill-fra-nasjonale-register-og-brukerprofil)
+- [Egendefinert forhåndsutfylling](/nb/app/development/data/prefill/custom)
 - [Beskrivelse av InstanceOwner-objektet](../../../api/models/instance/#instanceowner) - Her finner man personnummeret.
   Vær oppmerksom på at egenskapene refereres til med store forbokstaver i koden, ikke med små som i denne oversikten.
 

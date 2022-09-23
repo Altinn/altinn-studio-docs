@@ -39,7 +39,7 @@ A key to the solution is that there are mulitiple layout-sets that consists of o
 ```
 
 
-In `layout-set.json` it is defined which steps in the process (task) where a given layout-set should be used.
+In `layout-sets.json` it is defined which steps in the process (task) where a given layout-set should be used.
 Note that the ID is case sensitive, so if you have a capital letter in the folder name, the ID must reflect this. We recommend lower case letters in folder names.
 
 Example:

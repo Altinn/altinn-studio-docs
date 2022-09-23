@@ -96,9 +96,7 @@ It is also possible to override the order on the pages in the `Settings.json` fi
 }
 ```
 
-{{%notice info%}}
-Functionality for dynamically deciding which page should be next is not something that is currently supported.
-{{%/notice%}}
+If you want to dynamically change the page order this can be done using [tracks.](../tracks/)
 
 ## Validation on page navigation
 It is possible to trigger validation when the user tries to navigate to a different page. This can be done by adding the string `validatePage` to the `triggers` in the navigation button component. Example:
