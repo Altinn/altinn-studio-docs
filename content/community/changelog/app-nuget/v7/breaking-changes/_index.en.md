@@ -41,9 +41,6 @@ to
       <CopyToOutputDirectory>lib\$(TargetFramework)\*.xml</CopyToOutputDirectory>
     </PackageReference>
     <PackageReference Include="Altinn.App.Core" Version="7.0.0" />
-    <PackageReference Include="Altinn.App.SourceGenerator" Version="7.0.0" 
-      PrivateAssets="all" 
-      ExcludeAssets="runtime;compile" /> 
   <!-- Additional PackageReferences -->
   </ItemGroup>
 ```
@@ -96,11 +93,11 @@ namespace Altinn.App.AppLogic.DataProcessing
 ```
 
 If you have custom code in this class complete the steps below:
-1. Create a new class named `DataProcessor` in the folder `App/logic/DataProcessing`, make the class implement the interface  `Altinn.App.Core.Features.DataProcessing.IDataProcessor`. The file should now look something like this:
+1. Create a new class named `DataProcessor` in the folder `App/logic/DataProcessing`, make the class implement the interface  `Altinn.App.Core.Features.IDataProcessor`. The file should now look something like this:
    ```csharp
    using System;
     using System.Threading.Tasks;
-    using Altinn.App.Core.Features.DataProcessing;
+    using Altinn.App.Core.Features;
     using Altinn.Platform.Storage.Interface.Models;
 
     namespace Altinn.App.AppLogic.DataProcessing;
@@ -172,11 +169,11 @@ namespace Altinn.App.AppLogic
 ```
 
 If you have custom code in the mehod `DataCreation` complete these steps:
-1. Create a new Class named `InstantiationProcessor.cs` in `App/logic/DataProcessing` and implement the interface `Altinn.App.Core.Features.DataProcessing.IInstantiationProcessor`. The class can be named or placed where you like, this is only a suggestion. The file should look something like this now:
+1. Create a new Class named `InstantiationProcessor.cs` in `App/logic/DataProcessing` and implement the interface `Altinn.App.Core.Features.IInstantiationProcessor`. The class can be named or placed where you like, this is only a suggestion. The file should look something like this now:
     ```csharp
     using System.Collections.Generic;
     using System.Threading.Tasks;
-    using Altinn.App.Core.Features.DataProcessing;
+    using Altinn.App.Core.Features;
     using Altinn.Platform.Storage.Interface.Models;
 
     namespace Altinn.App.AppLogic.DataProcessing;
@@ -204,11 +201,11 @@ If you have custom code in the mehod `DataCreation` complete these steps:
 
 If you have custom code in the method `RunInstantiationValidation` complete the steps below, if not delete `App/logic/InstantiationHandler.cs` and move on to [Upgrade ValidationHandler.cs and register new service](#upgrade-validationhandlercs-and-register-new-service):
 
-1. Create a new Class named `InstantiationValidator.cs` in `App/logic/Validation` and implement the interface `Altinn.App.Core.Features.Validation.IInstantiationValidator`. The class can be named or placed where you like, this is only a suggestion. 
+1. Create a new Class named `InstantiationValidator.cs` in `App/logic/Validation` and implement the interface `Altinn.App.Core.Features.IInstantiationValidator`. The class can be named or placed where you like, this is only a suggestion. 
    The file should look something like this now:
     ```csharp
     using System.Threading.Tasks;
-    using Altinn.App.Core.Features.Validation;
+    using Altinn.App.Core.Features;
     using Altinn.App.Core.Models.Validation;
     using Altinn.Platform.Storage.Interface.Models;
 
@@ -238,7 +235,7 @@ You can now delete the file `App/logic/InstantiationHandler.cs`
 
 ### Upgrade ValidationHandler.cs and register new service
 
-Custom data and task validation is in v7 handeled by registering a service class implementing `Altinn.App.Core.Features.Validation.IInstanceValidator`.
+Custom data and task validation is in v7 handeled by registering a service class implementing `Altinn.App.Core.Features.IInstanceValidator`.
 
 If your `App/logic/Validation/ValidationHandler.cs` looks like the code below you have no custom code and can delete the file. And move on to [Upgrading custom PdfFormatting]().
 
@@ -274,10 +271,10 @@ namespace Altinn.App.AppLogic.Validation
 
 If you have custom code here complete the steps below:
 
-1. Create a new class named `InstanceValidator` in the folder `App/logic/Validation`, make the class implement the interface `Altinn.App.Core.Features.Validation.IInstanceValidator`. The file should now look something like this:
+1. Create a new class named `InstanceValidator` in the folder `App/logic/Validation`, make the class implement the interface `Altinn.App.Core.Features.IInstanceValidator`. The file should now look something like this:
     ```csharp
     using System.Threading.Tasks;
-    using Altinn.App.Core.Features.Validation;
+    using Altinn.App.Core.Features;
     using Altinn.Platform.Storage.Interface.Models;
     using Microsoft.AspNetCore.Mvc.ModelBinding;
 
@@ -334,10 +331,10 @@ namespace Altinn.App.AppLogic.Print
 ```
 
 If not, complete the steps below:
-1. Create a new class named `PdfFormatter` in the folder `App/logic/Pdf`. make the class implement the interface `Altinn.App.Core.Features.Pdf.IPdfFormatter`. The file should new look something like this:
+1. Create a new class named `PdfFormatter` in the folder `App/logic/Pdf`. make the class implement the interface `Altinn.App.Core.Features.IPdfFormatter`. The file should new look something like this:
     ```csharp
     using System.Threading.Tasks;
-    using Altinn.App.Core.Features.Pdf;
+    using Altinn.App.Core.Features;
     using Altinn.App.Core.Models;
 
     namespace Altinn.App.AppLogic.Print
@@ -361,8 +358,8 @@ If not, complete the steps below:
     }
     ```
     Remember to add the necessary usings.
-5. Delete the old file 
-6. Remove the transient service registration of the old class from `Program.cs`. Should look something like this: `services.AddTransient<ICustomPdfHandler, PdfHandler>();` (remove it by deleteing the line)
+4. Delete the old file 
+5. Remove the transient service registration of the old class from `Program.cs`. Should look something like this: `services.AddTransient<ICustomPdfHandler, PdfHandler>();` (remove it by deleteing the line)
 
 
 ### Upgrading PageOrder.cs
@@ -511,11 +508,11 @@ public override async Task RunDataCreation(Instance instance, object data, Dicti
 }
 ```
 
-1. If you haven't already: Create a new class named `InstantiationProcessor.cs` in `App/logic/DataProcessing` and implement the interface `Altinn.App.Core.Features.DataProcessing.IInstantiationProcessor`. The class can be named or placed where you like, this is only a suggestion. The file should look something like this now:
+1. If you haven't already: Create a new class named `InstantiationProcessor.cs` in `App/logic/DataProcessing` and implement the interface `Altinn.App.Core.Features.IInstantiationProcessor`. The class can be named or placed where you like, this is only a suggestion. The file should look something like this now:
     ```csharp
     using System.Collections.Generic;
     using System.Threading.Tasks;
-    using Altinn.App.Core.Features.DataProcessing;
+    using Altinn.App.Core.Features;
     using Altinn.Platform.Storage.Interface.Models;
 
     namespace Altinn.App.AppLogic.DataProcessing;
@@ -551,11 +548,11 @@ public override async Task<InstantiationValidationResult> RunInstantiationValida
 }
 ```
 
-1. If you haven't already: Create a new Class named `InstantiationValidator.cs` in `App/logic/Validation` and implement the interface `Altinn.App.Core.Features.Validation.IInstantiationValidator`. The class can be named or placed where you like, this is only a suggestion. 
+1. If you haven't already: Create a new Class named `InstantiationValidator.cs` in `App/logic/Validation` and implement the interface `Altinn.App.Core.Features.IInstantiationValidator`. The class can be named or placed where you like, this is only a suggestion. 
    The file should look something like this now:
     ```csharp
     using System.Threading.Tasks;
-    using Altinn.App.Core.Features.Validation;
+    using Altinn.App.Core.Features;
     using Altinn.App.Core.Models.Validation;
     using Altinn.Platform.Storage.Interface.Models;
 
@@ -592,18 +589,20 @@ public override async Task RunProcessTaskEnd(string taskId, Instance instance)
 }
 ```
 
-1. Create a new class implementing the Interface `Altinn.App.Core.Interface.ITaskProcessor` you can name and place this class wherever you like, but as a suggestion you can create and place it in the folder `App/logic/TaskProcessors` and name the file TaskProcessor.
+1. Create a new class implementing the Interface `Altinn.App.Core.Features.ITaskProcessor` you can name and place this class wherever you like, but as a suggestion you can create and place it in the folder `App/logic/TaskProcessors` and name the file TaskProcessor.
     The class should look something like this after the interface is implemented:
     ```csharp
+    using System.Threading.Tasks;
+    using Altinn.App.Core.Features;
     using Altinn.Platform.Storage.Interface.Models;
 
-    namespace Altinn.App.logic.TaskProcessors;
+    namespace Altinn.App.AppLogic.Custom;
 
     public class TaskProcessor: ITaskProcessor
     {
-        public async Task ProcessTaskEnd(string taskId, Instance instance)
+        public Task ProcessTaskEnd(string taskId, Instance instance)
         {
-            await Task.CompletedTask;
+            return Task.CompletedTask;
         }
     }
     ```
@@ -615,12 +614,12 @@ public override async Task RunProcessTaskEnd(string taskId, Instance instance)
 
 If `GetPageOrder` in `App/logic/App.cs` is not present you have no custom code and can safely move on the [Removing App.cs](#removing-app-cs). If not complete the steps below. 
 
-1. Create a new class implementing the interface `Altinn.App.Core.Features.PageOrder.IPageOrder` you can name and place this class wherever you like in your project, but a suggestion is to name it `PageOrder` and place it in the folder `App/logic/PageOrder`. The file should look something like this now:
+1. Create a new class implementing the interface `Altinn.App.Core.Features.IPageOrder` you can name and place this class wherever you like in your project, but a suggestion is to name it `PageOrder` and place it in the folder `App/logic/PageOrder`. The file should look something like this now:
    ```csharp
    using System.Collections.Generic;
    using System.Threading.Tasks;
    using Altinn.App.Models;
-   using Altinn.App.Core.Features.PageOrder;
+   using Altinn.App.Core.Features;
    using Altinn.App.Core.Interface;
    using Altinn.App.Core.Models;
 
@@ -660,9 +659,8 @@ This is truly not a complete list of alle the changes to namespace we have done 
 
 The following list is some of the namespaces that have changed that we think will affect most of the applications
 
-* `Altinn.App.PlatformServices.Options` namespace is moved to `Altinn.App.Core.Features.Options`
+* Interfaces that service owners naturally overrides/customize is moved from `Altinn.App.PlatformServices.Interfaces` to `Altinn.App.Core.Features`
 * `Altinn.App.Common.Models` namespace is moved to `Altinn.App.Core.Models`
-* `Altinn.App.PlaformServices.Interface.IPageOrder` interface is moved to the namespace: `Altinn.App.Core.Features.PageOrder`
 * `Altinn.App.PlatformServices.Interface.ICustomPdfHandler` interface is moved and renamed to: `Altinn.App.Core.Features.Pdf.IPdfFormatter`
 
 ## Recomended plugin for Visual Studio Code
