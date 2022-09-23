@@ -286,7 +286,7 @@ services.AddHttpClient<ICountryClient, CountryClient>();
 
 ## Benytte klient i applikasjonslogikk
 
-For å berike skjemadata må vi koble klienten vår på logikken i _App/logic/DataProcessingHandler.cs_ i metoden _ProcessDataWrite_. Merk at for v7 av applikasjonsmalen er dette endret, se [dataprossessering](../../logic/dataprocessing/_index.nb.md).
+For å berike skjemadata må vi koble klienten vår på logikken i _App/logic/DataProcessingHandler.cs_ i metoden _ProcessDataWrite_. Merk at for v7 av applikasjonsmalen er dette endret, se [dataprossessering](../logic/dataprocessing/).
 
 Først må klienten tilgjengeliggjøres ved å _injecte_ den inn i konstruktøren til klassen.
 DataProcessingHandler har ingen konstruktør i utgangspunktet så den må opprettes i klasse. 
