@@ -5,12 +5,13 @@ description: The Resource Registry
 tags: [architecture, security, authorization, xacml]
 ---
 
-WORK IN PROGRESS - NOT FINALIZED
+{{<notice warning>}}
+This is work in progress
+{{</notice>}}
 
 The service registry will contain information about the service resources 
 
-
-See [Github #24](https://github.com/Altinn/altinn-authorization/issues/24)
+See [Github #24](https://github.com/Altinn/altinn-resource-registry/issues/23)
 
 ## Type of resources
 
@@ -57,6 +58,7 @@ The below table list the attributes a resource has in the resource registry. For
 | [Title](https://informasjonsforvaltning.github.io/cpsv-ap-no/#OffentligTjeneste-navn)  | The resource title | Used for presenting i resource catalog. Searchable |
 | [Description](https://informasjonsforvaltning.github.io/cpsv-ap-no/#OffentligTjenest-beskrivelse) | Describes the resource.  | Used for service catalogue |
 | [hasCompetentAuthority](https://informasjonsforvaltning.github.io/cpsv-ap-no/#OffentligTjeneste-harKompetentOrgan) | If the resource is owned be a public organization this will be set | Identifies owner of resource  | 
+| [ownedBy](https://informasjonsforvaltning.github.io/cpsv-ap-no/#Tjeneste-eiesAv) | This property refers to the Agent who owns the Service.  | Identifies private owner of resource  |
 | [contactpoint](https://informasjonsforvaltning.github.io/cpsv-ap-no/#OffentligTjeneste-kontaktpunkt)| Information about who to contact aboute the service | Resource catalogue |
 | [homepage](https://informasjonsforvaltning.github.io/cpsv-ap-no/#OffentligTjeneste-hjemmeside) | Homepage for service  | Resource catalogue    |
 | [thematicArea](https://informasjonsforvaltning.github.io/cpsv-ap-no/#OffentligTjeneste-temaomr%C3%A5de)  | This property represents the Thematic Area of a Public Service as described in a controlled vocabulary.  |  Resource catalogue |
