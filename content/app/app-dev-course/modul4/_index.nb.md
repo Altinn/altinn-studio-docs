@@ -60,7 +60,7 @@ Sogndal kommune ønsker å samle inn opplysninger om tilflytterens arbeidsituasj
 
 1. Sogndal kommune har opprettet [en kodeliste for **bransjer**](../industry.json). Last ned filen og plasser denne på rett sted i repoet.
 
-2. Sett opp verdiene i kodelisten for **År i arbeidslivet** direkte i applikasjonslogikken.
+2. Sett opp verdiene i kodelisten for **År i arbeidslivet** direkte i en ny C#-klasse.
 
    Svaralternativer:
 

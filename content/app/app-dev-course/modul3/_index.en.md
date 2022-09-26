@@ -77,7 +77,7 @@ In addition to this, the developer deploying the application needs the [role Dep
 for the organization in Altinn Studio.
 {{% /notice %}}
 
-**Deploy your application to TT02 and test the different tracks and for pages to confirm that the behaviour is as expected.**
+**Deploy your application to TT02.**
 
 ### Useful documentation
 - [Deploy app to test environment](/app/testing/deploy/#deploy-av-app-til-testmiljø)
@@ -101,6 +101,8 @@ this link will bring you to Altinn's login page.
 Your organization should have access to a set of test users, use one of these to log in.
 
 For internal people in Digdir: Use one of the test users you can find in [the test data set](https://pedia.altinn.cloud/testing/testdata/datasets/) and log in.
+
+**Test the different tracks and pages to confirm that the behaviour is as expected.**
 
 {{% /expandlarge %}}
 
