@@ -76,7 +76,7 @@ An example setup of the `layout-sets.json` where `Task_1` is a data step, and `T
     "sets": [
       {
         "id": "simpel",
-        "dataType": "simpel",
+        "dataType": "simple",
         "tasks": [
           "Task_1"
         ]
