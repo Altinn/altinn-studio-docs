@@ -149,7 +149,7 @@ The app structure would look look this:
 │   │   ├───custom-receipt
 │   │   │   └───layouts
 |   |   |   └─── ...
-│   │   └───simpel
+│   │   └───simple
 │   │       └───layouts
 |   |   |   └─── ...
 
