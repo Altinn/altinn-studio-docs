@@ -77,7 +77,7 @@ Eksempel oppsett av `layout-sets.json` hvor `Task_1` er et datasteg, og `Task_2`
     "sets": [
       {
         "id": "simpel",
-        "dataType": "simpel",
+        "dataType": "simple",
         "tasks": [
           "Task_1"
         ]
