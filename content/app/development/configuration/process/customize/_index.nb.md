@@ -150,7 +150,7 @@ Dette vil gi følgende app-struktur:
 │   │   ├───custom-receipt
 │   │   │   └───layouts
 |   |   |   └─── ...
-│   │   └───simpel
+│   │   └───simple
 │   │       └───layouts
 |   |   |   └─── ...
 
