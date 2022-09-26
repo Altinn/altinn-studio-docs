@@ -65,7 +65,7 @@ This results in the following view:
 
 For the confirm task the app developer has the possibility for configuring their own [layout set](../../../ux/pages/layout-sets/) with corresponding form layout definitions and other ui-configuration files which are included in the data step.
 
-This makes the confirmation page custumizable, and can use the components that is supported in Altinn Studio.
+This makes the confirmation page custumizable, and can use the components that are supported in Altinn Studio.
 
 Since the confirm step is not meant to be used for writing data, a good practice would be to use static components (header, paragraph) and set other components to `readOnly`.
 
