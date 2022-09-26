@@ -83,7 +83,7 @@ An example setup of the `layout-sets.json` where `Task_1` is a data step, and `T
       },
       {
         "id": "custom-receipt",
-        "dataType": "simpel",
+        "dataType": "simple",
         "tasks": [
           "Task_2"
         ]
