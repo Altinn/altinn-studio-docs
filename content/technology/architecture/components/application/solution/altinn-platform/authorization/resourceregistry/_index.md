@@ -83,20 +83,6 @@ The below table list the attributes a resource has in the resource registry. For
 | Resourcetype | Type of resource.  | Access management | 
 
 
-## Resource repository
+## Construction
 
-To store resources there are two options
-
-- relational database
-- document database
-
-A relational database will have less flexibility to change the information for a resource. Storing it as a json document 
-will improve flexibility. 
-
-The search performance will be better with a relational database. 
-
-The number of resources will probably also be limited. When all Altinn 2 services is migrated we will have between 1000-2000 service resouces. 
-
-It will probably take many many years before there are more than 10.000 resources registrated. 
-
-This points to that a document database is the best choice since it will give better flexibility and performance can be handled with caching. 
+See [construction components](/technology/architecture/components/application/construction/altinn-platform/authorization/resourceregistry/) if you want to see how the component is built. 
