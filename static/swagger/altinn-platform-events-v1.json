@@ -18,7 +18,7 @@
     "/app": {
       "post": {
         "tags": [
-          "Events"
+          "AppEvents"
         ],
         "summary": "Inserts a new event.",
         "requestBody": {
@@ -33,7 +33,7 @@
                     "source": "https://ttd.apps.altinn.no/ttd/apps-test/instances/50015641/a72223a3-926b-4095-a2a6-bacc10815f2d",
                     "specversion": "1.0",
                     "type": "app.instance.created",
-                    "subject":  "/party/50015641",
+                    "subject": "/party/50015641",
                     "alternativesubject": "/person/01017512345"
                   }
                 },
@@ -76,7 +76,7 @@
     "/app/{org}/{app}": {
       "get": {
         "tags": [
-          "Events"
+          "AppEvents"
         ],
         "summary": "Retrieves a set of events related to an application owner based on query parameters.",
         "parameters": [
@@ -210,7 +210,7 @@
     "/app/party": {
       "get": {
         "tags": [
-          "Events"
+          "AppEvents"
         ],
         "summary": "Retrieves a set of events related to a party based on query parameters.",
         "parameters": [
@@ -283,7 +283,8 @@
             },
             "example": [
               "https://ttd.apps.at22.altinn.cloud/ttd/apps-test/",
-              "https://ttd.apps.at22.altinn.cloud/digdir/bli-tjenesteeier/"
+              "https://ttd.apps.at22.altinn.cloud/digdir/bli-tjenesteeier/",
+              "https://ttd.apps.at22.altinn.cloud/ttd/apps-%/"
             ]
           },
           {
@@ -354,16 +355,6 @@
         "responses": {
           "200": {
             "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
           }
         }
       }
@@ -404,18 +395,6 @@
                     "endpoint": "https://org-reception-func.azurewebsites.net/api/processCompleteInstance?code=APIKEY",
                     "sourceFilter": "https://ttd.apps.altinn.no/ttd/%25",
                     "typeFilter": "app.instance.process.completed"
-                  }
-                },
-                "Org subscription to events with wildcard `_` in source": {
-                  "value": {
-                    "endpoint": "https://org-reception-func.azurewebsites.net/api/processCompleteInstance?code=APIKEY",
-                    "sourceFilter": "https://ttd.apps.altinn.no/ttd/apps-test_"
-                  }
-                },
-                "Org subscription with wildcard `%25` in source for unknown string": {
-                  "value": {
-                    "endpoint": "https://org-reception-func.azurewebsites.net/api/processCompleteInstance?code=APIKEY",
-                    "sourceFilter": "https://ttd.apps.altinn.no/ttd/versionedapp_v%25"
                   }
                 },
                 "Subscription with Slack webhook": {
@@ -684,7 +663,7 @@
         "additionalProperties": false,
         "description": "Represents a cloud event. Based on CloudEvent: https://github.com/cloudevents/spec/blob/v1.0/spec.md.",
         "example": {
-          "id": "59538de7-64fa-4c7b-8193-e7e944afaf64",
+          "id": "bf6145d2-fecb-4947-bdae-ab1d1f5ec1d0",
           "source": "https://ttd.apps.altinn.no/ttd/apps-test/instances/50015641/a72223a3-926b-4095-a2a6-bacc10815f2d",
           "specversion": "1.0",
           "type": "app.instance.created",

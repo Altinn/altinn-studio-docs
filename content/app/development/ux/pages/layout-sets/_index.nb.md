@@ -40,7 +40,7 @@ Sentralt i løsningen er at man har flere layout-sets som består av en eller fl
 ```
 
 
-I `layout-set.json` defineres det hvilke steg i prosessen (task) hvor et gitt layout-set skal brukes.
+I `layout-sets.json` defineres det hvilke steg i prosessen (task) hvor et gitt layout-set skal brukes.
 Merk at id'en er case sensitiv, så om du har stor bokstav i mappenavnet må id'en reflektere dette. Vi anbefaler små bokstaver i mappenavn.
 
 Eksempel:

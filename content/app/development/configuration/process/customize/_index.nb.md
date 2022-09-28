@@ -62,6 +62,106 @@ Dette resulterer i følgende visning:
 
 ![Bekreftelses-visningen](confirm-step-custom.png "Overstyrte tekster på bekreftelses-visningen")
 
+### Custom form layout
+
+For bekreftelsessteget har man som apputvikler muligheten til å definere et eget [layout set](../../../ux/pages/layout-sets/) med tilhørende form layout filer og andre konfigurasjonsfiler som hører til data-steget.
+
+Dette gjør det mulig å helt fritt styre innholdet på bekreftelsessiden, og man kan bruke komponentene man ellers har tilgjengelig i Altinn Studio.
+
+Siden bekreftelsessteget ikke er ment brukt når man skal skrive data, anbefaler vi å bruke statiske komponenter (header, paragraph) og sette komponenter utover dette som `readOnly`.
+
+Eksempel oppsett av `layout-sets.json` hvor `Task_1` er et datasteg, og `Task_2` et bekreftelsesteg.
+
+```json
+{
+    "sets": [
+      {
+        "id": "simple",
+        "dataType": "simple",
+        "tasks": [
+          "Task_1"
+        ]
+      },
+      {
+        "id": "custom-receipt",
+        "dataType": "simple",
+        "tasks": [
+          "Task_2"
+        ]
+      }
+    ]
+  }
+```
+
+Legg merke til at konfigurasjonen for settet til `Task_2` referer til data typen til `Task_1`.
+
+Eksempel `formLayout.json` som presenterer data som brukeren fylte ut i data-steget.
+
+```json
+{
+  "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
+  "data": {
+    "layout": [
+      {
+        "id": "paragraph",
+        "type": "Paragraph",
+        "textResourceBindings": {
+          "title": "paragraph"
+        }
+      },
+      {
+        "id": "name",
+        "type": "Input",
+        "textResourceBindings": {
+          "title": "name.label"
+        },
+        "dataModelBindings": {
+          "simpleBinding": "Felt1"
+        },
+        "required": true,
+        "readOnly": true
+      },
+      {
+        "id": "lastname",
+        "type": "Input",
+        "textResourceBindings": {
+          "title": "lastName.label"
+        },
+        "dataModelBindings": {
+          "simpleBinding": "Felt2"
+        },
+        "required": true,
+        "readOnly": true
+      }
+    ]
+  }
+}
+```
+
+Dette vil gi følgende app-struktur:
+
+```txt
+├───App
+│   ├───config
+│   ├───logic
+│   ├───models
+|   | ...
+│   ├───ui
+│   │   ├───custom-receipt
+│   │   │   └───layouts
+|   |   |   └─── ...
+│   │   └───simple
+│   │       └───layouts
+|   |   |   └─── ...
+
+```
+
+Sluttresultatet i appen:
+
+![Custom bekreftelsesvisning](custom_confirm_nb.png "Custom bekreftelsesvisning")
+
+For et komplett oppsett av denne muligheten kan du se vår [eksempel applikasjon.](https://altinn.studio/repos/ttd/custom-view-confirm)
+
 ## Tilbakemelding (Feedback)
 Dette er et prosesssteg hvor applikasjonseier vil sjekke utfylte data for å generere en tilbakemelding før alle data kan arkiveres.
 
