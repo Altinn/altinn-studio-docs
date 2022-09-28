@@ -106,7 +106,7 @@ Based on the answer, the user will be sent to either _Track 1_ or _Track 2_.
 
 {{% /expandlarge %}}
 
-### Prefilling og personal information
+### Prefilling of personal information
 {{% expandlarge id="prefill-expandable" header="Requirements" %}}
 
 - The following should be prefilled for the user:
@@ -116,13 +116,13 @@ Based on the answer, the user will be sent to either _Track 1_ or _Track 2_.
   - Email: Innflytter.Kontaktinformasjon.Epost
   - Phone number: Innflytter.Kontaktinformasjon.Telefonnummer
   - Age: Innflytter.Alder
-- It should **not** be possible to change prefilled name and age
-- It should be possible to change prefilled email and phone number
+- It should **not** be possible to change the prefilled name and age
+- It should be possible to change the prefilled email and phone number
 
 {{% /expandlarge %}}
 
 
-### Different data basis for public and private sector
+### Different data for public and private sector
 {{% expandlarge id="options-expandable" header="Requirements" %}}
 
 We want the user to be presented with a different set of options for the industry choice
@@ -199,7 +199,7 @@ It should be possible to enter up to 10 former residences.
 
 {{% /expandlarge %}}
 
-### Validation previous residences
+### Validation of previous residences
 {{% expandlarge id="vendetta-expandable" header="Requirements" %}}
 
 Due to a personal vendetta among one of the employees in the municipality of Sogndal, a user who enters 
