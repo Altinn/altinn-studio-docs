@@ -1,5 +1,5 @@
 ---
-title: Veiledning for authorisasjonsregler
+title: Veiledning for autorisasjonsregler
 linktitle: Veiledning 
 description: Autorisasjonsregler må defineres med omhu. Disse retningslinjene forteller hva applikasjonseier må vurdere før autorisasjonsregler settes for en applikasjon
 toc: true
