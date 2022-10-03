@@ -589,18 +589,18 @@ public override async Task RunProcessTaskEnd(string taskId, Instance instance)
 }
 ```
 
-1. Create a new class implementing the Interface `Altinn.App.Core.Features.IProcessTaskEnd` you can name and place this class wherever you like, but as a suggestion you can create and place it in the folder `App/logic/ProcessTaskEnd` and name the file TaskProcessor.
+1. Create a new class implementing the Interface `Altinn.App.Core.Features.IProcessTaskEnd` you can name and place this class wherever you like, but as a suggestion you can create and place it in the folder `App/logic/TaskProcessors` and name the file TaskProcessor.
     The class should look something like this after the interface is implemented:
     ```csharp
     using System.Threading.Tasks;
     using Altinn.App.Core.Features;
     using Altinn.Platform.Storage.Interface.Models;
 
-    namespace Altinn.App.AppLogic.Custom;
+    namespace Altinn.App.AppLogic.TaskProcessors;
 
     public class ProcessTaskEnd: IProcessTaskEnd
     {
-        public Task HandleTaskEnd(string taskId, Instance instance)
+        public Task End(string taskId, Instance instance)
         {
             return Task.CompletedTask;
         }
