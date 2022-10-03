@@ -589,7 +589,7 @@ public override async Task RunProcessTaskEnd(string taskId, Instance instance)
 }
 ```
 
-1. Create a new class implementing the Interface `Altinn.App.Core.Features.IProcessorTaskEnd` you can name and place this class wherever you like, but as a suggestion you can create and place it in the folder `App/logic/TaskProcessors` and name the file ProcessTaskEnd.
+1. Create a new class implementing the Interface `Altinn.App.Core.Features.IProcessTaskEnd` you can name and place this class wherever you like, but as a suggestion you can create and place it in the folder `App/logic/TaskProcessors` and name the file ProcessTaskEnd.
     The class should look something like this after the interface is implemented:
     ```csharp
     using System.Threading.Tasks;
@@ -598,7 +598,7 @@ public override async Task RunProcessTaskEnd(string taskId, Instance instance)
 
     namespace Altinn.App.AppLogic.TaskProcessors;
 
-    public class ProcessTaskEnd: IProcessorTaskEnd
+    public class ProcessTaskEnd: IProcessTaskEnd
     {
         public Task End(string taskId, Instance instance)
         {
@@ -606,8 +606,8 @@ public override async Task RunProcessTaskEnd(string taskId, Instance instance)
         }
     }
     ```
-2. Move code from `RunProcessTaskEnd`to the method `ProcessTaskEnd`in the class implementing IProcessorTaskEnd
-3. Register your custom implementation of `IProcessorTaskEnd` in the method `RegisterCustomAppServices` inside `App/Program.cs`
+2. Move code from `RunProcessTaskEnd`to the method `IProcessTaskEnd`in the class implementing IProcessTaskEnd
+3. Register your custom implementation of `IProcessTaskEnd` in the method `RegisterCustomAppServices` inside `App/Program.cs`
 
 
 ### Moving custom code in GetPageOrder
