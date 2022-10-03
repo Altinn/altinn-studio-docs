@@ -18,7 +18,7 @@ If your application still is on version v5 or lower you should read the breaking
 
 ## Updating Altinn.App.* PackageReferences from v6 to v7
 
-As mentioned [here](../) we have moved the code around and reduced the old nugets to two and introduced a new one.
+As mentioned [here](../) we have moved the code around and reduced the number of nugets to two.
 
 To upgrade from v6 nuget to v7 nugets the Altinn.App.* PackageReferences in `App/App.csproj` needs to be changed from:
 
