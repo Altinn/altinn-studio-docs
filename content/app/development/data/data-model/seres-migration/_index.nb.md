@@ -6,23 +6,23 @@ weight: 100
 ---
 
 {{% notice info %}}
-Denne siden beskriver hva som må gjøres ifm overgangen fra Seres til Altinn Studio som datamodelleringsverktøy. Siden vil oppdateres i takt med utviklings- og migreringsarbeidet som gjøres så det må forventes oppdateringer.
+Denne siden beskriver hva som må gjøres ifm. overgangen fra Seres til Altinn Studio som datamodelleringsverktøy. Siden vil oppdateres i takt med utviklings- og migreringsarbeidet som gjøres så det må forventes oppdateringer.
 {{% /notice %}}
 
 ## Altinn Studio Datamodellering (ASD)
 Seres er et verktøy for å lage XSD'er som igjen validerer korrektheten til en XML. Det nye datamodelleringsverktøyet jobber på Json Schema som igjen validerer Json. Prinsippet er det samme, men formatet er forskjellig.
 
-Selv om datamodelleringsverktøyet jobber på Json Schema, vil det fortsatt være mulig å hente ut en XSD hvis man trenger det f. eks. i et mottakssystem. Json Schema vil da bli konvertert til XSD. En XSD produsert i Seres og som leses inn i ASD vil inneholde nok metadata til å kunne re-generere XSD'en slik den var. Dette muliggjør at man kan bruke verktøyet til å jobbe med datamodeller for Altinn 2 evt. lage en Altinn 3 applikasjon som leverer samme format som Altinn 2.
+Selv om datamodelleringsverktøyet jobber på Json Schema vil det fortsatt være mulig å hente ut en XSD hvis man trenger det, f. eks. i et mottakssystem. Json Schema vil da bli konvertert til XSD. En XSD produsert i Seres og som leses inn i ASD vil inneholde nok metadata til å kunne re-generere XSD'en slik den var. Dette muliggjør at man kan bruke verktøyet til å jobbe med datamodeller for Altinn 2 ev. lage en Altinn 3 applikasjon som leverer samme format som Altinn 2.
 
 {{% notice warning %}}
 Selv om både XSD og Json Schema handler om å beskrive og validere dataformater så har de begge forskjellige egenskaper og måter å beskrive datatyper og datastrukturer på. Json Schema startet som et noe mer lettvekts alternativ til XSD - noe av denne "lettheten" blir dog borte når man må kunne re-generere en XSD 100%. 
 
-Det anbefales derfor at om man har muligheten starter fra bunn av og modellerer på nytt for en Altinn 3 applikasjon for å sikre så enkle og oversiktlige datamodeller som mulig.
+Det anbefales derfor at om man har muligheten starter fra bunnen av og modellerer på nytt for en Altinn 3 applikasjon for å sikre så enkle og oversiktlige datamodeller som mulig.
 {{% /notice %}}
 
-## Overgangen fra Seres til Atlinn Studio Datamodellering - Hva må du som tjenesteeier gjøre?
+## Overgangen fra Seres til Altinn Studio Datamodellering - Hva må du som tjenesteeier gjøre?
 ### Verifisere at alle XSD'er fra Altinn 2 er overført
-XSD'er som er lastet opp til, og tatt i bruk i, Altinn 2 vil bli hentet ut og overført til et dedikert lagringsområde per tjenesteeier i Altinn Studio. Dette er et _repository_ som ligger under den enkelte tjenesteeier sin organisasjon i Altinn Studio/Gitea og har navnet {org}-datamodels.
+XSD'er som er lastet opp til og tatt i bruk i Altinn 2 vil bli hentet ut og overført til et dedikert lagringsområde per tjenesteeier i Altinn Studio. Dette er et _repository_ som ligger under den enkelte tjenesteeier sin organisasjon i Altinn Studio/Gitea og har navnet {org}-datamodels.
 
 Du finner det ved å søke det opp i dashboardet til Altinn Studio og klikke på den grønne _repository_ lenken.
 
@@ -37,15 +37,15 @@ I tillegg vil du se en _readme.md_ fil som vises på forsiden av _repository_. D
 ![Importerte filer fra Altinn 2](datamodels-readme.png "Importerte filer fra Altinn 2")
 
 {{% notice info %}}
-Ifm at dette arbeidet ble startet i 2021 ble det gjort et uttrekk av XSD'er da, disse ligger igjen. Vi kommer til å kjøre et nytt uttrekk i løpet av november slik at dette er klart til verifisering fra 1. desember 2022. 
+Ifm. at dette arbeidet ble startet i 2021 ble det gjort et uttrekk av XSD'er da, disse ligger igjen. Vi kommer til å kjøre et nytt uttrekk i løpet av november slik at dette er klart til verifisering fra 1. desember 2022. 
 
-Ved behov kan uttrekket kjøres flere ganger. Evt. endringer aktivert i Altinn 2 i mellomtiden vil da bli med på neste kjøring, det samme gjelder nye XSD'er som er lagt til. Men vi vil ikke slette skjemaer som allerede er overført til ny løsning selv om de er fjernet i Altinn 2.
+Ved behov kan uttrekket kjøres flere ganger. Ev. endringer aktivert i Altinn 2 i mellomtiden vil da bli med på neste kjøring, og det samme gjelder nye XSD'er som er lagt til. Men vi vil ikke slette skjemaer som allerede er overført til ny løsning selv om de er fjernet i Altinn 2.
 {{% /notice %}}
 
-Det gjøres ingen endringer i XSD'ene ifm. uttrekket og overføringen til _repository_ i Altinn Studio. XSD'ene skal være 100% like. Det er først når man velger å jobbe videre på XSD'ene at nytt datamodelleringsverktøy vil tas i bruk. Videreutvikling kan være mindre endringer for Altinn 2 evt. bygge videre på skjema med tanke på å bruke det i en Altinn 3 applikasjon.
+Det gjøres ingen endringer i XSD'ene ifm. uttrekket og overføringen til _repository_ i Altinn Studio. XSD'ene skal være 100% like. Det er først når man velger å jobbe videre på XSD'ene at nytt datamodelleringsverktøy vil tas i bruk. Videreutvikling kan være mindre endringer for Altinn 2 ev. bygge videre på skjema med tanke på å bruke det i en Altinn 3 applikasjon.
 
 ### XSD'er som er under arbeid i Seres
-Hvis du har XSD'er som er under arbeid i Seres og som ikke er satt i produksjon i Altinn 2 må tas ut av Seres manuelt og lastes opp i _repository_ hvis du ønsker å jobbe videre med de i Altinn Studio evt. ha alt samlet på et sted. Alternativt kan man starte på nytt med datamodellering i nytt verktøy.
+Hvis du har XSD'er som er under arbeid i Seres og som ikke er satt i produksjon i Altinn 2 må disse tas ut av Seres manuelt og lastes opp i _repository_ hvis du ønsker å jobbe videre med de i Altinn Studio ev. ha alt samlet på et sted. Alternativt kan man starte på nytt med datamodellering i nytt verktøy.
 
 ### XSD'er som kun er lastet opp i TUL
 Her gjelder det samme som for punktet over.
