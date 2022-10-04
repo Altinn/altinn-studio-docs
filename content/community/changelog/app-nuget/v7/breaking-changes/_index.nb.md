@@ -48,7 +48,7 @@ to
 Once you or your IDE has completed the `dotnet restore` process your code will have multiple compilation warnings.
 Work your way through the rest of this page and you will remove them one at a time.
 
-## Upgrading Promgram.cs
+## Upgrading Program.cs
 
 It's highly recomended to follow the migration guide to [v6](../../v6/breaking-changes/) if your application still hasn't been upgraded to from v4 or v5.
 
@@ -58,7 +58,7 @@ As an attempt to make it easier to see customer provided services we have extrac
 Steps:
 
 1. Identify the custom services your application has registered in Program.cs. Take a note of these as we will have to register them again later.
-2. Copy and paste the version 7 of Program.cs from our template at [altinn/app-template-dotnet](https://github.com/Altinn/app-template-dotnet/blob/chore/90-appbase-simplified/src/App/Program.cs) into your `App/Program.cs` (replacing existing code)
+2. Copy and paste the version 7 of Program.cs from our template at [altinn/app-template-dotnet](https://github.com/Altinn/app-template-dotnet/blob/main/src/App/Program.cs) into your `App/Program.cs` (replacing existing code)
 3. Register your apps custom services from step 1 in the method `RegisterCustomAppServices`
 
 
@@ -113,6 +113,7 @@ If you have custom code in this class complete the steps below:
         }
     }
    ```
+   Note that you might have to add the async keyword if they aren't added by default. You only need to add them if you do async calls within your code.
 2. Move your code from the file `App/logic/DataProcessing/DataProcessingHandler.cs` to the file you just created.
 3. Register `DataProcessor`  in the method `RegisterCustomAppServices` `App/Program.cs`
     ```csharp
@@ -186,6 +187,7 @@ If you have custom code in the mehod `DataCreation` complete these steps:
         }
     }
     ```
+    Note that you might have to add the async keyword if they aren't added by default. You only need to add them if you do async calls within your code.
 2. Move all the code from `DataCreation` in `ÌnstantiationHandler.cs` into the method `DataCreation` in the class you just created.
 3. Register `InstantiationProcessor`  in the method `RegisterCustomAppServices` `App/Program.cs`
     ```csharp
@@ -366,7 +368,7 @@ If not, complete the steps below:
 
 In v5 of the nugets tracks or pageorder was extracted in a non-breaking way from App.cs. The old way was deprecated in v6 and now removed in v7.
 
-The new way of defining page order in v5 has not really change in v7, but some interfaces has moved namespace.
+The new way of defining page order in v5 has not really changed in v7, but some interfaces has moved namespace.
 
 If you don't have any classes implementing IPageOrder you can safely move on to [Moving code form App.cs and removing it](#moving-code-from-appcs-and-removing-it)
 
@@ -447,7 +449,7 @@ If you have a custom implementation of `IEFormidlingReceivers` you should add yo
 ```csharp
 void RegisterCustomAppServices(IServiceCollection services, IConfiguration config)
 {
-    services.AddEFormidlingServices<EFormidlingMetadata, IEFormidlingReceivers>(config);
+    services.AddEFormidlingServices<EFormidlingMetadata, EFormidlingReceivers>(config);
 }
 ```
 
