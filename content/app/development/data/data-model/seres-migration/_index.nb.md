@@ -17,7 +17,7 @@ Selv om datamodelleringsverktøyet jobber på Json Schema vil det fortsatt være
 {{% notice warning %}}
 Selv om både XSD og Json Schema handler om å beskrive og validere dataformater så har de begge forskjellige egenskaper og måter å beskrive datatyper og datastrukturer på. Json Schema startet som et noe mer lettvekts alternativ til XSD - noe av denne "lettheten" blir dog borte når man må kunne re-generere en XSD 100%. 
 
-Det anbefales derfor at om man har muligheten starter fra bunnen av og modellerer på nytt for en Altinn 3 applikasjon for å sikre så enkle og oversiktlige datamodeller som mulig.
+Det anbefales derfor at man starter fra bunnen av og modellerer på nytt for en Altinn 3 applikasjon hvis man har muligheten til dette, slik at man sikrer mest mulig enkle og oversiktlige datamodeller.
 {{% /notice %}}
 
 ## Overgangen fra Seres til Altinn Studio Datamodellering - Hva må du som tjenesteeier gjøre?
