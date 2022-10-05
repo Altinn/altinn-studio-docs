@@ -170,11 +170,30 @@ Egendefinerte validering kan igjen deles opp i to kategorier; task-validering og
   - Task-validering vil kjøres hver gang validering trigges enten manuelt fra applikasjonen eller når man prøver å flytte seg framover i prosessen.
   - Data-validering vil kjøre dersom man står på et steg som har definerte dataelementer knyttet til seg.
 
-Valideringer er skrevet i C#, i `ValidationHandler.cs` -filen i applikasjonsmalen.
+Valideringer skrives i C# og avhengig av hvilken versjon av applikasjonsmalen og Nuget pakkene du er på, så vil implementeringen variere litt. I tidligere versjon så er det en pre-definert fil med metoder du kan legge inn logikken, mens fra versjon 7 og fremover så implementerer du et grensesnitt i den klassen du selv vil. Grensesnittet er tilfeldigvis likt den pre-definerte filen. Eksemplene som refererer til metoder vil derfor være de samme for alle versjoner.
+
+{{% content-version-selector %}}
+
+{{<content-version-container version-label="v4, v5, v6">}}
+Valideringer legges til i `ValidationHandler.cs` -filen i applikasjonsmalen.
 Filen kan aksesseres og endres i Altinn Studio via logikkmenyen, ved å velge _Rediger valideringer_,
 eller direkte i applikasjonsrepoet der ligger filen i `logic/Validation`-mappen.
+{{</content-version-container>}}
 
-Endringer gjøres i `ValidateData` og `ValidateTask`-metodene (disse er tomme når appen lages).
+{{<content-version-container version-label="v7">}}
+I versjon 7 har vi endret måten preutfylling med egendefinert kode gjøres på. Vi benytter nå _dependency injection_ i stedet for overstyring av metoder. Hvis du tidligere plasserte koden din i _ValidationHandler og _ValidateTask_ metodene in _ValidationHandler.cs_ klassen så vil du erfare at det er mer eller mindre det samme som nå gjøres.
+1. Opprett en klasse som implementerer `IInstanceValidator` grensesnittet som ligger i `Altinn.App.Core.Features.Validation` navnerommet.  
+    Du kan navngi og plassere filene i den mappestrukturen du selv ønsker i prosjektet ditt. Men vi anbefaler at du benytter meningsfulle navnerom som i et hvilket som helst annet .Net prosjekt.
+2. Registrer din implementering i _Program.cs_ klassen
+    ```C#
+    services.AddTransient<IInstanceValidator, InstanceValidator>();
+    ```
+    Dette sørger for at din kode er kjent for applikasjonen og at koden blir kjørt når den skal.
+{{</content-version-container>}}
+
+Fra dette punktet og videre skal eksemplene være de samme for alle versjoner :)
+
+Endringer gjøres i `ValidateData` og `ValidateTask`-metodene.
 Førstnevnte får inn et dataobjekt og sistnevnte får inn instansen og taskId.
 For å legge til en valideringsfeil brukes `AddModelError`-metoden til `validationResults` object som sendes med i begge metodene.
 
