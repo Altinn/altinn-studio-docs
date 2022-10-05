@@ -1,22 +1,22 @@
 ---
 title: Authorization
 linktitle: Authorization
-description: The Altinn 3 platform has very powerful and flexible authorization capabilities. 
+description: The Altinn platform has compelling and flexible authorization capabilities.
 tags: [architecture, security]
 toc: false
 ---
 
-The [authorization](https://en.wikipedia.org/wiki/Authorization) capabilities are based around [ABAC](https://en.wikipedia.org/wiki/Attribute-based_access_control) (Attribute-Based Access Controls)
-and the [XACML 3.0 standard](https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html).
+The [authorization](https://en.wikipedia.org/wiki/Authorization) capabilities are based on [ABAC](https://en.wikipedia.org/wiki/Attribute-based_access_control) (Attribute-Based Access Controls)
+and use the [XACML 3.0 standard](https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html).
 
 These capabilities include:
 
-* The capability to define wide/narrow authorization policies for apps. Rules can be valid for the whole application or only valid for a subset of resources.
+* The capability to define wide/narrow authorization policies for apps. Rules can be valid for the whole application or only for a subset of resources.
 * The capability to evaluate policies  based on a request for a resource
 * The capability to configure authorization policies for API endpoints
 * The capability to enforce decision request (permit or deny)
-* The capability to enrich decision request with needed information
-* The capability to retrieve context information from different sources both regarding resources accessed and subjects doing that.
+* The capability to enrich decision requests with needed information
+* The capability to retrieve context information from different sources for subject and resource.
 * The capability to authorize based on API scopes
 
 ## Main Concept
@@ -25,7 +25,7 @@ The following concepts are important
 
 ### Authorization Components
 
-The authorization capabilities are provided by the following solution components
+The following solution components provide authorization capabilities
 
 * PAP - Policy Administration Point: Where the authorization policies are defined
 * PDP - Policy Decision Point:  Where the authorization request is evaluated
@@ -149,6 +149,6 @@ Scopes are always used together with the authorization rules for the specific ap
 
 ## The Future
 
-The below show the future of Authorization Component. Work in progress
+The below show the future of Authorization Component. [Work in progress](/technology/architecture/components/application/solution/altinn-platform/authorization/#altinn-authorization---future)
 
-![The future](../../../../components/application/solution/altinn-platform/authorization/authorizationdetailed2026.drawio.svg)
+![The future](../../../../components/application/solution/altinn-platform/authorization/authorization_solution_components_future.drawio.svg)

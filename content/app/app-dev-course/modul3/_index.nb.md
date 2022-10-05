@@ -77,7 +77,7 @@ I tillegg trenger utvikleren som skal deplopye applikasjonen [rollen Deploy-TT02
 for organisasjonen i Altinn Studio.
 {{% /notice %}}
 
-**Deploy applikasjonen din til TT02 og test de ulike sporvalgene og skjemasidene for å bekrefte at det oppfører seg som forventet.**
+**Deploy applikasjonen din til TT02.**
 
 ### Nyttig dokumentasjon
 - [Deploye app til testmiljø](/nb/app/testing/deploy/#deploy-av-app-til-testmiljø)
@@ -101,6 +101,8 @@ vil denne lenken ta deg til innloggingssiden til Altinn.
 Organisasjonen din bør ha tilgang på et sett med testbrukere, benytt en av disse for å logge inn.
 
 For interne personer i Digdir: Benytt deg av en av testbruker som du finner i [testdatasettet](https://pedia.altinn.cloud/testing/testdata/datasets/) og logg inn.
+
+**Test de ulike sporvalgene og skjemasidene for å bekrefte at de oppfører seg som forventet.**
 
 {{% /expandlarge %}}
 

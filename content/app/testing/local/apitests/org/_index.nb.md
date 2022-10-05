@@ -20,7 +20,7 @@ Testplattformen for lokal testing tilbyr et enkelt api for å autentisere organi
 
 Man trenger bare å oppgi tjenesteeier kode (som f.eks brg, skd osv)
 
-Url: http://altinn3local.no/Home/GetTestOrgToken/ttd   (ttd needs to be replaced with the org you want to authenticate)
+Url: http://local.altinn.cloud/Home/GetTestOrgToken/ttd   (ttd needs to be replaced with the org you want to authenticate)
 
 The response is a JWT token that should be uses as a Authorization header.
 
@@ -30,7 +30,7 @@ The response is a JWT token that should be uses as a Authorization header.
 ## Multipart instansiering
 Applikasjonene støtter at man instansierer instanser til aktører. Personer eller organsiasjoner.
 
-Url: http://altinn3local.no/ttd/mva/instances
+Url: http://local.altinn.cloud/ttd/mva/instances
 
 Metode: POST
 
@@ -91,7 +91,7 @@ The below response show how an instance was created for a given organization.
     "appId": "ttd/mva",
     "org": "ttd",
     "selfLinks": {
-        "apps": "https://altinn3local.no/ttd/mva/instances/500000/b4a42747-882f-47fa-bcd3-94029fdbc918",
+        "apps": "https://local.altinn.cloud/ttd/mva/instances/500000/b4a42747-882f-47fa-bcd3-94029fdbc918",
         "platform": "https://localhost:5101/storage/api/v1/instances/500000/b4a42747-882f-47fa-bcd3-94029fdbc918"
     },
     "dueBefore": null,
@@ -129,7 +129,7 @@ The below response show how an instance was created for a given organization.
             "contentType": "application/xml",
             "blobStoragePath": "ttd/mva/b4a42747-882f-47fa-bcd3-94029fdbc918/data/54d868aa-5bc9-47fb-9525-67ba4c2e595c",
             "selfLinks": {
-                "apps": "https://altinn3local.no/ttd/mva/instances/500000/b4a42747-882f-47fa-bcd3-94029fdbc918/data/54d868aa-5bc9-47fb-9525-67ba4c2e595c",
+                "apps": "https://local.altinn.cloud/ttd/mva/instances/500000/b4a42747-882f-47fa-bcd3-94029fdbc918/data/54d868aa-5bc9-47fb-9525-67ba4c2e595c",
                 "platform": "https://localhost:5101/storage/api/v1/instances/500000/b4a42747-882f-47fa-bcd3-94029fdbc918/data/54d868aa-5bc9-47fb-9525-67ba4c2e595c"
             },
             "size": 1009,

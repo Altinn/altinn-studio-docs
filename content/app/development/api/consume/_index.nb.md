@@ -93,7 +93,7 @@ Skulle det være behov for et request-objekt kan dette opprettes på samme måte
 
 ## Oppsett av interface for klienten
 
-Det anbefales at det defineres et interface for klienten som skal kalle API. 
+Det er anbefalt å definere et interface for klienten som skal kalle APIet. 
 Det gjør at vi kan benytte oss av styrkene til .NET med dependency injection og effektiv håndtering av HTTP-klienter.
 
 I applikasjonsrepoet opprettes mappen _App/clients_,

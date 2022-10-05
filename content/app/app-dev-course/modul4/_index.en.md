@@ -57,7 +57,7 @@ The municipality of Sogndal wishes to collect information on the newcomers worki
 
 1. The municipality of Sogndal has created [a code list for **industries**](../industry.json). Download the file and place it correctly in the repository.
 
-2. Set up the values in the code list for **Years in work force** directly in the application logic.
+2. Set up the values in the code list for **Years in work force** directly in a new C# class.
 
    Answer options:
 
