@@ -21,7 +21,7 @@ weight: 11
     ```
     or run it directly from VS Code.
 
-4. Start the app in a browser by going to [altinn3local.no](http://altinn3local.no)!
+4. Start the app in a browser by going to [local.altinn.cloud](http://local.altinn.cloud)!
 
 ## Altinn Studio Designer
 1. Follow the instructions in the Altinn Studio [README](https://github.com/Altinn/altinn-studio/blob/master/src/studio/README.md) to set up Altinn Studio locally.
