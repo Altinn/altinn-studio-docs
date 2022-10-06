@@ -70,7 +70,14 @@ Editing/filling out pages can be performed over multiple "pages"/displays. Requi
 
 ### openByDefault
 
-If there are no elements in the group already, the group should be opened in editing mode. Note that this cannot be used with `"mode": "showAll"`.
+Open the group in editing mode by default. The following values are allowed:
+
+| Value   | Description                                                                                           |
+| ------- | ----------------------------------------------------------------------------------------------------- |
+| "first" | If there are prefilled values in the group, the first item will be opened in editing mode by default. |
+| "last"  | If there are prefilled values in the group, the last item will be opened in editing mode by default.  |
+
+If there are no items in the group already, a new item will be added and is opened in editing mode (applies to both values of `openByDefault`). Note that this cannot be used with `"mode": "showAll"`.
 
 Example:
 
@@ -78,7 +85,7 @@ Example:
 {
   ...
   "edit": {
-    "openByDefault": true
+    "openByDefault": "first"
   }
 }
 ```
