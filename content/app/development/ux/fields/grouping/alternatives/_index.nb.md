@@ -70,7 +70,16 @@ Sier at redigering/utfylling av gruppe kan gjøres over flere "sider"/visninger.
 
 ### openByDefault
 
-Sier at gruppen skal åpnes i editeringsmodus om det ikke finnes noen elementer i gruppen fra før. Merk at denne ikke kan brukes sammen med `"mode": "showAll"`.
+Sier at gruppen skal åpnes i redigeringsmodus til å begynne med. Følgende verdier godtas:
+
+| Value   | Description                                                                                                                                                                                                                                                           |
+| ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| "first" | Dersom det finnes preutfylte elementer eller eksisterende data i gruppen vil det første elementet åpnes i redigeringsmodus til å begynne med. Dersom det ikke finnes noen elementer i gruppen fra før av, vil et nytt element legges til og åpnes i redigeringsmodus. |
+| "last"  | Dersom det finnes preutfylte elementer eller eksisterende data i gruppen vil det siste elementet åpnes i redigeringsmodus til å begynne med. Dersom det ikke finnes noen elementer i gruppen fra før av, vil et nytt element legges til og åpnes i redigeringsmodus.  |
+| true    | Dersom det ikke finnes noen preutfylte elementer eller eksisterende data i gruppen fra før av, vil et nytt element legges til og åpnes i redigeringsmodus.                                                                                                            |
+| false   | Ingen elementer åpnes til å begynne med.                                                                                                                                                                                                                              |
+
+Merk at denne ikke har noen effekt om den brukes sammen med `"mode": "showAll"`.
 
 Eksempel:
 
@@ -78,7 +87,7 @@ Eksempel:
 {
   ...
   "edit": {
-    "openByDefault": true
+    "openByDefault": "first"
   }
 }
 ```
