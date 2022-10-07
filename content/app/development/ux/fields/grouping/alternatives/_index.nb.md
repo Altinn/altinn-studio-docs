@@ -72,12 +72,14 @@ Sier at redigering/utfylling av gruppe kan gjøres over flere "sider"/visninger.
 
 Sier at gruppen skal åpnes i redigeringsmodus til å begynne med. Følgende verdier godtas:
 
-| Verdi   | Beskrivelse                                                                                                           |
-| ------- | --------------------------------------------------------------------------------------------------------------------- |
-| "first" | Dersom det finnes preutfylte elementer i gruppen vil det første elementet åpnes i redigeringsmodus til å begynne med. |
-| "last"  | Dersom det finnes preutfylte elementer i gruppen vil det siste elementet åpnes i redigeringsmodus til å begynne med.  |
+| Value   | Description                                                                                                                                                                                                                                   |
+| ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| "first" | Dersom det finnes preutfylte elementer i gruppen vil det første elementet åpnes i redigeringsmodus til å begynne med. Dersom det ikke finnes noen elementer i gruppen fra før av, vil et nytt element legges til og åpnes i redigeringsmodus. |
+| "last"  | Dersom det finnes preutfylte elementer i gruppen vil det siste elementet åpnes i redigeringsmodus til å begynne med. Dersom det ikke finnes noen elementer i gruppen fra før av, vil et nytt element legges til og åpnes i redigeringsmodus.  |
+| true    | Dersom det ikke finnes noen elementer i gruppen fra før av, vil et nytt element legges til og åpnes i redigeringsmodus.                                                                                                                       |
+| false   | Ingen elementer åpnes til å begynne med.                                                                                                                                                                                                      |
 
-Dersom det ikke finnes noen elementer i gruppen fra før av, vil et nytt element legges til og åpnes i redigeringsmodus (gjelder for begge verdier av `openByDefault`). Merk at denne ikke kan brukes sammen med `"mode": "showAll"`.
+Merk at denne ikke kan brukes sammen med `"mode": "showAll"`.
 
 Eksempel:
 
