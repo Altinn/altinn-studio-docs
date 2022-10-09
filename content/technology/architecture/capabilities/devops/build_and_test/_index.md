@@ -17,6 +17,10 @@ Most of our code is written manually.
 See [development application components](../../../components/application/nonsolutionspecific/development/)
 to get a overview over tools and application we use.
 
+### Software Defined Infrastructure Definition Enablement
+
+We use Terraform to define infrastructure.
+
 ## Build & Integration Enablement Capabilities
 
 ### Software Compilation & Validation
@@ -35,7 +39,7 @@ We use [Auzure Pipelines](https://azure.microsoft.com/en-us/services/devops/pipe
 
 See [development application components](../../../components/application/nonsolutionspecific/development/) to get a overview over tools and application we use. 
 
-## Continuous Integration Capabilities
+### Continuous Integration Capabilities
 
 Azure Piplines are used for Continuous Integration.
 When a pull request is created a build is triggered that builds the code and run unit and integration tests.

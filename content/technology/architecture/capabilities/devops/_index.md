@@ -18,4 +18,8 @@ See below for a capability map and the different DevOps capability areas.
 
 [Full screen](devops_capabilities.svg)
 
+<object data="devopscapabilities.drawio.svg" type="image/svg+xml" style="width: 100%;"></object>
+
+[Full screen](devopscapabilities.drawio.svg)
+
 {{<children>}}
