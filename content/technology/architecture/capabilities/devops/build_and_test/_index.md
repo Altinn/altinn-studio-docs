@@ -35,14 +35,22 @@ See development application components for details how we do this.
 
 ### Build Orchestration
 
-We use [Auzure Pipelines](https://azure.microsoft.com/en-us/services/devops/pipelines/) to build the source code.
+We use [Auzure Pipelines](https://azure.microsoft.com/en-us/services/devops/pipelines/) to build the source code for releases..
 
 See [development application components](../../../components/application/nonsolutionspecific/development/) to get a overview over tools and application we use. 
 
 ### Continuous Integration Capabilities
 
-Azure Piplines are used for Continuous Integration.
+Github Actions are used for Continuous Integration.
+
 When a pull request is created a build is triggered that builds the code and run unit and integration tests.
+
+This is setup for relevant GitHub repositories.
+
+Examples
+
+- [Altinn Resource Registry](https://github.com/Altinn/altinn-resource-registry/actions)
+- [Altinn Events](https://github.com/Altinn/altinn-events/actions)
 
 ## Test Management Capabilities
 
