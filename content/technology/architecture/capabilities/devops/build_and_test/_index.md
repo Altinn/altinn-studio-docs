@@ -1,21 +1,21 @@
 ---
 title: Build & Test Capabilities
 linktitle: Build & Test
-description: Involves everything from the capability to write and building code to the different types of testing of the code.
+description: It involves everything from the capability to write and build code to the different types of testing of the code.
 tags: [architecture, devops, todo]
 toc: false
 ---
 
-Below list the capabilities with a short description and possible link to the different components providing that capability.
+Below is a list of the capabilities with a short description and possible link to the different components providing that capability.
 
-## Software Generation Capabilties
+## Software Generation Capabilities
 
 ### Code & Config Writing Capability
 
 Most of our code is written manually.
 
 See [development application components](../../../components/application/nonsolutionspecific/development/)
-to get a overview over tools and application we use.
+to get an overview of our tools and applications.
 
 ### Software Defined Infrastructure Definition Enablement
 
@@ -25,13 +25,13 @@ We use Terraform to define infrastructure.
 
 ### Software Compilation & Validation
 
-The project uses .Net, Java or Typescript compilers.
+The project uses .Net, Java, or Typescript compilers.
 
 ### Sofware Linking & Packaging
 
-The project has the capability to build packages.
+The project can build different software packages.
 
-See development application components for details how we do this.
+See development application components for details on how we do this.
 
 ### Build Orchestration
 
@@ -64,9 +64,9 @@ For Altinn 3 there is no manual test scripts.
 
 ### Test Execution Tracking & Reporting
 
-For functionality for Altinn 2 platform the tracking is performed in Altinn 2.
+For functionality for Altinn 2 platform the tracking is performed in TFS
 
-For automatic test covering Altinn 3 functionality this is tracked in Azure Pipelines.-
+For automatic test covering Altinn 3 functionality this is tracked in Azure Pipelines.
 
 ### Test Data Creation & Management
 
@@ -76,7 +76,7 @@ For automatic test covering Altinn 3 functionality this is tracked in Azure Pipe
 
 ### Functional Test
 
-The devopsteam has the capability to perform automatic functional testing. This is done with help of Cypress and run from Altinn Devops pipeline.
+The DevOps team can perform automatic functional testing. Testing is done with the help of Cypress and runs from Azure DevOps pipelines.
 
 ![Devops](regressiontest.png)
 
