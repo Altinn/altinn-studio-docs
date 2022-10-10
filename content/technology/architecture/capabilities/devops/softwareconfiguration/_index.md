@@ -17,9 +17,12 @@ toc: false
 
 ### Release Management
 
+For each repository releases is created in GitHub.
+
+
 ### Continuous Del. Pipeline Management
 
-The goal is to deliver continously.
+The goal is to deliver continously. For our
 
 ## Deployment Capabilities
 
