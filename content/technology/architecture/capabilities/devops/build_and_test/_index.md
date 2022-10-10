@@ -56,11 +56,17 @@ Examples
 
 ### Test Case & Script Creation & Management
 
+For Altinn 2 we have manual test scripts in TFS. 
+
+For Altinn 3 there is no manual test scripts. 
+
 - Test scripts are collected in [Github](https://github.com/Altinn/altinn-studio/tree/master/src/test).
 
 ### Test Execution Tracking & Reporting
 
-The team 
+For functionality for Altinn 2 platform the tracking is performed in Altinn 2.
+
+For automatic test covering Altinn 3 functionality this is tracked in Azure Pipelines.-
 
 ### Test Data Creation & Management
 
@@ -70,7 +76,7 @@ The team
 
 ### Functional Test
 
-The devopsteam has the capability to perform functional testing.
+The devopsteam has the capability to perform automatic functional testing.
 
 ### Unit Test
 
