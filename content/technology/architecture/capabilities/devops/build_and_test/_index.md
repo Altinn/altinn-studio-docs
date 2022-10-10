@@ -56,11 +56,10 @@ Examples
 
 ### Test Case & Script Creation & Management
 
-For Altinn 2 we have manual test scripts in TFS. 
+For Altinn 2, we have manual test scripts in TFS.
+For Altinn 3, there are no manual test scripts. 
 
-For Altinn 3 there is no manual test scripts. 
-
-- Test scripts are collected in [Github](https://github.com/Altinn/altinn-studio/tree/master/src/test).
+The DevOps teams use Github to store the automatic test scripts.
 
 ### Test Execution Tracking & Reporting
 
