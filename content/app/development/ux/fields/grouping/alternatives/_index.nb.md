@@ -92,6 +92,12 @@ Eksempel:
 }
 ```
 
+### saveAndNextButton
+
+Bestemmer om "Lagre og åpne neste"-knappen skal vises når et gruppeelement er i redigeringsmodus. Standard oppførsel dersom parameteren ikke er satt er at knappen ikke vises.
+
+Merk at denne ikke har noen effekt om den brukes sammen med `"mode": "showAll"`.
+
 ## Vise gruppen som del av Panel
 
 Det er lagt til en ny parameter, `panel`, som kan settes på en gruppe-komponent. Denne sier at gruppen skal vises som en del av [Panel-komponenten](../../../components/panel/).

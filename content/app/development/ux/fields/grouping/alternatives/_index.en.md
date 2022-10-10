@@ -92,6 +92,12 @@ Example:
 }
 ```
 
+### saveAndNextButton
+
+Determines whether the "Save and open next" button should be displayed when a group element is open in editing mode. This button is not visible if this parameter is not set.
+
+Note that this setting has no effect when be used with `"mode": "showAll"`.
+
 ## Display group as part of Panel
 
 A new parameter, `panel`, has been added which can be set up on a group component. This says that the group should be displayed as part of the [Panel component](../../../components/panel/).
