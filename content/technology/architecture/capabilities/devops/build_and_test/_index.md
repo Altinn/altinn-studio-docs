@@ -64,9 +64,9 @@ For Altinn 3 there is no manual test scripts.
 
 ### Test Execution Tracking & Reporting
 
-For functionality for Altinn 2 platform the tracking is performed in TFS
+For functionality, for Altinn 2 platform, the tracking is performed in TFS.
 
-For automatic test covering Altinn 3 functionality this is tracked in Azure Pipelines.
+For automatic tests covering Altinn 3 functionality, this is tracked in Azure Pipelines.
 
 ### Test Data Creation & Management
 
@@ -82,9 +82,9 @@ The DevOps team can perform automatic functional testing. Testing is done with t
 
 ### Unit Test
 
-As part of the development unit test are created. They are run for every pull request.
+As part of the development, unit tests are created. The tests run for every pull request.
 
-Test coverage is verified by Sonarcloud.
+Sonarcloud verifies test coverage.
 
 ### Service & API Test
 
