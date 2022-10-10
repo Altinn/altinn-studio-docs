@@ -24,6 +24,8 @@ The overall roadmap is available on this GitHub [roadmap project](https://github
 
 The issues in the roadmap project are based on the [Roadmap repository](https://github.com/Altinn/altinn-roadmap/issues) or the different repositories used by the various teams/components.
 
+The process to analyse and prioritize roadmap items is decribed [here](/community/devops/roadmapprocess/)
+
 ### Team Studio
 
 - [Altinn Studio](https://github.com/Altinn/altinn-studio/issues)
