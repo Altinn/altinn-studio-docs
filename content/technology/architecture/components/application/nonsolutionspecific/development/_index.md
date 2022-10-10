@@ -120,9 +120,11 @@ Note as part of the runtime capabilityes we also use Azure Container Registry fo
 
 ### Deployment Orchestration
 
-We use Azure Pipelenes for deployment orchestration of the different components in the different solutions. 
+We use Azure Pipelines for deployment orchestration of the different components in the different solutions. 
 
 The deploy pipelines has typical support for deployment to different environments (Stages). 
+
+![Release pipelines](releasepipeline.png)
 
 Helm is used to set environments variables for the different environments. 
 

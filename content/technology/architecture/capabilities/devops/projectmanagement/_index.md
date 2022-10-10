@@ -1,22 +1,59 @@
 ---
 title: Project Management Capabilities
 linktitle: Project Management
-description: Project Management Capabilities covers the different capabilities to mange the project.
+description: Project Management Capabilities cover the different capabilities to manage the project.
 tags: [architecture, devops]
 toc: false
 ---
 
-Most of the project capabilties is not listed. 
-The once that is listed is the ones where we use technolgies and teqniques that can be shared/reused.
+Most of the project capabilties is not listed.
 
-## Agile Project Management Capabilties
+Most of the project capabilities are not listed. 
 
-### Backlog managmenent and prioritazion
-The project has capability to manage the backlog and prioritize it.
+The ones listed are where we use technologies and techniques that can be shared/reused.
 
-This is done in [Github](https://github.com/Altinn/altinn-studio/issues) and [Zenhub](https://www.zenhub.com/).
+## Backlog managmenent and prioritazion
 
-### Burn-down / Tracking
-The project has capability to manage see the burn-down and track issues in backlog
+The different product owners manage the backlog for Altinn.
 
-This is done in [Github](https://github.com/Altinn/altinn-studio/issues) and [Zenhub](https://www.zenhub.com/).
+- [Team Studio: FinnurO](https://github.com/FinnurO)
+- [Team Platform: OddArneSeatervik](https://github.com/OddArneSaetervik)
+- [Team Authorization: sivaglen](https://github.com/sivaglen)
+
+The overall roadmap is available on this GitHub [roadmap project](https://github.com/orgs/Altinn/projects/10).
+
+The issues in the roadmap project are based on the [Roadmap repository](https://github.com/Altinn/altinn-roadmap/issues) or the different repositories used by the various teams/components.
+
+The process to analyse and prioritize roadmap items is decribed [here](/community/devops/roadmapprocess/)
+
+### Team Studio
+
+- [Altinn Studio](https://github.com/Altinn/altinn-studio/issues)
+- [Altinn Lib Dotnet](https://github.com/Altinn/app-lib-dotnet/issues)
+- [App Frontend](https://github.com/Altinn/app-frontend-react)
+- [App Template Dotnet](https://github.com/Altinn/app-template-dotnet/issues)
+
+### Team Platform
+
+- [Altinn Events](https://github.com/Altinn/altinn-events/issues)
+- [Altinn Notification](https://github.com/Altinn/altinn-notifications/issues)
+- [Altinn Receipt](https://github.com/Altinn/altinn-receipt/issues)
+- [Altinn Storage](https://github.com/Altinn/altinn-storage/issues)
+- [Altinn Register](https://github.com/Altinn/altinn-register/issues)
+- [Altinn Profile](https://github.com/Altinn/altinn-profile/issues)
+
+### Team Authorization
+
+- [Altinn Authentication](https://github.com/Altinn/altinn-authentication/issues)
+- [Altinn Access Management](https://github.com/Altinn/altinn-access-management/issues)
+- [Altinn Authorization](https://github.com/Altinn/altinn-authorization/issues)
+- [Altinn Access Groups](https://github.com/Altinn/altinn-access-groups/issues)
+- [Altinn Resource Registry](https://github.com/Altinn/altinn-resource-registry/issues)
+
+Repositories are managed directly in [Github](https://github.com/Altinn/) and in [Zenhub](https://www.zenhub.com/).
+
+## Burn-down / Tracking
+
+The project tracks the burn-down in [Github](https://github.com/Altinn/altinn-studio/issues) and [Zenhub](https://www.zenhub.com/).
+
+Every morning the different teams av a daily meeting to follow up on progress.
