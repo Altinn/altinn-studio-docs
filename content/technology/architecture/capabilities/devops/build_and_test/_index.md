@@ -76,13 +76,19 @@ For automatic test covering Altinn 3 functionality this is tracked in Azure Pipe
 
 ### Functional Test
 
-The devopsteam has the capability to perform automatic functional testing.
+The devopsteam has the capability to perform automatic functional testing. This is done with help of Cypress and run from Altinn Devops pipeline.
+
+![Devops](regressiontest.png)
 
 ### Unit Test
 
 As part of the development unit test are created. They are run for every pull request.
 
+Test coverage is verified by Sonarcloud.
+
 ### Service & API Test
+
+Postman is used for API testing
 
 ### Performance Testing & Profiling
 
