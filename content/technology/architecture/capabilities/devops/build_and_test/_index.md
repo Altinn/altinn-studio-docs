@@ -88,7 +88,7 @@ Sonarcloud verifies test coverage.
 
 ### Service & API Test
 
-Postman is used for API testing
+The teams use Postman for API testing.
 
 ### Performance Testing & Profiling
 
