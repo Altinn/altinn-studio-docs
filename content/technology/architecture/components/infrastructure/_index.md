@@ -14,6 +14,9 @@ The diagram below shows an simplified overview over the infrastructure component
 
 [Download as Visio](altinn_infrastructure.vsdx)
 
+![Infrastructure](altinn.infrastructure.drawio.svg "Infrastructure")
+
+
 Altinn 3 is currently deployed to Microsoft Azure.
 This does not mean that Altinn 3 can't be deployed to other cloud providers.
 
