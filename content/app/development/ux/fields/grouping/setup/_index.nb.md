@@ -57,3 +57,21 @@ Det er mulig å legge til ulike nøkler i textResourceBindings for å overstyre 
 - `save_button` - blir brukt som tekst i "Lagre"-knappen når brukeren fyller ut data.
 - `edit_button_open` - blir brukt som tekst i "Endre" knappen i tabellen når brukeren skal åpne et element.
 - `edit_button_close` - blir brukt som tekst i "Endre" knappen tabellen når brukeren skal lukke et element.
+
+### Separat ledetekst for tabellvisning
+
+Elementer i repeterende grupper som ikke er i redigeringsmodus vises som en tabell. I denne tabellvisningen er det begrenset plass til lange ledetekster. En kortere ledetekst for tabellvisninger kan settes ved å definere `tableTitle` under `textResourceBindings` for hver komponent i en repeterende gruppe.
+
+Eksempel:
+
+```json
+{
+  ...
+  "type": "Input",
+  "textResourceBindings": {
+    "title": "Skriv inn ditt fulle navn",
+    "tableTitle": "Navn"
+  },
+  ...
+},
+```
