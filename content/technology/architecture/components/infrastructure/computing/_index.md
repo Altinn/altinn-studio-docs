@@ -24,6 +24,8 @@ AKS is free - Microsoft only charges for the agent nodes within your clusters, n
 With more than 50 orgs hosting services in Altinn 2 it is expected that Altinn 3 will have several hundreds of 
 AKS clusters managed by the DevOps team. 
 
+[See org setup for current status on environments](https://github.com/Altinn/altinn-cdn/blob/master/orgs/altinn-orgs.json)
+
 ### Nodes
 
 Each AKS cluster has one [Node Pool](https://docs.microsoft.com/en-us/azure/aks/use-multiple-node-pools)
@@ -62,9 +64,13 @@ Instead of worrying about deploying and maintaining servers, the cloud infrastru
 
 In Altinn 3 we use Azure Function Apps to the following
 
-- [Data Cleanup](https://github.com/Altinn/altinn-studio/tree/master/src/Altinn.Platform/Altinn.Platform.Storage/DataCleanup) : A application for cleaning up data
-- [CosmosBackup](https://github.com/Altinn/altinn-studio/tree/master/src/Altinn.Platform/Altinn.Platform.Storage/CosmosBackup)  : A application that backup data for cosmos DB in to a blob storage.
-  
+- [Data Cleanup](https://github.com/Altinn/altinn-storage/tree/main/src/DataCleanup) : A application for cleaning up data
+- [CosmosBackup](https://github.com/Altinn/altinn-storage/tree/main/src/CosmosBackup)  : A application that backup data for cosmos DB in to a blob storage.
+- [Events Inbound](https://github.com/Altinn/altinn-events/blob/main/src/Events.Functions/EventsInbound.cs): Responsible for triggering processing of incomming events in Altinn Events
+- [Events Outbound](https://github.com/Altinn/altinn-events/blob/main/src/Events.Functions/EventsOutbound.cs): Responsible for pushing events to consumer endpoints
+- [Subscription Validation](https://github.com/Altinn/altinn-events/blob/main/src/Events.Functions/SubscriptionValidation.cs): Responsible for validation of subscription endpoints
+- [Delegation Events](https://github.com/Altinn/altinn-authorization/blob/main/src/Functions/DelegationEvents.cs): Pushing information about rights delegation in Altinn 3 to Altinn 2
+
 ## Virtual machines
 
 ### Developer machines
