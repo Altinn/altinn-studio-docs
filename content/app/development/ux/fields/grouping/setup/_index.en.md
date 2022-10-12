@@ -57,3 +57,21 @@ It is possible to add different keys in textResourceBindings to overrule default
 - `save_button` - is used as text on the "Save"-button when the user is filling out data.
 - `edit_button_open` - is used as text on the "Edit"-button on the table when the user is opening an element.
 - `edit_button_close` - is used as text on the "Edit"-button on the table when the user is closing an element.
+
+### Separate prompt for table view
+
+Items in repeating groups that are not in editing mode are shown as a table. This table view has limited space for long prompts. A shorter prompt for table views can be set by defining `tableTitle` in `textResourceBindings` for each component in the repeating group.
+
+Example:
+
+```json
+{
+  ...
+  "type": "Input",
+  "textResourceBindings": {
+    "title": "Enter your full name",
+    "tableTitle": "Name"
+  },
+  ...
+},
+```
