@@ -54,9 +54,10 @@ A group is defined as follows in FormLayout.json:
 ## textResourceBindings
 It is possible to add different keys in textResourceBindings to overrule default texts.
 - `add_button` - is added at the end of the "Add new" text on the button, and can be used to e.g. get text that says "Add new person".
-- `save_button` - is used as text on the "Save"-button when the user is filling out data.
-- `edit_button_open` - is used as text on the "Edit"-button on the table when the user is opening an element.
-- `edit_button_close` - is used as text on the "Edit"-button on the table when the user is closing an element.
+- `save_button` - is used as text on the "Save" button when the user is filling out data.
+- `save_and_next_button` - is used as text on the "Save and open next" button if enabled.
+- `edit_button_open` - is used as text on the "Edit" button on the table when the user is opening an element.
+- `edit_button_close` - is used as text on the "Edit" button on the table when the user is closing an element.
 
 ### Separate prompt for table view
 
