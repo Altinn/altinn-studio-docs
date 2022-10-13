@@ -83,6 +83,27 @@ The below table list the attributes a resource has in the resource registry. For
 | Resourcetype | Type of resource.  | Access management | 
 
 
+## Policies
+
+Polices defined for apps and resources will be stored by resource registry.
+
+
+### App Policies
+
+The App Policies are policies for Apps [created in Altinn Studio](../../../../../../../../app/development/configuration/authorization/). 
+The policy is created in Altinn Studio and migrated to the Access Policy component when the app is deployed to a test or production environment.
+
+An app policy contains information about the different resources in an App and who and what kind of operations they are allowed to perform. 
+The who is identified using Altinn Roles, Access Groups, or roles/groups from other sources.
+
+
+### Resource Registry Policies
+
+The resource registry policies are policies for resources that is not comming from Altinn 3 apps. It could be any functionality hosted on any platform. 
+
+Both digital and analog services can be registrated in the resource registry.
+
+
 ## Construction
 
 See [construction components](/technology/architecture/components/application/construction/altinn-platform/authorization/resourceregistry/) if you want to see how the component is built. 
