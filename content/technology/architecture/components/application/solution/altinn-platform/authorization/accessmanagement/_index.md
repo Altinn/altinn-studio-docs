@@ -20,3 +20,9 @@ The access management will provide the following functionality
 
 This design is in early phase. 
 
+
+## Delegated Policies
+
+Delegated policies are policies created by users when their own rights are delegated ot other persons/systems.
+The who is identified by user or partyId.
+

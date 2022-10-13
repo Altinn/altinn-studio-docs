@@ -166,16 +166,6 @@ Exposes API to list and delegate Access Groups.
 
 [A POC is planned](https://github.com/Altinn/altinn-authorization/issues/28)
 
-### Altinn Access Policies
-
-Store for the different policies. Able to identify the correct policy based on Authorization Request.
-
-Have functionality to create delegated policies
-
-[Github issue](https://github.com/Altinn/altinn-authorization/issues/27)
-
-[A POC is planned](https://github.com/Altinn/altinn-authorization/issues/27)
-
 ### Altinn Access Information
 
 Altinn Access Information exposes API for Reportee, access groups, and rights for external consumers. Therefore, it needs to be highly scalable. 
