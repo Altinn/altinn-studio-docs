@@ -8,7 +8,7 @@ toc: false
 
 The authorization component consists of several solution components.
 
-For a functional description see details in [application solution components](/technology/architecture/components/application/solution/altinn-platform/authorization/).
+For a functional description see details in [application solution components](../../../../../../solutions/altinn-platform/authorization/).
 
 The diagram below shows where the different solution components are located
 
