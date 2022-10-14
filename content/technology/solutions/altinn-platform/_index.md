@@ -1,6 +1,6 @@
 ---
 title: Altinn Platform
-description: Altinn Platform contains components with central functionality that can be used by apps. Currently, this is storage, authentication, authorization, profile, register, receipt, pdf and events.
+description: Altinn Platform contains components with central functionality for apps hosted in Altinn and other consumers.
 tags: [altinn-apps]
 aliases:
 - /altinn-platform
@@ -8,8 +8,52 @@ aliases:
 weight: 3
 ---
 
-The components are deployed as microservices.
+Components are hosted in scalable cloud infrastructure and designed as microservices. 
 
 See below for details about each component.
 
-{{<children>}}
+## Authentication
+
+The authentication component provides functionality to authenticate users and systems accessing Altinn Apps and Altinn platform components.
+
+Support external ID providers through OIDC.
+
+[Learn more about Altinn Authentication](authentication)
+
+
+## Authorization
+
+The authorization components provide advanced and flexible authorization functionality for apps hosted in Altinn and other external consumers. 
+
+The authorization is Attribute-based and uses XACML 3.0.
+
+[Learn more about Altinn Authorization](authorization)
+
+## Events 
+
+The Events component allows apps and other producers to publish events. Consumers can subscribe to events.
+
+[Learn more about Altinn Events](events)
+
+
+## PDF
+
+The PDF component is responsible for generating PDF printouts for submitted instances of an app.
+
+## Profile
+
+The Profile component gives profile information for users in Altinn.
+
+## Receipt
+
+The Receipt component in Altinn Platform presents a receipt for apps.
+
+## Register
+
+The Register micro service gives register information to Apps.
+
+
+## Storage
+
+The Storage component gives storage capabilities to the apps.
+

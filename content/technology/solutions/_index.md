@@ -26,7 +26,7 @@ Altinn Apps is a flexible and scalable infrastructure for containerized applicat
 
 ## Altinn Platform
 
-Altinn Platform contains components with central functionality that apps can use. 
+Altinn Platform contains components with central functionality that apps and other consumers can use. 
 Functionality includes storage, authentication, authorization, profile, register, receipt, pdf, and events.
 
 [Learn more about Altinn Platform](altinn-platform)
