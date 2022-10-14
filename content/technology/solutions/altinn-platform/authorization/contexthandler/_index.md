@@ -80,4 +80,4 @@ This is described in the [pip section](../pip)
 
 ### Implementation details
 
-See [construction components for context handler](../../../../construction/altinn-platform/authorization/#context-handler) for implementation details for the context handler.
+See [construction components for context handler](../../../../../technology/architecture/components/application/construction/altinn-platform/authorization/#context-handler) for implementation details for the context handler.
