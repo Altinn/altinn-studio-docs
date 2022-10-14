@@ -1,7 +1,7 @@
 ---
-title: Altinn Platform - Authorization
+title: Authorization
 linktitle: Authorization
-description: The authorization component provides functionality to authorize access to applications and components in Altinn Apps and Altinn Platform.
+description: The authorization components provides functionality to authorize access to applications and components in Altinn Apps and Altinn Platform.
 tags: [architecture, solution]
 toc: false
 weight: 102

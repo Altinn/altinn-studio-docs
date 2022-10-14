@@ -1,7 +1,8 @@
 ---
-title: App
+title: App Template
 description: Description of the app created in Altinn Studio and that is deployed to Altinn Apps.
 tags: [altinn-apps]
+weight: 4
 ---
 
 The App is created, designed and build in Altinn Studio and deployed to Altinn Apps. 

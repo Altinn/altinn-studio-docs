@@ -1,7 +1,7 @@
 ---
-title: Application architecture Events component - Altinn Platform
+title: Events
 linktitle: Events
-description: The Events component is an a ASP.NET Core MVC Application exposing REST-API to Altinn Apps and other Altinn Platform components.
+description: The Altinn Events component is an a ASP.NET Core MVC Application exposing REST-API to Altinn Apps and other Altinn Platform components.
 tags: [architecture, solution]
 weight: 103
 ---
