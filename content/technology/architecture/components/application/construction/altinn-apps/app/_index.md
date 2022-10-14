@@ -6,7 +6,7 @@ tags: [architecture]
 ---
 
 The App developed in Altinn Studio is currently based on a
-[ASP.NET application template](/technology/solutions/altinn-apps/app/apptemplates/asp.net/) that contains backend and frontend components.
+[ASP.NET application template](/technology/solutions/app-template/apptemplates/asp.net/) that contains backend and frontend components.
 
 The app developer modifies and enhances the app
 with changing code and configuration in Altinn Studio or external devlopment tools like [Visual Studio Code](https://code.visualstudio.com/). 
