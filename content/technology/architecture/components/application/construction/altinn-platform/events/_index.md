@@ -33,7 +33,7 @@ It also exposes API to search for events and to get events.
 The access is controlled by the XACML Policy for the given App that is the source for an given event.
 
 The [AuthorizationHelper](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Events/Authorization/AuthorizationHelper.cs)
-is responsible for creating and performing the request to the [Policy Decision Point](/technology/architecture/components/application/solution/altinn-platform/authorization/pdp/).
+is responsible for creating and performing the request to the [Policy Decision Point](../../../../../../solutions/altinn-platform/authorization/pdp/).
 
 
 ### PushController
@@ -45,7 +45,7 @@ Based on details from the Event it will identify matching subscriptions.
 For each match it will authorize the consumer using the Policy Authorization Point.
 
 The [AuthorizationHelper](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Events/Authorization/AuthorizationHelper.cs)
-is responsible for creating and performing the request to the [Policy Decision Point](/technology/architecture/components/application/solution/altinn-platform/authorization/pdp/).
+is responsible for creating and performing the request to the [Policy Decision Point](../../../../../../solutions/altinn-platform/authorization/pdp/).
 
 The access is controlled by the XACML Policy for the given App that is the source for an given event.
 
