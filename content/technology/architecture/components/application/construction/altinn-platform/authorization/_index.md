@@ -12,7 +12,7 @@ For a functional description see details in [application solution components](/t
 
 The diagram below shows where the different solution components are located
 
-![Authorization Solution components](../../../solution/altinn-platform/authorization/authorization_solution_components.svg "Authorization solution components")
+![Authorization Solution components](../../../../../../solutions/altinn-platform/authorization/authorization_solution_components.svg "Authorization solution components")
 
 The Authorization component is constructed as a asp.net MVC application exposing API. The API communicates with the different solution components
 
