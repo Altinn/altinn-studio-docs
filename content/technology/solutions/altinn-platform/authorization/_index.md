@@ -44,7 +44,7 @@ Responsible for providing information about the subject and the resource to the 
 
 Responsible for enforcing the decision from PDP. This is the component that blocks a request or let it through.
 
-For details about how the components are constructed go [here](../../../construction/altinn-platform/authorization/).
+For details about how the components are constructed go [here](/technology/architecture/components/application/construction/altinn-platform/authorization).
 
 ## The Overall Authorization flow
 
