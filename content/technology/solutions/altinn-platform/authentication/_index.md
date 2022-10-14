@@ -26,9 +26,42 @@ Organizations authenticated in maskinporten can exchange their JWT token for a v
 ## Token exchange for ID-porten
 End users authenticated through ID-porten can exchange their JWT token for a valid Altinn Platform JWT token to be used agains Altinn Apps and Altinn Platform.
 
+
+The solution is available at https://platform.altinn.cloud/authentication/api/v1. 
+
+## Authenticate user
+The authentication resource enables authenticating a user and redirecting it to another Altinn-url. 
+If the user is not authenticated already it will be sent to the login page before redirecting the user to its final destination {url}.
+
+```http
+GET /authentication?goto={url}
+```
+
+## Refresh a valid JwtToken
+
+```http
+GET /refresh
+```
+
+## Exchange a JWT token from an external token provider
+
+Accepted providers include: `maskinporten` and `id-porten`.
+Request must include a bearer token in the authorization header.
+Set test equal to true if retrieving a token for Testdepartementet.
+(This ony works with maskinporten as the token provider.)
+
+{{%notice info%}}
+A token from id-porten contains both an id-token and and access-token. 
+Only the access token it to be exhanged using this endpoint.
+{{% /notice%}}
+
+```http
+GET /exchange/{tokenProvider}?test={bool}
+```
+
+
+
 ## Architecture
-See the [application solution components](../../../architecture/components/application/solution/altinn-platform/authentication/)
-for details about the functional components in authentication.
 
 The [application construction components](../../../architecture/components/application/construction/altinn-platform/authentication/)
 for details how this component is constructued.
