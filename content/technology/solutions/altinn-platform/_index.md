@@ -5,6 +5,7 @@ tags: [altinn-apps]
 aliases:
 - /altinn-platform
 - /teknologi/altinnstudio/solutions/altinn-platform/
+weight: 3
 ---
 
 The components are deployed as microservices.
