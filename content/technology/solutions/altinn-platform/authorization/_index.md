@@ -4,7 +4,7 @@ linktitle: Authorization
 description: The authorization components provides functionality to authorize access to applications and components in Altinn Apps and Altinn Platform.
 tags: [architecture, solution]
 toc: false
-weight: 102
+weight: 2
 ---
 
 The authorization components are based on [attribute based access control (ABAC)](https://en.wikipedia.org/wiki/Attribute-based_access_control).

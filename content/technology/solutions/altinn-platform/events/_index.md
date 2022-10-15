@@ -3,7 +3,7 @@ title: Events
 linktitle: Events
 description: The Altinn Events component is an a ASP.NET Core MVC Application exposing REST-API to Altinn Apps and other Altinn Platform components.
 tags: [architecture, solution]
-weight: 103
+weight: 3
 ---
 
 In addition it contains serveral [Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview) to support push of events. 

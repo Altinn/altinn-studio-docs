@@ -2,6 +2,7 @@
 title: Profile
 description: The Profile component gives profile information for users in Altinn.
 tags: [platform, profile]
+weight: 5
 ---
 
 The profile component is an ASP.Net Core MVC Application exposing REST-API to Altinn Apps.
