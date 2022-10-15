@@ -14,10 +14,10 @@ The authorization policy for apps is defined in Altinn Studio when developing th
 
 See [Policy Administration Point in Altinn Studio](/technology/solutions/altinn-studio/designer/functional/build-app/authorization-rules/) for details.
 
-### Delegation Policies
+### Delegated Policies
 
-Delegation of rights will be performed in Altinn II platform through the delegation functionality. 
+Access Management component will allow end users to delegate rights to persons, enterprise users and organizations
 
-When delegation is done through creation of new policies that gives user or organisation new rights.
+Currently this functionality is only available through Altinn 2 GUI.
 
-This will be supported in Altinn 3. See [Github issue 1258](https://github.com/Altinn/altinn-studio/issues/1258)
+The result of the delegation is a XACML Policy describing the rights delegated. 
