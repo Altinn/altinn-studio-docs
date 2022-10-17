@@ -14,6 +14,7 @@ The access management will provide the following functionality
 - Delegate and revoke Altinn 2 roles
 - Add and remove membership for Access Groups
 - Delegate App and instance rights
+- [Manage Delegatable Maskinporten API resources](https://github.com/Altinn/altinn-authorization/issues/59)
 - List access groups members
 - List resources that is linked to access groups
 
