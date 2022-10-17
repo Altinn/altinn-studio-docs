@@ -26,3 +26,7 @@ This design is in early phase.
 Delegated policies are policies created by users when their own rights are delegated ot other persons/systems.
 The who is identified by user or partyId.
 
+
+### Construction
+
+See details how AccessManagement is [constructed](/architecture/components/application/construction/altinn-platform/authorization/accessmanagment/).
