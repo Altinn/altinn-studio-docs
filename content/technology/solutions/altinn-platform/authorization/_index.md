@@ -13,13 +13,13 @@ Altinn uses [attribute-based access control (ABAC)](https://en.wikipedia.org/wik
 
 In short, Altinn authorization control access through rules defined in XACML Policies. Each rule defines which resource the rule describes, what operation, and who can perform it.
 
-The below diagram shows the future components of a new Altinn Architecture.
+When defining the authorization components, we used the [XACML reference architecture](https://en.wikipedia.org/wiki/XACML).
 
-![Future solution Altinn Authorization](authorization_solution_components_future.drawio.svg "Future solution Altinn Authorization")
+## Conceptual Components
 
-This architecture defines the following components.
+We have defined the following conceptual components/functional areas from the reference architecture.
 
-## PDP - Policy Decision Point
+### PDP - Policy Decision Point
 
 The policy decision point is responsible for deciding if an authorization request
 is authorized or not. It bases its decision on rules and information it has of the resource and the user/system
@@ -27,7 +27,7 @@ trying to access and perform an operation on a resource.
 
 [Read more](pdp)
 
-## PAP - Policy Administration Point
+### PAP - Policy Administration Point
 
 Responsible for defining and administering authorization policies.
 
@@ -39,64 +39,46 @@ In Altinn Authorization, there are the following components that function as a P
 
 [Read more](pap)
 
-## PRP - Policy Retrieval Point
+### PRP - Policy Retrieval Point
 
-Responsible for identifying the correct policy for a request. [Read more](prp)
+The Policy Retrieval Point is responsible for finding the right policy.
 
-## Context Handler - In production
+In Altinn, there are two sources of Policies. Altinn Access Management for delegated policies
+and Altinn Resource Registry  
 
-Responsible for enriching the decision request so it can correctly be evaluated. [Read more](contexthandler)
+[Read more](prp)
 
-## PIP - Policy information point - In production
+### Context Handler - In production
+
+Responsible for enriching the decision request so authorization correctly can be evaluated. [Read more](contexthandler)
+
+### PIP - Policy information point - In production
 
 Responsible for providing information about the subject and the resource to the context handler. [Read more](pip)
 
-## PEP - Policy Enforcement Point - In Pro
+### PEP - Policy Enforcement Point - In Pro
 
-Responsible for enforcing the decision from PDP. This is the component that blocks a request or let it through.
+Responsible for enforcing the decision from PDP. PEP is the component that blocks a request or lets it through.
 
-For details about how the components are constructed go [here](/technology/architecture/components/application/construction/altinn-platform/authorization).
+[Read more](pep)
 
+## Altinn Authorization - Components
 
+The below diagram shows the future components of a new Altinn Architecture.
 
-### Roles
+![Future solution Altinn Authorization](authorization_solution_components_future.drawio.svg "Future solution Altinn Authorization")
 
-A role in altinn offers or denies right to the logged in user to perform an action or group of actions for him or on behalf of someone.
-
-#### Operations
-
-Get a list of roles that the user can perform for the selected party.
-
-```http
-GET /authorization/api/v1/roles
-```
-
-### Policies
-
-A set of polices contains authorization rules.
-
-
-## Altinn Authorization - Future
-
-{{<notice warning>}}
-This is work in progress
-{{</notice>}}
-
-In the coming years, Authorization will be [modernized](https://github.com/Altinn/altinn-authorization/issues/23) from being a part of Altinn 2 monolith to a cloud-native architecture.
-
-The diagram below shows the different solution components.
-
-
+This architecture defines the following components.
 
 ### Altinn Access Management
 
 This component will be the component responsible for the administration of access to self and organization
 
-- Giving the end-users an overview of which rights he and other has	
+- Giving the end-users an overview of which rights they and others have.
 - Administration of AccessGroups
 - Possibility to delegate and revoke rights
 
-[Github Issue](https://github.com/Altinn/altinn-authorization-admin/issues/27)
+[Read more](accessmanagement)
 
 ### Altinn Resource Registry
 
@@ -104,21 +86,17 @@ This component will provide a register of
 
 - Altinn 3 Apps
 - Altinn 2 apps
-- External services that are hosted in other platforms but registered in Altinn for authorization purposes.
+- External services are hosted on other platforms but registered in Altinn for authorization purposes.
 
-[Github issue](https://github.com/Altinn/altinn-authorization/issues/24)
-  
-[A POC is planned](https://github.com/Altinn/altinn-authorization/issues/26)
+[Read more](resourceregistry)
 
 ### Altinn Access Groups
 
-Altinn Access Groups component contains the Altinn defined Access Groups and information which is member of this groups.
+The Altinn Access Groups component contains the Altinn-defined Access Groups and information about members of these groups.
 
 Exposes API to list and delegate Access Groups.
 
-[Github issue](https://github.com/Altinn/altinn-authorization/issues/25)
-
-[A POC is planned](https://github.com/Altinn/altinn-authorization/issues/28)
+[Read more](accessgroups)
 
 ### Altinn Access Information
 
@@ -126,52 +104,19 @@ Altinn Access Information exposes API for Reportee, access groups, and rights fo
 
 ### Altinn Consent
 
-Provides functionality to request consent and give consents
+This component provides functionality to request consent and give consent. 
 
 [Github issue](https://github.com/Altinn/altinn-authorization/issues/22)
 
 ### Altinn Policy Decision Point
 
-This is the core PDP responsible to evaluate if the user should get access to a given resource. 
+The PDP component is responsible for evaluating if the user should get access to a given resource or not.
 
-Depends on Altinn Access Groups for groups information and Altinn Access Policies for policy information. 
-
+The component has a context handler, PIP functionality, PRP information, and more.
+[Read more](pdp)
 
 ### Altinn Resource Rights Registry
 
-A register that allows resource owner to control which organizations or person that can access a service resource.
+A register allows resource owners to control which organizations or persons can access a service resource.
 
-[Github Issue](https://github.com/Altinn/altinn-authorization/issues/53)
-
-Access Groups
-The Access Groups component is responsible for keeping track of membership of different Access Groups defined in Altinn.
-
-Access Management component
-The Access Management provides functionality to end users for managing groups, roles and rights
-
-Context Handler
-The responsibility to the Context Handler is to enrich a decision request sent from a PEP so it can be evaluated by PDP.
-
-Policy Administration Point
-The Policy Administration Point is responsible for creating and modifying the different authorization policies used by the PDP
-
-Policy Decision Point
-The Policy Decision Point is responsible to evaluate if users and systems is authorized to perform the requested operation on a resource.
-
-Policy Enforcement Point
-In Altinn Platform there are PEP's that enforce access to different types of API
-
-Policy Information Point
-The Policy Information Point(s) are responsible for providing needed information to the context handler so it can enrich the context request.
-
-Policy Retrieval Point
-The Policy Retrieval Point is the functionality where Policy Decision Point (PDP) can retrieve the policy defined for an app resource.
-
-Resource Registry
-The Resource Registry
-
-Resource Rights Registry
-The Resource Rights Registry gives the administrator of a Resource in Resource Registry the capability to administrate which organizations and persons can access their resources.
-
-XACML - Altinn Studio
-XACML stands for "eXtensible Access Control Markup Language".
+[Read more](rrr)
