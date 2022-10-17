@@ -58,7 +58,7 @@ Her under kan du se den i bruk
 ## Innsending av vedlegg med API-kall
 
 For å legge til rette for å kunne sende inn vedlegg uten å ha støtte for dette i GUI
-må man legge inn et [datatype-objekt](/technology/architecture/components/application/solution/altinn-platform/storage/#datatype)
+må man legge inn et [datatype-objekt](/technology/solutions/altinn-platform/storage/#datatype)
 i _applicationMetadata.json_ (filen ligger under App/config i applikasjonsrepoet).
 Det vil da kun være mulig å sende inn vedlegg av denne typen via API-kall.
 For en nærmere beskrivelse av de tilgjengelige feltene se

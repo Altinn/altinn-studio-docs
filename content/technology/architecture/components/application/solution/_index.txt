@@ -20,4 +20,5 @@ The diagram below shows where functionality is located in the five different sol
 
 <object data="/technology/architecture/components/application/solution/altinnstudio_solutionarchitecture.svg" type="image/svg+xml" style="width: 100%;"></object>
 
-{{<children>}}
+
+See [Solutions](/technology/solutions/) for details

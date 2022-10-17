@@ -58,7 +58,7 @@ Below you can see it in use
 ## Submission of attachments with API-call
 
 To accommodate being able to submit attachments without this being supported in GUI,
-you will need to add a [datatype object](/technology/architecture/components/application/solution/altinn-platform/storage/#datatype)
+you will need to add a [datatype object](/technology/solutions/altinn-platform/storage/#datatype)
 in the _applicationMetadata.json_ (the file is under App/config in the application repo).
 It will then only be possible to submit attachments of this type through API-calls.
 For a more detailed description of the available fields, see

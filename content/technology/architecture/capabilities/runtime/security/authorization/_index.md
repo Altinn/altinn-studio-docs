@@ -34,7 +34,7 @@ The following solution components provide authorization capabilities
 * PRP - Policy Retrieval Point:  Where the PDP can find the correct policy to use for a request
 * Context Handler - Component adding context information to the decision request so PDP can evaluate a decision request correctly.
 
-These components are described in detail under [solution components](/technology/architecture/components/application/solution/altinn-platform/authorization/)
+These components are described in detail under [solution components](/technology/solutions/altinn-platform/authorization/)
 
 ### Rights
 
@@ -106,7 +106,7 @@ In Altinn Apps/Platform this is used to define the minimum authentication level.
 
 The policies in Altinn Studio Apps is defined when the app developer defines the rules for the app.
 The policy is deployed together with the App to a given Altinn Studio App environment.
-See details in [Policy Administration Point in Altinn Studio](/technology/architecture/components/application/solution/altinn-studio/designer/pap/).
+See details in [Policy Administration Point in Altinn Studio](/technology/solutions/altinn-studio/designer/functional/build-app/authorization-rules/).
 
 In Altinn II end users can also create policies/rules. This happens when:
 
@@ -149,6 +149,6 @@ Scopes are always used together with the authorization rules for the specific ap
 
 ## The Future
 
-The below show the future of Authorization Component. [Work in progress](/technology/architecture/components/application/solution/altinn-platform/authorization/#altinn-authorization---future)
+The below show the future of Authorization Component. [Work in progress](/technology/solutions/altinn-platform/authorization/#altinn-authorization---future)
 
-![The future](../../../../components/application/solution/altinn-platform/authorization/authorization_solution_components_future.drawio.svg)
+![The future](/technology/solutions/altinn-platform/authorization/authorization_solution_components_future.drawio.svg)

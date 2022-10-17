@@ -2,6 +2,7 @@
 title: PDF
 description: The PDF component is responsible for generating PDF printouts for submitted instances of an app.
 tags: [platform, pdf]
+weight: 4
 ---
 
 The endpoints available in the pdf component is documented [here](/technology/architecture/components/application/construction/altinn-platform/pdf).

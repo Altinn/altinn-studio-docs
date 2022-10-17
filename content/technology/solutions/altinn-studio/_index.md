@@ -4,6 +4,7 @@ description: Altinn Studio is the design-time solution for developing, maintaini
 aliases:
 - /altinn-studio/
 - /teknologi/altinnstudio/solutions/altinn-studio/
+weight: 1
 ---
 
 **Altinn Studio** is a user-friendly solution where non-technical and technical
