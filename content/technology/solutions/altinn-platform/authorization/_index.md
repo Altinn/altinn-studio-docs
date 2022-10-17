@@ -21,15 +21,23 @@ This architecture defines the following components.
 
 ## PDP - Policy Decision Point
 
-The policy decision point is responsible for deciding if a authorization request
-is authorized or not. It bases it decision on rules and information it has of the resource and the user/system
+The policy decision point is responsible for deciding if an authorization request
+is authorized or not. It bases its decision on rules and information it has of the resource and the user/system
 trying to access and perform an operation on a resource.
 
 [Read more](pdp)
 
 ## PAP - Policy Administration Point
 
-Responsible for defining and administration authorization policies. [Read more](pap)
+Responsible for defining and administering authorization policies.
+
+In Altinn Authorization, there are the following components that function as a PAP
+
+- Altinn Studio to define rules for Apps
+- Altinn Access Management for defining delegated rules
+- Altinn Resource Registry allows the administration of resource policies.
+
+[Read more](pap)
 
 ## PRP - Policy Retrieval Point
 
