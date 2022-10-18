@@ -149,6 +149,6 @@ Scopes are always used together with the authorization rules for the specific ap
 
 ## The Future
 
-The below show the future of Authorization Component. [Work in progress](/technology/solutions/altinn-platform/authorization/#altinn-authorization---future)
+The below show the future of Authorization Component. [Work in progress](/technology/solutions/altinn-platform/authorization/)
 
 ![The future](/technology/solutions/altinn-platform/authorization/authorization_solution_components_future.drawio.svg)
