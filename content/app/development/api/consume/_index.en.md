@@ -311,6 +311,13 @@ public DataProcessingHandler(ICountryClient countryClient)
 
 __countryClient_ is now available in DataProcessingHandler, and we're ready to implement the logic in the _ProcessDataWrite_ method. 
 
+
+
+{{%notice warning%}}
+
+**NOTE**: Stateless apps don't call ProcessDataWrite. Use ProcessDataRead for stateless apps.
+{{%/notice%}}
+
 ```cs
 public async Task<bool> ProcessDataWrite(Instance instance, Guid? dataId, object data)
 {
