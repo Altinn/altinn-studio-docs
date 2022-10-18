@@ -30,4 +30,4 @@ The who is identified by user or partyId.
 
 ### Construction
 
-See details how AccessManagement is [constructed](/architecture/components/application/construction/altinn-platform/authorization/accessmanagment/).
+See details how AccessManagement is [constructed](/technology/architecture/components/application/construction/altinn-platform/authorization/accessmanagment/).
