@@ -253,7 +253,7 @@ that can not be covered in the client side validation,
 you can set up a trigger for validation on single fields in `formLayout.json`
 {{%notice warning%}}
 
-**MERK**: Trigger for validation on single fields in Stateless apps is not currently supported.
+**NOTE**: Trigger for validation on single fields in Stateless apps is not currently supported.
 {{%/notice%}}
 
 ```json {hl_lines=[13]}
