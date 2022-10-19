@@ -98,6 +98,22 @@ Bestemmer om "Lagre og åpne neste"-knappen skal vises når et gruppeelement er 
 
 Merk at denne ikke har noen effekt om den brukes sammen med `"mode": "showAll"`.
 
+### alertOnDelete
+
+Bestemmer om det skal vises et varslingspanel når brukeren trykker på "Slett" - knappen. En potensiell situasjon hvor dette kan være ønskelig er hvis en rad inneholder store mengder data.
+Standard oppførsel om parameteren ikke er satt er at varslingspanelet ikke vises.
+
+Eksempel:
+
+```json
+{
+  ...
+  "edit": {
+    "alertOnDelete": true
+  }
+}
+```
+
 ## Vise gruppen som del av Panel
 
 Det er lagt til en ny parameter, `panel`, som kan settes på en gruppe-komponent. Denne sier at gruppen skal vises som en del av [Panel-komponenten](../../../components/panel/).
