@@ -100,7 +100,7 @@ Merk at denne ikke har noen effekt om den brukes sammen med `"mode": "showAll"`.
 
 ### alertOnDelete
 
-Bestemmer om det skal vises et varslingspanel når brukeren trykker på "Slett" - knappen. En potensiell situasjon hvor dette kan være ønskelig er hvis en rad inneholder store mengder data.
+Bestemmer om det skal vises et varslingspanel når brukeren trykker på "Slett" knappen. En potensiell situasjon hvor dette kan være ønskelig er hvis en rad inneholder store mengder data.
 Standard oppførsel om parameteren ikke er satt er at varslingspanelet ikke vises.
 
 Eksempel:
