@@ -100,8 +100,8 @@ Note that this setting has no effect when be used with `"mode": "showAll"`.
 
 ### alertOnDelete
 
-Determines whether a warning panel will open when the user presses the "Delete" button. A potential situation where this might be wanted is when a row contains alot of data.
-The default behaviour if the parameter is for the warning panel not to be displayed.
+Determines whether a warning panel will open when the user presses the "Delete" button. A potential situation where this might be useful is when a row contains a lot of data.
+The default behaviour if the parameter is not set, is for the warning panel not to be displayed.
 
 Example:
 
