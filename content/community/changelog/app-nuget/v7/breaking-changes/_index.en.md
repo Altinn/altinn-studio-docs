@@ -332,15 +332,15 @@ namespace Altinn.App.AppLogic.Print
 ```
 
 If not, complete the steps below:
-1. Create a new class named `PdfFormatter` in the folder `App/logic/Pdf`. make the class implement the interface `Altinn.App.Core.Features.IPdfFormatter`. The file should new look something like this:
+1. Create a new class named `PdfFormatter` in the folder `App/logic/Pdf`. make the class implement the interface `Altinn.App.Core.Features.IPdfFormatter`. The file should now look something like this:
     ```csharp
     using System.Threading.Tasks;
     using Altinn.App.Core.Features;
     using Altinn.App.Core.Models;
 
-    namespace Altinn.App.AppLogic.Print
+    namespace Altinn.App.AppLogic.Pdf
     {
-        public class PdfHandler: IPdfFormatter
+        public class PdfFormatter: IPdfFormatter
         {
             public async Task<LayoutSettings> FormatPdf(LayoutSettings layoutSettings, object data)
             {
