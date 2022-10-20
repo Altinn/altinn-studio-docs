@@ -98,6 +98,22 @@ Determines whether the "Save and open next" button should be displayed when a gr
 
 Note that this setting has no effect when be used with `"mode": "showAll"`.
 
+### alertOnDelete
+
+Determines whether a warning panel will open when the user presses the "Delete" button. A potential situation where this might be useful is when a row contains a lot of data.
+The default behaviour if the parameter is not set, is for the warning panel not to be displayed.
+
+Example:
+
+```json
+{
+  ...
+  "edit": {
+    "alertOnDelete": true
+  }
+}
+```
+
 ## Display group as part of Panel
 
 A new parameter, `panel`, has been added which can be set up on a group component. This says that the group should be displayed as part of the [Panel component](../../../components/panel/).
