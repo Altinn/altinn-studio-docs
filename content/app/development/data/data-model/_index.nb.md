@@ -2,6 +2,7 @@
 title: Datamodell i Altinn Studio
 linktitle: Datamodell
 description: Slik importerer eller viser du datamodellen i Altinn Studio.
+toc: true
 weight: 100
 ---
 
