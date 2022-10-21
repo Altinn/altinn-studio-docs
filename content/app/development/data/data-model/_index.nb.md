@@ -77,3 +77,5 @@ for datamodelleringsverktøyet.
 2. Klikk på de tre prikkene til høyre for noden.
 3. Velg _Slett felt_ fra menyen.
 4. Feltet blir slettet.
+
+{{<children>}}
