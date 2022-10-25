@@ -4,11 +4,6 @@ description: Oversikt over breaking changes introdusert i App Nuget-pakker i v6.
 tags: [translate-to-norwegian]
 ---
 
-{{% panel %}}
-**Alpha Release**  
-This is a alpha relase and is not used by default in new applications. Currently the v6 is a technical update only and introduces no new features compared to the latest 5.x.x version. It's under consideration to include restructuring of app template, originally planned for the next major release, in this version as well to reduce the number of packages introducing breaking changes.
-
-{{% /panel %}}
 
 Altinn.App.* librarires target .Net 6 now, which requires that the application does the same.
 
