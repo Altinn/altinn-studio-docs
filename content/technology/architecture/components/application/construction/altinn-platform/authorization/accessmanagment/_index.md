@@ -1,13 +1,13 @@
 ---
 title: Application construction components - Altinn Access Management
 linktitle: Access Management
-description: The Access Managment component in Altinn platform is constructed as an asp.net core 6 web API application with a REACT frontend deployed as a docker container to the Altinn Platform Kubernetes cluster.
+description: The Access Management component in the Altinn platform is an asp.net core 6 web API application with a REACT frontend deployed as a docker container to the Altinn Platform Kubernetes cluster.
 tags: [architecture, solution]
 toc: false
 ---
 
 
-See [solutions](/technology/solutions/altinn-platform/authorization/accessmanagement/) for details about functionality provided by this component.
+See [solutions](/technology/solutions/altinn-platform/authorization/accessmanagement/) for details about the functionality provided by this component.
 
 ![Access Management](accessmanagement.drawio.svg "Construction Components Altinn Resource Registry")
 
@@ -25,9 +25,10 @@ It uses the following frameworks
 
 ### Build & Deploy
 
-We use GitHub Actions and Azure Devops to build Frontend applications.
+We use GitHub Actions and Azure DevOps to build Frontend applications. 
+The code is located in [altinn-access-mangement-frontend](https://github.com/Altinn/altinn-access-management-frontend) repo
 
-- [Github Action]()
+- [Github Action](https://github.com/Altinn/altinn-access-management-frontend/actions)
 - Azure DevOps Pipeline
 
 ### Hosting
@@ -41,19 +42,22 @@ Files is located in [wwwroot](https://github.com/Altinn/altinn-access-management
 
 The following API is available in component
 
-- [DelegationAPI](https://github.com/Altinn/altinn-access-management/blob/main/backend/src/Altinn.Authorizationadmin/Altinn.Authorizationadmin/Controllers/DelegationsController.cs)
-- [DelegationRequestAPI](https://github.com/Altinn/altinn-access-management/blob/main/backend/src/Altinn.Authorizationadmin/Altinn.Authorizationadmin/Controllers/DelegationRequestsController.cs)
+- [DelegationAPI](https://github.com/Altinn/altinn-access-management/blob/main/src/Altinn.AccessManagement/Controllers/DelegationsController.cs)
+- [DelegationRequestAPI](https://github.com/Altinn/altinn-access-management/blob/main/src/Altinn.AccessManagement/Controllers/DelegationRequestsController.cs)
 - DelegationResourcesAPI
 - AuthenticationAPI
 
 ### Security
 
-
 #### Authentication
 
-Apis are protected and required a authenticated user or organization.
+Apis are protected and require an authenticated user or organization.
 
-The token is provied through cookie for users using the React frontend
+The token is provided through a cookie for users using the React frontend or through a bearer token header.
+
+Altinn Access Management has configured the JWTCookie authentication method created for Altinn. This support validation of both JWTCookie and JTW bearer token.
+
+Needs to be clarified: Do we support Maskinporten tokens directly?
 
 #### CSRF protection
 
@@ -61,7 +65,16 @@ The API endpoints will have CSRF protection.
 
 #### API Management subscription
 
-Some functionality will require specific API management subscription
+Some functionality will require a specific API management subscription.
+This requires external consumers to follow SLA and have an agreement for API usage. 
+
+### Authorization
+
+The API exposed will require authorization for the usage of different levels.
+
+Some APIs will require general access to a resource. This will be processed by the standard Policy Enforcement Point or a possible custom enforcement point.
+
+In addition, the APIS will often have its internal logic to filter data based on business rules. These are custom implementations
 
 ### Db Repository
 Access Manamgent owns the delegated rights. 

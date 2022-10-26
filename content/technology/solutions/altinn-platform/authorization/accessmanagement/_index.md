@@ -9,7 +9,7 @@ tags: [architecture, security, authorization, xacml]
 This is work in progress
 {{</notice>}}
 
-The access management will provide the following functionality
+The access management will provide functionality to manage different aspects of authorization in Altinn.
 
 - Delegate and revoke Altinn 2 roles
 - Add and remove membership for Access Groups
@@ -21,11 +21,22 @@ The access management will provide the following functionality
 
 This design is in early phase. 
 
+## Delegation & Administration of Delegated API Access 
 
-## Delegated Policies
+This functionality allows users to delegate access throug API with help of delegating access in maskinporten.
 
-Delegated policies are policies created by users when their own rights are delegated ot other persons/systems.
-The who is identified by user or partyId.
+![API Delegations](apidelegations.jpg "API Delegations")
+
+This functionality is expected to be delivered winter 2022/2023.
+
+## Delegation of general resource rights
+
+The second feature delivered from the new Access Management component will be 
+
+## Delegation and management of Access Groups
+
+
+
 
 
 ### Construction
