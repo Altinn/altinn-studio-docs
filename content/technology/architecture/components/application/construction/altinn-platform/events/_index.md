@@ -14,19 +14,33 @@ to subscriber webhooks. The below diagram shows the components
 When a publish request is received it will push the event document to the event storage.
 When a request is received it will query the events stored in the event storage.
 
-## Api controllers
+### Public API
 
 The following API controllers are defined
 
-- [EventsController](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Events/Controllers/EventsController.cs) : responsible for registrating events and pull of events for consumers.
-- [PushController](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Events/Controllers/PushController.cs) : responsible to validate if there is any subscriptions matching the event and if so authorize the subscriper before it pushes the event to the outbound queue
-- [SubscriptionController](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Events/Controllers/SubscriptionController.cs) : responsible for managing subscriptions for consumers.
+- [AppController](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Events/Controllers/AppController.cs) : register and retrieve events
 
-### Eventscontroller
+- [SubscriptionController](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Events/Controllers/SubscriptionController.cs) : manage event subscriptions
 
-The [EventsController](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Events/Controllers/EventsController.cs) in the Events component is the one receiving events from Apps and other sources. 
+### Internal API
 
-It verifies if the app is authorized to creates events for the given source and then store in to event storage.
+The following endpoints are exclusively used by internal Azure Functions
+
+- [StorageController](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Events/Controllers/StorageController.cs) : save incoming events to persistent storage (database)
+  
+- [InboundController](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Events/Controllers/InboundController.cs) : queue registered events for inbound processing
+
+- [OutboundController](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Events/Controllers/OutboundController.cs) : forward inbound events to authorized subscribers, via an outbound queue
+
+
+## Controller details
+Base API url: **/events/api/v1**
+
+### AppController
+
+The [AppController](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Events/Controllers/AppController.cs) in the Events component is the one receiving events from Apps and other sources. 
+
+It verifies that the app is authorized to publish events for the given source before saving the event in a database for at least 90 days.
 
 It also exposes API to search for events and to get events. 
 
@@ -36,22 +50,8 @@ The [AuthorizationHelper](https://github.com/Altinn/altinn-studio/blob/master/sr
 is responsible for creating and performing the request to the [Policy Decision Point](../../../../../../solutions/altinn-platform/authorization/pdp/).
 
 
-### PushController
-
-[PushController](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Events/Controllers/PushController.cs) is called by the  [EventsInbound](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Functions/EventsInbound.cs) function. 
-
-Based on details from the Event it will identify matching subscriptions. 
-
-For each match it will authorize the consumer using the Policy Authorization Point.
-
-The [AuthorizationHelper](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Events/Authorization/AuthorizationHelper.cs)
-is responsible for creating and performing the request to the [Policy Decision Point](../../../../../../solutions/altinn-platform/authorization/pdp/).
-
-The access is controlled by the XACML Policy for the given App that is the source for an given event.
-
-If consumer is Authorized the event will be added to the "events-outbound" queue and picked up by the EventsOutbound function. (see below)
-
 ### SubscriptionController
+
 
 The [SubscriptionController](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Events/Controllers/SubscriptionController.cs) exposes API to 
 
@@ -59,6 +59,23 @@ The [SubscriptionController](https://github.com/Altinn/altinn-studio/blob/master
 - Delete subscriptions
 - Get subscriptions
 - Validate subscriptions
+
+
+### OutboundController (previously PushController)
+
+[OutboundController](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Events/Controllers/OutboundController.cs) is called by the  [EventsInbound](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Functions/EventsInbound.cs) function. 
+
+Based on details from the Event it will identify matching subscriptions. 
+
+For each match it will authorize the subscriber using the Policy Authorization Point.
+
+The [AuthorizationHelper](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Events/Authorization/AuthorizationHelper.cs)
+is responsible for creating and performing the request to the [Policy Decision Point](../../../../../../solutions/altinn-platform/authorization/pdp/).
+
+The access is controlled by the XACML Policy for the given App that is the source for an given event.
+
+If the subscriber is Authorized, the event will be added to the "events-outbound" queue and picked up by the EventsOutbound function. (see below)
+
 
 ## Event storage
 
@@ -121,8 +138,9 @@ As part of the Event Component there is 3 [Azure Functions](https://docs.microso
 
 ### EventsInbound
 
-The [EventsInbound](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Functions/EventsInbound.cs) function is triggered by QueueStorage changes in the "events-inbound" queue.
+The [EventsInbound](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Functions/EventsInbound.cs) function is executed automatically by the Azure Function runtime when new events are posted to the `events-inbound` queue.
 
+This function does not have 
 It just forward the event to the PushController through the [pushEventService](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Functions/Services/PushEventsService.cs).
 
 The Function uses Platform Access token to authenticate itself for the PushController
