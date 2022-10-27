@@ -40,12 +40,77 @@ Files is located in [wwwroot](https://github.com/Altinn/altinn-access-management
 
 ### API
 
-The following API is available in component
+The following API  controllers is available in component
 
 - [DelegationAPI](https://github.com/Altinn/altinn-access-management/blob/main/src/Altinn.AccessManagement/Controllers/DelegationsController.cs)
 - [DelegationRequestAPI](https://github.com/Altinn/altinn-access-management/blob/main/src/Altinn.AccessManagement/Controllers/DelegationRequestsController.cs)
 - DelegationResourcesAPI
 - AuthenticationAPI
+
+#### API structure
+
+The below structure 
+
+##### Rights
+
+Rights API List rights between two parties. (organizations/users/persons)
+
+/accessmanagement/api/v1/rights/{resource}/offeredto/{recevingParty}/from/{offeringParty}/
+/accessmanagement/api/v1/rights/{resource}/offeredby/{recevingParty}/from/{offeredToparty}/
+
+```json
+[
+    {
+        "PolicyId": "skd/flyttemelding",
+        "RuleId" : "asdfasdfsdaf",
+        "OfferedByPartyId": "234234",
+        "CoveredBy"[
+            {
+                "id": "urn:altinn:role",
+                "value": "dagl"
+            }
+        ],
+        "Subject"[
+            {
+                "id": "urn:altinn:role",
+                "value": "dagl"
+            }
+        ],
+        "Resource"[
+            {
+                "id": "urn:altinn:role",
+                "value": "dagl"
+            }
+        ],
+        "Action":
+            {
+                "id": "urn:altinn:role",
+                "value": "dagl"
+            }
+        ,
+        "RightSourceType":"Role",
+        "HasPermit": true
+    }
+]
+
+
+
+
+/accessmanagement/api/v1/rights/offered/
+
+
+/accessmanagement/api/v1/rights/delegated
+
+
+
+##### Delegations
+
+
+
+##### Access Groups
+
+
+
 
 ### Security
 
