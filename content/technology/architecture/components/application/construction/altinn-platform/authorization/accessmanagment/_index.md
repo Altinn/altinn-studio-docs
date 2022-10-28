@@ -73,8 +73,9 @@ The outbound API is targeted for administrators of the reportee.
 ```
 
 **Example**
+
 ```http
-/accessmanagement/api/v1/{who}/rights/outbound/?resource={resource}&recevingParty={receivingparty}
+/accessmanagement/api/v1/234234/rights/outbound/?resource=app:skd_flyttemelding&recevingParty=556677
 ```
 
 
@@ -85,29 +86,18 @@ The outbound API is targeted for administrators of the reportee.
 ```
 
 **Example**
+
 ```http
-/accessmanagement/api/v1/123456/rights/inbound/?resource=app_skd_flyttemelding&recevingParty=987654
+/accessmanagement/api/v1/234234/rights/inbound/?resource=app_skd_flyttemelding&recevingParty=556677
 ```
 
 
+#### Response
 
+The list of rights for all types of relations is returned
 
-
-
-/accessmanagement/api/v1/{who}/rights/{resource}/inbound/{recevingParty}/
-
-
-
-
-Example
-
-/accessmanagement/api/v1/{who}/rights/app:skd_flyttemelding/offeredby/234234/to/556677/
-
-
-/accessmanagement/api/v1/{who}/rights/app:skd_flyttemelding/outbound/to/234234/
-
-/accessmanagement/api/v1/{who}/rights/app:skd_flyttemelding/?coverdby=556677&234234
-
+- Rights from policy defined by resource owner (service owner) defining ER roles or Altinn roles
+- Rights from delegated polices
 
 
 ```json
@@ -115,7 +105,7 @@ Example
     {
         "PolicyId": "app:skd_flyttemelding",
          "PolicyVersion": "??",
-        "RuleId" : "asdfasdfsdaf",
+        "RuleId" : "1",
         "OfferedByPartyId": "234234",
         "CoveredBy"[
             {
@@ -151,7 +141,7 @@ Example
     {
         "PolicyId": "app:skd_flyttemelding",
          "PolicyVersion": "??",
-        "RuleId" : "asdfasdfsdaf",
+        "RuleId" : "2",
         "OfferedByPartyId": "234234",
         "CoveredBy"[
             {
@@ -186,8 +176,8 @@ Example
     },
     {
         "PolicyId": "/skd_flyttemedling/234234/234234234",
-        "PolicyVersion": "2010-12-10 10:35:123"
-        "RuleId" : "asdfasdfsdaf",
+        "PolicyVersion": "2010-12-10 10:35:123",
+        "RuleId" : "1",
         "OfferedByPartyId": "234234",
         "CoveredBy"[
             {
@@ -223,43 +213,60 @@ Example
 ]
 ```
 
-##### Rights delegations
+### Rights delegations
 
 
+#### List
 
-/accessmanagement/api/v1/delegations/rightsdelegations/?resourceId=sadfa&resourceType
+Delegations list the existence of some rights between two parties for a specific resource or resource type
 
-UI:
+In first iteration we will expose a specific endpoint for maskinportenschemes.
 
+This to delay the need for a generic endpoint
+
+Endpoint for enduser using the portal
+
+```http
 /accessmanagement/api/v1/{who}/delegations/maskinportenscheme/outbound/
+```
 
-Maskinporten
-
+```http
 /accessmanagement/api/v1/admin/delegations/maskinportenscheme/outbound/?supplierORg=234234&consumerOrg&scope=www.navn.no
+```
 
-
-
-**GET**
 
 Returns a list of delegations. Contains receiver, top resource and information about time.
 
 ```json
 [
     {
-        "OfferedBy": "234324",
-        "CoveredBy": "556677",
-        "Resource": "resource:innteksapi",
-        "Delegated" "2022-01-22"
-        "Policy" :"d9da781a-b8d0-46f6-ba33-882a2e47c0c6"
+        "ResourceId": "resource:innteksapi",
+        "ResourceTitle": "2022-01-22",
+        "Delegation": [
+            {
+                "CoveredByName": "EVRY",
+                "OfferedByName": "NAV",
+                "OfferedByPartyId": 123134234,
+                "CoveredByPartyId": 234234,
+                "PerformedByUserId": 123123,
+                "Created": "2020-01-01",
+                "OfferedByOrganizationNumber": null,
+                "CoveredByOrganizationNumber": null 
+            },
+            {
+                "CoveredByName": "KPMG",
+                "OfferedByName": "NAV",
+                "OfferedByPartyId": 123134234,
+                "CoveredByPartyId": 234234,
+                "PerformedByUserId": 123123,
+                "Created": "2020-01-01",
+                "OfferedByOrganizationNumber": null,
+                "CoveredByOrganizationNumber": null 
+            }
+        ]
     }
 ]
 ```
-
-What about full party information with name and so on?
-- Resource
-- Offering
-- Covering
-- 
 
 
 **POST**
@@ -268,11 +275,15 @@ Delegates new rights with adding new rules
 
 
 
-##### Rights delegation
+### Rights delegation
 
 List details of a specific delegation.
 
-/accessmanagement/api/v1/rightsdelegations/d9da781a-b8d0-46f6-ba33-882a2e47c0c6
+```http
+/accessmanagement/api/v1/admin/delegations/rules/?offeredByPartyId=2324
+```
+
+
 
 ```json
 [
