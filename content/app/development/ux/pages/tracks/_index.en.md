@@ -51,7 +51,7 @@ If `triggers` is set on the navigation component, this will overrule `triggers` 
 
 The implementation varies slightly depending on the version of the app template and Nuget packages you are using.
 
-{{% content-version-selector %}}
+{{<content-version-selector classes="border-box">}}
 
 {{<content-version-container version-label="v4, v5">}}
 
@@ -199,6 +199,7 @@ public CustomOrder(IAppResources appResourcesService)
 Here, the C# model's name is `Skjema`, but for your application the name could be different.
 You can check this by finding the class name of the C# file in the App/models folder.
 {{</content-version-container>}}
+{{</content-version-selector>}}
 
 ## Reflect dynamic tracks in receipt (PDF)
 

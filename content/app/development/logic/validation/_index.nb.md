@@ -172,7 +172,7 @@ Egendefinerte validering kan igjen deles opp i to kategorier; task-validering og
 
 Valideringer skrives i C# og avhengig av hvilken versjon av applikasjonsmalen og Nuget pakkene du er på, så vil implementeringen variere litt. I tidligere versjon så er det en pre-definert fil med metoder du kan legge inn logikken, mens fra versjon 7 og fremover så implementerer du et grensesnitt i den klassen du selv vil. Grensesnittet er tilfeldigvis likt den pre-definerte filen. Eksemplene som refererer til metoder vil derfor være de samme for alle versjoner.
 
-{{% content-version-selector %}}
+{{<content-version-selector classes="border-box">}}
 
 {{<content-version-container version-label="v4, v5, v6">}}
 Valideringer legges til i `ValidationHandler.cs` -filen i applikasjonsmalen.
@@ -190,6 +190,7 @@ I versjon 7 har vi endret måten preutfylling med egendefinert kode gjøres på.
     ```
     Dette sørger for at din kode er kjent for applikasjonen og at koden blir kjørt når den skal.
 {{</content-version-container>}}
+{{</content-version-selector>}}
 
 Fra dette punktet og videre skal eksemplene være de samme for alle versjoner :)
 

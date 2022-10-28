@@ -20,7 +20,7 @@ For å gjøre dette, må `ProcessDataWrite`-metoden returnere `true` om det er n
 Hvis dette ikke gjøres, vil de oppdaterte dataen ikke være synlig for sluttbruker før de ev. laster inn siden på nytt.
 {{% /notice%}}
 
-{{% content-version-selector %}}
+{{<content-version-selector classes="border-box">}}
 
 {{<content-version-container version-label="v4, v5, v6">}}
 Dataprosessering kodes i C#, i filen `DataProsessingHandler.cs`. Denne filen kan redigeres enklest ved å laste ned kildekoden til app'en og redigere på egen maskin, f.eks. i Visual Studio Code.
@@ -144,3 +144,4 @@ I versjon 7 har vi endret måten preutfylling med egendefinert kode gjøres på.
     ```
     Dette sørger for at din kode er kjent for applikasjonen og at koden blir kjørt når den skal.
 {{</content-version-container>}}
+{{</content-version-selector>}}

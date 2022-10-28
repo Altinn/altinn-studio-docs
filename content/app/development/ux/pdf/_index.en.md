@@ -14,7 +14,7 @@ Det er to måter å ekskludere data fra PDF på
 2. Programmatically  
    For the programatically option there are some minor differences dependening on the version you are using.
 
-{{% content-version-selector %}}
+{{<content-version-selector classes="border-box">}}
 
 {{<content-version-container version-label="v4, v5, v6">}}
 In previous versions you modify the `PdfHandler.cs` file in the `App/logic/Print` folder.
@@ -31,6 +31,7 @@ In version 7 the way to do custom code has changed. We now use an dependency inj
     ```
     This ensuers your custom code is known to the application and that it will be executed.
 {{</content-version-container>}}
+{{</content-version-selector>}}
 
 Since the `IPdfFormater` interface has the same method as the old `PdfHandler.cs`class the rest of the documentation and examples applies to all versions.
 
