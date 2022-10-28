@@ -41,9 +41,9 @@ The Altinn 3 solution has multiple APIs, but they can be divided in two groups. 
 
 The application API is an API that provides access to specific instances of a specific app. The API provides features for working with data elements while keeping the metadata document for the instance and its data elements updated. The instance level endpoints revolves around moving an instance through its defined process and controlling some instance level settings.
 
-Metadata for an app is the second job of the app API. There are endpoint that give access to the metadata of the app itself, its data types and process description.
+Metadata for an app is the second job of the app API. There are endpoints that give access to the metadata of the app itself, its data types and process description.
 
-Every app will expose almost identical endpoints and functionality. External parties should need only one client implementation across all app APIs. 
+Every app will expose almost identical endpoints and functionality. External parties should need only one client implementation across all app APIs, but it is possible for the application owner to extend the app API with additional endpoints and even make changes to default functionality. Documentation for app specific API and features must be retrived directly from the app or from the application owner. 
 
 ```http
 https://{org}.apps.altinn.no/{org}/{appname}
