@@ -38,8 +38,6 @@ Files is located in [wwwroot](https://github.com/Altinn/altinn-access-management
 
 ## Backend
 
-### API
-
 The following API  controllers is available in component
 
 - [DelegationAPI](https://github.com/Altinn/altinn-access-management/blob/main/src/Altinn.AccessManagement/Controllers/DelegationsController.cs)
@@ -47,25 +45,76 @@ The following API  controllers is available in component
 - DelegationResourcesAPI
 - AuthenticationAPI
 
-#### API structure
 
-The below structure 
+## API
 
-##### Rights
+The following API is identifed
 
-Rights API List rights between two parties. (organizations/users/persons)
+### Rights
 
-/accessmanagement/api/v1/rights/{resource}/offeredto/{recevingParty}/from/{offeringParty}/
-/accessmanagement/api/v1/rights/{resource}/offeredby/{recevingParty}/from/{offeredToparty}/
+Rights API List rights between two parties. (organizations/users/persons).
+
+Rights is based on rules defined by resource owner or rights defined by reportee as part of a rights delegation
+
+There is different consumers of API
+
+- End user wondering which rights he/she have for the reportee
+- Administrator for reportee 
+- Resource owner needing to know which rights A have for B
+
+
+
+#### Outbound Rights
+
+The outbound API is targeted for administrators of the reportee.
+
+```http
+/accessmanagement/api/v1/{who}/rights/outbound/?resource={resource}&recevingParty={receivingparty}
+```
+
+**Example**
+```http
+/accessmanagement/api/v1/{who}/rights/outbound/?resource={resource}&recevingParty={receivingparty}
+```
+
+
+#### Inbound Rights
+
+```http
+/accessmanagement/api/v1/{who}/rights/inbound/?resource={resource}&recevingParty={receivingparty}
+```
+
+**Example**
+```http
+/accessmanagement/api/v1/123456/rights/inbound/?resource=app_skd_flyttemelding&recevingParty=987654
+```
+
+
+
+
+
+
+/accessmanagement/api/v1/{who}/rights/{resource}/inbound/{recevingParty}/
+
+
+
 
 Example
 
-/accessmanagement/api/v1/rights/app:skd_flyttemelding/offeredby/234234/to/556677/
+/accessmanagement/api/v1/{who}/rights/app:skd_flyttemelding/offeredby/234234/to/556677/
+
+
+/accessmanagement/api/v1/{who}/rights/app:skd_flyttemelding/outbound/to/234234/
+
+/accessmanagement/api/v1/{who}/rights/app:skd_flyttemelding/?coverdby=556677&234234
+
+
 
 ```json
 [
     {
         "PolicyId": "app:skd_flyttemelding",
+         "PolicyVersion": "??",
         "RuleId" : "asdfasdfsdaf",
         "OfferedByPartyId": "234234",
         "CoveredBy"[
@@ -101,6 +150,7 @@ Example
     },
     {
         "PolicyId": "app:skd_flyttemelding",
+         "PolicyVersion": "??",
         "RuleId" : "asdfasdfsdaf",
         "OfferedByPartyId": "234234",
         "CoveredBy"[
@@ -135,7 +185,8 @@ Example
         "HasPermit": true
     },
     {
-        "PolicyId": "app:skd_flyttemelding",
+        "PolicyId": "/skd_flyttemedling/234234/234234234",
+        "PolicyVersion": "2010-12-10 10:35:123"
         "RuleId" : "asdfasdfsdaf",
         "OfferedByPartyId": "234234",
         "CoveredBy"[
@@ -176,7 +227,17 @@ Example
 
 
 
-/accessmanagement/api/v1/rightsdelegations/?resourceId=sadfa&resourceType
+/accessmanagement/api/v1/delegations/rightsdelegations/?resourceId=sadfa&resourceType
+
+UI:
+
+/accessmanagement/api/v1/{who}/delegations/maskinportenscheme/outbound/
+
+Maskinporten
+
+/accessmanagement/api/v1/admin/delegations/maskinportenscheme/outbound/?supplierORg=234234&consumerOrg&scope=www.navn.no
+
+
 
 **GET**
 
@@ -193,6 +254,12 @@ Returns a list of delegations. Contains receiver, top resource and information a
     }
 ]
 ```
+
+What about full party information with name and so on?
+- Resource
+- Offering
+- Covering
+- 
 
 
 **POST**
