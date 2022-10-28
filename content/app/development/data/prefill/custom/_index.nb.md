@@ -9,7 +9,7 @@ weight: 300
 Altinn-apper muliggjør forhåndsutfylling av en instans med egne data,
 enten det er resultatet av et API-kall, beregninger gjort under instansiering eller annen logikk.
 
-{{% content-version-selector %}}
+{{<content-version-selector classes="border-box">}}
 
 {{<content-version-container version-label="v4, v5, v6">}}
 
@@ -96,3 +96,4 @@ I versjon 7 har vi endret måten preutfylling med egendefinert kode gjøres på.
     Dette sørger for at din kode er kjent for applikasjonen og at koden blir kjørt når den skal.
 
 {{</content-version-container>}}
+{{</content-version-selector>}}

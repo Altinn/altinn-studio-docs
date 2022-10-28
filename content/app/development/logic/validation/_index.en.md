@@ -172,7 +172,7 @@ Custom validation can also be split into two categories; task-validation and dat
 
 Validations are written i C# and dependening on the version of the application template and Nuget packages you are using, the way the implementation is done varies slightly. In the earlier versions it's a pre-created file where you put your logic, while from version 7 and onwards you implement an interface in whatever class you like. The interface happens to be equal to the pre-defined class in the earlier versions. The examples below which referers to the methods to add your validation logic to is the same.
 
-{{% content-version-selector %}}
+{{<content-version-selector classes="border-box">}}
 
 {{<content-version-container version-label="v4, v5, v6">}}
 Validations should be added to the `ValidationHandler.cs`-file in the application template.
@@ -191,7 +191,10 @@ In version 7 the way to do custom code instantiation has changed. We now use an 
     services.AddTransient<IInstanceValidator, InstanceValidator>();
     ```
     This ensuers your custom code is known to the application and that it will be executed.    
+
 {{</content-version-container>}}
+
+{{</content-version-selector>}}
 
 From here on the examples should be valid for all versions:)
 

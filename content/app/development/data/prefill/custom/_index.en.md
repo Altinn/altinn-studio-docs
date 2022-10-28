@@ -9,7 +9,7 @@ weight: 300
 Altinn apps enable prefill of an instance with custom data,
 whether it is the result of an API call, calculations done under instantiation or other logic.
 
-{{% content-version-selector %}}
+{{<content-version-selector classes="border-box">}}
 
 {{<content-version-container version-label="v4, v5, v6">}}
 
@@ -95,3 +95,4 @@ In version 7 the way to do custom code instantiation has changed. We now use an 
     This ensuers your custom code is known to the application and that it will be executed.
 
 {{</content-version-container>}}
+{{</content-version-selector>}}

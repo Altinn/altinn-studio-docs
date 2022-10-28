@@ -51,7 +51,7 @@ Om `triggers` er satt på navigasjonskomponenten vil denne overstyre `triggers` 
 
 Måten dette implementeres på varierer litt avhengig av hvilken versjon av applikasjonsmalen og Nuget pakkene du bruker.
 
-{{% content-version-selector %}}
+{{<content-version-selector classes="border-box">}}
 
 {{<content-version-container version-label="v4, v5">}}
 ## Sette opp sporvalg backend (nuget versjon < 5.0.0)
@@ -200,6 +200,7 @@ public CustomOrder(IAppResources appResourcesService)
 Her heter C# modellen til skjemadataen `Skjema` for din applikasjon kan det være et annet navn. 
 Dette kan du sjekke ved å finne klassenavnet på C# filen i App/models-mappen.
 {{</content-version-container>}}
+{{</content-version-selector>}}
 
 ## Reflektere sporvalg i kvittering (PDF)
 

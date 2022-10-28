@@ -20,7 +20,7 @@ To do this, the ProcessdataWrite method must return true if any of the data has 
 If this is not done, the updated data won't be visible for the user until they refresh the page.
 {{% /notice%}}
 
-{{% content-version-selector %}}
+{{<content-version-selector classes="border-box">}}
 
 {{<content-version-container version-label="v4, v5, v6">}}
 Data processing is coded in C#, in the file `DataProcessingHandler.cs`. This file can easily be edited by downloading the source code to the app and editing on your own computer, e.g. in Visual Studio Code.
@@ -144,3 +144,4 @@ In version 7 the way to do custom code instantiation has changed. We now use an 
     ```
     This ensuers your custom code is known to the application and that it will be executed.
 {{</content-version-container>}}
+{{</content-version-selector>}}
