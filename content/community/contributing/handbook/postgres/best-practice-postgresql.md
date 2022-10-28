@@ -42,7 +42,7 @@ Consider the following when creating an index
 
 ## Functions (Stored Procedures)
 * The difference between Postgres *functions* and *stored procedures* (after Postgres 11) is relatively small, and mostly related to functionality - not security or performance.
-* Calling a function instead of embedding the SQL in a Npgsql command in C# will not prevent SQL injection attacks alone. (See *Parameters* below)
+* Calling a function instead of embedding the SQL in a Npgsql command in C# will not prevent SQL injection attacks alone. (See *Parameters*)
 * If a function calls an unsafe function from its body, and pass a parameter value to the it, it could negate the SQL injection prevention that *parameters* provide.
 
 ## Prepared statements
