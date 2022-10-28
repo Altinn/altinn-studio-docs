@@ -38,14 +38,439 @@ Files is located in [wwwroot](https://github.com/Altinn/altinn-access-management
 
 ## Backend
 
-### API
-
-The following API is available in component
+The following API  controllers is available in component
 
 - [DelegationAPI](https://github.com/Altinn/altinn-access-management/blob/main/src/Altinn.AccessManagement/Controllers/DelegationsController.cs)
 - [DelegationRequestAPI](https://github.com/Altinn/altinn-access-management/blob/main/src/Altinn.AccessManagement/Controllers/DelegationRequestsController.cs)
 - DelegationResourcesAPI
 - AuthenticationAPI
+
+
+## API
+
+The following API is identifed
+
+### Rights
+
+Rights API List rights between two parties. (organizations/users/persons).
+
+Rights is based on rules defined by resource owner or rights defined by reportee as part of a rights delegation
+
+There is different consumers of API
+
+- End user wondering which rights he/she have for the reportee
+- Administrator for reportee 
+- Resource owner needing to know which rights A have for B
+
+
+
+#### Outbound Rights
+
+The outbound API is targeted for administrators of the reportee.
+
+```http
+/accessmanagement/api/v1/{who}/rights/outbound/?resource={resource}&recevingParty={receivingparty}
+```
+
+**Example**
+
+```http
+/accessmanagement/api/v1/234234/rights/outbound/?resource=app:skd_flyttemelding&recevingParty=556677
+```
+
+
+#### Inbound Rights
+
+```http
+/accessmanagement/api/v1/{who}/rights/inbound/?resource={resource}&recevingParty={receivingparty}
+```
+
+**Example**
+
+```http
+/accessmanagement/api/v1/234234/rights/inbound/?resource=app_skd_flyttemelding&recevingParty=556677
+```
+
+
+#### Response
+
+The list of rights for all types of relations is returned
+
+- Rights from policy defined by resource owner (service owner) defining ER roles or Altinn roles
+- Rights from delegated polices
+
+
+```json
+[
+    {
+        "PolicyId": "app:skd_flyttemelding",
+         "PolicyVersion": "??",
+        "RuleId" : "1",
+        "OfferedByPartyId": "234234",
+        "CoveredBy"[
+            {
+                "id": "urn:altinn:party",
+                "value": "556677"
+            }
+        ],
+        "Subject"[
+            {
+                "id": "urn:altinn:role",
+                "value": "dagl"
+            }
+        ],
+        "Resource"[
+            {
+                "id": "urn:altinn:org",
+                "value": "skd"
+            },
+            {
+                "id": "urn:altinn:app",
+                "value": "flyttemelding"
+            }
+        ],
+        "Action":
+            {
+                "id": "urn:altinn:action",
+                "value": "read"
+            }
+        ,
+        "RightSourceType":"Role",
+        "HasPermit": true
+    },
+    {
+        "PolicyId": "app:skd_flyttemelding",
+         "PolicyVersion": "??",
+        "RuleId" : "2",
+        "OfferedByPartyId": "234234",
+        "CoveredBy"[
+            {
+                "id": "urn:altinn:party",
+                "value": "556677"
+            }
+        ],
+        "Subject"[
+            {
+                "id": "urn:altinn:role",
+                "value": "dagl"
+            }
+        ],
+        "Resource"[
+            {
+                "id": "urn:altinn:org",
+                "value": "skd"
+            },
+            {
+                "id": "urn:altinn:app",
+                "value": "flyttemelding"
+            }
+        ],
+        "Action":
+            {
+                "id": "urn:altinn:action",
+                "value": "write"
+            }
+        ,
+        "RightSourceType":"Role",
+        "HasPermit": true
+    },
+    {
+        "PolicyId": "/skd_flyttemedling/234234/234234234",
+        "PolicyVersion": "2010-12-10 10:35:123",
+        "RuleId" : "1",
+        "OfferedByPartyId": "234234",
+        "CoveredBy"[
+            {
+                "id": "urn:altinn:party",
+                "value": "556677"
+            }
+        ],
+        "Subject"[
+            {
+                "id": "urn:altinn:user",
+                "value": "234234"
+            }
+        ],
+        "Resource"[
+            {
+                "id": "urn:altinn:org",
+                "value": "skd"
+            },
+            {
+                "id": "urn:altinn:app",
+                "value": "flyttemelding"
+            }
+        ],
+        "Action":
+            {
+                "id": "urn:altinn:action",
+                "value": "sign"
+            }
+        ,
+        "RightSourceType":"AppDelegation",
+        "HasPermit": true
+    }
+]
+```
+
+### Rights delegations
+
+
+#### List
+
+Delegations list the existence of some rights between two parties for a specific resource or resource type
+
+In first iteration we will expose a specific endpoint for maskinportenschemes.
+
+This to delay the need for a generic endpoint
+
+Endpoint for enduser using the portal
+
+```http
+/accessmanagement/api/v1/{who}/delegations/maskinportenscheme/outbound/
+```
+
+```http
+/accessmanagement/api/v1/admin/delegations/maskinportenscheme/outbound/?supplierORg=234234&consumerOrg&scope=www.navn.no
+```
+
+
+Returns a list of delegations. Contains receiver, top resource and information about time.
+
+```json
+[
+    {
+        "ResourceId": "resource:innteksapi",
+        "ResourceTitle": "2022-01-22",
+        "Delegation": [
+            {
+                "CoveredByName": "EVRY",
+                "OfferedByName": "NAV",
+                "OfferedByPartyId": 123134234,
+                "CoveredByPartyId": 234234,
+                "PerformedByUserId": 123123,
+                "Created": "2020-01-01",
+                "OfferedByOrganizationNumber": null,
+                "CoveredByOrganizationNumber": null 
+            },
+            {
+                "CoveredByName": "KPMG",
+                "OfferedByName": "NAV",
+                "OfferedByPartyId": 123134234,
+                "CoveredByPartyId": 234234,
+                "PerformedByUserId": 123123,
+                "Created": "2020-01-01",
+                "OfferedByOrganizationNumber": null,
+                "CoveredByOrganizationNumber": null 
+            }
+        ]
+    }
+]
+```
+
+
+**POST**
+
+Delegates new rights with adding new rules
+
+
+
+### Rights delegation
+
+List details of a specific delegation.
+
+```http
+/accessmanagement/api/v1/admin/delegations/rules/?offeredByPartyId=2324
+```
+
+
+
+```json
+[
+    {
+        "PolicyId": "d9da781a-b8d0-46f6-ba33-882a2e47c0c6",
+        "RuleId" : "asdfasdfsdaf",
+        "OfferedByPartyId": "234234",
+        "CoveredBy"[
+            {
+                "id": "urn:altinn:party",
+                "value": "556677"
+            }
+        ],
+        "Subject"[
+            {
+                "id": "urn:altinn:userid",
+                "value": "123123"
+            }
+        ],
+        "Resource"[
+            {
+                "id": "urn:altinn:org",
+                "value": "skd"
+            },
+            {
+                "id": "urn:altinn:app",
+                "value": "flyttemelding"
+            }
+        ],
+        "Action":
+            {
+                "id": "urn:altinn:action",
+                "value": "read"
+            }
+        ,
+        "RightSourceType":"Role",
+        "HasPermit": true
+    },
+    {
+        "PolicyId": "app:skd_flyttemelding",
+        "RuleId" : "asdfasdfsdaf",
+        "OfferedByPartyId": "234234",
+        "CoveredBy"[
+            {
+                "id": "urn:altinn:party",
+                "value": "556677"
+            }
+        ],
+        "Subject"[
+            {
+                "id": "urn:altinn:role",
+                "value": "dagl"
+            }
+        ],
+        "Resource"[
+            {
+                "id": "urn:altinn:org",
+                "value": "skd"
+            },
+            {
+                "id": "urn:altinn:app",
+                "value": "flyttemelding"
+            }
+        ],
+        "Action":
+            {
+                "id": "urn:altinn:action",
+                "value": "write"
+            }
+        ,
+        "RightSourceType":"Role",
+        "HasPermit": true
+    }
+]
+```
+
+##### Delegations
+
+
+
+##### Access Groups
+
+/accessmanagement/api/v1/accessgroups
+
+/accessmanagement/api/v1/accessgroups/offeredBy/{partyId}/coveredBy/{partyId}
+
+
+GET - List groups
+
+
+/accessmanagement/api/v1/accessgroups/{group}/resorucerights/
+
+/accessmanagement/api/v1/accessgroups/{group}/resorucerights/{resourceid}/
+
+GET
+
+
+```json
+[
+    {
+        "PolicyId": "d9da781a-b8d0-46f6-ba33-882a2e47c0c6",
+        "RuleId" : "asdfasdfsdaf",
+        "OfferedByPartyId": "234234",
+        "CoveredBy"[
+            {
+                "id": "urn:altinn:party",
+                "value": "556677"
+            }
+        ],
+        "Subject"[
+            {
+                "id": "urn:altinn:userid",
+                "value": "123123"
+            }
+        ],
+        "Resource"[
+            {
+                "id": "urn:altinn:org",
+                "value": "skd"
+            },
+            {
+                "id": "urn:altinn:app",
+                "value": "flyttemelding"
+            }
+        ],
+        "Action":
+            {
+                "id": "urn:altinn:action",
+                "value": "read"
+            }
+        ,
+        "RightSourceType":"Role",
+        "HasPermit": true
+    },
+    {
+        "PolicyId": "app:skd_flyttemelding",
+        "RuleId" : "asdfasdfsdaf",
+        "OfferedByPartyId": "234234",
+        "CoveredBy"[
+            {
+                "id": "urn:altinn:party",
+                "value": "556677"
+            }
+        ],
+        "Subject"[
+            {
+                "id": "urn:altinn:role",
+                "value": "dagl"
+            }
+        ],
+        "Resource"[
+            {
+                "id": "urn:altinn:org",
+                "value": "skd"
+            },
+            {
+                "id": "urn:altinn:app",
+                "value": "flyttemelding"
+            }
+        ],
+        "Action":
+            {
+                "id": "urn:altinn:action",
+                "value": "write"
+            }
+        ,
+        "RightSourceType":"Role",
+        "HasPermit": true
+    }
+]
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+####
+
+
 
 ### Security
 
