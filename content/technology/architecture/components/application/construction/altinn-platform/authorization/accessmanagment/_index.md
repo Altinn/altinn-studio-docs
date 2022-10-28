@@ -58,16 +58,20 @@ Rights API List rights between two parties. (organizations/users/persons)
 /accessmanagement/api/v1/rights/{resource}/offeredto/{recevingParty}/from/{offeringParty}/
 /accessmanagement/api/v1/rights/{resource}/offeredby/{recevingParty}/from/{offeredToparty}/
 
+Example
+
+/accessmanagement/api/v1/rights/app:skd_flyttemelding/offeredby/234234/to/556677/
+
 ```json
 [
     {
-        "PolicyId": "skd/flyttemelding",
+        "PolicyId": "app:skd_flyttemelding",
         "RuleId" : "asdfasdfsdaf",
         "OfferedByPartyId": "234234",
         "CoveredBy"[
             {
-                "id": "urn:altinn:role",
-                "value": "dagl"
+                "id": "urn:altinn:party",
+                "value": "556677"
             }
         ],
         "Subject"[
@@ -78,30 +82,194 @@ Rights API List rights between two parties. (organizations/users/persons)
         ],
         "Resource"[
             {
-                "id": "urn:altinn:role",
-                "value": "dagl"
+                "id": "urn:altinn:org",
+                "value": "skd"
+            },
+            {
+                "id": "urn:altinn:app",
+                "value": "flyttemelding"
             }
         ],
         "Action":
             {
+                "id": "urn:altinn:action",
+                "value": "read"
+            }
+        ,
+        "RightSourceType":"Role",
+        "HasPermit": true
+    },
+    {
+        "PolicyId": "app:skd_flyttemelding",
+        "RuleId" : "asdfasdfsdaf",
+        "OfferedByPartyId": "234234",
+        "CoveredBy"[
+            {
+                "id": "urn:altinn:party",
+                "value": "556677"
+            }
+        ],
+        "Subject"[
+            {
                 "id": "urn:altinn:role",
                 "value": "dagl"
+            }
+        ],
+        "Resource"[
+            {
+                "id": "urn:altinn:org",
+                "value": "skd"
+            },
+            {
+                "id": "urn:altinn:app",
+                "value": "flyttemelding"
+            }
+        ],
+        "Action":
+            {
+                "id": "urn:altinn:action",
+                "value": "write"
+            }
+        ,
+        "RightSourceType":"Role",
+        "HasPermit": true
+    },
+    {
+        "PolicyId": "app:skd_flyttemelding",
+        "RuleId" : "asdfasdfsdaf",
+        "OfferedByPartyId": "234234",
+        "CoveredBy"[
+            {
+                "id": "urn:altinn:party",
+                "value": "556677"
+            }
+        ],
+        "Subject"[
+            {
+                "id": "urn:altinn:user",
+                "value": "234234"
+            }
+        ],
+        "Resource"[
+            {
+                "id": "urn:altinn:org",
+                "value": "skd"
+            },
+            {
+                "id": "urn:altinn:app",
+                "value": "flyttemelding"
+            }
+        ],
+        "Action":
+            {
+                "id": "urn:altinn:action",
+                "value": "sign"
+            }
+        ,
+        "RightSourceType":"AppDelegation",
+        "HasPermit": true
+    }
+]
+```
+
+##### Rights delegations
+
+/accessmanagement/api/v1/rightsdelegations/?resourceId=sadfa&resourceType
+
+Returns a list of delegations. Contains receiver, top resource and information about time.
+
+```json
+[
+    {
+        "OfferedBy": "234324",
+        "CoveredBy": "556677",
+        "Resource": "resource:innteksapi",
+        "Delegated" "2022-01-22"
+        "Policy" :"d9da781a-b8d0-46f6-ba33-882a2e47c0c6"
+    }
+]
+```
+
+##### Rights delegation
+
+List details of a specific delegation.
+
+/accessmanagement/api/v1/rightsdelegations/d9da781a-b8d0-46f6-ba33-882a2e47c0c6
+
+```json
+[
+    {
+        "PolicyId": "d9da781a-b8d0-46f6-ba33-882a2e47c0c6",
+        "RuleId" : "asdfasdfsdaf",
+        "OfferedByPartyId": "234234",
+        "CoveredBy"[
+            {
+                "id": "urn:altinn:party",
+                "value": "556677"
+            }
+        ],
+        "Subject"[
+            {
+                "id": "urn:altinn:userid",
+                "value": "123123"
+            }
+        ],
+        "Resource"[
+            {
+                "id": "urn:altinn:org",
+                "value": "skd"
+            },
+            {
+                "id": "urn:altinn:app",
+                "value": "flyttemelding"
+            }
+        ],
+        "Action":
+            {
+                "id": "urn:altinn:action",
+                "value": "read"
+            }
+        ,
+        "RightSourceType":"Role",
+        "HasPermit": true
+    },
+    {
+        "PolicyId": "app:skd_flyttemelding",
+        "RuleId" : "asdfasdfsdaf",
+        "OfferedByPartyId": "234234",
+        "CoveredBy"[
+            {
+                "id": "urn:altinn:party",
+                "value": "556677"
+            }
+        ],
+        "Subject"[
+            {
+                "id": "urn:altinn:role",
+                "value": "dagl"
+            }
+        ],
+        "Resource"[
+            {
+                "id": "urn:altinn:org",
+                "value": "skd"
+            },
+            {
+                "id": "urn:altinn:app",
+                "value": "flyttemelding"
+            }
+        ],
+        "Action":
+            {
+                "id": "urn:altinn:action",
+                "value": "write"
             }
         ,
         "RightSourceType":"Role",
         "HasPermit": true
     }
 ]
-
-
-
-
-/accessmanagement/api/v1/rights/offered/
-
-
-/accessmanagement/api/v1/rights/delegated
-
-
+```
 
 ##### Delegations
 
@@ -109,6 +277,109 @@ Rights API List rights between two parties. (organizations/users/persons)
 
 ##### Access Groups
 
+/accessmanagement/api/v1/accessgroups
+
+/accessmanagement/api/v1/accessgroups/offeredBy/{partyId}/coveredBy/{partyId}
+
+
+GET - List groups
+
+
+/accessmanagement/api/v1/accessgroups/{group}/resorucerights/
+
+/accessmanagement/api/v1/accessgroups/{group}/resorucerights/{resourceid}/
+
+GET
+
+
+```json
+[
+    {
+        "PolicyId": "d9da781a-b8d0-46f6-ba33-882a2e47c0c6",
+        "RuleId" : "asdfasdfsdaf",
+        "OfferedByPartyId": "234234",
+        "CoveredBy"[
+            {
+                "id": "urn:altinn:party",
+                "value": "556677"
+            }
+        ],
+        "Subject"[
+            {
+                "id": "urn:altinn:userid",
+                "value": "123123"
+            }
+        ],
+        "Resource"[
+            {
+                "id": "urn:altinn:org",
+                "value": "skd"
+            },
+            {
+                "id": "urn:altinn:app",
+                "value": "flyttemelding"
+            }
+        ],
+        "Action":
+            {
+                "id": "urn:altinn:action",
+                "value": "read"
+            }
+        ,
+        "RightSourceType":"Role",
+        "HasPermit": true
+    },
+    {
+        "PolicyId": "app:skd_flyttemelding",
+        "RuleId" : "asdfasdfsdaf",
+        "OfferedByPartyId": "234234",
+        "CoveredBy"[
+            {
+                "id": "urn:altinn:party",
+                "value": "556677"
+            }
+        ],
+        "Subject"[
+            {
+                "id": "urn:altinn:role",
+                "value": "dagl"
+            }
+        ],
+        "Resource"[
+            {
+                "id": "urn:altinn:org",
+                "value": "skd"
+            },
+            {
+                "id": "urn:altinn:app",
+                "value": "flyttemelding"
+            }
+        ],
+        "Action":
+            {
+                "id": "urn:altinn:action",
+                "value": "write"
+            }
+        ,
+        "RightSourceType":"Role",
+        "HasPermit": true
+    }
+]
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+####
 
 
 
