@@ -174,7 +174,11 @@ Example
 
 ##### Rights delegations
 
+
+
 /accessmanagement/api/v1/rightsdelegations/?resourceId=sadfa&resourceType
+
+**GET**
 
 Returns a list of delegations. Contains receiver, top resource and information about time.
 
@@ -189,6 +193,13 @@ Returns a list of delegations. Contains receiver, top resource and information a
     }
 ]
 ```
+
+
+**POST**
+
+Delegates new rights with adding new rules
+
+
 
 ##### Rights delegation
 
