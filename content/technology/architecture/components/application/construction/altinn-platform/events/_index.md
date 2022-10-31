@@ -6,8 +6,11 @@ tags: [architecture, solution]
 ---
 
 
-The Events components expose REST-APIs for publishing and subscribing to events. The Azure function are responsible for pushing events
-to subscriber webhooks. The below diagram shows the components
+The Events components expose public REST APIs for publishing and subscribing to events. 
+
+[Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/) are used internally to process and forward incoming cloud events to subscriber webhooks. 
+
+The following diagram illustrates the main 
 
 ![Event architecture diagram](altinn-events.drawio.export.svg "Altinn Event Architecture")
 
@@ -130,11 +133,21 @@ The events table has indexes on the columns _subject_, _time_, _sourcefilter_.
 
 ## Functions
 
-As part of the Event Component there is 3 [Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/) used for pushing events to the consumers. Click on name for code.
+As part of the Events Component there is a single Azure Function App with four functions involved in processing cloud events at various stages (Azure Queue Storage). Click on name for code.
 
- - [EventsInbound](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Functions/EventsInbound.cs) : responsible for pushing new events to the push controller
- - [EventsOutbound](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Functions/EventsOutbound.cs) : responsible for pushing event to consumer webhook
- - [ValidateSubscription](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Functions/ValidateSubscription.cs) : responsible for validating the endpoint given in a subscription. 
+ - [EventsRegistration](https://github.com/Altinn/altinn-events/blob/main/src/Events.Functions/EventsRegistration.cs)
+   - dequeue from `events-registration`
+   - store to database
+   - forward to `events-inbound` queue
+ - [EventsInbound](https://github.com/Altinn/altinn-events/blob/main/src/Events.Functions/EventsInbound.cs)
+   - dequeue from `events-inbound`
+   - find valid subscriptions with filters that match event
+   - forward a copy of event to `events-outbound` queue for each matching subscription
+ - [EventsOutbound](https://github.com/Altinn/altinn-events/blob/main/src/Events.Functions/EventsOutbound.cs) 
+   - dequeue from `events-outbound`
+   - POST cloud event to target webhook endpoint, retry as necessary
+ - [ValidateSubscription](https://github.com/Altinn/altinn-events/blob/main/src/Events.Functions/SubscriptionValidation.cs) 
+   - check that the user-defined webhook endpoint is ready to receive data
 
 ### EventsInbound
 
