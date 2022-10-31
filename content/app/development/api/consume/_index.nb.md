@@ -312,6 +312,11 @@ I tillegg må `using Altinn.App.client;` legges til også i denne filen.
 
 __countryClient_ er nå tilgjengelig i DataProcessingHandler og vi er klare til å implementere logikken i ProcessDataWrite. 
 
+{{%notice warning%}}
+
+**MERK**: Stateless apps kaller ikke på ProcessDataWrite. Bruk ProcessDataRead for statless apps.
+{{%/notice%}}
+
 ```cs
 public async Task<bool> ProcessDataWrite(Instance instance, Guid? dataId, object data)
 {

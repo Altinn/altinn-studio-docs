@@ -254,6 +254,10 @@ public async Task ValidateTask(Instance instance, string taskId, ModelStateDicti
 If there is a need for immediate validation of a field
 that can not be covered in the client side validation,
 you can set up a trigger for validation on single fields in `formLayout.json`
+{{%notice warning%}}
+
+**NOTE**: Trigger for validation on single fields in Stateless apps is not currently supported.
+{{%/notice%}}
 
 ```json {hl_lines=[13]}
 {
