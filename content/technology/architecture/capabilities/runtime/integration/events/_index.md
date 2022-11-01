@@ -312,7 +312,7 @@ This is work in progress and not finalized.
 
 The below diagram shows the different components in the Event Architecture for Altinn 3.
 
-![Event architecture diagram](/technology/architecture/components/application/construction/altinn-platform/events/altinn-events.drawio.svg "Altinn Event Architecture")
+![Event architecture diagram](/technology/architecture/components/application/construction/altinn-platform/events/altinn-events.drawio.export.svg "Altinn Event Architecture")
 
 More details can be in [solutions components](../../../../../solutions/altinn-platform/events/) with detailed API info of event component 
 and in [construction components](../../../../components/application/construction/altinn-platform/events/) you find the technical details how the components are constructed.

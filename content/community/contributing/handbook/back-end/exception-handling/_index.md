@@ -1,7 +1,7 @@
 ---
-title: Error handling
+title: Exception handling
 description: Guidelines for exception handling in backend logic.
-tags: [development, error-handling]
+tags: [development, error-handling, exception-handling]
 weight: 100
 ---
 
