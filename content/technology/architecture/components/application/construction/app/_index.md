@@ -1,7 +1,7 @@
 ---
-title: Application construction components App
-linktitle: App
-description: Description of the application construction components for the app developed in altinn studio. 
+title: App template
+linktitle: App template
+description: Description of the application construction components for the app template used to develop apps in Altinn Studio. 
 tags: [architecture]
 ---
 

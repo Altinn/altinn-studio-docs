@@ -126,7 +126,7 @@ When you update you app you should then remove the following from App.cs as this
 ```
 
 ## 3. Obsolete method RunAppEvent removed from App/AppBase/IAltinnApp
-The RunAppEvent method is a old construct for hooking into various application events. This have been made obsolete by having concrete method overrides for each type of event as [described in the documentation](/technology/architecture/components/application/construction/altinn-apps/app/app-backend/applogic-events/). The RunAppEvent method was passed in an `AppEventType` enum which specified the type of event that was fired. You would then need to have code checking the type and performing the logic needed. The table below shows the old enum values and their corresponding new methods that should be used instead.
+The RunAppEvent method is a old construct for hooking into various application events. This have been made obsolete by having concrete method overrides for each type of event as [described in the documentation](/technology/architecture/components/application/construction/app/app-backend/applogic-events/). The RunAppEvent method was passed in an `AppEventType` enum which specified the type of event that was fired. You would then need to have code checking the type and performing the logic needed. The table below shows the old enum values and their corresponding new methods that should be used instead.
 
 | Enum                      |Corresponding method                       |
 | ---                       | ---                                       |
