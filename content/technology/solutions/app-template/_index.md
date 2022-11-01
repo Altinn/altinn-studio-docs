@@ -16,13 +16,13 @@ The template support both simple and advanced scenarios for typical digital serv
 - The template comes with preconfigured authentication and authorization using best practice standards and technology.
 - The template runs on a scalable and isolated cloud infrastructure.
 
-## Modern and flexible UI
+## Modern and flexible user interface (UI)
 
 The UI part of the template is a flexible UI where the application developers can configure a UI to match the need for the service.
 
 The developer configures and maps UI components to the data models defined for the digital service in the UI designer in Altinn Studio.
 
-[Read more about the UI and fronted capabilities.](frontend)
+[Read more about the UI and fronted capabilities.](ui)
 
 ## Flexible process support
 
@@ -39,7 +39,12 @@ If you create an application based on the template, it is ready to be consumed b
 
 [Get all the details about the template APIs](app-api)
 
-## 
+## Flexible and configurable business logic
+
+
+
+
+## Modern architecture
 
 
 

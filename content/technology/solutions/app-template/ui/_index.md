@@ -1,8 +1,9 @@
 ---
-title: Frontend
+title: User Interface
 description: Description of the optional app frontend created in Altinn Studio and that is deployed to Altinn Apps.
 tags: [altinn-apps]
 toc: true
+weight: 1
 ---
 
 A App created in Altinn Studio can have a optional frontend to allow end user use API from web browser.
