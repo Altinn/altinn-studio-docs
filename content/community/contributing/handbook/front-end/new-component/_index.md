@@ -12,7 +12,7 @@ most important inputs.
 
 ![App structure](/technology/architecture/components/application/construction/app/app-frontend/app-frontend-form-rendering.drawio.svg)
 
-A detailed overview of the app frontend structure and architecture is available [here](/technology/architecture/components/application/construction/altinn-apps/app/app-frontend/).
+A detailed overview of the app frontend structure and architecture is available [here](/technology/architecture/components/application/construction/app/app-frontend/).
 
 ### Form components
 All form components should be _presentational components_. This means that their only responsibility is to present
