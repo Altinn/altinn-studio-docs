@@ -21,6 +21,12 @@ The below drawing show all aspects that control who and what rights a user or or
 
 ![Rules](rules.drawio.svg "Access control aspects")
 
+- Resources - describes the resource a rule applies to. It can be an app, a resource in the resource register, a specific task, or any other sub-resources to an app or resource in the rescource registry.
+- Action - describes which action the rules apply to. This can be any action like read, write, sign, fire, Opendoor +++
+- Subject - describes who the rules apply to. It can be a role, access group, an organization number or a specific user, and many more
+- Obligation - describes additional information like minimum authentication level.
+- Condition - Describes additional conditions like the reportee needs to be registered in SRR/RRR for this resource/service.
+
 ## Conceptual Components
 
 In 2022-2024, Altinn will modernize its authorization architecture and components. Therefore, the below description is a mix of as-is and to-be.
