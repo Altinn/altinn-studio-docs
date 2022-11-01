@@ -1,11 +1,27 @@
 ---
 title: Authorization
 linktitle: Authorization
-description: The authorization components provide access management and control functionality for Altinn Apps, Altinn Platform, and other consumers.
+description: The authorization components provide access management and control functionality for digital and analog services hosted in the Altinn Platform or other places.
 tags: [architecture, solution]
 toc: false
 weight: 2
 ---
+
+The typical scenario is that some event will be triggered, or data will be read, updated, or created by a digital or analog service. A service owner owns this service and has defined some business rules for who is allowed to use the service.
+
+This service needs to control who can access and modify data.
+
+Altinn Authorization provides the capability to verify and enforce this. 
+
+![User Scenario](userscenario.drawio.svg "User scenario")
+
+Users and organizations get rights to access a service from defined rules and policies.
+
+The below drawing show all aspects that control who and what rights a user or organization has.
+
+![Rules](rules.drawio.svg "Access control aspects")
+
+## Conceptual Components
 
 In 2022-2024, Altinn will modernize its authorization architecture and components. Therefore, the below description is a mix of as-is and to-be.
 
@@ -14,8 +30,6 @@ Altinn uses [attribute-based access control (ABAC)](https://en.wikipedia.org/wik
 In short, Altinn authorization control access through rules defined in XACML Policies. Each rule defines which resource the rule describes, what operation, and who can perform it.
 
 When defining the authorization components, we used the [XACML reference architecture](https://en.wikipedia.org/wiki/XACML).
-
-## Conceptual Components
 
 We have defined the following conceptual components/functional areas from the reference architecture.
 
