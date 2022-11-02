@@ -504,8 +504,10 @@ Det er også mulig å overstyre tittelen man ser på meldingene ved å legge til
 
 ## Gruppevalidering
 
-Det er mulig å gjøre valideringer på en repeterende gruppe i det brukeren ønsker å lagre en gitt indeks.
-Dette gjøres ved å legge til en trigger på gruppe-komponenten i layoutfilen (f.eks `FormLayout.json`). Eksempel:
+Det er mulig å gjøre valideringer på en repeterende gruppe i det brukeren ønsker å lagre en gitt rad.
+Dette gjøres ved å legge til en trigger på gruppe-komponenten i layoutfilen (f.eks `FormLayout.json`).
+Det er to forskjellige triggere som kan brukes på grupper; `validation` kjører validering på hele gruppen,
+og `validateRow` kjører kun validering på raden brukeren prøver å lagre. Eksempel:
 
 ```json {hl_lines=[14]}
 {
@@ -521,7 +523,7 @@ Dette gjøres ved å legge til en trigger på gruppe-komponenten i layoutfilen (
         "dataModelBindings": {
             "group": "Endringsmelding-grp-9786.OversiktOverEndringene-grp-9788"
         },
-        "triggers": ["validation"]  // <--- Legg til denne
+        "triggers": ["validateRow"]  // <--- Legg til denne
       },
       ...
     ]
@@ -529,7 +531,7 @@ Dette gjøres ved å legge til en trigger på gruppe-komponenten i layoutfilen (
 }
 ```
 
-Dette vil da sørge for at det vil kjøres validering på komponentene som er en del av gruppen på den aktuelle indeksen man jobber på.
+Dette vil da sørge for at det vil kjøres validering på komponentene som er en del av gruppen på den aktuelle raden man jobber på.
 Om det finnes valideringsfeil så vil man stoppes fra å lagre gruppen før dette er rettet opp i.
 
 Om man legger til validering på gruppe-komponenten så vil det også gå et kall mot valideringen backend med en header som spesifiserer hvilken komponent som trigget valideringen: `ComponentId`.
