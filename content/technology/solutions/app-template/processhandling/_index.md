@@ -5,42 +5,49 @@ tags: [altinn-apps, process, bpmn]
 weight: 2
 ---
 
-The template follows the BPMN 2.0 standard
+The template follows the [BPMN 2.0 standard.](https://www.bpmn.org/)
 
 ## Supported process elements
 
 ### Data Task
 
-A data task is a task in the process where the user / system accessing the digital service throug UI or API can read, write and modify data related to an digital service.
+A data task is where the user/system accessing the digital service through UI or API can read, write and modify data related to a digital service.
 
-A data task requires that all data for a given task is valid and all required data elements is added.
+A data task requires that all data for a given process task is valid and that the user/system has added all the necessary data.
 
-This is part of the standard logic in the template. Application developers can add custom validation for each data element and the task itself.
+The data validation is part of the standard logic in the template. Application developers can add custom validation for each data element and task.
 
-The rules who is allowed to perform read/write is defined in XACML policy for the service.
+The application developer defines the authorization requirements for this task as XCAML rules.
 
 ### Confirmation Task
 
-Confirmation task is a task in the process where the end user accessing the application through browser or system through api
-can confirm data that has been added or modified earlier in the process.
+A confirmation task is where the end user accessing the application through the browser or system through API can confirm data that is part of the process.
 
 ### Feedback Task
 
+A feedback task allows the service owner or others to give feedback to the entity reporting data.
+
+It allows uploading data and moving the process forward.
+
 ### Exclusive Gateways
+
+Exclusive gateways allow a different path in the process based on direct user input, data, or other aspects available from code.
 
 ## Process Examples
 
-![Simple process](process1.drawio.svg "Process with data task")
+![Simple process](process1.drawio.svg "A process with data task")
 
-![Simple process](process2.drawio.svg "Process with data and confirmations")
+![Simple process](process2.drawio.svg "A process with data and confirmation tasks")
 
-![Simple process](process3.drawio.svg "Process with data and confirmations")
+![Simple process](process3.drawio.svg "A process with data, confirmation, and feedback task")
 
-![Simple process](process4.drawio.svg "Process with data and confirmations")
+![Simple process](process4.drawio.svg "A process with data and confirmations and optional confirmation")
+
+![Simple process](process5.drawio.svg "A process with data and confirmation and optional confirmation with options to go back to the data task")
 
 
 ## Process configuration
 
-All configuration of process is done as part of the application configuration in Altinn Studio.
+In Altinn Studio, the App developer can configure the process.
 
-[Read our development handbook for details](../../../../app/development/configuration/process/)
+[Read our development handbook for details.](../../../../app/development/configuration/process/)
