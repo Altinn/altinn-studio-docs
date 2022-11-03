@@ -52,9 +52,11 @@ The list of supported UI components is growing. This list includes UI components
 
 You can find UI-component documentation [here.](../../../../app/development/ux/components/)
 
-### UI logic
+### Dynamics
 
-As part of designing UI, there can be defined UI-logic that do stuff dynamic rendering (hide or show parts of ui based on input or other parameters) or update data. 
+Configuring dynamics that manipulate the UI based on data and other aspects is possible. Dynamics is configurd in Altinn Studio or added as javascript to the template.
+
+[Read how in the Application Developer handbook.](../../../../app/development/logic/dynamic/)
 
 
 ### Page Navigation
