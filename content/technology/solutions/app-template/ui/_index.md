@@ -1,43 +1,56 @@
 ---
 title: User Interface
-description: Description of the optional app frontend created in Altinn Studio and that is deployed to Altinn Apps.
+description: As part of the App template, there is an optional front end to render a modern and responsive UI.
 tags: [altinn-apps]
-toc: true
+toc: false
 weight: 1
 ---
 
-A App created in Altinn Studio can have a optional frontend to allow end user use API from web browser.
+For digital services targeting API consumers strictly, there is no need for the front end.
 
-This frontend is a React based SPA (Singe Page Application) that uses configuration to render based settings for a given application.
+The application developer configures the UI in Altinn Studio UI-designer.
+
+The configuration files are deployed together with the application.
 
 ## UI rendering
 
-The UI-Render functionality in App Frontend render the UI based on configuration set in Altinn Studio.
+The UI-Render functionality in App Frontend renders the UI based on the configuration set in Altinn Studio when users access the digital service. 
+
+### Process views
+
+The App template front end has default support for the supported task types in the application. Therefore, the front end has a default behavior for each supported task.
+
+#### Data Views
+
+The default view for the data task is to present the configured UI components mapped to the application data models.
+
+![Example](example1.png "Example data view")
+
+#### Confirmation View
+
+The default view for confirmation allows the user to look at data, return to data for modification or confirm data by pressing a button.
+
+
+
+#### 
 
 ### UI-Components
-The supported UI-components can be seen [here](/technology/solutions/altinn-studio/designer/functional/build-app/ui-designer/components/)
 
-
-### Theming
-In the future Altinn Apps will support theming making it possible to have different style on the App.
-
-[See epic for this issue on Github](https://github.com/Altinn/altinn-studio/issues/2113).
-
-### UI Layout
-In the future Altinn Apps will support different types of layout. Now the support is limited to one page UI that is mobile friendly.
-
-[See epic for this issue on Github](https://github.com/Altinn/altinn-studio/issues/2114)
+The supported UI components can be seen [here.](../../../../app/development/ux/components/)
 
 ### UI logic
+
 As part of designing UI, there can be defined UI-logic that do stuff dynamic rendering (hide or show parts of ui based on input or other parameters) or update data. 
 
 
-### Custom Navigation
-In the future the App will support different types of navigation to 
-[See epic for this issue on Github](https://github.com/Altinn/altinn-studio/issues/2115)
+### Page Navigation
 
 
-### Translation
+[Read how to configure page navigation](../../../../app/development/ux/pages/navigation/)
+
+
+### Language support
+
 In the future the App will support having multiple languages in a App
 [See issue for this on Github](https://github.com/Altinn/altinn-studio/issues/2115)
 
