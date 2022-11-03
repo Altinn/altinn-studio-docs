@@ -1,50 +1,52 @@
 ---
-title: Autorisasjon
-linktitle: Autorisasjon
-description: Hvordan definere autorisasjonsregler (tilgangsstyring) for en app.
-weight: 100
+title: Veiledning for autorisasjonsregler
+linktitle: Veiledning 
+description: Autorisasjonsregler må defineres med omhu. Disse retningslinjene forteller hva applikasjonseier må vurdere før autorisasjonsregler settes for en applikasjon
+toc: true
 ---
 
+Autorisasjonsregler defineres i henhold til XACML 3.0-standarden. Reglene vil angi hvilke betingelser som må være til stede for å gi
+en bestemt bruker tilgang til å utføre ett eller flere trinn i en applikasjons [definerte arbeidsprosess](/app/development/configuration/process/).
 
+## Du må vite hva du gjør!
+Eier av tjenesten er selv ansvarlig for å lage autorisasjonsregler og velge riktige roller som gir tilgang til beskyttet informasjon. 
+Selv om XACML-standarden gir utvikleren stor frihet til å definere regler og velge de roller man ønsker, så må disse retningslinjene følges for å sikre at den bestemte
+brukers tilgang til applikasjonen er korrekt og fungerer etter hensikten.
 
-Autorisasjonskonfig for en applikasjon er definert i en XACML Policy-fil som ligger i applikasjonsrepoet.
-XACML Policy-en inneholder en eller flere regler som definerer hvem som kan gjennomføre ulike aksjoner på ulike ressurser.
+For å ta de riktige valgene når du lager autorisasjonsregler for appen din trenger du en generell forståelse av hvordan Altinn Autorisasjon fungerer og hvordan den brukes til å kontrollere tilgang.
+På denne [siden](https://altinn.github.io/docs/utviklingsguider/styring-av-tilgang/for-tjenesteeier/) kan du lese mer om Altinn Autorisasjon.
 
-Beskrivelse av XACML-strukturen og definisjon av regler finnes [her](/technology/solutions/altinn-studio/designer/functional/build-app/authorization-rules/)
+## Roller må velges med omhu!
+I konfigurasjonsfil for autorisasjon brukes roller for å definere hvem som har lov til å utføre hvilke handlinger.
+Altinn tilbyr et sett med roller som betingelse for å få tilgang til et bestemt trinn i arbeidsprosessen og informasjon som vises
 
-XACML-filen kan endres i en valgfri teksteditor.
+Før du velger hvilken rolle du skal bruke, må du være sikker på at du har tilstrekkelig forståelse av hva disse rollene betyr og hva slags tjenester og informasjon som forventes at denne rollen har tilgang til.
+Det er viktig at autorisasjonsregler og valg av roller samsvarer med intensjoner og forventninger som administrator for aktøren har. 
+For eksempel forventer antagelig admnistrator at rollen "Skatt" gir tilgang til tjenester knyttet til for eksempel skatterapportering, men ikke at denne rollen gir tilgang til tjenester innen Lønn og personalområdet. 
+På samme måte skal man være forsiktig med å bruke for eksempel rollen "Kontaktperson" fra Enhetsregisteret til å gi tilgang til tjenester med mindre man har vurdert grunnlaget for at denne får tilgang på en grundig måte. 
 
-**Sett deg inn i [veiledning for autorisasjonsregler](guidelines_authorization) før du konstruerer policyfil!**
+Hvis du ikke finner en rolle du synes passer må du ta kontakt med Altinn slik at vi kan vurdere om nye roller bør opprettes.
 
-## Regler i applikasjonsmalen
-Når det opprettes en app i Altinn Studio basert på den nåværende asp.net malen vil det følge med en autogenerert XACML policy-fil.
-Reglene som er definert i denne filen er kort beskrevet nedenfor. 
+[Her](roles_and_rights) kan du lese mer om hvilke roller som finnes i Altinn. 
 
-Overnevnte regler kan endres i *policy.xml* som ligger i `App/config/authorization` i applikasjonsrepoet.
-Detaljer om hvordan å konfigurere policy filen finnes [her](/technology/solutions/altinn-studio/designer/functional/build-app/authorization-rules/)
-I tillegg vil du finne en del eksempelregler [her](rules).
+## Unngå endringer autorisasjonsregler etter produksjonssetting
+Endringer i autorisasjonsregler i etterkant av en produksjonssetting vil medføre at f eks brukere som har fått tilgang til tjenesten gjennom delegering av en rolle som tidligere var satt på tjenesten senere kanskje ikke får utført tjenesten allikevel.
 
+Dette vil pålegge virksomheter som skal bruke tjenesten en administrasjonsbyrde fordi de da må rydde opp i delegeringer gjort med utgangspunkt i gammel policy. En slik praksis vil som regel gi misfornøyde brukere av applikasjonen. 
+
+## Be om hjelp!
+Som applikasjonseier må du alltid vurdere om intensjonene i beskrivelsen av rollen stemmer overens med tjenesten eller tilgangen til data som applikasjonen din gir.
 {{%notice warning%}}
-Merk at endringer i policyfilen gjøres på eget ansvar, 
-og at det oppfordres til å alltid delegere leserettigheter dersom en entitet også har fått tildelt skriverettigheter.
-
-
+Å gi feil personer tilgang til data de ikke burde ha er ingen god markedsføring for tjenesten din. Vi anbefaler deg derfor sterkt å kontakte Altinn for veiledning i valg av roller og oppsett av autorisasjonsregler hvis du er usikker.
 {{% /notice%}}
 
-### Rettigheter for rolleinnhaver
-I denne filen er det definert regler som gir innehaver av rollene daglig leder (DAGL) og/eller regnskapsmedarbeider (REGNA)
-rettigheter til å instansiere, skrive, lese og slette instanser av applikasjonen.
+## Autorisasjonsregler må testes
+Autorisasjonsregler må som alt annet testes før applikasjonen lanseres for å verifisere at riktige roller har tilgang til nødvendig data.
 
-En fullstendig liste over rolletyper finner du [her](https://www.altinn.no/api/metadata/roledefinitions) .
+[Her](test_authorization_application) kan du lese våre anbefalinger knyttet til testing av autorisasjonsregler.
 
-### Rettigheter for applikasjonseier
-Applikasjonseier (organisasjonen) har rettigheter til å instansiere, skrive og lese instanser av applikasjonen.
-Til slutt har de rettigheter til å markere på en instans at de er ferdig med den.
 
-### Påkrevd autentiseringsnivå
-Påkrevd autentiseringsnivå er satt til 2 som default. Dette gjøres som en obligation i XACML Policy
+## Altinn kan pålegge å endre autorisasjonsregler
+Selv om det er applikasjonseierens ansvar å konstruere riktig autorisasjonsregel og velge riktige roller, vil Altinn gjennomføre stikkkontroller med autorisasjonsreglene for tjenester som settes i produksjon.
+Hvis vi oppdager det vi anser som feil bruk av Altinn Autorisasjon så vil vi, om nødvendig, ta tjenesten ut av produksjon eller pålegge endringer i autorisasjonsregler.
 
-Hvis nivået settes til 4 må man definere at tjenesteier kan nå det via nivå 3 for maskinporten. Dette for at maskinporten er definert som nivå 3. 
-Se regelbibliotek for eksempel. Merk: Appen trenger nuget versjon `3.1.5` eller høyere versjon.
-
-{{<children>}}
