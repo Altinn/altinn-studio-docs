@@ -30,13 +30,27 @@ The default view for the data task is to present the configured UI components ma
 
 The default view for confirmation allows the user to look at data, return to data for modification or confirm data by pressing a button.
 
+#### Feedback View
 
-
-#### 
+The view for the feedback task shows default information about the instance that is awaiting external feedback.
 
 ### UI-Components
 
-The supported UI components can be seen [here.](../../../../app/development/ux/components/)
+The list of supported UI components is growing. This list includes UI components developed by the core Altinn team and components from the open-source community. A noncomplete list of UI components includes: 
+
+- Input
+- Textarea
+- Datepicker
+- Map
+- Multiple select
+- Dropdown list
+- Image
+- Repeating group
+- Label
+- Heading
+- Paragraph
+
+You can find UI-component documentation [here.](../../../../app/development/ux/components/)
 
 ### UI logic
 
