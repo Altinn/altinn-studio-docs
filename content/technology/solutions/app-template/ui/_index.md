@@ -1,7 +1,7 @@
 ---
 title: User Interface
 description: As part of the App template, there is an optional front end to render a modern and responsive UI.
-tags: [altinn-apps]
+tags: [app-template, ui, front-end]
 toc: false
 weight: 1
 ---
@@ -52,35 +52,34 @@ The list of supported UI components is growing. This list includes UI components
 
 You can find UI-component documentation [here.](../../../../app/development/ux/components/)
 
-### Dynamics
+### Page Support
 
-Configuring dynamics that manipulate the UI based on data and other aspects is possible. Dynamics is configurd in Altinn Studio or added as javascript to the template.
+The App Template front end supports having multiple pages of UI components in the same task view.
 
-[Read how in the Application Developer handbook.](../../../../app/development/logic/dynamic/)
+Multipage support is essential for digital services with a large amount of data that needs input.
 
+[Read how to configure pages.](../../../../app/development/ux/pages/)
 
 ### Page Navigation
 
+[Read how to configure page navigation.](../../../../app/development/ux/pages/navigation/)
 
-[Read how to configure page navigation](../../../../app/development/ux/pages/navigation/)
+### Dynamics
 
+Configuring dynamics that manipulate the UI based on data and other aspects is possible. Dynamics is configured in Altinn Studio or added as javascript to the template.
+
+[Read how in the Application Developer Handbook.](../../../../app/development/logic/dynamic/)
 
 ### Language support
 
-In the future the App will support having multiple languages in a App
-[See issue for this on Github](https://github.com/Altinn/altinn-studio/issues/2115)
+The front end support configuring the digital service with multiple languages. It even supports right-to-left languages.
 
-### Pages
-In the future the App will support having ui over multiple pages
-[See issue for this on Github](https://github.com/Altinn/altinn-studio/issues/1265)
-
-[On Github you can find all issues related to App-Frontend](https://github.com/Altinn/altinn-studio/labels/solution%2Fapp-frontend).
+[Read more about language support.](../../../../app/development/ux/texts/translation/)
 
 ## Custom Frontend
-In the future it is possible that Altinn Studio will support having a frontend that is costum application created by 
-the developer. This could be a frontend based on any javascript based frameworks like Angular, 
 
-[See Github for issue](https://github.com/Altinn/altinn-studio/issues/2142)
+Suppose the standard application front end does not fulfill your needs. 
 
+The template supports that you can replace the standard front end with your custom front end based on your preferred technology.
 
-
+ [Read more about architecture](../architecture).
