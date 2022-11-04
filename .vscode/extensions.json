@@ -1,6 +1,7 @@
 {
   "recommendations": [
     "github.vscode-pull-request-github",
-    "yzhang.markdown-all-in-one"
+    "yzhang.markdown-all-in-one",
+    "hediet.vscode-drawio"
   ]
 }
