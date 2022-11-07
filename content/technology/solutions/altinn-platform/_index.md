@@ -70,5 +70,5 @@ person register.
 
 The Storage component gives flexible storage capabilities to the apps.
 
-[Learn more about ]
+[Learn more about storage](storage)
 
