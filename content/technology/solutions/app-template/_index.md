@@ -46,5 +46,6 @@ If you create an application based on the template, it is ready to be consumed b
 
 ## Modern architecture
 
+The Altinn App Template has an architecture that allows various frameworks and technologies to realize it.
 
-
+[Read more about the template architecture](architecture)
