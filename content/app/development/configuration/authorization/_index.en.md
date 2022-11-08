@@ -10,10 +10,9 @@ Authorization rules are defined in accordance to the XACML 3.0 standard. The rul
 a certain user access to perform one or more steps of an application [defined workprosess](/app/development/configuration/process/). 
 
 ## Make sure you know what you are doing!
-The application owner is responsible for setting rules and choosing correct roles that provide the enduser access to information in accordance with the intentions and expectations of the company og person who admnister roles on their behalf.
-
-So, even though the XACML standard gives the developer great freedom in defining rules, these guidelines must be considerd before making choses in order to ensure that 
-access to the application is correct and work as intended. 
+The owner of the service is responsible for creating authorization rules and choosing the right roles that grant access to protected information.
+Although the XACML standard gives the developer great freedom to define rules and choose the roles they want, these guidelines must be followed to ensure that the particular
+user access to the application is correct and works as intended.
 
 In order to make the right choices for creating authorization rules for you app you need an overall understanding of how Altinn Authorization works and how it is used to control access. 
 At this [page](https://altinn.github.io/docs/utviklingsguider/styring-av-tilgang/for-tjenesteeier/) you can read more about Altinn Authorization. 
@@ -27,11 +26,20 @@ It is important that authorization rules and the choice of roles match the inten
 For example, the administrator probably expects that the role "Tax" gives access to services related to, for example, tax reporting, but simultaneously needs to avoid any role giving access to services within payroll and the personnel area.
 Similarly, please be careful about using, for example, the role "Contact Person" from the Entity Register to grant access to services - unless the basis for using this role has been thoroughly assessed.
 
-## Ask for help!
-As application owner you must allways consider if the intentions in the description of the role are consistent with the service or acess to data that your application provides. 
+## Please do NOT change authorizaion rules after production launch
+Changes to authorization rules after a production release will render existing users unable to access the service and must have the new role delegated and any previous role deleted.
+This will impose an unexpected administrative burden on businesses that will use the service because they will then have to clean up delegations made based on the old policy. Such a practice will usually result in dissatisfied users of the application.
+
+## Contact us - we will gladly provide assistance
+As application owner you must allways consider if the intentions in the description of the role are consistent with the service or access to data that your application provides. 
 {{%notice warning%}}
-Giving wrong people access to data they shouldn't have is never good marketing for your service and we therefore strongly suggest you contact Altinn for guidance in choosing roles and setting up authorization rules if you have any doubts.
+Giving wrong people access to data they shouldn't have is never good marketing for your service and we therefore strongly suggest you contact Altinn for guidance in choosing roles and setting up authorization rules if you have the slightest doubt.
 {{% /notice%}}
+
+## Authorization rules must be tested
+Authorization rules, like everything else, must be tested before the application is launched to verify that the correct roles have access to the necessary data.
+
+[Here](test_authorization_application) you can read our recommendations related to testing authorization rules.
 
 ## Be aware : Altinn can impose changes to the authorization rules
 Although it is the application owner's responsibility to construct the correct authorization rule and select the correct roles, Altinn will supervise or carry out spot checks with the authorization rules for services that are put into production.

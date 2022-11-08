@@ -30,11 +30,10 @@ Hvis du ikke finner en rolle du synes passer må du ta kontakt med Altinn slik a
 [Her](roles_and_rights) kan du lese mer om hvilke roller som finnes i Altinn. 
 
 ## Unngå endringer autorisasjonsregler etter produksjonssetting
-Endringer i autorisasjonsregler i etterkant av en produksjonssetting vil medføre at f eks brukere som har fått tilgang til tjenesten gjennom delegering av en rolle som tidligere var satt på tjenesten senere kanskje ikke får utført tjenesten allikevel.
+Endringer i autorisasjonsregler i etterkant av en produksjonssetting vil medføre at eksisterende brukere mister tilgang til tjenesten og må dermed få den nye rollen delegert og få evt tidligere rolle slettet. 
+Dette vil pålegge virksomheter som skal bruke tjenesten en uventet administrasjonsbyrde fordi de da må rydde opp i delegeringer gjort med utgangspunkt i gammel policy. En slik praksis vil som regel gi misfornøyde brukere av applikasjonen. 
 
-Dette vil pålegge virksomheter som skal bruke tjenesten en administrasjonsbyrde fordi de da må rydde opp i delegeringer gjort med utgangspunkt i gammel policy. En slik praksis vil som regel gi misfornøyde brukere av applikasjonen. 
-
-## Be om hjelp!
+## Ta kontakt - Spør oss gjerne !
 Som applikasjonseier må du alltid vurdere om intensjonene i beskrivelsen av rollen stemmer overens med tjenesten eller tilgangen til data som applikasjonen din gir.
 {{%notice warning%}}
 Å gi feil personer tilgang til data de ikke burde ha er ingen god markedsføring for tjenesten din. Vi anbefaler deg derfor sterkt å kontakte Altinn for veiledning i valg av roller og oppsett av autorisasjonsregler hvis du er usikker.
