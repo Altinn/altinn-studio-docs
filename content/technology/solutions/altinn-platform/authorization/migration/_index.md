@@ -16,7 +16,8 @@ Innen juni 2025 så skal dagens Altinn løsning være modernisert og migrert til
 
 ## Hva skal gjøres? 
 
-For å sikre fremtidige behov så tegnes det en ny arkitektur for Altinn Autorisasjon, [se ny løsningsarkitektur](../technology/solutions/altinn-platform/authorization/) 
+For å sikre fremtidige behov så tegnes det en ny arkitektur for Altinn Autorisasjon,
+ [se ny løsningsarkitektur](/technology/solutions/altinn-platform/authorization/) 
 
 ### Migrering av tjenester fra Altinn 2 til Altinn 3
 Alle tjenester som i dag bruker Altinn som autorisasjonsløsning må flyttes fra Altinn 2 til Altinn 3 plattformen. 
