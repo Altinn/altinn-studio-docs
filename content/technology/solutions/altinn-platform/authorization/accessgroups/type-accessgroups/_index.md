@@ -31,7 +31,7 @@ Forslag til nye tilgangsgrupper sendes ut på høring september 2022.
 
 
 ## Skatt, avgift og regnskap
-Aktuell for alle virksomheter som er "økonomisk aktive" (skatte- og regnskapspliktig)
+Tilgangsgruppene vil være aktuell for alle virksomheter som er "økonomisk aktive" (skatte- og regnskapspliktig)
 
 Tilgangsgruppen har følgende undergrupper: 
 - Skatt
@@ -50,7 +50,7 @@ Beslektet rolle i 2.0: "Regnskapsmedarbeider" og "Revisorattesterer - MVA kompen
 
 
 ## Lønn og personal 
-Aktuell for alle virksomheter med ansatte
+Tilgangsgruppene vil være aktuell for alle virksomheter med ansatte
 
 Tilgangsgruppen har følgende undergrupper: 
 - *Ansettelsesforhold (tilsvarende som i Altinn skjemakatalog)
@@ -62,7 +62,7 @@ Beslektet rolle i 2.0: "Lønn og personalmedarbeider",
 
 
 ## Miljø, ulykke og sikkerhet 
-Aktuell for de mange virksomheter
+Tilgangsgruppene vil være aktuell for de mange virksomheter
 
 Tilgangsgruppen har følgende undergrupper: 
 - Miljø og klimarapportering
@@ -75,7 +75,7 @@ Beslektet rolle i 2.0:  "Energi, miljø og klima"
   
 
 ## Forhold ved virksomheten
-Aktuell for alle virksomhter
+Tilgangsgruppene vil være aktuell for alle virksomhter
 
 Tilgangsgruppen har følgende undergrupper: 
 - *Starte, endre og avvikle virksomhet (tilsvarende som i Altinn skjemakatalog)
@@ -90,38 +90,35 @@ Beslektet rolle i 2.0: "Signerer av samordnet registermelding" og "Patent, varem
 
 
 ## Postmottak
-Aktuell for alle virksomheter
+Tilgangsgruppene vil være aktuell for alle virksomheter
 
 Tilgangsgruppen har følgende undergrupper: 
-- *Uspesifisert post
+- *Post uten angitt tema
 - *Plan, bygg og geodata
 - *Helse, sosial og omsorg
+- *Taushetsbelagt post innen helse, sosial og omsorg
 - *Oppvekst og utdanning
+- *Taushetsbelagt post innen helse, sosial og omsorg
 - *Kultur, idrett og fritid
 - *Trafikk, reiser og samferdesl
 - *Natur og miljø
 - *Næringsutvikling
 - *Skatter og avgifter
 - *Tekniske tjenester
+- Taushetsbelagt post
+  - *Taushetsbelagt post uten angitt tema
+  - *Taushetsbelagt post innen helse, sosial og omsorg
+  - *Taushetsbelagt post innen oppvekst og utdanning
 
 Beslektet rolle i 2.0: "Post/arkiv". 
-Løvnode "Uspesifisert post" er tiltenkt generelle meldinger som ikke naturlig hører hjemme i en av de andre løvnodene, eller som brukes på tvers av ulike tema.
-
-
-## Taushetsbelagt post (?)
-Aktuell for mange virksomheter
-
-Tilgangsgruppen har følgende undergrupper: 
-- *Uspesifisert post
-- *Helse, sosial og omsorg
-- *Oppvekst og utdanning
+Løvnode "UPost uten angitt tema" er tiltenkt generelle meldinger som ikke naturlig hører hjemme i en av de andre løvnodene, eller som brukes på tvers av ulike tema.
 
 Beslektet rolle i 2.0: "Taushetsbelagt post". 
-Løvnode "Uspesifisert post" er tiltenkt generelle meldinger som ikke naturlig hører hjemme i en av de andre løvnodene, eller som brukes på tvers av ulike tema.
+Løvnode "Taushetsbelagt post uten angitt tema" er tiltenkt generelle meldinger som ikke naturlig hører hjemme i en av de andre løvnodene, eller som brukes på tvers av ulike tema.
 
 
 ## Offentlige Digitale tjenester (tverrfaglig)
-Aktuell for mange virksomheter
+Tilgangsgruppene vil være aktuell for mange virksomheter
 
 Tilgangsgruppen har følgende undergrupper: 
 - *Mine sider hos kommunen
@@ -133,7 +130,7 @@ Beslektet rolle i 2.0:
 
 
 ## Tilgangsstyring og administrasjon
-Aktuell for alle virksomheter
+Tilgangsgruppene vil være aktuell for alle virksomheter
 
 Tilgangsgruppen har følgende undergrupper: 
 - *Klientadminstrasjon (REGN/REVI)
@@ -143,7 +140,7 @@ Tilgangsgruppen har følgende undergrupper:
 
 
 ## Jordbruk, skogbruk, fisk og akvakultur
-Bransjespesifikk
+Tilgangsgruppene er bransjespesifikk og vil være aktuell for virksomheter som bruker tjenester rettet mot disse bransjene
 
 Tilgangsgruppen har følgende undergrupper: 
 - *Planteproduksjon og dyrehold
@@ -154,7 +151,7 @@ Tilgangsgruppen har følgende undergrupper:
 
 
 ## Bygg, anlegg og eiendom
-Bransjespesifikk
+Tilgangsgruppene er bransjespesifikk og vil være aktuell for virksomheter som bruker tjenester rettet mot disse bransjene
 
 Tilgangsgruppen har følgende undergrupper: 
 - Bygg og anlegg
@@ -166,7 +163,8 @@ Tilgangsgruppen har følgende undergrupper:
 
 
 ## Transport og lagring
-Bransjespesifikk
+Tilgangsgruppene er bransjespesifikk og vil være aktuell for virksomheter som bruker tjenester rettet mot disse bransjene
+
 
 Tilgangsgruppen har følgende undergrupper: 
 - *Landtransport og rørtransport
@@ -176,7 +174,8 @@ Tilgangsgruppen har følgende undergrupper:
 
 
 ## Helse og sosial
-Bransjespesifikk
+Tilgangsgruppene er bransjespesifikk og vil være aktuell for virksomheter som bruker tjenester rettet mot disse bransjene
+
 
 Tilgangsgruppen har følgende undergrupper: 
 - *Helsetjenester
@@ -186,7 +185,7 @@ Tilgangsgruppen har følgende undergrupper:
 
 
 ## Oppvekst og utdanning
-Bransjespesifikk
+Tilgangsgruppene er bransjespesifikk og vil være aktuell for virksomheter som bruker tjenester rettet mot disse bransjene
 
 Tilgangsgruppen har følgende undergrupper: 
 - Skole  (usikker på om det er behov for oppdeling av ulike nivå på utdanning/skole)
@@ -197,7 +196,7 @@ Tilgangsgruppen har følgende undergrupper:
 
 
 ## Energi, vann, olje og gass
-Bransjespesifikk
+Tilgangsgruppene er bransjespesifikk og vil være aktuell for virksomheter som bruker tjenester rettet mot disse bransjene
 
 Tilgangsgruppen har følgende undergrupper: 
 - *Produksjon, overføring og distribusjon av elektrisitet
@@ -210,7 +209,7 @@ Tilgangsgruppen har følgende undergrupper:
 
 
 ## Industri, næringsmidler og bergverk
-Bransjespesifikk
+Tilgangsgruppene er bransjespesifikk og vil være aktuell for virksomheter som bruker tjenester rettet mot disse bransjene
 
 Tilgangsgruppen har følgende undergrupper: 
 - *Næringsmidler, drikkevare og tobakk
@@ -228,7 +227,7 @@ Tilgangsgruppen har følgende undergrupper:
 
 
 ## Kultur og frivillighet
-Bransjespesifikk
+Tilgangsgruppene er bransjespesifikk og vil være aktuell for virksomheter som bruker tjenester rettet mot disse bransjene
 
 Tilgangsgruppen har følgende undergrupper: 
 - *Kunstnerisk virksomhet og underholdningsvirksomhet
@@ -240,7 +239,7 @@ Tilgangsgruppen har følgende undergrupper:
 
 
 ## Varehandel, servering og overnatting
-Bransjespesifikk
+Tilgangsgruppene er bransjespesifikk og vil være aktuell for virksomheter som bruker tjenester rettet mot disse bransjene
 
 Tilgangsgruppen har følgende undergrupper: 
 - *Varehandel
@@ -250,7 +249,7 @@ Tilgangsgruppen har følgende undergrupper:
  
  
 ## Tjenesteytende næringer
-Bransjespesifikk
+Tilgangsgruppene er bransjespesifikk og vil være aktuell for virksomheter som bruker tjenester rettet mot disse bransjene
 
 Tilgangsgruppen har følgende undergrupper: 
 - *Post og telekommunikasjon
@@ -260,21 +259,24 @@ Tilgangsgruppen har følgende undergrupper:
 - *Annen tjenesteyting
 
 ## Regnskapsfører
-Brukes for klientdelegering hos regnskapsfører
+Tilgjengelig kun for regnskapsfører og brukes for å gi egne ansatte tilgang til virksomheter/klienter de er registert som regnskapsførere for
 
 Tilgangsgruppen har følgende undergrupper: 
 - *Regnskapsfører med signeringsrettighet
 - *Regnskapsfører uten signeringsrettighet
 - *Regnskapsfører lønn
+
 ## Revisor
-Brukes ved klientdelegering hos revisor
+Tilgjengelig kun for revisor og brukes for å gi egne ansatte tilgang til virksomheter/klienter de er registert som revisor for
 
 Tilgangsgruppen har følgende undergrupper: 
 - *Ansvarlig revisor
 - *Revisormedarbeider
 
 ## Konkursbo
-Brukes for tilgangsstyring til konkursbo
+Tilgjengelig kun for konkursbo og brukes for å gi kreditorer og andre tilgangt tilgang til opplysninger vedr et konkursbo
 
 Tilgangsgruppen har følgende undergrupper: 
-- ?
+- *konkursbo tilgangsstyring
+- *Konkursbo lesetilgang
+- *Konkursbo skrivetilgang
