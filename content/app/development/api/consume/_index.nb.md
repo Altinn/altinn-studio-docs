@@ -277,12 +277,32 @@ Dersom det ikke er en suksess-statuskode logger vi en feil og returnerer null.
 
 Når interface og klient er implementert kan den registreres i _App/Program.cs_ (.NET 6) eller i _App/Startup.cs_ (.NET 5) for bruk i applikasjonen.
 
+{{<content-version-selector classes="border-box">}}
+
+{{<content-version-container version-label=".NET 5">}}
 I metoden `ConfigureServices` legger vi til kodelinjen nedenfor.
 I tillegg må `using Altinn.App.client;` legges til øverst i filen.
 
 ```C#
 services.AddHttpClient<ICountryClient, CountryClient>();
 ```
+{{</content-version-container>}}
+	
+{{<content-version-container version-label=".NET 6">}}	
+I `Program.cs` klassen legger vi til kodelinjen nedenfor.
+I tillegg må `using Altinn.App.client;` og `using Altinn.App.AppLogic.DataProcessing;` legges til øverst i filen.
+
+
+	
+```C#
+void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
+{
+    services.AddHttpClient<ICountryClient, CountryClient>();
+    services.AddTransient<IDataProcessor, DataProcessor>();
+    // Register your apps custom service implementations here.
+}
+```
+{{</content-version-container>}}
 
 ## Benytte klient i applikasjonslogikk
 
