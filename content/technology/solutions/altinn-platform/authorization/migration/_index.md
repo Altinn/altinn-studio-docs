@@ -28,6 +28,8 @@ Det er laget en egen [plan](../migration/servicemigrationplan/) for hvilken rekk
 
 I dag administrerer hvem som kan opptre på virksomhetens vegne i Altinns profil. Denne brukerflaten vil få et nytt utseende i Altinn 3. 
 
+![Skisseforslag på ny brukerflate for tilgangsstyring](ny-brukerflate-virksomheter.jpg "Forslag til ny brukerflate på skissestadiet")
+
 Dagens roller i Altinn 2.0 er forholdsvis store og rommer tilgang til veldig mange tjenester. 
 I tilegg skal Altinn styre tilgang til mange tusen tjenester. 
 Resultatet er at dette kan oppleves som forvirrende, overveldende, usikkert og frusterende for enkelte tilgansstyrere.
