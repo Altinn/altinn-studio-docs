@@ -508,7 +508,9 @@ It is also possible to overrule the title you see on the messages by adding the 
 ## Group validation
 
 It is possible to apply validations to a repeating group when the user saves a row in the group.
-This can be done by adding a trigger on the group component in the layout file (e.g. `FormLayout.json`). Example:
+This can be done by adding a trigger on the group component in the layout file (e.g. `FormLayout.json`).
+There are two different triggers that can be used for groups; `validation` runs validation on the entire group,
+and `validateRow` only runs validation on the row the user is trying to save. Example:
 
 ```json {hl_lines=[14]}
 {
@@ -524,7 +526,7 @@ This can be done by adding a trigger on the group component in the layout file (
         "dataModelBindings": {
             "group": "Endringsmelding-grp-9786.OversiktOverEndringene-grp-9788"
         },
-        "triggers": ["validation"]  // <--- Add this
+        "triggers": ["validateRow"]  // <--- Add this
       },
       ...
     ]
@@ -532,7 +534,7 @@ This can be done by adding a trigger on the group component in the layout file (
 }
 ```
 
-This will ensure that validation is run on the components that are a part of the group on the index you're working on.
+This will ensure that validation is run on the components that are a part of the group in the row you're working on.
 If there are validation errors you will be stopped from saving the group until this has been corrected.
 
 If you add validation on the group component, a call will be made towards the validation back-end with a header specifying which component triggered the validation: `ComponentId`.
