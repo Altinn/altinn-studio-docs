@@ -46,6 +46,13 @@ The following API  controllers is available in component
 - AuthenticationAPI
 
 
+## Database
+
+The data for deelegation is stored in postgreSQL and Azure blob storage
+
+![Database](dbmodel.drawio.svg "Access management Database")
+
+
 ## API
 
 The following API is identifed
