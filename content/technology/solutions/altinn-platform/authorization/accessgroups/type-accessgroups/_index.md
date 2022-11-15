@@ -1,20 +1,21 @@
 ---
 title: Forslag tilgangsgupper i 3.0
 linktitle: Tilgangsgrupper 3.0
-description: 0.6 versjon av tilgangsgruppehierarki som skal benyttes for tjenester i Altinn autorisasjon 3.0
+description: Her finner du forslag til nye tilgangsgrupper for virksomheter. Disse skal erstatte Altinn rollene som i dag benyttes for å gi tilgang til en tjeneste
 toc: true
  
 ---
 
-Tilgangsgrupper **for virksomheter** skal erstatte 2.0 rollene som i dag benyttes til å gi tilgang til en tjeneste, se [Altinn roller brukt av virksomheter.](/app/development/configuration/authorization/guidelines_authorization/roles_and_rights/roles_altinn/altinn_roles_enterprices/)
+*Denne siden er under arbeid.*
 
-Den største forskjellen på dagens 2.0 roller og tilgangsgrupper i 3.0 vil være: 
+## Hva er tilgangsgruppe og hvordan skal de brukes
+
+Den største forskjellen på dagens [2.0 roller](/app/development/configuration/authorization/guidelines_authorization/roles_and_rights/roles_altinn/altinn_roles_enterprices/) og tilgangsgrupper i 3.0 vil være: 
 - tilgangsgruppene vil være flere, mer granulerte og inneholde tilgang til færre tjenester
 - tilgangsgruppen vil grupperes i et hierarki slik at det blir lettere for administrator å finne frem til riktig tilgangsgruppe
-- med mer granulerte tilgangsgrupper enn dagens 2.0 roller blir det enklere for tjenesteeiere å finne en tilgangsgruppe som treffer målgruppen for sin tjeneste
+- med mer granulerte tilgangsgrupper enn dagens 2.0 roller blir det enklere for tjenesteeiere å finne en tilgangsgruppe som bedre treffer målgruppen for sin tjeneste
 
-
-Forslaget til inndeling i tilgangsgrupper har hentet inspirasjon til gruppering av tilganger blandt annet fra [standarder for kategorisering av virksomheter hos SSB](https://www.ssb.no/klass/klassifikasjoner/6) og fra struktur på [Altinns skjemakatalog](https://www.altinn.no/skjemaoversikt/?category=category)
+Forslaget til inndeling i tilgangsgrupper har hentet inspirasjon til gruppering av virksomhetsområder og tjenester fra blandt annet [standarder for kategorisering av virksomheter hos SSB](https://www.ssb.no/klass/klassifikasjoner/6) og fra dagens struktur på [Altinns skjemakatalog](https://www.altinn.no/skjemaoversikt/?category=category)
 
 Det vil kun være mulig å knytte tjenester til det "laveste" nivå i tilgangshierarkiet, også kalt løvnoden. 
 Det betyr at en tjeneste f eks ikke kan knyttes til tilgangsgruppen "Skatt, avgift og regnskap" eller til undergruppen "Skatt", 
@@ -27,11 +28,22 @@ Delegering av tilgangsgruppe til en bruker vil kun registreres på laveste nivå
 
 Eksterne roller (fra f eks Enhetsregisteret) vil automatisk få tilgang til en tilgangsgruppe for en virksomhet. Altinn vil i samarbeid med Enhetsregisteret gjøre en ny vurdering av hvilke eksterne roller det er aktuelt å knytte til de ulike tilgangsgruppene.
 
-Forslag til nye tilgangsgrupper sendes ut på høring september 2022. 
+### Tilgangsgrupper for digital post kommer senere
+Virksomheter får i dag tilgang til sin digital post i Altinn gjennom roller rettet mot "post/arkiv" som settes på tjenestenivå. Det er pr i dag uklart om denne måten å styre tilgang til digital post skal videreføres når man migrerer digital post fra Altinn 2 til Altinn 3.
 
+Det er derfor i første versjonen av nye tilgangsgrupper vurdert behovet for tilgangsgrupper knyttet til mottak av digital post
+
+### Høring
+Forslag til nye tilgangsgrupper sendes ut på høring desember 2022.
+Vi ønsker at dagens tjenesteeiere vurderer om foreslåtte tilgangsgrupper er hensiktsmessige for deres tjenester. Vi ønsker også tilbakemelding hvis man har forslag til bedre/annen navngivning på tilgangsgruppene enn de som foreligger.
+
+Tilbakemelding kan gis på epost til servicedesk@altinn.no innen 31 januar 2023. 
+
+# Forslag til tilgangsgrupper: 
 
 ## Skatt, avgift og regnskap
 Tilgangsgruppene vil være aktuell for alle virksomheter som er "økonomisk aktive" (skatte- og regnskapspliktig)
+
 
 Tilgangsgruppen har følgende undergrupper: 
 - Skatt
@@ -68,8 +80,8 @@ Tilgangsgruppen har følgende undergrupper:
 - Miljø og klimarapportering
   - *Renovasjon
   - *Miljørydding, miljørensing og lignende (tilsvarende som i Altinn skjemakatalog)
-- Sikkerhet og internkontroll (tilsvarende som i Altinn skjemakatalog)
-- Ulykke og yrkesskade (tilsvarende som i Altinn skjemakatalog)
+- *Sikkerhet og internkontroll (tilsvarende som i Altinn skjemakatalog)
+- *Ulykke og yrkesskade (tilsvarende som i Altinn skjemakatalog)
 
 Beslektet rolle i 2.0:  "Energi, miljø og klima"
   
@@ -89,42 +101,14 @@ Tilgangsgruppen har følgende undergrupper:
 Beslektet rolle i 2.0: "Signerer av samordnet registermelding" og "Patent, varemerke og design", 
 
 
-## Postmottak
-Tilgangsgruppene vil være aktuell for alle virksomheter
-
-Tilgangsgruppen har følgende undergrupper: 
-- *Post uten angitt tema
-- *Plan, bygg og geodata
-- *Helse, sosial og omsorg
-- *Taushetsbelagt post innen helse, sosial og omsorg
-- *Oppvekst og utdanning
-- *Taushetsbelagt post innen helse, sosial og omsorg
-- *Kultur, idrett og fritid
-- *Trafikk, reiser og samferdesl
-- *Natur og miljø
-- *Næringsutvikling
-- *Skatter og avgifter
-- *Tekniske tjenester
-- Taushetsbelagt post
-  - *Taushetsbelagt post uten angitt tema
-  - *Taushetsbelagt post innen helse, sosial og omsorg
-  - *Taushetsbelagt post innen oppvekst og utdanning
-
-Beslektet rolle i 2.0: "Post/arkiv". 
-Løvnode "UPost uten angitt tema" er tiltenkt generelle meldinger som ikke naturlig hører hjemme i en av de andre løvnodene, eller som brukes på tvers av ulike tema.
-
-Beslektet rolle i 2.0: "Taushetsbelagt post". 
-Løvnode "Taushetsbelagt post uten angitt tema" er tiltenkt generelle meldinger som ikke naturlig hører hjemme i en av de andre løvnodene, eller som brukes på tvers av ulike tema.
-
-
 ## Offentlige Digitale tjenester (tverrfaglig)
 Tilgangsgruppene vil være aktuell for mange virksomheter
 
 Tilgangsgruppen har følgende undergrupper: 
 - *Mine sider hos kommunen
 - Dataintegrasjoner
-  - *Maskinportautorisasjon
-  - *Hendelser
+  - *Programmeringsgrensesnitt (API)
+  - *Maskinlesbare hendelser
   
 Beslektet rolle i 2.0:
 
@@ -138,6 +122,7 @@ Tilgangsgruppen har følgende undergrupper:
 - *Hovedadministrator
 - *Kundeadministrator (Kunde-leverandør)
 
+Beslektet rolle i 2.0: Klientaadministrator, Tilgangsstyrer, Hovedadministrator 
 
 ## Jordbruk, skogbruk, fisk og akvakultur
 Tilgangsgruppene er bransjespesifikk og vil være aktuell for virksomheter som bruker tjenester rettet mot disse bransjene
@@ -259,19 +244,23 @@ Tilgangsgruppen har følgende undergrupper:
 - *Annen tjenesteyting
 
 ## Regnskapsfører
-Tilgjengelig kun for regnskapsfører og brukes for å gi egne ansatte tilgang til virksomheter/klienter de er registert som regnskapsførere for
+Tilgjengelig kun for regnskapsfører og brukes for å gi egne ansatte tilgang til virksomheter/klienter de er registert som regnskapsførere for i Enhetsregisteret
 
 Tilgangsgruppen har følgende undergrupper: 
 - *Regnskapsfører med signeringsrettighet
 - *Regnskapsfører uten signeringsrettighet
 - *Regnskapsfører lønn
 
+Disse tilgangsgruppen er videreføring av tilsvarende roller som finnes i dag for regnkspaførere
+
 ## Revisor
-Tilgjengelig kun for revisor og brukes for å gi egne ansatte tilgang til virksomheter/klienter de er registert som revisor for
+Tilgjengelig kun for revisor og brukes for å gi egne ansatte tilgang til virksomheter/klienter de er registert som revisor for  i Enhetsregisteret
 
 Tilgangsgruppen har følgende undergrupper: 
 - *Ansvarlig revisor
 - *Revisormedarbeider
+
+Disse tilgangsgruppen er videreføring av tilsvarende roller som finnes i dag for revisorer
 
 ## Konkursbo
 Tilgjengelig kun for konkursbo og brukes for å gi kreditorer og andre tilgangt tilgang til opplysninger vedr et konkursbo
@@ -280,3 +269,5 @@ Tilgangsgruppen har følgende undergrupper:
 - *konkursbo tilgangsstyring
 - *Konkursbo lesetilgang
 - *Konkursbo skrivetilgang
+
+Disse tilgangsgruppen er videreføring av tilsvarende roller som finnes i dag for konkursbo
