@@ -48,10 +48,13 @@ The following API  controllers is available in component
 
 ## Database
 
-The data for deelegation is stored in postgreSQL and Azure blob storage
+The data for delegation is stored in postgreSQL and Azure blob storage.
+
+- Delegationchange - contains delegation info for app delegations
+- ResourceDelegationChange - contains delegation change info for resoruce delegations
+- AuthorizationResources - Extract from resource registry with the most important resource information
 
 ![Database](dbmodel.drawio.svg "Access management Database")
-
 
 ## API
 
