@@ -14,7 +14,8 @@ Dette planverket er under utvikling og det vil komme endringer.
 
 ## Skjema-, innsyns- og samhandlingstjenester
 ### Migreringsstrategi
-Tjenesteeier er selv ansvarlig for å migrere disse tjenestene fra Altinn 2 til Altinn 3. Det innebærer at man må utvikle skjematjenesten på nytt som en 3.0 app.  [Her finner du veiledning](../app/) for hvordan dette gjøres. 
+Tjenesteeier er selv ansvarlig for å migrere disse tjenestene fra Altinn 2 til Altinn 3. Det innebærer at man må utvikle skjematjenesten på nytt som en 3.0 app.  
+[Her finner du veiledning](/app/) for hvordan dette gjøres. 
 
 ### Tidsplan
 - Oppstart utvikling: Påbegynt
