@@ -29,7 +29,7 @@ Hvis du ikke finner en rolle du synes passer må du ta kontakt med Altinn slik a
 
 [Her](roles_and_rights) kan du lese mer om hvilke roller som finnes i Altinn. 
 
-## Unngå endringer autorisasjonsregler etter produksjonssetting
+## Unngå endringer av autorisasjonsregler etter produksjonssetting
 Endringer i autorisasjonsregler i etterkant av en produksjonssetting vil medføre at f eks brukere som har fått tilgang til tjenesten gjennom delegering av en rolle som tidligere var satt på tjenesten senere kanskje ikke får utført tjenesten allikevel.
 
 Dette vil pålegge virksomheter som skal bruke tjenesten en administrasjonsbyrde fordi de da må rydde opp i delegeringer gjort med utgangspunkt i gammel policy. En slik praksis vil som regel gi misfornøyde brukere av applikasjonen. 
