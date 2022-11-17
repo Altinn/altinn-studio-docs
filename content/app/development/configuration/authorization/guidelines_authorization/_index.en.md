@@ -24,9 +24,9 @@ Altinn offers a set of roles required as a condition to access a specific step i
 Before choosing which role to use, make sure you have sufficient understanding of what these roles mean and what kind of services and information this role is expected to have access to.
 It is important that authorization rules and the choice of roles match the intentions and expectations of the administrator for the party.
 For example, the administrator probably expects that the role "Tax" gives access to services related to, for example, tax reporting, but simultaneously needs to avoid any role giving access to services within payroll and the personnel area.
-Similarly, please be careful about using, for example, the role "Contact Person" from the Entity Register to grant access to services - unless the basis for using this role has been thoroughly assessed.
+Similarly, please be careful about using, for example, the role "Contact Person" from the Entity Register to grant access to services - unless the basis for using this role has been thoroughly evaluated.
 
-## Please do NOT change authorizaion rules after production launch
+## Do NOT change authorizaion rules after production launch
 Changes to authorization rules after a production release will render existing users unable to access the service and must have the new role delegated and any previous role deleted.
 This will impose an unexpected administrative burden on businesses that will use the service because they will then have to clean up delegations made based on the old policy. Such a practice will usually result in dissatisfied users of the application.
 
@@ -41,7 +41,7 @@ Authorization rules, like everything else, must be tested before the application
 
 [Here](test_authorization_application) you can read our recommendations related to testing authorization rules.
 
-## Be aware : Altinn can impose changes to the authorization rules
+## Altinn can impose changes to the authorization rules
 Although it is the application owner's responsibility to construct the correct authorization rule and select the correct roles, Altinn will supervise or carry out spot checks with the authorization rules for services that are put into production.
 If we discover what we consider incorrect use of Altinn Authorization, we may choose to intervene and remove the service from production or impose changes in the authorization rules.
 
