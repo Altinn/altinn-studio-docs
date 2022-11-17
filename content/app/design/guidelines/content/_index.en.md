@@ -23,7 +23,7 @@ and a more confusing experience for the user, and short pages with less content 
 Example: [starting a sole proprietorship](https://brg.apps.altinn.no/brg/anonym-oppstartsveilederen/). 
 
 The user should not be required to give more information than necessary. If the user has answered a question that leads to 
-another, you can decide to hide or show the question (or page) depending on their answer with [dynamic branching](../../../development/logic/dynamic/).
+another, you can decide to hide or show the question (or page) depending on their answer with [dynamic expressions](../../../development/logic/expressions).
 
 ### Disabled
 By showing fields as disabled you might expect that users know why they can't use the element, but this is not always the case.

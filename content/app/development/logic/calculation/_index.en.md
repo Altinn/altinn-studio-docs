@@ -4,8 +4,9 @@ description: How to add calculations?
 toc: true
 ---
 
-
-**Calculation is from 4.7.0 replaced by data processing. See [here](../dataprocessing/)**
+{{% panel theme="warning" %}}
+⚠ Calculation is from 4.7.0 replaced by [data processing](../dataprocessing)
+{{% /panel %}}
 
 ## Calculation 
 

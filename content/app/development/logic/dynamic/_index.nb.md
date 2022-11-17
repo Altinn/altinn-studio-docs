@@ -4,6 +4,12 @@ description: Hvordan legge til dynamikk?
 toc: true
 ---
 
+{{% panel theme="warning" %}}
+⚠️ Dynamikk er et område under aktiv utvikling. Logikk-filer skrevet i JavaScript fases etterhvert ut og blir erstattet
+av [dynamiske uttrykk](../expressions). Foreløpig gjelder dette dynamikk for vis/skjul, men etterhvert skal uttrykk
+også kunne brukes for å utføre beregninger.
+{{% /panel %}}
+
 ## Introduksjon
 
 Dynamikk er hendelser som skjer på klient-siden. Disse kan deles opp i to kategorier:
