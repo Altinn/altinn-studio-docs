@@ -110,7 +110,7 @@ Tilgangsgruppen har følgende undergrupper:
   - *Programmeringsgrensesnitt (API)
   - *Maskinlesbare hendelser
   
-Beslektet rolle i 2.0:
+Beslektet rolle i 2.0: "Kommunale tjenester"
 
 
 ## Tilgangsstyring og administrasjon
