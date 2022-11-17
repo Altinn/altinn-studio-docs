@@ -23,7 +23,7 @@ men må knyttes til løvnodene som er "Foretaksskatt" og/eller "Skattegrunnlag".
 
 Det vil være mulig å knytte en tjeneste til flere tilgangsgrupper hvis tjenesteeier mener dette er riktig i forhold til tjenestens innhold. 
 
-Delegering av tilgangsgruppe til en bruker vil kun registreres på laveste nivå (løvnode). 
+Delegering utføres ved at en bruker legges til en tilgangsgruppe. En bruker kan kun legges til tilgangsgrupper på laveste nivå (løvnode). 
 Årsaken til disse begrensningene er at det vil gi oss større frihet til å revidere tilgangsgrupper senere uten at det nødvendigvis betyr stor opprydding av delegeringer for sluttbruker eller tjenesteeier. 
 
 Eksterne roller (fra f eks Enhetsregisteret) vil automatisk få tilgang til en tilgangsgruppe for en virksomhet. Altinn vil i samarbeid med Enhetsregisteret gjøre en ny vurdering av hvilke eksterne roller det er aktuelt å knytte til de ulike tilgangsgruppene.
@@ -31,7 +31,7 @@ Eksterne roller (fra f eks Enhetsregisteret) vil automatisk få tilgang til en t
 ### Tilgangsgrupper for digital post kommer senere
 Virksomheter får i dag tilgang til sin digital post i Altinn gjennom roller rettet mot "post/arkiv" som settes på tjenestenivå. Det er pr i dag uklart om denne måten å styre tilgang til digital post skal videreføres når man migrerer digital post fra Altinn 2 til Altinn 3.
 
-Det er derfor i første versjonen av nye tilgangsgrupper vurdert behovet for tilgangsgrupper knyttet til mottak av digital post
+Det er derfor i første versjonen av nye tilgangsgrupper ikke foreslått tilgangsgrupper knyttet til mottak av digital post
 
 ### Høring
 Forslag til nye tilgangsgrupper sendes ut på høring desember 2022.
