@@ -20,11 +20,11 @@ I tidligere versjoner så gjøres endringene i `PdfHandler.cs` filen under `App/
 
 {{<content-version-container version-label="v7">}}
 I versjon 7 har vi endret måten vi gjør kode baserte tilpassninger på. Vi benytter nå _dependency injection_ i stedet for overstyring av metoder. Hvis du tidligere plasserte koden din i _FormatPdf_ metoden in _PdfHandler.cs_ klassen så vil du erfare at det er mer eller mindre det samme som nå gjøres.
-1. Opprett en klasse som implementerer `IInstanceValidator` grensesnittet som ligger i `Altinn.App.Core.Features.Validation` navnerommet.  
+1. Opprett en klasse som implementerer `IPdfFormatter` grensesnittet som ligger i `Altinn.App.Core.Features` navnerommet.  
     Du kan navngi og plassere filene i den mappestrukturen du selv ønsker i prosjektet ditt. Men vi anbefaler at du benytter meningsfulle navnerom som i et hvilket som helst annet .Net prosjekt.
 2. Registrer din implementering i _Program.cs_ klassen
     ```C#
-    services.AddTran  sient<IInstanceValidator, InstanceValidator>();
+    services.AddTransient<IPdfFormatter, PdfFormatter>();
     ```
     Dette sørger for at din kode er kjent for applikasjonen og at koden blir kjørt når den skal.
 {{</content-version-container>}}
