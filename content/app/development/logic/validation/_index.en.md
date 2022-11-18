@@ -456,6 +456,9 @@ private void ValidateFullName(Datamodell model, ModelStateDictionary validationR
 }
 ```
 
+If you are having trouble with getting this to work, and you are instead seeing validation messages that include the `*FIXED*`-prefix, 
+double check that you have `"FixedValidationPrefix": "*FIXED*"` set under `GeneralSettings` in `appsettings.json`.
+
 ## Soft validations
 
 Soft validations are validation messages that does not stop the user from submitting or move onto the next step of the process, but that are used to give the user different forms of information.

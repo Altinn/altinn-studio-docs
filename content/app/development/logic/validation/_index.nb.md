@@ -453,6 +453,9 @@ private void ValidateFullName(Datamodell model, ModelStateDictionary validationR
 }
 ```
 
+Dersom du har problemer med å få dette til å fungere, og du ser valideringsmeldinger med `*FIXED*` foran meldingen istedenfor at meldingen forsvinner, 
+bør du dobbeltsjekke at du har `"FixedValidationPrefix": "*FIXED*"` satt under `GeneralSettings` i `appsettings.json`.
+
 ## Myke valideringer
 
 Myke valideringer er valideringsmeldinger som ikke stopper bruker fra å sende inn eller gå videre til neste steg i prosessen, men som benyttes til å gi brukeren ulike former for informasjon.
