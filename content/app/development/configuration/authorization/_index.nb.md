@@ -10,7 +10,7 @@ weight: 100
 Autorisasjonskonfig for en applikasjon er definert i en XACML Policy-fil som ligger i applikasjonsrepoet.
 XACML Policy-en inneholder en eller flere regler som definerer hvem som kan gjennomføre ulike aksjoner på ulike ressurser.
 
-Beskrivelse av XACML-strukturen og definisjon av regler finnes [her](/technology/solutions/altinn-studio/designer/functional/build-app/authorization-rules/)
+Beskrivelse av XACML-strukturen og definisjon av regler finnes [her](/technology/solutions/altinn-studio/designer/build-app/authorization-rules/)
 
 XACML-filen kan endres i en valgfri teksteditor.
 
@@ -21,7 +21,7 @@ Når det opprettes en app i Altinn Studio basert på den nåværende asp.net mal
 Reglene som er definert i denne filen er kort beskrevet nedenfor. 
 
 Overnevnte regler kan endres i *policy.xml* som ligger i `App/config/authorization` i applikasjonsrepoet.
-Detaljer om hvordan å konfigurere policy filen finnes [her](/technology/solutions/altinn-studio/designer/functional/build-app/authorization-rules/)
+Detaljer om hvordan å konfigurere policy filen finnes [her](/technology/solutions/altinn-studio/designer/build-app/authorization-rules/)
 I tillegg vil du finne en del eksempelregler [her](rules).
 
 {{%notice warning%}}

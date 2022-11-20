@@ -1147,7 +1147,7 @@
 			<v:textRect cx="68.0315" cy="1760.14" width="136.07" height="17.0079"/>
 			<rect x="0" y="1751.64" width="136.063" height="17.0079" class="st5"/>
 			<text x="4" y="1763.74" class="st6" v:langID="1044"><v:paragraph/><v:tabList/>App Settings</text>		</g>
-		<a target="_top" xlink:href="https://docs.altinn.studio/solutions/altinn-studio/functional/build-app/authorization-rules/">
+		<a target="_top" xlink:href="https://docs.altinn.studio/solutions/altinn-studio/build-app/authorization-rules/">
 			<g id="shape133-315" v:mID="133" v:groupContext="shape" transform="translate(1965.91,-578.518)">
 				<title>Rectangle.133</title>
 				<desc>Define authorization rules for app</desc>

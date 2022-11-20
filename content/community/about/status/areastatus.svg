@@ -1591,7 +1591,7 @@
 				<text x="14.52" y="1659.34" class="st3" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Generate datamodel <tspan
 							x="32.61" dy="1.2em" class="st14">based on UI</tspan></text>			</g>
 		</a>
-		<a target="_top" xlink:href="https://docs.altinn.studio/solutions/altinn-studio/functional/build-app/authorization-rules/">
+		<a target="_top" xlink:href="https://docs.altinn.studio/solutions/altinn-studio/build-app/authorization-rules/">
 			<g id="shape183-438" v:mID="183" v:groupContext="shape" transform="translate(670.476,-1253.16)">
 				<title>Rectangle.133</title>
 				<desc>Define authorization rules for app</desc>
