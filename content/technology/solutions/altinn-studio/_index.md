@@ -7,12 +7,33 @@ aliases:
 weight: 1
 ---
 
-**Altinn Studio** is a user-friendly solution where non-technical and technical
-developers can create apps based on reuse and configuration of existing building blocks.
-
-Examples on building blocks can be layouts, themes, web-components, texts, API-calls, code lists,
-and process tasks.
 
 Altinn Studio consist of serveral parts.
 
-{{<children>}}
+## Altinn Studio Dashboard
+
+In Altinn Studio Dashboard you can manage all your applications and create new ones.
+
+The dashboards allows you to manage apps for all organizations you are part of.
+
+## Altinn Studio Designer
+
+Altinn Studio Designer is the main component in Altinn studio and provides the user with the following capabilites.
+
+### App configuration
+
+### UI Designer
+
+### Text Managament
+
+
+Get the full details about [Altinn Studio Designer](designer)
+
+## Altinn Studio Datamodelling
+
+## Altinn Studio UI designer
+
+## Altinn Studio Repos
+
+
+## Third party tools
