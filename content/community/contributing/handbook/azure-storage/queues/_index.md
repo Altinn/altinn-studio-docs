@@ -10,7 +10,7 @@ toc: true
 ## Moving messages between queues
 
 During operations we sometimes need to move messages between queues. 
-The most common scenario is wanting to re-process elements that have ended in the poision 
+The most common scenario is wanting to re-process elements that have ended in the poison 
 queue after too many failed attempts. 
 
 ### Prerequisites
@@ -25,17 +25,16 @@ queue after too many failed attempts.
 2. Move to the _Explorer_ tab and identify the source queue in the left hand menu
     ![Poison queue marked in red](identify-poisonqueue.png)
 3. You should now see the messages in the queue in the explorer.
-    If you only want to move a single message, this should be highlightes
+    If you only want to move a single message, this should be highlighted
     ![Poision queue with elements](move-message-btn-marked.png)
 4. Click the arrow next to _Move messages_ to specify if all or just a single message should be moved
 5. In the dialogue, select the destination queue and click `Move`
     ![Select destination queue dialogue](select-destination-queue.png)
-6. The messages will be moved immediatly, check the destination queue to confirm.
+6. The messages will be moved immediatly. Check the destination queue to confirm.
 
 
 ## Manually adding messages in queue
-During development it can be useful to manually add messages to a queue and during incident management it might also 
-be required to do this during operations as well. 
+Manually adding a message to a queue is useful both when testing new functionality and during incident management.
 
 You have two options when manually adding a message to a Storage Queue, 
 the [Azure Portal](https://portal.azure.com/) or [Azure Storage Explorer](../tools/#azure-storage-explorer).
