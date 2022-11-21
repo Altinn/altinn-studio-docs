@@ -546,11 +546,14 @@ public async Task ValidateData(object data, ModelStateDictionary validationResul
     if (data is flyttemelding model))
     {
         _httpContextAccessor.HttpContext.Request.Headers
-            .TryGetValue("ComponentId", out StringValues value);
+            .TryGetValue("ComponentId", out StringValues componentIdValues);
+        _httpContextAccessor.HttpContext.Request.Headers
+            .TryGetValue("RowIndex", out StringValues rowIndexValues); // <-- Kun satt når triggers=["validateRow"]
 
-        string component = value.Any() ? value[0] : string.Empty;
+        string componentId = componentIdValues.FirstOrDefault(string.Empty);
+        string rowIndex = rowIndexValues.FirstOrDefault(string.Empty);
 
-        switch (component)
+        switch (componentId)
         {
             case "demo-group":
                 // kjør valideringer spesifikke til gruppen
