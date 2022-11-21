@@ -33,7 +33,6 @@ til `7.2.0` eller nyere:
 ```json {linenos=false,hl_lines=["6"]}
   "AppSettings": {
     "OpenIdWellKnownEndpoint": "http://localhost:5101/authentication/api/v1/openid/",
-    "Hostname": "local.altinn.cloud",
     "RuntimeCookieName": "AltinnStudioRuntime",
     "RegisterEventsWithEventsComponent": false,
     "RemoveHiddenDataPreview": true
