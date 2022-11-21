@@ -22,9 +22,23 @@ Uttrykkene er tilgjengelige i alle Altinn 3-apper som bruker frontend-versjon
 
 Fra versjon `7.2.0` av [nuget-pakkene](../../../maintainance/dependencies#nuget) er også uttrykkene støttet i backend.
 Det gjør at serveren vil kunne evaluere uttrykkene og fjerne data som potensielt er lagret i instansen og er knyttet
-til felter/komponenter som i ettertid er skjult. Disse dataene fjernes fra datamodellen når instansen sendes inn.
+til felter/komponenter som i ettertid er skjult. Disse dataene kan da fjernes fra datamodellen når instansen sendes inn.
 Det gjør det også mulig å unnlate å sende inn data som ellers er tilknyttet påkrevde felter - dersom disse påkrevde
 feltene er skjult i skjemaet ved hjelp av dynamiske uttrykk. Dette gjelder også ved innsending direkte fra API.
+
+**NB:** Automatisk fjerning av skjult data må foreløpig aktiveres manuelt (_opt-in_) ved at man legger til følgende
+linje i `App/appsettings.json` etter at man har oppgradert [nuget-pakkene](../../../maintainance/dependencies#nuget)
+til `7.2.0` eller nyere:
+
+```json {linenos=false,hl_lines=["6"]}
+  "AppSettings": {
+    "OpenIdWellKnownEndpoint": "http://localhost:5101/authentication/api/v1/openid/",
+    "Hostname": "local.altinn.cloud",
+    "RuntimeCookieName": "AltinnStudioRuntime",
+    "RegisterEventsWithEventsComponent": false,
+    "RemoveHiddenDataPreview": true
+  },
+```
 
 ### Oppbygging og syntaks
 
