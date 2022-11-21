@@ -2,7 +2,7 @@
 title: Tools & Software
 description: Overview of tools and software used for developing and operating Azure Storage
 tags: [development, operations, storage, azure, tools, software]
-weight: 100
+weight: 50
 ---
 
 ## Azurite 
