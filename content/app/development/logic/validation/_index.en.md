@@ -304,9 +304,13 @@ An example of a custom validation where the header value is retrieved is shown b
 ```csharp
  public async Task ValidateData(object data, ModelStateDictionary validationResults)
  {
-    _httpContextAccessor.HttpContext.Request.Headers.TryGetValue("ValidationTriggerField", out StringValues value);
+    _httpContextAccessor.HttpContext
+        .Request.Headers
+        .TryGetValue("ValidationTriggerField", out StringValues triggerValues);
 
-    if (value.Count > 0 && value[0].Equals("kommune"))
+    string triggerField = triggerValues.FirstOrDefault(string.Empty);
+
+    if (triggerField.Equals("kommune"))
     {
       // Cast instance data to model type
       flyttemelding model = (flyttemelding)data;
@@ -316,7 +320,7 @@ An example of a custom validation where the header value is retrieved is shown b
 
       if (!kommune.Equals("Oslo"))
       {
-          validationResults.AddModelError(value[0], "This is not a valid municipality.");
+          validationResults.AddModelError(triggerField, "This is not a valid municipality.");
       }
     }
 
@@ -362,12 +366,13 @@ public async Task ValidateData(object data, ModelStateDictionary validationResul
 {
     if (data is flyttemelding model)
     {
-        _httpContextAccessor.HttpContext.Request.Headers
-            .TryGetValue("ValidationTriggerField", out StringValues value);
+        _httpContextAccessor.HttpContext
+            .Request.Headers
+            .TryGetValue("ValidationTriggerField", out StringValues triggerValues);
 
-        string dataField = value.Any() ? value[0] : string.Empty;
+        string triggerField = triggerValues.FirstOrDefault(string.Empty);
 
-        switch (dataField)
+        switch (triggerField)
         {
             case "kommune":
                 ValidateKommune(model, validationResults);
@@ -546,14 +551,18 @@ Validations are written in C# in the `ValidationHandler.cs`-file in the applicat
 ```cs
 public async Task ValidateData(object data, ModelStateDictionary validationResults)
 {
-    if (data is flyttemelding model))
+    if (data is flyttemelding model)
     {
-        _httpContextAccessor.HttpContext.Request.Headers
-            .TryGetValue("ComponentId", out StringValues componentIdValues);
-        _httpContextAccessor.HttpContext.Request.Headers
-            .TryGetValue("RowIndex", out StringValues rowIndexValues); // <-- Only set when using triggers=["validateRow"]
+        _httpContextAccessor.HttpContext
+            .Request.Headers
+            .TryGetValue("ComponentId", out StringValues compIdValues);
 
-        string componentId = componentIdValues.FirstOrDefault(string.Empty);
+        // RowIndex is only set when using triggers=["validateRow"]
+        _httpContextAccessor.HttpContext
+            .Request.Headers
+            .TryGetValue("RowIndex", out StringValues rowIndexValues);
+
+        string componentId = compIdValues.FirstOrDefault(string.Empty);
         string rowIndex = rowIndexValues.FirstOrDefault(string.Empty);
 
         switch (componentId)

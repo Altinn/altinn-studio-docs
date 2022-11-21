@@ -301,9 +301,13 @@ Et eksempel på en egendefinert validering der headerverdien hentes ut er vist n
 ```csharp
  public async Task ValidateData(object data, ModelStateDictionary validationResults)
  {
-    _httpContextAccessor.HttpContext.Request.Headers.TryGetValue("ValidationTriggerField", out StringValues value);
+    _httpContextAccessor.HttpContext
+        .Request.Headers
+        .TryGetValue("ValidationTriggerField", out StringValues triggerValues);
+    
+    string triggerField = triggerValues.FirstOrDefault(string.Empty);
 
-    if (value.Count > 0 && value[0].Equals("kommune"))
+    if (triggerField.Equals("kommune"))
     {
       // Cast instance data to model type
       flyttemelding model = (flyttemelding)data;
@@ -313,7 +317,7 @@ Et eksempel på en egendefinert validering der headerverdien hentes ut er vist n
 
       if (!kommune.Equals("Oslo"))
       {
-          validationResults.AddModelError(value[0], "Dette er ikke en gyldig kommune.");
+          validationResults.AddModelError(triggerField, "Dette er ikke en gyldig kommune.");
       }
     }
 
@@ -357,14 +361,15 @@ Man kan bl.a. bruke en _switch statement_ for å oppnå dette.
 ```cs
 public async Task ValidateData(object data, ModelStateDictionary validationResults)
 {
-    if (data is flyttemelding model))
+    if (data is flyttemelding model)
     {
-        _httpContextAccessor.HttpContext.Request.Headers
-            .TryGetValue("ValidationTriggerField", out StringValues value);
+        _httpContextAccessor.HttpContext
+            .Request.Headers
+            .TryGetValue("ValidationTriggerField", out StringValues triggerValues);
+        
+        string triggerField = triggerValues.FirstOrDefault(string.Empty);
 
-        string dataField = value.Any() ? value[0] : string.Empty;
-
-        switch (dataField)
+        switch (triggerField)
         {
             case "kommune":
                 ValidateKommune(model, validationResults);
@@ -543,14 +548,18 @@ Valideringer er skrevet i C#, i `ValidationHandler.cs`-filen i applikasjonsmalen
 ```cs
 public async Task ValidateData(object data, ModelStateDictionary validationResults)
 {
-    if (data is flyttemelding model))
+    if (data is flyttemelding model)
     {
-        _httpContextAccessor.HttpContext.Request.Headers
-            .TryGetValue("ComponentId", out StringValues componentIdValues);
-        _httpContextAccessor.HttpContext.Request.Headers
-            .TryGetValue("RowIndex", out StringValues rowIndexValues); // <-- Kun satt når triggers=["validateRow"]
+        _httpContextAccessor.HttpContext
+            .Request.Headers
+            .TryGetValue("ComponentId", out StringValues compIdValues);
 
-        string componentId = componentIdValues.FirstOrDefault(string.Empty);
+        // RowIndex er kun satt når triggers=["validateRow"]
+        _httpContextAccessor.HttpContext
+            .Request.Headers
+            .TryGetValue("RowIndex", out StringValues rowIndexValues);
+
+        string componentId = compIdValues.FirstOrDefault(string.Empty);
         string rowIndex = rowIndexValues.FirstOrDefault(string.Empty);
 
         switch (componentId)
