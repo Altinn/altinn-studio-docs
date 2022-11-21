@@ -195,10 +195,10 @@ Disse funksjonene er tilgjengelige for bruk i uttrykk:
 | [and](#and--or)                                                    | En eller flere [boolske verdier](#boolske-verdier) | [Boolsk](#boolske-verdier)      | ✅        | ✅       |
 | [or](#and--or)                                                     | En eller flere [boolske verdier](#boolske-verdier) | [Boolsk](#boolske-verdier)      | ✅        | ✅       |
 | [if](#if)                                                          | [Se detaljert beskrivelse](#if)                    | [Se detaljert beskrivelse](#if) | ✅        | ✅       |
-| [instanceContext](#instanceContext)                                | [Streng](#strenger)                                | [Streng](#strenger)             | ✅        | ✅       |
-| [frontendSettings](#frontendSettings)                              | [Streng](#strenger)                                | [Streng](#strenger)             | ✅        | ✅       |
-| [component](#component)                                            | [Streng](#strenger)                                | [Streng](#strenger)             | ✅        | ✅       |
-| [dataModel](#dataModel)                                            | [Streng](#strenger)                                | [Streng](#strenger)             | ✅        | ✅       |
+| [instanceContext](#instancecontext-oppslag)                        | [Streng](#strenger)                                | [Streng](#strenger)             | ✅        | ✅       |
+| [frontendSettings](#frontendsettings-oppslag)                      | [Streng](#strenger)                                | [Streng](#strenger)             | ✅        | ✅       |
+| [component](#component-oppslag)                                    | [Streng](#strenger)                                | [Streng](#strenger)             | ✅        | ✅       |
+| [dataModel](#dataModel-oppslag)                                    | [Streng](#strenger)                                | [Streng](#strenger)             | ✅        | ✅       |
 
 
 ### `equals` / `notEquals`
