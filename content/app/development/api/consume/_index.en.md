@@ -276,10 +276,15 @@ If the statusCode is not one that indicates success, a log entry is made and _nu
 Once the interface and client is implemented, it should be registered in _App/Program.cs_ (.NET 6) or _App/Startup.cs_ (.NET 5),
 to make it available to use in the application.
 
-In the method `ConfigureServices`, the line below is included
+In the `Program.cs` class, the line below is included. In addition, `using Altinn.App.client;` and `using Altinn.App.AppLogic.DataProcessing;` is added at the top of the file.
 
 ```C#
-services.AddHttpClient<ICountryClient, CountryClient>();
+void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
+{
+    services.AddHttpClient<ICountryClient, CountryClient>();
+    services.AddTransient<IDataProcessor, DataProcessor>();
+    // Register your apps custom service implementations here.
+}
 ```
 
 ## Using the client in the application logic
