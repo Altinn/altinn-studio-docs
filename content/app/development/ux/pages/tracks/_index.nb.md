@@ -49,97 +49,11 @@ navigasjonskomponentene man har i applikasjonen, eller legge til en trigger i `S
 
 Om `triggers` er satt på navigasjonskomponenten vil denne overstyre `triggers` som settes i Settings.json, på denne måten er det mulig å styre default-oppførsel på komponentnivå om ønskelig.
 
-## Sette opp sporvalg backend (nuget versjon > 5.0.0)
+Måten dette implementeres på varierer litt avhengig av hvilken versjon av applikasjonsmalen og Nuget pakkene du bruker.
 
-For å overstyre standard sporvalg må det gjøres to endringer.
+{{<content-version-selector classes="border-box">}}
 
-1. Opprette en klasse som implementerer interfacet [IPageOrder](https://github.com/Altinn/app-lib-dotnet/blob/main/src/Altinn.App.PlatformServices/Interface/IPageOrder.cs)
-2. Registrere denne klassen som en Transient i `Startup.cs` (eller `Program.cs` i .NET 6)
-   Typisk `services.AddTransient<IPageOrder, CustomOrder>();` i metoden `ConfigureServices`.
-
-### Opprette egen klasse for styring av sporvalg
-
-Opprett en ny klasse i din applikasjon f.eks under mappen App/logic/Pages (mappen er ikke opprettet som standard).
-Denne klassen må implementere interfacet IPageOrder.
-Interfacet inneholder en metode med navn _GetPageOrder_. Forventet output fra denne er en sortert liste over navnene på de relevante sidene i applikasjonen.
-
-
-```cs
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using Altinn.App.Models;
-using Altinn.App.Services.Interface;
-using Altinn.App.PlatformServices.Models;
-
-namespace Altinn.App.AppLogic.Pages
-{
-    public class CustomOrder : IPageOrder
-    {
-        /// <inheritdoc />
-        public async Task<List<string>> GetPageOrder(AppIdentifier appIdentifier, InstanceIdentifier instanceIdentifier, string layoutSetId, string currentPage, string dataTypeId, object formData)
-        {
-            List<string> pageOrder = new List<string>();
-            
-            // Implementer din logikk her.
-            
-            return await Task.FromResult(pageOrder);
-        }
-
-    }
-
-}
-```
-
-Funksjonen får inn en rekke parametere som kan være nyttig dersom man skal benytte skjemadata
-eller annen informasjon om sluttbruker til å kalkulere sporvalget.
-
-- *appIdentifier* Inneholder org og app navn for applikasjonen
-
-- *instanceIdentifier* Inneholder InstanceOwnerPartyId og InstanceGuid. Hvis applikasjonen er stateless vil dette objektet være blankt (InstanceIdentifier.NoInstance)
-Dersom GetInstanceId kalles på en InstanceIdentifier.NoInstance vil det kastes en Exception.
-
-- *layoutSetId* Dersom appen din definerer flere layout set vil id på det gjeldende layout settet sendes inn.
-Dersom applikasjonen ikke har layout set vil denne strengen være tom. Basert på denne parameteren kan man hente
-ut standard siderekkefølge som er definert i applikasjonen:
-
-```cs
-List<string> pageOrder = new List<string>();
-
-if (string.IsNullOrEmpty(layoutSetId))
-{
-    pageOrder = _appResourcesService.GetLayoutSettings().Pages.Order;
-}
-else
-{
-    pageOrder = _appResourcesService.GetLayoutSettingsForSet(layoutSetId).Pages.Order;
-}
-```
-
-Dette forutsetter at servicen `IAppResources` gjøres tilgjengelig i klassen. 
-Da servicen allerede er tilgjengelig via dependency injectes inn i klasen er det kun to steg som kreves. 
-
-1. Opprett en privat variabel i staten av klassen.
-
-```cs
-private readonly IAppResources _appResourcesService;
-```
-
-2. Definer en konstruktør som tar inn IAppResources og setter private variabelen som ble opprettet i steg 1.
-
-```cs
-public CustomOrder(IAppResources appResourcesService)
-{
-    _appResourcesService = appResourcesService;
-}
-```
-
-- *CurrentPage* Siden man ønsker å navigere fra vil være spesifisert i denne parameteren.
-
-- *FormData* inneholder skjemadataen. Den kan enkelt jobbes med som et objekt ved å caste den til riktig type `Skjema skjema = (Skjema)formData;`.
-Her heter C# modellen til skjemadataen `Skjema` for din applikasjon kan det være et annet navn. 
-Dette kan du sjekke ved å finne klassenavnet på C# filen i App/models-mappen.
-
+{{<content-version-container version-label="v4, v5">}}
 ## Sette opp sporvalg backend (nuget versjon < 5.0.0)
 
 {{%notice warning%}}
@@ -196,6 +110,97 @@ private readonly IAppResources _appResourcesService;
 - *FormData* inneholder skjemadataen. Den kan enkelt jobbes med som et objekt ved å caste den til riktig type `Skjema skjema = (Skjema)formData;`.
 Her heter C# modellen til skjemadataen `Skjema` for din applikasjon kan det være et annet navn. 
 Dette kan du sjekke ved å finne klassenavnet på C# filen i App/models-mappen.
+{{</content-version-container>}}
+
+{{<content-version-container version-label="v6, v7">}}
+For å overstyre standard sporvalg må det gjøres to endringer.
+
+1. Opprett en klasse som implementerer `IPageOrder` grensesnittet som ligger i `Altinn.App.Core.Features.PageOrder` navnerommet.  
+    Du kan navngi og plassere filene i den mappestrukturen du selv ønsker i prosjektet ditt. Men vi anbefaler at du benytter meningsfulle navnerom som i et hvilket som helst annet .Net prosjekt.
+    ```C#
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
+    using Altinn.App.Core.Features.PageOrder;
+    using Altinn.App.Core.Models;
+    using Altinn.App.Models;
+
+    namespace Altinn.App.AppLogic.Custom;
+    
+    {
+        public class CustomOrder : IPageOrder
+        {
+            /// <inheritdoc />
+            public async Task<List<string>> GetPageOrder(AppIdentifier appIdentifier, InstanceIdentifier instanceIdentifier, string layoutSetId, string currentPage, string dataTypeId, object formData)
+            {
+                List<string> pageOrder = new List<string>();
+                
+                // Implement your logic here.
+                
+                return await Task.FromResult(pageOrder);
+            }
+
+        }
+
+    }
+    ```
+2. Registrer din implementering i _Startup.cs_ eller _Program.cs_ klassen (.Net 6)
+    ```C#
+    services.AddTransient<IPageOrder, PageOrder>();
+    ```
+    Dette sørger for at din kode er kjent for applikasjonen og at koden blir kjørt når den skal.
+
+Interfacet inneholder en metode med navn _GetPageOrder_. Forventet output fra denne er en sortert liste over navnene på de relevante sidene i applikasjonen.
+
+Funksjonen får inn en rekke parametere som kan være nyttig dersom man skal benytte skjemadata
+eller annen informasjon om sluttbruker til å kalkulere sporvalget.
+
+- *appIdentifier* Inneholder org og app navn for applikasjonen
+
+- *instanceIdentifier* Inneholder InstanceOwnerPartyId og InstanceGuid. Hvis applikasjonen er stateless vil dette objektet være blankt (InstanceIdentifier.NoInstance)
+Dersom GetInstanceId kalles på en InstanceIdentifier.NoInstance vil det kastes en Exception.
+
+- *layoutSetId* Dersom appen din definerer flere layout set vil id på det gjeldende layout settet sendes inn.
+Dersom applikasjonen ikke har layout set vil denne strengen være tom. Basert på denne parameteren kan man hente
+ut standard siderekkefølge som er definert i applikasjonen:
+
+```cs
+List<string> pageOrder = new List<string>();
+
+if (string.IsNullOrEmpty(layoutSetId))
+{
+    pageOrder = _appResourcesService.GetLayoutSettings().Pages.Order;
+}
+else
+{
+    pageOrder = _appResourcesService.GetLayoutSettingsForSet(layoutSetId).Pages.Order;
+}
+```
+
+Dette forutsetter at servicen `IAppResources` gjøres tilgjengelig i klassen. 
+Da servicen allerede er tilgjengelig via dependency injectes inn i klasen er det kun to steg som kreves. 
+
+1. Opprett en privat variabel i staten av klassen.
+
+```cs
+private readonly IAppResources _appResourcesService;
+```
+
+2. Definer en konstruktør som tar inn IAppResources og setter private variabelen som ble opprettet i steg 1.
+
+```cs
+public CustomOrder(IAppResources appResourcesService)
+{
+    _appResourcesService = appResourcesService;
+}
+```
+
+- *CurrentPage* Siden man ønsker å navigere fra vil være spesifisert i denne parameteren.
+
+- *FormData* inneholder skjemadataen. Den kan enkelt jobbes med som et objekt ved å caste den til riktig type `Skjema skjema = (Skjema)formData;`.
+Her heter C# modellen til skjemadataen `Skjema` for din applikasjon kan det være et annet navn. 
+Dette kan du sjekke ved å finne klassenavnet på C# filen i App/models-mappen.
+{{</content-version-container>}}
+{{</content-version-selector>}}
 
 ## Reflektere sporvalg i kvittering (PDF)
 

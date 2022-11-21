@@ -158,6 +158,8 @@ When authenticated the system may exchange an access token provided by ID-porten
 
 This token has to be validated and replaced with an *Altinn JWT access token* which should be used to access the apis.
 
+**IT IS IMPORTANT THAT THE USER HAS PROFILE IN ALTINN. Profile is automatic created when login in to portal** 
+
 ##### ID-porten JWT access token (input)
 
 ```http

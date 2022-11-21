@@ -11,7 +11,7 @@ based on input from user on previous parts of the form.
 ## Trigger calculation on tracks from frontend
 
 The app will perform an initial call to calculate the order when loading. To trigger calculation of dynamic tracks when switching pages, this needs to be added as a trigger on the navigation component you want.
-This is done by adding `calculatePageOrder` ad a part of triggers. Example:
+This is done by adding `calculatePageOrder` as a part of triggers. Example:
 
 ```json
 {
@@ -49,97 +49,11 @@ the navigation components in the application, or by adding a trigger in `Setting
 
 If `triggers` is set on the navigation component, this will overrule `triggers` set in Settings.json, and by doing this it is possible to control default behaviour on component level if desirable.
 
-## Setting up dynamic tracks backend (nuget version > 5.0.0)
+The implementation varies slightly depending on the version of the app template and Nuget packages you are using.
 
-To overrule default dynamic tracks, two changes must be made.
+{{<content-version-selector classes="border-box">}}
 
-1. Create a class implementing the interface [IPageOrder](https://github.com/Altinn/app-lib-dotnet/blob/main/src/Altinn.App.PlatformServices/Interface/IPageOrder.cs)
-2. Register this class as a Transient in `Program.cs` in the method `ConfigureServices`. 
-   Typically like this: `services.AddTransient<IPageOrder, CustomOrder>();`
-
-### Create separate class for controlling dynamic tracks
-
-Create a new class in your application, e.g. under the folder App/logic/Pages (the folder is not created by default).
-This class must implement the interface IPageOrder.
-The interface contains a method with the name _GetPageOrder_. The expected output from this is a sorted list with the names of the relevant pages in the application.
-
-```cs
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using Altinn.App.Models;
-using Altinn.App.Services.Interface;
-using Altinn.App.PlatformServices.Models;
-
-namespace Altinn.App.AppLogic.Pages
-{
-    public class CustomOrder : IPageOrder
-    {
-        /// <inheritdoc />
-        public async Task<List<string>> GetPageOrder(AppIdentifier appIdentifier, InstanceIdentifier instanceIdentifier, string layoutSetId, string currentPage, string dataTypeId, object formData)
-        {
-            List<string> pageOrder = new List<string>();
-            
-            // Implement your logic here.
-            
-            return await Task.FromResult(pageOrder);
-        }
-
-    }
-
-}
-```
-
-The function provides a number of parameters that can be useful if you are using form data or 
-other information about the user to trigger the dynamic tracks.
-
-- *appIdentifier* Contains organization and app name for the application
-
-- *instanceIdentifier* Contains InstanceOwnerPartyId and InstanceGuid. If the application is stateless the object will be blank (InstanceIdentifier.NoInstance).
-If GetInstanceId is called on an InstanceIdentifier.NoInstance, an exception will be thrown.
-
-- *layoutSetId* If your app defines multiple layout sets, the id on the layout set in question will be submitted.
-If the application does not have a layout set, this string will be empty. Based on this parameter the default page order 
-defined in the application can be retrieved.
-
-```cs
-List<string> pageOrder = new List<string>();
-
-if (string.IsNullOrEmpty(layoutSetId))
-{
-    pageOrder = _appResourcesService.GetLayoutSettings().Pages.Order;
-}
-else
-{
-    pageOrder = _appResourcesService.GetLayoutSettingsForSet(layoutSetId).Pages.Order;
-}
-```
-
-This prequires that the service `IAppResources` is made available in the class.
-When the service is already available through dependency injected into the class, only two steps are required:
-
-1. Create a private variable in the state of the class
-
-```cs
-private readonly IAppResources _appResourcesService;
-```
-
-2. Define a constructor that takes in IAppResources and initializes the private variable that was created in step 1.
-
-```cs
-public CustomOrder(IAppResources appResourcesService)
-{
-    _appResourcesService = appResourcesService;
-}
-```
-
-- *CurrentPage* The page you want to navigate from will be specified in this parameter.
-
-- *FormData* contains the form data. This can easily be worked with as an object by casting it to the right type `Skjema skjema = (Skjema)formdata;`.
-Here, the C# model's name is `Skjema`, but for your application the name could be different.
-You can check this by finding the class name of the C# file in the App/models folder.
-
-## Setting up dynamic tracks backend (nuget versjon < 5.0.0)
+{{<content-version-container version-label="v4, v5">}}
 
 {{%notice warning%}}
 For track selection to work for stateless applications, NuGet must be upgraded to 5.0.0 or later.
@@ -195,6 +109,97 @@ private readonly IAppResources _appResourcesService;
 - *FormData* contains the form data. It can easily be worked with as an object by casting it to the correct type `Form form = (Form)formData;`.
 In this case C# model for the form data is called `Form' for your application, it can be another name.
 You can check this by finding the class name of the C# file in the App/models folder.
+{{</content-version-container>}}
+
+{{<content-version-container version-label="v6, v7">}}
+To overrule default dynamic tracks, two changes must be made.
+
+1. Create a class that implements the `IPageOrder` interface found in the `Altinn.App.Core.Features.PageOrder` namespace.  
+   You can name and place the file in any folder you like within your project, but we suggest you use meaningful namespaces like in any other .Net project.
+   ```C#
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
+    using Altinn.App.Core.Features.PageOrder;
+    using Altinn.App.Core.Models;
+    using Altinn.App.Models;
+
+    namespace Altinn.App.AppLogic.Custom;
+    
+    {
+        public class CustomOrder : IPageOrder
+        {
+            /// <inheritdoc />
+            public async Task<List<string>> GetPageOrder(AppIdentifier appIdentifier, InstanceIdentifier instanceIdentifier, string layoutSetId, string currentPage, string dataTypeId, object formData)
+            {
+                List<string> pageOrder = new List<string>();
+                
+                // Implement your logic here.
+                
+                return await Task.FromResult(pageOrder);
+            }
+
+        }
+
+    }
+    ```
+2. Register you custom implementation in the _Program.cs_ class     
+    ```C#
+    services.AddTransient<IPageOrder, PageOrder>();
+    ```
+    This ensuers your custom code is known to the application and that it will be executed.
+
+The interface contains a method with the name _GetPageOrder_. The expected output from this is a sorted list with the names of the relevant pages in the application.
+
+The function provides a number of parameters that can be useful if you are using form data or 
+other information about the user to trigger the dynamic tracks.
+
+- *appIdentifier* Contains organization and app name for the application
+
+- *instanceIdentifier* Contains InstanceOwnerPartyId and InstanceGuid. If the application is stateless the object will be blank (InstanceIdentifier.NoInstance).
+If GetInstanceId is called on an InstanceIdentifier.NoInstance, an exception will be thrown.
+
+- *layoutSetId* If your app defines multiple layout sets, the id on the layout set in question will be submitted.
+If the application does not have a layout set, this string will be empty. Based on this parameter the default page order 
+defined in the application can be retrieved.
+
+```cs
+List<string> pageOrder = new List<string>();
+
+if (string.IsNullOrEmpty(layoutSetId))
+{
+    pageOrder = _appResourcesService.GetLayoutSettings().Pages.Order;
+}
+else
+{
+    pageOrder = _appResourcesService.GetLayoutSettingsForSet(layoutSetId).Pages.Order;
+}
+```
+
+This prequires that the service `IAppResources` is made available in the class.
+When the service is already available through dependency injected into the class, only two steps are required:
+
+1. Create a private variable in the state of the class
+
+```cs
+private readonly IAppResources _appResourcesService;
+```
+
+2. Define a constructor that takes in IAppResources and initializes the private variable that was created in step 1.
+
+```cs
+public CustomOrder(IAppResources appResourcesService)
+{
+    _appResourcesService = appResourcesService;
+}
+```
+
+- *CurrentPage* The page you want to navigate from will be specified in this parameter.
+
+- *FormData* contains the form data. This can easily be worked with as an object by casting it to the right type `Skjema skjema = (Skjema)formdata;`.
+Here, the C# model's name is `Skjema`, but for your application the name could be different.
+You can check this by finding the class name of the C# file in the App/models folder.
+{{</content-version-container>}}
+{{</content-version-selector>}}
 
 ## Reflect dynamic tracks in receipt (PDF)
 

@@ -92,7 +92,7 @@ Should you need a seperate model for the request object, a class can be created 
 
 ## Setting up an interface for the client
 
-It is reccomended that an interface if defined for the client what will call the API. 
+It is recommended that an interface is defined for the client that will call the API. 
 This enables you to benefit from the strenghts of .NET with dependency injection and efficient handeling of HTTP clients. 
 
 In the application repository, a new folder _App/clients_ is created.
@@ -208,7 +208,7 @@ Further, we define the class and which interface it inherrits from
 public class CountryClient : ICountryClient
 ```
 
-Further, three private object __client_, __logger and __serializerOptions_ 
+Further, three private objects __client_, __logger and __serializerOptions_ 
 
 ```cs
 private readonly HttpClient _client;
@@ -216,7 +216,7 @@ private readonly ILogger<ICountryClient> _logger;
 private readonly JsonSerializerOptions _serializerOptions;
 ```        
 
-The underscore before the name is simply a naming convention and does not a functional effect. 
+The underscore before the name is simply a naming convention and does not have a functional effect. 
 
 - __client_ will be populated with an HTTP client in the constructor
 - __logger_ will be populated with a logger, enabling logging error messages and other messages in the client logic
@@ -238,11 +238,11 @@ public CountryClient(HttpClient client, ILogger<ICountryClient> logger)
 }
 ```
 
-Objects are populated if there is mathcing input in the constructor, 
-and the remaining objects are nstantiated directly in the constructor. 
+Objects are populated if there are mathcing inputs in the constructor, 
+and the remaining objects are instantiated directly in the constructor. 
 
 If you require additional services in this class, simply add a private object and inject its interface
-in the constructor ad we have done for __logger_  and __client_.
+in the constructor as we have done for __logger_  and __client_.
 
 Further, you find the implementation of `GetCountry`.
 
@@ -270,12 +270,10 @@ public async Task<Country> GetCountry(string country)
 
 Here, the status code of the API call is verified before it is deserialized and the country object returned. 
 If the statusCode is not one that indicates success, a log entry is made and _null_ is returned. 
-Her gjøres det en sjekk på at statuskoden på API-kallet er en suksess-kode før vi deserialiseres og returnerer objektet.
-Dersom det ikke er en suksess-statuskode logger vi en feil og returnerer null.
 
 ## Registering the client in the application
 
-Once the interface and client is implemented, it should be registerd in _App/Program.cs_ (.NET 6) or _App/Startup.cs_ (.NET 5),
+Once the interface and client is implemented, it should be registered in _App/Program.cs_ (.NET 6) or _App/Startup.cs_ (.NET 5),
 to make it available to use in the application.
 
 In the method `ConfigureServices`, the line below is included
@@ -286,9 +284,9 @@ services.AddHttpClient<ICountryClient, CountryClient>();
 
 ## Using the client in the application logic
 
-To enrich the form data we need to include the use of our client in the logic in the method _ProcessDataWrite_ in _App/logic/DataProcessingHandler.cs_.
+To enrich the form data we need to include the use of our client in the logic in the method _ProcessDataWrite_ in _App/logic/DataProcessingHandler.cs_ for versions prior to v7 of the application template. For v7 please refer to the documentation on [DataProcessing](../../logic/dataprocessing/).
 
-First the client must me made available by injecting it in the constructor of the class. 
+First the client must be made available by injecting it in the constructor of the class. 
 DataProcessingHandler does not have a constructor by default, so this needs to be created.
 In addition, `using Altinn.App.client;` must be added to the top of the file.
 
@@ -298,7 +296,7 @@ public DataProcessingHandler()
 }
 ```
 
-Further, a private entry for the client, inject the client into the constructor and assign it to the private client instance. 
+Further, add a private field for the client, inject the client into the constructor and assign it to the private client instance. 
 The result should look like this: 
 
 ```cs
@@ -312,6 +310,13 @@ public DataProcessingHandler(ICountryClient countryClient)
 `using Altinn.App.client;` must be added to this file as well.
 
 __countryClient_ is now available in DataProcessingHandler, and we're ready to implement the logic in the _ProcessDataWrite_ method. 
+
+
+
+{{%notice warning%}}
+
+**NOTE**: Stateless apps don't call ProcessDataWrite. Use ProcessDataRead for stateless apps.
+{{%/notice%}}
 
 ```cs
 public async Task<bool> ProcessDataWrite(Instance instance, Guid? dataId, object data)
@@ -356,7 +361,7 @@ In the file _App/logic/App.cs_, the following changes are made
   ```cs
   using Altinn.App.client;
   ```
-- Inject `ICountryClient` as the last element of the pp.cs-constructor.
+- Inject `ICountryClient` as the last element of the App.cs-constructor.
   
     This is done in line 14
     ```cs {linenos=inline,hl_lines=[14]}
@@ -388,23 +393,23 @@ In the file _App/logic/App.cs_, the following changes are made
             httpContextAccessor)
     ```
 
-- Include countryClient in the initialization ofDataProcessingHandler 
+- Include countryClient in the initialization of DataProcessingHandler 
     ```cs
     _dataProcessingHandler = new DataProcessingHandler(countryClient);
     ```
 
 
-## Caching of respons data
+## Caching of response data
 
-A drawback of the example as it now stands if that a request will be made to the API each time 
+One drawback of the example as it now stands is that a request will be made to the API every time 
 a piece of the form data i updated.
 
-It is a reasonable assumption that a countries capital and region will not change frequiently.
+It is a reasonable assumption that a country's capital and region will not change frequently.
 If information about Norway is retrieved, we can store this in the application for a period of time, 
-so the cost of the request is saved.
+so that the cost of future requests are reduced.
 
 The changes to the code are not described in detail, but the complete code is available below.
-All the modifications are made to the _CountryClient.cs_-file.
+All of the modifications are made to the _CountryClient.cs_-file.
 
 ```cs
 using Altinn.App.models;

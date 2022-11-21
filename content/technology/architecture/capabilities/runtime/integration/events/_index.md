@@ -13,7 +13,7 @@ In this context, this means that applications (digital services) running in Alti
 application owners (agencies) and parties(citizens and businesses) can subscribe to and react to.
 
 This page is focused on capabilities. If you are interested in more details about the components and construction
-see [Event Solution Components](../../../../components/application/solution/altinn-platform/events/) and [Event Construction Components](../../../../components/application/construction/altinn-platform/).
+see [Event Solution Components](../../../../../solutions/altinn-platform/events/) and [Event Construction Components](../../../../components/application/construction/altinn-platform/).
 
 ## Overall Concept
 
@@ -312,9 +312,9 @@ This is work in progress and not finalized.
 
 The below diagram shows the different components in the Event Architecture for Altinn 3.
 
-![Event architecture diagram](/technology/architecture/components/application/construction/altinn-platform/events/altinn-events.drawio.svg "Altinn Event Architecture")
+![Event architecture diagram](/technology/architecture/components/application/construction/altinn-platform/events/altinn-events.drawio.export.svg "Altinn Event Architecture")
 
-More details can be in [solutions components](../../../../components/application/solution/altinn-platform/events/) with detailed API info of event component 
+More details can be in [solutions components](../../../../../solutions/altinn-platform/events/) with detailed API info of event component 
 and in [construction components](../../../../components/application/construction/altinn-platform/events/) you find the technical details how the components are constructed.
 
 
@@ -360,7 +360,7 @@ Events are used in different scenarios in the platform.
 
 - **Instance Events** - Events that happen on a given instance.
   It could be created, saved, ++ This is stored to cosmos DB. The number of details in these events is higher than we would put on an event feed.
-  See [Instance Events](/technology/architecture/components/application/solution/altinn-platform/storage/#instanceevent) in Storage
+  See [Instance Events](/technology/solutions/altinn-platform/storage/#instanceevent) in Storage
 - **Application logic events** - These are events where app developers could implement logic to get a specific behavior.
   Calculation, validation ++ This type of event is probably not relevant to push to the event feed.  
 

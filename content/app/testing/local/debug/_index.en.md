@@ -30,7 +30,7 @@ Applikasjonen vil da starte og han vil spørre om du skal starte en browser. Vel
 
 ![debug](debug1aa.png "Debugging startet")
 
-Åpne et browservindu og gå til http://altinn3local.no (forutsetter at du har startet lokal utviklingsplattform).
+Åpne et browservindu og gå til http://local.altinn.cloud (forutsetter at du har startet lokal utviklingsplattform).
 
 
 ### Starte appen fra commando vindu
@@ -61,14 +61,14 @@ Les mer om debugging i Visual Studio Code i [dokumentasjonen til code](https://c
 
 If you have a development version of the [frontend application](https://github.com/Altinn/app-frontend-react/) running
 locally, or you want to test specific/earlier versions of the frontend application, this can be done by switching the
-frontend version using the link on the bottom when first visiting altinn3local.no:
+frontend version using the link on the bottom when first visiting local.altinn.cloud:
 
 ![use-diff-frontend-version](use-diff-frontend-version.png "Functionality to change frontend version")
 
 {{% panel info %}}
 **NOTE:** This only works if you are using the default location for loading the frontend JavaScript file in your
 `Index.cshtml` file. If you have altered your file to use another location, that will override whatever settings you
-choose on altinn3local.no.
+choose on local.altinn.cloud.
 {{% /panel %}}
 
 ## Viewing and saving redux state history

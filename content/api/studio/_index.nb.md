@@ -1,7 +1,7 @@
 ---
 title: Altinn Studio Repository API
 linktitle: Studio
-description: OpenAPI (swagger) spesifikasjon for App kildekode API.
+description: OpenAPI (swagger) spesifikasjon for Altinn Studio.
 toc: true
 ---
 

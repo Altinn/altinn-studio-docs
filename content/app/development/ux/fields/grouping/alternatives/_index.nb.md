@@ -70,7 +70,16 @@ Sier at redigering/utfylling av gruppe kan gjøres over flere "sider"/visninger.
 
 ### openByDefault
 
-Sier at gruppen skal åpnes i editeringsmodus om det ikke finnes noen elementer i gruppen fra før. Merk at denne ikke kan brukes sammen med `"mode": "showAll"`.
+Sier at gruppen skal åpnes i redigeringsmodus til å begynne med. Følgende verdier godtas:
+
+| Value   | Description                                                                                                                                                                                                                                                           |
+| ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| "first" | Dersom det finnes preutfylte elementer eller eksisterende data i gruppen vil det første elementet åpnes i redigeringsmodus til å begynne med. Dersom det ikke finnes noen elementer i gruppen fra før av, vil et nytt element legges til og åpnes i redigeringsmodus. |
+| "last"  | Dersom det finnes preutfylte elementer eller eksisterende data i gruppen vil det siste elementet åpnes i redigeringsmodus til å begynne med. Dersom det ikke finnes noen elementer i gruppen fra før av, vil et nytt element legges til og åpnes i redigeringsmodus.  |
+| true    | Dersom det ikke finnes noen preutfylte elementer eller eksisterende data i gruppen fra før av, vil et nytt element legges til og åpnes i redigeringsmodus.                                                                                                            |
+| false   | Ingen elementer åpnes til å begynne med.                                                                                                                                                                                                                              |
+
+Merk at denne ikke har noen effekt om den brukes sammen med `"mode": "showAll"`.
 
 Eksempel:
 
@@ -78,7 +87,29 @@ Eksempel:
 {
   ...
   "edit": {
-    "openByDefault": true
+    "openByDefault": "first"
+  }
+}
+```
+
+### saveAndNextButton
+
+Bestemmer om "Lagre og åpne neste"-knappen skal vises når et gruppeelement er i redigeringsmodus. Standard oppførsel dersom parameteren ikke er satt er at knappen ikke vises.
+
+Merk at denne ikke har noen effekt om den brukes sammen med `"mode": "showAll"`.
+
+### alertOnDelete
+
+Bestemmer om det skal vises et varslingspanel når brukeren trykker på "Slett" knappen. En potensiell situasjon hvor dette kan være ønskelig er hvis en rad inneholder store mengder data.
+Standard oppførsel om parameteren ikke er satt er at varslingspanelet ikke vises.
+
+Eksempel:
+
+```json
+{
+  ...
+  "edit": {
+    "alertOnDelete": true
   }
 }
 ```

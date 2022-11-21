@@ -200,7 +200,7 @@ Det skal være mulig å legge inn opptill 10 tidligere bosteder.
 
 {{% /expandlarge %}}
 
-### Validering tidligere bosteder
+### Validering av tidligere bosteder
 {{% expandlarge id="vendetta-expandable" header="Krav" %}}
 
 Grunnet en personlig vendetta blant en av Sogndal kommunes ansatte, ønsker vi at om innflytter fyller inn

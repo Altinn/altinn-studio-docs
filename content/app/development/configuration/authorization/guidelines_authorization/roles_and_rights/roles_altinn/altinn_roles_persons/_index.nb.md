@@ -9,7 +9,6 @@ Følgende roller finnes i dag for personer
 
 ## Begrenset signeringsrettighet
 Beskrivelse: Tilgang til å signere utvalgte skjema og tjenester
-Rollekode: 
 
 Kan delegeres: ja
 ## Energi, miljø og klima

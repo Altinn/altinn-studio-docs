@@ -93,7 +93,7 @@ Skulle det være behov for et request-objekt kan dette opprettes på samme måte
 
 ## Oppsett av interface for klienten
 
-Det anbefales at det defineres et interface for klienten som skal kalle API. 
+Det er anbefalt å definere et interface for klienten som skal kalle APIet. 
 Det gjør at vi kan benytte oss av styrkene til .NET med dependency injection og effektiv håndtering av HTTP-klienter.
 
 I applikasjonsrepoet opprettes mappen _App/clients_,
@@ -286,7 +286,7 @@ services.AddHttpClient<ICountryClient, CountryClient>();
 
 ## Benytte klient i applikasjonslogikk
 
-For å berike skjemadata må vi koble klienten vår på logikken i _App/logic/DataProcessingHandler.cs_ i metoden _ProcessDataWrite_.
+For å berike skjemadata må vi koble klienten vår på logikken i _App/logic/DataProcessingHandler.cs_ i metoden _ProcessDataWrite_. Merk at for v7 av applikasjonsmalen er dette endret, se [dataprossessering](../../logic/dataprocessing/).
 
 Først må klienten tilgjengeliggjøres ved å _injecte_ den inn i konstruktøren til klassen.
 DataProcessingHandler har ingen konstruktør i utgangspunktet så den må opprettes i klasse. 
@@ -311,6 +311,11 @@ public DataProcessingHandler(ICountryClient countryClient)
 I tillegg må `using Altinn.App.client;` legges til også i denne filen.
 
 __countryClient_ er nå tilgjengelig i DataProcessingHandler og vi er klare til å implementere logikken i ProcessDataWrite. 
+
+{{%notice warning%}}
+
+**MERK**: Stateless apps kaller ikke på ProcessDataWrite. Bruk ProcessDataRead for statless apps.
+{{%/notice%}}
 
 ```cs
 public async Task<bool> ProcessDataWrite(Instance instance, Guid? dataId, object data)

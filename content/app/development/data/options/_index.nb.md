@@ -293,7 +293,7 @@ Et typisk bruksområde for dette er om brukeren fyller ut en liste med data som 
 
 ### Konfigurasjon
 
-For å sette opp options fra redux har vu laget en nytt objekt som kan brukes på komponentene `RadioButtons`, `Checkboxes` og `Dropdown` som vi har kalt `source`.
+For å sette opp options fra redux har vi laget en nytt objekt som kan brukes på komponentene `RadioButtons`, `Checkboxes` og `Dropdown` som vi har kalt `source`.
 Dette nye objektet inneholder feltene `group`, `label` og `value`. Eksempel:
 
 ```json

@@ -55,5 +55,24 @@ En gruppe defineres på følgende måte i FormLayout.json:
 Det er mulig å legge til ulike nøkler i textResourceBindings for å overstyre default tekster.
 - `add_button` - blir lagt til på enden av "Legg til ny" teksten på knappen, og kan brukes til å f.eks ha tekst som sier "Legg til ny person". 
 - `save_button` - blir brukt som tekst i "Lagre"-knappen når brukeren fyller ut data.
+- `save_and_next_button` - blir brukt som tekst i "Lagre og åpne neste"-knappen dersom denne er aktivert.
 - `edit_button_open` - blir brukt som tekst i "Endre" knappen i tabellen når brukeren skal åpne et element.
 - `edit_button_close` - blir brukt som tekst i "Endre" knappen tabellen når brukeren skal lukke et element.
+
+### Separat ledetekst for tabellvisning
+
+Elementer i repeterende grupper som ikke er i redigeringsmodus vises som en tabell. I denne tabellvisningen er det begrenset plass til lange ledetekster. En kortere ledetekst for tabellvisninger kan settes ved å definere `tableTitle` under `textResourceBindings` for hver komponent i en repeterende gruppe.
+
+Eksempel:
+
+```json
+{
+  ...
+  "type": "Input",
+  "textResourceBindings": {
+    "title": "Skriv inn ditt fulle navn",
+    "tableTitle": "Navn"
+  },
+  ...
+},
+```

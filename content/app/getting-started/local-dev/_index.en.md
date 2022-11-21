@@ -22,7 +22,7 @@ to prepare your local environment for development and testing of Altinn Apps.
 2. Navigate to the repository by clicking the _Repository_-button
     ![Repositoryknappen markert i et bilde](find-app-in-dashboard.png)
 
-3. Cupy the link of the repository (the blue square), either manually
+3. Copy the link of the repository (the blue square), either manually
    or by clicking the button marked with the red circle.
 
     ![Markert url til repository i Gitea i et bilde](copy-repo-link.png)

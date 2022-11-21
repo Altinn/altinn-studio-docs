@@ -120,21 +120,43 @@ Note as part of the runtime capabilityes we also use Azure Container Registry fo
 
 ### Deployment Orchestration
 
-We use Azure Pipelenes for deployment orchestration of the different components in the different solutions. 
+We use Azure Pipelines for deployment orchestration of the different components in the different solutions. 
+
+The deploy process consist of 3 types of pipelines
+
+- Publish Build artifacts to Azure Pipelines: Deploy Helm chart from Azure Devops repos to Azure Devops pipelines
+- Build Docker Image : Build Docker Images and publish to Container Registry
+- Release pipeline: Deploy a given container version from Azure Container Registry to a Kubernetes Cluster
+
 
 The deploy pipelines has typical support for deployment to different environments (Stages). 
 
+![Release pipelines](releasepipeline.png)
+
 Helm is used to set environments variables for the different environments. 
 
-### Piplines
-The following pipelines is defined
+#### Piplines
+
+The following build pipelines is defined
+
+
+
+The following release pipelines is defined
 
 - [Altinn Studio - Designer](https://dev.azure.com/brreg/altinn-studio/_release?_a=releases&view=mine&definitionId=18)
 - [Altinn Studio - Repositories](https://dev.azure.com/brreg/altinn-studio/_release?_a=releases&view=mine&definitionId=5)
-- [Altinn Platform - Authorization](https://dev.azure.com/brreg/altinn-studio/_release?_a=releases&view=mine&definitionId=20)
-- [Altinn Platform - Authentication](https://dev.azure.com/brreg/altinn-studio/_release?_a=releases&view=mine&definitionId=20)
-- [Altinn Platform - PDF](https://dev.azure.com/brreg/altinn-studio/_release?_a=releases&view=mine&definitionId=21)
-- [Altinn Platform - Profile](https://dev.azure.com/brreg/altinn-studio/_release?_a=releases&view=mine&definitionId=17)
-- [Altinn Platform - Receipt](https://dev.azure.com/brreg/altinn-studio/_release?_a=releases&view=mine&definitionId=16)
-- [Altinn Platform - Register](https://dev.azure.com/brreg/altinn-studio/_release?_a=releases&view=mine&definitionId=19)
-- [Altinn Platform - Storage](https://dev.azure.com/brreg/altinn-studio/_release?_a=releases&view=mine&definitionId=22)
+- [Altinn Studio - Loadbalancer](https://dev.azure.com/brreg/altinn-studio/_release?_a=releases&view=all&definitionId=28)
+- [Altinn Studio - Kubernetswrapper](https://dev.azure.com/brreg/altinn-studio/_release?_a=releases&view=all&definitionId=32)
+- [Altinn Authorization](https://dev.azure.com/brreg/altinn-studio/_release?_a=releases&view=mine&definitionId=20)
+- [Altinn Authentication](https://dev.azure.com/brreg/altinn-studio/_release?_a=releases&view=mine&definitionId=20)
+- [Altinn PDF](https://dev.azure.com/brreg/altinn-studio/_release?_a=releases&view=mine&definitionId=21)
+- [Altinn Profile](https://dev.azure.com/brreg/altinn-studio/_release?_a=releases&view=mine&definitionId=17)
+- [Altinn Receipt](https://dev.azure.com/brreg/altinn-studio/_release?_a=releases&view=mine&definitionId=16)
+- [Altinn Register](https://dev.azure.com/brreg/altinn-studio/_release?_a=releases&view=mine&definitionId=19)
+- [Altinn Storage](https://dev.azure.com/brreg/altinn-studio/_release?_a=releases&view=mine&definitionId=22)
+- [Altinn Events](https://dev.azure.com/brreg/altinn-studio/_release?_a=releases&view=all&definitionId=27)
+- [Altinn Notifications](https://dev.azure.com/brreg/altinn-studio/_release?_a=releases&view=all&definitionId=34)
+- [Altinn Access Management](https://dev.azure.com/brreg/altinn-studio/_release?_a=releases&view=all&definitionId=37)
+- [Altinn Resource Registry](https://dev.azure.com/brreg/altinn-studio/_release?_a=releases&view=all&definitionId=36)
+- [Kubernets Wrapper](https://dev.azure.com/brreg/altinn-studio/_release?_a=releases&view=all&definitionId=31)
+  

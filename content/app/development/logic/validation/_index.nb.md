@@ -170,11 +170,31 @@ Egendefinerte validering kan igjen deles opp i to kategorier; task-validering og
   - Task-validering vil kjøres hver gang validering trigges enten manuelt fra applikasjonen eller når man prøver å flytte seg framover i prosessen.
   - Data-validering vil kjøre dersom man står på et steg som har definerte dataelementer knyttet til seg.
 
-Valideringer er skrevet i C#, i `ValidationHandler.cs` -filen i applikasjonsmalen.
+Valideringer skrives i C# og avhengig av hvilken versjon av applikasjonsmalen og Nuget pakkene du er på, så vil implementeringen variere litt. I tidligere versjon så er det en pre-definert fil med metoder du kan legge inn logikken, mens fra versjon 7 og fremover så implementerer du et grensesnitt i den klassen du selv vil. Grensesnittet er tilfeldigvis likt den pre-definerte filen. Eksemplene som refererer til metoder vil derfor være de samme for alle versjoner.
+
+{{<content-version-selector classes="border-box">}}
+
+{{<content-version-container version-label="v4, v5, v6">}}
+Valideringer legges til i `ValidationHandler.cs` -filen i applikasjonsmalen.
 Filen kan aksesseres og endres i Altinn Studio via logikkmenyen, ved å velge _Rediger valideringer_,
 eller direkte i applikasjonsrepoet der ligger filen i `logic/Validation`-mappen.
+{{</content-version-container>}}
 
-Endringer gjøres i `ValidateData` og `ValidateTask`-metodene (disse er tomme når appen lages).
+{{<content-version-container version-label="v7">}}
+I versjon 7 har vi endret måten preutfylling med egendefinert kode gjøres på. Vi benytter nå _dependency injection_ i stedet for overstyring av metoder. Hvis du tidligere plasserte koden din i _ValidationHandler og _ValidateTask_ metodene in _ValidationHandler.cs_ klassen så vil du erfare at det er mer eller mindre det samme som nå gjøres.
+1. Opprett en klasse som implementerer `IInstanceValidator` grensesnittet som ligger i `Altinn.App.Core.Features.Validation` navnerommet.  
+    Du kan navngi og plassere filene i den mappestrukturen du selv ønsker i prosjektet ditt. Men vi anbefaler at du benytter meningsfulle navnerom som i et hvilket som helst annet .Net prosjekt.
+2. Registrer din implementering i _Program.cs_ klassen
+    ```C#
+    services.AddTransient<IInstanceValidator, InstanceValidator>();
+    ```
+    Dette sørger for at din kode er kjent for applikasjonen og at koden blir kjørt når den skal.
+{{</content-version-container>}}
+{{</content-version-selector>}}
+
+Fra dette punktet og videre skal eksemplene være de samme for alle versjoner :)
+
+Endringer gjøres i `ValidateData` og `ValidateTask`-metodene.
 Førstnevnte får inn et dataobjekt og sistnevnte får inn instansen og taskId.
 For å legge til en valideringsfeil brukes `AddModelError`-metoden til `validationResults` object som sendes med i begge metodene.
 
@@ -230,6 +250,11 @@ public async Task ValidateTask(Instance instance, string taskId, ModelStateDicti
 Dersom det er behov for umiddelbar validering av et felt
 som ikke kan dekkes i klientsidevalideringen, 
 så kan man sette opp en trigger for validering på enkeltfelter i `formLayout.json`
+{{%notice warning%}}
+
+**MERK**: Det er foreløpig ikke støtte for å sette opp trigger for validering av enkeltfelter for Stateless apps.
+{{%/notice%}}
+
 
 ```json {hl_lines=[13]}
 {
@@ -428,6 +453,9 @@ private void ValidateFullName(Datamodell model, ModelStateDictionary validationR
 }
 ```
 
+Dersom du har problemer med å få dette til å fungere, og du ser valideringsmeldinger med `*FIXED*` foran meldingen istedenfor at meldingen forsvinner, 
+bør du dobbeltsjekke at du har `"FixedValidationPrefix": "*FIXED*"` satt under `GeneralSettings` i `appsettings.json`.
+
 ## Myke valideringer
 
 Myke valideringer er valideringsmeldinger som ikke stopper bruker fra å sende inn eller gå videre til neste steg i prosessen, men som benyttes til å gi brukeren ulike former for informasjon.
@@ -479,8 +507,10 @@ Det er også mulig å overstyre tittelen man ser på meldingene ved å legge til
 
 ## Gruppevalidering
 
-Det er mulig å gjøre valideringer på en repeterende gruppe i det brukeren ønsker å lagre en gitt indeks.
-Dette gjøres ved å legge til en trigger på gruppe-komponenten i layoutfilen (f.eks `FormLayout.json`). Eksempel:
+Det er mulig å gjøre valideringer på en repeterende gruppe i det brukeren ønsker å lagre en gitt rad.
+Dette gjøres ved å legge til en trigger på gruppe-komponenten i layoutfilen (f.eks `FormLayout.json`).
+Det er to forskjellige triggere som kan brukes på grupper; `validation` kjører validering på hele gruppen,
+og `validateRow` kjører kun validering på raden brukeren prøver å lagre. Eksempel:
 
 ```json {hl_lines=[14]}
 {
@@ -496,7 +526,7 @@ Dette gjøres ved å legge til en trigger på gruppe-komponenten i layoutfilen (
         "dataModelBindings": {
             "group": "Endringsmelding-grp-9786.OversiktOverEndringene-grp-9788"
         },
-        "triggers": ["validation"]  // <--- Legg til denne
+        "triggers": ["validateRow"]  // <--- Legg til denne
       },
       ...
     ]
@@ -504,7 +534,7 @@ Dette gjøres ved å legge til en trigger på gruppe-komponenten i layoutfilen (
 }
 ```
 
-Dette vil da sørge for at det vil kjøres validering på komponentene som er en del av gruppen på den aktuelle indeksen man jobber på.
+Dette vil da sørge for at det vil kjøres validering på komponentene som er en del av gruppen på den aktuelle raden man jobber på.
 Om det finnes valideringsfeil så vil man stoppes fra å lagre gruppen før dette er rettet opp i.
 
 Om man legger til validering på gruppe-komponenten så vil det også gå et kall mot valideringen backend med en header som spesifiserer hvilken komponent som trigget valideringen: `ComponentId`.

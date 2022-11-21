@@ -15,7 +15,7 @@ Validations can also be set up to [trigger on page navigation](/app/development/
 ## Client-side validation
 
 This is validation that is run in the browser, before data is sent to server for saving. This makes it possible to give quick feedback to 
-the user during the fillout process.
+the user during the process of filling out the form.
 
 Client-side validation is based on the data model of the form, and uses this to determine what is valid input in a field.
 Specifically, the JSON schema version of the data model is used for validation. This is automatically generated when uploading an XSD.
@@ -170,11 +170,35 @@ Custom validation can also be split into two categories; task-validation and dat
 - Task-validation will run each time validation is triggered either manually from the application or when you attempt to move forward in the process.
 - Data-validation will run if you're on a step that has defined data elements associated with it.
 
-Validations are written in C#, in the `ValidationHandler.cs`-file in the application template.
+Validations are written i C# and dependening on the version of the application template and Nuget packages you are using, the way the implementation is done varies slightly. In the earlier versions it's a pre-created file where you put your logic, while from version 7 and onwards you implement an interface in whatever class you like. The interface happens to be equal to the pre-defined class in the earlier versions. The examples below which referers to the methods to add your validation logic to is the same.
+
+{{<content-version-selector classes="border-box">}}
+
+{{<content-version-container version-label="v4, v5, v6">}}
+Validations should be added to the `ValidationHandler.cs`-file in the application template.
 The file can be accessed and edited in Altinn Studio through the logic menu, by selecting _Rediger valideringer_,
 or directly in the application repo where the file is under the `logic/Validation`-folder.
 
-Changes are made in the `ValidateData` and `ValidateTask`-methods (these are empty when the app is made).
+{{</content-version-container>}}
+
+{{<content-version-container version-label="v7">}}
+In version 7 the way to do custom code instantiation has changed. We now use an dependency injection based approach insted of overriding methods. If you previously used to place your custom code in the _ValidateData_ and _ValidateTask_ methods in the _ValidationHandler.cs_ class you will see that it's mostly the same.
+
+1. Create a class that implements the `IInstanceValidator` interface found in the `Altinn.App.Core.Features.Validation` namespace.  
+    You can name and place the file in any folder you like within your project, but we suggest you use meaningful namespaces like in any other .Net project.
+2. Register you custom implementation in the _Program.cs_ class
+    ```C#
+    services.AddTransient<IInstanceValidator, InstanceValidator>();
+    ```
+    This ensuers your custom code is known to the application and that it will be executed.    
+
+{{</content-version-container>}}
+
+{{</content-version-selector>}}
+
+From here on the examples should be valid for all versions:)
+
+Custom logic are added to the `ValidateData` and `ValidateTask`-methods.
 The former takes in a data object and the latter takes in the instance and taskId.
 To add a validation error, the `AddModelError`-method of the `validationResult`-object, which is a parameter in both methods, is used.
 
@@ -230,6 +254,10 @@ public async Task ValidateTask(Instance instance, string taskId, ModelStateDicti
 If there is a need for immediate validation of a field
 that can not be covered in the client side validation,
 you can set up a trigger for validation on single fields in `formLayout.json`
+{{%notice warning%}}
+
+**NOTE**: Trigger for validation on single fields in Stateless apps is not currently supported.
+{{%/notice%}}
 
 ```json {hl_lines=[13]}
 {
@@ -428,6 +456,9 @@ private void ValidateFullName(Datamodell model, ModelStateDictionary validationR
 }
 ```
 
+If you are having trouble with getting this to work, and you are instead seeing validation messages that include the `*FIXED*`-prefix, 
+double check that you have `"FixedValidationPrefix": "*FIXED*"` set under `GeneralSettings` in `appsettings.json`.
+
 ## Soft validations
 
 Soft validations are validation messages that does not stop the user from submitting or move onto the next step of the process, but that are used to give the user different forms of information.
@@ -480,7 +511,9 @@ It is also possible to overrule the title you see on the messages by adding the 
 ## Group validation
 
 It is possible to apply validations to a repeating group when the user saves a row in the group.
-This can be done by adding a trigger on the group component in the layout file (e.g. `FormLayout.json`). Example:
+This can be done by adding a trigger on the group component in the layout file (e.g. `FormLayout.json`).
+There are two different triggers that can be used for groups; `validation` runs validation on the entire group,
+and `validateRow` only runs validation on the row the user is trying to save. Example:
 
 ```json {hl_lines=[14]}
 {
@@ -496,7 +529,7 @@ This can be done by adding a trigger on the group component in the layout file (
         "dataModelBindings": {
             "group": "Endringsmelding-grp-9786.OversiktOverEndringene-grp-9788"
         },
-        "triggers": ["validation"]  // <--- Add this
+        "triggers": ["validateRow"]  // <--- Add this
       },
       ...
     ]
@@ -504,7 +537,7 @@ This can be done by adding a trigger on the group component in the layout file (
 }
 ```
 
-This will ensure that validation is run on the components that are a part of the group on the index you're working on.
+This will ensure that validation is run on the components that are a part of the group in the row you're working on.
 If there are validation errors you will be stopped from saving the group until this has been corrected.
 
 If you add validation on the group component, a call will be made towards the validation back-end with a header specifying which component triggered the validation: `ComponentId`.

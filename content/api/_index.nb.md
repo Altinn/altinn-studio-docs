@@ -7,64 +7,87 @@ weight: 20
 tags: [translate-to-norwegian]
 ---
 
-## The APIs
+## De to primære datastrukturene
 
-The new solution will have multiple APIs, but they can be divided in two groups. The app APIs and the Platform APIs.
+Dette vil være en oversikt over primærmodellene som brukes i Altinn 3. Hovedhensikten med dette er å danne en grunnleggende forståelse av modellene før introduksjon av API'ene.
+
+![Instans](instance.drawio.svg "En Instans kan inneholde mange dataelementer. Hvert dataelement må referere til en enkelt datafil.")
+
+### Instans (Forekomst)
+
+Instansmodellen er hovedmetadatadokumentet i Altinn 3. Den brukes av Altinn for å holde styr på tilstanden til en interaksjon mellom en sluttbruker og eieren av en app. En instans må være knyttet til en app og en rapportør som instans-eier.
+ 
+Instanser er også litt som beholdere for alle andre dokumenter; skjemaer og ustrukturert data samlet inn under en interaksjon mellom en sluttbruker og applikasjonseieren. Antall dokumenter og filer som produseres vil avhenge av appen.
+
+I en enkel app vil en sluttbruker fylle ut et skjema og sende det til applikasjonseieren. Dette vil typisk produsere en enveis interaksjon der bare ett eller to dokumenter samles inn i instansen. I mer avanserte apper vil antallet dokumenter og filer utvides til flere skjemaer, vedlegg og tilbakemeldinger eller valideringsmeldinger fra applikasjonseieren.
+
+En instans kan ikke referere til data direkte, men vil inneholde en liste over dataelementer med mer informasjon om innsamlede data.
+
+### DataElement
+
+DataElement-modellen er et metadatadokument for et spesifikt skjema eller binær fil. De viktigste aspektene ved dette dokumentet er at det inneholder informasjon om hvor de faktiske dataene blir lagret, og hvordan dataene brukes av applikasjonen.
+
+De fleste apper vil automatisk opprette et dataelement for å representere skjemaet som fylles ut av brukeren. Mer avanserte apper vil også kreve at brukeren laster opp vedlegg eller fyller ut flere skjemaer.
+
+En instans kan ha mange dataelementer, men hvert dataelement kan ikke referere til mer enn én datafil.
+
+### API'ene
+
+Altinn 3-løsningen har flere API'er, men de kan deles i to grupper: App-API'ene og plattform-API'ene.
 
 ### App API
 
-The application API is an API that provides access to specific instances of a specific app. The API provides features for working with data elements while keeping the metadata document for the instance and its data elements updated. The instance level endpoints revolves around moving an instance through its defined process and controlling some instance level settings.
+Applikasjons-API er et API som gir tilgang til spesifikke forekomster av en spesifikk app. API-en gir funksjoner for å jobbe med dataelementer mens metadatadokumentet for forekomsten og dens dataelementer holdes oppdatert. Instansnivå-endepunktene dreier seg om å flytte en instans gjennom dens definerte prosess og kontrollere noen instansnivå-innstillinger.
 
-Metadata for an app is the second job of the app API. There are endpoint that give access to the metadata of the app itself, its data types and process description.
+Metadata for en app er den andre jobben til app-API-en. Det finnes endepunkter som gir tilgang til metadataene til selve appen, dens datatyper og prosessbeskrivelse.
 
-Every app will expose almost identical endpoints and functionality. External parties should need only one client implementation across all app APIs. Technically there is nothing preventing an application owner from adding or making changes to the API, but in those cases it is probably an application with a different process flow. In these cases, the application might require some special handling, and additional documentation should be provided by the application owner.
-
+Hver app vil avsløre nesten identiske endepunkter og funksjonalitet. Eksterne parter skal bare trenge én klientimplementering på tvers av alle app-API-er, men det er mulig for applikasjonseieren å utvide app-API-en med flere endepunkter og til og med gjøre endringer i standardfunksjonaliteten. Dokumentasjon for appspesifikk API og funksjoner må hentes direkte fra appen eller fra appeieren.
 ```http
 https://{org}.apps.altinn.no/{org}/{appname}
 ```
 
-The URL identifies the application owner specific hostname using the short name **org**, and the identificator of the app consisting of both the application owner short name and the name of the app **org/appname**. 
+URL-en identifiserer appeierens spesifikke vertsnavn ved å bruke det korte navnet **org**, og identifikatoren til appen som består av både appeierens korte navn og navnet på appen. Å kombinere organisasjonen og appnavnet resulterer i det vi kaller app-ID-en **org/appnavn**.
 
-### Platform API
+### Plattform API
 
-The Platform APIs are primarily made to support the applications hosted on the platform, but a lot of endpoints can be used directly by both application owners and users. Primarily on the Authentication, Events and Storage APIs.
+Plattform-API'ene er primært laget for å støtte applikasjonene som er vert på plattformen, men mange endepunkter kan brukes direkte av både applikasjonseiere og brukere. Primært på API-ene for autentisering, hendelser og lagring.
 
-The Storage API provides access to all instances across all applications. It can be used to access metadata about applications, instances, data elements and instance activitylog (events), as well as the actual data content. This API should be the preferred method for application owners to download data associated with instances created based on their applications. Application users can use it if they need a form of message box or want to retrieve archived instances and their data.
+Storage API gir tilgang til alle instanser på tvers av alle applikasjoner. Den kan brukes til å få tilgang til metadata om applikasjoner, instanser, dataelementer og instansaktivitetslogg (hendelser), samt det faktiske datainnholdet. Denne API-en bør være den foretrukne metoden for appeiere for å laste ned data knyttet til instanser som er opprettet basert på deres apper. Applikasjonsbrukere kan bruke den hvis de trenger en form for meldingsboks eller ønsker å hente arkiverte instanser og deres data.
 
-The Authentication API provides methods for authentication.
+Autentiserings-API'et gir metoder for autentisering.
 
-The Events API provides access to the Events component endpoint for listing events. This can be used sporadically to query Altinn for events that have occured in the solution. 
+Events API gir tilgang til Events-komponentens endepunkt for oppføring av hendelser. Dette kan brukes sporadisk for å spørre Altinn etter hendelser som har oppstått i løsningen.
 
 ```http
 https://platform.altinn.no
 ```
 
-## API user groups
+## API Brukergrupper
 
-There are primarily two groups of users of the Altinn APIs. The first group consists of applications and systems used by the owners of the Apps hosted by Altinn. This group is called *Application Owners*. The second group consists of organisations and people using the Apps to communicate with the application owners. This group is called *Application Users*. 
+Det er primært to grupper brukere av Altinn API'er. Den første gruppen består av applikasjoner og systemer som brukes av eierne av appene som er vert for Altinn. Denne gruppen kalles *Application Owners*. Den andre gruppen består av organisasjoner og personer som bruker appene til å kommunisere med appeierne. Denne gruppen kalles *Applikasjonsbrukere*.
 
-The two groups have many similar needs, but there are some differences in what type of tasks they need to perform. All new APIs is technically available to both groups, but some endpoints have authorization to allow only on of the groups.
+De to gruppene har mange like behov, men det er noen forskjeller i hva slags type oppgaver de skal utføre. Alle nye API-er er teknisk tilgjengelige for begge gruppene, men noen endepunkter har autorisasjon til å tillate bare én av gruppene.
 
-### Application Owners
+### App-eiere
 
-A list of common tasks for an application owner:
+En liste over vanlige oppgaver for en app-eier:
 
-- Query instances for a given application according to status or instance owners.
-- Create an application instance.
-- Upload form data and attachments.
-- Download form data.
-- Change process state (workflow).
-- Confirm instance as complete.
+- Søk instanser for en gitt applikasjon i henhold til status eller forekomsteiere.
+- Opprett en applikasjons-instans.
+- Last opp skjemadata og vedlegg.
+- Last ned skjemadata.
+- Endre prosesstilstand (arbeidsflyt).
+- Bekreft instansen som komplett.
 
-### Application Users
+### Applikasjonsbrukere
 
-A list of common tasks for an application user:
+En liste over vanlige oppgaver for en applikasjonsbruker:
 
-- Query instances for themselves or a party they can represent (instance owner).
-- Create an application instance.
-- Upload form data and attachments.
-- Download form data.
-- Change process state (workflow).
-- View status of an instance.
+- Søk instanser for seg selv eller en part de kan representere (instanseier).
+- Opprett en applikasjons-instans.
+- Last opp skjemadata og vedlegg.
+- Last ned skjemadata.
+- Endre prosesstilstand (arbeidsflyt).
+- Se status for en instans.
 
 {{<children>}}

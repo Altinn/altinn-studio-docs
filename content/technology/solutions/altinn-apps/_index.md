@@ -6,6 +6,7 @@ aliases:
     - /altinn-studio-apps
     - /altinn-apps
     - /teknologi/altinnstudio/solutions/altinn-apps/
+weight: 2
 ---
 
 The applications has a web native architecture and is deployed to Kubernetes Clusters as docker containers.

@@ -16,8 +16,10 @@ $(document).ready(function() {
 
     /* handles doc versions */
     const contentVersionSelectorId = "content-version-selector";
-    const contentVersionContainerId = "content-version-container"
-    const contentVersionLabel = "content-version-label"
+
+    const contentVersionTabsId = "content-version-tabs";
+    const contentVersionContainerId = "content-version-container";
+    const contentVersionLabelId = "content-version-label";
 
     var containerCounter = 0
 
@@ -27,25 +29,33 @@ $(document).ready(function() {
         let id = "version-container-" + containerCounter;
         $(this).attr('id', id);
 
-        $('#'+contentVersionSelectorId+'').append('<li id='+id+'>' 
-            + $(this).find('.'+contentVersionLabel).text() + '</li>');
+        $(this).closest('.'+contentVersionSelectorId)
+            .find('#'+contentVersionTabsId+'')
+            .append('<li id='+id+'>' 
+                + $(this).find('.'+contentVersionLabelId).text() + '</li>');
 
         containerCounter++;
     });
 
-    $('*[class*='+contentVersionContainerId+']:last').css('display', 'block')
-    $('#'+contentVersionSelectorId+' li:last').addClass('active')
+    $('*[class*='+contentVersionSelectorId+']').each(function() {
+        $(this).find('*[class*='+contentVersionContainerId+']:last').css('display', 'block')
+        $(this).find('#'+contentVersionTabsId+' li:last').addClass('active')
+    });
 
-    $('#'+contentVersionSelectorId+' li').click(function(e) { 
+    $('#'+contentVersionTabsId+' li').click(function(e) { 
         let idToShow = $(this).attr('id');
 
-        $('*[class*='+contentVersionContainerId+']').each(function() {
-            $(this).css('display', 'none')
-        });
+        $(this).closest('.'+contentVersionSelectorId)
+            .find('*[class*='+contentVersionContainerId+']')
+                .each(function() {
+                    $(this).css('display', 'none')
+                });
 
-        $('#'+contentVersionSelectorId+' li').each(function() {
-            $(this).removeClass('active')
-        });
+        $(this).closest('.'+contentVersionSelectorId)
+            .find('#'+contentVersionTabsId+' li')
+                .each(function() {
+                    $(this).removeClass('active')
+                });
 
         $("*[id*="+idToShow+"]").css('display', 'inline-block')
         $('li[id*='+idToShow+']').addClass('active')

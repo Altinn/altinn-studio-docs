@@ -11,7 +11,29 @@ There are two options when excluding data from a PDF:
 Det er to måter å ekskludere data fra PDF på
 
 1. Configuring in the `Settings.json` file in the `App/ui` folder
-2. Programmatically in the `PdfHandler.cs` file in the `App/logic/Print` folder
+2. Programmatically  
+   For the programatically option there are some minor differences dependening on the version you are using.
+
+{{<content-version-selector classes="border-box">}}
+
+{{<content-version-container version-label="v4, v5, v6">}}
+In previous versions you modify the `PdfHandler.cs` file in the `App/logic/Print` folder.
+{{</content-version-container>}}
+
+{{<content-version-container version-label="v7">}}
+In version 7 the way to do custom code has changed. We now use an dependency injection based approach insted of overriding methods. If you previously used to place your custom code in the _FormatPdf_ methods in the _PdfHandler.cs_ class you will see that it's mostly the same, but in v7 there is no pre-defined class for you to put your custom code. Instead, do the following:
+
+1. Create a class that implements the `IPdfFormater` interface found in the `Altinn.App.Core.Features.Pdf` namespace.  
+    You can name and place the file in any folder you like within your project, but we suggest you use meaningful namespaces like in any other .Net project.
+2. Register you custom implementation in the _Program.cs_ class
+    ```C#
+    services.AddTransient<IPdfFormater, PdfFormater>();
+    ```
+    This ensuers your custom code is known to the application and that it will be executed.
+{{</content-version-container>}}
+{{</content-version-selector>}}
+
+Since the `IPdfFormater` interface has the same method as the old `PdfHandler.cs`class the rest of the documentation and examples applies to all versions.
 
 {{%notice info%}}
 If a page/component is to always be excluded from the PDF, it is recommended that this is
@@ -19,8 +41,6 @@ set in the configuraiton file.
 
 If exclusion of a page/component depends on dynamics it _must_ be done programmatically.
 {{% /notice%}}
-
-
 
 ### Exclude pages
 
