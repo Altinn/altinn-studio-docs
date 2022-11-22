@@ -543,7 +543,8 @@ Dette vil da sørge for at det vil kjøres validering på komponentene som er en
 Om det finnes valideringsfeil så vil man stoppes fra å lagre gruppen før dette er rettet opp i.
 
 Om man legger til validering på gruppe-komponenten så vil det også gå et kall mot valideringen backend med en header som spesifiserer hvilken komponent som trigget valideringen: `ComponentId`.
-Valideringer er skrevet i C#, i `ValidationHandler.cs`-filen i applikasjonsmalen. I valideringen kan man så hente ut denne id'en og skreddersy eventuelle valideringer som skal gjøres backend, eksempel:
+I tillegg er rad-indeksen for raden som blir lagret tilgjengelig i headeren `RowIndex`. Dersom gruppen er en nøstet gruppe, er verdien en komma-separert liste med indekser, ellers er indeksen ett enkelt tall.
+Valideringer er skrevet i C#, i `ValidationHandler.cs`-filen i applikasjonsmalen. I valideringen kan man så hente ut komponent-id'en og skreddersy eventuelle valideringer som skal gjøres backend, eksempel:
 
 ```cs
 public async Task ValidateData(object data, ModelStateDictionary validationResults)
@@ -554,18 +555,30 @@ public async Task ValidateData(object data, ModelStateDictionary validationResul
             .Request.Headers
             .TryGetValue("ComponentId", out StringValues compIdValues);
 
-        // RowIndex er kun satt når triggers=["validateRow"]
         _httpContextAccessor.HttpContext
             .Request.Headers
             .TryGetValue("RowIndex", out StringValues rowIndexValues);
 
         string componentId = compIdValues.FirstOrDefault(string.Empty);
-        string rowIndex = rowIndexValues.FirstOrDefault(string.Empty);
 
         switch (componentId)
         {
-            case "demo-group":
+            case "top-level-group":
                 // kjør valideringer spesifikke til gruppen
+
+                // Hent rad-indeksen for en ikke-nøstet gruppe
+                int rowIndex = int
+                    .Parse(rowIndexValues.FirstOrDefault(string.Empty));
+                
+                break;
+              case "nested-group":
+                // Hent alle rad-indekser for en nøstet gruppe
+                int[] rowIndices = rowIndexValues
+                    .FirstOrDefault(string.Empty)
+                    .Split(",", StringSplitOptions.RemoveEmptyEntries)
+                    .Select(s => int.Parse(s))
+                    .ToArray();
+
                 break;
             default:
                 // kjør valideringene i sin helhet

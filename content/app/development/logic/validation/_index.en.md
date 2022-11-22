@@ -546,7 +546,8 @@ This will ensure that validation is run on the components that are a part of the
 If there are validation errors you will be stopped from saving the group until this has been corrected.
 
 If you add validation on the group component, a call will be made towards the validation back-end with a header specifying which component triggered the validation: `ComponentId`.
-Validations are written in C# in the `ValidationHandler.cs`-file in the application template. In the validation, you can then retrieve this id and tailor possible validations that should run back-end, example:
+Additionally, the row index of the row being saved is available in the header `RowIndex`. If the group is a nested group, a comma separated list of row indices is returned, otherwise it is a single number.
+Validations are written in C# in the `ValidationHandler.cs`-file in the application template. In the validation, you can retrieve component id and tailor possible validations to run in the back-end, example:
 
 ```cs
 public async Task ValidateData(object data, ModelStateDictionary validationResults)
@@ -557,18 +558,29 @@ public async Task ValidateData(object data, ModelStateDictionary validationResul
             .Request.Headers
             .TryGetValue("ComponentId", out StringValues compIdValues);
 
-        // RowIndex is only set when using triggers=["validateRow"]
         _httpContextAccessor.HttpContext
             .Request.Headers
             .TryGetValue("RowIndex", out StringValues rowIndexValues);
 
         string componentId = compIdValues.FirstOrDefault(string.Empty);
-        string rowIndex = rowIndexValues.FirstOrDefault(string.Empty);
 
         switch (componentId)
         {
-            case "demo-group":
+            case "top-level-group":
                 // run validations specific to the group
+                
+                // Get row index for a non-nested group
+                int rowIndex = int.Parse(rowIndexValues.FirstOrDefault(string.Empty));
+
+                break;
+            case "nested-group":
+                // Get all row indices for a nested group
+                int[] rowIndices = rowIndexValues
+                    .FirstOrDefault(string.Empty)
+                    .Split(",", StringSplitOptions.RemoveEmptyEntries)
+                    .Select(s => int.Parse(s))
+                    .ToArray();
+
                 break;
             default:
                 // run the validations in their entirety
