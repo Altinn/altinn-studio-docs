@@ -214,7 +214,7 @@ Disse funksjonene er tilgjengelige for bruk i uttrykk:
 | [`instanceContext`](#instancecontext-oppslag)                        | [Streng](#strenger)                                | [Streng](#strenger)             | ✅        | ✅       |
 | [`frontendSettings`](#frontendsettings-oppslag)                      | [Streng](#strenger)                                | [Streng](#strenger)             | ✅        | ✅       |
 | [`component`](#component-oppslag)                                    | [Streng](#strenger)                                | [Streng](#strenger)             | ✅        | ✅       |
-| [`dataModel`](#dataModel-oppslag)                                    | [Streng](#strenger)                                | [Streng](#strenger)             | ✅        | ✅       |
+| [`dataModel`](#datamodel-oppslag)                                    | [Streng](#strenger)                                | [Streng](#strenger)             | ✅        | ✅       |
 
 
 ### `equals` / `notEquals`
