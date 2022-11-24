@@ -33,7 +33,7 @@ feltene er skjult i skjemaet ved hjelp av dynamiske uttrykk. Dette gjelder også
 linje i `App/appsettings.json` etter at man har oppgradert [nuget-pakkene](../../../maintainance/dependencies#nuget)
 til `7.2.0` eller nyere:
 
-```json {linenos=false,hl_lines=["6"]}
+```json {linenos=false,hl_lines=[5]}
   "AppSettings": {
     "OpenIdWellKnownEndpoint": "http://localhost:5101/authentication/api/v1/openid/",
     "RuntimeCookieName": "AltinnStudioRuntime",
@@ -119,19 +119,19 @@ Og for en person som er 15 år (eller yngre, som f.eks. en 4-åring), returneres
 
 Dynamiske uttrykk er foreløpig tilgjengelig for bruk i disse egenskapene, som definert i [layout-filer](../../ux/pages).
 
-| Komponenter                             | Egenskap                   | Forventet verdi            | Frontend | Backend |
-|-----------------------------------------|----------------------------|----------------------------|----------|---------|
-| [Sider/layouts](#viseskjule-hele-sider) | `hidden`                   | [Boolsk](#boolske-verdier) | ✅        | ✅       |
-| Alle                                    | `hidden`                   | [Boolsk](#boolske-verdier) | ✅        | ✅       |
-| Skjemakomponenter                       | `required`                 | [Boolsk](#boolske-verdier) | ✅        | ✅       |
-| Skjemakomponenter                       | `readOnly`                 | [Boolsk](#boolske-verdier) | ✅        | ❌       |
-| Repeterende grupper                     | `edit.addButton`           | [Boolsk](#boolske-verdier) | ✅        | ❌       |
-| Repeterende grupper                     | `edit.saveButton` *        | [Boolsk](#boolske-verdier) | ✅        | ❌       |
-| Repeterende grupper                     | `edit.deleteButton` *      | [Boolsk](#boolske-verdier) | ✅        | ❌       |
-| Repeterende grupper                     | `edit.saveAndNextButton` * | [Boolsk](#boolske-verdier) | ✅        | ❌       |
+| Komponenter                                               | Egenskap                   | Forventet verdi            | Frontend | Backend |
+|-----------------------------------------------------------|----------------------------|----------------------------|----------|---------|
+| [Sider/layouts](#viseskjule-hele-sider)                   | `hidden`                   | [Boolsk](#boolske-verdier) | ✅        | ✅       |
+| Alle                                                      | `hidden`                   | [Boolsk](#boolske-verdier) | ✅        | ✅       |
+| Skjemakomponenter                                         | `required`                 | [Boolsk](#boolske-verdier) | ✅        | ✅       |
+| Skjemakomponenter                                         | `readOnly`                 | [Boolsk](#boolske-verdier) | ✅        | ❌       |
+| [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.addButton`           | [Boolsk](#boolske-verdier) | ✅        | ❌       |
+| [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.saveButton` *        | [Boolsk](#boolske-verdier) | ✅        | ❌       |
+| [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.deleteButton` *      | [Boolsk](#boolske-verdier) | ✅        | ❌       |
+| [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.saveAndNextButton` * | [Boolsk](#boolske-verdier) | ✅        | ❌       |
 
-\* = Disse egenskapene kan foreløpig bare styres dynamisk for alle repeterende grupper på en gang, ikke
-for hver enkelt rad.
+\* = Disse egenskapene kan foreløpig bare styres dynamisk for alle [repeterende grupper](../../ux/fields/grouping/repeating)
+på en gang, ikke for hver enkelt rad.
 
 ### Testing, feilsøking og utvikling av uttrykk
 
@@ -213,8 +213,8 @@ Disse funksjonene er tilgjengelige for bruk i uttrykk:
 | [`if`](#func-if)                             | [Se detaljert beskrivelse](#func-if)               | [Se detaljert beskrivelse](#func-if) | ✅        | ✅       |
 | [`instanceContext`](#func-instancecontext)   | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅        | ✅       |
 | [`frontendSettings`](#func-frontendsettings) | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅        | ✅       |
-| [`component`](#func-component)               | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅        | ✅       |
 | [`dataModel`](#func-datamodel)               | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅        | ✅       |
+| [`component`](#func-component)               | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅        | ✅       |
 
 Detaljerte beskrivelser og eksempler
 
@@ -269,35 +269,203 @@ hva som skal til for å _vise_ komponenten:
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-gt" header="greaterThan / greaterThanEq / lessThan / lessThanEq" %}}
-TODO: Beskriv funksjonene
+Disse 4 funksjonene forventer to tall inn, og sammenligner om _det første_ med _det andre_. Det vil si, for funksjonen
+`greaterThan` er uttrykket sant dersom det første tallet er _større enn_ det andre.
+
+| Funksjon        | Beskrivelse                                                   | Symbol |
+|-----------------|---------------------------------------------------------------|--------|
+| `greaterThan`   | Er det første tallet _større enn_ det andre tallet?           | \>     |
+| `greaterThanEq` | Er det første tallet _større enn eller lik_ det andre tallet? | ≥      |
+| `lessThan`      | Er det første tallet _mindre enn_ det andre tallet?           | \<     |
+| `lessThanEq`    | Er det første tallet _mindre enn eller lik_ det andre tallet? | ≤      |
+
+Dersom noen av argumentene til disse funksjonene er [`null`](#null) blir resultatet `false` (uavhengig av om det er det
+første eller andre argumentet).
+
+Eksempel som sjekker om alder er over (eller lik) 18:
+
+```json
+["greaterThanEq", ["component", "alder"], 18]
+```
+
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-concat" header="concat" %}}
-TODO: Beskriv funksjonen
+Denne funksjonen tar inn 0 eller flere strenger som argumenter, og returnerer en streng hvor alle strengene i
+argumentene er slått sammen. Kalles funksjonen uten noen argumenter gis det en tom streng.
+
+Legg merke til at funksjonen ikke automatisk legger til mellomrom eller komma når den slår sammen strenger. For å gi
+et mer lesbart resultat anbefales det å legge inn bindetegn hvor nødvendig:
+
+```json
+["concat",
+   "Gratulerer med ",
+   ["component", "alder"],
+   "-årsdagen!"
+]
+```
+
+Uttrykket over gir teksten `Gratulerer med 18-årsdagen!` dersom verdien i alder-komponenten var `18`.
+
+I `concat`-funksjonen tolkes [`null`](#null)-verdier som tomme strenger. [Boolske verdier](#boolske-verdier) skrives
+ut som strengene `"true"` og `"false"`.
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-and" header="and / or" %}}
-TODO: Beskriv funksjonene
+Funksjonene `and` og `or` forventer 1 eller flere boolske verdier, og gir et resultat ut fra om henholdsvis _alle_ eller
+_minst en_ av verdiene var sanne (`true`).
+
+| Funksjon | Beskrivelse                                     |
+|----------|-------------------------------------------------|
+| `and`    | Er **alle** argumentene sanne? (`true`)         |
+| `or`     | Er **minst ett** av argumentene sanne? (`true`) |
+
+Gir man [`null`](#null)-verdier tolkes disse som usann (`false`). Eksempler på bruk finnes
+under [_Streng eller mindre streng sammenligning?_](#streng-eller-mindre-streng-sammenligning)
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-if" header="if" %}}
-TODO: Beskriv funksjonen
+`if`-funksjonen kan brukes for å forgrene et uttrykk slik at returverdien styres av resultatet av et annet
+boolsk uttrykk. Funksjonen kan kalles på to forskjellige måter; med 2 eller 4 argumenter:
+
+| Argument        | Alternativ 1                 | Alternativ 2                 |
+|-----------------|------------------------------|------------------------------|
+| Første argument | [Boolsk](#boolske-verdier)   | [Boolsk](#boolske-verdier)   |
+| Andre argument  | [Vilkårlig type](#datatyper) | [Vilkårlig type](#datatyper) |
+| Tredje argument |                              | Strengen `"else"`            |
+| Fjerde argument |                              | [Vilkårlig type](#datatyper) |
+
+I **alternativ 1** vil returverdien til funksjonen bli verdien gitt som andre argument _dersom første argument er sant
+(`true`)_. Om ikke returneres verdien `null`.
+
+I **alternativ 2** vil returverdien til funksjonen bli verdien gitt som andre argument _dersom første argument er sant
+(`true`)_. Om ikke returneres verdien gitt i fjerde argument. Man må _alltid_ gi strengen `"else"` som tredje argument
+om man vil kalle funksjonen med 4 argumenter. Det tredje argumentet er bare til for å gjøre uttrykket mer lesbart, og
+har ingen funksjon ellers.
+
+Om man ønsker flere betingelser og mulige returverdier kan man nøste flere kall til `if` inne i andre eller fjerde
+argument:
+
+```json
+["if",
+   ["greaterThan", ["component", "birthYear"], 1945],
+   "Du ble født etter verdenskrigene",
+"else",
+  ["if",
+     ["greaterThanEq", ["component", "birthYear"], 1939],
+     "Du ble født under andre verdenskrig",
+  "else",
+     "Du ble født før andre verdenskrig"
+  ]
+]
+```
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-instancecontext" header="instanceContext (oppslag)" %}}
-TODO: Beskriv funksjonen
+Denne funksjonen gjør det mulig å hente ut informasjon om gjeldende instans. Følgende nøkler kan brukes fom første
+argument:
+
+| Nøkkel                 | Verdi                   | Eksempelverdi                                 |
+|------------------------|-------------------------|-----------------------------------------------|
+| `instanceId`           | Gjeldende instans-ID    | `512345/48c31ffc-dcdd-416d-8bc7-194bec3b7bf0` |
+| `instanceOwnerPartyId` | Gjeldende aktør-ID      | `512345`                                      |
+| `appId`                | Den aktive appen sin ID | `org/app-name`                                |
+
+Alle disse oppslagene vil gi verdien `null` om man jobber i en [tiltandsløs kontekst](../../configuration/stateless).
+Om man gir andre nøkler enn de over, vil oppslaget resultere i en feilmelding. Denne oppførselen er unik blant
+oppslagsfunksjonene, og gjøres for å sikre at man ikke prøver å hente informasjon som finnes i instansen men som ikke
+(enda) er eksponert via en nøkkel her. [Gi oss en tilbakemelding](https://github.com/Altinn/app-frontend-react/issues/new?assignees=&labels=kind%2Ffeature-request%2Cstatus%2Ftriage&template=feature_request.yml) om du har ønsker om å hente ut
+instansdata som ikke er tilgjengelig i denne funksjonen.
+
+Oppslaget gjøres i samme datakilde som er tilgjengelig for [språk/tekster](../../ux/texts#datakilder).
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-frontendsettings" header="frontendSettings (oppslag)" %}}
-TODO: Beskriv funksjonen
-{{% /expandlarge %}}
+Dette oppslaget gjør det mulig å hente informasjon fra en datakilde som kan styres ulikt for hvert kjøretidsmiljø.
 
-{{% expandlarge id="func-component" header="component (oppslag)" %}}
-TODO: Beskriv funksjonen
+Oppslaget gjøres i samme datakilde som er tilgjengelig for [språk/tekster, og oppsettet er beskrevet
+i detalj der](../../ux/texts#datakilder).
+
+**Merk**: Datakilden heter `applicationSettings` når brukt i språk/tekster, men verdiene må alltid lagres under
+nøkkelen `FrontEndSettings` i `appsettings.{miljø}.json`). Av den grunn har funksjonen fått navnet `frontendSettings`
+her, for å indikere at oppslag ikke kan gjøres i resten av `appsettings.{miljø}.json`.
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-datamodel" header="dataModel (oppslag)" %}}
-TODO: Beskriv funksjonen
+Denne oppslagsfunksjonen gjør det mulig å hente verdier direkte fra gjeldende datamodell. Første og eneste argument
+må peke et sted i datamodellen, og bruker det samme punktum-separerte formatet som brukt i `dataModelBindings`. Ved
+bruk inne i [repeterende grupper](../../ux/fields/grouping/repeating) trenger man _ikke_ bruke plassholdere for
+indekser til gruppen - uttrykket finner selv den relative plasseringen i kontekst av en repeterende gruppe.
+
+Eksempel på oppslag i repeterende gruppe:
+
+```json {linenos=false,hl_lines=[11,21,23,24,25,34,36,37,38]}
+[
+   {
+      "id": "ansatte",
+      "type": "Group",
+      "textResourceBindings": {
+         "title": "Ansatte i selskapet"
+      },
+      "maxCount": 99999,
+      "children": ["ansatt-navn", "ansatt-alder"],
+      "dataModelBindings": {
+         "group": "Ansatte"
+      }
+   },
+   {
+      "id": "ansatt-navn",
+      "type": "Input",
+      "textResourceBindings": {
+         "title": "Fullt navn"
+      },
+      "dataModelBindings": {
+         "simpleBinding": "Ansatte.Navn"
+      },
+      "hidden": ["lessThan",
+        ["dataModel", "Ansatte.Alder"],
+        18]
+   },
+   {
+      "id": "ansatt-alder",
+      "type": "Input",
+      "textResourceBindings": {
+         "title": "Alder"
+      },
+      "dataModelBindings": {
+         "simpleBinding": "Ansatte.Alder"
+      }
+      "hidden": ["equals",
+        ["dataModel", "Ansatte[0].Navn"],
+        "Ola Nordmann"]
+   }
+]
+```
+
+Følgende kan observeres:
+
+1. Det første oppslaget (for å styre `hidden` på komponenten `ansatt-navn`) styres ut fra alderen til hver ansatt. Om
+den ansatte er under 18 år skjules `ansatt-navn`. Legg merke til at samme sti i datamodellen blir brukt som
+`simpleBinding` på `ansatt-alder`.
+2. Det andre oppslaget (for å styre `hidden` på komponenten `ansatt-alder`) bruker `[0]` på oppslaget i datamodellen.
+Dette fungerer også, men oppførselen er kanskje uventet; her skjules alle alder-komponenter dersom navnet på den _første_
+ansatte har navnet _Ola Nordmann_.
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-component" header="component (oppslag)" %}}
+Oppslag direkte på komponent tilsvarer på mange måter et oppslag mot datamodell med [`dataModel`](#func-datamodel).
+Et uttrykk som slår opp verdien til en komponent kommer til å lete etter komponenten og returnere verdien lagret på
+komponenten sin `simpleBinding` i datamodellen. For øyeblikket støttes ingen andre verdier enn den lagret mot
+`simpleBinding` (om andre verdier ønskes må man gå direkte mot [`dataModel`](#func-datamodel)).
+
+Oppslag mot en komponent vil derimot returnere `null` dersom komponenten man slår opp verdien til er skjult (selv om
+komponenten ellers har tilknyttet data i datamodellen). Dette gjør det til en viss grad mulig å styre visning av en
+komponent basert på om en annen komponent er vist eller ikke. Dersom komponenten ble funnet på en helt annen (men skjult)
+side gir også oppslaget verdien `null` selv om datamodellen har en verdi tilknyttet komponenten.
+
+I likhet med [`dataModel`](#func-datamodel) vil oppslag mot en komponent-id forsøke å finne komponenten i nærheten av
+uttrykket i kontekst av [repeterende grupper](../../ux/fields/grouping/repeating). Det vil først søkes etter komponenten
+i gjeldende rad, før det letes oppover i sidestrukturen.
 {{% /expandlarge %}}
 
 ## Datatyper
