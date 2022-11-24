@@ -55,7 +55,7 @@ av verdiene sendes som inndata/argumenter til funksjonen.
 I eksempelet over blir strengene "foo" og "bar" sammenlignet. De er ulike, så resultatet av dette uttrykket blir en
 boolsk verdi; false.
 
-Denne funksjonen, [equals](#equals--notequals), forventer å få inn to [strenger](#strenger) som inndata/argumenter. Det
+Denne funksjonen, [equals](#func-equals), forventer å få inn to [strenger](#strenger) som inndata/argumenter. Det
 er også mulig å gi den andre uttrykk. Gjør man dette vil uttrykket bli tolket slik at de innerste funksjonene blir kjørt
 først, og de ytterste kjørt sist.
 
@@ -210,7 +210,7 @@ Disse funksjonene er tilgjengelige for bruk i uttrykk:
 | [`concat`](#func-concat)                     | Ingen eller flere [strenger](#strenger)            | [Streng](#strenger)                  | ✅        | ✅       |
 | [`and`](#func-and)                           | En eller flere [boolske verdier](#boolske-verdier) | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
 | [`or`](#func-and)                            | En eller flere [boolske verdier](#boolske-verdier) | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
-| [`if`](#func-if)                             | [Se detaljert beskrivelse](#if)                    | [Se detaljert beskrivelse](#func-if) | ✅        | ✅       |
+| [`if`](#func-if)                             | [Se detaljert beskrivelse](#func-if)               | [Se detaljert beskrivelse](#func-if) | ✅        | ✅       |
 | [`instanceContext`](#func-instancecontext)   | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅        | ✅       |
 | [`frontendSettings`](#func-frontendsettings) | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅        | ✅       |
 | [`component`](#func-component)               | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅        | ✅       |
@@ -420,7 +420,7 @@ lure på hvorfor det ble slikt det ble.
 2. Hvis uttrykkene behandler mange ulike verdier som like, fratar vi deg muligheten til å skille mellom dem om du skulle
 ønske det.
 
-Om man ønsker mindre streng sammenligning, kan man f.eks. konstruere et uttrykk som bruker [`or`](#func-or)-funksjonen
+Om man ønsker mindre streng sammenligning, kan man f.eks. konstruere et uttrykk som bruker [`or`](#func-and)-funksjonen
 til å gjenkjenne flere forskjellige verdier:
 
 ```json
