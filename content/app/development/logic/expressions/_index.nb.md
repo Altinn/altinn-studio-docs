@@ -198,26 +198,27 @@ evalExpression(["component", "alder"], "navn-1"); // Eksempel 4
 
 Disse funksjonene er tilgjengelige for bruk i uttrykk:
 
-| Funksjonsnavn                                                        | Parametre                                          | Returverdi                      | Frontend | Backend | 
-|----------------------------------------------------------------------|----------------------------------------------------|---------------------------------|----------|---------|
-| [`equals`](#equals--notequals)                                       | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)      | ✅        | ✅       |
-| [`notEquals`](#equals--notequals)                                    | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)      | ✅        | ✅       |
-| [`not`](#not)                                                        | [Boolsk](#boolske-verdier)                         | [Boolsk](#boolske-verdier)      | ✅        | ✅       |
-| [`greaterThan`](#greaterthan--greaterthaneq--lessthan--lessthaneq)   | [Tall](#tall), [Tall](#tall)                       | [Boolsk](#boolske-verdier)      | ✅        | ✅       |
-| [`greaterThanEq`](#greaterthan--greaterthaneq--lessthan--lessthaneq) | [Tall](#tall), [Tall](#tall)                       | [Boolsk](#boolske-verdier)      | ✅        | ✅       |
-| [`lessThan`](#greaterthan--greaterthaneq--lessthan--lessthaneq)      | [Tall](#tall), [Tall](#tall)                       | [Boolsk](#boolske-verdier)      | ✅        | ✅       |
-| [`lessThanEq`](#greaterthan--greaterthaneq--lessthan--lessthaneq)    | [Tall](#tall), [Tall](#tall)                       | [Boolsk](#boolske-verdier)      | ✅        | ✅       |
-| [`concat`](#concat)                                                  | Ingen eller flere [strenger](#strenger)            | [Streng](#strenger)             | ✅        | ✅       |
-| [`and`](#and--or)                                                    | En eller flere [boolske verdier](#boolske-verdier) | [Boolsk](#boolske-verdier)      | ✅        | ✅       |
-| [`or`](#and--or)                                                     | En eller flere [boolske verdier](#boolske-verdier) | [Boolsk](#boolske-verdier)      | ✅        | ✅       |
-| [`if`](#if)                                                          | [Se detaljert beskrivelse](#if)                    | [Se detaljert beskrivelse](#if) | ✅        | ✅       |
-| [`instanceContext`](#instancecontext-oppslag)                        | [Streng](#strenger)                                | [Streng](#strenger)             | ✅        | ✅       |
-| [`frontendSettings`](#frontendsettings-oppslag)                      | [Streng](#strenger)                                | [Streng](#strenger)             | ✅        | ✅       |
-| [`component`](#component-oppslag)                                    | [Streng](#strenger)                                | [Streng](#strenger)             | ✅        | ✅       |
-| [`dataModel`](#datamodel-oppslag)                                    | [Streng](#strenger)                                | [Streng](#strenger)             | ✅        | ✅       |
+| Funksjonsnavn                                | Parametre                                          | Returverdi                           | Frontend | Backend | 
+|----------------------------------------------|----------------------------------------------------|--------------------------------------|----------|---------|
+| [`equals`](#func-equals)                     | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
+| [`notEquals`](#func-equals)                  | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
+| [`not`](#func-not)                           | [Boolsk](#boolske-verdier)                         | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
+| [`greaterThan`](#func-gt)                    | [Tall](#tall), [Tall](#tall)                       | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
+| [`greaterThanEq`](#func-gt)                  | [Tall](#tall), [Tall](#tall)                       | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
+| [`lessThan`](#func-gt)                       | [Tall](#tall), [Tall](#tall)                       | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
+| [`lessThanEq`](#func-gt)                     | [Tall](#tall), [Tall](#tall)                       | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
+| [`concat`](#func-concat)                     | Ingen eller flere [strenger](#strenger)            | [Streng](#strenger)                  | ✅        | ✅       |
+| [`and`](#func-and)                           | En eller flere [boolske verdier](#boolske-verdier) | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
+| [`or`](#func-and)                            | En eller flere [boolske verdier](#boolske-verdier) | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
+| [`if`](#func-if)                             | [Se detaljert beskrivelse](#if)                    | [Se detaljert beskrivelse](#func-if) | ✅        | ✅       |
+| [`instanceContext`](#func-instancecontext)   | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅        | ✅       |
+| [`frontendSettings`](#func-frontendsettings) | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅        | ✅       |
+| [`component`](#func-component)               | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅        | ✅       |
+| [`dataModel`](#func-datamodel)               | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅        | ✅       |
 
+Detaljerte beskrivelser og eksempler
 
-### `equals` / `notEquals`
+{{% expandlarge id="func-equals" header="equals / notEquals" %}}
 Disse to funksjonene sammenligner to strenger for å sjekke om de er like (`equals`) eller ulike (`notEquals`). Om
 du sender inn andre verdier enn strenger, blir verdiene konvertert og sammenlignet som strenger
 ([les mer om konvertering her](#strenger)).
@@ -239,39 +240,71 @@ Eksempler:
 }
 ```
 
-### `not`
+`notEquals` er i prinsippet det samme som, og en snarvei til, `["not", ["equals", ...]]`.
+
+Se også tips og triks under [_Streng eller mindre streng sammenligning?_](#streng-eller-mindre-streng-sammenligning)
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-not" header="not" %}}
+Denne funksjonen tar inn en [boolsk verdi](#boolske-verdier) eller noe som kan konverteres til en boolsk verdi, og
+returnerer den motsatte boolske verdien. Sann blir til usann, usann blir til sann.
+
+Funksjonen kan være nyttig om du ønsker å _snu_ et uttrykk. Istedenfor å tenke at du skal skrive et uttrykk som
+_skjuler_ en komponent gitt noen forutsetninger, kan du pakke uttrykket inn i `not` og skrive uttrykket ut fra 
+hva som skal til for å _vise_ komponenten:
+
+```json
+{
+  "id": "lastName",
+  "type": "Input",
+  ...
+  "hidden": ["not",
+    ["or",
+       ["dataModel", "ShowLastName"],
+       ["frontendSettings", "ShowAllFields"]
+    ]
+  ]
+}
+```
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-gt" header="greaterThan / greaterThanEq / lessThan / lessThanEq" %}}
 TODO: Beskriv funksjonene
+{{% /expandlarge %}}
 
-### `greaterThan` / `greaterThanEq` / `lessThan` / `lessThanEq`
+{{% expandlarge id="func-concat" header="concat" %}}
+TODO: Beskriv funksjonen
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-and" header="and / or" %}}
 TODO: Beskriv funksjonene
+{{% /expandlarge %}}
 
-### `concat`
+{{% expandlarge id="func-if" header="if" %}}
 TODO: Beskriv funksjonen
+{{% /expandlarge %}}
 
-### `and` / `or`
-TODO: Beskriv funksjonene
-
-### `if`
+{{% expandlarge id="func-instancecontext" header="instanceContext (oppslag)" %}}
 TODO: Beskriv funksjonen
+{{% /expandlarge %}}
 
-### `instanceContext` (oppslag)
+{{% expandlarge id="func-frontendsettings" header="frontendSettings (oppslag)" %}}
 TODO: Beskriv funksjonen
+{{% /expandlarge %}}
 
-### `frontendSettings` (oppslag)
+{{% expandlarge id="func-component" header="component (oppslag)" %}}
 TODO: Beskriv funksjonen
+{{% /expandlarge %}}
 
-### `component` (oppslag)
+{{% expandlarge id="func-datamodel" header="dataModel (oppslag)" %}}
 TODO: Beskriv funksjonen
-
-### `dataModel` (oppslag)
-TODO: Beskriv funksjonen
+{{% /expandlarge %}}
 
 ## Datatyper
 Funksjoner i uttrykkene har en forventning om at argumentene som blir sendt inn har en spefikk type. Dersom et argument
-blir sendt inn har en annen type enn forventet, blir verdien til argumentet forsøkt konvertert til riktig type. Som
-et eksempel forventer funksjonen `equals` at begge argumentene er strenger, men om du sender inn den boolske verdien
-`true` som det ene eller andre argumentet fungerer det også fint, siden den boolske verdien `true` blir konvertert til
-strengen `"true"`.
+blir sendt inn har en annen type enn forventet, blir verdien forsøkt konvertert til riktig type. Som et eksempel
+forventer funksjonen `equals` to strenger, men om du sender inn den boolske verdien `true` som det ene eller andre
+argumentet fungerer det også fint, siden den boolske verdien `true` blir konvertert til strengen `"true"`.
 
 ```json
 ["equals", true, "true"]
@@ -283,13 +316,12 @@ datatype og f.eks. sammenligne med en helt annen datatype. Les mer om hvilke dat
 under.
 
 Alle funksjoner som forventer en spesifikk datatype som argument vil også kunne fungere om man sender
-inn [null](#null), men noen steder vil en `null`-verdi gi en feilmelding (f.eks. dersom man prøver å slå opp i
-datamodellen med `["dataModel", null]`, mens i f.eks. `concat`-funksjonen vil en `null`-verdi bli konvertert til
-en tom streng).
+inn [`null`](#null), men noen steder vil en `null`-verdi gi en feilmelding - for eksempel om man prøver å slå opp i
+datamodellen med `["dataModel", null]`. I `concat`-funksjonen vil derimot en `null`-verdi bli tolket som en tom streng.
 
 ### Strenger
-Strenger inneholder vilkårlig tekst, og er en bred datatype som tall og boolske verdier kan konverteres til. Funksjoner
-som 
+Strenger inneholder vilkårlig tekst, og er en bred datatype som tall og boolske verdier kan konverteres til.
+
 Noen strenger kan også konverteres til andre datatyper:
 
 | Strengverdi                                                            | Kan erstatte               | Eksempler                  |
@@ -302,15 +334,111 @@ Noen strenger kan også konverteres til andre datatyper:
 Alle andre strenger enn de i tabellen over vil gi feilmelding om de blir forsøkt konvertert til andre typer.
 
 ### Tall
-Tallverdier gjelder positive og negative heltall og flyttall (tall med komma).
-TODO: Beskriv tall
+Tallverdier gjelder positive og negative heltall og flyttall (tall med komma). Noen strenger blir også konvertert
+automatisk til en tallverdi, som vist i tabellen til strenger over. For at konvertering av en streng til et tall
+skal fungere, må strengen oppfylle følgende:
+
+* Strengen inneholder bare et tall, ingen annen tekst foran/bak tallet
+* Negativt fortegn (`-`) kan brukes, men positivt fortegn (`+`) støttes ikke.
+* Flyttall må representeres med punktum, ikke komma.
+* Tusenskilletegn eller annen tallformattering støttes ikke.
+
+Alle andre strenger vil gi en feilmelding om de blir forsøkt konvertert til et tall. Forsøker man å konvertere en
+[boolsk verdi](#boolske-verdier) til et tall, gir det også en feilmelding.
+
+Funksjoner som forventer å få inn et tall kan også få inn [`null`](#null). Se mer om hvilken effekt det har under
+beskrivelsen til hver funksjon.
 
 ### Boolske verdier
-TODO: Beskriv boolske verdier
+Boolske verdier omfatter `true` (sann) og `false` (usann). Når man kaller en funksjon som forventer å få inn en boolsk
+verdi, kan man også sende inn enkelte andre typer, som blir konvertert til en boolsk verdi:
+
+* Tallene `1` og `0` fungerer som henholdsvis `true` og `false`
+* Strengene `"1"` og `"0"` fungerer likt som tallene (og blir henholdsvis `true` og `false`)
+* Strengene `"true"` og `"false"` konverteres også til en boolsk verdi
+* Verdien [`null`](#null) fungerer likt som `false`
+
+Alle andre verdier gir en feilmelding om de blir sendt til en funksjon som forventer en boolsk verdi. Legg merke til
+at disse reglene er litt forskjellige fra reglene til [strenger](#strenger). Det er dermed forskjell på hvilke verdier
+som kan _tolkes_ som en boolsk verdi for en funksjon som forventer et boolsk argument - og hvilke verdier som er _like_
+en boolsk verdi. Funksjonen [`equals`](#func-equals) sammenligner verdier som strenger, og dermed vil tallet `1` og
+strengen `"1"` sammenlignes som like, men den vil ikke gjenkjenne `1` og `true` som like verdier.
+
+Det kan kanskje se ut som følgende uttrykk er like:
+
+1. `"hidden": ["dataModel", "hideName"]`
+2. `"hidden": ["equals", ["dataModel", "hideName"], true]`
+3. `"hidden": ["if", ["dataModel", "hideName"], true, "else", false]`
+
+Hvis verdien (her gitt fra oppslaget `["dataModel", "hideName"]`) er `true` eller `"true"` vil
+komponenten skjules, men dersom verdien er `1` eller `"1"` vil komponenten bare skjules med uttrykkene i alternativ
+1 og 3. Dette fordi resultatet i uttrykket for `hidden` [konverteres til en boolsk verdi](#bruksområder), og
+`if` [forventer en boolsk verdi som første argument](#func-if). Derimot vil `equals` sammenligne verdiene som strenger,
+og `"1"` er ikke lik `"true"`.
+
+Se også tips og triks under [_Streng eller mindre streng sammenligning?_](#streng-eller-mindre-streng-sammenligning)
 
 ### Null
-Alle steder hvor man forventer å få inn en [streng](#strenger), [tall](#tall) eller [boolske verdier](#boolske-verdier)
-skal 
+De fleste steder hvor man forventer å få inn en [streng](#strenger), [tall](#tall) eller
+[boolske verdier](#boolske-verdier) skal også tåle en `null`-verdi. Null-verdier indikerer at en spesifikk verdi
+mangler, og det er forskjell på f.eks. en `null`-verdi, en tom [streng](#strenger) og [tallet](#tall) `0`.
 
-## Vise/skjule hele sider
-TODO: Beskriv hvordan uttrykk kan brukes til å vise/skjule hele sider
+Dersom man gjør et oppslag i en funksjon som `dataModel`, og verdien man leter etter ikke finnes/er satt, vil som regel
+`null` bli resultatet.
+
+## Tips og triks
+
+### Vise/skjule hele sider
+Uttrykk kan brukes til å vise/skjule hele sider. I eksempelet under vil hele siden  skjules dersom en komponent
+(på en av de andre sidene) har verdien _no_ eller ikke er satt.
+
+```json
+{
+   "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
+   "data": {
+      "hidden": ["or",
+         ["equals", ["component", "hasComplaints"], "no"],
+         ["equals", ["component", "hasComplaints"], null]
+      ],
+      "layout": [
+         ...
+      ]
+   }
+}
+```
+
+Dette kan sees på som et alternativ til [sporvalg-funksjonaliteten](../../ux/pages/tracks), men i motsetning til
+sporvalg gjøres utregningen av disse uttrykkene i _både_ frontend _og_ backend, dermed er det ikke nødvendig å legge
+til `"triggers": ["calculatePageOrder"]` for å få funksjonaliteten til å fungere.
+
+### Streng eller mindre streng sammenligning?
+Måten uttrykkene kjøres på gjør at de kan virke litt strenge (ved at f.eks. `0` og `null` er ulike verdier når man
+sammenligner med `equals`). Det er et designvalg gjort i Altinn av to grunner:
+
+1. Strenge regler er tydelige regler. Uttrykkene vil heller gi en feilmelding om noe ikke er som forventet, enn å la deg
+lure på hvorfor det ble slikt det ble.
+2. Hvis uttrykkene behandler mange ulike verdier som like, fratar vi deg muligheten til å skille mellom dem om du skulle
+ønske det.
+
+Om man ønsker mindre streng sammenligning, kan man f.eks. konstruere et uttrykk som bruker [`or`](#func-or)-funksjonen
+til å gjenkjenne flere forskjellige verdier:
+
+```json
+["or",
+   ["equals", ["dataModel", "My.Path"], 0],
+   ["equals", ["dataModel", "My.Path"], false],
+   ["equals", ["dataModel", "My.Path"], null],
+   ["equals", ["dataModel", "My.Path"], ""]
+]
+```
+
+Husk også at konvertering til [boolsk verdi](#boolske-verdier) tillater flere alternativer enn strenger
+(som `equals` forventer). Siden funksjonen `or` forventer boolske verdier som argumenter, og verdiene
+`0`, `false` og `null` allerede tillates som boolske verdier vil følgende fungere likt som uttrykket over:
+
+```json
+["or",
+   ["dataModel", "My.Path"],
+   ["equals", ["dataModel", "My.Path"], ""],
+]
+```
