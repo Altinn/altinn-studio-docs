@@ -183,7 +183,7 @@ An example of a configuration in application metadata:
 The application developer is responsible for creating the message that will follow a shipment through eFormidling.
 [Read about the various message types available in eFormidling.](https://docs.digdir.no/eformidling_nm_message.html#meldingstypene)
 
-In versions 4, 5 and 6 this was achieved by including the function below in _App.cs_. While in version 7 this is done by adding a class that implements the IEFormidlingMetadata interface which has the same method signature. Remember that in version 7 your implementation need to be registered in _Program.cs_.
+In versions 4, 5 and 6 this was achieved by including the function below in _App.cs_. While in version 7 this is done by adding a class that implements the `IEFormidlingMetadata` interface which has the same method signature. Remember that in version 7 your implementation need to be registered in _Program.cs_.
 
 Expected output from this function is a tuple containing two elements.
 First, the name of the metadata file and then a stream containing the metadata.
