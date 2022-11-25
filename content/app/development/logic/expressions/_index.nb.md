@@ -257,7 +257,6 @@ hva som skal til for å _vise_ komponenten:
 {
   "id": "lastName",
   "type": "Input",
-  ...
   "hidden": ["not",
     ["or",
        ["dataModel", "ShowLastName"],
@@ -396,6 +395,11 @@ Denne oppslagsfunksjonen gjør det mulig å hente verdier direkte fra gjeldende 
 må peke et sted i datamodellen, og bruker det samme punktum-separerte formatet som brukt i `dataModelBindings`. Ved
 bruk inne i [repeterende grupper](../../ux/fields/grouping/repeating) trenger man _ikke_ bruke plassholdere for
 indekser til gruppen - uttrykket finner selv den relative plasseringen i kontekst av en repeterende gruppe.
+
+Legg merke til at oppslag bare fungerer mot [datatyper](#datatyper) som allerede er støttet i uttrykkene. Dersom man
+slår opp et objekt eller en liste/array i datamodellen med `dataModel`-funksjonen får man alltid resultatet `null`.
+Legg merke til at denne funksjonaliteten kan endres, og det er planlagt bedre støtte for lister og objekter i
+uttrykkene i fremtiden.
 
 Eksempel på oppslag i repeterende gruppe:
 
@@ -607,6 +611,6 @@ Husk også at konvertering til [boolsk verdi](#boolske-verdier) tillater flere a
 ```json
 ["or",
    ["dataModel", "My.Path"],
-   ["equals", ["dataModel", "My.Path"], ""],
+   ["equals", ["dataModel", "My.Path"], ""]
 ]
 ```
