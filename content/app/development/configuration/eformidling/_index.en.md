@@ -9,7 +9,11 @@ weight: 400
 
 {{%notice info%}}
 Nuget versions >= 4.22.0 are required for your application to support eFormidling.
-[See how to update the nuget references of your application here](../update/#nuget-pakker).
+[See how to update the nuget references of your application here](../update/#nuget-pakker).  
+{{% /notice%}}
+
+{{%notice info%}}
+In version 7 a change was introduced to ensure that the application knows the delivery status of messages sent through eFormidling and in the case of a failed delivery will log this explicitly. This introduces the need for [inbound event support in the application](/app/development/logic/events)   
 {{% /notice%}}
 
 Integration with eFormidling needs to be explicitly activated in the application. 
@@ -45,7 +49,9 @@ Create the section _AppSettings_, if it does not already exist, and set _EnableE
     "EnableEFormidling": false
 }
 ```
+{{<content-version-selector classes="border-box">}}
 
+{{<content-version-container version-label="v4, v5, v6">}}
 ## Adding support for eFormidling in App.cs
 
 The next step in setting up support of eFormidling , 
@@ -116,6 +122,17 @@ appsettings,
 platformSettings,
 tokenGenerator)
 ```
+{{</content-version-container>}}
+
+{{<content-version-container version-label="v7">}}
+eFormidling integration is a part of the Altinn.App.Core nuget package, but is not enabled by default. In order to add support for eFormidling in your application you need to register it's services by adding the following to _Program.cs_:
+
+```csharp
+services.AddEFormidlingServices<EFormidlingMetadata, EFormidlingReceivers>(config);
+```
+{{</content-version-container>}}
+
+{{</content-version-selector>}}
 
 ## Configuring key values for eFormidling in your application
 
@@ -166,9 +183,9 @@ An example of a configuration in application metadata:
 The application developer is responsible for creating the message that will follow a shipment through eFormidling.
 [Read about the various message types available in eFormidling.](https://docs.digdir.no/eformidling_nm_message.html#meldingstypene)
 
-This is achieved by including the function below in _App.cs_.
+In versions 4, 5 and 6 this was achieved by including the function below in _App.cs_. While in version 7 this is done by adding a class that implements the IEFormidlingMetadata interface which has the same method signature. Remember that in version 7 your implementation need to be registered in _Program.cs_.
 
-Expected output from this function is a tuple containing to elements.
+Expected output from this function is a tuple containing two elements.
 First, the name of the metadata file and then a stream containing the metadata.
 
 ```cs
@@ -190,22 +207,21 @@ public override async Task<(string, Stream)> GenerateEFormidlingMetadata(Instanc
 ```
 
 ## Dynamically setting the shipment receiver
-
-In _App.cs_ it is possible to override the method retrieving the receiver from _applicationmetadata.json_.
 This functionally can be used whenever the receiver of a shipment is to be determined dynamically.
 
+{{<content-version-selector classes="border-box">}}
+
+{{<content-version-container version-label="v4, v5, v6">}}
+In _App.cs_ it is possible to override the method retrieving the receiver from _applicationmetadata.json_.
 Three steps are required when defining the receiver in the application logic, 
 and all steps are executed in _App.cs_.
 
-1. At the top of the file, a reference to the eFormidling library must be included.
-
-  ```cs
-  using Altinn.Common.EFormidlingClient.Models.SBD;
-  ```
-
-2. Include the function below in the class.
+1. At the top of the file, a reference to the eFormidling library must be included.  
+    ```cs
+    using Altinn.Common.EFormidlingClient.Models.SBD;
+    ```
+2. Include the function below in the class.  
    Expected output from this method is a list containing at least one receiver object.
-
     ```cs
     public override async Task<List<Receiver>> GetEFormidlingReceivers(Instance instance)
     {
@@ -221,33 +237,49 @@ and all steps are executed in _App.cs_.
         return new List<Receiver> { receiver };
     }
     ```
-
-3. Add custom logic to populate _identifier.Value_ in the function.
+3. Add custom logic to populate _identifier.Value_ in the function.  
    Note that only Norwegian organisations are supported, 
    and that the prefix `0192:` is required before the organisation number.
+{{</content-version-container>}}
+{{<content-version-container version-label="v7">}}
+In version 7 the GetEformidlingReceivers method is moved to the `IEFormidlingReceivers` interface. Create a class that implements this interface and register the implementation in _Program.cs_. Below is a skeleton example for the implementation.
+```csharp
+public async Task<List<Receiver>> GetEFormidlingReceivers(Instance instance)
+{
+    Identifier identifier = new Identifier
+    {
+        Authority = "iso6523-actorid-upis"
+    };
 
+    // 0192 prefix for all Norwegian organisations.
+    identifier.Value = "[INSERT ORGANISATION NUMBER HERE WITH PREFIX `0192:`]" ;
 
+    Receiver receiver = new Receiver { Identifier = identifier };
+    return new List<Receiver> { receiver };
+}
+```
+{{</content-version-container>}}
+
+{{</content-version-selector>}}
 ## Testing eFormidling integration locally
 
 It is possible to test the eFormidling integration for an application in
 your development environment. 
 In addition to Altinn's Localtest, and the application, there are two things that need to run: 
 1. eFormidling integration point (Integrasjonspunktet)
-2. A mock of eFormidling
+2. A mock of eFormidling    
 
 ### Setup
 
-1. Install the latest version of Java.
+1. Install the latest version of Java.  
    [Download link and installation guide is available here](https://docs.oracle.com/cd/E19182-01/821-0917/inst_jdk_javahome_t/index.html)
 2. In the next steps you will be downloading a number of files.
    Define a suitable placement for everything eFormidling related on your local machine and navigate there in your terminal.
 3. Clone the eFormidling mock repository with the following command
-
     ```cmd
     git clone --branch development https://github.com/felleslosninger/efm-mocks.git
     ```
-
-4. [Download the integration point](https://docs.digdir.no/eformidling_download_ip.html). 
+4. [Download the integration point](https://docs.digdir.no/eformidling_download_ip.html).  
    The contents can be places at the same level as the `efm-mocks` folder.
    
 
@@ -259,6 +291,7 @@ In addition to Altinn's Localtest, and the application, there are two things tha
 4. Run the command `java -Xmx2g -Dspring.profiles.active=mock -jar integrasjonspunkt-2.2.6.jar`
    If you have a newer version of the integration point, the commands last section should be adjusted to reflect this.
 
+This has a known issue that prevents it from running on Docker Desktop on Windows, but works on Mac.
 
 #### Verify that eFormidling is set up correctly
 
