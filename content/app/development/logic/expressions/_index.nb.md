@@ -398,8 +398,7 @@ indekser til gruppen - uttrykket finner selv den relative plasseringen i konteks
 
 Legg merke til at oppslag bare fungerer mot [datatyper](#datatyper) som allerede er støttet i uttrykkene. Dersom man
 slår opp et objekt eller en liste/array i datamodellen med `dataModel`-funksjonen får man alltid resultatet `null`.
-Legg merke til at denne funksjonaliteten kan endres, og det er planlagt bedre støtte for lister og objekter i
-uttrykkene i fremtiden.
+Denne funksjonaliteten kan endres, da det er planlagt støtte for objekter og lister i uttrykkene i fremtiden.
 
 Eksempel på oppslag i repeterende gruppe:
 
