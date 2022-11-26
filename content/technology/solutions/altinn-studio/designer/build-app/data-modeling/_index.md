@@ -11,5 +11,4 @@ be used for validation both from UI and for external systems.
 
 ![Editor for enkel datamodellering](data-modelling.png "Data modell editor")
 
-
-Read all about data the data modelling tool in the [Application development handbook.]
+Read all about data the data modelling tool in the [Application development handbook.](../../../../../../app/development/data/data-model/)
