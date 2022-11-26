@@ -113,4 +113,11 @@ some simple scenarios you would only need to reference a static XACML Policy.
 
 If context handler need to enrich
 
+## Construction diagram Authorization
+
+![Construction](authorization.drawio.svg "Construction diagram Altinn authorization")
+
+
+
+
 {{<children>}}
