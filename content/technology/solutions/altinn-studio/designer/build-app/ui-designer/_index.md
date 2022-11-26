@@ -2,6 +2,7 @@
 title: UI Design
 description: The UI-designer is the part of Altinn Studio where the developer can create UI for the app.
 toc: true
+weight: 3
 ---
 
 The possibility to effectly build a user friendly user interface for an app, is an essential feature for Altinn Studio.
@@ -28,9 +29,11 @@ It is also possible to define custom components and use this in the app.
 
 
 ## Multiple form layouts
-In the future Altinn Studio will support creating different UI for seperate datamodels for sub forms or forms in seperate form filling task in a process.
+
+Altinn Studio supports creating form layous for multiple data models.
+
+Read all about UI-desing in [Application development handbook.](../../../../../../app/development/ux/)
 
 
-[See all Github issues for UI-editor](https://github.com/Altinn/altinn-studio/labels/area%2Fui-editor).
 
 {{<children>}}

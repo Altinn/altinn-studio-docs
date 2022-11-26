@@ -9,5 +9,3 @@ The dashboard lets the developer search for apps, create new apps, list all orgs
 ![Dashboard](dashboard.png "Dashboard")
 
 [See Getting started for more info on how to use dashboard](../../../../../../app/getting-started/create-app/).
-
-[See all issues for dashboard on Github](https://github.com/Altinn/altinn-studio/labels/area%2Fdashboard).
