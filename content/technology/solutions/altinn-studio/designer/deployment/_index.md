@@ -11,4 +11,5 @@ When build is complete the build can be deployed to a given environment.
 
 ![Build & Deploy](deploy.png "Build & deploy")
 
-[See issues related to app-deployment on Github](https://github.com/Altinn/altinn-studio/labels/area%2Fapp-deployment).
+
+Read more about deployment in the [Application development handbook.](../../../../../app/deployment/)

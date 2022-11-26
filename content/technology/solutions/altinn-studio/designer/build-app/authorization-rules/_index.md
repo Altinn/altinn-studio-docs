@@ -2,6 +2,7 @@
 title: Set Authorization Rules
 linktitle: Authorization
 description: Altinn Studio let the developer set the authorization requirements for a App
+weight: 6
 ---
 
 
