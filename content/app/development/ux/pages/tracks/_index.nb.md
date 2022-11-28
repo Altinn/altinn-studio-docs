@@ -8,6 +8,12 @@ weight: 20
 Dynamisk sporvalg i en applikasjon kan være nyttig dersom man ønsker å vise og/eller skjule enkelte sider 
 basert input fra sluttbruker på forutgående deler av skjemaet. 
 
+{{% panel theme="warning" %}}
+⚠️ Sporvalg støttes fortsatt, men på sikt blir funksjonaliteten fjernet. Skjuling av hele sider støttes nå
+fortrinnsvis med [dynamiske uttrykk](../../../logic/expressions)
+(se hvordan [sider vises/skjules her](../../../logic/expressions#viseskjule-hele-sider)).
+{{% /panel %}}
+
 ## Trigge kalkulering av sporvalg fra frontend
 
 Appen vil gjøre et initielt kall for å kalkulere rekkefølgen ved innlasting. For å trigge kalkuleringingen av sporvalg på sidebytte må man legge inn dette som en trigger på den aktuelle navigasjons-komponenten man ønsker.

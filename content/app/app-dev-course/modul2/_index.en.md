@@ -89,7 +89,7 @@ A user who does not meet the requirements for the form should be stopped as earl
 
 On the information page, the user should be able to state whether the form applies to them or not.
 
-How this is done is optional, and the field `Innflytter.KanBrukeSkjema` in the datamodel is possible to use for this purpose.
+How this is done is optional, and the field `Innflytter.KanBrukeSkjema` in the data model is possible to use for this purpose.
 
 Based on the answer, the user will be sent to either _Track 1_ or _Track 2_.
 
@@ -107,9 +107,6 @@ Based on the answer, the user will be sent to either _Track 1_ or _Track 2_.
 - Line 2 in the text should be a link directing to:
 https://www.sogndal.kommune.no/
 
-
-- It should not be possible to navigate to other pages of the form from this one.
-
 ### Track 2
 
 - The user has confirmed that the form does apply to them.
@@ -117,11 +114,12 @@ https://www.sogndal.kommune.no/
 - The user is sent to the data collecting pages.
 
 ### Useful documentation
-- [How to set up dynamic tracks](/app/development/ux/pages/tracks/)
+- [Dynamic expressions](/app/development/logic/expressions)
+- [How to hide an entire page](/app/development/logic/expressions#hide-entire-pages)
 - [Formatting of texts](/app/development/ux/texts/#formatting-of-texts)
 
 ### Knowledge check
-- If a user goes back and changes their answer on the info page, will they then be displayed the data collecting pages? If not, what changes can you introduce to support this in your application?
+- If a user goes back and changes their answer on the info page, will they then be displayed the data collecting pages?
 - If dynamic tracks is implemented further into the workflow and a user changes a choice, what will happen with the form data that was filled out prior to this, if the page is now hidden from the user?
 {{% /expandlarge %}}
 
