@@ -7,7 +7,7 @@ toc: true
 {{% panel theme="warning" %}}
 ⚠️ Dynamikk er et område under aktiv utvikling. Logikk-filer skrevet i JavaScript fases etterhvert ut og blir erstattet
 av [dynamiske uttrykk](../expressions). Foreløpig gjelder dette dynamikk for vis/skjul, men etterhvert skal uttrykk
-også kunne brukes for å utføre beregninger.
+også kunne brukes for å utføre beregninger og styre valideringsmeldinger.
 {{% /panel %}}
 
 ## Introduksjon

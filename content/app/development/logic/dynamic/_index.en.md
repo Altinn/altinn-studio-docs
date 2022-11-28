@@ -5,6 +5,12 @@ tags: [dynamics]
 toc: true
 ---
 
+{{% panel theme="warning" %}}
+⚠️ Dynamics are under active development. The `RuleHandler.js` file will in the future be replaced by
+[dynamic expressions](../expressions). Currently only show/hide dynamics are supported using expressions, but
+calculation and validation will be supported in the future.
+{{% /panel %}}
+
 ## Introduction
 
 Dynamics are events that happen on the client side. These can be separated in two categories:
