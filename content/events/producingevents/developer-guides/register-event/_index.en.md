@@ -1,7 +1,7 @@
 ---
-title: Publish events 
-linktitle: Publis events
-description: Guid on how to publish events to Altinn
+title: Publishing events
+linktitle: Publish events
+description: How-to guide to publishing events to Altinn
 weight: 50
 ---
 
@@ -10,3 +10,4 @@ weight: 50
 TODO
 Ready for documentation. Functionality implemented in https://github.com/Altinn/altinn-events/issues/103
 {{% /notice %}}
+
