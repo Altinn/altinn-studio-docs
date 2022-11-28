@@ -1,7 +1,8 @@
 ---
 title: Developer guides
 linktitle: Developer guides
-description: Developer guides for event producer scenarios
-toc: true
-weight: 20
+description: Guides for the most common event producer actions
+weight: 50
 ---
+
+{{<children>}}

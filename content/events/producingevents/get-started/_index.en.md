@@ -1,13 +1,9 @@
 ---
 title: Get started
 linktitle: Get started
-description: Steps for getting started as an event producer
-toc: true
+description: An overview over administrative tasks required before producing events 
 weight: 20
 ---
 
 
-## Get Authorization credentials
-
-
-## Public event producers
+{{<children>}}
