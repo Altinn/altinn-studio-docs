@@ -377,7 +377,7 @@ oppslagsfunksjonene, og gjøres for å sikre at man ikke prøver å hente inform
 instansdata som ikke er tilgjengelig i denne funksjonen.
 
 
-Oppslaget gjøres i samme datakilde som er tilgjengelig for [språk/tekster](../../ux/texts#datakilder).
+Oppslaget gjøres i samme datakilde som er tilgjengelig for [språk/tekster](../../ux/texts#data-sources).
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-frontendsettings" header="frontendSettings (oppslag)" %}}
