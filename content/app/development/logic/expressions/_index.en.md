@@ -376,6 +376,7 @@ oppslagsfunksjonene, og gjøres for å sikre at man ikke prøver å hente inform
 (enda) er eksponert via en nøkkel her. [Gi oss en tilbakemelding](https://github.com/Altinn/app-frontend-react/issues/new?assignees=&labels=kind%2Ffeature-request%2Cstatus%2Ftriage&template=feature_request.yml) om du har ønsker om å hente ut
 instansdata som ikke er tilgjengelig i denne funksjonen.
 
+
 Oppslaget gjøres i samme datakilde som er tilgjengelig for [språk/tekster](../../ux/texts#datakilder).
 {{% /expandlarge %}}
 
@@ -383,7 +384,7 @@ Oppslaget gjøres i samme datakilde som er tilgjengelig for [språk/tekster](../
 Dette oppslaget gjør det mulig å hente informasjon fra en datakilde som kan styres ulikt for hvert kjøretidsmiljø.
 
 Oppslaget gjøres i samme datakilde som er tilgjengelig for [språk/tekster, og oppsettet er beskrevet
-i detalj der](../../ux/texts#datakilder).
+i detalj der](../../ux/texts#data-sources).
 
 **Merk**: Datakilden heter `applicationSettings` når brukt i språk/tekster, men verdiene må alltid lagres under
 nøkkelen `FrontEndSettings` i `appsettings.{miljø}.json`). Av den grunn har funksjonen fått navnet `frontendSettings`
@@ -583,7 +584,7 @@ sporvalg gjøres utregningen av disse uttrykkene i _både_ frontend _og_ backend
 til `"triggers": ["calculatePageOrder"]` for å få funksjonaliteten til å fungere.
 
 Dersom siden man stod på blir skjult, vil applikasjonen automatisk gå videre til neste tilgjengelige side
-i [side-rekkefølgen](../../ux/pages/navigation#rekkefølge). Om alle de neste sidene er skjult, vises den første mulige
+i [side-rekkefølgen](../../ux/pages/navigation#order). Om alle de neste sidene er skjult, vises den første mulige
 siden i rekkefølgen istedenfor.
 
 ### Streng eller mindre streng sammenligning?
