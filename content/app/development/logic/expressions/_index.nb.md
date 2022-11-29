@@ -582,6 +582,10 @@ Dette kan sees på som et alternativ til [sporvalg-funksjonaliteten](../../ux/pa
 sporvalg gjøres utregningen av disse uttrykkene i _både_ frontend _og_ backend, dermed er det ikke nødvendig å legge
 til `"triggers": ["calculatePageOrder"]` for å få funksjonaliteten til å fungere.
 
+Dersom siden man stod på blir skjult, vil applikasjonen automatisk gå videre til neste tilgjengelige side
+i [side-rekkefølgen](../../ux/pages/navigation#rekkefølge). Om alle de neste sidene er skjult, vises den første mulige
+siden i rekkefølgen istedenfor.
+
 ### Streng eller mindre streng sammenligning?
 Måten uttrykkene kjøres på gjør at de kan virke litt strenge (ved at f.eks. `0` og `null` er ulike verdier når man
 sammenligner med `equals`). Det er et designvalg gjort i Altinn av to grunner:
