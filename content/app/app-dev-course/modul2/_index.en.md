@@ -115,7 +115,7 @@ https://www.sogndal.kommune.no/
 
 ### Useful documentation
 - [Dynamic expressions](/app/development/logic/expressions)
-- [How to hide an entire page](/app/development/logic/expressions#hide-entire-pages)
+- [How to hide an entire page](/app/development/logic/expressions#viseskjule-hele-sider)
 - [Formatting of texts](/app/development/ux/texts/#formatting-of-texts)
 
 ### Knowledge check
