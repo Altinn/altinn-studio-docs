@@ -20,22 +20,22 @@ A key to the solution is that there are mulitiple layout-sets that consists of o
 |- App/
   |- ui/
     | - layout-sets.json
-    |- skjema-a/
+    |- schema-a/
       |- Settings.json
       |- RuleHandler.js
       |- RuleConfiguration.json
       |- layouts/
-        |- side1.json
-        |- side2.json
-        |- side3.json
-    |- skjema-b/
+        |- page1.json
+        |- page2.json
+        |- page3.json
+    |- schema-b/
       |- Settings.json
       |- RuleHandler.js
       |- RuleConfiguration.json
       |- layouts/
-        |- side1.json
-        |- side2.json
-        |- side3.json  
+        |- page1.json
+        |- page2.json
+        |- page3.json  
 ```
 
 
@@ -48,7 +48,7 @@ Example:
 {
   "sets": [
     {
-      "id": "rf0002",
+      "id": "schema-a",
       "dataType": "schema_4222_160523_forms_212_20160523",
       "tasks": [
         "Task_1"
@@ -56,7 +56,7 @@ Example:
     },
 
     {
-      "id": "superform",
+      "id": "schema-b",
       "dataType": "schema_3161_140411_forms_1549_11554",
       "tasks": [
         "Task_2"

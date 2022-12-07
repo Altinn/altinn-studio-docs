@@ -10,6 +10,11 @@ weight: 10
 De forskjellige filene som brukes til å definere logikk på frontend, finner man i logikk-menyen,
 som er tilgjengelig i UI-editoren via  _f(x)_-ikonet øverst til høyre.
 
+{{% panel theme="warning" %}}
+⚠️ Dynamikk er et område under aktiv utvikling. Logikk-filer skrevet i JavaScript fases etterhvert ut og blir erstattet
+av [dynamiske uttrykk](../expressions).
+{{% /panel %}}
+
 ![Logikkmeny](ui-editor-logic-menu.png?height=300px "Logikkmeny")
 
 For backend så håndteres logikk gjennom forskjellige grensesnitt. Disse er beskrevet på de forskjellige sidene under dette området som f. eks. [data prosessering](../dataprocessing/).

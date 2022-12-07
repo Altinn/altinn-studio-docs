@@ -36,6 +36,11 @@ The following endpoints are intended for internal use only.
 
 - [OutboundController](https://github.com/Altinn/altinn-events/blob/main/src/Events/Controllers/OutboundController.cs) : forward events to authorized subscriber webhook endpoints, via `events-outbound` queue
 
+### Processing events
+
+_processing a single incoming event_
+
+![Sequence diagram - POST event](sequence-diagram-post-events.drawio.svg "Sequence diagram - POST event")
 
 ## Controller details
 Base API url: **/events/api/v1**
