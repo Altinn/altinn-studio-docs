@@ -66,10 +66,10 @@ Det er mulig å opprette en ny datamodell fra bunnen av:
 2. Skriv inn navnet på datamodellen i feltet.
 3. Klikk på _Opprett modell_.
 
-Datamodellen opprettes med utgangspunkt:
-- En rot-node med referanse til en type
+Datamodellen opprettes med følgende utgangspunkt:
+- En rotnode med referanse til en type
   - Typen får samme navn som navnet man har gitt modellen, og vises som en klikkbar boks på noden.
-  - Den inneholder et enkelt tekst-felt `e1`. Dette kan gis nytt navn, type, osv, eller slettes.
+  - Den inneholder et enkelt tekstfelt `e1`. Dette kan gis nytt navn, type, osv, eller slettes.
 
 For å redigere denne modellen, kan man gå til typen ved å klikke på den, eller ved å velge **Typer**-fanen og klikke
 på typen i listen. Her kan man legge til/redigere felter via kontekst-menyen på noden, eller legge til nye typer via 
@@ -88,11 +88,11 @@ For å redigere en datamodell må modellen være valgt i nedtrekkslisten. I till
 verktøyet. Valget her vil huskes til neste gang man er inne. 
 
 {{% notice info %}}
-Modellen lagres automatisk mens man jobber med den. For å generere opp modell-filer som XSD (og C#-fil for apper) må man
+Modellen lagres automatisk mens man jobber med den. For å generere opp modellfiler som XSD (og C#-fil for apper) må man
 trykke på _Generer modeller_-knappen øverst til høyre.
 {{% /notice %}}
 
-Merk at dersom man ønsker å endre en pre-definert _type_, må dette gjøres fra **Typer**-fanen. Dersom man ikke har 
+Merk at dersom man ønsker å endre en forhåndsdefinert _type_, må dette gjøres fra **Typer**-fanen. Dersom man ikke har 
 definert noen gjenbrukbar type for et felt eller gruppe, kan det redigeres direkte fra **Modell**-fanen.
 
 ### Redigere navn på felt

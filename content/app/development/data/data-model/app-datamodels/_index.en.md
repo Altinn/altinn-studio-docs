@@ -17,7 +17,7 @@ En applikasjon har 4 modell-filer:
   filen i appen, og kun generere den ved behov_.
 
 
-Datamodeller for en applikasjon kan bygges fra bunn av, eller lastes opp, i verktøyet 
+Datamodeller for en applikasjon kan bygges fra bunnen av, eller lastes opp, i verktøyet 
 [Altinn Studio Datamodellering][2].
 
 [1]: https://altinn.studio/repos

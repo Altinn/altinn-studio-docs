@@ -50,7 +50,7 @@ Alle modeller som er lastet opp i verktøyet for en app eller `<org>-datamodels`
 XSD'er som ligger i repo som ikke har noen tilknyttede modell-filer (JSONSchema) vil også vises i listen, se neste 
 avsnitt for mer info.
 
-### Spesielt for datamodellering på organisasjons-nivå
+### Spesielt for datamodellering på organisasjonsnivå
 Når man jobber mot et datamodell-repo på organisasjonsnivå (i stedet for direkte mot en app), er det 2 grupper med
 datamodeller som vises i nedtrekkslisten. 
 - Den første er _JSONSchema_ - dette er modellene der man har hentet inn/lastet
