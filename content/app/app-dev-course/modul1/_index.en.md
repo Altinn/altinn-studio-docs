@@ -55,7 +55,7 @@ edit it in for example Visual Studio or a text editing program of your own choos
 1. [Download the xsd-file](datamodel.xsd), open it in a text editing program
    and take a closer look at the contents.
 
-2. [Upload the data model in Altinn Studio](/app/development/data/data-model/#upload--show-data-model)
+2. [Upload the data model in Altinn Studio](/app/development/data/data-model/data-models-tool/#laste-opp--vise-datamodell)
 
 3. Push the changes to master and take a closer look at the files in the folder `App/models`
 
@@ -69,7 +69,7 @@ edit it in for example Visual Studio or a text editing program of your own choos
 - Some restrictions from the data model is not transferred to the _C#_-file, which ones? Some new properties has also been added, which ones?
 
 ### Useful documentation
-- [Upload data model in Altinn Studio](/app/development/data/data-model/#upload--show-data-model)
+- [Upload data model in Altinn Studio](/app/development/data/data-model/data-models-tool/#laste-opp--vise-datamodell)
 - [Description of indicators in XSD](https://www.w3schools.com/xml/schema_complex_indicators.asp)
 
 {{% /expandlarge %}}
