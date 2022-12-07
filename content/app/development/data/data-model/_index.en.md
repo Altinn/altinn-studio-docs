@@ -1,7 +1,7 @@
 ---
-title: Datamodell i Altinn Studio
-linktitle: Datamodell
-description: Informasjon om datamodeller og datamodellering i Altinn Studio
+title: Datamodels in Altinn Studio
+linktitle: Datamodel
+description: Information about datamodels and datamodelling in Altinn Studio
 weight: 100
 ---
 
