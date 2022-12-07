@@ -15,7 +15,7 @@ Alle XSD'er som lå i Altinn 2 pr. 06.12.2022 er importert til Altinn Studio.
 {{% /notice %}} 
 
 
-## Altinn Studio Datamodellering (ASD)
+## Altinn Studio Datamodellering
 Seres er et verktøy for å lage XSD'er som igjen validerer korrektheten til en XML. Det nye datamodelleringsverktøyet jobber på Json Schema som igjen validerer Json. Prinsippet er det samme, men formatet er forskjellig.
 
 Selv om datamodelleringsverktøyet jobber på Json Schema vil det fortsatt være mulig å hente ut en XSD hvis man trenger det, f. eks. i et mottakssystem. Json Schema vil da bli konvertert til XSD. En XSD produsert i Seres og som leses inn i ASD vil inneholde nok metadata til å kunne re-generere XSD'en slik den var. Dette muliggjør at man kan bruke verktøyet til å jobbe med datamodeller for Altinn 2 ev. lage en Altinn 3 applikasjon som leverer samme format som Altinn 2.

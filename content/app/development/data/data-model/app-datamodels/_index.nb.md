@@ -18,7 +18,7 @@ En applikasjon har 4 modell-filer:
 
 
 Datamodeller for en applikasjon kan bygges fra bunn av, eller lastes opp, i verktøyet 
-[Altinn Studio Datamodellering (ASD)][2].
+[Altinn Studio Datamodellering][2].
 
 [1]: https://altinn.studio/repos
 [2]: ../data-models-tool

@@ -1,5 +1,5 @@
 ---
-title: Altinn Studio Datamodellering (ASD)
+title: Altinn Studio Datamodellering
 linktitle: Datamodellering
 description: Brukerguide for verktøyet Altinn Studio Datamodellering
 weight: 1
@@ -15,7 +15,7 @@ bygges på fortløpende.
 Altinn Studio Datamodellering er et verktøy for å utvikle datamodeller. Den baserer seg på en datamodell i JSONSchema
 format, og kan ut fra dette generere XSD- og C#-modell.
 
-## Navigere til Altinn Studio Datamodellering (ASD)
+## Navigere til Altinn Studio Datamodellering
 1. Logg inn i Altinn Studio
 2. På førstesiden, velg _rediger_ (blått penn-ikon) på enten:
   a. En app, eller

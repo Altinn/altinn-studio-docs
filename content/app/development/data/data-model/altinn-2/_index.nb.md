@@ -18,7 +18,7 @@ eksempler følger:
 - [Visual Studio Code][2] med f.eks. [XML extension][3]
 
 ## Opprette ny datamodell for Altinn 2
-Det er mulig å lage en ny datamodell fra bunnen av til Altinn 2 i Altinn Studio Datamodellering (ASD). Dette gjøres ved
+Det er mulig å lage en ny datamodell fra bunnen av til Altinn 2 i Altinn Studio Datamodellering. Dette gjøres ved
 å velge _Lag ny_ i verktøyet. Det blir da opprettet en mal for modellen med et enkelt felt. 
 Pass på å legge til følgende på rot i `{model}.schema.json`-filen for modellen, da dette må til for at TUL skal 
 kjenne igjen modellen som en SERES-modell. 
@@ -30,7 +30,7 @@ kjenne igjen modellen som en SERES-modell.
 For mer informasjon om utvikling av modell fra bunn av i ASD, se [denne guiden][5].
 
 {{% notice info %}}
-Dersom man gjør endringer på datamodell via Altinn Studio Datamodellering (ASD) anbefales det at alle
+Dersom man gjør endringer på datamodell via Altinn Studio Datamodellering anbefales det at alle
 manuelle endringer som gjøres i tillegg, gjøres på `{model}.schema.json`-filen . Denne filen opprettes/genereres automatisk
 når man lager en ny datamodell, eller laster/henter opp XSD.
 Dette er for å slippe å måtte gjøre de samme manuelle endringene på XSD hver gang man gjør endringer på modellen.
@@ -40,7 +40,7 @@ og man kan jobbe direkte på XSD.
 {{% /notice %}}
 
 ## `dataFormatId` og `dataFormatVersion`
-Disse verdiene vil tas med fra den opprinnelige datamodellen dersom man laster den opp i Altinn Studio Datamodellering (ASD).
+Disse verdiene vil tas med fra den opprinnelige datamodellen dersom man laster den opp i Altinn Studio Datamodellering.
 De kan derimot ikke redigeres i ASD. Ved behov for å redigere disse for eksisterende modeller, gjøres dette manuelt
 direkte i `<model>.schema.json`-filen som genereres når XSD lastes opp. Dette er for å sikre at disse verdiene følger 
 meg også om man gjør endringer på modellen i ASD ved senere tidspunkt.
@@ -55,7 +55,7 @@ Altinn 2 må disse verdiene settes manuelt.
   f.eks. begynne på 1, og øke ved behov.
 
 ## XSD attributter
-Altinn Studio Datamodellering (ASD) støtter i utgangspunktet ikke redigering av XSD attributter. Ved opplasting av
+Altinn Studio Datamodellering støtter i utgangspunktet ikke redigering av XSD attributter. Ved opplasting av
 eksisterende XSD vil alle eksisterende XSD-attributter beholdes og skrives tilbake når ny XSD genereres etter endringer.
 
 ### Redigere XSD attributter
