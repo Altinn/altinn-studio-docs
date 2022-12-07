@@ -58,6 +58,11 @@ Remaing pipelines in this folder are described below.
 - trigger: final step in build/deploy app image pipelines
 - details: Sends request to designer to update status of a given buil or release of an app.
 
+#### PDF-generator master
+- trigger: new code is pushed to the gh-pages branch of the [altinn-studio-charts repository](https://github.com/Altinn/altinn-studio-charts)
+- default: the created build is used as the artifact to trigger the release pipeline for the PDF generator to AT-environments.
+
+
 ### altinn-platform / altinn-studio
 
 Pipelines in altinn-platform and altinn-studio share the same structure.
