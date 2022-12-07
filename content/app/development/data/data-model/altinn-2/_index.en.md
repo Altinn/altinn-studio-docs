@@ -49,7 +49,7 @@ meg også om man gjør endringer på modellen i ASD ved senere tidspunkt.
 
 Ved behov for å opprette nye datamodeller (som ikke baserer seg på en eksisterende modell med disse verdiene satt) for
 Altinn 2 må disse verdiene settes manuelt. 
-- `dataFormatId` kan være en `string` med maks 30 karakterer. Konvensjonen på SERES XSD'er har vært et tall med 4 siffer,
+- `dataFormatId` kan være en `string` med maks 30 tegn. Konvensjonen på SERES XSD'er har vært et tall med 4 siffer,
   men dette feltet kan også inneholde andre tegn.
 - `dataFormatVersion` må være et heltall for å fungere med Altinn 2. Om man oppretter en ny datamodell anbefaler vi å 
   f.eks. begynne på 1, og øke ved behov.
