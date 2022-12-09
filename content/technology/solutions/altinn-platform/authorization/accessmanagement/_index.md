@@ -35,9 +35,9 @@ The second feature delivered from the new Access Management component will be
 
 ## Delegation and management of Access Groups
 
+As part of new design, management of access groups will take over for role management
 
-
-
+![Access groups](accessgroups.jpg "Access groups management")
 
 ### Construction
 

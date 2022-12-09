@@ -97,7 +97,6 @@ Based on the answer, the user will be sent to either _Track 1_ or _Track 2_.
     Se en oversikt over andre tilbud i kommunen her.
     ```
 - Line 2 in the text should be a link directing to https://www.sogndal.kommune.no/
-- It should not be possible to navigate to other pages of the form from this one.
 
 ### Track 2
 

@@ -18,7 +18,7 @@ Når du holder muspekeren over en komponent, eller når du velger den ved å kli
 
 ![UI editor - legge til komponenter](ui-editor-add-components.gif "UI editor - legge til komponenter")
 
-Se [oversikten over skjemakomponenter](/technology/solutions/altinn-studio/designer/functional/build-app/ui-designer/components/) for mer detaljer om komponentene som er tilgjengelig.
+Se [oversikten over skjemakomponenter](/technology/solutions/altinn-studio/designer/build-app/ui-designer/components/) for mer detaljer om komponentene som er tilgjengelig.
 
 ## Redigere egenskapene til komponentene
 

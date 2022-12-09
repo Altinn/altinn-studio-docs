@@ -73,11 +73,11 @@ Følgende er ønskelig at reflekteres i applikasjonen:
 {{% /expandlarge %}}
 
 
-{{% expandlarge id="innfore-sporvalg" header="Alternativ arbeidsflyt (sporvalg)" %}}
+{{% expandlarge id="innfore-sporvalg" header="Alternativ arbeidsflyt" %}}
 
 I mange tilfeller er det ikke aktuelt å svare på alle spørsmål i et skjema, kanskje fordi svaret sier seg selv, eller fordi det ikke er relevant basert på noe man har svart tidligere i skjemaet. Da kan sporvalg være en god løsning.
 
-Ved hjelp av sporvalg kan man styre hvilke siden av en applikasjon som er synlige for brukeren.
+Ved hjelp av sporvalg kan man styre hvilke sider i en applikasjon som er synlige for brukeren.
 
 I denne oppgaven skal du sette opp sporvalg i applikasjonen basert på kravene fra Sogndal kommune.
 
@@ -107,9 +107,6 @@ Basert på svaret skal brukeren sendes videre til _Spor 1_ eller _Spor 2_.
 - Linje 2 i teksten skal være en hyperlenke som peker på
 https://www.sogndal.kommune.no/
 
-
-- Det skal ikke være mulig å navigere til andre skjemasider etter denne.
-
 ### Spor 2
 
 - Brukeren har svart bekreftende på at skjemaet gjelder deres situasjon.
@@ -117,11 +114,12 @@ https://www.sogndal.kommune.no/
 - Brukeren sendes videre til datainnsamlingssidene.
 
 ### Nyttig dokumentasjon
-- [Hvordan sette opp sporvalg](/nb/app/development/ux/pages/tracks/)
+- [Dynamiske uttrykk](/nb/app/development/logic/expressions)
+- [Hvordan vise/skjule hele sider](/nb/app/development/logic/expressions/#viseskjule-hele-sider)
 - [Formatering av tekst](/nb/app/development/ux/texts/#formatering-av-tekster)
 
 ### Forståelsessjekk
-- Hvis en bruker går tilbake og endrer svaret sitt på infosiden, får den da opp datainnsamlingssidene? Hvis ikke, hvilke endringer kan du gjøre for å støtte dette i din applikasjon?
+- Hvis en bruker går tilbake og endrer svaret sitt på infosiden, får den da opp datainnsamlingssidene?
 - Dersom man har sporvalg på et senere tidspunkt i en arbeidsflyt og en sluttbruker endrer et valg, hva skjer med skjemdataen man tidligere har fylt ut, dersom siden skjules for sluttbrukeren?
 {{% /expandlarge %}}
 
