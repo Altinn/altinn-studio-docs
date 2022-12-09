@@ -93,7 +93,7 @@ Example with org:
 
 | Attribute             | Description                                                       |
 | ---------             | ----------------------------------------------------------------- |
-| urn:oasis:names:tc:xacml:1.0:action:action-id  | The action that rule apply to. In app this can be read, write, confirm, instantiate, complete and delete. This will be expanded when new functionality is added |
+| urn:oasis:names:tc:xacml:1.0:action:action-id  | The action that rule apply to. In [app](https://github.com/Altinn/app-lib-dotnet/blob/main/src/Altinn.App.Api/Extensions/ServiceCollectionExtensions.cs#L96) this can be read, write, instantiate, complete and delete. This will be expanded when new functionality is added |
 
 Example with read action:
 

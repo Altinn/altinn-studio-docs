@@ -94,7 +94,7 @@ Example with org:
 
 | Attribute             | Description                                                       |
 | ---------             | ----------------------------------------------------------------- |
-| urn:oasis:names:tc:xacml:1.0:action:action-id  | Handlingen som regelen gjelder for. I appen kan dette leses, skrives, bekreftes, instansieres, fullføres og slettes. Dette vil bli utvidet når ny funksjonalitet legges til|
+| urn:oasis:names:tc:xacml:1.0:action:action-id  | Handlingen som regelen gjelder for. I [appen](https://github.com/Altinn/app-lib-dotnet/blob/main/src/Altinn.App.Api/Extensions/ServiceCollectionExtensions.cs#L96) kan dette være read, write, instantiate, complete aog delete. Dette vil bli utvidet når ny funksjonalitet legges til|
 
 Example with read action:
 
