@@ -24,9 +24,9 @@ The decision API is the API that orchestrates the decision process.
 
 The API supports both XACML XML and XACML Json Profile request.
 
-See [Decision Controller](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Authorization/Authorization/Controllers/DecisionController.cs) for code details
+See [Decision Controller](https://github.com/Altinn/altinn-authorization/blob/main/src/Authorization/Controllers/DecisionController.cs) for code details
 
-## Policy Decision Point - PDP
+### Policy Decision Point - PDP
 
 This is implemented as a separate class [library](https://github.com/Altinn/altinn-authorization/tree/main/src/Altinn.Authorization.ABAC) [This is published to Nuget](https://www.nuget.org/packages/Altinn.Authorization.ABAC/).
 
@@ -36,7 +36,7 @@ The Policy Decision Point is implemented in this [class](https://github.com/Alti
 
 It expects both decision request and policy to be inputed.
 
-## Policy Retrieval Point - PRP
+### Policy Retrieval Point - PRP
 
 Policy Retrieval Point component that stores authorization policies for applications.
 
@@ -48,7 +48,7 @@ When an authorization request is received to PDP, PRP identifies the correct pol
 
 PRP is configured as a service in the Authorization Component and can easily be replaced with other implementation.
 
-## Context Handler
+### Context Handler
 
 Context handler enriches the authorization request with information about the user and the resource requested.
 Roles are retrieved from SBL Brigde while resource information is retrieved from Instances in storage. 
@@ -57,7 +57,7 @@ Roles are retrieved from SBL Brigde while resource information is retrieved from
 
 Context Handler is configured as a service in Authorization Component and can easily be replaced with other implementation.
 
-## Policy Information Point - Roles
+### Policy Information Point - Roles
 
 PIP for roles, calls SBL bridge to get the rules a user or system has for a resource party.
 
@@ -65,13 +65,13 @@ This is implemented as a service. [See implementation](https://github.com/Altinn
 
 This can easily be replaced with other implementation.
 
-## Policy Information Point - Party
+### Policy Information Point - Party
 
 This is implemented as a service. [See implementation](https://github.com/Altinn/altinn-authorization/blob/main/src/Authorization/Services/Implementation/PartiesWrapper.cs)
 
 This can easily be replaced with other implementation.
 
-## Policy Information Point - Resources
+### Policy Information Point - Resources
 
 PIP for resoruces checks storage for instance information.
 
@@ -88,7 +88,7 @@ This can easily be replaced with other implementation.
 
 ## Dependencies
 
-See [csproj](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Authorization/Authorization/Altinn.Platform.Authorization.csproj).
+See [csproj](https://github.com/Altinn/altinn-authorization/blob/main/src/Authorization/Altinn.Platform.Authorization.csproj).
 
 ## How to use Altinn Platform Authorization in your setup
 
