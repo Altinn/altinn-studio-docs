@@ -119,19 +119,21 @@ Og for en person som er 15 år (eller yngre, som f.eks. en 4-åring), returneres
 
 Dynamiske uttrykk er foreløpig tilgjengelig for bruk i disse egenskapene, som definert i [layout-filer](../../ux/pages).
 
-| Komponenter                                               | Egenskap                   | Forventet verdi            | Frontend | Backend |
-|-----------------------------------------------------------|----------------------------|----------------------------|----------|---------|
-| [Sider/layouts](#viseskjule-hele-sider)                   | `hidden`                   | [Boolsk](#boolske-verdier) | ✅        | ✅       |
-| Alle                                                      | `hidden`                   | [Boolsk](#boolske-verdier) | ✅        | ✅       |
-| Skjemakomponenter                                         | `required`                 | [Boolsk](#boolske-verdier) | ✅        | ✅       |
-| Skjemakomponenter                                         | `readOnly`                 | [Boolsk](#boolske-verdier) | ✅        | ❌       |
-| [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.addButton`           | [Boolsk](#boolske-verdier) | ✅        | ❌       |
-| [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.saveButton` *        | [Boolsk](#boolske-verdier) | ✅        | ❌       |
-| [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.deleteButton` *      | [Boolsk](#boolske-verdier) | ✅        | ❌       |
-| [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.saveAndNextButton` * | [Boolsk](#boolske-verdier) | ✅        | ❌       |
+| Komponenter                                               | Egenskap                                        | Forventet verdi            | Frontend | Backend |
+|-----------------------------------------------------------|-------------------------------------------------|----------------------------|----------|---------|
+| [Sider/layouts](#viseskjule-hele-sider)                   | `hidden`                                        | [Boolsk](#boolske-verdier) | ✅        | ✅       |
+| Alle                                                      | `hidden`                                        | [Boolsk](#boolske-verdier) | ✅        | ✅       |
+| Skjemakomponenter                                         | `required`                                      | [Boolsk](#boolske-verdier) | ✅        | ✅       |
+| Skjemakomponenter                                         | `readOnly`                                      | [Boolsk](#boolske-verdier) | ✅        | ❌       |
+| [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.addButton`                                | [Boolsk](#boolske-verdier) | ✅        | ❌       |
+| [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.saveButton`                               | [Boolsk](#boolske-verdier) | ✅        | ❌       |
+| [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.deleteButton`                             | [Boolsk](#boolske-verdier) | ✅        | ❌       |
+| [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.alertOnDelete`                            | [Boolsk](#boolske-verdier) | ✅        | ❌       |
+| [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.saveAndNextButton`                        | [Boolsk](#boolske-verdier) | ✅        | ❌       |
+| Alle                                                      | `textResourceBindings.[textResourceBinding]` *  | [Streng](#strenger)        | ✅        | ❌       |
 
-\* = Disse egenskapene kan foreløpig bare styres dynamisk for alle [repeterende grupper](../../ux/fields/grouping/repeating)
-på en gang, ikke for hver enkelt rad.
+*= Hvilke verdier man kan overstyre med textResourceBindings varierer fra komponent til komponent, men vil fungere på
+alle steder der det brukes. TextResourceBindigs for repeterende grupper finner du [her](../../ux/fields/grouping/setup#textresourcebindings)
 
 ### Testing, feilsøking og utvikling av uttrykk
 
