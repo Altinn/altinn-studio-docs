@@ -55,7 +55,7 @@ Eksempelet nedenfor viser en del av XACML 3.0-policyen der en ressurs er definer
 
 ## Subjektattributene
 
-Emnedelen av målet for regelen definerer hvem som er målrettet mot regelen.
+Subjektdelen for regelen definerer hvem regelen er rettet mot.
 
 | Attribute             | Description                                                       |
 | ---------             | ----------------------------------------------------------------- |
@@ -92,11 +92,13 @@ Eksempel med org:
 
 ## Action attributter
 
+Action attributtene beskriver hvilken operasjon regelen gjelder
+
 | Attribute             | Description                                                       |
 | ---------             | ----------------------------------------------------------------- |
 | urn:oasis:names:tc:xacml:1.0:action:action-id  | Handlingen som regelen gjelder for. I [appen](https://github.com/Altinn/app-lib-dotnet/blob/main/src/Altinn.App.Api/Extensions/ServiceCollectionExtensions.cs#L96) kan dette være read, write, instantiate, complete aog delete. Dette vil bli utvidet når ny funksjonalitet legges til|
 
-Example with read action:
+Eksempel med read operasjon.
 
 ```xml {linenos=false,hl_lines=[2]}
 <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
@@ -108,7 +110,7 @@ Example with read action:
 
 ## Obligation
 
-Obligation delen brukes til å definere informasjon som skal brukes av PEP. Det nødvendige autentiseringsnivået er satt til 2 som standard. Dette gjøres som en forpliktelse i XACML Policy-filen.
+Obligation delen av policy brukes til å definere informasjon som skal brukes av PEP. Det nødvendige autentiseringsnivået er satt til 2 som standard. Dette gjøres som en forpliktelse i XACML Policy-filen.
 
 Hvis nødvendig autentiseringsnivå er satt til 4, må du definere at tjenesteeier kan samhandle med det gjennom nivå 3 autentisering for Maskinporten.
 Dette fordi Maskinporten er definert som nivå 3. Se regelbiblioteket for eksempler.
