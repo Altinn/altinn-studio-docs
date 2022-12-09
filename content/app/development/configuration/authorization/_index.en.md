@@ -29,7 +29,7 @@ The resource attributes of rules describe which application or part of the rules
 | urn:altinn:org    | The org part of the resource attribute defines which org that owns the app.                           |
 | urn:altinn:app    | The app part that identifies the app itself.                                                          |
 | urn:altinn:task   | The task part of the resource makes it possible to have separate rules for the different tasks. |
-| urn:altinn:event  |The event part of the resource makes it possible to have separate  rules for reading events.   |
+| urn:altinn:event  | The event part of the resource makes it possible to have separate  rules for reading events.   |
 
 ### Example
 
