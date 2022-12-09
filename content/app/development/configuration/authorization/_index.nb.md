@@ -17,9 +17,9 @@ Applikasjonsutvikleren kan endre autorisasjonsreglene i *policy.xml*, som ligger
 Du kan finne detaljer om konfigurering av policyfilen nedenfor.
 Du kan også finne en god mengde eksempler på regler [her](regler).
 
-{{%notice advarsel%}}
+{{%notice warning%}}
 Vær oppmerksom på at endringer i policyfilen er på egen risiko og at det alltid anbefales å delegere lesetillatelser til enheter med skrivetillatelser.
-{{% /legge merke til%}}
+{{% /notice%}}
 
 ## Ressursattributtene
 
