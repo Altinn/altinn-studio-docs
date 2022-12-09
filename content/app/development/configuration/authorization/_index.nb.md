@@ -11,11 +11,11 @@ Du kan redigere XACML-filen i et tekstredigeringsprogram etter eget valg.
 
 ## Regler fra applikasjonsmal
 
-Når du oppretter en app i Altinn studio, er den basert på gjeldende asp.net-mal og vil inkludere en autogenerert [XACML policy-fil](https://raw.githubusercontent.com/Altinn/altinn-studio/master/src/ studio/AppTemplates/AspNet/App/config/authorization/policy.xml).
+Når du oppretter en app i Altinn studio, er den basert på gjeldende asp.net-mal og vil inkludere en autogenerert [XACML policy-fil](https://raw.githubusercontent.com/Altinn/altinn-studio/master/src/studio/AppTemplates/AspNet/App/config/authorization/policy.xml).
 
 Applikasjonsutvikleren kan endre autorisasjonsreglene i *policy.xml*, som ligger i `App/config/authorization` i programlageret.
 Du kan finne detaljer om konfigurering av policyfilen nedenfor.
-Du kan også finne en god mengde eksempler på regler [her](regler).
+Du kan også finne en god mengde eksempler på regler [her](rules).
 
 {{%notice warning%}}
 Vær oppmerksom på at endringer i policyfilen er på egen risiko og at det alltid anbefales å delegere lesetillatelser til enheter med skrivetillatelser.
@@ -62,9 +62,9 @@ Emnedelen av målet for regelen definerer hvem som er målrettet mot regelen.
 | urn:altinn:rolecode   | The role code is used for rule that target end users and systems. |
 | urn:altinn:org        | The org code is used for rule that target orgs.                   |
 
-En fullstendig liste over rolletyper finner du [her](https://www.altinn.no/api/metadata/rolledefinitions).
+En fullstendig liste over rolletyper finner du [her](https://www.altinn.no/api/metadata/roledefinitions).
 
-**Det er viktig å lese [retningslinjene](veiledningsautorisasjon) før du velger rolle.**
+**Det er viktig å lese [retningslinjene](guidelines_authorization) før du velger rolle.**
 
 ### Examples
 
