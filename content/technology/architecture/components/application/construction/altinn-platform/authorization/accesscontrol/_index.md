@@ -44,7 +44,7 @@ The policies are stored as XACML (xml) documents in a blob storage.
 
 When an authorization request is received to PDP, PRP identifies the correct policy document in the policy storage.
 
-[See code](https://github.com/Altinn/altinn-authorization/blob/main/src/Authorization/Services/Implementation/PolicyRetrievalPoint.css).
+[See code](https://github.com/Altinn/altinn-authorization/blob/main/src/Authorization/Services/Implementation/PolicyRetrievalPoint.cs).
 
 PRP is configured as a service in the Authorization Component and can easily be replaced with other implementation.
 

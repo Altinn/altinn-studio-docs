@@ -16,4 +16,4 @@ The number of PIP are expected to grow in the future.
 
 ### Implementation details
 
-See implementation details in the [construction components for PIP](/technology/architecture/components/application/construction/altinn-platform/authorization/#policy-information-point---roles).
+See implementation details in the [construction components for PIP](/technology/architecture/components/application/construction/altinn-platform/authorization/accesscontrol/#policy-information-point---roles).

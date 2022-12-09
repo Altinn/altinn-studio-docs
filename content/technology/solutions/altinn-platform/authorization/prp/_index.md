@@ -12,4 +12,4 @@ For delegated rights Altinn II will provide the delegated policy.
 
 See [Policy Adminstration Point](../pap) for details about how the policies are created.
 
-See [construction components](/technology/architecture/components/application/construction/altinn-platform/authorization/#policy-retrieval-point---prp) how PRP is built.
+See [construction components](/technology/architecture/components/application/construction/altinn-platform/authorization/accesscontrol/#policy-retrieval-point---prp) how PRP is built.
