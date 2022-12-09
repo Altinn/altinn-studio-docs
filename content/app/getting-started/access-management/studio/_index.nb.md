@@ -88,6 +88,17 @@ Ved behov kan man som eier kan man legge til/fjerne brukere i team, opprette nye
   - Skrive til samtlige repositories
   - Aksessere alle områder i Gitea
 
+### Datamodels
+
+#### Beskrivelse
+  Medlemmer i dette teamet kan redigere datamodeller som ligger i `<org>-datamodels` repoet. 
+
+#### Konfigurasjon
+  Dette teamet er satt opp som standard på hver organisasjons datamodell-repo.
+  Standard konfigurasjon for teamet inkluderer rettigheter til å
+  - Opprette nye filer i organisasjonens datamodell-repo
+  - Endre/slette filer i organisasjonens datamodell-repo
+
 ## Tilgangsstyring for repository
 
 En administrator for organisasjonen kan også styre hvem som har tilgang til det enkelte repository.

@@ -97,7 +97,6 @@ Basert på svaret skal brukeren sendes videre til _Spor 1_ eller _Spor 2_.
     Se en oversikt over andre tilbud i kommunen her.
     ```
 - Linje 2 i teksten skal være en hyperlenke som peker på https://www.sogndal.kommune.no/.
-- Det skal ikke være mulig å navigere til andre skjemasider etter denne.
 
 ### Spor 2
 

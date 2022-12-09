@@ -22,8 +22,8 @@ scrolling og en mer uoversiktlig opplevelse for brukeren.
 Se eksempel: [Starte enkeltpersonforetak](https://brg.apps.altinn.no/brg/anonym-oppstartsveilederen/).
 
 Brukeren skal slippe å svare på mer enn nødvendig. Dersom brukeren har svart nei på et spørsmål og du dermed kan 
-skjule flere av stegene for ham, kan du gjøre dette med 
-[dynamisk sporvalg](https://altinn.github.io/docs/altinn-studio/app-creation/ux/sporvalg/).
+skjule flere oppfølgingsspørsmål (eller hele sider), kan du gjøre dette med
+[dynamiske uttrykk](../../../development/logic/expressions).
 
 ### Disabled
 Ved å vise skjemafelt som disabled forventer man at brukeren skal vite hvorfor de ikke kan bruke elementet, 

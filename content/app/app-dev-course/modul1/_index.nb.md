@@ -54,7 +54,7 @@ redigere den i f.eks. Visual Studio eller et selvvalgt tekstredigeringsprogram.
 
 1. [Last ned xsd-filen](datamodel.xsd), åpne den i et tekstredigeringsprogram
    og ta en nærmere titt på innholdet.
-2. [Last opp datamodellen i Altinn Studio](/nb/app/development/data/data-model/#laste-opp--vise-datamodell)
+2. [Last opp datamodellen i Altinn Studio](/app/development/data/data-model/data-models-tool/#laste-opp--vise-datamodell)
 3. Push endringene master og ta en nærmere titt på filene i mappen `App/models`
 
 
@@ -67,7 +67,7 @@ redigere den i f.eks. Visual Studio eller et selvvalgt tekstredigeringsprogram.
 - Enkelte restriksjoner fra datamodellen overføres ikke til _C#_-filen, hvilke? Det er og lagt til nye egenskaper, hvilke?
 
 ### Nyttig dokumentasjon
-- [Laste opp datamodell i Altinn Studio](/nb/app/development/data/data-model/#laste-opp--vise-datamodell)
+- [Laste opp datamodell i Altinn Studio](/nb/app/development/data/data-model/data-models-tool/#laste-opp--vise-datamodell)
 - [Beskrivelse av indikatorer i XSD](https://www.w3schools.com/xml/schema_complex_indicators.asp)
   
 {{% /expandlarge %}}
@@ -131,7 +131,7 @@ Basert på kravene fra kommunen klarer du å sette opp den første skjemasiden i
 
 ### Nyttig dokumentasjon
 - [Hvordan bygge et skjema med UI editor i Altinn Studio](/nb/app/getting-started/navigation/designer/ui-editor/)
-- [Tilgjengelige komponenter i Altinn Studio](/technology/solutions/altinn-studio/designer/functional/build-app/ui-designer/components/)
+- [Tilgjengelige komponenter i Altinn Studio](/technology/solutions/altinn-studio/designer/build-app/ui-designer/components/)
 - [Retningslinjer for bruk av komponenter](/nb/app/design/guidelines/components/)
 
 ### Forståelsessjekk

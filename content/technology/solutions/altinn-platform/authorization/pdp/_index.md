@@ -5,7 +5,7 @@ description: The Policy Decision Point is responsible to evaluate if users and s
 tags: [architecture, security, authorization, xacml]
 ---
 
-The Policy Decision Point is implemented in the [authorization component](https://github.com/Altinn/altinn-studio/issues/1166) that is deployed Altinn Platform.
+The Policy Decision Point is implemented in the [access control component](../../../../architecture/components/application/construction/altinn-platform/authorization/accesscontrol/) that is deployed to Altinn Platform.
 
 The Policy Decision Point follow [eXtensible Access Control Markup Language (XACML) Version 3.0](https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html). 
 
@@ -50,13 +50,13 @@ all conformance test.
 
 There exist no official XACML 3.0 conformance test but AT&T research made som available for OASIS in [this thread](https://lists.oasis-open.org/archives/xacml-comment/201404/msg00001.html).
 
-See our tests [here](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Authorization/IntegrationTests/Xacml30ConformanceTests.cs). 
+See our tests [here](https://github.com/Altinn/altinn-authorization/blob/main/test/IntegrationTests/Xacml30ConformanceTests.cs). 
 
-Testdata for conformance tests is found [here](https://github.com/Altinn/altinn-studio/tree/master/src/Altinn.Platform/Altinn.Platform.Authorization/IntegrationTests/Data/Xacml/3.0/ConformanceTests), and official description of tests [here](https://raw.githubusercontent.com/Altinn/altinn-studio/master/src/Altinn.Platform/Altinn.Platform.Authorization/IntegrationTests/Data/Xacml/3.0/ConformanceTests/ConformanceTests.html).
+Testdata for conformance tests is found [here](https://github.com/Altinn/altinn-authorization/tree/main/test/IntegrationTests/Data/Xacml/3.0/ConformanceTests), and official description of tests [here](https://raw.githubusercontent.com/Altinn/altinn-studio/master/src/Altinn.Platform/Altinn.Platform.Authorization/IntegrationTests/Data/Xacml/3.0/ConformanceTests/ConformanceTests.html).
 
 [See Github 2818 for status on conformance test coverage](https://github.com/Altinn/altinn-studio/issues/2818)
 
 ## Implementation and construction details
 
 Details about the implementation of PDP is found under
-[construction components for PDP.](../../../../architecture/components/application/construction/altinn-platform/authorization/#policy-decision-point---pdp)
+[construction components for PDP.](../../../../architecture/components/application/construction/altinn-platform/authorization/accesscontrol#policy-decision-point---pdp)

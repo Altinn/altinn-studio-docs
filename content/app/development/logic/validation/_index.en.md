@@ -304,9 +304,13 @@ An example of a custom validation where the header value is retrieved is shown b
 ```csharp
  public async Task ValidateData(object data, ModelStateDictionary validationResults)
  {
-    _httpContextAccessor.HttpContext.Request.Headers.TryGetValue("ValidationTriggerField", out StringValues value);
+    _httpContextAccessor.HttpContext
+        .Request.Headers
+        .TryGetValue("ValidationTriggerField", out StringValues triggerValues);
 
-    if (value.Count > 0 && value[0].Equals("kommune"))
+    string triggerField = triggerValues.FirstOrDefault(string.Empty);
+
+    if (triggerField.Equals("kommune"))
     {
       // Cast instance data to model type
       flyttemelding model = (flyttemelding)data;
@@ -316,7 +320,7 @@ An example of a custom validation where the header value is retrieved is shown b
 
       if (!kommune.Equals("Oslo"))
       {
-          validationResults.AddModelError(value[0], "This is not a valid municipality.");
+          validationResults.AddModelError(triggerField, "This is not a valid municipality.");
       }
     }
 
@@ -362,12 +366,13 @@ public async Task ValidateData(object data, ModelStateDictionary validationResul
 {
     if (data is flyttemelding model)
     {
-        _httpContextAccessor.HttpContext.Request.Headers
-            .TryGetValue("ValidationTriggerField", out StringValues value);
+        _httpContextAccessor.HttpContext
+            .Request.Headers
+            .TryGetValue("ValidationTriggerField", out StringValues triggerValues);
 
-        string dataField = value.Any() ? value[0] : string.Empty;
+        string triggerField = triggerValues.FirstOrDefault(string.Empty);
 
-        switch (dataField)
+        switch (triggerField)
         {
             case "kommune":
                 ValidateKommune(model, validationResults);
@@ -456,6 +461,9 @@ private void ValidateFullName(Datamodell model, ModelStateDictionary validationR
 }
 ```
 
+If you are having trouble with getting this to work, and you are instead seeing validation messages that include the `*FIXED*`-prefix, 
+double check that you have `"FixedValidationPrefix": "*FIXED*"` set under `GeneralSettings` in `appsettings.json`.
+
 ## Soft validations
 
 Soft validations are validation messages that does not stop the user from submitting or move onto the next step of the process, but that are used to give the user different forms of information.
@@ -538,22 +546,41 @@ This will ensure that validation is run on the components that are a part of the
 If there are validation errors you will be stopped from saving the group until this has been corrected.
 
 If you add validation on the group component, a call will be made towards the validation back-end with a header specifying which component triggered the validation: `ComponentId`.
-Validations are written in C# in the `ValidationHandler.cs`-file in the application template. In the validation, you can then retrieve this id and tailor possible validations that should run back-end, example:
+Additionally, the row index of the row being saved is available in the header `RowIndex`. If the group is a nested group, a comma separated list of row indices is returned, otherwise it is a single number.
+Validations are written in C# in the `ValidationHandler.cs`-file in the application template. In the validation, you can retrieve component id and tailor possible validations to run in the back-end, example:
 
 ```cs
 public async Task ValidateData(object data, ModelStateDictionary validationResults)
 {
-    if (data is flyttemelding model))
+    if (data is flyttemelding model)
     {
-        _httpContextAccessor.HttpContext.Request.Headers
-            .TryGetValue("ComponentId", out StringValues value);
+        _httpContextAccessor.HttpContext
+            .Request.Headers
+            .TryGetValue("ComponentId", out StringValues compIdValues);
 
-        string component = value.Any() ? value[0] : string.Empty;
+        _httpContextAccessor.HttpContext
+            .Request.Headers
+            .TryGetValue("RowIndex", out StringValues rowIndexValues);
 
-        switch (component)
+        string componentId = compIdValues.FirstOrDefault(string.Empty);
+
+        switch (componentId)
         {
-            case "demo-group":
+            case "top-level-group":
                 // run validations specific to the group
+                
+                // Get row index for a non-nested group
+                int rowIndex = int.Parse(rowIndexValues.FirstOrDefault(string.Empty));
+
+                break;
+            case "nested-group":
+                // Get all row indices for a nested group
+                int[] rowIndices = rowIndexValues
+                    .FirstOrDefault(string.Empty)
+                    .Split(",", StringSplitOptions.RemoveEmptyEntries)
+                    .Select(s => int.Parse(s))
+                    .ToArray();
+
                 break;
             default:
                 // run the validations in their entirety
