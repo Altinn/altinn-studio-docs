@@ -43,7 +43,7 @@ og man kan jobbe direkte på XSD.
 Disse verdiene vil tas med fra den opprinnelige datamodellen dersom man laster den opp i Altinn Studio Datamodellering.
 De kan derimot ikke redigeres i ASD. Ved behov for å redigere disse for eksisterende modeller, gjøres dette manuelt
 direkte i `<model>.schema.json`-filen som genereres når XSD lastes opp. Dette er for å sikre at disse verdiene følger 
-meg også om man gjør endringer på modellen i ASD ved senere tidspunkt.
+med også om man gjør endringer på modellen i ASD ved senere tidspunkt.
 
 ![Eksempel på dataFormatId/Version](dataformat-id-version-example.png?width=50 "Eksempel på dataFormatId/Version")
 
