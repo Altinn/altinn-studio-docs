@@ -68,7 +68,7 @@ En fullstendig liste over rolletyper finner du [her](https://www.altinn.no/api/m
 
 ### Examples
 
-Example with role code:
+Eksempel med rollekode
 
 ```xml {linenos=false,hl_lines=[3]}
 <xacml:AllOf>
@@ -79,7 +79,7 @@ Example with role code:
 </xacml:AllOf>
 ```
 
-Example with org:
+Eksempel med org:
 
 ```xml {linenos=false,hl_lines=[3]}
 <xacml:AllOf>
@@ -90,7 +90,7 @@ Example with org:
 </xacml:AllOf>
 ```
 
-## Action Attributes
+## Action attributter
 
 | Attribute             | Description                                                       |
 | ---------             | ----------------------------------------------------------------- |
