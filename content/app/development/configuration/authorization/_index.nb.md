@@ -64,7 +64,7 @@ Emnedelen av målet for regelen definerer hvem som er målrettet mot regelen.
 
 En fullstendig liste over rolletyper finner du [her](https://www.altinn.no/api/metadata/roledefinitions).
 
-**Det er viktig å lese [retningslinjene](guidelines_authorization) før du velger rolle.**
+**Det er viktig å lese [Veiledning for autorisasjonsregler](guidelines_authorization) før du velger rolle.**
 
 ### Examples
 
