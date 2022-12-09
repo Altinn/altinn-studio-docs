@@ -10,6 +10,12 @@ weight: 10
 The various files that are used to define logic on the frontend can be found in the logic menu
 that is available in the UI editor through the _f(x)_-icon at the top right corner.
 
+{{% panel theme="warning" %}}
+⚠️ Dynamics/logic are under active development. These rules will in the future be replaced by
+[dynamic expressions](../expressions). Currently only show/hide dynamics are supported using expressions, but
+calculation and validation will be supported in the future.
+{{% /panel %}}
+
 ![Logic menu](ui-editor-logic-menu.png?height=300px "Logic menu")
 
 For backend the logic is done by implementing various interfaces. These are described in separate chapters for example in [data processing](../dataprocessing/). 

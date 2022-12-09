@@ -3025,5 +3025,23 @@
     {
       "Bearer": [ ]
     }
+  ],
+  "tags": [
+    {
+      "name": "Inbound",
+      "description": "Private API"
+    },
+    {
+      "name": "Outbound",
+      "description": "Private API"
+    },
+    {
+      "name": "Push",
+      "description": "Private API"
+    },
+    {
+      "name": "Storage",
+      "description": "Private API"
+    }
   ]
 }
