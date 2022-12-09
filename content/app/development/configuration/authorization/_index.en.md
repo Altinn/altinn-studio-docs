@@ -33,7 +33,7 @@ The resource attributes of rules describe which application or part of the rules
 
 ### Example
 
-The below example show a part of XACML 3.0 Policy where a resource is identified. 
+The below example shows a part of the XACML 3.0 Policy where a resource is defined.
 
 ```xml {linenos=false,hl_lines=[3,7,11]}
 <xacml:AllOf>
@@ -62,6 +62,8 @@ The subject part of the target for the rule defines who the rule target.
 | urn:altinn:org        | The org code is used for rule that target orgs.                   |
 
 A complete list of role types can be found [here](https://www.altinn.no/api/metadata/roledefinitions).
+
+**It is important to read the [guidlines](guidelines_authorization) before selecting role.**
 
 ### Examples
 
@@ -105,7 +107,12 @@ Example with read action:
 
 ## Obligation
 
-The obligation part is used to define information that should be used by PEP.
+The obligation part is used to define information that should be used by PEP. The required authentication level is set to 2 by default. This is done as an obligation in the XACML Policy file.
+
+If the required authentication level is set to 4, you must define that the service owner can interact with it through level 3 authentification for Maskinporten.
+This is because Maskinporten is defined as level 3. See the rule library for examples.
+
+Example with authentication level 2
 
 ```xml {linenos=false,hl_lines=[4]}
 <xacml:ObligationExpressions>
@@ -117,11 +124,6 @@ The obligation part is used to define information that should be used by PEP.
   </xacml:ObligationExpressions>
 ```
 
-### Required authentication level
 
-Reqired authentication level is set to 2 by default. This is done as an obligation in the XACML Policy file.
-
-If the required authentication level is set to 4 you have to define that the service owner can interact with it through level 3 authentification for Maskinporten.
-This is because Maskinporten is defined as level 3. See the rule library for examples. Notice: the app requires nuget version`3.1.5` or higher.
 
 {{<children>}}
