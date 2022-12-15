@@ -41,8 +41,9 @@ En konsekvens av dette er at dagens [roller i Altinn 2.0](/app/development/confi
 skal fases ut og erstattes med nye [tilgangsgrupper i Altinn 3.0](../accessgroups/type-accessgroups/)
 
 #### Hva blir konsekvensen av at man infører nye tilgangsgrupper? 
-Etter lansering av nye tilgangsgrupper vil det i en overgangsfase være nødvendig å angi både gamle Altinn 2.0 roller og nye 3.0 tilgangsgrupper som rollekrav knyttet til tjenesten. 
+I forkant av lansering av nye tilgangsgrupper og i en overgangsfase vil det være nødvendig å angi både gamle Altinn 2.0 roller og nye 3.0 tilgangsgrupper som rollekrav knyttet til tjenesten. 
 Det betyr at en bruker enten kan få tilgang til en tjeneste fordi vedkommende har en gammel 2.0 rolle eller fordi hun har fått en ny 3.0 tilgangsgruppe. 
+
 
 Samtidig som nye tilgangsgrupper lanseres så vil det ikke lenger være mulig å delegere gamle 2.0 roller til sine ansatte. 
 I tillegg vil vi utvikle en veileder som "motiverer" virksomheter som har ansatte med gamle 2.0 roller om å erstatte disse med nye 3.0 tilgangsgrupper. 
