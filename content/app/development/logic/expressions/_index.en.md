@@ -107,7 +107,7 @@ for eksempel 45 år gammel, returneres teksten:
 
 For en person som er 62 år returneres teksten:
 
-**At 62, your are eligble for retirement**
+**At 62, your are eligible for retirement**
 
 Og for en person som er 15 år (eller yngre, som f.eks. en 4-åring), returneres teksten:
 
@@ -132,8 +132,44 @@ Dynamiske uttrykk er foreløpig tilgjengelig for bruk i disse egenskapene, som d
 | [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.saveAndNextButton`                        | [Boolsk](#boolske-verdier) | ✅        | ❌       |
 | Alle                                                      | `textResourceBindings.[textResourceBinding]` *  | [Streng](#strenger)        | ✅        | ❌       |
 
-*= Hvilke verdier man kan overstyre med textResourceBindings varierer fra komponent til komponent, men vil fungere på
+\* = Hvilke verdier man kan overstyre med textResourceBindings varierer fra komponent til komponent, men vil fungere på
 alle steder der det brukes. TextResourceBindigs for repeterende grupper finner du [her](../../ux/fields/grouping/setup#textresourcebindings)
+
+{{% expandlarge id="rep-group-edit-button-text" header="Eksempel: Styre redigeringsknapp-tekst i repeterende gruppe" %}}
+
+Her endrer vi teksten til redigeringsknappen i en repeterende gruppe basert på om `IsPrefill` er satt til `true` i
+en gitt adresse i datamodellen. Dersom `IsPrefill` er `true` for en adresse, vil raden som viser frem den adressen ha en
+redigerings-knapp med teksten `"View"`. Hvis `IsPrefill` er `false` blir teksten på knappen til den spesifikke raden
+`"Edit"`.
+
+Det er verdt å merke seg at dersom et oppslag på `IsPrefill` gir resultatet `null`(ikke funnet) så konverteres
+resultatet til `false` når det blir brukt i en `if`. Les mer detaljert om dette i seksjonene [if](#func-if) og [datatyper](#datatyper)
+
+```json
+{
+   "id": "repeatingAddressGroup",
+   "type": "Group",
+   "children": [
+      "field-id-one",
+      "field-id-two",
+   ],
+   "dataModelBindings": {
+      "group": "Citizen.FormerAdresses"
+   },
+   "maxCount": 10,
+   "textResourceBindings": {
+      "edit_button_open": [
+      "if",
+      [ "dataModel", "Citizen.FormerAdresses.IsPrefill" ],
+      "View",
+      "else",
+      "Edit"
+      ]
+   }
+}
+```
+
+{{% /expandlarge %}}
 
 ### Testing, feilsøking og utvikling av uttrykk
 
