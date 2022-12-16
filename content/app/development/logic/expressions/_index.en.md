@@ -132,8 +132,42 @@ Dynamiske uttrykk er foreløpig tilgjengelig for bruk i disse egenskapene, som d
 | [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.saveAndNextButton`                        | [Boolsk](#boolske-verdier) | ✅        | ❌       |
 | Alle                                                      | `textResourceBindings.[textResourceBinding]` *  | [Streng](#strenger)        | ✅        | ❌       |
 
-*= Hvilke verdier man kan overstyre med textResourceBindings varierer fra komponent til komponent, men vil fungere på
+\* = Hvilke verdier man kan overstyre med textResourceBindings varierer fra komponent til komponent, men vil fungere på
 alle steder der det brukes. TextResourceBindigs for repeterende grupper finner du [her](../../ux/fields/grouping/setup#textresourcebindings)
+
+{{% expandlarge id="rep-group-edit-button-text" header="Eksempel: Styre redigeringsknapp-tekst i repeterende gruppe" %}}
+
+Her endrer vi teksten til redigeringsknappen i en repeterende gruppe basert på om `IsPrefill` er satt til `true` i
+en gitt adresse i datamodellen. Dersom `IsPrefill` er `true` for en adresse, vil raden som viser frem den adressen ha en
+redigerings-knapp med teksten `"View"`. Hvis `IsPrefill` er `false` blir teksten på knappen til den spesifikke raden
+`"Edit"`. Det er verdt å merke seg at dersom `IsPrefill` ikke er satt til hverken `true` eller `false` så vil uttrykket
+tolke verdien som `false`.
+
+```json
+{
+   "id": "repeatingAddressGroup",
+   "type": "Group",
+   "children": [
+      "field-id-one",
+      "field-id-two",
+   ],
+   "dataModelBindings": {
+      "group": "Citizen.FormerAdresses"
+   },
+   "maxCount": 10,
+   "textResourceBindings": {
+      "edit_button_open": [
+      "if",
+      [ "dataModel", "Citizen.FormerAdresses.IsPrefill" ],
+      "View",
+      "else",
+      "Edit"
+      ]
+   }
+}
+```
+
+{{% /expandlarge %}}
 
 ### Testing, feilsøking og utvikling av uttrykk
 
