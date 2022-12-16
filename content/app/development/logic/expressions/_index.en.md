@@ -107,7 +107,7 @@ for eksempel 45 år gammel, returneres teksten:
 
 For en person som er 62 år returneres teksten:
 
-**At 62, your are eligble for retirement**
+**At 62, your are eligible for retirement**
 
 Og for en person som er 15 år (eller yngre, som f.eks. en 4-åring), returneres teksten:
 
