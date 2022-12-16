@@ -1,6 +1,6 @@
 ---
 title: Autorisasjon
-description: Autorisasjon DevOps team har hovedsaklig ansvar for løsnigner som leverer Autentisering og Autorisasjonsfunksjonalitet i Altinn 2 og Altinn 3 løsningen
+description: Autorisasjon DevOps team har hovedsaklig ansvar for løsninger som leverer Autentisering og Autorisasjonsfunksjonalitet i Altinn 2 og Altinn 3 løsningen
 ---
 
 ## Ansvar i Altinn 3:
@@ -46,7 +46,7 @@ Altinn Autorisasjon kan benyttes av tjenesteeiere som ønsker å tilgjengeliggj�
 [Les mer her](https://altinn.github.io/docs/utviklingsguider/styring-av-tilgang/for-tjenesteeier/)
 
 ### Styring av tilgang til API
-Maskinporten er delen av den felles nasjonale innloggingsløsningen Digdir som tilbyr sikring av API-tilganger via maskin-til-maskin-autentisering og en OAuth2-scope basert autorisasjonsmekanisme.
+Maskinporten er delen av den felles nasjonale innloggingsløsningen som Digdir tilbyr for sikring av API-tilganger via maskin-til-maskin-autentisering og en OAuth2-scope basert autorisasjonsmekanisme.
 I Altinn er det utvklet en løsning som gjør det mulig for virksomheter som er gitt tilgang til et API gjennom Maskinporten å gi denne videre til for eksempel en leverandør som skal utføre den tekniske implementasjonen på deres vegne.
 [Les mer her](https://altinn.github.io/docs/utviklingsguider/api-delegering/)
 
