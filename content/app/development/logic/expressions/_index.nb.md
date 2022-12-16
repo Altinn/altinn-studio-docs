@@ -126,9 +126,9 @@ Dynamiske uttrykk er foreløpig tilgjengelig for bruk i disse egenskapene, som d
 | Skjemakomponenter                                         | `required`                                      | [Boolsk](#boolske-verdier) | ✅        | ✅       |
 | Skjemakomponenter                                         | `readOnly`                                      | [Boolsk](#boolske-verdier) | ✅        | ❌       |
 | [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.addButton`                                | [Boolsk](#boolske-verdier) | ✅        | ❌       |
-| [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.saveButton` *                             | [Boolsk](#boolske-verdier) | ✅        | ❌       |
-| [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.deleteButton` *                           | [Boolsk](#boolske-verdier) | ✅        | ❌       |
-| [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.saveAndNextButton` *                      | [Boolsk](#boolske-verdier) | ✅        | ❌       |
+| [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.saveButton`                               | [Boolsk](#boolske-verdier) | ✅        | ❌       |
+| [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.deleteButton`                             | [Boolsk](#boolske-verdier) | ✅        | ❌       |
+| [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.saveAndNextButton`                        | [Boolsk](#boolske-verdier) | ✅        | ❌       |
 | Alle                                                      | `textResourceBindings.[textResourceBinding]` *  | [Streng](#strenger)        | ✅        | ❌       |
 
 \* = Hvilke verdier man kan overstyre med textResourceBindings varierer fra komponent til komponent, men vil fungere på
