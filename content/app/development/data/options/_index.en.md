@@ -292,10 +292,10 @@ A use case here would typically be if the user fills out a repeating list of dat
 
 ### Configuration
 
-To set up options from redux we have set up a new property on `RadioButtons`, `Checkboxes`, and `Dropdown`-components called `source`.
+To set up options from the data model we have set up a new property on `RadioButtons`, `Checkboxes`, and `Dropdown`-components called `source`.
 This property contains the fields `group`, `label`, and `value`. Example:
 
-```json
+```json {hl_lines=["5-9"]}
       {
         "id": "dropdown-component-id",
         "type": "Dropdown",
