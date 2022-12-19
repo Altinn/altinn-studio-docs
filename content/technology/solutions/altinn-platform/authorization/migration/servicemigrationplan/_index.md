@@ -1,17 +1,11 @@
 ---
 title: Planer for migrering av tjenester i Altinn
 linktitle: Plan tjenestemigrering
-description: Her finner du foreløpig plan for migrering av tjenester, i hvilken rekkefølge dette skal skje og når de enkelte tjenestene skal være flyttet fra Altinn 2 til Altinn 3. 
+description: Her finner du foreløpig plan for migrering av tjenester, i hvilken rekkefølge dette skal skje og når de enkelte tjenestetypene skal være flyttet fra Altinn 2 til Altinn 3. 
 toc: true
-tags: [architecture, plan, authorization]
+tags: [architecture, plan, authorizaton]
+
 ---
-
-Innen juni 2025 så skal dagens Altinn 2 løsning være modernisert og migrert til Altinn 3 plattformen. 
-Det betyr også at alle tjenester i Altinn 2 må være flyttet over i god tid innen Altinn 2.0 plattformen slås av. 
-
-Det er valgt ulik migreringsstrategi for ulike tjenestetyper. Nedenfor finner dere en beskrivelse av hvordan vi i dag ser for oss at migrering skal skje for den enkelte tjenestetypen. 
-Dette planverket er under utvikling og det vil komme endringer. 
-
 ## Skjema-, innsyns- og samhandlingstjenester
 ### Migreringsstrategi
 Tjenesteeier er selv ansvarlig for å migrere disse tjenestene fra Altinn 2 til Altinn 3. Det innebærer at man må utvikle skjematjenesten på nytt som en 3.0 app.  
@@ -31,6 +25,10 @@ Digdir vil ta ansvar for å flytte alle disse tjenestene. Tjenesteeier må i den
 
 Alle delegeringer som finnes for disse tjenestene vil bli tatt vare på og flyttet samtidig med tjenesten fra Altinn 2 til Altinn 3. 
 Det betyr at alle systemleverandører som i dag har rettighet til å bruke "Delegerbare API ressurser" på vegne av sine kunder vil beholde disse delegeringene etter at tjenestene er flyttet. 
+
+### Ny brukerflate for administrering av Delegerbare API ressurser
+I forbindelse med migrering av tjenestene så vil vi tilby en ny brukerflate for å administrere disse. 
+![Skisseforslag på ny brukerflate for tilgangsstyring til Delegerbare API ressurser](new-dialoge-apiresource.jpg "Forslag til ny brukerflate for delegering av API ressurser")
 
 ### Konsekvenser for tilhørende API
 Etter at tjenestene er flyttet vil det ikke være mulig for tjenesteeiere å opprette nye Delegerbare API ressurser via dagens grensesnitt. 
