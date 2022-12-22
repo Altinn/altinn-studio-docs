@@ -239,3 +239,101 @@ Merk at dersom du endrer verdien til tekst-nøkkelen `receipt.subtitle` vil lenk
 Dette resulterer i følgende visning:
 
 ![Kvitterings-visningen](receipt-step-custom.png "Overstyrte tekster på kvitterings-visningen")
+
+### Custom form layout
+
+{{%notice warning%}}
+Dette er en midlertidig fremgangsmåte for å fleksibelt bygge kvitteringssiden på samme måte som andre skjemasider. Når støtte for layout-sets blir tilgjengelig i Altinn Studio vil tilpasning av kvittering skje på tilsvarende måte som for bekreftelsessiden.
+{{%/notice%}}
+
+En egendefinert kvitteringsside kan nå lages på samme måte som alle andre skjemasider. Funksjonaliteten vil også innen kort tid bli tilgjengelig i Altinn Studio. 
+
+Bygg layoutfilen på vanlig måte og referer til navnet på denne layoutfilen i `settings.json` med nøkkelen `receiptLayoutName`. Se eksempelet under for en layout med filnavnet `kvittering.json`.
+
+```json
+{
+  "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
+  "pages": {
+    "order": [
+      "side1",
+      "side2",
+      "side3"
+    ]
+  },
+  "receiptLayoutName": "kvittering"
+}
+```
+
+Eksempel på en egendefinert layoutfil for kvittering:
+
+```json
+{
+  "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
+  "data": {
+    "layout": [
+      {
+        "id": "ReceiptHeader",
+        "type": "Header",
+        "textResourceBindings": {
+          "title": "receipt.title"
+        },
+        "dataModelBindings": {},
+        "size": "h2"
+      },
+      {
+        "id": "fa796d12-49fc-457a-9d9a-d153998d55de",
+        "type": "Image",
+        "textResourceBindings": {
+          "title": "Bilde"
+        },
+        "dataModelBindings": {},
+        "image": {
+          "src": {
+            "nb": "https://docs.altinn.studio/app/app-dev-course/modul2/kommune-logo.png"
+          },
+          "width": "100%",
+          "align": "flex-start"
+        },
+        "grid": {
+          "xs": 2
+        }
+      },
+      {
+        "id": "ReceiptParagraph",
+        "type": "Paragraph",
+        "textResourceBindings": {
+          "title": "receipt.body"
+        },
+        "grid": {
+          "xs": 10
+        }
+      },
+      {
+        "id": "ReceiptInstanceInformation",
+        "type": "InstanceInformation",
+        "elements":{
+          "dateSent": false
+        }
+      },
+      {
+        "id": "ReceiptHeader",
+        "type": "Header",
+        "textResourceBindings": {
+          "title": "receipt.title_submitted"
+        },
+        "size": "h4"
+      },
+      {
+        "id": "ReceiptAttachmentList",
+        "type": "AttachmentList",
+        "dataTypeIds": ["ref-data-as-pdf"],
+        "includePDF": true
+      }
+    ]
+  }
+}
+```
+
+Sluttresultatet i appen:
+
+![Custom kvitteringsvisning](custom-receipt.png "Custom kvitteringsvisning")

@@ -238,3 +238,101 @@ This results in the following view:
 
 ![Receipt view](receipt-step-custom.png "Overridden texts in the receipt view")
 
+### Custom form layout
+
+{{%notice warning%}}
+This is a temporary approach for customizing the receipt page just as any other pages in the form. When support for layput-sets is available in Altinn Studio it will be possible to customize the receipt page in the same way as the confirmation page.
+{{%/notice%}}
+
+A custom receipt can be made in the same way as any other form pages. The functionality will also be available in Altinn Studio shortly.
+
+Build the layout as usual and refer to the filename of the layout in `setting.json` with the key `receiptLayoutName`. See below example where the layoutfile `receipt.json` is referred to.
+
+```json
+{
+  "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
+  "pages": {
+    "order": [
+      "page1",
+      "page2",
+      "page3"
+    ]
+  },
+  "receiptLayoutName": "receipt"
+}
+```
+
+Example of a customized layout file for the receipt.
+
+```json
+{
+  "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
+  "data": {
+    "layout": [
+      {
+        "id": "ReceiptHeader",
+        "type": "Header",
+        "textResourceBindings": {
+          "title": "receipt.title"
+        },
+        "dataModelBindings": {},
+        "size": "h2"
+      },
+      {
+        "id": "fa796d12-49fc-457a-9d9a-d153998d55de",
+        "type": "Image",
+        "textResourceBindings": {
+          "title": "Bilde"
+        },
+        "dataModelBindings": {},
+        "image": {
+          "src": {
+            "nb": "https://docs.altinn.studio/app/app-dev-course/modul2/kommune-logo.png"
+          },
+          "width": "100%",
+          "align": "flex-start"
+        },
+        "grid": {
+          "xs": 2
+        }
+      },
+      {
+        "id": "ReceiptParagraph",
+        "type": "Paragraph",
+        "textResourceBindings": {
+          "title": "receipt.body"
+        },
+        "grid": {
+          "xs": 10
+        }
+      },
+      {
+        "id": "ReceiptInstanceInformation",
+        "type": "InstanceInformation",
+        "elements":{
+          "dateSent": false
+        }
+      },
+      {
+        "id": "ReceiptHeader",
+        "type": "Header",
+        "textResourceBindings": {
+          "title": "receipt.title_submitted"
+        },
+        "size": "h4"
+      },
+      {
+        "id": "ReceiptAttachmentList",
+        "type": "AttachmentList",
+        "dataTypeIds": ["ref-data-as-pdf"],
+        "includePDF": true
+      }
+    ]
+  }
+}
+```
+
+Resulting receipt in the application:
+
+![Custom receipt](custom-receipt.png "Custom receipt")
+
