@@ -188,3 +188,54 @@ Eksempel på overstyrte tekster i filen `resources.nb.json`:
   "value": "Når tjenesteier har sjekket at alle data er godkjent vil du bli automatisk sendt videre til siste steg i prosessen."
 }
 ```
+
+## Kvittering (Receipt)
+I denne prosess-task-typen er prosessen ferdig og noen standard-tekster vises. 
+
+Tekstene kan overstyres, ved at man legger inn tekstnøkkel som hører til hver tekst i språkfilene for appen. Info
+om hvordan dette gjøres finner du [her](../../../ux/texts). Se under for oversikt over de forskjellige tekstnøklene som kan
+overstyres.
+
+![Kvitterings-visningen](receipt-step.png "Tekster som kan endres/overstyres i kvitterings-visningen")
+
+### Overstyre tekster
+
+| Tekst nr. (se bilde over) | Tekstnøkkel             |
+|---------------------------|-------------------------|
+| 1                         | receipt.receipt         |
+| 2                         | receipt.title           |
+| 3                         | receipt.subtitle        |
+| 4                         | receipt.body            |
+| 5                         | receipt.title_submitted |
+
+
+Eksempel på overstyrte tekster i filen `resources.nb.json`:
+
+```json
+{
+  "id": "receipt.receipt",
+  "value": "Søknad om flytting til Sogndal kommune"
+},
+{
+  "id": "receipt.title",
+  "value": "Takk, søknaden er sendt!"
+},
+{
+  "id": "receipt.subtitle",
+  "value": "Finn kopi av dine svar i Altinn Innboks"
+},
+{
+  "id": "receipt.body",
+  "value": "Saksbehandling av denne type søknader tar vanligvis opp til 4 uker. Du vil bli varslet når svaret er klart i din innboks."
+},
+{
+  "id": "receipt.title_submitted",
+  "value": "Last ned PDF med dine svar:"
+}
+```
+
+Merk at dersom du endrer verdien til tekst-nøkkelen `receipt.subtitle` vil lenken uansett peke til Altinn Inboks.
+
+Dette resulterer i følgende visning:
+
+![Kvitterings-visningen](receipt-step-custom.png "Overstyrte tekster på kvitterings-visningen")

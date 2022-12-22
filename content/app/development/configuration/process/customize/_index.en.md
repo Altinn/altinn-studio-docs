@@ -187,3 +187,54 @@ Example of custom texts in the file  `resources.nb.json`:
   "value": "Når tjenesteier har sjekket at alle data er godkjent vil du bli automatisk sendt videre til siste steg i prosessen."
 }
 ```
+
+## Receipt
+In this process task the process will be ended and some standard texts are shown.
+
+These texts can be overridden by manually adding each defined text keys in the apps text resources. More information about how this is done can be found [here](../../../ux/texts).
+In the following section we will present an overview of the different texts that can be customized.
+
+![Receipt view](receipt-step.png "Texts that can be customized in the receipt view")
+
+### Customize texts
+
+| Text # (see image above)  | Text key                |
+|---------------------------|-------------------------|
+| 1                         | receipt.receipt         |
+| 2                         | receipt.title           |
+| 3                         | receipt.subtitle        |
+| 4                         | receipt.body            |
+| 5                         | receipt.title_submitted |
+
+
+Example of custom texts in the file  `resources.nb.json`:
+
+```json
+{
+  "id": "receipt.receipt",
+  "value": "Søknad om flytting til Sogndal kommune"
+},
+{
+  "id": "receipt.title",
+  "value": "Takk, søknaden er sendt!"
+},
+{
+  "id": "receipt.subtitle",
+  "value": "Finn kopi av dine svar i Altinn Innboks"
+},
+{
+  "id": "receipt.body",
+  "value": "Saksbehandling av denne type søknader tar vanligvis opp til 4 uker. Du vil bli varslet når svaret er klart i din innboks."
+},
+{
+  "id": "receipt.title_submitted",
+  "value": "Last ned PDF med dine svar:"
+}
+```
+
+Note that if you change the value of the text key `receipt.subtitle` the url will still point to Altinn Innbox.
+
+This results in the following view:
+
+![Receipt view](receipt-step-custom.png "Overridden texts in the receipt view")
+
