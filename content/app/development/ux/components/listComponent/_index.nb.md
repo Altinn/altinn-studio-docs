@@ -16,7 +16,7 @@ senere.
 ![ListComponent](listComponent.png "Eksempel på hvordan listekomponenten ser ut")
 
 ## Hvordan definere komponenten i skjema 
-Eksempel på hvordan man kan definere kompoenten i layout.json:
+Komponenten er av typen `List`. Eksempel på hvordan man kan definere kompoenten i layout.json:
 ```json
 {
     "id": "list-component",
@@ -104,12 +104,17 @@ public class ListCases : IDataListProvider
 Her blir listen laget i koden, men her kan man istedet kalle på et annet API som returnerer data man vil vise i tabellen.
 Hvis dette APIet støtter sortering og paginering kan man videresende disse verdiene til APIet slik at man ikke henter unødvendig data. 
 
+## Kolonner
+Hvilke kolonner tabellen skal bestå av defineres med feltet `tableHeaders`. Dette feltet er en array av strings. For å støtte 
+flere språk kan man bruke referanser til nøkler i språkfilene her. Det er innholdet er som vil stå i header av tabellen. 
+Du må selv sørge for at dataene i tabellen populeres i samme rekkefølge, slik at innholdet i cellene stemmer med header.
+
 ## Sortering
 I layout.json definerer du hvilke kolonner som skal være sorterbare gjennom feltet `sortableColumns`. 
-Dette er en array av strings, og strings du bruker her må være definert som en header i feltet "tableHeaders". Dette gjør at de valgte kolonnene 
-får en pil som viser hvilken retning kolonnen er sortert, og kolonnen som styrer sortering nå blir markert. 
+Dette er en array av strings, og strings du bruker her må være definert som en header i feltet `tableHeaders`. Dette gjør 
+at de valgte kolonnene får en pil som viser hvilken retning kolonnen er sortert, og kolonnen som styrer sortering nå blir markert. 
 Selve sorteringslogikken må man selv implementere. Metoden `GetDataListAsync` tar inn parameteren keyValuePairs som
- inneholder sortDirection og sortColumn til dette formålet.
+inneholder sortDirection og sortColumn til dette formålet.
 For eksempel direkte i metoden GetDataListAsync slik som gjort i eksempelet over, eller ved å videresende sortDirection. 
 
 ## Paginering
