@@ -154,7 +154,7 @@ public class ListItem
 ```
 
 ## Komponenten i oppsummering
-Dersom man ønsker å vise listekomponenten i oppsummering av skjema vil det vises enkelt med kun en verdig fra valgt rad.
+Dersom man ønsker å vise listekomponenten i oppsummering av skjema vil det vises enkelt med kun en verdi fra valgt rad.
 Dette defineres med property `bindingToShowInSummary`, og vil se slik ut:
 
 ![ListComponentSummary](listComponentSummary.png "Eksempel på hvordan listekomponenten vises i oppsummering")
