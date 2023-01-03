@@ -76,17 +76,14 @@ The below table list the attributes a resource has in the resource registry. For
 | isLimitedToSpesificUsers | Defines if RRR will be used to controll access | Access Management, PDP | 
 | availableFor | Defines what kind of actor that can use service | Catalogue  |
 | SelfIdentifiedUserEnabled | The service can be used by selfidentifed users | Catalogue, filter, access managment  |
-| Reference | Reference to the platform/service and where it is hosted. Example: Altinn 2 servicecodes |   |
+| Reference | Can be external service codes, scopes +++ |   |
 | EnterpriseUserEnabled | Service can be used by enterprise users | Catalogue, Access management |
-| Scopes | Identfies the scopes defined by service | Maskinporten | 
 | EvenTypes | Identfies types of events a resource can publish | Altinn Events, Catalogue  |  
 | Resourcetype | Type of resource.  | Access management | 
-
 
 ## Policies
 
 Polices defined for apps and resources will be stored by resource registry.
-
 
 ### App Policies
 
@@ -95,7 +92,6 @@ The policy is created in Altinn Studio and migrated to the Access Policy compone
 
 An app policy contains information about the different resources in an App and who and what kind of operations they are allowed to perform. 
 The who is identified using Altinn Roles, Access Groups, or roles/groups from other sources.
-
 
 ### Resource Registry Policies
 
