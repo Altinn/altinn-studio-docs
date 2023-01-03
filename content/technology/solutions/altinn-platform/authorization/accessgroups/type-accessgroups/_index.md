@@ -34,10 +34,10 @@ Virksomheter får i dag tilgang til sin digital post i Altinn gjennom roller ret
 Det er derfor i første versjonen av nye tilgangsgrupper ikke foreslått tilgangsgrupper knyttet til mottak av digital post
 
 ### Høring
-Forslag til nye tilgangsgrupper sendes ut på høring desember 2022.
+Forslag til nye tilgangsgrupper sendes ut på høring i starten av januar 2023
 Vi ønsker at dagens tjenesteeiere vurderer om foreslåtte tilgangsgrupper er hensiktsmessige for deres tjenester. Vi ønsker også tilbakemelding hvis man har forslag til bedre/annen navngivning på tilgangsgruppene enn de som foreligger.
 
-Tilbakemelding kan gis på epost til servicedesk@altinn.no innen 31 januar 2023. 
+Tilbakemelding kan gis på epost til servicedesk@altinn.no innen 15 frebruar 2023. 
 
 # Forslag til tilgangsgrupper: 
 
