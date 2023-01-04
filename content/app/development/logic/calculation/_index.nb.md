@@ -4,8 +4,9 @@ description: Hvordan legge til kalkuleringer?
 toc: true
 ---
 
-
-**Kalkulering er fra 4.7.0 erstattet av dataprosessering. Se [her](../dataprocessing/)**
+{{% panel theme="warning" %}}
+⚠ ️Kalkulering er fra 4.7.0 erstattet av [dataprosessering](../dataprocessing)
+{{% /panel %}}
 
 ## Kalkulering 
 

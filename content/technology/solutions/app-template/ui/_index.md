@@ -66,9 +66,10 @@ Multipage support is essential for digital services with a large amount of data 
 
 ### Dynamics
 
-Configuring dynamics that manipulate the UI based on data and other aspects is possible. Dynamics is configured in Altinn Studio or added as javascript to the template.
+Configuring dynamics that manipulate the UI based on data and other aspects is possible. Dynamics is configured using
+expressions.
 
-[Read how in the Application Developer Handbook.](../../../../app/development/logic/dynamic/)
+[Read how in the Application Developer Handbook.](../../../../app/development/logic/expressions)
 
 ### Language support
 

@@ -76,8 +76,8 @@ Issue [#11](https://github.com/Altinn/app-frontend-react/issues/11).
 Width deklarasjonen ble flyttet til inline styling for å løse problemet.
 Issue [#14](https://github.com/Altinn/app-frontend-react/issues/14). 
 
-## 3.34.0 (2022-04-11) - Options fra Redux
-La til støtte for å sette opp options (kodelister) fra repeterende grupper i Redux staten. Les mer på [docs.](/nb/app/development/data/options/#options-basert-på-repeterende-grupper-i-datamodellen)
+## 3.34.0 (2022-04-11) - Options fra datamodellen
+La til støtte for å sette opp options (kodelister) fra repeterende grupper i datamodellen. Les mer på [docs.](/nb/app/development/data/options/#options-basert-på-repeterende-grupper-i-datamodellen)
 Issue [#7626](https://github.com/Altinn/altinn-studio/issues/7626). 
 
 ## 3.33.5 (2022-04-11) - Oppdaterte ekstern avhengighet
