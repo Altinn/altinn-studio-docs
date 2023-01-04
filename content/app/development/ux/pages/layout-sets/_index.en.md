@@ -48,7 +48,7 @@ Example:
 {
   "sets": [
     {
-      "id": "schema-a",
+      "id": "form-a",
       "dataType": "schema_4222_160523_forms_212_20160523",
       "tasks": [
         "Task_1"
@@ -56,7 +56,7 @@ Example:
     },
 
     {
-      "id": "schema-b",
+      "id": "form-b",
       "dataType": "schema_3161_140411_forms_1549_11554",
       "tasks": [
         "Task_2"
