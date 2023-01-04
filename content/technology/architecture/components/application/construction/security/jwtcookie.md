@@ -15,7 +15,7 @@ Single Page Applications (SPA) where you want to protect the JWT from this SPA. 
 [http only cookie](https://www.owasp.org/index.php/HttpOnly) it is not accessible from the SPA and can't be stolen by malicous javascript 
 running in the browser. 
 
-This is created as a [seperate C# Project](https://github.com/Altinn/altinn-studio/tree/master/src/AltinnCore/Authentication) and published as a 
+This is created as a [seperate C# Project](https://github.com/Altinn/altinn-authentication/tree/main/src/jwtcookie/Authentication) and published as a 
 Nuget Package [here](https://www.nuget.org/packages/JWTCookieAuthentication/).
 
 ## Features Consumer
@@ -25,6 +25,7 @@ Nuget Package [here](https://www.nuget.org/packages/JWTCookieAuthentication/).
 - Automatic detection if request contains Authorization bearer token or JWT in cookie
 - Uses [Microsoft.IdentityModel.Tokens](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) for verification and generation. 
 - Uses [OpenID connect](https://openid.net/connect/) well known endpoint to retrieve the JSON Web Key (JWK) used to sign JWT from the [JSON Web Key Set](https://auth0.com/docs/jwks)
+- Support multiple OIDC providers configured.
 - Support rotating of JWK (TODO)
 
 ## Features ID Provider 
