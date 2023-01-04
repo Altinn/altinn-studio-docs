@@ -20,7 +20,7 @@ A key to the solution is that there are mulitiple layout-sets that consists of o
 |- App/
   |- ui/
     | - layout-sets.json
-    |- schema-a/
+    |- form-a/
       |- Settings.json
       |- RuleHandler.js
       |- RuleConfiguration.json
@@ -28,7 +28,7 @@ A key to the solution is that there are mulitiple layout-sets that consists of o
         |- page1.json
         |- page2.json
         |- page3.json
-    |- schema-b/
+    |- form-b/
       |- Settings.json
       |- RuleHandler.js
       |- RuleConfiguration.json
