@@ -1,5 +1,5 @@
 {
-    "$schema": "./testData.schema.json",
+    "$schema": "https://altinncdn.no/schema/json/testUsers/testUsers.schema.v1.json",
     "persons": [
       {
         "partyId": 512345,
