@@ -190,7 +190,7 @@ Eksempel på overstyrte tekster i filen `resources.nb.json`:
 ```
 
 ## Kvittering (Receipt)
-I denne prosess-task-typen er prosessen ferdig og noen standard-tekster vises. 
+I denne prosess-task-typen er prosessen ferdig og noen standardtekster vises. 
 
 Tekstene kan overstyres, ved at man legger inn tekstnøkkel som hører til hver tekst i språkfilene for appen. Info
 om hvordan dette gjøres finner du [her](../../../ux/texts). Se under for oversikt over de forskjellige tekstnøklene som kan
