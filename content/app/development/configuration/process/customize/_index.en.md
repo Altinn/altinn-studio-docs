@@ -241,7 +241,7 @@ This results in the following view:
 ### Custom form layout
 
 {{%notice warning%}}
-This is a temporary approach for customizing the receipt page just as any other pages in the form. When support for layput-sets is available in Altinn Studio it will be possible to customize the receipt page in the same way as the confirmation page.
+This is a temporary approach for customizing the receipt page just as any other pages in the form. When support for layout-sets is available in Altinn Studio it will be possible to customize the receipt page in the same way as the confirmation page.
 {{%/notice%}}
 
 A custom receipt can be made in the same way as any other form pages. The functionality will also be available in Altinn Studio shortly.
