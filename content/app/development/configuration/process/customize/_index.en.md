@@ -244,7 +244,7 @@ This results in the following view:
 This is a temporary approach for customizing the receipt page just as any other pages in the form. When support for layout-sets is available in Altinn Studio it will be possible to customize the receipt page in the same way as the confirmation page.
 {{%/notice%}}
 
-A custom receipt can be made in the same way as any other form pages. The functionality will also be available in Altinn Studio shortly.
+A custom receipt can be made in the same way as any other form page. The functionality will also be available in Altinn Studio shortly.
 
 Build the layout as usual and refer to the filename of the layout in `setting.json` with the key `receiptLayoutName`. See below example where the layoutfile `receipt.json` is referred to.
 
