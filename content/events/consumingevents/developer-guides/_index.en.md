@@ -12,7 +12,8 @@ if required. </br> </br>
 
 - Which API, request body, headers and so on...
 
-
+This might be used as inspiration: https://docs.altinn.studio/technology/architecture/capabilities/runtime/integration/events/scenarios/
+Page should be deleted once we have full developerguides.
 {{% /notice %}}
 
 {{<children>}}
