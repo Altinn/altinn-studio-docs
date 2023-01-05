@@ -157,4 +157,4 @@ namespace Altinn.App.AppLogic
     ```
 
 6. Applikasjonen din er nå klar til å generere et egendefinert event under instansiering.
-Dette er mulig å [teste lokalt](https://github.com/Altinn/altinn-studio/blob/master/LOCALAPP.md) før det evt. deployes til et testmiljø.
+Dette er mulig å [teste lokalt](https://github.com/Altinn/altinn-studio/blob/master/docs/LOCALAPP.md) før det evt. deployes til et testmiljø.

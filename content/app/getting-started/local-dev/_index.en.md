@@ -12,7 +12,7 @@ Here is an overview of how to get started with local development.
 
 ## Preparations
 
-Follow [the steps decribed on GitHub](https://github.com/Altinn/altinn-studio/blob/master/LOCALAPP.md#prerequisites)
+Follow [the steps decribed on GitHub](https://github.com/Altinn/altinn-studio/blob/master/docs/LOCALAPP.md#prerequisites)
 to prepare your local environment for development and testing of Altinn Apps.
 
 ## How to clone an application to the local environment
