@@ -94,23 +94,19 @@ If the subscriber is Authorized, the event will be added to the "events-outbound
 
 ## Event storage
 
-To be able to get the search capability needed for the Events component we have choosen to use  [PostgreSQL](https://www.postgresql.org/).
+To be able to get the search capability needed for the Events component we have choosen to use [PostgreSQL](https://www.postgresql.org/).
 
 Using [PostgreSQL](https://www.postgresql.org/) makes is possible to sort the events based on a primary key and also makes it possible to search
-over all events based on subject or source. 
+over all events as a serialized json document based on properties such as subject or source. 
 
 The table structure 
 
 ```sql
 CREATE TABLE IF NOT EXISTS events.events
 (
-    sequenceno BIGSERIAL,
-    id character varying COLLATE pg_catalog."default" NOT NULL,
-    source character varying COLLATE pg_catalog."default" NOT NULL,
-    subject character varying COLLATE pg_catalog."default" NOT NULL,
-    "time" timestamptz  NOT NULL,
-    type character varying COLLATE pg_catalog."default" NOT NULL,
-    cloudevent text COLLATE pg_catalog."default" NOT NULL,
+    sequenceno bigint NOT NULL DEFAULT nextval('events.events_sequenceno_seq1'::regclass),
+    cloudevent jsonb NOT NULL,
+    registeredtime timestamp with time zone DEFAULT (now() AT TIME ZONE 'utc'::text),
     CONSTRAINT events_pkey PRIMARY KEY (sequenceno)
 )
 ```
@@ -118,22 +114,22 @@ CREATE TABLE IF NOT EXISTS events.events
 ```sql
 CREATE TABLE IF NOT EXISTS events.subscription
 (
-    id BIGSERIAL,
+    id bigint NOT NULL DEFAULT nextval('events.subscription_id_seq'::regclass),
     sourcefilter character varying COLLATE pg_catalog."default",
     subjectfilter character varying COLLATE pg_catalog."default",
     typefilter character varying COLLATE pg_catalog."default",
     consumer character varying COLLATE pg_catalog."default" NOT NULL,
     endpointurl character varying COLLATE pg_catalog."default" NOT NULL,
     createdby character varying COLLATE pg_catalog."default" NOT NULL,
-    validated BOOLEAN NOT NULL,
-    "time" timestamptz  NOT NULL,
+    validated boolean NOT NULL,
+    "time" timestamp with time zone NOT NULL,
+    sourcefilterhash character varying(32) COLLATE pg_catalog."default",
     CONSTRAINT eventssubscription_pkey PRIMARY KEY (id)
 )
-
 ```
 
-Stored procedures is used to add, delete and query data from the above tables. 
-See all stored procedures [here](https://github.com/Altinn/altinn-events/tree/main/src/Events/Migration).
+Functions and procedurees are used to add, delete and query data from the above tables. 
+See all functions and stored procedures [here](https://github.com/Altinn/altinn-events/tree/main/src/Events/Migration).
 
 #### Event sequencing
 
@@ -141,7 +137,7 @@ Events will be sequenced by the field `sequenceno`, which is also the primary ke
 
 ### Indexing
 
-The events table has indexes on the columns _subject_, _time_, _sourcefilter_.
+The events table has indexes on the columns _cloudevent_ (gin index) and  _registeredtime_ (btree index).
 
 ## Functions
 
@@ -158,15 +154,23 @@ As part of the Events Component there is a single Azure Function App with four f
  - [EventsOutbound](https://github.com/Altinn/altinn-events/blob/main/src/Events.Functions/EventsOutbound.cs) 
    - dequeue from `events-outbound`
    - POST cloud event to target webhook endpoint, retry as necessary
- - [ValidateSubscription](https://github.com/Altinn/altinn-events/blob/main/src/Events.Functions/SubscriptionValidation.cs) 
+ - [SubscriptionValidation](https://github.com/Altinn/altinn-events/blob/main/src/Events.Functions/SubscriptionValidation.cs) 
    - check that the user-defined webhook endpoint is ready to receive data
+
+### EventsRegistration
+
+The [EventsRegistration](https://github.com/Altinn/altinn-events/blob/main/src/Events.Functions/EventsRegistration.cs) function is executed automatically by the Azure Function runtime when new events are posted to the `events-registration` queue.
+
+It first sends the event to storage for persistence, once sucessfully persisten, the event is forwarded to the inbound controller.
+The Function uses Platform Access token to authenticate itself for the Inbound and Storage controllers.
+
+It uses standard mechanismen for retry, if the call for controllers fails.
 
 ### EventsInbound
 
 The [EventsInbound](https://github.com/Altinn/altinn-events/blob/main/src/Events.Functions/EventsInbound.cs) function is executed automatically by the Azure Function runtime when new events are posted to the `events-inbound` queue.
 
-This function does not have 
-It just forward the event to the PushController through the [pushEventService](https://github.com/Altinn/altinn-events/blob/main/src/Events.Functions/Services/PushEventsService.cs).
+It forwards the event to the PushController through the [pushEventService](https://github.com/Altinn/altinn-events/blob/main/src/Events.Functions/Services/PushEventsService.cs).
 
 The Function uses Platform Access token to authenticate itself for the PushController
 
@@ -174,7 +178,7 @@ It uses standard mechanismen for retry, if the call for pushcontroller fails.
 
 ### EventsOutbound
 
-The [EventsOutbound](https://github.com/Altinn/altinn-events/blob/main/src/Events.Functions/EventsInbound.cs) function is triggered byQueueStorage changes in the "events-outbound" queue.
+The [EventsOutbound](https://github.com/Altinn/altinn-events/blob/main/src/Events.Functions/EventsOutbound.cs) function is triggered by QueueStorage changes in the "events-outbound" queue.
 
 It will try to push the event to given subscription endpoint given in the [CloudEventEnvelope](https://github.com/Altinn/altinn-events/blob/main/src/Events.Functions/Models/CloudEventEnvelope.cs)
 that is put on the queue and containing the event.
