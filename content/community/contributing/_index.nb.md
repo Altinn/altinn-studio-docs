@@ -12,7 +12,7 @@ og løfte frem oppgaver som interesserer deg ved å gi de en tommel opp (👍). 
 vi til å legge igjen en kommentar.
 - **Rapportere eller fikse feil** Har du oppdaget en feil som ikke allerede er rapportert setter vi pris på at du 
 [oppretter en sak i github](https://github.com/Altinn/altinn-studio/issues/new?assignees=&labels=kind%2Fbug&template=bug_report.md). 
-Dersom du har fikset en feil kan du [opprette en Pull Request](https://github.com/Altinn/altinn-studio/blob/master/CONTRIBUTING.md#pull-requests). 
+Dersom du har fikset en feil kan du [opprette en Pull Request](https://github.com/Altinn/altinn-studio/blob/master/docs/CONTRIBUTING.md#pull-requests). 
 - **Ny komponent/funksjonalitet** Trenger du en ny komponent eller funksjonalitet i forbindelse med en app du 
 utvikler? Vi setter pris på at behovet først meldes inn til oss, slik at vi kan vurdere 
 om forslaget er i tråd med eksisterende interaksjonsmønster. Vi ser også på om det bør lages en 
