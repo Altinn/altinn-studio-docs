@@ -24,44 +24,8 @@ weight: 11
 4. Start the app in a browser by going to [local.altinn.cloud](http://local.altinn.cloud)!
 
 ## Altinn Studio Designer
-1. Follow the instructions in the Altinn Studio [README](https://github.com/Altinn/altinn-studio/blob/master/src/studio/README.md) to set up Altinn Studio locally.
-
-2. Stop the `altinn-designer` container: 
-    ```
-    docker stop altinn-designer
-    ```
-
-3. Install/update dependencies (from `backend/src/Designer`):
-    ```
-    yarn --immutable
-    yarn run gulp-install-deps # Installs front-end dependencies
-    ```
-
-4. Run the designer application (from `backend/src/Designer`):
-    ```
-    yarn run gulp # only needed the first time
-    yarn run gulp-develop #or yarn run gulp-develop-dashboard
-    ```
-    This will both start the backend application with `dotnet run`, and serve the front-end application at localhost:8080 with _hot reload_, which rebuilds the frontend application any time a new change is saved. You might have to refresh the page to see your changes.
-
-5. Open Altinn Studio in a browser
-
-{{% notice info %}}
-Note that you can also run Altinn Studio Designer frontend in the same way as running app frontend. This would require changing the 
-`backend/src/Designer/views/ServiceDevelopment/Index.cshtml` (for app-development) or `backend/src/Designer/views/Home/Index.cshtml` 
-(for Dashboard) to point at `http://localhost:8080` in a similar way as described in the app frontend section.
-
-The first time setting this up, you would have to follow steps 1-3 and then run the `yarn run gulp` command from step 4, before navigating to the frontend folder
-`frontend` and then into the application you want to run (dashboard or app-development). From there, 
-you can run `yarn run start` and the frontend will be up and running. 
-
-The backend will have to be started separately, using the `dotnet run` command.
-
-Subsequent setups, you only have to do steps 1-2, and if dependencies have been updated then step 3 can be run (or these can be installed
-directly from the `frontend` folder).
-
-To enable hot reload of the designer frontends, this is the method to use.
-{{% /notice %}}
+Follow the instructions in the Altinn Studio [README](https://github.com/Altinn/altinn-studio#running-and-developing-solutions-locally)
+to set up Altinn Studio for local development.
 
 ## Platform Receipt
 Open a terminal in `src/Altinn.Platform/Altinn.Platform.Receipt`, and run:
