@@ -6,25 +6,26 @@ tags: [architecture, security]
 toc: false
 ---
 
-These are constructed in different ways.
+See below for details of how we have constructed the PEPs and how to configure them.
 
-## Standard PEP
+## Standard PEPs
 
-One important principle we follow is that security should be configured when possible. This means that we have developed
-some standard policy enforcement points that can be configured on the different API endpoints.
+Developers should configure security when possible, is one important principle we follow. 
+Therefore, we have developed some standard policy enforcement points that API developers can use on different API endpoints.
 
-Attribute-based authorization is best solved with
-[Policy-Based Authorization in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/policies?view=aspnetcore-3.0)
+The best way to solve Attribute-based authorization is by using
+[Policy-Based Authorization in ASP.NET Core.](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/policies)
 
-The different standard PEP's in the ASP.Net Web application template is created as 
+We have created the standard PEPs in the ASP.Net Web application as 
 [Authorization Handlers](https://github.com/aspnet/AspNetCore/blob/release/3.0/src/Security/Authorization/Core/src/AuthorizationHandler.cs).
 
-### AppAccessHandler
+### Policy Enforment - AppAccess
 
-The AppAccessHandler is the PEP for API endpoints that handle data related to an app created in Altinn Studio. This 
+The AppAccessHandler is the PEP for API endpoints that handle data related to an app created in Altinn Studio. This uses configuration
+on API endpoint and API parameters to call the PDP to autorize access. 
 
 See [AppAccessHandler](https://github.com/Altinn/altinn-authorization/blob/main/src/Altinn.Common.PEP/Altinn.Common.PEP/Authorization/AppAccessHandler.cs) 
-for implementation details.
+and [AppAccessRequirement](https://github.com/Altinn/altinn-authorization/blob/main/src/Altinn.Common.PEP/Altinn.Common.PEP/Authorization/AppAccessRequirement.cs) for implementation details.
 
 
 In the App there is defined a set of
@@ -43,32 +44,24 @@ Based on the [response](https://github.com/Altinn/altinn-studio/blob/master/src/
 
 The PEP validates any obligation from the PDP like minimum authentication level. If this is not valid, the request will be denied (HTTP 403).
 
-
-
 #### Configuration
 
 The application needs to have a startup configuration to enable the different standard PEPs
 
 ```c#
-         services.AddAuthorization(options =>
-            {
-                options.AddPolicy(AuthzConstants.POLICY_INSTANCE_READ, policy => policy.Requirements.Add(new AppAccessRequirement("read")));
-                options.AddPolicy(AuthzConstants.POLICY_INSTANCE_WRITE, policy => policy.Requirements.Add(new AppAccessRequirement("write")));
-                options.AddPolicy(AuthzConstants.POLICY_INSTANCE_DELETE, policy => policy.Requirements.Add(new AppAccessRequirement("delete")));
-                options.AddPolicy(AuthzConstants.POLICY_INSTANCE_COMPLETE, policy => policy.Requirements.Add(new AppAccessRequirement("complete")));
-                options.AddPolicy(AuthzConstants.POLICY_SCOPE_APPDEPLOY, policy => policy.Requirements.Add(new ScopeAccessRequirement("altinn:appdeploy")));
-                options.AddPolicy(AuthzConstants.POLICY_SCOPE_INSTANCE_READ, policy => policy.Requirements.Add(new ScopeAccessRequirement("altinn:instances.read")));
-                options.AddPolicy(AuthzConstants.POLICY_STUDIO_DESIGNER, policy => policy.Requirements.Add(new ClaimAccessRequirement("urn:altinn:app", "studio.designer")));
-            });
+services.AddAuthorization(options =>
+{
+    options.AddPolicy(AuthzConstants.POLICY_INSTANCE_READ, policy => policy.Requirements.Add(new AppAccessRequirement("read")));
+    options.AddPolicy(AuthzConstants.POLICY_INSTANCE_WRITE, policy => policy.Requirements.Add(new AppAccessRequirement("write")));
+    options.AddPolicy(AuthzConstants.POLICY_INSTANCE_DELETE, policy => policy.Requirements.Add(new AppAccessRequirement("delete")));
+    options.AddPolicy(AuthzConstants.POLICY_INSTANCE_COMPLETE, policy => policy.Requirements.Add(new AppAccessRequirement("complete")));
+});
 
 ```
 
 Example from [Storage Startup](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/Storage/Startup.cs)
 
 The API needs to have enabled PEP for a given API operation
-
-
-
 
 ```c#
 [Authorize(Policy = AuthzConstants.POLICY_INSTANCE_WRITE)]
@@ -80,11 +73,9 @@ public async Task<ActionResult<DataElement>> Delete(int instanceOwnerPartyId, Gu
 Example from [DataController](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/Storage/Controllers/DataController.cs)
 
 
-
-### ScopeAccessHandler
+### Policy Enforcment ScopeAccessHandler
 
 See [ScopeAccessHandler](https://github.com/Altinn/altinn-authorization/blob/main/src/Altinn.Common.PEP/Altinn.Common.PEP/Authorization/ScopeAccessHandler.cs) for PEP validating scope requirements
-
 
 
 #### Configuration
@@ -103,9 +94,22 @@ services.AddAuthorization(options =>
 ### ResourceAccessHandler
 
 
-### ClaimAccessHandler
+### Polic enforcment - ClaimAccess
 
 
+
+
+#### Configuration
+
+The application needs to have a startup configuration to enable the different standard PEPs
+
+```c#
+         services.AddAuthorization(options =>
+            {
+                options.AddPolicy(AuthzConstants.POLICY_STUDIO_DESIGNER, policy => policy.Requirements.Add(new ClaimAccessRequirement("urn:altinn:app", "studio.designer")));
+            });
+
+```
 
 
 
