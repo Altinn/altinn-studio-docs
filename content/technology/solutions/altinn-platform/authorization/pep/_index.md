@@ -9,4 +9,4 @@ The PEP is responsible for making sure that user/system is authorized befor a AP
 
 The PEP will identify call the PDP to get a decision on a reuest.
 
-[See construction components on details how the PEP are created](/technology/architecture/components/application/construction/security/pep/).
+[See construction components on details how the PEP are created](technology/architecture/components/application/construction/altinn-platform/authorization/accesscontrol/pep/).
