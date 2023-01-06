@@ -28,9 +28,7 @@ See [AppAccessHandler](https://github.com/Altinn/altinn-authorization/blob/main/
 and [AppAccessRequirement](https://github.com/Altinn/altinn-authorization/blob/main/src/Altinn.Common.PEP/Altinn.Common.PEP/Authorization/AppAccessRequirement.cs) for implementation details.
 
 
-In the App, the API developer defines a set of 
-[AuthorizationRequirements](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.authorization.iauthorizationrequirement?), 
-and for each operation, the developer maps the correct requirement.
+In the App, the API developer defines a set of AppAccessRequirement, and for each operation, the developer maps the correct requirement.
 
 Examples of requirements are:
 
@@ -38,10 +36,10 @@ Examples of requirements are:
 - **InstanceWrite** (User/system needs to be authorized to perform write action on the instance and its data in its current state)
 - **InstanceInstantiate** (user/system needs to be authorized to Instantiate an instance for an app)
 
-The PEP will create a [decision request](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Authorization/IntegrationTests/Data/Xacml/3.0/AltinnApps/AltinnApps0007Request.json) and call PDP.
- based on route data (like instanceId) and the authenticated Identity create a
+The PEP will create a decision request ([example](https://github.com/Altinn/altinn-authorization/blob/main/test/IntegrationTests/Data/Xacml/3.0/AltinnApps/AltinnApps0007Request.json)) and call the PDP
+ based on route data (like instanceId) and the authenticated Identity.
 
-Based on the [response](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Authorization/IntegrationTests/Data/Xacml/3.0/AltinnApps/AltinnApps0007Response.json) the PEP will deny or approve the user. (Deny = http 403)
+Based on the response ([example](https://github.com/Altinn/altinn-authorization/blob/main/test/IntegrationTests/Data/Xacml/3.0/AltinnApps/AltinnApps0007Response.json)), the PEP will deny or approve the user. (Deny = http 403)
 
 The PEP validates any obligation from the PDP like minimum authentication level. If this is not valid, the request will be denied (HTTP 403).
 
@@ -118,8 +116,8 @@ The resource access is used for scenarios where API access is authorized based o
 Altinn Resource Registry.
 
 
-See [ScopeAccessHandler](https://github.com/Altinn/altinn-authorization/blob/main/src/Altinn.Common.PEP/Altinn.Common.PEP/Authorization/ScopeAccessHandler.cs) 
-and [ScopeAccessRequirement](https://github.com/Altinn/altinn-authorization/blob/main/src/Altinn.Common.PEP/Altinn.Common.PEP/Authorization/ScopeAccessRequirement.cs) for implementation details.
+See [ResourceAccessHandler](https://github.com/Altinn/altinn-authorization/blob/main/src/Altinn.Common.PEP/Altinn.Common.PEP/Authorization/ResourceAccessHandler.cs) 
+and [ResourceAccessRequirement](https://github.com/Altinn/altinn-authorization/blob/main/src/Altinn.Common.PEP/Altinn.Common.PEP/Authorization/ResourceAccessRequirement.cs) for implementation details.
 
 
 
