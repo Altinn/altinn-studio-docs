@@ -233,7 +233,7 @@ You can specify that a component should start on a new page or that a page break
 }
 ```
 
-**Note**: The value of `breakBefore` and `breakAfter` can either be `true`/`false` or an [expresion](/app/development/logic/expressions/).
+**Note**: The value of `breakBefore` and `breakAfter` can either be `true`/`false` or an [expression](/app/development/logic/expressions/).
 {{% /expandlarge %}}
 
 {{% expandlarge id="exclude-components-from-groups" header="Exclude child components from groups" %}}
