@@ -19,10 +19,13 @@ Attribute-based authorization is best solved with
 The different standard PEP's in the ASP.Net Web application template is created as 
 [Authorization Handlers](https://github.com/aspnet/AspNetCore/blob/release/3.0/src/Security/Authorization/Core/src/AuthorizationHandler.cs).
 
-See [AppAccessHandler](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Common/Altinn.Common.PEP/Altinn.Common.PEP/Authorization/AppAccessHandler.cs) for PEP for checking
-app policy for an API.
+### AppAccessHandler
 
-See [ScopeAccessHandler](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Common/Altinn.Common.PEP/Altinn.Common.PEP/Authorization/ScopeAccessHandler.cs) for PEP validating scope requirements
+The AppAccessHandler is the PEP for API endpoints that handle data related to an app created in Altinn Studio. This 
+
+See [AppAccessHandler](https://github.com/Altinn/altinn-authorization/blob/main/src/Altinn.Common.PEP/Altinn.Common.PEP/Authorization/AppAccessHandler.cs) 
+for implementation details.
+
 
 In the App there is defined a set of
 [AuthorizationRequirements](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.authorization.iauthorizationrequirement?) 
@@ -40,7 +43,9 @@ Based on the [response](https://github.com/Altinn/altinn-studio/blob/master/src/
 
 The PEP validates any obligation from the PDP like minimum authentication level. If this is not valid, the request will be denied (HTTP 403).
 
-### Configuration
+
+
+#### Configuration
 
 The application needs to have a startup configuration to enable the different standard PEPs
 
@@ -66,17 +71,42 @@ The API needs to have enabled PEP for a given API operation
 
 
 ```c#
-     [Authorize(Policy = AuthzConstants.POLICY_INSTANCE_WRITE)]
-        [HttpDelete("data/{dataGuid:guid}")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [Produces("application/json")]
-        public async Task<ActionResult<DataElement>> Delete(int instanceOwnerPartyId, Guid instanceGuid, Guid dataGuid)
-        {
+[Authorize(Policy = AuthzConstants.POLICY_INSTANCE_WRITE)]
+[HttpDelete("data/{dataGuid:guid}")]
+public async Task<ActionResult<DataElement>> Delete(int instanceOwnerPartyId, Guid instanceGuid, Guid dataGuid)
+
 ```
 
 Example from [DataController](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/Storage/Controllers/DataController.cs)
+
+
+
+### ScopeAccessHandler
+
+See [ScopeAccessHandler](https://github.com/Altinn/altinn-authorization/blob/main/src/Altinn.Common.PEP/Altinn.Common.PEP/Authorization/ScopeAccessHandler.cs) for PEP validating scope requirements
+
+
+
+#### Configuration
+
+The application needs to have a startup configuration to enable the different standard PEPs
+
+```c#
+services.AddAuthorization(options =>
+{
+    options.AddPolicy(AuthzConstants.POLICY_SCOPE_APPDEPLOY, policy => policy.Requirements.Add(new ScopeAccessRequirement("altinn:appdeploy")));
+    options.AddPolicy(AuthzConstants.POLICY_SCOPE_INSTANCE_READ, policy => policy.Requirements.Add(new ScopeAccessRequirement("altinn:instances.read")));
+});
+
+```
+
+### ResourceAccessHandler
+
+
+### ClaimAccessHandler
+
+
+
 
 
 ## Custom PEP
@@ -130,4 +160,4 @@ In the example below a list of elements is retreived from database and we need t
         }
 ```
 
-Example from [MessageboxInstancesController](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/Storage/Controllers/MessageboxInstancesController.cs)
+Example from [MessageboxInstancesController](https://github.com/Altinn/altinn-storage/blob/main/src/Storage/Controllers/MessageboxInstancesController.cs)
