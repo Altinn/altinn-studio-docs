@@ -17,7 +17,7 @@ The best way to solve Attribute-based authorization is by using
 [Policy-Based Authorization in ASP.NET Core.](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/policies)
 
 We have created the standard PEPs in the ASP.Net Web application as 
-[Authorization Handlers](https://github.com/aspnet/AspNetCore/blob/release/3.0/src/Security/Authorization/Core/src/AuthorizationHandler.cs).
+[Authorization Handlers](https://github.com/dotnet/aspnetcore/blob/main/src/Security/Authorization/Core/src/AuthorizationHandler.cs).
 
 ### Policy Enforment - AppAccess
 
