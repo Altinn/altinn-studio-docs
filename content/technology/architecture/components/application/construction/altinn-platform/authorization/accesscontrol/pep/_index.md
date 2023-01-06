@@ -19,6 +19,8 @@ The best way to solve Attribute-based authorization is by using
 We have created the standard PEPs in the ASP.Net Web application as 
 [Authorization Handlers](https://github.com/dotnet/aspnetcore/blob/main/src/Security/Authorization/Core/src/AuthorizationHandler.cs).
 
+This is published on Nuget as [Altinn.Common.PEP](https://www.nuget.org/packages/Altinn.Common.PEP)
+
 ### Policy Enforcement - AppAccess
 
 The AppAccessHandler is the PEP for API endpoints that handle data related to an app created in Altinn Studio. This handler uses configuration
