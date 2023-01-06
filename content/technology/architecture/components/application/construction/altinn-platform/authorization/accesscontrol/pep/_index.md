@@ -19,10 +19,10 @@ The best way to solve Attribute-based authorization is by using
 We have created the standard PEPs in the ASP.Net Web application as 
 [Authorization Handlers](https://github.com/dotnet/aspnetcore/blob/main/src/Security/Authorization/Core/src/AuthorizationHandler.cs).
 
-### Policy Enforment - AppAccess
+### Policy Enforcement - AppAccess
 
-The AppAccessHandler is the PEP for API endpoints that handle data related to an app created in Altinn Studio. This uses configuration
-on API endpoint and API parameters to call the PDP to autorize access. 
+The AppAccessHandler is the PEP for API endpoints that handle data related to an app created in Altinn Studio. This handler uses configuration
+on API endpoint and API parameters to call the PDP to authorize access. 
 
 See [AppAccessHandler](https://github.com/Altinn/altinn-authorization/blob/main/src/Altinn.Common.PEP/Altinn.Common.PEP/Authorization/AppAccessHandler.cs) 
 and [AppAccessRequirement](https://github.com/Altinn/altinn-authorization/blob/main/src/Altinn.Common.PEP/Altinn.Common.PEP/Authorization/AppAccessRequirement.cs) for implementation details.
@@ -59,7 +59,7 @@ services.AddAuthorization(options =>
 
 ```
 
-Example from [Storage Startup](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/Storage/Startup.cs)
+Example from [Storage Program.cs](https://github.com/Altinn/altinn-storage/blob/main/src/Storage/Program.cs)
 
 The API needs to have enabled PEP for a given API operation
 
@@ -70,7 +70,7 @@ public async Task<ActionResult<DataElement>> Delete(int instanceOwnerPartyId, Gu
 
 ```
 
-Example from [DataController](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/Storage/Controllers/DataController.cs)
+Example from [DataController](https://github.com/Altinn/altinn-storage/blob/main/src/Storage/Controllers/DataController.cs)
 
 
 ### Policy Enforcment ScopeAccessHandler
