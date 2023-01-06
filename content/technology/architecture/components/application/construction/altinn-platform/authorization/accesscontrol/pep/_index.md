@@ -45,7 +45,7 @@ The PEP validates any obligation from the PDP like minimum authentication level.
 
 #### Configuration
 
-The application needs to have a startup configuration to enable the different standard PEPs
+The application needs to have a startup configuration to enable the different standard PEPs.
 
 ```c#
 services.AddAuthorization(options =>
@@ -60,7 +60,7 @@ services.AddAuthorization(options =>
 
 Example from [Storage Program.cs](https://github.com/Altinn/altinn-storage/blob/main/src/Storage/Program.cs)
 
-The API needs to have enabled PEP for a given API operation
+The API needs to have enabled PEP for a given API operation.
 
 ```c#
 [Authorize(Policy = AuthzConstants.POLICY_INSTANCE_WRITE)]
@@ -72,11 +72,11 @@ public async Task<ActionResult<DataElement>> Delete(int instanceOwnerPartyId, Gu
 Example from [DataController](https://github.com/Altinn/altinn-storage/blob/main/src/Storage/Controllers/DataController.cs)
 
 
-### Policy Enforcment ScopeAccessHandler
+### Policy Enforcement ScopeAccessHandler
 
-This handler is used in scenarios where we want to require some specific scopes to be able to call an API.
+For scenarios where we require specific scopes to be authorized to call an API, we use the ScopeAccessHandler.
 
-It support multiple scopes.
+It supports multiple scopes.
 
 
 See [ScopeAccessHandler](https://github.com/Altinn/altinn-authorization/blob/main/src/Altinn.Common.PEP/Altinn.Common.PEP/Authorization/ScopeAccessHandler.cs) 
@@ -118,7 +118,7 @@ In Scenarios where we want to authorize API access based on the authorization po
 See [ResourceAccessHandler](https://github.com/Altinn/altinn-authorization/blob/main/src/Altinn.Common.PEP/Altinn.Common.PEP/Authorization/ResourceAccessHandler.cs) 
 and [ResourceAccessRequirement](https://github.com/Altinn/altinn-authorization/blob/main/src/Altinn.Common.PEP/Altinn.Common.PEP/Authorization/ResourceAccessRequirement.cs) for implementation details.
 
-TODO Exmaple use
+TODO Example use
 
 ### Policy enforcement - ClaimsAccess
 
@@ -127,7 +127,7 @@ For scenarios where we require a specific claim for the authenticated system/use
 
 #### Configuration
 
-The application needs to have a startup configuration to enable the different standard PEPs
+The application needs to have a startup configuration to enable the different standard PEPs.
 
 ```c#
          services.AddAuthorization(options =>
