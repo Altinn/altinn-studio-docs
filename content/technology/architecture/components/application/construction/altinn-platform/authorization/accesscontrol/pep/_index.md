@@ -112,19 +112,17 @@ Example from [EventsController](https://github.com/Altinn/altinn-events/blob/mai
 
 ### Policy enforcement ResourceAccess
 
-The resource access is used for scenarios where API access is authorized based on authorizatrion polices defined for a specific resource registrated in
-Altinn Resource Registry.
+In Scenarios where we want to authorize API access based on the authorization policy for a given resource in Altinn Resource Registry, we use the ResourceAccessHandler.
 
 
 See [ResourceAccessHandler](https://github.com/Altinn/altinn-authorization/blob/main/src/Altinn.Common.PEP/Altinn.Common.PEP/Authorization/ResourceAccessHandler.cs) 
 and [ResourceAccessRequirement](https://github.com/Altinn/altinn-authorization/blob/main/src/Altinn.Common.PEP/Altinn.Common.PEP/Authorization/ResourceAccessRequirement.cs) for implementation details.
 
+TODO Exmaple use
 
+### Policy enforcement - ClaimsAccess
 
-### Polic enforcement - ClaimsAccess
-
-
-This handler is used in scenarios where we want to require a specific claim to be able to call an API.
+For scenarios where we require a specific claim for the authenticated system/user, we use the ClaimsAccessHandler.
 
 
 #### Configuration
@@ -143,11 +141,13 @@ The application needs to have a startup configuration to enable the different st
 
 ## Custom PEP
 
-For some scenarious it is not possible to authorize the request based on API parameters. 
+For some scenarios, it is impossible to authorize the request based on API parameters.
 
-This cases requires a custom PEP that is implemented as part of API logic.
+These scenarios require a custom PEP as part of API logic.
 
-In the example below a list of elements is retreived from database and we need to filter elements before they are returned based on what user is authorized for.
+The example below retrieves a list of elements from the database. 
+
+Before the API returns the list, each element must be checked for authorization and only returned if the user calling API is authorized.
 
 ```c#
        [Authorize]
