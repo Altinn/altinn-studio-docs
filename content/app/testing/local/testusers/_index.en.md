@@ -51,7 +51,7 @@ Det er ikke dokumentert hva slags egenskaper disse skal ha.
 
 ## App spesifikke brukere
 Om standard settet med brukere ikke passer for å teste din app lokalt, kan du legge sørge for at appen din svarer med et
-json dokoument på url `/[org]/[appId]/testData.json`. Den enkleste måten er å legge en slik fil i wwwroot mappa i appen.
+json dokoument på url `/[org]/[appId]/testData.json`. Den enkleste måten er å legge fila på `App/wwwroot/testData.json`.
 
 Typiske endringer du kan være interresert i er å bruke andre organisasjonsnummer/fødselsnummer for at oppslag i apier som
 appene er avhengig av skal virke, eller testing av autorisasjonsreglene med andre roller enn det standard brukerene har.
