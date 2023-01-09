@@ -196,7 +196,7 @@ Applicaton that exposes SBL components as REST interface to Altinn Platform comp
 [See all issues on GitHub related to SBL Bridge](https://github.com/Altinn/altinn-studio/labels/solution%2Fsbl-bridge).
 
 
-## Statefull App
+## Stateful App
 A stateful app uses Altinn Platform to store data
 
 
