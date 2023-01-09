@@ -63,7 +63,7 @@ en `testData.json` fil i verktøy som VSCode. En full versjon av brukerene som l
 
 ```json
 {
-    "$schema": "https://altinncdn.no/schema/json/testUsers/testUsers.schema.v1.json",
+    "$schema": "https://altinncdn.no/schema/json/test-users/test-users.schema.v1.json",
     "persons": [
       {
         "partyId": 512345,
