@@ -15,7 +15,7 @@ This makes it possible for each Altinn Platform environment to configure which A
 and modify applications in that specific environment. 
 
 
-The token is generated with help of the [Access Token generator](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Common/Altinn.Common.AccessToken/Altinn.Common.AccessTokenClient/Services/AccessTokenGenerator.cs) 
+The token is generated with help of the [Access Token generator](https://github.com/Altinn/altinn-accesstoken/blob/main/src/Altinn.Common.AccessTokenClient/Services/AccessTokenGenerator.cs) 
 and this is generated for each call designer are doing aginst the platform solution for Storage and Authorization.
 
 ## Apps 
@@ -24,8 +24,8 @@ that a AccessToken is added to the request header in addition to the JWT that id
 
 The applications generes a token based on a org certificate available in the Kubernetes Cluster for the given org.
 
-The token is generated with help of the [Access Token generator](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Common/Altinn.Common.AccessToken/Altinn.Common.AccessTokenClient/Services/AccessTokenGenerator.cs) 
-and is used when calling [Register as an example](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Apps/AppTemplates/AspNet/Altinn.App.PlatformServices/Implementation/RegisterAppSI.cs).
+The token is generated with help of the [Access Token generator](https://github.com/Altinn/altinn-accesstoken/blob/main/src/Altinn.Common.AccessTokenClient/Services/AccessTokenGenerator.cs) 
+and is used when calling [Register as an example](https://github.com/Altinn/app-lib-dotnet/blob/main/src/Altinn.App.Core/Infrastructure/Clients/Register/RegisterClient.cs).
 
 The required check is enabled in the platform components with enabling a AuthorizationRequirement on the controller. 
 Example on Party controller [here](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Register/Register/Controllers/PartiesController.cs).
