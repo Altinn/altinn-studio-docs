@@ -9,7 +9,11 @@ weight: 400
 
 {{%notice info%}}
 For at applikasjonen din skal kunne sende instansdata videre til eFormidling må den referere til nugetversjon >= 4.22.0.
-[Se hvordan du oppdaterer nugetreferanser for applikasjonen din her](../update/#nuget-pakker).
+[Se hvordan du oppdaterer nugetreferanser for applikasjonen din her](/app/maintainance/dependencies/).
+{{% /notice%}}
+
+{{%notice info%}}
+I versjon 7 ble det innført en endring for å sikre at applikasjonen kjenner den endelige leveransestatsus for meldinger sent gjennom integrasjonspunktet til eFormidling og i tilfelle feilende leveranser vil disse logges eksplisitt. Denne endringer introduserer behovet for [hendelsestøtte i applikasjonen](/app/development/logic/events).
 {{% /notice%}}
 
 Dersom man har behov for integrasjon med eFormidling i applikasjonen må dette aktiveres.
@@ -47,6 +51,9 @@ Opprett `AppSettings` seksjonen dersom den ikke finnes og sett `EnableEFormidlin
 }
 ```
 
+{{<content-version-selector classes="border-box">}}
+
+{{<content-version-container version-label="v4, v5, v6">}}
 ## Legge til støtte for eFormidling i App.cs
 
 Neste steg for å få støtte for eFormidling i tjenesten din er å tilgjengeliggjøre services som appen behøver.
@@ -93,7 +100,6 @@ platformSettings,
 tokenGenerator
 ```
 
-
 Endelig resultat skal se slik ut:
 
 ```cs
@@ -113,6 +119,17 @@ appsettings,
 platformSettings,
 tokenGenerator)
 ```
+{{</content-version-container>}}
+
+{{<content-version-container version-label="v7">}}
+eFormidlingsintegrasjonen er en del av Altinn.App.Core nuget pakken, men er ikke aktivert som standard. For å aktivere støtte for eFormidling in applikasjonen må du registrere tjenestene ved å legge til følgende i _Program.cs_:
+
+```csharp
+services.AddEFormidlingServices<EFormidlingMetadata, EFormidlingReceivers>(config);
+```
+{{</content-version-container>}}
+
+{{</content-version-selector>}}
 
 ## Konfigurere nøkkelverdier for eFormidling i applikasjonen din
 
@@ -161,7 +178,7 @@ Et eksempel for en konfigurasjon i application metadata:
 Apputvikler er selv ansvarlig for å sette opp meldingen til en forsendelse som skal via eFormidling.
 [Les om de ulike meldingstypene tilgjengelig i eFormidling.](https://docs.digdir.no/eformidling_nm_message.html#meldingstypene)
 
-Dette gjøres ved å legge til funksjonen nedenfor i _App.cs_.
+I versjon 4, 5 og 6 ble dette gjort ved å legge til funksjonen nedenfor i _App.cs_. Mens i versjon gjør man dette ved å legge til en klasse som implementerer `IEFormidlingMetadata` grensesnittet som har samme metode og signatur. Husk at i versjon 7 må du også registrere implementeringen din i _Program.cs_.
 
 Forventet output fra denne metoden er en tuppel som inneholder navnet på metadatafilen som første element
 og en stream med metadataen som andre element.
@@ -185,10 +202,13 @@ public override async Task<(string, Stream)> GenerateEFormidlingMetadata(Instanc
 ```
 
 ## Sette mottaker for forsendelse i applikasjonslogikken
-
-I App.cs kan man overstyre metoden som henter ut mottaker av forsendelsen fra applicationmetadata.json_.
 Denne funksjonaliteten kan benyttes dersom mottaker av forsendelsen skal avgjøres dynamisk.
 
+I App.cs kan man overstyre metoden som henter ut mottaker av forsendelsen fra applicationmetadata.json_.
+
+{{<content-version-selector classes="border-box">}}
+
+{{<content-version-container version-label="v4, v5, v6">}}
 Det må tre steg til for å sette mottaker i applikasjonslogikken, og alle endringer gjøres i _App.cs_.
 
 1. Øverst i filen må det legges til en referanse til eFormidlings biblioteket.
@@ -219,8 +239,27 @@ Det må tre steg til for å sette mottaker i applikasjonslogikken, og alle endri
 3. Legg til egen logikk for å populere _identifier.Value_ i funksjonen.
    Merk at det kun er norske organisasjonsnummer som støttes,
    og at prefiksen `0192:` er påkrevd før organisasjonsnummeret.
+{{</content-version-container>}}
+{{<content-version-container version-label="v7">}}
+I versjon 7 er GetEformidlingReceivers metoden flyttet til `IEFormidlingReceivers` grensesnittet. Lag en klasse som implementerer dette grensesnittet og registrer den i _Program.cs_. Nedefor er et eksempel på rammene for en slik implementering:
+```csharp
+public async Task<List<Receiver>> GetEFormidlingReceivers(Instance instance)
+{
+    Identifier identifier = new Identifier
+    {
+        Authority = "iso6523-actorid-upis"
+    };
 
+    // 0192 prefix for all Norwegian organisations.
+    identifier.Value = "[INSERT ORGANISATION NUMBER HERE WITH PREFIX `0192:`]" ;
 
+    Receiver receiver = new Receiver { Identifier = identifier };
+    return new List<Receiver> { receiver };
+}
+```
+{{</content-version-container>}}
+
+{{</content-version-selector>}}
 ## Lokal test av applikasjon med eFormidling
 
 Det er mulig å teste eFormidlingsintegrasjonen i applikasjonen lokalt på utviklingsmiljøet ditt.

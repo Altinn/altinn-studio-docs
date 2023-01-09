@@ -9,7 +9,7 @@ weight: 400
 
 {{%notice info%}}
 For at applikasjonen din skal kunne generere events må den referere til nugetversjon >= 1.2.4.
-Se hvordan du oppdaterer nugetreferanser for applikasjonen din [her](../update/#nuget-pakker).
+Se hvordan du oppdaterer nugetreferanser for applikasjonen din [her](/app/maintainance/dependencies/).
 {{% /notice%}}
 
 Generering og lagring av events er ikke enablet som default i applikasjonene per 22.10.2020.
