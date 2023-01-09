@@ -7,36 +7,36 @@ aliases:
 ---
 
 ## Actor 
-A actor is organisation or person that a user/system is acting on behalf of. 
-As an example User A can fill out a form on behalf of Organisation B. 
+An actor is an organisation or person that a user/system is acting on behalf of. 
+As an example, User A can fill out a form on behalf of Organisation B. 
 
 deprecated term: ~~Reportee~~
 
 ## Actor List
-The Actor list is a list over person and organisation that a user can act on behalf of. 
+The Actor list is a list of persons and organisations that a user can act on behalf of. 
 This right is given through roles or rights delegations. 
 
 deprecated term: ~~ReporteeList~~
 
 ## Actor Type
-The type a Actor can be. Typical a person or organisation but also sub types of organisations.
+The type an Actor can be. Typically a person or organisation, but also sub-types of organisations.
 
 deprecated term: ~~Reportee Type~~
 
 ## Actor Type Requirement
-The requirent a app has for the Actor. Typical checked when a app is instantiated
+The requirent an app has for the Actor. Typical checked when an app is instantiated.
 
 deprecated term: ~~Reportee Type Requirement~~
 
 ## Altinn
 
-Norways E-Governement plattform. Launched december 4. 2003. 
+Norway's E-Government platform. Launched December 4th 2003. 
 [Read more on altinn.no](https://www.altinn.no/en/about-altinn/what-is-altinn/) 
 
 ## Altinn Apps
 
-Altinn Apps is the infrastructures for running apps developed in Altinn Studio.
-Each organisation that is using Altinn Studio will have their own Altinn Apps Kubernetes cluster, isolated from other organisations.
+Altinn Apps is the infrastructure for running apps developed in Altinn Studio.
+Each organisation that is using Altinn Studio will have its own Altinn Apps Kubernetes cluster, isolated from other organisations.
 
 See Altinn Apps [application architecture](/technology/architecture/components/application/construction/altinn-apps) or [deployment architecture](/technology/architecture/capabilities/runtime/appdeploy).
 
@@ -61,7 +61,7 @@ and [deployment architecture]
 
 ## Altinn environment
 
-An Altinn environment is a isolated group of several Altinn solutions functioning together.
+An Altinn environment is an isolated group of several Altinn solutions functioning together.
 
 - AT - Acceptance testing of Altinn Studio, Altinn Apps, Altinn Platform and SBL.
 - TT02 - App/service test environment used by the app and service owners.
@@ -89,23 +89,23 @@ No matter which tool is used for development (Designer, Code, or something else)
 
 ## Api
 
-Application Programmers Interface.
+Application Programming Interface.
 
 ## App
 
-Short for Application. App is the name that is given for an app. It is used as repository name and as part of AppId and in different metadata. Inside an org the app needs to be a unique name. See also Application.
+Short for Application. App is the name that is given to an app. It is used as repository name, as part of AppId and in different metadata. Inside an org, the app needs to be a unique name. See also Application.
 
 Deprecated terms: ~~AppName~~ ~~Service~~
 
 ## AppId
 
-A AppId identifies a given application. It is has the following pattern [org]/[app-name].
-The app-name is the same as the name of the name of the app repo.
+An AppId identifies a given application. It has the following pattern [org]/[app-name].
+The app-name is the same as the name of the app repo.
 
 ## Application
 
-An applications created in Altinn Studio is called an app, short for application.
-Apps are deployed to a Altinn Apps environment.
+An application created in Altinn Studio is called an app, short for application.
+Apps are deployed to an Altinn Apps environment.
 The app provides two things:
 
 - an interactive user interface for users wishing to submit data to an organisation, e.g. to fill out a form manually, to read information or to sign an agreement;
@@ -121,7 +121,7 @@ Short for Altinn Apps. See Altinn Apps
 
 ## Application Developer
 
-A user developing application in Altinn Studio.
+A user developing applications in Altinn Studio.
 
 ## Org
 
@@ -141,7 +141,7 @@ A record of activites on a specific instance.
 
 ## Instance
 
-An instance of an application for a specific instance owner is represented as an object. Is created by organisation or instance owner.
+An instance of an application for a specific instance owner, is represented as an object. Is created by an organisation or instance owner.
 It contains information of the formdata and attachments stored associated with the instance.
 
 deprecated term: ~~ReporteeElement~~
@@ -154,7 +154,7 @@ deprecated term: ~~Reportee~~
 
 ## User
 
-The user which is logged in in Altinn and performs actions for on behalf of an instance owner. A user and an instance owner can be the same entity.
+The user which is logged in in Altinn and performs actions on behalf of an instance owner. A user and an instance owner can be the same entity.
 
 
 ## Kubernetes
@@ -163,7 +163,7 @@ A system for managing docker containers. See also: [Relevant definitions within 
 
 ## React
 
-Teh framework used for developing UI components.
+The framework used for developing UI components.
 
 ## PAP
 
@@ -171,11 +171,11 @@ Policy Administration Point.
 
 ## PDP 
 
-Policy Administration Point.
+Policy Decision Point.
 
 ## PEP
 
-Policy Administration Point.
+Policy Enforcement Point.
 
 ## PIP
 
@@ -197,12 +197,12 @@ Applicaton that exposes SBL components as REST interface to Altinn Platform comp
 
 
 ## Statefull App
-A statefull app uses Altinn Platform to store data
+A stateful app uses Altinn Platform to store data
 
 
 ## Stateless App
-A stateless app is a application where no data is store in in the platform. This could be a app acting like a proxy to some external APIS.
-State could potensial be stored in the external API, so term statless is limited to how the App not use any state in Altinn Platform.
+A stateless app is an application where no data is stored in the platform. This could be an app acting like a proxy to some external API.
+State could potensially be stored in the external API, so the term stateless is limited to how the App is not using any state in Altinn Platform.
 
 
 ## Process
