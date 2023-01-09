@@ -56,13 +56,13 @@ Typiske endringer du kan være interresert i er å bruke andre organisasjonsnumm
 appene er avhengig av skal virke, eller testing av autorisasjonsreglene med andre roller enn det standard brukerene har.
 
 ### Json Struktur
-Det finnes et [JsonSchema](https://altinncdn.no/schema/json/testUsers/testUsers.schema.v1.json) som hjelper deg å skrive
+Det finnes et [JsonSchema](https://altinncdn.no/schemas/json/test-users/test-users.schema.v1.json) som hjelper deg å skrive
 en `testData.json` fil i verktøy som VSCode. En full versjon av brukerene som ligger i TestData mappa er tilgjengelig i
 [testData.json](testData.json)
 
 ```json
 {
-    "$schema": "https://altinncdn.no/schema/json/test-users/test-users.schema.v1.json",
+    "$schema": "https://altinncdn.no/schemas/json/test-users/test-users.schema.v1.json",
     "persons": [
       {
         "partyId": 512345,
