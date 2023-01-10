@@ -1,6 +1,6 @@
 ---
 title: Planer for migrering av tjenester i Altinn
-linktitle: Plan tjenestemigrering
+linktitle: Plan migrering
 description: Her finner du foreløpig plan for migrering av tjenester, i hvilken rekkefølge dette skal skje og når de enkelte tjenestetypene skal være flyttet fra Altinn 2 til Altinn 3. 
 toc: true
 tags: [architecture, plan, authorizaton]
@@ -40,6 +40,7 @@ Det vil i en overgangsfase være mulig å benytte de gamle API-ene.
 ### Tidsplan
 - Oppstart utvikling: Påbegynt
 - Migrering tjenester avsluttet:  Q1 2023
+- Informasjon sendt til tjenesteeiere finner du [her](/technology/solutions/altinn-platform/authorization/migration/servicemigrationplan/_letter-api-reources/)
 - Frist for å ta i bruk nye API: ikke besluttet
 
 ## Lenketjenester
