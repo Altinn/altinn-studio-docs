@@ -53,24 +53,18 @@ public async Task DataCreation(Instance instance, object data)
 {{<content-version-container version-label="v7">}}
 In version 7 the way to do custom code instantiation has changed. We now use an dependency injection based approach insted of overriding methods. If you previously used to place your custom code in the DataCreation method in the _InstantiationHandler.cs_ class you will see that it's mostly the same.
 
-1. Create a class that implements the `IInstantiation` interface found in the `Altinn.App.Core.Features.Instantiation` namespace.  
+1. Create a class that implements the `IInstantiationProcessor` interface found in the `Altinn.App.Core.Features` namespace.  
     You can name and place the file in any folder you like within your project, but we suggest you use meaningful namespaces like in any other .Net project.
     The example below populates the field _Bruker.FulltNavn_ in the model _Datamodell_ with the value "Test Testesen".
     ```C# {hl_lines=[23]}
     using System.Collections.Generic;
     using System.Threading.Tasks;
-    using Altinn.App.Core.Features.Instantiation;
-    using Altinn.App.Core.Models.Validation;
+    using Altinn.App.Core.Features;
     using Altinn.App.Models;
     using Altinn.Platform.Storage.Interface.Models;
 
-    public class Instantiation: IInstantiation
+    public class Instantiation: IInstantiationProcessor
     {
-        public async Task<InstantiationValidationResult> Validation(Instance instance)
-        {
-            return await Task.FromResult((InstantiationValidationResult)null);
-        }
-
         public async Task DataCreation(Instance instance, object data, Dictionary<string, string> prefill)
         {
             if (data.GetType() == typeof(Datamodell))
@@ -90,7 +84,7 @@ In version 7 the way to do custom code instantiation has changed. We now use an 
     ```
 2. Register you custom implementation in the _Program.cs_ class
     ```C#
-    services.AddTransient<IInstantiation, Instantiation>();
+    services.AddTransient<IInstantiationProcessor, Instantiation>();
     ```
     This ensuers your custom code is known to the application and that it will be executed.
 
