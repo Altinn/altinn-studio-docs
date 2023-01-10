@@ -4,7 +4,7 @@
     "title": "Altinn Platform Events",
     "version": "v1"
   },
-  "servers": [
+	"servers": [
     {
       "url": "https://platform.tt02.altinn.no/events/api/v1",
       "description": "TT02"
@@ -405,37 +405,14 @@
         "tags": [
           "Outbound"
         ],
-        "summary": "Alert push controller about a new event.",
-        "description": "This method will then identify any matching subscriptions\r\nand verify whether the consumer is authorized to receive each event.\r\nIf authorized, the event will be added to the outbound queue.",
+        "summary": "Submit event for Outbound processing",
+        "description": "Identifies matching subscriptions based on subscription filter hash.\r\nRuns authorization check before adding event to the outbound queue.",
         "responses": {
           "200": {
             "description": "Success"
           },
           "503": {
             "description": "Server Error"
-          }
-        }
-      }
-    },
-    "/push": {
-      "post": {
-        "tags": [
-          "Push"
-        ],
-        "summary": "Alert push controller about a new event.",
-        "description": "This method will then identify any matching subscriptions and authorize if the consumer is authorized\r\nto receive event. If authorized it will put it on a outbound queue",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CloudEvent"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success"
           }
         }
       }
@@ -941,7 +918,7 @@
         },
         "additionalProperties": false,
         "example": {
-          "id": "18fc19c3-15a8-4d21-a65e-cbbee26b07f8",
+          "id": "3b4e4652-67e8-4c9f-a2bd-f3bdc78b20d8",
           "source": "https://ttd.apps.altinn.no/ttd/apps-test/instances/50015641/a72223a3-926b-4095-a2a6-bacc10815f2d",
           "specversion": "1.0",
           "type": "app.instance.created",
@@ -3033,10 +3010,6 @@
     },
     {
       "name": "Outbound",
-      "description": "Private API"
-    },
-    {
-      "name": "Push",
       "description": "Private API"
     },
     {
