@@ -71,8 +71,6 @@ public async Task<LayoutSettings> FormatPdf(LayoutSettings layoutSettings, objec
 {
   if (data.GetType() == typeof(Skjema))
   {
-    layoutSettings.Pages ??= new();
-    layoutSettings.Pages.ExcludeFromPdf ??= new();
     layoutSettings.Pages.ExcludeFromPdf.Add("page2");
   }
   return await Task.FromResult(layoutSettings);
@@ -105,8 +103,6 @@ public async Task<LayoutSettings> FormatPdf(LayoutSettings layoutSettings, objec
 {
   if (data.GetType() == typeof(Skjema))
   {
-    layoutSettings.Components ??= new();
-    layoutSettings.Components.ExcludeFromPdf ??= new();
     layoutSettings.Components.ExcludeFromPdf.Add("image-component-id");
   }
   return await Task.FromResult(layoutSettings);
@@ -141,8 +137,6 @@ public async Task<LayoutSettings> FormatPdf(LayoutSettings layoutSettings, objec
 {
   if (data.GetType() == typeof(Skjema))
   {
-    layoutSettings.Components ??= new();
-    layoutSettings.Components.ExcludeFromPdf ??= new();
     layoutSettings.Components.ExcludeFromPdf.Add("ownerId-1");
   }
   return await Task.FromResult(layoutSettings);
