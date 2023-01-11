@@ -1,7 +1,7 @@
 ---
 title: Access Token
 linktitle: Access Token
-description: Altinn uses An additional access token in the scenario where we need to authenticate the application or call a component in the Altinn Platform.
+description: Altinn uses an additional access token in the scenario where we need to authenticate the application or call a component in the Altinn Platform.
 tags: [architecture, security]
 toc: false
 ---
@@ -11,7 +11,7 @@ toc: false
 .Net applications use AccessToken clients needing to call protected APIs in the Altinn Platform infrastructure.
 
 The AccessToken Client has a [Access Token generator](https://github.com/Altinn/altinn-accesstoken/blob/main/src/Altinn.Common.AccessTokenClient/Services/AccessTokenGenerator.cs)  that
-generates a jwt token based on a certifcate [made available](https://github.com/Altinn/altinn-accesstoken/blob/main/src/Altinn.Common.AccessTokenClient/Services/SigningCredentialsResolver.cs) in in the different Kubernetes clusters.
+generates a jwt token based on a unique certifcate [made available](https://github.com/Altinn/altinn-accesstoken/blob/main/src/Altinn.Common.AccessTokenClient/Services/SigningCredentialsResolver.cs) in in the different Kubernetes clusters.
 
 ### Example usage
 
