@@ -24,8 +24,8 @@ generates a jwt token based on a certifcate [made available](https://github.com/
 To use the Access Token client you need to add the following to program.cs
 
 ```c#
-    services.AddSingleton<ISigningKeysResolver, SigningKeysResolver>();
     services.AddSingleton<IAccessTokenGenerator, AccessTokenGenerator>();
+    services.AddTransient<ISigningCredentialsResolver, SigningCredentialsResolver>();
 ```
 
 [Example from Altinn Events](https://github.com/Altinn/altinn-events/blob/main/src/Events/Program.cs)
@@ -52,7 +52,6 @@ To use the Access Token client you need to add the following to program.cs
       services.AddAuthorization(options =>
     {
         options.AddPolicy("PlatformAccess", policy => policy.Requirements.Add(new AccessTokenRequirement()));
-        options.AddPolicy("AuthorizationLevel2", policy =>
     });
 ```
 
@@ -61,7 +60,7 @@ To use the Access Token client you need to add the following to program.cs
 The validator can be configured for each endpoint or controller
 
 ```c#
-   [Authorize]
+    [Authorize]
     [Authorize(Policy = "PlatformAccess")]
     [Route("register/api/v1/parties")]
     public class PartiesController : Controller
