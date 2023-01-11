@@ -83,7 +83,7 @@ Eksempel oppsett av `layout-sets.json` hvor `Task_1` er et datasteg, og `Task_2`
         ]
       },
       {
-        "id": "custom-receipt",
+        "id": "custom-confirmation",
         "dataType": "simple",
         "tasks": [
           "Task_2"
@@ -147,7 +147,7 @@ Dette vil gi følgende app-struktur:
 │   ├───models
 |   | ...
 │   ├───ui
-│   │   ├───custom-receipt
+│   │   ├───custom-confirmation
 │   │   │   └───layouts
 |   |   |   └─── ...
 │   │   └───simple
