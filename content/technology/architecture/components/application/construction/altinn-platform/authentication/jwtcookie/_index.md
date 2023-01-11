@@ -1,6 +1,6 @@
 ---
 title: JWTCookieAuthentication
-linktitle: JWT
+linktitle: JWT Cookie
 description: This is the description of JWTCookieAuthentication.
 tags: [architecture, security]
 toc: true
