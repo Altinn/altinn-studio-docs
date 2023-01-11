@@ -48,7 +48,7 @@
       <div class="adocs-scrollcontainer">
         <div class="row">
             <div class="col-sm-12">
-              {{- partialCached "menu.html" . -}}
+              {{- partial "menu.html" . -}}
 
         <script>
           {{ template "activeMenus" dict "page" . "value" (printf "$(\"li.dd-item a[href='%s']\").parent().addClass(\"active\");" .RelPermalink) }}
