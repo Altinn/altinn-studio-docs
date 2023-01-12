@@ -6,7 +6,7 @@ weight: 50
 
 {{%notice info%}}
 
-Version 8 uses a completely new PDF generator with a more modern appearance. Most existing apps should work out-of-the-box, with the exception that more types of components are now included, meaning that you may want to exclude more components when migrating to version 8.
+Version 8 uses a completely new PDF generator with a more modern appearance. Most existing apps should work out-of-the-box, but do check how it looks when migrating.
 
 {{% /notice%}}
 
