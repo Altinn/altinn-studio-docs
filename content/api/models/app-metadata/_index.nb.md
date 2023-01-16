@@ -123,6 +123,24 @@ Only one of the two settings should be used at a time.
 | hideAlways    | A boolean indicating that the instance should always be hidden           |
 | hideOnTask    | A list of tasks where the instance should be hidden from the message box |
 
+## CopyInstanceSettings
+
+Configure if copying data from an archived instance is allowed and what datatypes and datafields that should be excluded in the new instance
+
+| Name               | Description                                                                      |
+| ------------------ | -------------------------------------------------------------------------------- |
+| enabled            | true/false if its possible to create a copy of an instance.                      |
+| excludedDataTypes  | List of DataTypes that should be excluded when a new copy is made.               |
+| excludedDataFields | List of fields in the DataModel that should be excluded when a new copy is made. |
+
+## OnEntry
+
+Configure how the application behaves when a user opens the application without an instance id set
+
+| Name | Description                                                                                                                                                                                                                                        |
+| ---- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| show | Possible values: new-instance or select-instance. With new-instance set user will always get a new instance. With select-instance user will be presented with a list of active instances if any, if no active instances a new one will be created. |
+
 
 ## Complete example
 
