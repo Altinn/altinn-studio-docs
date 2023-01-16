@@ -139,9 +139,9 @@ Configure if copying data from an archived instance is allowed and what datatype
 
 Configure how the application behaves when a user opens the application without an instance id set
 
-| Name | Description                                                                                                                                                                                                                                        |
-| ---- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| show | Possible values: new-instance or select-instance. With new-instance set user will always get a new instance. With select-instance user will be presented with a list of active instances if any, if no active instances a new one will be created. |
+| Name | Description                                                                                                                                                                                                                                           |
+| ---- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| show | Possible values: new-instance or select-instance. <br/>_new-instance_ : user will always get a new instance. <br/> _select-instance_ : user will be presented with a list of active instances if any, if no active instances a new one will be created. |
 
 ## Complete example
 

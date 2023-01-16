@@ -11,7 +11,7 @@ weight: 20
 The Application model is the main model for metadata for the application.
 
 | Name                   | Description                                                                                                                                                                                                               |
-| ---------------------- |---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | id                     | A gobally unique id for the application. The value has two parts separated by a '/' character. The first part is the short name of the application owner and the second part is the name of the app.                      |
 | versionId              | The current version of the application. (Currently not in use.)                                                                                                                                                           |
 | org                    | The short name of the application owner.                                                                                                                                                                                  |
@@ -110,18 +110,18 @@ An application configured to enable eFormidling integration in combination with 
 
 MessageBoxConfig holds configurations related to the presentation of instances in the Altinn MessageBox.
 
-| Name            | Description                                                     |
-| --------------- | ----------------------------------------------------------------|
-| hideSettings    | The settings related to hiding an instance from the message box |
+| Name         | Description                                                     |
+| ------------ | --------------------------------------------------------------- |
+| hideSettings | The settings related to hiding an instance from the message box |
 
 ### hideSettings
 
 Only one of the two settings should be used at a time.
 
-| Name          | Description                                                              |
-| ------------- | -------------------------------------------------------------------------|
-| hideAlways    | A boolean indicating that the instance should always be hidden           |
-| hideOnTask    | A list of tasks where the instance should be hidden from the message box |
+| Name       | Description                                                              |
+| ---------- | ------------------------------------------------------------------------ |
+| hideAlways | A boolean indicating that the instance should always be hidden           |
+| hideOnTask | A list of tasks where the instance should be hidden from the message box |
 
 ## CopyInstanceSettings
 
@@ -137,9 +137,9 @@ Configure if copying data from an archived instance is allowed and what datatype
 
 Configure how the application behaves when a user opens the application without an instance id set
 
-| Name | Description                                                                                                                                                                                                                                        |
-| ---- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| show | Possible values: new-instance or select-instance. With new-instance set user will always get a new instance. With select-instance user will be presented with a list of active instances if any, if no active instances a new one will be created. |
+| Name | Description                                                                                                                                                                                                                                             |
+| ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| show | Possible values: new-instance or select-instance. <br/>_new-instance_ : user will always get a new instance. <br/> _select-instance_ : user will be presented with a list of active instances if any, if no active instances a new one will be created. |
 
 
 ## Complete example
