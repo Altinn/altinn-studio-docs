@@ -421,7 +421,7 @@ The image below shows which key controls which text in the UI
 
 **Note:** These text changes will **not** be visible in your local test environment, they will only be visible in the test environment **TT02**.
 To see the changes you must navigate from the Archive and press the "See submitted form".
-These modified texts are only applicable to the platform receipt and will not have any effect on the receipt that is presented after a user has filled in a form. See [receipt](https://docs.altinn.studio/app/development/configuration/process/customize/#receipt) for information on how to customize both receipt texts and the layout of the receipt that is presented to the user after a form is answered.
+These modified texts are only applicable to the platform receipt and will not have any effect on the receipt that is presented to a user after he or she has annswered a form. See [receipt](../../configuration/process/customize/#receipt) for information on how to customize both texts and the layout of this receipt.
 
 ![image](https://user-images.githubusercontent.com/42466346/159927471-088aab00-3e82-4851-b94f-712bdc4094c9.png)
 

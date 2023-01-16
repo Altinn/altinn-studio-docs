@@ -355,16 +355,16 @@ Example of custom texts in the file  `resources.nb.json`:
 
 ```json
 {
-"id": "receipt.receipt",
-"value": "Søknad om flytting til Sogndal kommune"
+    "id": "receipt.receipt",
+    "value": "Søknad om flytting til Sogndal kommune"
 },
 {
-"id": "receipt.title",
-"value": "Takk, søknaden er sendt!"
+    "id": "receipt.title",
+    "value": "Takk, søknaden er sendt!"
 },
 {
-"id": "receipt.body_simple",
-"value": "All data knyttet til denne innsendingen vil slettes etter tjenesteeieren har mottatt det."
+    "id": "receipt.body_simple",
+    "value": "All data knyttet til denne innsendingen vil slettes etter tjenesteeieren har mottatt det."
 }
 ```
 

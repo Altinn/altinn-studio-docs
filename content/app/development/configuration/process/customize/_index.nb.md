@@ -338,9 +338,9 @@ Sluttresultatet i appen:
 
 ![Custom kvitteringsvisning](custom-receipt.png "Custom kvitteringsvisning")
 
-### Tilpasse tekster for Simple Receipt
+### Tilpasse tekster for enkel kvittering (Simple Receipt)
 
-Simple receipt er et konsept som er relevant for de applikasjonene som har aktivert `AutoDeleteOnProcessEnd: True` i `applicationmetadata.json` filen. For mer informasjon om hva dette innebærer [les her.](https://docs.altinn.studio/nb/app/development/configuration/process/auto-delete/).
+Simple receipt er et konsept som er relevant for de applikasjonene som har aktivert `AutoDeleteOnProcessEnd: True` i `applicationmetadata.json` filen. For mer informasjon om hva dette innebærer [les her](https://docs.altinn.studio/nb/app/development/configuration/process/auto-delete/).
 
 Tekstene i denne kvitteringen kan også overskrives ved å manuelt legge til hver definerte tekstnøkkel i appens tekstressursfil. Mer informasjon om hvordan dette gjøres finnes [her](../../../ux/texts).
 Følgende avsnitt viser en oversikt over hvilke tekster som kan tilpasses.
@@ -357,16 +357,16 @@ Eksempel på overstyrte tekster i filen `resources.nb.json`:
 
 ```json
 {
-"id": "receipt.receipt",
-"value": "Søknad om flytting til Sogndal kommune"
+    "id": "receipt.receipt",
+    "value": "Søknad om flytting til Sogndal kommune"
 },
 {
-"id": "receipt.title",
-"value": "Takk, søknaden er sendt!"
+    "id": "receipt.title",
+    "value": "Takk, søknaden er sendt!"
 },
 {
-"id": "receipt.body_simple",
-"value": "All data knyttet til denne innsendingen vil slettes etter tjenesteeieren har mottatt det."
+    "id": "receipt.body_simple",
+    "value": "All data knyttet til denne innsendingen vil slettes etter tjenesteeieren har mottatt det."
 }
 ```
 
