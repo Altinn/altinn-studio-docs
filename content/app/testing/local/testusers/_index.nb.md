@@ -41,10 +41,11 @@ Er bosatt på Stokmarknes.
 - [01017512345 Ola Nordmann](https://github.com/Altinn/altinn-studio/blob/master/src/development/TestData/Register/Person/01017512345.json)
 
 ### Andre brukere
-For å teste et spesifikt skjema har Altinn gjengen også lagt til 
-- Pengelens Partner
-- Gjentagende Forelder
-- Rik forelder
+For å teste skjema relatert til barn og oppvekst (barnehage og skole) er det lagt til noen spesifikke brukere. NB! Disse er hentet fra Tenors testdatasett, men ligger der med andre navn.
+| Avgiver                           | Barn  | Inntekt |
+| 01899699552 Pengelens Partner     | 0     | Lav     |
+| 17858296439 Gjentagende Forelder  | 3     | Middels |
+| 29917097109 Rik forelder          | 2     | Høy     |
 
 Det er ikke dokumentert hva slags egenskaper disse skal ha.
 
