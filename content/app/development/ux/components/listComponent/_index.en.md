@@ -30,13 +30,18 @@ The component is of type `List`. One example on defintion of list component in l
     },
     "bindingToShowInSummary": "SelectedItem",
     "dataListId": "people",
-    "tableHeaders": [ "Navn", "Alder", "Yrke" ],
-    "sortableColumns": [ "Alder" ],
+    "tableHeaders": {
+        "name": "Navn",
+        "age": "Alder",
+        "profession": "Yrke"
+    },
+    "sortableColumns": [ "age" ],
     "pagination": {
         "alternatives": [ 5, 10 ],
         "default": 5
     },
-    "required": "true"
+    "required": "true",
+    "tableHeadersMobile": [ "name", "age" ]
 },
 ```
 
@@ -105,7 +110,8 @@ In this example the list is created in code, but it is also possible to call an 
 If this API supports sorting, pagination and search, you can pass this variables to the API to avoid fetching unnecessary data. 
 
 ## Columns
-The table columns is defined in the component with the field `tableHeaders`. It is an array of strings. To support multiple 
+The table columns is defined in the component with the field `tableHeaders`. It is an object, where the keys correspond to fields in your
+data model representing a row. In the example above the model is ListItem with name, age and profession as fields. To support multiple 
 languages this array can be populated with keys from the language files. For the content of the cells to match the header, you 
 need to make sure that the table data is structured in the same order as the table headers. 
 
@@ -166,3 +172,7 @@ Which value is defined with the property `bindingToShowInSummary`, and will look
 ## Secured data lists
 In the same way as with code lists, you can secure the data list if they contain sensitive data. You then use the interface
  `IInstanceDataListProvider` for the class, and add the `secure` boolean to the component in layout.json.
+
+ ## Mobile view
+ The table is quite compressed in mobile view, and you can therefore choose which fields to show on mobile. That is done 
+ with the field `tableHeadersMobile`, an array of strings representing the header and header values to show on mobile. 
