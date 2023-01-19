@@ -20,7 +20,7 @@ It is also possible to configure a stateless application to only allow anonymous
 
 This is brand new functionality. Setup has to be completed manually until further notice.
 
-**Notice:** To make use of this functionality, version >= 4.5.2 of the nuget packages `Altinn.App.PlatformServices`, `Altinn.App.Common` and `Altinn.App.Api` is required.
+**Notice:** To make use of this functionality, version >= 4.5.2 of the [nuget-packages](../../../maintainance/dependencies#nuget) `Altinn.App.PlatformServices`, `Altinn.App.Common` and `Altinn.App.Api` is required.
 
 {{%/notice%}}
 
@@ -116,7 +116,7 @@ App frontend will read the configuration in `applicationmetadata.json` and under
 {{%notice warning%}}
 Note! Form components that affect process (Button for submission or instantiation) are not supported for anonymous users!
 
-**Note:** To make use of this functionality you must use version >= 5.1.0 of the nuget packages `Altinn.App.PlatformServices`, `Altinn.App.Common` and `Altinn.App.Api`.
+**Note:** To make use of this functionality you must use version >= 5.1.0 of the [nuget-packages](../../../maintainance/dependencies#nuget) `Altinn.App.PlatformServices`, `Altinn.App.Common` and `Altinn.App.Api`.
 
 {{%/notice%}}
 
@@ -444,7 +444,7 @@ The other check calls `_finanstilsynet.HasReqiuiredLicence()`, a method which lo
 
 This is brand new functionality. Setup must be completed manually until further notice and will not be supported in Altinn Studio.
 
-**Note:** To make use of this functionality you must use version >= 4.17.2 of the nuget packages `Altinn.App.PlatformServices`, `Altinn.App.Common` og `Altinn.App.Api`.
+**Note:** To make use of this functionality you must use version >= 4.17.2 of the [nuget-packages](../../../maintainance/dependencies#nuget) `Altinn.App.PlatformServices`, `Altinn.App.Common` og `Altinn.App.Api`.
 
 {{%/notice%}}
 
