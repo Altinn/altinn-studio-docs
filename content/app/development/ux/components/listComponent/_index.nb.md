@@ -40,7 +40,7 @@ Komponenten er av typen `List`. Eksempel på hvordan man kan definere kompoenten
         "alternatives": [ 5, 10 ],
         "default": 5
     },
-    "required": "true",
+    "required": true,
     "tableHeadersMobile": [ "name", "age" ]
 },
 ```
