@@ -30,13 +30,18 @@ Komponenten er av typen `List`. Eksempel på hvordan man kan definere kompoenten
     },
     "bindingToShowInSummary": "SelectedItem",
     "dataListId": "people",
-    "tableHeaders": [ "Navn", "Alder", "Yrke" ],
-    "sortableColumns": [ "Alder" ],
+    "tableHeaders": {
+        "name": "Navn",
+        "age": "Alder",
+        "profession": "Yrke"
+    },
+    "sortableColumns": [ "age" ],
     "pagination": {
         "alternatives": [ 5, 10 ],
         "default": 5
     },
-    "required": "true"
+    "required": true,
+    "tableHeadersMobile": [ "name", "age" ]
 },
 ```
 
@@ -105,13 +110,15 @@ Her blir listen laget i koden, men her kan man istedet kalle på et annet API so
 Hvis dette APIet støtter sortering og paginering kan man videresende disse verdiene til APIet slik at man ikke henter unødvendig data. 
 
 ## Kolonner
-Hvilke kolonner tabellen skal bestå av defineres med feltet `tableHeaders`. Dette feltet er en array av strings. For å støtte 
-flere språk kan man bruke referanser til nøkler i språkfilene her. Det er innholdet er som vil stå i header av tabellen. 
+Hvilke kolonner tabellen skal bestå av defineres med feltet `tableHeaders`. Dette feltet er et objekt. 
+Nøkler i objektet skal tilsvare felter i modellen du har som representerer en rad.
+I eksempelet over er det ListItem med name, age og profession. Verdiene knyttet til hver nøkkel er teksten som vises i header. For å støtte 
+flere språk kan man bruke referanser til nøkler i språkfilene her. Det er innholdet her som vil stå i header av tabellen. 
 Du må selv sørge for at dataene i tabellen populeres i samme rekkefølge, slik at innholdet i cellene stemmer med header.
 
 ## Sortering
 I layout.json definerer du hvilke kolonner som skal være sorterbare gjennom feltet `sortableColumns`. 
-Dette er en array av strings, og strings du bruker her må være definert som en header i feltet `tableHeaders`. Dette gjør 
+Dette er en array av strings, og strings du bruker her må også være en nøkkel i feltet `tableHeaders`. Dette gjør 
 at de valgte kolonnene får en pil som viser hvilken retning kolonnen er sortert, og kolonnen som styrer sortering nå blir markert. 
 Selve sorteringslogikken må man selv implementere. Metoden `GetDataListAsync` tar inn parameteren keyValuePairs som
 inneholder sortDirection og sortColumn til dette formålet.
@@ -164,10 +171,6 @@ Dette defineres med property `bindingToShowInSummary`, og vil se slik ut:
 På samme måte som med kodelister kan man for datalister også sikre listene dersom de inneholder sensitive data. Da benytter
 man interfacet `IInstanceDataListProvider`, og tillegg må man legge til en `secure` boolean på komponenten.
 
-
-
-
-
-
-
-
+## Mobilvisning
+Tabell i mobilvisning er ganske komprimert, og man kan derfor velge hvilke felter per rad man vil vise på mobil. Det gjør man 
+med feltet `tableHeadersMobile` som er en array med strings som representerer de headerverdiene man vil vise på mobil. 
