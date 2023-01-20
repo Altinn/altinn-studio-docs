@@ -40,7 +40,7 @@ The component is of type `List`. One example on defintion of list component in l
         "alternatives": [ 5, 10 ],
         "default": 5
     },
-    "required": "true",
+    "required": true,
     "tableHeadersMobile": [ "name", "age" ]
 },
 ```
