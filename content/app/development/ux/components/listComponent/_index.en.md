@@ -173,6 +173,6 @@ Which value is defined with the property `bindingToShowInSummary`, and will look
 In the same way as with code lists, you can secure the data list if they contain sensitive data. You then use the interface
  `IInstanceDataListProvider` for the class, and add the `secure` boolean to the component in layout.json.
 
- ## Mobile view
+## Mobile view
  The table is quite compressed in mobile view, and you can therefore choose which fields to show on mobile. That is done 
  with the field `tableHeadersMobile`, an array of strings representing the header and header values to show on mobile. 
