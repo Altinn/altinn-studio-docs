@@ -192,6 +192,19 @@ This is a complete app metadata document with data types.
             "maxCount": 0,
             "minCount": 0,
             "grouping": null
+        },
+        {
+            "id": "uploaded-files",
+            "allowedContentTypes": [
+                "image/jpeg"
+            ],
+            "taskId": "Task_1",
+            "maxSize": 25,
+            "maxCount": 1,
+            "minCount": 5,
+            "enablePdfCreation": false,
+            "enableFileScan": true,
+            "validationErrorOnPendingFileScan": true
         }
     ],
     "partyTypesAllowed": {
