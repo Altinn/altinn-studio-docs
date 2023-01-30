@@ -30,11 +30,11 @@ The confirmation page is added automatically when the step is added to the BPMN 
 ![Updated process flow illsutrated](/app/app-dev-course/modul5/updated-process.png)
 
 {{% notice info %}}
-[Standard process flow is available on GitHub](https://github.com/Altinn/altinn-studio/tree/master/src/Altinn.Apps/AppTemplates/ProcessTemplates).
+[Standard process flow is available on GitHub](../../development/configuration/process).
 Can you find the one that matches the flow we wish to achieve here?
 
 If you want an extra challenge, you can edit the process flow manually or in a BPMN editor,
-and rather use [the template on process flow with data and confirmation step](https://raw.githubusercontent.com/Altinn/altinn-studio/master/src/Altinn.Apps/AppTemplates/ProcessTemplates/Data_Confirmation_Process.bpmn) as a solution.
+and rather use [the template on process flow with data and confirmation step](../../development/configuration/process/Data_Confirmation_Process.bpmn) as a solution.
 {{% /notice %}} 
 
 ### Requirements from the municipality
