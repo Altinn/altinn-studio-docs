@@ -317,8 +317,8 @@ However, invalid shipments, including but not limited to missing attachments or 
 vil cause the shipment to fail without explicit warning the end user or app owner.
 {{% /notice%}}
 
-The integration point exposes endpoints that allow you to monitor the status of a shipment. 
-`https://platform.altinn.no/eformidling/api/conversations?messageId={instanceGuid}`
+The integration point exposes endpoints that allow you to monitor the status of a shipment in the test environment. 
+`https://platform.tt02.altinn.no/eformidling/api/conversations?messageId={instanceGuid}`
 
 Replace `{instanceGuid}` with the guid of the instance that has been archived.
 
