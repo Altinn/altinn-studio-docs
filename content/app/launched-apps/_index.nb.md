@@ -5,6 +5,11 @@ toc: true
 weight: 800
 ---
 
+## Januar 2023
+
+- Melding om samhandlingsavvik (Helse Møre og Romsdal)  
+  [Info](https://helse-mr.no/fag-og-forsking/samhandling/melde-avvik#meldeskjema) | [Repo](https://altinn.studio/repos/hmrhf/newsamhandlingsavvik) | [Kjørende tjeneste](https://hmrhf.apps.altinn.no/hmrhf/newsamhandlingsavvik/)
+
 ## Desember 2022
 
 - Ambulansetjenester (RA-0595) (Statistisk sentralbyrå)  
