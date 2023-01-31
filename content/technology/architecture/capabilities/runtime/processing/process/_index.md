@@ -11,14 +11,14 @@ Apps created in Altinn Studio uses [BPMN 2.0 standard](https://www.omg.org/spec/
 to support different types of tasks in the process.
 
 The process is defined by the application developer in Altinn Studio.
-When a new app is created it a [basic process](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Apps/AppTemplates/AspNet/App/config/process/process.bpmn) is created. 
+When a new app is created it a [basic process](https://github.com/Altinn/app-template-dotnet/blob/78416b72e230c37a7f55ff9c6251383a9b26a22b/src/App/config/process/process.bpmn) is created. 
 
 ## Supported Tasks
 Applications will support different processes with different types of task as part of the process.
 The current types of tasks is implemented and planned to be implemented. This list is not final.
 
 ### Data
-This is the task where the user or system create and updates data for one more datamodelles defined for the App.
+This is the task where the user or system create and updates data for one more data models defined for the App.
 
 ### Confirmation (backlog)
 This is a task where user can look at the data filled and then confirm it.
