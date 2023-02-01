@@ -31,19 +31,20 @@ The Application model is the main model for metadata for the application.
 
 Data type represents the requirements for data elements. Data types representing a form will have model validation in addition to the requirements defined here.
 
-| Name                | Description                                                                                                                                                                                 |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| id                  | The id of the data type. Unique for the app.                                                                                                                                                |
-| description         | A collection of data type descriptions in different languages.                                                                                                                              |
-| allowedContentTypes | A list of Content-Types allowed by the data type.                                                                                                                                           |
-| allowedContributers | A list of allowed contributors. This can be used to restrict who it is that can work with the data type.                                                                                    |
-| appLogic            | A complex object with information on how a data type is connected to a model. See [ApplicationLogic](#applicationlogic).                                                                    |
-| taskId              | A reference to a task from the application process. The value indicate that the data type requirements must be fulfilled before the process can move on from the given step in the process. |
-| maxSize             | The maximum allowed size of the data element.                                                                                                                                               |
-| maxCount            | The maximum number of data elements of this type.                                                                                                                                           |
-| minCount            | The minimum required number of elements of this type.                                                                                                                                       |
-| grouping            | The name of a group. This can be used to logically associate a data type to a group. E.g *Photos* or a text resource key.                                                                   |
-
+| Name                              | Description                                                                                                                                                                                 |
+| --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| id                                | The id of the data type. Unique for the app.                                                                                                                                                |
+| description                       | A collection of data type descriptions in different languages.                                                                                                                              |
+| allowedContentTypes               | A list of Content-Types allowed by the data type.                                                                                                                                           |
+| allowedContributers               | A list of allowed contributors. This can be used to restrict who it is that can work with the data type.                                                                                    |
+| appLogic                          | A complex object with information on how a data type is connected to a model. See [ApplicationLogic](#applicationlogic).                                                                    |
+| taskId                            | A reference to a task from the application process. The value indicate that the data type requirements must be fulfilled before the process can move on from the given step in the process. |
+| maxSize                           | The maximum allowed size of the data element.                                                                                                                                               |
+| maxCount                          | The maximum number of data elements of this type.                                                                                                                                           |
+| minCount                          | The minimum required number of elements of this type.                                                                                                                                       |
+| grouping                          | The name of a group. This can be used to logically associate a data type to a group. E.g *Photos* or a text resource key.                                                                   |
+| enableFileScan                    | A value indicating if the data type should be scanned for virus/malware. If a file is scanned and found to be infected before the process is complete, this will cause a validation error.  |
+| validationErrorOnPendingFileScan  | A value indicating if a pending file scan should trigger a validation error and prevent the completion of the process before the scan is complete.                                          |
 
 ## ApplicationLogic
 
@@ -189,6 +190,19 @@ This is a complete app metadata document with data types.
             "maxCount": 0,
             "minCount": 0,
             "grouping": null
+        },
+        {
+            "id": "uploaded-files",
+            "allowedContentTypes": [
+                "image/jpeg"
+            ],
+            "taskId": "Task_1",
+            "maxSize": 25,
+            "maxCount": 1,
+            "minCount": 5,
+            "enablePdfCreation": false,
+            "enableFileScan": true,
+            "validationErrorOnPendingFileScan": true
         }
     ],
     "partyTypesAllowed": {
