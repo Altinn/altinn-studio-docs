@@ -312,8 +312,8 @@ I tilfellet ugyldige forsendelser, herunder manglende vedlegg eller feil i arkiv
 vil forsendelsen feile uten eksplisitt varsling til sluttbruker eller tjenesteeier.
 {{% /notice%}}
 
-Integrasjonspunktet eksponerer endepunkter der man kan følge statusen for en forsendelse. 
-`https://platform.altinn.no/eformidling/api/conversations?messageId={instanceGuid}`
+Integrasjonspunktet eksponerer endepunkter der man kan følge statusen for en forsendelse i testmiljø (tt02). 
+`https://platform.tt02.altinn.no/eformidling/api/conversations?messageId={instanceGuid}`
 
 Bytt ut `{instanceGuid}` med guiden til instansen som er blitt innsendt.
 
