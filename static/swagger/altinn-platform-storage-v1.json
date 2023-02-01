@@ -759,6 +759,76 @@
         }
       }
     },
+    "/instances/{instanceOwnerPartyId}/{instanceGuid}/dataelements/{dataGuid}/filescanstatus": {
+      "put": {
+        "tags": [
+          "Data"
+        ],
+        "summary": "Sets the file scan status for an existing data element.",
+        "parameters": [
+          {
+            "name": "instanceGuid",
+            "in": "path",
+            "description": "The id of the instance that the data element is associated with.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "dataGuid",
+            "in": "path",
+            "description": "The id of the data element to update.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "instanceOwnerPartyId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The file scan results for this data element.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FileScanStatus"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataElement"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/instances/{instanceOwnerPartyId}/{instanceGuid}/events": {
       "post": {
         "tags": [
@@ -2490,6 +2560,10 @@
             "type": "integer",
             "format": "int64"
           },
+          "contentHash": {
+            "type": "string",
+            "nullable": true
+          },
           "locked": {
             "type": "boolean"
           },
@@ -2513,6 +2587,9 @@
           },
           "deleteStatus": {
             "$ref": "#/components/schemas/DeleteStatus"
+          },
+          "fileScanResult": {
+            "$ref": "#/components/schemas/FileScanResult"
           },
           "created": {
             "type": "string",
@@ -2622,6 +2699,12 @@
           },
           "enablePdfCreation": {
             "type": "boolean"
+          },
+          "enableFileScan": {
+            "type": "boolean"
+          },
+          "validationErrorOnPendingFileScan": {
+            "type": "boolean"
           }
         },
         "additionalProperties": false
@@ -2699,6 +2782,28 @@
               "type": "string"
             },
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FileScanResult": {
+        "enum": [
+          "NotApplicable",
+          "Pending",
+          "Clean",
+          "Infected"
+        ],
+        "type": "string"
+      },
+      "FileScanStatus": {
+        "type": "object",
+        "properties": {
+          "contentHash": {
+            "type": "string",
+            "nullable": true
+          },
+          "fileScanResult": {
+            "$ref": "#/components/schemas/FileScanResult"
           }
         },
         "additionalProperties": false
