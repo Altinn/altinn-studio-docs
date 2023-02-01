@@ -1,5 +1,5 @@
 ---
-title: Request access to Events API
+title: Request access to the API
 linktitle: API access
 weight: 10
 description: Guide to requesting access to Altinns APIs

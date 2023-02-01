@@ -6,6 +6,11 @@ weight: 10
 ---
 
 {{% notice info %}}
-TODO
-
+WIP, Stephanie
 {{% /notice %}}
+
+## General usage
+
+Base URL: https://platform.altinn.no/events/api/v1/
+
+You must set the Accept and Content-Type headers to application/json.
