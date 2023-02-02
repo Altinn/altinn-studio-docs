@@ -24,6 +24,8 @@ In the file `applicationmetadata.json` in the folder _App/config_ the following 
       "enableFileScan": true
 ```
 
+If you would like to customize the error message for infected files you can do that by adding a text with key `DataElementFileInfected`.
+
 ## Validation error when waiting for filescan
 
 If the ValidationService should should trigger a validation error and prevent the completion of the process before the scan is complete, another value should be added for the datatype.
@@ -31,7 +33,7 @@ If the ValidationService should should trigger a validation error and prevent th
 ```json
       "validationErrorOnPendingFileScan": true
 ```
-
+If you would like to customize the error message for pending files you can do that by adding a text with key `DataElementFileScanPending`.
 
 Example of `applicationmetadata.json` with filescan enabled for datatype _egenerklaring_, no validation error on pending scan.
 
