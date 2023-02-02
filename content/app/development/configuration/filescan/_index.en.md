@@ -1,6 +1,6 @@
 ---
-title: Virus-scan
-description: How to enable virus-scan for files.
+title: Virus scan
+description: How to configure virus scan for an app
 toc: true
 weight: 400
 ---
