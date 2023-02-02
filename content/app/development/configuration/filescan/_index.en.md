@@ -1,18 +1,19 @@
 ---
-title: FileScan
-description: How to enable filescan for attachments.
+title: Virus-scan
+description: How to enable virus-scan for files.
 toc: true
 weight: 400
 ---
 
-## Activate filescan in your application
+Each application owner storage is protected by Windows Defender, however, if your application requires feedback in realtime on whether or not an uploaded file is infected, enabling virus scan for some or all data types is the way to go.
+Enabling virus scan results in scan of the file immediatly after it uploaded to storage. The scan result will later be added to the metadata for the data element and can be reviewed by any entity that is authorized to read the instance.
+
+## Enable filescan in your application
 
 {{%notice info%}}
 To allow generating events for your application it must refer to nuget version >= 7.4.0.
 See how you update nuget references for your application [here](/app/maintainance/dependencies/).
 {{% /notice%}}
-
-Each cluster is protected by Windows Defender.
 
 Deep scan of files is not enabled by default, to activate this a manual step is requried.
 If a file is scanned and found to be infected before the process is complete, this will cause a validation error.
@@ -30,6 +31,7 @@ If the ValidationService should should trigger a validation error and prevent th
 ```json
       "validationErrorOnPendingFileScan": true
 ```
+
 
 Example of `applicationmetadata.json` with filescan enabled for datatype _egenerklaring_, no validation error on pending scan.
 
