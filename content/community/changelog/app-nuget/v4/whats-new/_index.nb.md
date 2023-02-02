@@ -71,7 +71,7 @@ for å aktivere readiness og liveness probene.
       ```cs
       app.UseHealthChecks("/health");
       ```
-2. I `deployment/Chart.yaml` skal referansen til Studio helm charten oppdateres til versjon `2.1.0`
+2. I `deployment/Chart.yaml` skal referansen til Studio helm charten oppdateres til versjon `2.5.0`
    
    Endelig resultat bør likne på dette: 
 
@@ -84,7 +84,7 @@ for å aktivere readiness og liveness probene.
    dependencies:
    - name: deployment
       repository: https://charts.altinn.studio/
-      version: 2.1.0
+      version: 2.5.0
    ```
 
 3. I `deployment/values.yaml` legger du til 

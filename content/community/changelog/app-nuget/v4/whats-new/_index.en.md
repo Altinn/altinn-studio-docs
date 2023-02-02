@@ -73,7 +73,7 @@ enable the readiness and liveness probes.
       app.UseHealthChecks("/health");
       ```
 
-2. In `deployment/Chart.yaml` the reference to the Altinn Helm Chart should be updated to version `2.1.0`
+2. In `deployment/Chart.yaml` the reference to the Altinn Helm Chart should be updated to version `2.5.0`
    
    The final result should resemble this:
 
@@ -86,7 +86,7 @@ enable the readiness and liveness probes.
    dependencies:
    - name: deployment
       repository: https://charts.altinn.studio/
-      version: 2.1.0
+      version: 2.5.0
    ```
 
 3. In `deployment/values.yaml` under `deployment`, add
