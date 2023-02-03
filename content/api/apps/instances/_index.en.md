@@ -135,6 +135,7 @@ Required body differs for the two features, and examples are available below.
 
 ### Instantiation with key-value prefill
 
+Note that prefill is a `Dictionary<string,string>`, so if you have recursive models you need to use the same key as in `dataModelBindings`
 ```json
 {
     
@@ -143,7 +144,9 @@ Required body differs for the two features, and examples are available below.
         "organisationNumber": null
     },
     "prefill": {
-        "navnGarantist" : "Ole Hansen"
+        "navnGarantist" : "Ole Hansen",
+	"addresse.gatenavn": "Gateveien",
+	"addresse.husnummer": "4"
      },
     "dueBefore": "2019-06-01T12:00:00Z",
     "visibleAfter": "2019-05-20T00:00:00Z"
