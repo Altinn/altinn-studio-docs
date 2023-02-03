@@ -7,7 +7,7 @@ weight: 30
 ---
 
 {{%notice warning%}}
-Dette er helt ny funksjonalitet. Oppsett må gjøres manuelt inntil videre. Støtte for oppsett via Altinn Studio kommer på et senere tidspunkt.
+Oppsett må gjøres manuelt inntil videre. Støtte for oppsett via Altinn Studio kommer på et senere tidspunkt.
 
 **MERK**: PDF-genereringen har per nå ikke støtte for oppsummerings-komponenten. For at PDF-generering skal fungere må enten alle oppsummerings-komponentene, eller hele oppsummerings-siden(e) ekskluderes fra PDF. Dette gjøres i `Settings.json`-filen knyttet til layout-filene. 
 {{%/notice%}}
@@ -61,8 +61,38 @@ komponenten.
 
 ![Oppsummering vedleggskomponent](attachment-summary.png "Oppsummering vedleggskomponent")
 
-### Repeterende grupper
-![Oppsummering repeterende grupper](group-summary.png "Oppsummering repeterende grupper")
+### Grupper
+Peker man på en `Group`-komponent vil en oppsummering vises for alle under-komponentene i gruppa.
+
+![Oppsummering for gruppe](group-summary.png "Oppsummering for gruppe")
+
+Det er også mulig å ekskludere enkelte under-komponenter fra å vise i uppsummeringen ved å bruke
+`excludedChildren`-egenskapen. Denne egenskapen skal innholde en liste over komponent-IDer man ikke ønsker vist.
+
+```json {hl_lines=[13, 21]}
+{
+  "id": "main-group",
+  "type": "Group",
+  "textResourceBindings": {
+    "title": "Hovedgruppe"
+  },
+  "dataModelBindings": {
+    "group": "model.mainGroup"
+  },
+  "children": [
+    "child1",
+    "child2",
+    "child3"
+  ]
+},
+{
+  "id": "summary-of-group",
+  "type": "Summary",
+  "componentRef": "main-group",
+  "pageRef": "FormLayout",
+  "excludedChildren": ["child3"]
+}
+```
 
 ### Grupper i grupper
 Oppsummering støttes også for repeterende grupper _inne i_ repeterende grupper. Vi støtter kun ett nivå av 
