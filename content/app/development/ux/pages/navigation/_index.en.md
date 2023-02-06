@@ -36,6 +36,39 @@ It is also possible to show a `back` button together with the `next` button by a
 | textResourceBindings | By setting the parameters `next` (and `back`), you are able to override the default texts to be shown on the buttons.|
 | showBackButton | Optional. Makes two buttons (back/next) appear instead of just one (next).|
 
+## Progress indicator
+
+It is possible to enable a progress indicator that shows up in the top-right corner of the app, indicating
+how far along the user is in filling out all the application pages.
+
+![Progress indicator](progress.png "Progress indicator")
+
+{{%notice info%}}
+All known pages in the current [process task](../../../configuration/process) will count towards the total number of
+pages shown in the progress indicator. If you have set up [tracks](../tracks) or
+many [dynamically hidden pages](../../../logic/expressions#viseskjule-hele-sider), this number may fluctuate and appear
+confusing to the user. Make sure the progress indicator is intuitive and provides value to the user before enabling it.
+{{%/notice%}}
+
+### Configuring progress indicator
+
+To set up this feature, add the following line to your `App/ui/Settings.json` file
+(you may also have one file per [layout-set](../layout-sets)):
+
+```json {hl_lines=9}
+{
+  "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
+  "pages": {
+    "order": [
+      "student-info",
+      "school-work",
+      "well-being"
+    ],
+    "showProgress": true
+  }
+}
+```
+
 ## Navigation Bar
 
 The Navigation Bar gives easy access to all pages in an application.
