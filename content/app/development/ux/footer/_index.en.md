@@ -10,7 +10,7 @@ Footer is only available in version 7.x and newer.
 
 {{% /notice%}}
 
-In the footer you can put things like contact information, links, and other text. For new applications, the footer contains the link to Altinn 3's accessibility statement by default.
+In the footer you can put things like contact information, links, and other text. In new applications, the footer contains a link to Altinn 3's accessibility statement by default.
 
 The footer is defined in the `footer .json` file under `App/ui`. This file is similar to other layout files, but is much simpler. The default footer is defined like this:
 

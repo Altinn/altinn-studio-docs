@@ -10,7 +10,7 @@ Bunntekst er kun tilgjengelig i versjon 7.x og nyere.
 
 {{% /notice%}}
 
-I bunnteksten kan du legge inn ting som kontaktinformasjon, lenger, og annen tekst. I nye applikasjoner inneholder bunnteksten en lenke til Altinn 3 sin tilgjengelighetserklæring.
+I bunnteksten kan du legge inn ting som kontaktinformasjon, lenker, og annen tekst. I nye applikasjoner inneholder bunnteksten en lenke til Altinn 3 sin tilgjengelighetserklæring.
 
 Bunnteksten defineres i `footer.json` filen under `App/ui`. Denne filen ligner på andre layout filer, men er mye enklere. Standardbunnteksten er definert slik:
 
@@ -40,7 +40,7 @@ Nye komponenter kan legges til i `footer`-listen.
 | -------- | -------------------------------------------------------------------------------------------------------------------- |
 | type     | `Email`                                                                                                              |
 | title    | Tekstresursen som skal vises. Støtter **ikke** [formattering](/nb/app/development/ux/texts/#formatering-av-tekster). |
-| target   | E-postaddressen som lenkes til.                                                                                      |
+| target   | E-postadressen som lenkes til.                                                                                       |
 
 ### Eksempel
 
@@ -84,7 +84,7 @@ Nye komponenter kan legges til i `footer`-listen.
 | -------- | -------------------------------------------------------------------------------------------------------------------- |
 | type     | `Link`                                                                                                               |
 | title    | Tekstresursen som skal vises. Støtter **ikke** [formattering](/nb/app/development/ux/texts/#formatering-av-tekster). |
-| target   | URLen som lenkes til                                                                                                 |
+| target   | URLen som lenkes til.                                                                                                |
 | icon     | Ikon som vises ved siden av lenken. Enten `information`, `email`, eller `phone`.                                     |
 
 ### Example
