@@ -81,9 +81,9 @@ Add a list of page names to exclude called `excludeFromPdf` under `pages`:
 ```json {linenos=false,hl_lines=["3-5"]}
 {
 "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
-"pages": {
-  "excludeFromPdf": ["page2"]
-}
+  "pages": {
+    "excludeFromPdf": ["page2"]
+  }
 }
 ```
 
@@ -108,7 +108,7 @@ public async Task<LayoutSettings> FormatPdf(LayoutSettings layoutSettings, objec
 
 ### 1. Settings.json
 
-Add a list of component ids to exclude called `excludeFromPdf` under `components`:
+Add a list of component IDs to exclude called `excludeFromPdf` under `components`:
 
 ```json {linenos=false,hl_lines=["3-5"]}
 {
@@ -137,8 +137,7 @@ public async Task<LayoutSettings> FormatPdf(LayoutSettings layoutSettings, objec
 {{% /expandlarge %}}
 
 {{% expandlarge id="exclude-specific-component" header="Excluding components from a specific row in a repeating group" %}}
-If you need to exclude one or more components from a specific entry in a repeating group,
-this is done by specifying the index of the group element in addition to the component id.
+If you need to exclude one or more components from a specific entry in a repeating group, this is done by specifying the index of the group element in addition to the component id.
 
 The required format is: `componentId-<groupIndex>`.
 
