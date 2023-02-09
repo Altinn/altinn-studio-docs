@@ -26,7 +26,7 @@ this available for you.
 
 - **Failures**: get an overview over all failing requests within a time frame and drill into the stack trace 
   to investigate which request in the call chain produces the error response
-- **Perfomance**: get an overview over all requests withing a time frame. Identify slowest requests and drill into
+- **Performance**: get an overview over all requests withing a time frame. Identify slowest requests and drill into
   stack trace to investigate which part of the call chain is harming the request performance.
 - **Logs**: query log and trace data to find exception messages or identify custom telemetry related to a specific request
 {{% /expandlarge %}}
