@@ -16,7 +16,7 @@ weight: 10
     [Check Microsoft's official documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview?tabs=net)
     for a quick overview.
   
-- **Basic knwoledge of Kusto Query Language (KQL)**    
+- **Basic knowledge of Kusto Query Language (KQL)**    
     Quries in AI are written using KQL. The possibilities within data visualisation and exploration are many with KQL,
     but the average app developer can get away with learning the basics to help identify data points of interest. 
 
