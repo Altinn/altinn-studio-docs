@@ -1,18 +1,18 @@
 ---
 title: Forutsetninger
 linktitle: Forutsetninger
-description: En oversikt over forutsetnigner for å komme i gang med Application Insights med Altinn Apps.
+description: En oversikt over forutsetninger for å komme i gang med Application Insights med Altinn Apps.
 weight: 10
 ---
 
 - **Test Developer eller Production Developer rollen i Azure.**
     Test Developer-rollen gir tilgang til AI for apper i TT02 og Production Developer-rollen gir tilgang
-    til apper i profuksjon.
+    til apper i produksjon.
 
-    [Instrukser på hvordan be om rollen er tilgjenglig her](http://localhost:1313/app/getting-started/access-management/apps/#tilgang-til-logger-og-hemmeligheter)
+    [Instrukser på hvordan be om rollen er tilgjengelig her](http://localhost:1313/app/getting-started/access-management/apps/#tilgang-til-logger-og-hemmeligheter)
 
 - **Generell oversikt over AI features**
-    AI har flere fuksjoner tilgjengelig.
+    AI har flere funksjoner tilgjengelig.
 
     [Sjekk Microsoft sin offisielle dokumentasjon](https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview?tabs=net)
     for et raskt overblikk.
