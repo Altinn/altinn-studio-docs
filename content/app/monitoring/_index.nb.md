@@ -16,7 +16,7 @@ bruker i Altinn for å tilby gi overvåkingsfunksjonalitet for apper.
 
 AI kan gi deg som apputvikler verdifull innsikt i helse, ytelse og bruk av appen din.
 Med sanntidsovervåking og ytelsesanalyse kan utviklere identifisere og løse problemer før de påvirker
-brukeropplevelsen til en sluttbruker. Feilsporing og varling* gjør AI til en verdifull ressurs også i drift.
+brukeropplevelsen til en sluttbruker. Feilsøking og varsling* gjør AI til en verdifull ressurs også i drift.
 
 ![Illustration av AI-grafer](ai-overview.png "Illustration av AI-grafer")
 

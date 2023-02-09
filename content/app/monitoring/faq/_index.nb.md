@@ -25,11 +25,11 @@ og Altinnteamet jobber med å tilgjengeliggjøre dette.
 ![Ofte brukte AI-funksjoner markert i menyen](ai-side-menu.png "Ofte brukte AI-funksjoner markert i menyen")
 
 - **Failures**: få en oversikt over alle feilede requests i et tidrom og drill ned i stack tracen
-   for å undersøke hvilken forespørsel i kjeden som produserer uønsket respons.
+   for å undersøke hvilken request i kjeden som produserer uønsket respons.
 - **Performance**: få oversikt over alle requests i et tidrom. 
-  Identifiser de tregeste requestene og bor i stack tracen for å undersøke hvilken del 
+  Identifiser de tregeste requestene og undersøk stack tracen for å avgjøre hvilken del 
   av kjeden som påvirker ytelsen negativt.
-- **Logs**: kjør spørringer på logger og trace data for å finne exceptions 
+- **Logs**: kjør spørringer på logger og trace-data for å finne exceptions 
   eller identifisere egendefinerte datapunkter relatert til en spesifikk request.
 {{% /expandlarge %}}
 
