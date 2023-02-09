@@ -38,7 +38,7 @@ Det er to ulike måter å konfigurere PDF-genereringen på:
 1. [Automatisk basert på skjema-sidene dine](#automatisk-konfigurasjon)
 2. [Manuelt basert på en egendefinert PDF-side](#egendefinert-konfigurasjon)
 
-Det er også mulig å se en [forhåndsvisning](#forhåndsvisning-i-nettleseren) av hvordan PDF'en kommer til å se ut i nettleseren imens du jobber med den (kun v7.5+)
+Det er også mulig å se en [forhåndsvisning](#forhåndsvisning-i-nettleseren) av hvordan PDF'en kommer til å se ut i nettleseren imens du jobber med den (kun v7.5+).
 
 ## Automatisk konfigurasjon
 
@@ -139,7 +139,7 @@ public async Task<LayoutSettings> FormatPdf(LayoutSettings layoutSettings, objec
 {{% expandlarge id="exclude-specific-component" header="Ekskludere komponenter fra en spesifikk rad i en repeterende gruppe" %}}
 Dersom du trenger å ekskludere en komponent fra en spesifikk rad i en repeterende gruppe må du spesifisere rad-nummeret i tillegg til komponent-IDen.
 
-Formatet er: `komponentID-<rad-nummer>`
+Formatet er: `komponentID-<rad-nummer>`.
 
 ### 1. Settings.json
 
