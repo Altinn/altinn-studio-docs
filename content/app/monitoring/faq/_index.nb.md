@@ -46,8 +46,8 @@ brukes propertyen `customDimensions`.
 Her er et eksempel på hvordan du kan liste opp url og userId på den som sendte requesten.
 
 ```
-forespørsler
-| prosjekt url, customDimensions["userId"]
+requests
+| project url, customDimensions["userId"]
 ```
 {{% /expandlarge %}}
 
@@ -69,7 +69,7 @@ where cloud_RoleName == <sett inn appnavn>
 For å hente alle forespørsler for applikasjonen _bli-tjenesteeier_ vil spørringen se slik ut
 
 ```
-forespørsler
+requests
 | where cloud_RoleName == "bli-tjenesteeier"
 ```
 {{% /expandlarge %}}
