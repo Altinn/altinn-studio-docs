@@ -4,18 +4,41 @@ description: How to configure the generation of PDF.
 weight: 50
 ---
 
-{{%notice info%}}
+{{%notice warning%}}
+## New PDF generation
+### Enable feature
+As of version 7.5 of the nuget packages (Altinn.App.Api and Altinn.App.Core) a new way of generating PDF's launched as a preview. This feature can be toggled on/off by adding the following section and feature toggle in _appsettings.json_.
 
-Version 8 uses a completely new PDF generator with a more modern appearance. Most existing apps should work out-of-the-box, but do check how it looks when migrating.
+```json
+  "FeatureManagement": {
+    "NewPdfGeneration": true
+  }
+```
+
+This will call the new PDF service which accepts a url pointing back to an automatic generated page in the app. The rendered page is then used as the foundation for the PDF. The `IPdfFormatter` as documented below is still relevant if you need custom logic for excluding components/pages from PDF.
+
+### Settings
+While the default settings for the new service should be enough for most applications they can be overridden by adding a PdfGeneratorSettings section in _appsettings.json_ (default settings shown below).
+
+```json
+  "PdfGeneratorSettings": {
+    "ServiceEndpointUri": "https://{org}.apps.{hostName}/{appId}/#/instance/{instanceId}",
+    "AppPdfPageUriTemplate": "http://{hostName}/{appId}/#/instance/{instanceId}?pdf=1",
+    "WaitForSelector": "#readyForPrint",
+    "WaitForTime": 5000
+  }
+```
+
+If the WaitForSelector is set, the WaitForTime will be ignored. The WaitForSelector ensures that the page will be completely rendered before the PDF is generated.
 
 {{% /notice%}}
 
 There are two different methods of configuring the generation of PDFs:
 
 1. [Automatically based on your form layouts](#automatic-configuration)
-2. [Manually by defining a custom PDF layout (v8 only)](#custom-layout-configuration)
+2. [Manually by defining a custom PDF layout (v7.5+ only)](#custom-layout-configuration)
 
-It is also possible to get a [preview](#preview-in-the-browser) of what the PDF will look like in the browser while developing (v8 only).
+It is also possible to get a [preview](#preview-in-the-browser) of what the PDF will look like in the browser while developing (v7.5+ only).
 
 ## Automatic configuration
 
@@ -37,7 +60,7 @@ Depending on the version you are using, the programmatic method is set up differ
 Modify the `PdfHandler.cs` file under `App/logic/Print`.
 {{</content-version-container>}}
 
-{{<content-version-container version-label="v7, v8">}}
+{{<content-version-container version-label="v7">}}
 
 1. Create a class that implements the `IPdfFormater` interface found in the `Altinn.App.Core.Features.Pdf` namespace.  
     You can name and place the file in any folder you like within your project, but we suggest you use meaningful namespaces like in any other .Net project.
@@ -149,9 +172,9 @@ public async Task<LayoutSettings> FormatPdf(LayoutSettings layoutSettings, objec
 
 ## Custom layout configuration
 
-{{%notice info%}}
+{{%notice warning%}}
 
-This method is only available in version 8.
+This method is only available in version 7.5 and higher.
 
 {{% /notice%}}
 
@@ -248,9 +271,9 @@ It is possible to exclude child components from a group by using the `excludedCh
 
 ## Preview in the browser
 
-{{%notice info%}}
+{{%notice warning%}}
 
-This feature only applies to version 8.
+This feature only applies to version 7.5 and higher.
 
 {{% /notice%}}
 

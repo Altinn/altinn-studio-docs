@@ -82,7 +82,7 @@ An example setup of the `layout-sets.json` where `Task_1` is a data step, and `T
         ]
       },
       {
-        "id": "custom-receipt",
+        "id": "custom-confirmation",
         "dataType": "simple",
         "tasks": [
           "Task_2"
@@ -146,7 +146,7 @@ The app structure would look look this:
 │   ├───models
 |   | ...
 │   ├───ui
-│   │   ├───custom-receipt
+│   │   ├───custom-confirmation
 │   │   │   └───layouts
 |   |   |   └─── ...
 │   │   └───simple

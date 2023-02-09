@@ -30,11 +30,11 @@ Bekreftelsessiden blir lagt til automatisk når man legger til dette i BPMN-file
 ![Oppdatert prosessflyt illustrert](/app/app-dev-course/modul5/updated-process.png)
 
 {{% notice info %}}
-[Standard prosessflyter er tilgjengelige på GitHub](https://github.com/Altinn/altinn-studio/tree/master/src/Altinn.Apps/AppTemplates/ProcessTemplates).
+[Standard prosessflyter er tilgjengelige på GitHub](../../development/configuration/process).
 Finner du den som passer til flyten vi ønsker å oppnå her?
 
 Har du lyst på en ekstra utfordring, kan du redigere prosessflyten manuelt eller i et BPMN-redigeringsverktøy,
-og heller bruke [malen på prosessflyt med data og bekreftelsessteg](https://raw.githubusercontent.com/Altinn/altinn-studio/master/src/Altinn.Apps/AppTemplates/ProcessTemplates/Data_Confirmation_Process.bpmn) som fasit.
+og heller bruke [malen på prosessflyt med data og bekreftelsessteg](../../development/configuration/process/Data_Confirmation_Process.bpmn) som fasit.
 {{% /notice %}}
 
 ### Krav fra kommunen

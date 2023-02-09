@@ -9,7 +9,7 @@ weight: 400
 
 {{%notice info%}}
 For at applikasjonen din skal kunne generere events må den referere til nugetversjon >= 1.2.4.
-Se hvordan du oppdaterer nugetreferanser for applikasjonen din [her](../update/#nuget-pakker).
+Se hvordan du oppdaterer nugetreferanser for applikasjonen din [her](/app/maintainance/dependencies/).
 {{% /notice%}}
 
 Generering og lagring av events er ikke enablet som default i applikasjonene per 22.10.2020.
@@ -157,4 +157,4 @@ namespace Altinn.App.AppLogic
     ```
 
 6. Applikasjonen din er nå klar til å generere et egendefinert event under instansiering.
-Dette er mulig å [teste lokalt](https://github.com/Altinn/altinn-studio/blob/master/docs/LOCALAPP.md) før det evt. deployes til et testmiljø.
+Dette er mulig å [teste lokalt](https://github.com/Altinn/app-localtest/blob/master/README.md) før det evt. deployes til et testmiljø.

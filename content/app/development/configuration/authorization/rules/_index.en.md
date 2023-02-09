@@ -1,6 +1,6 @@
 ---
 title: Rule library
-description: Library of authorization rules that can be used in an app. Remember to replace tags ([ORG], [APP], [RULE_ID]) with your own data.
+description: Library of authorization rules that can be used in an app. Remember to replace tags ([RULE_ID]) with your own ID. [ORG] and [APP] can will be replaced later, so they can remain in the file if you use Localtest from january 2023 or newer.
 toc: true
 ---
 
