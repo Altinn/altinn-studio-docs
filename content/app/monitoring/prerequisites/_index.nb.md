@@ -5,19 +5,19 @@ description: En oversikt over forutsetnigner for å komme i gang med Application
 weight: 10
 ---
 
-- **Test Developer eller Production Developer rollen i Azure.**    
-    Test Developer-rollen gir tilgang til AI for apper i TT02 og Production Developer-rollen gir tilgang 
+- **Test Developer eller Production Developer rollen i Azure.**
+    Test Developer-rollen gir tilgang til AI for apper i TT02 og Production Developer-rollen gir tilgang
     til apper i profuksjon.
 
     [Instrukser på hvordan be om rollen er tilgjenglig her](http://localhost:1313/app/getting-started/access-management/apps/#tilgang-til-logger-og-hemmeligheter)
 
-- **Generell oversikt over AI features**    
-    AI har flere features tilgjenglig-
+- **Generell oversikt over AI features**
+    AI har flere fuksjoner tilgjengelig.
 
     [Sjekk Microsoft sin offisielle dokumentasjon](https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview?tabs=net)
     for et raskt overblikk.
-  
-- **Grunnleggende kunnskap i Kusto Query Language (KQL)**    
+
+- **Grunnleggende kunnskap i Kusto Query Language (KQL)**
 
     Spørringer i AI skrives ved hjelp av KQL. Mulighetene innen datavisualisering og utforskning er mange med KQL,
     men den gjennomsnittlige apputvikleren kan slippe unna med å lære det mest grunnleggende for å identifisere datapunkter av interesse.

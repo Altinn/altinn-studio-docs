@@ -7,7 +7,7 @@ toc: true
 ---
 
 {{% notice info %}}
-Do you have any good tips or questions that you needs answers?
+Do you have any good tips or questions that you are in need of answers?
 
 Please contribute to this page by using the __Edit page on GitHub__ feature at the bottom of this page!
 {{% /notice %}}

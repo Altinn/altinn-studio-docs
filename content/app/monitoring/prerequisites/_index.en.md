@@ -18,7 +18,7 @@ weight: 10
 
 - **Basic knowledge of Kusto Query Language (KQL)**
     Queries in AI are written using KQL. The possibilities within data visualization and exploration are many with KQL,
-    but the average app developer can get away with learning the basics to help identify data points of interest.
+    learning the basics will get you a long way in identify data points of interest.
 
     [Find an overview of KQL and sample queries on the Microsoft website.](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/)
 
