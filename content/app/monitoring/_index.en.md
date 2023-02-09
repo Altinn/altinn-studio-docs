@@ -11,7 +11,7 @@ but we are aiming to support this during the Spring of 2023.
 {{% /notice %}}
 
 Azure Application Insights (AI) is an extension of 
-[Azure Monitor](https://learn.microsoft.com/en-us/azure/azure-monitor/overview) and is what we use in Altinn to provide 
+[Azure Monitor](https://learn.microsoft.com/en-us/azure/azure-monitor/overview) and is what we use in Altinn to 
 provide Application Performance Monitoring features for apps. 
 
 AI can provide you as an app developer with valuable insights into the health, performance and usage of your app.

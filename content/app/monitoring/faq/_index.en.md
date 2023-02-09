@@ -1,7 +1,7 @@
 ---
-title: Typical use cases for application insights
+title: Typical use cases for Application Insights
 linktitle: FAQ
-description: Frequently asked questions related to how to use application insights.
+description: Frequently asked questions related to how to use Application Insights.
 weight: 20
 toc: true
 ---
@@ -12,7 +12,7 @@ Do you have any good tips or questions that you needs answers?
 Please contribute to this page by using the __Edit page on GitHub__ feature at the bottom of this page!
 {{% /notice %}}
 
-[//]: <> (Section: How can I set up alerts based on what is logged to AI?.)
+[//]: <> (Section: How can I set up alerts based on what is logged to AI?)
 
 {{% expandlarge id="q1" header="How can I set up alerts based on what is logged to AI?" %}}
 Unfortunetly, there is no resoruce group where alerts can be persisten for application owners. 
@@ -22,7 +22,7 @@ this available for you.
 
 [//]: <> (Section: What are the top three most useful features in AI?.)
 {{% expandlarge id="q2" header="What are the top three most useful features in AI?" %}}
-![Frequently used AI features marked in menu](ai-side-menu.PNG "Frequently used AI features marked in menu")
+![Frequently used AI features marked in menu](ai-side-menu.png "Frequently used AI features marked in menu")
 
 - **Failures**: get an overview over all failing requests within a time frame and drill into the stack trace 
   to investigate which request in the call chain produces the error response
@@ -53,7 +53,7 @@ requests
 All logs and dashboard in AI can include filters. Use a _role filter_ to filter out data related to your application. 
 The role (or cloud role name) for your application is equal to your application name (i.e. the repository name in Altinn Studio).
 
-!["Role filter icon and role selection marked"](role-filter.png "Role filter icon and role selection marked")
+!["Filter icon and role selection marked"](role-filter.png "Filter icon and role selection marked")
 
 When working with the user interface look for the filter icon (1) and add or adjust the role filter (2). 
 
@@ -74,11 +74,12 @@ requests
 
 [//]: <> (Section: An end user is reporting that their experiencing an error)
 {{% expandlarge id="q8" header="An end user is reporting that their experiencing an error" %}}
-When end users report errors this could be an error that affects all users and easy to identify the failing request in 
-the failure tab. However, if the error is affecting a single or very few users the instanceId can be a helpful tool.
+When end users report errors this could be an error that affects all users and it is easy to identify the failing
+request in the failure tab. 
+However, if the error is affecting a single or very few users the instanceId can be a helpful tool.
 
 End users should always include the instanceGuid or archive reference (last 12 chars of an instance guid).
-This guid can be included in a filter on the _Performance_ page to get an overview over all incomming requests related 
+This GUID can be included in a filter on the _Performance_ page to get an overview over all incomming requests related 
 to the instance, maybe this can give a clear picture of what has happended. 
 
 Alternatively, you can query the log tool for acitons related to the instance.
@@ -88,21 +89,42 @@ requests
 | where url contains "165dc739-0f55-4a4c-9b0b-781340a68cd8"
 | order by timestamp desc
 ```
+
 {{% /expandlarge %}}
 
 [//]: <> (Section: My application shows ukjent feil...)
 {{% expandlarge id="q5" header="My application shows Ukjent feil..." %}}
 ... but I dont know what is causing it. 
 
+_Ukjent feil_ in the application is caused by the application returning an unexpected response 
+during a request from the client (app frontend). To investigate situations like these starting in the 
+_Failures_ tab is often the way to go. 
+
+!["Steps marked for drill down on failures page"](failures-drill-down.png "Steps marked for  drill down on failures page")
+
+1. Based on the scenario when things fail you might be able to identify the correct 
+request in the _operation overview_. Highlight this request.
+2. In the summary section you will see top three response codes and exception types related to the failing request. 
+3. If further investigation is required you may drill into the request samples.
+4. Instances of the request are listet and you may sort them based on relevance or date. 
+   Click one of the requests to be forwarded to the end-to-end transaction details.
+  
+!["End-to-end transaction details"](end-to-end-transaction.png "End-to-end transaction details")
+
+Looking through the transactions all requests with a non-successful response code will be marked in red.
+To see addition details for a specific request highlight it and review the blade on the right hand side of the screen.
 {{% /expandlarge %}}
 
-[//]: <> (Section: Instantiation of the app is failing. How do I identify what's wrong? )
-{{% expandlarge id="q6" header="Instantiation of the app is failing. How do I identify what's wrong?" %}}
+[//]: <> (Section: How can I identify what is causing a request to be slow? )
+{{% expandlarge id="q7" header="How can I identify what is causing a request to be slow? " %}}
+Use the _Performance_ page to investigate slow requests
 
-{{% /expandlarge %}}
+!["Steps marked for drill down on performance page"](performance-drill-down.png "Steps marked for drill down on performance page")
+1. Identify the request you are interested in
+2. Click the _Drill into x samples_ button
+3. Select one of the requests in the list to be shown the end-to-end transaction details.
 
+!["End-to-end transaction details with duration highlightet"](end-to-end-transaction-duration-marked.png "End-to-end transaction details with duration highlightet")
 
-[//]: <> (Section: How can I identify what is causing an action to be slow? )
-{{% expandlarge id="q7" header="How can I identify what is causing an action to be slow? " %}}
-
+From this point one can investigate each depencendy and the time it takes to get a response. 
 {{% /expandlarge %}}

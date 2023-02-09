@@ -13,11 +13,11 @@ weight: 10
 - **General overview of AI features**    
     AI has a number of features available. 
 
-    [Check Microsoft official documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview?tabs=net)
+    [Check Microsoft's official documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview?tabs=net)
     for a quick overview.
   
 - **Basic knwoledge of Kusto Query Language (KQL)**    
-    Quries in AI are written using KQL. The possibilities withing data visualisation and exploration are many with KWL,
+    Quries in AI are written using KQL. The possibilities within data visualisation and exploration are many with KQL,
     but the average app developer can get away with learning the basics to help identify data points of interest. 
 
     [Find an overview of KQL and sample quiries on the Microsoft website.](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/)
