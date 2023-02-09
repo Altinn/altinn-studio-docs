@@ -22,7 +22,7 @@ og Altinnteamet jobber med å tilgjengeliggjøre dette.
 
 [//]: <> (Section: Hva er de tre nyttigste funksjonene i AI?.)
 {{% expandlarge id="q2" header="Hva er de tre nyttigste funksjonene i AI?" %}}
-![Ofte brukte AI-funksjoner markert i menyen](ai-side-menu.png "Ofte brukte AI-funksjoner markert i menyen")
+![Ofte brukte AI-funksjoner markert i menyen](ai-side-menu-img.png "Ofte brukte AI-funksjoner markert i menyen")
 
 - **Failures**: få en oversikt over alle feilede requests i et tidrom og drill ned i stack tracen
    for å undersøke hvilken forespørsel i kjeden som produserer uønsket respons.

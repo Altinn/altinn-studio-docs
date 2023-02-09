@@ -22,7 +22,7 @@ this available for you.
 
 [//]: <> (Section: What are the top three most useful features in AI?.)
 {{% expandlarge id="q2" header="What are the top three most useful features in AI?" %}}
-![Frequently used AI features marked in menu](ai-side-menu.png "Frequently used AI features marked in menu")
+![Frequently used AI features marked in menu](ai-side-menu-img.png "Frequently used AI features marked in menu")
 
 - **Failures**: get an overview over all failing requests within a time frame and drill into the stack trace 
   to investigate which request in the call chain produces the error response
