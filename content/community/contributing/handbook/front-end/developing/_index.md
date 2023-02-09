@@ -6,7 +6,7 @@ weight: 11
 ---
 
 ## App frontend
-1. Follow the instructions [here](https://github.com/Altinn/altinn-studio/blob/master/docs/LOCALAPP.md) to set up an app to run locally, up to step 5 (do not do step 6 yet.)
+1. Follow the instructions [here](https://github.com/Altinn/app-localtest/blob/master/README.md) to set up an app to run locally, up to step 5 (do not do step 6 yet.)
    - _Make sure Altinn Studio is not running_. If it is, run
     ```
     docker-compose down

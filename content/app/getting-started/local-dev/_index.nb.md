@@ -12,7 +12,7 @@ Her er en oversikt over hvordan du kommer i gang med lokal utvikling.
 
 ## Forberedelser 
 
-Følg [stegene beskrevet på GitHub](https://github.com/Altinn/altinn-studio/blob/master/docs/LOCALAPP.md#prerequisites)
+Følg [stegene beskrevet på GitHub](https://github.com/Altinn/app-localtest/blob/master/README.md#prerequisites)
 for å klargjøre ditt lokale utviklingsmiljø for utvikling og testing av Altinn apps
 
 ## Hvordan klone applikasjonen til et lokalt utviklingsmiljø

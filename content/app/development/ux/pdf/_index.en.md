@@ -4,6 +4,35 @@ description: How to configure the generation of PDF.
 weight: 50
 ---
 
+{{%notice warning%}}
+## New PDF generation
+### Enable feature
+As of version 7.5 of the nuget packages (Altinn.App.Api and Altinn.App.Core) a new way of generating PDF's launched as a preview. This feature can be toggled on/off by adding the following section and feature toggle in _appsettings.json_.
+
+```json
+  "FeatureManagement": {
+    "NewPdfGeneration": true
+  }
+```
+
+This will call the new PDF service which accepts a url pointing back to an automatic generated page in the app. The rendered page is then used as the foundation for the PDF. The `IPdfFormatter` as documented below is still relevant if you need custom logic for excluding components/pages from PDF.
+
+### Settings
+While the default settings for the new service should be enough for most applications they can be overridden by adding a PdfGeneratorSettings section in _appsettings.json_ (default settings shown below).
+
+```json
+  "PdfGeneratorSettings": {
+    "ServiceEndpointUri": "https://{org}.apps.{hostName}/{appId}/#/instance/{instanceId}",
+    "AppPdfPageUriTemplate": "http://{hostName}/{appId}/#/instance/{instanceId}?pdf=1",
+    "WaitForSelector": "#readyForPrint",
+    "WaitForTime": 5000
+  }
+```
+
+If the WaitForSelector is set, the WaitForTime will be ignored. The WaitForSelector ensures that the page will be completely rendered before the PDF is generated.
+
+{{% /notice%}}
+
 It is possible to exclude components, or entire pages from being a part of the pdf generation. 
 
 There are two options when excluding data from a PDF: 

@@ -4,6 +4,35 @@ description: Hvordan konfigurere generering av PDF.
 weight: 50
 ---
 
+{{%notice warning%}}
+## Ny PDF generering
+### Aktivere ny PDF generering
+Fra og med versjon 7.5 av nuget pakkene (Altinn.App.Api and Altinn.App.Core) er det lansert en ny måte å generere PDF'er på. Denne nye måten kan skrus av og på ved å legge til følgende seksjon og innstilling i _appsettings.json_.
+
+```json
+  "FeatureManagement": {
+    "NewPdfGeneration": true
+  }
+```
+
+Dette vil sørge for at den nye PDF tjenesten kalles. Denne aksepterer en url som peker tilbake til en automatisk generert side i appen. Siden bygges opp og danner grunnlaget for PDF'en. `IPdfFormatter` grensesnittet som dokumentert nedenfor er fortsatt relevant hvis du trenger spesiallogikk for skjuling av komponenter/sider fra PDF'en.
+
+### Innstillinger
+Selv om standard innstillingene for den nye tjenesten skal være nok for de fleste applikasjoner kan de overstyres ved å legge til en PdfGeneratorSettings seksjon i _appsettings.json_ (standard innstillinger vises under).
+
+```json
+  "PdfGeneratorSettings": {
+    "ServiceEndpointUri": "https://{org}.apps.{hostName}/{appId}/#/instance/{instanceId}",
+    "AppPdfPageUriTemplate": "http://{hostName}/{appId}/#/instance/{instanceId}?pdf=1",
+    "WaitForSelector": "#readyForPrint",
+    "WaitForTime": 5000
+  }
+```
+
+Hvis WaitForSelector er satt så blir WaitForTime ignorert. WaitForSelector sikrer at siden er ferdig oppbygd og presentert før PDF'en genereres.
+
+{{% /notice%}}
+
 Det er mulig å ekskludere enkelte komponenter, eller hele sider fra å bli med i pdf.
 
 Det er to måter å ekskludere data fra PDF på
