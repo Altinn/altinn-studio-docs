@@ -22,7 +22,7 @@ this available for you.
 
 [//]: <> (Section: What are the top three most useful features in AI?.)
 {{% expandlarge id="q2" header="What are the top three most useful features in AI?" %}}
-![Frequently used AI features marked in menu](ai-side-menu-img.png "Frequently used AI features marked in menu")
+![Frequently used AI features marked in menu](ai-side-menu.png "Frequently used AI features marked in menu")
 
 - **Failures**: get an overview over all failing requests within a time frame and drill into the stack trace 
   to investigate which request in the call chain produces the error response
@@ -104,9 +104,9 @@ _Failures_ tab is often the way to go.
 
 1. Based on the scenario when things fail you might be able to identify the correct 
 request in the _operation overview_. Highlight this request.
-2. In the summary section you will see top three response codes and exception types related to the failing request. 
-3. If further investigation is required you may drill into the request samples.
-4. Instances of the request are listet and you may sort them based on relevance or date. 
+1. In the summary section you will see top three response codes and exception types related to the failing request. 
+2. If further investigation is required you may drill into the request samples.
+3. Instances of the request are listet and you may sort them based on relevance or date. 
    Click one of the requests to be forwarded to the end-to-end transaction details.
   
 !["End-to-end transaction details"](end-to-end-transaction.png "End-to-end transaction details")
