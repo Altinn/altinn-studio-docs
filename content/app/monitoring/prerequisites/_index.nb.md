@@ -20,6 +20,6 @@ weight: 10
 - **Grunnleggende kunnskap i Kusto Query Language (KQL)**
 
     Spørringer i AI skrives ved hjelp av KQL. Mulighetene innen datavisualisering og utforskning er mange med KQL,
-    men den gjennomsnittlige apputvikleren kan slippe unna med å lære det mest grunnleggende for å identifisere datapunkter av interesse.
+    men man kommer langt med det mest grunnleggende for å identifisere datapunkter av interesse.
 
     [Finn en oversikt over KQL og eksempelspørringer på Microsofts nettsted.](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/)
