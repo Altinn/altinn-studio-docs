@@ -20,6 +20,18 @@ Vi vet at dette er funksjonalitet som mange tjenesteeiere ønsker
 og Altinnteamet jobber med å tilgjengeliggjøre dette.
 {{% /expandlarge %}}
 
+[//]: <> (Section: Hva monitorerer Altinn på våre vegne?)
+{{% expandlarge id="q1" header="Hva monitorerer Altinn på våre vegne?" %}}
+
+Altinn har også innsyn i telemetrien som logges av applikasjonene og tilgjengliggjøres for tjenesteeierene i AI.
+I tillegg monitorerer vi infrastrukturen til hver tjenesteeier som Kubernetes cluster, storagekontoer og key vault. 
+
+Hovedregelen er at Altinn-teamet agerer på alarmer knytte til infrastrukturen som kreves for å kjøre en app
+for eksempel for lite CPU tilgjengelig i app clusteret eller at en pod står i en feilstate i clustert 
+
+__Altinn overvåker ikke aktivt ytelsen eller feilraten til den individuelle applikasjonen.__
+{{% /expandlarge %}}
+
 [//]: <> (Section: Hva er de tre nyttigste funksjonene i AI?.)
 {{% expandlarge id="q2" header="Hva er de tre nyttigste funksjonene i AI?" %}}
 ![Ofte brukte AI-funksjoner markert i menyen](ai-side-menu.png "Ofte brukte AI-funksjoner markert i menyen")

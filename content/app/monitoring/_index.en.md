@@ -21,4 +21,17 @@ user experience. Error tracking and alerts* makes AI a valuable resource during 
 
 ![Illustration of AI graphs](ai-overview.png "Illustration of AI graphs")
 
+{{% expandlarge id="q1" header="Altinn monitors your infrastructure" %}}
+
+The Altinn team has access to all of the telemetry logged by the application that the app owners also have access to. 
+In addition we monitor the infrastructure components for each application owner such as Kubernetes cluster, 
+storage account and key vault. 
+
+As a main rule the Altinn team has action plans for alerts related to the infrastructure that is required to run the apps 
+i.e  CPU exhaustion in the application cluster or a pod is in an error state in the cluster.
+
+__Altinn does not actively monitor the performance or failure rates
+of individual applications.__
+
+{{% /expandlarge %}}
 {{<children>}}
