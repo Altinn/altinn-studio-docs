@@ -20,4 +20,16 @@ brukeropplevelsen til en sluttbruker. Feilsøking og varsling* gjør AI til en v
 
 ![Illustrasjon av AI-grafer](ai-overview.png "Illustrasjon av AI-grafer")
 
+{{% expandlarge id="q1" header="Altinn overvåker infrastrukturen" %}}
+
+Altinn har også innsyn i telemetrien som logges av applikasjonene og tilgjengliggjøres for tjenesteeierene i AI.
+I tillegg monitorerer vi infrastrukturen til hver tjenesteeier som Kubernetes cluster, storagekontoer og key vault. 
+
+Hovedregelen er at Altinn-teamet agerer på alarmer knytte til infrastrukturen som kreves for å kjøre en app
+for eksempel for lite CPU tilgjengelig i app clusteret eller at en pod står i en feilstate i clustert 
+
+__Altinn overvåker ikke aktivt ytelsen eller feilraten til den individuelle applikasjonen.__
+{{% /expandlarge %}}
+
+
 {{<children>}}
