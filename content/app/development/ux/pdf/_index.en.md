@@ -243,13 +243,13 @@ You can specify that a component should start on a new page or that a page break
     "dataModelBindings": {},
     "size": "L",
     "pageBreak": {
-      "breakBefore": true,
-      "breakAfter": false
+      "breakBefore": "always",
+      "breakAfter": "avoid"
     }
 }
 ```
 
-**Note**: The value of `breakBefore` and `breakAfter` can either be `true`/`false` or an [expression](/app/development/logic/expressions/).
+**Note**: The value of `breakBefore` and `breakAfter` can either be `auto` (default), `always`, `avoid`, or an [expression](/app/development/logic/expressions/) returning any of these values.
 {{% /expandlarge %}}
 
 {{% expandlarge id="exclude-components-from-groups" header="Exclude child components from groups" %}}

@@ -243,13 +243,13 @@ Du kan spesifisere at en komponent skal starte på en ny side eller at et sidesk
     "dataModelBindings": {},
     "size": "L",
     "pageBreak": {
-      "breakBefore": true,
-      "breakAfter": false
+      "breakBefore": "always",
+      "breakAfter": "avoid"
     }
 }
 ```
 
-**NB**: Verdien av `breakBefore` og `breakAfter` kan enten være `true`/`false` eller ett [uttrykk](/nb/app/development/logic/expressions/).
+**NB**: Verdien av `breakBefore` og `breakAfter` kan enten være `auto` (standard), `always`, `avoid`, eller ett [uttrykk](/nb/app/development/logic/expressions/) som returnerer en av disse verdiene.
 {{% /expandlarge %}}
 
 {{% expandlarge id="exclude-components-from-groups" header="Ekskludere komponenter inne i en gruppe" %}}
