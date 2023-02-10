@@ -20,6 +20,21 @@ We know this is a feature many application owners are requesting, and the Altinn
 this available for you.
 {{% /expandlarge %}}
 
+[//]: <> (Section: What does Altinn monitor on our behalf?)
+{{% expandlarge id="q1" header="What does Altinn monitor on our behalf?" %}}
+
+The Altinn team has access to all of the telemetry logged by the application that the app owners also have access to. 
+In addition we monitor the infrastructure components for each application owner such as Kubernetes cluster, 
+storage account and key vault. 
+
+As a main rule the Altinn team has action plans for alerts related to the infrastructure that is required to run the apps 
+i.e  CPU exhaustion in the application cluster or a pod is in an error state in the cluster.
+__Altinn does not actively monitor the performance or failure rates
+of individual applications.__
+
+{{% /expandlarge %}}
+
+
 [//]: <> (Section: What are the top three most useful features in AI?.)
 {{% expandlarge id="q2" header="What are the top three most useful features in AI?" %}}
 ![Frequently used AI features marked in menu](ai-side-menu.png "Frequently used AI features marked in menu")
