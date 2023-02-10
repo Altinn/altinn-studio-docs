@@ -80,7 +80,7 @@ Add a list of page names to exclude called `excludeFromPdf` under `pages`:
 
 ```json {linenos=false,hl_lines=["3-5"]}
 {
-"$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
+  "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
   "pages": {
     "excludeFromPdf": ["page2"]
   }
@@ -235,17 +235,17 @@ You can specify that a component should start on a new page or that a page break
 
 ```json {linenos=false,hl_lines=["9-12"]}
 {
-    "id": "pdf-header",
-    "type": "Header",
-    "textResourceBindings": {
-      "title": "This is a new section"
-    },
-    "dataModelBindings": {},
-    "size": "L",
-    "pageBreak": {
-      "breakBefore": "always",
-      "breakAfter": "avoid"
-    }
+  "id": "pdf-header",
+  "type": "Header",
+  "textResourceBindings": {
+    "title": "This is a new section"
+  },
+  "dataModelBindings": {},
+  "size": "L",
+  "pageBreak": {
+    "breakBefore": "always",
+    "breakAfter": "avoid"
+  }
 }
 ```
 
@@ -258,11 +258,11 @@ It is possible to exclude child components from a group by using the `excludedCh
 
 ```json {linenos=false,hl_lines=["6"]}
 {
-    "id": "pdf-group-summary",
-    "type": "Summary",
-    "componentRef": "some-group-component",
-    "pageRef": "Form",
-    "excludedChildren": ["some-child-component"]
+  "id": "pdf-group-summary",
+  "type": "Summary",
+  "componentRef": "some-group-component",
+  "pageRef": "Form",
+  "excludedChildren": ["some-child-component"]
 },
 ```
 

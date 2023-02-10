@@ -235,17 +235,17 @@ Du kan spesifisere at en komponent skal starte på en ny side eller at et sidesk
 
 ```json {linenos=false,hl_lines=["9-12"]}
 {
-    "id": "pdf-overskrift",
-    "type": "Header",
-    "textResourceBindings": {
-      "title": "Dette er en ny seksjon"
-    },
-    "dataModelBindings": {},
-    "size": "L",
-    "pageBreak": {
-      "breakBefore": "always",
-      "breakAfter": "avoid"
-    }
+  "id": "pdf-overskrift",
+  "type": "Header",
+  "textResourceBindings": {
+    "title": "Dette er en ny seksjon"
+  },
+  "dataModelBindings": {},
+  "size": "L",
+  "pageBreak": {
+    "breakBefore": "always",
+    "breakAfter": "avoid"
+  }
 }
 ```
 
@@ -258,11 +258,11 @@ Det er mulig å ekskludere enkeltkomponenter inne i en gruppe ved å bruke `excl
 
 ```json {linenos=false,hl_lines=["6"]}
 {
-    "id": "pdf-group-summary",
-    "type": "Summary",
-    "componentRef": "en-gruppe-komponent",
-    "pageRef": "Form",
-    "excludedChildren": ["en-komponent-i-gruppen"]
+  "id": "pdf-group-summary",
+  "type": "Summary",
+  "componentRef": "en-gruppe-komponent",
+  "pageRef": "Form",
+  "excludedChildren": ["en-komponent-i-gruppen"]
 },
 ```
 
