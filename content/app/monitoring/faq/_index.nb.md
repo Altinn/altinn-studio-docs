@@ -141,4 +141,4 @@ Bruk _Performance_-siden for å undersøke trege forespørsler
 !["Ende-til-ende transaksjonsdetaljer med varighet markert"](end-to-end-transaction-duration-marked.png "Ende-til-ende transaksjonsdetaljer med varighet markert")
 
 Fra dette punktet kan man undersøke hver avhengighet og tiden det tar å få et svar.
-{{% /expandlarge %}}P
+{{% /expandlarge %}}
