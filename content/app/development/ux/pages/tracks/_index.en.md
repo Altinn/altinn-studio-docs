@@ -150,7 +150,7 @@ To overrule default dynamic tracks, two changes must be made.
     ```
 2. Register you custom implementation in the _Program.cs_ class     
     ```C#
-    services.AddTransient<IPageOrder, PageOrder>();
+    services.AddTransient<IPageOrder, CustomOrder>();
     ```
     This ensuers your custom code is known to the application and that it will be executed.
 
