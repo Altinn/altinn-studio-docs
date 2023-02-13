@@ -33,24 +33,34 @@ If the WaitForSelector is set, the WaitForTime will be ignored. The WaitForSelec
 
 {{% /notice%}}
 
-It is possible to exclude components, or entire pages from being a part of the pdf generation. 
+There are two different methods of configuring the generation of PDFs:
 
-There are two options when excluding data from a PDF: 
+1. [Automatically based on your form layouts](#automatic-configuration)
+2. [Manually by defining a custom PDF layout (v7.5+ only)](#custom-layout-configuration)
 
-Det er to måter å ekskludere data fra PDF på
+It is also possible to get a [preview](#preview-in-the-browser) of what the PDF will look like in the browser while developing (v7.5+ only).
 
-1. Configuring in the `Settings.json` file in the `App/ui` folder
-2. Programmatically  
-   For the programatically option there are some minor differences dependening on the version you are using.
+## Automatic configuration
 
+This method is used by default unless you specify a [custom PDF layout file](#custom-layout-configuration).
+This method exctracts all of your pages and components in the order they appear, and displays them in the PDF document.
+
+### Excluding pages and components
+
+Often, you will need to exclude certain pages or components that are not relevant to the PDF document.
+This is can be configured in two different ways:
+
+1. By modifying the `Settings.json` file for your layout set.
+2. Programmatically by implementing it in code. This allows for dynamic exclusion depending on the form data.
+
+Depending on the version you are using, the programmatic method is set up differently, but the logic is the same. See below how to set this up for the version you are on:
 {{<content-version-selector classes="border-box">}}
 
 {{<content-version-container version-label="v4, v5, v6">}}
-In previous versions you modify the `PdfHandler.cs` file in the `App/logic/Print` folder.
+Modify the `PdfHandler.cs` file under `App/logic/Print`.
 {{</content-version-container>}}
 
 {{<content-version-container version-label="v7">}}
-In version 7 the way to do custom code has changed. We now use an dependency injection based approach insted of overriding methods. If you previously used to place your custom code in the _FormatPdf_ methods in the _PdfHandler.cs_ class you will see that it's mostly the same, but in v7 there is no pre-defined class for you to put your custom code. Instead, do the following:
 
 1. Create a class that implements the `IPdfFormater` interface found in the `Altinn.App.Core.Features.Pdf` namespace.  
     You can name and place the file in any folder you like within your project, but we suggest you use meaningful namespaces like in any other .Net project.
@@ -58,26 +68,15 @@ In version 7 the way to do custom code has changed. We now use an dependency inj
     ```C#
     services.AddTransient<IPdfFormater, PdfFormater>();
     ```
-    This ensuers your custom code is known to the application and that it will be executed.
+    This ensures your custom code is known to the application and that it will be executed.
 {{</content-version-container>}}
 {{</content-version-selector>}}
 
-Since the `IPdfFormater` interface has the same method as the old `PdfHandler.cs`class the rest of the documentation and examples applies to all versions.
+{{% expandlarge id="exclude-page" header="Excluding pages" %}}
 
-{{%notice info%}}
-If a page/component is to always be excluded from the PDF, it is recommended that this is
-set in the configuraiton file.
+### 1. Settings.json
 
-If exclusion of a page/component depends on dynamics it _must_ be done programmatically.
-{{% /notice%}}
-
-### Exclude pages
-
-In the examples below, the page with id _page2_ is excluded from the PDF PDF.
-
-### Configuration
-
-Setup in `Settings.json` under `App/ui`:
+Add a list of page names to exclude called `excludeFromPdf` under `pages`:
 
 ```json {linenos=false,hl_lines=["3-5"]}
 {
@@ -88,29 +87,28 @@ Setup in `Settings.json` under `App/ui`:
 }
 ```
 
-### Programmatically
+### 2. Programmatically
 
 ```cs
 public async Task<LayoutSettings> FormatPdf(LayoutSettings layoutSettings, object data)
 {
-    if (data.GetType() == typeof(Skjema))
-    {
-        layoutSettings.Pages ??= new();
-        layoutSettings.Pages.ExcludeFromPdf ??= new();
-        layoutSettings.Pages.ExcludeFromPdf.Add("page2");
-    }
-    return await Task.FromResult(layoutSettings);
+  if (data.GetType() == typeof(Skjema))
+  {
+    layoutSettings.Pages.ExcludeFromPdf.Add("page2");
+  }
+  return await Task.FromResult(layoutSettings);
 }
 ```
+<br>
 
-## Exclude components
+**Note**: You only need to choose one of the above methods.
+{{% /expandlarge %}}
 
+{{% expandlarge id="exclude-component" header="Excluding components" %}}
 
-In the examples below, the component with id _image-component-id_ is excluded from the PDF.
+### 1. Settings.json
 
-### Configuration
-
-Setup in `Settings.json` under `App/ui`:
+Add a list of component IDs to exclude called `excludeFromPdf` under `components`:
 
 ```json {linenos=false,hl_lines=["3-5"]}
 {
@@ -121,49 +119,165 @@ Setup in `Settings.json` under `App/ui`:
 }
 ```
 
-### Programmatically
+### 2. Programmatically
 
 ```cs
 public async Task<LayoutSettings> FormatPdf(LayoutSettings layoutSettings, object data)
 {
-    if (data.GetType() == typeof(Skjema))
-    {
-        layoutSettings.Components ??= new();
-        layoutSettings.Components.ExcludeFromPdf ??= new();
-        layoutSettings.Components.ExcludeFromPdf.Add("image-component-id");
-    }
-    return await Task.FromResult(layoutSettings);
+  if (data.GetType() == typeof(Skjema))
+  {
+    layoutSettings.Components.ExcludeFromPdf.Add("image-component-id");
+  }
+  return await Task.FromResult(layoutSettings);
 }
 ```
+<br>
 
-## Exclude components in a repeating group
+**Note**: You only need to choose one of the above methods.
+{{% /expandlarge %}}
 
-If you need to exclude one or more components from an entry in a repeating group, 
-this is done by specifying the index of the group element in addition to the component id. 
+{{% expandlarge id="exclude-specific-component" header="Excluding components from a specific row in a repeating group" %}}
+If you need to exclude one or more components from a specific entry in a repeating group, this is done by specifying the index of the group element in addition to the component id.
 
 The required format is: `componentId-<groupIndex>`.
 
-If the component should be excluded for all elements in the repeating group, follow the instructions for the
-section above.
+### 1. Settings.json
 
-In the example below, the component with id _ownerId_ in the group element with index 1 is excluded from the PDF.
+```json {linenos=false,hl_lines=["3-5"]}
+{
+  "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
+  "components": {
+    "excludeFromPdf": ["ownerId-1"]
+  }
+}
+```
 
-### Programmatically
+### 2. Programmatically
 
 ```cs
 public async Task<LayoutSettings> FormatPdf(LayoutSettings layoutSettings, object data)
-    {
-        if (data.GetType() == typeof(Skjema))
-        {
-            layoutSettings.Components ??= new();
-            layoutSettings.Components.ExcludeFromPdf ??= new();
-            layoutSettings.Components.ExcludeFromPdf.Add("ownerId-1");
-        }
-        return await Task.FromResult(layoutSettings);
-    }
+{
+  if (data.GetType() == typeof(Skjema))
+  {
+    layoutSettings.Components.ExcludeFromPdf.Add("ownerId-1");
+  }
+  return await Task.FromResult(layoutSettings);
+}
+```
+<br>
+
+**Note**: You only need to choose one of the above methods.
+{{% /expandlarge %}}
+
+## Custom layout configuration
+
+{{%notice warning%}}
+
+This method is only available in version 7.5 and higher.
+
+{{% /notice%}}
+
+This method lets you fully customize the generated PDF by using a layout file to specify what it should contain.
+
+To use this method you need to create a new layout file for the PDF and set `pdfLayoutName` in `Settings.json` to point to that file:
+```json {linenos=false,hl_lines=["3-5"]}
+{
+  "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
+  "pages": {
+    "pdfLayoutName": "myPdfLayout"
+  }
+}
 ```
 
-The picture below shows that the component with index 0 and 2 is kept in the PDF, 
-whilst the component with index 1 is excluded. 
+This layout file is configured in exactly the same way as any other layout file, except that not all component types are allowed. The component types that can be used for a PDF layout file are the following:
 
-!["Example excluding of component in repeating group"](exclude-componen-rep-group.png "Example excluding of component in repeating group")
+- `Summary`
+- `Group`
+- `InstanceInformation`
+- `Header`
+- `Paragraph`
+- `Image`
+- `Panel`
+
+{{% expandlarge id="include-instance-information" header="Including instance information" %}}
+
+The automatic layout includes a front page with instance information like sender, receiver, date sent, and reference number. This information should also be included in your custom layout. The example below shows how to include this information in exactly same way as in the automatic method:
+
+```json {linenos=false,hl_lines=["5-17"]}
+{
+  "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
+  "data": {
+    "layout": [
+      {
+        "id": "pdf-instance",
+        "type": "InstanceInformation",
+        "elements": {
+        "dateSent": true,
+        "sender": true,
+        "receiver": true,
+        "referenceNumber": true
+        },
+        "pageBreak": {
+          "breakAfter": true
+        }
+      }
+      ...
+    ]
+  }
+}
+```
+
+{{% /expandlarge %}}
+
+{{% expandlarge id="adding-page-breaks" header="Adding page breaks" %}}
+
+You can specify that a component should start on a new page or that a page break should occur immediately following a component using the `pageBreak` property. This property can be applied to any component. In the example below it is applied to a header to have a different section start on a new page:
+
+```json {linenos=false,hl_lines=["9-12"]}
+{
+  "id": "pdf-header",
+  "type": "Header",
+  "textResourceBindings": {
+    "title": "This is a new section"
+  },
+  "dataModelBindings": {},
+  "size": "L",
+  "pageBreak": {
+    "breakBefore": "always",
+    "breakAfter": "avoid"
+  }
+}
+```
+
+**Note**: The value of `breakBefore` and `breakAfter` can either be `auto` (default), `always`, `avoid`, or an [expression](/app/development/logic/expressions/) returning any of these values.
+{{% /expandlarge %}}
+
+{{% expandlarge id="exclude-components-from-groups" header="Exclude child components from groups" %}}
+
+It is possible to exclude child components from a group by using the `excludedChildren` property on a `Summary` component pointing to a `Group` component. This is done by adding the child component id to the list of excluded components like in the following example:
+
+```json {linenos=false,hl_lines=["6"]}
+{
+  "id": "pdf-group-summary",
+  "type": "Summary",
+  "componentRef": "some-group-component",
+  "pageRef": "Form",
+  "excludedChildren": ["some-child-component"]
+},
+```
+
+{{% /expandlarge %}}
+
+## Preview in the browser
+
+{{%notice warning%}}
+
+This feature only applies to version 7.5 and higher.
+
+{{% /notice%}}
+
+It is possible to get a preview of what the generated PDF will look like in the browser while you are developing. Follow the instructions below:
+
+1. **Important**: Use Google Chrome to preview the PDF.<br>The PDF generator uses a version of Chrome to generate the PDF, and other browsers will not produce the correct result.
+2. In the app you want to preview, add `?pdf=preview` to the end of the URL in the browser and hit enter.<br>This will continuously run the PDF layout in the background so that you can get an instant preview. You may expecience slower performance when in this mode.
+3. When you are ready to preview, use Chrome's built in print function (`Ctrl+P`/`⌘+P`) to get a preview of what the PDF document will look like.
