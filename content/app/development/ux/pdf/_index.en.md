@@ -23,7 +23,7 @@ While the default settings for the new service should be enough for most applica
 ```json
   "PdfGeneratorSettings": {
     "ServiceEndpointUri": "https://{org}.apps.{hostName}/{appId}/#/instance/{instanceId}",
-    "AppPdfPageUriTemplate": "http://{hostName}/{appId}/#/instance/{instanceId}?pdf=1",
+    "AppPdfPageUriTemplate": "https://{org}.apps.{hostName}/{appId}/#/instance/{instanceId}?pdf=1",
     "WaitForSelector": "#readyForPrint",
     "WaitForTime": 5000
   }
