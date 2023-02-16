@@ -91,6 +91,15 @@ The Navigation Bar is added to all layout files. Configuration example:
   "type": "NavigationBar"
 }
 ```
+It can also be configured to display Navigation Bar mobile also in desktop viewport. In this case, this has to be set for all layout files. Configuration example:
+```json
+{
+  "id": "navbar-page-1",
+  "type": "NavigationBar",
+  "compact": true
+}
+```
+
 
 ### Change texts on navigationbar buttons
 

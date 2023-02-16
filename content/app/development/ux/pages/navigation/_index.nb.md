@@ -93,6 +93,16 @@ Navigasjonsbar legges inn i alle layoutfiler der den skal brukes. Eksempel på k
 }
 ```
 
+Det er også mulighet å konfigurere komponenten NavigationBar til å vise alle sider i en meny også på større skjermer. Dette gjøres ved å legge til "compact": true. Eksempel på konfigurasjon: 
+```json
+{
+  "id": "navbar-page-1",
+  "type": "NavigationBar",
+  "compact": true
+}
+```
+
+
 ### Endre tekster på navigasjonsbarknapper
 
 Teksten på navigasjonsbarknappene vil som standard bruke filnavnet på siden uten filendelsen. F.eks om man har `side1.json` og `side2.json` vil navigasjonsknappene hete `side1` og `side2`. For å overstyre disse tekstene, kan du legge til tekster i `resources.XX.json`, hvor `id` er navnet på filen uten filendelse. Eksempel:
