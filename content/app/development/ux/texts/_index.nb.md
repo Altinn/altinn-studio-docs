@@ -35,9 +35,19 @@ Dette er også **fet tekst**, men laget med stjerner!
 
 ### Lenker
 
+Enkle lenker kan bruke markdown-syntaks:
+
 ```markdown
-Trykk [her](https://altinn.no) for å komme til Altinn.
+Åpne [forsiden av Altinn](https://altinn.no).
 ```
+
+Om man skal sette flere egenskaper kan man også bruke HTML-syntaks:
+```html
+Gå til <a href="https://altinn.no" class='same-window'>forsiden av Altinn</a>.
+```
+
+Ved å spesifisere at lenken åpner i samme vindu, vil brukeren navigeres bort fra skjemaet når lenken åpnes.
+Tilstanden til skjemaet lagres i instansen, om brukeren vender tilbake senere.
 
 ### Overskrifter
 
