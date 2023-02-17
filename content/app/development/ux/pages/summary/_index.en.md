@@ -7,7 +7,7 @@ weight: 30
 ---
 
 {{%notice warning%}}
-This is new functionality. Setup must be done manually as of today. Support for setup through Altinn Studio will be available at a later point in time.
+Setup must be done manually as of today. Support for setup through Altinn Studio will be available at a later point in time.
 
 **NOTE**: The PDF generation, as of today, does not support the summary component. For PDF generating to work, either all the summary components or the whole summary-page(s) must be excluded from PDF. This is done in the `Settings.json`-file attached to the layout-files. 
 {{%/notice%}}
@@ -61,8 +61,38 @@ the component in question.
 
 ![Summary file attachment component](attachment-summary.png "Summary file attachment component")
 
-### Repeating groups
-![Summary repeating groups](group-summary.png "Summary repeating groups")
+### Groups
+Pointing to a `Group` component will display a summary for all components in that group.
+
+![Summary for groups](group-summary.png "Summary for groups")
+
+It is also possible to exclude certain (child) components from displaying in the group summary by using
+the `excludedChildren` property. This property should be set to an array with component IDs to exclude. 
+
+```json {hl_lines=[13, 21]}
+{
+  "id": "main-group",
+  "type": "Group",
+  "textResourceBindings": {
+    "title": "Hovedgruppe"
+  },
+  "dataModelBindings": {
+    "group": "model.mainGroup"
+  },
+  "children": [
+    "child1",
+    "child2",
+    "child3"
+  ]
+},
+{
+  "id": "summary-of-group",
+  "type": "Summary",
+  "componentRef": "main-group",
+  "pageRef": "FormLayout",
+  "excludedChildren": ["child3"]
+}
+```
 
 ### Nested groups
 Summary is also supported for nested repeating groups. We only support one level of
