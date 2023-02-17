@@ -21,8 +21,8 @@ Uttrykkene er tilgjengelige i alle Altinn 3-apper som bruker frontend-versjon
 (eller siste hovedversjon) har man mulighet til å benytte dynamiske uttrykk til [flere bruksområder](#bruksområder).
 
 Fra versjon `7.2.0` av [nuget-pakkene](../../../maintainance/dependencies#nuget) er også uttrykkene støttet i backend.
-Det gjør at serveren vil kunne evaluere uttrykkene og fjerne data som potensielt er lagret i instansen og er knyttet
-til felter/komponenter som i ettertid er skjult. Disse dataene kan da fjernes fra datamodellen når instansen sendes inn.
+Det gjør at serveren vil kunne evaluere uttrykkene og fjerne data ved innsending som potensielt er lagret
+i [datamodellen](../../data/data-model) og er knyttet til felter/komponenter som i ettertid er skjult.
 Merk at dette bare gjelder data i datamodellen som er knyttet til skjulte komponenter - data i datamodellen som ikke
 er knyttet til komponenter (og dermed implisitt skjult for brukeren) vil ikke fjernes automatisk.
 
@@ -128,6 +128,7 @@ Dynamiske uttrykk er foreløpig tilgjengelig for bruk i disse egenskapene, som d
 | [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.addButton`                                | [Boolsk](#boolske-verdier) | ✅        | ❌       |
 | [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.saveButton`                               | [Boolsk](#boolske-verdier) | ✅        | ❌       |
 | [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.deleteButton`                             | [Boolsk](#boolske-verdier) | ✅        | ❌       |
+| [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.alertOnDelete`                            | [Boolsk](#boolske-verdier) | ✅        | ❌       |
 | [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.saveAndNextButton`                        | [Boolsk](#boolske-verdier) | ✅        | ❌       |
 | Alle                                                      | `textResourceBindings.[textResourceBinding]` *  | [Streng](#strenger)        | ✅        | ❌       |
 
@@ -200,7 +201,7 @@ Gitt dette uttrykket:
 
 `["component", "alder"]`
 
-Hva vil alderen være? Det vil være kunne variere etter hvilken gruppe som evaluerer
+Hva vil alderen være? Det vil kunne variere etter hvilken gruppe som evaluerer
 uttrykket. Har man har to grupper/rader vil både `navn`- og `alder`-komponentene finnes to ganger hver. Disse vil få
 ID-ene `navn-0` og `alder-0` (for den første raden) og `navn-1` og `alder-1` (for den andre raden). Du kan lete etter
 den nærmeste alder-komponenten (den som tilhører samme gruppe/rad som `navn`-komponenten) ved å spesifisere en
@@ -533,23 +534,23 @@ Strenger inneholder vilkårlig tekst, og er en bred datatype som tall og boolske
 
 Noen strenger kan også konverteres til andre datatyper:
 
-| Strengverdi                                                            | Kan erstatte               | Eksempler                  |
-|------------------------------------------------------------------------|----------------------------|----------------------------|
-| Heltall med eller uten negativt fortegn                                | [Tall](#tall)              | `3`, `-8`, `71254`         |
-| Flyttall med eller uten negativt fortegn, med punktum istedenfor komma | [Tall](#tall)              | `3.14`, `-33.0`, `123.123` |
-| `true` eller `false` med små eller store bokstaver                     | [Boolsk](#boolske-verdier) | `true`, `True`, `FALSE`    |
-| `null` med små eller store bokstaver                                   | [Null](#null)              | `null`, `Null`, `NULL`     |
+| Strengverdi                                        | Kan erstatte               | Eksempler                  |
+|----------------------------------------------------|----------------------------|----------------------------|
+| Heltall med eller uten negativt fortegn            | [Tall](#tall)              | `3`, `-8`, `71254`         |
+| Desimaltall med eller uten negativt fortegn        | [Tall](#tall)              | `3.14`, `-33.0`, `123.123` |
+| `true` eller `false` med små eller store bokstaver | [Boolsk](#boolske-verdier) | `true`, `True`, `FALSE`    |
+| `null` med små eller store bokstaver               | [Null](#null)              | `null`, `Null`, `NULL`     |
 
 Alle andre strenger enn de i tabellen over vil gi feilmelding om de blir forsøkt konvertert til andre typer.
 
 ### Tall
-Tallverdier gjelder positive og negative heltall og flyttall (tall med komma). Noen strenger blir også konvertert
+Tallverdier gjelder positive og negative heltall og desimaltall. Noen strenger blir også konvertert
 automatisk til en tallverdi, som vist i tabellen til strenger over. For at konvertering av en streng til et tall
 skal fungere, må strengen oppfylle følgende:
 
 * Strengen inneholder bare et tall, ingen annen tekst foran/bak tallet
 * Negativt fortegn (`-`) kan brukes, men positivt fortegn (`+`) støttes ikke.
-* Flyttall må representeres med punktum, ikke komma.
+* Desimaltall må representeres med punktum, ikke komma.
 * Tusenskilletegn eller annen tallformattering støttes ikke.
 
 Alle andre strenger vil gi en feilmelding om de blir forsøkt konvertert til et tall. Forsøker man å konvertere en
