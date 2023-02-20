@@ -1,11 +1,12 @@
 {
     "Rules": [
         {
+            "Description": "",
             "AccessSubject": [
                 {
                     "Attribute": [
                         {
-                            "AttributeId": "urn:altinn:accessgroup",
+                            "AttributeId": "urn:altinn:rolecode",
                             "Value": "apiadm"
                         }
                     ]
@@ -13,7 +14,7 @@
                 {
                     "Attribute": [
                         {
-                            "AttributeId": "urn:altinn:accessgroup",
+                            "AttributeId": "urn:altinn:rolecode",
                             "Value": "apiadmnuf"
                         }
                     ]
