@@ -9,6 +9,19 @@ weight: 800
 
 - Melding om samhandlingsavvik (Helse Møre og Romsdal)  
   [Info](https://helse-mr.no/fag-og-forsking/samhandling/melde-avvik#meldeskjema) | [Repo](https://altinn.studio/repos/hmrhf/newsamhandlingsavvik) | [Kjørende tjeneste](https://hmrhf.apps.altinn.no/hmrhf/newsamhandlingsavvik/)
+ - Uhell med eksplosiver (Direktoratet for samfunnssikkerhet og beredskap)  
+  [Info]( https://www.altinn.no/skjemaoversikt/direktoratet-for-samfunnssikkerhet-og-beredskap/melding-om-uhell-med-eksplosiver/) | [Repo]( https://altinn.studio/repos/dsb/uhell-med-eksplosiver) | [Kjørende tjeneste]( https://dsb.apps.altinn.no/dsb/uhell-med-eksplosiver/)
+- Melding om elulykke (Direktoratet for samfunnssikkerhet og beredskap)  
+ [Repo]( https://altinn.studio/repos/dsb/melding-om-elulykke) | [Kjørende tjeneste]( https://dsb.apps.altinn.no/dsb/melding-om-elulykke/)
+- KRT-1012 Oppgave for eiendomsmegling (Finanstilsynet)  
+  [Info]( https://www.altinn.no/skjemaoversikt/finanstilsynet/oppgave-for-eiendomsmegling/) | [Repo]( https://altinn.studio/repos/krt/krt-1012a-1) | [Kjørende tjeneste]( https://krt.apps.altinn.no/krt/krt-1012a-1/)
+- Miljøvernutgifter i industri og bergverk (RA-0514) (Statistisk sentralbyrå)  
+  [Info]( https://www.altinn.no/skjemaoversikt/statistisk-sentralbyra/miljovernutgifter-i-industri-og-bergverk-/) | [Repo]( https://altinn.studio/repos/ssb/ra0514-01) | [Kjørende tjeneste]( https://ssb.apps.altinn.no/ssb/ra0514-01/)
+- Miljøvernutgifter for mottaks- og prosesseringsanlegg på land (RA-0672) (Statistisk sentralbyrå)  
+  [Info]( https://www.altinn.no/skjemaoversikt/statistisk-sentralbyra/miljovernutgifter-for-mottaks--og-prosesseringsanlegg-pa-land-/) | [Repo]( https://altinn.studio/repos/ssb/ra0672-01) | [Kjørende tjeneste]( https://ssb.apps.altinn.no/ssb/ra0672-01/)
+- Miljøvernutgifter for olje- og gassfelt på norsk kontinentalsokkel (RA-0673) (Statistisk sentralbyrå)  
+  [Info]( https://www.altinn.no/skjemaoversikt/statistisk-sentralbyra/miljovernutgifter-for-olje--og-gassfelt-pa-norsk-kontinentalsokkel-/) | [Repo]( https://altinn.studio/repos/ssb/ra0673-01) | [Kjørende tjeneste]( https://ssb.apps.altinn.no/ssb/ra0673-01/)
+
 
 ## Desember 2022
 
