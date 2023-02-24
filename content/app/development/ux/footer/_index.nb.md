@@ -107,7 +107,7 @@ Nye komponenter kan legges til i `footer`-listen.
 | Egenskap | Verdi                                                                                                       |
 | -------- | ----------------------------------------------------------------------------------------------------------- |
 | type     | `Text`                                                                                                      |
-| title    | Tekstresursen som skal vises. Støtter [formattering](nb//app/development/ux/texts/#formatering-av-tekster). |
+| title    | Tekstresursen som skal vises. Støtter [formattering](/nb/app/development/ux/texts/#formatering-av-tekster). |
 
 ### Example
 
