@@ -9,6 +9,19 @@ weight: 800
 
 - Melding om samhandlingsavvik (Helse Møre og Romsdal)  
   [Info](https://helse-mr.no/fag-og-forsking/samhandling/melde-avvik#meldeskjema) | [Repo](https://altinn.studio/repos/hmrhf/newsamhandlingsavvik) | [App](https://hmrhf.apps.altinn.no/hmrhf/newsamhandlingsavvik/)
+- Uhell med eksplosiver (Norwegian Directorate for Civil Protection)  
+  [Info]( https://www.altinn.no/skjemaoversikt/direktoratet-for-samfunnssikkerhet-og-beredskap/melding-om-uhell-med-eksplosiver/) | [Repo]( https://altinn.studio/repos/dsb/uhell-med-eksplosiver) | [App]( https://dsb.apps.altinn.no/dsb/uhell-med-eksplosiver/)
+- Melding om elulykke (Norwegian Directorate for Civil Protection)  
+ [Repo]( https://altinn.studio/repos/dsb/melding-om-elulykke) | [App]( https://dsb.apps.altinn.no/dsb/melding-om-elulykke/)
+- KRT-1012 Oppgave for eiendomsmegling (Financial Supervisory Authority of Norway)  
+  [Info]( https://www.altinn.no/skjemaoversikt/finanstilsynet/oppgave-for-eiendomsmegling/) | [Repo]( https://altinn.studio/repos/krt/krt-1012a-1) | [App]( https://krt.apps.altinn.no/krt/krt-1012a-1/)
+- Miljøvernutgifter i industri og bergverk (RA-0514) (Statistics Norway)  
+  [Info]( https://www.altinn.no/skjemaoversikt/statistisk-sentralbyra/miljovernutgifter-i-industri-og-bergverk-/) | [Repo]( https://altinn.studio/repos/ssb/ra0514-01) | [App]( https://ssb.apps.altinn.no/ssb/ra0514-01/)
+- Miljøvernutgifter for mottaks- og prosesseringsanlegg på land (RA-0672) (Statistics Norway)  
+  [Info]( https://www.altinn.no/skjemaoversikt/statistisk-sentralbyra/miljovernutgifter-for-mottaks--og-prosesseringsanlegg-pa-land-/) | [Repo]( https://altinn.studio/repos/ssb/ra0672-01) | [App]( https://ssb.apps.altinn.no/ssb/ra0672-01/)
+- Miljøvernutgifter for olje- og gassfelt på norsk kontinentalsokkel (RA-0673) (Statistics Norway)  
+  [Info]( https://www.altinn.no/skjemaoversikt/statistisk-sentralbyra/miljovernutgifter-for-olje--og-gassfelt-pa-norsk-kontinentalsokkel-/) | [Repo]( https://altinn.studio/repos/ssb/ra0673-01) | [App]( https://ssb.apps.altinn.no/ssb/ra0673-01/)
+
 
 ## December 2022
 
