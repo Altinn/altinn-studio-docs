@@ -62,11 +62,11 @@ Modify the `PdfHandler.cs` file under `App/logic/Print`.
 
 {{<content-version-container version-label="v7">}}
 
-1. Create a class that implements the `IPdfFormater` interface found in the `Altinn.App.Core.Features.Pdf` namespace.  
+1. Create a class that implements the `IPdfFormatter` interface found in the `Altinn.App.Core.Features.Pdf` namespace.  
     You can name and place the file in any folder you like within your project, but we suggest you use meaningful namespaces like in any other .Net project.
 2. Register you custom implementation in the _Program.cs_ class
     ```C#
-    services.AddTransient<IPdfFormater, PdfFormater>();
+    services.AddTransient<IPdfFormatter, PdfFormatter>();
     ```
     This ensures your custom code is known to the application and that it will be executed.
 {{</content-version-container>}}
