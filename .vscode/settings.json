@@ -5,5 +5,9 @@
         "editor.renderWhitespace": "trailing",
         "editor.rulers": [ 120 ],
 	    "files.trimTrailingWhitespace": false
-    }
+    },
+    "cSpell.language": "nb",
+    "cSpell.words": [
+        "apputvikler"
+    ]
 }
