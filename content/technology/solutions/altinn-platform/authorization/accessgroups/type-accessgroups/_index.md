@@ -58,7 +58,7 @@ Akkurat nå er det uklart om vi skal styre tilgangen til digital post på samme 
 Vi sender dette forslaget til nye maler på høring nå i januar 2023. Vi ønsker tilbakemeldinger på
 •	om de foreslåtte malene passer til de tjenestene dere har
 •	navnene på alle de tre nivåene til malene
-Tilbakemelding kan du sende på e-post til servicedesk@altinn.no innen 28. februar 2023.
+Tilbakemelding kan du sende på e-post til servicedesk@altinn.no innen ?? 2023.
 
 # Forslag til tilgangsgrupper: 
 
