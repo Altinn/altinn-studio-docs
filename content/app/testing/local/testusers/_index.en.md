@@ -69,10 +69,11 @@ Er bosatt på Stokmarknes.
 ### Andre brukere
 
 For å teste skjema relatert til barn og oppvekst (barnehage og skole) er det lagt til noen spesifikke brukere.
-| Avgiver                           | Barn  | Inntekt |
-| 01899699552 Pengelens Partner     | 0     | Lav     |
-| 17858296439 Gjentagende Forelder  | 3     | Middels |
-| 29917097109 Rik forelder          | 2     | Høy     |
+| Avgiver                          | Barn | Inntekt |
+| -------------------------------- | ---- | ------- |
+| 01899699552 Pengelens Partner    | 0    | Lav     |
+| 17858296439 Gjentagende Forelder | 3    | Middels |
+| 29917097109 Rik forelder         | 2    | Høy     |
 
 NB! Disse er fra Tenors testdatasett, men ligger der med andre navn.
 
