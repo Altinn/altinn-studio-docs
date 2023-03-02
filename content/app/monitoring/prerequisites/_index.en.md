@@ -21,5 +21,3 @@ weight: 10
     learning the basics will get you a long way in identify data points of interest.
 
     [Find an overview of KQL and sample queries on the Microsoft website.](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/)
-
-
