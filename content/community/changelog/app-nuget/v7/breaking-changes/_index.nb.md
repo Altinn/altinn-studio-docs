@@ -602,7 +602,7 @@ public override async Task RunProcessTaskEnd(string taskId, Instance instance)
         }
     }
     ```
-2. Move code from `RunProcessTaskEnd` to the method `HandleTaskEnd` in the class implementing IProcessTaskEnd
+2. Move code from `RunProcessTaskEnd` to the method `End` in the class implementing IProcessTaskEnd
 3. Register your custom implementation of `IProcessTaskEnd` in the method `RegisterCustomAppServices` inside `App/Program.cs`
    ```csharp
      void RegisterCustomAppServices(IServiceCollection services, IConfiguration config)
