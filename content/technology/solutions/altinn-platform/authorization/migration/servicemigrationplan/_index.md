@@ -1,17 +1,11 @@
 ---
 title: Planer for migrering av tjenester i Altinn
-linktitle: Plan tjenestemigrering
-description: Her finner du foreløpig plan for migrering av tjenester, i hvilken rekkefølge dette skal skje og når de enkelte tjenestene skal være flyttet fra Altinn 2 til Altinn 3. 
+linktitle: Plan migrering
+description: Her finner du foreløpig plan for migrering av tjenester, i hvilken rekkefølge dette skal skje og når de enkelte tjenestetypene skal være flyttet fra Altinn 2 til Altinn 3. 
 toc: true
-tags: [architecture, plan, authorization]
+tags: [architecture, plan, authorizaton]
+
 ---
-
-Innen juni 2025 så skal dagens Altinn 2 løsning være modernisert og migrert til Altinn 3 plattformen. 
-Det betyr også at alle tjenester i Altinn 2 må være flyttet over i god tid innen Altinn 2.0 plattformen slås av. 
-
-Det er valgt ulik migreringsstrategi for ulike tjenestetyper. Nedenfor finner dere en beskrivelse av hvordan vi i dag ser for oss at migrering skal skje for den enkelte tjenestetypen. 
-Dette planverket er under utvikling og det vil komme endringer. 
-
 ## Skjema-, innsyns- og samhandlingstjenester
 ### Migreringsstrategi
 Tjenesteeier er selv ansvarlig for å migrere disse tjenestene fra Altinn 2 til Altinn 3. Det innebærer at man må utvikle skjematjenesten på nytt som en 3.0 app.  
@@ -32,6 +26,10 @@ Digdir vil ta ansvar for å flytte alle disse tjenestene. Tjenesteeier må i den
 Alle delegeringer som finnes for disse tjenestene vil bli tatt vare på og flyttet samtidig med tjenesten fra Altinn 2 til Altinn 3. 
 Det betyr at alle systemleverandører som i dag har rettighet til å bruke "Delegerbare API ressurser" på vegne av sine kunder vil beholde disse delegeringene etter at tjenestene er flyttet. 
 
+### Ny brukerflate for administrering av Delegerbare API ressurser
+I forbindelse med migrering av tjenestene så vil vi tilby en ny brukerflate for å administrere disse. 
+![Skisseforslag på ny brukerflate for tilgangsstyring til Delegerbare API ressurser](new-dialoge-apiresource.jpg "Forslag til ny brukerflate for delegering av API ressurser")
+
 ### Konsekvenser for tilhørende API
 Etter at tjenestene er flyttet vil det ikke være mulig for tjenesteeiere å opprette nye Delegerbare API ressurser via dagens grensesnitt. 
 Tjenesteeiere som ønsker å opprette  nye tjenester av typen "Delegerbare API ressurser" må enten ta i bruk de nye APIene eller via epost be Digdir om å opprette disse på deres vegne. 
@@ -39,14 +37,19 @@ Tjenesteeiere som ønsker å opprette  nye tjenester av typen "Delegerbare API r
 Det vil bli laget nye API for å hente ut informasjon om hvilke delegeringer som foreligger. Dette er API som i dag brukes av Maskinporten, Norsk Helsenett og SKatteetaten. 
 Det vil i en overgangsfase være mulig å benytte de gamle API-ene. 
 
+#### API for delegering slås av
+I dag er det mulig for sluttbruker å benytte API for å slette eller opprette delegeringer til Delegerbare API ressurser (se [API-beskrivlese] (https://altinn.github.io/docs/api/rest/autorisasjon/roller-og-rettigheter/#slette-delegerte-tjenesterettigheter--roller)). I forbindelse med migrering av disse ressursene fra Altinn 2 til Altinn 3 vil det i en overgangsfase ikke lenger være mulig å utføre dette via API. Nye API vil bli tilbydt i løpet av Q4 2023. 
+
+
 ### Tidsplan
 - Oppstart utvikling: Påbegynt
 - Migrering tjenester avsluttet:  Q1 2023
+- Informasjon sendt til tjenesteeiere finner du [her](/technology/solutions/altinn-platform/authorization/migration/servicemigrationplan/_letter-api-reources/)
 - Frist for å ta i bruk nye API: ikke besluttet
 
 ## Lenketjenester
 ### Migreringsstrategi 
-Alle tjenester av typen "Lenketjenester" flyttes èn og èn fra Altinn 2 til Altinn 3. Lenketjenester bytter navn i den forbindelse og vil i Altinn 3.0 bli kalt "eksterne tjenesteressurser".
+Alle tjenester av typen "Lenketjenester" flyttes èn og èn fra Altinn 2 til Altinn 3. Lenketjenester bytter navn i den forbindelse og vil i Altinn 3.0 bli kalt "tjenesteressurser".
 
 Digdir vil ta ansvar for å flytte alle disse tjenestene. Tjenesteeier må i den forbindelse bidra med noe utfyllende informasjon om sine tjenester. Alle dette gjelder vil bli kontaktet særskilt.  
 
@@ -57,6 +60,16 @@ Det betyr at alle brukere som i dag har tilgang til en ekstern lenketjenester p�
 Det vil bli laget nye API for å hente ut informasjon om brukers rettigheter på vegne av andre.
 Dette er API som i dag brukes av alle tjenesteeiere som har opprettet lenketjenster og som bruker Altinn som tilgangsstyringsløsning på deres egen tjensteplattform. 
 Det vil i en overgangsfase være mulig å benytte de gamle API-ene på REST og SOAP
+
+### Brukerflate for administrering av tilgang til tjenesteressurser
+Funksjonalitet i profil for å delegere enkeltrettigheter flyttes fra Altinn2 til Altinn 3. I all hovedsak vil utseende og funksjonalitet fortsette slik det er i dag, men vi kommer til å forbedre søk for å finne riktig tjeneste og muligheter for filterering på tjenesteeier. 
+
+
+### Konsekvenser for Lokale roller i Altinn 2
+Lokale roller fungerer i dag kun for tjenester som finnes på Altinn 2 plattformen. Vi har undersøkt utbredelse og bruk av disse og ser at funksjonaliteten er tatt i bruk av svært få virksomheter. I tillegg tror vi behovet for lokale roller vil forsvinne når man innfører [nye tilgangsgrupper](https://docs.altinn.studio/technology/solutions/altinn-platform/authorization/accessgroups/type-accessgroups/) i Altinn 3. 
+
+Det er derfor tatt en beslutning om at man ikke vil videreføre lokale roller i Altinn 3, men at vi inntill videre lar de lokale rollene som er opprettet og i bruk bestå. I praksis betyr dette at etterhvert som flere og flere tjenester migreres fra Altinn 2 til Altinn 3 så vil de lokale roller ha færre og færre tjenester de gjelder for. 
+
 
 ### Tidsplan
 - Oppstart utvikling: 01.01.2023

@@ -292,10 +292,10 @@ A use case here would typically be if the user fills out a repeating list of dat
 
 ### Configuration
 
-To set up options from redux we have set up a new property on `RadioButtons`, `Checkboxes`, and `Dropdown`-components called `source`.
+To set up options from the data model we have set up a new property on `RadioButtons`, `Checkboxes`, and `Dropdown`-components called `source`.
 This property contains the fields `group`, `label`, and `value`. Example:
 
-```json
+```json {hl_lines=["5-9"]}
       {
         "id": "dropdown-component-id",
         "type": "Dropdown",
@@ -345,3 +345,38 @@ Example text resource connected:
 
 In the example above we have two parameters in the text which is referencing fields in the group.
 We also recognize the `[{0}]` syntax in the `key` prop which enables the usage of this label for each index in the group.
+
+## Shared options between different apps (from altinn 2)
+There isn't yet a system in Altinn 3 for sharing code lists between different apps, as in altinn 2. If you need a
+common administration of codelists that gets updated from time to time, you must connect to an external api.
+Luckily Altinn 2 has an [API](https://altinn.github.io/docs/api/rest/metadata/#hente-oversikt-over-kodelister)
+for codelists that can be used from Altinn3 using a built in helper method. You registrer the lists you want to use
+in `Program.cs` and you can keep updating the code list trough TUL. 
+
+```C#
+using Altinn.App.Core.Features.Options;
+...
+services.AddAltinn2CodeList(
+    id: "ASF_Land",
+    transform: (code) => new (){ Value = code.Code, Label = code.Value1 }, 
+    // filter: (code) => int.Parse(code.Value3) > 100,
+    codeListVersion: 3994, // Optional (use latest version if missing)
+    metadataApiId: "ASF_Land" // Code list name in Altinn 2 (use id if missing)
+);
+```
+
+The `id` parameter is required and should be the name of the code list in altinn 2, `transform` sorts out what columns
+should be assigned to `Value` and `Label`. Translation is automatic. After version `v7.2.0`, `nb` will be used as a fallback
+for missing languages. If you want two different transformations of the same list (for different components), `id` is the
+name that is used in Altinn 3 and `metadataApiId` is used towards altinn 2.
+
+Usage is as all code lists where `id` is written in the `optionsId` field of the component.
+
+```json
+{
+  "id": "country",
+  "type": "Dropdown",
+  ...
+  "optionsId": "ASF_Land"
+},
+```

@@ -36,6 +36,40 @@ Det er også mulighet for å vise en `tilbake`-knapp sammen med `neste`-knappen,
 | textResourceBindings | Setter man parametre `next` (og evt. `back`) her, vil man kunne overstyre med egne tekster som vises på knappen(e). Se eksempel over.|
 | showBackButton | Valgfri. Gjør at 2 knapper (tilbake/neste) vises i stedet for bare en (neste).|
 
+
+## Fremdriftsindikator
+
+Det er mulig å aktivere en fremdriftsindikator som viser øverst i høyre hjørne av appen, som indikerer til brukeren
+hvor langt man har kommet i utfyllingen av en applikasjon med flere sider.
+
+![Fremdriftsindikator](progress.png "Fremdriftsindikator")
+
+{{%notice info%}}
+Alle sider i gjeldende [prosess-steg](../../../configuration/process) teller mot det totale antall sider som vises i
+fremdriftsindikatoren. Hvis det er satt opp [sporvalg](../tracks) eller flere
+[dynamisk skjulte sider](../../../logic/expressions#viseskjule-hele-sider) vil antallet kunne variere mye og oppføre seg
+forvirrende for brukeren. Sjekk at fremdriftsindikatoren gir mening og verdi for brukeren før den aktiveres.
+{{%/notice%}}
+
+### Konfigurasjon
+
+For å sette opp fremdriftsindikatoren, legg til denne linjen i `App/ui/Settings.json`-filen
+(du kan eventuelt ha en `Settings.json`-fil per [layout-set](../layout-sets)):
+
+```json {hl_lines=9}
+{
+  "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
+  "pages": {
+    "order": [
+      "student-info",
+      "school-work",
+      "well-being"
+    ],
+    "showProgress": true
+  }
+}
+```
+
 ## Navigasjonsbar
 
 Navigasjonsbar gir enkel tilgang til alle sider i en applikasjon.
@@ -58,6 +92,16 @@ Navigasjonsbar legges inn i alle layoutfiler der den skal brukes. Eksempel på k
   "type": "NavigationBar"
 }
 ```
+
+Det er også mulighet å konfigurere komponenten NavigationBar til å vise alle sider i en meny også på større skjermer. Dette gjøres ved å legge til "compact": true. Eksempel på konfigurasjon: 
+```json
+{
+  "id": "navbar-page-1",
+  "type": "NavigationBar",
+  "compact": true
+}
+```
+
 
 ### Endre tekster på navigasjonsbarknapper
 

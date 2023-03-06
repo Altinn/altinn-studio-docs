@@ -4,6 +4,22 @@ description: Overview of changes introduced in v2 of deployment.
 toc: true
 ---
 
+## 2.5.0
+
+### Changes introduced
+
+* Raise value resource request memory to 256Mi
+
+## 2.4.0
+
+### Changes introduced
+
+* Remove hard values linkerd resources  
+
+* Add help text for extra annotations
+
+* Add if linkerd add annotation cluster-autoscaler.kubernetes.io/safe-to-evict: true
+
 ## 2.3.0
 
 ### Changes introduced

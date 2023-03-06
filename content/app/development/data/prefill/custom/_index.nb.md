@@ -54,24 +54,18 @@ public async Task DataCreation(Instance instance, object data)
 
 {{<content-version-container version-label="v7">}}
 I versjon 7 har vi endret måten preutfylling med egendefinert kode gjøres på. Vi benytter nå _dependency injection_ i stedet for overstyring av metoder. Hvis du tidligere plasserte koden din i _DataCreation_ metoden in _InstantiationHandler.cs_ klassen så vil du erfare at det er mer eller mindre det samme som nå gjøres.
-1. Opprett en klasse som implementerer `IInstantiation` grensesnittet som ligger i `Altinn.App.Core.Features.Instantiation` navnerommet.  
+1. Opprett en klasse som implementerer `IInstantiationProcessor` grensesnittet som ligger i `Altinn.App.Core.Features` navnerommet.  
     Du kan navngi og plassere filene i den mappestrukturen du selv ønsker i prosjektet ditt. Men vi anbefaler at du benytter meningsfulle navnerom som i et hvilket som helst annet .Net prosjekt.
     Eksempelet nedenfor populerer feltet _Bruker.FulltNavn_ i modellen _Datamodell_ med verdien "Test Testesen".  
     ```C# {hl_lines=[23]}
     using System.Collections.Generic;
     using System.Threading.Tasks;
-    using Altinn.App.Core.Features.Instantiation;
-    using Altinn.App.Core.Models.Validation;
+    using Altinn.App.Core.Features;
     using Altinn.App.Models;
     using Altinn.Platform.Storage.Interface.Models;
 
-    public class Instantiation: IInstantiation
+    public class Instantiation: IInstantiationProcessor
     {
-        public async Task<InstantiationValidationResult> Validation(Instance instance)
-        {
-            return await Task.FromResult((InstantiationValidationResult)null);
-        }
-
         public async Task DataCreation(Instance instance, object data, Dictionary<string, string> prefill)
         {
             if (data.GetType() == typeof(Datamodell))
@@ -91,7 +85,7 @@ I versjon 7 har vi endret måten preutfylling med egendefinert kode gjøres på.
     ```
 2. Registrer din implementering i _Program.cs_ klassen
     ```C#
-    services.AddTransient<IInstantiation, Instantiation>();
+    services.AddTransient<IInstantiationProcessor, Instantiation>();
     ```
     Dette sørger for at din kode er kjent for applikasjonen og at koden blir kjørt når den skal.
 

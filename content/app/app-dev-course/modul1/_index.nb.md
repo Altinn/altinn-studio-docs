@@ -182,7 +182,7 @@ Videre vil du ønske å teste endringene dine fortløpende i localtest.
 
 
 ### Nyttig dokumentasjon
-- [Hvordan sette opp LocalTest](https://github.com/Altinn/altinn-studio/blob/master/LOCALAPP.md)
+- [Hvordan sette opp LocalTest](https://github.com/Altinn/app-localtest/blob/master/README.md)
 - [Debugging av applikasjon](/nb/app/testing/local/debug/)
 - [Tilgjengelig testbrukere i LocalTest](/nb/app/testing/local/testusers/)
 {{% /expandlarge %}}

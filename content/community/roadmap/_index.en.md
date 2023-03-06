@@ -5,8 +5,8 @@ description: High level roadmap and functional description for Altinn.
 weight: 900
 ---
 
-Altinn is constantly under development. You'll learn more about what we've done and what we're planning to do here.
-For now only the roadmap for Altinn Studio and related functionality is available here.
+Roadmap for Altinn 3 platform is available on Github [here](https://github.com/orgs/Altinn/projects/10/views/1).
+
 All other functionality has [a separate roadmap](https://altinn.github.io/docs/ny-funksjonalitet/roadmap/).
 
 See diagram below for the full feature overview with feature status. Click on boxes for detailed information.

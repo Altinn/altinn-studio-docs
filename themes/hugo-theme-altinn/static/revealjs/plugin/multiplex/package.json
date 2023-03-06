@@ -7,13 +7,13 @@
     "start": "node index.js"
   },
   "engines": {
-    "node": "~18.12.0"
+    "node": "~18.14.0"
   },
   "dependencies": {
     "express": "~4.18.0",
     "grunt-cli": "~1.4.0",
     "mustache": "~4.2.0",
-    "socket.io": "4.5.3"
+    "socket.io": "4.6.1"
   },
   "license": "MIT"
 }

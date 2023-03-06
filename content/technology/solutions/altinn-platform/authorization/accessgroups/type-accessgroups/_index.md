@@ -1,95 +1,117 @@
 ---
-title: Forslag tilgangsgupper i 3.0
+title: Forslag nye tilgangsgupper i 3.0
 linktitle: Tilgangsgrupper 3.0
-description: Her finner du forslag til nye tilgangsgrupper for virksomheter. Disse skal erstatte Altinn rollene som i dag benyttes for å gi tilgang til en tjeneste
-toc: true
+description: Her finner du forslag til nye tilgangsgrupper for virksomheter. 
+toc: false
+
  
 ---
 
 *Denne siden er under arbeid.*
 
-## Hva er tilgangsgruppe og hvordan skal de brukes
+Altinn skal erstatte rollene som gir tilgang til tjenester i Altinn 2 når vi flytter Altinn Autorisasjon til Altinn 3. 
+I stedet for roller vil det i Altinn 3 være ulike tilgangsgrupper som består av tjenester som hører til et ansvarsområde.
+Tilgangsgruppene vil fungere som maler for tilgangsstyrer i en virksomhet som de kan bruke for å gi egne ansatte tilgang til et sett med tjenester som naturlig hører sammen. 
 
-Den største forskjellen på dagens [2.0 roller](/app/development/configuration/authorization/guidelines_authorization/roles_and_rights/roles_altinn/altinn_roles_enterprices/) og tilgangsgrupper i 3.0 vil være: 
-- tilgangsgruppene vil være flere, mer granulerte og inneholde tilgang til færre tjenester
-- tilgangsgruppen vil grupperes i et hierarki slik at det blir lettere for administrator å finne frem til riktig tilgangsgruppe
-- med mer granulerte tilgangsgrupper enn dagens 2.0 roller blir det enklere for tjenesteeiere å finne en tilgangsgruppe som bedre treffer målgruppen for sin tjeneste
+I forbindelse med innføring av nye tilgangsgrupper så endres brukergrensesnitt for tilgangsstyrer slik at disse blir enklere å forstå og ta i bruk enn dagens roller.  
+![Skisseforslag på ny brukerflate for å bruke nye malering](gui-bruk-av-maler.jpg "Forslag til ny brukerflate på skissestadiet")
 
-Forslaget til inndeling i tilgangsgrupper har hentet inspirasjon til gruppering av virksomhetsområder og tjenester fra blandt annet [standarder for kategorisering av virksomheter hos SSB](https://www.ssb.no/klass/klassifikasjoner/6) og fra dagens struktur på [Altinns skjemakatalog](https://www.altinn.no/skjemaoversikt/?category=category)
 
-Det vil kun være mulig å knytte tjenester til det "laveste" nivå i tilgangshierarkiet, også kalt løvnoden. 
-Det betyr at en tjeneste f eks ikke kan knyttes til tilgangsgruppen "Skatt, avgift og regnskap" eller til undergruppen "Skatt", 
-men må knyttes til løvnodene som er "Foretaksskatt" og/eller "Skattegrunnlag". De tilgangsgrupper som foreløpig er vurdert til *løvnoder* og er markert med * i oversikten. For noen løvnoder kan det bli aktuelt å granulere tilgangene mer, dersom det avdekkes behov for det.
+**Her finner du som er tjenesteeier forslag til kategorier og navn på de nye tilgangsgruppene. Vi ønsker innspill om de nye tilgangsgruppene passer til deres tjeneste.**
 
-Det vil være mulig å knytte en tjeneste til flere tilgangsgrupper hvis tjenesteeier mener dette er riktig i forhold til tjenestens innhold. 
+## Administrator gir tilgang til grupper med tjenester og maler
+Den som skal gi tilgang til tjenester i en virksomhet kalles administrator. Administrator kan gi tilgang til tjenester ved å lage en gruppe som består av maler med tjenester i og brukere. 
+Dette vil gi oss større frihet til å revidere malene senere, uten at det skaper mye merarbeid for administratorer eller tjenesteeiere.
 
-Delegering utføres ved at en bruker legges til en tilgangsgruppe. En bruker kan kun legges til tilgangsgrupper på laveste nivå (løvnode). 
-Årsaken til disse begrensningene er at det vil gi oss større frihet til å revidere tilgangsgrupper senere uten at det nødvendigvis betyr stor opprydding av delegeringer for sluttbruker eller tjenesteeier. 
+Eksterne roller fra Enhetsregisteret (f eks Daglig leder, styreleder eller Regnskapsfører), får automatisk tilgang til en mal for en virksomhet. Altinn skal sammen med Enhetsregisteret på nytt vurdere hvilke eksterne roller det er aktuelt å knytte til de ulike tilgangsgruppene. 
+## De nye malene gjør det lettere å administrere tilganger
 
-Eksterne roller (fra f eks Enhetsregisteret) vil automatisk få tilgang til en tilgangsgruppe for en virksomhet. Altinn vil i samarbeid med Enhetsregisteret gjøre en ny vurdering av hvilke eksterne roller det er aktuelt å knytte til de ulike tilgangsgruppene.
+Den største forskjellen på rollene i 2.0   og malene i 3.0 blir:
 
-### Tilgangsgrupper for digital post kommer senere
-Virksomheter får i dag tilgang til sin digital post i Altinn gjennom roller rettet mot "post/arkiv" som settes på tjenestenivå. Det er pr i dag uklart om denne måten å styre tilgang til digital post skal videreføres når man migrerer digital post fra Altinn 2 til Altinn 3.
+-	Flere maler som er delt inn i tre nivåer, slik at administrator kan gi tilgang til færre tjenester og det blir lettere å finne riktig mal. 
+-	Mer findelte tilgangsgrupper gjør det lettere for tjenesteeiere å velge riktig målgruppe for sine tjenester.
 
-Det er derfor i første versjonen av nye tilgangsgrupper ikke foreslått tilgangsgrupper knyttet til mottak av digital post
+Grunnlaget for inndelingen i maler er [Altinns skjemakatalog](https://www.altinn.no/skjemaoversikt/?category=category) og [SSBs standard for å kategorisere virksomheter](https://www.ssb.no/klass/klassifikasjoner/6)
 
-### Høring
-Forslag til nye tilgangsgrupper sendes ut på høring desember 2022.
-Vi ønsker at dagens tjenesteeiere vurderer om foreslåtte tilgangsgrupper er hensiktsmessige for deres tjenester. Vi ønsker også tilbakemelding hvis man har forslag til bedre/annen navngivning på tilgangsgruppene enn de som foreligger.
+## Nå må du knytte tjenester til det laveste nivået i hierarkiet 
 
-Tilbakemelding kan gis på epost til servicedesk@altinn.no innen 31 januar 2023. 
+Malene har tre nivåer. Du må knytte tjenester til det laveste nivået, nivå 3.
+Det betyr for eksempel at du ikke kan knytte en tjeneste til malen «Skatt, avgift, regnskap og toll» som er nivå 1. Du kan heller ikke knytte til nivået under, for eksempel «Skatt og Merverdiavgift». Du må knytte til «Foretaksskatt», «Skattegrunnlag » og/eller "Merverdiavgift".
+
+![Hierarki av tilgangsgrupper](hierarki-tilgangsgrupper.jpg "Hierarki av tilgangsgrupper")
+
+Målet med mer findelte nivåer et at folk skal få tilgang til akkurat det de trenger, men ikke få for omfattende tilganger. 
+Maler som foreløpig er definert som nivå 3 er markert med * i oversikten under. Hvis du trenger det, kan vi lage flere maler på de ulike nivåene. 
+Du kan knytte en tjeneste til flere maler hvis du mener det er riktig. 
+ 
+
+### Avvikler generelle rolller
+I forbindelse med innføring av nye tilgangsgrupper så foreslår vi å avvikle følgende 2 generelle roller:  
+- Utfyller/innsender 
+- Begrenset signeringsrett 
+
+### Informasjon om tilgang til digital post kommer senere
+Akkurat nå er det uklart om vi skal styre tilgangen til digital post på samme måte når vi går fra Altinn 2 til Altinn 3. Derfor har vi ikke foreslått nye maler for å motta digital post i denne versjonen.
+
+
+## Vi ønsker innspill fra dere som er tjenesteeierne
+Vi sender dette forslaget til nye maler på høring nå i januar 2023. Vi ønsker tilbakemeldinger på
+•	om de foreslåtte malene passer til de tjenestene dere har
+•	navnene på alle de tre nivåene til malene
+Tilbakemelding kan du sende på e-post til servicedesk@altinn.no innen ?? 2023.
 
 # Forslag til tilgangsgrupper: 
 
-## Skatt, avgift og regnskap
-Tilgangsgruppene vil være aktuell for alle virksomheter som er "økonomisk aktive" (skatte- og regnskapspliktig)
+## Nivå 1: Skatt, avgiff, regnskap og toll
+Tilgangsgruppen er nyttig for alle virksomheter som er skatte- og regnskapspliktige.
 
+Denne tilgangsgruppen har disse tilgangsgruppene på nivå 2 og 3.  
 
 Tilgangsgruppen har følgende undergrupper: 
-- Skatt
+- Niva 2 Skatt og Merverdiavgift
   - *Foretaksskatt (tilsvarende som i Altinn skjemakatalog)
   - *Skattegrunnlag (tilsvarende som i Altinn skjemakatalog)
-- Merverdiavgift
   - *Merverdiavgift (tilsvarende som i Altinn skjemakatalog)
-  - *Reviorattesterer - MVA kompensasjon (usikker om denne skal beholdes?)
-- Regnskap og øknomirapportering
-  - *Regnskap og øknomirapportering (tilsvarende som i Altinn skjemakatalog)
-- Toll 
-  - *Toll (tilsvarende som i Altinn skjemakatalog)
+- *Regnskap og øknomirapportering (tilsvarende som i Altinn skjemakatalog)
+- *Reviorattesterer 
+- *Toll (tilsvarende som i Altinn skjemakatalog)
 
 
-Beslektet rolle i 2.0: "Regnskapsmedarbeider" og "Revisorattesterer - MVA kompensasjon"
+Beslektet rolle i 2.0 er "Regnskapsmedarbeider" og "Revisorattesterer - MVA kompensasjon"
 
 
-## Lønn og personal 
-Tilgangsgruppene vil være aktuell for alle virksomheter med ansatte
+## Nivå 1: Personale
+Tilgangsgruppen er nyttig for alle virksomheter som har ansatte. 
 
-Tilgangsgruppen har følgende undergrupper: 
+Denne tilgangsgruppen har disse tilgangsgruppene på nivå 3.
+
 - *Ansettelsesforhold (tilsvarende som i Altinn skjemakatalog)
 - *Lønn (tilsvarende som i Altinn skjemakatalog)
 - *Pensjon (tilsvarende som i Altinn skjemakatalog)
 - *Permisjon og sykefravær (tilsvarende som i Altinn skjemakatalog)
   
-Beslektet rolle i 2.0: "Lønn og personalmedarbeider", 
+Beslektet rolle i 2.0 er "Lønn og personalmedarbeider", 
 
 
-## Miljø, ulykke og sikkerhet 
-Tilgangsgruppene vil være aktuell for de mange virksomheter
+## Nivå 1: Miljø, ulykke og sikkerhet 
+Tilgangsgruppen er nyttig for mange virksomheter.
 
-Tilgangsgruppen har følgende undergrupper: 
-- Miljø og klimarapportering
+Denne tilgangsgruppen har disse tilgangsgruppene på nivå 2 og 3.
+
+- Nivå 2: Miljø og klimarapportering
   - *Renovasjon
   - *Miljørydding, miljørensing og lignende (tilsvarende som i Altinn skjemakatalog)
 - *Sikkerhet og internkontroll (tilsvarende som i Altinn skjemakatalog)
 - *Ulykke og yrkesskade (tilsvarende som i Altinn skjemakatalog)
 
-Beslektet rolle i 2.0:  "Energi, miljø og klima"
+Beslektet rolle i 2.0 er  "Energi, miljø og klima"
   
 
-## Forhold ved virksomheten
-Tilgangsgruppene vil være aktuell for alle virksomhter
+## Nivå 1: Grunnlag for virksomheten
+Tilgangsgruppen er nyttig for alle virksomheter.
 
-Tilgangsgruppen har følgende undergrupper: 
+Denne tilgangsgruppen har disse tilgangsgruppene på nivå 3.
+
 - *Starte, endre og avvikle virksomhet (tilsvarende som i Altinn skjemakatalog)
 - *Aksjer og eierforhold (tilsvarende som i Altinn skjemakatalog)
 - *Attester (tilsvarende som i Altinn skjemakatalog)
@@ -97,176 +119,178 @@ Tilgangsgruppen har følgende undergrupper:
 - *Infrastruktur (tilsvarende som i Altinn skjemakatalog)
 - *Patent og varmerke (tilsvarende som i Altinn skjemakatalog)
 - *Tilskudd, støtte og erstatning (tilsvarende som i Altinn skjemakatalog)
-
-Beslektet rolle i 2.0: "Signerer av samordnet registermelding" og "Patent, varemerke og design", 
-
-
-## Offentlige Digitale tjenester (tverrfaglig)
-Tilgangsgruppene vil være aktuell for mange virksomheter
-
-Tilgangsgruppen har følgende undergrupper: 
 - *Mine sider hos kommunen
-- Dataintegrasjoner
+
+Beslektet rolle i 2.0 er "Signerer av samordnet registermelding", "Patent, varemerke og design" og “Kommunale tjenester ”
+
+## Nivå 1: Integrasjoner og API-er
+Tilgangsgruppen er tilpasset denne bransjen og inneholder tjenester som virksomheter i denne bransjen bruker. 
+
+Denne tilgangsgruppen har disse tilgangsgruppene på nivå 2 og 3.
+
+- Nivå 2: Dataintegrasjoner
   - *Programmeringsgrensesnitt (API)
   - *Maskinlesbare hendelser
   
-Beslektet rolle i 2.0: "Kommunale tjenester"
+## Nivå 1: Administrere tilganger
+Tilgangsgruppen er nyttig for alle virksomheter.
 
+Denne tilgangsgruppen har disse tilgangsgruppene på nivå 3.
 
-## Tilgangsstyring og administrasjon
-Tilgangsgruppene vil være aktuell for alle virksomheter
-
-Tilgangsgruppen har følgende undergrupper: 
-- *Klientadminstrasjon (REGN/REVI)
+- *Klientadminstrasjon (for Regnskapsfører, Revisor) 
 - *Tilgangsstyring
 - *Hovedadministrator
-- *Kundeadministrator (Kunde-leverandør)
+- *Kundeadministrator (for leverandører som ikke er Regnskapsfører eller Revisor)
 
-Beslektet rolle i 2.0: Klientaadministrator, Tilgangsstyrer, Hovedadministrator 
+Beslektet rolle i 2.0 er Klientaadministrator, Tilgangsstyrer, Hovedadministrator 
 
-## Jordbruk, skogbruk, fisk og akvakultur
-Tilgangsgruppene er bransjespesifikk og vil være aktuell for virksomheter som bruker tjenester rettet mot disse bransjene
+## Nivå 1: Jordbruk, skogbruk, jakt, fiske og akvakultur
+Tilgangsgruppen er tilpasset denne bransjen og inneholder tjenester som virksomheter i denne bransjen bruker.
 
-Tilgangsgruppen har følgende undergrupper: 
+Denne tilgangsgruppen har disse tilgangsgruppene på nivå 3.
+
 - *Planteproduksjon og dyrehold
 - *Jakt og viltstell
 - *Skogbruk 
 - *Fiske og fangst
 - *Akvakultur
 
+Beslektede rolle i 2.0 er "Primærnæring og næringsmiddel"
 
-## Bygg, anlegg og eiendom
-Tilgangsgruppene er bransjespesifikk og vil være aktuell for virksomheter som bruker tjenester rettet mot disse bransjene
+## Nivå 1: Bygg, anlegg og eiendom
+Tilgangsgruppen er tilpasset denne bransjen og inneholder tjenester som virksomheter i denne bransjen bruker.
 
-Tilgangsgruppen har følgende undergrupper: 
-- Bygg og anlegg
+Denne tilgangsgruppen har disse tilgangsgruppene på nivå 2 og 3.
+
+- Nivå 2: Bygg og anlegg
   - *Plan og byggesaker
-- Omsetning og drift av eiendom
+- Nivå 2: Omsetning og drift av eiendom
   - *Kjøp og salg av eiendom
   - *Utleie av eiendom
   - *Eiendomsmegler
 
+Beslektede rolle i 2.0 er "Plan og byggesak"
 
-## Transport og lagring
-Tilgangsgruppene er bransjespesifikk og vil være aktuell for virksomheter som bruker tjenester rettet mot disse bransjene
+## Nivå 1: Transport og lagring
+Tilgangsgruppen er tilpasset denne bransjen og inneholder tjenester som virksomheter i denne bransjen bruker.
 
+Denne tilgangsgruppen har disse tilgangsgruppene på nivå 3.
 
-Tilgangsgruppen har følgende undergrupper: 
-- *Landtransport og rørtransport
+- *Transport: På land og i rør
 - *Sjøfart
 - *Lufttransport
 - *Lagring og andre tjenester tilknyttet transport
 
+Beslektede rolle i 2.0 er "Samferdsel"
+## Nivå 1: Helse, pleie, omsorg og vern 
+Tilgangsgruppen er tilpasset denne bransjen og inneholder tjenester som virksomheter i denne bransjen bruker.
 
-## Helse og sosial
-Tilgangsgruppene er bransjespesifikk og vil være aktuell for virksomheter som bruker tjenester rettet mot disse bransjene
+Denne tilgangsgruppen har disse tilgangsgruppene på nivå 3.
 
-
-Tilgangsgruppen har følgende undergrupper: 
 - *Helsetjenester
 - *Pleie- og omsorgstjenester i institusjon
 - *Sosiale omsorgstjenester uten botilbud
 - *Barnevern og familievern
 
+Beslektede rolle i 2.0 er "Helse-, sosial- og velferdstjenester"
+## Nivå 1: Oppvekst og utdanning
+Tilgangsgruppen er tilpasset denne bransjen og inneholder tjenester som virksomheter i denne bransjen bruker.
 
-## Oppvekst og utdanning
-Tilgangsgruppene er bransjespesifikk og vil være aktuell for virksomheter som bruker tjenester rettet mot disse bransjene
+Denne tilgangsgruppen har disse tilgangsgruppene på nivå 3.
 
-Tilgangsgruppen har følgende undergrupper: 
-- Skole  (usikker på om det er behov for oppdeling av ulike nivå på utdanning/skole)
+- Nivå 2: Skole 
   - *Grunnskole
   - *Videregående utdanning
   - *Høyere utdanning
 - *Barnehage 
 
 
-## Energi, vann, olje og gass
-Tilgangsgruppene er bransjespesifikk og vil være aktuell for virksomheter som bruker tjenester rettet mot disse bransjene
+## Nivå 1: Energi, vann, avløp og avfall
+Tilgangsgruppen er tilpasset denne bransjen og inneholder tjenester som virksomheter i denne bransjen bruker.
 
-Tilgangsgruppen har følgende undergrupper: 
-- *Produksjon, overføring og distribusjon av elektrisitet
-- *Produksjon av gass og distribusjon av gass gjennom ledningsnett
-- *Damp- og varmtvannsforsyning
-- *Utakk fra kilde, rensing og distribusjon av vann
-- *Oppsamling og behandling av avløpsvann
-- *Innsamling, behandling, disponering og gjenvinning av avfall
+Denne tilgangsgruppen har disse tilgangsgruppene på nivå 3.
+
+- *Elektrisitet: produsere, overføre og distribuere
+- *Damp- og varmtvann
+- *Vann: ta ut fra kilde, rense og distribuere
+- *Samle opp og behandle avløpsvann
+- *Avfall: samle inn, behandle bruke og gjenvinne
 - *Utvinning av råolje og naturgass
 
 
-## Industri, næringsmidler og bergverk
-Tilgangsgruppene er bransjespesifikk og vil være aktuell for virksomheter som bruker tjenester rettet mot disse bransjene
+## Nivå1: Industrier
+Tilgangsgruppen er tilpasset denne bransjen og inneholder tjenester som virksomheter i denne bransjen bruker.
 
-Tilgangsgruppen har følgende undergrupper: 
-- *Næringsmidler, drikkevare og tobakk
-- *Tekstil-, beklednings- og lærvareindustri
-- *Trelast-, trevare- og papirvareindustri
-- *Trykking og reproduksjon av innspilte opptak
-- *Oljeraffinering, kjemisk og farmasøytisk industri
-- *Gummivare- og plastindustri, mineralproduktindustri
-- *Produksjon av metaller
-- *Produksjon av metallvarer, elektrisk utstyr og maskiner
-- *Verftsindustri og annen transportmiddelindustri
-- *Produksjon av møbler og annen industriproduksjon
-- *Reparasjon og installasjon av maskiner og utstyr
-- *Bergverk
+Denne tilgangsgruppen har disse tilgangsgruppene på nivå 3.
+
+-	*Næringsmidler, drikkevarer og tobakk
+-	*Tekstiler, klær og lærvarer
+-	*Trelast, trevarer og papirvarer
+-	*Trykkerier og reproduksjon av innspilte opptak
+-	*Oljeraffinering, kjemisk og farmasøytisk industri
+-	*Gummi og plast
+-	*Metaller og mineraler
+-	*Metallvarer, elektrisk utstyr og maskiner
+-	*Verft og andre transportmidler
+-	*Møbler og annen industri   
+-	*Reparasjon og installasjon av maskiner og utstyr
+-	*Bergverk
 
 
-## Kultur og frivillighet
-Tilgangsgruppene er bransjespesifikk og vil være aktuell for virksomheter som bruker tjenester rettet mot disse bransjene
 
-Tilgangsgruppen har følgende undergrupper: 
-- *Kunstnerisk virksomhet og underholdningsvirksomhet
-- *Drift av biblioteker, arkiver, museer og annen kulturvirksomhet
+## Nivå 1: Kultur og frivillighet
+Tilgangsgruppen er tilpasset denne bransjen og inneholder tjenester som virksomheter i denne bransjen bruker.
+
+Denne tilgangsgruppen har disse tilgangsgruppene på nivå 3.
+
+- *Kunst og underholdning
+- *Biblioteker, museer, arkiver, og annen kultur
 - *Lotteri og spill
-- *Sports- og fritidsaktiviteter 
-- *Drift av fornøyelsesetablissementer
+- *Sports- og fritid 
+- *Fornøyelser
 - *Politikk
 
 
-## Varehandel, servering og overnatting
-Tilgangsgruppene er bransjespesifikk og vil være aktuell for virksomheter som bruker tjenester rettet mot disse bransjene
+## Nivå1: Handel, overnatting og servering
+Tilgangsgruppen er tilpasset denne bransjen og inneholder tjenester som virksomheter i denne bransjen bruker.
 
-Tilgangsgruppen har følgende undergrupper: 
+Denne tilgangsgruppen har disse tilgangsgruppene på nivå 3.
 - *Varehandel
-- *Reparasjon av motorvogn
-- *Overnattingsvirksomhet
-- *Serveringsvirksomhet
+- *Overnatting
+- *Servering
  
  
-## Tjenesteytende næringer
-Tilgangsgruppene er bransjespesifikk og vil være aktuell for virksomheter som bruker tjenester rettet mot disse bransjene
+## Nivå 1: Andre tjenesteytende næringer
+Tilgangsgruppen er tilpasset denne bransjen og inneholder tjenester som virksomheter i denne bransjen bruker.
 
-Tilgangsgruppen har følgende undergrupper: 
+Denne tilgangsgruppen har disse tilgangsgruppene på nivå 3.
 - *Post og telekommunikasjon
 - *Informasjon og kommunikasjon
 - *Finansiering og forsikring
-- *Omsetning og drift av eiendom
 - *Annen tjenesteyting
 
-## Regnskapsfører
-Tilgjengelig kun for regnskapsfører og brukes for å gi egne ansatte tilgang til virksomheter/klienter de er registert som regnskapsførere for i Enhetsregisteret
+## Tilgangsgrupper for regnskapsførere
+Disse tilgangsgruppene er bare tilgjengelig for regnskapsførere og er de samme som vi har i Altinn 2 i dag. Du bruker dem for å gi egne ansatte tilgang til virksomheter/klienter de er registrert som regnskapsførere for i Enhetsregisteret.
 
-Tilgangsgruppen har følgende undergrupper: 
+Denne tilgangsgruppen har disse tilgangsgruppene på nivå 3.
 - *Regnskapsfører med signeringsrettighet
 - *Regnskapsfører uten signeringsrettighet
 - *Regnskapsfører lønn
 
-Disse tilgangsgruppen er videreføring av tilsvarende roller som finnes i dag for regnkspaførere
+## Tilgangsgrupper for revisor
+Disse tilgangsgruppene er bare tilgjengelig for revisor og er de samme som vi har i Altinn 2 i dag. Du bruker dem for å gi egne ansatte tilgang til virksomheter/klienter de er registrert som revisor for i Enhetsregisteret.
 
-## Revisor
-Tilgjengelig kun for revisor og brukes for å gi egne ansatte tilgang til virksomheter/klienter de er registert som revisor for  i Enhetsregisteret
+Denne tilgangsgruppen har disse tilgangsgruppene på nivå 3.
 
-Tilgangsgruppen har følgende undergrupper: 
 - *Ansvarlig revisor
 - *Revisormedarbeider
 
-Disse tilgangsgruppen er videreføring av tilsvarende roller som finnes i dag for revisorer
+## Tilgangsgrupper for konkursbo
+Disse tilgangsgruppene er bare tilgjengelig for konkursbo og er de samme som vi har i Altinn 2 i dag. Du bruker dem for å gi kreditorer og andre tilgang til opplysninger om konkursbo.
 
-## Konkursbo
-Tilgjengelig kun for konkursbo og brukes for å gi kreditorer og andre tilgangt tilgang til opplysninger vedr et konkursbo
+Denne tilgangsgruppen har disse tilgangsgruppene på nivå 3.
 
-Tilgangsgruppen har følgende undergrupper: 
-- *konkursbo tilgangsstyring
+- *Konkursbo tilgangsstyring
 - *Konkursbo lesetilgang
 - *Konkursbo skrivetilgang
 

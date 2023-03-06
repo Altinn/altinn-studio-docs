@@ -243,9 +243,10 @@ The full detail for this API is described [here](/api/events/spec).
 
 ## Push Functions
 
-A important part of the Events components are three different Azure Functions that is responsible for the following
+A important part of the Events components are four different Azure Functions that is responsible for the following
 
-- Inbound Function: Send every event to an subscription matching and authorization function
+- Registration function: Pulls incomming events from queue for further processing
+- Inbound Function: Sends every event to subscription matching and authorization
 - Outbound Function: Pushes events to subscription endpoints
 - Subscription Validation Function
 
