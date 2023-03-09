@@ -54,19 +54,19 @@ Du er ikke velkommen til vår kommune. Beklager!
 - [Single field validations](/app/development/logic/validation/#single-field-validation)
 
 ### Knowledge check
-- When are validations server-side running?
-- Why should validations added on the client side also be duplicated server-side?
+- When are server-side validations run?
+- Why is it not enough to only perform validation on the client-side?
 
 {{% /expandlarge %}}
 
 
 {{% expandlarge id="processing" header="Data processing" %}}
 ### Requirements from the municipality
-One of the data processors of Sogndal is sick of manually correcting a street address that often is being incorrectly entered by newcomers.
-Therefore, we wish to programmatic correct this while the user is filling out the app.
+There is an address in Sogndal which is often misspelled by newcomers which leads to case workers having to spend a lot of time manually correcting it.
+Therefore, we want the app to automatically fix this mistake when the misspelled address is detected.
 
-If the user enters `Sesame Street 1` in the field `Innflytter.Adresse.Gateadresse`, this should automatically be corrected to `Sesamsgate 1`.
-In all other cases, the field should remain the same.
+If the user enters `Sesame Street 1` in the field `Innflytter.Adresse.Gateadresse`, it should automatically be corrected to `Sesamsgate 1`.
+For all other addresses the field should remain the same.
 
 
 ### Useful documentation
@@ -75,7 +75,7 @@ In all other cases, the field should remain the same.
 
 ### Knowledge check
 - When is data processing running?
-- What seperates `ProcessDataWrite` and `ProcessDataRead`?
+- What separates `ProcessDataWrite` and `ProcessDataRead`?
 - What is the difference between DataProcessing and Calculations?
 
 {{% /expandlarge %}}
@@ -87,6 +87,6 @@ We have also had a look at how to set up custom **validations** in the backend f
 Lastly, we have looked at how to set up **data processing** that enables manipulation of data runtime.
 
 ### Solution
-If you did not manage to complete all the steps, we have an [example of a solution](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/6) that you can use as inspiration.
+If you did not manage to complete all the steps, we have an [example solution](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/6) that you can use as inspiration.
 
 ![Screenshot of data collecting page with repeating groups](/app/app-dev-course/modul6/data-rep-grupper-screenshot.png "Screenshot of data collecting page with repeating groups")

@@ -6,7 +6,7 @@ tags: [apps, training, options, code lists, dynamics ]
 weight: 20
 ---
 
-In this module you're expanding the application you made in the previous modules to support even more of the [requirements of the municipality of Sogndal](../case/#requirements-from-the-municipality).
+In this module you're expanding the application you made in the previous modules to support more of the [requirements of the municipality of Sogndal](../case/#requirements-from-the-municipality).
 
 **Topics covered in this module:**
 
@@ -27,9 +27,8 @@ There are three ways to set up code lists in Altinn today
 
 1. Directly on the component through Altinn Studio or manually in _FormLayout.json_\*
 2. In a static json-file referred to in the component
-3. Programmatic in the application logic
+3. Programmatically through application logic (only available for radio buttons and check boxes)
 
-   \* only available on radio buttons and check boxes
 {{% /notice %}}
 
 In this task, you will get to try out all three ways to set up a code list.
@@ -41,7 +40,7 @@ The municipality of Sogndal wishes to collect information on the newcomers worki
 ### In Altinn Studio
 
   1. Create a new form page to collect data about working conditions
-  2. Set up a **radio button** component for _Sector_. Create the answer options `Offentlig` and `private` manually.
+  2. Set up a **radio button** component for _Sector_. Create the answer options `Offentlig` and `Privat` manually.
   3. Set up a **check box** component for _Industry_.
      Choose _Kodeliste_ as method for adding checkboxes and add _Kodeliste ID_ `industry`
 
@@ -86,14 +85,11 @@ The municipality of Sogndal wishes to collect information on the newcomers worki
 
 In some cases the values displayed in a code list may be attached to a different field in the form.
 
-The municipality of Sogndal wishes that the list of industries to choose from is personalised to what sector you work in.
-
-Read through the requirements from the municipality to see if you can help them.
+The municipality of Sogndal wants the list of industries to choose from to be personalised based on which sector the user works in.
 
 ### Requirements from the municipality
 
-We want the user to be presented with a different set of options for the industry choice
-based on which sector they are in.
+We want the user to be presented with a different set of options for the industry choice based on which sector they work in.
 
 - Private sector: [Standard list of industries](../industry.json)
 - Public sector: `State` and `Municipality`
@@ -124,14 +120,14 @@ If the user chooses `IKT (data/it)` under industry, a text with a link to our ov
 - Line 2 in the text should be a link that directs to: 
 https://sogndal.easycruit.com/index.html
 
-The text and link should **only** be visible if the user has chosen `IKT (data/it)`. In all other cases this will be hidden.
+The text and link should **only** be visible if the user has chosen `IKT (data/it)`.
 
 ### Useful documentation
 - [Add functions for dynamics](/app/development/logic/dynamic/#add-or-edit-functions-for-dynamics)
 - [Examples of use of dynamic in form](/app/development/logic/dynamic/#example-usage-of-dynamics-on-an-app)
 
 ### Knowledge check
-- If you add a new function to `RuleHandlerHelper` - where will these functions run?
+- If you add a new function to `RuleHandlerHelper` - where will it run?
   - Would dynamic work without this defined?
 - What is the correlation between functions defined in `RuleHandlerObject` and the file `RuleConfiguration.json`?
 
@@ -139,15 +135,14 @@ The text and link should **only** be visible if the user has chosen `IKT (data/i
 
 ## Summary
 
-In this module you have set up a dropdown list, radio buttons and checkboxes and added values for these components manually, programmatically and dynamically.
+In this module you have set up the dropdown list, radio button and checkbox components and added options for them manually, programmatically and dynamically.
 
-The service should run on your local computer with local test
-and you should be able to validate that the components present expected data values.
+The service should run on your local computer with local test and it should be possible to select the expected option from each component.
 
 **Remember to _push_ your local changes, so that they are available in Altinn Studio when you're happy with them**
 
 ### Solution
-If you did not manage to complete all the steps, we have an [example of a solution](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/4) that you can use as inspiration.
+If you did not manage to complete all the steps, we have an [example solution](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/4) that you can use as inspiration.
 
 ![Screenshot of collection of work information for private sector](/app/app-dev-course/modul4/arbeidsopplysninger-privat-screenshot.png "Screenshot of collection of work information for private sector")
 ![Screenshot of collection of work information for public sector](/app/app-dev-course/modul4/arbeidsopplysninger-offentlig-screenshot.png "Screenshot of collection of work information for public sector")

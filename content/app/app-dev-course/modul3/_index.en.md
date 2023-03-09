@@ -10,7 +10,7 @@ weight: 20
 {{% /notice %}}
 
 
-In this module you are going to build and deploy the application to Altinns test environment (TT02) and verify that everything works as expected.
+In this module you are going to build and deploy the application to Altinn's test environment (TT02) and verify that everything works as expected.
 
 
 **Topics covered in this module:**
@@ -66,9 +66,8 @@ and add a descriptive comment of what the version includes.
 
 {{% expandlarge id="deploy-application" header="Deploy application" %}}
 
-By deploying an application to a test environment you will be able to test all integrations.
-In addition to this, TT02 is often used to verify an application is behaving as expected
-before deploying to production.
+Deploying an application to the test environment allows you to test all integrations.
+In addition to this, TT02 is often used to verify that an application works as expected before deploying to production.
 
 {{% notice info %}}
 To be able to deploy an application to TT02,
@@ -85,7 +84,7 @@ for the organization in Altinn Studio.
 
 ### Knowledge check
 - Is it possible to have two versions of one application in TT02 at the same time?
-- What happens if you deploy the same version of the application to the environment once more?
+- What happens if you try to deploy your application using an existing version number?
 - Will the application be available immediately after deployment?
 - Is it possible to remove an application from the environment after deployment?
 {{% /expandlarge %}}
@@ -96,11 +95,10 @@ At the deployment page you will find the direct link to your application.
 It is in the format _{org}.apps.tt02.altinn.no/{org}/{app}_
 
 
-Unless you're already logged in with a user,
-this link will bring you to Altinn's login page.
+Unless you're already logged in with a user this link will bring you to Altinn's login page.
 Your organization should have access to a set of test users, use one of these to log in.
 
-For internal people in Digdir: Use one of the test users you can find in [the test data set](https://pedia.altinn.cloud/testing/testdata/datasets/) and log in.
+Internal users in Digdir should use one of the test users found in [the test data set](https://pedia.altinn.cloud/testing/testdata/datasets/).
 
 **Test the different tracks and pages to confirm that the behaviour is as expected.**
 
@@ -108,9 +106,8 @@ For internal people in Digdir: Use one of the test users you can find in [the te
 
 ## Summary
 
-In this module you have built and deployed your application to TT02,
-logged into Altinn with a test user and testet your application.
+In this module you have built and deployed your application to TT02, logged into Altinn with a test user and tested your application.
 
 ### Solution
 
-If you did not manage to complete all the steps, we have an [example of a solution](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/3) that you can use as inspiration.
+If you did not manage to complete all the steps, we have an [example solution](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/3) that you can use as inspiration.
