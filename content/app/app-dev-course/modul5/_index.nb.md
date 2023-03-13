@@ -83,6 +83,27 @@ Oppdater policyfilen så den har autorisasjonsregler som dekker det nye prosesst
 ### Nyttig dokumentasjon
 - [Egendefinert validering](/nb/app/development/logic/validation/#hvordan-legge-til-egendefinert-validering)
 
+### Kodehjelp: Validere innsender.
+Denne metoden kan brukes til å validere innsender av skjema.
+
+```cs
+    public async Task ValidateTask(Instance instance, string taskId, ModelStateDictionary validationResults)
+    {
+      var user = _httpContext.User;
+      if(taskId == "Task_2")
+      {
+        Claim partyIdClaim = user.FindFirst(c => c.Type == AltinnCoreClaimTypes.PartyID);
+        if (partyIdClaim.Value != instance.InstanceOwner.PartyId)
+        {
+          validationResults.AddModelError(taskId, "textID");
+        }
+      }
+
+      await Task.CompletedTask;
+    }
+ ```
+Husk å legge til nødvendige usings. (I VSC kan du bruke Ctrl + . (windows-version med C# plugin) for å få using forslag).
+
 ### Forståelsessjekk
 - Hvilken endring ville du foreslått for kunden for å kunne oppfylle dette kravet uten å legge inn den egendefinerte valideringen på dette steget?
 {{% /expandlarge %}}
