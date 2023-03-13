@@ -8,4 +8,4 @@ aliases:
 ---
 
 
-{{<children>}}
+{{<children />}}

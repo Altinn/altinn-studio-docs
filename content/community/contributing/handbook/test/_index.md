@@ -7,4 +7,4 @@ weight: 100
 
 ### Coding guidelines for tests
 
-{{<children>}}
+{{<children />}}

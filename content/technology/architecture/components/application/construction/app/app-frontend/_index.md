@@ -15,4 +15,4 @@ Each App developed in Altinn Studio will reference the app frontend, which will 
 an app will reference the latest _major_ version that was available when the app was created. Each app may reference a specific
 version, so that there can be different versions of the app frontend for two different deployed apps.
 
-{{<children>}}
+{{<children />}}

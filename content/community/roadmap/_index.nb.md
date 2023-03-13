@@ -16,4 +16,4 @@ Se diagram nedenfor for detaljert feature oversikt med status for Altinn 3. Hver
 [Klikk for åpne diagram i fullskjerm](productfeatures.drawio.svg)
 
 
-{{<children>}}
+{{<children />}}

@@ -8,4 +8,4 @@ Altinn har som mål å gjøre det enklere for innbyggere og næringsliv å være
 av digital kompetanse. Felles retningslinjer for design hjelper oss å skape konsistens på tvers av tjenester 
 som lages i Altinn Studio. 
 
-{{<children>}}
+{{<children />}}

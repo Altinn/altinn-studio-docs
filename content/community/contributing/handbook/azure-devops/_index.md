@@ -7,4 +7,4 @@ weight: 100
 
 We use Azure DevOps for building and deploying both our solution and the app owners applications. 
 
-{{<children>}}
+{{<children />}}

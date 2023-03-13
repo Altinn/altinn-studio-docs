@@ -45,4 +45,4 @@ All logic in the app will typical be related to the datamodel.
 In the future we will support apps with multiple data models.
 
 
-{{<children>}}
+{{<children />}}

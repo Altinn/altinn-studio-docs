@@ -9,4 +9,4 @@ aliases:
 
 ![Tech map](tech-map.png "The technology used in Altinn 3")
 
-{{<children>}}
+{{<children />}}

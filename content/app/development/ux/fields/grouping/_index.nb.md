@@ -4,4 +4,4 @@ linktitle: Gruppering
 description: Hvordan gruppere felter i skjema.
 ---
 
-{{<children>}}
+{{<children />}}
