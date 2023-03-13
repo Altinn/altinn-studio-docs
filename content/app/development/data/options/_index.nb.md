@@ -293,10 +293,10 @@ Et typisk bruksområde for dette er om brukeren fyller ut en liste med data som 
 
 ### Konfigurasjon
 
-For å sette opp options fra redux har vi laget en nytt objekt som kan brukes på komponentene `RadioButtons`, `Checkboxes` og `Dropdown` som vi har kalt `source`.
+For å sette opp options fra datamodellen har vi laget en nytt objekt som kan brukes på komponentene `RadioButtons`, `Checkboxes` og `Dropdown` som vi har kalt `source`.
 Dette nye objektet inneholder feltene `group`, `label` og `value`. Eksempel:
 
-```json
+```json {hl_lines=["5-9"]}
       {
         "id": "dropdown-component-id",
         "type": "Dropdown",
@@ -346,3 +346,36 @@ Eksempel:
 
 I dette eksempelet har vi satt opp to parametere i teksten som refererer til felter i gruppen.
 Vi kjenner også igjen `[{0}]` syntaksen i `key` feltet som muliggjør gjenbruk av labelen for hver index i gruppen.
+
+## Options delt mellom flere apper (fra altinn 2)
+Altinn 3 har foreløpig ikke noe system for å dele kodelister mellom ulike apper slik som det finnes i Altinn 2.
+Hvis det er behov for enkel oppdatering av kodelister som deles mellom ulike apper er det mulig å koble til eksterne apier.
+Altinn 2 har heldigvis et [API](https://altinn.github.io/docs/api/rest/metadata/#hente-oversikt-over-kodelister)
+for kodelister som også kan nåes fra Altinn 3, og de kan registreres direkte i `Program.cs` om det er ønskelig.
+
+```C#
+using Altinn.App.Core.Features.Options;
+...
+services.AddAltinn2CodeList(
+    id: "ASF_Land",
+    transform: (code) => new (){ Value = code.Code, Label = code.Value1 }, 
+    // filter: (code) => int.Parse(code.Value3) > 100,
+    codeListVersion: 3994, // Optional (use latest version if missing)
+    metadataApiId: "ASF_Land" // Code list name in Altinn 2 (use id if missing)
+);
+```
+Det eneste som er påkrevd er `id` for hva kodelisten heter i Altinn 2, og `transform` for å fortelle hvilke kolonner du
+ønsker å bruke som `Value` og `Label`. Oversetting fungerer automatisk. Etter versjon `v7.2.0` vil `nb` bli brukt om
+listen manger språket brukeren har valgt. Om du ønsker to ulike transformasjoner av samme liste, blir `id` navnet
+som brukes i Altinn 3 og `metadataApiId` brukes i oppslaget mot Altinn 2
+
+Bruken er som alle andre kodelister der `id` kommer igjen som `optionsId` i komponenten.
+
+```json
+{
+  "id": "landvelger",
+  "type": "Dropdown",
+  ...
+  "optionsId": "ASF_Land"
+},
+```

@@ -21,7 +21,7 @@ nødvendig for at appen skal kunne testes lokalt.
   - ved å trykke på nedlastingsikonet (da lastes det ned som en zip-fil)
 
 
-Se [Altinn Studio på Github](https://github.com/Altinn/altinn-studio/blob/master/LOCALAPP.md) for informasjon om hvordan man laster ned
+Se [Altinn Studio på Github](https://github.com/Altinn/app-localtest/blob/master/README.md) for informasjon om hvordan man laster ned
 og kjører den lokale plattformen,og hvordan man kjører appen.
 
 {{<children>}}

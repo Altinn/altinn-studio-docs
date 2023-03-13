@@ -82,7 +82,7 @@ An example setup of the `layout-sets.json` where `Task_1` is a data step, and `T
         ]
       },
       {
-        "id": "custom-receipt",
+        "id": "custom-confirmation",
         "dataType": "simple",
         "tasks": [
           "Task_2"
@@ -146,7 +146,7 @@ The app structure would look look this:
 │   ├───models
 |   | ...
 │   ├───ui
-│   │   ├───custom-receipt
+│   │   ├───custom-confirmation
 │   │   │   └───layouts
 |   |   |   └─── ...
 │   │   └───simple
@@ -187,3 +187,152 @@ Example of custom texts in the file  `resources.nb.json`:
   "value": "Når tjenesteier har sjekket at alle data er godkjent vil du bli automatisk sendt videre til siste steg i prosessen."
 }
 ```
+
+## Receipt
+In this process task the process will be ended and some standard texts are shown.
+
+These texts can be overridden by manually adding each defined text keys in the apps text resources. More information about how this is done can be found [here](../../../ux/texts).
+In the following section we will present an overview of the different texts that can be customized.
+
+![Receipt view](receipt-step.png "Texts that can be customized in the receipt view")
+
+### Customize texts
+
+| Text # (see image above)  | Text key                |
+|---------------------------|-------------------------|
+| 1                         | receipt.receipt         |
+| 2                         | receipt.title           |
+| 3                         | receipt.subtitle        |
+| 4                         | receipt.body            |
+| 5                         | receipt.title_submitted |
+
+
+Example of custom texts in the file  `resources.nb.json`:
+
+```json
+{
+  "id": "receipt.receipt",
+  "value": "Søknad om flytting til Sogndal kommune"
+},
+{
+  "id": "receipt.title",
+  "value": "Takk, søknaden er sendt!"
+},
+{
+  "id": "receipt.subtitle",
+  "value": "Finn kopi av dine svar i Altinn Innboks"
+},
+{
+  "id": "receipt.body",
+  "value": "Saksbehandling av denne type søknader tar vanligvis opp til 4 uker. Du vil bli varslet når svaret er klart i din innboks."
+},
+{
+  "id": "receipt.title_submitted",
+  "value": "Last ned PDF med dine svar:"
+}
+```
+
+Note that if you change the value of the text key `receipt.subtitle` the url will still point to Altinn Innbox.
+
+This results in the following view:
+
+![Receipt view](receipt-step-custom.png "Overridden texts in the receipt view")
+
+### Custom form layout
+
+{{%notice warning%}}
+This is a temporary approach for customizing the receipt page just as any other pages in the form. When support for layout-sets is available in Altinn Studio it will be possible to customize the receipt page in the same way as the confirmation page.
+{{%/notice%}}
+
+A custom receipt can be made in the same way as any other form page. The functionality will also be available in Altinn Studio shortly.
+
+Build the layout as usual and refer to the filename of the layout in `setting.json` with the key `receiptLayoutName`. See below example where the layoutfile `receipt.json` is referred to.
+
+```json
+{
+  "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
+  "pages": {
+    "order": [
+      "page1",
+      "page2",
+      "page3"
+    ]
+  },
+  "receiptLayoutName": "receipt"
+}
+```
+
+Example of a customized layout file for the receipt.
+
+```json
+{
+  "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
+  "data": {
+    "layout": [
+      {
+        "id": "ReceiptHeader",
+        "type": "Header",
+        "textResourceBindings": {
+          "title": "receipt.title"
+        },
+        "dataModelBindings": {},
+        "size": "h2"
+      },
+      {
+        "id": "fa796d12-49fc-457a-9d9a-d153998d55de",
+        "type": "Image",
+        "textResourceBindings": {
+          "title": "Bilde"
+        },
+        "dataModelBindings": {},
+        "image": {
+          "src": {
+            "nb": "https://docs.altinn.studio/app/app-dev-course/modul2/kommune-logo.png"
+          },
+          "width": "100%",
+          "align": "flex-start"
+        },
+        "grid": {
+          "xs": 2
+        }
+      },
+      {
+        "id": "ReceiptParagraph",
+        "type": "Paragraph",
+        "textResourceBindings": {
+          "title": "receipt.body"
+        },
+        "grid": {
+          "xs": 10
+        }
+      },
+      {
+        "id": "ReceiptInstanceInformation",
+        "type": "InstanceInformation",
+        "elements":{
+          "dateSent": false
+        }
+      },
+      {
+        "id": "ReceiptHeader",
+        "type": "Header",
+        "textResourceBindings": {
+          "title": "receipt.title_submitted"
+        },
+        "size": "h4"
+      },
+      {
+        "id": "ReceiptAttachmentList",
+        "type": "AttachmentList",
+        "dataTypeIds": ["ref-data-as-pdf"],
+        "includePDF": true
+      }
+    ]
+  }
+}
+```
+
+Resulting receipt in the application:
+
+![Custom receipt](custom-receipt.png "Custom receipt")
+

@@ -4,12 +4,6 @@ description: Oversikt over breaking changes introdusert i App Nuget-pakker i v7.
 tags: [translate-to-norwegian]
 ---
 
-{{% panel %}}
-**Alpha Release**  
-This is a alpha relase and is not used by default in new applications. Version 7 is a major rewrite of the app libraries to reduce Altinns dotnet code in a application.
-
-{{% /panel %}}
-
 {{% notice warning  %}}
 
 If your application still is on version v5 or lower you should read the breaking changes guides until your application is updated to v6.
@@ -608,7 +602,7 @@ public override async Task RunProcessTaskEnd(string taskId, Instance instance)
         }
     }
     ```
-2. Move code from `RunProcessTaskEnd` to the method `HandleTaskEnd` in the class implementing IProcessTaskEnd
+2. Move code from `RunProcessTaskEnd` to the method `End` in the class implementing IProcessTaskEnd
 3. Register your custom implementation of `IProcessTaskEnd` in the method `RegisterCustomAppServices` inside `App/Program.cs`
    ```csharp
      void RegisterCustomAppServices(IServiceCollection services, IConfiguration config)

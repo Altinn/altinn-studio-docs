@@ -5,6 +5,72 @@ toc: true
 weight: 800
 ---
 
+## Januar 2023
+
+- Melding om samhandlingsavvik (Helse Møre og Romsdal)  
+  [Info](https://helse-mr.no/fag-og-forsking/samhandling/melde-avvik#meldeskjema) | [Repo](https://altinn.studio/repos/hmrhf/newsamhandlingsavvik) | [Kjørende tjeneste](https://hmrhf.apps.altinn.no/hmrhf/newsamhandlingsavvik/)
+ - Uhell med eksplosiver (Direktoratet for samfunnssikkerhet og beredskap)  
+  [Info]( https://www.altinn.no/skjemaoversikt/direktoratet-for-samfunnssikkerhet-og-beredskap/melding-om-uhell-med-eksplosiver/) | [Repo]( https://altinn.studio/repos/dsb/uhell-med-eksplosiver) | [Kjørende tjeneste]( https://dsb.apps.altinn.no/dsb/uhell-med-eksplosiver/)
+- Melding om elulykke (Direktoratet for samfunnssikkerhet og beredskap)  
+ [Repo]( https://altinn.studio/repos/dsb/melding-om-elulykke) | [Kjørende tjeneste]( https://dsb.apps.altinn.no/dsb/melding-om-elulykke/)
+- KRT-1012 Oppgave for eiendomsmegling (Finanstilsynet)  
+  [Info]( https://www.altinn.no/skjemaoversikt/finanstilsynet/oppgave-for-eiendomsmegling/) | [Repo]( https://altinn.studio/repos/krt/krt-1012a-1) | [Kjørende tjeneste]( https://krt.apps.altinn.no/krt/krt-1012a-1/)
+- Miljøvernutgifter i industri og bergverk (RA-0514) (Statistisk sentralbyrå)  
+  [Info]( https://www.altinn.no/skjemaoversikt/statistisk-sentralbyra/miljovernutgifter-i-industri-og-bergverk-/) | [Repo]( https://altinn.studio/repos/ssb/ra0514-01) | [Kjørende tjeneste]( https://ssb.apps.altinn.no/ssb/ra0514-01/)
+- Miljøvernutgifter for mottaks- og prosesseringsanlegg på land (RA-0672) (Statistisk sentralbyrå)  
+  [Info]( https://www.altinn.no/skjemaoversikt/statistisk-sentralbyra/miljovernutgifter-for-mottaks--og-prosesseringsanlegg-pa-land-/) | [Repo]( https://altinn.studio/repos/ssb/ra0672-01) | [Kjørende tjeneste]( https://ssb.apps.altinn.no/ssb/ra0672-01/)
+- Miljøvernutgifter for olje- og gassfelt på norsk kontinentalsokkel (RA-0673) (Statistisk sentralbyrå)  
+  [Info]( https://www.altinn.no/skjemaoversikt/statistisk-sentralbyra/miljovernutgifter-for-olje--og-gassfelt-pa-norsk-kontinentalsokkel-/) | [Repo]( https://altinn.studio/repos/ssb/ra0673-01) | [Kjørende tjeneste]( https://ssb.apps.altinn.no/ssb/ra0673-01/)
+
+
+## Desember 2022
+
+- Ambulansetjenester (RA-0595) (Statistisk sentralbyrå)  
+  [Info](https://www.altinn.no/skjemaoversikt/statistisk-sentralbyra/ambulansetjenesten/) | [Repo](https://altinn.studio/repos/ssb/ra0595-01) | [Kjørende tjeneste](https://ssb.apps.altinn.no/ssb/ra0595-01/)
+- Sletting av autorisasjon som regnskapsfører (KRT-1030) (Finanstilsynet)  
+  [Info](https://www.altinn.no/skjemaoversikt/finanstilsynet/sletting-av-autorisasjon-som-regnskapsforer-/) | [Repo](https://altinn.studio/repos/krt/krt-1030a-1) | [Kjørende tjeneste](https://krt.apps.altinn.no/krt/krt-1030a-1/)
+- Sletting av godkjenning som revisor (KRT-1031) (Finanstilsynet)  
+  [Info](https://www.altinn.no/skjemaoversikt/finanstilsynet/sletting-av-godkjenning-som-revisor-/) | [Repo](https://altinn.studio/repos/krt/krt-1031a-1) | [Kjørende tjeneste](https://krt.apps.altinn.no/krt/krt-1031a-1/)
+- Sletting av autorisasjon for regnskapsførerselskap (KRT-1032) (Finanstilsynet)  
+  [Info](https://www.altinn.no/skjemaoversikt/finanstilsynet/sletting-av-autorisasjon-som-regnskapsforerselskap/) | [Repo](https://altinn.studio/repos/krt/krt-1032a-1) | [Kjørende tjeneste](https://krt.apps.altinn.no/krt/krt-1032a-1/)
+- Sletting av godkjenning som revisjonsselskap (KRT-1033) (Finanstilsynet)  
+  [Info](https://www.altinn.no/skjemaoversikt/finanstilsynet/sletting-av-godkjenning-som-revisjonsselskap/) | [Repo](https://altinn.studio/repos/krt/krt-1033a-1) | [Kjørende tjeneste](https://krt.apps.altinn.no/krt/krt-1033a-1/)
+- Opphør av revisjonsvirksomhet i enkeltpersonforetak (KRT-1036) (Finanstilsynet)  
+  [Info](https://www.altinn.no/skjemaoversikt/finanstilsynet/opphor-av-revisjonsvirksomhet-i-et-enk/) | [Repo](https://altinn.studio/repos/krt/krt-1036a-1) | [Kjørende tjeneste](https://krt.apps.altinn.no/krt/krt-1036a-1/)
+- Årsregnskap med revisjonsberetning (KRT-1015) (Finanstilsynet)  
+  [Info](https://www.altinn.no/skjemaoversikt/finanstilsynet/arsregnskap-med-revisjonsberetning/) | [Repo](https://altinn.studio/repos/krt/krt-1015a-1) | [Kjørende tjeneste](https://krt.apps.altinn.no/krt/krt-1015a-1/)
+- Rapport om brannårsak (Direktoratet for samfunnssikkerhet og beredskap)  
+  [Info](https://www.altinn.no/skjemaoversikt/direktoratet-for-samfunnssikkerhet-og-beredskap/rapport-om-brannarsak/) | [Repo](https://altinn.studio/repos/dsb/brannaarsak) | [Kjørende tjeneste](https://dsb.apps.altinn.no/dsb/brannaarsak/)
+- Vedleggsskjema (RA-1000) (Statistisk sentralbyrå)  
+  [Info](https://www.altinn.no/skjemaoversikt/statistisk-sentralbyra/apen-vedleggslosning/) | [Repo](https://altinn.studio/repos/ssb/ra1000-01) | [Kjørende tjeneste](https://ssb.apps.altinn.no/ssb/ra1000-01/)
+- Næringsundersøkelse for Svalbard (RA-0657) (Statistisk sentralbyrå)  
+  [Info](https://www.altinn.no/skjemaoversikt/statistisk-sentralbyra/naringsundersokelsen-for-svalbard/) | [Repo](https://altinn.studio/repos/ssb/ra0657-01) | [Kjørende tjeneste](https://ssb.apps.altinn.no/ssb/ra0657-01/)
+- Svindelrapportering (KRT-1132) (Finanstilsynet)  
+  [Info](https://www.altinn.no/skjemaoversikt/finanstilsynet/svindelrapportering/) | [Repo](https://altinn.studio/repos/krt/krt-1132a-1) | [Kjørende tjeneste](https://krt.apps.altinn.no/krt/krt-1132a-1/)
+- Omsetningstall for revisjonsforetak (KRT-1021) (Finanstilsynet)  
+  [Info](https://www.altinn.no/skjemaoversikt/finanstilsynet/omsetningstall-for-revisjonsforetak/) | [Repo](https://altinn.studio/repos/krt/krt-1021a-1) | [Kjørende tjeneste](https://krt.apps.altinn.no/krt/krt-1021a-1/)
+- Omsetningstall for revisjonsforetak (KRT-1021) (Finanstilsynet)  
+  [Info](https://www.altinn.no/skjemaoversikt/finanstilsynet/omsetningstall-for-revisjonsforetak/) | [Repo](https://altinn.studio/repos/krt/krt-1021a-1) | [Kjørende tjeneste](https://krt.apps.altinn.no/krt/krt-1021a-1/)
+  
+
+## November 2022
+
+- Uhell med fyrverkeri (Direktoratet for samfunnssikkerhet og beredskap)  
+  [Info](https://www.altinn.no/skjemaoversikt/direktoratet-for-samfunnssikkerhet-og-beredskap/uhell-med-fyrverkeri/) | [Repo](https://altinn.studio/repos/dsb/uhell-med-fyrverkeri) | [Kjørende tjeneste](https://dsb.apps.altinn.no/dsb/uhell-med-fyrverkeri/)
+- Uhell transport av farlig gods (Direktoratet for samfunnssikkerhet og beredskap)  
+  [Info](https://www.altinn.no/skjemaoversikt/direktoratet-for-samfunnssikkerhet-og-beredskap/melding-om-uhell-og-ulykker-ved-transport-av-farlig-gods/) | [Repo](https://altinn.studio/repos/dsb/uhell-transport-av-farlig-gods) | [Kjørende tjeneste](https://dsb.apps.altinn.no/dsb/uhell-transport-av-farlig-gods/)
+- Ledige stillinger (RA-0678) (Statistisk sentralbyrå)  
+  [Info](https://www.altinn.no/skjemaoversikt/statistisk-sentralbyra/ledige-stillinger/) | [Repo](https://altinn.studio/repos/ssb/ra0678-01) | [Kjørende tjeneste](https://ssb.apps.altinn.no/ssb/ra0678-01/)
+- RF-1551 Egenerklæring for person med fullmakt til å representere part(er) i skatteforhold (Skatteetaten)  
+[Repo](https://altinn.studio/repos/skd/rf-1551) | [Kjørende tjeneste](https://skd.apps.altinn.no/skd/rf-1551/)
+  
+
+## Oktober 2022
+
+- Melding om arbeid med asbest eller asbestholdig materiale (Arbeidstilsynet)  
+  [Info](https://www.altinn.no/skjemaoversikt/arbeidstilsynet/melding-om-arbeid-med-asbest-eller-asbestholdig-materiale/) | [Repo](https://altinn.studio/repos/dat/asbest-melding) | [Kjørende tjeneste](https://dat.apps.altinn.no/dat/asbest-melding/)
+
+
 ## September 2022
 
 - Skjema for innrapportering av gjenopprettingsplan (KRT-1226) (Finanstilsynet)  

@@ -4,6 +4,22 @@ description: Oversikt over endringer som ble introdusert i v2 av deployment.
 toc: true
 ---
 
+## 2.5.0
+
+### Endringer innført
+
+* Øke verdi resource request memory til 256Mi
+
+## 2.4.0
+
+### Endringer innført
+
+* Fjerne satte verdier for linkerd resources
+
+* Legg til hjelpetekst for extra annotations
+
+* Hvis linkerd er aktiv, legg til annotation cluster-autoscaler.kubernetes.io/safe-to-evict: true
+
 ## 2.3.0
 
 ### Endringer innført

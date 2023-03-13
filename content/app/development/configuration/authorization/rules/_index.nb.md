@@ -1,7 +1,7 @@
 ---
 title: Regelbibliotek 
 linktitle: Regelbibliotek
-description: Bibliotek av autorisasjonsregler som kan brukes i en app. Husk å bytte ut tags ([ORG], [APP], [RULE_ID]) med din egen data.
+description: Bibliotek av autorisasjonsregler som kan brukes i en app. Husk å bytte ut tags ([RULE_ID]) med en egen ID. [ORG] og [APP] kan stå som de er, siden de blir erstattet med info fra applicationmetadata.json om du har oppdatert LocalTest etter januar 2023.
 toc: true
 ---
 

@@ -149,9 +149,9 @@ For å overstyre standard sporvalg må det gjøres to endringer.
 
     }
     ```
-2. Registrer din implementering i _Startup.cs_ eller _Program.cs_ klassen (.Net 6)
+2. Registrer din implementering i _Program.cs_ klassen (.Net 6)
     ```C#
-    services.AddTransient<IPageOrder, PageOrder>();
+    services.AddTransient<IPageOrder, CustomOrder>();
     ```
     Dette sørger for at din kode er kjent for applikasjonen og at koden blir kjørt når den skal.
 

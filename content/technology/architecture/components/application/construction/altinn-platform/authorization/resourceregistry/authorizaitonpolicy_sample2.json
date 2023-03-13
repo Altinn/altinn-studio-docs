@@ -1,0 +1,613 @@
+{
+    "Rules": [
+        {
+            "AccessSubject": [
+                {
+                    "Attribute": [
+                        {
+                            "AttributeId": "urn:altinn:rolecode",
+                            "Value": "MEDL"
+                        }
+                    ]
+                },
+                {
+                    "Attribute": [
+                        {
+                            "AttributeId": "urn:altinn:rolecode",
+                            "Value": "LEDE"
+                        }
+                    ]
+                },
+                {
+                    "Attribute": [
+                        {
+                            "AttributeId": "urn:altinn:rolecode",
+                            "Value": "NEST"
+                        }
+                    ]
+                },
+                {
+                    "Attribute": [
+                        {
+                            "AttributeId": "urn:altinn:rolecode",
+                            "Value": "DAGL"
+                        }
+                    ]
+                },
+                {
+                    "Attribute": [
+                        {
+                            "AttributeId": "urn:altinn:rolecode",
+                            "Value": "DTPR"
+                        }
+                    ]
+                },
+                {
+                    "Attribute": [
+                        {
+                            "AttributeId": "urn:altinn:rolecode",
+                            "Value": "FFØR"
+                        }
+                    ]
+                },
+                {
+                    "Attribute": [
+                        {
+                            "AttributeId": "urn:altinn:rolecode",
+                            "Value": "REPR"
+                        }
+                    ]
+                },
+                {
+                    "Attribute": [
+                        {
+                            "AttributeId": "urn:altinn:rolecode",
+                            "Value": "KONT"
+                        }
+                    ]
+                },
+                {
+                    "Attribute": [
+                        {
+                            "AttributeId": "urn:altinn:rolecode",
+                            "Value": "KNUF"
+                        }
+                    ]
+                },
+                {
+                    "Attribute": [
+                        {
+                            "AttributeId": "urn:altinn:org",
+                            "Value": "brg"
+                        }
+                    ]
+                }
+            ],
+            "Action": [
+                {
+                    "Attribute": [
+                        {
+                            "AttributeId": "urn:oasis:names:tc:xacml:1.0:action:action-id",
+                            "Value": "read",
+                            "DataType": "http://www.w3.org/2001/XMLSchema#string"
+                        }
+                    ]
+                },
+                {
+                    "Attribute": [
+                        {
+                            "AttributeId": "urn:oasis:names:tc:xacml:1.0:action:action-id",
+                            "Value": "read",
+                            "DataType": "http://www.w3.org/2001/XMLSchema#string"
+                        }
+                    ]
+                }
+            ],
+            "Resource": [
+                {
+                    "Attribute": [
+                        {
+                            "AttributeId": "urn:altinn:org",
+                            "Value": "brg"
+                        },
+                        {
+                            "AttributeId": "urn:altinn:app",
+                            "Value": "rrh-innrapportering"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "AccessSubject": [
+                {
+                    "Attribute": [
+                        {
+                            "AttributeId": "urn:altinn:rolecode",
+                            "Value": "MEDL"
+                        }
+                    ]
+                },
+                {
+                    "Attribute": [
+                        {
+                            "AttributeId": "urn:altinn:rolecode",
+                            "Value": "LEDE"
+                        }
+                    ]
+                },
+                {
+                    "Attribute": [
+                        {
+                            "AttributeId": "urn:altinn:rolecode",
+                            "Value": "NEST"
+                        }
+                    ]
+                },
+                {
+                    "Attribute": [
+                        {
+                            "AttributeId": "urn:altinn:rolecode",
+                            "Value": "DAGL"
+                        }
+                    ]
+                },
+                {
+                    "Attribute": [
+                        {
+                            "AttributeId": "urn:altinn:rolecode",
+                            "Value": "DTPR"
+                        }
+                    ]
+                },
+                {
+                    "Attribute": [
+                        {
+                            "AttributeId": "urn:altinn:rolecode",
+                            "Value": "FFØR"
+                        }
+                    ]
+                },
+                {
+                    "Attribute": [
+                        {
+                            "AttributeId": "urn:altinn:rolecode",
+                            "Value": "REPR"
+                        }
+                    ]
+                },
+                {
+                    "Attribute": [
+                        {
+                            "AttributeId": "urn:altinn:rolecode",
+                            "Value": "KONT"
+                        }
+                    ]
+                },
+                {
+                    "Attribute": [
+                        {
+                            "AttributeId": "urn:altinn:rolecode",
+                            "Value": "KNUF"
+                        }
+                    ]
+                },
+                {
+                    "Attribute": [
+                        {
+                            "AttributeId": "urn:altinn:org",
+                            "Value": "brg"
+                        }
+                    ]
+                }
+            ],
+            "Action": [
+                {
+                    "Attribute": [
+                        {
+                            "AttributeId": "urn:oasis:names:tc:xacml:1.0:action:action-id",
+                            "Value": "read",
+                            "DataType": "http://www.w3.org/2001/XMLSchema#string"
+                        }
+                    ]
+                },
+                {
+                    "Attribute": [
+                        {
+                            "AttributeId": "urn:oasis:names:tc:xacml:1.0:action:action-id",
+                            "Value": "write",
+                            "DataType": "http://www.w3.org/2001/XMLSchema#string"
+                        }
+                    ]
+                }
+            ],
+            "Resource": [
+                {
+                    "Attribute": [
+                        {
+                            "AttributeId": "urn:altinn:org",
+                            "Value": "brg"
+                        },
+                        {
+                            "AttributeId": "urn:altinn:app",
+                            "Value": "rrh-innrapportering"
+                        },
+                        {
+                            "AttributeId": "urn:altinn:task",
+                            "Value": "TaskUtfylling"
+                        }
+                    ]
+                },
+                {
+                    "Attribute": [
+                        {
+                            "AttributeId": "urn:altinn:org",
+                            "Value": "brg"
+                        },
+                        {
+                            "AttributeId": "urn:altinn:app",
+                            "Value": "rrh-innrapportering"
+                        },
+                        {
+                            "AttributeId": "urn:altinn:end-event",
+                            "Value": "BREnd"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "AccessSubject": [
+                {
+                    "Attribute": [
+                        {
+                            "AttributeId": "urn:altinn:rolecode",
+                            "Value": "MEDL"
+                        }
+                    ]
+                },
+                {
+                    "Attribute": [
+                        {
+                            "AttributeId": "urn:altinn:rolecode",
+                            "Value": "LEDE"
+                        }
+                    ]
+                },
+                {
+                    "Attribute": [
+                        {
+                            "AttributeId": "urn:altinn:rolecode",
+                            "Value": "NEST"
+                        }
+                    ]
+                },
+                {
+                    "Attribute": [
+                        {
+                            "AttributeId": "urn:altinn:rolecode",
+                            "Value": "DAGL"
+                        }
+                    ]
+                },
+                {
+                    "Attribute": [
+                        {
+                            "AttributeId": "urn:altinn:rolecode",
+                            "Value": "DTPR"
+                        }
+                    ]
+                },
+                {
+                    "Attribute": [
+                        {
+                            "AttributeId": "urn:altinn:rolecode",
+                            "Value": "FFØR"
+                        }
+                    ]
+                },
+                {
+                    "Attribute": [
+                        {
+                            "AttributeId": "urn:altinn:rolecode",
+                            "Value": "REPR"
+                        }
+                    ]
+                },
+                {
+                    "Attribute": [
+                        {
+                            "AttributeId": "urn:altinn:rolecode",
+                            "Value": "KONT"
+                        }
+                    ]
+                },
+                {
+                    "Attribute": [
+                        {
+                            "AttributeId": "urn:altinn:rolecode",
+                            "Value": "KNUF"
+                        }
+                    ]
+                },
+                {
+                    "Attribute": [
+                        {
+                            "AttributeId": "urn:altinn:org",
+                            "Value": "brg"
+                        }
+                    ]
+                }
+            ],
+            "Action": [
+                {
+                    "Attribute": [
+                        {
+                            "AttributeId": "urn:oasis:names:tc:xacml:1.0:action:action-id",
+                            "Value": "read",
+                            "DataType": "http://www.w3.org/2001/XMLSchema#string"
+                        }
+                    ]
+                },
+                {
+                    "Attribute": [
+                        {
+                            "AttributeId": "urn:oasis:names:tc:xacml:1.0:action:action-id",
+                            "Value": "confirm",
+                            "DataType": "http://www.w3.org/2001/XMLSchema#string"
+                        }
+                    ]
+                }
+            ],
+            "Resource": [
+                {
+                    "Attribute": [
+                        {
+                            "AttributeId": "urn:altinn:org",
+                            "Value": "brg"
+                        },
+                        {
+                            "AttributeId": "urn:altinn:app",
+                            "Value": "rrh-innrapportering"
+                        },
+                        {
+                            "AttributeId": "urn:altinn:task",
+                            "Value": "TaskBekreftelse"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "AccessSubject": [
+                {
+                    "Attribute": [
+                        {
+                            "AttributeId": "urn:altinn:rolecode",
+                            "Value": "MEDL"
+                        }
+                    ]
+                },
+                {
+                    "Attribute": [
+                        {
+                            "AttributeId": "urn:altinn:rolecode",
+                            "Value": "LEDE"
+                        }
+                    ]
+                },
+                {
+                    "Attribute": [
+                        {
+                            "AttributeId": "urn:altinn:rolecode",
+                            "Value": "NEST"
+                        }
+                    ]
+                },
+                {
+                    "Attribute": [
+                        {
+                            "AttributeId": "urn:altinn:rolecode",
+                            "Value": "DAGL"
+                        }
+                    ]
+                },
+                {
+                    "Attribute": [
+                        {
+                            "AttributeId": "urn:altinn:rolecode",
+                            "Value": "DTPR"
+                        }
+                    ]
+                },
+                {
+                    "Attribute": [
+                        {
+                            "AttributeId": "urn:altinn:rolecode",
+                            "Value": "FFØR"
+                        }
+                    ]
+                },
+                {
+                    "Attribute": [
+                        {
+                            "AttributeId": "urn:altinn:rolecode",
+                            "Value": "REPR"
+                        }
+                    ]
+                },
+                {
+                    "Attribute": [
+                        {
+                            "AttributeId": "urn:altinn:rolecode",
+                            "Value": "KONT"
+                        }
+                    ]
+                },
+                {
+                    "Attribute": [
+                        {
+                            "AttributeId": "urn:altinn:rolecode",
+                            "Value": "KNUF"
+                        }
+                    ]
+                },
+                {
+                    "Attribute": [
+                        {
+                            "AttributeId": "urn:altinn:org",
+                            "Value": "brg"
+                        }
+                    ]
+                }
+            ],
+            "Action": [
+                {
+                    "Attribute": [
+                        {
+                            "AttributeId": "urn:oasis:names:tc:xacml:1.0:action:action-id",
+                            "Value": "read",
+                            "DataType": "http://www.w3.org/2001/XMLSchema#string"
+                        }
+                    ]
+                },
+                {
+                    "Attribute": [
+                        {
+                            "AttributeId": "urn:oasis:names:tc:xacml:1.0:action:action-id",
+                            "Value": "confirm",
+                            "DataType": "http://www.w3.org/2001/XMLSchema#string"
+                        }
+                    ]
+                }
+            ],
+            "Resource": [
+                {
+                    "Attribute": [
+                        {
+                            "AttributeId": "urn:altinn:org",
+                            "Value": "brg"
+                        },
+                        {
+                            "AttributeId": "urn:altinn:app",
+                            "Value": "rrh-innrapportering"
+                        },
+                        {
+                            "AttributeId": "urn:altinn:task",
+                            "Value": "TaskBekreftelse"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "AccessSubject": [
+                {
+                    "Attribute": [
+                        {
+                            "AttributeId": "urn:altinn:rolecode",
+                            "Value": "MEDL"
+                        }
+                    ]
+                },
+                {
+                    "Attribute": [
+                        {
+                            "AttributeId": "urn:altinn:rolecode",
+                            "Value": "LEDE"
+                        }
+                    ]
+                },
+                {
+                    "Attribute": [
+                        {
+                            "AttributeId": "urn:altinn:rolecode",
+                            "Value": "NEST"
+                        }
+                    ]
+                },
+                {
+                    "Attribute": [
+                        {
+                            "AttributeId": "urn:altinn:rolecode",
+                            "Value": "DAGL"
+                        }
+                    ]
+                },
+                {
+                    "Attribute": [
+                        {
+                            "AttributeId": "urn:altinn:rolecode",
+                            "Value": "DTPR"
+                        }
+                    ]
+                },
+                {
+                    "Attribute": [
+                        {
+                            "AttributeId": "urn:altinn:rolecode",
+                            "Value": "FFØR"
+                        }
+                    ]
+                },
+                {
+                    "Attribute": [
+                        {
+                            "AttributeId": "urn:altinn:rolecode",
+                            "Value": "REPR"
+                        }
+                    ]
+                },
+                {
+                    "Attribute": [
+                        {
+                            "AttributeId": "urn:altinn:rolecode",
+                            "Value": "KONT"
+                        }
+                    ]
+                },
+                {
+                    "Attribute": [
+                        {
+                            "AttributeId": "urn:altinn:rolecode",
+                            "Value": "KNUF"
+                        }
+                    ]
+                },
+                {
+                    "Attribute": [
+                        {
+                            "AttributeId": "urn:altinn:org",
+                            "Value": "brg"
+                        }
+                    ]
+                }
+            ],
+            "Action": [
+                {
+                    "Attribute": [
+                        {
+                            "AttributeId": "urn:oasis:names:tc:xacml:1.0:action:action-id",
+                            "Value": "delete",
+                            "DataType": "http://www.w3.org/2001/XMLSchema#string"
+                        }
+                    ]
+                }
+            ],
+            "Resource": [
+                {
+                    "Attribute": [
+                        {
+                            "AttributeId": "urn:altinn:org",
+                            "Value": "brg"
+                        },
+                        {
+                            "AttributeId": "urn:altinn:app",
+                            "Value": "rrh-innrapportering"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -34,9 +34,19 @@ This is also in **bold**, using double asterisk.
 
 ### Links
 
+Simple links can use markdown syntax:
+
 ```markdown
-Click [here](https://altinn.no) to go to Altinn.
+Open the [Altinn front page](https://altinn.no).
 ```
+
+For more properties on the link, you can use HTML syntax:
+```html
+Go to the <a href="https://altinn.no" class='same-window'>Altinn front page</a>.
+```
+
+By specifying to open a link in the same window, the user will be navigated away from the form when clicking on the
+link, but the current state of the form is maintained in the instance data should the user return to it later.
 
 ### Headings
 

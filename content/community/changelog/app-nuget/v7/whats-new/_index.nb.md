@@ -4,6 +4,11 @@ description: Oversikt over endringer som ble introdusert i versjon 7.
 toc: true
 ---
 
+{{% panel theme="warning" %}}
+Kun hovedversjonen er beskrevet her. Etter versjon 7.0.0 blir _minor_ og _patch_ releaser kun beskrevet i [release notes på GitHub](https://github.com/Altinn/app-lib-dotnet/releases).
+{{% /panel %}}
+
+
 ## 7.0.0
 
 ### Features

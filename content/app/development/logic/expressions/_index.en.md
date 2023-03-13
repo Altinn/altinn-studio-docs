@@ -21,8 +21,8 @@ Uttrykkene er tilgjengelige i alle Altinn 3-apper som bruker frontend-versjon
 (eller siste hovedversjon) har man mulighet til å benytte dynamiske uttrykk til [flere bruksområder](#bruksområder).
 
 Fra versjon `7.2.0` av [nuget-pakkene](../../../maintainance/dependencies#nuget) er også uttrykkene støttet i backend.
-Det gjør at serveren vil kunne evaluere uttrykkene og fjerne data som potensielt er lagret i instansen og er knyttet
-til felter/komponenter som i ettertid er skjult. Disse dataene kan da fjernes fra datamodellen når instansen sendes inn.
+Det gjør at serveren vil kunne evaluere uttrykkene og fjerne data ved innsending som potensielt er lagret
+i [datamodellen](../../data/data-model) og er knyttet til felter/komponenter som i ettertid er skjult.
 Merk at dette bare gjelder data i datamodellen som er knyttet til skjulte komponenter - data i datamodellen som ikke
 er knyttet til komponenter (og dermed implisitt skjult for brukeren) vil ikke fjernes automatisk.
 
@@ -107,7 +107,7 @@ for eksempel 45 år gammel, returneres teksten:
 
 For en person som er 62 år returneres teksten:
 
-**At 62, your are eligble for retirement**
+**At 62, your are eligible for retirement**
 
 Og for en person som er 15 år (eller yngre, som f.eks. en 4-åring), returneres teksten:
 
@@ -119,19 +119,57 @@ Og for en person som er 15 år (eller yngre, som f.eks. en 4-åring), returneres
 
 Dynamiske uttrykk er foreløpig tilgjengelig for bruk i disse egenskapene, som definert i [layout-filer](../../ux/pages).
 
-| Komponenter                                               | Egenskap                   | Forventet verdi            | Frontend | Backend |
-|-----------------------------------------------------------|----------------------------|----------------------------|----------|---------|
-| [Sider/layouts](#viseskjule-hele-sider)                   | `hidden`                   | [Boolsk](#boolske-verdier) | ✅        | ✅       |
-| Alle                                                      | `hidden`                   | [Boolsk](#boolske-verdier) | ✅        | ✅       |
-| Skjemakomponenter                                         | `required`                 | [Boolsk](#boolske-verdier) | ✅        | ✅       |
-| Skjemakomponenter                                         | `readOnly`                 | [Boolsk](#boolske-verdier) | ✅        | ❌       |
-| [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.addButton`           | [Boolsk](#boolske-verdier) | ✅        | ❌       |
-| [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.saveButton` *        | [Boolsk](#boolske-verdier) | ✅        | ❌       |
-| [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.deleteButton` *      | [Boolsk](#boolske-verdier) | ✅        | ❌       |
-| [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.saveAndNextButton` * | [Boolsk](#boolske-verdier) | ✅        | ❌       |
+| Komponenter                                               | Egenskap                                        | Forventet verdi            | Frontend | Backend |
+|-----------------------------------------------------------|-------------------------------------------------|----------------------------|----------|---------|
+| [Sider/layouts](#viseskjule-hele-sider)                   | `hidden`                                        | [Boolsk](#boolske-verdier) | ✅        | ✅       |
+| Alle                                                      | `hidden`                                        | [Boolsk](#boolske-verdier) | ✅        | ✅       |
+| Skjemakomponenter                                         | `required`                                      | [Boolsk](#boolske-verdier) | ✅        | ✅       |
+| Skjemakomponenter                                         | `readOnly`                                      | [Boolsk](#boolske-verdier) | ✅        | ❌       |
+| [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.addButton`                                | [Boolsk](#boolske-verdier) | ✅        | ❌       |
+| [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.saveButton`                               | [Boolsk](#boolske-verdier) | ✅        | ❌       |
+| [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.deleteButton`                             | [Boolsk](#boolske-verdier) | ✅        | ❌       |
+| [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.alertOnDelete`                            | [Boolsk](#boolske-verdier) | ✅        | ❌       |
+| [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.saveAndNextButton`                        | [Boolsk](#boolske-verdier) | ✅        | ❌       |
+| Alle                                                      | `textResourceBindings.[textResourceBinding]` *  | [Streng](#strenger)        | ✅        | ❌       |
 
-\* = Disse egenskapene kan foreløpig bare styres dynamisk for alle [repeterende grupper](../../ux/fields/grouping/repeating)
-på en gang, ikke for hver enkelt rad.
+\* = Hvilke verdier man kan overstyre med textResourceBindings varierer fra komponent til komponent, men vil fungere på
+alle steder der det brukes. TextResourceBindigs for repeterende grupper finner du [her](../../ux/fields/grouping/setup#textresourcebindings)
+
+{{% expandlarge id="rep-group-edit-button-text" header="Eksempel: Styre redigeringsknapp-tekst i repeterende gruppe" %}}
+
+Her endrer vi teksten til redigeringsknappen i en repeterende gruppe basert på om `IsPrefill` er satt til `true` i
+en gitt adresse i datamodellen. Dersom `IsPrefill` er `true` for en adresse, vil raden som viser frem den adressen ha en
+redigerings-knapp med teksten `"View"`. Hvis `IsPrefill` er `false` blir teksten på knappen til den spesifikke raden
+`"Edit"`.
+
+Det er verdt å merke seg at dersom et oppslag på `IsPrefill` gir resultatet `null`(ikke funnet) så konverteres
+resultatet til `false` når det blir brukt i en `if`. Les mer detaljert om dette i seksjonene [if](#func-if) og [datatyper](#datatyper)
+
+```json
+{
+   "id": "repeatingAddressGroup",
+   "type": "Group",
+   "children": [
+      "field-id-one",
+      "field-id-two",
+   ],
+   "dataModelBindings": {
+      "group": "Citizen.FormerAdresses"
+   },
+   "maxCount": 10,
+   "textResourceBindings": {
+      "edit_button_open": [
+      "if",
+      [ "dataModel", "Citizen.FormerAdresses.IsPrefill" ],
+      "View",
+      "else",
+      "Edit"
+      ]
+   }
+}
+```
+
+{{% /expandlarge %}}
 
 ### Testing, feilsøking og utvikling av uttrykk
 
@@ -163,7 +201,7 @@ Gitt dette uttrykket:
 
 `["component", "alder"]`
 
-Hva vil alderen være? Det vil være kunne variere etter hvilken gruppe som evaluerer
+Hva vil alderen være? Det vil kunne variere etter hvilken gruppe som evaluerer
 uttrykket. Har man har to grupper/rader vil både `navn`- og `alder`-komponentene finnes to ganger hver. Disse vil få
 ID-ene `navn-0` og `alder-0` (for den første raden) og `navn-1` og `alder-1` (for den andre raden). Du kan lete etter
 den nærmeste alder-komponenten (den som tilhører samme gruppe/rad som `navn`-komponenten) ved å spesifisere en
@@ -364,11 +402,12 @@ argument:
 Denne funksjonen gjør det mulig å hente ut informasjon om gjeldende instans. Følgende nøkler kan brukes fom første
 argument:
 
-| Nøkkel                 | Verdi                   | Eksempelverdi                                 |
-|------------------------|-------------------------|-----------------------------------------------|
-| `instanceId`           | Gjeldende instans-ID    | `512345/48c31ffc-dcdd-416d-8bc7-194bec3b7bf0` |
-| `instanceOwnerPartyId` | Gjeldende aktør-ID      | `512345`                                      |
-| `appId`                | Den aktive appen sin ID | `org/app-name`                                |
+| Nøkkel                   | Verdi                          | Eksempelverdi                                       |
+|--------------------------|--------------------------------|-----------------------------------------------------|
+| `instanceId`             | Gjeldende instans-ID           | `512345/48c31ffc-dcdd-416d-8bc7-194bec3b7bf0`       |
+| `instanceOwnerPartyId`   | Gjeldende aktør-ID             | `512345`                                            |
+| `instanceOwnerPartyType` | Hva slags aktør eier instansen | `"org", "person", "selfIdentified" eller "unknown"` |
+| `appId`                  | Den aktive appen sin ID        | `org/app-name`                                      |
 
 Alle disse oppslagene vil gi verdien `null` om man jobber i en [tiltandsløs kontekst](../../configuration/stateless).
 Om man gir andre nøkler enn de over, vil oppslaget resultere i en feilmelding. Denne oppførselen er unik blant
@@ -496,23 +535,23 @@ Strenger inneholder vilkårlig tekst, og er en bred datatype som tall og boolske
 
 Noen strenger kan også konverteres til andre datatyper:
 
-| Strengverdi                                                            | Kan erstatte               | Eksempler                  |
-|------------------------------------------------------------------------|----------------------------|----------------------------|
-| Heltall med eller uten negativt fortegn                                | [Tall](#tall)              | `3`, `-8`, `71254`         |
-| Flyttall med eller uten negativt fortegn, med punktum istedenfor komma | [Tall](#tall)              | `3.14`, `-33.0`, `123.123` |
-| `true` eller `false` med små eller store bokstaver                     | [Boolsk](#boolske-verdier) | `true`, `True`, `FALSE`    |
-| `null` med små eller store bokstaver                                   | [Null](#null)              | `null`, `Null`, `NULL`     |
+| Strengverdi                                        | Kan erstatte               | Eksempler                  |
+|----------------------------------------------------|----------------------------|----------------------------|
+| Heltall med eller uten negativt fortegn            | [Tall](#tall)              | `3`, `-8`, `71254`         |
+| Desimaltall med eller uten negativt fortegn        | [Tall](#tall)              | `3.14`, `-33.0`, `123.123` |
+| `true` eller `false` med små eller store bokstaver | [Boolsk](#boolske-verdier) | `true`, `True`, `FALSE`    |
+| `null` med små eller store bokstaver               | [Null](#null)              | `null`, `Null`, `NULL`     |
 
 Alle andre strenger enn de i tabellen over vil gi feilmelding om de blir forsøkt konvertert til andre typer.
 
 ### Tall
-Tallverdier gjelder positive og negative heltall og flyttall (tall med komma). Noen strenger blir også konvertert
+Tallverdier gjelder positive og negative heltall og desimaltall. Noen strenger blir også konvertert
 automatisk til en tallverdi, som vist i tabellen til strenger over. For at konvertering av en streng til et tall
 skal fungere, må strengen oppfylle følgende:
 
 * Strengen inneholder bare et tall, ingen annen tekst foran/bak tallet
 * Negativt fortegn (`-`) kan brukes, men positivt fortegn (`+`) støttes ikke.
-* Flyttall må representeres med punktum, ikke komma.
+* Desimaltall må representeres med punktum, ikke komma.
 * Tusenskilletegn eller annen tallformattering støttes ikke.
 
 Alle andre strenger vil gi en feilmelding om de blir forsøkt konvertert til et tall. Forsøker man å konvertere en

@@ -13,8 +13,8 @@ Below you find checklists used during coding. Important input have been [OWASP T
 
 Url parametes, post parameters and other that are store or presented in application.
 
-Examples from the Altinn 3 is [validaton of file names.](https://github.com/Altinn/altinn-studio/blob/master/src/studio/src/designer/backend/Helpers/Extensions/StringExtensions.cs) used
- [here.](https://github.com/Altinn/altinn-studio/blob/master/src/studio/src/designer/backend/Configuration/ServiceRepositorySettings.cs#L341)
+Examples from the Altinn 3 is [validaton of file names.](https://github.com/Altinn/altinn-studio/blob/master/backend/src/Designer/Helpers/Extensions/StringExtensions.cs) used
+ [here.](https://github.com/Altinn/altinn-studio/blob/master/backend/src/Designer/Configuration/ServiceRepositorySettings.cs#L341)
 
 
 [This is related to OWASP Top 10 no 1.](https://owasp.org/www-project-top-ten/2017/A1_2017-Injection)

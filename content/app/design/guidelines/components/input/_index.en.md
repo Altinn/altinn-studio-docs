@@ -58,7 +58,7 @@ Can be used for collecting information like name, e-mail address or a URL
 
 ---
 
-## Large textfields
+## Large text fields
 Large text fields are used when the user has to fill in a longer explanation. Large text fields follow the same guidelines as input fields. 
 
 ### Example of usage:
@@ -67,8 +67,8 @@ Large text fields are used when the user has to fill in a longer explanation. La
 
 ---
 
-## Adress 
-For addresses, there is a rigid setup where the post number and postage place is on the same line, below the address input line. Postage place is filled automatically based on post-number-input. 
+## Address 
+For addresses, there is a rigid setup where the postal code and city is on the same line, below the address input line. City is automatically set based on the postal code input. 
 
 ### Example of usage:
 

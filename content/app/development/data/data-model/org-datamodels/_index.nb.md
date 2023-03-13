@@ -30,7 +30,7 @@ Ta kontakt med de som styrer tilganger i Altinn Studio i din organisasjon om du 
 XSD kan lastes opp direkte i verktøyet [Altinn Studio Datamodellering][4]. Det vil da genereres en `.schema.json` fil
 for modellen i tillegg til XSD'en som lastes opp - det er denne filen man jobber med i verktøyet.
 
-Om man kun har behov for å laste opp XSD for lagring, og ikke skal bruke verktøyet for å redigere modellen, man man også 
+Om man kun har behov for å laste opp XSD for lagring, og ikke skal bruke verktøyet for å redigere modellen, må man også 
 laste opp XSD-filer direkte til filstrukturen til datamodeller for organisasjonen. Naviger da til ønsket mappe og velg 
 "Add file" -> "Upload file". I tekstfeltet som dukker opp øverst kan man skrive inn ev. mappenavn man ønsker å benytte.
 Last opp ønsket fil, scroll ned, skriv ev. in en melding om hva slags fil det er, og trykk på "commit changes"

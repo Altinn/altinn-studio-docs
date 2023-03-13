@@ -12,7 +12,7 @@ Altinn 3's app template is based on an ASP.Net Core application and has a multid
 
 ## appsettings.json
 
-The first and simplest source for configuration information are the `appsettings` files. Every new app which is created will come with an existing `appsettings.json` file. This file is read by an app during startup independently of what environment the app runs in. This means the file should only contain settings which are equal in all environments. The file contains some settings that are already in use and the values are in large part meant for a development environment where the application is run within [LocalTest](https://github.com/Altinn/altinn-studio/blob/master/LOCALAPP.md)
+The first and simplest source for configuration information are the `appsettings` files. Every new app which is created will come with an existing `appsettings.json` file. This file is read by an app during startup independently of what environment the app runs in. This means the file should only contain settings which are equal in all environments. The file contains some settings that are already in use and the values are in large part meant for a development environment where the application is run within [LocalTest](https://github.com/Altinn/app-localtest/blob/master/README.md)
 
 In appsettings.json the values are organized in different sections. It is not recommended to add new values to the existing sections, creating new sections is recommended. The following sections are reserved to avoid collisions: `Kestrel`, `AppSettings`, `GeneralSettings`, `PlatformSettings`, `PEPSettings`, `ApplicationInsights`, `kvSettings`.
 
