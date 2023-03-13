@@ -17,5 +17,6 @@ The layout can be defined by yourself in the same way as a form. We have also cr
 
 {{%notice warning%}}
 Note that if one wishes to use the _attachment list_, which is a standard message widget, one must manually add the _data types_ of the attachments to the layout file. A placeholder has been added to this component when it is added to the widget. Functionality to set it in Altinn Studio will be added at a later date. Accessible data types are located in the `applicationMetadata.json` file in the app. If the data types are missing in `applicationMetadata.json` generation of PDFs will not work.
+{{% /notice %}}
 
 ![Standard message display](message-app.png "Standard message display")

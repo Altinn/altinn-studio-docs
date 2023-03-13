@@ -31,4 +31,4 @@ Read more about coding in our development handbook.
 A few views in Altinnn Studio are still ASP.NET pages coded with
 [Razor syntax](https://docs.microsoft.com/en-us/aspnet/web-pages/overview/getting-started/introducing-razor-syntax-c).
 
-{{<children>}}
+{{<children />}}

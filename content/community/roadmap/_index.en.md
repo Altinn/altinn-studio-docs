@@ -16,4 +16,4 @@ See diagram below for the full feature overview with feature status. Click on bo
 [Click to open the diagram in fullscreen](productfeatures.drawio.svg)
 
 
-{{<children>}}
+{{<children />}}

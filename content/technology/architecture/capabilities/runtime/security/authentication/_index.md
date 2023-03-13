@@ -114,4 +114,4 @@ The platform components has access to the public part of the certificate and are
 See more details in [AccessToken](accesstoken).
 
 
-{{<children>}}
+{{<children />}}

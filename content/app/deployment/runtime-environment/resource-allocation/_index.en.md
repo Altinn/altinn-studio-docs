@@ -34,5 +34,5 @@ Når en ny app skal deployes til et Kubernetes cluster vil Kubernetes litt foren
 {{% /panel%}}
 
 
-{{<children>}}
+{{<children />}}
   

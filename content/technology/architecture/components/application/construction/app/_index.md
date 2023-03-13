@@ -18,4 +18,4 @@ In the future Altinn Studio will support apps based on different templates. Curr
 
 !["App architecture diagram"](app_application_architecture.svg "App application architecture")
 
-{{<children>}}
+{{<children />}}

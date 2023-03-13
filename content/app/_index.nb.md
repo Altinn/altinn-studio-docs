@@ -16,4 +16,4 @@ men alle kan logge inn i [altinn.studio](https://altinn.studio) og teste ut muli
 Hvis du lurer på noe så er det bare å ta kontakt med oss på [Slack](https://altinnstudio.slack.com)
 eller [GitHub](https://github.com/Altinn/altinn-studio/issues/new/choose), eller lese denne dokumentasjonen.
 
-{{<children>}}
+{{<children />}}

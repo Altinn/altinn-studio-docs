@@ -18,4 +18,4 @@ Below you find details about the different cloud components used.
 
 <object data="infrastructure_components.svg" type="image/svg+xml" style="width: 100%;"></object>
 
-{{<children>}}
+{{<children />}}
