@@ -13,4 +13,4 @@ the capabilities they provide.
 
 <object data="/technology/architecture/components/architecture_components_relationship.svg" type="image/svg+xml" style="width: 100%;" ></object>
 
-{{<children>}}
+{{<children />}}

@@ -127,4 +127,4 @@ Eksempel med autentiseringsnivå 2
   </xacml:ObligationExpressions>
 ```
 
-{{<children>}}
+{{<children />}}

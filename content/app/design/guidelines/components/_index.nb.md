@@ -19,5 +19,5 @@ Sjekk gjerne nedenunder at ikke komponenten du trenger allerede eksisterer.
 
 {{% /panel-contribute %}}
 
-{{<children>}}
+{{<children />}}
 

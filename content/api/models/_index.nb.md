@@ -6,4 +6,4 @@ toc: false
 ---
 
 
-{{<children>}}
+{{<children />}}

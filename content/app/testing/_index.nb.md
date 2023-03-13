@@ -5,4 +5,4 @@ description: Applikasjoner (apper) kan testes i testmiljø, eller lokalt.
 weight: 50
 ---
 
-{{<children description="true">}}
+{{<children />}}

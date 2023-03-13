@@ -28,5 +28,5 @@ Tre ting må være på plass før du går i gang med dette kurset.
 
 ### Les gjennom caset til Sogndal kommune, og jobb deg gjennom modul for modul.
 
-{{<children>}}
+{{<children />}}
 

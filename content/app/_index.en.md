@@ -18,4 +18,4 @@ If you have questions or feedback, then you can contact us on [Slack](https://al
 or [GitHub](https://github.com/Altinn/altinn-studio/issues/new/choose), or just keep on reading this documentation.
 
 
-{{<children>}}
+{{<children />}}

@@ -12,4 +12,4 @@ How to navigate is different between the tools.
 
 ![Altinn Studio tools](3-tools.png "The three tools in Altinn Studio: Designer, Repos and Code.")
 
-{{<children>}}
+{{<children />}}

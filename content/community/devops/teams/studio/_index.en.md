@@ -19,4 +19,4 @@ This includes building new features, bugfixing, documentation, build and release
 [Frontend](https://github.com/Altinn/app-frontend)\
 [AppTemplate](https://github.com/Altinn/app-template-dotnet)
 
-{{<children>}}
+{{<children />}}

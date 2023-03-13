@@ -31,5 +31,5 @@ oppstår problemer.
 Brukere skal ikke trenge å lure på om forskjellige ord, situasjoner eller handlinger betyr det samme.
 - **Allsidig** - En ny komponent bør utformes slik at den kan brukes i andre tilsvarende scenarioer og tjenester.
 
-{{<children description="true">}}
+{{<children />}}
 

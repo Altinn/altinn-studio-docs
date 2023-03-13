@@ -5,4 +5,4 @@ description: Configuring components, layouts, pages, grid, etc.
 weight: 20
 ---
 
-{{<children>}}
+{{<children />}}

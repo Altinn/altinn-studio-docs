@@ -31,4 +31,4 @@ An example capability is to be able to configure the infrastructure.
 
 [Learn more about Altinn 3 DevOps capabilities](devops).
 
-{{<children>}}
+{{<children />}}

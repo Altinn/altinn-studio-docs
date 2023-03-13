@@ -4,4 +4,4 @@ description: Konfigurasjon av presentasjon av applikasjonsinstanser i meldingsbo
 weight: 40
 ---
 
-{{<children>}}
+{{<children />}}

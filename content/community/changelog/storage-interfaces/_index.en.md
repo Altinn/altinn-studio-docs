@@ -7,4 +7,4 @@ aliases:
 - /teknologi/altinnstudio/changelog/storage-interfaces/
 ---
 
-{{<children>}}
+{{<children />}}

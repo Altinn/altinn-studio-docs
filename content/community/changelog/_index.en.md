@@ -6,4 +6,4 @@ aliases:
 - /teknologi/altinnstudio/changelog/
 ---
 
-{{<children>}}
+{{<children />}}

@@ -5,4 +5,4 @@ weight: 30
 ---
 
 
-{{<children>}}
+{{<children />}}

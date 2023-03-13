@@ -7,4 +7,4 @@ weight: 2
 
 To support building apps Altinn Studio have different functionality to building and configuring different aspects of the app. 
 
-{{<children>}}
+{{<children />}}

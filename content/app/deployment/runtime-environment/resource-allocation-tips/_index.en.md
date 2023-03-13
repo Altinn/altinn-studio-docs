@@ -21,4 +21,4 @@ Trenger man 2 kjørende instanser i test eller kan man klare seg med 1? Ønsker 
 
 {{% /panel%}}
 
-{{<children>}}
+{{<children />}}
