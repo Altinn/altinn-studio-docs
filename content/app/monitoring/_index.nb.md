@@ -32,4 +32,4 @@ __Altinn overvåker ikke aktivt ytelsen eller feilraten til den individuelle app
 {{% /expandlarge %}}
 
 
-{{<children>}}
+{{<children />}}

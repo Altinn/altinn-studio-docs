@@ -4,4 +4,4 @@ description: Configuring different aspects of the presentation of application in
 weight: 40
 ---
 
-{{<children>}}
+{{<children />}}

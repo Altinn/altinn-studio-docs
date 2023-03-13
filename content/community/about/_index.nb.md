@@ -59,4 +59,4 @@ Begynn gjerne med å lese om de ulike delløsningene i Altinn 3.
 - Altinn Apps lar deg kjøre dine digitale tjenester
 - Altinn Platform gir deg standardfunksjonalitet til bruk i dine digitale tjenester
 
-{{<children>}}
+{{<children />}}

@@ -6,4 +6,4 @@ tags: [altinn-repos]
 weight: 1
 --- 
 
-{{<children>}}
+{{<children />}}

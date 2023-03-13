@@ -19,4 +19,4 @@ Dette inkluderer videreutvikling, retting av feil og mangler, dokumentasjon, bui
 [Frontend](https://github.com/Altinn/app-frontend)\
 [AppTemplate](https://github.com/Altinn/app-template-dotnet)
 
-{{<children>}}
+{{<children />}}

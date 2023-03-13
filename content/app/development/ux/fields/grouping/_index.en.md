@@ -4,4 +4,4 @@ linktitle: Grouping
 description: How to group fields in a form.
 ---
 
-{{<children>}}
+{{<children />}}

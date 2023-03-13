@@ -11,4 +11,4 @@ In this section you will find details about the deployment architecture for thes
 
 In addition there is a seperate article on how End Users Apps developed in Altinn Studio are deployed to the runtime solution.
 
-{{<children>}}
+{{<children />}}

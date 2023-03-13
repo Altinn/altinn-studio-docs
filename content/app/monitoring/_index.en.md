@@ -34,4 +34,4 @@ __Altinn does not actively monitor the performance or failure rates
 of individual applications.__
 
 {{% /expandlarge %}}
-{{<children>}}
+{{<children />}}

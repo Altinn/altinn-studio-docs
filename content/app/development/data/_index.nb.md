@@ -5,4 +5,4 @@ description: Konfigurering av datamodell, preutfylling og andre ting relatert ti
 weight: 10
 ---
 
-{{<children>}}
+{{<children />}}

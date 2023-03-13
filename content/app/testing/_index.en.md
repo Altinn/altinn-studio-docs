@@ -5,4 +5,4 @@ description: Applications (apps) can be tested in the test environment, or local
 weight: 50
 ---
 
-{{<children description="true">}}
+{{<children />}}

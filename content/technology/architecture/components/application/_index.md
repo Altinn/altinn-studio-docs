@@ -8,4 +8,4 @@ weight: 9
 
 For a functional overview of the different solutions part see [solutions](/technology/solutions/)
 
-{{<children>}}
+{{<children />}}

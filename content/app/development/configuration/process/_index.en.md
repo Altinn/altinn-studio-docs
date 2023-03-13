@@ -35,4 +35,4 @@ It is stored in the app repo as `App/config/process/process.bpmn`.
 * [Data_Data_Data_Process.bpmn](Data_Data_Data_Process.bpmn)
 * [Data_Process.bpmn](Data_Process.bpmn)
 
-{{<children>}}
+{{<children />}}

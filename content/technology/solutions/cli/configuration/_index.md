@@ -100,4 +100,4 @@ DataTypeLookup        | A dictionary for mapping _DataFormatId_ to _dataType_
   }
 ```
 
-{{<children>}}
+{{<children />}}

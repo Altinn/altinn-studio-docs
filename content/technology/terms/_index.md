@@ -219,5 +219,3 @@ and a processing model describing how to evaluate access requests according to t
 
 Altinn Studio Apps uses the XACML standard for defining Policies for apps, the authorization architecture, 
 and the request and response between PEP and PDP.
-
-{{% children description="true" depth="2" %}}
