@@ -7,7 +7,7 @@ weight: 20
 ---
 
 In this module you will, based on the requirements of the municipality of Sogndal,
-be setting up the first page of your application for newcomers and verify that everything looks as expected locally.
+set up the first page of your application for newcomers and verify that everything looks as expected locally.
 
 **Topics covered in this module:**
 
@@ -15,22 +15,22 @@ be setting up the first page of your application for newcomers and verify that e
 - Add data model and connect fields
 - Develop app in local developing environment
 - Editing of text resources
-- Test application in local developement environment (LocalTest)
+- Test application in local development environment (LocalTest)
 
 ## Tasks
 
 {{% expandlarge id="create-new-application" header="Create new application" %}}
 
-Create the application in Altinn Studio with the organization that you have access to as an owner.
-Alternatively, you can create the application with you as the owner, if you are not testing it in a test environment.
+Create a new application in Altinn Studio, the owner should be an organization that you have access to.
+If you are only running the application locally you can set yourself as the owner.
 
 ### Requirements from the municipality
 
 - The application must have a sensible name that makes it easy to find it again among the large number
 of repositories Sogndal keeps in Altinn Studio.
 
-- There are no preliminary plans for yearly revisions of the app,
-so the year does not need to be taken into account.
+- There are currently no plans for yearly revisions of the app,
+  so the year does not need to be taken into account.
 
 There is a wish that one or more of the words "newcomer" and "Sogndal" is included in the name.
 
@@ -42,13 +42,13 @@ There is a wish that one or more of the words "newcomer" and "Sogndal" is includ
 
 {{% expandlarge id="upload-datamodel" header="Upload data model" %}}
 The municipality of Sogndal has created [a data model](/app/app-dev-course/modul1/datamodel.xsd)
-that represents data they wish to collect from future residents.
+representing data they wish to collect from future residents.
 
 {{% notice info %}}
-As an app developer you will in some cases have to create a data model 
-for a service yourself. You will then be able to use the data modelling tool in 
-Altinn Studio (launching Spring 2022), or use an existing data model as a starting point and 
-edit it in for example Visual Studio or a text editing program of your own choosing.
+In some cases you might have to create the data model 
+for a service yourself. This can be done by using the data modelling tool in 
+Altinn Studio (launching Spring 2022), or by using an existing model as a starting point and 
+editing it using a text editor.
 {{% /notice %}}
 
 
@@ -65,8 +65,8 @@ edit it in for example Visual Studio or a text editing program of your own choos
 - Which data is it the service owner wishes to collect here?
 - Which effect has **\<minOccurs\>** in the data model? You may notice that the field has a different value for _Innflytter.Fornavn_ and _Innflytter.Mellomnavn_.
 - Which other properties is set on the field _Innflytter.Mellomnavn_?
-- A _.C#_, _.metadata.json_ and _.schema.json_ file has been generated in addition to the _.xsd_ file you uploaded. What is the correlation between these files?
-- Some restrictions from the data model is not transferred to the _C#_-file, which ones? Some new properties has also been added, which ones?
+- A _.cs_, _.metadata.json_ and _.schema.json_ file has been generated in addition to the _.xsd_ file you uploaded. What is the correlation between these files?
+- Some restrictions from the data model are not transferred to the _C#_-file, which ones? Some new properties have also been added, which ones?
 
 ### Useful documentation
 - [Upload data model in Altinn Studio](/app/development/data/data-model/data-models-tool/#laste-opp--vise-datamodell)
@@ -89,7 +89,7 @@ It is possible to connect texts to components in both Altinn Studio and locally.
 
 ### Requirements from the municipality
 
-- All inputfields should have descriptive labels that clarifies what should be filled in.
+- All input fields should have descriptive labels that clarifies what should be filled in.
 - The application must be available in bokmål, nynorsk and english.
   In a first edition it is sufficient that only one of these languages is available.
 - It is important that the display name of the application sounds good and is descriptive of the service.
@@ -119,9 +119,9 @@ Based on the requirements from the municipality, can you now set up the first fo
 ### Requirments from the municipality
 
 - Name and age of the person who is a newcomer
-  - Firstname
-  - Middlename (optional)
-  - Lastname
+  - First name
+  - Middle name (optional)
+  - Last name
   - Age
 - Address of the person who is a newcomer
   - Street address
@@ -201,6 +201,6 @@ The service should be able to run on your local computer with LocalTest and you 
 **Remember to _push_ your local changes to make them available in Altinn Studio when you are happy with them.**
 
 ### Solution
-If you have not completed all the steps, we have an [example of a solution](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/1) that you can use as inspiration.
+If you have not completed all the steps, we have an [example solution](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/1) that you can use as inspiration.
 
 ![Screenshot of data collecting page](/app/app-dev-course/modul1/data-screenshot.png "Screenshot of data collecting page")
