@@ -2,6 +2,7 @@
 title: Regelbibliotek JSON - UNDER ARBEID!
 linktitle: JSON
 description: Bibliotek av autorisasjonsregler som kan brukes i en app. Husk å bytte ut tags ([ORG], [APP], [RULE_ID]) med din egen data.
+toc: true
 hidden: true
 ---
 
