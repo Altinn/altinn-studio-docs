@@ -83,6 +83,26 @@ Update the policy file so that it's authorization rules cover the new process st
 ### Useful documentation
 - [Custom validation](/app/development/logic/validation/#how-to-add-custom-validation)
 
+### Help with code: Validation of submitter.
+This method can be used to validate submitter.
+
+```cs
+    public async Task ValidateTask(Instance instance, string taskId, ModelStateDictionary validationResults)
+    {
+      var user = _httpContext.User;
+      if(taskId == "Task_2")
+      {
+        Claim partyIdClaim = user.FindFirst(c => c.Type == AltinnCoreClaimTypes.PartyID);
+        if (partyIdClaim.Value != instance.InstanceOwner.PartyId)
+        {
+          validationResults.AddModelError(taskId, "textID");
+        }
+      }
+      await Task.CompletedTask;
+    }
+ ```
+Remember to add the necessary usings. (In VSC you should be able to use Ctrl + . (windows-version with C# plugin installed) to get using-suggestions)
+
 ### Knowledge check
 - Which change would you suggest for the client to be able to meet this requirement without adding custom validation at this step?
 {{% /expandlarge %}}
