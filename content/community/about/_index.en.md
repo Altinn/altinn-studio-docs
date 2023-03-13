@@ -61,4 +61,4 @@ Start with reading about the different solutions of Altinn 3.
 - Altinn Apps let your host your digital services
 - Altinn Platform will provide standard functionalit to your digital services
 
-{{<children>}}
+{{<children />}}

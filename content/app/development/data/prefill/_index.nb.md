@@ -7,4 +7,4 @@ weight: 10
 Altinn tilbyr i dag tre fremgangsmåter for å preutfylle data i en app for en sluttbruker.
 Disse metodene kan kombineres fritt for å oppnå ønsket resultat
 
-{{<children>}}
+{{<children />}}

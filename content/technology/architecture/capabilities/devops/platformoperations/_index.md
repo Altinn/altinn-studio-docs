@@ -50,4 +50,4 @@ The devops team uses differen tools to manage capacity in cloud.
 
 See [operations application components](../../../components/application/nonsolutionspecific/operations/) for details about tools and applications used.
 
-{{<children>}}
+{{<children />}}

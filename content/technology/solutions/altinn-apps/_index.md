@@ -13,4 +13,4 @@ The applications has a web native architecture and is deployed to Kubernetes Clu
 
 The Kubernetes clusters are isolated between the different applications owners and hosted in a public cloud solution making it highly scalable. 
 
-{{<children>}}
+{{<children />}}

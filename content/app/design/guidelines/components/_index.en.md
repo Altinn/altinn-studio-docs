@@ -17,5 +17,5 @@ You are welcome to check the existing components below.
 
 {{% /panel-contribute %}}
 
-{{<children>}}  
+{{<children />}}  
 

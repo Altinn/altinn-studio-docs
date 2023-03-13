@@ -52,5 +52,5 @@ En deployment styrer levetiden til en applikasjon, hvor mange instanser den skal
 **Merk:** Noe av ressursene i et Kubernetes cluster vil gå med til systemtekniske prosesser både fra Kubernetes selv og fra Altinn infrastrukturen, så ikke alle ressurser i et cluster vil være tilgjengelig til fordeling til apps.
 
 {{% /panel%}}
-{{<children>}}
+{{<children />}}
   

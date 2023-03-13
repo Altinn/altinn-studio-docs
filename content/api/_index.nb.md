@@ -90,4 +90,4 @@ En liste over vanlige oppgaver for en applikasjonsbruker:
 - Endre prosesstilstand (arbeidsflyt).
 - Se status for en instans.
 
-{{<children>}}
+{{<children />}}

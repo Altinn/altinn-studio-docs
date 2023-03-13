@@ -11,4 +11,4 @@ aliases:
 Før du begynner utviklingen av tjenesten/applikasjonen din, anbefaler vi å gjennomføre en innsiktsfase, 
 lage en prototype og utføre en brukertest. 
 
-{{<children>}}
+{{<children />}}

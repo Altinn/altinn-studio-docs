@@ -9,4 +9,4 @@ description: Team Apps
 * Follow up and implement migration projects with service owners
 * Specify needs and requirements towards the Studio og Platform teams
 
-{{<children>}}
+{{<children />}}

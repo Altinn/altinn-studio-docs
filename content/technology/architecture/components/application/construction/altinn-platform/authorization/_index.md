@@ -17,4 +17,4 @@ For a functional description see details in [application solution components](..
 
 
 
-{{<children>}}
+{{<children />}}

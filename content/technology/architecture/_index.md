@@ -21,4 +21,4 @@ The diagram below show the relationships and you can **click the elements** to r
 
 [Download as Visio](architecture_decision_relationship.vsdx).
 
-{{<children>}}
+{{<children />}}

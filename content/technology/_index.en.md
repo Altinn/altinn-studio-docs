@@ -24,4 +24,4 @@ Altinn 3 have an open backlog on GitHub and the code is open source. Everybody c
 [GitHub]: https://github.com/altinn/altinn-studio
 [the code]: https://github.com/altinn/altinn-studio
 
-{{<children>}}
+{{<children />}}

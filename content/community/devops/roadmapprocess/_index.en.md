@@ -117,4 +117,4 @@ Målet med feature refinement er å detaljere issue til et nivå at team kan ta 
 ## Sprint planing
 DevOps teamet tar inn development issues i en (eller flere) sprinter basert på kapasitet. 
 
-{{<children>}}
+{{<children />}}

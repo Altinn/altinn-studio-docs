@@ -49,4 +49,4 @@ By default the clients are the active parts for transporting data. Agencies need
 
 The only active push from Altinn is when Altinn Platform Events component send events to subscribers. 
 
-{{<children>}}
+{{<children />}}

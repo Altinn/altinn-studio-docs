@@ -19,4 +19,4 @@ om forslaget er i tråd med eksisterende interaksjonsmønster. Vi ser også på 
 ny felleskomponent, eller om vi kan utvide funksjonaliteten til en eksisterende komponent. Start derfor gjerne 
 med å [foreslå en ny komponent](./propose-component/) så finner vi ut sammen hvem som [utvikler komponenten](./develop-component/).
 
-{{<children>}}
+{{<children />}}

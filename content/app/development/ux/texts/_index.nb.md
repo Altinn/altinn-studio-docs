@@ -431,4 +431,4 @@ Per nå blir ikke disse modifiserte tekstene brukt under selve innsendingen av s
 
 ![image](https://user-images.githubusercontent.com/42466346/159928882-e3268bd4-6057-4ca5-aaf2-f417cffcc0f9.png)
 
-{{<children>}}
+{{<children />}}

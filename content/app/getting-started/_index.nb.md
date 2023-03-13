@@ -5,4 +5,4 @@ description: Kom i gang slik at du kan utvikle apper i Altinn Studio.
 weight: 10
 ---
 
-{{<children>}}
+{{<children />}}

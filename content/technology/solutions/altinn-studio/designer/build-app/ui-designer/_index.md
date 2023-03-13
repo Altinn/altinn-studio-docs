@@ -36,4 +36,4 @@ Read all about UI-desing in [Application development handbook.](../../../../../.
 
 
 
-{{<children>}}
+{{<children />}}

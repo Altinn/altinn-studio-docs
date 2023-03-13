@@ -23,4 +23,4 @@ or whether an existing component can get added functionality. Thus, we appreciat
 
 
 
-{{<children description="true">}}
+{{<children />}}

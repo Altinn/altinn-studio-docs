@@ -10,4 +10,4 @@ description: Hvordan vi gjør DevOps.
 
 [Fullscreen](backlogs.drawio.svg)
 
-{{<children>}}
+{{<children />}}

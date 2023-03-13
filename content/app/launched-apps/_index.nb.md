@@ -181,4 +181,4 @@ weight: 800
 - Godkjenning av bruksvilkår for skytjenester fra Altinn (Digdir).  
   [Info](https://altinn.github.io/docs/altinn-studio/) | [Repo](https://altinn.studio/repos/digdir/godkjenn-bruksvilkaar) | [Kjørende tjeneste](https://digdir.apps.altinn.no/digdir/godkjenn-bruksvilkaar/)
 
-{{<children>}}
+{{<children />}}

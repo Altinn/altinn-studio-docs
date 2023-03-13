@@ -5,4 +5,4 @@ description: Konfigurering av komponenter, layouts, sider, grid, etc.
 weight: 20
 ---
 
-{{<children>}}
+{{<children />}}

@@ -47,4 +47,4 @@ Previously our documentation reflected the current version only. Meaning when we
 
 We have now introduced a version tag on the pages where the implementation differs from major to major version, making it easy to se both the old ways and the new.
 
-{{<children>}}
+{{<children />}}
