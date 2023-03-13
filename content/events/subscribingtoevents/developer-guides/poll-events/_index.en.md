@@ -1,7 +1,7 @@
 ---
 title: Polling events
 linktitle: Polling events
-description: Retrieve events using the Events API
+description: Developer guide on how to retrieve events using the Events API
 weight: 40
 ---
 {{% notice warning %}}
@@ -48,6 +48,11 @@ See the [Cloud Events specification](https://github.com/cloudevents/spec/blob/v1
 ### subject
 
 - optional string property that usually identifies the entity a cloud event is related to. [Cloud Events specification](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#subject)
+
+
+### alternativesubject
+
+-optional string property that usually identifies the entity a cloud events i related to. 
 
 ## Example
 

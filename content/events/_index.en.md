@@ -80,14 +80,17 @@ This same standard has been adopted by many cloud providers and a growing number
 
 The official specification defines a scaleable approach to versioning and extensions, opening possibilities for future capabilities in a backwards compatible fashion.
 
-#### XACML for Authorization Policy definition ??
-
 ## Who can use Altinn Events?
 
-_~ WIP ~_
+Publishing of events is limited to Altinn apps at the moment. 
+We are working on extending this service to additional parties such as application owners and other parties during the 
+spring of 2023. Maskinporten authentication will be required in order to publish events on our platform.
 
+Subscribing to events is openly available to end users, end user systems and application owners. 
+Once additional parties gain access to publishing, the right to subscribe to events published through Altinn Platform
+will be generally available to the public*.
 
-
-
+\* Subscriptions will need to be authorized by the publisher, and Altinn's terms and conditions will have to be 
+signed before gaining access. 
 
 {{<children>}}
