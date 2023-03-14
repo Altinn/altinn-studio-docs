@@ -46,6 +46,7 @@ Example:
 
 ```json
 {
+  "$schema": "https://altinncdn.no/schemas/json/layout/layout-sets.schema.v1.json",
   "sets": [
     {
       "id": "form-a",

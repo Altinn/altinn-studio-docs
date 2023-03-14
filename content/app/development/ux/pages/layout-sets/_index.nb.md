@@ -47,6 +47,7 @@ Eksempel:
 
 ```json
 {
+  "$schema": "https://altinncdn.no/schemas/json/layout/layout-sets.schema.v1.json",
   "sets": [
     {
       "id": "skjema-a",
