@@ -4,6 +4,19 @@ description: Oversikt over endringer som ble introdusert i v2 av deployment.
 toc: true
 ---
 
+## 2.8.0
+
+* Lagt til annotation config.linkerd.io/skip-outbound-ports: "443"
+* lagt til port 80 i l5d-dst-override url i middleware
+
+## 2.7.0
+
+* Oppdatert timeoutSeconds: 30 for readiness og liveness prober
+
+## 2.6.0
+
+* Lagt til opsjon for startupprobe
+
 ## 2.5.0
 
 ### Endringer innført
