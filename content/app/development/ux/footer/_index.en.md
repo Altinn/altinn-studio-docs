@@ -6,7 +6,7 @@ weight: 30
 
 {{%notice warning%}}
 
-Footer is only available in version 7.7 and newer.
+Footer is only available in version 7.7 and higher.
 
 {{% /notice%}}
 
