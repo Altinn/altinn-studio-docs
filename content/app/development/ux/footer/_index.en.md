@@ -4,9 +4,9 @@ description: How to configure the footer.
 weight: 30
 ---
 
-{{%notice info%}}
+{{%notice warning%}}
 
-Footer is only available in version 7.x and newer.
+Footer is only available in version 7.7 and newer.
 
 {{% /notice%}}
 

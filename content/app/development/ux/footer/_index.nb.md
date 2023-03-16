@@ -4,9 +4,9 @@ description: Hvordan konfigurere bunnteksten.
 weight: 30
 ---
 
-{{%notice info%}}
+{{%notice warning%}}
 
-Bunntekst er kun tilgjengelig i versjon 7.x og nyere.
+Bunntekst er kun tilgjengelig i versjon 7.7 og nyere.
 
 {{% /notice%}}
 
