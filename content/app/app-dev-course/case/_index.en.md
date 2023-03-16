@@ -1,15 +1,15 @@
 ---
 title: Case description
-description: Description of the municipalitys requirements and wishes for the service.
+description: Description of the municipality's requirements and wishes for the service.
 linktitle: Case
 tags: [apps, case, training]
 weight: 10
 ---
 Sogndal is in need of more young residents and wishes to become a desirable 
-municipality for young adults and others who wishes to settle down.
+municipality for young adults and others who wish to settle down.
 
 That is why they wish to create a service in Altinn aimed at people 
-who is moving to Sogndal over the next six months.
+who are moving to Sogndal over the next six months.
 
 By collecting data about newcomers at an early point, the municipality may facilitate 
 and customize the services to the newcomers before the first moving box has even been packed.
@@ -24,7 +24,7 @@ Sogndal has a few requirements for the services described in the sections below.
 - The application must have a sensible name that makes it easy to find it again among the large number
 of repositories, Sogndal keeps in Altinn Studio.
 
-- There are no preliminary plans for yearly revisions of the app,
+- There are currently no plans for yearly revisions of the app,
 so the year does not need to be taken into account.
 
 There is a wish that one or more of the words "newcomer" and "Sogndal" is included in the name.
@@ -35,9 +35,9 @@ There is a wish that one or more of the words "newcomer" and "Sogndal" is includ
 {{% expandlarge id="first-page-datacollecting-expandable" header="Requirements" %}}
 
 - Name and age of the person who is a newcomer
-  - Firstname
-  - Middlename (optional)
-  - Lastname
+  - First name  
+  - Middle name (optional)
+  - Last name
   - Age
 - Address of the person who is a newcomer
   - Street address
@@ -54,7 +54,7 @@ There is a wish that one or more of the words "newcomer" and "Sogndal" is includ
 
 - All input fields should have descriptive labels that clarify what should be filled in.
 - The application must be available in bokmål, nynorsk and english.
-  In a first edition it is sufficient that only one of these languages is available.
+  For the first edition it is sufficient that only one of these languages is available.
 - It is important that the title of the application sounds good and is descriptive of the service.
 
 {{% /expandlarge %}}
@@ -81,9 +81,9 @@ The following is desirable to be similar in the application:
 
 A user who does not meet the requirements for the form should be stopped as early as possible in the process.
 
-On the information page, the user should be able to state whether the form applies to them or not.
+On the information page the user should be able to select whether or not the form applies to them.
 
-How this is done is optional, and the field `Innflytter.KanBrukeSkjema` in the datamodel is possible to use for this purpose.
+How this is done is optional, the field `Innflytter.KanBrukeSkjema` in the datamodel can be used for this purpose.
 
 Based on the answer, the user will be sent to either _Track 1_ or _Track 2_.
 
@@ -115,7 +115,7 @@ Based on the answer, the user will be sent to either _Track 1_ or _Track 2_.
   - Email: Innflytter.Kontaktinformasjon.Epost
   - Phone number: Innflytter.Kontaktinformasjon.Telefonnummer
   - Age: Innflytter.Alder
-- It should **not** be possible to change the prefilled name and age
+- It should **not** be possible to change any of the prefilled names and the age
 - It should be possible to change the prefilled email and phone number
 
 {{% /expandlarge %}}
@@ -215,10 +215,10 @@ Du er ikke velkommen til vår kommune. Beklager!
 ### Data processing of invalid street address
 {{% expandlarge id="dataprocessing-expandable" header="Requirements" %}}
 
-One of the data processors of Sogndal is sick of manually correcting a street address that often is being incorrectly entered by newcomers.
-Therefore, we wish to programmatic correct this while the user is filling out the app.
+There is an address in Sogndal which is often misspelled by newcomers which leads to case workers having to spend a lot of time manually correcting it.
+Therefore, we want the app to automatically fix this mistake when the misspelled address is detected.
 
-If the user enters `Sesame Street 1` in the field `Innflytter.Adresse.Gateadresse`, this should automatically be corrected to `Sesamsgate 1`.
-In all other cases, the field should remain the same.
+If the user enters `Sesame Street 1` in the field `Innflytter.Adresse.Gateadresse`, it should automatically be corrected to `Sesamsgate 1`.
+For all other addresses the field should remain the same.
 
 {{% /expandlarge %}}

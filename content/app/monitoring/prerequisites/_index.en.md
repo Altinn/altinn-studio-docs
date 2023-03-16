@@ -8,7 +8,7 @@ weight: 10
 - **Test Developer or Production Developer role in Azure.**
     Test Developer role grants access to AI for apps in TT02 and Production Developer role grants access to apps in production.
 
-    [Instructions on how to request access is available here](http://localhost:1313/app/getting-started/access-management/apps/#tilgang-til-logger-og-hemmeligheter)
+    [Instructions on how to request access is available here](/app/getting-started/access-management/apps/#tilgang-til-logger-og-hemmeligheter)
 
 - **General overview of AI features**
     AI has a number of features available.
@@ -21,5 +21,3 @@ weight: 10
     learning the basics will get you a long way in identify data points of interest.
 
     [Find an overview of KQL and sample queries on the Microsoft website.](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/)
-
-

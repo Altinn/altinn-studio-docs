@@ -20,21 +20,20 @@ In this module you are adding a process step in the application.
 {{% expandlarge id="process_description" header="Expand process with a confirmation step" %}}
 
 An Altinn App has a process flow that describes the different steps in the flow.
-The standard flow for a newly created application consists of one task; one fill out step.
+The standard flow for a newly created application consists of one task; the fill out step.
 
 ![Standard process flow illustrated](/app/app-dev-course/modul5/default-process.png)
 
 Your task is to expand the standard process flow with a confirmation step as illustrated below.
 The confirmation page is added automatically when the step is added to the BPMN file.
 
-![Updated process flow illsutrated](/app/app-dev-course/modul5/updated-process.png)
+![Updated process flow illustrated](/app/app-dev-course/modul5/updated-process.png)
 
 {{% notice info %}}
 [Standard process flow is available on GitHub](../../development/configuration/process).
 Can you find the one that matches the flow we wish to achieve here?
 
-If you want an extra challenge, you can edit the process flow manually or in a BPMN editor,
-and rather use [the template on process flow with data and confirmation step](../../development/configuration/process/Data_Confirmation_Process.bpmn) as a solution.
+If you want an extra challenge you can edit the process flow manually or in a BPMN editor, using [the template for process flow with data and confirmation step](../../development/configuration/process/Data_Confirmation_Process.bpmn) as an inspiration.
 {{% /notice %}} 
 
 ### Requirements from the municipality
@@ -60,8 +59,8 @@ At this point in the workflow, the user should be able to:
 
 {{% expandlarge id="authorization" header="Adding authorization rules for confirmation step" %}}
 
-Your application's Policy file is adapted to a standard process flow.
-Update the policy file so that it's authorization rules cover the new process step.
+Your application's policy file is adapted to a standard process flow.
+Update the policy file so that the authorization rules cover the new process step.
 
 ### Requirements from the municipality
 - The same role requirements should apply to both fill out and confirm an instance.
@@ -84,7 +83,7 @@ Update the policy file so that it's authorization rules cover the new process st
 - [Custom validation](/app/development/logic/validation/#how-to-add-custom-validation)
 
 ### Knowledge check
-- Which change would you suggest for the client to be able to meet this requirement without adding custom validation at this step?
+- Which change could be made to meet this requirement without adding custom validation at this step?
 {{% /expandlarge %}}
 
 
@@ -113,12 +112,11 @@ Før du sender inn vil vi anbefale å se over svarene dine. Du kan ikke endre sv
 
 In this module you have expanded the application with a confirmation step, customized the view and implemented validation and authorization rules attached to the process step.
 
-The service should be able to run on your local computer with local test
-and you should be able to test the new process step and confirm that the view is as desired.
+The service should be able to run on your local computer with local test and you should be able to test the new process step and confirm that the view is as desired.
 
 **Remember to _push_ your local changes, so that they are available in Altinn Studio when you're happy with them**
 
 ### Solution
-If you did not manage to complete all the steps, we have an [example of a solution](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/5) that you can use as inspiration.
+If you did not manage to complete all the steps, we have an [example solution](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/5) that you can use as inspiration.
 
 ![Screenshot of confirmation page](/app/app-dev-course/modul5/bekreftelsesside-screenshot.png "Screenshot of confirmation page")

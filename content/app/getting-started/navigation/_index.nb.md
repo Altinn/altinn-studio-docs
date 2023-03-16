@@ -11,4 +11,4 @@ Hvordan du navigerer er ulikt mellom verktøyene.
 
 ![Altinn Studio verktøy](3-tools.png "De tre verktøyene i Altinn Studio: Designer, Repos og Code.")
 
-{{<children>}}
+{{<children />}}

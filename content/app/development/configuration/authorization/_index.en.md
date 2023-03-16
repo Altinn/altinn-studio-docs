@@ -126,4 +126,4 @@ Example with authentication level 2
 
 
 
-{{<children>}}
+{{<children />}}

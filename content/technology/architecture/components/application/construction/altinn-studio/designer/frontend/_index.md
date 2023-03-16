@@ -33,4 +33,4 @@ as a custom view in the .NET application.
 The front-end of Altinn Studio designer is set up using the same React + Redux architecture as the App frontend, take a look [here](../../../app/app-frontend/react) 
 for more details.
 
-{{<children>}}
+{{<children />}}

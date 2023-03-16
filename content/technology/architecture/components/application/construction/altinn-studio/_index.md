@@ -14,4 +14,4 @@ or [download as visio](/technology/architecture/components/application/construct
 
 Below you find the application components for the different applications in the solution.
 
-{{<children>}}
+{{<children />}}

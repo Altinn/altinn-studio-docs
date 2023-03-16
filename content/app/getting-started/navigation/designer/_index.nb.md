@@ -34,4 +34,4 @@ I **venstremenyen** kan du navigere innad i området.
   - Tekster
 - Deploy
 
-{{<children>}}
+{{<children />}}

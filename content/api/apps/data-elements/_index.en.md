@@ -154,4 +154,4 @@ Endpoint for deleting an existing data element. It is currently not possible to 
 DELETE basePath/{dataGuid}
 ```
 
-{{<children>}}
+{{<children />}}

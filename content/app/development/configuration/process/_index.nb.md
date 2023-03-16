@@ -35,4 +35,4 @@ Den ligger lagret i app-repoet som `App/config/process/process.bpmn`.
 * [Data_Data_Data_Process.bpmn](Data_Data_Data_Process.bpmn)
 * [Data_Process.bpmn](Data_Process.bpmn)
 
-{{<children>}}
+{{<children />}}

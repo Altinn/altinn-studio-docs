@@ -13,4 +13,4 @@ For å gjøre en ny versjon av applikasjonen tilgjengelig, produksjonssetter man
 Instanser av appen i brukers innboks vil automatisk oppdateres til å bruke siste versjon av applikasjonen,
 så det er viktig at man ikke innfører endringer som knekker eksisterende instanser.
 
-{{<children>}}
+{{<children />}}

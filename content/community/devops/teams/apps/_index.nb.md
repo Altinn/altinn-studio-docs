@@ -10,4 +10,4 @@ description: Team Apps sitt hovedansvar er å assistere tjenesteeiere i migrerin
 * Behov og kravstiller til Studio og Plattform Nøkkelpartnere
 
 
-{{<children>}}
+{{<children />}}

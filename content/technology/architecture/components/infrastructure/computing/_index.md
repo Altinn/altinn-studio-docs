@@ -77,4 +77,4 @@ In Altinn 3 we use Azure Function Apps to the following
 
 Our developer machines are hosted as virtual machines in Azure.
 
-{{<children>}}
+{{<children />}}

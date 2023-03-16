@@ -29,4 +29,4 @@ Anbefalt fremgangsmåte så lenge det er behov for å sette det opp manuelt, er 
 
 _Merk: `FormLayout.json` må enten flyttes (evt med nytt navn) inn i `layouts`-mappen, eller slettes. Dersom man har den gamle `FormLayout.json`-filen under `App/ui`-mappen som tidligere, vil kun denne brukes og alle filer under `App/ui/layouts`-mappen ignoreres._ 
 
-{{<children>}}
+{{<children />}}

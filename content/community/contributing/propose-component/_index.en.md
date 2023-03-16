@@ -28,5 +28,5 @@ If a new component is the ideal solution, we want to make sure it has sufficient
 Users shouldn't have to worry that words, situations and actions has different meanings in different situations.
 - **Versatile** - A new component should be designed in a way that makes it usable in similar scenarios and apps.
 
-{{<children description="true">}}
+{{<children />}}
 

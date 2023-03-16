@@ -29,4 +29,4 @@ The recommended approach as long as there is a need to set it up manually, is to
 
 _Note: `FormLayout.json` must either be moved (can be renamed) into the `layouts` folder, or be deleted. If you have the old `FormLayout.json` file under the `App/ui` folder as it was, only this one will be used and all files under the `App/ui/layouts` folder will be ignored._
 
-{{<children>}}
+{{<children />}}

@@ -43,4 +43,4 @@ Azure DevOps pipelines manage the orchestration of deploys. Both automatic deplo
 
 See [development application components](/technology/architecture/components/application/nonsolutionspecific/development/#deployment-orchestration) to get a overview over tools and application we use.
 
-{{<children>}}
+{{<children />}}

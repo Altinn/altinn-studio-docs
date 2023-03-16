@@ -4,7 +4,7 @@
     "title": "Altinn Platform Events",
     "version": "v1"
   },
-	"servers": [
+  "servers": [
     {
       "url": "https://platform.tt02.altinn.no/events/api/v1",
       "description": "TT02"
@@ -369,6 +369,99 @@
               "text/json": {
                 "schema": {
                   "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Events"
+        ],
+        "summary": "Retrieves a set of events related based on query parameters.",
+        "parameters": [
+          {
+            "name": "after",
+            "in": "query",
+            "description": "Retrieve events that were registered after this event Id",
+            "schema": {
+              "type": "string"
+            },
+            "example": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+          },
+          {
+            "name": "source",
+            "in": "query",
+            "description": "Optional source",
+            "schema": {
+              "type": "string"
+            },
+            "example": "https://ttd.apps.at22.altinn.cloud/ttd/apps-test/"
+          },
+          {
+            "name": "subject",
+            "in": "query",
+            "description": "Optional filter by subject. Only exact matches will be returned.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Altinn-AlternativeSubject",
+            "in": "header",
+            "description": "Optional filter by extension attribute alternative subject. Only exact matches will be returned.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "/person/16035001577"
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "Optional filter by event type.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "example": [
+              "instance.created",
+              "instance.process.completed"
+            ]
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "description": "The maximum number of events to include in the response.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 50
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/cloudevents+json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CloudEvent"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/cloudevents+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               }
             }
@@ -918,7 +1011,7 @@
         },
         "additionalProperties": false,
         "example": {
-          "id": "3b4e4652-67e8-4c9f-a2bd-f3bdc78b20d8",
+          "id": "e16a19c2-15f7-4746-b1f5-c0093e59f724",
           "source": "https://ttd.apps.altinn.no/ttd/apps-test/instances/50015641/a72223a3-926b-4095-a2a6-bacc10815f2d",
           "specversion": "1.0",
           "type": "app.instance.created",
@@ -1172,7 +1265,7 @@
           },
           "parameters": {
             "type": "array",
-            "items": { },
+            "items": {},
             "nullable": true,
             "readOnly": true
           }
@@ -2026,7 +2119,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": { }
+        "additionalProperties": {}
       },
       "PropertyAttributes": {
         "enum": [
@@ -3000,7 +3093,7 @@
   },
   "security": [
     {
-      "Bearer": [ ]
+      "Bearer": []
     }
   ],
   "tags": [

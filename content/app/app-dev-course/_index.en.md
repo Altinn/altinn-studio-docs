@@ -25,6 +25,6 @@ Three things have to be in order before you can get started with this course.
 
 ### Read through the municipality of Sogndal's case, and work through it module by module.
 
-{{<children>}}
+{{<children />}}
 
 

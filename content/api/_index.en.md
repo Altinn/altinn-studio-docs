@@ -93,4 +93,4 @@ A list of common tasks for an application user:
 - Change process state (workflow).
 - View status of an instance.
 
-{{<children>}}
+{{<children />}}

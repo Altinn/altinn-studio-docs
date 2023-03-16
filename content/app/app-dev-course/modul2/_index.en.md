@@ -52,7 +52,7 @@ Someone in the municipality has created a sketch of the informationpage.
 The following is desirable to be similar in the application:
  - Placing of pictures
  - Text size
- - Formating of text
+ - Formatting of text
 
 [Sketch of information page](/app/app-dev-course/modul2/infoside_tilflyttere.pdf)
 
@@ -62,20 +62,21 @@ The following is desirable to be similar in the application:
 
 - [Formatting of texts](/app/development/ux/texts/#formatting-of-texts)
 - [Add pictures to the application](/app/development/ux/images/#add-images-to-the-application)
-- [Set components side by side](/app/development/ux/styling/#components-placed-side-by-side-grid)
-- [File setup with multiple pages](/app/development/ux/pages/#setup)
-- [Administrate order of muntliple pages](/app/development/ux/pages/navigation/#order)
+- [Use of grid to control layout of components](/app/development/ux/styling/#components-placed-side-by-side-grid)
+- [Project structure when using multiple pages](/app/development/ux/pages/#setup)
+- [Change order of pages based on some condition](/app/development/ux/pages/tracks/#trigger-calculation-on-tracks-from-frontend)
 
 ### Knowledge check
 - Which file in the application repository has to be adjusted if you wish to manually change the page order of existing pages?
-- If you wish to rename a page, but Altinn Studio is not available, which files will need to be updated?
+- How can you rename a page without using Altinn Studio?
 - How can you get a text to break if the text string is not long enough to break naturally?
 {{% /expandlarge %}}
 
 
 {{% expandlarge id="dynamic-tracks" header="Alternate workflow" %}}
 
-In many cases, it is not relevant to answer all questions in a form, maybe because the answer is obvious or because it is not relevant based on an answer provided earlier in the form. In that case, dynamic tracks could be a good solution.
+In many cases, it is not relevant to answer all questions in a form, maybe because the answer is obvious or because it is not relevant based on an answer provided earlier in the form.
+In that case, dynamic tracks could be a good solution.
 
 By using dynamic tracks you will be able to control which parts of the application that will be visible for the user.
 
@@ -89,7 +90,7 @@ A user who does not meet the requirements for the form should be stopped as earl
 
 On the information page, the user should be able to state whether the form applies to them or not.
 
-How this is done is optional, and the field `Innflytter.KanBrukeSkjema` in the data model is possible to use for this purpose.
+How this is done is optional, the field `Innflytter.KanBrukeSkjema` in the data model can be used for this purpose.
 
 Based on the answer, the user will be sent to either _Track 1_ or _Track 2_.
 
@@ -119,18 +120,21 @@ https://www.sogndal.kommune.no/
 - [Formatting of texts](/app/development/ux/texts/#formatting-of-texts)
 
 ### Knowledge check
-- If a user goes back and changes their answer on the info page, will they then be displayed the data collecting pages?
-- If dynamic tracks is implemented further into the workflow and a user changes a choice, what will happen with the form data that was filled out prior to this, if the page is now hidden from the user?
+- If a user goes back and changes their answer on the info page, will they see the data collecting pages?
+- If dynamic tracks are implemented further along in the workflow and a user changes a choice, what will happen with the form data that was filled out prior to this, if the page is now hidden from the user?
 {{% /expandlarge %}}
 
 
 {{% expandlarge id="prefill-expandable" header="Prefill of personal information" %}}
 
-One of the benefits of Altinn is that you already have metadata containing information about both people and businesses available. By using prefill you can access data about the user and present this in an app, so that they will not have to fill out these fields. Typical prefill values are: name, address, email, etc.
+One of the benefits provided by Altinn is that metadata containing information about both people and businesses is already available available.
+By using prefill you can access data about the user and present this in an app, so that they will not have to fill out these fields.
+Typical prefill values are: name, address, email, etc.
 
-If the data is available in one of Altinn's prefill sources, this can be configured towards a field in the data model and be automatically populated once the form is created. If there are other uses for prefill, this can be solved using code in the application.
+Data that is available in one of Altinn's prefill sources can be mapped to a field in the data model and will be automatically set once the form is created.
+Other prefill sources can be configured and mapped to the data model through custom integrations.
 
-In this task, the focus has returned to the first data collecting page, and the goal is to prefill personal information about the user to save the user some time.
+The goal of this task is to prefill the user's personal information on the first page so that the user does not have to do this themselves.
 
 ### Requirements from the municipality
 
@@ -149,13 +153,13 @@ In this task, the focus has returned to the first data collecting page, and the 
 - [Available prefill sources](https://altinncdn.no/schemas/json/prefill/prefill.schema.v1.json)
 - [Prefill from national register and user profile](/app/development/data/prefill/config/)  
 - [Custom prefill](/app/development/data/prefill/custom)
-- [Description of the InstanceOwner object](../../../api/models/instance/#instanceowner) - This is where the social security number can be found.
+- [Description of the InstanceOwner object](../../../api/models/instance/#instanceowner) - This is where national identity number can be found.
   In the code, the properties are referred to with an uppercase first letter, not lowercase as in this overview.
 
-### Help with code: Calculating age from social security number
-This function calculates the age from the social security number. It is important to add `using System;` to the top of the file in order to make it work.
+### Help with code: Calculating age from national identity number
+This function calculates the age from the national identity number. It is important to add `using System;` to the top of the file in order to make it work.
 ```cs
-private static int CalculateAge(string sosialSecNumber)
+private static int CalculateAge(string nationalIDNum)
 {
     int MAX_D_NUMBER = 71;
     int MIN_D_NUMBER = 41;
@@ -163,10 +167,10 @@ private static int CalculateAge(string sosialSecNumber)
     int MIN_TEST_NUMBER = 81;
     int START_D_NUMBER = 40;
     int START_TEST_NUMBER = 80;
-    string stringDay = sosialSecNumber.Substring(0, 2);
-    string stringMonth = sosialSecNumber.Substring(2, 2);
-    string stringYear = sosialSecNumber.Substring(4, 2);
-    string stringIndivid = sosialSecNumber.Substring(6, 3);
+    string stringDay = nationalIDNum.Substring(0, 2);
+    string stringMonth = nationalIDNum.Substring(2, 2);
+    string stringYear = nationalIDNum.Substring(4, 2);
+    string stringIndivid = nationalIDNum.Substring(6, 3);
     int day = int.Parse(stringDay);
     int month = int.Parse(stringMonth);
     int year = int.Parse(stringYear);
@@ -221,8 +225,8 @@ private static int CalculateAge(string sosialSecNumber)
 ### Knowledge check
 - Is it possible to change a prefilled value once it is set?
 - How can you prevent a user from changing a prefilled value?
-- Not all norwegian citizens have a social security number,
-  some get assigned a [D-number](https://jusleksikon.no/wiki/F%C3%B8dselsnummer#D-nummer). How will you have to adjust your code to take this into account if for example age is based on a F-number or D-number that the user themselves enter?
+- Not all Norwegian citizens have a national identity number,
+  some get assigned a [D-number](https://jusleksikon.no/wiki/F%C3%B8dselsnummer#D-nummer). How will you have to adjust your code to take this into account if, for example, age is based on an F-number or D-number that the user themselves enter?
 {{% /expandlarge %}}
 
 
@@ -232,15 +236,14 @@ In this module you have expanded your application with more functionality in the
 adding more pages, configuring dynamic tracks to control user flow and setting up prefill of fields
 both with available data sources in Altinn and custom code.
 
-The service should run on your local computer with local test and you should be able to test both user flows
-and confirm that the right fields are prefilled.
+The service should run on your local computer with local test and you should be able to test both user flows and confirm that the right fields are prefilled.
 
 **Remember to _push_ your local changes, so that they are available in Altinn Studio when you're happy with them**
 
 ### Solution
-If you did not manage to complete all the steps, we have an [example of a solution](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/2) that you can use as inspiration.
+If you did not manage to complete all the steps, we have an [example solution](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/2) that you can use as inspiration.
 
-![Screenshot of info page](/app/app-dev-course/modul2/infopage-screenshot.png "Screen shot of info page")
+![Screenshot of info page](/app/app-dev-course/modul2/infopage-screenshot.png "Screenshot of info page")
 
 ![Screenshot of prefilled data collecting page](/app/app-dev-course/modul2/data-screenshot.png "Screenshot of prefilled data collecting page")
 

@@ -10,4 +10,4 @@ aliases:
 
 The pages for design and planning is currently only available in [norwegian](/nb/app/design/).
 
-{{<children>}}
+{{<children />}}

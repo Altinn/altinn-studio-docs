@@ -6,4 +6,4 @@ weight: 40
 
 Dokumentasjon for teknologi er foreløpig [kun tilgjengelig på engelsk](/technology/).
 
-{{<children>}}
+{{<children />}}
