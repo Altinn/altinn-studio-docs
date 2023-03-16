@@ -64,7 +64,7 @@ Nye komponenter kan legges til i `footer`-listen.
 | title    | Tekstresursen som skal vises. Støtter **ikke** [formattering](/nb/app/development/ux/texts/#formatering-av-tekster). |
 | target   | Telefonnummeret som lenkes til.                                                                                      |
 
-### Example
+### Eksempel
 
 ```json
 {
@@ -87,7 +87,7 @@ Nye komponenter kan legges til i `footer`-listen.
 | target   | URLen som lenkes til.                                                                                                |
 | icon     | Ikon som vises ved siden av lenken. Enten `information`, `email`, eller `phone`.                                     |
 
-### Example
+### Eksempel
 
 ```json
 {
@@ -109,7 +109,7 @@ Nye komponenter kan legges til i `footer`-listen.
 | type     | `Text`                                                                                                      |
 | title    | Tekstresursen som skal vises. Støtter [formattering](/nb/app/development/ux/texts/#formatering-av-tekster). |
 
-### Example
+### Eksempel
 
 ```json
 {
