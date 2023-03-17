@@ -49,6 +49,7 @@ The component is of type `List`. One example on defintion of list component in l
 The list component is populated with dynamic data. The data is defined in a seperate file which implements the interface
 `IDataListProvider`. This works similar to code lists/options. The field `dataListId` defines which data list the component refers to.
 The dynamic data lists kan be either open or secured. 
+After you have written your implementation of `IDataListProvider` you have to register is as a service inside `RegisterCustomAppServices` in  `Program.cs`
 Here is one example of a class that implements the interface `IDataListProvider`
 
 ```csharp
@@ -106,6 +107,7 @@ public class ListCases : IDataListProvider
     }
 }
 ```
+To register this example as a service you would add `services.AddTransient<IDataListProvider, ListCases>();` in the `RegisterCustomAppServices` method located in `Program.cs`
 In this example the list is created in code, but it is also possible to call an API which returns that data to be presented in the table. 
 If this API supports sorting, pagination and search, you can pass this variables to the API to avoid fetching unnecessary data. 
 

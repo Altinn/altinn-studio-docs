@@ -49,6 +49,7 @@ Komponenten er av typen `List`. Eksempel på hvordan man kan definere kompoenten
 Listekomponenten populeres med dynamiske data. Dataene defineres i en egen fil som implementerer interfacet `IDataListProvider`. 
 Dette fungerer tilsvarende kodelister/options. Feltet `dataListId` må legges til på komponenten som definerer hvilken dataliste komponenten referer til. 
 Dynamiske datalister kan enten være åpen eller sikret. 
+Etter at du er laget ferdig din implementasjon reigstreres denne som en service i metoden `RegisterCustomAppServices` i filen `Program.cs`
 Eksempel på en klasse som implementerer interfacet `IDataListProvider`
 
 ```csharp
@@ -106,6 +107,7 @@ public class ListCases : IDataListProvider
     }
 }
 ```
+For å registrere eksemplet over som en service legger man til `services.AddTransient<IDataListProvider, ListCases>();` i metoden `RegisterCustomAppServices` i filen `Program.cs`
 Her blir listen laget i koden, men her kan man istedet kalle på et annet API som returnerer data man vil vise i tabellen.
 Hvis dette APIet støtter sortering og paginering kan man videresende disse verdiene til APIet slik at man ikke henter unødvendig data. 
 
