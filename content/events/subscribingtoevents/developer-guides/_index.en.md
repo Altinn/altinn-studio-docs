@@ -16,4 +16,4 @@ This might be used as inspiration: https://docs.altinn.studio/technology/archite
 Page should be deleted once we have full developerguides.
 {{% /notice %}}
 
-{{ <children/> }}
+{{<children />}}

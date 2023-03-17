@@ -11,4 +11,4 @@ Do we need anything at top level on this page?
 Any general info we want to communicate to/about subscribers? 
 {{% /notice %}}
 
-{{ <children/> }}
+{{<children />}}
