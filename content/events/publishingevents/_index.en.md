@@ -12,4 +12,4 @@ Do we need anything at top level on this page?
 Any general info we want to communicate to/about publishers? 
 {{% /notice %}}
 
-{{<children>}}
+{{ <children/> }}

@@ -5,4 +5,4 @@ description: An overview over administrative tasks required before consuming eve
 weight: 20
 ---
 
-{{<children>}}
+{{ <children/> }}

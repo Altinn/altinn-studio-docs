@@ -93,4 +93,4 @@ will be generally available to the public*.
 \* Subscriptions will need to be authorized by the publisher, and Altinn's terms and conditions will have to be 
 signed before gaining access. 
 
-{{<children>}}
+{{ <children/> }}
