@@ -10,7 +10,7 @@ For a functional description see details in [application solution components](..
 
 ## Construction diagram Authorization
 
-![Construction](authorization.drawio.svg "Construction diagram Altinn authorization")
+![Construction](authorizationbff.drawio.svg "Construction diagram Altinn authorization")
 
 
 
