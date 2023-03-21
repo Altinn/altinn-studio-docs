@@ -1,3 +1,12 @@
+---
+title: Tidsplan for migrering av tjenester i Altinn
+linktitle: Tidsplan migrering
+description: Her finner du foreløpig tidsplan for migrering av tjenester, i hvilken rekkefølge dette skal skje og når de enkelte tjenestetypene skal være flyttet fra Altinn 2 til Altinn 3. 
+toc: true
+tags: [architecture, plan, authorizaton]
+---
+
+
 |Tid   	|Leveranse   	|Beskrivelse   	|
 |---	  |---	        |---	|
 |Levert |Rollebasert tilgang til 3.0 apps |Utvikle støtte slik at bruker kan få tilgang til 3.0 apps basert på hvilken rolle de har i Altinn 2. En rolle i Altinn vil normalt gi tilgang til mange tjenester. |
