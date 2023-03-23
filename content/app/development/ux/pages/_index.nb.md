@@ -5,16 +5,11 @@ toc: false
 weight: 10
 ---
 
-{{%notice info%}}
-Oppsett av flere sider kan gjøres enten manuelt (som beskrevet under) eller direkte i skjema-editoren i Altinn Studio.
-Merk at siste side sluttbruker var innom nå caches slik at man kommer tilbake til denne siden når appen lastes inn på nytt.
-{{%/notice%}}
+Flere sider kan enkelt settes opp i Altinn Studio, men dersom du ønsker å gjøre det manuelt, se [Oppsett](#oppsett). Det er også noen instillinger som ikke er tilgjengelig i Altinn Studio som eventuelt må settes manuelt; se [Innstillinger](#innstillinger) for det.
 
 ## Oppsett
-For å få funksjonalitet for flere sider i skjema, **må** nuget-versjon til pakkene app'en bruker oppgraderes til versjon `1.2.0-alpha` _eller nyere_.
-Se instrukser for hvordan det gjøres [her](../../../maintainance/dependencies).
 
-Flere sider i skjema (innenfor samme prosess-task) støttes ved å dele opp dagens layout-fil `App/ui/FormLayout.json` i en fil per side. Filene må legges i en mappe `App/ui/layouts`. Hver layout-fil må bruke samme format som den eksisterende `FormLayout.json` filen.  F.eks.:
+Sider plasseres i `ui/layouts`-mappen i appen, for å konfigurere rekkefølgen på sidene, se [Navigasjon](/nb/app/development/ux/pages/navigation/). Dersom du har flere prosess-steg som har egne layoutsider er strukturen litt annerledes; dersom dette er tilfelle, se [Flere skjema](/nb/app/development/ux/pages/layout-sets).
 
 ```
 |- App/
@@ -23,10 +18,53 @@ Flere sider i skjema (innenfor samme prosess-task) støttes ved å dele opp dage
       |- side1.json
       |- side2.json
       |- side3.json
+    |- Settings.json
 ```
 
-Anbefalt fremgangsmåte så lenge det er behov for å sette det opp manuelt, er å bruke ui-editoren i Altinn Studio for å legge inn alle komponentene inn i `FormLayout.json`, for å så kopiere de ut i sine respektive layout-filer, en for hver side man ønsker. `FormLayout.json` kan enten få nytt navn under `layouts`-mappen, eller slettes. 
+## Innstillinger
 
-_Merk: `FormLayout.json` må enten flyttes (evt med nytt navn) inn i `layouts`-mappen, eller slettes. Dersom man har den gamle `FormLayout.json`-filen under `App/ui`-mappen som tidligere, vil kun denne brukes og alle filer under `App/ui/layouts`-mappen ignoreres._ 
+Det er flere ulike innstillinger som kan konfigureres for sidene dine.
+Disse innstillingene konfigureres i `Settings.json`-filen som du kan se i mappestrukturen over og ligger i `pages`-objektet.
+Dersom du bruker layout sets er det en egen fil for hvert sett.
+
+```json
+{
+  "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
+  "pages": {
+    "order": [
+      "Info",
+      "Form",
+      "Summary"
+    ],
+    "excludeFromPdf": [
+      "Info",
+      "Summary"
+    ],
+    "triggers": [
+      "calculatePageOrder",
+      "validatePage"
+    ],
+    "hideCloseButton": false,
+    "showLanguageSelector": false,
+    "showExpandWidthButton": false,
+    "showProgress": true,
+    "pdfLayoutName": "PDFLayout"
+  },
+  ...
+}
+```
+
+De tilgjengelige innstillingene er følgende:
+
+| Egenskap              | Type    | Verdi                                                                                                                                                                            |
+| --------------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| hideCloseButton       | Boolean | Om lukk skjema-knappen øverst i høyre hjørne skal skjules eller ikke.                                                                                                            |
+| showLanguageSelector  | Boolean | Om språkvelgeren skal vises eller ikke. Lar brukeren bytte språk etter de har startet skjemautfylligen.                                                                          |
+| showExpandWidthButton | Boolean | Om utvid bredde-knappen skal vises eller ikke. Lar brukeren utvide bredden til siden slik at den fyller hele nettleservinduet.                                                   |
+| showProgress          | Boolean | se [Navigasjon](/nb/app/development/ux/pages/navigation/#fremdriftsindikator)                                                                                                    |
+| pdfLayoutName         | String  | se [PDF](/nb/app/development/ux/pdf/#egendefinert-konfigurasjon)                                                                                                                 |
+| order                 | Array   | se [Navigasjon](/nb/app/development/ux/pages/navigation/#rekkefølge)                                                                                                             |
+| excludeFromPdf        | Array   | se [PDF](/nb/app/development/ux/pdf/#automatisk-konfigurasjon)                                                                                                                   |
+| triggers              | Array   | se [Navigasjon](/nb/app/development/ux/pages/navigation/#validering-ved-sidebytte), [Sporvalg](/nb/app/development/ux/pages/tracks/#trigge-kalkulering-av-sporvalg-fra-frontend) |
 
 {{<children />}}
