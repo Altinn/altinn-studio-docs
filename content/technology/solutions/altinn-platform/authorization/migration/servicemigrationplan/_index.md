@@ -44,7 +44,7 @@ I dag er det mulig for sluttbruker å benytte API for å slette eller opprette d
 ### Tidsplan
 - Oppstart utvikling: Påbegynt
 - Migrering tjenester avsluttet:  Q1 2023
-- Informasjon sendt til tjenesteeiere finner du [her](/technology/solutions/altinn-platform/authorization/migration/servicemigrationplan/_letter-api-reources/)
+- Informasjon sendt til tjenesteeiere finner du [her](/technology/solutions/altinn-platform/authorization/migration/servicemigrationplan/letter-api-reources/)
 - Frist for å ta i bruk nye API: ikke besluttet
 
 ## Lenketjenester
