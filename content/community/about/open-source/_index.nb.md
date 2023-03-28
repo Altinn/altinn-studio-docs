@@ -73,7 +73,7 @@ og enkelt lenke til saker på tvers av programvare.
 Og siden Altinn er åpen kildekode på GitHub, så er det like enkelt for alle andre å gjøre det samme mot oss.
 Både det å [opprette nye issues](https://github.com/Altinn/altinn-studio/issues/new/choose),
 bidra i diskusjoner eller bidra med kode, noe labelen
-[external-contribution-❤️](https://github.com/Altinn/altinn-studio/pulls?q=is%3Apr+label%3Aexternal-contribution-%E2%9D%A4%EF%B8%8F)
+[external-contribution-❤️](https://github.com/search?q=org%3AAltinn+label%3Aexternal-contribution-%E2%9D%A4%EF%B8%8F)
 illustrerer godt.
 
 
