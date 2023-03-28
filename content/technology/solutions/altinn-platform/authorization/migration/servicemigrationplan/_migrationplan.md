@@ -5,6 +5,9 @@ description: Her finner du foreløpig tidsplan for migrering av tjenester, i hvi
 toc: true
 tags: [architecture, plan, authorizaton]
 ---
+Tidsplanen er snapshot av plan per Q1 2023.
+Det kan forekomme endringer i planen, særlig aktiviteter planlagt langt fram i tid
+For siste oppdaterte plan se [Roadmap for Digdir](https://github.com/orgs/digdir/projects/8) 
 
 
 |Tid   	|Leveranse   	|Beskrivelse   	|
