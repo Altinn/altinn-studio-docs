@@ -31,13 +31,13 @@ Dersom dynamikken ikke fungerer som forventet, ta en titt på koden som definere
 beregninger eller regler for vis/skjul for å se om det er noe feilhåndtering som mangler.
 {{% /notice%}}
 
-{{%notice warning%}}MERK: for å støtte beregning/vis-skjul felter på eldre nettlesere må man skrive 
-javascript koden man legger i `RuleHandler.js` i den versjonen av ECMA-script som den aktuelle nettleseren støtter. 
-For IE11 vil dette være ECMA-script 5. {{%/notice%}}
+{{%notice warning%}}MERK: For å støtte beregning/vis-skjul felter på eldre nettlesere, må man skrive 
+JavaScript-koden man legger i `RuleHandler.js` i den versjonen av ECMAScript som den aktuelle nettleseren støtter. 
+For IE11 vil dette være ECMAScript 5. {{%/notice%}}
 
 ## Legg til/rediger funksjoner for beregninger eller vis/skjul
 
-I filen `RuleHandler.js` er det satt opp 2 javascript-objekter:
+I filen `RuleHandler.js` er det satt opp to JavaScript-objekter:
 
 - `ruleHandlerObject` - funksjoner for beregninger
 - `conditionalRuleHandlerObject` - funksjoner med regler for vis/skjul
@@ -102,7 +102,7 @@ var ruleHandlerObject = {
 }
 ```
 
-Noen standard-metoder for beregniner, med hjelpe-objekt, er satt opp automatisk når app'en lages i Altinn Studio. Noen av disse er vist i eksempelet under.
+Noen standard-metoder for beregninger, med hjelpe-objekt, er satt opp automatisk når appen lages i Altinn Studio. Noen av disse er vist i eksempelet under.
 
 | Method name          | Description                                                      | Parameters              | Defined in object/helper                                      |
 |----------------------| ---------------------------------------------------------------- | ----------------------- | ------------------------------------------------------------- |
