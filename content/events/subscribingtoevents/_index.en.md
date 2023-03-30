@@ -7,8 +7,11 @@ weight: 20
 
 
 {{% notice info %}}
-Do we need anything at top level on this page? 
-Any general info we want to communicate to/about subscribers? 
+A static IP is used in each environment when pushing events to allow subscribers to whitelist the IP address. </br> </br>
+__TT02__: 20.100.24.41  </br> </br>
+__Production__: 20.100.46.139
+
 {{% /notice %}}
+
 
 {{<children />}}
