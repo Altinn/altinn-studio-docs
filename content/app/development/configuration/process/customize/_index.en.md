@@ -336,3 +336,38 @@ Resulting receipt in the application:
 
 ![Custom receipt](custom-receipt.png "Custom receipt")
 
+### Customizing texts in Simple Receipt
+
+Simple receipt is a concept that becomes relevant for those applications that have enabled `AutoDeleteOnProcessEnd: True` in their `applicationmetadata.json` file. For more information on what this implies [read here](https://docs.altinn.studio/nb/app/development/configuration/process/auto-delete/).
+
+The texts in this receipt can also be overridden by manually adding each defined text keys in the apps text resources. More information about how this is done can be found [here](../../../ux/texts).
+In the following section we will present an overview of the different texts that can be customized.
+
+![Simple receipt view](simple-receipt-step.png "Texts that can be customized in the simple receipt view")
+
+| Text # (see image above)  | Text key                |
+|---------------------------|-------------------------|
+| 1                         | receipt.receipt         |
+| 2                         | receipt.title           |
+| 3                         | receipt.body_simple     |
+
+Example of custom texts in the file  `resources.nb.json`:
+
+```json
+{
+    "id": "receipt.receipt",
+    "value": "Søknad om flytting til Sogndal kommune"
+},
+{
+    "id": "receipt.title",
+    "value": "Takk, søknaden er sendt!"
+},
+{
+    "id": "receipt.body_simple",
+    "value": "All data knyttet til denne innsendingen vil slettes etter tjenesteeieren har mottatt det."
+}
+```
+
+This results in the following view:
+
+![Simple receipt view](simple-receipt-step-custom.png "Overridden texts in the simple receipt view")
