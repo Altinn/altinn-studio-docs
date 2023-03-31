@@ -54,6 +54,10 @@ viser redigerings-flaten, og så lenge filteret ikke matcher, vil ikke elementet
 
 Bestemmer om "Legg til ny"-knappen vises under tabellen. Nyttig å skjule denne om man kun ønsker å presentere data.
 
+### showAddButton
+
+Bestemmer om "Legg til ny"-knappen vises under tabellen når selv om en rad er åpen. Dersom man har satt ``"showAddButton": true`` vises knappen under tabellen så lenge man ikke overskrider [maxCount.](http://localhost:1313/nb/app/development/ux/fields/grouping/setup/)
+Kan for eksempel være nyttig i tilfeller der [openByDefault](http://localhost:1313/nb/app/development/ux/fields/grouping/alternatives/#openbydefault) er satt til noe annet enn "false".
 ### saveButton
 
 Bestemmer om "Lagre"-knappen vises når et gruppeelement er i redigeringsmodus. Standard oppførsel om parameteren ikke er satt er at "Lagre"-knapp vises.
