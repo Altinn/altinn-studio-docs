@@ -49,7 +49,8 @@ A group is defined as follows in FormLayout.json:
 | textResourceBindings  | No       | Can be set for repeating groups, see [description](#textresourcebindings).                                                                     |
 | maxCount              | Yes      | The number of times a group can repeat. Set to `1` if the group is not repeating.                                                              |
 | children              | Yes      | List of the fields that are to be included in the group. Field-id from FormLayout.json is used here.                                           |
-| tableHeaders          | No       | List of components that are to be included as part of the table header fields. If not specified, all components are displayed.                 |                                                           |
+| tableHeaders          | No       | List of components that are to be included as part of the table header fields. If not specified, all components are displayed.                 |
+| tableColumns          | No       | Object containing column options for specified headers. If not specified, all columns will use default display settings.                       |
 
 ## textResourceBindings
 It is possible to add different keys in textResourceBindings to overrule default texts.
@@ -76,3 +77,45 @@ Example:
   ...
 },
 ```
+
+## tableColumns
+
+Using the `tableColumns` property makes it is possible to configure the width, text alignment, and number of lines to show in a cell for columns.
+- `width` - set to a string value containing a percentage, ex: `"25%"`, or `"auto"` (default).
+- `alignText` - choose between `"left"`, `"center"` or `"right"` to align text in table cell accordingly.
+- `textOverflow` - is used to controll behaviour when text content is too large for a table cell.
+  - `lineWrap` - set to `false` in order to turn of linebreaking. Default is `true`.
+  - `maxHeight` - sets number of lines before overflowing text is hidden with an elipsis (...). `"maxHeight": 0` results in turning off linebreaking.
+
+Example:
+
+```json
+{
+  ...
+  "tableHeaders": [
+    "streetAdress",
+    "postalNumber",
+    "city"
+  ],
+  "tableColumns": {
+    "streetAdress": {
+      "width": "25%",
+      "alignText": "left",
+      "textOverflow": {
+        "lineWrap": true, 
+        "maxHeight": 1
+      }
+    },
+    "city": {
+      "width": "auto",
+      "alignText": "left",
+      "textOverflow": {
+        "lineWrap": true,
+        "maxHeight": 4
+      }
+    }
+  },
+  ...
+}
+```
+![Example for column options](column-options-example.png "Example for column options")
