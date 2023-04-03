@@ -11,7 +11,6 @@ Altinn 3 kjøres hos Microsoft Azure, som er en av de største skyleverandørene
 
 Å kjøre i skyen har både fordeler og ulemper. Hva skjer hvis forbindelsen mellom datasentrene i Norge og fjernstyringslokasjonen faller ut?
 Hvordan fungerer skytjenestene i krisespennet: fred, krise og krig?
-Det pågår en pandemi og DigDir har allerede erfart at en har måttet gjøre tiltak for å sikre sikker og stabil drift under krisen.
 Datasentrene i Norge var under etablering da pandemien kom. Pandemien gjorde at flere tjenester måtte digitaliseres og etableres.
 Dette skapte et trykk mot datasentrene og skyen måtte sette grenser på hva som kunne provisjoneres grunnet kapasitetsutfordringer.
 DigDir forhåndsreserverte kapasitet for å kunne møte den forventede veksten av Altinn 3.

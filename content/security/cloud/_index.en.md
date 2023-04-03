@@ -14,7 +14,6 @@ and Altinn 3 is primarily located in data centers in Norway.
 Running in the cloud has both advantages and disadvantages.
 What happens if the connection between the data centers in Norway and the remote management location goes down?
 How do cloud services function in times of peace, crisis, and war?
-There is an ongoing pandemic and DigDir has already experienced the need to take measures to ensure secure and stable operation during the crisis.
 The data centers in Norway were still being established when the pandemic arrived.
 The pandemic resulted in the need to digitize and establish several services, which put pressure on the data centers
 and the cloud had to set limits on what could be provisioned due to capacity challenges.
