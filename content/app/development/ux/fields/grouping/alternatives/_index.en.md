@@ -56,8 +56,8 @@ Determines whether the "Add new" button is displayed below the table. It is usef
 
 ### alwaysShowAddButton
 
-Determines whether the "Add new" button is displayed below the table when a row is open. If the property is set ``"alwaysShowAddButton": true`` the button would be visible as long the number of rows has not reached its upper limit, [maxCount.](http://localhost:1313/nb/app/development/ux/fields/grouping/setup/)
-For example, it could be nice to display the button in cases where [openByDefault](http://localhost:1313/nb/app/development/ux/fields/grouping/alternatives/#openbydefault) er satt til noe annet enn "false".
+Determines whether the "Add new" button is displayed below the table when a row is open. It is displayed if ``"alwaysShowAddButton": true`` and the following two conditions are met: (1) [addButton](http://localhost:1313/app/development/ux/fields/grouping/alternatives/#addbutton) is **not** set to ``false``, (2) number of rows has not reached its upper limit, [maxCount.](http://localhost:1313/nb/app/development/ux/fields/grouping/setup/)\
+A use-case for this setting is to allow users to add more rows without clicking to save and close existing rows first, which is especially useful in combination with [openByDefault](http://localhost:1313/nb/app/development/ux/fields/grouping/alternatives/#openbydefault) (where it might not be obvious to the user that more rows can be added).
 
 ### saveButton
 
