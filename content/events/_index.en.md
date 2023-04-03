@@ -8,6 +8,12 @@ aliases:
  - /altinn-events/
 ---
 
+{{% notice warning  %}}
+This section of the documentation is a work in progress. 
+Be adviced there might be  missing or partial documentation related to some sections.
+{{% /notice %}}
+
+
 ## Design goals
 
 Altinn Events was developed to make it easier for digital service developers to deliver dynamic and 
@@ -75,10 +81,6 @@ Here is an example of a typical event:
 }
 ```
 
-In addition to adhering to the specification, cloud events published through Altinn Events must include
-a set of Altinn specific extension attributes used to enable authorization of events 
-and support easier filtering of events for subscribers. 
-
 Here is an example of an event publish through Altinn: 
 
 ```
@@ -93,6 +95,13 @@ Here is an example of an event publish through Altinn:
     "time": "2022-05-12T00:02:07.541482Z"
 }
 ```
+Note the new properties _resource_ and  _resourceinstance_.
+
+
+In addition to adhering to the specification, cloud events published through Altinn Events must include
+a set of Altinn specific extension attributes used to enable authorization of events 
+and support easier filtering of events for subscribers. 
+
 
 ## A note about standards
 
