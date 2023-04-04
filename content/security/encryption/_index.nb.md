@@ -5,10 +5,10 @@ toc: false
 weight: 8
 ---
 
-DigDir følger “NSM Cryptographic Recommendations” (Nasjonal Sikkerhetsmyndighet, 2022).
+DigDir følger [“NSM Cryptographic Recommendations”](https://nsm.no/regelverk-og-hjelp/rad-og-anbefalinger/nsm-cryptographic-recommendations/).
 Data krypteres ved stillstand og ved overføring.
 
-NSM sine «ofte stilte spørsmål om sky og tjenesteutsetting» (Nasjonal Sikkerhetsmyndighet, 2022)
+[NSM sine «ofte stilte spørsmål om sky og tjenesteutsetting»](https://nsm.no/regelverk-og-hjelp/rad-og-anbefalinger/ofte-stilte-sporsmal-om-sky-og-tjenesteutsetting/sporsmal-om-sky-og-tjenesteutsetting/) 
 drøfter problemstillingen ved å benytte kryptering for å beskytte seg mot skyleverandøren.
 DigDir støtter seg til konklusjonen til NSM og har etter vurdering av kompleksitet, løsning og risiko
 bestemt å ikke benytte sikkerhetsenklaver (SGX) eller eksterne HSM-løsninger under prosessering.
@@ -19,8 +19,8 @@ Krypteringsalgoritmen for disse mekanismene er AES-256.
 Krypteringsnøklene som benyttes er hovedsakelig forvaltet av Microsoft/Azure grunnet kompleksitet og risiko ved å administrere krypteringsnøkler selv.
 
 HTTP trafikk blir kryptert med TLS 1.2 (TLS 1.3 der dette er tilgjengelig).
-Qualys SSL Labs (Qualys, 2022) er et verktøy som sjekker og graderer SSL/TLS oppsettet på nettsteder.
-Figur 3 og 4 viser resultatet av altinn.studio og et Altinn.Apps-kluster. 
+[Qualys SSL Labs](https://www.ssllabs.com/) er et verktøy som sjekker og graderer SSL/TLS oppsettet på nettsteder.
+Figur 4 og 5 viser resultatet av altinn.studio og et Altinn.Apps-kluster. 
 
 Kjente og produksjonsklare biblioteker blir brukt for kryptering i applikasjonene.
 Altinn utvikler ikke egne kryptografiske algoritmer/implementasjoner.

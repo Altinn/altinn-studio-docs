@@ -55,7 +55,7 @@ Det er innført både organisatoriske og tekniske tiltak for å redusere disse r
 
 ### Kryptering som beskyttelse mot skyleverandøren
 
-NSM sine «ofte stilte spørsmål om sky og tjenesteutsetting» (Nasjonal Sikkerhetsmyndighet, 2022) drøfter problemstillingen
+[NSM sine «ofte stilte spørsmål om sky og tjenesteutsetting»](https://nsm.no/regelverk-og-hjelp/rad-og-anbefalinger/ofte-stilte-sporsmal-om-sky-og-tjenesteutsetting/sporsmal-om-sky-og-tjenesteutsetting/) drøfter problemstillingen
 å benytte kryptering for å beskytte seg mot skyleverandøren. Siden skyleverandøren har kontroll på hypervisor-laget
 vil skyleverandøren også ha tilgang til krypteringsnøkler i minne eller nøklene som benyttes for å aksessere en ekstern HSM-tjeneste.
 Eneste kjente beskyttelsesmetode vil være å holde all kryptering inkludert nøkkelhåndtering utenfor skyleverandørens kontroll.

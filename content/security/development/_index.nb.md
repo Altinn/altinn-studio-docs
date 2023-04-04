@@ -15,8 +15,7 @@ Utviklingsprosessen blir kontinuering forbedret.
 ![Secure DevOps](devops.png "Figur 2 - Secure DevOps")
 
 For å kunne sette utviklerne i fokus foretrekkes bruk av sikkerhetsverktøy og automatisering der dette er mulig.
-Dette er f. eks integrasjon med sikkerhetsverktøy i bygge- og deployprosessene der identifiserte sikkerhetsfeil stopper prosessene.
-Nærmere bruk av verktøyene er beskrevet på (Altinn, 2022).
+Dette er f. eks integrasjon med [sikkerhetsverktøy](/community/contributing/handbook/securecoding/) i bygge- og deployprosessene der identifiserte sikkerhetsfeil stopper prosessene.
 
 Altinn har flere viktige arkitekturprinsipper som understøtter sikkerhet:
 

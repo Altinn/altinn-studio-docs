@@ -16,8 +16,8 @@ The development process is continuously improved.
 ![Secure DevOps](devops.png "Figure 2 - Secure DevOps")
 
 To be able to put the developers in focus, the use of security tools and automation is preferred where possible.
-This includes integration with security tools in the build and deploy processes where identified security flaws stop the processes.
-Further use of the tools is described on (Altinn, 2022).
+This includes integration with [security tools](/community/contributing/handbook/securecoding/) in the build and deploy processes where identified security flaws stop the processes.
+
 
 Altinn has several important architecture principles that support security:
 

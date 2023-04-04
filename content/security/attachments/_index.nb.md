@@ -1,5 +1,5 @@
 ---
-title: Vedlegg
+title: Tillegg
 description: 
 toc: true
 weight: 13

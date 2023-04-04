@@ -24,11 +24,6 @@ DigDir has not experienced any other major operational disruptions caused by Azu
 ⚠ Service owners must consider operational requirements during crisis situations.
 {{%/notice%}}
 
-Microsoft investerer mye i sikkerhet. Både i teknologien de utvikler,
-men også rundt dokumentasjon og verktøy på hvordan en skal ta i bruk løsningene på en sikker måte.
-Mer om dette kan man finne på Microsoft sitt «trust center» (lenke).
-«Trust center» inneholder også informasjon om hvilke sertifiseringer og revisjoner de har gjennomgått. 
-
 Microsoft invests heavily in security, not only in the technology they develop
 but also in documentation and tools for using their solutions securely.
 More information on this can be found on Microsoft's "Trust Center".
@@ -64,7 +59,7 @@ Both organizational and technical measures have been introduced to reduce these 
 
 ### Encryption as protection against the cloud provider
 
-NSM's "Frequently Asked Questions about Cloud and Service Outsourcing" (National Security Authority, 2022)
+[NSM's "Frequently Asked Questions about Cloud and Service Outsourcing"](https://nsm.no/regelverk-og-hjelp/rad-og-anbefalinger/ofte-stilte-sporsmal-om-sky-og-tjenesteutsetting/sporsmal-om-sky-og-tjenesteutsetting/)
 discusses the issue of using encryption to protect against the cloud provider.
 Since the cloud provider has control over the hypervisor layer, the cloud provider will also
 have access to encryption keys in memory or the keys used to access an external HSM service.
