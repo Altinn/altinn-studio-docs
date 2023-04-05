@@ -55,11 +55,18 @@ Accepted format is  `2023-06-16 08:22:19Z`
 - the person number representing the person in the cloud event's alternative subject
 
 #### source
+- the event sources to include, type: array[string]
+
+The source parameter supports wildcard _%_ to escape unknown number of characters 
+e.g. _https://digdir.apps.altinn.no/digdir/%_
 
 #### type
-#### size
-- short description, type: URL
+- the event types to include, type: array[string]
 
+#### size
+- size of the result set, type: string
+  
+Default size is set to 50 events
 
 ## Response
 
