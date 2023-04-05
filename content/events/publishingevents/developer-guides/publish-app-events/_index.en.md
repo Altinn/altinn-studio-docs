@@ -78,7 +78,7 @@ and `/org/987564321`.
 ## Response
 A successful registration of the cloud event should result in a _200 OK_ response without any data.
 
-### Supported content-types
+### Content-Type
 - application/json
 
 ### Response codes

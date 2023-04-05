@@ -76,7 +76,7 @@ and `/org/987564321`.
 ## Response
 A successful registration of the cloud event should result in a _200 OK_ response without any data.
 
-### Supported content-types
+### Content-Type
 - application/cloudevents+json
 - application/json
 
@@ -99,7 +99,7 @@ Note that an Altinn Token should be included in the authorization header.
 curl \
 --location 'https://plaform.altinn.no/events/api/v1/events' \
 --header 'Content-Type: application/cloudevents+json' \
---header 'Authorization: Bearer [insert Altinn token]' \
+--header 'Authorization: Bearer {insert Altinn token}' \
 --data '{
     "id": "288f71f2-8cbd-3442-1532-ac14f3fd9faa",
     "type": "no.altinn.events.digitalt-dodsbo.opprettet", 
