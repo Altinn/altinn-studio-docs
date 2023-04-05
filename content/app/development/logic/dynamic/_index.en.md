@@ -21,30 +21,30 @@ There are two ways to add and change dynamics for an Altinn App:
 1. Directly in Altinn Studio under _Lage_-tab. Select _Rediger dynamikk_ in the right menu.
 2. In a local development environment by working in the file `RuleHandler.js` which can be found in the `App/ui` folder.
 
-All dynamics are written as Javascript functions in the _RuleHandler_ file.
+All dynamics are written as JavaScript functions in the _RuleHandler_ file.
 Functions that are defined in this file can be configured to run for selected fields in the app.
 
 
 {{%notice info%}}
 The dynamic code to show/hide fields or perform calculations should be set up so that it handles possible errors in the input gracefully.
-It should for instance handle empty fields or strings where you expect numbers without crashing.
+It should, for instance, handle empty fields or strings where you expect numbers without crashing.
 If the dynamic does not work as expected, take a look at the code that defines the dynamic and verify that it handles errors.
 {{% /notice%}}
 
 {{% notice warning %}}
-NOTE: in order to support dynamics in older browsers the code defined in `RuleHandler.js` must be written in the version of ECMA-script as the given browser supports.
-For IE11 this is ECMA-script 5.
+NOTE: In order to support dynamics in older browsers the code defined in `RuleHandler.js` must be written in the version of ECMAScript that the given browser supports.
+For IE11 this is ECMAScript 5.
 {{% /notice %}}
 
 ## Add or edit functions for dynamics
 
-There are two javascript objects in the file `RuleHandler.js`:
+There are two JavaScript objects in the file `RuleHandler.js`:
 
 - `ruleHandlerObject` - functions for calculations
 - `conditionalRuleHandlerObject` - functions for hiding/showing fields
 
 It is in these objects the functions should be defined. In addition to these there are two _help objects_ (`ruleHandlerHelper` and `conditionalRuleHandlerHelper`), where you configure what input the different functions expect. This is done in order to be able to configure up rules in Altinn Studio at a later point.
-To be able to configure dynamics in studio the functions must be defined in the Javascript objects (`ruleHandlerObject` or `conditionalRuleHandlerObject`), and the parameters they expect in the corresponding helper object.
+To be able to configure dynamics in studio the functions must be defined in the JavaScript objects (`ruleHandlerObject` or `conditionalRuleHandlerObject`), and the parameters they expect in the corresponding helper object.
 
 The structure of the help object:
 

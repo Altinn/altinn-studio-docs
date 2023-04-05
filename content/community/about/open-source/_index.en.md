@@ -71,7 +71,7 @@ and easily link to issues across software.
 And since Altinn is open source at Github, it is as easy for everyone else to do the same thing to us.
 Both [creating new issues](https://github.com/Altinn/altinn-studio/issues/new/choose),
 contribute in discussions or contribute code, something the label
-[external-contribution-❤️](https://github.com/Altinn/altinn-studio/pulls?q=is%3Apr+label%3Aexternal-contribution-%E2%9D%A4%EF%B8%8F)
+[external-contribution-❤️](https://github.com/search?q=org%3AAltinn+label%3Aexternal-contribution-%E2%9D%A4%EF%B8%8F)
 illustrates well.
 
 ## Vendor bindings

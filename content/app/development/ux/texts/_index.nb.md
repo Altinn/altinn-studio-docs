@@ -427,7 +427,7 @@ Bildet nedenfor viser hvilke tekstnøkler som styrer hvilken del av brukergrense
 
 **Merk!** Disse tekstendringene vil **ikke** være synlige når du tester appen din lokalt, de synes kun i eksternt testmiljø, f.eks.**TT02**.
 Du vil se endringene når du åpner et allerede arkivert skjema fra Arkivet ved å trykke på knappen "Se innsendt skjema".
-Per nå blir ikke disse modifiserte tekstene brukt under selve innsendingen av skjemaet (det ligger en sak på dette på github).
+Disse modifiserte tekstene gjelder kun kvittering i arkiv og vil ikke ha noen effekt på kvitteringen som brukeren ser etter et skjema er ferdig utfylt. Se [kvittering](../../configuration/process/customize/#kvittering-receipt) for informasjon om hvordan du kan tilpasse både tekstene og layouten for denne kvitteringen.
 
 ![image](https://user-images.githubusercontent.com/42466346/159928882-e3268bd4-6057-4ca5-aaf2-f417cffcc0f9.png)
 

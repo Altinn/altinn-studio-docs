@@ -6,15 +6,16 @@ toc: true
 weight: 1
 ---
 
-Plattformen er eid av Digitaliseringsdirektoratet og utviklet som en åpen kildekode-plattform.
+Altinn eies av [Digitaliseringsdirektoratet](https://www.digdir.no/digdir/om-digitaliseringsdirektoratet/1547) og utvikles som åpen kildekode.
 
 Den nåværende løsningen og plattformen (Altinn II - lansert i 2010) regnes av Gartner som en
 av verdens fem ledende plattformer for digitale myndigheter.
 
 ![Gartner](gartner.png "Gartner")
 
-Plattformen brukes av over 90 % av den norske befolknigen og nær 100 % av alle virksomheter
-Mer enn 62 etater, fylkeskommuner og kommuner bruker Altinn som platform for sine tjenester.
+Plattformen brukes av over 90 % av den norske befolknigen og nær 100 % av alle virksomheter.  
+Mer enn 65 etater, fylkeskommuner og kommuner bruker Altinn som platform for sine tjenester, og 
+næringslivet rapporterer at [bruken av Altinn sparer bedrifter for over 15 milliarder per år](https://www.digdir.no/digitale-felleslosninger/altinn-gir-rekordinnsparing-naeringslivet/1912).
 
 Det finnes nær 1000 aktive tjenester på plattformen som dekker ulike bruksscenarier.  
 Eksempler på slike tjenester er skattemeldingen, rapportering av ulykker i luftfarten, meldinger fra forsvaret,
@@ -39,12 +40,12 @@ Når applikasjonen er produksjonssatt til Altinn Apps er den tilgjengelig for s�
 
 Det er mange grunner til å bruke Altinn 3 til å bygge og kjøre dine digitale tjenester.
 
-- Applikasjons-template som har innebygd funksjonalitet for de vanligste bruksområdene for digitale tjenester
+- Applikasjonsmal som har innebygd funksjonalitet for de vanligste bruksområdene for digitale tjenester
 - Lett å utvikle og kjøre applikasjoner
 - Gjenbruk av data, brukergrensesnitt, APIer og funksjonalitet
 - En kjent plattform for sluttbrukerne
 - Svært skalerbar og sikker infrastruktur
-- [Åpen kildekode](https://github.com/Altinn/altinn-studio)
+- [Åpen kildekode](open-source)
 - Tilgang til så godt som alle privatpersoner og virksomheter i Norge
 
 ## Når ble Altinn 3 lansert?
