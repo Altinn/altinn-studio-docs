@@ -1,6 +1,6 @@
 ---
 title: Grant subscribers access
-linktitle: Subscriber access
+linktitle: Grant subscribers access
 description: Guide on granting subscribers access to produced events
 weight: 50
 ---
@@ -11,7 +11,7 @@ resource in the resource registry.
 
 {{% notice info  %}}
 
-WIP: Do we have any doc we could include here to guide the user's Team Authorization? 
+TODO: Do we have any doc we could include here to guide the users, Team Authorization? 
 {{% /notice %}}
 
 
