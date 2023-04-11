@@ -6,7 +6,6 @@ weight: 40
 ---
 
 {{% notice warning %}}
-
 Altinn Events enables event driven integration patterns, designed specifically to ***avoid*** the need for 
 continuously requesting resources, also known as 'polling'. <br/> <br/>
 However, in order to allow for smooth and incremental architectural migrations, 

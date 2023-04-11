@@ -1,6 +1,6 @@
 ---
-title: Subscribing to events
-linktitle: Subscribing to events
+title: Subscribe to events
+linktitle: Subscribe to events
 description: Documentation for event subscribers
 weight: 20
 ---

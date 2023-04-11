@@ -1,6 +1,6 @@
 ---
-title: Publishing events
-linktitle: Publishing events
+title: Publish events
+linktitle: Publish events
 description: Documentation for event publishers
 weight: 20
 ---
