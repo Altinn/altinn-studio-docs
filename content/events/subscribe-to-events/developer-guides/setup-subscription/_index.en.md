@@ -11,7 +11,7 @@ toc: true
 
 POST /subscriptions
 
-## Authentication 
+## Authentication
 
 This API requires authentication.
 
@@ -33,7 +33,7 @@ serialized as JSON.
 {{% notice info %}}
 The list of required properties below shows what is generally required.
 Requirements vary based on who the subscriber is and what type of resource
-the subscription is targeting. Please use documentation below as guidance and refer to the problems details 
+the subscription is targeting. Please use documentation below as guidance and refer to the problems details
 if your subscription request is not being accepted.
 {{% /notice %}}
 
@@ -59,19 +59,19 @@ Property supports wildcard _%_ for an unknown string e.g. `https://digdir.apps.a
 - filter for the cloud event's alternative subject
 
 #### typeFilter
-- filter for the cloud event type. 
+- filter for the cloud event type.
 
 Omit this property if you want to subscribe to all events types for the given source and/or resource
 
 ## Response
 
-A successful subscription registration should result in a 201 created response with the 
+A successful subscription registration should result in a 201 created response with the
 [subscription](https://raw.githubusercontent.com/Altinn/altinn-events/main/src/Events/Models/Subscription.cs)
 serialized as a JSON string in the response body.
 
 The 201 response code does indicate whether or not the subscription has been validated.
 Altinn will only start pushing events to a subscription endpoint once the subscription endpoint has been validated.
-You may retrieve your subscription by using the subscription id to ensure that you subscription has been validated ok.
+You may retrieve your subscription by using the subscription ID to ensure that you subscription has been validated ok.
 
 
 ### Content-Type
@@ -82,7 +82,7 @@ You may retrieve your subscription by using the subscription id to ensure that y
 
 
 
-- 401 Unauthorized: Indicates a missing, invalid or expired authorization header or that consumer is not allowed 
+- 401 Unauthorized: Indicates a missing, invalid or expired authorization header or that consumer is not allowed
   to subscribe to events from this resource based on filter parameters
 - 403 Forbidden: Indicating is missing required scope for subscribing to events
 
@@ -99,7 +99,7 @@ curl \
 --header 'Authorization: Bearer {insert Altinn token}' \
 --header 'Content-Type: application/json' \
 --data '{
-  "sourceFilter": "https://digdir.apps.altinn.no/digdir/demoapp/%", 
+  "sourceFilter": "https://digdir.apps.altinn.no/digdir/demoapp/%",
   "endpoint":"https://webhook.site/"
   }'
 ```

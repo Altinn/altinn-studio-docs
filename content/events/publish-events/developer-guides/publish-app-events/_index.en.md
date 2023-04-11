@@ -9,23 +9,23 @@ toc: true
 {{% notice info %}}
 The publishing of app events is handled by core logic in the application.
 
-If you are an application developer, please reference the 
-[Altinn Apps documentation for guidance](../../../../app/development/configuration/events/) on how to 
+If you are an application developer, please reference the
+[Altinn Apps documentation for guidance](../../../../app/development/configuration/events/) on how to
 enable the events functionality and defining custom events in your Altinn App.
 {{% /notice %}}
 
 
-## Endpoint 
+## Endpoint
 
 POST /app
 
-## Authentication 
+## Authentication
 This API requires authentication and a Platform Access Token in the header.
 
 See [Authentication and Authorization](../../../api/#authentication--authorization) for more information.
 
 
-## Request 
+## Request
 
 ### Content-type
 
@@ -34,10 +34,10 @@ application/json
 
 ### Request body
 The request body should contain the cloud event formatted as a
-[AppCloudEventRequestModel](https://github.com/Altinn/altinn-events/blob/main/src/Events/Models/AppCloudEventRequestModel.cs) 
+[AppCloudEventRequestModel](https://github.com/Altinn/altinn-events/blob/main/src/Events/Models/AppCloudEventRequestModel.cs)
 and serialized as a JSON string.
 
-Events will handle setting id and time on the cloud event.
+Events will handle setting ID and time on the cloud event.
 
 ### Required cloud event properties and extension attributes
 
@@ -48,8 +48,8 @@ Events will handle setting id and time on the cloud event.
 - event source of the cloud event, type: URI
 
 #### subject
-- party id for the instanceOwner, type: string
-  
+- party ID for the instanceOwner, type: string
+
 
 Format of the subject string: _/party/{partyId}_
 
@@ -58,8 +58,8 @@ Format of the subject string: _/party/{partyId}_
 
 ### Optional cloud event properties and extension attributes
 {{% notice info %}}
-In addition to the properties stated below, all properties defined in the 
-[AppCloudEventRequestModel](https://github.com/Altinn/altinn-events/blob/main/src/Events/Models/AppCloudEventRequestModel.cs) 
+In addition to the properties stated below, all properties defined in the
+[AppCloudEventRequestModel](https://github.com/Altinn/altinn-events/blob/main/src/Events/Models/AppCloudEventRequestModel.cs)
 will be accepted.
 {{% /notice %}}
 
@@ -68,10 +68,10 @@ will be accepted.
 
 The alternative subject should be an identifier that is commonly known to your subscribers.
 This property is supported as a query/filter parameter when subscribing or querying events.
-We recommend to include an alternative subject if the subject property is an internal id 
+We recommend to include an alternative subject if the subject property is an internal ID
 that is unknown to the event subscribers
 
-For Altinn-related events alternative subject follows the format `/person/16069412345` 
+For Altinn-related events alternative subject follows the format `/person/16069412345`
 and `/org/987564321`.
 
 
@@ -82,16 +82,16 @@ A successful registration of the cloud event should result in a _200 OK_ respons
 - application/json
 
 ### Response codes
-- 201 Created: The cloud event was registered successfully  
+- 201 Created: The cloud event was registered successfully
 - 400 Bad Request: The request was invalid.
-  
+
   Refer to problem details in response body for further information.
 - 401 Unauthorized: Indicates a missing, invalid or expired authorization header or that app is not authorized to publish events for the provided source.
 - 403 Forbidden: Indicates that Platform Access Token is missing or invalid.
 
 ## Examples
 
-### Request 
+### Request
 
 Note that the Platform Access and Altinn tokens should be inserted in the headers.
 
@@ -113,7 +113,7 @@ curl \
 ### Response
 
 #### 200 OK
-Response contains the id for the cloud event.
+Response contains the ID for the cloud event.
 
 ```json
 "4815d141-8cf6-4555-8c3c-e069c7b80c79"
