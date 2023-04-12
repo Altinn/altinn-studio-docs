@@ -54,6 +54,11 @@ and as long as the filter does not match, the element will not be displayed.
 
 Determines whether the "Add new" button is displayed below the table. It is useful to hide this if you only wish to display data.
 
+### alwaysShowAddButton
+
+Determines whether the "Add new" button is displayed below the table when a row is open. It is displayed if ``"alwaysShowAddButton": true`` and the following two conditions are met: (1) [addButton](http://localhost:1313/app/development/ux/fields/grouping/alternatives/#addbutton) is **not** set to ``false``, (2) number of rows has not reached its upper limit, [maxCount.](http://localhost:1313/nb/app/development/ux/fields/grouping/setup/)\
+A use-case for this setting is to allow users to add more rows without clicking to save and close existing rows first, which is especially useful in combination with [openByDefault](http://localhost:1313/nb/app/development/ux/fields/grouping/alternatives/#openbydefault) (where it might not be obvious to the user that more rows can be added).
+
 ### saveButton
 
 Determines whether the "Save" button is displayed when a group element is in editing mode. The default behaviour if the parameter is not set is for the "Save" button to be displayed.
