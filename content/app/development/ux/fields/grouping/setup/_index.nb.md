@@ -98,19 +98,22 @@ Eksempel:
   ],
   "tableColumns": {
     "streetAdress": {
-      "width": "25%",
+      "width": "20%",
       "alignText": "left",
       "textOverflow": {
         "lineWrap": true, 
         "maxHeight": 1
       }
     },
+    "postalNumber": {
+      "alignText": "right"
+    },
     "city": {
       "width": "auto",
       "alignText": "left",
       "textOverflow": {
         "lineWrap": true,
-        "maxHeight": 4
+        "maxHeight": 3
       }
     }
   },
