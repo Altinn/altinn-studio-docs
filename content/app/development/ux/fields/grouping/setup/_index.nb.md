@@ -51,9 +51,12 @@ En gruppe defineres på følgende måte i FormLayout.json:
 | children              | Ja      | Liste over de feltene som skal inngå i gruppen. Her brukes felt-id fra FormLayout.json                                                                        |
 | tableHeaders          | Nei     | Liste over komponentener som skal inngå som en del av tabell header feltene. Om ikke spesifisert så vises alle komponentene.                                  |
 | tableColumns          | Nei     | Objekt som inneholder valg på kolonneformatering for spesifikke tabell header felter. Om ikke spesifisert, vil alle kolonnene bruke en standard fremvisning.  |
+
 ## textResourceBindings
+
 Det er mulig å legge til ulike nøkler i textResourceBindings for å overstyre default tekster.
-- `add_button` - blir lagt til på enden av "Legg til ny" teksten på knappen, og kan brukes til å f.eks ha tekst som sier "Legg til ny person". 
+
+- `add_button` - blir lagt til på enden av "Legg til ny" teksten på knappen, og kan brukes til å f.eks ha tekst som sier "Legg til ny person".
 - `save_button` - blir brukt som tekst i "Lagre"-knappen når brukeren fyller ut data.
 - `save_and_next_button` - blir brukt som tekst i "Lagre og åpne neste"-knappen dersom denne er aktivert.
 - `edit_button_open` - blir brukt som tekst i "Endre" knappen i tabellen når brukeren skal åpne et element.
@@ -80,6 +83,7 @@ Eksempel:
 ## tableColumns
 
 Ved å bruke `tableColumns` er de mulig å konfigurere bredden, tekst plassering, og anntall linjer som vises før overfløding tekst skjules.
+
 - `width` - streng verdi som inneholder en prosent, ex: `"25%"`, eller `"auto"` (default).
 - `alignText` - velg mellom `"left"`, `"center"` eller `"right"` for å plassere tekst i celler tilsvarende.
 - `textOverflow` - brukes for å kontrollere oppførsel når tekst innhold er for stort til å vises i en celle.
@@ -120,4 +124,5 @@ Eksempel:
   ...
 }
 ```
+
 ![Eksempel for kolonne options](column-options-example.png "Eksempel for kolonne options")
