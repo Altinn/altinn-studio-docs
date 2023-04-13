@@ -81,7 +81,7 @@ Setup in `FormLayout.json` from the example above:
 ```
 ## Hide rows within repeating groups
 
-Sometimes you want to hide rows within a repeating group when some criteria are met.
+Sometimes you want to hide rows within repeating groups when some criteria are met.
 This can be done with expression by using the `hiddenRow` property. The example below shows how to
 hide a row when the firstName within the data model is equal to "John".
 

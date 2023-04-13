@@ -83,7 +83,7 @@ Oppsett i `FormLayout.json` fra eksempelet over:
 ## Skjul rader i repeterende grupper.
 
 Noen ganger er det ønskelig å skjule rader i repeterende grupper når gitte kriterier inntreffer.
-Dette kan gjøres ved å bruke `hiddenRow` egenskapen som evalueres med dynamiske utrykk. I eksempelet under viser hvordan
+Dette kan gjøres ved å bruke `hiddenRow` egenskapen som evalueres med dynamiske utrykk. Eksempelet under viser hvordan
 vi kan skjule en rad dersom fornavn i datamodellen er lik "John".
 
 ```json {linenos=inline}
