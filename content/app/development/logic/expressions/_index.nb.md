@@ -125,6 +125,7 @@ Dynamiske uttrykk er foreløpig tilgjengelig for bruk i disse egenskapene, som d
 | Alle                                                      | `hidden`                                        | [Boolsk](#boolske-verdier) | ✅        | ✅       |
 | Skjemakomponenter                                         | `required`                                      | [Boolsk](#boolske-verdier) | ✅        | ✅       |
 | Skjemakomponenter                                         | `readOnly`                                      | [Boolsk](#boolske-verdier) | ✅        | ❌       |
+| [Repeterende grupper](../../ux/fields/grouping/repeating) | `hiddenRow`                                     | [Boolsk](#boolske-verdier) | ✅        | ❌       |
 | [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.addButton`                                | [Boolsk](#boolske-verdier) | ✅        | ❌       |
 | [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.saveButton`                               | [Boolsk](#boolske-verdier) | ✅        | ❌       |
 | [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.deleteButton`                             | [Boolsk](#boolske-verdier) | ✅        | ❌       |
@@ -171,6 +172,8 @@ resultatet til `false` når det blir brukt i en `if`. Les mer detaljert om dette
 
 {{% /expandlarge %}}
 
+
+
 ### Testing, feilsøking og utvikling av uttrykk
 
 Når man skal skrive et uttrykk er det greit å vite noenlunde hva resultatet kommer til å bli, og om uttrykket er gyldig.
@@ -190,6 +193,7 @@ applikasjonen, kan du prøve å sende inn en tom streng eller ugyldig komponent-
 til hvilke ID-er du kan bruke.
 
 {{% expandlarge id="rep-group-expandable" header="Eksempel på ID-er og evaluering i repterende grupper" %}}
+
 
 **NB:** Her beskrives noen implementasjonsdetaljer i [app-frontend-react](https://github.com/Altinn/app-frontend-react/),
 og er kun relevant når du skal prøve et uttrykk i JavaScript-konsollet som er avhengig av en kjent posisjon i en
