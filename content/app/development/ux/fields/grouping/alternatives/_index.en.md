@@ -29,8 +29,8 @@ The following values are allowed:
 ### filter
 
 {{%notice warning%}}
-This functionality will be deprecated and you should use hiddenRow with expressions instead. 
-Please read more about hiddenRow [here](/app/development/ux/fields/grouping/repeating/#hide-rows-within-repeating-groups).
+This functionality will be deprecated and you should use `hiddenRow` with expressions instead. 
+Please read more about `hiddenRow` [here](/app/development/ux/fields/grouping/repeating/#hide-rows-within-repeating-groups).
 {{% /notice %}}
 
 Support to filter elements in group, so that only the elements matching the defined criteria are displayed.
