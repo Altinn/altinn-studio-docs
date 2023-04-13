@@ -119,5 +119,5 @@ version: 1.1.0
 dependencies:
 - name: deployment
   repository: https://charts.altinn.studio/
-  version: 2.5.0                                <--- Update this
+  version: 2.8.0                                <--- Update this
 ```
