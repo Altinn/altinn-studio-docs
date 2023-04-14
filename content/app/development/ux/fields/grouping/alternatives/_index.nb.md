@@ -28,6 +28,12 @@ Følgende verdier godtas:
 
 ### filter
 
+{{%notice warning%}}
+ Denne funksjonaliteten vil bli avviklet. Vennligst bruk `hiddenRow` med dynamiske utrykk istedenfor. 
+ Du finner mer informasjon om `hiddenRow` [her](/nb/app/development/ux/fields/grouping/repeating/#skjul-rader-i-repeterende-grupper).
+{{% /notice %}}
+
+
 Støtte for å filtrere elementene i gruppen, slik at kun de elementene som matcher de definerte kriteriene vises.
 F.eks. i en gruppe som viser arbeidserfaring, vis kun de elementene der arbeidssted var Oslo.
 Liste med kriterier er basert på verdi av ett eller flere felter i gruppen, på formen
