@@ -3,6 +3,7 @@ title: Query events
 linktitle: Query events
 description: Developer guide on how to retrieve events using the Events API
 weight: 40
+toc: true
 ---
 
 {{% notice warning %}}

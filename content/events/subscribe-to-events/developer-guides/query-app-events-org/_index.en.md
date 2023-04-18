@@ -3,6 +3,7 @@ title: Query app events as application owner
 linktitle: Query app events - org
 description: Developer guide on how to query app events as an application owner
 weight: 40
+toc: true
 ---
 
 

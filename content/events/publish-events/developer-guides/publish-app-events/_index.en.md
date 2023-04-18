@@ -7,11 +7,14 @@ toc: true
 ---
 
 {{% notice info %}}
-The publishing of app events is handled by core logic in the application.
 
-If you are an application developer, please reference the
-[Altinn Apps documentation for guidance](../../../../app/development/configuration/events/) on how to
-enable the events functionality and defining custom events in your Altinn App.
+**Are you an Altinn App developer?**
+
+Please reference the [Altinn Apps documentation for guidance](../../../../app/development/configuration/events/) 
+on how to enable the events functionality and define custom events in your Altinn App.</br></br>
+
+As the publishing of app events is handled by core logic in the application, this documentation 
+is only relevant for developers working with core application logic i.e. the application template.
 {{% /notice %}}
 
 

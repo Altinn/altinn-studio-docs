@@ -3,6 +3,7 @@ title: Query app events as end user
 linktitle: Query app events - end user
 description: Developer guide on how to query app events as an end user or end user system
 weight: 40
+toc: true
 ---
 
 {{% notice warning %}}
