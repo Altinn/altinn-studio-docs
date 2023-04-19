@@ -1,0 +1,14 @@
+{{/* First param should be full path to the file.
+ Following parameters will be replaces based on a 0-index.
+ Placeholders must use format {0}, {1}... {n} */}}
+
+
+{{ $content := readFile (.Get 0) }}
+{{ if $content }}
+{{ range $index, $param := .Params }}
+  {{ if ne $index 0 }}
+    {{ $content = replace $content (printf "{%d}" (sub $index 1)) $param }}
+{{ end }}
+  {{- end -}}
+  {{ $content | markdownify}}
+{{ end }}
