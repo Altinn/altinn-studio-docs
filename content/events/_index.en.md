@@ -8,10 +8,14 @@ aliases:
  - /altinn-events/
 ---
 
+
 {{% notice warning  %}}
 This section of the documentation is a work in progress. 
 Be adviced there might be  missing or partial documentation related to some sections.
 {{% /notice %}}
+
+
+{{% include "content/events/testing.md" %}}
 
 
 ## Design goals
@@ -89,7 +93,7 @@ Here is an example of an event publish through Altinn:
     "source":"https://someservice.com/rest/path/object-id-1234",
     "specversion":"1.0",
     "type":"app.instance.created",
-    "resource":"urn:altinn:rr:someservice.resource",
+    "resource":"urn:altinn:resource:someservice.resource",
     "resourceinstance":"object-id-1234"
     "subject":"/party/50019855",
     "time": "2022-05-12T00:02:07.541482Z"
