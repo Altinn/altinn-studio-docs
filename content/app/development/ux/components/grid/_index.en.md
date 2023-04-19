@@ -65,6 +65,13 @@ configure a row as read-only, add a `readOnly` property to the row and set it to
 Note that components inside a `readOnly` are not automatically set to `readOnly` as well. If you want to make a component
 inside a `readOnly` row read-only, you need to configure it manually for that component.
 
+Rows can also be hidden, and a whole row will automatically be hidden if the following rules are met:
+1. The row has at least one component reference (not just empty cells and text cells)
+2. All component references in the row points to components that are currently hidden
+
+In other words, rows that only have text cells will never be hidden, and even if the row has text cells, these cells
+will not be taken into account when the Grid component decides whether to hide the row or not.
+
 ### Cells
 Cells can be configured to be either a text cell or a component cell. To configure a cell as a text cell, add a `text`
 property to the cell and set it to the text you want to display. You can also specify a text resource key as the text
@@ -100,6 +107,11 @@ Currently, a selection of components are supported in the Grid component. These 
 
 For RadioButtons and Checkboxes, the option label will not be displayed if there is only one option to choose from
 when being displayed inside a Grid.
+
+When displayed in a table, components will not render their `title` and `description` text resources. However, these
+text resources should still be set on the component, as they will be used for accessibility purposes, and will still
+be displayed when the component is displayed outside of a Grid - such as on [smaller screens](#mobile-support) and in
+[a Summary](../../pages/summary). 
 
 ### Widths, text and alignment
 
@@ -217,3 +229,14 @@ when being displayed inside a Grid.
 {{% /expandlarge %}}
 
 ## Mobile support
+
+![Grid on mobile](grid-mobile.png "Components in the examples above are displayed as single components on smaller screens")
+
+Grid arrangement of components is useful to give the user a better overview of the content of a page and related
+fields when the screen is large enough. However, such a table view is not optimal for smaller screens, so the Grid
+component will automatically display the components (as if they were not part of a Grid) on smaller screens. The order
+of the components will be the same as the order of the rows and cells in the Grid configuration (one row at a time),
+and the order of the components as they are defined in the layout configuration has no significance.
+
+The same applies to displaying a Grid component in [a Summary](../../pages/summary), where the same components
+referenced in the Grid will be displayed as a summary of single components.

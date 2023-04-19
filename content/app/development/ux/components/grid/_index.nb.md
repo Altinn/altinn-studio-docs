@@ -66,6 +66,13 @@ konfigurere en rad som skrivebeskyttet, legg til en `readOnly`-egenskap til rade
 Merk at komponenter inni en `readOnly`-rad ikke blir automatisk satt til `readOnly`. Hvis du vil gjøre en
 komponent skrivebeskyttet inni en `readOnly`-rad, må du konfigurere den slik manuelt.
 
+Rader kan også skjules, og en hel rad vil automatisk skjules dersom følgende regler oppfylles:
+1. Raden har minst en komponent-referanse (ikke bare tomme celler og tekst-celler)
+2. Alle komponent-referansene i raden peker på komponenter som for tiden er skjult
+
+Rader som bare har tekst-celler vil med andre ord aldri bli skjult, og selv om raden har tekst-celler blir ikke disse
+cellene regnet med når Grid-komponenten skal velge om raden skal skjules eller ikke.
+
 ### Celler
 Celler kan konfigureres til å vise tekst eller en annen komponent. For å konfigurere en celle som viser tekst,
 legg til en `text`-egenskap til cellen og sett den til teksten du vil vise. Du kan også angi en tekstressursnøkkel
@@ -101,6 +108,10 @@ layout-konfigurasjonen. Foreløpig er det støtte for følgende komponenter i Gr
 
 Spesielt for `RadioButtons` og `Checkboxes` er at merkelappen som indikerer valget ikke blir vist dersom det bare
 finnes et valgalternativ å velge mellom.
+
+Når komponenter vises i en tabell, vil de ikke vise `title`- og `description`-tekstressurser. Disse tekstressursene
+bør likevel settes på komponenten, da de vil bli brukt for tilgjengelighet og vil fortsatt bli vist når komponenten
+vises utenfor en Grid - som på [mindre skjermer](#mobilvisning) og i [et sammendrag](../../pages/summary).
 
 ### Bredder, tekst og justering
 
@@ -218,3 +229,14 @@ finnes et valgalternativ å velge mellom.
 {{% /expandlarge %}}
 
 ## Mobilvisning
+
+![Grid på mobil](grid-mobile.png "Komponentene i eksemplene over vises som enkeltkomponenter på mindre skjermer")
+
+Grid-visningen av enkeltkomponenter er nyttig for å gi brukeren bedre oversikt over innholdet i en side og relaterte
+felter når skjermen er stor nok. En slik tabellvisning er derimot ikke optimal for mindre skjermer, derfor vil
+Grid-komponenten automatisk vise enkeltkomponentene (som om de ikke var del av en Grid) på mindre skjermer. Rekkefølgen
+til komponentene blir den samme som rekkefølgen til radene og cellene i Grid-konfigurasjonen (en og en rad av gangen),
+og rekkefølgen til enkeltkomponentene slik de er definert i layout-konfigurasjonen har ingen betydning.
+
+Det samme gjelder også for visning av en Grid-komponent i [et sammendrag](../../pages/summary), hvor de samme
+komponentene referert til i Grid vil vises som sammendrag av enkeltkomponenter.
