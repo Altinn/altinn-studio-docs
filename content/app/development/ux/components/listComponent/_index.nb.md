@@ -1,6 +1,6 @@
 ---
 title: Listekomponent
-linktitle: Listekomponent
+linktitle: List
 toc: false
 weight: 50
 ---

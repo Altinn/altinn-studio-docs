@@ -1,6 +1,6 @@
 ---
 title: List component
-linktitle: List component
+linktitle: List
 toc: false
 weight: 50
 ---
