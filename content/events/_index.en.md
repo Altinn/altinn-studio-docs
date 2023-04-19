@@ -15,9 +15,6 @@ Be adviced there might be  missing or partial documentation related to some sect
 {{% /notice %}}
 
 
-{{% include "content/events/testing.md" %}}
-
-
 ## Design goals
 
 Altinn Events was developed to make it easier for digital service developers to deliver dynamic and 
