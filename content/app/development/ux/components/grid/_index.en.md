@@ -147,7 +147,7 @@ attributes in the text-cell.
             "width": "25%",
             "alignText": "left",
             "textOverflow": {
-              "lineWrap": true, 
+              "lineWrap": true,
               "maxHeight": 1
             }
           },
@@ -186,7 +186,7 @@ attributes in the text-cell.
       {
         "readOnly": true,
         "cells": [
-          { 
+          {
             "text": "SUM",
             "alignText": "right"
           },
