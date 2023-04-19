@@ -1,12 +1,10 @@
 ---
-title: List component
-linktitle: List
+title: List
+description: The List component is used to present data to the user in a table. Every row in the table is selectable. The component
+ supports search, sorting and pagination.
 toc: false
 weight: 50
 ---
-
-The list component is used to present data to the user in a table. Every row in the table is selectable. The component 
-is supporting search, sorting and pagination. 
 
 {{%notice warning%}}
 This is new functionality. 

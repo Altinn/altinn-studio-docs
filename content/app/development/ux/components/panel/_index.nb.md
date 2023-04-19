@@ -1,10 +1,9 @@
 ---
 title: Panel
+description: Panelkomponenten kan brukes til å vise viktig informasjon til brukeren.
 toc: false
 weight: 10
 ---
-
-Panelkomponenten kan brukes til å vise viktig informasjon til brukeren. 
 
 ![De forskjellige variantene av Panel komponenten](panel-example.png "De forskjellige variantene av Panel komponenten")
 
