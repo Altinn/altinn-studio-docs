@@ -154,7 +154,7 @@ attributes in the text-cell.
           { "text": "Fordeling" },
           { 
             "text": "Beløp",
-            "width": "25%", 
+            "width": "25%"
           },
           { "text": "Innhentet og verifisert" }
         ]
