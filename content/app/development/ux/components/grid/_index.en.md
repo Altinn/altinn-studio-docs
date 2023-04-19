@@ -111,9 +111,23 @@ when being displayed inside a Grid.
 When displayed in a table, components will not render their `title` and `description` text resources. However, these
 text resources should still be set on the component, as they will be used for accessibility purposes, and will still
 be displayed when the component is displayed outside of a Grid - such as on [smaller screens](#mobile-support) and in
-[a Summary](../../pages/summary). 
+[a Summary](../../pages/summary).
 
 ### Widths, text and alignment
+
+Adding attributes a cell in a header row makes it is possible to configure the width, text alignment, and number of lines to
+show in a cell for the headers column.
+
+- `width` - set to a string value containing a percentage, ex: `"25%"`, or `"auto"` (default).
+- `alignText` - choose between `"left"`, `"center"` or `"right"` to align text in table cell accordingly.
+- `textOverflow` - is used to controll behaviour when text content is too large for a table cell and contains the
+    following options
+  - `lineWrap` - set to `false` in order to turn of linebreaking. Default is `true`.
+  - `maxHeight` - sets number of lines before overflowing text is hidden with an elipsis (...). `"maxHeight": 0` results
+      in turning off linebreaking.
+
+You can also override a columns `alignText` and `textOverflow` for a single text-cell if needed, by specifying those
+attributes in the text-cell.
 
 {{% expandlarge id="full-example" header="Show a complete configuration example" %}}
 ```json
@@ -129,9 +143,19 @@ be displayed when the component is displayed outside of a Grid - such as on [sma
       {
         "header": true,
         "cells": [
-          {},
+          {
+            "width": "25%",
+            "alignText": "left",
+            "textOverflow": {
+              "lineWrap": true, 
+              "maxHeight": 1
+            }
+          },
           { "text": "Fordeling" },
-          { "text": "Beløp" },
+          { 
+            "text": "Beløp",
+            "width": "25%", 
+          },
           { "text": "Innhentet og verifisert" }
         ]
       },
@@ -162,7 +186,10 @@ be displayed when the component is displayed outside of a Grid - such as on [sma
       {
         "readOnly": true,
         "cells": [
-          { "text": "SUM" },
+          { 
+            "text": "SUM",
+            "alignText": "right"
+          },
           { "component": "fordeling-total" },
           null,
           null

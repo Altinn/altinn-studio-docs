@@ -115,6 +115,19 @@ vises utenfor en Grid - som på [mindre skjermer](#mobilvisning) og i [et sammen
 
 ### Bredder, tekst og justering
 
+Ved å legge på attributter på en celle i en `header` rad er det mulig å konfigurere bredden, tekst plassering, og
+anntall linjer som vises før overfløding tekst skjules.
+
+- `width` - streng verdi som inneholder en prosent, ex: `"25%"`, eller `"auto"` (default).
+- `alignText` - velg mellom `"left"`, `"center"` eller `"right"` for å plassere tekst i celler tilsvarende.
+- `textOverflow` - brukes for å kontrollere oppførsel når tekst innhold er for stort til å vises i en celle.
+  - `lineWrap` - sett til `false` for å skru av skjuling av overflødig tekst. Default er `true`.
+  - `maxHeight` - setter et maks antall tillatte linjer før tekst skjules med utellatelsestegn (...). `"maxHeight": 0`
+    resulterer i å skru av skjuling av overflødig tekst.
+
+Du can overstyre en collonnes valg for `alignText` og `textOverflow` for en spesifikk text-celle, ved å legge
+attributtene til i den valgte text-cellen.
+
 {{% expandlarge id="full-example" header="Vis et fullstendig konfigurasjonseksempel" %}}
 ```json
 [
@@ -129,9 +142,19 @@ vises utenfor en Grid - som på [mindre skjermer](#mobilvisning) og i [et sammen
       {
         "header": true,
         "cells": [
-          {},
+          {
+            "width": "25%",
+            "alignText": "left",
+            "textOverflow": {
+              "lineWrap": true, 
+              "maxHeight": 1
+            }
+          },
           { "text": "Fordeling" },
-          { "text": "Beløp" },
+          { 
+            "text": "Beløp",
+            "width": "25%", 
+          },
           { "text": "Innhentet og verifisert" }
         ]
       },
@@ -162,7 +185,10 @@ vises utenfor en Grid - som på [mindre skjermer](#mobilvisning) og i [et sammen
       {
         "readOnly": true,
         "cells": [
-          { "text": "SUM" },
+          { 
+            "text": "SUM",
+            "alignText": "right"
+          },
           { "component": "fordeling-total" },
           null,
           null
