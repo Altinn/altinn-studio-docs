@@ -115,8 +115,8 @@ vises utenfor en Grid - som på [mindre skjermer](#mobilvisning) og i [et sammen
 
 ### Bredder, tekst og justering
 
-Ved å legge på attributter på en celle i en `header` rad er det mulig å konfigurere bredden, tekst plassering, og
-anntall linjer som vises før overfløding tekst skjules.
+Ved å legge på `columnOptions` på en celle i en `header` rad er det mulig å konfigurere bredden, tekst plassering, og
+anntall linjer som vises før overfløding tekst skjules. `columnOptions` inneholder følgende attributter.
 
 - `width` - streng verdi som inneholder en prosent, ex: `"25%"`, eller `"auto"` (default).
 - `alignText` - velg mellom `"left"`, `"center"` eller `"right"` for å plassere tekst i celler tilsvarende.
@@ -125,8 +125,8 @@ anntall linjer som vises før overfløding tekst skjules.
   - `maxHeight` - setter et maks antall tillatte linjer før tekst skjules med utellatelsestegn (...). `"maxHeight": 0`
     resulterer i å skru av skjuling av overflødig tekst.
 
-Du can overstyre en collonnes valg for `alignText` og `textOverflow` for en spesifikk text-celle, ved å legge
-attributtene til i den valgte text-cellen.
+Du can overstyre en kollonnes valg for `alignText` og `textOverflow` for en spesifikk text-celle, ved å legge
+attributtene til direkte i den valgte text-cellen.
 
 {{% expandlarge id="full-example" header="Vis et fullstendig konfigurasjonseksempel" %}}
 ```json
@@ -144,16 +144,20 @@ attributtene til i den valgte text-cellen.
         "cells": [
           {
             "width": "25%",
-            "alignText": "left",
-            "textOverflow": {
-              "lineWrap": true, 
-              "maxHeight": 1
+            "columnOptions": {
+              "alignText": "left",
+              "textOverflow": {
+                "lineWrap": true,
+                "maxHeight": 1
+              }
             }
           },
           { "text": "Fordeling" },
           { 
             "text": "Beløp",
-            "width": "25%", 
+            "columnOptions": {
+              "width": "25%"
+            }
           },
           { "text": "Innhentet og verifisert" }
         ]

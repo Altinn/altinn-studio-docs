@@ -115,8 +115,8 @@ be displayed when the component is displayed outside of a Grid - such as on [sma
 
 ### Widths, text and alignment
 
-Adding attributes a cell in a header row makes it is possible to configure the width, text alignment, and number of lines to
-show in a cell for the headers column.
+Adding `columnOptions` in a cell in a header row makes it is possible to configure the width, text alignment, and number
+of lines to show in a cell for the headers column. `columnOptions` contain the following properties.
 
 - `width` - set to a string value containing a percentage, ex: `"25%"`, or `"auto"` (default).
 - `alignText` - choose between `"left"`, `"center"` or `"right"` to align text in table cell accordingly.
@@ -127,7 +127,7 @@ show in a cell for the headers column.
       in turning off linebreaking.
 
 You can also override a columns `alignText` and `textOverflow` for a single text-cell if needed, by specifying those
-attributes in the text-cell.
+attributes directly in the text-cell.
 
 {{% expandlarge id="full-example" header="Show a complete configuration example" %}}
 ```json
@@ -145,16 +145,20 @@ attributes in the text-cell.
         "cells": [
           {
             "width": "25%",
-            "alignText": "left",
-            "textOverflow": {
-              "lineWrap": true,
-              "maxHeight": 1
+            "columnOptions": {
+              "alignText": "left",
+              "textOverflow": {
+                "lineWrap": true,
+                "maxHeight": 1
+              }
             }
           },
           { "text": "Fordeling" },
           { 
             "text": "Beløp",
-            "width": "25%"
+            "columnOptions": {
+              "width": "25%"
+            }
           },
           { "text": "Innhentet og verifisert" }
         ]
