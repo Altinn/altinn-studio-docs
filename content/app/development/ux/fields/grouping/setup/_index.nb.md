@@ -82,7 +82,7 @@ Eksempel:
 
 ## tableColumns
 
-Ved å bruke `tableColumns` er de mulig å konfigurere bredden, tekst plassering, og anntall linjer som vises før overfløding tekst skjules.
+Ved å bruke `tableColumns` er det mulig å konfigurere bredden, tekst plassering, og anntall linjer som vises før overfløding tekst skjules.
 
 - `width` - streng verdi som inneholder en prosent, ex: `"25%"`, eller `"auto"` (default).
 - `alignText` - velg mellom `"left"`, `"center"` eller `"right"` for å plassere tekst i celler tilsvarende.
