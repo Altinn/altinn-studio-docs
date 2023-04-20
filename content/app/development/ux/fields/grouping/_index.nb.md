@@ -9,7 +9,7 @@ En gruppe med felter vil se ut som enkeltfelter rent visuelt, men hele gruppen k
 man bruker [dynamikk for å vise eller skjule felter](../../../logic/expressions), og når du lager en
 [oppsummeringsvisning](../../pages/summary) kan du referere til hele gruppen med felter i stedet for hver enkelt felt.
 
-Gruppering av felter blir veldig nyttig når du konfigurerer en gruppe til å bli [repeterende](../repeating). Dette gjør
+Gruppering av felter blir veldig nyttig når du konfigurerer en gruppe til å bli [repeterende](repeating). Dette gjør
 at du kan repetere en gruppe med felter flere ganger i et skjema, for eksempel ved å la brukeren legge til og fjerne
 flere adresser.
 

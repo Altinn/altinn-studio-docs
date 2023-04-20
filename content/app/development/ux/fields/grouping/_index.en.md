@@ -9,7 +9,7 @@ A simple group of fields will look like individual fields visually, but the whol
 using [dynamics to show or hide fields](../../../logic/expressions), and when setting
 up [a Summary](../../pages/summary) you can reference an entire group of fields instead of each field individually. 
 
-Groups get really powerful when you configure a group to be a [repeating group](../repeating). This allows you to
+Groups get really powerful when you configure a group to be a [repeating group](repeating). This allows you to
 repeat a group of fields multiple times in a form, such as allowing a user to add and remove multiple addresses.
 
 If you want to visually group fields in a form, look into
