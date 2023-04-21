@@ -8,7 +8,6 @@ weight: 2
 Groups in the data model contain one or more fields. Groups are defined as _repeating_ if they have `maxOccurs > 1` in the xsd.
 A group that is repeating in the data model must also be set up as repeating in the form, if not, data saving will fail.
 
-
 ## Example
 
 Form with some single-fields and a repeating group that:
