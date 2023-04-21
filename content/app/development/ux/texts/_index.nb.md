@@ -5,7 +5,6 @@ toc: true
 weight: 40
 ---
 
-
 Tekster lagres i ressursfiler i katalogen `App/config/texts`. Tekster kan være fra felles biblioteker, datamodellen eller manuelt lagt inn av utvikler.
 
 Tekstressursene er tilgjengelig når man redigerer UI komponenter i skjemaet via Altinn Studio, og de vises til sluttbruker når skjemaet lastes inn i nettleser.
@@ -25,11 +24,11 @@ Det er ekstremt enkelt å gjøre ord eller setninger fet eller kursiv i markdown
 
 ```markdown
 Dette er en _kursiv tekst_ laget med understrek.
-Dette er også en *kurvis tekst* laget med stjerne.
+Dette er også en _kurvis tekst_ laget med stjerne.
 ```
 
 ```markdown
-Dette er __fet tekst__ laget med understrek.
+Dette er **fet tekst** laget med understrek.
 Dette er også **fet tekst**, men laget med stjerner!
 ```
 
@@ -42,8 +41,9 @@ Enkle lenker kan bruke markdown-syntaks:
 ```
 
 Om man skal sette flere egenskaper kan man også bruke HTML-syntaks:
+
 ```html
-Gå til <a href="https://altinn.no" class='same-window'>forsiden av Altinn</a>.
+Gå til <a href="https://altinn.no" class="same-window">forsiden av Altinn</a>.
 ```
 
 Ved å spesifisere at lenken åpner i samme vindu, vil brukeren navigeres bort fra skjemaet når lenken åpnes.
@@ -53,8 +53,11 @@ Tilstanden til skjemaet lagres i instansen, om brukeren vender tilbake senere.
 
 ```markdown
 # Dette er en stor heading (H1)
+
 ## Dette er en litt mindre heading (H2)
+
 ### Og enda litt mindre (H3)
+
 #### Bitteliten heading (H4)
 ```
 
@@ -62,13 +65,33 @@ Tilstanden til skjemaet lagres i instansen, om brukeren vender tilbake senere.
 
 Man har to alternativer når man skal endre tekster i en app, enten gjøres det via Altinn Studio eller direkte i repository.
 
-### Teksteditor i Altinn Studio Designer
+### Altinn Studio Designer
 
-I den øverste navigeringsmenyen i Altinn Studio, velg _Språk_ for å kunne redigere tekster. En oversikt over tekstene som allerede er tilgjengelig for applikasjonen listes opp.
+#### Teksteditor
 
-På denne siden kan man redigere eksisterende tekster samt legge til nye teksressurser. Nye tekster legges til ved å trykke på _Ny tekst_, og fylle ut tekst og en unik nøkkel.
+I den øverste navigeringsmenyen i Altinn Studio, velg _Tekst_ for å kunne redigere tekster. En oversikt over tekstene som allerede er tilgjengelig for applikasjonen listes opp.
+På denne siden kan man redigere eksisterende tekster samt legge til nye teksressurser. Nye tekster legges til ved å trykke på _Ny tekst_.
+En unik tekstnøkkel genereres automatisk, og kan endres ved å trykke på blyant-ikonet ved siden av nøkkelen. Tekster som
+endres lagres automatisk og forløpende.
 
-Lagre endringer i tekstene ved å trykke på _Lagre tekster_.
+Man kan velge ønskede språk som skal vises i tabellen for enklel oversettelse, dette gjøres i panelet på høyre side.
+Man kan der også legge til nye språk som appen skal oversettes til.
+
+![Altinn Studio Designer](edit-texts-in-designer.png "Redigere tekster i Altinn Studio Designer")
+
+#### Direkte fra redigering av skjemakomponent
+
+Når man konfigurerer en komponent i skjemaeditoren (velg "Lage" fanen fra topp-menyen), så kan man legge til/redigere/oversette
+tekster for den enkelte komponent direkte.
+
+Legg til en tekst ved å trykke på `+`-ikonet for den relevante teksten (Ledetekst eller Beskrivelse).
+![Legg til en tekst fra skjemaeditor](component-text-add.png "Legg til en tekst fra skjemaeditor")
+
+Rediger en tekst på komponenten ved å trykke på blyant-ikonet for den teksten.
+![Rediger en tekst fra skjemaeditor](component-text-change.png "Rediger en tekst fra skjemaeditor")
+
+Legg til en eksisterende tekst til komponenten ved å trykke på søke-ikonet og velg blant tilgjengelige tekster.
+![Bruk eksisterende tekst for komponent](component-text-search.png "Bruk eksisterende tekst for komponent")
 
 ![Altinn Studio Designer](edit-texts-in-designer.png "Endre tekster i Altinn Studio Designer")
 
@@ -105,23 +128,24 @@ Variabler i tekster kan inkluderes ved å følge oppsettet nedenfor. Det er vikt
   ]
 }
 ```
+
 ### Datakilder
 
-Det er per nå mulig å hente verdier fra 3 ulike datakilder. 
+Det er per nå mulig å hente verdier fra 3 ulike datakilder.
 
-1. Datamodel   
-   Ved å angi `dataModel.<dataModelNavn>` som datakilde kan man hente ut verdier fra felter i skjema som brukeren fyller ut. Data kan hentes fra felter uavhengig av om de er synlige eller ikke. Hvis bruker endrer på data i et felt referert i en variabel så vil teksten bli oppdatert når brukeren stopper å skrive i feltet. 
-2. Instillinger   
+1. Datamodel  
+   Ved å angi `dataModel.<dataModelNavn>` som datakilde kan man hente ut verdier fra felter i skjema som brukeren fyller ut. Data kan hentes fra felter uavhengig av om de er synlige eller ikke. Hvis bruker endrer på data i et felt referert i en variabel så vil teksten bli oppdatert når brukeren stopper å skrive i feltet.
+2. Instillinger  
    Ved å angi `applicationSettings` som datakilde kan man hente ut verdier fra en spesiell seksjon i `appsettings.{miljø}.json` filen(e) med navn `FrontEndSettings`. Dette er en dynamisk liste man kan utvide uten å måtte gjøre endringer i kode. Dette gjør det mulig å ha ulike verdier fra miljø til miljø ved å ha andre verdier i de ulike `appsettings.{miljø}.json` filene. Vær obs på ulik bruk av stor bokstav i starten av nøkkel mellom `FrontEndSettings` og `applicationSettings`.
    ```json
    "FrontEndSettings": {
      "HomeBaseUrl": "https://www.testdirektoratet.no"
    },
    ```
-3. Instans   
+3. Instans  
    Ved å angi `instanceContext` som datakilde kan man hente ut enkelte verdier fra den aktive instansen. Vi har altså ikke gitt tilgang til hele instanse objektet. Listen med egenskaper så langt er:
    1. `instanceOwnerPartyId` inneholder avgiver sin party id.
-   2. `instanceId` inneholder id'en til den aktive instansen. 
+   2. `instanceId` inneholder id'en til den aktive instansen.
    3. `appId` inneholder id'en til appen instansen er knyttet til.
 
 ### Komplett eksempel:
@@ -152,29 +176,31 @@ Det er per nå mulig å hente verdier fra 3 ulike datakilder.
 ```
 
 ### Variabler i tekst - repeterende grupper
+
 For at variabler i tekst skal fungere med data som ligger i repeterende grupper, må oppsettet vist over endres litt for de aktuelle feltene,
-for å spesifisere den repeterende gruppen dataene ligger i. 
+for å spesifisere den repeterende gruppen dataene ligger i.
 
 Dette gjøres ved å legge til `[{0}]` _etter_ den repeterende gruppen når man spesifiserer felt i datamodellen i `key`-parameteren.
 F.eks.:
+
 ```json {hl_lines=[6,10]}
 {
   "id": "common.submitinfo",
   "value": "Du leverer nå skjema for: {0} med organisasjonsnummer: {1}.",
   "variables": [
-      {
-        "key": "skattepliktig[{0}].organisasjonsnavn",
-        "dataSource": "dataModel.default"
-      },
-      {
-        "key": "skattepliktig[{0}].organisasjonsnummer",
-        "dataSource": "dataModel.default"
-      }
+    {
+      "key": "skattepliktig[{0}].organisasjonsnavn",
+      "dataSource": "dataModel.default"
+    },
+    {
+      "key": "skattepliktig[{0}].organisasjonsnummer",
+      "dataSource": "dataModel.default"
+    }
   ]
 }
 ```
 
-Det er fullt mulig å kombinere variabler fra felter i repeterende gruppe med variabler fra felter utenom den repeterende gruppen. Det anbefales derimot ikke å kombinere variabler fra felter fra _forskjellige_ repeterende grupper, med mindre man er helt sikker på at rekkefølgen på innslag i gruppene vil bli helt like. 
+Det er fullt mulig å kombinere variabler fra felter i repeterende gruppe med variabler fra felter utenom den repeterende gruppen. Det anbefales derimot ikke å kombinere variabler fra felter fra _forskjellige_ repeterende grupper, med mindre man er helt sikker på at rekkefølgen på innslag i gruppene vil bli helt like.
 
 ## Legge til hjelpetekst
 
@@ -205,7 +231,7 @@ Nedenfor ser du et eksempel på en _FormLayout.json_ uten hjelpetekster.
         "componentType": 7,
         "textResourceBindings": {
           "title": "tilleggsopplysninger.label",
-          "description": "tilleggsopplysninger.desc",
+          "description": "tilleggsopplysninger.desc"
         },
         "dataModelBindings": {
           "simpleBinding": "omsetningsoppgaverTilleggsopplysninger.value"
@@ -230,7 +256,7 @@ Nedenfor ser du et eksempel på en _FormLayout.json_ uten hjelpetekster.
 Dersom du skulle ønske å legge til hjelpetekst på en av disse skjemakomponentene må du
 
 1. Legge til hjelpeteksten i tekstressursfilen som beskrevet [her](#legge-til-og-endre-tekster-i-en-app).
-2. Åpne  `FormLayout.json`-filen.
+2. Åpne `FormLayout.json`-filen.
 3. Legg til en binding til den nye hjelpeteksten med nøkkel `"help"` og verdi lik nøkkel til tekstressursen.
 
 Slik ser hele filen ut etter å ha lagt til en hjelpetekst:
@@ -279,21 +305,21 @@ Slik ser hele filen ut etter å ha lagt til en hjelpetekst:
 
 ## Endre applikasjonstittel
 
-Når man oppretter en applikasjon vil man ha en tekstressurs med label `appName`. 
+Når man oppretter en applikasjon vil man ha en tekstressurs med label `appName`.
 Dette er tittelen på applikasjonen som vil gjenspeiles flere steder i løsningen vår.
 Blant annet når en sluttbruker fyller ut skjema, og når elementer skal vises i meldingsboksen på altinn.no.
 
-Tittelen på applikasjonen skal ligge to steder i applikasjonsrepoet: 
- 1. I tekstressurser med nøkkelen `appName`. 
- Tjenesteeiere oppfordres til å legge inn tittel på bokmål, nynorsk og engelsk. Dersom tittel mangler i tekstressursene vil lagringsnavnet (navnet på repoet) vises til sluttbrukeren.
+Tittelen på applikasjonen skal ligge to steder i applikasjonsrepoet:
 
- 2. I `applicationmetadata.json` under property `title`. Denne filen ligger under `App/config/`.
+1.  I tekstressurser med nøkkelen `appName`.
+    Tjenesteeiere oppfordres til å legge inn tittel på bokmål, nynorsk og engelsk. Dersom tittel mangler i tekstressursene vil lagringsnavnet (navnet på repoet) vises til sluttbrukeren.
 
+2.  I `applicationmetadata.json` under property `title`. Denne filen ligger under `App/config/`.
 
-Dersom man gjør endrer `appName` på applikasjonen sin lokalt er det viktig at også legge til den oppdatere tittelen i 
+Dersom man gjør endrer `appName` på applikasjonen sin lokalt er det viktig at også legge til den oppdatere tittelen i
 `applicationmetadata.json` også. Dersom tittel på applikasjonen endres i Altinn Studio enten på "Om" eller "Språk"-siden bli applicationmetadata.json oppdatert automatisk.
 
-### Eksempel på korrekt konfigurasjon for applikasjonstittel 
+### Eksempel på korrekt konfigurasjon for applikasjonstittel
 
 I `App/config/applicationmetadata.json`:
 
@@ -366,6 +392,7 @@ Applikasjonsnavn hentes som standard ut fra tekstene som er definert i [altinn-o
 Om det er ønskelig å endre på dette navnet kan det gjøres ved å legge til nøkkelen `appOwner` i tekstressursene. Denne vil da overstyre det som ligger på CDN.
 
 Eksempel:
+
 ```json
 {
   "language": "en",
