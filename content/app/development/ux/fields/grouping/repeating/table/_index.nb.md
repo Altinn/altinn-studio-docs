@@ -68,4 +68,4 @@ Eksempel:
 }
 ```
 
-![Eksempel for kolonne options](../repeating/setup/table/column-options-example.png "Eksempel for kolonne options")
+![Eksempel for kolonne options](column-options-example.png "Eksempel for kolonne options")
