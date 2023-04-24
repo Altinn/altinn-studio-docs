@@ -15,12 +15,12 @@ in regards to displaying a group element when editing/filling out. The following
 Defines whether the table (that displays all elements in the group) should be displayed when an element is open in editing-mode.
 The following values are allowed:
 
-| Value       | Description                                                                                                   |
-|-------------|---------------------------------------------------------------------------------------------------------------|
-| "showTable" | Default behaviour if nothing else has been specified. Displays the table for editing of group-element.        |
-| "hideTable" | Hides the table when a group-element is open for editing.                                                     |
-| "showAll"   | Hides the table. Shows all elements in the group in editing mode below each other. The save button is hidden. |
-| "likert"    | Likert display.                                                                                               |
+| Value       | Description                                                                                                                      |
+|-------------|----------------------------------------------------------------------------------------------------------------------------------|
+| "showTable" | Default behaviour if nothing else has been specified. Displays the table for editing of group-element.                           |
+| "hideTable" | Hides the table when a group-element is open for editing.                                                                        |
+| "showAll"   | Hides the table. Shows all elements in the group in editing mode below each other. The save button is hidden.                    |
+| "likert"    | Likert display. Must be used if the first and only component in the group is a [Likert component](../../../../components/likert) |
 
 ### addButton
 
