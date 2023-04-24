@@ -32,11 +32,11 @@ Its very easy to make words or sentences bold or italic with markdown.
 
 ```markdown
 This is in _italic_ using underscores.
-This is also in _italic_ using asterisk.
+This is also in *italic* using asterisk.
 ```
 
 ```markdown
-This is in **bold** using double underscores.
+This is in __bold__ using double underscores.
 This is also in **bold**, using double asterisk.
 ```
 
@@ -77,7 +77,7 @@ You have two options when you want to modify texts in an application, either via
 
 #### Text editor
 
-In the top navigation bar in Altinn Studio, selec _Text_ to be able to edit texts. An overview of the texts that already exists in the application are listed.
+In the top navigation bar in Altinn Studio, select _Text_ to be able to edit texts. An overview of the texts that already exist in the application are listed.
 
 On this page you can edit the existing texts and add new ones. New texts can be added by clikcing the _New text_ button, and fill in the fields.
 A unique key is automatically generated, this can be changed by clicking the pencil-icon next to the key. Texts are

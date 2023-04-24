@@ -24,11 +24,11 @@ Det er ekstremt enkelt å gjøre ord eller setninger fet eller kursiv i markdown
 
 ```markdown
 Dette er en _kursiv tekst_ laget med understrek.
-Dette er også en _kurvis tekst_ laget med stjerne.
+Dette er også en *kursiv tekst* laget med stjerne.
 ```
 
 ```markdown
-Dette er **fet tekst** laget med understrek.
+Dette er __fet tekst__ laget med understrek.
 Dette er også **fet tekst**, men laget med stjerner!
 ```
 
@@ -69,19 +69,19 @@ Man har to alternativer når man skal endre tekster i en app, enten gjøres det 
 
 #### Teksteditor
 
-I den øverste navigeringsmenyen i Altinn Studio, velg _Tekst_ for å kunne redigere tekster. En oversikt over tekstene som allerede er tilgjengelig for applikasjonen listes opp.
+I den øverste navigeringsmenyen i Altinn Studio, velg _Tekst_ for å kunne redigere tekster. En oversikt over tekstene som allerede er tilgjengelige for applikasjonen listes opp.
 På denne siden kan man redigere eksisterende tekster samt legge til nye teksressurser. Nye tekster legges til ved å trykke på _Ny tekst_.
 En unik tekstnøkkel genereres automatisk, og kan endres ved å trykke på blyant-ikonet ved siden av nøkkelen. Tekster som
-endres lagres automatisk og forløpende.
+endres lagres automatisk og fortløpende.
 
-Man kan velge ønskede språk som skal vises i tabellen for enklel oversettelse, dette gjøres i panelet på høyre side.
+Man kan velge ønskede språk som skal vises i tabellen for enkel oversettelse, dette gjøres i panelet på høyre side.
 Man kan der også legge til nye språk som appen skal oversettes til.
 
 ![Altinn Studio Designer](edit-texts-in-designer.png "Redigere tekster i Altinn Studio Designer")
 
 #### Direkte fra redigering av skjemakomponent
 
-Når man konfigurerer en komponent i skjemaeditoren (velg "Lage" fanen fra topp-menyen), så kan man legge til/redigere/oversette
+Når man konfigurerer en komponent i skjemaeditoren (velg "Lage"-fanen fra toppmenyen), så kan man legge til/redigere/oversette
 tekster for den enkelte komponent direkte.
 
 Legg til en tekst ved å trykke på `+`-ikonet for den relevante teksten (Ledetekst eller Beskrivelse).
