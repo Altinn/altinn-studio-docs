@@ -17,7 +17,7 @@ only the display within the editing area of the group.
 
 To make use of this functionality, you will have to _prefix_ the components in the `children` list with a number indicating which "page" of the fillout
 the component should be displayed on, followed by `:`. We start the count on `0`, that is to say components to be displayed on the first "page" must be prefixed with
-`0:`. Components to be displayed on the second page must be prefixed with `1:`, and so on. In addition, you must set `"multiPage": true` on the new [`edit`-parameter](#control-display) (see above).
+`0:`. Components to be displayed on the second page must be prefixed with `1:`, and so on. In addition, you must set `"multiPage": true` in the `edit`-parameter.
 See example below:
 
 ```json {hl_lines=["5-8", "14-16"]} {linenos=inline}
@@ -41,7 +41,7 @@ See example below:
 }
 ```
 
-Here a [mode](#mode) that hides the table when editing has also been added.
+Here a [mode](../edit#mode) that hides the table when editing has also been added.
 The result will be as displayed below.
 
 ![Fill-out of group over multiple "pages"](group-multipage.gif "Fill-out of group over multiple pages")

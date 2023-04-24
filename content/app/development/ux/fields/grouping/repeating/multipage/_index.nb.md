@@ -17,7 +17,7 @@ kun visningen inne i redigeringsflaten for gruppen.
 
 For å ta i bruk denne funksjonaliteten, må man _prefikse_ komponentene i `children` listen med et tall som tilsier hvilken "side" av utfyllingen
 komponenten skal vises på, etterfulgt av `:`. Vi starter tellingen på `0`, dvs. at komponenter som skal vises på den første "siden" må prefikses med
-`0:`. Komponenter som skal vises på den andre siden prefikses med `1:`. Osv. I tillegg må man sette `"multiPage": true` på den nye [`edit`-parameteren](#styre-visning) (se over).
+`0:`. Komponenter som skal vises på den andre siden prefikses med `1:`. Osv. I tillegg må man sette `"multiPage": true` i `edit`-parameteren.
 Se eksempel under:
 
 ```json {hl_lines=["5-8", "14-16"]} {linenos=inline}
@@ -41,7 +41,7 @@ Se eksempel under:
 }
 ```
 
-Her har man også lagt inn en [mode](#mode) som skjuler tabellen under redigering.
+Her har man også lagt inn en [mode](../edit#mode) som skjuler tabellen under redigering.
 Resultatet blir som vist under.
 
 ![Utfylling i gruppe over flere "sider"](group-multipage.gif "Utfylling i gruppe over flere sider")
