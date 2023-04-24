@@ -90,7 +90,7 @@ languages to translate your app to in this panel.
 
 #### Directly from component editor
 
-When configuring a component in the Form Editor (choose "Lage" tab from the top menu), you can directly add/edit/translate
+When configuring a component in the Form Editor (choose "Create" tab from the top menu), you can directly add/edit/translate
 the texts connected to that component.
 
 Add a text by clicking the `+`-icon for the relevant text type (Label or Description).
