@@ -1,180 +1,106 @@
 ---
 title: Repeterende grupper
 linktitle: Repeterende
-description: Oppsett for repeterende grupper.
-weight: 2
+description: Oppsett for repeterende grupper
+weight: 1
 ---
 
-Grupper i datamodellen inneholder ett eller flere felter. Grupper er definert som _repeterende_ dersom de har `maxOccurs > 1` i xsd'en. 
-En gruppe som er repeterende i datamodellen må også settes opp som repeterende i skjemaet, ellers vil lagring av data feile.  
+Grupper i datamodellen inneholder ett eller flere felter. Grupper er definert som _repeterende_ dersom de har
+`maxOccurs > 1` i layout-konfigurasjonen. En gruppe som er repeterende i datamodellen må også settes opp som repeterende
+i skjemaet/layout-konfigurasjonen, ellers vil lagring av data feile. I JSON defineres en repeterende gruppe som en
+array/liste med objekter (hvor hvert objekt representerer en _rad_ i en repeterende gruppe). I XML defineres en
+repetrende gruppe som en liste med elementer (hvor hvert element er en gruppe med egenskaper, gjengitt som en _rad_ i
+en repeterende gruppe).
 
 ## Eksempel
 
-Skjema med noen enkelt-felt, og en repeterende gruppe som:
+Under vises et skjema med en repeterende gruppe som:
 
-- inneholder 3 felter
-- kan repeteres opp til 3 ganger
+- Inneholder to komponenter (avkrysningsboks og adresse)
+- Kan repeteres opp til 3 ganger
+- Er knyttet til datamodellen gjennom `GruppeListe`
 
 ![Skjema med repeterende gruppe](repeating-groups-demo.gif "Skjema med repeterende gruppe")
 
-Oppsett i `FormLayout.json` fra eksempelet over:
-
+{{% expandlarge id="full-example" header="Vis konfigurasjonen for dette skjermskuddet" %}}
 ```json {linenos=inline}
-{
-  "data": {
-    "layout": [
+[
+  {
+    "id": "gruppe",
+    "type": "Group",
+    "children": [
+      "avkrysningsboks",
+      "adresse"
+    ],
+    "maxCount": 3,
+    "dataModelBindings": {
+      "group": "GruppeListe"
+    }
+  },
+  {
+    "id": "avkrysningsboks",
+    "type": "Checkboxes",
+    "textResourceBindings": {
+      "title": "Avkrysningsboks"
+    },
+    "dataModelBindings": {
+      "simpleBinding": "GruppeListe.Avkrysning"
+    },
+    "options": [
       {
-        "id": "gruppe-1",
-        "type": "Group",
-        "children": [
-          "ac555386-ac2b-47a0-bb1b-842f8612eddb",
-          "5c079cd4-c80c-44ea-b8b8-18e323267a37"
-        ],
-        "maxCount": 3,
-        "dataModelBindings": {
-          "group": "spesifisering-grp-5836"
-        },
-        "textResourceBindings": {
-          "header": "person"
-        }
+        "label": "Navn",
+        "value": "Verdi1"
       },
       {
-        "id": "ac555386-ac2b-47a0-bb1b-842f8612eddb",
-        "type": "Checkboxes",
-        "componentType": 5,
-        "textResourceBindings": {
-          "title": "Avkrysningsboks"
-        },
-        "dataModelBindings": {
-          "simpleBinding": "klage-grp-5805.spesifisering-grp-5836.KlageSpesifisering-datadef-25457.value"
-        },
-        "options": [
-          {
-            "label": "25795.OppgavegiverNavnPreutfyltdatadef25795.Label",
-            "value": "Verdi1"
-          },
-          {
-            "label": "25796.OppgavegiverAdressePreutfyltdatadef25796.Label",
-            "value": "Verdi2"
-          }
-        ],
-        "required": true
-      },
-      {
-        "id": "5c079cd4-c80c-44ea-b8b8-18e323267a37",
-        "type": "AddressComponent",
-        "componentType": 11,
-        "textResourceBindings": {
-          "title": "Adresse" 
-        },
-        "dataModelBindings": {
-          "address": "klage-grp-5805.spesifisering-grp-5836.KlageSpesifiseringg-datadef-12345.value"
-        },
-        "simplified": true,
-        "readOnly": false,
-        "required": true
+        "label": "Adresse",
+        "value": "Verdi2"
       }
-    ]
-  }
-}
-```
-
-## Skjul rader i repeterende grupper.
-
-Noen ganger er det ønskelig å skjule rader i repeterende grupper når gitte kriterier inntreffer.
-Dette kan gjøres ved å bruke `hiddenRow` egenskapen som evalueres med dynamiske utrykk. Eksempelet under viser hvordan
-vi kan skjule en rad dersom fornavn i datamodellen er lik "John".
-
-```json {linenos=inline}
-{
-  "id": "myGroup",
-  "type": "group",
-  "hiddenRow": ["equal", ["dataModel", "firstName"], "John"],
-}
-```
-Du kan lese mer om [dynamiske utrykk her](/app/development/logic/expressions).
-
-## Vedlegg i repeterende grupper
-
-{{%notice warning%}}
-Dette er helt ny funksjonalitet. Oppsett må gjøres manuelt inntil videre.
-{{%/notice%}}
-
-For å sette opp filopplastingskomponenter i repeterende grupper kreves det noe ekstra oppsett.
-
-Når man laster opp vedlegg kan det bli vanskelig å skille hvilket vedlegg som hører til hvilken rad i den repeterende
-gruppen, og dermed hvilken utfyllt informasjon som hører til hvert enkelt vedlegg. Derfor må man sette opp knytninger mot
-datamodellen når filopplasting blir brukt i repeterende grupper, slik at Altinn kan fylle inn den unike identifikatoren
-som hører til hvert vedlegg og sende dette med resten av dataene i instansen.
-
-Muligheten til å plassere en referanse til vedlegget i datamodellen kan også brukes utenfor repeterende grupper om man
-ønsker en referanse til vedlegg sammen med skjemadataene på mottakersiden.
-
-![Eksempel på vedlegg i repeterende gruppe med tilhørende datamodell](attachments-demo.gif "Eksempel på vedlegg i repeterende gruppe med tilhørende datamodell")
-
-Følgende er et eksempel på en datamodell som forventer en referanse til et opplastet vedlegg:
-
-```xsd {hl_lines=["12"]}
-<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
-  <xsd:element name="FamilieMedlemmer" type="Skjema" />
-  <xsd:complexType name="Skjema">
-    <xsd:sequence>
-      <xsd:element name="FamilieMedlem" type="FamilieMedlem" maxOccurs="99" />
-    </xsd:sequence>
-    <xsd:anyAttribute />
-  </xsd:complexType>
-  <xsd:complexType name="FamilieMedlem">
-    <xsd:sequence>
-      <xsd:element name="Fornavn" type="xsd:string" />
-      <xsd:element name="Bilde" type="xsd:string" />
-    </xsd:sequence>
-  </xsd:complexType>
-</xsd:schema>
-```
-
-Dette knyttes til vedleggskomponenten i gruppen:
-
-```json {hl_lines=["8"]}
-{
-  "id": "bilde",
-  "type": "FileUpload",
-  "textResourceBindings": {
-    "title": "Bilde"
+    ],
+    "required": true
   },
-  "dataModelBindings": {
-    "simpleBinding": "FamilieMedlem.Bilde"
-  },
-  "maxFileSizeInMB": 25,
-  "maxNumberOfAttachments": 1,
-  "minNumberOfAttachments": 1,
-  "displayMode": "simple",
-  "required": true
-}
-```
-
-I tilfeller hvor man tillater opplasting av flere filer i samme vedleggskomponent må man benytte en datamodellknytning
-av typen `list`:
-
-```xsd {hl_lines=[4]}
-  <xsd:complexType name="FamilieMedlem">
-    <xsd:sequence>
-      <xsd:element name="Fornavn" type="xsd:string" />
-      <xsd:element name="Bilder" type="xsd:string" maxOccurs="5" />
-    </xsd:sequence>
-  </xsd:complexType>
-```
-
-```json {hl_lines=[4]}
-{
-  [...]
-  "dataModelBindings": {
-    "list": "FamilieMedlem.Bilder"
+  {
+    "id": "addresse",
+    "type": "AddressComponent",
+    "textResourceBindings": {
+      "title": "Adresse"
+    },
+    "dataModelBindings": {
+      "address": "GruppeListe.Adresse",
+      "zipCode": "GruppeListe.Postnr",
+      "postPlace": "GruppeListe.Poststed"
+    },
+    "simplified": true,
+    "readOnly": false,
+    "required": true
   }
-}
+]
+
 ```
+{{% /expandlarge %}}
 
-Mottakersiden vil da få en liste med flere unike IDer, en for hvert vedlegg.
+## Parametre
 
-Samme unike ID vil også vises i
-PDF-kvitteringen - men det enbefales å [skjule dette](/nb/app/development/ux/pdf/#ekskludering-av-sider-og-komponenter) ettersom vedlegg
-vises separat på kvitteringssiden og den unike IDen kan bli forvirrende for brukerne.
+| Parameter                                     | Påkrevd | Beskrivelse                                                                                                                                                         |
+|-----------------------------------------------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| id                                            | Ja      | Unik ID, tilsvarer ID på andre komponenter. Må være unik i layout-filen, og bør være unik på tvers av sider.                                                        |
+| type                                          | Ja      | Må settes til `Group`                                                                                                                                               |
+| dataModelBindings                             | Nei     | Må settes for repeterende grupper med skjemakomponenter under, og må peke mot den repeterende strukturen i datamodellen.                                            |
+| [textResourceBindings](#textresourcebindings) | Nei     | Kan settes for grupper, se [nærmere beskrivelse under](#textresourcebindings).                                                                                      |
+| maxCount                                      | Ja      | Antall ganger en gruppe kan repetere. Må settes til `1` eller mer for repeterende grupper.                                                                          |
+| children                                      | Ja      | Liste over komponent-IDer som inkluderes i gruppen.                                                                                                                 |
+| [edit](edit)                                  | Nei     | Egenskaper og alternativer for redigerings-/utfyllingsvisningen for en repeterende gruppe.                                                                          |
+| tableHeaders                                  | Nei     | Liste over komponenter som skal utgjøre kolonner i tabellvisningen for den repeterende gruppen. Om ingen er spesifisert, blir alle komponenter fra `children` vist. |
+| [tableColumns](table/#tablecolumns)           | Nei     | Objekst som inneholder egenskaper for kolonnene som vises i tabellen.                                                                                               |
+
+## textResourceBindings
+
+Det er mulig å legge til ulike nøkler i textResourceBindings for å overstyre standardtekster:
+
+- `title` - tittel som blir vist over hver gruppe-rad i en [Summary-komponent](../../../pages/summary).
+- `add_button` - blir lagt til på enden av "Legg til ny" teksten på knappen, og kan brukes til å f.eks ha tekst som sier "Legg til ny person".
+- `save_button` - blir brukt som tekst i "Lagre"-knappen når brukeren fyller ut data.
+- `save_and_next_button` - blir brukt som tekst i "Lagre og åpne neste"-knappen dersom denne er aktivert.
+- `edit_button_open` - blir brukt som tekst i "Endre" knappen i tabellen når brukeren skal åpne et element.
+- `edit_button_close` - blir brukt som tekst i "Endre" knappen tabellen når brukeren skal lukke et element.
+
+{{<children />}}
