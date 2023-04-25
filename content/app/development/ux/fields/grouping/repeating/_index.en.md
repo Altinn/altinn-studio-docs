@@ -77,17 +77,17 @@ Below is a form with a repeating group that:
 
 ## Parameters
 
-| Parameter                                     | Required | Description                                                                                                                    |
-|-----------------------------------------------|----------|--------------------------------------------------------------------------------------------------------------------------------|
-| id                                            | Yes      | Unique ID, same as ID on other components. Must be unique in the layout file, and should be unique across pages.               |
-| type                                          | Yes      | Must be 'Group'                                                                                                                |
-| dataModelBindings                             | No       | Must be set for repeating groups with form components inside. Should point to the repeating group in the data model.           |
-| [textResourceBindings](#textresourcebindings) | No       | Can be set for repeating groups, see [description](#textresourcebindings).                                                     |
-| maxCount                                      | Yes      | The number of times a group can repeat. Must be set to `1` or more for the group component to work as a repeating group.       |
-| children                                      | Yes      | List of the component IDs that are to be included in the repeating group.                                                      |
-| [edit](edit)                                  | No       | Options for how to display the group when editing a row.                                                                       |
-| tableHeaders                                  | No       | List of components that are to be included as part of the table header fields. If not specified, all components are displayed. |
-| [tableColumns](table/#tablecolumns)           | No       | Object containing column options for specified headers. If not specified, all columns will use default display settings.       |
+| Parameter                                                        | Required | Description                                                                                                                    |
+|------------------------------------------------------------------|----------|--------------------------------------------------------------------------------------------------------------------------------|
+| id                                                               | Yes      | Unique ID, same as ID on other components. Must be unique in the layout file, and should be unique across pages.               |
+| type                                                             | Yes      | Must be 'Group'                                                                                                                |
+| dataModelBindings                                                | No       | Must be set for repeating groups with form components inside. Should point to the repeating group in the data model.           |
+| [textResourceBindings](#textresourcebindings)                    | No       | Can be set for repeating groups, see [description](#textresourcebindings).                                                     |
+| maxCount                                                         | Yes      | The number of times a group can repeat. Must be set to `1` or more for the group component to work as a repeating group.       |
+| children                                                         | Yes      | List of the component IDs that are to be included in the repeating group.                                                      |
+| [edit](edit)                                                     | No       | Options for how to display the group when editing a row.                                                                       |
+| tableHeaders                                                     | No       | List of components that are to be included as part of the table header fields. If not specified, all components are displayed. |
+| [tableColumns](table/#widths-alignment-and-overflow-for-columns) | No       | Object containing column options for specified headers. If not specified, all columns will use default display settings.       |
 
 ## textResourceBindings
 
