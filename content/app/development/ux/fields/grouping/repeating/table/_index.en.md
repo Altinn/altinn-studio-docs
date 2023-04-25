@@ -81,3 +81,64 @@ components and groups that are not very complex, and where it is not necessary t
 Visually, this can make the repeating group functionality resemble some configurations of
 the [Grid component](../../../../components/grid), but allows the user to add/remove rows from the table - and allows
 for storing the data in a repeating structure in the data model.
+
+![Example of editing in table](components-in-table.png "Example of editing in table")
+
+There are several levels of configuration to allow editing in the table. It is possible to allow a combination of
+editing in the table and editing in the expanded edit view. It is also possible to hide some components in the expanded
+edit view and only allow editing in the table.
+
+### Editing all fields in table
+If you want to set up a repeating group where all possible fields should be editable in the table, there is a shortcut
+for this. By setting [`edit.mode` to `onlyTable`](../edit#mode), all fields in the table will be editable. Note that not
+all components that can be shown in a repeating group are supported in the table. See a full list of components that are
+supported in table mode in the documentation for the [Grid component](../../../../components/grid).
+
+![Example of editing all fields in table](only-editing-in-table.gif "Example")
+
+The example above shows a repeating group configuration where all fields are editable in the table. Note that the
+button for editing a row disappears in this mode, since all fields are editable directly in the table.
+
+### Editing some fields in table
+It is also possible to set up a repeating group where some fields are editable in the table, while others are only
+editable in the expanded edit view. This is done by setting `editInTable` to `true` for the components that should be
+editable in the table, and `showInExpandedEdit` to `false` for the components that should be hidden in the expanded
+edit view. See details on how to set this up in
+the [documentation for `tableColumns` above](#widths-alignment-and-overflow-for-columns).
+
+![Example of editing some fields in table](mixed-editing.gif "Example")
+
+The example above shows a repeating group configuration where some fields are only editable in the
+table (first name and last name), one component is editable in both the table and the expanded edit view (age), and
+the last component is only editable in the expanded edit view (address).
+
+The Group component configuration for the example above is as follows:
+
+```json
+{
+  "id": "myRepeatingGroup",
+  "type": "Group",
+  "children": ["fornavn", "etternavn", "alder", "fullt-navn", "adresse"],
+  "tableHeaders": ["fornavn", "etternavn", "alder"],
+  "tableColumns": {
+    "fornavn": {
+      "editInTable": true,
+      "showInExpandedEdit": false
+    },
+    "etternavn": {
+      "editInTable": true,
+      "showInExpandedEdit": false
+    },
+    "alder": {
+      "editInTable": true
+    }
+  },
+  "maxCount": 99999,
+  "textResourceBindings": {
+    "add_button": "person"
+  },
+  "dataModelBindings": {
+    "group": "RepGroup.Personer"
+  }
+}
+```

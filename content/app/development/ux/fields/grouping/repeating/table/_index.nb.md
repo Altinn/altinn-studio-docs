@@ -80,3 +80,66 @@ sette `editInTable` til `true` for den komponenten som skal tillate redigering i
 store, og hvor det ikke er nødvendig å åpne en egen redigeringsmodus for å redigere dataene. Rent visuelt kan dette
 ligne på noen konfigurasjoner av [Grid-komponenten](../../../../components/grid), men tillater brukeren å legge/til
 fjerne rader i tabellen, og lagring av data mot en repeterende gruppe i datamodellen.
+
+![Eksempel på redigering i tabell](components-in-table.png "Eksempel på redigering i tabell")
+
+Det finnes flere nivåer av konfigurasjon for å tillate redigering i tabellen. Det er mulig å tillate en kombinasjon
+av redigering i tabellen og redigering i utvidet redigeringsmodus. Det er også mulig å skjule enkelte komponenter i
+den utvidede redigeringsmodusen og kun tillate redigering i tabellen.
+
+### Redigering av alle felter i tabell
+Om man ønsker å sette opp en repeterende gruppe hvor alle mulige felter skal redigeres i tabellen, finnes det en snarvei
+for dette. Ved å sette [`edit.mode` til `onlyTable`](../edit#mode) blir alle felter i tabellen redigerbare. Merk at ikke alle komponenter
+som kan vises i en repeterende gruppe er støttet i tabellen.
+Se en fullstendig liste over komponenter som er støttet i tabell-modus under
+dokumentasjonen for [Grid-komponenten](../../../../components/grid).
+
+![Eksempel på redigering av alle felter i tabell](only-editing-in-table.gif "Eksempel")
+
+Eksempelet over viser en repeterende gruppe hvor alle felter er redigerbare i tabellen. Merk at knappen for å endre
+en rad forsvinner i denne modusen, siden alle felter er redigerbare direkte i tabellen.
+
+### Redigering av noen felter i tabell
+Man kan også sette opp en repeterende gruppe hvor noen felter skal redigeres i tabellen, mens andre felter skal redigeres
+i den utvidede redigeringsmodusen. Dette gjøres ved å sette `editInTable` til `true` for de komponentene som skal
+redigeres i tabellen, og `showInExpandedEdit` til `false` for de komponentene som skal skjules i den utvidede
+redigeringsmodusen. Se detaljene om hvordan dette
+settes i [dokumentasjonen for `tableColumns` over](#bredder-tekst-plassering-og-skjuling-av-overflødig-tekst).
+
+![Eksempel på redigering i tabell](mixed-editing.gif "Eksempel")
+
+Eksempelet over viser en repeterende gruppe hvor det er satt opp en kombinasjon av redigering i tabellen og redigering i
+den utvidede redigeringsmodusen. De to første feltene (fornavn og etternavn) er satt opp til å bare være redigerbare i
+tabellen, mens alder er satt opp til å være redigerbar i både tabellen og den utvidede redigeringsmodusen. Det siste
+feltet (adresse) er satt opp til å være redigerbar kun i den utvidede redigeringsmodusen.
+
+Konfigurasjonen for Group-komponenten i eksempelet over er som følger:
+
+```json
+{
+  "id": "myRepeatingGroup",
+  "type": "Group",
+  "children": ["fornavn", "etternavn", "alder", "fullt-navn", "adresse"],
+  "tableHeaders": ["fornavn", "etternavn", "alder"],
+  "tableColumns": {
+    "fornavn": {
+      "editInTable": true,
+      "showInExpandedEdit": false
+    },
+    "etternavn": {
+      "editInTable": true,
+      "showInExpandedEdit": false
+    },
+    "alder": {
+      "editInTable": true
+    }
+  },
+  "maxCount": 99999,
+  "textResourceBindings": {
+    "add_button": "person"
+  },
+  "dataModelBindings": {
+    "group": "RepGroup.Personer"
+  }
+}
+```
