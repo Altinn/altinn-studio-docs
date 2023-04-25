@@ -80,17 +80,17 @@ Under vises et skjema med en repeterende gruppe som:
 
 ## Parametre
 
-| Parameter                                     | Påkrevd | Beskrivelse                                                                                                                                                         |
-|-----------------------------------------------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| id                                            | Ja      | Unik ID, tilsvarer ID på andre komponenter. Må være unik i layout-filen, og bør være unik på tvers av sider.                                                        |
-| type                                          | Ja      | Må settes til `Group`                                                                                                                                               |
-| dataModelBindings                             | Nei     | Må settes for repeterende grupper med skjemakomponenter under, og må peke mot den repeterende strukturen i datamodellen.                                            |
-| [textResourceBindings](#textresourcebindings) | Nei     | Kan settes for grupper, se [nærmere beskrivelse under](#textresourcebindings).                                                                                      |
-| maxCount                                      | Ja      | Antall ganger en gruppe kan repetere. Må settes til `1` eller mer for repeterende grupper.                                                                          |
-| children                                      | Ja      | Liste over komponent-IDer som inkluderes i gruppen.                                                                                                                 |
-| [edit](edit)                                  | Nei     | Egenskaper og alternativer for redigerings-/utfyllingsvisningen for en repeterende gruppe.                                                                          |
-| tableHeaders                                  | Nei     | Liste over komponenter som skal utgjøre kolonner i tabellvisningen for den repeterende gruppen. Om ingen er spesifisert, blir alle komponenter fra `children` vist. |
-| [tableColumns](table/#tablecolumns)           | Nei     | Objekst som inneholder egenskaper for kolonnene som vises i tabellen.                                                                                               |
+| Parameter                                                                       | Påkrevd | Beskrivelse                                                                                                                                                         |
+|---------------------------------------------------------------------------------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| id                                                                              | Ja      | Unik ID, tilsvarer ID på andre komponenter. Må være unik i layout-filen, og bør være unik på tvers av sider.                                                        |
+| type                                                                            | Ja      | Må settes til `Group`                                                                                                                                               |
+| dataModelBindings                                                               | Nei     | Må settes for repeterende grupper med skjemakomponenter under, og må peke mot den repeterende strukturen i datamodellen.                                            |
+| [textResourceBindings](#textresourcebindings)                                   | Nei     | Kan settes for grupper, se [nærmere beskrivelse under](#textresourcebindings).                                                                                      |
+| maxCount                                                                        | Ja      | Antall ganger en gruppe kan repetere. Må settes til `1` eller mer for repeterende grupper.                                                                          |
+| children                                                                        | Ja      | Liste over komponent-IDer som inkluderes i gruppen.                                                                                                                 |
+| [edit](edit)                                                                    | Nei     | Egenskaper og alternativer for redigerings-/utfyllingsvisningen for en repeterende gruppe.                                                                          |
+| tableHeaders                                                                    | Nei     | Liste over komponenter som skal utgjøre kolonner i tabellvisningen for den repeterende gruppen. Om ingen er spesifisert, blir alle komponenter fra `children` vist. |
+| [tableColumns](table/#bredder-tekst-plassering-og-skjuling-av-overflødig-tekst) | Nei     | Objekst som inneholder egenskaper for kolonnene som vises i tabellen.                                                                                               |
 
 ## textResourceBindings
 
