@@ -6,7 +6,7 @@ description: Configuration details for groups displayed as panels, and referenci
 
 ## Display group as part of Panel
 
-A new parameter, `panel`, has been added which can be set up on a group component. This says that the group should be displayed as part of the [Panel component](../../../../components/panel).
+A new parameter, `panel`, has been added which can be set up on a group component. This says that the group should be displayed as part of the [Panel component](../../../components/panel).
 
 Here, you will recognize the appearance and settings that can be set on the panel component. Example configuration:
 

@@ -6,7 +6,7 @@ description: Konfigurasjonsdetaljer for grupper vist som panel, og referanser ti
 
 ## Vise gruppen som del av Panel
 
-Det er lagt til en ny parameter, `panel`, som kan settes på en gruppe-komponent. Denne sier at gruppen skal vises som en del av [Panel-komponenten](../../../../components/panel).
+Det er lagt til en ny parameter, `panel`, som kan settes på en gruppe-komponent. Denne sier at gruppen skal vises som en del av [Panel-komponenten](../../../components/panel).
 
 Her vil du kjenne igjen utseende og innstillinger som kan settes på panel-komponenten. Eksempeloppsett:
 
