@@ -6,7 +6,8 @@ description: Configuration details for groups displayed as panels, and referenci
 
 ## Display group as part of Panel
 
-A new parameter, `panel`, has been added which can be set up on a group component. This says that the group should be displayed as part of the [Panel component](../../../components/panel).
+On a Group component, the parameter `panel` can be set up.
+This says that the group should be displayed as part of the [Panel component](../../../components/panel).
 
 Here, you will recognize the appearance and settings that can be set on the panel component. Example configuration:
 
@@ -15,13 +16,13 @@ Here, you will recognize the appearance and settings that can be set on the pane
   "id": "input-panel-group",
   "type": "Group",
   "children": [
-    "panel1",
-    "panel2"
+    "child1",
+    "child2"
   ],
   "dataModelBindings": {},
   "textResourceBindings": {
-    "title": "Dette er bare en demo av input panel utenfor repeterende gruppe.",
-    "body": "Her ser jeg bare at ting fungerer som forventet."
+    "title": "This is just a demo of input panel outside of repeating group",
+    "body": "Here I just see that things work as expected."
   },
   "panel": {
     "variant": "info"
@@ -37,12 +38,12 @@ This will give the following output:
 
 It is possible to configure the following settings in the `panel` field of a group:
 
-| Parameter      | Required | Description                                                                                                                                                                    |
-|----------------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| variant        | Yes      | Which variant of panel the group should be placed in. Available values are "info", "success" and "warning"                                                                     |
-| iconUrl        | No       | If you want your own icon as part of a panel, this can be set. Relative or full path, e.g. "awesomeIcon.png" or "http://cdn.example.com/awesomeIcon.png"                       |                                                                                           |
-| iconAlt        | No       | Alternate text for the custom icon. Can only be set if iconUrl has been set. Can be plain text or a reference to a text resource.                                              |
-| groupReference | No       | Reference to a different group. Can be used if you wish to add elements to a repeating group from some other context. [Read more.](#add-element-from-separate-repeating-group) | |
+| Parameter      | Required | Description                                                                                                                                                                                |
+|----------------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| variant        | Yes      | Which variant of panel the group should be placed in. Available values are "info", "success" and "warning"                                                                                 |
+| iconUrl        | No       | If you want your own icon as part of a panel, this can be set. Relative or full path, e.g. "awesomeIcon.png" or "http://cdn.example.com/awesomeIcon.png"                                   |                                                                                           |
+| iconAlt        | No       | Alternate text for the custom icon. Can only be set if iconUrl has been set. Can be plain text or a reference to a text resource.                                                          |
+| groupReference | No       | Reference to a different (repeating) group. Can be used if you wish to add elements to a repeating group from some other context. [Read more.](#add-element-from-separate-repeating-group) | |
 
 Example:
 
@@ -78,7 +79,10 @@ The following group component is one of the children of group-2:
 {
   "id": "input-panel-group",
   "type": "Group",
-  "dataModelBindings": {},
+  "maxCount": 3,
+  "dataModelBindings": {
+    "group": "Payment.Cards"
+  },
   "textResourceBindings": {
     "title": "Legg til nytt betalingskort",
     "body": "Kortet du registrer vil bli lagret og tilgjengelig i resten av tjenesten.",
@@ -101,7 +105,8 @@ The text resources that can be set are:
 - `body` - panel body. Placed above the group elements.
 - `add_label` - text for the "add new"-button.
 
-If `children` is not set on the group, the children of the referenced group will be rendered. By adding to `children` you can freely define that only a subset of all children of the referenced group should be displayed.
+If `children` is not set on the group, the children of the referenced group will be rendered.
+By adding to `children` you can freely define that only a subset of all children of the referenced group should be displayed.
 
 Demonstration:
 

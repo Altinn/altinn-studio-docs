@@ -6,7 +6,8 @@ description: Konfigurasjonsdetaljer for grupper vist som panel, og referanser ti
 
 ## Vise gruppen som del av Panel
 
-Det er lagt til en ny parameter, `panel`, som kan settes på en gruppe-komponent. Denne sier at gruppen skal vises som en del av [Panel-komponenten](../../../components/panel).
+Gruppe-komponenter kan også sette en parameter, `panel`.
+Denne sier at gruppen skal vises som en del av [Panel-komponenten](../../../components/panel).
 
 Her vil du kjenne igjen utseende og innstillinger som kan settes på panel-komponenten. Eksempeloppsett:
 
@@ -15,8 +16,8 @@ Her vil du kjenne igjen utseende og innstillinger som kan settes på panel-kompo
   "id": "input-panel-group",
   "type": "Group",
   "children": [
-    "panel1",
-    "panel2"
+    "child1",
+    "child2"
   ],
   "dataModelBindings": {},
   "textResourceBindings": {
@@ -37,12 +38,12 @@ Dette vil gi følgende output:
 
 Det er mulig å konfigurere følgende settings i `panel` feltet på en gruppe:
 
-| Parameter      | Påkrevd | Beskrivelse                                                                                                                                                                                |
-|----------------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| variant        | Ja      | Hvilken variant av panel gruppen skal ligge i. Tilgjengelige verdier er "info", "success" og "warning"                                                                                     |
-| iconUrl        | Nei     | Om man ønsker eget ikon som del av panel kan dette settes. Relativ eller full path, f.eks "awesomeIcon.png" eller "http://cdn.example.com/awesomeIcon.png"                                 |                                                                                           |
-| iconAlt        | Nei     | Alternativ tekst til custom icon. Kan kun settes om iconUrl er satt. Kan være ren tekst eller en refereanse til en tekstressurs.                                                           |
-| groupReference | Nei     | Referanse til en annen gruppe. Kan benyttes om man ønsker legge til elementer i en repeterende gruppe fra en annen kontest. [Les mer.](#legge-til-element-fra-en-annen-repeterende-gruppe) |                                                       |
+| Parameter      | Påkrevd | Beskrivelse                                                                                                                                                                                              |
+|----------------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| variant        | Ja      | Hvilken variant av panel gruppen skal ligge i. Tilgjengelige verdier er "info", "success" og "warning"                                                                                                   |
+| iconUrl        | Nei     | Om man ønsker eget ikon som del av panel kan dette settes. Relativ eller full path, f.eks "awesomeIcon.png" eller "http://cdn.example.com/awesomeIcon.png"                                               |                                                                                           |
+| iconAlt        | Nei     | Alternativ tekst til custom icon. Kan kun settes om iconUrl er satt. Kan være ren tekst eller en refereanse til en tekstressurs.                                                                         |
+| groupReference | Nei     | Referanse til en annen (repeterende) gruppe. Kan benyttes om man ønsker legge til elementer i en repeterende gruppe fra en annen kontest. [Les mer.](#legge-til-element-fra-en-annen-repeterende-gruppe) |                                                       |
 
 Eksempel:
 
@@ -76,7 +77,10 @@ Følgende gruppe-komponent ligger som et barn av gruppe-2:
 {
   "id": "input-panel-group",
   "type": "Group",
-  "dataModelBindings": {},
+  "maxCount": 3,
+  "dataModelBindings": {
+    "group": "Payment.Cards"
+  },
   "textResourceBindings": {
     "title": "Legg til nytt betalingskort",
     "body": "Kortet du registrer vil bli lagret og tilgjengelig i resten av tjenesten.",
@@ -99,7 +103,8 @@ Tekstressursene som kan settes er:
 - `body` - panel body. Plassert over gruppe elementene.
 - `add_label` - tekst for "legg til"-knappen.
 
-Om ikke `children` er satt på gruppen vil barna til den refererte gruppen bli rendret. Ved å legge til `children` kan man fritt definere at det kun skal vises et subset av alle barn av den refererte gruppen.
+Om ikke `children` er satt på gruppen vil barna til den refererte gruppen bli vist.
+Ved å legge til `children` kan man fritt definere at det kun skal vises et subset av alle barn av den refererte gruppen.
 
 Demonstrasjon:
 
