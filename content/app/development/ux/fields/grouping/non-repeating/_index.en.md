@@ -5,7 +5,7 @@ description: Setup for non-repeating groups
 weight: 2
 ---
 
-Fields in a form can be set up to be part of a _group_. This can be used to e.g. set up dynamic on multiple
+Fields in a form can be set up to be part of a _group_. This can be used to e.g. set up dynamics on multiple
 fields/components at once, instead of having to configure them for each single field. Visually, a group of fields will
 not look much different than configuring individual fields.
 
