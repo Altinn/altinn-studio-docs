@@ -14,7 +14,7 @@ To set up file uploading components in repeating groups, some additional setup i
 
 When uploading file attachments it may be difficult to distinguish which file attachments belongs to which rows in the repeating group,
 and thus which submitted information belongs to each attachment. Therefore, you must set up connections to
-the data model when file uploading are used in repeating groups, so that Altinn can fill out the unique identificator
+the data model when file uploading are used in repeating groups, so that Altinn can fill out the unique identifier
 that belongs to each file attachment and send this together with the rest of the data in the instance.
 
 The ability to place a reference to the file attachment in the data model can also be used outside of repeating groups if you
