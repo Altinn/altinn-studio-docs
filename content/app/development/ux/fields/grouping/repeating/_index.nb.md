@@ -6,7 +6,7 @@ weight: 1
 ---
 
 Grupper i datamodellen inneholder ett eller flere felter. Grupper er definert som _repeterende_ dersom de har
-`maxOccurs > 1` i layout-konfigurasjonen. En gruppe som er repeterende i datamodellen må også settes opp som repeterende
+`maxCount > 1` i layout-konfigurasjonen. En gruppe som er repeterende i datamodellen må også settes opp som repeterende
 i skjemaet/layout-konfigurasjonen, ellers vil lagring av data feile. I JSON defineres en repeterende gruppe som en
 array/liste med objekter (hvor hvert objekt representerer en _rad_ i en repeterende gruppe). I XML defineres en
 repetrende gruppe som en liste med elementer (hvor hvert element er en gruppe med egenskaper, gjengitt som en _rad_ i
