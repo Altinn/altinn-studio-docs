@@ -5,7 +5,7 @@ description: Setup for repeating groups
 weight: 1
 ---
 
-Groups in the data model contain one or more fields. Groups are defined as _repeating_ if they have `maxOccurs > 1` in
+Groups in the data model contain one or more fields. Groups are defined as _repeating_ if they have `maxCount > 1` in
 the layout configuration. A group that is repeating in the data model must also be set up as repeating in the form, if
 not, data saving will fail. In JSON, a repeating group is defined as an array of objects, where each object is a group.
 In XML, a repeating group is defined as a list of elements, where each element is a group/object with properties.
