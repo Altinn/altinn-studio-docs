@@ -28,8 +28,8 @@ On the data page there should be an option to enter previous residences. Previou
 It should be possible to enter up to 10 former residences. 
 
 ### Useful documentation
-- [Setup of field grouping](/app/development/ux/fields/grouping/setup/)
-- [Setup of repeating groups](/app/development/ux/fields/grouping/repeating/)
+- [Setup of field grouping](/app/development/ux/fields/grouping)
+- [Setup of repeating groups](/app/development/ux/fields/grouping/repeating)
 
 ### Knowledge check
 - What field in the data model decides if an element is repeating?
