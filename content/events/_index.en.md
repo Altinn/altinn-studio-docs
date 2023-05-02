@@ -11,7 +11,7 @@ aliases:
 
 {{% notice warning  %}}
 This section of the documentation is a work in progress. 
-Be adviced there might be  missing or partial documentation related to some sections.
+There are sections with missing or only partial documentation.
 {{% /notice %}}
 
 
