@@ -42,6 +42,13 @@ The first Component is Access Managment Frontend
 - [Schedule Release](https://github.com/Altinn/altinn-access-management-frontend/actions/workflows/scheduled-release.yml)
 - [Deploy TT/Prod workflow](https://github.com/Altinn/altinn-access-management-frontend/actions/workflows/deploy-to-environment.yml)
 
+The Build Action build codes and publish container to Github Container Registry
+
+The Schedule Release Action tags the last release (code and container)
+
+Deploy trigger deploy to tt or prod based on tag
+
+
 ### Continuous Del. Pipeline Management
 
 The goal is to deliver continuously. For our AT environments, new code deploys automatically. For TT02 and production, there is currently a weekly deployment. Production deployment is on Tuesday, and TT02 is on Wednesday.
