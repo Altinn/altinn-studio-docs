@@ -7,7 +7,7 @@ weight: 20
 
 Events published to Altinn are pushed to all authorized subscribers and persisted for on-demand retrieval for 90 days. 
 
-Cloud event spec is followed, but additional Altinn extension properties are defined that you should know 
+The CloudEvent specification is followed, but there are additional Altinn specific properties that you should know about
 and use where you see fit.
 
 - resource (required)
