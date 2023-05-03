@@ -120,7 +120,7 @@ We are working on extending this service to additional parties such as applicati
 spring of 2023. Maskinporten authentication will be required in order to publish events on our platform.
 
 Subscribing to events is openly available to end users, end user systems and application owners. 
-Once additional parties gain access to publishing, the right to subscribe to events published through Altinn Platform
+Once additional parties gain access to publishing, the right to subscribe to events published through Altinn
 will be generally available to the public.*
 
 \* Subscriptions will need to be authorized by the publisher, and Altinn's terms and conditions will have to be 
