@@ -31,7 +31,7 @@ Altinn by Altinn Apps and other event publishers.
 
 ## Authentication & Authorization
 ### Altinn token
-This API is secured using OAuth2 and all requests must include a valid Altinn token either in the Authorization header or
+The Events API is secured using OAuth2 and all requests must include a valid Altinn token either in the Authorization header or
 in the _AltinnStudioRuntime_ cookie. 
 
 
