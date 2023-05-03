@@ -27,6 +27,7 @@ All form components are react components, that are provided with props as input.
 | prop name         | type                    | description                                    | source                                      |
 | ----------------- | ----------------------- | ---------------------------------------------- | ------------------------------------------- |
 | id                | string                  | unique component ID                            | layout                                      |
+| renderAsSummary   | boolean                 | should component render as summary             | layout                                      |
 | text              | string                  | text to be displayed                           | layout (`textResourceBindings.title` value) |
 | formData          | any                     | form data to display (if relevant)             | parent component                            |
 | language          | any                     | object containing standard language resources  | parent component                            |
