@@ -6,8 +6,7 @@ weight: 10
 toc: true
 ---
 
-The Altinn Events API is an HTTP-based RESTful API that provides access to cloud events published to 
-Altinn by Altinn Apps and other event publishers.
+The Altinn Events API is an HTTP-based RESTful API that provides endpoints and actions for publishing of events and subscribing to events from Altinn 3 Apps and other registered sources.
 
 
 ## Base URL
