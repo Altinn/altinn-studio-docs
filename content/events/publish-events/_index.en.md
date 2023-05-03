@@ -10,7 +10,7 @@ Events published to Altinn are pushed to all authorized subscribers and persiste
 The CloudEvent specification is followed, but there are additional Altinn specific properties that you should know about
 and use where you see fit.
 
-- resource (required)
+- resource (always required)
 - resourceinstance
 - alternativesubject
   
