@@ -18,7 +18,7 @@ There are sections with missing or only partial documentation.
 ## Design goals
 
 Altinn Events was developed to make it easier for service developers to deliver dynamic and 
-seamless user experiences, based on data from multiple systems of record. 
+seamless user experiences, based on data from multiple systems. 
 
 Altinn Events provides developers a simple route to adding event-driven architecture to their existing 
 service-oriented applications.Secure and scaleable, Altinn Events uses Publish/Subscribe concepts to 
