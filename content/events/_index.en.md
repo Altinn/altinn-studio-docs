@@ -123,7 +123,7 @@ Subscribing to events is openly available to end users, end user systems and app
 Once additional parties gain access to publishing, the right to subscribe to events published through Altinn
 will be generally available to the public.*
 
-\* Subscriptions will need to be authorized by the publisher, and Altinn's terms and conditions will have to be 
+Subscriptions will need to be authorized by the publisher, and Altinn's terms and conditions will have to be 
 signed before gaining access. 
 
 {{<children />}}
