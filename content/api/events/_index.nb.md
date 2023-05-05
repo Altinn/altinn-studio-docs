@@ -9,7 +9,7 @@ tags: [api, translate-to-norwegian]
 ## Overview
 
 Events are in this context is information about events created by applications or other sources. The event itself is based on the CloudEvent standard and is
-a small JSON structure containing the most important information of an event. Details are found [here](/technology/architecture/capabilities/runtime/integration/events/#event-schema).
+a small JSON structure containing the most important information of an event. Details are found [here](/events/#what-is-an-event).
 
 The events APIs are used to access events created by applications in Altinn Apps and other event sources that use Altinn Platform as
 av "event hub". 
