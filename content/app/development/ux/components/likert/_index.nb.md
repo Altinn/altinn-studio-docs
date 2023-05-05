@@ -1,7 +1,6 @@
 ---
 title: Likert
-linktitle: Likert
-description: Hvordan ta i bruk en likert komponent
+description: Likert-komponenten lar brukeren svare på spørsmål ved å velge et av flere alternativer ved hjelp av radioknapper.
 toc: false
 weight: 40
 ---

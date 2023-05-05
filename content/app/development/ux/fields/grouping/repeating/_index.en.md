@@ -1,165 +1,103 @@
 ---
 title: Repeating groups
 linktitle: Repeating
-description: Setup for repeating groups.
-weight: 2
+description: Setup for repeating groups
+weight: 1
 ---
 
-Groups in the data model contain one or more fields. Groups are defined as _repeating_ if they have `maxOccurs > 1` in the xsd.
-A group that is repeating in the data model must also be set up as repeating in the form, if not, data saving will fail.
-
+Groups in the data model contain one or more fields. Groups are defined as _repeating_ if they have `maxCount > 1` in
+the layout configuration. A group that is repeating in the data model must also be set up as repeating in the form, if
+not, data saving will fail. In JSON, a repeating group is defined as an array of objects, where each object is a group.
+In XML, a repeating group is defined as a list of elements, where each element is a group/object with properties.
 
 ## Example
 
-Form with some single-fields and a repeating group that:
+Below is a form with a repeating group that:
 
-- contains three fields
-- can be repeated up to three times
+- Contains two components (checkbox and address)
+- Can be repeated up to three times
+- Is bound to the data model group/array `GruppeListe`
 
 ![Form with repeating group](repeating-groups-demo.gif "Form with repeating group")
 
-Setup in `FormLayout.json` from the example above:
-
+{{% expandlarge id="full-example" header="Show configuration for this screenshot" %}}
 ```json {linenos=inline}
-{
-  "data": {
-    "layout": [
+[
+  {
+    "id": "gruppe",
+    "type": "Group",
+    "children": [
+      "avkrysningsboks",
+      "adresse"
+    ],
+    "maxCount": 3,
+    "dataModelBindings": {
+      "group": "GruppeListe"
+    }
+  },
+  {
+    "id": "avkrysningsboks",
+    "type": "Checkboxes",
+    "textResourceBindings": {
+      "title": "Avkrysningsboks"
+    },
+    "dataModelBindings": {
+      "simpleBinding": "GruppeListe.Avkrysning"
+    },
+    "options": [
       {
-        "id": "gruppe-1",
-        "type": "Group",
-        "children": [
-          "ac555386-ac2b-47a0-bb1b-842f8612eddb",
-          "5c079cd4-c80c-44ea-b8b8-18e323267a37"
-        ],
-        "maxCount": 3,
-        "dataModelBindings": {
-          "group": "spesifisering-grp-5836"
-        },
-        "textResourceBindings": {
-          "header": "person"
-        }
+        "label": "Navn",
+        "value": "Verdi1"
       },
       {
-        "id": "ac555386-ac2b-47a0-bb1b-842f8612eddb",
-        "type": "Checkboxes",
-        "componentType": 5,
-        "textResourceBindings": {
-          "title": "Avkrysningsboks"
-        },
-        "dataModelBindings": {
-          "simpleBinding": "klage-grp-5805.spesifisering-grp-5836.KlageSpesifisering-datadef-25457.value"
-        },
-        "options": [
-          {
-            "label": "25795.OppgavegiverNavnPreutfyltdatadef25795.Label",
-            "value": "Verdi1"
-          },
-          {
-            "label": "25796.OppgavegiverAdressePreutfyltdatadef25796.Label",
-            "value": "Verdi2"
-          }
-        ],
-        "required": true
-      },
-      {
-        "id": "5c079cd4-c80c-44ea-b8b8-18e323267a37",
-        "type": "AddressComponent",
-        "componentType": 11,
-        "textResourceBindings": {
-          "title": "Adresse" 
-        },
-        "dataModelBindings": {
-          "address": "klage-grp-5805.spesifisering-grp-5836.KlageSpesifiseringg-datadef-12345.value"
-        },
-        "simplified": true,
-        "readOnly": false,
-        "required": true
+        "label": "Adresse",
+        "value": "Verdi2"
       }
-    ]
-  }
-}
-```
-
-## File attachment in repeating groups
-
-{{%notice warning%}}
-This is new functionality. Setup must be done manually for now.
-{{%/notice%}}
-
-To set up file uploading components in repeating groups, some additional setup is required.
-
-When uploading file attachments it may be difficult to distinguish which file attachments belongs to which rows in the repeating group, 
-and thus which submitted information belongs to each attachment. Therefore, you must set up connections to
-the data model when file uploading are used in repeating groups, so that Altinn can fill out the unique identificator
-that belongs to each file attachment and send this together with the rest of the data in the instance.
-
-The ability to place a reference to the file attachment in the data model can also be used outside of repeating groups if you
-want a reference to a file attachment together with the form data on the receivers end.
-
-![Example on file attachment in repeating group with attached data model](attachments-demo.gif "Example on file attachment in repeating group with attached data model")
-
-The following is an example of a data model expecting a reference to an uploaded file attachment.
-
-```xsd {hl_lines=["12"]}
-<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
-  <xsd:element name="FamilieMedlemmer" type="Skjema" />
-  <xsd:complexType name="Skjema">
-    <xsd:sequence>
-      <xsd:element name="FamilyMember" type="FamilyMember" maxOccurs="99" />
-    </xsd:sequence>
-    <xsd:anyAttribute />
-  </xsd:complexType>
-  <xsd:complexType name="FamilyMember">
-    <xsd:sequence>
-      <xsd:element name="FirstName" type="xsd:string" />
-      <xsd:element name="Picture" type="xsd:string" />
-    </xsd:sequence>
-  </xsd:complexType>
-</xsd:schema>
-```
-
-This is connected to the file upload component in the group:
-
-```json {hl_lines=["8"]}
-{
-  "id": "picture",
-  "type": "FileUpload",
-  "textResourceBindings": {
-    "title": "Picture"
+    ],
+    "required": true
   },
-  "dataModelBindings": {
-    "simpleBinding": "FamilyMember.Picture"
-  },
-  "maxFileSizeInMB": 25,
-  "maxNumberOfAttachments": 1,
-  "minNumberOfAttachments": 1,
-  "displayMode": "simple",
-  "required": true
-}
-```
-
-In cases where it is allowed to upload multiple files to the same file attachment component, use a data model attachment 
-of the type `list`:
-
-```xsd {hl_lines=[4]}
-  <xsd:complexType name="FamilyMember">
-    <xsd:sequence>
-      <xsd:element name="FirstName" type="xsd:string" />
-      <xsd:element name="Pictures" type="xsd:string" maxOccurs="5" />
-    </xsd:sequence>
-  </xsd:complexType>
-```
-
-```json {hl_lines=[4]}
-{
-  [...]
-  "dataModelBindings": {
-    "list": "FamilyMember.Pictures"
+  {
+    "id": "addresse",
+    "type": "AddressComponent",
+    "textResourceBindings": {
+      "title": "Adresse" 
+    },
+    "dataModelBindings": {
+      "address": "GruppeListe.Adresse",
+      "zipCode": "GruppeListe.Postnr",
+      "postPlace": "GruppeListe.Poststed"
+    },
+    "simplified": true,
+    "readOnly": false,
+    "required": true
   }
-}
+]
 ```
+{{% /expandlarge %}}
 
-The receiving end will then receive a list of multiple unique ID's, one for each attachment.
-The same unique ID will also be displayed in
-the PDF receipt - but it is recommended to [hide this](/app/development/ux/pdf/#excluding-pages-and-components), as attachments
-are shown seperately on the receipt page and the unique ID can become confusing to the users.
+## Parameters
+
+| Parameter                                                        | Required | Description                                                                                                                    |
+|------------------------------------------------------------------|----------|--------------------------------------------------------------------------------------------------------------------------------|
+| id                                                               | Yes      | Unique ID, same as ID on other components. Must be unique in the layout file, and should be unique across pages.               |
+| type                                                             | Yes      | Must be 'Group'                                                                                                                |
+| dataModelBindings                                                | No       | Must be set for repeating groups with form components inside. Should point to the repeating group in the data model.           |
+| [textResourceBindings](#textresourcebindings)                    | No       | Can be set for repeating groups, see [description](#textresourcebindings).                                                     |
+| maxCount                                                         | Yes      | The number of times a group can repeat. Must be set to `1` or more for the group component to work as a repeating group.       |
+| children                                                         | Yes      | List of the component IDs that are to be included in the repeating group.                                                      |
+| [edit](edit)                                                     | No       | Options for how to display the group when editing a row.                                                                       |
+| tableHeaders                                                     | No       | List of components that are to be included as part of the table header fields. If not specified, all components are displayed. |
+| [tableColumns](table/#widths-alignment-and-overflow-for-columns) | No       | Object containing column options for specified headers. If not specified, all columns will use default display settings.       |
+
+## textResourceBindings
+
+It is possible to add different keys in textResourceBindings to overrule default texts.
+
+- `title` - title to show above the group row in a [Summary component](../../../pages/summary).
+- `add_button` - is added at the end of the "Add new" text on the button, and can be used to e.g. get text that says "Add new person".
+- `save_button` - is used as text on the "Save" button when the user is filling out data.
+- `save_and_next_button` - is used as text on the "Save and open next" button if enabled.
+- `edit_button_open` - is used as text on the "Edit" button on the table when the user is opening an element.
+- `edit_button_close` - is used as text on the "Edit" button on the table when the user is closing an element.
+
+{{<children />}}

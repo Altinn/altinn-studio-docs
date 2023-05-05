@@ -191,12 +191,13 @@ Example of custom texts in the file  `resources.nb.json`:
 ## Receipt
 In this process task the process will be ended and some standard texts are shown.
 
-These texts can be overridden by manually adding each defined text keys in the apps text resources. More information about how this is done can be found [here](../../../ux/texts).
-In the following section we will present an overview of the different texts that can be customized.
+These texts can be overridden by manually adding each defined text key in the app's text resources. More information about how this is done can be found [here](../../../ux/texts).
 
-![Receipt view](receipt-step.png "Texts that can be customized in the receipt view")
+If the actual recipient of the form is a different organization than the organization owning the app, the receipt should reflect this in the `Receiver` field. This can be done by setting the text resource `appReceiver` to the name of the actual recipient.
 
 ### Customize texts
+
+![Receipt view](receipt-step.png "Texts that can be customized in the receipt view")
 
 | Text # (see image above)  | Text key                |
 |---------------------------|-------------------------|

@@ -192,13 +192,13 @@ Eksempel på overstyrte tekster i filen `resources.nb.json`:
 ## Kvittering (Receipt)
 I denne prosess-task-typen er prosessen ferdig og noen standardtekster vises. 
 
-Tekstene kan overstyres, ved at man legger inn tekstnøkkel som hører til hver tekst i språkfilene for appen. Info
-om hvordan dette gjøres finner du [her](../../../ux/texts). Se under for oversikt over de forskjellige tekstnøklene som kan
-overstyres.
+Tekstene kan overstyres, ved at man legger inn tekstnøkkel som hører til hver tekst i språkfilene for appen. Info om hvordan dette gjøres finner du [her](../../../ux/texts).
 
-![Kvitterings-visningen](receipt-step.png "Tekster som kan endres/overstyres i kvitterings-visningen")
+Dersom den reelle mottakeren av skjemaet er en annen organisasjon enn organisasjonen som eier appen, burde kvitteringen tydeligjøre dette i `Mottaker` feltet. Dette kan gjøres ved å sette tekstresursen `appReceiver` til navnet på den reelle mottakeren.
 
 ### Overstyre tekster
+
+![Kvitterings-visningen](receipt-step.png "Tekster som kan endres/overstyres i kvitterings-visningen")
 
 | Tekst nr. (se bilde over) | Tekstnøkkel             |
 |---------------------------|-------------------------|
