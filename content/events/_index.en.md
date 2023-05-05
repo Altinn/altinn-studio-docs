@@ -21,7 +21,7 @@ Altinn Events was developed to make it easier for service developers to deliver 
 seamless user experiences, based on data from multiple systems. 
 
 Altinn Events provides developers a simple route to adding event-driven architecture to their existing 
-service-oriented applications.Secure and scaleable, Altinn Events uses Publish/Subscribe concepts to 
+service-oriented applications. Secure and scalable, Altinn Events uses Publish/Subscribe concepts to 
 loosely couple disparate systems without relying on polling or database replication.
 
 
