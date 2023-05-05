@@ -36,10 +36,8 @@ The APIS exposed as standard from Apps and platform is described [here](/api)
 
 A important change for Altinn moving to the new platform is we change to an event driven architecture. 
 
-As part of the Altinn 3 platform it is created a Events component that apps and other can publish their events and other can
+As part of the Altinn 3 platform it is created an Events component that apps and other can publish their events and other can
 subscribe to. 
-
-This is in detailed explained under [Events capabilities](events)
 
 ### Transport & Delivery
 
