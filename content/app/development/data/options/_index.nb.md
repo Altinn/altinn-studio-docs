@@ -379,3 +379,51 @@ Bruken er som alle andre kodelister der `id` kommer igjen som `optionsId` i komp
   "optionsId": "ASF_Land"
 },
 ```
+
+## Beskrivelse og Hjelpetekst
+`description` og hjelpetekst støttes av alternativene i apper som bruker versjon v7.8.0 eller høyere. `description` og
+hjelpetekst kan vises av komponentene `RadioButtons` og `Checkboxes` ved å gi et option de nevnte egenskapene.
+
+Beskrivelser og hjelpetekster kan gis til `optons` på samme måte som en `label` er gitt, enten i statiske eller
+dynamiske kodelister.
+
+```json
+[
+    {
+        "value": "norway",
+        "label": "Norge",
+        "description": "This is a description",
+        "helpText": "This is a help text"
+    },
+    {
+        "value": "denmark",
+        "label": "Danmark"
+    }
+]
+```
+
+```cs
+var options = new AppOptions
+{
+  Options = new List<AppOption>
+    {
+      new AppOption
+      {
+          Label = "Ole",
+          Value = "1",
+          Description = "This is a description",
+          HelpText  = "This is a help text"
+      },
+      new AppOption
+      {
+          Label = "Dole",
+          Value = "2"
+      }
+    }
+};
+```
+
+{{%notice warning%}}
+Beskrivelse og hjelpetekst er ennå ikke kompatible med alternativer fra gjentakende grupper siden source ikke støtter
+tillegg av hjelpetekst og beskrivelse.
+{{% /notice%}}

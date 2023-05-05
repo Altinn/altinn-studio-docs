@@ -380,3 +380,54 @@ Usage is as all code lists where `id` is written in the `optionsId` field of the
   "optionsId": "ASF_Land"
 },
 ```
+
+## Description and HelpText
+
+`description` and `helpText` is supported by options in apps that use version v7.8.0 or higher. `description` and
+`helpText` can be displayed by the components `RadioButtons` and `Checkboxes` by providing the option list with the
+mentioned properties.
+
+Descriptions and HelpTexts can be provided to options in the same way that a label is provided, in either static or
+dynamic code lists.
+
+```json
+[
+    {
+        "value": "norway",
+        "label": "Norge",
+        "description": "This is a description",
+        "helpText": "This is a help text"
+    },
+    {
+        "value": "denmark",
+        "label": "Danmark"
+    }
+]
+
+```
+
+```cs
+var options = new AppOptions
+{
+  Options = new List<AppOption>
+    {
+      new AppOption
+      {
+          Label = "Ole",
+          Value = "1",
+          Description = "This is a description",
+          HelpText  = "This is a help text"
+      },
+      new AppOption
+      {
+          Label = "Dole",
+          Value = "2"
+      }
+    }
+};
+```
+
+{{%notice warning%}}
+Description and HelpText is not yet compatible with options from repeating groups as `source` does not yet support
+adding HelpText and Description.
+{{% /notice%}}
