@@ -8,11 +8,11 @@ weight: 3
 
 In addition it contains serveral [Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview) to support push of events. 
 
-See [event capabilities](/technology/architecture/capabilities/runtime/integration/events/) for functional description of the platforms event capabilities.
+See [events](/events/) for functional description of the platforms event capabilities.
 
 ![Event architecture diagram](/technology/architecture/components/application/construction/altinn-platform/events/altinn-events.drawio.export.svg "Altinn Event Architecture")
 
-The solution is available at https://platform.altinn.cloud/events/api/v1.
+The solution is available at https://platform.altinn.no/events/api/v1.
 
 ### API Structure
 
@@ -238,7 +238,7 @@ to a Slack webhook
 
 ### API Documentation
 
-The full detail for this API is described [here](/api/events/spec). 
+The full detail for this API is described [here](/events/api/spec). 
 
 
 ## Push Functions
