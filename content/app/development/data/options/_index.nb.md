@@ -382,8 +382,9 @@ Bruken er som alle andre kodelister der `id` kommer igjen som `optionsId` i komp
 
 ## Beskrivelse og Hjelpetekst
 
-`description` og hjelpetekst støttes av alternativene i apper som bruker versjon v7.8.0 eller høyere. `description` og
-hjelpetekst kan vises av komponentene `RadioButtons` og `Checkboxes` ved å gi et option de nevnte egenskapene.
+`description` og `helpText` støttes av options i apper som bruker versjon v7.8.0 eller høyere. Beskrivlese og
+hjelpetekst kan vises av komponentene `RadioButtons` og `Checkboxes` ved å sette attributtene i en `option` som
+brukes av komponenten.
 
 Beskrivelser og hjelpetekster kan gis til `options` på samme måte som en `label` er gitt, enten i statiske eller
 dynamiske kodelister. Man kan også bruke dem i options basert på repeterende grupper i `source` attributten.
