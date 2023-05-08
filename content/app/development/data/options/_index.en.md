@@ -387,8 +387,8 @@ Usage is as all code lists where `id` is written in the `optionsId` field of the
 `helpText` can be displayed by the components `RadioButtons` and `Checkboxes` by providing the option list with the
 mentioned properties.
 
-Descriptions and HelpTexts can be provided to options in the same way that a label is provided, in either static or
-dynamic code lists.
+Descriptions and HelpTexts can be provided to `options` in the same way that a `label` is provided, in either static or
+dynamic code lists. One can also use them in options based on repetitive groups in the `source` attribute.
 
 ```json
 [
@@ -427,7 +427,21 @@ var options = new AppOptions
 };
 ```
 
-{{%notice warning%}}
-Description and HelpText is not yet compatible with options from repeating groups as `source` does not yet support
-adding HelpText and Description.
-{{% /notice%}}
+Descriptions and help texts used in options based on repeating groups can be set up with dynamic text-resources in the
+same way as labels, described in
+[options based on repeating groups](#options-based-on-repeating-groups-from-the-data-model)."
+
+```json
+      {
+        "id": "checkboxes-component-id",
+        "type": "Checkboxes",
+        ...
+        "source": {
+          "group": "some.group",
+          "label": "checkboxes.label",
+          "description": "checkboxes.descripiton",
+          "helpText": "checkboxes.helpText",
+          "value": "some.group[{0}].someField"
+        }
+      },
+```
