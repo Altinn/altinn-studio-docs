@@ -24,11 +24,11 @@ I tillegg til at funksjonaliteten kan skrues av og på er det mulig å ekskluder
 
 ### Ekskludering av data typer
 
-Det er mulig å angi en liste over data typer man ikke ønsker at skal kopieres over i ny kopi, men hva man kan kopiere av data typer er allerede meget begrenset. Denne listen med data typer har derfor begrenset funksjon i dagens løsning. Kopierings funksjonaliteten vil bare kopiere data elementer relatert til et skjema. Dette betyr at det ikke blir laget kopier av vedlegg. I tillegg må data typene være knyttet til første steg i prosessen til appen. 
+Det er mulig å angi en liste over data typer man ikke ønsker at skal kopieres over i ny instans, men hva man kan kopiere av data typer er allerede meget begrenset. Listen med ekskluderte data typer har derfor begrenset funksjon i dagens løsning. Kopierings funksjonaliteten vil bare kopiere data elementer relatert til et skjema. Dette betyr at det ikke blir laget kopier av vedlegg. I tillegg må data typene være knyttet til første steg i prosessen til appen. 
 
 ### Ekskludering av felter
 
-I listen med ekskluderte felter kan man angi navnene på felter man ikke ønsker å kopiere over i ny kopi. Hensikten med denne funksjonaliteten er å få tømt data i felter man vet må variere fra en innsending til en annen. Det kan for eksempel være et felt som indikerer hvilke kvartal i året den nye innsendingen skal gjelde for. Her må apputvikler vurdere behovene og hva slags type bruk som blir mest vanlig. Felter angis ved hjelp av dot-notasjon på samme måte som man gjør ved data binding i layout filer.
+I listen med ekskluderte felter kan man angi navnene på felter man ikke ønsker å kopiere over i ny instans. Hensikten med denne funksjonaliteten er å få tømt data i felter man vet må variere fra en innsending til en annen. Det kan for eksempel være et felt som indikerer hvilke kvartal i året den nye innsendingen skal gjelde for. Her må apputvikler vurdere behovene og hva slags type bruk som blir mest vanlig. Felter angis ved hjelp av dot-notasjon på samme måte som man gjør ved data binding i layout filer.
 
 ## Eksempler
 

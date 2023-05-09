@@ -24,7 +24,7 @@ In addition to turning the functionality on and off, it is possible to exclude d
 
 ### Exclusion of data types
 
-It is possible to provide a list of data types you don't want to be copied over to the new copy, but which data types that can be copied are already fairly limited. This list of excluded data types have therefor limited effect. The copy feature will only copy data elementes related to a schema/form. This means that no attachments will be copied. I addition to this the data types being copied needs to be associated with the first step in the process for the app.
+It is possible to provide a list of data types you don't want to be copied over to the new instance, but which data types that can be copied are already fairly limited. The list of excluded data types have therefor limited effect. The copy feature will only copy data elementes related to a schema/form. This means that no attachments will be copied. I addition to this the data types being copied needs to be associated with the first step in the process for the app.
 
 ### Exclusion of data fields
 
@@ -53,4 +53,4 @@ Configuration where the Create new copy is activated and where two fields in two
 ```
 ## Programing interface
 
-During the copying of an instance the logic will perform a method call to **IInstantiationProcessor.DataCreation**. This makes it possible to add programatic changes to the data as it's being copied. [Programatic prefill](/app/development/data/prefill/custom/).
+During the copying of an instance the logic will perform a method call to **IInstantiationProcessor.DataCreation**. This makes it possible to perform programatic changes to the data as it is being copied. [Programatic prefill](/app/development/data/prefill/custom/).
