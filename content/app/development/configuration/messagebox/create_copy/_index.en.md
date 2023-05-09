@@ -8,6 +8,11 @@ weight: 200
 ## Description
 The primary purpose of the create new copy feature is to make it easy for a user of the portal to start a new submission by copying a previously completed submission. The user just need to navigate to the instance they would like to copy and then click on the link Create new copy". The App will then create a new instance and openit in the browser ready for form filling with fields already filled in with data from the original.
 
+{{%notice info%}}
+The Create new copy functionality was introduced in version 7.9.0 of the nuget packages.
+[See how to update the nuget references of your application here](/app/maintainance/dependencies/).
+{{% /notice%}}
+
 ## Configuration
 
 {{% notice info  %}}

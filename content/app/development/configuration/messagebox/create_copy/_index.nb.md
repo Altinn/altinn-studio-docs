@@ -8,6 +8,11 @@ weight: 200
 ## Beskrivelse
 Hovedhensikten med **Lag ny kopi** funksjonaliteten er at det skal være enkelt for en bruker av portalen å starte på en ny innsending ved å kopiere en tidligere fullført innsending. Brukeren skal bare måtte navigere seg frem til instansen vedkommende ønsker å kopiere for så å klikke på linken Lag ny Kopi. Appen vil lage en kopi og åpne den i nettleseren klar for utfylling med felter ferdig utfylt med data fra orginalen.
 
+{{%notice info%}}
+Lag ny kopi funksjonaliteten ble introdusert i versjon 7.9.0 av nuget pakkene.
+[Se hvordan du oppdaterer nugetreferanser for applikasjonen din her](/nb/app/maintainance/dependencies/).
+{{% /notice%}}
+
 ## Konfigurasjon
 
 {{% notice info  %}}
