@@ -1,7 +1,7 @@
 ---
 title: Create new copy
 linktitle: Create copy
-description: This page will be about how to configure the create new copy functionality in an app.
+description: This page describes how to configure the create new copy functionality in an app.
 weight: 200
 ---
 
@@ -24,7 +24,7 @@ In addition to turning the functionality on and off, it is possible to exclude d
 
 ### Exclusion of data types
 
-It is possible to provide a list of data types you don't want to be copied over to the new copy, but which data type that can be copies are already fairly limited. This list of excluded data types have therefor limited effect. The copy feature will only copy data elementes related to a schema/form. This means that no attachments will be copied. I addition to this the data type being copied needs to be associated with the first step in the process for the app.
+It is possible to provide a list of data types you don't want to be copied over to the new copy, but which data types that can be copied are already fairly limited. This list of excluded data types have therefor limited effect. The copy feature will only copy data elementes related to a schema/form. This means that no attachments will be copied. I addition to this the data types being copied needs to be associated with the first step in the process for the app.
 
 ### Exclusion of data fields
 
@@ -32,7 +32,7 @@ The list of excluded fields can be used to indicate which fields you don't want 
 
 ## Examples
 
-COnfiguration for turning the *Create new copy* feature on and off.
+Configuration for turning the *Create new copy* feature on and off.
 
 ```json
 "copyInstanceSettings": {
@@ -53,5 +53,4 @@ Configuration where the Create new copy is activated and where two fields in two
 ```
 ## Programing interface
 
-During the copying of an instance the logic will perform a method call to **IInstantiationProcessor.DataCreation**. This makes it possible to add programatic changes to the data as it's being copied.
-Under kopiering av skjema vil logikken utføre metode kall mot **IInstantiationProcessor.DataCreation**. Dette skal gjøre det mulig å gjøre programatiske endringer i data som blir kopiert. [Programatic prefill](/app/development/data/prefill/custom/).
+During the copying of an instance the logic will perform a method call to **IInstantiationProcessor.DataCreation**. This makes it possible to add programatic changes to the data as it's being copied. [Programatic prefill](/app/development/data/prefill/custom/).

@@ -1,7 +1,7 @@
 ---
 title: Lag ny kopi
 linktitle: Lag kopi
-description: Denne siden vil handle om hvordan man konfigurerer lag ny kopi funksjonaliteten i en app.
+description: Denne siden beskriver hvordan man konfigurerer lag ny kopi funksjonaliteten i en app.
 weight: 200
 ---
 
@@ -24,7 +24,7 @@ I tillegg til at funksjonaliteten kan skrues av og på er det mulig å ekskluder
 
 ### Ekskludering av data typer
 
-Det er mulig å angi en liste over data typer man ikke ønsker at skal kopieres over i ny kopi, men hva man kan kopiere av data typer er allerede meget begrenset. Denne listen med data typer har derfor begrenset funksjon i dagens løsning. Kopierings funksjonaliteten vil bare kopiere data elementer relatert til et skjema. Dette betyr at det ikke blir laget kopier av vedlegg. I tillegg må data typen må være knyttet til første steg i prosessen til appen. 
+Det er mulig å angi en liste over data typer man ikke ønsker at skal kopieres over i ny kopi, men hva man kan kopiere av data typer er allerede meget begrenset. Denne listen med data typer har derfor begrenset funksjon i dagens løsning. Kopierings funksjonaliteten vil bare kopiere data elementer relatert til et skjema. Dette betyr at det ikke blir laget kopier av vedlegg. I tillegg må data typene være knyttet til første steg i prosessen til appen. 
 
 ### Ekskludering av felter
 
@@ -51,6 +51,7 @@ Konfigurasjon hvor Lag ny kopi blir aktivert samtidig som det legges til eksklud
     ]
 }
 ```
+
 ## Programatiske endringer
 
 Under kopiering av skjema vil logikken utføre metode kall mot **IInstantiationProcessor.DataCreation**. Dette skal gjøre det mulig å gjøre programatiske endringer i data som blir kopiert. [Programatisk prefill](/nb/app/development/data/prefill/custom/).
