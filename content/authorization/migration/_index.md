@@ -3,6 +3,7 @@ title: Fremdriftplaner for modernisering av Altinn Autorisasjon
 linktitle: Fremdriftsplan
 description: Her finner du informasjon om hvordan vi har tenkt å migrere Altinn Autorisasjon fra Altinn 2 til Altinn 3 plattformen
 tags: [architecture, plan, authorization]
+weight: 1
 ---
 
 Innen juni 2025 så skal dagens Altinn løsning være modernisert og migrert til skyen. Det innebærer at mye av dagens løsning må utvikles på nytt. 

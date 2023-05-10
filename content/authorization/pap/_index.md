@@ -3,6 +3,7 @@ title: Policy Administration Point
 linktitle: PAP
 description: The Policy Administration Point is responsible for creating and modifying the different authorization policies used by the PDP
 tags: [architecture, security, authorization, xacml]
+weight: 1
 ---
 
 In Altinn Platform there is currently no Policy Administration Point functionality, but Altinn Platform provides functionality used

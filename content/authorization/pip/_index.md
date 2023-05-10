@@ -3,6 +3,7 @@ title: Policy Information Point
 linktitle: PIP
 description: The Policy Information Point(s) are responsible for providing needed information to the context handler so it can enrich the context request.
 tags: [architecture, security]
+weight: 1
 ---
 
 Without this information it would be impossible for the PDP to evaluate the context request in many scenarios.

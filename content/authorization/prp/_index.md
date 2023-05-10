@@ -3,6 +3,7 @@ title: Policy Retrieval Point
 linktitle: PRP
 description: The Policy Retrieval Point is the functionality where Policy Decision Point (PDP) can retrieve the policy defined for an app resource.
 tags: [architecture, security, authorization, xacml]
+weight: 1
 ---
 
 During deployment of an app the rules for the app is added to the Altinn Storage.  

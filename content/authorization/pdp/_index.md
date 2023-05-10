@@ -3,6 +3,7 @@ title: Policy Decision Point
 linktitle: PDP
 description: The Policy Decision Point is responsible to evaluate if users and systems is authorized to perform the requested operation on a resource.
 tags: [architecture, security, authorization, xacml]
+weight: 1
 ---
 
 The Policy Decision Point is implemented in the [access control component](../../../../architecture/components/application/construction/altinn-platform/authorization/accesscontrol/) that is deployed to Altinn Platform.

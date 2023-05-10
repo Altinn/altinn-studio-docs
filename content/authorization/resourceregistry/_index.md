@@ -3,6 +3,7 @@ title: Resource Registry
 linktitle: Resource Registry
 description: The Resource Registry 
 tags: [architecture, security, authorization, xacml]
+weight: 1
 ---
 
 {{<notice warning>}}

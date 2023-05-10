@@ -3,6 +3,7 @@ title: Access Groups
 linktitle: Access Groups
 description: The Access Groups component is responsible for keeping track of membership of different Access Groups defined in Altinn. 
 tags: [architecture, security, authorization, xacml]
+weight: 1
 ---
 
 {{<notice warning>}}

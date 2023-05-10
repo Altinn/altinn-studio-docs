@@ -3,6 +3,7 @@ title: Context Handler
 linktitle: Context Handler
 description: The responsibility to the Context Handler is to enrich a decision request sent from a PEP so it can be evaluated by PDP.
 tags: [architecture, security, authorization, xacml]
+weight: 1
 ---
 
 As an example, a decision request could contain only userId and instanceId together with the action requested.
