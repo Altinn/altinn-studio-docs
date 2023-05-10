@@ -6,7 +6,7 @@ tags: [architecture, security, authorization, xacml]
 weight: 1
 ---
 
-The Policy Decision Point is implemented in the [access control component](../../../../architecture/components/application/construction/altinn-platform/authorization/accesscontrol/) that is deployed to Altinn Platform.
+The Policy Decision Point is implemented in the [access control component](../../../../authorization/architecture/accesscontrol/) that is deployed to Altinn Platform.
 
 The Policy Decision Point follow [eXtensible Access Control Markup Language (XACML) Version 3.0](https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html). 
 
@@ -60,4 +60,4 @@ Testdata for conformance tests is found [here](https://github.com/Altinn/altinn-
 ## Implementation and construction details
 
 Details about the implementation of PDP is found under
-[construction components for PDP.](../../../../architecture/components/application/construction/altinn-platform/authorization/accesscontrol#policy-decision-point---pdp)
+[construction components for PDP.](/authorization/authorization/accesscontrol#policy-decision-point---pdp)
