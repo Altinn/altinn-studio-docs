@@ -42,4 +42,4 @@ As part of new design, management of access groups will take over for role manag
 
 ### Construction
 
-See details how AccessManagement is [constructed](/technology/architecture/components/application/construction/altinn-platform/authorization/accessmanagment/).
+See details how AccessManagement is [constructed](/authorization/architecture/accessmanagment/).
