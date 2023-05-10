@@ -229,6 +229,41 @@ Formateringen er kun for visning i frontend, og tallene som legges inn i et inpu
 },
 ```
 
+### Dynamisk tall formattering basert på språk
+Det er mulig å legge til dynamisk formattering av tallverdier i inputfelt. Kan velge mellom objektene ```"currency"``` og ```"unit"```. Basert på valgt språk i appen kan de formattere tusen- og desimalskille samt prefix/suffix.
+*Currency* består av ```"valuta"``` og ```"position"```. *Unit* består av ```"unitType"``` og ```"position"```   
+Gyldige verdier for *position* er ```"prefix"``` og ```suffix```, men er valgfri å legge til i objektet.
+Standard er prefix i *currency* og suffix i *unit*. 
+
+Eksempler:  
+>```"currency": {valuta: "NOK", position: "prefix"}```  
+>```"unit": {unitType: "kilogram", position: "suffix"}```
+
+Apputviker kan velge å la noen av delene være uavhengig av språket. Egenskaper i ```number``` overstyrer enkeltelementene i dynamisk formattering. Konfigurasjonen under gjør at på både norsk og engelsk vises prefix **kr** og tusenskille med mellomrom.
+
+```json {hl_lines=["5-7","9-11"]} {linenos=inline}
+{
+  "id": "numberComponent",
+  "type": "Input",
+  "formatting": {
+    "currency": {
+      "valuta": "NOK", 
+      "position": "prefix"
+    },
+    "number": {
+      "thousandSeparator": " ",
+      "prefix": "kr"
+    }
+  }
+},
+```
+
+Gyldige verdier for *currency* er basert ISO 4217 valutakoder, f.eks. **NOK** for norske kroner. [Liste av gyldige valutaer](https://github.com/unicode-org/cldr/blob/main/common/validity/currency.xml)  
+
+Gyldige verdier for *unit* er for øyeblikket følgende:
+> celsius **|** centimeter **|** day **|** degree **|** foot **|** gram **|** hectare **|** hour **|** inch **|** kilogram **|** kilometer **|** liter **|** meter **|** milliliter **|** millimeter **|** millisecond **|** minute **|** month **|** percent **|** second **|** week **|** year 
+
+
 ## Justering av tekst i input felter
 Når skjemaet inneholder en liste med tall som summeres er det vanlig å justere teksten i input feltet til høyre slik som
 når man summerer på papir og slik det vises i Excel. Dette kan gjøres ved å sette `"align": "right"` under `formatting`
