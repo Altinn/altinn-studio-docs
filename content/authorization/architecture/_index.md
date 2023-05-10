@@ -1,8 +1,9 @@
 ---
 title: Application construction components - Altinn Authorization
-linktitle: Authorization
+linktitle: Architecture
 description: Altinn Authorization is constructed as serveral components.
 tags: [architecture, solution]
+weight: 999999
 toc: false
 ---
 
