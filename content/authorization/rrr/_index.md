@@ -3,6 +3,7 @@ title: Resource Rights Registry
 linktitle: RRR
 description: The Resource Rights Registry gives the administrator of a Resource in Resource Registry the capability to administrate which organizations and persons can access their resources.
 tags: [architecture, security, authorization, xacml]
+weight: 1
 ---
 
 ## Concept

@@ -4,7 +4,7 @@ linktitle: Authorization
 description: The authorization components provide access management and control functionality for digital and analog services hosted in the Altinn Platform or other places.
 tags: [architecture, solution]
 toc: false
-weight: 100
+weight: 1
 ---
 
 The typical scenario is that some event will be triggered, or data will be read, updated, or created by a digital or analog service. A service owner owns this service and has defined some business rules for who is allowed to use the service.
