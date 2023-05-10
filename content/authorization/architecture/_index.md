@@ -8,7 +8,7 @@ toc: false
 
 ---
 
-For a functional description see details in [application solution components](../../../../../../solutions/altinn-platform/authorization/).
+For a functional description see details in [application solution components](../../).
 
 ## Construction diagram Authorization
 

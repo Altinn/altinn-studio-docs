@@ -14,7 +14,7 @@ The authentication component provides functionality to authenticate users and sy
 
 ### Authorization
 The authorization components provide access management and control functionality for digital and analog services hosted in the Altinn Platform or other places.
-The solution is documented [here](https://docs.altinn.studio/technology/solutions/altinn-platform/authorization/)
+The solution is documented [here](https://docs.altinn.studio/authorization/)
 
 - [Repository for authorization](https://github.com/Altinn/altinn-authorization)
 - [Repository for access policies](https://github.com/Altinn/altinn-access-policies)

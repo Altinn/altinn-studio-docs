@@ -1015,7 +1015,7 @@
 			</g>
 			<rect x="0" y="781.108" width="181.417" height="14.1732" class="st13"/>
 			<text x="71.42" y="791.2" class="st14" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>REST -API</text>		</g>
-		<a xlink:href="https://docs.altinn.studio/solutions/altinn-platform/authorization/">
+		<a xlink:href="https://docs.altinn.studio/authorization/">
 			<g id="group672-344" transform="translate(538.096,-76.9639)" v:mID="672" v:groupContext="group">
 				<title>Sheet.672</title>
 				<g id="shape598-345" v:mID="598" v:groupContext="shape" transform="translate(5.66929,-8.50393)">

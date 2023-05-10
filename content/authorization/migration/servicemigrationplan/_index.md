@@ -44,7 +44,7 @@ I dag er det mulig for sluttbruker å benytte API for å slette eller opprette d
 ### Tidsplan
 - Oppstart utvikling: Påbegynt
 - Migrering tjenester avsluttet:  Q1 2023
-- Informasjon sendt til tjenesteeiere finner du [her](/technology/solutions/altinn-platform/authorization/migration/servicemigrationplan/letter-api-reources/)
+- Informasjon sendt til tjenesteeiere finner du [her](/authorization/migration/servicemigrationplan/letter-api-reources/)
 - Frist for å ta i bruk nye API: ikke besluttet
 
 ## Lenketjenester
@@ -66,7 +66,7 @@ Funksjonalitet i profil for å delegere enkeltrettigheter flyttes fra Altinn2 ti
 
 
 ### Konsekvenser for Lokale roller i Altinn 2
-Lokale roller fungerer i dag kun for tjenester som finnes på Altinn 2 plattformen. Vi har undersøkt utbredelse og bruk av disse og ser at funksjonaliteten er tatt i bruk av svært få virksomheter. I tillegg tror vi behovet for lokale roller vil forsvinne når man innfører [nye tilgangsgrupper](https://docs.altinn.studio/technology/solutions/altinn-platform/authorization/accessgroups/type-accessgroups/) i Altinn 3. 
+Lokale roller fungerer i dag kun for tjenester som finnes på Altinn 2 plattformen. Vi har undersøkt utbredelse og bruk av disse og ser at funksjonaliteten er tatt i bruk av svært få virksomheter. I tillegg tror vi behovet for lokale roller vil forsvinne når man innfører [nye tilgangsgrupper](https://docs.altinn.studio/authorization/accessgroups/type-accessgroups/) i Altinn 3. 
 
 Det er derfor tatt en beslutning om at man ikke vil videreføre lokale roller i Altinn 3, men at vi inntill videre lar de lokale rollene som er opprettet og i bruk bestå. I praksis betyr dette at etterhvert som flere og flere tjenester migreres fra Altinn 2 til Altinn 3 så vil de lokale roller ha færre og færre tjenester de gjelder for. 
 

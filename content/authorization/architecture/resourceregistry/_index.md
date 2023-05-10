@@ -7,7 +7,7 @@ toc: false
 ---
 
 
-Also see [solution components](/technology/solutions/altinn-platform/authorization/resourceregistry/) for details about functionality.
+Also see [solution components](/authorization/resourceregistry/) for details about functionality.
 
 ![Resource Registry](resourceregistry.drawio.svg "Construction Components Altinn Resource Registry")
 

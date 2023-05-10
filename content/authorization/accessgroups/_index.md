@@ -10,7 +10,7 @@ weight: 1
 This is work in progress
 {{</notice>}}
 
-Access registry contains information about the centrally  [defined access groups](https://docs.altinn.studio/technology/solutions/altinn-platform/authorization/accessgroups/type-accessgroups/). 
+Access registry contains information about the centrally  [defined access groups](https://docs.altinn.studio/authorization/accessgroups/type-accessgroups/). 
 
 See [Github #25](https://github.com/Altinn/altinn-authorization/issues/25)
 

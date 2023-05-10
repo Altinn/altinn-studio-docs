@@ -34,7 +34,7 @@ The following solution components provide authorization capabilities
 * PRP - Policy Retrieval Point:  Where the PDP can find the correct policy to use for a request
 * Context Handler - Component adding context information to the decision request so PDP can evaluate a decision request correctly.
 
-These components are described in detail under [solution components](/technology/solutions/altinn-platform/authorization/)
+These components are described in detail under [solution components](/authorization/)
 
 ### Rights
 

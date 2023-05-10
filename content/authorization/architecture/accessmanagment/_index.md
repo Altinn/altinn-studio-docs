@@ -7,7 +7,7 @@ toc: false
 ---
 
 
-See [solutions](/technology/solutions/altinn-platform/authorization/accessmanagement/) for details about the functionality provided by this component.
+See [solutions](/authorization/accessmanagement/) for details about the functionality provided by this component.
 
 ![Access Management](accessmanagement.drawio.svg "Construction Components Altinn Resource Registry")
 
