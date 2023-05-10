@@ -10,7 +10,15 @@ Dette inkluderer oppgaver som utvikling av ny funksjonalitet, feilretting, drift
 ### Autentisering
 Autentiseringskomponenten sørger for å autentisere brukere og systemer som får tilgang til Altinn Apps og Altinn-plattformen.
 
-[Repository](https://github.com/Altinn/altinn-authentication)
+[Repository for Authentication](https://github.com/Altinn/altinn-authentication)
+
+### Auditlogg
+
+[Repository for Auth-audit-log](https://github.com/Altinn/altinn-auth-audit-log)
+
+### Resource Registry
+- [Repository for resource registry](https://github.com/Altinn/altinn-resource-registry)
+- [Studio for Resource Registry](https://github.com/Altinn/altinn-studio), kun det som gjelder ressursadministrasjonsfunskjonalitet
 
 ### Autorisasjon
 Autorisasjonskomponentene gir tilgangsstyring og tilgangskontroll for tjenester til offentlige tjenester. Dette gjelder tjenester på og utenfor Altinn-plattformen.
@@ -19,17 +27,24 @@ Løsningen er dokumentert[here](https://docs.altinn.studio/technology/solutions/
 - [Repository for authorization](https://github.com/Altinn/altinn-authorization)
 - [Repository for access policies](https://github.com/Altinn/altinn-access-policies)
 - [Repository for access groups](https://github.com/Altinn/altinn-access-groups)
-- [Repository for resource registry](https://github.com/Altinn/altinn-resource-registry)
 
 - [Repository for access management](https://github.com/Altinn/altinn-access-management)
 - [Repository for access management frontend](https://github.com/Altinn/altinn-access-management-frontend)
 - [Repository for Design system used in access management frontend](https://github.com/Altinn/altinn-design-system)
 
-### Register
-Registerapplikasjonen gir Altinn 3 tilgang til registerdata om personer og organisasjoner i Norge.
+### Tools
+- [Repository for Altinn-tools](https://github.com/Altinn/altinn-tools)
+- [Repository for Altinn2-test-apiclient](https://github.com/Altinn/altinn2-test-apiclient)
+- [Repository for Postman examples in Altinn 2 API](https://github.com/Altinn/postman-examples)
+- [Repository for MaskinportAPI postman in Altinn 2 API](https://github.com/Altinn/MaskinportenApiPostman)
 
-[Repository](https://github.com/Altinn/altinn-register)
-
+### Documentation
+Documentation related to Authentication and Authorization
+- [Altinn 2 docs](https://github.com/Altinn/docs)
+- [Altinn 3 docs](https://github.com/Altinn/altinn-studio-docs)
+- [Altinnpedia](https://github.com/Altinn/altinnpedia)
+- [Postmortems](https://github.com/Altinn/altinn-devops-postmortem)
+- [Roadmap for Authorization/Authentication](https://github.com/orgs/digdir/projects/8/views/5)
 ## Ansvar i Altinn 2: 
 Autorisasjonsteamet har ansvar for følgende tjenester på Altinn 2 plattformen.
 Dette inkluderer support, feilretting og nødvendig videreutvikling for å sikre migering av tjenester fra Altinn 2 til Altinn 3. 
