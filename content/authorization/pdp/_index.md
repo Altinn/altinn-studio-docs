@@ -60,4 +60,4 @@ Testdata for conformance tests is found [here](https://github.com/Altinn/altinn-
 ## Implementation and construction details
 
 Details about the implementation of PDP is found under
-[construction components for PDP.](/authorization/authorization/accesscontrol#policy-decision-point---pdp)
+[construction components for PDP.](/authorization/architecture/accesscontrol#policy-decision-point---pdp)
