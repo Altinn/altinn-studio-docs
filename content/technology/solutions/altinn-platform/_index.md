@@ -27,7 +27,7 @@ The authorization components provide advanced and flexible authorization functio
 
 The authorization is Attribute-based and uses XACML 3.0.
 
-[Learn more about Altinn Authorization](authorization)
+[Learn more about Altinn Authorization](/authorization)
 
 ## Events 
 
