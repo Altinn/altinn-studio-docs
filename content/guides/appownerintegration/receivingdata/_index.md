@@ -33,10 +33,34 @@ Denne instansiering kan trigges av sluttbruker eller av tjenesteier. I denne gui
 Prosessen overordnet
 
 1. Sluttbruker instansierer tjeneste i parts meldingsboks i Altinn. Dette kan gjøres via API eller fra browser på Altinn.no
-
 2. Skjema fylles ut og eventuelle vedleggsdata lastes opp.
+3. Sluttbruker validerer data og eventuelle vedlegg og sender sender applikasjonsprosessen videre til bekreftelse
+4. Sluttbruker ser over data og bekrefter at han er ferdig med prosessen
+5. Applikasjon publiserer en hendelse om at sluttbruker er ferdig med utfyllingsprosess
+6. Tjenesteeier mottar informasjon om hendelse på sitt hendelsesmottak
+7. Tjenesteier kaller Altinn API for å laste ned data for instanse. 
 
-3. 
+
+
+
+## Hva kreves teknisk
+
+
+Utvikling av applikasjon er dekket i Guide for applikasjonsutvikling
+Aktivering av publisering av hendelser fra applikasjon er beskrevet i guide.
+
+Krav til webhook for mottak av events finner du [her](/)
+
+Tjenesteeier må ha registert en integrasjon i Maskinporten. 
+
+Opprettelse av integrasjon er beskrevet i Guide her.
+
+
+1. Tjenesteeier system kaller Maskinporten API for autentisering. Scope altinn.serviceowner.read, 
+
+
+
+
 
 
 

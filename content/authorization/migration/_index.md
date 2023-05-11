@@ -39,7 +39,7 @@ Den nye brukerflaten i Altinn Autorisasjon har som mål å tilby en tilrettelagt
 Dette skal også sikre at man ikke får tilgang til mer enn man strengt tatt trenger.
 
 En konsekvens av dette er at dagens [roller i Altinn 2.0](/app/development/configuration/authorization/guidelines_authorization/roles_and_rights/roles_altinn/altinn_roles_enterprices/) 
-skal fases ut og erstattes med nye [tilgangsgrupper i Altinn 3.0](../accessgroups/type-accessgroups/)
+skal fases ut og erstattes med nye [tilgangsgrupper i Altinn 3.0](../modules/accessgroups/type-accessgroups/)
 
 #### Hva blir konsekvensen av at man infører nye tilgangsgrupper? 
 I forkant av lansering av nye tilgangsgrupper og i en overgangsfase vil det være nødvendig å angi både gamle Altinn 2.0 roller og nye 3.0 tilgangsgrupper som rollekrav knyttet til tjenesten. 
