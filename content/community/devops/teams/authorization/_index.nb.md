@@ -22,7 +22,7 @@ Autentiseringskomponenten sørger for å autentisere brukere og systemer som få
 
 ### Autorisasjon
 Autorisasjonskomponentene gir tilgangsstyring og tilgangskontroll for tjenester til offentlige tjenester. Dette gjelder tjenester på og utenfor Altinn-plattformen.
-Løsningen er dokumentert[here](https://docs.altinn.studio/technology/solutions/altinn-platform/authorization/)
+Løsningen er dokumentert[here](https://docs.altinn.studio/authorization/)
 
 - [Repository for authorization](https://github.com/Altinn/altinn-authorization)
 - [Repository for access policies](https://github.com/Altinn/altinn-access-policies)
