@@ -22,7 +22,7 @@ The Altinn Studio and Altinn Studio Apps solution uses the XACML standard for th
 ## XACML Policy
 The Policy Document describes the rules for a App. This policy is imported to the Policy Retrieval Point.
 
-[See example policy from application in production](../policysample.xml) 
+[See example policy from application in production](policysample.xml) 
 
 ## XACML Request
 The XACML Request will follow XACML 3.0 JSON profile.
