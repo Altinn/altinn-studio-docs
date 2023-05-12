@@ -13,7 +13,7 @@ by the other Policy Administration Points in Altinn 3. The PRP provides API for 
 
 The authorization policy for apps is defined in Altinn Studio when developing the app.
 
-See [Policy Administration Point in Altinn Studio](/technology/solutions/altinn-studio/designer/build-app/authorization-rules/) for details.
+See [Policy Administration Point in Altinn Studio](/altinn-studio/designer/build-app/authorization-rules/) for details.
 
 ### Delegated Policies
 
