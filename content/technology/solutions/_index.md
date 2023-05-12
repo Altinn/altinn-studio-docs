@@ -16,7 +16,7 @@ The platform consists of several solutions to provide this.
 Altinn Studio is the design-time solution for developing, maintaining, building, and deploying applications. 
 Applications created can target simple and complex user scenarios and have modern web-native architecture.
 
-[Learn more about Altinn Studio](altinn-studio)
+[Learn more about Altinn Studio](/altinn-studio)
 
 ## Altinn Apps
 
