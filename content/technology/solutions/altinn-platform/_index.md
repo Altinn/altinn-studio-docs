@@ -18,7 +18,7 @@ The authentication component provides functionality to authenticate users and sy
 
 Support external ID providers through OIDC.
 
-[Learn more about Altinn Authentication](authentication)
+[Learn more about Altinn Authentication](/authentication)
 
 
 ## Authorization
