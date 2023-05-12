@@ -51,7 +51,9 @@ All of the frontend apps are set up with the same overall React + Redux architec
 - **Redux-Saga:** Middleware. Intercepts the action before it reaches the reducer, in order to process data before it goes to the store. Useful for handling async operations like calling APIs.
 
 ### App frontend
+
 Details of the architecture for app frontend can be found [here](/technology/architecture/components/application/construction/app/app-frontend).
 
 ### Altinn Studio Designer frontend
-Details of the architecture for Altinn Studio Designer frontend can be found [here](/technology/architecture/components/application/construction/altinn-studio/designer/frontend/)
+
+Details of the architecture for Altinn Studio Designer frontend can be found [here](/altinn-studio/architecture/designer/frontend/)

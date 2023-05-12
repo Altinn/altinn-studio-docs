@@ -4685,11 +4685,11 @@
 					<text x="37.22" y="936.75" class="st14" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Context Handler</text>				</g>
 			</g>
 		</a>
-		<a target="_top" xlink:href="https://docs.altinn.studio/solutions/altinn-platform/authentication/">
+		<a target="_top" xlink:href="https://docs.altinn.studio/authentication/">
 			<g id="group673-1608" transform="translate(1039.41,-223.116)" v:mID="673" v:groupContext="group">
 				<title>Sheet.673</title>
 				<a
-						target="_top" xlink:href="/technology/architecture/components/application/solution/altinn-platform/authentication/">
+						target="_top" xlink:href="/authentication/">
 					<g id="shape607-1609" v:mID="607" v:groupContext="shape">
 						<title>Rectangle.607</title>
 						<v:userDefs>

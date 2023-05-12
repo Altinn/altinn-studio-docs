@@ -751,7 +751,7 @@
 			</g>
 			<rect x="0" y="957.637" width="221.075" height="25.5118" class="st20"/>
 			<text x="105.76" y="973.99" class="st14" v:langID="1044"><v:paragraph v:indentLeft="14.17" v:horizAlign="1"/><v:tabList/>REST</text>		</g>
-		<a xlink:href="https://docs.altinn.studio/architecture/application/altinn-platform/authentication">
+		<a xlink:href="https://docs.altinn.studio/authentication">
 			<g id="group59-314" transform="translate(794.472,-319.667)" v:mID="59" v:groupContext="group">
 				<title>Sheet.59</title>
 				<g id="shape60-315" v:mID="60" v:groupContext="shape">

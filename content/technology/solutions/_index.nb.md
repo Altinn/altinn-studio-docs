@@ -15,7 +15,7 @@ Plattformen består av flere løsninger for å understøtte dette.
 Altinn Studio er løsningen for å utvikle, vedlikeholde, bygge og distribuere applikasjoner.
 Applikasjoner som er opprettet kan dekke enkle og komplekse brukerscenarier og har moderne arkitektur.
 
-[Les mer om Altinn Studio](/technology/solutions/altinn-studio)
+[Les mer om Altinn Studio](/altinn-studio)
 
 ## Altinn Apps
 

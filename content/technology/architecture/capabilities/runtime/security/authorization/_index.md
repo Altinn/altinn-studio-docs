@@ -106,7 +106,7 @@ In Altinn Apps/Platform this is used to define the minimum authentication level.
 
 The policies in Altinn Studio Apps is defined when the app developer defines the rules for the app.
 The policy is deployed together with the App to a given Altinn Studio App environment.
-See details in [Policy Administration Point in Altinn Studio](/technology/solutions/altinn-studio/designer/build-app/authorization-rules/).
+See details in [Policy Administration Point in Altinn Studio](/altinn-studio/designer/build-app/authorization-rules/).
 
 In Altinn II end users can also create policies/rules. This happens when:
 
