@@ -1,8 +1,8 @@
 ---
 title: Application construction components Altinn Studio
-linktitle: Altinn Studio
+linktitle: Architecture
 description: The application construction components for Altinn Studio includes all components uses to create the Altinn Studio Applications.
-weight: 100
+weight: 99999
 ---
 
 The following diagram shows the application construction construction for the Altinn Studio solution with its applications.

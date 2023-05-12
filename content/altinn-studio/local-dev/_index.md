@@ -2,6 +2,7 @@
 title: Solution-specific application components local deveolopment
 linktitle: Local dev
 description: As part of the platform it is created a solution to develop and test applications.
+weight : 3
 ---
 
 ## Localtest loadbalancer
