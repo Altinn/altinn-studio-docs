@@ -8,7 +8,7 @@ weight: 99999
 The following diagram shows the application construction construction for the Altinn Studio solution with its applications.
 
 [See fullscreen](/altinn-studio/architecture/altinnstudio_application_construction_architecture.svg)
-or [download as visio](/altinn-studio/architecturealtinnstudio_application_construction_architecture.vsdx)
+or [download as visio](/altinn-studio/architecture/altinnstudio_application_construction_architecture.vsdx)
 
 <object data="altinnstudio_application_construction_architecture.svg" type="image/svg+xml" style="width: 100%;"></object>
 
