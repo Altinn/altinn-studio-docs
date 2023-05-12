@@ -64,5 +64,5 @@ GET /exchange/{tokenProvider}?test={bool}
 
 ## Architecture
 
-The [application construction components](../../../architecture/components/application/construction/altinn-platform/authentication/)
+The [application construction components](/authentication/architecture/)
 for details how this component is constructued.

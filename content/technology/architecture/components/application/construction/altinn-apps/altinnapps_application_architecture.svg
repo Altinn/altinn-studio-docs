@@ -1325,7 +1325,7 @@
 				<rect x="0" y="1662.63" width="193.323" height="42.5197" class="st14"/>
 				<text x="4" y="1691.09" class="st38" v:langID="1044"><v:paragraph/><v:tabList/>Altinn Platform</text>			</g>
 		</a>
-		<a xlink:href="https://docs.altinn.studio/architecture/application/altinn-platform/authentication">
+		<a xlink:href="https://docs.altinn.studio/authentication">
 			<g id="group249-431" transform="translate(722.779,-144.371)" v:mID="249" v:groupContext="group">
 				<title>Sheet.249</title>
 				<g id="shape250-432" v:mID="250" v:groupContext="shape">
