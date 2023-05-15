@@ -8,11 +8,11 @@ weight: 150
 Altinn Studio brukes til å opprette applikasjoner (apps).
 En app kan være alt fra enkle skjemaer til større applikasjoner med både API-er og UI, og alt derimellom.
 
-Du lager en ny app fra dashboardet i Altinn Studio.
+Du lager en ny app fra [dashboardet](https://altinn.studio/dashboard) i Altinn Studio. Hvis du ikke ser dashboardet, klikk på logoen i øverste venstre hjørne.
 
 ![Dashboardet i Altinn Studio](overview.png "Dashboard - oversikt")
 
-1. Klikk på "**ny app**"-knappen i det øvre høyre hjørnet av dashboardet.
+1. Klikk på "**Opprett ny applikasjon**"-knappen i det øvre høyre hjørnet av dashboardet.
 2. Velg hvem som skal være **eier** av appen. Hvis du ikke har tilgang for noen organisasjoner, må du velge deg selv så du lager appen i din sandkasse.
 3. Legg inn **navnet** på appen. 
 
@@ -22,13 +22,13 @@ Du lager en ny app fra dashboardet i Altinn Studio.
     _Navnet kan **ikke** endres etter at appen er gått i produksjon._
 
     >  **Regler for navngivning av applikasjon**
-    > - Kan kun inneholde lowercase alfanumeriske tegn og bindestrek (-),
+    > - Kan kun inneholde små bokstaver, tall og bindestrek (-),
     > - Navnet må begynne med en bokstav
     > - Navnet må ende med en bokstav eller et tall
 
 
    
-1. Opprett appen ved å klikke "**Opprett applikasjon**".
+4. Opprett appen ved å klikke "**Opprett applikasjon**".
 
 ![Ny app popup](new-app.png "Opprett en ny app")
 
