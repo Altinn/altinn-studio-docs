@@ -40,7 +40,7 @@ Each frontend runs within a .NET web application, where the transpiled javascrip
 All of the frontend apps are set up with the same overall React + Redux architecture:
 
 {{%excerpt%}}
-<object data="/technology/architecture/components/application/construction/app/app-frontend/react-architecture.svg" type="image/svg+xml" style="width: 100%; max-width: 1000px"></object>
+<object data="/app-template/app/app-frontend/react-architecture.svg" type="image/svg+xml" style="width: 100%; max-width: 1000px"></object>
 {{% /excerpt%}}
 
 - **Component:** The react component
@@ -52,7 +52,7 @@ All of the frontend apps are set up with the same overall React + Redux architec
 
 ### App frontend
 
-Details of the architecture for app frontend can be found [here](/technology/architecture/components/application/construction/app/app-frontend).
+Details of the architecture for app frontend can be found [here](/app-template/app/app-frontend).
 
 ### Altinn Studio Designer frontend
 

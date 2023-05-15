@@ -30,7 +30,7 @@ as a custom view in the .NET application.
 
 ## React architecture
 
-The front-end of Altinn Studio designer is set up using the same React + Redux architecture as the App frontend, take a look [here](/technology/architecture/components/application/construction/app/app-frontend/react) 
+The front-end of Altinn Studio designer is set up using the same React + Redux architecture as the App frontend, take a look [here](/app-template//app/app-frontend/react) 
 for more details.
 
 {{<children />}}

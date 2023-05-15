@@ -10,9 +10,9 @@ When an instance is in a _data_ step, the form defined in the JSON form layout f
 Below you can see a simplified overview of the layers of components that are used to render the form, including some of the
 most important inputs.
 
-![App structure](/technology/architecture/components/application/construction/app/app-frontend/app-frontend-form-rendering.drawio.svg)
+![App structure](/app-template/app/app-frontend/app-frontend-form-rendering.drawio.svg)
 
-A detailed overview of the app frontend structure and architecture is available [here](/technology/architecture/components/application/construction/app/app-frontend/).
+A detailed overview of the app frontend structure and architecture is available [here](/app-template/app/app-frontend/).
 
 ### Form components
 All form components should be _presentational components_. This means that their only responsibility is to present
