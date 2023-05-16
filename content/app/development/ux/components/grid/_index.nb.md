@@ -245,18 +245,42 @@ vises utenfor en Grid - som på [mindre skjermer](#mobilvisning) og i [et sammen
 
 ### Bredder, tekst og justering
 
-Ved å legge på `columnOptions` på en celle i en `header` rad er det mulig å konfigurere bredden, tekst plassering, og
-anntall linjer som vises før overfløding tekst skjules. `columnOptions` inneholder følgende attributter.
+Det finnes flere opsjoner på en celle for å konfigurere bredde, tekst plassering, og
+anntall linjer som kan vises før resten av teksten skjules. Følgende opsjoner finnes:
 
-- `width` - streng verdi som inneholder en prosent, ex: `"25%"`, eller `"auto"` (default).
-- `alignText` - velg mellom `"left"`, `"center"` eller `"right"` for å plassere tekst i celler tilsvarende.
-- `textOverflow` - brukes for å kontrollere oppførsel når tekst innhold er for stort til å vises i en celle.
-  - `lineWrap` - sett til `false` for å skru av skjuling av overflødig tekst. Default er `true`.
-  - `maxHeight` - setter et maks antall tillatte linjer før tekst skjules med utellatelsestegn (...). `"maxHeight": 0`
+- `width` - Bredden til kolonnen. Verdien kan inneholde en prosent, for eks.: `"25%"`, eller `"auto"` (standardverdi).
+  Bør settes på den første kolonnen, og vil da gjelde for alle celler i den kolonnen.
+- `alignText` - Velg mellom `"left"`, `"center"` eller `"right"` for å plassere teksten i cellen tilsvarende.
+  Dette har ingen effekt for celler med komponenter, kun celler med tekst.
+- `textOverflow` - Brukes for å kontrollere oppførsel når tekstinnhold er for stort til å vises i en celle.
+  Har ingen effekt for celler med komponenter, kun celler med tekst.
+  - `lineWrap` - Sett til `false` for å skru av skjuling av overflødig tekst. Standardverdi er `true`.
+  - `maxHeight` - Setter et maks antall tillatte linjer før tekst skjules med utellatelsestegn (...). `"maxHeight": 0`
     resulterer i å skru av skjuling av overflødig tekst.
 
 Du can overstyre en kollonnes valg for `alignText` og `textOverflow` for en spesifikk text-celle, ved å legge
 attributtene til direkte i den valgte text-cellen.
+
+Eksempel: 
+```json
+{
+  "cells": [
+    {
+      "text": "Celle 1",
+      "width": "25%",
+      "alignText": "left",
+      "textOverflow": {
+        "lineWrap": false,
+        "maxHeight": 0
+      }
+    },
+    {
+      "component": "minKomponent",
+      "width": "75%"
+    }
+  ]
+}
+```
 
 ## Mobilvisning
 

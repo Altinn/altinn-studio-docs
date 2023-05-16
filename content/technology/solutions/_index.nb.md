@@ -15,7 +15,7 @@ Plattformen består av flere løsninger for å understøtte dette.
 Altinn Studio er løsningen for å utvikle, vedlikeholde, bygge og distribuere applikasjoner.
 Applikasjoner som er opprettet kan dekke enkle og komplekse brukerscenarier og har moderne arkitektur.
 
-[Les mer om Altinn Studio](/technology/solutions/altinn-studio)
+[Les mer om Altinn Studio](/altinn-studio)
 
 ## Altinn Apps
 
@@ -37,7 +37,7 @@ Altinn App-malen er en applikasjonsmal med funksjonalitet for de vanligste scena
 
 Altinn Studio baserer alle apper på denne malen. I tillegg inneholder malen integrasjon med Altinn Platform for å kunne nyttigjøre seg funksjonaliteten i Altinn Platform raskt og effektivt
 
-[Les mer om Altinn App Template](/technology/solutions/app-template)
+[Les mer om Altinn App Template](/app-template)
 
 ## Altinn CLI
 
