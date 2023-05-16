@@ -16,7 +16,7 @@ The platform consists of several solutions to provide this.
 Altinn Studio is the design-time solution for developing, maintaining, building, and deploying applications. 
 Applications created can target simple and complex user scenarios and have modern web-native architecture.
 
-[Learn more about Altinn Studio](altinn-studio)
+[Learn more about Altinn Studio](/altinn-studio)
 
 ## Altinn Apps
 
@@ -37,7 +37,7 @@ The Altinn App template is an application template with prebuilt functionality f
 
 Altinn Studio base all apps on this template. In addition, the template contains integration with Altinn Platform to use the power of the standard functionality provided by Altinn Platform.
 
-[Learn more about Altinn App Template](app-template)
+[Learn more about Altinn App Template](/app-template)
 
 
 ## Altinn CLI 
