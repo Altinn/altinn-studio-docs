@@ -137,15 +137,15 @@ For et sluttbrukersystem betyr det følgende
 
 #### Bekrefte Next på datasteg
 
-Ved å kalle NEXT Api på prosessteget vil tjenesten validere data og sende prosessen videre til bekreftelse.
+Ved å sende put på [NEXT](https://docs.altinn.studio/api/apps/process/#complete-and-move-to-next-task) på prosess API
+vil tjenesten validere data og sende prosessen videre til bekreftelse.
 
 Ved feil på data vil man få en feilmelding. 
 
-Man kan da kalle valideringsgrensenitt for å få detaljer om feil. 
+Man kan da kalle [validerings API](https://docs.altinn.studio/api/apps/validation/#validate-stored-instance) for å få detaljer om feil. 
 
+#### Bekrefte Next på bekreftelsesteg
 
-
-
-
+Når data er validert ok vil tjenesten ligge til bekreftelse. Ved å gjøre et ekstra put kall til next i denne tilstanden blir tjenesten fullført.
 
 
