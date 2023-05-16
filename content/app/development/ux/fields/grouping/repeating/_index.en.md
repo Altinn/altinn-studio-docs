@@ -95,7 +95,7 @@ It is possible to add different keys in textResourceBindings to overrule default
 
 - `title` - title to show above the group row in a [Summary component](../../../pages/summary).
 - `add_button` - is added at the end of the "Add new" text on the button, and can be used to e.g. get text that says "Add new person".
-- `custom_add_button` - is used as custom text on the "Add new" button. Overrides `add_button` if both are set.
+- `add_button_full` - is used as custom text on the "Add new" button. Overrides `add_button` if both are set.
 - `save_button` - is used as text on the "Save" button when the user is filling out data.
 - `save_and_next_button` - is used as text on the "Save and open next" button if enabled.
 - `edit_button_open` - is used as text on the "Edit" button on the table when the user is opening an element.
