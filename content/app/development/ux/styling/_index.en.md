@@ -229,26 +229,23 @@ The formatting is for frontend display only, and the numbers added to an input f
 },
 ```
 ### Language-sensitive number formatting
-It is possible to assign dynamic formatting of numbers in input fields. Can choose between the objects ```"currency"``` and ```"unit"```. Based on selected language in the app, they formatting thousand and decimal separators and prefix/suffix. 
-Currency consists of ```"valuta"``` and ```"position"```. Unit consists of ```"unitType"``` and ```"position"```.   
-Valid values for position are ```"prefix"``` and ```suffix```, but are optional to use.  
-Default positions, prefix in currency and suffix in unit.
+It is possible to assign dynamic formatting of numbers in input fields. You can choose between ```"currency"``` and ```"unit"```. Based on selected language in the app, they formatting thousand and decimal separators and prefix/suffix. 
+You can optionally add a `position`, and valid values are ```"prefix"``` and ```suffix```.  
+Default positions is `prefix` when formatting a currency and `suffix` for units.
 
 Examples:  
->```"currency": {valuta: "NOK", position: "prefix"}```  
->```"unit": {unitType: "kilogram", position: "suffix"}```
+>```"currency": "NOK", position: "prefix"```  
+>```"unit": "kilogram", position: "suffix"```
 
-App developer can choose to leave some of the parts independent of the language. Properties in ```number``` overrides dynamic formatting. The configuration below makes prefix display as **kr** and thousand separator as **whitespace**. Otherwise in english, prefix would be **NOK** and thousand separator **","**
+App developers can choose to leave some of the parts independent of the language. Properties in ```number``` overrides dynamic formatting. The configuration below makes prefix display as **kr** and thousand separator as **whitespace**. Otherwise in english, prefix would be **NOK** and thousand separator **","**
 
-```json {hl_lines=["5-7","9-11"]} {linenos=inline}
+```json {hl_lines=["5-10"]} {linenos=inline}
 {
   "id": "numberComponent",
   "type": "Input",
   "formatting": {
-    "currency": {
-      "valuta": "NOK", 
-      "position": "prefix"
-    },
+    "currency": "NOK", 
+    "position": "prefix",
     "number": {
       "thousandSeparator": " ",
       "prefix": "kr"

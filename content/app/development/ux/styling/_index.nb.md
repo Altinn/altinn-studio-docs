@@ -230,26 +230,23 @@ Formateringen er kun for visning i frontend, og tallene som legges inn i et inpu
 ```
 
 ### Dynamisk tall formattering basert på språk
-Det er mulig å legge til dynamisk formattering av tallverdier i inputfelt. Kan velge mellom objektene ```"currency"``` og ```"unit"```. Basert på valgt språk i appen kan de formattere tusen- og desimalskille samt prefix/suffix.
-*Currency* består av ```"valuta"``` og ```"position"```. *Unit* består av ```"unitType"``` og ```"position"```   
-Gyldige verdier for *position* er ```"prefix"``` og ```suffix```, men er valgfri å legge til i objektet.
-Standard er prefix i *currency* og suffix i *unit*. 
+Det er mulig å legge til dynamisk formattering av tallverdier i inputfelt. Kan velge mellom ```"currency"``` og ```"unit"```. Basert på valgt språk i appen kan de formattere tusen- og desimalskille samt prefix/suffix.
+Den valgfrie opsjonen *position* kan settes til ```"prefix"``` eller ```suffix```, og brukes til å styre hvor symbolet/enheten vises.
+Standard er `prefix` for *currency* og `suffix` for *unit*. 
 
 Eksempler:  
->```"currency": {valuta: "NOK", position: "prefix"}```  
->```"unit": {unitType: "kilogram", position: "suffix"}```
+>```"currency": "NOK", position: "prefix"```  
+>```"unit": "kilogram", position: "suffix"```
 
-Apputviker kan velge å la noen av delene være uavhengig av språket. Egenskaper i ```number``` overstyrer enkeltelementene i dynamisk formattering. Konfigurasjonen under gjør at på både norsk og engelsk vises prefix **kr** og tusenskille med mellomrom.
+Apputviker kan velge å la noen av delene være uavhengig av språket. Egenskaper i ```number``` overstyrer enkeltelementene i dynamisk formattering. Konfigurasjonen under gjør at på både norsk og engelsk vises prefix som **kr** og tusenskille med mellomrom.
 
-```json {hl_lines=["5-7","9-11"]} {linenos=inline}
+```json {hl_lines=["5-10"]} {linenos=inline}
 {
   "id": "numberComponent",
   "type": "Input",
   "formatting": {
-    "currency": {
-      "valuta": "NOK", 
-      "position": "prefix"
-    },
+    "currency": "NOK", 
+    "position": "prefix",
     "number": {
       "thousandSeparator": " ",
       "prefix": "kr"
