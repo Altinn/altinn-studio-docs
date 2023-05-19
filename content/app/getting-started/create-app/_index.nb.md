@@ -1,37 +1,38 @@
 ---
-title: Opprette app i Altinn Studio
+title: Opprette en app i Altinn Studio
 linktitle: Opprette app
 description: Slik oppretter man en ny applikasjon i Altinn Studio.
 weight: 150
 ---
 
 Altinn Studio brukes til å opprette applikasjoner (apps).
-En app kan være alt fra enkle skjemaer til større applikasjoner med både API-er og UI, og alt derimellom.
+En app kan være alt fra enkle skjemaer til større applikasjoner med både API-er og UI.
 
-Du lager en ny app fra [dashboardet](https://altinn.studio/dashboard) i Altinn Studio. Hvis du ikke ser dashboardet, klikk på logoen i øverste venstre hjørne.
+Du lager en ny app fra [Altinn Studio dashboardet](https://altinn.studio/dashboard) (hvis du ikke ser dashboardet, klikk på logoen i øverste venstre hjørne).
 
-![Dashboardet i Altinn Studio](overview.png "Dashboard - oversikt")
+![Dashboardet i Altinn Studio](overview.png "Altinn Studio Dashboard")
 
-1. Klikk på "**Opprett ny applikasjon**"-knappen i det øvre høyre hjørnet av dashboardet.
-2. Velg hvem som skal være **eier** av appen. Hvis du ikke har tilgang for noen organisasjoner, må du velge deg selv så du lager appen i din sandkasse.
-3. Legg inn **navnet** på appen. 
+1. Klikk på **Opprett ny applikasjon** i det øvre høyre hjørnet av dashboardet (indikert med rød pil).
+2. Velg **eier** av appen i nedtrekksmenyen.
 
-    Dette navnet brukes til å identifisere appen, og brukes også som navn på repository, og i URL-er og API-er
-    Det er noen regler knyttet til navngivning av en applikasjon, utover dette bør være kort og beskrivende som for eksempel "sykmelding" eller "lokalvalg-2019".  
+    Dette kan være en organisasjon du har tilgang til eller ditt eget brukernavn. Valget er deaktivert hvis din bruker er eneste alternativ.
+3. Legg inn **navnet** på appen.
 
-    _Navnet kan **ikke** endres etter at appen er gått i produksjon._
+    Dette navnet er en ID brukt til å identifisere appen og brukes også som navn på repository, i URL-er og API-er.  
 
-    >  **Regler for navngivning av applikasjon**
-    > - Kan kun inneholde små bokstaver, tall og bindestrek (-),
-    > - Navnet må begynne med en bokstav
-    > - Navnet må ende med en bokstav eller et tall
+    >  **Applikasjonsnavn (ID)...**
+    >
+    > - bør være kort og beskrivende (for eksempel "sykemelding" eller "lokalvalg-2024")
+    > - kan kun inneholde små bokstaver, tall og bindestrek (-)
+    > - må begynne med en bokstav
+    > - må ende med en bokstav eller et tall
+    > - _**kan ikke endres etter at appen er opprettet**_
 
-
-   
 4. Opprett appen ved å klikke "**Opprett applikasjon**".
 
-![Ny app popup](new-app.png "Opprett en ny app")
+    ![Ny app popup](new-app.png "Opprett applikasjon")
 
-Når apppen er opprettet vil du videresendes til den nyopprettede appen.
+Når appen er opprettet vil du videresendes til en oversiktsside.
+Herfra kan du navigere til **Lage**, **Datamodell** og **Tekst** via hovedmenyen for å begynne å utviklingen av appen.
 
-![App opprettet](app-created.png "App opprettet")
+![Oversikt app](app-created.png "Oversikt app")
