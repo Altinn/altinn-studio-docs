@@ -1,12 +1,11 @@
 ---
-title: Guides
-linktitle: Guides
-description: Here you find guidess
+title: Integresjonsguider for sluttbrukersystemleverandører
+linktitle: Sluttbrukersystemer
+description: Her finner du forskjellige guider for integrasjon med Altinns API for sluttbrukersystemleverandører
 tags: [architecture, devops, todo]
 toc: false
 hidden: false
 ---
 
-[Receving](receivingdata)
 
 {{<children />}}
