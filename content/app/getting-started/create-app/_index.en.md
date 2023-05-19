@@ -12,7 +12,7 @@ You create an app from the [Altinn Studio dashboard](https://altinn.studio/dashb
 
 ![Dashboard in Altinn Studio](overview.png "Altinn Studio Dashboard")
 
-1. Click on "**Opprett ny applikasjon**" (create new application) in the top right corner of the dashboard (indicated by red arrow).
+1. Click on "**Opprett ny applikasjon**" (create new application) in the top right corner of the dashboard.
 2. Select the owner of the app from the **Eier** drop-down menu.
 
     This can be an organization you have access to or your own user name. Selection is disabled if your user is the only option.
