@@ -4,6 +4,7 @@ linktitle: Sende inn data fra
 description: Denne guiden gir en detaljert generell beskrivelse av hvordan et sluttbrukersystem kan integreres med tjenester utviklet på Altinn 3 plattformen.
 tags: [architecture, devops, todo]
 toc: false
+hidden: true
 ---
 
 

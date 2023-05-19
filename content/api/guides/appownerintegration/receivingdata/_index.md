@@ -4,6 +4,7 @@ linktitle: Motta data
 description: Denne guiden beskriver i detalj hvordan man som applikasjonseier/tjenesteier kan motta data som innleveres til Altinn
 tags: [architecture, devops, todo]
 toc: false
+hidden: false
 ---
 
 ## Overordnet konsept
