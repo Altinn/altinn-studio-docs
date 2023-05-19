@@ -8,7 +8,7 @@ weight: 150
 Altinn Studio is used to create applications (apps).
 An app could be anything from a simple form to a more  complex application with APIs, user interfaces, and everything in between.
 
-You create an app from the dashboard in Altinn Studio.
+You create an app from the [dashboard](https://altinn.studio/dashboard) in Altinn Studio. If you don't see the dashboard, click the logo in the upper left corner.
 
 ![Dashboard in Altinn Studio](overview.png "Dashboard - overview")
 
@@ -20,7 +20,7 @@ You create an app from the dashboard in Altinn Studio.
    
     _Name can **not** be changed after an app has been deployed._
 
-    >  **Rules for naming an aplication**
+    >  **Rules for naming an application**
     > - Name can only contain lower case alphanumeric characters and dash (-),
     > - Mane must begin with a letter
     > - Name mustend with a letter or a number
@@ -31,4 +31,3 @@ You create an app from the dashboard in Altinn Studio.
 Once the app is created, you will be forwarded to the created application.
 
 ![App created](app-created.png "App created")
- 
