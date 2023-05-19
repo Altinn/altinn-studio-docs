@@ -1,12 +1,10 @@
 ---
-title: Guides
-linktitle: Guides
-description: Here you find guidess
+title: Guider API for tjenesteiere
+linktitle: Tjenesteeiere
+description: Her finner du guider for tjenesteeiere som ønsker å integrerere seg mot Altinns API
 tags: [architecture, devops, todo]
 toc: false
-hidden: true
+hidden: false
 ---
-
-[Receving](receivingdata)
 
 {{<children />}}

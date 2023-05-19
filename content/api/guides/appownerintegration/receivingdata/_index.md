@@ -1,7 +1,7 @@
 ---
 title: Motta data fra Altinn Apps
 linktitle: Motta data
-description: Denne guiden beskriver i detalj hvordan man som applikasjonseier/tjenesteier kan motta data som innleveres til Altinn
+description: Denne guiden beskriver i detalj hvordan man som applikasjonseier/tjenesteier kan motta data som rapporteres inn til en Altinn 3 applikasjon.
 tags: [architecture, devops, todo]
 toc: false
 hidden: false
