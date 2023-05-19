@@ -19,5 +19,5 @@
   {{ $content | markdownify}}
 {{ end }}
 {{ else }}
-  File does not exist: {{ $filePath }}
+  Could not find section content. File does not exist: {{ $filePath }}
 {{ end }}
