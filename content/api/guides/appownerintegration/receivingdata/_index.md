@@ -1,15 +1,19 @@
 ---
 title: Motta data fra Altinn Apps
 linktitle: Motta data
-description: Denne guiden beskriver i detalj hvordan man som applikasjonseier/tjenesteier kan motta data som innleveres til Altinn
+description: Denne guiden beskriver i detalj hvordan man som applikasjonseier/tjenesteier kan motta data som rapporteres inn til en Altinn 3 applikasjon.
 tags: [architecture, devops, todo]
 toc: false
+hidden: false
 ---
 
 ## Overordnet konsept
 
-Altinn tilbyr en platform for utvikling av tjenester og hosting av disse. Hvis tjenestene er av en slik art at sluttbruker (innbygger/næringsliv) skal rapportere inn data så vil disse data i utgangspunktet bli lagret i Altinn. 
-Tjenesteeier må aktivt hente disse dataene.
+Altinn tilbyr en platform for utvikling og drift av digitale tjenester. 
+
+Hvis tjenestene er av en slik art at sluttbruker (innbygger/næringsliv) skal rapportere inn data så vil disse data i utgangspunktet bli lagret i Altinn. 
+
+Tjenesteeier må hente disse mottatte dataene fra Altinns datalager. Dette gjøres ved hjelp av API integrasjon.
 
 Denne guiden beskriver hvordan en slik integrasjon kan settes opp. 
 
@@ -54,11 +58,21 @@ Tjenesteeier må ha registert en integrasjon i Maskinporten.
 
 Opprettelse av integrasjon er beskrevet i Guide her.
 
-1. Tjenesteeiersystem kaller Maskinporten API for autentisering. Scope altinn.serviceowner.read, 
-2. Tjenesteeiersystem kaller Altinn autentisering for å konvertere maskinporten token til Altinn token
-3. Tjenesteiersystem benytter Altinn token når den kaller Instance endepunkt i aktuell applikasjon. Retur er informasjon om instance og alle dataelementer. Eksempel
-4. Tjenesteiersystem kaller endepunkt for hvert av dataelementene som skal lastes ned. Dette er typisk skjemadata samt eventuelle vedlegg
-5. Tjenesteiersystem kaller endepunkt for å bekrefte data.
+## Detaljert teknisk prosess
+
+### Autentisering mot maskinporten
+
+
+Tjenesteeiersystem kaller Maskinporten API med korrekt Scopes for tjenesteier.
+
+Dette er beskrevet i detaljer [her](/api/authentication/maskinporten/#tilgang-som-tjenesteeier)
+
+
+
+1. Tjenesteeiersystem kaller Altinn autentisering for å konvertere maskinporten token til Altinn token
+2. Tjenesteiersystem benytter Altinn token når den kaller Instance endepunkt i aktuell applikasjon. Retur er informasjon om instance og alle dataelementer. Eksempel
+3. Tjenesteiersystem kaller endepunkt for hvert av dataelementene som skal lastes ned. Dette er typisk skjemadata samt eventuelle vedlegg
+4. Tjenesteiersystem kaller endepunkt for å bekrefte data.
 
 
 {{<children />}}
