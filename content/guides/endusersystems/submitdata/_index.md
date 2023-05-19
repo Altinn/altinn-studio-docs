@@ -1,7 +1,7 @@
 ---
 title: Sende inn data fra sluttbrukersystem
 linktitle: Sende inn data fra
-description: Denne guiden beskriver i detalj hvordan man som applikasjonseier/tjenesteier kan motta data som innleveres til Altinn
+description: Denne guiden gir en detaljert generell beskrivelse av hvordan et sluttbrukersystem kan integreres med tjenester utviklet på Altinn 3 plattformen.
 tags: [architecture, devops, todo]
 toc: false
 ---
@@ -11,7 +11,7 @@ toc: false
 
 På Altinn plattformen utvikler forskjellige etater og andre offentlige aktører tjenester som skal benyttes av innbyggere eller næringsliv.
 
-Tjenestene kan være enkle tjenster hvor man må fylle ut en begrenset mengde med data, til komplekse tjenester med flere typer datalementer over flere prosessteg.
+Tjenestene kan være enkle tjenester hvor man må fylle ut en begrenset mengde med data, til komplekse tjenester med flere typer datalementer over flere prosessteg.
 
 En viktig egenskap med tjenester utviklet i Altinn er at hver tjeneste tilbyr et sett med API som kan benyttes for maskin til maskininnsending av data fra sluttbrukersystem.
 
