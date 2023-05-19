@@ -58,7 +58,7 @@ Neste steg i prosessen er å veksle access_token fra ID-porten til et Altinn Tok
 
 Et Altinn Token kan benyttes mot alle tjeneste applikasjoner og relevante felleskomponenter.
 
-Innveksling skjer mot [Autentiserings API](/api/authentication/spec/#/Authentication/get_exchange__tokenProvider_).
+Innveksling skjer mot [Autentiserings API](/api/authentication/spec/).
 
 Innvekslingen skjer ved at man setter Access Token fra ID-porten som et Bearer token i authorization headeren og gjør et GET kall mot innvekslingsendepunktet
 hvor "id-porten" er brukt som tokenprovider.
