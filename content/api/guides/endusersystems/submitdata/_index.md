@@ -76,7 +76,7 @@ Det er i hovedsak to flyter man kan velge her.
 Ved instansiering uten formdata vil første kall mot Altinn kun inneholde informasjon om hvem som er avgiver og hvilken
 tjeneste man instansierer.
 
-Dette kallet går mot [Instance API](/api/apps/instances/#create-instance) på app. ([OpenAPI](/api/apps/spec/#/Instances/post__org___app__instances))
+Dette kallet går mot [Instance API](/api/apps/instances/#create-instance) på app. ([OpenAPI](/api/apps/spec))
 
 ```json
 {
