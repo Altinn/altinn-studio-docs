@@ -104,7 +104,6 @@ Ved å benytte sitt tjenesteeier token vil systemet kunne laste ned instance doc
     "instanceOwner": {
         "partyId": "1337",
         "personNumber": "01039012345",
-        "organisationNumber": null,
         "username": null
     },
     "appId": "ttd/bli-applikasjonseier",
