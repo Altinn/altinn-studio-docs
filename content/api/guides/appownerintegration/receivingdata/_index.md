@@ -61,7 +61,7 @@ Opprettelse av integrasjon er beskrevet i Guide her.
 ## Detaljert teknisk prosess
 
 
-### Tjenesteeiersystem mottar Altinn Event fra 
+### Tjenesteeiersystem mottar Altinn Event fra [insert source]
 
 Første steget i prosessen er at mottaksendepunkt mottar informasjon om Event fra Applikasjon kjørende i Altinn. Dette forutsetter at [abonnement er satt opp](/events/subscribe-to-events/).
 
@@ -166,7 +166,7 @@ Ved å benytte sitt tjenesteeier token vil systemet kunne laste ned instance doc
 
 I instance dokumentet fra steget over er det listet dataelementene som en instance består av. 
 
-Disse dokumentene kan lastes ned fra applikasjons endepunkt. Hver dataelement har informasjon om f.eks datatype og når det var sist endret.
+Disse dokumentene kan lastes ned fra applikasjons endepunkt. Hvert dataelement har informasjon om f.eks datatype og når det var sist endret.
 
 Url for nedlasting av hvert element er oppgitt som en url til App eller url til Storage.
 
