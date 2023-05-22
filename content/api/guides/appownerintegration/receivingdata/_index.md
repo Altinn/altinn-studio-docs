@@ -40,7 +40,7 @@ Prosessen overordnet
 2. Skjema fylles ut og eventuelle vedleggsdata lastes opp.
 3. Sluttbruker validerer data og eventuelle vedlegg og sender sender applikasjonsprosessen videre til bekreftelse
 4. Sluttbruker ser over data og bekrefter at han er ferdig med prosessen
-5. Applikasjon publiserer en hendelse om at sluttbruker er ferdig med utfyllingsprosess
+5. Applikasjon publiserer en hendelse om at sluttbruker er ferdig med utfyllingsprosess*
 6. Tjenesteeier mottar informasjon om hendelse på sitt hendelsesmottak
 7. Tjenesteier kaller Altinn API for å laste ned data for instanse.
 8. Tjenesteeier bekrefter at data er nedlastet ok
