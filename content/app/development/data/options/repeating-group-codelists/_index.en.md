@@ -3,7 +3,7 @@ title: Codelists based on repeating groups from the datamodeel
 linktitle: Codelists based on repeating groups from the datamodel
 description: How to configure codelists that gets it's values from a repeating group from the datamodel?
 toc: true
-weight: 250
+weight: 150
 ---
 
 Traditional options are based on resources fetched from the backend.
@@ -65,3 +65,8 @@ Example text resource connected:
 
 In the example above we have two parameters in the text which is referencing fields in the group.
 We also recognize the `[{0}]` syntax in the `key` prop which enables the usage of this label for each index in the group.
+
+{{%notice warning%}}
+Description and HelpText is not yet compatible with options from repeating groups as `source` does not yet support
+adding HelpText and Description.
+{{% /notice%}}

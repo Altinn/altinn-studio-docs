@@ -3,7 +3,7 @@ title: Static codelists from the application repository
 linktitle: Static codelists
 description: How to configure static codelists from the application repository.
 toc: false
-weight: 100
+weight: 50
 ---
 
 By adding json based option files in the application repository, the application will automatically read the file and expose it through the options api. For this to work, the files must be placed in the `App/options/` folder and be named according to the following conventions `{optionId}.json` for the application to recognize them.

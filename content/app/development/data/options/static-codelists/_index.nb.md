@@ -3,7 +3,7 @@ title: Statiske kodelister fra applikasjon
 linktitle: Statiske kodelister
 description: Hvordan konfigurere statiske kodelister levert fra applikasjonen?
 toc: false
-weight: 100
+weight: 50
 ---
 
 Ved å legge json-lister i options mappen i app repo vil appen automatisk lese denne filen og eksponere det gjennom options-apiet.

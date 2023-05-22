@@ -3,7 +3,7 @@ title: Dynamic codelists generated runtime
 linktitle: Dynamic codelists
 description: How to create dynamic codelists created during runtime execution of the application?
 toc: false
-weight: 150
+weight: 100
 ---
 
 As an alternative to the static files you can have code that determines what the lists should be during runtime. This makes it possible to expose dynamic values that for instance are filtered or looked up in external sources. Dynamic codelists can either be open and accessible to all or secured and limited to those with read access to the instance.

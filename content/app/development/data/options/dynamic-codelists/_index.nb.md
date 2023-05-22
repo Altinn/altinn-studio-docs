@@ -3,7 +3,7 @@ title: Dynamiske kodelister generert under kjøring av applikasjonen
 linktitle: Dynamiske kodelister
 description: Hvordan lage dynamiske kodelister som bygges opp når applikasjonen kjører?
 toc: false
-weight: 150
+weight: 100
 ---
 
 I app-templaten har man også mulighet til å ha dynamisk kodelister som bestemmes under kjøringen av appen. Dette muligjør det å eksponere dynamiske verdier som kan filtreres eller hentes fra andre kilder. Dynamiske kodelister kan enten være åpne, dvs. alle brukere når de, eller de kan være sikret gjennom at du må ha tilgang til instansen for å se de.

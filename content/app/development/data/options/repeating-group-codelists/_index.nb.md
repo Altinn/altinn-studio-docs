@@ -1,9 +1,9 @@
 ---
-title: Kodelister fra repeterede grupper i datamodellen
-linktitle: Kodelister fra repeterende grupper i datamodellen
+title: Dynamiske kodelister fra repeterede grupper i datamodellen
+linktitle: Dynamiske kodelister fra repeterende grupper i datamodellen
 description: Hvordan konfigurere kodelister som får verdiene sine basert på verdier hentet fra en repeterende gruppe i datamodellen?
 toc: true
-weight: 250
+weight: 150
 ---
 
 Tradisjonelle options baserer seg på ressurser hentet fra backend.
@@ -65,3 +65,8 @@ Eksempel:
 
 I dette eksempelet har vi satt opp to parametere i teksten som refererer til felter i gruppen.
 Vi kjenner også igjen `[{0}]` syntaksen i `key` feltet som muliggjør gjenbruk av labelen for hver index i gruppen.
+
+{{%notice warning%}}
+Beskrivelse og hjelpetekst er ennå ikke kompatible med alternativer fra gjentakende grupper siden source ikke støtter
+tillegg av hjelpetekst og beskrivelse.
+{{% /notice%}}

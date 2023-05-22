@@ -1,12 +1,12 @@
 ---
 title: Code lists (options)
 linktitle: Code lists
-description: How to configure Options / Code lists for an app.
+description: How to configure Options / Code lists for an app?
 toc: true
 weight: 300
 ---
   
-Altinn offers two different ways an application can use code lists - static and dynamic. Both is done through the options api exposed by the application, and the code lists are available through the endpoint `{org}/{app}/api/options/{optionsId}`.
+Altinn offers two different ways an application can use code lists - static and dynamic. Both is primarily exposed through the options api from application, and are available at `{org}/{app}/api/options/{optionsId}`.
 Checkbox, Dropdown, and RadioButton components will automatically be able to fetch such lists if you connect the component to the option id in question. Not all dynamic codelist have to be fetched from the options api - we can also have codelists based on the values from a repeating structure in the datamodel.
 
 ## Connect the component to options (code list)
@@ -91,6 +91,8 @@ For nested groups follows the same pattern but with an additional index indicato
 For a complete example on how this is setup see our [demo app.](https://altinn.studio/repos/ttd/dynamic-options-rep)
 
 {{%notice warning%}}
+**Applies to applications using version 7.4.0 or older of the nuget packages - https://github.com/Altinn/app-lib-dotnet/release**
+
 During PDF-generation the app will try to call the same option endpoint as app-frontend does.
 We currently has a weakness where mapping paramteres not are included in this request, see issue [#7903.](https://github.com/Altinn/altinn-studio/issues/7903)
 

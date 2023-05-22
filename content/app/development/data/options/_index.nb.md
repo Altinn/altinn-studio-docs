@@ -1,13 +1,13 @@
 ---
 title: Kodelister (options)
 linktitle: Kodelister
-description: Hvordan konfigurere options/kodelister for en app.
+description: Hvordan konfigurere options/kodelister for en app?
 toc: true
 weight: 300
 ---
 
-Altinn tilbyr to ulike måter en app kan eksponere kodelister - statisk og dynamisk. Dette gjøres gjennom et options-api som er eksponert av appen, og kodelisten vil være tilgjengelig på endepunktet `{org}/{app}/api/options/{optionsId}`.
-Checkbox, Dropdown og RadioButton komponenter vil automatisk kunne hente ut en slik liste om man kobler denne komponenten til en slik options-id. Ikke alle dynamiske kodelister må gå via api'et - vi har også dynamiske kodelister som baserer seg på verdiene fra en repeterende struktur i datamodellen.
+Altinn tilbyr to ulike måter en app kan eksponere kodelister - statisk og dynamisk. Disse eksponeres primært fra options endepunktet i appen, og er tilgjengelig på `{org}/{app}/api/options/{optionsId}`.
+Checkbox, Dropdown og RadioButton komponenter vil automatisk kunne hente ut en slik liste om man kobler denne komponenten til en slik options-id. Men ikke alle dynamiske kodelister må gå via api'et - vi har også dynamiske kodelister som baserer seg på verdiene fra en repeterende struktur i datamodellen.
 
 ## Koble en komponent til kodeliste
 
@@ -92,6 +92,8 @@ For nøsta repeterende grupper vil man følge det samme mønsteret, men med en e
 For et komplett eksempel kan du se vår [demo app.](https://altinn.studio/repos/ttd/dynamic-options-rep)
 
 {{%notice warning%}}
+**Gjelder applikasjoner som benytter versjon 7.4.0 eller eldre av nuget pakkene - se https://github.com/Altinn/app-lib-dotnet/release**
+
 Under PDF-generering vil appen prøve å kalle det samme options-endepunktet som app-frontend gjør.
 Vi har foreløpig en svakhet ved at eventuelle mapping-parametere ikke blir inkludert i denne forespørselen, se issue [#7903.](https://github.com/Altinn/altinn-studio/issues/7903)
 
