@@ -36,7 +36,7 @@ Denne instansiering kan trigges av sluttbruker eller av tjenesteier. I denne gui
 
 Prosessen overordnet
 
-1. Sluttbruker instansierer tjeneste i parts meldingsboks i Altinn. Dette kan gjøres via API eller fra browser på Altinn.no
+1. Sluttbruker instansierer tjeneste i parts meldingsboks i Altinn. Dette kan gjøres via API eller i nettleser på Altinn.no
 2. Skjema fylles ut og eventuelle vedleggsdata lastes opp.
 3. Sluttbruker validerer data og eventuelle vedlegg og sender sender applikasjonsprosessen videre til bekreftelse
 4. Sluttbruker ser over data og bekrefter at han er ferdig med prosessen
