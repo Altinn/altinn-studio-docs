@@ -60,6 +60,24 @@ Opprettelse av integrasjon er beskrevet i Guide her.
 
 ## Detaljert teknisk prosess
 
+
+### Tjenesteeiersystem mottar Altinn Event fra 
+
+Første steget i prosessen er at mottaksendepunkt mottar informasjon om Event fra Applikasjon kjørende i Altinn. Dette forutsetter at [abonnement er satt opp](/events/subscribe-to-events/).
+
+```
+{
+    "id":"bd9edd59-b18c-4726-aa9e-6b150eade814",
+    "source":"https://ttd.apps.altinn.no/ttd/bli-applikasjonseier/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814",
+    "specversion":"1.0",
+    "type":"app.instance.created",
+    "resource":"urn:altinn:app:ttd.bli-applikasjonseier",
+    "resourceinstance":"bd9edd59-b18c-4726-aa9e-6b150eade814"
+    "subject":"/party/1337",
+    "time": "2022-05-12T00:02:07.541482Z"
+}
+```
+
 ### Autentisering mot maskinporten
 
 
@@ -67,12 +85,107 @@ Tjenesteeiersystem kaller Maskinporten API med korrekt Scopes for tjenesteier.
 
 Dette er beskrevet i detaljer [her](/api/authentication/maskinporten/#tilgang-som-tjenesteeier)
 
+Deretter må tjenesteeiersystem kalle Altinns [innvekslings endpunkt](/api/authentication/spec/) med sitt maskinportentoken som bearer token
+
+```http
+http://platform.altinn.no/authenticaiton/api/v1/exchange/maskinporten/
+```
 
 
-1. Tjenesteeiersystem kaller Altinn autentisering for å konvertere maskinporten token til Altinn token
-2. Tjenesteiersystem benytter Altinn token når den kaller Instance endepunkt i aktuell applikasjon. Retur er informasjon om instance og alle dataelementer. Eksempel
-3. Tjenesteiersystem kaller endepunkt for hvert av dataelementene som skal lastes ned. Dette er typisk skjemadata samt eventuelle vedlegg
-4. Tjenesteiersystem kaller endepunkt for å bekrefte data.
+### Tjenesteiersystem kaller source endepunkt fra event
+
+Events fra Altinn Applikasjoner peker på Instance endepunktet til en gitt applikasjon som kjører i Altinn. 
+Ved å benytte sitt tjenesteeier token vil systemet kunne laste ned instance documentet.
+
+
+```json
+{
+    "id": "1337/bd9edd59-b18c-4726-aa9e-6b150eade814",
+    "instanceOwner": {
+        "partyId": "1337",
+        "personNumber": "01039012345",
+        "organisationNumber": null,
+        "username": null
+    },
+    "appId": "ttd/bli-applikasjonseier",
+    "org": "ttd",
+    "selfLinks": {
+        "apps": "https://ttd.apps.altinn.no/ttd/bli-applikasjonseier/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814",
+        "platform": "https://ttd.apps.altinn.no/storage/api/v1/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814"
+    },
+    "dueBefore": null,
+    "visibleAfter": null,
+    "process": {
+        "started": "2020-11-18T15:56:41.5662973Z",
+        "startEvent": "StartEvent_1",
+        "currentTask": {
+            "flow": 2,
+            "started": "2020-11-18T15:56:41.5664762Z",
+            "elementId": "Task_1",
+            "name": "Utfylling",
+            "altinnTaskType": "data",
+            "ended": null,
+            "validated": {
+                "timestamp": "2020-11-20T13:00:05.1800273+00:00",
+                "canCompleteTask": true
+            }
+        },
+        "ended": null,
+        "endEvent": null
+    },
+    "status": null,
+    "completeConfirmations": null,
+    "data": [
+        {
+            "id": "8a8a01ae-9533-4aa9-b914-8ab0fae6ea0d",
+            "instanceGuid": "bd9edd59-b18c-4726-aa9e-6b150eade814",
+            "dataType": "Kursdomene_BliTjenesteeier_M_2020-05-25_5703_34553_SERES",
+            "filename": null,
+            "contentType": "application/xml",
+            "blobStoragePath": "ttd/bli-applikasjonseier/bd9edd59-b18c-4726-aa9e-6b150eade814/data/8a8a01ae-9533-4aa9-b914-8ab0fae6ea0d",
+            "selfLinks": {
+                "apps": "https://ttd.apps.altinn.no/ttd/bli-applikasjonseier/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814/data/8a8a01ae-9533-4aa9-b914-8ab0fae6ea0d",
+                "platform": "https://ttd.apps.altinn.no/storage/api/v1/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814/data/8a8a01ae-9533-4aa9-b914-8ab0fae6ea0d"
+            },
+            "size": 401,
+            "locked": false,
+            "refs": [],
+            "created": "2020-11-18T15:56:43.1089008Z",
+            "createdBy": null,
+            "lastChanged": "2020-11-18T15:56:43.1089008Z",
+            "lastChangedBy": null
+        }
+    ],
+    "created": "2020-11-18T15:56:42.1972942Z",
+    "createdBy": "1337",
+    "lastChanged": "2020-11-18T15:56:42.1972942Z",
+    "lastChangedBy": "1337"
+}
+```
+
+### Tjenesteiersystem kaller endepunkt for hvert av dataelementene 
+
+I instance dokumentet fra steget over er det listet dataelementene som en instance består av. 
+
+Disse dokumentene kan lastes ned fra applikasjons endepunkt. Hver dataelement har informasjon om f.eks datatype og når det var sist endret.
+
+Url for nedlasting av hvert element er oppgitt som en url til App eller url til Storage.
+
+```http
+https://ttd.apps.altinn.no/ttd/bli-applikasjonseier/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814/data/8a8a01ae-9533-4aa9-b914-8ab0fae6ea0d
+```
+
+Det anbefales at tjenesteeier benytter app endepunkt for nedlasting. På denne måten har man best tilgang til logger.
+
+### Tjenesteiersystem kaller endepunkt for å bekrefte data.
+
+Når instance data og dataelementer er lastet ned og verifisert ok, så må tjenesteier bekrefte ok nedlasting.
+
+Dette gjøres ved å kalle [Complete endepunkt](/api/apps/instances/#complete-instance) på Applikasjon.
+
+## Referanssystem
+
+Altinn har utviklet et referanseystem som mottar Events og laster ned data. Dette finner man [her](https://github.com/Altinn/altinn-application-owner-system).
 
 
 {{<children />}}
