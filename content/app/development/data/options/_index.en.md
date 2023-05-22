@@ -11,31 +11,6 @@ weight: 300
 Altinn offers two different ways an application can use code lists - static and dynamic. Both is done through the options api exposed by the application, and the code lists are available through the endpoint `{org}/{app}/api/options/{optionsId}`.
 Checkbox, Dropdown, and RadioButton components will automatically be able to fetch such lists if you connect the component to the option id in question.
 
-## Static codelists from the application repository
-
-By adding json based option files in the application repository, the application will automatically read the file and expose it through the options api. For this to work, the files must be placed in the `App/options/` folder and be named according to the following conventions `{optionId}.json` for the application to recognize them.
-
-For example if you have a list of countries in a file named `countries.json`, the optionId would be `countries`, and would be exposed through the api at `{org}/{app}/api/options/countries`. The static codelists should be in a special format as shown below:
-
-```json
-[
-    {
-        "value": "norway",
-        "label": "Norge"
-    },
-    {
-        "value": "denmark",
-        "label": "Danmark"
-    },
-    {
-        "value": "sweden",
-        "label": "country.label.sweden"
-    }
-]
-```
-
-Note that the `label` field can be a key to a text resource (as shown above for sweden) or plain text.
-
 ## Dynamic codelists generated runtime
 
 As an alternative to the static files you can have code that determines what the lists should be during runtime. This makes it possible to expose dynamic values that for instance are filtered or looked up in external sources. Dynamic codelists can either be open and accessible to all or secured and limited to those with read access to the instance.
