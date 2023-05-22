@@ -12,17 +12,18 @@ hidden: false
 
 På Altinn plattformen utvikler forskjellige etater og andre offentlige aktører tjenester som skal benyttes av innbyggere eller næringsliv.
 
-Tjenestene kan være enkle tjenester hvor man må fylle ut en begrenset mengde med data, til komplekse tjenester med flere typer datalementer over flere prosessteg.
+Tjenestene kan være enkle tjenester hvor man må rapportere ut en begrenset mengde med data, til komplekse tjenester med flere typer datalementer over flere prosessteg.
 
-En viktig egenskap med tjenester utviklet i Altinn er at hver tjeneste tilbyr et sett med API som kan benyttes for maskin til maskininnsending av data fra sluttbrukersystem.
+En viktig egenskap med tjenester utviklet i Altinn er at hver tjeneste tilbyr et sett med API som kan benyttes for maskin til maskininnsending av data fra sluttbrukersystem. 
 
 Et sluttbrukersystem er i denne kontekst programvare som utfører oppgaver på vegne av sluttbruker (innbygger/næringsliv). Enten fullstendig automatisert eller kontrollert
 av en sluttbruker.
 
+I dag er det ca 50% av datene som blir rapportert på denne måten fra over 100 forskjellige programvareløsninger.
+
 ## Hva er en Altinn tjeneste
 
-En tjeneste består av en applikasjon som er tilgjengelig i Altinns infrastruktur. Denne applikasjonen har et sett med konfigurasjon
-som beskriver data som tjenesten skal motta eller sende ut samt hvilken prosess.
+En tjeneste består av en applikasjon som er tilgjengelig i Altinns infrastruktur. Denne applikasjonen har et sett med konfigurasjon som beskriver data som tjenesten skal motta eller sende ut samt hvilken prosess.
 
 Eksempler på tjenester utviklet på den nye Altinn 3 plattformen finner du [her](/app/launched-apps/).
 
@@ -30,8 +31,7 @@ Eksempler på tjenester utviklet på den nye Altinn 3 plattformen finner du [her
 
 Den typiske Altinn tjenesten har definert en skjemamodell som beskriver de dataene som gjelder den aktuelle tjenesten.
 
-Denne modellen er spesifisert av den tjenesteeieren som har laget tjenesten. En tjeneste kan i tilegg til en ellere flere
-skjemamodeller også har definerte sett med vedleggsdata som skal vedlegges.
+Denne modellen er spesifisert av den tjenesteeieren som har laget tjenesten. En tjeneste kan i tilegg til en ellere flere skjemamodeller også har definerte sett med vedleggsdata som skal vedlegges.
 
 ## Overordnet prosess for innsending
 
@@ -41,16 +41,21 @@ skjemamodeller også har definerte sett med vedleggsdata som skal vedlegges.
 
 ### Forutsetninger
 
-For sluttbrukersystemer hvor sluttbrukere skal logge inn ved å bruke id porten så må sluttbrukersystem
+For sluttbrukersystemer hvor sluttbrukere skal logge inn ved å bruke id porten, så må sluttbrukersystem
 ha klient registrert som api_klient. Dokumentasjon om hvordan man registrerer klient finner man [her](https://docs.digdir.no/docs/idporten/oidc/oidc_func_clientreg).
 
 ### Pålogging & scopes
 
 For pålogging må sluttbrukersystem sende sluttbruker til ID-porten for pålogging ved hjelp av sin oppsatte klientkonfigurasjon.
 
-Scope det må spørres om er altinn.instances.read og altinn.instances.write.
+Scope det må spørres om er altinn:instances.read og altinn:instances.write
+
+Disse scopene gir mulighet for kalle alle apper i Altinn 3.
 
 Som del av påloggingsprosessen vil sluttbrukersystemet få tilgang til et access_token med informasjon om sluttbruker.
+
+Se detaljert påloggingsprosess med ID-porten og skjembilde sluttbruker blir presentert [her](/api/authentication/id-porten/).
+
 
 ### Innveksling av access_token til Altinn token
 
@@ -89,6 +94,72 @@ Dette kallet går mot [Instance API](/api/apps/instances/#create-instance) på a
 ```
 
 Resultatet er en instans med skjemdata som igjen inneholder standard data og prefill data konfigurert av tjenesteeier.
+
+```json
+{
+    "id": "1337/bd9edd59-b18c-4726-aa9e-6b150eade814",
+    "instanceOwner": {
+        "partyId": "1337",
+        "personNumber": "01039012345",
+        "organisationNumber": null,
+        "username": null
+    },
+    "appId": "ttd/bli-applikasjonseier",
+    "org": "ttd",
+    "selfLinks": {
+        "apps": "https://local.altinn.cloud/ttd/bli-applikasjonseier/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814",
+        "platform": "https://local.altinn.cloud/storage/api/v1/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814"
+    },
+    "dueBefore": null,
+    "visibleAfter": null,
+    "process": {
+        "started": "2020-11-18T15:56:41.5662973Z",
+        "startEvent": "StartEvent_1",
+        "currentTask": {
+            "flow": 2,
+            "started": "2020-11-18T15:56:41.5664762Z",
+            "elementId": "Task_1",
+            "name": "Utfylling",
+            "altinnTaskType": "data",
+            "ended": null,
+            "validated": {
+                "timestamp": "2020-11-20T13:00:05.1800273+00:00",
+                "canCompleteTask": true
+            }
+        },
+        "ended": null,
+        "endEvent": null
+    },
+    "status": null,
+    "completeConfirmations": null,
+    "data": [
+        {
+            "id": "8a8a01ae-9533-4aa9-b914-8ab0fae6ea0d",
+            "instanceGuid": "bd9edd59-b18c-4726-aa9e-6b150eade814",
+            "dataType": "Kursdomene_BliTjenesteeier_M_2020-05-25_5703_34553_SERES",
+            "filename": null,
+            "contentType": "application/xml",
+            "blobStoragePath": "ttd/bli-applikasjonseier/bd9edd59-b18c-4726-aa9e-6b150eade814/data/8a8a01ae-9533-4aa9-b914-8ab0fae6ea0d",
+            "selfLinks": {
+                "apps": "https://local.altinn.cloud/ttd/bli-applikasjonseier/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814/data/8a8a01ae-9533-4aa9-b914-8ab0fae6ea0d",
+                "platform": "https://local.altinn.cloud/storage/api/v1/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814/data/8a8a01ae-9533-4aa9-b914-8ab0fae6ea0d"
+            },
+            "size": 401,
+            "locked": false,
+            "refs": [],
+            "created": "2020-11-18T15:56:43.1089008Z",
+            "createdBy": null,
+            "lastChanged": "2020-11-18T15:56:43.1089008Z",
+            "lastChangedBy": null
+        }
+    ],
+    "created": "2020-11-18T15:56:42.1972942Z",
+    "createdBy": "1337",
+    "lastChanged": "2020-11-18T15:56:42.1972942Z",
+    "lastChangedBy": "1337"
+}
+```
+
 
 System kan velge å laste ned data via data API for å legge til egne data eller eventuelt bare overskrive skjema som ble opprettet
 under instansiering. Det må brukes id for automopprettet skjema for å overskrive.
