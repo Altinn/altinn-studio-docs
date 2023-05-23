@@ -20,13 +20,34 @@ We use value files in Azure DevOps for Helm Charts to control the different conf
 
 ### Release Management
 
+
+#### Azure Devops
+
+Most applicatons have release management in Azure DevOps.
+
 Azure DevOps Release Pipelines control the different releases in different environments.
 
 From the Release Pipeline Dashboard, the DevOps team can see releases. For example, in the below screenshot, you see info about release 364 of the Authorization component.
 
 ![Release Managenet](releasemanagement1.png "Release management in Azure DevOps")
 
-We also create releases in GitHub to map features with a given release deployed. There is no direct connection between the Azure DevOps release and the Github release.
+
+#### Github Release Management
+
+We have started using Github Actions to perform build for some components. 
+
+The first Component is Access Managment Frontend
+
+- [Build and AT deploy](https://github.com/Altinn/altinn-access-management-frontend/actions/workflows/build-publish-deploy-to-at.yml)
+- [Schedule Release](https://github.com/Altinn/altinn-access-management-frontend/actions/workflows/scheduled-release.yml)
+- [Deploy TT/Prod workflow](https://github.com/Altinn/altinn-access-management-frontend/actions/workflows/deploy-to-environment.yml)
+
+The Build Action build codes and publish container to Github Container Registry
+
+The Schedule Release Action tags the last release (code and container)
+
+Deploy trigger deploy to tt or prod based on tag
+
 
 ### Continuous Del. Pipeline Management
 

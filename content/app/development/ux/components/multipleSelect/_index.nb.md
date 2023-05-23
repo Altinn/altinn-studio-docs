@@ -1,10 +1,11 @@
 ---
 title: MultipleSelect 
+description: MultipleSelect kan benyttes når brukeren kan velge blant flere valg
 toc: false
 weight: 10
 ---
 
-MultipleSelect kan benyttes når brukeren kan velge blant flere valg. Tilbyr filtrering ut av boksen.
+MultipleSelect tilbyr også støtte for lokalt søk/filtrering.
 
 ![MultipleSelect eksempel](multipleSelect-example.png "MultipleSelect eksempel")
 

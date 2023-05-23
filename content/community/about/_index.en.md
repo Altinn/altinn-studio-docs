@@ -48,7 +48,7 @@ There are many reasons to use Altinn 3 to build and host your digital services.
 - A known platform for end users
 - Highly scalable and secure infrastructure
 - [Open source](https://github.com/Altinn/altinn-studio)
-- Access to almost all citizens and business in Norway
+- Access to almost all citizens and businesses in Norway
 
 ## When was Altinn 3 launched?
 
@@ -59,7 +59,7 @@ The first version was launched in June 2020 and the first applications was deplo
 Start with reading about the different solutions of Altinn 3.  
 
 - Altinn Studio let you build your digital services
-- Altinn Apps let your host your digital services
-- Altinn Platform will provide standard functionalit to your digital services
+- Altinn Apps let you host your digital services
+- Altinn Platform will provide standard functionality to your digital services
 
 {{<children />}}
