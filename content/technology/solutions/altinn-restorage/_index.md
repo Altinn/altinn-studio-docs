@@ -81,7 +81,7 @@ This section contains instructions the most common development tasks when expand
 #### ... add a new root command
 
 1. Create a new folder using the name of the command and include a new class with the same name.
-    ![Create a new folder for command](images/create-new-command-1.PNG "Create a new folder for command")
+    ![Create a new folder for command](create-new-command-1.png "Create a new folder for command")
 
 2. Make the class an extention of the _IBaseCmd_ interface.
 
@@ -166,7 +166,7 @@ CommandLineApplication. Extend the switch case a shown below.
 1. Add a new class in the correct _Subcommands_-folder. It there is not subcommands folder for the command, please create this first. 
 The class should share a name with the sub command.
 
-    ![Create a sub command class](images/subcommand.PNG "Create a sub command class")
+    ![Create a sub command class](subcommand.png "Create a sub command class")
 
 2. The command attribute must be set on the class
     _Name_ should be in lower case and match the class name. Note that the McMaster nugetpackage must be references to use the Command attribute.
