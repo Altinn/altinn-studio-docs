@@ -129,13 +129,15 @@ Only one of the two settings should be used at a time.
 
 ## CopyInstanceSettings
 
-Configure if copying data from an archived instance is allowed and what datatypes and datafields that should be excluded in the new instance
+Configure if copying data from an archived instance is allowed and what datatypes and datafields that should be excluded in the new instance.
 
 | Name               | Description                                                                      |
 | ------------------ | -------------------------------------------------------------------------------- |
 | enabled            | true/false if its possible to create a copy of an instance.                      |
 | excludedDataTypes  | List of DataTypes that should be excluded when a new copy is made.               |
 | excludedDataFields | List of fields in the DataModel that should be excluded when a new copy is made. |
+
+The portal message box will show a link called [Create new copy](/app/development/configuration/messagebox/create_copy/) when the user selects an archived instance.
 
 ## OnEntry
 

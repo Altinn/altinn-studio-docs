@@ -1,5 +1,6 @@
 ---
 title: PrintButton
+description: En knapp som åpner en utskriftsdialog for gjeldende skjemaside
 toc: false
 weight: 10
 ---

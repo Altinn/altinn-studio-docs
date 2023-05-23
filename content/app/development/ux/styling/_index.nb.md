@@ -229,6 +229,38 @@ Formateringen er kun for visning i frontend, og tallene som legges inn i et inpu
 },
 ```
 
+### Dynamisk tall formattering basert på språk
+Det er mulig å legge til dynamisk formattering av tallverdier i inputfelt. Kan velge mellom ```"currency"``` og ```"unit"```. Basert på valgt språk i appen kan de formattere tusen- og desimalskille samt prefix/suffix.
+Den valgfrie opsjonen *position* kan settes til ```"prefix"``` eller ```suffix```, og brukes til å styre hvor symbolet/enheten vises.
+Standard er `prefix` for *currency* og `suffix` for *unit*. 
+
+Eksempler:  
+>```"currency": "NOK", position: "prefix"```  
+>```"unit": "kilogram", position: "suffix"```
+
+Apputviker kan velge å la noen av delene være uavhengig av språket. Egenskaper i ```number``` overstyrer enkeltelementene i dynamisk formattering. Konfigurasjonen under gjør at på både norsk og engelsk vises prefix som **kr** og tusenskille med mellomrom.
+
+```json {hl_lines=["5-10"]} {linenos=inline}
+{
+  "id": "numberComponent",
+  "type": "Input",
+  "formatting": {
+    "currency": "NOK", 
+    "position": "prefix",
+    "number": {
+      "thousandSeparator": " ",
+      "prefix": "kr"
+    }
+  }
+},
+```
+
+Gyldige verdier for *currency* er basert ISO 4217 valutakoder, f.eks. **NOK** for norske kroner. [Liste av gyldige valutaer](https://github.com/unicode-org/cldr/blob/main/common/validity/currency.xml)  
+
+Gyldige verdier for *unit* er for øyeblikket følgende:
+> celsius **|** centimeter **|** day **|** degree **|** foot **|** gram **|** hectare **|** hour **|** inch **|** kilogram **|** kilometer **|** liter **|** meter **|** milliliter **|** millimeter **|** millisecond **|** minute **|** month **|** percent **|** second **|** week **|** year 
+
+
 ## Justering av tekst i input felter
 Når skjemaet inneholder en liste med tall som summeres er det vanlig å justere teksten i input feltet til høyre slik som
 når man summerer på papir og slik det vises i Excel. Dette kan gjøres ved å sette `"align": "right"` under `formatting`

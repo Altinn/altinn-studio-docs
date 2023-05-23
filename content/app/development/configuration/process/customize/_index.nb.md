@@ -192,13 +192,13 @@ Eksempel på overstyrte tekster i filen `resources.nb.json`:
 ## Kvittering (Receipt)
 I denne prosess-task-typen er prosessen ferdig og noen standardtekster vises. 
 
-Tekstene kan overstyres, ved at man legger inn tekstnøkkel som hører til hver tekst i språkfilene for appen. Info
-om hvordan dette gjøres finner du [her](../../../ux/texts). Se under for oversikt over de forskjellige tekstnøklene som kan
-overstyres.
+Tekstene kan overstyres, ved at man legger inn tekstnøkkel som hører til hver tekst i språkfilene for appen. Info om hvordan dette gjøres finner du [her](../../../ux/texts).
 
-![Kvitterings-visningen](receipt-step.png "Tekster som kan endres/overstyres i kvitterings-visningen")
+Dersom den reelle mottakeren av skjemaet er en annen organisasjon enn organisasjonen som eier appen, burde kvitteringen tydeligjøre dette i `Mottaker` feltet. Dette kan gjøres ved å sette tekstresursen `appReceiver` til navnet på den reelle mottakeren.
 
 ### Overstyre tekster
+
+![Kvitterings-visningen](receipt-step.png "Tekster som kan endres/overstyres i kvitterings-visningen")
 
 | Tekst nr. (se bilde over) | Tekstnøkkel             |
 |---------------------------|-------------------------|
@@ -337,3 +337,39 @@ Eksempel på en egendefinert layoutfil for kvittering:
 Sluttresultatet i appen:
 
 ![Custom kvitteringsvisning](custom-receipt.png "Custom kvitteringsvisning")
+
+### Tilpasse tekster for enkel kvittering (Simple Receipt)
+
+Simple receipt er et konsept som er relevant for de applikasjonene som har aktivert `AutoDeleteOnProcessEnd: True` i `applicationmetadata.json` filen. For mer informasjon om hva dette innebærer [les her](https://docs.altinn.studio/nb/app/development/configuration/process/auto-delete/).
+
+Tekstene i denne kvitteringen kan også overskrives ved å manuelt legge til hver definerte tekstnøkkel i appens tekstressursfil. Mer informasjon om hvordan dette gjøres finnes [her](../../../ux/texts).
+Følgende avsnitt viser en oversikt over hvilke tekster som kan tilpasses.
+
+![Enkel kvitteringsvisning](simple-receipt-step.png "Tekster som kan endres/overstyres i kvitteringsvisningen")
+
+| Tekst # (se bilde over)   | Tekstnøkkel             |
+|---------------------------|-------------------------|
+| 1                         | receipt.receipt         |
+| 2                         | receipt.title           |
+| 3                         | receipt.body_simple     |
+
+Eksempel på overstyrte tekster i filen `resources.nb.json`:
+
+```json
+{
+    "id": "receipt.receipt",
+    "value": "Søknad om flytting til Sogndal kommune"
+},
+{
+    "id": "receipt.title",
+    "value": "Takk, søknaden er sendt!"
+},
+{
+    "id": "receipt.body_simple",
+    "value": "All data knyttet til denne innsendingen vil slettes etter tjenesteeieren har mottatt det."
+}
+```
+
+Dette resulterer i følgende visning:
+
+![Enkel kvitteringsvisning](simple-receipt-step-custom.png "Overstyrte tekster på enkel kvitteringsvisningen")

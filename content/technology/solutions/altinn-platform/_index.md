@@ -18,7 +18,7 @@ The authentication component provides functionality to authenticate users and sy
 
 Support external ID providers through OIDC.
 
-[Learn more about Altinn Authentication](authentication)
+[Learn more about Altinn Authentication](/authentication)
 
 
 ## Authorization
@@ -27,7 +27,7 @@ The authorization components provide advanced and flexible authorization functio
 
 The authorization is Attribute-based and uses XACML 3.0.
 
-[Learn more about Altinn Authorization](authorization)
+[Learn more about Altinn Authorization](/authorization)
 
 ## Events 
 

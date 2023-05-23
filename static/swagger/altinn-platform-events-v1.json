@@ -475,6 +475,15 @@
           "Inbound"
         ],
         "summary": "Post a previously registered cloudEvent to the inbound events queue\r\nand further processing by the EventsInbound Azure function",
+        "requestBody": {
+          "content": {
+            "application/cloudevents+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CloudEvent"
+              }
+            }
+          }
+        },
         "responses": {
           "201": {
             "description": "Created",
@@ -500,6 +509,15 @@
         ],
         "summary": "Submit event for Outbound processing",
         "description": "Identifies matching subscriptions based on subscription filter hash.\r\nRuns authorization check before adding event to the outbound queue.",
+        "requestBody": {
+          "content": {
+            "application/cloudevents+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CloudEvent"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "Success"
@@ -516,6 +534,15 @@
           "Storage"
         ],
         "summary": "Saves a cloud event to persistent storage.",
+        "requestBody": {
+          "content": {
+            "application/cloudevents+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CloudEvent"
+              }
+            }
+          }
+        },
         "responses": {
           "201": {
             "description": "Created",
@@ -1011,7 +1038,7 @@
         },
         "additionalProperties": false,
         "example": {
-          "id": "e16a19c2-15f7-4746-b1f5-c0093e59f724",
+          "id": "0417812d-19f5-4612-953c-c7a5c94775dd",
           "source": "https://ttd.apps.altinn.no/ttd/apps-test/instances/50015641/a72223a3-926b-4095-a2a6-bacc10815f2d",
           "specversion": "1.0",
           "type": "app.instance.created",
@@ -1265,7 +1292,7 @@
           },
           "parameters": {
             "type": "array",
-            "items": {},
+            "items": { },
             "nullable": true,
             "readOnly": true
           }
@@ -2119,7 +2146,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": {}
+        "additionalProperties": { }
       },
       "PropertyAttributes": {
         "enum": [
@@ -3093,7 +3120,7 @@
   },
   "security": [
     {
-      "Bearer": []
+      "Bearer": [ ]
     }
   ],
   "tags": [

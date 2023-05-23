@@ -1,10 +1,9 @@
 ---
 title: Panel
+description: The panel component can be used to display important information to the user.
 toc: false
 weight: 10
 ---
-
-The panel component can be used to display important information to the user.
 
 ![The different variants of the Panel component](panel-example.png "The different variants of the Panel component")
 

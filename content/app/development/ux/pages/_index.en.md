@@ -5,16 +5,11 @@ toc: false
 weight: 10
 ---
 
-{{%notice info%}}
-Setup of multiple pages can be done manually (as described below) or directly in the form editor in Altinn Studio.
-Note that the last page the user entered is cached so that they will return to this page when the app reloads.
-{{%/notice%}}
+Multiple layout pages can easily be set up in Altinn Studio, if you want to do it manually, see [Setup](#setup). There are also some configuration options that are not available in Altinn Studio but must be set manually; for that, see [Settings](#settings).
 
 ## Setup
-To get funtionality for mutliple pages in a form, the nuget-version of the packages the app uses **must** be upgraded to version `1.2.0-alpha` _or newer_.
-See instructions for how that is done [here](../../../maintainance/dependencies).
 
-Multiple pages in a form (within the same process task) is supported by splitting up the current layout-file `App/ui/FormLayout.json` to one file per page. The files must be placed in a folder `App/ui/layouts`. Each layout file must use the same format as the existing `FormLayout.json` file. For example:
+Layout pages are placed in the `ui/layouts` folder in the app, to configure the order of the layout pages, see [Navigation](/app/development/ux/pages/navigation/). If you have multiple process steps that require layouts, the structure is slightly different; in that case see [Layout sets](/app/development/ux/pages/layout-sets/).
 
 ```
 |- App/
@@ -23,10 +18,53 @@ Multiple pages in a form (within the same process task) is supported by splittin
       |- side1.json
       |- side2.json
       |- side3.json
+    |- Settings.json
 ```
 
-The recommended approach as long as there is a need to set it up manually, is to use the ui-editor in Altinn Studio to add all components to `FormLayout.json`, and then copy them to their respective layout files, one for each page you want. `FormLayout.json` can either be renamed under the `layouts` folder or be deleted.
+## Settings
 
-_Note: `FormLayout.json` must either be moved (can be renamed) into the `layouts` folder, or be deleted. If you have the old `FormLayout.json` file under the `App/ui` folder as it was, only this one will be used and all files under the `App/ui/layouts` folder will be ignored._
+There are several different settings that can be configured for your pages.
+These settings are configured in the `Settings.json` file seen in the folder structure above and lie in the `pages` object.
+If you use layout sets there is a separate file for each layout set.
+
+```json
+{
+  "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
+  "pages": {
+    "order": [
+      "Info",
+      "Form",
+      "Summary"
+    ],
+    "excludeFromPdf": [
+      "Info",
+      "Summary"
+    ],
+    "triggers": [
+      "calculatePageOrder",
+      "validatePage"
+    ],
+    "hideCloseButton": false,
+    "showLanguageSelector": false,
+    "showExpandWidthButton": false,
+    "showProgress": true,
+    "pdfLayoutName": "PDFLayout"
+  },
+  ...
+}
+```
+
+The available settings are the following:
+
+| Property              | Type    | Value                                                                                                                                                                          |
+| --------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| hideCloseButton       | Boolean | Whether or not the close button in the upper right corner should be hidden.                                                                                                    |
+| showLanguageSelector  | Boolean | Whether or not the language selector should be visible. Allows the user to switch language after opening the form.                                                             |
+| showExpandWidthButton | Boolean | Whether or not the expand width button should be visible. Allows the user to expand the width of the page to fill the browser window.                                          |
+| showProgress          | Boolean | see [Navigation](/app/development/ux/pages/navigation/#progress-indicator)                                                                                                     |
+| pdfLayoutName         | String  | see [PDF](/app/development/ux/pdf/#custom-layout-configuration)                                                                                      |
+| order                 | Array   | see [Navigation](/app/development/ux/pages/navigation/#order)                                                                                                                  |
+| excludeFromPdf        | Array   | see [PDF](/app/development/ux/pdf/#automatic-configuration)                                                                                                                    |
+| triggers              | Array   | see [Navigation](/app/development/ux/pages/navigation/#validation-on-page-navigation), [Tracks](/app/development/ux/pages/tracks/#trigger-calculation-on-tracks-from-frontend) |
 
 {{<children />}}
