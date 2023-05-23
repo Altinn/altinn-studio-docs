@@ -71,7 +71,7 @@ Første steget i prosessen er at mottaksendepunkt mottar informasjon om Event fr
     "source":"https://ttd.apps.altinn.no/ttd/bli-applikasjonseier/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814",
     "specversion":"1.0",
     "type":"app.instance.created",
-    "resource":"urn:altinn:app:ttd.bli-applikasjonseier",
+    "resource":"urn:altinn:resource:altinnapp.ttd.bli-applikasjonseier",
     "resourceinstance":"bd9edd59-b18c-4726-aa9e-6b150eade814"
     "subject":"/party/1337",
     "time": "2022-05-12T00:02:07.541482Z"
