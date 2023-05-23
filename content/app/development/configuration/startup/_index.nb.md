@@ -22,7 +22,7 @@ Om man setter feltet til `onEntry.show` til `select-instance` vil brukeren bli p
 
 ### Eksempel
 Følgende konfigurasjon legges til i `applicationmetadata.json` for å sette opp valg av aktive instanser.
-```json {hl_lines[8,9,10]}
+```json {hl_lines=[8,9,10]}
 {
   "id": "ttd/demo-app",
   "org": "ttd",
