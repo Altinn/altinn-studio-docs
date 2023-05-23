@@ -11,6 +11,14 @@ The text resources are available whne you edit UI components in the schema via A
 
 Texts are stored in JSON-format and one file per language. The filename format for texts should be `resource.[language].json` f.ex: _resource.nb.json_.
 
+Texts can be edited locally, directly in the JSON-files, or via the Altinn Studio text editor.
+
+## Altinn Studio text editor
+
+When editing an app in Altinn Studio, select the `Text` tab from the top menu.
+
+![Text editor in Altinn Studio](./)
+
 ## Formatting of texts
 
 All texts can be formatted with markdown. Below you can see the most commonly used syntax.
@@ -23,7 +31,7 @@ A more thorough explanation of the markdown syntax can be found here:
 Its very easy to make words or sentences bold or italic with markdown.
 
 ```markdown
-This is in  _italic_ using underscores.
+This is in _italic_ using underscores.
 This is also in *italic* using asterisk.
 ```
 
@@ -41,8 +49,9 @@ Open the [Altinn front page](https://altinn.no).
 ```
 
 For more properties on the link, you can use HTML syntax:
+
 ```html
-Go to the <a href="https://altinn.no" class='same-window'>Altinn front page</a>.
+Go to the <a href="https://altinn.no" class="same-window">Altinn front page</a>.
 ```
 
 By specifying to open a link in the same window, the user will be navigated away from the form when clicking on the
@@ -52,8 +61,11 @@ link, but the current state of the form is maintained in the instance data shoul
 
 ```markdown
 # This is a big heading (H1)
+
 ## This is a smaller heading (H2)
+
 ### An even smaller heading (H3)
+
 #### A tiny heading (H4)
 ```
 
@@ -63,19 +75,38 @@ You have two options when you want to modify texts in an application, either via
 
 ### Using Altinn Studio
 
-In the top navigation bar in Altinn Studio, selec _Languages_ to be able to edit texts. An overview of the texts that already exists in the application are listed.
+#### Text editor
 
-On this page you can edit the existing texts and add new ones. New texts can be added by clikcing the _New text_ button, and fill in the fields. The key needs to be unique.
+In the top navigation bar in Altinn Studio, select _Text_ to be able to edit texts. An overview of the texts that already exist in the application are listed.
 
-Save the changes in the texts by clicking _Save texts_.
+On this page you can edit the existing texts and add new ones. New texts can be added by clikcing the _New text_ button, and fill in the fields.
+A unique key is automatically generated, this can be changed by clicking the pencil-icon next to the key. Texts are
+automatically saved when changed.
+
+You can select the languages you want to display for easy translation from the right-hand panel. You can also add new
+languages to translate your app to in this panel.
 
 ![Altinn Studio Designer](edit-texts-in-designer.png "Change texts in Altinn Studio Designer")
+
+#### Directly from component editor
+
+When configuring a component in the Form Editor (choose "Create" tab from the top menu), you can directly add/edit/translate
+the texts connected to that component.
+
+Add a text by clicking the `+`-icon for the relevant text type (Label or Description).
+![Add text from component edit mode](component-text-add.png "Add text from component edit mode")
+
+Edit an existing text for the component by clicking the pencil-icon.
+![Edit text from component edit mode](component-text-change.png "Edit text from component edit mode")
+
+Add an existing text to your component by clicking the search-icon and select the text from the list of available texts.
+![Add existing text to component](component-text-search.png "Add existing text to component")
 
 ### Changing texts directly in the repository
 
 This is the recommended way to update texts if there are many changes you want to make. The texts can be changed directly in the repository, or by cloning the repository and using your preferred text editor.
 
-The texts are stored in  `App/config/texts`
+The texts are stored in `App/config/texts`
 
 ![Altinn Studio Repos](edit-texts-in-repos.png "Change texts in Altinn Studio Repos")
 
@@ -90,7 +121,7 @@ Variables in texts can be included by following the syntax below. It is importan
   "variables": [
     {
       "key": "<datamodelField>",
-      "dataSource": "dataModel.<dataModelName>" 
+      "dataSource": "dataModel.<dataModelName>"
     },
     {
       "key": "<settings key>",
@@ -103,13 +134,14 @@ Variables in texts can be included by following the syntax below. It is importan
   ]
 }
 ```
+
 ### Data sources
 
 It is currently possible to fetch values from 3 different data sources.
 
 1. Datamodell
    By defining `dataModel.<dataModelNavn>` as the data source you can fetch values from the fields in the form that the user is filling out. Data can be fetched from fields regardless if they are visible or not. If the user changes data in a field referenced in a variable, the text will be updated when the user stops typing in the field.
-2. Application Settings   
+2. Application Settings  
    By defining `applicationSettings` as the data source you can fetch values from a specific section in `appsettings.{environment}.json` files with the key `FrontEndSettings`. This is a dynamic list you can extend without making changes to the code. This makes it possible to have different values in different environments. Be aware of the difference on first letter casing in the keys `FrontEndSettings` and `applicationSettings`.
    ```json
    "FrontEndSettings": {
@@ -119,13 +151,12 @@ It is currently possible to fetch values from 3 different data sources.
 3. Instance
    This datasource is based on the instance and will contain some values from the active instance. We cannot access the entire instance object. The list of available properties is currently:
    1. `instanceOwnerPartyId` inneholder avgiver sin party id.
-   2. `instanceId` inneholder id'en til den aktive instansen. 
+   2. `instanceId` inneholder id'en til den aktive instansen.
    3. `appId` inneholder id'en til appen instansen er knyttet til.
 
 ### Complete example:
 
 ```json
-
 {
   "id": "common.submitinfo",
   "value": "You are submitting for: {0} with organisation number: {1}. The organisations party id is {2}. [Link to our page]({3}).",
@@ -136,38 +167,40 @@ It is currently possible to fetch values from 3 different data sources.
     },
     {
       "key": "skattepliktig.organisasjonsnummer",
-        "dataSource": "dataModel.default"
+      "dataSource": "dataModel.default"
     },
     {
       "key": "instanceOwnerPartyId",
-        "dataSource": "instanceContext"
+      "dataSource": "instanceContext"
     },
     {
       "key": "homeBaseUrl",
-        "dataSource": "applicationSettings"
+      "dataSource": "applicationSettings"
     }
   ]
 }
 ```
 
 ### Variables in text - repeating groups
+
 To make variables in text work with repeating groups, you need to make a slight modification to the example above.
 
 This is achieved by adding `[{0}]` _after_ the repeating groups when you specify a field in the data model in the `key`.parameter
 Example:
+
 ```json {hl_lines=[6,10]}
 {
   "id": "common.submitinfo",
   "value": "You are submitting for: {0} with organisation number: {1}.",
   "variables": [
-      {
-        "key": "skattepliktig[{0}].organisasjonsnavn",
-        "dataSource": "dataModel.default"
-      },
-      {
-        "key": "skattepliktig[{0}].organisasjonsnummer",
-        "dataSource": "dataModel.default"
-      }
+    {
+      "key": "skattepliktig[{0}].organisasjonsnavn",
+      "dataSource": "dataModel.default"
+    },
+    {
+      "key": "skattepliktig[{0}].organisasjonsnummer",
+      "dataSource": "dataModel.default"
+    }
   ]
 }
 ```
@@ -202,7 +235,7 @@ Below is an example of a _FormLayout.json_ without help texts.
         "componentType": 7,
         "textResourceBindings": {
           "title": "tilleggsopplysninger.label",
-          "description": "tilleggsopplysninger.desc",
+          "description": "tilleggsopplysninger.desc"
         },
         "dataModelBindings": {
           "simpleBinding": "omsetningsoppgaverTilleggsopplysninger.value"
@@ -280,10 +313,11 @@ When you create an application you have a textresource witht he label `appName`.
 This it the title of the application that will be displayed in several places in our solution, f.ex when an end user is filling out a form and when elements are displayed in the messagebox in altinn.no.
 
 The title of the application is located in two places in the application repository:
- 1. In the textresource with the key `appName`. 
- 2. In `applicationmetadata.json` in the `title` property. This file is located at `App/config/`.
 
- App owners are encouraged to add titles in bokmål, nynorsk and english. If a title is missing in the textresources the repository name will be used as a fallback, and may be shown to the end user.
+1.  In the textresource with the key `appName`.
+2.  In `applicationmetadata.json` in the `title` property. This file is located at `App/config/`.
+
+App owners are encouraged to add titles in bokmål, nynorsk and english. If a title is missing in the textresources the repository name will be used as a fallback, and may be shown to the end user.
 
 If you change `appName` from an IDE (f.ex Visual Studio Code), it is important to also update the title in `applicationmetadata.json`. If the title is changed from Altinn Studio on the "about" page or "languages" page, the `applicationmetadata.json` file is updated automatically.
 
@@ -360,6 +394,7 @@ The application owner is fetched by default from the texts defined in [altinn-or
 If you want to change this name, you can add the key `appOwner` in the text resources. This wil override the value coming from CDN.
 
 Eksempel:
+
 ```json
 {
   "language": "en",
@@ -393,7 +428,7 @@ receipt_platform.attachments
 receipt_platform.date_sent
 receipt_platform.helper_text
 receipt_platform.is_sent
-receipt_platform.receipt 
+receipt_platform.receipt
 receipt_platform.receiver
 receipt_platform.reference_number
 receipt_platform.sender
@@ -424,6 +459,5 @@ To see the changes you must navigate from the Archive and press the "See submitt
 These modified texts are only applicable to the platform receipt and will not have any effect on the receipt that is presented to a user after he or she has annswered a form. See [receipt](../../configuration/process/customize/#receipt) for information on how to customize both texts and the layout of this receipt.
 
 ![image](https://user-images.githubusercontent.com/42466346/159927471-088aab00-3e82-4851-b94f-712bdc4094c9.png)
-
 
 {{<children />}}

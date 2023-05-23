@@ -4595,11 +4595,11 @@
 			<rect v:rectContext="foreign" x="0" y="913.944" width="49.6535" height="33.1594" class="st15"/>
 		</g>
 		<a
-				target="_top" xlink:href="/technology/architecture/components/application/solution/altinn-platform/authorization/">
+				target="_top" xlink:href="/authorization/">
 			<g id="group672-1570" transform="translate(1117.37,-223.116)" v:mID="672" v:groupContext="group">
 				<title>Sheet.672</title>
 				<a
-						target="_top" xlink:href="/technology/architecture/components/application/solution/altinn-platform/authorization/">
+						target="_top" xlink:href="/authorization/">
 					<g id="shape597-1571" v:mID="597" v:groupContext="shape">
 						<title>Rectangle.597</title>
 						<v:userDefs>
@@ -4685,11 +4685,11 @@
 					<text x="37.22" y="936.75" class="st14" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Context Handler</text>				</g>
 			</g>
 		</a>
-		<a target="_top" xlink:href="https://docs.altinn.studio/solutions/altinn-platform/authentication/">
+		<a target="_top" xlink:href="https://docs.altinn.studio/authentication/">
 			<g id="group673-1608" transform="translate(1039.41,-223.116)" v:mID="673" v:groupContext="group">
 				<title>Sheet.673</title>
 				<a
-						target="_top" xlink:href="/technology/architecture/components/application/solution/altinn-platform/authentication/">
+						target="_top" xlink:href="/authentication/">
 					<g id="shape607-1609" v:mID="607" v:groupContext="shape">
 						<title>Rectangle.607</title>
 						<v:userDefs>

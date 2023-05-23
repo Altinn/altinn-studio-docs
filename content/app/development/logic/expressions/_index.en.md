@@ -134,7 +134,8 @@ Dynamiske uttrykk er foreløpig tilgjengelig for bruk i disse egenskapene, som d
 | Alle                                                      | `textResourceBindings.[textResourceBinding]` *  | [Streng](#strenger)        | ✅        | ❌       |
 
 \* = Hvilke verdier man kan overstyre med textResourceBindings varierer fra komponent til komponent, men vil fungere på
-alle steder der det brukes. TextResourceBindigs for repeterende grupper finner du [her](../../ux/fields/grouping/setup#textresourcebindings)
+alle steder der det brukes. TextResourceBindings for repeterende grupper finner
+du [mer informasjon om her](../../ux/fields/grouping/repeating#textresourcebindings)
 
 {{% expandlarge id="rep-group-edit-button-text" header="Eksempel: Styre redigeringsknapp-tekst i repeterende gruppe" %}}
 
