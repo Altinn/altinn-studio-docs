@@ -40,7 +40,7 @@ Each frontend runs within a .NET web application, where the transpiled javascrip
 All of the frontend apps are set up with the same overall React + Redux architecture:
 
 {{%excerpt%}}
-<object data="/technology/architecture/components/application/construction/app/app-frontend/react-architecture.svg" type="image/svg+xml" style="width: 100%; max-width: 1000px"></object>
+<object data="/app-template/architecture/app-frontend/react-architecture.svg" type="image/svg+xml" style="width: 100%; max-width: 1000px"></object>
 {{% /excerpt%}}
 
 - **Component:** The react component
@@ -51,7 +51,9 @@ All of the frontend apps are set up with the same overall React + Redux architec
 - **Redux-Saga:** Middleware. Intercepts the action before it reaches the reducer, in order to process data before it goes to the store. Useful for handling async operations like calling APIs.
 
 ### App frontend
-Details of the architecture for app frontend can be found [here](/technology/architecture/components/application/construction/app/app-frontend).
+
+Details of the architecture for app frontend can be found [here](/app-template/architecture/app-frontend).
 
 ### Altinn Studio Designer frontend
-Details of the architecture for Altinn Studio Designer frontend can be found [here](/technology/architecture/components/application/construction/altinn-studio/designer/frontend/)
+
+Details of the architecture for Altinn Studio Designer frontend can be found [here](/altinn-studio/architecture/designer/frontend/)

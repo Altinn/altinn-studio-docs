@@ -1,34 +1,38 @@
 ---
-title: Create app in Altinn Studio
+title: Create an app in Altinn Studio
 linktitle: Create app
 description: How to create a new application in Altinn Studio.
 weight: 150
 ---
 
 Altinn Studio is used to create applications (apps).
-An app could be anything from a simple form to a more  complex application with APIs, user interfaces, and everything in between.
+An app can be anything from a simple form to a more complex application with APIs and user interfaces.
 
-You create an app from the dashboard in Altinn Studio.
+You create an app from the [Altinn Studio dashboard](https://altinn.studio/dashboard) (if you don't see the dashboard when you log in, click the logo in the upper left corner).
 
-![Dashboard in Altinn Studio](overview.png "Dashboard - overview")
+![Dashboard in Altinn Studio](overview.png "Altinn Studio Dashboard")
 
-1. Click on "**Opprett ny applikasjon**"-button in the top right corner of the dashboard.
-2. Select the **eier** of the app. If you don't have access to any organisations, you have to select your self and the app would be created in your "sandbox".
-3. Add the **navn** of the app.
-    This name is used to identify the application and will be used as the repository name, in URL's, and APIs.
-    There are some rules related to naming of av application, in addiion to this, the name should be short and descriptive, for instance "sick-leave" or "local-election-2019".  
-   
-    _Name can **not** be changed after an app has been deployed._
+1. Click on "**Opprett ny applikasjon**" (create new application) in the top right corner of the dashboard.
+2. Select the owner of the app from the **Eier** drop-down menu.
 
-    >  **Rules for naming an aplication**
-    > - Name can only contain lower case alphanumeric characters and dash (-),
-    > - Mane must begin with a letter
-    > - Name mustend with a letter or a number
-4. Click "**Opprett applikasjon**" to create the app.
+    This can be an organization you have access to or your own user name. Selection is disabled if your user is the only option.
+3. Add the name of your app under **Navn**.
 
-![New app popup](new-app.png "Create new app")
+    The name is an ID used to identify the application and will be used as the repository name, in URLs, and APIs.
 
-Once the app is created, you will be forwarded to the created application.
+    >  **The application name (ID)...**
+    >
+    > - should be short and descriptive (for instance "sick-leave" or "local-election-2024")
+    > - can only contain lower case letters, numbers, and dash (-)
+    > - must begin with a letter
+    > - must end with a letter or a number
+    > - _**can not be changed after the app has been created**_
 
-![App created](app-created.png "App created")
- 
+4. Click "**Opprett applikasjon**" (create application) to create the app.
+
+    ![New app popup](new-app.png "Create new app")
+
+Once the app is created you will be forwarded to an overview page.
+From here you can navigate to **Lage**, **Datamodell**, and **Tekst** via the top-level menu bar to start building your app.
+
+![App overview](app-created.png "App Overview")
