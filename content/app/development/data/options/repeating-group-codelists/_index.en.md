@@ -37,7 +37,7 @@ Explanation:
 Notice that the **value** field must be unique for each element. If the repeating group does not contain a field which is unique for each item it is recommended to add a field to the data model that can be used as identificator, for instance a GUID.
 
 As for the **label** property, we have to define a text resource that can be used as a label for each repetition of the group.
-This follows similar syntax as the **value**, and will also be familiar if you have used [variables in text](../../ux/texts).
+This follows similar syntax as the **value**, and will also be familiar if you have used [variables in text](../../../ux/texts).
 
 Example text resource connected:
 

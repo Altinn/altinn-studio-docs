@@ -37,7 +37,7 @@ Forklaring:
 Merk at **value** feltet må være unikt for hvert element. Om man ikke har et felt som er unik anbefales det å legge på et ekstra felt i datamodellen som kan benyttes som identifikator f.eks en GUID eller liknende.
 
 For **label** feltet må vi definere en tekst ressurs som kan bli brukt som label for hver repetisjon av gruppen.
-Dette følger samme syntax som **value**, og vil være kjent for deg om du har brukt [variabler i tekst](../../ux/texts).
+Dette følger samme syntax som **value**, og vil være kjent for deg om du har brukt [variabler i tekst](../../../ux/texts).
 
 Eksempel:
 
