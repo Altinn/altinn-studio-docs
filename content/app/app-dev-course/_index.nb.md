@@ -27,7 +27,11 @@ samt testing av applikasjonen lokalt og i testmiljø.
 
 ### Før du begynner
 
+<<<<<<< HEAD
 **[Opprett en bruker](/nb/app/getting-started/create-user)**  i Altinn Studio hvis du ikke allerede har gjort det.
+=======
+**[Opprett en bruker](/nb/app/getting-started/first-time-setup/#lag-en-bruker-i-altinn-studio)**  i Altinn Studio hvis du ikke allerede har gjort det.
+>>>>>>> ca81fd23 (Updated Introkurs front page (nb))
 Les deretter gjennom caset til Sogndal kommune og jobb deg gjennom modul for modul.
 
 Lykke til!
