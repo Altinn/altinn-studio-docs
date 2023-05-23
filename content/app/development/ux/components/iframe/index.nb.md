@@ -7,11 +7,11 @@ weight: 10
 
 ## På denne siden
 
-- [Hvorfor bruke IFrame-komponenten](/app/development/ux/components/iframe/#hvorfor-bruke-iframe-komponenten)
-- [Sikkerhets- og ytelsesbekymringer](/app/development/ux/components/iframe/#sikkerhets-og-ytelsesbekymringer)
-- [Bekymringer angående tilgjengelighetserklæring](/app/development/ux/components/iframe/#bekymringer-angående-tilgjengelighetserklæring)
-- [Grunnleggende implementering av IFrame-komponenten](/app/development/ux/components/iframe/#grunnleggende-implementering-av-iframe-komponenten)
-- [Avansert implementering av IFrame-komponenten](/app/development/ux/components/iframe/#avansert-implementering-av-iframe-komponenten)
+- [Hvorfor bruke IFrame-komponenten](/nb/app/development/ux/components/iframe/#hvorfor-bruke-iframe-komponenten)
+- [Sikkerhets- og ytelsesbekymringer](/nb/app/development/ux/components/iframe/#sikkerhets-og-ytelsesbekymringer)
+- [Bekymringer angående tilgjengelighetserklæring](/nb/app/development/ux/components/iframe/#bekymringer-angående-tilgjengelighetserklæring)
+- [Grunnleggende implementering av IFrame-komponenten](/nb/app/development/ux/components/iframe/#grunnleggende-implementering-av-iframe-komponenten)
+- [Avansert implementering av IFrame-komponenten](/nb/app/development/ux/components/iframe/#avansert-implementering-av-iframe-komponenten)
 
 ## Hvorfor bruke IFrame-komponenten
 
@@ -68,6 +68,6 @@ Nå, hvis vi besøker appen vår, bør vi kunne se at IFrame-komponenten rendre 
 ## Avansert implementering av IFrame-komponenten
 
 Noen ganger er det ikke nok å bruke statisk HTML og CSS direkte skrevet inn i tekstressursfilen. Det er situasjoner der du må hente HTML dynamisk basert på visse kriterier eller utføre beregninger.
-For å hente HTML dynamisk kan du benytte deg av [ProcessDataRead](/app/development/configuration/stateless/#populating-data). Du kan lese mer om [dataprosessering her](/app/development/logic/dataprocessing).
+For å hente HTML dynamisk kan du benytte deg av [ProcessDataRead](/nb/app/development/configuration/stateless/#datapopulering). Du kan lese mer om [dataprosessering her](/nb/app/development/logic/dataprocessing/).
 
 ProcessDataRead og dataprosessering gir muligheten til å forbehandle data før det sendes tilbake til frontend for rendring.
