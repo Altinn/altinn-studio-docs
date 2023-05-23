@@ -28,8 +28,8 @@ På datasiden ønsker vi at det legges opp til at brukeren kan fylle inn tidlige
 Det skal være mulig å legge inn opptill 10 tidligere bosteder.
 
 ### Nyttig dokumentasjon
-- [Oppsett for gruppering av felter](/nb/app//development/ux/fields/grouping/setup/)
-- [Oppsett for repeterende grupper](/nb/app//development/ux/fields/grouping/repeating/)
+- [Oppsett for gruppering av felter](/nb/app//development/ux/fields/grouping)
+- [Oppsett for repeterende grupper](/nb/app//development/ux/fields/grouping/repeating)
 
 ### Forståelsessjekk
 - Hvilket felt i datamodellen er det som bestemmer om et element er repeterende?

@@ -1,12 +1,10 @@
 ---
-title: Listekomponent
-linktitle: Listekomponent
+title: List
+description: Listekomponenten kan brukes til å presentere innholdsrike data til bruker i tabellformat. Hver rad i tabellen er velgbar.
+  Komponenten støtter søk, sortering og paginering.
 toc: false
 weight: 50
 ---
-
-Listekomponenten kan brukes til å presentere innholdsrike data til bruker i tabellformat. Hver rad i tabellen er velgbar.
-Komponenten støtter søk, sortering og paginering. 
 
 {{%notice warning%}}
 Dette er helt ny funksjonalitet. Oppsett må gjøres manuelt inntil videre. Støtte for oppsett via Altinn Studio kommer 

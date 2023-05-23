@@ -71,6 +71,20 @@ In Altinn 3 we use Azure Function Apps to the following
 - [Subscription Validation](https://github.com/Altinn/altinn-events/blob/main/src/Events.Functions/SubscriptionValidation.cs): Responsible for validation of subscription endpoints
 - [Delegation Events](https://github.com/Altinn/altinn-authorization/blob/main/src/Functions/DelegationEvents.cs): Pushing information about rights delegation in Altinn 3 to Altinn 2
 
+
+## Azure Container Apps
+
+[Azure Container Apps](https://azure.microsoft.com/en-us/products/container-apps#overview) are fully managed serverless container service for building and deploying modern apps at scale that
+we use to run some services. 
+
+In Altinn 3 we use Azure Container Apps for the following.
+
+- [Access Management BFF](https://github.com/Altinn/altinn-access-management-frontend/tree/main/backend/src/Altinn.AccessManagement.UI)
+- Security Log (TODO)
+
+We are looking into moving other components from Azure Kubernetes Services to reduce cost of management of clusters. 
+
+
 ## Virtual machines
 
 ### Developer machines
