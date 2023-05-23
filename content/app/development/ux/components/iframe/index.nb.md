@@ -8,7 +8,7 @@ weight: 10
 ## På denne siden
 
 - [Hvorfor bruke IFrame-komponenten](/nb/app/development/ux/components/iframe/#hvorfor-bruke-iframe-komponenten)
-- [Sikkerhets- og ytelsesbekymringer](/nb/app/development/ux/components/iframe/#sikkerhets-og-ytelsesbekymringer)
+- [Sikkerhets- og ytelsesbekymringer](/nb/app/development/ux/components/iframe/#sikkerhets--og-ytelsesbekymringer)
 - [Bekymringer angående tilgjengelighetserklæring](/nb/app/development/ux/components/iframe/#bekymringer-angående-tilgjengelighetserklæring)
 - [Grunnleggende implementering av IFrame-komponenten](/nb/app/development/ux/components/iframe/#grunnleggende-implementering-av-iframe-komponenten)
 - [Avansert implementering av IFrame-komponenten](/nb/app/development/ux/components/iframe/#avansert-implementering-av-iframe-komponenten)
