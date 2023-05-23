@@ -7,46 +7,44 @@ weight: 100
 tags: [translate-to-english]
 ---
 
-## Lag en bruker i Altinn Studio
-Din Altinn Studio bruker er personlig for deg og kan knyttes til en eller flere organisasjoner for å samarbeide med andre og få tilgang til eksisterende apper. 
+## Create a user in Altinn Studio
 
+Your Altinn Studio user is personal to you and can be linked to one or more organizations to collaborate with others and access existing applications.
 
-{{% expandlarge id="lag-bruker-med-github-brukernavn" header="Lag bruker med GitHub brukernavn" %}}
+{{% expandlarge id="lag-bruker-med-github-brukernavn" header="Create user with GitHub" %}}
 
-1. Velg å logge inn på [altinn.studio](https://altinn.studio).
-   På “Logg in”-siden, klikk på knappen “Har du en Github konto? Registrer deg med den her”.
-   ![Login](login-as.png "Logg inn")
-2. Logg inn i GitHub hvis du ikke allerede er det.
-   ![GitHub innlogging](github-login.png "GitHub innlogging")
-3. Godkjenn at Altinn Studio bruker din GitHub-konto for å logge inn.
-   ![Autoriser Github](authorize-altinn.png "Autoriser GitHub")
-4. Lage en Altinn Studio bruker ved å fylle ut brukernavn, epost, passord, en captcha og klikk på “Fullfør”.  
-   Brukeren i Altinn Studio vil bli koblet til din GitHub-bruker og du er klar for å begynne arbeide med din første applikasjon.
-   ![Registrer lokal bruker i Altinn Studio](register-gitea.png "Registrer lokal bruker i Altinn Studio")
-
-{{% /expandlarge %}}
-
-
-{{% expandlarge id="lag-en-bruker-med-epostadresse-uten-github" header="Lag en bruker med epostadresse (uten GitHub)" %}}
-
-1. På “Logg inn”-siden, klikk på knappen “Behov for konto? Registrer deg nå.”
-   ![Innlogging](login-as.png "Logg inn")
-2. Lage en Altinn Studio bruker ved å fylle ut brukernavn, epostadresse, passord, en captcha og klikk på “Fullfør”.
-   Du er nå klar for å begynne arbeide med din første applikasjon.
-   ![Registrer lokal bruker i Altinn Studio](register-gitea.png "Registrer lokal bruker i Altinn Studio")
+1. Go to [altinn.studio](https://altinn.studio) and click "Logg inn".
+   ![Welcome](velkommen.png "Welcome")
+2. Choose to log in with GitHub.
+   ![Login](login-as.png "Log inn")
+3. Provide your GitHub credentials if prompted.
+   ![GitHub login](github-login.png "GitHub login")
+4. Authorize Altinn Studio to use your GitHub account to log in.
+   ![Authorize Github](authorize-altinn.png "Authorize GitHub")
+5. Create an Altinn Studio user by filling in username, email, password, a captcha and click "Fullfør".
+   The user in Altinn Studio will be connected to your GitHub user and you are ready to start working on your first application.
+   ![Register user in Altinn Studio](register-gitea.png "Register user in Altinn Studio")
 
 {{% /expandlarge %}}
 
+{{% expandlarge id="lag-en-bruker-med-epostadresse-uten-github" header="Create user with email address" %}}
 
-## Bli del av en organisasjon
-Organisasjoner i Altinn Studio er det samme som tjenesteeiere i Altinn.
-De eier applikasjonene og gjør det mulig for flere innen samme organisasjon å samarbeide.
+1. Go to [altinn.studio](https://altinn.studio) and click "Opprett ny bruker".
+   ![Welcome](velkommen.png "Welcome")
+2. Create an Altinn Studio user by filling in username, email, password, and click "Fullfør". You are now ready to start working on your first application.
+   ![Register user in Altinn Studio](register-gitea.png "Register user in Altinn Studio")
 
-For å bli del av en organisasjon tar du kontakt med administrator for organisasjonen du arbeider for som legger deg til.
-Hvis du er usikker på hvem som er administrator eller du ikke vet om organisasjonen din er satt opp i Altinn Studio, kan du spørre Altinn servicedesk om hjelp.
+{{% /expandlarge %}}
 
-## Opprette en organisasjon
-Det er Altinn som oppretter organisasjoner i Altinn Studio. For å kunne få en organisasjon i Altinn studio må du ha en avtale med Altinn. 
+## Join an organization
 
-Send en mail til [Altinn Servicedesk](mailto:tjenesteeier@altinn.no) med navn på organisasjonen og hvem som skal være administrator for å opprette en ny organisasjon.
-Det vil kunne ta noen dager å opprette organisasjonen og du vil få en mail så fort det er gjort.
+Organizations in Altinn Studio are the same as service owners in Altinn.
+They own the applications and enable collaboration between people within the organization.
+
+To join an organization, an administrator must grant you access.
+If you're uncertain about the administrator or if your organization is available in Altinn Studio, you can seek assistance from the Altinn Servicedesk (mailto:tjenesteeier@altinn.no).
+
+## Create an organization
+
+To create an organization, email [Altinn Servicedesk](mailto:tjenesteeier@altinn.no) with the organization's name and who will be the administrator.
+Creating the organization may require a few days, and we will notify you via email when it's ready.

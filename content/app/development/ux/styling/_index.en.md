@@ -228,6 +228,37 @@ The formatting is for frontend display only, and the numbers added to an input f
   }
 },
 ```
+### Language-sensitive number formatting
+It is possible to assign dynamic formatting of numbers in input fields. You can choose between ```"currency"``` and ```"unit"```. Based on selected language in the app, they formatting thousand and decimal separators and prefix/suffix. 
+You can optionally add a `position`, and valid values are ```"prefix"``` and ```suffix```.  
+Default positions is `prefix` when formatting a currency and `suffix` for units.
+
+Examples:  
+>```"currency": "NOK", position: "prefix"```  
+>```"unit": "kilogram", position: "suffix"```
+
+App developers can choose to leave some of the parts independent of the language. Properties in ```number``` overrides dynamic formatting. The configuration below makes prefix display as **kr** and thousand separator as **whitespace**. Otherwise in english, prefix would be **NOK** and thousand separator **","**
+
+```json {hl_lines=["5-10"]} {linenos=inline}
+{
+  "id": "numberComponent",
+  "type": "Input",
+  "formatting": {
+    "currency": "NOK", 
+    "position": "prefix",
+    "number": {
+      "thousandSeparator": " ",
+      "prefix": "kr"
+    }
+  }
+},
+```
+
+
+Valid values for **currency** are ISO 4217 currency codes, such as **NOK** for Norwegian kroner. [List of valid currencies](https://github.com/unicode-org/cldr/blob/main/common/validity/currency.xml)  
+Valid values for **unit** are for now the following list:  
+> celsius **|** centimeter **|** day **|** degree **|** foot **|** gram **|** hectare **|** hour **|** inch **|** kilogram **|** kilometer **|** liter **|** meter **|** milliliter **|** millimeter **|** millisecond **|** minute **|** month **|** percent **|** second **|** week **|** year 
+
 
 ## Aligning text in input fields
 When a schema contains a list of numbers that are automatically summarized, it is common to align text to the right,

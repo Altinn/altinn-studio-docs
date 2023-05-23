@@ -1,13 +1,15 @@
 {{/* First param should be full path to the file.
  Following parameters will be replaces based on a 0-index.
  Placeholders must use format {0}, {1}... {n}
- 
+
  Usage:
  {{% insert [full file path] [variable 0]... [variable n]" %}}
  */}}
 
+{{ $filePath := .Get 0 }}
 
-{{ $content := readFile (.Get 0) }}
+{{ if fileExists $filePath }}
+{{ $content := readFile $filePath }}
 {{ if $content }}
 {{ range $index, $param := .Params }}
   {{ if ne $index 0 }}
@@ -15,4 +17,7 @@
 {{ end }}
   {{- end -}}
   {{ $content | markdownify}}
+{{ end }}
+{{ else }}
+  Could not find section content. File does not exist: {{ $filePath }}
 {{ end }}

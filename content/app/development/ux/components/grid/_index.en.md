@@ -245,19 +245,41 @@ be displayed when the component is displayed outside of a Grid - such as on [sma
 
 ### Widths, text and alignment
 
-Adding `columnOptions` in a cell in a header row makes it is possible to configure the width, text alignment, and number
-of lines to show in a cell for the headers column. `columnOptions` contain the following properties.
+There ar multiple properties on a cell that can be used to control the width, text and alignment of a cell, and how
+much text is displayed before it is truncated. These options are:
 
-- `width` - set to a string value containing a percentage, ex: `"25%"`, or `"auto"` (default).
-- `alignText` - choose between `"left"`, `"center"` or `"right"` to align text in table cell accordingly.
-- `textOverflow` - is used to controll behaviour when text content is too large for a table cell and contains the
-    following options
-  - `lineWrap` - set to `false` in order to turn of linebreaking. Default is `true`.
-  - `maxHeight` - sets number of lines before overflowing text is hidden with an elipsis (...). `"maxHeight": 0` results
-      in turning off linebreaking.
+- `width` - The width of the column. The value can contain a percentage, for example `"25%"`, or `"auto"` (default).
+  Should be set on the first column, and will then apply to all cells in that column.
+- `alignText` - Choose between `"left"`, `"center"` or `"right"` to align the text in the cell accordingly.
+  This has no effect for cells with components, only cells with text.
+- `textOverflow` - Used to control the behavior when the text content is too large to fit in a cell.
+  Has no effect for cells with components, only cells with text.
+  - `lineWrap` - The text will wrap to the next line. This is the default behavior. Set to `false` to disable.
+  - `maxHeight` - The text will be truncated after a certain number of lines. Set to `0` to disable.
 
-You can also override a columns `alignText` and `textOverflow` for a single text-cell if needed, by specifying those
-attributes directly in the text-cell.
+You can override a column's `alignText` and `textOverflow` settings for a specific text cell by adding the attributes
+directly to the selected text cell.
+
+Example:
+```json
+{
+  "cells": [
+    {
+      "text": "Cell 1",
+      "width": "25%",
+      "alignText": "left",
+      "textOverflow": {
+        "lineWrap": false,
+        "maxHeight": 0
+      }
+    },
+    {
+      "component": "myComponent",
+      "width": "75%"
+    }
+  ]
+}
+```
 
 ## Mobile support
 
