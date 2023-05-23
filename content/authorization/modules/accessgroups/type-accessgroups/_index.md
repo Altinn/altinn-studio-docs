@@ -7,7 +7,7 @@ toc: false
  
 ---
 
-*Denne siden er under arbeid.*
+*Denne siden er under høring.*
 
 Altinn skal erstatte rollene som gir tilgang til tjenester i Altinn 2 når vi flytter Altinn Autorisasjon til Altinn 3. 
 I stedet for roller vil det i Altinn 3 være ulike tilgangsgrupper som består av tjenester som hører til et ansvarsområde.
@@ -55,12 +55,37 @@ Akkurat nå er det uklart om vi skal styre tilgangen til digital post på samme 
 
 
 ## Vi ønsker innspill fra dere som er tjenesteeierne
-Vi sender dette forslaget til nye maler på høring nå i januar 2023. Vi ønsker tilbakemeldinger på
-•	om de foreslåtte malene passer til de tjenestene dere har
-•	navnene på alle de tre nivåene til malene
-Tilbakemelding kan du sende på e-post til servicedesk@altinn.no innen ?? 2023.
+Vi sender dette forslaget til nye maler på høring mai 2023. Vi ønsker tilbakemeldinger på
+-	om de foreslåtte malene passer til de tjenestene dere har
+-	navnene på alle de tre nivåene til malene
 
-# Forslag til tilgangsgrupper: 
+Tilbakemelding kan du sende på e-post til servicedesk@altinn.no innen 1.8 2023.
+
+# Forslag til tilgangsgrupper på nivå 1: 
+## Tilgangsgrupper relevant for mange/alle virksomheter
+1. [Skatt, avgiff, regnskap og toll](https://docs.altinn.studio/authorization/modules/accessgroups/type-accessgroups/#nivå-1-skatt-avgiff-regnskap-og-toll)
+2. [Personale](https://docs.altinn.studio/authorization/modules/accessgroups/type-accessgroups/#nivå-1-personale)
+3. [Miljø, ulykke og sikkerhet](https://docs.altinn.studio/authorization/modules/accessgroups/type-accessgroups/#nivå-1-miljø-ulykke-og-sikkerhet)
+4. [Grunnlag for virksomheten](https://docs.altinn.studio/authorization/modules/accessgroups/type-accessgroups/#nivå-1-grunnlag-for-virksomheten)
+5. [Integrasjoner og API-er](https://docs.altinn.studio/authorization/modules/accessgroups/type-accessgroups/#nivå-1-integrasjoner-og-api-er)
+6. [Administrere tilganger](https://docs.altinn.studio/authorization/modules/accessgroups/type-accessgroups/#nivå-1-administrere-tilganger)
+
+## Bransjespesifikke tilgangsgrupper
+7. [Jordbruk, skogbruk, jakt, fiske og akvakultur](https://docs.altinn.studio/authorization/modules/accessgroups/type-accessgroups/#nivå-1-jordbruk-skogbruk-jakt-fiske-og-akvakultur)
+8. [Bygg, anlegg og eiendom](https://docs.altinn.studio/authorization/modules/accessgroups/type-accessgroups/#nivå-1-bygg-anlegg-og-eiendom)
+9. [Transport og lagring](https://docs.altinn.studio/authorization/modules/accessgroups/type-accessgroups/#nivå-1-transport-og-lagring)
+10. [Helse, pleie, omsorg og vern](https://docs.altinn.studio/authorization/modules/accessgroups/type-accessgroups/#nivå-1-helse-pleie-omsorg-og-vern)
+11. [Oppvekst og utdanning](https://docs.altinn.studio/authorization/modules/accessgroups/type-accessgroups/#nivå-1-oppvekst-og-utdanning)
+12. [Energi, vann, avløp og avfall](https://docs.altinn.studio/authorization/modules/accessgroups/type-accessgroups/#nivå-1-energi-vann-avløp-og-avfall)
+13. [Industrier](https://docs.altinn.studio/authorization/modules/accessgroups/type-accessgroups/#nivå1-industrier)
+14. [Kultur og frivillighet](https://docs.altinn.studio/authorization/modules/accessgroups/type-accessgroups/#nivå-1-kultur-og-frivillighet)
+15. [Handel, overnatting og servering](https://docs.altinn.studio/authorization/modules/accessgroups/type-accessgroups/#nivå1-handel-overnatting-og-servering)
+16. [Andre tjenesteytende næringer](https://docs.altinn.studio/authorization/modules/accessgroups/type-accessgroups/#nivå-1-andre-tjenesteytende-næringer)
+
+## Andre spesialiserte tilgangsgrupper
+17. [Tilgangsgrupper for regnskapsførere](https://docs.altinn.studio/authorization/modules/accessgroups/type-accessgroups/#tilgangsgrupper-for-regnskapsførere)
+18. [Tilgangsgrupper for revisor](https://docs.altinn.studio/authorization/modules/accessgroups/type-accessgroups/#tilgangsgrupper-for-revisor)
+19. [Tilgangsgrupper for konkursbo](https://docs.altinn.studio/authorization/modules/accessgroups/type-accessgroups/#tilgangsgrupper-for-konkursbo)
 
 ## Nivå 1: Skatt, avgiff, regnskap og toll
 Tilgangsgruppen er nyttig for alle virksomheter som er skatte- og regnskapspliktige.
@@ -124,7 +149,7 @@ Denne tilgangsgruppen har disse tilgangsgruppene på nivå 3.
 Beslektet rolle i 2.0 er "Signerer av samordnet registermelding", "Patent, varemerke og design" og “Kommunale tjenester ”
 
 ## Nivå 1: Integrasjoner og API-er
-Tilgangsgruppen er tilpasset denne bransjen og inneholder tjenester som virksomheter i denne bransjen bruker. 
+Tilgangsgruppen er nyttig for mange virksomheter. 
 
 Denne tilgangsgruppen har disse tilgangsgruppene på nivå 2 og 3.
 

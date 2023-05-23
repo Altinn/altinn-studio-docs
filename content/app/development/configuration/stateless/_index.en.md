@@ -350,7 +350,7 @@ Further down this page we will use the designation *user* synonymously with an o
     Logic for looking up data and authorizing the user is handled in the method `ProcessDataRead`.
     It is called every time a user opens the application or inputs any data.
 
-    ```{cs, attr.source='.numberLines'}
+    ```cs
      public async Task<bool> ProcessDataRead(Instance instance, Guid? dataId, object data)
      {
          lookup lookup = (lookup)data;
