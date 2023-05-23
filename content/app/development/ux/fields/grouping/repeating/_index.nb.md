@@ -98,6 +98,7 @@ Det er mulig å legge til ulike nøkler i textResourceBindings for å overstyre 
 
 - `title` - tittel som blir vist over hver gruppe-rad i en [Summary-komponent](../../../pages/summary).
 - `add_button` - blir lagt til på enden av "Legg til ny" teksten på knappen, og kan brukes til å f.eks ha tekst som sier "Legg til ny person".
+- `add_button_full` - blir brukt som egendefinert tekst på "Legg til ny" knappen. Overstyrer `add_button` dersom begge er satt.
 - `save_button` - blir brukt som tekst i "Lagre"-knappen når brukeren fyller ut data.
 - `save_and_next_button` - blir brukt som tekst i "Lagre og åpne neste"-knappen dersom denne er aktivert.
 - `edit_button_open` - blir brukt som tekst i "Endre" knappen i tabellen når brukeren skal åpne et element.

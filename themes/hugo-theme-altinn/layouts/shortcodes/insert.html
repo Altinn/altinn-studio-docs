@@ -6,8 +6,10 @@
  {{% insert [full file path] [variable 0]... [variable n]" %}}
  */}}
 
+{{ $filePath := .Get 0 }}
 
-{{ $content := readFile (.Get 0) }}
+{{ if fileExists $filePath }}
+{{ $content := readFile $filePath }}
 {{ if $content }}
 {{ range $index, $param := .Params }}
   {{ if ne $index 0 }}
@@ -15,4 +17,7 @@
 {{ end }}
   {{- end -}}
   {{ $content | markdownify}}
+{{ end }}
+{{ else }}
+  Could not find section content. File does not exist: {{ $filePath }}
 {{ end }}
