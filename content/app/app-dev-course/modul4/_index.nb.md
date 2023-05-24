@@ -75,8 +75,8 @@ Sogndal kommune ønsker å samle inn opplysninger om tilflytterens arbeidsituasj
 
 ### Nyttig dokumentasjon
 
-- [Hvordan sette opp statiske kodelister](/nb/app/development/data/options/#statisk-kodeliste-fra-app-repo)
-- [Sikrede dynamiske kodelister](/nb/app/development/data/options/#sikrede-dynamiske-kodelister)
+- [Hvordan sette opp statiske kodelister](/nb/app/development/data/options/static-codelists)
+- [Sikrede dynamiske kodelister](/nb/app/development/data/options/dynamic-codelists)
 
 ### Forståelsessjekk
 - Hva er forskjellen på statiske og dynamiske svaralternativer?
@@ -103,7 +103,7 @@ basert på hvilken sektor de har krysset av for.
 
 ### Nyttig dokumentasjon
 - [Hvordan sende med spørringsparametre ved henting av kodelister](/nb/app/development/data/options/#sende-med-query-parametere-ved-henting-av-options)
-- [Hvordan sette opp dynamiske kodelister](/nb/app/development/data/options/#dynamisk-kodeliste-generert-runtime)
+- [Hvordan sette opp dynamiske kodelister](/nb/app/development/data/options/dynamic-codelists)
 
 ### Forståelsessjekk
 - Om en kodeliste er satt opp med en mapping mot datamodellen, hva skjer når det aktuelle feltet endrer verdi?
