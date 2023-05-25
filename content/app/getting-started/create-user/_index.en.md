@@ -4,7 +4,6 @@ linktitle: Create user
 description: Configure your user in Altinn Studio for the first time.
 toc: true
 weight: 100
-tags: [translate-to-english]
 ---
 
 ## Create a user in Altinn Studio
