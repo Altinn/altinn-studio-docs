@@ -52,7 +52,7 @@ F.eks., med prefiksen som ble brukt i eksempelet over, ville datatypen bli:
 ]
 ```
 
-Alle felter i datamodellen som starter med `HF_1` vil da bli fjernet fra skjemadata ved innsending, slik at når man senere
+Alle felter i datamodellen som starter med `HF_` vil da bli fjernet fra skjemadata ved innsending, slik at når man senere
 skal hente ut dataene for behandling, så er de ikke med.
 
 {{% notice warning %}}

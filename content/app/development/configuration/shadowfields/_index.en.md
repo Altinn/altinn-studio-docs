@@ -97,7 +97,7 @@ or specify the same data type that you are configuring (thus saving a copy of th
             "autoCreate": true,
             "classRef": "Altinn.App.Models.myModel",
             "shadowFields": {
-                "prefix": "HF_",
+                "prefix": "SF_",
                 "saveToDataType": "my-model"
             }
         }
