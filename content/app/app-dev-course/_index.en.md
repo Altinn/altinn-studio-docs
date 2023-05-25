@@ -12,9 +12,9 @@ as well as testing the app locally and in a test environment.
 
 Three things have to be in order before you can get started with this course.
 
-1. [A user in Altinn Studio](/app/getting-started/first-time-setup/#create-a-user-in-altinn-studio)
+1. [A user in Altinn Studio](/app/getting-started/create-user/#create-a-user-in-altinn-studio)
 2. [Your local development environment is set up with support for development and testing of apps](https://github.com/Altinn/app-localtest/blob/master/README.md#prerequisites)
-3. [Access to an organization with a test environment](/app/getting-started/first-time-setup/#join-an-organization)*
+3. [Access to an organization with a test environment](/app/getting-started/create-user/#join-an-organization)*
 
 \* A prerequisite for module 3. The remaining modules can be completed with full learning benefits without this being set up.
 

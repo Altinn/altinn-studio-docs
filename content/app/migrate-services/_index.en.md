@@ -9,8 +9,8 @@ tags: [translate-to-english]
 ## Migrere en eksisterende tjeneste til Altinn 3
 Gjør deg kjent med Tjenesteeier-funksjonalitet i Altinn 3.
 
-1. **Opprett [bruker](../first-time-setup/) og [app](../create-app/) i [Altinn Studio](https://altinn.studio/).**  
-   Når bruker er opprettet kan du be om å [bli en del av en organisasjon](../first-time-setup/#join-an-organization).
+1. **Opprett [bruker](../create-user/) og [app](../create-app/) i [Altinn Studio](https://altinn.studio/).**  
+   Når bruker er opprettet kan du be om å [bli en del av en organisasjon](../create-user/#join-an-organization).
    Dette for å kunne samarbeide med andre i organisasjonen og ha tilgang til å kjøre deploy av apper.
 2. **Utvikle [app/tjeneste](../../development).**  
    Her finner du veiledninger som er nyttige når man utvikler en app i Altinn Studio. Se også punkt 9.
