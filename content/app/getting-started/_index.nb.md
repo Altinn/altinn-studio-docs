@@ -1,7 +1,7 @@
 ---
 title: Kom i gang 
 linktitle: Kom i gang
-description: Grunnleggende steg for å komme i gang med utvikling av applikasjoner i Altinn Studio.
+description: Følg disse grunnleggende stegene for å komme i gang med utvikling av applikasjoner i Altinn Studio.
 weight: 10
 ---
 

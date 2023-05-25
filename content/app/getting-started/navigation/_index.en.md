@@ -1,9 +1,9 @@
 ---
-title: Navigation in Altinn Studio
-linktitle: Navigation
+title: Navigate Altinn Studio
+linktitle: Navigate Altinn Studio
 description: Navigating between the different parts of Altinn Studio.
 toc: true
-weight: 200
+weight: 120
 ---
 
 As a user of Altinn Studio, you can use different tools, depending on expertise, preferences and the complexity of what you want to develop.

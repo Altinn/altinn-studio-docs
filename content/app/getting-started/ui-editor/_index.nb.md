@@ -1,6 +1,6 @@
 ---
-title: UI editor
-description: Hvordan bygge et skjema med UI editor i Altinn Studio.
+title: Altinn Studio Designer
+description: Hvordan bygge et skjema med UI editor i Altinn Studio Designer.
 toc: true
 weight: 200
 ---
