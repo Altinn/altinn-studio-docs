@@ -73,7 +73,7 @@ før man deployer til produksjon.
 {{% notice info %}}
 For å kunne deploye en applikasjon til TT02,
 må organisasjonen som eier applikasjonen ha et apps-cluster i testmiljøet.
-I tillegg trenger utvikleren som skal deplopye applikasjonen [rollen Deploy-TT02](/nb/app/getting-started/access-management/studio/#deploy-tt02)
+I tillegg trenger utvikleren som skal deplopye applikasjonen [rollen Deploy-TT02](/nb/app/access-management/studio/#deploy-tt02)
 for organisasjonen i Altinn Studio.
 {{% /notice %}}
 
@@ -81,7 +81,7 @@ for organisasjonen i Altinn Studio.
 
 ### Nyttig dokumentasjon
 - [Deploye app til testmiljø](/nb/app/testing/deploy/#deploy-av-app-til-testmiljø)
-- [Tilgangsstyring for organisasjon i Altinn Studio](/nb/app/getting-started/access-management/studio/#tilgangsstyring-for-organisasjonen)
+- [Tilgangsstyring for organisasjon i Altinn Studio](/nb/app/access-management/studio/#tilgangsstyring-for-organisasjonen)
 
 ### Forståelsessjekk
 - Er det mulig å ha to versjoner av en applikasjon i TT02 samtidig?

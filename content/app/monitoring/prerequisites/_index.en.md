@@ -8,7 +8,7 @@ weight: 10
 - **Test Developer or Production Developer role in Azure.**
     Test Developer role grants access to AI for apps in TT02 and Production Developer role grants access to apps in production.
 
-    [Instructions on how to request access is available here](/app/getting-started/access-management/apps/#tilgang-til-logger-og-hemmeligheter)
+    [Instructions on how to request access is available here](/app/access-management/apps/#tilgang-til-logger-og-hemmeligheter)
 
 - **General overview of AI features**
     AI has a number of features available.

@@ -132,7 +132,7 @@ Based on the requirements from the municipality, can you now set up the first fo
   - Phone number
 
 ### Useful documentation
-- [How to build a form with UI editor in Altinn Studio](/app/getting-started/navigation/designer/ui-editor/)
+- [How to build a form with UI editor in Altinn Studio](/app/getting-started/ui-editor/)
 - [Available components in Altinn Studio](/altinn-studio/designer/build-app/ui-designer/components/)
 - [Guidelines for using components](/app/design/guidelines/components/)
 
