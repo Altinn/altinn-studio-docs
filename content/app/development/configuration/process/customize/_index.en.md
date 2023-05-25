@@ -12,7 +12,7 @@ This page explains the different views and how they can be customized.
 
 ## Data 
 In this process task a form which the user can fill in data.
-The form can be edited using the [UI editor](../../../../getting-started/navigation/designer/ui-editor) or by changing `FormLayout.json` manually.
+The form can be edited using the [UI editor](/app/getting-started/ui-editor) or by changing `FormLayout.json` manually.
 
 ## Confirmation
 In this process task some standard texts are presented and the user can choose to *confirm* to go forward.
