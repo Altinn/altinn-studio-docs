@@ -36,11 +36,11 @@ Denne instansiering kan trigges av sluttbruker eller av tjenesteier. I denne gui
 
 Prosessen overordnet
 
-1. Sluttbruker instansierer tjeneste i parts meldingsboks i Altinn. Dette kan gjøres via API eller fra browser på Altinn.no
+1. Sluttbruker instansierer tjeneste i parts meldingsboks i Altinn. Dette kan gjøres via API eller i nettleser på Altinn.no
 2. Skjema fylles ut og eventuelle vedleggsdata lastes opp.
 3. Sluttbruker validerer data og eventuelle vedlegg og sender sender applikasjonsprosessen videre til bekreftelse
 4. Sluttbruker ser over data og bekrefter at han er ferdig med prosessen
-5. Applikasjon publiserer en hendelse om at sluttbruker er ferdig med utfyllingsprosess
+5. Applikasjon publiserer en hendelse om at sluttbruker er ferdig med utfyllingsprosess. (Forutsetter at publisering er [slått på]())
 6. Tjenesteeier mottar informasjon om hendelse på sitt hendelsesmottak
 7. Tjenesteier kaller Altinn API for å laste ned data for instanse.
 8. Tjenesteeier bekrefter at data er nedlastet ok
@@ -61,7 +61,7 @@ Opprettelse av integrasjon er beskrevet i Guide her.
 ## Detaljert teknisk prosess
 
 
-### Tjenesteeiersystem mottar Altinn Event fra 
+### Tjenesteeiersystem mottar Event fra Altinn Events
 
 Første steget i prosessen er at mottaksendepunkt mottar informasjon om Event fra Applikasjon kjørende i Altinn. Dette forutsetter at [abonnement er satt opp](/events/subscribe-to-events/).
 
@@ -167,7 +167,7 @@ Ved å benytte sitt tjenesteeier token vil systemet kunne laste ned instance doc
 
 I instance dokumentet fra steget over er det listet dataelementene som en instance består av. 
 
-Disse dokumentene kan lastes ned fra applikasjons endepunkt. Hver dataelement har informasjon om f.eks datatype og når det var sist endret.
+Disse dokumentene kan lastes ned fra applikasjons endepunkt. Hvert dataelement har informasjon om f.eks datatype og når det var sist endret.
 
 Url for nedlasting av hvert element er oppgitt som en url til App eller url til Storage.
 
