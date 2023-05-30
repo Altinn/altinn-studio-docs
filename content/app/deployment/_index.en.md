@@ -3,7 +3,7 @@ title: Deployment of apps to production
 linktitle: Deployment
 description: App owners can deploy their applications themselves.
 toc: true
-weight: 600
+weight: 60
 ---
 
 ## Getting access to a production environment
