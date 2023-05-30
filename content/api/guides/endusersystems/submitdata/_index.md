@@ -1,7 +1,7 @@
 ---
 title: Sende inn data fra sluttbrukersystem
 linktitle: Sende inn data fra
-description: Denne guiden gir en detaljert generell beskrivelse av hvordan et sluttbrukersystem kan integreres med tjenester utviklet på Altinn 3 plattformen.
+description: Denne guiden gir en detaljert generell beskrivelse av hvordan et sluttbrukersystem kan integreres med tjenester utviklet på Altinn 3 plattformen. 
 tags: [architecture, devops, todo]
 toc: false
 hidden: false
@@ -16,14 +16,13 @@ Tjenestene kan være enkle tjenester hvor man må rapportere ut en begrenset men
 
 En viktig egenskap med tjenester utviklet i Altinn er at hver tjeneste tilbyr et sett med API som kan benyttes for maskin til maskininnsending av data fra sluttbrukersystem. 
 
-Et sluttbrukersystem er i denne kontekst programvare som utfører oppgaver på vegne av sluttbruker (innbygger/næringsliv). Enten fullstendig automatisert eller kontrollert
-av en sluttbruker.
+Et sluttbrukersystem er i denne kontekst programvare som utfører oppgaver på vegne av sluttbruker (innbygger/næringsliv). Enten fullstendig automatisert eller kontrollert av en sluttbruker.
 
-I dag er det ca 50% av datene som blir rapportert på denne måten fra over 100 forskjellige programvareløsninger.
+I dag er det ca 50% av dataene som blir rapportert til Altinn som blir send på denne måten fra over 100 forskjellige programvareløsninger.
 
 ## Hva er en Altinn tjeneste
 
-En tjeneste består av en applikasjon som er tilgjengelig i Altinns infrastruktur. Denne applikasjonen har et sett med konfigurasjon som beskriver data som tjenesten skal motta eller sende ut samt hvilken prosess.
+En tjeneste består av en applikasjon som er tilgjengelig i Altinns infrastruktur. Denne applikasjonen har et sett med konfigurasjon som beskriver data som tjenesten skal motta eller sende ut samt hvilken prosess tjenesten har.
 
 Eksempler på tjenester utviklet på den nye Altinn 3 plattformen finner du [her](/app/launched-apps/).
 
@@ -35,14 +34,16 @@ Denne modellen er spesifisert av den tjenesteeieren som har laget tjenesten. En 
 
 ## Overordnet prosess for innsending
 
+Diagrammet nedenfor viser den overordnede flyten i kommunikasjon mellom et sluttbrukersystem og Altinns API.
+
 ![Process](endusersystem.drawio.svg)
+
 
 ## Detaljert teknisk prosess
 
 ### Forutsetninger
 
-For sluttbrukersystemer hvor sluttbrukere skal logge inn ved å bruke id porten, så må sluttbrukersystem
-ha klient registrert som api_klient. Dokumentasjon om hvordan man registrerer klient finner man [her](https://docs.digdir.no/docs/idporten/oidc/oidc_func_clientreg).
+For sluttbrukersystemer hvor sluttbrukere skal logge inn ved å bruke id porten, så må sluttbrukersystemet ha klient registrert som api_klient i ID-porten. Dokumentasjon om hvordan man registrerer klient finner man [her](https://docs.digdir.no/docs/idporten/oidc/oidc_func_clientreg).
 
 ### Pålogging & scopes
 
@@ -55,7 +56,6 @@ Disse scopene gir mulighet for kalle alle apper i Altinn 3.
 Som del av påloggingsprosessen vil sluttbrukersystemet få tilgang til et access_token med informasjon om sluttbruker.
 
 Se detaljert påloggingsprosess med ID-porten og skjembilde sluttbruker blir presentert [her](/api/authentication/id-porten/).
-
 
 ### Innveksling av access_token til Altinn token
 
@@ -76,9 +76,9 @@ Når man har et gyldig token kan man instansiere (opprette tjeneste instans) og 
 
 Det er i hovedsak to flyter man kan velge her.
 
-#### Instansiering uten formdata
+#### Instansiering uten skjemadata
 
-Ved instansiering uten formdata vil første kall mot Altinn kun inneholde informasjon om hvem som er avgiver og hvilken
+Ved instansiering uten skjemadata vil første kall mot Altinn kun inneholde informasjon om hvem som er avgiver og hvilken
 tjeneste man instansierer.
 
 Dette kallet går mot [Instance API](/api/apps/instances/#create-instance) på app. ([OpenAPI](/api/apps/spec))
@@ -92,7 +92,6 @@ Dette kallet går mot [Instance API](/api/apps/instances/#create-instance) på a
     },
    }
 ```
-
 Resultatet er en instans med skjemdata som igjen inneholder standard data og prefill data konfigurert av tjenesteeier.
 
 ```json
@@ -160,7 +159,6 @@ Resultatet er en instans med skjemdata som igjen inneholder standard data og pre
 }
 ```
 
-
 System kan velge å laste ned data via data API for å legge til egne data eller eventuelt bare overskrive skjema som ble opprettet
 under instansiering. Det må brukes id for automopprettet skjema for å overskrive.
 
@@ -170,9 +168,13 @@ Dette avhenger av hvordan skjemedefinisjonen er delt av tjeensteeier.
 
 #### Instansiering med multipart formdata
 
-Denne måten å instansiere på gjør at man sender inn informasjon om avgiver samt data i et API kall. Instans delen er som i eksempelet over.
+Denne måten å instansiere på gjør at man sender inn informasjon om avgiver, samt data i samme API kall. Instans delen er som i eksempelet over.
 
-Skjemadata kan være i XML format (mest vanlig til nå) eller JSON format. Typisk vil tjenesteeier kommuniserere XSD/JSON Schema dokumentajson til sluttbrukersystemleverandører via egne kanaler.
+Skjemadata kan være i XML format (mest vanlig til nå) eller JSON format. 
+
+Typisk vil tjenesteeier kommuniserere XSD/JSON Schema dokumentasjon til sluttbrukersystemleverandører via egne kanaler. 
+
+Eksempel på slike kanaler er nettsted for [Skattemeldingen tjeneste](https://github.com/Skatteetaten/skattemeldingen) og [MVA tjeneste](https://skatteetaten.github.io/mva-meldingen/)
 
 I tilegg til skjemadata kan det være en eller flere filvedlegg.
 
