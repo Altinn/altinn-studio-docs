@@ -4,4 +4,4 @@ description: How to perform specific tasks in Altinn Studio
 weight: 200
 ---
 
-{{<children description="true" />}}
+{{<children />}}
