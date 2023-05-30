@@ -45,7 +45,7 @@ Maler som foreløpig er definert som nivå 3 er markert med * i oversikten under
 Du kan knytte en tjeneste til flere maler hvis du mener det er riktig. 
  
 
-### Avvikler generelle rolller
+### Avvikler generelle roller
 I forbindelse med innføring av nye tilgangsgrupper så foreslår vi å avvikle følgende 2 generelle roller:  
 - Utfyller/innsender 
 - Begrenset signeringsrett 
