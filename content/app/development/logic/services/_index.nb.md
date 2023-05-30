@@ -11,6 +11,8 @@ Tjenesten for personoppslag kan brukes til å verifisere et personnummer og til 
 
 De returnete persondataene kan brukes til å fylle ut andre felter i datamodellen.
 
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="v4, v5, v6">}}
 ### Personoppslag eksempel
 Tjenesten kan benyttes fra alle "handlers" i logikk klassene i en app. Nedenfor har vi laget et eksempel som gjør oppslag i `ProcessDataWrite` metoden i `DataProcessingHandler`.
 
@@ -62,6 +64,70 @@ public App(
     _pdfHandler = new PdfHandler();
 }
 ```
+{{</content-version-container>}}
+
+{{<content-version-container version-label="v7">}}
+### Personoppslag eksempel
+Tjenesten kan benyttes fra alle "handlers" i logikk klassene i en app. Nedenfor har vi laget et eksempel som gjør oppslag i `ProcessDataWrite` metoden i `DataProcessor`.
+
+```C#
+using System;
+using System.Threading;
+using System.Threading.Tasks;
+using Altinn.App.Core.Features;
+using Altinn.App.Core.Interface;
+using Altinn.App.Models;
+using Altinn.Platform.Register.Models;
+using Altinn.Platform.Storage.Interface.Models;
+using Microsoft.Extensions.Logging;
+
+namespace Altinn.App.AppLogic.DataProcessing;
+
+public class DataProcessor : IDataProcessor
+
+public async Task<bool> ProcessDataWrite(
+    Instance instance, Guid? dataId, object data)
+{
+    if (data is MessageV1 message)
+    {
+        Person person = await _personLookup.GetPerson(
+            message.Personnummer, 
+            message.Etternavn, 
+            CancellationToken.None);
+
+        message.Fornavn = person.FirstName;
+        return true;
+    }
+
+    return false;
+}
+```
+
+For at dette skal fungere må vi gjøre et par andre endringer i `DataProcessor`. 
+
+Legg til et privat felt `_personLookup` for tjenesten og oppdater klassens konstruktør til å ta inn en instanse av tjenesten som input. Set det private feltet i konstruktøren.
+
+```C#
+private readonly IPersonLookup _personLookup;
+
+    public DataProcessor(IPersonLookup personLookup)
+    {
+        _personLookup = personLookup;
+    }
+```
+
+Registrer din implementering i Program.cs klassen.
+
+```C# {hl_lines=[3]}
+void RegisterCustomAppServices(IServiceCollection services, IConfiguration config)
+{
+    services.AddTransient<IPersonService, PersonService>();
+    services.AddTransient<IDataProcessor, DataProcessor>();
+    // Other custom services
+}
+```
+{{</content-version-container>}}
+{{</content-version-selector>}}
 
 ### Håndtering av feil
 

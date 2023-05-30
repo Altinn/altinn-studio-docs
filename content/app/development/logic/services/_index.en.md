@@ -10,6 +10,8 @@ The person lookup service can be use to verify a national identity number and to
 
 The returned person data can be used to populate additional fields in the model.
 
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="v4, v5, v6">}}
 ### Person lookup example
 The service can be used in any of the handlers in the logic namespace. Below we've created an example using the `ProcessDataWrite` method in `DataProcessingHandler`.
 
@@ -61,6 +63,70 @@ public App(
     _pdfHandler = new PdfHandler();
 }
 ```
+{{</content-version-container>}}
+
+{{<content-version-container version-label="v7">}}
+### Person lookup example
+The service can be used in any of the handlers in the logic namespace. Below we've created an example using the `ProcessDataWrite` method in `DataProcessor`.
+
+```C#
+using System;
+using System.Threading;
+using System.Threading.Tasks;
+using Altinn.App.Core.Features;
+using Altinn.App.Core.Interface;
+using Altinn.App.Models;
+using Altinn.Platform.Register.Models;
+using Altinn.Platform.Storage.Interface.Models;
+using Microsoft.Extensions.Logging;
+
+namespace Altinn.App.AppLogic.DataProcessing;
+
+public class DataProcessor : IDataProcessor
+
+public async Task<bool> ProcessDataWrite(
+    Instance instance, Guid? dataId, object data)
+{
+    if (data is MessageV1 message)
+    {
+        Person person = await _personLookup.GetPerson(
+            message.Personnummer, 
+            message.Etternavn, 
+            CancellationToken.None);
+
+        message.Fornavn = person.FirstName;
+        return true;
+    }
+
+    return false;
+}
+```
+
+For this to work we'll need to do a few other changes in `DataProcessor`. 
+
+Add a private field `_personLookup` for the lookup service and change the constructor to take an instance of the service. Initialize the field in the body of the constructor.
+
+```C#
+private readonly IPersonLookup _personLookup;
+
+public DataProcessingHandler(IPersonLookup personLookup)
+{
+    _personLookup = personLookup;
+}
+```
+
+Register you custom implementation in the Program.cs class
+
+```C# {hl_lines=[3]}
+void RegisterCustomAppServices(IServiceCollection services, IConfiguration config)
+{
+    services.AddTransient<IPersonService, PersonService>();
+    services.AddTransient<IDataProcessor, DataProcessor>();
+    // Other custom services
+}
+
+{{</content-version-container>}}
+{{</content-version-selector>}}
 
 ### A note on exception handling
 
