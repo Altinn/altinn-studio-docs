@@ -16,6 +16,8 @@ Som en bruker som er nøkkelrolleinnehaver for tjenesteeier (typisk daglig leder
 
 ![Tilgang til Programmeringsgrensesnitt](nb_delegate-scopes-01.png "Tilgang til Programmeringsgrensesnitt - API")
 
+![Legg til delegering](en_delegate-scopes-01b.png "Start delegering")
+
 ![Legg til leverandør](nb_delegate-scopes-02.png "Legg til leverandørens organisasjon")
 
 ![Gå videre](nb_delegate-scopes-03.png "Gå videre til neste steg")

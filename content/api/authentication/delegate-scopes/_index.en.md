@@ -15,7 +15,9 @@ It is the service owner's responsibility to remove the delegations themselves if
 
 As a service owner key role user (typically general manager aka DAGL), open "Access to the Application Programming Interface - API".
 
-![Andre med rettigheter](en_delegate-scopes-01.png "Access to the Application Programming Interface - API")
+![Others with rights](en_delegate-scopes-01.png "Access to the Application Programming Interface - API")
+
+![Add delegation](en_delegate-scopes-01b.png "Start delegation")
 
 ![Add the supplier](en_delegate-scopes-02.png "Add the supplier's organization")
 
@@ -28,7 +30,7 @@ Så må de nødvendige rettighetene gis.
 
 ![Grant rights to supplier](en_delegate-scopes-04.png "Grant the necessary rights to the supplier")
 
-![Gå videre](en_delegate-scopes-05.png "Gå videre til neste steg")
+![Proceed](en_delegate-scopes-05.png "Proceed to the next step")
 
 ![Confirm](en_delegate-scopes-06.png "Confirm")
 
