@@ -20,6 +20,6 @@ Gå til [guider for tjenesteiere](appownerintegration)
 
 ## For sluttbrukersystemer
 
-Her finner du detaljerte guider hvordan man kan integrere seg mot 
+Her finner du detaljerte guider hvordan man kan integrere seg mot Altinn som sluttbrukersystem
 
 Gå til [guider for sluttbrukersystem](endusersystems)
