@@ -24,7 +24,7 @@ aliases:
 
 ## Simple for non-technical developers, flexible for technical developers
 
-- Non-technical app developers have access to needed functionality [in browser](../../../app/getting-started/intro)
+- Non-technical app developers have access to needed functionality [in browser](/app/getting-started/ui-editor/)
 - You can reuse good and testet components/widgets
 - It is easy to do call against API's in other systems (retrieve data, run external logic)
 - Techincally skilled deveopers can configure all aspect of the apps, as an example make a reusable widgets, stylesheets ++

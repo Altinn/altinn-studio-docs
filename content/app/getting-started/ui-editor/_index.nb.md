@@ -1,8 +1,8 @@
 ---
-title: UI editor
-description: How to build a form with UI Editor in Altinn Studio.
+title: Altinn Studio Designer
+description: Hvordan bygge et skjema med UI editor i Altinn Studio Designer.
 toc: true
-tags: [translate-to-english]
+weight: 200
 ---
 
 ## Bygge et skjema ved bruk av UI editor

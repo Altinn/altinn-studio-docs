@@ -9,7 +9,7 @@ tags: [translate-to-english]
 
 Som applikasjonsutvikler administrerer man selv hemmelighetene som applikasjonen benytter i Azure Key Vault.
 
-[Rutiner for bestilling av tilgang til din organisasjons ressurser er beskrevet her](../../../getting-started/access-management/apps/).
+[Rutiner for bestilling av tilgang til din organisasjons ressurser er beskrevet her](/app/access-management/apps/).
 
 ## Konfigurer støtte for hemmeligheter i din app
 

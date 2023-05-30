@@ -72,7 +72,7 @@ In addition to this, TT02 is often used to verify that an application works as e
 {{% notice info %}}
 To be able to deploy an application to TT02,
 the organization that owns the application has to have an app cluster in the test environment.
-In addition to this, the developer deploying the application needs the [role Deploy-TT02](/app/getting-started/access-management/studio/#deploy-tt02)
+In addition to this, the developer deploying the application needs the [role Deploy-TT02](/app/access-management/studio/#deploy-tt02)
 for the organization in Altinn Studio.
 {{% /notice %}}
 
@@ -80,7 +80,7 @@ for the organization in Altinn Studio.
 
 ### Useful documentation
 - [Deploy app to test environment](/app/testing/deploy/#deploy-av-app-til-testmiljø)
-- [Access control for the organization in Altinn Studio](/app/getting-started/access-management/studio/#tilgangsstyring-for-organisasjonen)
+- [Access control for the organization in Altinn Studio](/app/access-management/studio/#tilgangsstyring-for-organisasjonen)
 
 ### Knowledge check
 - Is it possible to have two versions of one application in TT02 at the same time?
