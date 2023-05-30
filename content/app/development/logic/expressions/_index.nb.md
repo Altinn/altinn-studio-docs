@@ -241,23 +241,34 @@ evalExpression(["component", "alder"], "navn-1"); // Eksempel 4
 
 Disse funksjonene er tilgjengelige for bruk i uttrykk:
 
-| Funksjonsnavn                                | Parametre                                          | Returverdi                           | Frontend | Backend | 
-|----------------------------------------------|----------------------------------------------------|--------------------------------------|----------|---------|
-| [`equals`](#func-equals)                     | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
-| [`notEquals`](#func-equals)                  | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
-| [`not`](#func-not)                           | [Boolsk](#boolske-verdier)                         | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
-| [`greaterThan`](#func-gt)                    | [Tall](#tall), [Tall](#tall)                       | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
-| [`greaterThanEq`](#func-gt)                  | [Tall](#tall), [Tall](#tall)                       | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
-| [`lessThan`](#func-gt)                       | [Tall](#tall), [Tall](#tall)                       | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
-| [`lessThanEq`](#func-gt)                     | [Tall](#tall), [Tall](#tall)                       | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
-| [`concat`](#func-concat)                     | Ingen eller flere [strenger](#strenger)            | [Streng](#strenger)                  | ✅        | ✅       |
-| [`and`](#func-and)                           | En eller flere [boolske verdier](#boolske-verdier) | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
-| [`or`](#func-and)                            | En eller flere [boolske verdier](#boolske-verdier) | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
-| [`if`](#func-if)                             | [Se detaljert beskrivelse](#func-if)               | [Se detaljert beskrivelse](#func-if) | ✅        | ✅       |
-| [`instanceContext`](#func-instancecontext)   | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅        | ✅       |
-| [`frontendSettings`](#func-frontendsettings) | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅        | ✅       |
-| [`dataModel`](#func-datamodel)               | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅        | ✅       |
-| [`component`](#func-component)               | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅        | ✅       |
+| Funksjonsnavn                                | Parametre                                          | Returverdi                           | Frontend | Backend |
+| -------------------------------------------- | -------------------------------------------------- | ------------------------------------ | -------- | ------- |
+| [`equals`](#func-equals)                     | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅       | ✅      |
+| [`notEquals`](#func-equals)                  | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅       | ✅      |
+| [`not`](#func-not)                           | [Boolsk](#boolske-verdier)                         | [Boolsk](#boolske-verdier)           | ✅       | ✅      |
+| [`greaterThan`](#func-gt)                    | [Tall](#tall), [Tall](#tall)                       | [Boolsk](#boolske-verdier)           | ✅       | ✅      |
+| [`greaterThanEq`](#func-gt)                  | [Tall](#tall), [Tall](#tall)                       | [Boolsk](#boolske-verdier)           | ✅       | ✅      |
+| [`lessThan`](#func-gt)                       | [Tall](#tall), [Tall](#tall)                       | [Boolsk](#boolske-verdier)           | ✅       | ✅      |
+| [`lessThanEq`](#func-gt)                     | [Tall](#tall), [Tall](#tall)                       | [Boolsk](#boolske-verdier)           | ✅       | ✅      |
+| [`concat`](#func-concat)                     | Ingen eller flere [strenger](#strenger)            | [Streng](#strenger)                  | ✅       | ✅      |
+| [`and`](#func-and)                           | En eller flere [boolske verdier](#boolske-verdier) | [Boolsk](#boolske-verdier)           | ✅       | ✅      |
+| [`or`](#func-and)                            | En eller flere [boolske verdier](#boolske-verdier) | [Boolsk](#boolske-verdier)           | ✅       | ✅      |
+| [`if`](#func-if)                             | [Se detaljert beskrivelse](#func-if)               | [Se detaljert beskrivelse](#func-if) | ✅       | ✅      |
+| [`commaContains`](#func-commaContains)       | [Streng](#strenger), [Streng](#strenger)           | [Bolks](#boolske-verdier)            | ✅       |         |
+| [`contains`](#func-contains-not-contains)    | [Streng](#strenger), [Streng](#strenger)           | [Bolks](#boolske-verdier)            | ✅       |         |
+| [`notContains`](#func-contains-not-contains) | [Streng](#strenger), [Streng](#strenger)           | [Bolks](#boolske-verdier)            | ✅       |         |
+| [`startsWith`](#func-starts-ends-with)       | [Streng](#strenger), [Streng](#strenger)           | [Bolks](#boolske-verdier)            | ✅       |         |
+| [`endsWith`](#func-starts-ends-with)         | [Streng](#strenger), [Streng](#strenger)           | [Bolks](#boolske-verdier)            | ✅       |         |
+| [`lowerCase`](#func-lowerCase-upperCase)     | [Streng](#strenger)                                | [Streng](#streng)                    | ✅       |         |
+| [`upperCase`](#func-lowerCase-upperCase)     | [Streng](#strenger)                                | [Streng](#streng)                    | ✅       |         |
+| [`stringLength`](#func-stringLength)         | [Streng](#strenger)                                | [Tall](#tall)                        | ✅       |         |
+| [`text`](#func-text)                         | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅       |         |
+| [`language`](#func-language)                 |                                                    | [Streng](#strenger)                  | ✅       |         |
+| [`round`](#func-round)                       | [Tall](#tall), [Tall](#tall)                       | [Tall](#tall)                        | ✅       |         |
+| [`instanceContext`](#func-instancecontext)   | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅       | ✅      |
+| [`frontendSettings`](#func-frontendsettings) | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅       | ✅      |
+| [`dataModel`](#func-datamodel)               | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅       | ✅      |
+| [`component`](#func-component)               | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅       | ✅      |
 
 Detaljerte beskrivelser og eksempler
 
@@ -402,6 +413,157 @@ argument:
 ]
 ```
 {{% /expandlarge %}}
+
+{{% expandlarge id="func-language" header="language" %}}
+Funksjonen `language` returnerer det valgte språket av brukeren.
+
+Eksempel:
+
+```json
+{
+   "id": "lastName",
+   "type": "Input",
+   ...
+   "readOnly": ["equal", ["language"], "en"],
+}
+```
+
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-starts-ends-with" header="startsWith/endsWith" %}}
+Funksjonen startsWith sjekker om strengen A starter med strengen B, og funksjonen endsWith sjekker om strengen A slutter med strengen B.
+
+```json
+{
+   "id": "lastName",
+   "type": "Input",
+   ...
+   "readOnly": ["startsWith",
+   ["dataModel","My.Model.FirstName"],
+   "Jo"],
+}
+```
+
+```json
+{
+   "id": "lastName",
+   "type": "Input",
+   ...
+   "readOnly": ["endsWith",
+         ["dataModel", "My.Model.FirstName"],
+         "hn"],
+}
+```
+
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-stringLength" header="stringLength" %}}
+Funksjonen `stringLength` returnerer lengden på en streng, inkludert mellomrom.
+
+Eksempel:
+
+```json
+{
+   "id": "lastName",
+   "type": "Input",
+   ...
+   "readOnly": ["stringLength", ["dataModel", "My.Model.FirstName"]],
+}
+```
+
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-commaContains" header="commaContains" %}}
+Funksjonen commaContains tar imot to argumenter. Det første argumentet er en kommaseparert streng, og det andre argumentet er strengen du ønsker å sjekke om den inkluderes i argument A.
+
+Eksempel:
+
+```json
+{
+   "id": "addName",
+   "type": "Input",
+   ...
+   "readOnly": ["commaContains", ["dataModel", "My.Model.Names"], "John"],
+}
+```
+
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-lowerCase-upperCase" header="LowerCase/UpperCase" %}}
+Funksjonen `lowerCase` tar imot en streng som input og returnerer en ny streng der alle tegnene er konvertert til små bokstaver.
+
+```json
+{
+   "id": "lastName",
+   "type": "Input",
+   ...
+   "readOnly": ["lowerCase",
+   ["dataModel", "My.Model.LastName"]],
+}
+```
+
+Funksjonen `upperCase` tar imot en streng som input og returnerer en ny streng der alle tegnene er konvertert til store bokstaver.
+
+Eksempel:
+
+```json
+{
+   "id": "lastName",
+   "type": "Input",
+   ...
+   "readOnly": ["upperCase",
+   ["dataModel", "My.Model.LastName"]],
+}
+```
+
+Disse funksjonene gir deg en enkel måte å konvertere mellom små og store bokstaver i en streng.
+Du kan bruke dem til å sikre at all tekst er i riktig case-format, avhengig av dine behov.
+
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-round" header="round" %}}
+Funksjonen `round` avrunder et tall til et heltall, eller valgfritt til et desimaltall med et konfigurerbart antall desimalpunkter.
+
+Eksempel med avrunding med 2 desimalpunkter:
+
+```json
+["round", "122.99843", "2"]
+```
+
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-text" header="text" %}}
+Funksjonen `text` tar imot en nøkkel som argument og bruker denne nøkkelen til å hente ut den tilsvarende teksten fra en tekst-ressurs. Funksjonen returnerer verdien som er knyttet til den angitte nøkkelen.
+Eksempel:
+
+```json
+["text", "min-nøkkel-id"]
+```
+
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-contains-not-contains" header="contains / notContains" %}}
+Disse to funksjonene sjekker om streng A inkluderer eller ikke inkluderer streng B. Både `contains` og `notContains` skiller mellom store og små bokstaver.
+Det betyr at strengen "Hei" ikke inkluderer "hei".
+
+Eksempel:
+
+```json
+{
+   "id": "lastName",
+   "type": "Input",
+   ...
+   "hidden": ["contains",
+   ["dataModel", "My.Model.FirstName"],
+   "J"
+   ],
+   "readOnly": ["notContains",
+   ["dataModel", "My.Model.FirstName"], "D"],
+}
+```
+
+{{% /expandlarge %}}
+
 
 {{% expandlarge id="func-instancecontext" header="instanceContext (oppslag)" %}}
 Denne funksjonen gjør det mulig å hente ut informasjon om gjeldende instans. Følgende nøkler kan brukes fom første
