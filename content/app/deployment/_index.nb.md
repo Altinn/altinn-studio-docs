@@ -3,7 +3,7 @@ title: Produksjonssetting av apper
 linktitle: Produksjonssetting
 description: Tjenesteeier kan selv produksjonssette sine applikasjoner, og gjøre vedlikehold av kode og avhengigheter.
 toc: true
-weight: 600
+weight: 60
 ---
 
 ## Få tilgang til et produksjonsmiljø

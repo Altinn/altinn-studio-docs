@@ -1,7 +1,7 @@
 ---
 title: Guides
 description: How to perform specific tasks in Altinn Studio
-weight: 200
+weight: 250
 ---
 
 {{<children />}}
