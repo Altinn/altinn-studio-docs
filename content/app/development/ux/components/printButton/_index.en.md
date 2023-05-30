@@ -1,5 +1,6 @@
 ---
 title: PrintButton
+description: A button that allows the user to print the current form page
 toc: false
 weight: 10
 ---
