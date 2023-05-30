@@ -23,7 +23,7 @@ As a service owner key role user (typically general manager aka DAGL), open "Acc
 
 ![Proceed](en_delegate-scopes-03.png "Proceed to the next step")
 
-Så må de nødvendige rettighetene gis.
+Then the necessary rights must be granted.
 
 - **Altinn Service Owner API: App Instances (full access)** - provides access to [scopes](#scopes) for both read and write.
 - **Altinn service owner API: App instances (read access)** - only provides read access.
