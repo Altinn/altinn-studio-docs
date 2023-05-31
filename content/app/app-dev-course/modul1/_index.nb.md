@@ -2,18 +2,19 @@
 title: Modul 1
 description: Opprette app og lage enkelt skjema
 linktitle: Modul 1
-tags: [apps, training, datamodel, localtest, texts]
+tags: [apps, training, datamodel, texts]
 weight: 20
 ---
 
 I denne modulen skal du opprette selve applikasjonen, legge til datamodell og sette opp et enkelt skjema basert på kravene fra Sogndal kommune.
 
-Hvis du skal utvikle hele eller deler av applikasjonen lokalt må du i tillegg klargjøre for lokal utvikling og testing.
+De to første oppgavene (opprette applikasjon og legge til datamodell) må utføres i Altinn Studio.
+ Dersom du skal utvikle appen lokalt kan du følge instruksjonene for [klargjøre for lokal utvikling og testing](/nb/app/getting-started/local-dev) etter at du har gjort disse oppgavene.
 
 {{% notice info %}}
 **MERK**  
-Alle stegene i denne modulen kan utføres i Altinn Studios grafiske brukergrensesnitt (Designer).
- Det krever imidlertid lokal utvikling for å gjennomføre de resterende modulene og for å få en fullt fungerende applikasjon.
+Alle stegene i denne modulen kan utføres i Altinn Studios grafiske brukergrensesnitt, [Altinn Studio Designer](/nb/app/getting-started/ui-editor).
+ Det krever imidlertid lokal utvikling å gjennomføre de resterende modulene og for å få en fullt fungerende applikasjon.
 {{% /notice %}}
 
 **Temaer som dekkes i denne modulen:**
@@ -22,105 +23,50 @@ Alle stegene i denne modulen kan utføres i Altinn Studios grafiske brukergrense
 - Legge til datamodell
 - Legge til skjemakomponenter og koble dem til datamodell
 - Redigering av tekst
-- Utvikle en app i lokalt utviklingsmiljø
-- Teste applikasjon i lokalt utviklingsmiljø (LocalTest)
-
-## Klargjøre for lokal utvikling og testing
-
-{{% expandlarge id="lokal-utvikling" header="Lokal utvikling" %}}
-
-{{% notice info %}}
-Kloning av applikasjonen krever at du først har opprettet en applikasjon i Altinn Studio som beskrevet i [første oppgave](/nb/app/app-dev-course/modul1/#opprette-ny-applikasjon).
-{{% /notice %}}
-
-Dersom du vil utvikle hele eller deler av applikasjonen lokalt kan du [klone applikasjonen](/nb/app/getting-started/local-dev/#hvordan-klone-applikasjonen-til-et-lokalt-utviklingsmiljø) du har opprettet i Studio til ditt lokale miljø.
-
-Selve utviklingen kan gjøres i ditt foretrukne utviklerverktøy.
-Trenger du en anbefaling, er [Visual Studio Code](https://code.visualstudio.com/Download) et godt alternativ.
-
-**Husk å synkronisere (_pushe_) de lokale endringene dine så de blir tilgjengelige i Altinn Studio.**
-
-### Nyttig dokumentasjon
-
-- [Hvordan klone applikasjon til lokalt utviklingsmiljø](/nb/app/getting-started/local-dev/#hvordan-klone-applikasjonen-til-et-lokalt-utviklingsmiljø)
-- [Hvordan synkronisere endringer i lokalt utviklingsmiljø](/nb/app/getting-started/local-dev/#hvordan-synkronisere-endringer-i-lokalt-utviklingsmiljø)
-
-{{% /expandlarge %}}
-
-{{% expandlarge id="lokal-testing-localtest" header="Lokal testing med LocalTest" %}}
-
-Hvis du jobber lokalt kan det være nyttig med forhåndsvisning av endringene du gjør.
-  _LocalTest_ er et program som spinner opp en lokal mockup av Altinn Plattform som gir deg mulighet til å teste og verifisere lokale endringer uten å måtte synkronisere med Altinn Studio.
-
-{{% notice info %}}
-**MERK**  
-For å kunne kjøre appen i LocalTest må applikasjonen ha en tilknyttet datamodell. Dette er beskrevet under [Legge til datamodell](/nb/app/app-dev-course/modul1/#legge-til-datamodell).
-{{% /notice %}}
-
-1. [Start LocalTest](https://github.com/Altinn/app-localtest/blob/master/README.md) (inkluderer start av app som også er forklart under).
-2. **Start applikasjonen**: Åpne et nytt terminalvindu og naviger til undermappen _App_ i din applikasjon (e.g. `../tilflyttere-sogndal/App`). Start appen med kommandoen `dotnet run` og vent på bekreftelse i terminalen.
- Når appen kjører kan du åpne den på http://local.altinn.cloud og logge inn med en [testbruker](/nb/app/guides/testing/local/testusers/).
-
-Etter innlogging bør du ha et resultat som likner dette:
-
-!["Applikasjonen kjørende lokalt"](/app/app-dev-course/modul1/app-running-locally.jpeg "Applikasjonen kjørende lokalt i nettleseren")
-
-#### Se endringer fortløpende
-
-- Ved endringer knyttet til formLayout og andre _json_-filer holder det å laste inn siden på nytt.
-- Ved endringer i forhåndsutfylling må applikasjonen instansieres på nytt (gå til http://local.altinn.cloud og logg inn igjen).
-- Ved endringer i _cs_-filer må applikasjonen stoppes (`ctrl+C`) og startes på nytt (`dotnet run`).  
-  
-  For å oppdatere automatisk ved endring i _cs_-filer, start applikasjonen med `dotnet watch`.
-  Denne kommandoen vil enten starte applikasjonen eller laste den inn på nytt ([hot reload](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-watch#hot-reload)) ved endringer i kildekoden.
-
-#### Stoppe applikasjon og LocalTest
-
-Applikasjonen stoppes ved å trykke `ctrl+C` i terminalvinduet der du startet den.  
-
-LocalTest stoppes ved å navigere til mappen `app-localtest` i terminalen og kjøre kommandoen `docker compose down`.
-
-### Nyttig dokumentasjon
-
-- [Hvordan sette opp LocalTest](https://github.com/Altinn/app-localtest/blob/master/README.md)
-- [Debugging av applikasjon](/nb/app/guides/testing/local/debug/)
-- [Tilgjengelig testbrukere i LocalTest](/nb/app/guides/testing/local/testusers/)
-
-{{% /expandlarge %}}
 
 ## Oppgaver
 
 {{% expandlarge id="opprette-ny-applikasjon" header="Opprette ny applikasjon" %}}
 
-Opprett applikasjonen i Altinn Studio med organisasjonen du har tilgang til som eier.
-Alternativt kan du opprette applikasjonen med deg selv som eier dersom du ikke skal teste den i et testmiljø (beskrevet i [Modul 3](/nb/app/app-dev-course/modul3/)).
+Applikasjoner opprettes fra [Altinn Studio Dashboard](/nb/app/getting-started/navigation/dashboard/).
 
 ### Krav fra kommunen
 
 Applikasjonen må ha et beskrivende navn (ID) som gjør det enkelt å finne den igjen blant det store antallet
 applikasjoner Sogndal kommune har i Altinn Studio.
 
+{{% notice info %}}
+Dersom du skal teste appen i et [testmiljø](/nb/app/testing/deploy/) (beskrevet i [Modul 3](/nb/app/app-dev-course/modul3/)) må du velge en organisasjon som eier.
+ Du må ha [tilgang til organisasjonen](/nb/app/getting-started/create-user/#bli-del-av-en-organisasjon) og organisasjonen må ha tilgang til et testmiljø.
+ {{% /notice %}}
+
+1. [Opprett applikasjon i Altinn Studio](/nb/app/getting-started/create-app/)
+
 ### Nyttig dokumentasjon
 
-- [Opprette app i Altinn Studio](/nb/app/getting-started/create-app/)
+- [Navigere Altinn Studio](/nb/app/getting-started/navigation)
+- [Altinn Studio Dashboard](/nb/app/getting-started/navigation/dashboard/)
 
 {{% /expandlarge %}}
 
 {{% expandlarge id="legge-til-datamodell" header="Legge til datamodell" %}}
-Sogndal kommune har opprettet [en datamodell](datamodel.xsd)
+Datamodellen definerer hvilke data som kan sendes inn via en app og hvilket format det skal sendes på.
+
+I Altinn Studio kan du legge til datamodell ved å [laste opp en _xsd_-fil](/app/development/data/data-model/data-models-tool/#laste-opp--vise-datamodell) eller [lage ny datamodell](/app/development/data/data-model/data-models-tool/#lage-ny-datamodell) med datamodelleringsverktøyet.
+ Du kan også ta utgangspunkt i en eksisterende datamodell og redigere den i et tekstredigeringsprogram eller [direkte i Altinn Studio](/app/development/data/data-model/data-models-tool/#redigere-datamodell).
+  I denne oppgaven skal du kun laste opp en ferdig datamodell.
+
+### Krav fra kommunen
+
+Sogndal kommune har opprettet en [datamodell](datamodel.xsd)
 som representerer type data de ønsker å samle inn fra fremtidige innbyggere.
 
-{{% notice info %}}
-Som applikasjonsutvikler vil man i noen tilfeller måtte opprette datamodell
-for en tjeneste selv. Da vil man kunne benytte seg av datamodelleringsverktøyet i
-Altinn Studio eller ta utgangspunkt i en eksisterende datamodell og
-redigere den i f.eks. Visual Studio Code eller et selvvalgt tekstredigeringsprogram.
-{{% /notice %}}
-
-1. [Last ned xsd-filen](datamodel.xsd), åpne den i et tekstredigeringsprogram
+1. [Last ned xsd-filen](datamodel.xsd). Hvis filen åpnes i nettleseren kan du opprette en ny tekstfil og kopiere over innholdet. Lagre filen som `datamodel.xsd`.
+ Alternativt kan du kopiere URLen til filen og kjøre kommandoen `curl <fil-URL>` fra kommandolinjen. Åpne filen i et tekstredigeringsprogram
    og ta en nærmere titt på innholdet.
 2. [Last opp datamodellen i Altinn Studio](/app/development/data/data-model/data-models-tool/#laste-opp--vise-datamodell)
-3. Push endringene master og ta en nærmere titt på filene i mappen `App/models`
+3. Lagre endringene (Klikk "Last opp dine endringer").
+4. Åpne repository til appen fra [Altinn Studio Dashboard](/nb/app/getting-started/navigation/dashboard/) og ta en nærmere titt på filene i mappen `App/models`.
 
 ### Forståelsessjekk
 
@@ -130,10 +76,16 @@ redigere den i f.eks. Visual Studio Code eller et selvvalgt tekstredigeringsprog
 - Det er blitt generert en _.C#_, _.metadata.json_ og _.schema.json_ fil i tillegg til _.xsd_ filen som du lastet opp. Hva er sammenhengen mellom disse filene?
 - Enkelte restriksjoner fra datamodellen overføres ikke til _C#_-filen, hvilke? Det er og lagt til nye egenskaper, hvilke?
 
+{{% notice info %}}
+Hvis du skal gjøre hele eller deler av utviklingen lokalt kan du [klargjøre for lokal utvikling og testing](/nb/app/getting-started/local-dev) etter at du har opprettet applikasjonen og lagt til datamodell.
+{{% /notice %}}
+
 ### Nyttig dokumentasjon
 
-- [Laste opp datamodell i Altinn Studio](/nb/app/development/data/data-model/data-models-tool/#laste-opp--vise-datamodell)
+- [Altinn Studio Datamodellering](/app/development/data/data-model/data-models-tool/)
 - [Beskrivelse av indikatorer i XSD](https://www.w3schools.com/xml/schema_complex_indicators.asp)
+- [Installere curl for Windows](https://developer.zendesk.com/documentation/api-basics/getting-started/installing-and-using-curl/#windows)
+- [Altinn Studio Repository](/nb/app/getting-started/navigation/repos/)
   
 {{% /expandlarge %}}
 
@@ -194,9 +146,10 @@ Basert på kravene fra kommunen klarer du å sette opp den første skjemasiden i
   - Telefon
 
 ### Nyttig dokumentasjon
+
 - [Hvordan bygge et skjema med UI editor i Altinn Studio](/nb/app/getting-started/ui-editor/)
 - [Tilgjengelige komponenter i Altinn Studio](/altinn-studio/designer/build-app/ui-designer/components/)
-- [Retningslinjer for bruk av komponenter](/nb/app/guides/design/guidelines/components/)
+- [Retningslinjer for bruk av komponenter](/nb/app/design/guidelines/components/)
 
 ### Forståelsessjekk
 
