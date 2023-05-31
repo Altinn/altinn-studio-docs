@@ -245,11 +245,11 @@ Disse funksjonene er tilgjengelige for bruk i uttrykk:
 | [`and`](#func-and)                           | En eller flere [boolske verdier](#boolske-verdier) | [Boolsk](#boolske-verdier)           | ✅       | ✅      |
 | [`or`](#func-and)                            | En eller flere [boolske verdier](#boolske-verdier) | [Boolsk](#boolske-verdier)           | ✅       | ✅      |
 | [`if`](#func-if)                             | [Se detaljert beskrivelse](#func-if)               | [Se detaljert beskrivelse](#func-if) | ✅       | ✅      |
-| [`commaContains`](#func-commaContains)       | [Streng](#strenger), [Streng](#strenger)           | [Bolks](#boolske-verdier)            | ✅       |         |
-| [`contains`](#func-contains-not-contains)    | [Streng](#strenger), [Streng](#strenger)           | [Bolks](#boolske-verdier)            | ✅       |         |
-| [`notContains`](#func-contains-not-contains) | [Streng](#strenger), [Streng](#strenger)           | [Bolks](#boolske-verdier)            | ✅       |         |
-| [`startsWith`](#func-starts-ends-with)       | [Streng](#strenger), [Streng](#strenger)           | [Bolks](#boolske-verdier)            | ✅       |         |
-| [`endsWith`](#func-starts-ends-with)         | [Streng](#strenger), [Streng](#strenger)           | [Bolks](#boolske-verdier)            | ✅       |         |
+| [`commaContains`](#func-commaContains)       | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)            | ✅       |         |
+| [`contains`](#func-contains-not-contains)    | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)            | ✅       |         |
+| [`notContains`](#func-contains-not-contains) | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)            | ✅       |         |
+| [`startsWith`](#func-starts-ends-with)       | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)            | ✅       |         |
+| [`endsWith`](#func-starts-ends-with)         | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)            | ✅       |         |
 | [`lowerCase`](#func-lowerCase-upperCase)     | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅       |         |
 | [`upperCase`](#func-lowerCase-upperCase)     | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅       |         |
 | [`stringLength`](#func-stringLength)         | [Streng](#strenger)                                | [Tall](#tall)                        | ✅       |         |
