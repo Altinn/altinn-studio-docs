@@ -9,7 +9,7 @@ weight: 30
 
 Dette er helt ny funksjonalitet. Oppsett må gjøres manuelt inntil videre. Støtte for oppsett via Altinn Studio kommer snart.
 
-**MERK:** for å benytte denne funksjonaliteten må man ha app-frontend versjon 3. Se [denne lenken](/nb/community/changelog/app-frontend/v3/breaking-changes/) om endringer som må til i appen.
+**MERK:** for å benytte denne funksjonaliteten må man ha app-frontend versjon 3. Se [denne lenken](/nb/app/community/changelog/app-frontend/v3/breaking-changes/) om endringer som må til i appen.
 
 {{%/notice%}}
 
