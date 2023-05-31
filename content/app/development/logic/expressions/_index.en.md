@@ -233,7 +233,7 @@ evalExpression(["component", "alder"], "navn-1"); // Eksempel 4
 Disse funksjonene er tilgjengelige for bruk i uttrykk:
 
 | Funksjonsnavn                                | Parametre                                          | Returverdi                           | Frontend | Backend |
-| -------------------------------------------- | -------------------------------------------------- | ------------------------------------ | -------- | ------- |
+| -------------------------------------------- |----------------------------------------------------|--------------------------------------| -------- | ------- |
 | [`equals`](#func-equals)                     | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅       | ✅      |
 | [`notEquals`](#func-equals)                  | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅       | ✅      |
 | [`not`](#func-not)                           | [Boolsk](#boolske-verdier)                         | [Boolsk](#boolske-verdier)           | ✅       | ✅      |
@@ -245,17 +245,17 @@ Disse funksjonene er tilgjengelige for bruk i uttrykk:
 | [`and`](#func-and)                           | En eller flere [boolske verdier](#boolske-verdier) | [Boolsk](#boolske-verdier)           | ✅       | ✅      |
 | [`or`](#func-and)                            | En eller flere [boolske verdier](#boolske-verdier) | [Boolsk](#boolske-verdier)           | ✅       | ✅      |
 | [`if`](#func-if)                             | [Se detaljert beskrivelse](#func-if)               | [Se detaljert beskrivelse](#func-if) | ✅       | ✅      |
-| [`commaContains`](#func-commaContains)       | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)            | ✅       |         |
-| [`contains`](#func-contains-not-contains)    | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)            | ✅       |         |
-| [`notContains`](#func-contains-not-contains) | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)            | ✅       |         |
-| [`startsWith`](#func-starts-ends-with)       | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)            | ✅       |         |
-| [`endsWith`](#func-starts-ends-with)         | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)            | ✅       |         |
+| [`contains`](#func-contains-not-contains)    | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅       |         |
+| [`notContains`](#func-contains-not-contains) | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅       |         |
+| [`commaContains`](#func-commaContains)       | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅       |         |
+| [`startsWith`](#func-starts-ends-with)       | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅       |         |
+| [`endsWith`](#func-starts-ends-with)         | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅       |         |
 | [`lowerCase`](#func-lowerCase-upperCase)     | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅       |         |
 | [`upperCase`](#func-lowerCase-upperCase)     | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅       |         |
 | [`stringLength`](#func-stringLength)         | [Streng](#strenger)                                | [Tall](#tall)                        | ✅       |         |
 | [`text`](#func-text)                         | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅       |         |
-| [`language`](#func-language)                 |                                                    | [Streng](#strenger)                  | ✅       |         |
-| [`round`](#func-round)                       | [Tall](#tall), [Tall](#tall)                       | [Tall](#tall)                        | ✅       |         |
+| [`language`](#func-language)                 | Ingenting                                          | [Streng](#strenger)                  | ✅       |         |
+| [`round`](#func-round)                       | [Tall](#tall), valgfritt [Tall](#tall)             | [Streng](#strenger)                  | ✅       |         |
 | [`instanceContext`](#func-instancecontext)   | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅       | ✅      |
 | [`frontendSettings`](#func-frontendsettings) | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅       | ✅      |
 | [`dataModel`](#func-datamodel)               | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅       | ✅      |
@@ -405,7 +405,7 @@ argument:
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-language" header="language" %}}
-Funksjonen `language` returnerer det valgte språket av brukeren.
+Funksjonen `language` returnerer brukerens valgte språkkode.
 
 Eksempel:
 
@@ -418,37 +418,60 @@ Eksempel:
 }
 ```
 
+Om gjeldende språk er ukjent, vil `nb` returneres, som er standardspråket for Altinn 3-apper. Dermed kan man være trygg
+på at denne funksjonen alltid returnerer et gyldig språk.
+
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-starts-ends-with" header="startsWith/endsWith" %}}
-Funksjonen startsWith sjekker om strengen A starter med strengen B, og funksjonen endsWith sjekker om strengen A slutter med strengen B.
+Funksjonen `startsWith` sjekker om strengen gitt som første argument starter med strengen gitt i andre argument, og
+på samme vis vil funksjonen `endsWith` sjekke om første streng slutter med den andre strengen.
 
 ```json
-{
-   "id": "lastName",
-   "type": "Input",
-   ...
-   "readOnly": ["startsWith",
-   ["dataModel","My.Model.FirstName"],
-   "Jo"],
-}
+["startsWith", ["dataModel","My.Model.FirstName"], "Jo"]
 ```
 
 ```json
-{
-   "id": "lastName",
-   "type": "Input",
-   ...
-   "readOnly": ["endsWith",
-         ["dataModel", "My.Model.FirstName"],
-         "hn"],
-}
+["endsWith", ["dataModel", "My.Model.FirstName"], "hn"]
 ```
+
+Noen detaljer som er verdt å nevne om disse funksjonene:
+- Alle funksjoner starter og slutter med en tom streng, så `startsWith` og `endsWith` vil alltid returnere `true`
+  dersom man bruker et uttrykk `["startsWith", "...", ""]`. Dette er viktig å passe på om man bruker verdien til
+  en komponent eller et oppslag i datamodellen som andre argument.
+- Ingen strenger starter eller slutter med en `null`-verdi. Bruker man et uttrykk som dette:
+  ```json
+  ["startsWith",
+     ["dataModel", "My.Model.FullName"],
+     ["dataModel", "My.Model.FirstName"]]
+  ```
+  vil alltid resultatet bli
+  `false` så lenge fornavnet ikke er gitt. Men som nevnt over, dersom fornavnet er satt til en tom streng (for eksempel
+  dersom brukeren har visket ut fornavnet sitt), vil uttrykket gi `true` dersom et fullt navn er satt. Dersom man vil
+  unngå noe av denne oppførselen kan man bruke `if`-funksjonen sammen med `equals` til å sjekke om noe er satt til
+  en tom streng.
+- `["startsWith", null, null]` gir alltid `false`.
 
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-stringLength" header="stringLength" %}}
-Funksjonen `stringLength` returnerer lengden på en streng, inkludert mellomrom.
+Funksjonen `stringLength` returnerer lengden på en streng (gitt i antall bokstaver/tegn), inkludert mellomrom.
+
+Eksempel:
+
+```json
+["stringLength", ["dataModel", "My.Model.FirstName"]]
+```
+
+Dersom strengen er `null` vil `stringLength` returnere `0`.
+
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-contains-not-contains" header="contains / notContains" %}}
+Disse to funksjonene sjekker om streng A inkluderer eller ikke inkluderer streng B.
+Både `contains` og `notContains` skiller mellom store og små bokstaver.
+Det betyr at strengen "Hei" ikke inkluderer "hei". Ønsker du å sammenligne uavhengig av store og små bokstaver kan du
+bruke funksjonene [`lowerCase` eller `upperCase`](#func-lowerCase-upperCase) sammen med `contains` eller `notContains`.
 
 Eksempel:
 
@@ -457,14 +480,26 @@ Eksempel:
    "id": "lastName",
    "type": "Input",
    ...
-   "readOnly": ["stringLength", ["dataModel", "My.Model.FirstName"]],
+   "hidden": [
+      "contains",
+      ["dataModel", "My.Model.FirstName"],
+      "J"
+   ],
+   "readOnly": [
+      "notContains",
+      ["dataModel", "My.Model.FirstName"],
+      "D"
+   ]
 }
 ```
+
+Ønsker du å sjekke om verdier finnes i en kommaseparert liste kan du bruke funksjonen [`commaContains`](#func-commaContains).
 
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-commaContains" header="commaContains" %}}
-Funksjonen commaContains tar imot to argumenter. Det første argumentet er en kommaseparert streng, og det andre argumentet er strengen du ønsker å sjekke om den inkluderes i argument A.
+Funksjonen commaContains tar imot to argumenter. Det første argumentet er en kommaseparert streng, og det andre
+argumentet er strengen du ønsker å sjekke om er blant de kommaseparerte verdiene i første argument.
 
 Eksempel:
 
@@ -473,42 +508,31 @@ Eksempel:
    "id": "addName",
    "type": "Input",
    ...
-   "readOnly": ["commaContains", ["dataModel", "My.Model.Names"], "John"],
+   "readOnly": ["commaContains", ["dataModel", "My.Model.Names"], "John"]
 }
 ```
+
+Legg merke til at eventuelle mellomrom før/etter komma, eller før/etter første verdi blir ignorert. Denne funksjonen
+er spesielt nyttig i tilfeller hvor man bruker en komponent som lagrer flere verdier i en kommaseparert streng, som
+`Checkboxes` og `MultipleSelect`.
 
 {{% /expandlarge %}}
 
-{{% expandlarge id="func-lowerCase-upperCase" header="LowerCase/UpperCase" %}}
-Funksjonen `lowerCase` tar imot en streng som input og returnerer en ny streng der alle tegnene er konvertert til små bokstaver.
+{{% expandlarge id="func-lowerCase-upperCase" header="lowerCase/upperCase" %}}
+Funksjonene `lowerCase` og `upperCase` tar imot en streng som input og returnerer en ny streng der alle tegnene er
+konvertert til henholdsvis små eller store bokstaver.
 
 ```json
-{
-   "id": "lastName",
-   "type": "Input",
-   ...
-   "readOnly": ["lowerCase",
-   ["dataModel", "My.Model.LastName"]],
-}
-```
-
-Funksjonen `upperCase` tar imot en streng som input og returnerer en ny streng der alle tegnene er konvertert til store bokstaver.
-
-Eksempel:
-
-```json
-{
-   "id": "lastName",
-   "type": "Input",
-   ...
-   "readOnly": ["upperCase",
-   ["dataModel", "My.Model.LastName"]],
-}
+["lowerCase", ["dataModel", "My.Model.LastName"]]
 ```
 
 Disse funksjonene gir deg en enkel måte å konvertere mellom små og store bokstaver i en streng.
-Du kan bruke dem til å sikre at all tekst er i riktig case-format, avhengig av dine behov.
+Et bruksområde kan være å kombinere en av disse funksjonene med andre sammenligningsfunksjoner slik at sammenligningene
+gjøres uavhengig av om det ble brukt store eller små bokstaver i input-verdien.
 
+```json
+["equals", ["upperCase", ["dataModel", "My.Model.LastName"]], "SMITH"]
+```
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-round" header="round" %}}
@@ -520,6 +544,16 @@ Eksempel med avrunding med 2 desimalpunkter:
 ["round", "122.99843", "2"]
 ```
 
+Eksempel med avrunding til nærmeste heltall:
+
+```json
+["round", "3.4999"]
+```
+
+Returverdien fra denne funksjonen er en streng, slik at returverdien kan brukes for
+fremvisning (merk at desimalskilletegnet alltid er punktum). Selv om returverdien er en streng kan denne også brukes
+videre i uttrykk som forventer tall som inn-verdi.
+
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-text" header="text" %}}
@@ -530,27 +564,8 @@ Eksempel:
 ["text", "min-nøkkel-id"]
 ```
 
-{{% /expandlarge %}}
-
-{{% expandlarge id="func-contains-not-contains" header="contains / notContains" %}}
-Disse to funksjonene sjekker om streng A inkluderer eller ikke inkluderer streng B. Både `contains` og `notContains` skiller mellom store og små bokstaver.
-Det betyr at strengen "Hei" ikke inkluderer "hei".
-
-Eksempel:
-
-```json
-{
-   "id": "lastName",
-   "type": "Input",
-   ...
-   "hidden": ["contains",
-   ["dataModel", "My.Model.FirstName"],
-   "J"
-   ],
-   "readOnly": ["notContains",
-   ["dataModel", "My.Model.FirstName"], "D"],
-}
-```
+**Bemerk:** Husk å teste manuelt med tekstnøkler som inneholder variabler. Det er ikke sikkert disse vil fungere som
+forventet.
 
 {{% /expandlarge %}}
 
