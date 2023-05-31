@@ -989,7 +989,7 @@
                 </switch>
             </g>
         </a>
-        <a xlink:href="https://docs.altinn.studio/app/testing/deploy/" target="_blank">
+        <a xlink:href="https://docs.altinn.studio/app/guides/testing/deploy/" target="_blank">
             <rect x="1400" y="1945" width="120" height="60" rx="9" ry="9" fill="#008a00" stroke="#005700" pointer-events="all"/>
             <g transform="translate(-0.5 -0.5)">
                 <switch>
@@ -1008,7 +1008,7 @@
                 </switch>
             </g>
         </a>
-        <a xlink:href="https://docs.altinn.studio/app/testing/deploy/" target="_blank">
+        <a xlink:href="https://docs.altinn.studio/app/guides/testing/deploy/" target="_blank">
             <rect x="1400" y="1845" width="120" height="60" rx="9" ry="9" fill="#008a00" stroke="#005700" pointer-events="all"/>
             <g transform="translate(-0.5 -0.5)">
                 <switch>
@@ -1606,7 +1606,7 @@
                 </switch>
             </g>
         </a>
-        <a xlink:href="https://docs.altinn.studio/app/testing/local/" target="_blank">
+        <a xlink:href="https://docs.altinn.studio/app/guides/testing/local/" target="_blank">
             <rect x="920" y="2145" width="120" height="60" rx="9" ry="9" fill="#008a00" stroke="#005700" pointer-events="all"/>
             <g transform="translate(-0.5 -0.5)">
                 <switch>

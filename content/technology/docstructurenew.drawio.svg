@@ -1538,7 +1538,7 @@
                 </text>
             </switch>
         </g>
-        <a xlink:href="https://docs.altinn.studio/app/design/insight/" target="_blank">
+        <a xlink:href="https://docs.altinn.studio/app/guides/design/insight/" target="_blank">
             <rect x="2230" y="420" width="120" height="60" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" pointer-events="all"/>
             <g transform="translate(-0.5 -0.5)">
                 <switch>
@@ -1557,7 +1557,7 @@
                 </switch>
             </g>
         </a>
-        <a xlink:href="https://docs.altinn.studio/app/design/prototype/" target="_blank">
+        <a xlink:href="https://docs.altinn.studio/app/guides/design/prototype/" target="_blank">
             <rect x="2230" y="490" width="120" height="60" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" pointer-events="all"/>
         </a>
         <rect x="7010" y="140" width="120" height="60" rx="9" ry="9" fill="#dae8fc" stroke="#6c8ebf" pointer-events="all"/>

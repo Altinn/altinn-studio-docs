@@ -14,7 +14,7 @@ Azure AD brukes for å begrense tilgangen til utvikling og drift av Altinn Studi
 Det er kun drift og utviklere tilknyttet Altinn 3 som har tilgang til løsningen.
 
 Tjenesteeieren kan bestille tilgang til brukere til tjenestetestutviklingsmiljø (TT02) og produksjonsmiljøet.
-Dette står nærmere beskrevet [her](/nb/app/access-management/apps/). 
+Dette står nærmere beskrevet [her](/nb/app/guides/access-management/apps/). 
 Merk at tjenesteeiere må melde fra til DigDir når tilganger skal fjernes. 
 
 Autentisering for sluttbrukere er nærmere forklart [her](/nb/api/authentication/).

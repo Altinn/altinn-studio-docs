@@ -40,5 +40,5 @@ for å bekrefte.
 
 [1]: https://altinn.studio/repos
 [2]: /nb/app/getting-started/create-user/
-[3]: /nb/app/access-management/studio/
+[3]: /nb/app/guides/access-management/studio/
 [4]: ../data-models-tool/

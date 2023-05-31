@@ -59,7 +59,7 @@ Opprett et nytt bygg for applikasjonen med versjonsnr `0.0.1`
 og legg til en beskrivende kommentar om hva versjonen inneholder.
 
 ### Nyttig dokumentasjon
-- [Bygge app i Altinn Studio](/nb/app/testing/deploy/#bygge-app)
+- [Bygge app i Altinn Studio](/nb/app/guides/testing/deploy/#bygge-app)
 
 {{% /expandlarge %}}
 
@@ -73,15 +73,15 @@ før man deployer til produksjon.
 {{% notice info %}}
 For å kunne deploye en applikasjon til TT02,
 må organisasjonen som eier applikasjonen ha et apps-cluster i testmiljøet.
-I tillegg trenger utvikleren som skal deplopye applikasjonen [rollen Deploy-TT02](/nb/app/access-management/studio/#deploy-tt02)
+I tillegg trenger utvikleren som skal deplopye applikasjonen [rollen Deploy-TT02](/nb/app/guides/access-management/studio/#deploy-tt02)
 for organisasjonen i Altinn Studio.
 {{% /notice %}}
 
 **Deploy applikasjonen din til TT02.**
 
 ### Nyttig dokumentasjon
-- [Deploye app til testmiljø](/nb/app/testing/deploy/#deploy-av-app-til-testmiljø)
-- [Tilgangsstyring for organisasjon i Altinn Studio](/nb/app/access-management/studio/#tilgangsstyring-for-organisasjonen)
+- [Deploye app til testmiljø](/nb/app/guides/testing/deploy/#deploy-av-app-til-testmiljø)
+- [Tilgangsstyring for organisasjon i Altinn Studio](/nb/app/guides/access-management/studio/#tilgangsstyring-for-organisasjonen)
 
 ### Forståelsessjekk
 - Er det mulig å ha to versjoner av en applikasjon i TT02 samtidig?

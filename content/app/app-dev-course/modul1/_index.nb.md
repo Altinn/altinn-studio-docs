@@ -132,7 +132,7 @@ Basert på kravene fra kommunen klarer du å sette opp den første skjemasiden i
 ### Nyttig dokumentasjon
 - [Hvordan bygge et skjema med UI editor i Altinn Studio](/nb/app/getting-started/ui-editor/)
 - [Tilgjengelige komponenter i Altinn Studio](/altinn-studio/designer/build-app/ui-designer/components/)
-- [Retningslinjer for bruk av komponenter](/nb/app/design/guidelines/components/)
+- [Retningslinjer for bruk av komponenter](/nb/app/guides/design/guidelines/components/)
 
 ### Forståelsessjekk
 
@@ -183,8 +183,8 @@ Videre vil du ønske å teste endringene dine fortløpende i localtest.
 
 ### Nyttig dokumentasjon
 - [Hvordan sette opp LocalTest](https://github.com/Altinn/app-localtest/blob/master/README.md)
-- [Debugging av applikasjon](/nb/app/testing/local/debug/)
-- [Tilgjengelig testbrukere i LocalTest](/nb/app/testing/local/testusers/)
+- [Debugging av applikasjon](/nb/app/guides/testing/local/debug/)
+- [Tilgjengelig testbrukere i LocalTest](/nb/app/guides/testing/local/testusers/)
 {{% /expandlarge %}}
 
 

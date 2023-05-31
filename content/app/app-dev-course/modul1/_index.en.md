@@ -134,7 +134,7 @@ Based on the requirements from the municipality, can you now set up the first fo
 ### Useful documentation
 - [How to build a form with UI editor in Altinn Studio](/app/getting-started/ui-editor/)
 - [Available components in Altinn Studio](/altinn-studio/designer/build-app/ui-designer/components/)
-- [Guidelines for using components](/app/design/guidelines/components/)
+- [Guidelines for using components](/app/guides/design/guidelines/components/)
 
 ### Knowledge check
 
@@ -185,8 +185,8 @@ Moving on you will want to test your changes continuously in LocalTest.
 
 ### Useful documentation
 - [How to set up LocalTest](https://github.com/Altinn/app-localtest/blob/master/README.md)
-- [Debugging of application](/app/testing/local/debug/)
-- [Available test-users in LocalTest](/app/testing/local/testusers/)
+- [Debugging of application](/app/guides/testing/local/debug/)
+- [Available test-users in LocalTest](/app/guides/testing/local/testusers/)
 {{% /expandlarge %}}
 
 
