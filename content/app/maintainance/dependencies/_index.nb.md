@@ -44,7 +44,7 @@ F.eks.:
     - [Altinn.App.Common](https://www.nuget.org/packages/Altinn.App.Common)
     - [Altinn.App.PlatformServices](https://www.nuget.org/packages/Altinn.App.PlatformServices)
 - Oppdater de aktuelle referansene til den siste versjonen og lagre filen.
-- Sjekk om det er noen [breaking changes](/nb/community/changelog/app-nuget) ifm endringer i bibliotekene,
+- Sjekk om det er noen [breaking changes](/nb/app/community/changelog/app-nuget) ifm endringer i bibliotekene,
   og gjør ev. endringer som beskrives for å løse ev. problemer.
 - Bygg og deploy appen på nytt.
 
@@ -92,7 +92,7 @@ _Husk:_ Dersom man setter kun _major versjon_ (f.eks. 2), så vil alle oppdateri
 
 Deployment utføres ved hjelp av helm charts. Standard deployment oppsett for apps hentes fra altinn-studio sitt helm repository.
 
-Er du i tvil om du benytter siste deployment strategi kan du følge migreringsguiden [her](/nb/community/changelog/deployment/migration)
+Er du i tvil om du benytter siste deployment strategi kan du følge migreringsguiden [her](/nb/app/community/changelog/deployment/migration)
 
 For å finne siste versjon av helm-charten kan du enten sjekke releases av charten deployment [her](https://github.com/Altinn/altinn-studio-charts/releases)
 eller legge inn [helm](https://helm.sh/) repoet lokalt og søke i dette på følgende måte:
@@ -105,7 +105,7 @@ helm repo add altinn-studio https://charts.altinn.studio
 helm search repo -l altinn-studio/deployment
 ```
 
-Hvis det er ny versjon av helm charten sjekk [changelog](/nb/community/changelog/deployment/) for å se hva som er oppdatert i versjonen.
+Hvis det er ny versjon av helm charten sjekk [changelog](/nb/app/community/changelog/deployment/) for å se hva som er oppdatert i versjonen.
 
 For å ta i bruk en ny versjon oppdater versjon under dependencies i `deployment/Chart.yaml`
 

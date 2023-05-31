@@ -7,7 +7,7 @@ weight: 40
 Før vi går på konkrete tips må vi kort introdusere Helm Chart. Helm Chart er de(n) filen(e) som styrer hvordan applikasjonen din [deployes](/nb/app/development/configuration/deployment/)) til Kubernetes. Det er også her man styrer CPU og minne allokering. Du finner `Chart.yaml`og `values.yaml`i deployment mappen i applikasjonen din. Dette er viktige filer som kan være lett å overse og ikke ha et aktivt forhold til.
 
 ## Tips 1 - Kjør siste versjon av Helm Chart
-Med siste versjon får du de mest oppdaterte innstillingene som standard. Se [Endringslogg for deployment](/nb/community/changelog/deployment) for hvordan oppgradere til siste versjon.
+Med siste versjon får du de mest oppdaterte innstillingene som standard. Se [Endringslogg for deployment](/nb/app/community/changelog/deployment) for hvordan oppgradere til siste versjon.
 
 ## Tips 2 - Ha et aktivt forhold til hva applikasjonen krever av minne og CPU
 Altinn kommer med en standard på 50m CPU og 128Mi minne, men hva som faktisk kreves er det jo bare den som utvikler en applikasjon som vet. Hvis det caches mye data, vil det kreve mye minne. Hvis det er tunge operasjoner så vil det kreve mye CPU. De faktiske kravene bør gjenspeiles i Helm Chart hvis de avviker fra standarden.
