@@ -11,7 +11,7 @@ src2="https://altinn.slack.com/" title2="Write to us on Slack" %}}
 **Do you need a new component?**
 
 We wish everyone welcome to contribute to the component library through both code and design. 
-Practically this means that Altinn wishes to [accept suggestions for new components](../../../../community/contributing/propose-component/) as service owners find a need for them.
+Practically this means that Altinn wishes to [accept suggestions for new components](/app/community/contributing/propose-component/) as service owners find a need for them.
 
 You are welcome to check the existing components below.
 

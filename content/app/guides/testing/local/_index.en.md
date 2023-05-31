@@ -6,7 +6,7 @@ weight: 100
 tags: [translate-to-english]
 ---
 
-Dersom man skal skrive en del kode (f.eks. [logikk](../../development/logic/)), eller kjapt sjekke hvordan skjema ser ut kan det være nytting å kunne teste endringer uten å måtte deploye hele appen til testmiljø.
+Dersom man skal skrive en del kode (f.eks. [logikk](/app/development/logic/)), eller kjapt sjekke hvordan skjema ser ut kan det være nytting å kunne teste endringer uten å måtte deploye hele appen til testmiljø.
 
 Når appen lages, kommer den med alle nødvendige filer og oppsett til å kunne kjøres som en frittstående applikasjon. Ved å laste ned alle filene knyttet til appen fra repoet til appen, kan man kjøre
 appen lokalt på egen maskin, og på den måten enkelt teste endringer.
