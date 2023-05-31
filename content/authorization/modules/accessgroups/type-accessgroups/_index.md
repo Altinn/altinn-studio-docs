@@ -63,7 +63,7 @@ Tilbakemelding kan du sende på e-post til servicedesk@altinn.no innen 1.8 2023.
 
 # Forslag til tilgangsgrupper på nivå 1: 
 ## Tilgangsgrupper relevant for mange/alle virksomheter
-1. [Skatt, avgiff, regnskap og toll](https://docs.altinn.studio/authorization/modules/accessgroups/type-accessgroups/#nivå-1-skatt-avgiff-regnskap-og-toll)
+1. [Skatt, avgift, regnskap og toll](https://docs.altinn.studio/authorization/modules/accessgroups/type-accessgroups/#nivå-1-skatt-avgiff-regnskap-og-toll)
 2. [Personale](https://docs.altinn.studio/authorization/modules/accessgroups/type-accessgroups/#nivå-1-personale)
 3. [Miljø, ulykke og sikkerhet](https://docs.altinn.studio/authorization/modules/accessgroups/type-accessgroups/#nivå-1-miljø-ulykke-og-sikkerhet)
 4. [Grunnlag for virksomheten](https://docs.altinn.studio/authorization/modules/accessgroups/type-accessgroups/#nivå-1-grunnlag-for-virksomheten)
