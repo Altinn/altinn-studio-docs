@@ -9,7 +9,7 @@ toc: false
 
 Oppsett av denne funksjonaliteten må gjøres manuelt direkte i form layout inntil videre.
 
-**MERK:** Denne funksjonaliteten krever app-frontend versjon 3. Se [denne lenken](/nb/app/community/changelog/app-frontend/v3/breaking-changes/).
+**MERK:** Denne funksjonaliteten krever app-frontend versjon 3. Se [denne lenken](/nb/community/changelog/app-frontend/v3/breaking-changes/).
 
 {{%/notice%}}
 

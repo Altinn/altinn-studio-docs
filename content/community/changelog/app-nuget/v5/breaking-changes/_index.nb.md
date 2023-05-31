@@ -167,7 +167,7 @@ public override async Task<bool> RunAppEvent(AppEventType appEvent, object model
 The `RunAppEvent`method should be replaced with the appropriate methods as described above.
 
 ## 4. Obsolete methods RunCalculation removed from AppBase/IAltinnApp
-[In version 4.7.0](/nb/app/community/changelog/app-nuget/) the RunCalculation method was replaced with the methods RunProcessDataRead and RunProcessDataWrite. RunCalculation has now been removed and those that have code in this method needs to move this to either RunProcessDataRead or RunProcessDataWrite.
+[In version 4.7.0](/nb/community/changelog/app-nuget/) the RunCalculation method was replaced with the methods RunProcessDataRead and RunProcessDataWrite. RunCalculation has now been removed and those that have code in this method needs to move this to either RunProcessDataRead or RunProcessDataWrite.
 
 The process to update is:
 
