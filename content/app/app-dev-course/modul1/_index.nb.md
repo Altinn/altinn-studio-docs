@@ -59,7 +59,7 @@ For å kunne kjøre appen i LocalTest må applikasjonen ha en tilknyttet datamod
 
 1. [Start LocalTest](https://github.com/Altinn/app-localtest/blob/master/README.md) (inkluderer start av app som også er forklart under).
 2. **Start applikasjonen**: Åpne et nytt terminalvindu og naviger til undermappen _App_ i din applikasjon (e.g. `../tilflyttere-sogndal/App`). Start appen med kommandoen `dotnet run` og vent på bekreftelse i terminalen.
- Når appen kjører kan du åpne den på http://local.altinn.cloud og logge inn med en [testbruker](/nb/app/testing/local/testusers/).
+ Når appen kjører kan du åpne den på http://local.altinn.cloud og logge inn med en [testbruker](/nb/app/guides/testing/local/testusers/).
 
 Etter innlogging bør du ha et resultat som likner dette:
 
@@ -83,8 +83,8 @@ LocalTest stoppes ved å navigere til mappen `app-localtest` i terminalen og kj�
 ### Nyttig dokumentasjon
 
 - [Hvordan sette opp LocalTest](https://github.com/Altinn/app-localtest/blob/master/README.md)
-- [Debugging av applikasjon](/nb/app/testing/local/debug/)
-- [Tilgjengelig testbrukere i LocalTest](/nb/app/testing/local/testusers/)
+- [Debugging av applikasjon](/nb/app/guides/testing/local/debug/)
+- [Tilgjengelig testbrukere i LocalTest](/nb/app/guides/testing/local/testusers/)
 
 {{% /expandlarge %}}
 
