@@ -250,8 +250,8 @@ Disse funksjonene er tilgjengelige for bruk i uttrykk:
 | [`notContains`](#func-contains-not-contains) | [Streng](#strenger), [Streng](#strenger)           | [Bolks](#boolske-verdier)            | ✅       |         |
 | [`startsWith`](#func-starts-ends-with)       | [Streng](#strenger), [Streng](#strenger)           | [Bolks](#boolske-verdier)            | ✅       |         |
 | [`endsWith`](#func-starts-ends-with)         | [Streng](#strenger), [Streng](#strenger)           | [Bolks](#boolske-verdier)            | ✅       |         |
-| [`lowerCase`](#func-lowerCase-upperCase)     | [Streng](#strenger)                                | [Streng](#streng)                    | ✅       |         |
-| [`upperCase`](#func-lowerCase-upperCase)     | [Streng](#strenger)                                | [Streng](#streng)                    | ✅       |         |
+| [`lowerCase`](#func-lowerCase-upperCase)     | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅       |         |
+| [`upperCase`](#func-lowerCase-upperCase)     | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅       |         |
 | [`stringLength`](#func-stringLength)         | [Streng](#strenger)                                | [Tall](#tall)                        | ✅       |         |
 | [`text`](#func-text)                         | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅       |         |
 | [`language`](#func-language)                 |                                                    | [Streng](#strenger)                  | ✅       |         |
