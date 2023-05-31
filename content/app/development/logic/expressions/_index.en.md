@@ -116,19 +116,19 @@ Og for en person som er 15 år (eller yngre, som f.eks. en 4-åring), returneres
 
 Dynamiske uttrykk er foreløpig tilgjengelig for bruk i disse egenskapene, som definert i [layout-filer](../../ux/pages).
 
-| Komponenter                                               | Egenskap                                        | Forventet verdi            | Frontend | Backend |
-| --------------------------------------------------------- | ----------------------------------------------- | -------------------------- | -------- | ------- |
-| [Sider/layouts](#viseskjule-hele-sider)                   | `hidden`                                        | [Boolsk](#boolske-verdier) | ✅       | ✅      |
-| Alle                                                      | `hidden`                                        | [Boolsk](#boolske-verdier) | ✅       | ✅      |
-| Skjemakomponenter                                         | `required`                                      | [Boolsk](#boolske-verdier) | ✅       | ✅      |
-| Skjemakomponenter                                         | `readOnly`                                      | [Boolsk](#boolske-verdier) | ✅       | ❌      |
-| [Repeterende grupper](../../ux/fields/grouping/repeating) | `hiddenRow`                                     | [Boolsk](#boolske-verdier) | ✅       | ❌      |
-| [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.addButton`                                | [Boolsk](#boolske-verdier) | ✅       | ❌      |
-| [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.saveButton`                               | [Boolsk](#boolske-verdier) | ✅       | ❌      |
-| [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.deleteButton`                             | [Boolsk](#boolske-verdier) | ✅       | ❌      |
-| [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.alertOnDelete`                            | [Boolsk](#boolske-verdier) | ✅       | ❌      |
-| [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.saveAndNextButton`                        | [Boolsk](#boolske-verdier) | ✅       | ❌      |
-| Alle                                                      | `textResourceBindings.[textResourceBinding]` \* | [Streng](#strenger)        | ✅       | ❌      |
+| Komponenter                                               | Egenskap                      | Forventet verdi            | Frontend | Backend |
+| --------------------------------------------------------- |-------------------------------| -------------------------- | -------- | ------- |
+| [Sider/layouts](#viseskjule-hele-sider)                   | `hidden`                      | [Boolsk](#boolske-verdier) | ✅       | ✅      |
+| Alle                                                      | `hidden`                      | [Boolsk](#boolske-verdier) | ✅       | ✅      |
+| Skjemakomponenter                                         | `required`                    | [Boolsk](#boolske-verdier) | ✅       | ✅      |
+| Skjemakomponenter                                         | `readOnly`                    | [Boolsk](#boolske-verdier) | ✅       | ❌      |
+| [Repeterende grupper](../../ux/fields/grouping/repeating) | `hiddenRow`                   | [Boolsk](#boolske-verdier) | ✅       | ❌      |
+| [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.addButton`              | [Boolsk](#boolske-verdier) | ✅       | ❌      |
+| [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.saveButton`             | [Boolsk](#boolske-verdier) | ✅       | ❌      |
+| [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.deleteButton`           | [Boolsk](#boolske-verdier) | ✅       | ❌      |
+| [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.alertOnDelete`          | [Boolsk](#boolske-verdier) | ✅       | ❌      |
+| [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.saveAndNextButton`      | [Boolsk](#boolske-verdier) | ✅       | ❌      |
+| Alle                                                      | `textResourceBindings.[*]` \* | [Streng](#strenger)        | ✅       | ❌      |
 
 \* = Hvilke verdier man kan overstyre med textResourceBindings varierer fra komponent til komponent, men vil fungere på
 alle steder der det brukes. TextResourceBindings for repeterende grupper finner
@@ -233,33 +233,33 @@ evalExpression(["component", "alder"], "navn-1"); // Eksempel 4
 Disse funksjonene er tilgjengelige for bruk i uttrykk:
 
 | Funksjonsnavn                                | Parametre                                          | Returverdi                           | Frontend | Backend |
-| -------------------------------------------- |----------------------------------------------------|--------------------------------------| -------- | ------- |
-| [`equals`](#func-equals)                     | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅       | ✅      |
-| [`notEquals`](#func-equals)                  | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅       | ✅      |
-| [`not`](#func-not)                           | [Boolsk](#boolske-verdier)                         | [Boolsk](#boolske-verdier)           | ✅       | ✅      |
-| [`greaterThan`](#func-gt)                    | [Tall](#tall), [Tall](#tall)                       | [Boolsk](#boolske-verdier)           | ✅       | ✅      |
-| [`greaterThanEq`](#func-gt)                  | [Tall](#tall), [Tall](#tall)                       | [Boolsk](#boolske-verdier)           | ✅       | ✅      |
-| [`lessThan`](#func-gt)                       | [Tall](#tall), [Tall](#tall)                       | [Boolsk](#boolske-verdier)           | ✅       | ✅      |
-| [`lessThanEq`](#func-gt)                     | [Tall](#tall), [Tall](#tall)                       | [Boolsk](#boolske-verdier)           | ✅       | ✅      |
-| [`concat`](#func-concat)                     | Ingen eller flere [strenger](#strenger)            | [Streng](#strenger)                  | ✅       | ✅      |
-| [`and`](#func-and)                           | En eller flere [boolske verdier](#boolske-verdier) | [Boolsk](#boolske-verdier)           | ✅       | ✅      |
-| [`or`](#func-and)                            | En eller flere [boolske verdier](#boolske-verdier) | [Boolsk](#boolske-verdier)           | ✅       | ✅      |
-| [`if`](#func-if)                             | [Se detaljert beskrivelse](#func-if)               | [Se detaljert beskrivelse](#func-if) | ✅       | ✅      |
-| [`contains`](#func-contains-not-contains)    | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅       |         |
-| [`notContains`](#func-contains-not-contains) | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅       |         |
-| [`commaContains`](#func-commaContains)       | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅       |         |
-| [`startsWith`](#func-starts-ends-with)       | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅       |         |
-| [`endsWith`](#func-starts-ends-with)         | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅       |         |
-| [`lowerCase`](#func-lowerCase-upperCase)     | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅       |         |
-| [`upperCase`](#func-lowerCase-upperCase)     | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅       |         |
-| [`stringLength`](#func-stringLength)         | [Streng](#strenger)                                | [Tall](#tall)                        | ✅       |         |
-| [`text`](#func-text)                         | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅       |         |
-| [`language`](#func-language)                 | Ingenting                                          | [Streng](#strenger)                  | ✅       |         |
-| [`round`](#func-round)                       | [Tall](#tall), valgfritt [Tall](#tall)             | [Streng](#strenger)                  | ✅       |         |
-| [`instanceContext`](#func-instancecontext)   | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅       | ✅      |
-| [`frontendSettings`](#func-frontendsettings) | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅       | ✅      |
-| [`dataModel`](#func-datamodel)               | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅       | ✅      |
-| [`component`](#func-component)               | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅       | ✅      |
+|----------------------------------------------|----------------------------------------------------|--------------------------------------|----------|---------|
+| [`equals`](#func-equals)                     | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
+| [`notEquals`](#func-equals)                  | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
+| [`not`](#func-not)                           | [Boolsk](#boolske-verdier)                         | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
+| [`greaterThan`](#func-gt)                    | [Tall](#tall), [Tall](#tall)                       | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
+| [`greaterThanEq`](#func-gt)                  | [Tall](#tall), [Tall](#tall)                       | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
+| [`lessThan`](#func-gt)                       | [Tall](#tall), [Tall](#tall)                       | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
+| [`lessThanEq`](#func-gt)                     | [Tall](#tall), [Tall](#tall)                       | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
+| [`concat`](#func-concat)                     | Ingen eller flere [strenger](#strenger)            | [Streng](#strenger)                  | ✅        | ✅       |
+| [`and`](#func-and)                           | En eller flere [boolske verdier](#boolske-verdier) | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
+| [`or`](#func-and)                            | En eller flere [boolske verdier](#boolske-verdier) | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
+| [`if`](#func-if)                             | [Se detaljert beskrivelse](#func-if)               | [Se detaljert beskrivelse](#func-if) | ✅        | ✅       |
+| [`contains`](#func-contains-not-contains)    | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅        | ❌       |
+| [`notContains`](#func-contains-not-contains) | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅        | ❌       |
+| [`commaContains`](#func-commaContains)       | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅        | ❌       |
+| [`startsWith`](#func-starts-ends-with)       | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅        | ❌       |
+| [`endsWith`](#func-starts-ends-with)         | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅        | ❌       |
+| [`lowerCase`](#func-lowerCase-upperCase)     | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅        | ❌       |
+| [`upperCase`](#func-lowerCase-upperCase)     | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅        | ❌       |
+| [`stringLength`](#func-stringLength)         | [Streng](#strenger)                                | [Tall](#tall)                        | ✅        | ❌       |
+| [`text`](#func-text)                         | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅        | ❌       |
+| [`language`](#func-language)                 | Ingenting                                          | [Streng](#strenger)                  | ✅        | ❌       |
+| [`round`](#func-round)                       | [Tall](#tall), valgfritt [Tall](#tall)             | [Streng](#strenger)                  | ✅        | ❌       |
+| [`instanceContext`](#func-instancecontext)   | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅        | ✅       |
+| [`frontendSettings`](#func-frontendsettings) | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅        | ✅       |
+| [`dataModel`](#func-datamodel)               | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅        | ✅       |
+| [`component`](#func-component)               | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅        | ✅       |
 
 Detaljerte beskrivelser og eksempler
 
@@ -421,6 +421,10 @@ Eksempel:
 Om gjeldende språk er ukjent, vil `nb` returneres, som er standardspråket for Altinn 3-apper. Dermed kan man være trygg
 på at denne funksjonen alltid returnerer et gyldig språk.
 
+**Bemerk:** Denne funksjonen er ikke tigjengelig i backend-kode enda, og vil derfor gi en feilmelding dersom den blir
+brukt noen steder [hvor uttrykk kjøres på backend](#bruksområder), og om man har slått på funksjonaliteten for å
+automatisk slette skjulte data (`RemoveHiddenDataPreview`).
+
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-starts-ends-with" header="startsWith/endsWith" %}}
@@ -452,6 +456,10 @@ Noen detaljer som er verdt å nevne om disse funksjonene:
   en tom streng.
 - `["startsWith", null, null]` gir alltid `false`.
 
+**Bemerk:** Disse funksjonene er ikke tigjengelig i backend-kode enda, og vil derfor gi en feilmelding dersom de blir
+brukt noen steder [hvor uttrykk kjøres på backend](#bruksområder), og om man har slått på funksjonaliteten for å
+automatisk slette skjulte data (`RemoveHiddenDataPreview`).
+
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-stringLength" header="stringLength" %}}
@@ -464,6 +472,10 @@ Eksempel:
 ```
 
 Dersom strengen er `null` vil `stringLength` returnere `0`.
+
+**Bemerk:** Denne funksjonen er ikke tigjengelig i backend-kode enda, og vil derfor gi en feilmelding dersom den blir
+brukt noen steder [hvor uttrykk kjøres på backend](#bruksområder), og om man har slått på funksjonaliteten for å
+automatisk slette skjulte data (`RemoveHiddenDataPreview`).
 
 {{% /expandlarge %}}
 
@@ -495,6 +507,10 @@ Eksempel:
 
 Ønsker du å sjekke om verdier finnes i en kommaseparert liste kan du bruke funksjonen [`commaContains`](#func-commaContains).
 
+**Bemerk:** Disse funksjonene er ikke tigjengelig i backend-kode enda, og vil derfor gi en feilmelding dersom de blir
+brukt noen steder [hvor uttrykk kjøres på backend](#bruksområder), og om man har slått på funksjonaliteten for å
+automatisk slette skjulte data (`RemoveHiddenDataPreview`).
+
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-commaContains" header="commaContains" %}}
@@ -516,6 +532,10 @@ Legg merke til at eventuelle mellomrom før/etter komma, eller før/etter først
 er spesielt nyttig i tilfeller hvor man bruker en komponent som lagrer flere verdier i en kommaseparert streng, som
 `Checkboxes` og `MultipleSelect`.
 
+**Bemerk:** Denne funksjonen er ikke tigjengelig i backend-kode enda, og vil derfor gi en feilmelding dersom den blir
+brukt noen steder [hvor uttrykk kjøres på backend](#bruksområder), og om man har slått på funksjonaliteten for å
+automatisk slette skjulte data (`RemoveHiddenDataPreview`).
+
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-lowerCase-upperCase" header="lowerCase/upperCase" %}}
@@ -533,6 +553,11 @@ gjøres uavhengig av om det ble brukt store eller små bokstaver i input-verdien
 ```json
 ["equals", ["upperCase", ["dataModel", "My.Model.LastName"]], "SMITH"]
 ```
+
+**Bemerk:** Disse funksjonene er ikke tigjengelig i backend-kode enda, og vil derfor gi en feilmelding dersom de blir
+brukt noen steder [hvor uttrykk kjøres på backend](#bruksområder), og om man har slått på funksjonaliteten for å
+automatisk slette skjulte data (`RemoveHiddenDataPreview`).
+
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-round" header="round" %}}
@@ -554,6 +579,10 @@ Returverdien fra denne funksjonen er en streng, slik at returverdien kan brukes 
 fremvisning (merk at desimalskilletegnet alltid er punktum). Selv om returverdien er en streng kan denne også brukes
 videre i uttrykk som forventer tall som inn-verdi.
 
+**Bemerk:** Denne funksjonen er ikke tigjengelig i backend-kode enda, og vil derfor gi en feilmelding dersom den blir
+brukt noen steder [hvor uttrykk kjøres på backend](#bruksområder), og om man har slått på funksjonaliteten for å
+automatisk slette skjulte data (`RemoveHiddenDataPreview`).
+
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-text" header="text" %}}
@@ -566,6 +595,10 @@ Eksempel:
 
 **Bemerk:** Husk å teste manuelt med tekstnøkler som inneholder variabler. Det er ikke sikkert disse vil fungere som
 forventet.
+
+**Bemerk:** Denne funksjonen er ikke tigjengelig i backend-kode enda, og vil derfor gi en feilmelding dersom den blir
+brukt noen steder [hvor uttrykk kjøres på backend](#bruksområder), og om man har slått på funksjonaliteten for å
+automatisk slette skjulte data (`RemoveHiddenDataPreview`).
 
 {{% /expandlarge %}}
 
