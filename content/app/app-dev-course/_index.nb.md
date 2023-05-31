@@ -11,8 +11,11 @@ weight: 15
 Introkurset er delt opp i 7 moduler og dekker et fiktivt case for Sogndal kommune.
  Hver modul har en beskrivelse av oppgaven og lenker til relevant dokumentasjon.
 
-Du kan velge å utføre oppgavene i Altinn Studio Designer (grafisk brukergrensesnitt med dra-og-slipp) eller i lokalt utviklingsmiljø (krever noe teknisk kompetanse).
- Det er også mulig å kombinere disse fremgangsmåtene.
+Du kan velge å utføre oppgavene i [Altinn Studio Designer](/nb/app/getting-started/ui-editor) (grafisk brukergrensesnitt med dra-og-slipp) eller i et [lokalt utviklingsmiljø](/nb/app/getting-started/local-dev) (krever noe teknisk kompetanse).
+ Du kan også kombinere disse fremgangsmåtene.
+
+I løpet av disse syv modulene vil du ha vært innom den mest sentrale funksjonaliteten for en Altinn-app,
+samt testing av applikasjonen lokalt og i testmiljø.
 
 {{% notice info %}}
 **MERK**
@@ -22,14 +25,17 @@ Ny funksjonalitet legges til Designer hele tiden og dokumentasjonen oppdateres f
  Modul 1 kan gjennomføres i sin helhet i Altinn Studio Designer.
 {{% /notice %}}
 
-I løpet av disse syv modulene vil du ha vært innom den mest sentrale funksjonaliteten for en Altinn-app,
-samt testing av applikasjonen lokalt og i testmiljø.
+## Før du starter
 
-### Før du begynner
+Før du kan bygge en applikasjon er det en del ting som må være på plass. Gå gjennom følgende punkter fra
+**[Kom i gang](/nb/app/getting-started)** (vent med de resterende punktene til [Modul 1](/nb/app/app-dev-course/modul1)):
 
-**[Opprett en bruker](/nb/app/getting-started/create-user)**  i Altinn Studio hvis du ikke allerede har gjort det.
-Les deretter gjennom caset til Sogndal kommune og jobb deg gjennom modul for modul.
+1. [Opprett bruker](/nb/app/getting-started/create-user)
+2. [Lær å navigere Altinn Studio](/nb/app/getting-started/navigation)
+3. [Gjør deg kjent med Altinn Studio Designer](/nb/app/getting-started/ui-editor)
 
-Lykke til!
+Les gjennom kravspesifikasjonene til Sogndal kommune og jobb deg gjennom modul for modul.
+
+**Lykke til!**
 
 {{<children />}}
