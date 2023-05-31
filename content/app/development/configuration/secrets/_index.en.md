@@ -8,7 +8,7 @@ weight: 300
 
 As an application developer you administer the secrets which the application use in the Azure Key Vault.
 
-[Routines for ordering access to your organizations resources are described here](/nb/app/access-management/apps/).
+[Routines for ordering access to your organizations resources are described here](/nb/app/guides/access-management/apps/).
 
 ## Configure support for secrets in your app
 

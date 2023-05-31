@@ -2,7 +2,7 @@
 title: Monitoring
 linktitle: Monitoring
 description: Altinn App metrics, telemetry and trace logs are available in Azure Application Insights.
-weight: 60
+weight: 70
 ---
 
 {{% notice info %}}

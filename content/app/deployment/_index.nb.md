@@ -3,7 +3,7 @@ title: Produksjonssetting av apper
 linktitle: Produksjonssetting
 description: Tjenesteeier kan selv produksjonssette sine applikasjoner, og gjøre vedlikehold av kode og avhengigheter.
 toc: true
-weight: 600
+weight: 60
 ---
 
 ## Få tilgang til et produksjonsmiljø
@@ -18,7 +18,7 @@ Denne rutinen trenger bare å følges en gang. Når clusteret er satt opp, er l�
 
 ## Produksjonssette en app
 
-Produksjonssetting av applikasjonen gjøres på [samme måte som for testmiljøer](../testing/deploy).
+Produksjonssetting av applikasjonen gjøres på [samme måte som for testmiljøer](/nb/app/guides/testing/deploy).
 
 ## Databehandleravtale for behandling av personopplysninger i Altinn
 

@@ -2,7 +2,7 @@
 title: Monitorering
 linktitle: Monitorering
 description: Altinn App metrikker, telemetri og logger er tilgjengelig i Azure Application Insights.
-weight: 60
+weight: 70
 ---
 
 {{% notice info %}}
