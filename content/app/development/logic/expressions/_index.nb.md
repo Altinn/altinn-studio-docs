@@ -564,7 +564,7 @@ gjøres uavhengig av om det ble brukt store eller små bokstaver i input-verdien
 ["equals", ["upperCase", ["dataModel", "My.Model.LastName"]], "SMITH"]
 ```
 
-**Bemerk:** Disse funksjonene er ikke tigjengelig i backend-kode enda, og vil derfor gi en feilmelding dersom de blir
+**Bemerk:** Disse funksjonene er ikke tilgjengelig i backend-kode enda, og vil derfor gi en feilmelding dersom de blir
 brukt noen steder [hvor uttrykk kjøres på backend](#bruksområder), og om man har slått på funksjonaliteten for å
 automatisk slette skjulte data (`RemoveHiddenDataPreview`).
 
