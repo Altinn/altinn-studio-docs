@@ -16,7 +16,7 @@ toc: true
 - [Modul 5](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/5)
 - [Modul 6](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/6)
 
-## Modul 1 - Forståelsessjekk: Laste opp datamodell
+## Modul 1 - Forståelsessjekk: Legge til datamodell
 
 ### Hvilken data er det tjenesteeier ønsker å samle inn her?
 
@@ -49,7 +49,7 @@ De nevnte filene er alle generert ut ifra xsd-beskrivelsen av datamodellen. De b
 - `XmlElement.Order` er innført som en dekorasjon på hver egenskap.
   - Dette sørger for at rekkefølgen på elementene alltid vil bli den samme når dataen serialiseres til xml.
 
-## Modul 1 - Forståelsessjekk: Sette opp komponenter
+## Modul 1 - Forståelsessjekk: Legge til komponenter
 
 ### Finner du igjen komponenten som er koblet til e-post-feltet?
 
@@ -82,7 +82,7 @@ som vist nedenfor.
 }
 ```
 
-## Modul 1 - Forståelsessjekk: Redigere tekster
+## Modul 1 - Forståelsessjekk: Opprette og redigere tekster
 
 ### Hvordan får du inn engelsk språkstøtte i applikasjonen?
 
