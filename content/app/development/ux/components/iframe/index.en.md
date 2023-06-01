@@ -12,6 +12,7 @@ weight: 10
 - [Accessibility Statement Concerns](/app/development/ux/components/iframe/#accessibility-statement-concerns)
 - [Basic implementation of the IFrame component](/app/development/ux/components/iframe/#basic-implementation-of-the-iframe-component)
 - [Advanced implementation of the IFrame component](/app/development/ux/components/iframe/#advanced-implementation-of-the-iframe-component)
+- [Sandbox restrictions](/app/development/ux/components/iframe/#sandbox-restrictions)
 
 ## Why use the IFrame component
 
@@ -72,3 +73,27 @@ Sometimes it's not enough to use static HTML and CSS directly written in the tex
 To fetch HTML dynamically, you can make use of [ProcessDataRead](/app/development/configuration/stateless/#populating-data). You can learn more about [data processing here](/app/development/logic/dataprocessing).
 
 ProcessDataRead and Data processing provide the capability to preprocess data before it is sent back to the frontend for rendering.
+
+## Sandbox restrictions
+
+The IFrame component uses the sandbox attribute which places heavy security restrictions on the features that can be used within the iframe.
+These restrictions can be lifted individually by adding the desired features to the sandbox attribute. See: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe#sandbox>.
+By default, `allow-same-origin` is enabled. Some of the other restrictions can be lifted by configuring the `sandbox` property on the IFrame component.
+
+If you want to allow opening links in a new tab, you can use the following configuration:
+
+```json
+{
+  "id": "unique-component-id",
+  "type": "IFrame",
+  "textResourceBindings": {
+    "title": "content-with-link"
+  },
+  "sandbox": {
+    "allowPopups": true,
+    "allowPopupsToEscapeSandbox": true
+  }
+}
+```
+
+**Note**: `allowPopupsToEscapeSandbox` will remove all sandbox restrictions from the popup page. Without setting this property the page will not be able to run javascript.
