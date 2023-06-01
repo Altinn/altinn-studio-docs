@@ -90,25 +90,26 @@ Hvis du skal gjøre hele eller deler av utviklingen lokalt kan du [klargjøre fo
 {{% /expandlarge %}}
 
 {{% expandlarge id="redigere-tekster" header="Redigere tekster" %}}
-
-For at tjenesten skal være brukervennlig og mulig å benytte for de som sitter med synshemninger er det viktig at alle komponenter har gode og beskrivende
-overskrifter og beskrivelser. Vi ønsker nå at dere legger til tekster som skal brukes for hvert datafelt.
-
-Det er mulig å koble tekster til komponenter både i Altinn Studio og lokalt.
+[Tekster i Altinn Studio](/nb/app/development/ux/texts/) lagres i en egne språkfiler (også kalt tekstressurser) og kan knyttes til skjema-komponenter via en tekstnøkkel.
+Tekstene kan [opprettes og redigeres i Altinn Studio Designer](/nb/app/development/ux/texts/#altinn-studio-designer) eller [direkte i filen](/nb/app/development/ux/texts/#legge-til-og-endre-tekster-i-repository).
 
 {{% notice warning %}}
-**MERK**: Visningsnavn for applikasjonen må endres både i `App/config/applicationMetadata.json` og i tekstressursene.
+**MERK**: Visningsnavn for applikasjonen må endres både i `App/config/applicationMetadata.json` og i språkfilene.
 {{% /notice %}}
 
 ### Krav fra kommunen
+For at tjenesten skal være brukervennlig og mulig å benytte for de som sitter med synshemninger er det viktig at alle komponenter har gode og beskrivende
+overskrifter (labels).
 
-- Alle inputfelter skal ha forklarende labels som beskriver hva som skal fylles inn.
-- Applikasjonen må være tilgjengelig både på bokmål, nynorsk og engelsk.
-  I en første versjon er det tilstrekkelig at kun ett av disse språkene støttes.
-- Det er viktig at applikasjonens visningsnavn klinger godt og er beskrivende for tjenesten.
+1. [Opprett tekster](/nb/app/development/ux/texts/#legge-til-og-endre-tekster-i-en-app) for komponentene til det første skjemaet. Tekstene skal beskrive hva som beskriver hva som skal fylles inn og vil vises over feltene. Ta en titt på neste oppgave for å se hvilke komponenter du trenger tekst til.
+2. [Endre visningsnavn for applikasjonen](/nb/app/development/ux/texts/#endre-applikasjonstittel). Det er viktig at applikasjonens visningsnavn klinger godt og er beskrivende for tjenesten.
+3. Legg til oversettelse(r) for tekstene. Applikasjonen må være tilgjengelig både på bokmål, nynorsk og engelsk. I en første versjon er det tilstrekkelig at kun ett av disse språkene støttes.
+
+I neste steg skal du opprette komponenter og knytte tekstene du har opprettet til disse.
 
 ### Nyttig dokumentasjon
 
+- [Tekster i Altinn Studio](/nb/app/development/ux/texts/)
 - [Redigere applikasjonstekster](/nb/app/development/ux/texts/#legge-til-og-endre-tekster-i-en-app)
 - [Formatering av tekster](/nb/app/development/ux/texts/#formatering-av-tekster)
 - [ISO 639-1 standard](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)
@@ -119,7 +120,6 @@ I Altinn i dag støtter vi tre skriftspråk: Bokmål, nynorsk og engelsk.
 
 - Hvordan får du inn engelsk språkstøtte i applikasjonen?
 - Hvis vi en dag skal støtte ukrainsk, hvilken språkkode vil du da måtte annotere filen med?
-- Hvis en tekstnøkkel refert til i FormLayout.json ikke finnes i tekstressursene, hva vil vises da?
 
 {{% /expandlarge %}}
 
@@ -128,7 +128,10 @@ I Altinn i dag støtter vi tre skriftspråk: Bokmål, nynorsk og engelsk.
 Feltene som skal fylles ut på en skjemaside kan settes opp ved hjelp av "drag and drop" i Altinn Studio
 eller manuelt i json-filen som beskriver utseendet til en skjemaside _FormLayout.json_.
 
-Basert på kravene fra kommunen klarer du å sette opp den første skjemasiden i Altinn Studio?
+Det er mulig å koble tekster til komponenter både i Altinn Studio og lokalt.
+
+1. Sett opp den første skjemasiden basert på kravene fra kommunen.
+2. Koble tekst til hver av komponentene.
 
 ### Krav fra kommunen
 
