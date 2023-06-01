@@ -40,6 +40,8 @@ Dersom du skal teste appen i et [testmiljø](/nb/app/guides/testing/deploy/) (be
  Du må ha [tilgang til organisasjonen](/nb/app/getting-started/create-user/#bli-del-av-en-organisasjon) og organisasjonen må ha tilgang til et testmiljø.
  {{% /notice %}}
 
+### Oppgaver
+
 1. [Opprett applikasjon i Altinn Studio](/nb/app/getting-started/create-app/)
 
 ### Nyttig dokumentasjon
@@ -50,6 +52,7 @@ Dersom du skal teste appen i et [testmiljø](/nb/app/guides/testing/deploy/) (be
 {{% /expandlarge %}}
 
 {{% expandlarge id="legge-til-datamodell" header="Legge til datamodell" %}}
+
 Datamodellen definerer hvilke data som kan sendes inn via en app og hvilket format det skal sendes på.
 
 I Altinn Studio kan du legge til datamodell ved å [laste opp en _xsd_-fil](/app/development/data/data-model/data-models-tool/#laste-opp--vise-datamodell) eller [lage ny datamodell](/app/development/data/data-model/data-models-tool/#lage-ny-datamodell) med datamodelleringsverktøyet.
@@ -60,6 +63,8 @@ I Altinn Studio kan du legge til datamodell ved å [laste opp en _xsd_-fil](/app
 
 Sogndal kommune har opprettet en [datamodell](datamodel.xsd)
 som representerer type data de ønsker å samle inn fra fremtidige innbyggere.
+
+### Oppgaver
 
 1. [Last ned xsd-filen](datamodel.xsd). Hvis filen åpnes i nettleseren kan du opprette en ny tekstfil og kopiere over innholdet. Lagre filen som `datamodel.xsd`.
  Alternativt kan du kopiere URLen til filen og kjøre kommandoen `curl <fil-URL>` fra kommandolinjen. Åpne filen i et tekstredigeringsprogram
@@ -89,7 +94,7 @@ Hvis du skal gjøre hele eller deler av utviklingen lokalt kan du [klargjøre fo
   
 {{% /expandlarge %}}
 
-{{% expandlarge id="redigere-tekster" header="Redigere tekster" %}}
+{{% expandlarge id="redigere-tekster" header="Opprette og redigere tekster" %}}
 [Tekster i Altinn Studio](/nb/app/development/ux/texts/) lagres i en egne språkfiler (også kalt tekstressurser) og kan knyttes til skjema-komponenter via en tekstnøkkel.
 Tekstene kan [opprettes og redigeres i Altinn Studio Designer](/nb/app/development/ux/texts/#altinn-studio-designer) eller [direkte i filen](/nb/app/development/ux/texts/#legge-til-og-endre-tekster-i-repository).
 
@@ -101,10 +106,13 @@ Tekstene kan [opprettes og redigeres i Altinn Studio Designer](/nb/app/developme
 For at tjenesten skal være brukervennlig og mulig å benytte for de som sitter med synshemninger er det viktig at alle komponenter har gode og beskrivende
 overskrifter (labels).
 
+### Oppgaver
+
 1. [Opprett tekster](/nb/app/development/ux/texts/#legge-til-og-endre-tekster-i-en-app) for komponentene til det første skjemaet. Tekstene skal beskrive hva som beskriver hva som skal fylles inn og vil vises over feltene. Ta en titt på neste oppgave for å se hvilke komponenter du trenger tekst til.
 2. [Endre visningsnavn for applikasjonen](/nb/app/development/ux/texts/#endre-applikasjonstittel). Det er viktig at applikasjonens visningsnavn klinger godt og er beskrivende for tjenesten.
-3. Legg til oversettelse(r) for tekstene. Applikasjonen må være tilgjengelig både på bokmål, nynorsk og engelsk. I en første versjon er det tilstrekkelig at kun ett av disse språkene støttes.
+3. [Legg til oversettelse(r) for tekstene](/nb/app/development/ux/texts/#legge-til-og-endre-tekster-i-en-app). Applikasjonen må være tilgjengelig både på bokmål, nynorsk og engelsk. I en første versjon er det tilstrekkelig at kun ett av disse språkene støttes.
 
+Husk å laste opp endringer når du jobber i Designer så de reflekteres i repoet.
 I neste steg skal du opprette komponenter og knytte tekstene du har opprettet til disse.
 
 ### Nyttig dokumentasjon
@@ -123,30 +131,35 @@ I Altinn i dag støtter vi tre skriftspråk: Bokmål, nynorsk og engelsk.
 
 {{% /expandlarge %}}
 
-{{% expandlarge id="sette-opp-komponenter" header="Sette opp komponenter" %}}
+{{% expandlarge id="legge-til-komponenter" header="Legge til komponenter" %}}
 
-Feltene som skal fylles ut på en skjemaside kan settes opp ved hjelp av "drag and drop" i Altinn Studio
-eller manuelt i json-filen som beskriver utseendet til en skjemaside _FormLayout.json_.
-
-Det er mulig å koble tekster til komponenter både i Altinn Studio og lokalt.
-
-1. Sett opp den første skjemasiden basert på kravene fra kommunen.
-2. Koble tekst til hver av komponentene.
+Komponentene i en applikasjon kan settes opp ved hjelp av "drag and drop" i [Altinn Studio Designer](/nb/app/getting-started/ui-editor/)
+eller manuelt i filen _{sidenavn}.json_ som beskriver strukturen til en skjemaside (du finner filen under `App/ui/layouts`).
 
 ### Krav fra kommunen
 
-- Vil ha navn og alder på personen som er tilflytter
+Første skjemaside innhenter personlig informasjon om tilflytteren og skal ha følgende komponenter som tekst input:
+- Navn
   - Fornavn
   - Mellomnavn (valgfritt)
   - Etternavn
-  - Alder
-- Vil ha adressen på personen som er tilflytter
+- Alder
+- Adresse
   - Gateadresse
   - Postnummer
   - Poststed
-- Vil ha kontaktinformasjon på personen som er tilflytter
+- Kontaktinformasjon
   - Epost
   - Telefon
+
+Feltene skal være obligatoriske med mindre noe annet er indikert.
+
+### Oppgaver
+
+1. Sett opp den første skjemasiden med komponenter basert på kravene fra kommunen.
+2. Koble tekst til hver av komponentene.
+
+Husk å laste opp endringer når du jobber i Designer så de reflekteres i repoet.
 
 ### Nyttig dokumentasjon
 
@@ -156,12 +169,12 @@ Det er mulig å koble tekster til komponenter både i Altinn Studio og lokalt.
 
 ### Forståelsessjekk
 
-I applikasjonsrepoet ditt finner du _FormLayout.json_ i mappen `App/ui/layouts`. JSON-filen beskriver skjemasiden du har satt opp i Altinn Studio,
-gitt at du har pushet endringene dine til master.
+I applikasjonsrepoet ditt finner du _{sidenavn}.json_ i mappen `App/ui/layouts`. JSON-filen beskriver skjemasiden du har satt opp i Altinn Studio
+gitt at du har lastet opp endringene.
 
 - Finner du igjen komponenten som er koblet til e-post-feltet?
 - Hvilken endring kreves i denne filen dersom e-post-feltet ikke lenger skal være påkrevd?
-- Ved å endre én linje i _FormLayout.json_ er det mulig å endre komponenten knyttet til mellomnavn
+- Ved å endre én linje i _{sidenavn}.json_ er det mulig å endre komponenten knyttet til mellomnavn
   til et inndatafelt for et langt svar. Hvilken endring kreves?
 {{% /expandlarge %}}
 
