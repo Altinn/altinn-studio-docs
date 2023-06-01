@@ -36,7 +36,7 @@ Applikasjonen må ha et beskrivende navn (ID) som gjør det enkelt å finne den 
 applikasjoner Sogndal kommune har i Altinn Studio.
 
 {{% notice info %}}
-Dersom du skal teste appen i et [testmiljø](/nb/app/testing/deploy/) (beskrevet i [Modul 3](/nb/app/app-dev-course/modul3/)) må du velge en organisasjon som eier.
+Dersom du skal teste appen i et [testmiljø](/nb/app/guides/testing/deploy/) (beskrevet i [Modul 3](/nb/app/app-dev-course/modul3/)) må du velge en organisasjon som eier.
  Du må ha [tilgang til organisasjonen](/nb/app/getting-started/create-user/#bli-del-av-en-organisasjon) og organisasjonen må ha tilgang til et testmiljø.
  {{% /notice %}}
 
@@ -149,7 +149,7 @@ Basert på kravene fra kommunen klarer du å sette opp den første skjemasiden i
 
 - [Hvordan bygge et skjema med UI editor i Altinn Studio](/nb/app/getting-started/ui-editor/)
 - [Tilgjengelige komponenter i Altinn Studio](/altinn-studio/designer/build-app/ui-designer/components/)
-- [Retningslinjer for bruk av komponenter](/nb/app/design/guidelines/components/)
+- [Retningslinjer for bruk av komponenter](/nb/app/guides/design/guidelines/components/)
 
 ### Forståelsessjekk
 
