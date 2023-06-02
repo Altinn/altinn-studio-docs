@@ -1,206 +1,187 @@
 ---
 title: Module 1
-description: Create app in Studio, set up local development environment and local test
+description: Create an app and make a simple form
 linktitle: Module 1
 tags: [apps, training, datamodel, localtest, texts]
 weight: 20
 ---
 
-In this module you will, based on the requirements of the municipality of Sogndal,
-set up the first page of your application for newcomers and verify that everything looks as expected locally.
+In this module, you will create the application itself, add a data model, and set up a simple form based on the requirements from Sogndal Municipality.
+
+The first two tasks (creating the application and adding the data model) must be done in Altinn Studio. If you are developing the app locally, you can follow the instructions for [preparing for local development and testing](/app/getting-started/local-dev) after completing these tasks.
+
+{{% notice info %}}
+**NOTE**  
+All the steps in this module can be performed in Altinn Studio's graphical user interface, [Altinn Studio Designer](/app/getting-started/ui-editor). However, completing the remaining modules and having a fully functional application requires local development.
+{{% /notice %}}
 
 **Topics covered in this module:**
 
-- Create new application
-- Add data model and connect fields
-- Develop app in local developing environment
-- Editing of text resources
-- Test application in local development environment (LocalTest)
+- Creating a new application
+- Adding a data model
+- Adding form components and connecting them to the data model
+- Text editing
 
 ## Tasks
 
-{{% expandlarge id="create-new-application" header="Create new application" %}}
+{{% expandlarge id="create-new-application" header="Create a New Application" %}}
 
-Create a new application in Altinn Studio, the owner should be an organization that you have access to.
-If you are only running the application locally you can set yourself as the owner.
+Applications are created from the [Altinn Studio Dashboard](/app/getting-started/navigation/dashboard/).
 
-### Requirements from the municipality
+### Requirements from the Municipality
 
-- The application must have a sensible name that makes it easy to find it again among the large number
-of repositories Sogndal keeps in Altinn Studio.
-
-- There are currently no plans for yearly revisions of the app,
-  so the year does not need to be taken into account.
-
-There is a wish that one or more of the words "newcomer" and "Sogndal" is included in the name.
-
-### Useful documentation
-- [Create app in Altinn Studio](/app/getting-started/create-app/)
-
-{{% /expandlarge %}}
-
-
-{{% expandlarge id="upload-datamodel" header="Upload data model" %}}
-The municipality of Sogndal has created [a data model](/app/app-dev-course/modul1/datamodel.xsd)
-representing data they wish to collect from future residents.
+The application must have a descriptive name (ID) that makes it easy to find among the large number of applications Sogndal Municipality has in Altinn Studio.
 
 {{% notice info %}}
-In some cases you might have to create the data model 
-for a service yourself. This can be done by using the data modelling tool in 
-Altinn Studio (launching Spring 2022), or by using an existing model as a starting point and 
-editing it using a text editor.
+If you want to test the app in a [test environment](/app/guides/testing/deploy/) (described in [Module 3](/app/app-dev-course/modul3/)), you need to select an organization as the owner.
+You must have [access to the organization](/app/getting-started/create-user/#join-an-organization), and the organization must have access to a test environment.
 {{% /notice %}}
 
+### Tasks
 
-1. [Download the xsd-file](datamodel.xsd), open it in a text editing program
-   and take a closer look at the contents.
+1. [Create an application in Altinn Studio](/app/getting-started/create-app/)
 
-2. [Upload the data model in Altinn Studio](/app/development/data/data-model/data-models-tool/#laste-opp--vise-datamodell)
+### Useful Documentation
 
-3. Push the changes to master and take a closer look at the files in the folder `App/models`
-
-
-### Knowledge check
-
-- Which data is it the service owner wishes to collect here?
-- Which effect has **\<minOccurs\>** in the data model? You may notice that the field has a different value for _Innflytter.Fornavn_ and _Innflytter.Mellomnavn_.
-- Which other properties is set on the field _Innflytter.Mellomnavn_?
-- A _.cs_, _.metadata.json_ and _.schema.json_ file has been generated in addition to the _.xsd_ file you uploaded. What is the correlation between these files?
-- Some restrictions from the data model are not transferred to the _C#_-file, which ones? Some new properties have also been added, which ones?
-
-### Useful documentation
-- [Upload data model in Altinn Studio](/app/development/data/data-model/data-models-tool/#laste-opp--vise-datamodell)
-- [Description of indicators in XSD](https://www.w3schools.com/xml/schema_complex_indicators.asp)
+- [Navigating Altinn Studio](/app/getting-started/navigation)
+- [Altinn Studio Dashboard](/app/getting-started/navigation/dashboard/)
 
 {{% /expandlarge %}}
 
+{{% expandlarge id="add-data-model" header="Add a Data Model" %}}
 
-{{% expandlarge id="edit-texts" header="Edit texts" %}}
+The data model defines the data that can be submitted through an app and the format in which it should be submitted.
 
-To make the service user friendly and available to use for those with visual impairments, it is important that all components have 
-descriptive titles and descriptions.
+In Altinn Studio, you can add a data model by [uploading an _xsd_ file](/app/development/data/data-model/data-models-tool/#laste-opp--vise-datamodell) or [creating a new data model](/app/development/data/data-model/data-models-tool/#lage-ny-datamodell) using the data modeling tool.
+You can also start from an existing data model and edit it in a text editor or [directly in Altinn Studio](/app/development/data/data-model/data-models-tool/#redigere-datamodell).
+In this task, you will only upload a pre-existing data model.
 
-It is possible to connect texts to components in both Altinn Studio and locally.
+### Requirements from the Municipality
+
+Sogndal Municipality has created a [data model](datamodel.xsd) that represents the type of data they want to collect from future residents.
+
+### Tasks
+
+1. [Download the xsd file](datamodel.xsd). If the file opens in the browser, create a new text file and copy the content over. Save the file as `datamodel.xsd`.
+Alternatively, you can copy the URL of the file and run the command `curl <file-URL>` from the command line. Open the file in a text editor and examine its content.
+2. [Upload the data model in Altinn Studio](/app/development/data/data-model/data-models-tool/#laste-opp--vise-datamodell)
+3. Save the changes (click "Last opp dine endringer").
+4. Open the app's repository from the [Altinn Studio Dashboard](/app/getting-started/navigation/dashboard/) and take a closer look at the files in the `App/models` folder.
+
+### Knowledge Check
+
+- What kind of data does the service owner want to collect here?
+- What effect does **\<minOccurs\>** have in the data model? You will see that the field has a different value for _Innflytter.Fornavn_ (First Name) and _Innflytter.Mellomnavn_ (Middle Name).
+- What other properties are set on the _Innflytter.Mellomnavn_ (Middle Name) field?
+- In addition to the uploaded _.xsd_ file, _.C#_, _.metadata.json_, and _.schema.json_ files have been generated. What is the relationship between these files?
+- Some restrictions from the data model are not transferred to the _C#_ file. Which ones? Some new properties have also been added. Which ones?
+
+{{% notice info %}}
+If you plan to do the entire development or parts of it locally, you can [prepare for local development and testing](/app/getting-started/local-dev) after creating the application and adding the data model.
+{{% /notice %}}
+
+### Useful Documentation
+
+- [Altinn Studio Data Modeling](/app/development/data/data-model/data-models-tool/)
+- [Description of Indicators in XSD](https://www.w3schools.com/xml/schema_complex_indicators.asp)
+- [Installing curl for Windows](https://developer.zendesk.com/documentation/api-basics/getting-started/installing-and-using-curl/#windows)
+- [Altinn Studio Repository](/app/getting-started/navigation/repos/)
+
+{{% /expandlarge %}}
+
+{{% expandlarge id="edit-texts" header="Create and Edit Texts" %}}
+
+[Texts in Altinn Studio](/app/development/ux/texts/) are stored in separate language files (also called resource files) and can be linked to form components using a text key.
+The texts can be [created and edited in Altinn Studio Designer](/app/development/ux/texts/#altinn-studio-text-editor) or [directly in the file](/app/development/ux/texts/#changing-texts-directly-in-the-repository).
 
 {{% notice warning %}}
-**NOTE**: Display name for the application must be changed in both `App/config/applicationMetadata.json` and in the text resources.
+**NOTE**: The display name for the application must be changed both in `App/config/applicationMetadata.json` and in the language files.
 {{% /notice %}}
 
+### Requirements from the Municipality
 
-### Requirements from the municipality
+To make the service user-friendly and accessible for people with visual impairments, it is important that all components have good and descriptive labels.
 
-- All input fields should have descriptive labels that clarifies what should be filled in.
-- The application must be available in bokmål, nynorsk and english.
-  In a first edition it is sufficient that only one of these languages is available.
-- It is important that the display name of the application sounds good and is descriptive of the service.
+### Tasks
+
+1. [Create texts](/app/development/ux/texts/#add-and-change-texts-in-an-application) for the components of the first form. The texts should describe what needs to be filled in and will be displayed above the fields. Take a look at the next task to see which components you need texts for.
+2. [Change the display name for the application](/app/development/ux/texts/#change-application-title). It is important that the application's display name sounds good and describes the service well.
+3. [Add translation(s) for the texts](/app/development/ux/texts/#add-and-change-texts-in-an-application). The application must be available in Norwegian Bokmål, Norwegian Nynorsk, and English. In the initial version, it is sufficient to support only one of these languages.
 
 
-### Useful documentation
-- [Edit application texts](/app/development/ux/texts/#add-and-change-texts-in-an-application)
-- [Formatting of texts](/app/development/ux/texts/#formatting-of-texts)
-- [ISO 639-1 standard](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)
+Remember to upload changes when working in Designer so they are reflected in the repository.
+In the next step, you will create components and link the texts you have created to them.
 
-### Knowledge check
+### Useful Documentation
 
-In Altinn we support three languages: bokmål, nynorsk and english.
-- How do you get english language support in the application?
-- If we one day were to support Ukrainian, which language code would you then need to annotate the file with?
-- If a text key referred to in FormLayout.json does not exist in the text resources, what will appear on the screen?
+- [Texts in Altinn Studio](/app/development/ux/texts/)
+- [Editing Application Texts](/app/development/ux/texts/#add-and-change-texts-in-an-application)
+- [Formatting of Texts](/app/development/ux/texts/#formatting-of-texts)
+- [ISO 639-1 Standard language codes](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)
+
+### Knowledge Check
+
+In Altinn, we currently support three written languages: Norwegian Bokmål, Norwegian Nynorsk, and English.
+
+- How do you add English language support to the application?
+- If we were to support Ukrainian in the future, what language code would you need to annotate the file with?
 
 {{% /expandlarge %}}
 
-{{% expandlarge id="set-up-components" header="Set up components" %}}
+{{% expandlarge id="add-components" header="Add Components" %}}
 
-The fields to be filled out on a form page can be created by using the "drag and drop" function in Altinn Studio
-or manually in the json-file that describes the appearance of a from page _FormLayout.json_.
+The components in an application can be set up using "drag and drop" in [Altinn Studio Designer](/app/getting-started/ui-editor/)
+or manually in the _{pagename}.json_ file that describes the structure of a form page (you can find the file under `App/ui/layouts`).
 
-Based on the requirements from the municipality, can you now set up the first form page in Altinn Studio?
+### Requirements from the Municipality
 
-### Requirments from the municipality
-
-- Name and age of the person who is a newcomer
-  - First name
-  - Middle name (optional)
-  - Last name
-  - Age
-- Address of the person who is a newcomer
-  - Street address
-  - Postal code
-  - Postal city
-- Contact information of the person who is a newcomer
+The first form page gathers personal information about the new resident and should have the following text input components:
+- Name
+  - First Name
+  - Middle Name (optional)
+  - Last Name
+- Age
+- Address
+  - Street Address
+  - Postal Code
+  - City
+- Contact Information
   - Email
   - Phone number
 
-### Useful documentation
-- [How to build a form with UI editor in Altinn Studio](/app/getting-started/ui-editor/)
-- [Available components in Altinn Studio](/altinn-studio/designer/build-app/ui-designer/components/)
-- [Guidelines for using components](/app/guides/design/guidelines/components/)
+The fields should be mandatory unless indicated otherwise.
 
-### Knowledge check
+### Tasks
 
-In your application repository you will find _FormLayout.json_ in the folder `App/ui/layouts`. The JSON file describes the form page you have created in
-Altinn Studio, given that you have pushed your changes to master.
+1. Set up the first form page with components based on the requirements from the Municipality.
+2. Add labels by connecting text resources to each of the components.
 
-- Can you locate the component connected to the email-field?
-- What change is required in this file if the email-field is no longer required?
-- By changing one line in _FormLayout.json_ it is possible to change the component attached to the middle name
-  to an input field for a long answer. What change is required?
+Remember to upload changes when working in Designer so they are reflected in the repository.
+
+### Useful Documentation
+
+- [Building a Form with the UI Editor in Altinn Studio](/app/getting-started/ui-editor/)
+- [Available components in Altinn Studio Library](/app/guides/design/guidelines/components/)
+
+### Knowledge Check
+
+In your application repository, you will find the _{pagename}.json_ file in the `App/ui/layouts` folder. The JSON file describes the form page you have set up in Altinn Studio, assuming you have uploaded the changes.
+
+- Can you find the component linked to the email field?
+- What change is required in this file if the email field is no longer mandatory?
+- By changing one line in the _{pagename}.json_ file, you can convert the component linked to the middle name field into a free-text input field. What change is required?
 {{% /expandlarge %}}
-
-
-{{% expandlarge id="download-app-locally" header="Download application locally" %}}
-
-Some application features are not supported for development in Altinn Studio.
-These must be developed in a local development environment.
-
-The development itself can be carried out in your preferred development tool,
-but if you need a recommendation [Visual Studio Code](https://code.visualstudio.com/Download) is a good option.
-
-
-### Useful documentation
-- [How to clone an application to local development environment](/app/getting-started/local-dev/#how-to-clone-an-application-to-the-local-environment)
-- [How to synchronize changes in local development environment](/app/getting-started/local-dev/#how-to-synchronize-changes-in-local-dev-environment)
-{{% /expandlarge %}}
-
-
-{{% expandlarge id="run-in-localtest" header="Run application in LocalTest" %}}
-
-By using a mock that can be spun up locally by Altinn Platform, it is possible to
-do simple testing and verification of the application in the local development environment.
-
-In this task you will be able to run the application locally with support from LocalTest.
-When the app is running and you have logged in with a test user, you should have a result resembling this:
-
-!["Application running locally"](/app/app-dev-course/modul1/app-running-locally.jpeg "A picture of the application running locally")
-
-{{% notice info %}}
-Moving on you will want to test your changes continuously in LocalTest.
-- In the event of changes related to formLayout and other _json_-files, a refresh (F5) in the browser is sufficient.
-- In the event of changes in prefill, the application must be instantiated again.
-- In the event of changes in _cs_-files, the application must be stopped and restarted.
-  Alternatively, you may use the `dotnet run watch` when you start the application for hot reload.
-
-{{% /notice %}}
-
-
-### Useful documentation
-- [How to set up LocalTest](https://github.com/Altinn/app-localtest/blob/master/README.md)
-- [Debugging of application](/app/guides/testing/local/debug/)
-- [Available test-users in LocalTest](/app/guides/testing/local/testusers/)
-{{% /expandlarge %}}
-
 
 ## Summary
 
-In this module you have created an application in Altinn Studio, uploaded a data model
-and set up a form page that connects components to some of the fields in the data model.
-Furthermore, you have cloned the repository locally to further develop the application in your local development environment.
+In this module, you have created an application in Altinn Studio,
+added a data model, and set up a form page that connects components to fields in the data model.
 
-The service should be able to run on your local computer with LocalTest and you should be able to fill in the fields.
+If you have prepared for local development, you have also cloned the application to your local development environment.
+The application should be runnable on your local machine with LocalTest, and you should be able to fill in the fields.
 
-**Remember to _push_ your local changes to make them available in Altinn Studio when you are happy with them.**
+## Solution Proposal
 
-### Solution
-If you have not completed all the steps, we have an [example solution](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/1) that you can use as inspiration.
+If you haven't completed all the steps, we have a [solution proposal](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/1) that you can draw inspiration from.
 
-![Screenshot of data collecting page](/app/app-dev-course/modul1/data-screenshot.png "Screenshot of data collecting page")
+![Screenshot of the data collection page](/app/app-dev-course/modul1/data-screenshot.png "Screenshot of the data collection page")
