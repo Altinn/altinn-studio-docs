@@ -1,7 +1,7 @@
 ---
 title: Shadow fields in form data
 linktitle: Shadow fields
-description: Konfiguration of shadow fields for app.
+description: Configuration of shadow fields for app.
 weight: 200
 ---
 
