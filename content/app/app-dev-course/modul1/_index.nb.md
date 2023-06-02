@@ -55,7 +55,7 @@ Dersom du skal teste appen i et [testmiljø](/nb/app/guides/testing/deploy/) (be
 
 Datamodellen definerer hvilke data som kan sendes inn via en app og hvilket format det skal sendes på.
 
-I Altinn Studio kan du legge til datamodell ved å [laste opp en _xsd_-fil](/app/development/data/data-model/data-models-tool/#laste-opp--vise-datamodell) eller [lage ny datamodell](/app/development/data/data-model/data-models-tool/#lage-ny-datamodell) med datamodelleringsverktøyet.
+I Altinn Studio kan du legge til datamodell ved å [laste opp en _xsd_-fil](/nb/app/development/data/data-model/data-models-tool/#laste-opp-og-vise-datamodell) eller [lage ny datamodell](/app/development/data/data-model/data-models-tool/#lage-ny-datamodell) med datamodelleringsverktøyet.
  Du kan også ta utgangspunkt i en eksisterende datamodell og redigere den i et tekstredigeringsprogram eller [direkte i Altinn Studio](/app/development/data/data-model/data-models-tool/#redigere-datamodell).
   I denne oppgaven skal du kun laste opp en ferdig datamodell.
 
@@ -69,7 +69,7 @@ som representerer type data de ønsker å samle inn fra fremtidige innbyggere.
 1. [Last ned xsd-filen](datamodel.xsd). Hvis filen åpnes i nettleseren kan du opprette en ny tekstfil og kopiere over innholdet. Lagre filen som `datamodel.xsd`.
  Alternativt kan du kopiere URLen til filen og kjøre kommandoen `curl <fil-URL>` fra kommandolinjen. Åpne filen i et tekstredigeringsprogram
    og ta en nærmere titt på innholdet.
-2. [Last opp datamodellen i Altinn Studio](/app/development/data/data-model/data-models-tool/#laste-opp--vise-datamodell)
+2. [Last opp datamodellen i Altinn Studio](/nb/app/development/data/data-model/data-models-tool/#laste-opp-og-vise-datamodell)
 3. Lagre endringene (Klikk "Last opp dine endringer").
 4. Åpne repository til appen fra [Altinn Studio Dashboard](/nb/app/getting-started/navigation/dashboard/) og ta en nærmere titt på filene i mappen `App/models`.
 
