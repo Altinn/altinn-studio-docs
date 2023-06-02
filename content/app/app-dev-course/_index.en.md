@@ -1,27 +1,38 @@
 ---
-title: Intro course
-description: An introductory course to app development with Altinn Studio and local dev tools.
-linktitle: Intro course
+title: Intro Course
+description: Build an application with Altinn Studio
+linktitle: Intro Course
 tags: [apps, build, deploy, training]
 weight: 15
 ---
 
-This intro course is divided into six modules and covers a fictitious case for the municipality of Sogndal.
-Over the course of these six modules, you will have gone through the main functionality of an Altinn App,
-as well as testing the app locally and in a test environment.
+The intro course is divided into 7 modules and covers a fictional case for Sogndal Municipality.
+Each module has a description of the task and links to relevant documentation.
 
-Three things have to be in order before you can get started with this course.
+You can choose to perform the tasks in [Altinn Studio Designer](/app/getting-started/ui-editor) (drag-and-drop graphical user interface) or in a [local development environment](/app/getting-started/local-dev) (requires some technical skills).
+You can also combine these approaches.
 
-1. [A user in Altinn Studio](/app/getting-started/create-user/#create-a-user-in-altinn-studio)
-2. [Your local development environment is set up with support for development and testing of apps](https://github.com/Altinn/app-localtest/blob/master/README.md#prerequisites)
-3. [Access to an organization with a test environment](/app/getting-started/create-user/#join-an-organization)*
+Throughout these seven modules, you will have covered the most essential functionality for an Altinn app, as well as testing the application locally and in a test environment.
 
-\* A prerequisite for module 3. The remaining modules can be completed with full learning benefits without this being set up.
+{{% notice info %}}
+**NOTE**
 
-![Are you ready?](the-goon-dodgeball.gif)
+**To have a fully functional application, some local development is currently required.**
+New functionality is continually added to the Designer, and the documentation is updated regularly.
+Module 1 can be completed entirely in Altinn Studio Designer.
+{{% /notice %}}
 
-### Let's get started!
+## Before you start
 
-### Read through the municipality of Sogndal's case, and work through it module by module.
+Before you can build an application, there are some things that need to be in place. Go through the following points from
+**[Get Started](/app/getting-started)** (wait with the remaining points until [Module 1](/app/app-dev-course/modul1)):
+
+1. [Create a user](/app/getting-started/create-user)
+2. [Learn to navigate Altinn Studio](/app/getting-started/navigation)
+3. [Get familiar with Altinn Studio Designer](/app/getting-started/ui-editor)
+
+Read through the requirements specifications (case description) for Sogndal Municipality and work through the modules step by step.
+
+**Good luck!**
 
 {{<children />}}
