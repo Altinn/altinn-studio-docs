@@ -1,27 +1,35 @@
 ---
 title: Apps infrastructure access
 linktitle: Apps
-description: How to order access to Altinn Apps infrastructure.
+description: How to request access to Altinn Apps infrastructure.
 toc: false
 weight: 200
-tags: [translate-to-english]
 ---
 
-## Tilgang til logger og hemmeligheter
+## Access to logs and secrets
 
-Det er definert to forskjellige typer roller for tilgang i driftsmiljøene i Altinn Apps.
+There are two different roles that give access to the runtime environments in Altinn Apps.
 
-- _Developer_ gir tilgang til _Application Insights_ der applikasjonslogger samles for tjenesteeier sine applikasjoner i miljøet.
-- _Operations_ gir tilgang til _Key Vault_ for å laste opp hemmeligheter som sertifikater, passord og api-nøkler.
+- _Developer_ : grants access to _Application Insights_ where logs for the applications owned by the service owner are stored.
+- _Operations_ : grants access to _Key Vault_ which is used to manage the secrets used by applications.
 
-Disse rollene er videre delt opp i tilgang til test (TT02) og produksjon (prod). En bruker kan tildeles en eller flere roller.
+There are two variants of each role: one for test (TT02) and one for production (prod).
+A user can be assigned one or more roles.
 
-Tjenesteeiere kan bestille følgende tilganger for sine ressurser i miljøene TT02 og produksjon:
+The following roles can be requested assigned to a user by the service owner:
 
 - Test Developer
 - Test Operations
 - Prod Developer
 - Prod Operations
 
-For å få aksess til disse rollene må autoriserte bestillere hos Tjenesteeier, bestille dette på vår [Selvbetjeningsportal](https://www.altinndigital.no/oversikt). 
-Velg Support, så ny sak. Her skal du finne skjemaet _Apps_ under menyvalget _Bestilling/tilganger_.
+To be assigned a role you must first have a registered user belonging to the same service owner as the application whose runtime environment you wish to access.
+Requests are submitted using our [self-service portal](https://www.altinndigital.no/oversikt).
+There are also instructions for registering a new user for the first time.
+
+To create a ticket requesting a new role for you user click the tab _"Support"_ then choose the option _"Ny sak"_ from the left-hand side menu.
+* On the first page of the form select the options: _"Bestilling"_ and _"Tilganger"_. 
+* Select the option _"Altinn 3.0 - Apps"_ on the second page.
+* Finally, specify the desired roles along with the contact information of the user who the roles should be granted to.
+
+When the user has been assigned the requested roles logs and/or secrets can be accessed through [Microsoft Azure Portal](https://portal.azure.com).
