@@ -179,22 +179,15 @@ Når man skal skrive et uttrykk er det greit å vite noenlunde hva resultatet ko
 Ugyldige uttrykk gir en advarsel i JavaScript-konsollet i nettleseren når siden lastes, så det kan være lurt å ha
 dette konsollet åpent når man utvikler en applikasjon og tester uttrykkene lokalt.
 
-Det er også mulig å teste ut kjøring av et uttrykk rett i nettleserens JavaScript-konsoll. Det gjøres ved å bruke
-funksjonen `evalExpression()`. Som første parameter tar den inn et hvilket som helst uttrykk, og resultatet skrives
-tilbake til konsollet:
-
-!["Eksempelkjøring av evalExpression()"](evalExpression.png "Eksempelkjøring av evalExpression()" )
-
-Uttrykk vil også kunne oppføre seg annerledes alt etter hvilken komponent de evalueres i nærheten av.
-Som et valgfritt andre parameter kan du også sende inn ID-en til en komponent som skal brukes som kontekst når
-uttrykket evalueres.  Hvis du er usikker på hvilke komponenter og IDer som er tilgjengelige på siden du ser på i
-applikasjonen, kan du prøve å sende inn en tom streng eller ugyldig komponent-ID som andre parameter, så vil du få tips
-til hvilke ID-er du kan bruke.
+Det er også mulig å teste ut kjøring av et uttrykk rett i utviklerverktøyene. Det gjøres ved å trykke `Ctrl + Shift + K`
+(eller `Cmd + Shift + K` på Mac) og navigere til fanen for uttrykk. Uttrykk vil kunne oppføre seg annerledes alt etter
+hvilken komponent de evalueres i nærheten av. Derfor kan man også velge en komponent som skal brukes som kontekst når
+uttrykket evalueres i utviklerverktøyene.
 
 {{% expandlarge id="rep-group-expandable" header="Eksempel på ID-er og evaluering i repterende grupper" %}}
 
 **NB:** Her beskrives noen implementasjonsdetaljer i [app-frontend-react](https://github.com/Altinn/app-frontend-react/),
-og er kun relevant når du skal prøve et uttrykk i JavaScript-konsollet som er avhengig av en kjent posisjon i en
+og er kun relevant når du skal prøve et uttrykk i utviklerverktøyene som er avhengig av en kjent posisjon i en
 repeterende gruppe. Dette kan endres i fremtiden, og slike endringer vil ikke påvirke uttrykk som man har definert i en
 applikasjon. Der hentes konteksten ut fra hvor uttrykket er definert i layout-filen.
 
@@ -205,9 +198,7 @@ Gitt dette uttrykket:
 
 Hva vil alderen være? Det vil kunne variere etter hvilken gruppe som evaluerer
 uttrykket. Har man har to grupper/rader vil både `navn`- og `alder`-komponentene finnes to ganger hver. Disse vil få
-ID-ene `navn-0` og `alder-0` (for den første raden) og `navn-1` og `alder-1` (for den andre raden). Du kan lete etter
-den nærmeste alder-komponenten (den som tilhører samme gruppe/rad som `navn`-komponenten) ved å spesifisere en
-mer nøyaktig ID i tilfeller der uttrykk evalueres i repeterende gruppe.
+ID-ene `navn-0` og `alder-0` (for den første raden) og `navn-1` og `alder-1` (for den andre raden).
 
 Tenk deg at følgende data er fyllt inn i en repeterende gruppe:
 
@@ -217,19 +208,24 @@ Tenk deg at følgende data er fyllt inn i en repeterende gruppe:
 | Kari | `navn-1`     | 36    | `alder-1`    |
 | Ola  | `navn-2`     | 18    | `alder-2`    |
 
-```javascript
-evalExpression(["component", "alder"]); // Eksempel 1
-evalExpression(["component", "alder"], "navn"); // Eksempel 2
-evalExpression(["component", "alder"], "navn-0"); // Eksempel 3
-evalExpression(["component", "alder"], "navn-1"); // Eksempel 4
+Gitt følgende uttrykk:
+
+```json
+["component", "alder"]
 ```
+
+Og med disse forutsetningene:
+1. Man har ikke gitt noen kontekst (eventuelt, uttrykket plasseres på en komponent som ikke er i nærheten av
+   en `alder`-komponent)
+2. Man evaluerer uttrykket i kontekst av `navn-0`
+3. Man evaluerer uttrykket i kontekst av `navn-1`
+
+Hva vil resultatet bli i de forskjellige eksemplene? Her er svarene:
 
 1. Denne vil finne "første og beste" `alder`-komponent, og finner dermed `alder-0`. Den returnerer
    derfor *24*, Per sin alder.
-2. Denne prøver å evaluere uttrykket i kontekst av den første `navn`-komponenten den finner, som er `navn-0`.
-   Den nærmeste `alder`-komponenten til `navn-0` er `alder-0`, og dermed vår vi igjen *24*, Per sin alder.
-3. Her prøver vi å lete i kontekst av `navn`-komponenten på første rad, og igjen finner vi *24*, Per sin alder.
-4. I siste eksempel har vi spesifisert andre rad i den repeterende gruppen ved å evaluere i kontekst av `navn-1`.
+2. Her prøver vi å lete i kontekst av `navn`-komponenten på første rad, og igjen finner vi *24*, Per sin alder.
+3. siste eksempel har vi spesifisert andre rad i den repeterende gruppen ved å evaluere i kontekst av `navn-1`.
    Her finner vi den nærmeste `alder`-komponenten `alder-1`, som er *36*, Kari sin alder.
 
 {{% /expandlarge %}}
