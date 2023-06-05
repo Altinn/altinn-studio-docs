@@ -52,7 +52,7 @@ You must have [access to the organization](/app/getting-started/create-user/#joi
 
 The data model defines the data that can be submitted through an app and the format in which it should be submitted.
 
-In Altinn Studio, you can add a data model by [uploading an _xsd_ file](/app/development/data/data-model/data-models-tool/#laste-opp-og-vise-datamodell) or [creating a new data model](/app/development/data/data-model/data-models-tool/#lage-ny-datamodell) using the data modeling tool.
+In Altinn Studio, you can add a data model by [uploading an _xsd_ file](/app/development/data/data-model/data-models-tool/#laste-opp--vise-datamodell) or [creating a new data model](/app/development/data/data-model/data-models-tool/#lage-ny-datamodell) using the data modeling tool.
 You can also start from an existing data model and edit it in a text editor or [directly in Altinn Studio](/app/development/data/data-model/data-models-tool/#redigere-datamodell).
 In this task, you will only upload a pre-existing data model.
 
@@ -64,7 +64,7 @@ Sogndal Municipality has created a [data model](datamodel.xsd) that represents t
 
 1. [Download the xsd file](datamodel.xsd). If the file opens in the browser, create a new text file and copy the content over. Save the file as `datamodel.xsd`.
 Alternatively, you can copy the URL of the file and run the command `curl <file-URL>` from the command line. Open the file in a text editor and examine its content.
-2. [Upload the data model in Altinn Studio](/app/development/data/data-model/data-models-tool/#laste-opp-og-vise-datamodell)
+2. [Upload the data model in Altinn Studio](/app/development/data/data-model/data-models-tool/#laste-opp--vise-datamodell)
 3. Save the changes (click "Last opp dine endringer").
 4. Open the app's repository from the [Altinn Studio Dashboard](/app/getting-started/navigation/dashboard/) and take a closer look at the files in the `App/models` folder.
 
