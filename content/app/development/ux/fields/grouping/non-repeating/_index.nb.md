@@ -51,9 +51,11 @@ En gruppe defineres på følgende måte i FormLayout.json:
 | [textResourceBindings](#textresourcebindings) | Nei     | Kan settes for grupper, se [nærmere beskrivelse under](#textresourcebindings).                                                                                    |
 | maxCount                                      | Nei     | Antall ganger en gruppe kan repetere. Må enten unnlates eller settes til `0` for ikke-repeterende grupper, ellers blir det en [repeterende gruppe](../repeating). |
 | children                                      | Ja      | Liste over komponent-IDer som inkluderes i gruppen.                                                                                                               |
+| showGroupingIndicator                         | Nei     | Viser en vertikal linje til venstre for gruppen for å indikere at feltene har en sammenheng. Kan være `true` eller `false`.                                       |
 
 ## textResourceBindings
 
 Det er mulig å legge til ulike nøkler i textResourceBindings:
 
 - `title` - Setter tittelen på gruppen. Om ikke satt, vil komponentene i gruppen vises som om de ikke var en del av en gruppe (uten tittel over)
+- `body` - Setter en beskrivelsestekst. Denne vises under tittelen, og over komponentene i gruppen.

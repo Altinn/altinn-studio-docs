@@ -2,7 +2,7 @@
 title: Vedlikehold av app i produksjon
 linktitle: Vedlikehold
 description: Applikasjoner i produksjon krever jevnlig vedlikehold og oppdateringer.
-weight: 700
+weight: 120
 ---
 
 Når applikasjonen er satt i produksjon, vil det oppstå behov for å vedlikeholde applikasjonen.

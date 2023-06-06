@@ -2,7 +2,7 @@
 
 Documentation for Altinn Studio: https://docs.altinn.studio/
 
-[![Altinn Studio docs build status](https://dev.azure.com/brreg/altinn-studio-docs/_apis/build/status/altinn-studio-docs-CI?label=docs.altinn.studio)](https://dev.azure.com/brreg/altinn-studio-docs/_build/latest?definitionId=16)
+![Build and Deploy](https://github.com/Altinn/altinn-studio-docs/actions/workflows/hugo.yml/badge.svg)
 
 ## Running Altinn Studio docs locally 
 

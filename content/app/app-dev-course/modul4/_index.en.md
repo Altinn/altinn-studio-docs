@@ -71,8 +71,8 @@ The municipality of Sogndal wishes to collect information on the newcomers worki
 
 ### Useful documentation
 
-- [How to set up static code lists](/app/development/data/options/#static-codelists-from-the-application-repository)
-- [Secured dynamic options](/app/development/data/options/#secured-dynamic-options)
+- [How to set up static code lists](/app/development/data/options/static-codelists)
+- [Secured dynamic options](/app/development/data/options/dynamic-codelists)
 
 ### Knowledge check
 - What is the difference between static and dynamic options?
@@ -96,7 +96,7 @@ We want the user to be presented with a different set of options for the industr
 
 ### Useful documentation
 - [How to pass query parameters when fetching options](/app/development/data/options/#pass-query-parameters-when-fetching-options)
-- [How to set up dynamic code lists](/app/development/data/options/#dynamic-codelists-generated-runtime)
+- [How to set up dynamic code lists](/app/development/data/options/dynamic-codelists)
 
 ### Knowledge check
 - If a list of options is set up with mapping towards the data model - what happens when the field in question changes value?

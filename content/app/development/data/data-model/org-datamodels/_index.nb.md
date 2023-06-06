@@ -39,6 +39,6 @@ for å bekrefte.
 ![Last opp XSD direkte til `<org>-datamodels` repo](./file-upload.gif "Last opp XSD direkte til <org>-datamodels repo")
 
 [1]: https://altinn.studio/repos
-[2]: /nb/app/getting-started/first-time-setup/
-[3]: /nb/app/getting-started/access-management/studio/
+[2]: /nb/app/getting-started/create-user/
+[3]: /nb/app/guides/access-management/studio/
 [4]: ../data-models-tool/

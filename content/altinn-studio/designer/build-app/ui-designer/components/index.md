@@ -8,7 +8,7 @@ aliases:
 ---
 
 ## Available UI components
-See documentation here: https://docs.altinn.studio/app/design/guidelines/components/
+See documentation here: https://docs.altinn.studio/app/guides/design/guidelines/components/
 ### Text components
 <table>
   <tbody>
@@ -19,7 +19,7 @@ See documentation here: https://docs.altinn.studio/app/design/guidelines/compone
       <th>Default look</th>
     </tr>
     <tr>
-      <td><a href="/app/design/guidelines/components/title-and-paragraph/">Title</a><br>("Header" in json)</td>
+      <td><a href="/app/guides/design/guidelines/components/title-and-paragraph/">Title</a><br>("Header" in json)</td>
       <td>
         <ul>
           <li>Title text<br/>(text in json)</li>
@@ -29,7 +29,7 @@ See documentation here: https://docs.altinn.studio/app/design/guidelines/compone
       <td><img alt="Title component - default look" src="display-title.png?width=700" title="Title component - default look" /></td>
     </tr>
     <tr>
-      <td><a href="/app/design/guidelines/components/title-and-paragraph/">Paragraph</a></td>
+      <td><a href="/app/guides/design/guidelines/components/title-and-paragraph/">Paragraph</a></td>
       <td>
         <ul>
           <li>Paragraph text</li>
@@ -51,7 +51,7 @@ See documentation here: https://docs.altinn.studio/app/design/guidelines/compone
       <th>Default look</th>
     </tr>
     <tr>
-      <td><a href="/app/design/guidelines/components/input/">Input</a></td>
+      <td><a href="/app/guides/design/guidelines/components/input/">Input</a></td>
       <td>
         <ul>
           <li>Link to data model</li>
@@ -62,7 +62,7 @@ See documentation here: https://docs.altinn.studio/app/design/guidelines/compone
       <td><img alt="Input component - default look" src="display-input.png?width=700" title="Input component - default look" /></td>
     </tr>
     <tr>
-      <td><a href="/app/design/guidelines/components/checkbox/">Checkboxes</a></td>
+      <td><a href="/app/guides/design/guidelines/components/checkbox/">Checkboxes</a></td>
       <td>
         <ul>
           <li>Link to data model</li>
@@ -86,7 +86,7 @@ See documentation here: https://docs.altinn.studio/app/design/guidelines/compone
       <td><img alt="Checkboxes component - default look" src="display-checkbox.png?width=700" title="Checkboxes component - default look" /></td>
     </tr>
     <tr>
-      <td><a href="/app/design/guidelines/components/radiobutton/">Radio buttons</a></td>
+      <td><a href="/app/guides/design/guidelines/components/radiobutton/">Radio buttons</a></td>
       <td>
         <ul>
           <li>Link to data model</li>
@@ -112,7 +112,7 @@ See documentation here: https://docs.altinn.studio/app/design/guidelines/compone
       </td>
     </tr>
         <tr>
-      <td><a href="/app/design/guidelines/components/select/">Dropdown</a></td>
+      <td><a href="/app/guides/design/guidelines/components/select/">Dropdown</a></td>
       <td>
         <ul>
           <li>Link to data model</li>
@@ -141,7 +141,7 @@ See documentation here: https://docs.altinn.studio/app/design/guidelines/compone
       <td><img alt="Text area component - default look" src="display-text-area.PNG?width=700" title="Text area component - default look" /></td>
     </tr>
     <tr>
-      <td><a href="/app/design/guidelines/components/date/">Datepicker</a></td>
+      <td><a href="/app/guides/design/guidelines/components/date/">Datepicker</a></td>
       <td>
         <ul>
           <li>Link to data model</li>
@@ -153,7 +153,7 @@ See documentation here: https://docs.altinn.studio/app/design/guidelines/compone
       <td><img alt="Text area component - default look" src="display-datepicker.png?width=700" title="Datepicker component - default look" /></td>
     </tr>
     <tr>
-      <td><a href="/app/design/guidelines/components/button/">Button</a></td>
+      <td><a href="/app/guides/design/guidelines/components/button/">Button</a></td>
       <td>
         <ul>
           <li>Action (not configurable in MVP)</li>
@@ -164,7 +164,7 @@ See documentation here: https://docs.altinn.studio/app/design/guidelines/compone
       <td>TBA</td>
     </tr>
     <tr>
-      <td><a href="/app/design/guidelines/components/file-upload/">File Upload</a></td>
+      <td><a href="/app/guides/design/guidelines/components/file-upload/">File Upload</a></td>
       <td>
         <ul>
           <li>Component mode</li>

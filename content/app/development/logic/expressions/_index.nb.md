@@ -119,19 +119,19 @@ Og for en person som er 15 år (eller yngre, som f.eks. en 4-åring), returneres
 
 Dynamiske uttrykk er foreløpig tilgjengelig for bruk i disse egenskapene, som definert i [layout-filer](../../ux/pages).
 
-| Komponenter                                               | Egenskap                                        | Forventet verdi            | Frontend | Backend |
-|-----------------------------------------------------------|-------------------------------------------------|----------------------------|----------|---------|
-| [Sider/layouts](#viseskjule-hele-sider)                   | `hidden`                                        | [Boolsk](#boolske-verdier) | ✅        | ✅       |
-| Alle                                                      | `hidden`                                        | [Boolsk](#boolske-verdier) | ✅        | ✅       |
-| Skjemakomponenter                                         | `required`                                      | [Boolsk](#boolske-verdier) | ✅        | ✅       |
-| Skjemakomponenter                                         | `readOnly`                                      | [Boolsk](#boolske-verdier) | ✅        | ❌       |
-| [Repeterende grupper](../../ux/fields/grouping/repeating) | `hiddenRow`                                     | [Boolsk](#boolske-verdier) | ✅        | ❌       |
-| [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.addButton`                                | [Boolsk](#boolske-verdier) | ✅        | ❌       |
-| [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.saveButton`                               | [Boolsk](#boolske-verdier) | ✅        | ❌       |
-| [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.deleteButton`                             | [Boolsk](#boolske-verdier) | ✅        | ❌       |
-| [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.alertOnDelete`                            | [Boolsk](#boolske-verdier) | ✅        | ❌       |
-| [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.saveAndNextButton`                        | [Boolsk](#boolske-verdier) | ✅        | ❌       |
-| Alle                                                      | `textResourceBindings.[textResourceBinding]` *  | [Streng](#strenger)        | ✅        | ❌       |
+| Komponenter                                               | Egenskap                     | Forventet verdi            | Frontend | Backend |
+|-----------------------------------------------------------|------------------------------|----------------------------|----------|---------|
+| [Sider/layouts](#viseskjule-hele-sider)                   | `hidden`                     | [Boolsk](#boolske-verdier) | ✅        | ✅       |
+| Alle                                                      | `hidden`                     | [Boolsk](#boolske-verdier) | ✅        | ✅       |
+| Skjemakomponenter                                         | `required`                   | [Boolsk](#boolske-verdier) | ✅        | ✅       |
+| Skjemakomponenter                                         | `readOnly`                   | [Boolsk](#boolske-verdier) | ✅        | ❌       |
+| [Repeterende grupper](../../ux/fields/grouping/repeating) | `hiddenRow`                  | [Boolsk](#boolske-verdier) | ✅        | ❌       |
+| [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.addButton`             | [Boolsk](#boolske-verdier) | ✅        | ❌       |
+| [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.saveButton`            | [Boolsk](#boolske-verdier) | ✅        | ❌       |
+| [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.deleteButton`          | [Boolsk](#boolske-verdier) | ✅        | ❌       |
+| [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.alertOnDelete`         | [Boolsk](#boolske-verdier) | ✅        | ❌       |
+| [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.saveAndNextButton`     | [Boolsk](#boolske-verdier) | ✅        | ❌       |
+| Alle                                                      | `textResourceBindings.[*]` * | [Streng](#strenger)        | ✅        | ❌       |
 
 \* = Hvilke verdier man kan overstyre med textResourceBindings varierer fra komponent til komponent, men vil fungere på
 alle steder der det brukes. TextResourceBindings for repeterende grupper finner
@@ -241,7 +241,7 @@ evalExpression(["component", "alder"], "navn-1"); // Eksempel 4
 
 Disse funksjonene er tilgjengelige for bruk i uttrykk:
 
-| Funksjonsnavn                                | Parametre                                          | Returverdi                           | Frontend | Backend | 
+| Funksjonsnavn                                | Parametre                                          | Returverdi                           | Frontend | Backend |
 |----------------------------------------------|----------------------------------------------------|--------------------------------------|----------|---------|
 | [`equals`](#func-equals)                     | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
 | [`notEquals`](#func-equals)                  | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
@@ -254,6 +254,17 @@ Disse funksjonene er tilgjengelige for bruk i uttrykk:
 | [`and`](#func-and)                           | En eller flere [boolske verdier](#boolske-verdier) | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
 | [`or`](#func-and)                            | En eller flere [boolske verdier](#boolske-verdier) | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
 | [`if`](#func-if)                             | [Se detaljert beskrivelse](#func-if)               | [Se detaljert beskrivelse](#func-if) | ✅        | ✅       |
+| [`contains`](#func-contains-not-contains)    | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅        | ❌       |
+| [`notContains`](#func-contains-not-contains) | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅        | ❌       |
+| [`commaContains`](#func-commaContains)       | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅        | ❌       |
+| [`startsWith`](#func-starts-ends-with)       | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅        | ❌       |
+| [`endsWith`](#func-starts-ends-with)         | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅        | ❌       |
+| [`lowerCase`](#func-lowerCase-upperCase)     | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅        | ❌       |
+| [`upperCase`](#func-lowerCase-upperCase)     | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅        | ❌       |
+| [`stringLength`](#func-stringLength)         | [Streng](#strenger)                                | [Tall](#tall)                        | ✅        | ❌       |
+| [`text`](#func-text)                         | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅        | ❌       |
+| [`language`](#func-language)                 | Ingenting                                          | [Streng](#strenger)                  | ✅        | ❌       |
+| [`round`](#func-round)                       | [Tall](#tall), valgfritt [Tall](#tall)             | [Streng](#strenger)                  | ✅        | ❌       |
 | [`instanceContext`](#func-instancecontext)   | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅        | ✅       |
 | [`frontendSettings`](#func-frontendsettings) | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅        | ✅       |
 | [`dataModel`](#func-datamodel)               | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅        | ✅       |
@@ -401,6 +412,204 @@ argument:
   ]
 ]
 ```
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-language" header="language" %}}
+Funksjonen `language` returnerer brukerens valgte språkkode.
+
+Eksempel:
+
+```json
+{
+   "id": "lastName",
+   "type": "Input",
+   ...
+   "readOnly": ["equal", ["language"], "en"],
+}
+```
+
+Om gjeldende språk er ukjent, vil `nb` returneres, som er standardspråket for Altinn 3-apper. Dermed kan man være trygg
+på at denne funksjonen alltid returnerer et gyldig språk.
+
+**Bemerk:** Denne funksjonen er ikke tigjengelig i backend-kode enda, og vil derfor gi en feilmelding dersom den blir
+brukt noen steder [hvor uttrykk kjøres på backend](#bruksområder), og om man har slått på funksjonaliteten for å
+automatisk slette skjulte data (`RemoveHiddenDataPreview`).
+
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-starts-ends-with" header="startsWith/endsWith" %}}
+Funksjonen `startsWith` sjekker om strengen gitt som første argument starter med strengen gitt i andre argument, og
+på samme vis vil funksjonen `endsWith` sjekke om første streng slutter med den andre strengen.
+
+```json
+["startsWith", ["dataModel","My.Model.FirstName"], "Jo"]
+```
+
+```json
+["endsWith", ["dataModel", "My.Model.FirstName"], "hn"]
+```
+
+Noen detaljer som er verdt å nevne om disse funksjonene:
+- Alle funksjoner starter og slutter med en tom streng, så `startsWith` og `endsWith` vil alltid returnere `true`
+  dersom man bruker et uttrykk `["startsWith", "...", ""]`. Dette er viktig å passe på om man bruker verdien til
+  en komponent eller et oppslag i datamodellen som andre argument.
+- Ingen strenger starter eller slutter med en `null`-verdi. Bruker man et uttrykk som dette:
+  ```json
+  ["startsWith",
+     ["dataModel", "My.Model.FullName"],
+     ["dataModel", "My.Model.FirstName"]]
+  ```
+  vil alltid resultatet bli
+  `false` så lenge fornavnet ikke er gitt. Men som nevnt over, dersom fornavnet er satt til en tom streng (for eksempel
+  dersom brukeren har visket ut fornavnet sitt), vil uttrykket gi `true` dersom et fullt navn er satt. Dersom man vil
+  unngå noe av denne oppførselen kan man bruke `if`-funksjonen sammen med `equals` til å sjekke om noe er satt til
+  en tom streng.
+- `["startsWith", null, null]` gir alltid `false`.
+
+**Bemerk:** Disse funksjonene er ikke tigjengelig i backend-kode enda, og vil derfor gi en feilmelding dersom de blir
+brukt noen steder [hvor uttrykk kjøres på backend](#bruksområder), og om man har slått på funksjonaliteten for å
+automatisk slette skjulte data (`RemoveHiddenDataPreview`).
+
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-stringLength" header="stringLength" %}}
+Funksjonen `stringLength` returnerer lengden på en streng (gitt i antall bokstaver/tegn), inkludert mellomrom.
+
+Eksempel:
+
+```json
+["stringLength", ["dataModel", "My.Model.FirstName"]]
+```
+
+Dersom strengen er `null` vil `stringLength` returnere `0`.
+
+**Bemerk:** Denne funksjonen er ikke tigjengelig i backend-kode enda, og vil derfor gi en feilmelding dersom den blir
+brukt noen steder [hvor uttrykk kjøres på backend](#bruksområder), og om man har slått på funksjonaliteten for å
+automatisk slette skjulte data (`RemoveHiddenDataPreview`).
+
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-contains-not-contains" header="contains / notContains" %}}
+Disse to funksjonene sjekker om streng A inkluderer eller ikke inkluderer streng B.
+Både `contains` og `notContains` skiller mellom store og små bokstaver.
+Det betyr at strengen "Hei" ikke inkluderer "hei". Ønsker du å sammenligne uavhengig av store og små bokstaver kan du
+bruke funksjonene [`lowerCase` eller `upperCase`](#func-lowerCase-upperCase) sammen med `contains` eller `notContains`.
+
+Eksempel:
+
+```json
+{
+   "id": "lastName",
+   "type": "Input",
+   ...
+   "hidden": [
+      "contains",
+      ["dataModel", "My.Model.FirstName"],
+      "J"
+   ],
+   "readOnly": [
+      "notContains",
+      ["dataModel", "My.Model.FirstName"],
+      "D"
+   ]
+}
+```
+
+Ønsker du å sjekke om verdier finnes i en kommaseparert liste kan du bruke funksjonen [`commaContains`](#func-commaContains).
+
+**Bemerk:** Disse funksjonene er ikke tigjengelig i backend-kode enda, og vil derfor gi en feilmelding dersom de blir
+brukt noen steder [hvor uttrykk kjøres på backend](#bruksområder), og om man har slått på funksjonaliteten for å
+automatisk slette skjulte data (`RemoveHiddenDataPreview`).
+
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-commaContains" header="commaContains" %}}
+Funksjonen commaContains tar imot to argumenter. Det første argumentet er en kommaseparert streng, og det andre
+argumentet er strengen du ønsker å sjekke om er blant de kommaseparerte verdiene i første argument.
+
+Eksempel:
+
+```json
+{
+   "id": "addName",
+   "type": "Input",
+   ...
+   "readOnly": ["commaContains", ["dataModel", "My.Model.Names"], "John"]
+}
+```
+
+Legg merke til at eventuelle mellomrom før/etter komma, eller før/etter første verdi blir ignorert. Denne funksjonen
+er spesielt nyttig i tilfeller hvor man bruker en komponent som lagrer flere verdier i en kommaseparert streng, som
+`Checkboxes` og `MultipleSelect`.
+
+**Bemerk:** Denne funksjonen er ikke tigjengelig i backend-kode enda, og vil derfor gi en feilmelding dersom den blir
+brukt noen steder [hvor uttrykk kjøres på backend](#bruksområder), og om man har slått på funksjonaliteten for å
+automatisk slette skjulte data (`RemoveHiddenDataPreview`).
+
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-lowerCase-upperCase" header="lowerCase/upperCase" %}}
+Funksjonene `lowerCase` og `upperCase` tar imot en streng som input og returnerer en ny streng der alle tegnene er
+konvertert til henholdsvis små eller store bokstaver.
+
+```json
+["lowerCase", ["dataModel", "My.Model.LastName"]]
+```
+
+Disse funksjonene gir deg en enkel måte å konvertere mellom små og store bokstaver i en streng.
+Et bruksområde kan være å kombinere en av disse funksjonene med andre sammenligningsfunksjoner slik at sammenligningene
+gjøres uavhengig av om det ble brukt store eller små bokstaver i input-verdien.
+
+```json
+["equals", ["upperCase", ["dataModel", "My.Model.LastName"]], "SMITH"]
+```
+
+**Bemerk:** Disse funksjonene er ikke tilgjengelig i backend-kode enda, og vil derfor gi en feilmelding dersom de blir
+brukt noen steder [hvor uttrykk kjøres på backend](#bruksområder), og om man har slått på funksjonaliteten for å
+automatisk slette skjulte data (`RemoveHiddenDataPreview`).
+
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-round" header="round" %}}
+Funksjonen `round` avrunder et tall til et heltall, eller valgfritt til et desimaltall med et konfigurerbart antall desimalpunkter.
+
+Eksempel med avrunding med 2 desimalpunkter:
+
+```json
+["round", "122.99843", "2"]
+```
+
+Eksempel med avrunding til nærmeste heltall:
+
+```json
+["round", "3.4999"]
+```
+
+Returverdien fra denne funksjonen er en streng, slik at returverdien kan brukes for
+fremvisning (merk at desimalskilletegnet alltid er punktum). Selv om returverdien er en streng kan denne også brukes
+videre i uttrykk som forventer tall som inn-verdi.
+
+**Bemerk:** Denne funksjonen er ikke tilgjengelig i backend-kode enda, og vil derfor gi en feilmelding dersom den blir
+brukt noen steder [hvor uttrykk kjøres på backend](#bruksområder), og om man har slått på funksjonaliteten for å
+automatisk slette skjulte data (`RemoveHiddenDataPreview`).
+
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-text" header="text" %}}
+Funksjonen `text` tar imot en nøkkel som argument og bruker denne nøkkelen til å hente ut den tilsvarende teksten fra en tekst-ressurs. Funksjonen returnerer verdien som er knyttet til den angitte nøkkelen.
+Eksempel:
+
+```json
+["text", "min-nøkkel-id"]
+```
+
+**Bemerk:** Husk å teste manuelt med tekstnøkler som inneholder variabler. Det er ikke sikkert disse vil fungere som
+forventet.
+
+**Bemerk:** Denne funksjonen er ikke tilgjengelig i backend-kode enda, og vil derfor gi en feilmelding dersom den blir
+brukt noen steder [hvor uttrykk kjøres på backend](#bruksområder), og om man har slått på funksjonaliteten for å
+automatisk slette skjulte data (`RemoveHiddenDataPreview`).
+
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-instancecontext" header="instanceContext (oppslag)" %}}

@@ -3,7 +3,7 @@ title: Deployment of apps to production
 linktitle: Deployment
 description: App owners can deploy their applications themselves.
 toc: true
-weight: 600
+weight: 60
 ---
 
 ## Getting access to a production environment
@@ -20,7 +20,7 @@ This routine just needs to be followed once. When the cluster is set up, the sol
 
 ## Deployment of app
 
-Deploy of an application to production is done in [the same way as for test environments](../testing/deploy).
+Deploy of an application to production is done in [the same way as for test environments](/app/guides/testing/deploy).
 
 ## Order "About form"-page on altinn.no
 
