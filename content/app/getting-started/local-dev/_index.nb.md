@@ -35,13 +35,13 @@ Her er en oversikt over hvordan du kommer i gang med lokal utvikling.
     Resolving deltas: 100% (600/600), done.
     ```
 
-Du vil nå se at det er opprettet en mappe med samme navn som applikasjonen og innholdet i applikasjonsrepoet er klonet inn i mappen.
+En mappe med samme navn som applikasjonen er opprettet og innholdet i applikasjonsrepoet er klonet inn i mappen.
  Nå er det bare å åpne ditt foretrukne utviklingsverktøy og komme i gang med utviklingen.
 
 ## Hvordan synkronisere endringer i lokalt utviklingsmiljø
 
 Endringer som gjøres lokalt må lastes opp (_pushes_) til repoet koden ble klonet fra.
- Endringer som er gjort i Altinn Studio Designer og lastet opp til repoet må hentes ned (_pull_) for å oppdatere den lokale koden.
+ Hvis det gjøred endringer i Altinn Studio Designer (og disse er lastet opp til repoet) må de hentes ned (_pull_) for å oppdatere den lokale koden.
 
 Sykronisering av endringer gjort i det lokale utviklingsmiljøet kan gjøres på flere måter.
 Mange utviklingsverktøy har gode integrasjoner for nettopp dette, 
@@ -104,7 +104,7 @@ Når appen kjører kan du åpne den på [http://local.altinn.cloud](http://local
 
 ### Se endringer fortløpende
 
-- Ved endringer knyttet til formLayout og andre *json*-filer holder det å laste inn siden på nytt.
+- Ved endringer knyttet til JSON-filer holder det å laste inn siden på nytt.
 - Ved endringer i forhåndsutfylling må applikasjonen instansieres på nytt (gå til [http://local.altinn.cloud](http://local.altinn.cloud) og logg inn igjen).
 - Ved endringer i *cs*-filer må applikasjonen stoppes (`ctrl+C`) og startes på nytt (`dotnet run`).
 
