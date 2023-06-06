@@ -55,20 +55,20 @@ Open your preferred dev tool and get going with the app development!
 ### Upload changes to master
 
 1. Click _Push_ on the Lage-page of the application in Altinn Studio
-   ![Push-knappen markert i Altin Studio](push-button-in-studio.png)
+   ![Push-knappen markert i Altin Studio](toolbar-last-opp.png)
 2. Add a descriptive comment of the change(s) and click _Valider endringer_
     ![Commitmelding og valider-endringer illustrert](commit-message.png)
 3. Wait for the changes to be validated
    1. If a conflict occurs, click _Løs konflikt_ and follow the instructions
 4. Click _Push_ to upload the changes to master
-    ![Push knappen illustrert](push.png)
+    ![Push knappen illustrert](changes-validated.png)
 5. If everything is successful you should see this confirmation
-    ![Push bekreftelse](push-confirmation.png)
+    ![Push bekreftelse](push-successful.png)
 
 ### Download changes from master
 
 1. Click _Pull_ on the Lage-page of the application in Altinn Studio
-   ![Pull markert i Altinn Studio](pull.png)
+   ![Pull markert i Altinn Studio](toolbar-hent.png)
 2. If everything is successful you should see this confirmation
     ![Push bekreftelse](pull-successful.png)
 
