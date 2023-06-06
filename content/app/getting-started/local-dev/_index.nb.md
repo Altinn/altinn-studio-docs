@@ -10,11 +10,6 @@ Under utvikling av en applikasjon vil man måtte jobbe både i Altinn Studio og
 i et lokalt utviklingsmiljø. 
 Her er en oversikt over hvordan du kommer i gang med lokal utvikling. 
 
-## Forberedelser 
-
-Følg [stegene beskrevet på GitHub](https://github.com/Altinn/app-localtest/blob/master/README.md#prerequisites)
-for å klargjøre ditt lokale utviklingsmiljø for utvikling og testing av Altinn apps
-
 ## Hvordan klone applikasjonen til et lokalt utviklingsmiljø
 
 1. Finn applikasjonen du vil jobbe med lokalt i Dashboardet i Altinn Studio
@@ -90,3 +85,33 @@ I Altinn Studio må endringer synkroniseres på samme vis som ved lokale endring
     ![Lagre validerte endringer](changes-validated.png)
 5. Har alt gått bra vil du se denne bekreftelsen.
     ![Lagre bekreftelse](push-successful.png)
+
+## Lokal testing
+
+Når du jobber lokalt kan det være nyttig med forhåndsvisning av endringene du gjør.
+*LocalTest* er et program som spinner opp en lokal mockup av Altinn Plattform.
+ Denne gir deg mulighet til å teste og verifisere lokale endringer uten å måtte synkronisere med Altinn Studio.
+
+{{% notice info %}}
+**MERK**
+For å kunne kjøre appen i LocalTest må applikasjonen ha en tilknyttet [datamodell](/nb/app/development/data/data-model/data-models-tool/).
+{{% /notice %}}
+
+1. **Last ned og start LocalTest** ved å følg stegene [beskrevet på GitHub](https://github.com/Altinn/app-localtest/blob/master/README.md) (inkluderer start av app som også er forklart under).
+2. **Start applikasjonen**: Åpne et nytt terminalvindu og naviger til undermappen *App* i din applikasjon (`<app-name>/App`). Start appen med kommandoen `dotnet run` og vent på bekreftelse i terminalen.
+
+Når appen kjører kan du åpne den på [http://local.altinn.cloud](http://local.altinn.cloud) og logge inn med en [testbruker](/nb/app/guides/testing/local/testusers/).
+
+### Se endringer fortløpende
+
+- Ved endringer knyttet til formLayout og andre *json*-filer holder det å laste inn siden på nytt.
+- Ved endringer i forhåndsutfylling må applikasjonen instansieres på nytt (gå til [http://local.altinn.cloud](http://local.altinn.cloud) og logg inn igjen).
+- Ved endringer i *cs*-filer må applikasjonen stoppes (`ctrl+C`) og startes på nytt (`dotnet run`).
+
+For å oppdatere automatisk ved endring i *cs*-filer, start applikasjonen med `dotnet watch`.
+Denne kommandoen vil enten starte applikasjonen eller laste den inn på nytt ([hot reload](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-watch#hot-reload)) ved endringer i kildekoden.
+
+### Stoppe applikasjon og LocalTest
+
+Applikasjonen stoppes ved å trykke `ctrl+C` i terminalvinduet der du startet den.
+LocalTest stoppes ved å navigere til mappen `app-localtest` i terminalen og kjøre kommandoen `docker compose down`.
