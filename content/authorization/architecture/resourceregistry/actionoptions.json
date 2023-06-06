@@ -1,7 +1,7 @@
 [
     {
         "ActionId": "read",
-        "ActionTitle": "Les",
+        "ActionTitle": "Les"
 
     },
     {
@@ -12,5 +12,13 @@
     {
         "ActionId": "delete",
         "ActionTitle": "Slett"
+    },
+    {
+        "ActionId": "confirm",
+        "ActionTitle": "Bekreft"
+    },
+    {
+        "ActionId": "sign",
+        "ActionTitle": "Sign"
     }
 ]
