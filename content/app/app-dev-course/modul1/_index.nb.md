@@ -70,7 +70,7 @@ som representerer type data de ønsker å samle inn fra fremtidige innbyggere.
  Alternativt kan du kopiere URLen til filen og kjøre kommandoen `curl <fil-URL>` fra kommandolinjen. Åpne filen i et tekstredigeringsprogram
    og ta en nærmere titt på innholdet.
 2. [Last opp datamodellen i Altinn Studio](/nb/app/development/data/data-model/data-models-tool/#laste-opp-og-vise-datamodell)
-3. Lagre endringene (Klikk "Last opp dine endringer").
+3. Klikk "Last opp dine endringer" og følg instruksjonene for å lagre endringene.
 4. Åpne repository til appen fra [Altinn Studio Dashboard](/nb/app/getting-started/navigation/dashboard/) og ta en nærmere titt på filene i mappen `App/models`.
 
 ### Forståelsessjekk

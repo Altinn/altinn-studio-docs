@@ -65,7 +65,7 @@ Sogndal Municipality has created a [data model](datamodel.xsd) that represents t
 1. [Download the xsd file](datamodel.xsd). If the file opens in the browser, create a new text file and copy the content over. Save the file as `datamodel.xsd`.
 Alternatively, you can copy the URL of the file and run the command `curl <file-URL>` from the command line. Open the file in a text editor and examine its content.
 2. [Upload the data model in Altinn Studio](/app/development/data/data-model/data-models-tool/#uploading-and-viewing-a-data-model)
-3. Save the changes (click "Last opp dine endringer").
+3. Click "Last opp dine endringer" and follow the instructions to save the changes.
 4. Open the app's repository from the [Altinn Studio Dashboard](/app/getting-started/navigation/dashboard/) and take a closer look at the files in the `App/models` folder.
 
 ### Knowledge Check
