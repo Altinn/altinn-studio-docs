@@ -50,7 +50,7 @@ A tree view of the data model can be opened to see a visual representation of th
 
 All models uploaded in the tool for an app or the organization's repository (`<org>-datamodels`) are available from the drop-down list in the toolbar.
 XSDs that exist in a repository but do not have any associated model files (JSONSchema) will also appear in the list. See the next
-section for more information.
+section for more information.s
 
 ### Specific to Organization-Level Data Modeling
 
@@ -70,13 +70,15 @@ To create a new data model from scratch:
    2. Enter the name of the data model in the field.
    3. Click _Opprett modell_ (_Create model_).
 
+![Create new data model](create-new-model.png "Create a new data model")
+
 The data model will be created with some example fields that you can work with or delete:
 
   - `property1` (text, required)
   - `property2` (text, required)
   - `property3` (text)
 
-![Create new data model](create-edit-model.gif "Create a new data model")
+![New data model](new-data-model.png "New data model")
 
 ## Editing a Data Model
 
@@ -87,32 +89,36 @@ Functionality for editing the data model with the Altinn Studio Data Model tool 
 Select a model from the dropdown list on the toolbar and click _Rediger_ (_edit_)
  in the top right corner of the model tool. A panel for editing the model will appear on the right side.
 
+![Edit data model](edit-model.png "Edit data model")
+
 {{% notice info %}}
 The JSONschema model is automatically saved as you work on it. To generate other model files such as XSD (and C# file for apps), you need to
-click the _Generate Models_ button in the top right corner (see [Generating Model Files](#generating-model-files-xsd-and-c)).
+click _Generer modeller_ (_Generate Models_) on the toolbar (see [Generating Model Files](#generating-model-files-xsd-and-c)).
 {{% /notice %}}
 
-### Adding a New Field
+### Add New Field
 
-To add a field at the top-level (root node), click "Add" (button above existing fields).
+To add a field at the top-level (root node), click "Legg til" (**1** in below image).
 
 You can add sub-fields to fields of the Object type via the context menu of the field (three dots to the right of the field name) or by clicking the field and select the tab _Felter_ (_Fields_) in the right-side panel.
 
 ### Adding a New Type
 
-Click on the **+** sign in the "Types" panel on the left side.
+Click on the **+** sign in the "Typer" panel on the left side (**2** in below image).
 
 ### Converting Field to Type
 
-A field can be converted to a type by clicking the three dots to the right of the field and selecting "Convert to Type".
+A field can be converted to a type by clicking the three dots to the right of the field and selecting "Konverter til type" (**3** in below image).
+
+![Add field and type](add-field-type-convert.png "Add field and type and convert field to type")
 
 ### Editing a Type
 
-1. Select the desired type from the panel on the left side by clicking on it. A tree view for the type will then appear in the center.
+1. Select the type from the panel on the left side. A tree view for the type will appear in the center.
 2. Properties for the type can be edited in the right-side panel.
-3. Add new fields by clicking the "Legg til" (Add) button at the top.
-4. Selecting individual fields to edit their properties in the right-side panel.
-5. Exit the type editing mode for types by clicking on the **x** at the top of the model panel, next to `Du redigerer nå på <type>`.
+3. Add new fields by clicking the _Legg til_ (add) button at the top.
+4. Select individual fields to edit their properties in the right-side panel.
+5. Exit the type editing mode by clicking the **x** at the top of the model panel (next to `Du redigerer nå på <type>`).
 
 ### Deleting a Type
 
@@ -121,7 +127,7 @@ A field can be converted to a type by clicking the three dots to the right of th
 
 Note that it is not possible to delete types that are in use.
 
-### Adding a Type Reference
+### Type References
 
 A type reference is a field that follows the structure of a custom type.
  For instance, if you have the type 'Address' with fields 'StreetName', 'PostalCode', and 'Location', adding a reference to that type will automatically add these fields.
@@ -129,10 +135,21 @@ A type reference is a field that follows the structure of a custom type.
 
  ![Type reference](type-references.png "Type references")
 
- To add a type reference at the top level, click _Legg til_ (add) at the top of the tree view and choose _Legg til referanse_ (add reference).
- To add a type reference as a sub field, click the three dots next to a field and select _Legg til referanse_.
+### Adding a Type Reference
 
- In the right-hand panel, select the type you wish to reference from the drop-down list "Refererer til" (refers to).
+ 1. Click _Legg til_ (add) at the top of the tree view and choose _Legg til referanse_ (add reference).
+ ![Add top-level reference](add-reference-top-level.png "Add top-level reference")
+ 2. In the right-hand panel, select the type you wish to reference from the drop-down list "Refererer til" (refers to).
+ ![Select type](select-reference.png "Select type")
+
+You can also add a type reference as a sub field: Click the three dots next to a field and select _Legg til referanse_.
+
+{{% notice info %}}
+**NOTE**  
+To add a reference as a sub field, the parent field must be of type _Object_.
+{{% /notice %}}
+
+ ![Add reference as sub field](add-reference-node.png "Add reference as sub field")
 
 ### Deleting a Field
 
