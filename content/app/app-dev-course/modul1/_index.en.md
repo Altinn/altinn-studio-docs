@@ -79,7 +79,7 @@ Alternatively, you can copy the URL of the file and run the command `curl <file-
 - Some restrictions from the data model are not transferred to the _C#_ file. Which ones? Some new properties have also been added. Which ones?
 
 {{% notice info %}}
-If you plan to do the entire development or parts of it locally, you can [prepare for local development and testing](/app/getting-started/local-dev) after creating the application and adding the data model.
+If you plan to do all or parts of the development locally, you can [prepare for local development and testing](/app/getting-started/local-dev) after creating the application and adding the data model.
 {{% /notice %}}
 
 ### Useful Documentation
@@ -106,7 +106,7 @@ To make the service user-friendly and accessible for people with visual impairme
 
 ### Tasks
 
-1. [Create texts](/app/development/ux/texts/#add-and-change-texts-in-an-application) for the components of the first form. The texts should describe what needs to be filled in and will be displayed above the fields. Take a look at the next task to see which components you need texts for.
+1. [Create text resources](/app/development/ux/texts/#add-and-change-texts-in-an-application) for the components of the first form. The texts should describe what needs to be filled in and will be displayed above the fields. Take a look at the next task to see which components you need texts for.
 2. [Change the display name for the application](/app/development/ux/texts/#change-application-title). It is important that the application's display name sounds good and describes the service well.
 3. [Add translation(s) for the texts](/app/development/ux/texts/#add-and-change-texts-in-an-application). The application must be available in Norwegian Bokmål, Norwegian Nynorsk, and English. In the initial version, it is sufficient to support only one of these languages.
 
@@ -133,11 +133,11 @@ In Altinn, we currently support three written languages: Norwegian Bokmål, Norw
 {{% expandlarge id="add-components" header="Add Components" %}}
 
 The components in an application can be set up using "drag and drop" in [Altinn Studio Designer](/app/getting-started/ui-editor/)
-or manually in the _{pagename}.json_ file that describes the structure of a form page (you can find the file under `App/ui/layouts`).
+or manually in the `<pageName>.json` file that describes the structure of a form page (you can find the file in `App/ui/layouts`).
 
 ### Requirements from the Municipality
 
-The first form page gathers personal information about the new resident and should have the following text input components:
+The first form page gathers personal information about the new resident and should have the following components:
 - Name
   - First Name
   - Middle Name (optional)
@@ -167,11 +167,11 @@ Remember to upload changes when working in Designer so they are reflected in the
 
 ### Knowledge Check
 
-In your application repository, you will find the _{pagename}.json_ file in the `App/ui/layouts` folder. The JSON file describes the form page you have set up in Altinn Studio, assuming you have uploaded the changes.
+In your application repository, you will find the `<pageName>.json` file in the `App/ui/layouts` folder. The JSON file describes the form page you have set up in Altinn Studio, assuming you have uploaded the changes.
 
 - Can you find the component linked to the email field?
 - What change is required in this file if the email field is no longer mandatory?
-- By changing one line in the _{pagename}.json_ file, you can convert the component linked to the middle name field into a free-text input field. What change is required?
+- By changing one line in the `<pageName>.json` file, you can convert the component linked to the middle name field into a free-text input field. What change is required?
 {{% /expandlarge %}}
 
 ## Summary
