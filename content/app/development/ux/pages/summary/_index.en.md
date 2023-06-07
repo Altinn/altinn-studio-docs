@@ -39,7 +39,7 @@ Note: PDF-generating does not support a summary page, so it has to be excluded b
         "excludeFromPdf": [ "name-of-summary-page" ]
       }
 ```
-//Translate the following below to english
+
 ### Text resources for summary
 As mentioned above, the summary component is simple with a summary of data from another component,
 but there are two cases where it is possible to set up text resources for the summary component:
