@@ -69,7 +69,7 @@ som representerer type data de ønsker å samle inn fra fremtidige innbyggere.
 ### Oppgaver
 
 1. [Last ned xsd-filen](datamodel.xsd). Hvis filen åpnes i nettleseren kan du opprette en ny tekstfil og kopiere over innholdet. Lagre filen som `datamodel.xsd`.
- Alternativt kan du kopiere URLen til filen og kjøre kommandoen `curl <fil-URL>` fra kommandolinjen. Åpne filen i et tekstredigeringsprogram
+ Alternativt kan du kopiere URLen til filen og kjøre kommandoen `curl <fil-URL> > datamodel.xsd` fra kommandolinjen. Åpne filen i et tekstredigeringsprogram
    og ta en nærmere titt på innholdet.
 2. [Last opp datamodellen i Altinn Studio](/nb/app/development/data/data-model/data-models-tool/#laste-opp-og-vise-datamodell)
 3. Klikk "Last opp dine endringer" og følg instruksjonene for å lagre endringene.
