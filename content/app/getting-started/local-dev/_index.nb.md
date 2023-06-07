@@ -98,9 +98,8 @@ For å kunne kjøre appen i LocalTest må applikasjonen ha en tilknyttet [datamo
 {{% /notice %}}
 
 1. **Last ned og start LocalTest** ved å følg stegene [beskrevet på GitHub](https://github.com/Altinn/app-localtest/blob/master/README.md) (inkluderer start av app som også er forklart under).
-2. **Start applikasjonen**: Åpne et nytt terminalvindu og naviger til undermappen *App* i din applikasjon (`<app-name>/App`). Start appen med kommandoen `dotnet run` og vent på bekreftelse i terminalen.
-
-Når appen kjører kan du åpne den på [http://local.altinn.cloud](http://local.altinn.cloud) og logge inn med en [testbruker](/nb/app/guides/testing/local/testusers/).
+2. **Kjør applikasjonen i LocalTest**: Åpne et nytt terminalvindu og naviger til undermappen *App* i din applikasjon (`<app-name>/App`). Start appen med kommandoen `dotnet run` og vent på bekreftelse i terminalen.
+3. **Forhåndsvis og test applikasjonen**: Gå til [http://local.altinn.cloud](http://local.altinn.cloud) og logg inn med en [testbruker](/nb/app/guides/testing/local/testusers/).
 
 ### Se endringer fortløpende
 
