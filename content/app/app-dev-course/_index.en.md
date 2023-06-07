@@ -25,7 +25,7 @@ Module 1 can be completed entirely in Altinn Studio Designer.
 ## Before you start
 
 Before you can build an application, there are some things that need to be in place. Go through the following points from
-**[Get Started](/app/getting-started)** (wait with the remaining points until [Module 1](/app/app-dev-course/modul1)):
+**[Get Started](/app/getting-started)** (wait with the remaining steps until [Module 1](/app/app-dev-course/modul1)):
 
 1. [Create a user](/app/getting-started/create-user)
 2. [Learn to navigate Altinn Studio](/app/getting-started/navigation)
