@@ -52,7 +52,9 @@ You must have [access to the organization](/app/getting-started/create-user/#joi
 
 The data model defines the data that can be submitted through an app and the format in which it should be submitted.
 
-In Altinn Studio, you can add a data model by [uploading an _xsd_ file](/app/development/data/data-model/data-models-tool#uploading-and-viewing-a-data-model) or [creating a new data model](/app/development/data/data-model/data-models-tool/#create-a-new-data-model) using the data modeling tool.
+With Altinn Studio's [Data Modeling tool](/app/development/data/data-model/data-models-tool/),
+ you can add a data model by [uploading an _xsd_ file](/app/development/data/data-model/data-models-tool#uploading-and-viewing-a-data-model)
+  or you can [create a new data model](/app/development/data/data-model/data-models-tool/#create-a-new-data-model) from scratch.
 You can also start from an existing data model and edit it in a text editor or [directly in Altinn Studio](/app/development/data/data-model/data-models-tool/#editing-a-data-model).
 In this task, you will only upload a pre-existing data model.
 

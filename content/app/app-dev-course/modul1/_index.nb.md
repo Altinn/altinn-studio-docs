@@ -55,7 +55,9 @@ Dersom du skal teste appen i et [testmiljø](/nb/app/guides/testing/deploy/) (be
 
 Datamodellen definerer hvilke data som kan sendes inn via en app og hvilket format det skal sendes på.
 
-I Altinn Studio kan du legge til datamodell ved å [laste opp en _xsd_-fil](/nb/app/development/data/data-model/data-models-tool/#laste-opp-og-vise-datamodell) eller [lage ny datamodell](/nb/app/development/data/data-model/data-models-tool/#lage-ny-datamodell) med datamodelleringsverktøyet.
+Med Altinn Studios [verktøy for datamodellering](/nb/app/development/data/data-model/data-models-tool/)
+ kan du legge til en datamodell ved å [laste opp en _xsd_-fil](/nb/app/development/data/data-model/data-models-tool/#laste-opp-og-vise-datamodell)
+  eller [lage en ny datamodell](/nb/app/development/data/data-model/data-models-tool/#lage-ny-datamodell) fra bunnen av.
  Du kan også ta utgangspunkt i en eksisterende datamodell og redigere den i et tekstredigeringsprogram eller [direkte i Altinn Studio](/nb/app/development/data/data-model/data-models-tool/#redigere-datamodell).
   I denne oppgaven skal du kun laste opp en ferdig datamodell.
 
