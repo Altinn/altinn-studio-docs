@@ -71,13 +71,15 @@ For å opprette en ny datamodell fra bunnen av:
 2. Skriv inn navnet på datamodellen i feltet.
 3. Klikk på _Opprett modell_.
 
+![Lag ny datamodell](create-new-model.png "Lag ny datamodell")
+
 Datamodellen opprettes med noen eksempel-felter som man kan jobbe videre med eller slette:
 
 - `property1` (tekst, påkrevd)
 - `property2` (tekst, påkrevd)
 - `property3` (tekst)
 
-![Lag ny modell](create-edit-model.gif "Lag ny modell")
+![Ny modell](new-data-model.png "Ny modell")
 
 ## Redigere datamodell
 
@@ -89,6 +91,8 @@ Velg modell i nedtrekkslisten på verktøylinjen og klikk _Rediger_
 øverst til høyre i modellverktøyet. Et panel for å redigere modellen vises på høyre side av
 verktøyet.
 
+![Rediger datamodell](edit-model.png "Rediger datamodell")
+
 {{% notice info %}}
 JSONschema-modellen lagres automatisk mens man jobber med den. For å generere andre modell-filer som XSD (og C#-fil for apper) må man
 trykke på knappen _Generer modeller_ øverst til høyre (se [Generere Modellfiler](#generere-modellfiler-xsd-og-c)).
@@ -96,34 +100,36 @@ trykke på knappen _Generer modeller_ øverst til høyre (se [Generere Modellfil
 
 ### Legge til nytt felt
 
-For å legge til felt på øverste nivå (rot-node), klikk "Legg til" (knapp over eksisterende felt).
+For å legge til felt på øverste nivå (rot-node), klikk "Legg til" (**1** i bildet under).
 
 Du kan legge til underfelt på felter av type Objekt via kontekstmenyen til feltet (tre prikker til høyre for feltnavnet) eller ved å klike på feltet og velge fanen _Felter_ i panelet til høyre.
 
 ### Legge til en ny type
 
-Klikk på **+**-tegnet i "Typer"-panelet på venstre side.
+Klikk på **+**-tegnet i "Typer"-panelet på venstre side (**2** i bildet under).
 
 ### Konvertere felt til type
 
-Et felt kan konverteres til en type ved å klikke de tre prikkene til høyre for feltet og velge "Konverter til type".
+Et felt kan konverteres til en type ved å klikke de tre prikkene til høyre for feltet og velge "Konverter til type" (**3** i bildet under).
+
+![Legg til felt og type](add-field-type-convert.png "Legg til felt og type og konverter felt til type")
 
 ### Redigere en type
 
-1. Velg ønsket type fra panelet på venstre side ved å klikke på den. En tre-visning for typen vises da i midten.
-2. Egenskaper for typen kan redigeres i høyre-panelet
-3. Ved å trykke på "Legg til" knappen øverst kan man legge til felter på typen
+1. Klikk på typen du ønsker å redigere. En tre-visning for typen vises i midten.
+2. Egenskaper for typen kan redigeres i panelet til høyre.
+3. Klikk "Legg til" øverst for å legge til felter på typen.
 4. Ved å velge felter fra typen kan man redigere egenskaper for disse i høyre-panelet.
-5. Man lukker redigeringsmodus for typer ved å trykke på **x** øverst i modell-panelet, ved siden av `Du redigerer nå på <type>`.
+5. Lukk redigering av typer ved å trykke på **x** øverst i modell-panelet (ved siden av `Du redigerer nå på <type>`).
 
 ### Slette en type
 
-1. Velg ønsket type fra panelet på venstre side
+1. Velg ønsket type fra panelet på venstre side.
 2. Klikk kontekst-menyen (tre prikker) til det øverste feltet (rot-noden) på typen og velg "Slett".
 
 Merk at det ikke er mulig å slette typer som er i bruk.
 
-### Legge til en typereferanse
+### Typereferanser
 
 En typereferanse er et felt som følger strukturen til en egendefinert type.
 For eksempel, hvis du har typen 'Adresse' med feltene 'Gateadresse', 'Postnummer' og 'Sted', vil en referanse til denne typen automatisk legge til disse feltene.
@@ -131,10 +137,21 @@ Typen vises ved siden av feltnavnet i trevisningen.
 
 ![Typereferanse](type-references.png "Typereferanser")
 
-For å legge til en referanse på toppnivå, klikk _Legg til_ øverst i trevisningen og velg _Legg til referanse_.
-For å legge til en referanse som en underordnet felt, klikk de tre prikkene ved siden av et feltet og velg _Legg til referanse_.
+### Legge til en typereferanse
 
-I høyre panel, velg typen du ønsker å referere til fra nedtrekkslisten under "Refererer til".
+1. Klikk _Legg til_ øverst i trevisningen og velg _Legg til referanse_.
+![Legg til referanse på toppnivå](add-reference-top-level.png "Legg til referanse på toppnivå")
+1. Klikk på referansen du opprettet og velg typen du ønsker å referere til fra nedtrekkslisten under "Refererer til" i det høyre panelet.
+![Velg referanse](select-reference.png "Velg typen feltet refererer til")
+
+Du kan også legge til en referanse som en underordnet felt: Klikk de tre prikkene ved siden av et feltet og velg _Legg til referanse_.
+
+{{% notice info %}}
+**MERK**  
+For å legge til elementer under et felt (node) må feltet være av typen _Objekt_.
+{{% /notice %}}
+
+![Legg til referanse på objekt](add-reference-node.png "Legg til referanse på objekt")
 
 ### Slette et felt
 
