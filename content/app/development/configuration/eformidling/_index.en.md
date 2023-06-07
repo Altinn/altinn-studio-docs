@@ -145,9 +145,9 @@ parameters defined in the table.
 
 | Id              | Description                                                                                                |
 | --------------- | ---------------------------------------------------------------------------------------------------------- |
-| serviceId       | Id that specifies the shipment type* [DPO](https://samarbeid.digdir.no/eformidling/offentlige-virksomheter-dpo/149), [DPV](https://samarbeid.digdir.no/eformidling/private-virksomheter-dpv/150), [DPI](https://samarbeid.digdir.no/eformidling/innbyggere-dpi/152) or [DPF](https://samarbeid.digdir.no/eformidling/kommunar-dpf/151) |
+| serviceId       | Id that specifies the shipment type [DPO](https://samarbeid.digdir.no/eformidling/offentlige-virksomheter-dpo/149)\*, [DPV](https://samarbeid.digdir.no/eformidling/private-virksomheter-dpv/150), [DPI](https://samarbeid.digdir.no/eformidling/innbyggere-dpi/152) or [DPF](https://samarbeid.digdir.no/eformidling/kommunar-dpf/151)\* |
 | dpfShipmentType | The DPF shipment type used for routing in the receiving system                                             |
-| process         | Id which wil be included in the scope of the StandardBusinessDocumentHeader**                              |
+| process         | Id which wil be included in the scope of the StandardBusinessDocumentHeader\*\*                            |
 | dataTypes       | List of data types to automatically include in the shipment                                                |
 | sendAfterTaskId | Id of the task to be completed before the shipment is sent. We recommend this be a confirmation task       |
 | receiver        | Organisation number of the receiver. Only Norwegian organisations supported. (Can be omitted)              |
@@ -156,9 +156,9 @@ parameters defined in the table.
 | typeVersion     | Version of the message type                                                                                |
 | securityLevel   | Security lever set on the StandardBusinessDocument                                                         |
 
-\* per January 2022 only DPF is supported.
+\* per June 2023 there is support for DPF and DPO.
 
-\** available process for each receiver is available at https://platform.altinn.no/eformidling/api/capabilities/{mottaker-orgnummer}
+\*\* available process for each receiver is available at https://platform.altinn.no/eformidling/api/capabilities/{mottaker-orgnummer}
 
 
 An example of a configuration in application metadata:
