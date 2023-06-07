@@ -39,6 +39,27 @@ Merk: PDF-generering støtter ikke oppsummering side, så må den ekskluderes ve
         "excludeFromPdf": [ "navn-til-oppsummering-side" ] 
       }
 ```
+
+### Tekstressurser
+Som nevnt over er oppsummeringskomponenten enkel med oppsummering av data fra en annen komponent, 
+men det er to tilfeller hvor det er mulig å sette opp egne tekstressurser for oppsummeringskomponenten:
+- `title`-feltet i `textResourceBindings` kan brukes for å sette en label/tittel for oppsummeringen. Hvis dette er satt, vil den overstyre en evt. tittel som er satt på komponenten som oppsummeres.
+- `accessibleTitle`-feltet i `textResourceBindings` kan brukes for å egendefinere aria-label til endre-knappen som ellers bruker `title`-feltet
+
+```json {hl_lines=[7, 8]}
+{
+    "id": "summary-1",
+    "type": "Summary",
+    "componentRef": "<komponent-id>",
+    "pageRef": "<side komponenten er definert på>",
+    "textResourceBindings": {
+        "title": "Egendefinert tittel",
+        "accessibleTitle": "Egendefinert aria-label"
+    }
+},
+```
+
+
 ### Enkel skjemakomponent
 Dette er skjemakomponenter som kun er knyttet til 1 felt i datamodellen. F.eks. Input, Dropdown, Checkbox/Radio, osv.
 
