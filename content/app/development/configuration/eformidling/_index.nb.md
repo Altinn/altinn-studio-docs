@@ -140,9 +140,9 @@ Opprett seksjonen `eFormidling` og fyll ut verdier for følgende parametre.
 
 | Id              | Beskrivelse                                                                                                 |
 | --------------- | ----------------------------------------------------------------------------------------------------------  |
-| serviceId       | Id som spesifiserer type forsendelse [DPO](https://samarbeid.digdir.no/eformidling/offentlige-virksomheter-dpo/149), [DPV](https://samarbeid.digdir.no/eformidling/private-virksomheter-dpv/150), [DPI](https://samarbeid.digdir.no/eformidling/innbyggere-dpi/152) eller [DPF*](https://samarbeid.digdir.no/eformidling/kommunar-dpf/151) |
+| serviceId       | Id som spesifiserer type forsendelse [DPO](https://samarbeid.digdir.no/eformidling/offentlige-virksomheter-dpo/149)\*, [DPV](https://samarbeid.digdir.no/eformidling/private-virksomheter-dpv/150), [DPI](https://samarbeid.digdir.no/eformidling/innbyggere-dpi/152) eller [DPF](https://samarbeid.digdir.no/eformidling/kommunar-dpf/151)\* |
 | dpfShipmentType | Forsendelsestype som benyttes til routing på mottakersiden                                                  |
-| process         | Id som settes på scopet i StandardBusinessDocumentHeader**                                                  |
+| process         | Id som settes på scopet i StandardBusinessDocumentHeader\*\*                                                |
 | dataTypes       | Liste av data typer som automatisk skal legges ved forsendelsen                                             |
 | sendAfterTaskId | Id på tasken som skal avsluttes før forsendelsen sendes. Det er anbefalt at dette er et confirmation steg   |
 | receiver        | Organisasjonsnummer til mottaker. Støtter kun norske virksomheter. Kan sløyfes og defineres i applogikken   |
@@ -151,9 +151,9 @@ Opprett seksjonen `eFormidling` og fyll ut verdier for følgende parametre.
 | typeVersion     | Versjon av meldingstypen                                                                                    |
 | securityLevel   | Sikkerhetsnivå som settes på StandardBusinessDocument                                                       |
 
-\* per Januar 2022 støttes kun DPF.
+\* per juni 2023 er det støtte for DPF og DPO.
 
-\** tilgjengelige prosesser for mottaker er tilgjengelig på https://platform.altinn.no/eformidling/api/capabilities/{mottaker-orgnummer}
+\*\* tilgjengelige prosesser for mottaker er tilgjengelig på https://platform.altinn.no/eformidling/api/capabilities/{mottaker-orgnummer}
 
 
 Et eksempel for en konfigurasjon i application metadata:
