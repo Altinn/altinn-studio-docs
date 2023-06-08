@@ -39,10 +39,22 @@ if your subscription request is not being accepted.
 
 ### Required subscription request properties
 
-#### endpoint
-- endpoint to push events to, type: URL
+#### endPoint
+- webhook URL to receive HTTP POST request from Altinn Events
 
-Endpoint should respond with 200 OK when an event is received
+Endpoint should respond with 200 OK when an event is received. 
+Additionally, it should return 200 OK when receiving our custom validation event:
+
+
+```json
+{
+    "id": "694caa35-8b25-4cd7-b800-f6eeb93c56ed",
+    "source": "https://platform.altinn.no/events/api/v1/subscriptions/1234",
+    "type": "platform.events.validatesubscription",
+    "specversion": "1.0"
+}
+```
+
 
 #### sourceFilter
 - filter for the cloud event source

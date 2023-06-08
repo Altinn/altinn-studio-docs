@@ -104,6 +104,14 @@ a set of Altinn specific extension attributes used to enable authorization of ev
 and support easier filtering of events for subscribers. 
 
 
+#### What is a subscription?
+
+Altinn Events allows you to register a custom webhook for receiving events. 
+You can define various filters, including by source, type and resource.
+
+Your endpoint should support _https_ and respond with 200 OK when receiving our custom endpoint validation event.
+For more information, please see this [developer guide](./subscribe-to-events/developer-guides/setup-subscription/)
+
 ## A note about standards
 
 #### Why Cloud Events?
