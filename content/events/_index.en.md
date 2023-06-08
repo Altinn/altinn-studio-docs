@@ -109,7 +109,10 @@ and support easier filtering of events for subscribers.
 Altinn Events allows you to register a custom webhook for receiving events. 
 You can define various filters, including by source, type and resource.
 
-Your endpoint should support _https_ and respond with 200 OK when receiving our custom endpoint validation event.
+> For security reasons, the webhook endpoint must support HTTPS. 
+
+Before enabling event forwarding for a new subscription, Altinn Events sends a custom event to the provided webhook URL to ensure that it exists. 
+
 For more information, please see this [developer guide](./subscribe-to-events/developer-guides/setup-subscription/)
 
 ## A note about standards
