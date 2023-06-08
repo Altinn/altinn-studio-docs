@@ -55,8 +55,10 @@ Dersom du skal teste appen i et [testmiljø](/nb/app/guides/testing/deploy/) (be
 
 Datamodellen definerer hvilke data som kan sendes inn via en app og hvilket format det skal sendes på.
 
-I Altinn Studio kan du legge til datamodell ved å [laste opp en _xsd_-fil](/app/development/data/data-model/data-models-tool/#laste-opp--vise-datamodell) eller [lage ny datamodell](/app/development/data/data-model/data-models-tool/#lage-ny-datamodell) med datamodelleringsverktøyet.
- Du kan også ta utgangspunkt i en eksisterende datamodell og redigere den i et tekstredigeringsprogram eller [direkte i Altinn Studio](/app/development/data/data-model/data-models-tool/#redigere-datamodell).
+Med Altinn Studios [verktøy for datamodellering](/nb/app/development/data/data-model/data-models-tool/)
+ kan du legge til en datamodell ved å [laste opp en _xsd_-fil](/nb/app/development/data/data-model/data-models-tool/#laste-opp-og-vise-datamodell)
+  eller [lage en ny datamodell](/nb/app/development/data/data-model/data-models-tool/#lage-ny-datamodell) fra bunnen av.
+ Du kan også ta utgangspunkt i en eksisterende datamodell og redigere den i et tekstredigeringsprogram eller [direkte i Altinn Studio](/nb/app/development/data/data-model/data-models-tool/#redigere-datamodell).
   I denne oppgaven skal du kun laste opp en ferdig datamodell.
 
 ### Krav fra kommunen
@@ -67,10 +69,10 @@ som representerer type data de ønsker å samle inn fra fremtidige innbyggere.
 ### Oppgaver
 
 1. [Last ned xsd-filen](datamodel.xsd). Hvis filen åpnes i nettleseren kan du opprette en ny tekstfil og kopiere over innholdet. Lagre filen som `datamodel.xsd`.
- Alternativt kan du kopiere URLen til filen og kjøre kommandoen `curl <fil-URL>` fra kommandolinjen. Åpne filen i et tekstredigeringsprogram
+ Alternativt kan du kopiere URLen til filen og kjøre kommandoen `curl <fil-URL> > datamodel.xsd` fra kommandolinjen. Åpne filen i et tekstredigeringsprogram
    og ta en nærmere titt på innholdet.
-2. [Last opp datamodellen i Altinn Studio](/app/development/data/data-model/data-models-tool/#laste-opp--vise-datamodell)
-3. Lagre endringene (Klikk "Last opp dine endringer").
+2. [Last opp datamodellen i Altinn Studio](/nb/app/development/data/data-model/data-models-tool/#laste-opp-og-vise-datamodell)
+3. Klikk "Last opp dine endringer" og følg instruksjonene for å lagre endringene.
 4. Åpne repository til appen fra [Altinn Studio Dashboard](/nb/app/getting-started/navigation/dashboard/) og ta en nærmere titt på filene i mappen `App/models`.
 
 ### Forståelsessjekk
@@ -108,7 +110,7 @@ overskrifter (labels).
 
 ### Oppgaver
 
-1. [Opprett tekster](/nb/app/development/ux/texts/#legge-til-og-endre-tekster-i-en-app) for komponentene til det første skjemaet. Tekstene skal beskrive hva som beskriver hva som skal fylles inn og vil vises over feltene. Ta en titt på neste oppgave for å se hvilke komponenter du trenger tekst til.
+1. [Opprett tekstressurser](/nb/app/development/ux/texts/#legge-til-og-endre-tekster-i-en-app) for komponentene til det første skjemaet. Tekstene skal beskrive hva som beskriver hva som skal fylles inn og vil vises over feltene. Ta en titt på neste oppgave for å se hvilke komponenter du trenger tekst til.
 2. [Endre visningsnavn for applikasjonen](/nb/app/development/ux/texts/#endre-applikasjonstittel). Det er viktig at applikasjonens visningsnavn klinger godt og er beskrivende for tjenesten.
 3. [Legg til oversettelse(r) for tekstene](/nb/app/development/ux/texts/#legge-til-og-endre-tekster-i-en-app). Applikasjonen må være tilgjengelig både på bokmål, nynorsk og engelsk. I en første versjon er det tilstrekkelig at kun ett av disse språkene støttes.
 
@@ -134,11 +136,11 @@ I Altinn i dag støtter vi tre skriftspråk: Bokmål, nynorsk og engelsk.
 {{% expandlarge id="legge-til-komponenter" header="Legge til komponenter" %}}
 
 Komponentene i en applikasjon kan settes opp ved hjelp av "drag and drop" i [Altinn Studio Designer](/nb/app/getting-started/ui-editor/)
-eller manuelt i filen _{sidenavn}.json_ som beskriver strukturen til en skjemaside (du finner filen under `App/ui/layouts`).
+eller manuelt i filen `<pageName>.json` som beskriver strukturen til en skjemaside (du finner filen i `App/ui/layouts`).
 
 ### Krav fra kommunen
 
-Første skjemaside innhenter personlig informasjon om tilflytteren og skal ha følgende komponenter som tekst input:
+Første skjemaside innhenter personlig informasjon om tilflytteren og skal ha følgende komponenter:
 - Navn
   - Fornavn
   - Mellomnavn (valgfritt)
@@ -169,12 +171,12 @@ Husk å laste opp endringer når du jobber i Designer så de reflekteres i repoe
 
 ### Forståelsessjekk
 
-I applikasjonsrepoet ditt finner du _{sidenavn}.json_ i mappen `App/ui/layouts`. JSON-filen beskriver skjemasiden du har satt opp i Altinn Studio
+I applikasjonsrepoet ditt finner du `<pageName>.json` i mappen `App/ui/layouts`. JSON-filen beskriver skjemasiden du har satt opp i Altinn Studio
 gitt at du har lastet opp endringene.
 
 - Finner du igjen komponenten som er koblet til e-post-feltet?
 - Hvilken endring kreves i denne filen dersom e-post-feltet ikke lenger skal være påkrevd?
-- Ved å endre én linje i _{sidenavn}.json_ er det mulig å endre komponenten knyttet til mellomnavn
+- Ved å endre én linje i `<pageName>.json` er det mulig å endre komponenten knyttet til mellomnavn
   til et inndatafelt for et langt svar. Hvilken endring kreves?
 {{% /expandlarge %}}
 

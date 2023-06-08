@@ -1,0 +1,24 @@
+[
+    {
+        "ActionId": "read",
+        "ActionTitle": "Les"
+
+    },
+    {
+        "ActionId": "write",
+        "ActionTitle": "Skriv"
+
+    },
+    {
+        "ActionId": "delete",
+        "ActionTitle": "Slett"
+    },
+    {
+        "ActionId": "confirm",
+        "ActionTitle": "Bekreft"
+    },
+    {
+        "ActionId": "sign",
+        "ActionTitle": "Sign"
+    }
+]

@@ -1,184 +1,187 @@
 ---
-title: Altinn Studio Datamodellering
-linktitle: Datamodellering
-description: Brukerguide for verktøyet Altinn Studio Datamodellering
+title: Altinn Studio Data Modeling
+linktitle: Data Modeling
+description: User guide for Altinn Studio Data Modeling tool
 weight: 1
 toc: true
-tags: [translate-to-english]
 ---
 
 {{% notice info %}}
-Datamodelleringsfunksjonalitet utvikles nå i Altinn Studio. Funksjonalitet vil være begrenset, men vil
-bygges på fortløpende.
+The Data Modeling tool in Altinn Studio is under development and will have limited functionality until it is completed.
 {{% /notice %}}
 
-Altinn Studio Datamodellering er et verktøy for å utvikle datamodeller. Den baserer seg på en datamodell i JSONSchema
-format, og kan ut fra dette generere XSD- og C#-modell.
+Altinn Studio Data Modeling is a tool for developing data models. It is based on a data model in JSONSchema format and can generate XSD and C# models from it.
 
-## Navigere til Altinn Studio Datamodellering
+### Data Model Files
 
-1. Logg inn i Altinn Studio
-2. På førstesiden, velg _rediger_ (blått penn-ikon) på enten:
-   a. En app, eller
-   b. Datamodellerings repo for din organisasjon
-3. Velg **Datamodell** fanen i topp-menyen
+* **XSD Data Model** (`<model>.XSD`): Data model in XML format that defines the elements that can be used in a document.
+* **C# Data Model** (`<model>.cs`): Data model used by the application's backend to deserialize data and make it available for processing and validation.
+* **JSON Schema** (`<model>.schema.json`): Data model in JSONSchema format used by the application's frontend for client-side form validation.
+* **JSON Metadata** (`<model>.metadata.json`): Used by Altinn Studio to link components and dynamics to data fields.
 
-Når man kommer til den nye siden for datamodellering vises en dialog med informasjon om
-den nye siden.
-Om man ikke ønsker å se denne hver gang man går inn på siden kan man velge _Ikke vis igjen_.
-Da vil dialogen skjules så lenge man bruker samme PC og nettleser - frem til det ev. kommer endringer vi ønsker å
-varsle om.
+## Navigating to Altinn Studio Data Modeling
 
-![Info om ny side](info-dialog.png "Info om ny side")
+1. Log in to Altinn Studio. If you are not in the [Altinn Studio Dashboard](/app/getting-started/navigation/dashboard/), navigate there by clicking on the logo in the top left corner or [here](https://altinn.studio/dashboard).
+2. Select _Edit_ (blue pen icon) either for:  
+   a. An app under "Mine applikasjoner" (My Applications) or  
+   b. Data Modeling repository for your organization.
+3. Select the **Datamodell** (Data model) tab in the top menu.
 
-## Laste opp / vise datamodell
+## Uploading and Viewing a Data Model
 
-Datamodellen definerer hvilke data som kan sendes inn via en app, og hvilket format det skal sendes på.
-Vi støtter pr. nå kun opplasting av XSD datamodell.
+The data model defines the data that can be submitted through an app and the allowed format of the data.
+Currently, we only support uploading XSD data models.
+When uploading an XSD model `<model>.xsd`, the tool will generate the following files: `<model>.cs`, `<model>.schema.json`, and `<model>.metadata.json` (see [Data Model Files](#data-model-files)).
 
-1. Klikk på _Last opp datamodell_ - enten fra startsiden om det ikke er noen eksisterende datamodeller, eller fra
-   verktøylinjen øverst i verktøyet og velg XSD-en i filvelgeren
-2. Klikk _Last opp_
+1. Click _Last opp datamodell_ (_Upload Data Model_) from the homepage if there are no existing data models or _Last opp_ (_Upload_) from the
+   toolbar at the top of the tool.
+2. Select an XSD data model file in the file picker and click _Last opp_.
 
-Datamodellen blir da lastet opp og prosessert, og alle nødvendige filer generert og lagret i app-repositoryet.
-Tre-visning av datamodellen kan åpnes for å se en visuell representasjon av datamodellen.
-Typer som er definert i datamodellen vises i panelet på venstre side.
+![Upload Data Model](upload-datamodel.png "Upload Data Model")
 
-![Last opp / vis datamodell](upload-datamodel.png "Last opp / vis datamodell")
+After the data model is processed, you can find the generated files under `App/models/` in the app repository.
 
-![Last opp / vis datamodell](view-model.png "Last opp / vis datamodell")
+The types defined in the data model are displayed in the left-side panel.
+A tree view of the data model can be opened to see a visual representation of the data model and the available fields.
 
-## Velge modell fra nedtrekkslisten
+![View Data Model](view-model.png "View Data Model")
 
-Alle modeller som er lastet opp i verktøyet for en app eller `<org>-datamodels` repo er tilgjengelig i listen.
-XSD'er som ligger i repo som ikke har noen tilknyttede modell-filer (JSONSchema) vil også vises i listen, se neste
-avsnitt for mer info.
+## Selecting a Model from the Dropdown List
 
-### Spesielt for datamodellering på organisasjonsnivå
+All models uploaded in the tool for an app or the organization's repository (`<org>-datamodels`) are available from the drop-down list in the toolbar.
+XSDs that exist in a repository but do not have any associated model files (JSONSchema) will also appear in the list. See the next
+section for more information.s
 
-Når man jobber mot et datamodell-repo på organisasjonsnivå (i stedet for direkte mot en app), er det 2 grupper med
-datamodeller som vises i nedtrekkslisten.
+### Specific to Organization-Level Data Modeling
 
-- Den første er _JSONSchema_ - dette er modellene der man har hentet inn/lastet
-  opp XSD i verktøyet og prosessert denne, og fått generert modell-filene.
-- Den andre er _XSD_ - dette er de XSD'ene som ligger i `<org>-datamodels` repo som ikke har blitt hentet inn og
-  prosessert i verktøyet. Når man velger en modell fra XSD-listen, vil denne automatisk lastes inn i verktøyet og
-  JSONSchema modell-fil genereres - denne kan så jobbes videre med i ASD.
+When working with a data model repository at the organization level (instead of directly with an app), there are two groups of
+data models displayed in the dropdown list.
 
-## Lage ny datamodell
+- The first one is _JSONSchema_. These are models generated after the processing of uploaded XSD models.
+- The second one is _XSD_. These are the XSDs that exist in the `<org>-datamodels` repository but have not been imported and
+  processed in the tool. When selecting a model from the XSD list, it will automatically be imported into the tool, and
+  a JSONSchema model file will be generated. This can then be further worked on in Altinn Studio Designer.
 
-Det er mulig å opprette en ny datamodell fra bunnen av:
+## Create a New Data Model
 
-1. Klikk på _Lag ny datamodell_.
-2. Skriv inn navnet på datamodellen i feltet.
-3. Klikk på _Opprett modell_.
+To create a new data model from scratch:
 
-Datamodellen opprettes med noen eksempel-felter som man kan jobbe videre med eller slette:
+   1. Click _Lag ny_ (_Create new_) on the left-side of the toolbar.
+   2. Enter the name of the data model in the field.
+   3. Click _Opprett modell_ (_Create model_).
 
-- `property1` (tekst, påkrevd)
-- `property2` (tekst, påkrevd)
-- `property3` (tekst)
+![Create new data model](create-new-model.png "Create a new data model")
 
-For å redigere denne modellen, kan man legge til/redigere felter på rot-nivå via "Legg til" knappen øverst,
-via kontekst-menyen på nodene, og man kan legge til nye typer via
-+-tegnet i Typer-panelet på venstre side. For mer info om redigering av modeller, se [avsnitt om redigering av modeller](#redigere-datamodell).
+The data model will be created with some example fields that you can work with or delete:
 
-![Lag og rediger ny modell](create-edit-model.gif "Lag og rediger ny modell")
+  - `property1` (text, required)
+  - `property2` (text, required)
+  - `property3` (text)
 
-## Redigere datamodell
+![New data model](new-data-model.png "New data model")
+
+## Editing a Data Model
 
 {{% notice warning %}}
-Funksjonalitet for å redigere datamodell er under utvikling. Denne funksjonaliteten vil være begrenset,
-men bygges på fortløpende.
+Functionality for editing the data model with the Altinn Studio Data Model tool is under development and will be somewhat limited until it is completed.
 {{% /notice %}}
 
-For å redigere en datamodell må modellen være valgt i nedtrekkslisten. I tillegg må man velge _Rediger_
-øverst til høyre i modellverktøyet - da vil et panel for å redigere modellen vises på høyre side av
-verktøyet. Valget her vil huskes til neste gang man er inne.
+Select a model from the dropdown list on the toolbar and click _Rediger_ (_edit_)
+ in the top right corner of the model tool. A panel for editing the model will appear on the right side.
+
+![Edit data model](edit-model.png "Edit data model")
 
 {{% notice info %}}
-Modellen lagres automatisk mens man jobber med den. For å generere opp modell-filer som XSD (og C#-fil for apper) må man
-trykke på _Generer modeller_-knappen øverst til høyre.
+The JSONschema model is automatically saved as you work on it. To generate other model files such as XSD (and C# file for apps), you need to
+click _Generer modeller_ (_Generate Models_) on the toolbar (see [Generating Model Files](#generating-model-files-xsd-and-c)).
 {{% /notice %}}
 
-### Redigere navn på felt
+### Add New Field
 
-1. Klikk på feltet, og se at navnet på feltet vises i høyre-panelet.
-2. Endre navn til ønsket verdi.
-3. Navnet oppdateres.
+To add a field at the top-level (root node), click "Legg til" (**1** in below image).
 
-### Legge til nytt felt
+You can add sub-fields to fields of the Object type via the context menu of the field (three dots to the right of the field name) or by clicking the field and select the tab _Felter_ (_Fields_) in the right-side panel.
 
-1. Hold musepekeren over noden du ønsker å legge til et felt på.
-2. Klikk på de tre prikkene til høyre for noden.
-3. Velg _Legg til felt_ fra menyen.
-4. Feltet blir lagt til.
-5. Alternativt kan man legge til felt direkte fra høyre-panelet:
+### Adding a New Type
 
-- Velg noden du ønsker å legge til felt på ved å klikke på den
-- Velg "Felter"-fanen i høyre-panelet
-- Legg til felter direkte i denne fanen.
+Click on the **+** sign in the "Typer" panel on the left side (**2** in below image).
 
-### Legge til en ny type
+### Converting Field to Type
 
-1. Trykk på **+**-tegnet ved siden av "Typer"-overskriften i panelet på venstre side
+A field can be converted to a type by clicking the three dots to the right of the field and selecting "Konverter til type" (**3** in below image).
 
-### Redigere en type
+![Add field and type](add-field-type-convert.png "Add field and type and convert field to type")
 
-1. Velg ønsket type fra panelet på venstre side ved å klikke på den, en egen tre-visning for typen vises da i midten.
-2. Egenskaper for typen kan redigeres i høyre-panelet
-3. Ved å trykke på "Legg til" knappen øverst kan man legge til felter på typen
-4. Ved å velge felter fra typen kan man redigere egenskaper for disse i høyre-panelet.
-5. Man lukker redigeringsmodus for typer ved å trykke på **x** øverst i modell-panelet, ved siden av `Du redigerer nå på <type>`.
+### Editing a Type
 
-### Slette en type
+1. Select the type from the panel on the left side. A tree view for the type will appear in the center.
+2. Properties for the type can be edited in the right-side panel.
+3. Add new fields by clicking the _Legg til_ (add) button at the top.
+4. Select individual fields to edit their properties in the right-side panel.
+5. Exit the type editing mode by clicking the **x** at the top of the model panel (next to `Du redigerer nå på <type>`).
 
-1. Velg ønsket type fra panelet på venstre side
-2. I kontekst-menyen til rot-noden på typen (`...`), velg "Slett".
-3. Merk at det ikke er mulig å slette typer som er i bruk.
+### Deleting a Type
 
-### Legge til en referanse til en type
+1. Select the desired type from the panel on the left side.
+2. Click the context menu (three dots) on the top field (root node) of the type and select "Delete".
 
-1. Hold musepekeren over noden du ønsker å legge til et felt på.
-2. Klikk på de tre prikkene til høyre for noden.
-3. Velg _Legg til referanse_ fra menyen.
-4. Feltet blir lagt til
-5. Velg type i _Refererer til_ feltet i høyre-panelet
+Note that it is not possible to delete types that are in use.
 
-### Slette et felt
+### Type References
 
-1. Hold musepekeren over noden du ønsker å slette.
-2. Klikk på de tre prikkene til høyre for noden.
-3. Velg _Slett felt_ fra menyen.
-4. Feltet blir slettet.
+A type reference is a field that follows the structure of a custom type.
+ For instance, if you have the type 'Address' with fields 'StreetName', 'PostalCode', and 'Location', adding a reference to that type will automatically add these fields.
+  The type is displayed next to the field name in the tree view.
 
-### Redigere egenskaper til et felt
+ ![Type reference](type-references.png "Type references")
 
-1. Klikk på noden/feltet du ønsker å redigere for å få opp egenskaper i høyre-panelet
-2. Rediger egenskapene for noden/feltet som ønsket. Tilgjengelige egenskaper for feltet vil variere basert på base-typen
-   for feltet.
+### Adding a Type Reference
 
-### Redigere/legge til XSD-attributter, namespaces, osv, inkl `dataFormatId og `dataFormatVersion`.
+ 1. Click _Legg til_ (add) at the top of the tree view and choose _Legg til referanse_ (add reference).
+ ![Add top-level reference](add-reference-top-level.png "Add top-level reference")
+ 2. In the right-hand panel, select the type you wish to reference from the drop-down list "Refererer til" (refers to).
+ ![Select type](select-reference.png "Select type")
 
-Foreløpig er ikke dette noe som støttes direkte i verktøyet. Det er allikevel mulig å gjøre dette manuelt. Beskrivelser
-for hvordan dette gjores finnes i lenkene under:
+You can also add a type reference as a sub field: Click the three dots next to a field and select _Legg til referanse_.
+
+{{% notice info %}}
+**NOTE**  
+To add a reference as a sub field, the parent field must be of type _Object_.
+{{% /notice %}}
+
+ ![Add reference as sub field](add-reference-node.png "Add reference as sub field")
+
+### Deleting a Field
+
+Click on the three dots to the right of the node/field and select _Slett_ (delete) from the menu.
+
+### Editing Properties of a Field
+
+1. Click on the node/field you want to edit to display the properties in the right-side panel.
+2. Edit the properties of the node/field as desired. The available properties for the field will vary based on the base type
+   of the field.
+
+### Editing/Adding XSD attributes, namespaces, etc., including `dataFormatId` and `dataFormatVersion`.
+
+This is currently not directly supported in the tool and must be done manually. Descriptions
+on how to do this can be found in the links below:
 
 - [dataFormatId og dataFormatVersion][1]
 - [XSD attributter generelt][2]
 - [XSD namespaces][3]
 
-## Generere modellfiler (XSD og C#)
+## Generating Model Files (XSD and C#)
 
-Når modellen er klar, kan man generere modell-filer ved å klikke på **Generer modeller**-knappen over høyre-panelet.
-For `<org>-datamodels`-repo vil det kun genereres XSD, mens for app-repo vil det også genereres C# modell-fil.
-Husk å trykke på **Push** til venstre i hovedmenyen til Altinn Studio for å dele _dine_ endringer.
+Once the model is ready, you can generate model files by clicking on the **Generate Models** button above the right panel.
+For the `<org>-datamodels` repository, a XSD file will be generated. For the app repository, both a XSD and C# model files will be generated.
+Remember to click **Last opp dine endringer** (Upload your changes) on the right side of the main menu in Altinn Studio to save your changes.
 
-## Laste ned XSD
+## Downloading XSD
 
-XSD fil kan så lastes ned ved å gå til repoet - klikk på person-ikonet øverst til høyre på siden, og velg
-"Åpne repository". Naviger til ønsker fil i mappestrukturen, og klikk på nedlastingsikonet.
+A generated XSD file can be downloaded by accessing the repository: click on the person icon in the top right corner of the page and select
+"Open repository." Navigate to the desired file in `App/models/` and click on the download icon.
 
-![Last ned XSD fra repo](./download-xsd.png "Last ned XSD fra repo")
+![Download XSD repo](./download-xsd.png "Download XSD from repo")
 
 [1]: ../altinn-2/#dataformatid-og-dataformatversion
 [2]: ../altinn-2/#xsd-attributter

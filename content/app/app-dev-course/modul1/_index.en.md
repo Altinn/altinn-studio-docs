@@ -52,8 +52,10 @@ You must have [access to the organization](/app/getting-started/create-user/#joi
 
 The data model defines the data that can be submitted through an app and the format in which it should be submitted.
 
-In Altinn Studio, you can add a data model by [uploading an _xsd_ file](/app/development/data/data-model/data-models-tool/#laste-opp--vise-datamodell) or [creating a new data model](/app/development/data/data-model/data-models-tool/#lage-ny-datamodell) using the data modeling tool.
-You can also start from an existing data model and edit it in a text editor or [directly in Altinn Studio](/app/development/data/data-model/data-models-tool/#redigere-datamodell).
+With Altinn Studio's [Data Modeling tool](/app/development/data/data-model/data-models-tool/),
+ you can add a data model by [uploading an _xsd_ file](/app/development/data/data-model/data-models-tool#uploading-and-viewing-a-data-model)
+  or you can [create a new data model](/app/development/data/data-model/data-models-tool/#create-a-new-data-model) from scratch.
+You can also start from an existing data model and edit it in a text editor or [directly in Altinn Studio](/app/development/data/data-model/data-models-tool/#editing-a-data-model).
 In this task, you will only upload a pre-existing data model.
 
 ### Requirements from the Municipality
@@ -63,9 +65,9 @@ Sogndal Municipality has created a [data model](datamodel.xsd) that represents t
 ### Tasks
 
 1. [Download the xsd file](datamodel.xsd). If the file opens in the browser, create a new text file and copy the content over. Save the file as `datamodel.xsd`.
-Alternatively, you can copy the URL of the file and run the command `curl <file-URL>` from the command line. Open the file in a text editor and examine its content.
-2. [Upload the data model in Altinn Studio](/app/development/data/data-model/data-models-tool/#laste-opp--vise-datamodell)
-3. Save the changes (click "Last opp dine endringer").
+Alternatively, you can copy the URL of the file and run the command `curl <file-URL> > datamodel.xsd` from the command line. Open the file in a text editor and examine its content.
+2. [Upload the data model in Altinn Studio](/app/development/data/data-model/data-models-tool/#uploading-and-viewing-a-data-model)
+3. Click "Last opp dine endringer" and follow the instructions to save the changes.
 4. Open the app's repository from the [Altinn Studio Dashboard](/app/getting-started/navigation/dashboard/) and take a closer look at the files in the `App/models` folder.
 
 ### Knowledge Check
@@ -77,7 +79,7 @@ Alternatively, you can copy the URL of the file and run the command `curl <file-
 - Some restrictions from the data model are not transferred to the _C#_ file. Which ones? Some new properties have also been added. Which ones?
 
 {{% notice info %}}
-If you plan to do the entire development or parts of it locally, you can [prepare for local development and testing](/app/getting-started/local-dev) after creating the application and adding the data model.
+If you plan to do all or parts of the development locally, you can [prepare for local development and testing](/app/getting-started/local-dev) after creating the application and adding the data model.
 {{% /notice %}}
 
 ### Useful Documentation
@@ -104,7 +106,7 @@ To make the service user-friendly and accessible for people with visual impairme
 
 ### Tasks
 
-1. [Create texts](/app/development/ux/texts/#add-and-change-texts-in-an-application) for the components of the first form. The texts should describe what needs to be filled in and will be displayed above the fields. Take a look at the next task to see which components you need texts for.
+1. [Create text resources](/app/development/ux/texts/#add-and-change-texts-in-an-application) for the components of the first form. The texts should describe what needs to be filled in and will be displayed above the fields. Take a look at the next task to see which components you need texts for.
 2. [Change the display name for the application](/app/development/ux/texts/#change-application-title). It is important that the application's display name sounds good and describes the service well.
 3. [Add translation(s) for the texts](/app/development/ux/texts/#add-and-change-texts-in-an-application). The application must be available in Norwegian Bokmål, Norwegian Nynorsk, and English. In the initial version, it is sufficient to support only one of these languages.
 
@@ -131,11 +133,11 @@ In Altinn, we currently support three written languages: Norwegian Bokmål, Norw
 {{% expandlarge id="add-components" header="Add Components" %}}
 
 The components in an application can be set up using "drag and drop" in [Altinn Studio Designer](/app/getting-started/ui-editor/)
-or manually in the _{pagename}.json_ file that describes the structure of a form page (you can find the file under `App/ui/layouts`).
+or manually in the `<pageName>.json` file that describes the structure of a form page (you can find the file in `App/ui/layouts`).
 
 ### Requirements from the Municipality
 
-The first form page gathers personal information about the new resident and should have the following text input components:
+The first form page gathers personal information about the new resident and should have the following components:
 - Name
   - First Name
   - Middle Name (optional)
@@ -165,11 +167,11 @@ Remember to upload changes when working in Designer so they are reflected in the
 
 ### Knowledge Check
 
-In your application repository, you will find the _{pagename}.json_ file in the `App/ui/layouts` folder. The JSON file describes the form page you have set up in Altinn Studio, assuming you have uploaded the changes.
+In your application repository, you will find the `<pageName>.json` file in the `App/ui/layouts` folder. The JSON file describes the form page you have set up in Altinn Studio, assuming you have uploaded the changes.
 
 - Can you find the component linked to the email field?
 - What change is required in this file if the email field is no longer mandatory?
-- By changing one line in the _{pagename}.json_ file, you can convert the component linked to the middle name field into a free-text input field. What change is required?
+- By changing one line in the `<pageName>.json` file, you can convert the component linked to the middle name field into a free-text input field. What change is required?
 {{% /expandlarge %}}
 
 ## Summary
