@@ -54,7 +54,7 @@ Additionally, it should return 200 OK when receiving our custom validation event
     "specversion": "1.0"
 }
 ```
-
+_Example of validation event_
 
 #### sourceFilter
 - filter for the cloud event source
