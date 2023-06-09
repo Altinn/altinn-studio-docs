@@ -33,7 +33,11 @@ Follow these steps to start developing apps in Altinn Studio.
 ---
 
 ## App development
+Create and edit apps in Altinn Studio.
 
+|   |   |   |   |   |
+|---|---|---|---|---|
+| [Data](/app/development/data)  | [User interface](/app/development/ux)  | [Configuration](/app/development/configuration)  | [Logic](/app/development/logic) |  [API](/app/development/api) |
 
 ---
 
@@ -43,6 +47,7 @@ How to perform specific tasks related to app development in Altinn Studio.
 |   |   |   |   |   |
 |---|---|---|---|---|
 | [Design](/app/guides/design)  | [Testing](/app/guides/testing)  | [Copy app](/app/guides/copy-app)  | [Access management](/app/guides/access-management)  | [Migrate from Altinn 2](/app/guides/migrate-services) |
+
 ## App examples
 Draw inspiration from applications developed by Digdir or external organizations.
 
