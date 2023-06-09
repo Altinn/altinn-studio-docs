@@ -25,8 +25,16 @@ Følg disse grunnleggende stegene for å komme i gang med utvikling av applikasj
 4. [Gjør deg kjent med Altinn Studio Designer](/nb/app/getting-started/ui-editor)
 5. [Klargjør for lokal utvikling](/nb/app/getting-started/local-dev)
 
-
 [![Gå til introkurs](introcourse.png "Gå til introkurs")](/nb/app/app-dev-course/)
+
+---
+
+## Apputvikling
+Opprett og rediger applikasjoner i Altinn Studio.
+
+|   |   |   |   |   |
+|---|---|---|---|---|
+| [Data](/nb/app/development/data)  | [Brukergrensesnitt](/nb/app/development/ux)  | [Konfigurasjon](/nb/app/development/configuration)  | [Logikk](/nb/app/development/logic) |  [API](/nb/app/development/api) |
 
 ---
 
