@@ -538,7 +538,7 @@
                 </text>
             </switch>
         </g>
-        <a xlink:href="https://docs.altinn.studio/app/development/ux/images/" target="_blank">
+        <a xlink:href="https://docs.altinn.studio/app/development/ux/components/images/" target="_blank">
             <rect x="280" y="945" width="120" height="60" rx="9" ry="9" fill="#008a00" stroke="#005700" pointer-events="all"/>
             <g transform="translate(-0.5 -0.5)">
                 <switch>
