@@ -3,6 +3,8 @@ title: Widgets
 description: Hvordan bruke sammensatte komponenter (widgets).
 toc: true
 weight: 60
+aliases:
+- /nb/app/development/ux/widgets/
 ---
 
 ## Hva er en widget?

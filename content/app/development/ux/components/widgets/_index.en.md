@@ -3,6 +3,8 @@ title: Widgets
 description: How to use compound components (widgets).
 toc: true
 weight: 60
+aliases:
+- /app/development/ux/widgets/
 ---
 
 ## What is a widget?
