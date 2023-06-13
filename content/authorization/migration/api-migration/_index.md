@@ -16,13 +16,11 @@ tags: [architecture, plan, authorizaton]
 ### Innledning
 På disse sidene vil du finne oversikt over alle API-tjenestene knyttet til autorisering og autentisering som finnes i Altinn 2 i dag. 
 Vi har delt API opp i to ulike brukergrupper og du finner migreringsstrategi for de ulike API-enedpunktene der: 
-- [Tjenester for sluttbrukersystem](/authorization/migration/api-migration/#sluttbrukersystem-api)
-- [Tjenester for tjenesteeiere i Altinn](/authorization/migration/api-migration/#tjenesteeeier-api)
-
-
+- Tjenester for sluttbrukersystem
+- Tjenester for tjenesteeiere i Altinn
 ## Ulike migrerings strategier for ulike API
 Som en hovedregel så vil alle eksisterende API i Altinn 2 fortsette å fungere så lenge Altinn 2 plattformen er i drift. 
-Disse APIene vil som en hovedregel kun ha tilgang til informasjon fra Altinn 2 plattformen. Etterhvert som tjenesteeier flytter sine [ulike tjenester](/authorization/migration/servicemigration) ut fra Altinn 2, så vil det være begrenset om man 
+Disse APIene vil som en hovedregel kun ha tilgang til informasjon fra Altinn 2 plattformen. Etterhvert som tjenesteeier flytter sine [ulike tjenester](/authorization/migration/servicemigrationplan/) ut fra Altinn 2, så vil det være begrenset om man 
 får ut nødvendig informasjon fra APIene ettersom tjenestene forsvinner fra Altinn 2. 
 
 For API finnes 2 hovedstrategier i overgang mellom Altinn 2 og Altinn 3:
