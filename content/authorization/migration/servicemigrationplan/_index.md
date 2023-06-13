@@ -1,8 +1,9 @@
 ---
 title: Planer for migrering av tjenester i Altinn
-linktitle: Plan migrering
+linktitle: Flytte Tjenester
 description: Her finner du foreløpig plan for migrering av tjenester, i hvilken rekkefølge dette skal skje og når de enkelte tjenestetypene skal være flyttet fra Altinn 2 til Altinn 3. 
 toc: true
+weight: 200
 tags: [architecture, plan, authorizaton]
 
 ---
