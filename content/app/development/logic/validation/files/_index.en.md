@@ -7,7 +7,7 @@ weight: 10
 ---
 
 {{%notice info%}}
-This functionality requires that the application uses at least [version 7.10.0](https://github.com/Altinn/app-lib-dotnet/releases/tag/v7.10.0) of the Altinn.App.Core NuGet package.
+This functionality requires that the application uses at least [version 7.10.0](https://github.com/Altinn/app-lib-dotnet/releases/tag/v7.10.0) of the Altinn.App.Core and Altinn.App.Api NuGet packages.
 {{% /notice%}}
 
 {{%notice warning%}}
