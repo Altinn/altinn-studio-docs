@@ -4,6 +4,8 @@ linktitle: In test environment
 description: Description of how test in test environment can be performed.
 toc: true
 weight: 200
+aliases:
+- /app/testing/deploy/
 tags: [translate-to-english]
 ---
 

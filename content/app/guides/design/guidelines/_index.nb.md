@@ -2,6 +2,8 @@
 title: Retningslinjer
 description: Vi ønsker å oppnå helhetlige og konsistente brukeropplevelser ved å bruke gjenkjennbare og godt testede komponenter. For å oppnå dette ut i tjenestene, ber vi deg om å benytte retningslinjene på disse sidene.
 weight: 30
+aliases:
+- /nb/app/design/guidelines/
 ---
 
 Altinn har som mål å gjøre det enklere for innbyggere og næringsliv å være i kontakt med det offentlige uavhengig 

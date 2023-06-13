@@ -2,6 +2,8 @@
 title: UI-komponenter
 description: De ulike komponentene er laget for at de skal passe sammen i en større helhet. Det er derfor viktig å følge retningslinjene for hvordan disse brukes for å oppnå et konsistent og gjenkjennbart uttrykk. UI-komponenter som foreløpig inngår i Altinns bibliotek finner du her.
 weight: 10
+aliases:
+- /nb/app/design/guidelines/components/
 ---
 
 {{% panel-contribute 

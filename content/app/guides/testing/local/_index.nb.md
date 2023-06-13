@@ -3,6 +3,8 @@ title: Test av app lokalt
 linktitle: Lokalt
 description: Beskrivelse av hvordan test av app lokalt på egen maskin kan gjøres
 weight: 100
+aliases:
+- /nb/app/testing/local/
 ---
 
 Dersom man skal skrive en del kode (f.eks. [logikk](/nb/app/development/logic)), eller kjapt sjekke hvordan skjema ser ut kan det være nytting å kunne teste endringer uten å måtte deploye hele appen til testmiljø.

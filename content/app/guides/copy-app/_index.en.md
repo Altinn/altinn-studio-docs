@@ -3,6 +3,8 @@ title: Copy app in Altinn Studio
 linktitle: Copy app 
 description: How to make a copy of an application in Altinn Studio
 weight: 150
+aliases:
+- /app/copy-app/
 ---
 
 

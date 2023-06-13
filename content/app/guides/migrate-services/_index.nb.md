@@ -3,6 +3,8 @@ title: Migrere tjenester
 description: Fra Altinn 2 til Altinn 3.
 toc: true
 weight: 170
+aliases:
+- /nb/app/migrate-services/
 ---
 
 ## Migrere en eksisterende tjeneste til Altinn 3

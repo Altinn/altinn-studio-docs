@@ -3,6 +3,8 @@ title: Kopier app i Altinn Studio
 linktitle: Kopier app
 description: Slik oppretter man en kopi av applikasjon i Altinn Studio.
 weight: 150
+aliases:
+- /nb/app/copy-app/
 ---
 
 I Altinn Studio har man mulighet til å lage en kopi av en eksisterende applikasjon innad i en organisasjon. Dette gjøres fra dashboardet.
