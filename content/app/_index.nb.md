@@ -52,7 +52,7 @@ Opprett og rediger applikasjoner i Altinn Studio.
 |   |   |   |   |   |
 |---|---|---|---|---|
 | [App Events](/nb/app/development/logic/events)  | [Generelt](/nb/app/development/logic/generic)  | [Tjenester](/nb/app/development/logic/services)  | [Dataprosessering](/nb/app/development/logic/dataprocessing)  | [Dynamikk](/nb/app/development/logic/dynamic)  |
-|  [Instansiering](/nb/app/development/logic/instantiation)  | [Kalkuleringer](/nb/app/development/logic/calculations)  | [Uttrykk](/nb/app/development/logic/expressions)  | [Validering](/nb/app/development/logic/validation)  |
+|  [Instansiering](/nb/app/development/logic/instantiation)  | [Kalkuleringer](/nb/app/development/logic/calculation)  | [Uttrykk](/nb/app/development/logic/expressions)  | [Validering](/nb/app/development/logic/validation)  |
 
 ### [API](/nb/app/development/api)
 
@@ -86,7 +86,7 @@ Hvordan utføre spesifikke oppgaver relatert til app-utvikling i Altinn studio.
 ### [Design](/nb/app/guides/design)
 |   |   |   |   |
 |---|---|---|---|
-| [Retningslinjer](/nb/app/guides/design/guidelines)  | [Innsiktsfase](/nb/app/guides/design/insights)  | [Prototyping](/nb/app/guides/design/prototype)  | [Brukertesting](/nb/app/guides/design/usertest)  |
+| [Retningslinjer](/nb/app/guides/design/guidelines)  | [Innsiktsfase](/nb/app/guides/design/insight)  | [Prototyping](/nb/app/guides/design/prototype)  | [Brukertesting](/nb/app/guides/design/usertest)  |
 
 
 ### Altinn 2
