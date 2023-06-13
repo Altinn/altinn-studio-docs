@@ -43,7 +43,7 @@ Hvordan utføre spesifikke oppgaver relatert til app-utvikling i Altinn studio.
 
 |   |   |   |   |   |
 |---|---|---|---|---|
-| [Design](/nb/app/guides/design)  | [Testing](/nb/app/guides/testing)  | [Kopiere app](/nb/app/guides/copy-app)  | [Tilgangsstyring](/nb/app/guides/access-management)  |  [Migrere fra Altinn 2](/nb/app/guides/migrate-services)  |
+| [Design](/nb/app/guides/design)  | [Testing](/nb/app/testing)  | [Kopiere app](/nb/app/guides/copy-app)  | [Tilgangsstyring](/nb/app/guides/access-management)  |  [Migrere fra Altinn 2](/nb/app/guides/migrate-services)  |
 
 ## App-eksempler
 
