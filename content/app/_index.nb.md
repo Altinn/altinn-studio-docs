@@ -27,23 +27,79 @@ Følg disse grunnleggende stegene for å komme i gang med utvikling av applikasj
 
 [![Gå til introkurs](introcourse.png "Gå til introkurs")](/nb/app/app-dev-course/)
 
+### [Retningslinjer for design](/nb/app/guides/design/guidelines)
+
+
 ---
 
-## Apputvikling
+## [Apputvikling](/nb/app/development)
 Opprett og rediger applikasjoner i Altinn Studio.
+
+### [Data](/nb/app/development/data)
+
+|   |   |   |   |
+|---|---|---|---|
+| [Datamodell](/nb/app/development/data/data-model)  | [Forhåndsutfylling](/nb/app/development/data/prefill)  | [Flervalg (kodelister)](/nb/app/development/data/options)  | [Vedlegg](/nb/app/development/data/attachments)  |
+
+### [Brukergrensesnitt](/nb/app/development/ux)
+
+|   |   |   |   |   |   |   |
+|---|---|---|---|---|---|---|
+| [Komponenter](/nb/app/development/ux/components)  | [Sider](/nb/app/development/ux/pages)  | [Felter](/nb/app/development/ux/fields)  | [Bunntekst](/nb/app/development/ux/footer)  | [Styling](/nb/app/development/ux/styling)  | [Tekster](/nb/app/development/ux/texts)  | [PDF](/nb/app/development/ux/pdf)  |
+
+### [Logikk](/nb/app/development/logic)
 
 |   |   |   |   |   |
 |---|---|---|---|---|
-| [Data](/nb/app/development/data)  | [Brukergrensesnitt](/nb/app/development/ux)  | [Konfigurasjon](/nb/app/development/configuration)  | [Logikk](/nb/app/development/logic) |  [API](/nb/app/development/api) |
+| [App Events](/nb/app/development/logic/events)  | [Generelt](/nb/app/development/logic/generic)  | [Tjenester](/nb/app/development/logic/services)  | [Dataprosessering](/nb/app/development/logic/dataprocessing)  | [Dynamikk](/nb/app/development/logic/dynamic)  |
+|  [Instansiering](/nb/app/development/logic/instantiation)  | [Kalkuleringer](/nb/app/development/logic/calculations)  | [Uttrykk](/nb/app/development/logic/expressions)  | [Validering](/nb/app/development/logic/validation)  |
+
+### [API](/nb/app/development/api)
+
+|   |   |   |
+|---|---|---|
+| [Eksponere](/nb/app/development/api/expose)  | [Instans](/nb/app/development/api/instance)  | [Konsumere](/nb/app/development/api/consume)  |
+
+### [Konfigurasjon](/nb/app/development/configuration)
+
+|   |   |   |   |
+|---|---|---|---|
+| [Autorisasjon](/nb/app/development/configuration/authorization)  | [Autentisering](/nb/app/development/configuration/authentication)  | [Aktørtyper](/nb/app/development/configuration/partytype)  | [Prosess](/nb/app/development/configuration/process)  |
+| [Produksjonssetting (deployment)](/nb/app/development/configuration/deployment)  | [Secrets](/nb/app/development/configuration/secrets)  | [Startup](/nb/app/development/configuration/startup)  | [Stateless](/nb/app/development/configuration/stateless)  |
+| [Query parametre](/nb/app/development/configuration/queryparameters)  | [Hjelpefelter](/nb/app/development/configuration/shadowfields)  | [Datafelter](/nb/app/development/configuration/datafields)  | [eFormidling](/nb/app/development/configuration/)  |
+|  [App-innstillinger](/nb/app/development/configuration/settings)  |   [Events](/nb/app/development/configuration/events)  | [Meldingsboks](/nb/app/development/configuration/messagebox)  |  [Virusscan](/app/development/configuration/filescan)  |
+---
+
+## [Testing](/nb/app/testing)
+
+### [Lokal testing](/nb/app/testing/local)
+Konfigurer et lokalt testmiljø for testing av applikasjonen.
+
+### [Testmiljø](/nb/app/testing/deploy)
+Bygg applikasjonen og produksjonssett (deploy) den til organisasjonens testmiljø.
 
 ---
 
 ## Veiledninger
 Hvordan utføre spesifikke oppgaver relatert til app-utvikling i Altinn studio.
 
-|   |   |   |   |   |
-|---|---|---|---|---|
-| [Design](/nb/app/guides/design)  | [Testing](/nb/app/testing)  | [Kopiere app](/nb/app/guides/copy-app)  | [Tilgangsstyring](/nb/app/guides/access-management)  |  [Migrere fra Altinn 2](/nb/app/guides/migrate-services)  |
+### [Design](/nb/app/guides/design)
+|   |   |   |   |
+|---|---|---|---|
+| [Retningslinjer](/nb/app/guides/design/guidelines)  | [Innsiktsfase](/nb/app/guides/design/insights)  | [Prototyping](/nb/app/guides/design/prototype)  | [Brukertesting](/nb/app/guides/design/usertest)  |
+
+
+### Altinn 2
+
+|   |   |   |
+|---|---|---|
+| [Migrere fra Altinn 2](/nb/app/guides/migrate-services)  | [Altinn 2 datamodell](/nb/app/development/data/data-model/altinn-2)  | [Sereserstatning](/nb/app/development/data/data-model/seres-migration)  |
+
+### Diverse
+
+|   |   |
+|---|---|
+| [Kopiere app](/nb/app/guides/copy-app)  | [Tilgangsstyring](/nb/app/guides/access-management)  |
 
 ## App-eksempler
 
@@ -57,6 +113,6 @@ Applikasjoner opprettet av eksterne organisasjoner.
 
 ## Neste steg
 
-- [Produksjonssetting](/nb/app/deployment/)
-- [Monitorering](/nb/app/monitoring/)
-- [Vedlikehold](/nb/app/maintainance/)
+### [Produksjonssetting](/nb/app/deployment/)
+### [Monitorering](/nb/app/monitoring/)
+### [Vedlikehold](/nb/app/maintainance/)
