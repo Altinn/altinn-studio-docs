@@ -6,6 +6,7 @@ weight: 20
 aliases: 
 - /design/
 - /design/designsystem/
+- /app/design/
 ---
 
 The pages for design and planning is currently only available in [norwegian](/nb/app/guides/design/).

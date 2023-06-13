@@ -3,6 +3,8 @@ title: Migrate services
 description: From Altinn 2 to Altinn 3.
 toc: true
 weight: 170
+aliases:
+- /app/migrate-services/
 tags: [translate-to-english]
 ---
 
