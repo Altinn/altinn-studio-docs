@@ -90,7 +90,7 @@ Altinn Studio Data Modeling is a tool for developing [data models](#data-models)
 
 The data model defines the data that can be submitted through an app and the allowed format of the data.
 Currently, we only support uploading XSD data models.
-When uploading an XSD model `<model>.xsd`, the tool will generate the following files: `<model>.cs`, `<model>.schema.json`, and `<model>.metadata.json` (see [Data Model Files](#data-model-files)).
+When uploading an XSD model `<model>.xsd`, the tool will generate the following files: `<model>.cs`, `<model>.schema.json`, and `<model>.metadata.json` (see [Data Model Files](#data-model-files-for-applications)).
 
 1. Click _Last opp datamodell_ (_Upload Data Model_) from the homepage if there are no existing data models or _Last opp_ (_Upload_) from the
    toolbar at the top of the tool.

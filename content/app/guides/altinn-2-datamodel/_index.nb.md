@@ -129,4 +129,4 @@ F.eks.:
 [2]: https://code.visualstudio.com/
 [3]: https://marketplace.visualstudio.com/items?itemName=redhat.vscode-xml
 [4]: https://altinn.slack.com/archives/C041WMBLYMB
-[5]: ../data-models-tool
+[5]: /nb/app/development/data/data-modeling/#altinn-studio-datamodellering

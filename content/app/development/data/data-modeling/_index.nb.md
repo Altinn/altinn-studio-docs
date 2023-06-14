@@ -91,7 +91,7 @@ format og kan ut fra dette generere XSD- og C#-modeller (se [Datamodeller for Ap
 
 Datamodellen definerer hvilke data som kan sendes inn via en app, og hvilket format det skal sendes på.
 Vi støtter pr. nå kun opplasting av XSD datamodell.
- Ved opplasting av XSD-modell `<model>.xsd` vil verktøyet generere følgende filer: `<model>.cs`, `<model>.schema.json` og `<model>.metadata.json` (se [datamodell-filer](#datamodell-filer)).
+ Ved opplasting av XSD-modell `<model>.xsd` vil verktøyet generere følgende filer: `<model>.cs`, `<model>.schema.json` og `<model>.metadata.json` (se [datamodell-filer](#datamodeller-for-applikasjoner)).
 
 1. Klikk på _Last opp datamodell_ fra startsiden om det ikke er noen eksisterende datamodeller eller _Last opp_ fra
    verktøylinjen øverst i verktøyet.
@@ -154,7 +154,7 @@ verktøyet.
 
 {{% notice info %}}
 JSONschema-modellen lagres automatisk mens man jobber med den. For å generere andre modell-filer som XSD (og C#-fil for apper) må man
-trykke på knappen _Generer modeller_ øverst til høyre (se [Generere Modellfiler](#generere-modellfiler-xsd-og-c)).
+trykke på knappen _Generer modeller_ øverst til høyre (se [Generere Modellfiler](#generere-og-laste-ned-modellfiler-xsd-og-c)).
 {{% /notice %}}
 
 ### Legge til nytt felt
