@@ -94,7 +94,7 @@ Når du jobber lokalt kan det være nyttig med forhåndsvisning av endringene du
 
 {{% notice info %}}
 **MERK**
-For å kunne kjøre appen i LocalTest må applikasjonen ha en tilknyttet [datamodell](/nb/app/development/data/data-model/data-models-tool/).
+For å kunne kjøre appen i LocalTest må applikasjonen ha en tilknyttet [datamodell](/nb/app/development/data/data-modeling/).
 {{% /notice %}}
 
 1. **Last ned og start LocalTest** ved å følg stegene [beskrevet på GitHub](https://github.com/Altinn/app-localtest/blob/master/README.md) (inkluderer start av app som også er forklart under).

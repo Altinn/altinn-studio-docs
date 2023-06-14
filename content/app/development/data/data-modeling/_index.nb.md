@@ -1,24 +1,36 @@
 ---
 title: Altinn Studio Datamodellering
 linktitle: Datamodellering
-description: Brukerguide for verktøyet Altinn Studio Datamodellering
+description: Datamodell og Datamodellering i Altinn Studio
 weight: 1
 toc: true
+aliases:
+- /nb/app/development/data/data-models-tool/
+- /nb/app/development/data/data-model/
 ---
+
+## Datamodeller for applikasjoner
+
+Datamodeller for applikasjoner ligger i samme mappestruktur som resten av applikasjonsfilene. Disse ligger lagret i 
+[Altinn Studio repository](https://altinn.studio/repos) under `App/models` i filstrukturen til appen.
+En applikasjon har 4 modellfiler:
+
+* **C# datamodell** (`<model>.cs`) : Datamodell som benyttes av applikasjonens backend/API'er for å behandle og validere data.
+* **JSON schema** (`<model>.schema.json`) : Datamodell i JSONschema-format som brukes av applikasjonen på klientsiden (frontend) for å validere data fortløpende.
+Det er også denne filen man jobber med i datamodelleringsverktøyet.
+* **XSD datamodell** (`<model>.XSD`) : Datamodell i _XML_-format som definerer hvilke elementer som kan brukes i et dokument.
+Denne brukes ikke direkte av applikasjonen, men kan lastes opp for å generere de andre modellfilene i Altinn Studioe eller lastes ned ved behov til f.eks. mottakssystemer.
+* **JSON metadata** (`<model>.metadata.json`) : Brukes av Altinn Studio for å genererere `<model>.cs`-filen.
+ _På sikt vil vi slutte å lagre denne filen i appen og kun generere den ved behov_.
+
+## Altinn Studio Datamodellering
 
 {{% notice info %}}
 Verktøyet Datamodellering i Altinn Studio er under utvikling og vil ha noe begrenset funksjonalitet før det er ferdigstilt.
 {{% /notice %}}
 
 Altinn Studio Datamodellering er et verktøy for å utvikle datamodeller. Den baserer seg på en datamodell i JSONSchema
-format og kan ut fra dette generere XSD- og C#-modeller. 
-
- ### Datamodell-filer
-
- * **XSD datamodell** (`<model>.XSD`) : Datamodell i _XML_-format som definerer hvilke elementer som kan brukes i et dokument.
- * **C# datamodell** (`<model>.cs`) : Datamodell som benyttes av applikasjonens backend for å desentralisere data og gjøre den tilgjengelig for prosessering og validering.
- * **JSON schema** (`<model>.schema.json`) : Datamodell i JSONschema-format som benyttes av applikasjonens frontend for skjemavalidering på klientsiden.
- * **JSON metadata** (`<model>.metadata.json`) : Brukes av Altinn Studio for å koble komponenter og dynamikk til datafeltene.
+format og kan ut fra dette generere XSD- og C#-modeller.
 
 ## Navigere til Altinn Studio Datamodellering
 

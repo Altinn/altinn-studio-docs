@@ -1,23 +1,34 @@
 ---
 title: Altinn Studio Data Modeling
 linktitle: Data Modeling
-description: User guide for Altinn Studio Data Modeling tool
+description: Data model and Altinn Studio Data Modeling tool
 weight: 1
 toc: true
+aliases:
+- /app/development/data/data-models-tool/
+- /app/development/data/data-model/
 ---
+
+### Data Model Files for Applications
+
+Data models for applications are located in the same folder structure as the rest of the application files. These are stored in the [Altinn Studio repository](https://altinn.studio/repos) under `App/models` in the application's file structure.
+An application has 4 model files:
+
+* **C# data model** (`<model>.cs`): Data model used by the application's backend/APIs to process and validate data.
+* **JSON schema** (`<model>.schema.json`): Data model in JSONschema format used by the application on the client-side (frontend) to validate data in real-time.
+This is also the file that is worked on in the data modeling tool.
+* **XSD data model** (`<model>.XSD`): Data model in XML format that defines the elements that can be used in a document.
+This is not directly used by the application but can be uploaded to generate the other model files in Altinn Studio or downloaded as needed.
+* **JSON metadata** (`<model>.metadata.json`): Used by Altinn Studio to generate the `<model>.cs` file.
+_In the future, this file will not be stored in the application and will only be generated if needed_.
+
+## Altinn Studio Data Modeling
 
 {{% notice info %}}
 The Data Modeling tool in Altinn Studio is under development and will have limited functionality until it is completed.
 {{% /notice %}}
 
 Altinn Studio Data Modeling is a tool for developing data models. It is based on a data model in JSONSchema format and can generate XSD and C# models from it.
-
-### Data Model Files
-
-* **XSD Data Model** (`<model>.XSD`): Data model in XML format that defines the elements that can be used in a document.
-* **C# Data Model** (`<model>.cs`): Data model used by the application's backend to deserialize data and make it available for processing and validation.
-* **JSON Schema** (`<model>.schema.json`): Data model in JSONSchema format used by the application's frontend for client-side form validation.
-* **JSON Metadata** (`<model>.metadata.json`): Used by Altinn Studio to link components and dynamics to data fields.
 
 ## Navigating to Altinn Studio Data Modeling
 

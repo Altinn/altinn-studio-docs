@@ -55,10 +55,10 @@ Dersom du skal teste appen i et [testmiljø](/nb/app/testing/deploy/) (beskrevet
 
 Datamodellen definerer hvilke data som kan sendes inn via en app og hvilket format det skal sendes på.
 
-Med Altinn Studios [verktøy for datamodellering](/nb/app/development/data/data-model/data-models-tool/)
- kan du legge til en datamodell ved å [laste opp en _xsd_-fil](/nb/app/development/data/data-model/data-models-tool/#laste-opp-og-vise-datamodell)
-  eller [lage en ny datamodell](/nb/app/development/data/data-model/data-models-tool/#lage-ny-datamodell) fra bunnen av.
- Du kan også ta utgangspunkt i en eksisterende datamodell og redigere den i et tekstredigeringsprogram eller [direkte i Altinn Studio](/nb/app/development/data/data-model/data-models-tool/#redigere-datamodell).
+Med Altinn Studios [verktøy for datamodellering](/nb/app/development/data/data-modeling/)
+ kan du legge til en datamodell ved å [laste opp en _xsd_-fil](/nb/app/development/data/data-modeling/#laste-opp-og-vise-datamodell)
+  eller [lage en ny datamodell](/nb/app/development/data/data-modeling/#lage-ny-datamodell) fra bunnen av.
+ Du kan også ta utgangspunkt i en eksisterende datamodell og redigere den i et tekstredigeringsprogram eller [direkte i Altinn Studio](/nb/app/development/data/data-modeling/#redigere-datamodell).
   I denne oppgaven skal du kun laste opp en ferdig datamodell.
 
 ### Krav fra kommunen
@@ -71,7 +71,7 @@ som representerer type data de ønsker å samle inn fra fremtidige innbyggere.
 1. [Last ned xsd-filen](datamodel.xsd). Hvis filen åpnes i nettleseren kan du opprette en ny tekstfil og kopiere over innholdet. Lagre filen som `datamodel.xsd`.
  Alternativt kan du kopiere URLen til filen og kjøre kommandoen `curl <fil-URL> > datamodel.xsd` fra kommandolinjen. Åpne filen i et tekstredigeringsprogram
    og ta en nærmere titt på innholdet.
-2. [Last opp datamodellen i Altinn Studio](/nb/app/development/data/data-model/data-models-tool/#laste-opp-og-vise-datamodell)
+2. [Last opp datamodellen i Altinn Studio](/nb/app/development/data/data-modeling/#laste-opp-og-vise-datamodell)
 3. Klikk "Last opp dine endringer" og følg instruksjonene for å lagre endringene.
 4. Åpne repository til appen fra [Altinn Studio Dashboard](/nb/app/getting-started/navigation/dashboard/) og ta en nærmere titt på filene i mappen `App/models`.
 
@@ -89,7 +89,7 @@ Hvis du skal gjøre hele eller deler av utviklingen lokalt kan du [klargjøre fo
 
 ### Nyttig dokumentasjon
 
-- [Altinn Studio Datamodellering](/app/development/data/data-model/data-models-tool/)
+- [Altinn Studio Datamodellering](/app/development/data/data-modeling/)
 - [Beskrivelse av indikatorer i XSD](https://www.w3schools.com/xml/schema_complex_indicators.asp)
 - [Installere curl for Windows](https://developer.zendesk.com/documentation/api-basics/getting-started/installing-and-using-curl/#windows)
 - [Altinn Studio Repository](/nb/app/getting-started/navigation/repos/)

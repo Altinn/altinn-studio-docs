@@ -88,7 +88,7 @@ When working locally, it can be useful to preview the changes you make. *LocalTe
 
 {{% notice info %}}
 **NOTE**
-To run the app in LocalTest, the application must have an associated [data model](/app/development/data/data-model/data-models-tool/).
+To run the app in LocalTest, the application must have an associated [data model](/app/development/data/data-modeling/).
 {{% /notice %}}
 
 1. **Download and start LocalTest** by following the steps [described on GitHub](https://github.com/Altinn/app-localtest/blob/master/README.md) (includes starting the app, which is also explained below).
