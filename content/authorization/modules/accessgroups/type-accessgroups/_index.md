@@ -142,7 +142,7 @@ Denne tilgangsgruppen har disse tilgangsgruppene på nivå 3.
 - *Attester (tilsvarende som i Altinn skjemakatalog)
 - *Dokumentbasert tilsyn (tilsvarende som i Altinn skjemakatalog)
 - *Infrastruktur (tilsvarende som i Altinn skjemakatalog)
-- *Patent og varmerke (tilsvarende som i Altinn skjemakatalog)
+- *Patent, varmerke og design (tilsvarende som i Altinn skjemakatalog)
 - *Tilskudd, støtte og erstatning (tilsvarende som i Altinn skjemakatalog)
 - *Mine sider hos kommunen
 
