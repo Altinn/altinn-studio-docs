@@ -1,10 +1,12 @@
 ---
 title: Utvikle datamodell for Altinn 2 i Altinn Studio
-linktitle: Altinn 2
+linktitle: Altinn 2 Data Model
 description: Hva må gjøres for å utvikle datamodell til Altinn 2?
 weight: 100
 tags: [translate-to-english]
 toc: true
+aliases:
+- /app/development/data/data-model/altinn-2/
 ---
 
 ## Endre eksisterende datamodell

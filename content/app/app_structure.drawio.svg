@@ -453,13 +453,13 @@
                     <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 168px; height: 1px; padding-top: 1337px; margin-left: 6313px;">
                         <div data-drawio-colors="color: #E6E6E6; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
                             <div style="display: inline-block; font-size: 19px; font-family: Helvetica; color: rgb(230, 230, 230); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
-                                altinn-2
+                                altinn-2-datamodel
                             </div>
                         </div>
                     </div>
                 </foreignObject>
                 <text x="6397" y="1343" fill="#E6E6E6" font-family="Helvetica" font-size="19px" text-anchor="middle">
-                    altinn-2
+                    altinn-2-datamodel
                 </text>
             </switch>
         </g>
@@ -2389,13 +2389,13 @@
                     <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 168px; height: 1px; padding-top: 900px; margin-left: 964px;">
                         <div data-drawio-colors="color: #ffffff; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
                             <div style="display: inline-block; font-size: 19px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
-                                altinn-2
+                                altinn-2-datamodel
                             </div>
                         </div>
                     </div>
                 </foreignObject>
                 <text x="1048" y="906" fill="#ffffff" font-family="Helvetica" font-size="19px" text-anchor="middle">
-                    altinn-2
+                    altinn-2-datamodel
                 </text>
             </switch>
         </g>
@@ -5000,13 +5000,13 @@
                     <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 158px; height: 1px; padding-top: 1089px; margin-left: 6249px;">
                         <div data-drawio-colors="color: #000000; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
                             <div style="display: inline-block; font-size: 20px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
-                                altinn-2
+                                altinn-2-datamodel
                             </div>
                         </div>
                     </div>
                 </foreignObject>
                 <text x="6328" y="1095" fill="#000000" font-family="Helvetica" font-size="20px" text-anchor="middle">
-                    altinn-2
+                    altinn-2-datamodel
                 </text>
             </switch>
         </g>
