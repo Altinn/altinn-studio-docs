@@ -65,4 +65,4 @@ Har du planer om å gjøre endringer i en eller flere XSD'er som skal produksjon
 testes og helst gjøres med mindre endringer slik at det blir lettere å verifisere den genererte XSD'en før den lastes
 opp og tas i bruk i Altinn 2.
 
-[1]: ../org-datamodels/#laste-opp-xsd
+[1]: /app/development/data/data-modeling/#uploading-xsd-to-repository

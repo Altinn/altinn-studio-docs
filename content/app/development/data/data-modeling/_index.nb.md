@@ -5,8 +5,11 @@ description: Datamodell og Datamodellering i Altinn Studio
 weight: 1
 toc: true
 aliases:
-- /nb/app/development/data/data-models-tool/
 - /nb/app/development/data/data-model/
+- /nb/app/development/data/data-models-tool/
+- /nb/app/development/data/data-models-tool/app-datamodels
+- /nb/app/development/data/data-models-tool/org-datamodels
+- /nb/app/development/data/data-models-tool/known-issues
 ---
 
 ## Datamodeller

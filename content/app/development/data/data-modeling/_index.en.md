@@ -7,6 +7,9 @@ toc: true
 aliases:
 - /app/development/data/data-models-tool/
 - /app/development/data/data-model/
+- /app/development/data/data-models-tool/app-datamodels
+- /app/development/data/data-models-tool/org-datamodels
+- /app/development/data/data-models-tool/known-issues
 ---
 
 ## Data models
