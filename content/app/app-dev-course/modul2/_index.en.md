@@ -61,7 +61,7 @@ The following is desirable to be similar in the application:
 ### Useful docmentation
 
 - [Formatting of texts](/app/development/ux/texts/#formatting-of-texts)
-- [Add pictures to the application](/app/development/ux/images/#add-images-to-the-application)
+- [Add pictures to the application](/app/development/ux/components/images/#add-images-to-the-application)
 - [Use of grid to control layout of components](/app/development/ux/styling/#components-placed-side-by-side-grid)
 - [Project structure when using multiple pages](/app/development/ux/pages/#setup)
 - [Change order of pages based on some condition](/app/development/ux/pages/tracks/#trigger-calculation-on-tracks-from-frontend)

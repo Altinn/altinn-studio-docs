@@ -3,6 +3,8 @@ title: Widgets
 description: Hvordan bruke sammensatte komponenter (widgets).
 toc: true
 weight: 60
+aliases:
+- /nb/app/development/ux/widgets/
 ---
 
 ## Hva er en widget?
@@ -28,7 +30,7 @@ Listen oppdateres etter hvert som nye widgets legges til. Per nå. er følgende 
 
 | Navn | Beskrivelse | Skjermbilde | 
 | ---- | ----------- | ----------- | 
-| Melding | Inneholder komponentene som utgjør en standard melding:<br><ul> <li>tittel<br><li>meldingstekst<br><li>vedlegg<br><li>navigasjonsknapp</ul><br> Tekstene er satt opp med referanse til felt i standard melding datamodell. Se [her](../../configuration/process/message) for mer info om meldinger. | ![Standard melding](message-app.png) | 
+| Melding | Inneholder komponentene som utgjør en standard melding:<br><ul> <li>tittel<br><li>meldingstekst<br><li>vedlegg<br><li>navigasjonsknapp</ul><br> Tekstene er satt opp med referanse til felt i standard melding datamodell. Se [her](../../../configuration/process/message) for mer info om meldinger. | ![Standard melding](message-app.png) | 
 
 ### Egendefinerte widgets
 I tillegg til standard widgets som kommer opp automatisk i Altinn Studio, er det også mulig å definere sine egne widgets. En widget består av 3 deler:

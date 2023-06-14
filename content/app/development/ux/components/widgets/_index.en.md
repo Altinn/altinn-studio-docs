@@ -3,6 +3,8 @@ title: Widgets
 description: How to use compound components (widgets).
 toc: true
 weight: 60
+aliases:
+- /app/development/ux/widgets/
 ---
 
 ## What is a widget?
@@ -28,7 +30,7 @@ The list is updated as new widgets are added. As of today the following widgets 
 
 | Name | Description | Screenshot  | 
 | ---- | ----------- | ----------- | 
-| Message | Contains the components that make up a standard message:<br><ul> <li>title<br><li>message text<br><li>file attachment<br><li>navigation button</ul><br> The texts are set up with reference to fields in the standard message data model. See [here](../../configuration/process/message) for more info on messages. | ![Default message](message-app.png) | 
+| Message | Contains the components that make up a standard message:<br><ul> <li>title<br><li>message text<br><li>file attachment<br><li>navigation button</ul><br> The texts are set up with reference to fields in the standard message data model. See [here](../../../configuration/process/message) for more info on messages. | ![Default message](message-app.png) | 
 
 ### Custom widgets
 In addition to default widgets that automatically appear in Altinn Studio, it is also possible to define custom widgets. A widget consists of three parts:

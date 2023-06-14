@@ -3,6 +3,8 @@ title: Images
 description: How to add and edit image references.
 toc: true
 weight: 40
+aliases:
+- /app/development/ux/components/images/
 ---
 
 {{%notice warning%}}
