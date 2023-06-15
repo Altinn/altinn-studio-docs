@@ -43,8 +43,8 @@ I dag er det mulig for sluttbruker å benytte API for å slette eller opprette d
 
 
 ### Tidsplan
-- Oppstart utvikling: Påbegynt
-- Migrering tjenester avsluttet:  Q1 2023
+- Oppstart utvikling: Avsluttet
+- Migrering tjenester avsluttet:  Alle tjenester ble flyttet 13.6.23
 - Informasjon sendt til tjenesteeiere finner du [her](/authorization/migration/informasjon-sent/letter-api-reources/)
 - Frist for å ta i bruk nye API: ikke besluttet
 
