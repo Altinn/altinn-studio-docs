@@ -1,6 +1,6 @@
 ---
 title: Planer for modernisering og migrering av API i Altinn
-linktitle: Flytte API
+linktitle: Endring API
 description: Siden er under konstruksjon - Her finner du foreløpig plan for hva som skjer med autorisasjons API i overgangen mellom Altinn 2 og Altinn 3. Planen vil bli endret underveis. 
 toc: true
 weight: 200
