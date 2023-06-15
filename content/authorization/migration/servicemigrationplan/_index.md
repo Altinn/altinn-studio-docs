@@ -1,8 +1,9 @@
 ---
 title: Planer for migrering av tjenester i Altinn
-linktitle: Plan migrering
+linktitle: Flytte Tjenester
 description: Her finner du foreløpig plan for migrering av tjenester, i hvilken rekkefølge dette skal skje og når de enkelte tjenestetypene skal være flyttet fra Altinn 2 til Altinn 3. 
 toc: true
+weight: 200
 tags: [architecture, plan, authorizaton]
 
 ---
@@ -38,13 +39,13 @@ Det vil bli laget nye API for å hente ut informasjon om hvilke delegeringer som
 Det vil i en overgangsfase være mulig å benytte de gamle API-ene. 
 
 #### API for delegering slås av
-I dag er det mulig for sluttbruker å benytte API for å slette eller opprette delegeringer til Delegerbare API ressurser (se [API-beskrivlese] (https://altinn.github.io/docs/api/rest/autorisasjon/roller-og-rettigheter/#slette-delegerte-tjenesterettigheter--roller)). I forbindelse med migrering av disse ressursene fra Altinn 2 til Altinn 3 vil det i en overgangsfase ikke lenger være mulig å utføre dette via API. Nye API vil bli tilbydt i løpet av Q4 2023. 
+I dag er det mulig for sluttbruker å benytte API for å slette eller opprette delegeringer til Delegerbare API ressurser se [API-beskrivlese](https://altinn.github.io/docs/api/rest/autorisasjon/roller-og-rettigheter/#slette-delegerte-tjenesterettigheter--roller)). I forbindelse med migrering av disse ressursene fra Altinn 2 til Altinn 3 vil det i en overgangsfase ikke lenger være mulig å utføre dette via API. Nye API vil bli tilbydt i løpet av Q4 2023. 
 
 
 ### Tidsplan
 - Oppstart utvikling: Påbegynt
 - Migrering tjenester avsluttet:  Q1 2023
-- Informasjon sendt til tjenesteeiere finner du [her](/authorization/migration/servicemigrationplan/letter-api-reources/)
+- Informasjon sendt til tjenesteeiere finner du [her](/authorization/migration/informasjon-sent/letter-api-reources/)
 - Frist for å ta i bruk nye API: ikke besluttet
 
 ## Lenketjenester

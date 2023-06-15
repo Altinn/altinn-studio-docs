@@ -3,7 +3,7 @@ title: Informasjonsbrev sendt tjenesteeier vedr API ressurser
 linktitle: Infoskriv API ressurser
 description: Her finner du brev som er sendt alle tjeneesteeiere vedrørende migrering av Delegerbare API ressurser
 tags: [migration, plan, authorizaton]
-
+weight: 10
 ---
 Følgende brev er sendt tjenesteeiere som har tjenestetypen "Delegerbare API ressurser". Disse er: 
 - Skatteetaten
