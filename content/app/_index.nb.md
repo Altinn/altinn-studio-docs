@@ -93,7 +93,7 @@ Hvordan utføre spesifikke oppgaver relatert til app-utvikling i Altinn studio.
 
 |   |   |   |
 |---|---|---|
-| [Migrere fra Altinn 2](/nb/app/guides/migrate-services)  | [Altinn 2 datamodell](/nb/app/development/data/data-model/altinn-2)  | [Sereserstatning](/nb/app/development/data/data-model/seres-migration)  |
+| [Migrere fra Altinn 2](/nb/app/guides/migrate-services)  | [Altinn 2 datamodell](/nb/app/guides/altinn-2-datamodel)  | [Sereserstatning](/nb/app/guides/seres-migration)  |
 
 ### Diverse
 

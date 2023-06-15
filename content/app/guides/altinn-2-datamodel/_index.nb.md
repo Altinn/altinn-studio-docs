@@ -1,10 +1,11 @@
 ---
 title: Utvikle datamodell for Altinn 2 i Altinn Studio
-linktitle: Altinn 2
+linktitle: Altinn 2 Datamodell
 description: Hva må gjøres for å utvikle datamodell til Altinn 2?
 weight: 100
-tags: [translate-to-english]
 toc: true
+aliases:
+- /nb/app/development/data/data-model/altinn-2/
 ---
 
 ## Endre eksisterende datamodell
@@ -128,4 +129,4 @@ F.eks.:
 [2]: https://code.visualstudio.com/
 [3]: https://marketplace.visualstudio.com/items?itemName=redhat.vscode-xml
 [4]: https://altinn.slack.com/archives/C041WMBLYMB
-[5]: ../data-models-tool
+[5]: /nb/app/development/data/data-modeling/#altinn-studio-datamodellering

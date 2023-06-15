@@ -52,10 +52,10 @@ You must have [access to the organization](/app/getting-started/create-user/#joi
 
 The data model defines the data that can be submitted through an app and the format in which it should be submitted.
 
-With Altinn Studio's [Data Modeling tool](/app/development/data/data-model/data-models-tool/),
- you can add a data model by [uploading an _xsd_ file](/app/development/data/data-model/data-models-tool#uploading-and-viewing-a-data-model)
-  or you can [create a new data model](/app/development/data/data-model/data-models-tool/#create-a-new-data-model) from scratch.
-You can also start from an existing data model and edit it in a text editor or [directly in Altinn Studio](/app/development/data/data-model/data-models-tool/#editing-a-data-model).
+With Altinn Studio's [Data Modeling tool](/app/development/data/data-modeling/),
+ you can add a data model by [uploading an _xsd_ file](/app/development/data/data-modeling#upload-and-display-data-model)
+  or you can [create a new data model](/app/development/data/data-modeling/#create-a-new-data-model) from scratch.
+You can also start from an existing data model and edit it in a text editor or [directly in Altinn Studio](/app/development/data/data-modeling/#editing-a-data-model).
 In this task, you will only upload a pre-existing data model.
 
 ### Requirements from the Municipality
@@ -66,7 +66,7 @@ Sogndal Municipality has created a [data model](datamodel.xsd) that represents t
 
 1. [Download the xsd file](datamodel.xsd). If the file opens in the browser, create a new text file and copy the content over. Save the file as `datamodel.xsd`.
 Alternatively, you can copy the URL of the file and run the command `curl <file-URL> > datamodel.xsd` from the command line. Open the file in a text editor and examine its content.
-2. [Upload the data model in Altinn Studio](/app/development/data/data-model/data-models-tool/#uploading-and-viewing-a-data-model)
+2. [Upload the data model in Altinn Studio](/app/development/data/data-modeling/#upload-and-display-data-model)
 3. Click "Last opp dine endringer" and follow the instructions to save the changes.
 4. Open the app's repository from the [Altinn Studio Dashboard](/app/getting-started/navigation/dashboard/) and take a closer look at the files in the `App/models` folder.
 
@@ -84,7 +84,7 @@ If you plan to do all or parts of the development locally, you can [prepare for 
 
 ### Useful Documentation
 
-- [Altinn Studio Data Modeling](/app/development/data/data-model/data-models-tool/)
+- [Altinn Studio Data Modeling](/app/development/data/data-modeling/)
 - [Description of Indicators in XSD](https://www.w3schools.com/xml/schema_complex_indicators.asp)
 - [Installing curl for Windows](https://developer.zendesk.com/documentation/api-basics/getting-started/installing-and-using-curl/#windows)
 - [Altinn Studio Repository](/app/getting-started/navigation/repos/)

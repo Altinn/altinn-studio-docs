@@ -1,25 +1,84 @@
 ---
 title: Altinn Studio Data Modeling
 linktitle: Data Modeling
-description: User guide for Altinn Studio Data Modeling tool
+description: Data model and Altinn Studio Data Modeling tool
 weight: 1
 toc: true
+aliases:
+- /app/development/data/data-models-tool/
+- /app/development/data/data-model/
+- /app/development/data/data-models-tool/app-datamodels
+- /app/development/data/data-models-tool/org-datamodels
+- /app/development/data/data-models-tool/known-issues
 ---
+
+## Data models
+
+### Data Model Files for Applications
+
+Data models for applications are located in the same folder structure as the rest of the application files. These are stored in the [Altinn Studio repository](https://altinn.studio/repos) under `App/models` in the application's file structure.
+An application has 4 model files:
+
+* **C# data model** (`<model>.cs`): Data model used by the application's backend/APIs to process and validate data.
+* **JSON schema** (`<model>.schema.json`): Data model in JSONschema format used by the application on the client-side (frontend) to validate data in real-time.
+This is also the file that is worked on in the data modeling tool.
+* **XSD data model** (`<model>.XSD`): Data model in XML format that defines the elements that can be used in a document.
+This is not directly used by the application but can be uploaded to generate the other model files in Altinn Studio or downloaded as needed.
+* **JSON metadata** (`<model>.metadata.json`): Used by Altinn Studio to generate the `<model>.cs` file.
+_In the future, this file will not be stored in the application and will only be generated if needed_.
+
+### Data models for organizations
+
+Data models for organizations are located in Altinn Studio's [repos][1].
+ To access these, log in with am Altinn Studio user.
+  If this is your first time using Altinn Studio, you need to [create a user][2].
+
+The data models are located in the `<org>-datamodels` repository, where `<org>` is the organization you belong to. 
+For example, the data models for the organization 'Test Department (ttd)' are located under 
+https://altinn.studio/repos/ttd/ttd-datamodels.
+
+You can find the link to this repository in the [Altinn Studio Dashboard](/app/getting-started/navigation/dashboard): https://altinn.studio/dashboard.
+ Select _Edit_ (blue pen icon) to access the Altinn Studio [Data Modeling](#altinn-studio-data-modeling) tool.
+ Select _Gitea_ (green cup icon) to view the files directly in the repository.
+
+ ![Overview of data model repo](./datamodels-dashboard.png "Overview of data model repo")
+
+#### Access to Data Models
+
+By default, anyone can view an organization's data models.
+ To gain access to edit the data models, the user needs to be part of the _Datamodels_ team in the organization.
+  Refer to the [access management][3] for more information.
+
+#### Uploading XSD to Repository
+XSD files can be directly uploaded to the tool [Altinn Studio Datamodellering](#altinn-studio-data-modeling) and are described under [Upload and Display Data Model](#upload-and-display-data-model).
+
+If you only need to upload XSD files for storage and do not intend to use the tool to edit the model, you can upload XSD files directly to the `<org>-datamodels` repo.
+ To do this, navigate to the desired folder and select "Add file" -> "Upload file." In the text field that appears at the top, you can enter the folder name you wish to use (optional).
+ Upload the desired file, scroll down, optionally provide a message indicating the file type, and click "commit changes" to confirm.
+
+![Upload XSD directly to `<org>-datamodels` repo](./file-upload.gif "Upload XSD directly to `<org>-datamodels` repo")
+
+[1]: https://altinn.studio/repos
+[2]: /app/getting-started/create-user/
+[3]: /app/guides/access-management/studio/
+
+## Altinn Studio Data Modeling
 
 {{% notice info %}}
 The Data Modeling tool in Altinn Studio is under development and will have limited functionality until it is completed.
 {{% /notice %}}
 
-Altinn Studio Data Modeling is a tool for developing data models. It is based on a data model in JSONSchema format and can generate XSD and C# models from it.
+Altinn Studio Data Modeling is a tool for developing [data models](#data-models).
+ It is based on a data model in JSONSchema format from which it can generate XSD and C# models (see [Data Model Files for Applications](#data-model-files-for-applications)).
 
-### Data Model Files
+{{% expandlarge id="links" header="Useful links" %}}
+* [Known issues and shortcomings for Altinn Studio Datamodellering](https://github.com/orgs/Altinn/projects/1/views/10)
+* [Planned new functionality for Altinn Studio Datamodellering](https://github.com/orgs/Altinn/projects/1/views/6)
+* [Development of data model for Altinn 2](/app/guides/altinn-2-datamodel/)
+* [Migrating from Seres to Altinn Studio Datamodellering](/app/guides/seres-migration/)
+{{% /expandlarge %}}
 
-* **XSD Data Model** (`<model>.XSD`): Data model in XML format that defines the elements that can be used in a document.
-* **C# Data Model** (`<model>.cs`): Data model used by the application's backend to deserialize data and make it available for processing and validation.
-* **JSON Schema** (`<model>.schema.json`): Data model in JSONSchema format used by the application's frontend for client-side form validation.
-* **JSON Metadata** (`<model>.metadata.json`): Used by Altinn Studio to link components and dynamics to data fields.
-
-## Navigating to Altinn Studio Data Modeling
+### Navigating to Altinn Studio Data Modeling
 
 1. Log in to Altinn Studio. If you are not in the [Altinn Studio Dashboard](/app/getting-started/navigation/dashboard/), navigate there by clicking on the logo in the top left corner or [here](https://altinn.studio/dashboard).
 2. Select _Edit_ (blue pen icon) either for:  
@@ -27,11 +86,11 @@ Altinn Studio Data Modeling is a tool for developing data models. It is based on
    b. Data Modeling repository for your organization.
 3. Select the **Datamodell** (Data model) tab in the top menu.
 
-## Uploading and Viewing a Data Model
+## Upload and Display Data Model
 
 The data model defines the data that can be submitted through an app and the allowed format of the data.
 Currently, we only support uploading XSD data models.
-When uploading an XSD model `<model>.xsd`, the tool will generate the following files: `<model>.cs`, `<model>.schema.json`, and `<model>.metadata.json` (see [Data Model Files](#data-model-files)).
+When uploading an XSD model `<model>.xsd`, the tool will generate the following files: `<model>.cs`, `<model>.schema.json`, and `<model>.metadata.json` (see [Data Model Files](#data-model-files-for-applications)).
 
 1. Click _Last opp datamodell_ (_Upload Data Model_) from the homepage if there are no existing data models or _Last opp_ (_Upload_) from the
    toolbar at the top of the tool.
@@ -183,6 +242,6 @@ A generated XSD file can be downloaded by accessing the repository: click on the
 
 ![Download XSD repo](./download-xsd.png "Download XSD from repo")
 
-[1]: ../altinn-2/#dataformatid-og-dataformatversion
-[2]: ../altinn-2/#xsd-attributter
-[3]: ../altinn-2/#xsd-namespaces
+[1]: /app/guides/altinn-2-datamodel/#dataformatid-og-dataformatversion
+[2]: /app/guides/altinn-2-datamodel/#xsd-attributter
+[3]: /app/guides/altinn-2-datamodel/#xsd-namespaces
