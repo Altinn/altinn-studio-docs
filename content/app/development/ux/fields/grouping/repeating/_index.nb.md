@@ -87,10 +87,11 @@ Under vises et skjema med en repeterende gruppe som:
 | dataModelBindings                                                               | Nei     | Må settes for repeterende grupper med skjemakomponenter under, og må peke mot den repeterende strukturen i datamodellen.                                            |
 | [textResourceBindings](#textresourcebindings)                                   | Nei     | Kan settes for grupper, se [nærmere beskrivelse under](#textresourcebindings).                                                                                      |
 | maxCount                                                                        | Ja      | Antall ganger en gruppe kan repetere. Må settes til `1` eller mer for repeterende grupper.                                                                          |
+| minCount                                                                        | Nei     | Validering. Setter et minimum antall rader som må eksistere før den repeterende gruppen er godkjennt og bruker kan bevege seg videre.                               |
 | children                                                                        | Ja      | Liste over komponent-IDer som inkluderes i gruppen.                                                                                                                 |
 | [edit](edit)                                                                    | Nei     | Egenskaper og alternativer for redigerings-/utfyllingsvisningen for en repeterende gruppe.                                                                          |
 | tableHeaders                                                                    | Nei     | Liste over komponenter som skal utgjøre kolonner i tabellvisningen for den repeterende gruppen. Om ingen er spesifisert, blir alle komponenter fra `children` vist. |
-| [tableColumns](table/#bredder-tekst-plassering-og-skjuling-av-overflødig-tekst) | Nei     | Objekst som inneholder egenskaper for kolonnene som vises i tabellen.                                                                                               |
+| [tableColumns](table/#bredder-tekst-plassering-og-skjuling-av-overflødig-tekst) | Nei     | Objekt som inneholder egenskaper for kolonnene som vises i tabellen.                                                                                                |
 
 ## textResourceBindings
 
