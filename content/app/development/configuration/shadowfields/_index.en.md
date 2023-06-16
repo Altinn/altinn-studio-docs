@@ -12,6 +12,11 @@ not a relevant part of the submitted data.
 By utilizing shadow field functionality, you can store all such data along with the rest of the form data during the
 process and then remove unnecessary data before retrieving it for processing in internal systems.
 
+{{% notice info %}}
+To be able to use shadow fields functionality, the app must use version 7.9.0 or later of the packages
+Altinn.App.Api and Altinn.App.Core.
+{{% /notice %}}
+
 ## Configuration
 
 ### In the data model
@@ -19,6 +24,12 @@ process and then remove unnecessary data before retrieving it for processing in 
 Shadow fields are set up in the same way as other form fields in the data model, but with a self-chosen _prefix_. This
 means that if you choose, for example, `SF_` as the prefix, a helper field in the data model could be named
 `SF_myHelperField`.
+
+This is done by changing field names in the [data modeling tool](../../data/data-modeling/#altinn-studio-data-modeling). Make sure to press "Generate Models" after the changes
+to include updates in the C# model and possibly the XSD.
+
+_NOTE! If you change field names in a data model that is already used in a form, you must go into the relevant form
+component and update to the new field name, as this is not done automatically._
 
 ### Removing helper field data directly from form data
 
