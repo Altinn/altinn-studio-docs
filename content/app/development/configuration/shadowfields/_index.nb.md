@@ -24,7 +24,7 @@ og Altinn.App.Core.
 Hjelpefelter settes opp på samme måte som øvrige skjemafelter i datamodellen, men med et _prefiks_ som man selv velger.
 Det vil si at dersom man velger f.eks. `HF_` som prefiks, så vil et hjelpefelt i datamodellen kunne hete `HF_mittHjelpefelt`.
 
-Dette gjøres ved å endre feltnavn i [datamodellerings-verktøyet](../../data/data-modeling/#altinn-studio-data-modeling). Pass på å trykke "Generer modeller" etter endringene
+Dette gjøres ved å endre feltnavn i [datamodellerings-verktøyet](../../data/data-modeling/). Pass på å trykke "Generer modeller" etter endringene
 for å få med oppdateringer i C#-modellen og ev. XSD.
 
 _OBS! Om man endrer på feltnavn i datamodell som allerede er i bruk i skjema, må man inn i den aktuelle skjema-komponenten

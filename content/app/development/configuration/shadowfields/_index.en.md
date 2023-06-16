@@ -25,7 +25,7 @@ Shadow fields are set up in the same way as other form fields in the data model,
 means that if you choose, for example, `SF_` as the prefix, a helper field in the data model could be named
 `SF_myHelperField`.
 
-This is done by changing field names in the [data modeling tool](../../data/data-modeling/#altinn-studio-data-modeling). Make sure to press "Generate Models" after the changes
+This is done by changing field names in the [data modeling tool](../../data/data-modeling/). Make sure to press "Generate Models" after the changes
 to include updates in the C# model and possibly the XSD.
 
 _NOTE! If you change field names in a data model that is already used in a form, you must go into the relevant form
