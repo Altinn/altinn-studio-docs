@@ -40,7 +40,7 @@ Checkboxes are commonly utilized in forms to gather user input,
 
 ### Related
 
-* If the user can only make a single selection from a list of options, use [radio buttons](../radio-button).
+* If the user can only make a single selection from a list of options, use [radio buttons](../radio-buttons).
 * For a more compact way of displaying multiple options with single selection, use a [dropdown menu](../dropdown).
 
 {{% /expandlarge %}}
@@ -108,7 +108,7 @@ Type '0' to pre-select checkbox 1, type '1' for checkbox 2, etc.
 
 {{% expandlarge id="properties" header="Properties" %}}
 
-* [Table with component layout properties](../_index.en.md#available-component-properties)
+* [Table with component layout properties](../#expandable-component-layout-properties)
 * [Page layout JSON schema](https://altinncdn.no/schemas/json/layout/layout.schema.v1.json)
 
 ### Component specific properties
