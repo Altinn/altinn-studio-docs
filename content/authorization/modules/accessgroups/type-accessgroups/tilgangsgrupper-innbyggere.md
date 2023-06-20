@@ -10,7 +10,7 @@ toc: true
 
 I forbindelse med migrering av Altinn Autorisasjon fra Altinn 2 til Altinn 3 plattformen skal dagens Altinn-roller erstattes med tilgangsgrupper. 
 
-Tilgangsgrupper for innbyggere bygger på en kategorisering av fullmakter gjennomført av Sivilrettsforvaltningen i forbindelse med innføring av nye vergemålsfullmakter. Dette arbeidet er gjort i samarbeid med offentlige etater. 
+Tilgangsgrupper for innbyggere bygger på en kategorisering av fullmakter gjennomført av Sivilrettsforvaltningen i forbindelse med innføring av nye vergemålsfullmakter. Dette arbeidet er gjort i samarbeid med offentlige etater og oversikt over fullmaktene finner du [her](https://www.sivilrett.no/fullmaktstekst).
 
 Et vergemål vil fra Altinn Autorisasjon sitt perspektiv være en eksten kilde for representasjonsforhold.
 
