@@ -110,15 +110,14 @@ A possible workaround here is to return an empty array when the PDF-generator as
 Notice that this wil result in the option value and not the label being present as the end users answer.
 {{% /notice%}}
 
-
 ## Description and HelpText
 
 `description` and `helpText` is supported by options in apps that use version v7.8.0 or higher. `description` and
 `helpText` can be displayed by the components `RadioButtons` and `Checkboxes` by providing the option list with the
 mentioned properties.
 
-Descriptions and HelpTexts can be provided to options in the same way that a label is provided, in either static or
-dynamic code lists.
+Descriptions and HelpTexts can be provided to `options` in the same way that a `label` is provided, in either static or
+dynamic code lists. One can also use them in options based on repeating groups in the `source` attribute.
 
 ```json
 [
@@ -157,9 +156,23 @@ var options = new AppOptions
 };
 ```
 
-{{%notice warning%}}
-Description and HelpText is not yet compatible with options from repeating groups as `source` does not yet support
-adding HelpText and Description.
-{{% /notice%}}
+Descriptions and help texts used in options based on repeating groups can be set up with dynamic text-resources in the
+same way as labels, described in
+[options based on repeating groups](dynamic-codelists).
+
+```json
+      {
+        "id": "checkboxes-component-id",
+        "type": "Checkboxes",
+        ...
+        "source": {
+          "group": "some.group",
+          "label": "checkboxes.label",
+          "description": "checkboxes.descripiton",
+          "helpText": "checkboxes.helpText",
+          "value": "some.group[{0}].someField"
+        }
+      },
+```
 
 {{<children />}}

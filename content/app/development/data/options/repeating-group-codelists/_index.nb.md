@@ -65,8 +65,3 @@ Eksempel:
 
 I dette eksempelet har vi satt opp to parametere i teksten som refererer til felter i gruppen.
 Vi kjenner også igjen `[{0}]` syntaksen i `key` feltet som muliggjør gjenbruk av labelen for hver index i gruppen.
-
-{{%notice warning%}}
-Beskrivelse og hjelpetekst er ennå ikke kompatible med alternativer fra gjentakende grupper siden source ikke støtter
-tillegg av hjelpetekst og beskrivelse.
-{{% /notice%}}

@@ -112,11 +112,13 @@ Merk at dette vil resultere i at PDF vil vise verdien valgt og ikke label som sl
 {{% /notice%}}
 
 ## Beskrivelse og Hjelpetekst
-`description` og hjelpetekst støttes av alternativene i apper som bruker versjon v7.8.0 eller høyere. `description` og
-hjelpetekst kan vises av komponentene `RadioButtons` og `Checkboxes` ved å gi et option de nevnte egenskapene.
 
-Beskrivelser og hjelpetekster kan gis til `optons` på samme måte som en `label` er gitt, enten i statiske eller
-dynamiske kodelister.
+`description` og `helpText` støttes av options i apper som bruker versjon v7.8.0 eller høyere. Beskrivlese og
+hjelpetekst kan vises av komponentene `RadioButtons` og `Checkboxes` ved å sette attributtene i en `option` som
+brukes av komponenten.
+
+Beskrivelser og hjelpetekster kan gis til `options` på samme måte som en `label` er gitt, enten i statiske eller
+dynamiske kodelister. Man kan også bruke dem i options basert på repeterende grupper i `source` attributten.
 
 ```json
 [
@@ -154,9 +156,23 @@ var options = new AppOptions
 };
 ```
 
-{{%notice warning%}}
-Beskrivelse og hjelpetekst er ennå ikke kompatible med alternativer fra gjentakende grupper siden source ikke støtter
-tillegg av hjelpetekst og beskrivelse.
-{{% /notice%}}
+Beskrivelser og hjelpetekster som brukes i options basert på repeterende grupper kan settes opp med dynamiske
+text-ressurser på samme måte som `label`, som er beskrevet i
+[options basert på repeterende grupper](dynamic-codelists).
+
+```json
+      {
+        "id": "checkboxes-component-id",
+        "type": "Checkboxes",
+        ...
+        "source": {
+          "group": "some.group",
+          "label": "checkboxes.label",
+          "description": "checkboxes.descripiton",
+          "helpText": "checkboxes.helpText",
+          "value": "some.group[{0}].someField"
+        }
+      },
+```
 
 {{<children />}}
