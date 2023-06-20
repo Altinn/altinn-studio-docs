@@ -55,6 +55,20 @@ Below you can see it in use
 
 ![The file upload component with tagging example](vedleggsmerkekomeks.png "The file upload with tagging example")
 
+
+//Write about giving a warning before deleting attachment with alertOnDelete
+### File upload component with alertOnDelete
+There is possible to add a popup warning before deleting an attachment. This is done by adding the property `alertOnDelete` to the component.
+Example:
+```json
+{
+  "id": "attest",
+  "type": "FileUpload",
+  ...
+  "alertOnDelete": true
+}
+```
+
 ## Submission of attachments with API-call
 
 To accommodate being able to submit attachments without this being supported in GUI,
