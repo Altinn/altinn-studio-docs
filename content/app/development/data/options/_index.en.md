@@ -117,7 +117,7 @@ Notice that this wil result in the option value and not the label being present 
 mentioned properties.
 
 Descriptions and HelpTexts can be provided to `options` in the same way that a `label` is provided, in either static or
-dynamic code lists. One can also use them in options based on repetitive groups in the `source` attribute.
+dynamic code lists. One can also use them in options based on repeating groups in the `source` attribute.
 
 ```json
 [
