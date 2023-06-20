@@ -158,7 +158,7 @@ var options = new AppOptions
 
 Beskrivelser og hjelpetekster som brukes i options basert på repeterende grupper kan settes opp med dynamiske
 text-ressurser på samme måte som `label`, som er beskrevet i
-[options basert på repeterende grupper](../../../../app/development/data/options/dynamic-codelists/#dynamiske-kodelister-fra-repeterede-grupper-i-datamodellen).
+[options basert på repeterende grupper](dynamic-codelists).
 
 ```json
       {
