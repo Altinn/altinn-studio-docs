@@ -349,7 +349,7 @@ Videre i eksempelet vil betegnelsen *bruker* være synonymt med en virksomhet re
     Logikk for å slå opp data og autorisere brukeren ligger i metoden `ProcessDataRead`.
     Denne kalles hver gang en bruker åpner applikasjonen eller sendes inn noe input data.
 
-    ```{cs, attr.source='.numberLines'}
+    ```cs
      public async Task<bool> ProcessDataRead(Instance instance, Guid? dataId, object data)
      {
          lookup lookup = (lookup)data;

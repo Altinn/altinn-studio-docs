@@ -7,7 +7,7 @@ toc: false
 Data processing is run on the server and is based on input from the user/form data.
 Data processing can be purely mathematical calculations, or it could transfer values between fields, retrieve results from API calls, etc.
 
-Data processing runs each time data is saved and when data is retrieved from API. With auto-save on (default) data processing will run each time a user has made a change.
+Data processing runs each time data is saved, meaning it runs each time a user has made a change.
 
 To ensure optimal experience and control, the application template has two different events where logic can be placed.
 

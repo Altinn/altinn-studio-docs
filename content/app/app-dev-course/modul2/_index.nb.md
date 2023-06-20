@@ -61,7 +61,7 @@ Følgende er ønskelig at reflekteres i applikasjonen:
 ### Nyttig dokumentasjon
 
 - [Formatering av tekst i en applikasjon](/nb/app/development/ux/texts/#formatering-av-tekster)
-- [Hvordan legge til bilder i en applikasjon](/nb/app/development/ux/images/#legge-til-bilder-i-applikasjonen)
+- [Hvordan legge til bilder i en applikasjon](/nb/app/development/ux/components/images/#legge-til-bilder-i-applikasjonen)
 - [Sidestilte komponenter](/nb/app/development/ux/styling/#sidestilte-komponenter-grid)
 - [Filoppsett ved flere sider](/nb/app/development/ux/pages/#oppsett)
 - [Administrere rekkefølge på flere sider](/nb/app/development/ux/pages/navigation/#rekkefølge)

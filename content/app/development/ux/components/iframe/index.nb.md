@@ -12,6 +12,7 @@ weight: 10
 - [Bekymringer angående tilgjengelighetserklæring](/nb/app/development/ux/components/iframe/#bekymringer-angående-tilgjengelighetserklæring)
 - [Grunnleggende implementering av IFrame-komponenten](/nb/app/development/ux/components/iframe/#grunnleggende-implementering-av-iframe-komponenten)
 - [Avansert implementering av IFrame-komponenten](/nb/app/development/ux/components/iframe/#avansert-implementering-av-iframe-komponenten)
+- [Sandbox-restriksjoner](/nb/app/development/ux/components/iframe/#sandbox-restriksjoner)
 
 ## Hvorfor bruke IFrame-komponenten
 
@@ -71,3 +72,27 @@ Noen ganger er det ikke nok å bruke statisk HTML og CSS direkte skrevet inn i t
 For å hente HTML dynamisk kan du benytte deg av [ProcessDataRead](/nb/app/development/configuration/stateless/#datapopulering). Du kan lese mer om [dataprosessering her](/nb/app/development/logic/dataprocessing/).
 
 ProcessDataRead og dataprosessering gir muligheten til å forbehandle data før det sendes tilbake til frontend for rendring.
+
+## Sandbox-restriksjoner
+
+IFrame-komponenten bruker sandbox-attributten som pålegger sikkerhets-restriksjoner for hvilke muligheter man har innenfor iframen.
+Disse restriksjonene kan fjernes individuelt ved å legge til de ønskede egenskapene i sandbox-attributten. Se <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe#sandbox>.
+Fra før av er `allow-same-origin` aktivert. Noen av de andre restriksjonene kan fjernes ved å konfigurere `sandbox`-egenskapen på IFrame-komponenten.
+
+Dersom du ønsker å tillate å åpne lenker i en ny fane, kan du bruke følgende konfigurasjon:
+
+```json
+{
+  "id": "unik-komponent-id",
+  "type": "IFrame",
+  "textResourceBindings": {
+    "title": "innhold-med-link"
+  },
+  "sandbox": {
+    "allowPopups": true,
+    "allowPopupsToEscapeSandbox": true
+  }
+}
+```
+
+**NB**: `allowPopupsToEscapeSandbox` fjerner alle sandbox-restriksjoner på den nye siden som åpnes. Uten å sette denne egenskapen vil ikke siden som åpnes kunne kjøre javascript.

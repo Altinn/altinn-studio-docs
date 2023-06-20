@@ -90,12 +90,10 @@ uttrykket gjør, og hvilke mulige verdier det kan returnere:
     ["lessThan", ["component", "age"], 62],
     "Please consider applying for our open position!",
     "else",
-    ["concat",
-      "At ", ["component", "age"], ", you are eligible for retirement"]
+    ["concat", "At ", ["component", "age"], ", you are eligible for retirement"]
   ],
   "else",
-  ["concat",
-    "At ", ["component", "age"], ", you should stay in (pre)school"]
+  ["concat", "At ", ["component", "age"], ", you should stay in (pre)school"]
 ]
 ```
 
@@ -114,24 +112,23 @@ Og for en person som er 15 år (eller yngre, som f.eks. en 4-åring), returneres
 **At 4, you should stay in (pre)school**
 {{% /expandlarge %}}
 
-
 ### Bruksområder
 
 Dynamiske uttrykk er foreløpig tilgjengelig for bruk i disse egenskapene, som definert i [layout-filer](../../ux/pages).
 
-| Komponenter                                               | Egenskap                                        | Forventet verdi            | Frontend | Backend |
-|-----------------------------------------------------------|-------------------------------------------------|----------------------------|----------|---------|
-| [Sider/layouts](#viseskjule-hele-sider)                   | `hidden`                                        | [Boolsk](#boolske-verdier) | ✅        | ✅       |
-| Alle                                                      | `hidden`                                        | [Boolsk](#boolske-verdier) | ✅        | ✅       |
-| Skjemakomponenter                                         | `required`                                      | [Boolsk](#boolske-verdier) | ✅        | ✅       |
-| Skjemakomponenter                                         | `readOnly`                                      | [Boolsk](#boolske-verdier) | ✅        | ❌       |
-| [Repeterende grupper](../../ux/fields/grouping/repeating) | `hiddenRow`                                     | [Boolsk](#boolske-verdier) | ✅        | ❌       |
-| [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.addButton`                                | [Boolsk](#boolske-verdier) | ✅        | ❌       |
-| [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.saveButton`                               | [Boolsk](#boolske-verdier) | ✅        | ❌       |
-| [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.deleteButton`                             | [Boolsk](#boolske-verdier) | ✅        | ❌       |
-| [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.alertOnDelete`                            | [Boolsk](#boolske-verdier) | ✅        | ❌       |
-| [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.saveAndNextButton`                        | [Boolsk](#boolske-verdier) | ✅        | ❌       |
-| Alle                                                      | `textResourceBindings.[textResourceBinding]` *  | [Streng](#strenger)        | ✅        | ❌       |
+| Komponenter                                               | Egenskap                      | Forventet verdi            | Frontend | Backend |
+| --------------------------------------------------------- |-------------------------------| -------------------------- | -------- | ------- |
+| [Sider/layouts](#viseskjule-hele-sider)                   | `hidden`                      | [Boolsk](#boolske-verdier) | ✅       | ✅      |
+| Alle                                                      | `hidden`                      | [Boolsk](#boolske-verdier) | ✅       | ✅      |
+| Skjemakomponenter                                         | `required`                    | [Boolsk](#boolske-verdier) | ✅       | ✅      |
+| Skjemakomponenter                                         | `readOnly`                    | [Boolsk](#boolske-verdier) | ✅       | ❌      |
+| [Repeterende grupper](../../ux/fields/grouping/repeating) | `hiddenRow`                   | [Boolsk](#boolske-verdier) | ✅       | ❌      |
+| [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.addButton`              | [Boolsk](#boolske-verdier) | ✅       | ❌      |
+| [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.saveButton`             | [Boolsk](#boolske-verdier) | ✅       | ❌      |
+| [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.deleteButton`           | [Boolsk](#boolske-verdier) | ✅       | ❌      |
+| [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.alertOnDelete`          | [Boolsk](#boolske-verdier) | ✅       | ❌      |
+| [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.saveAndNextButton`      | [Boolsk](#boolske-verdier) | ✅       | ❌      |
+| Alle                                                      | `textResourceBindings.[*]` \* | [Streng](#strenger)        | ✅       | ❌      |
 
 \* = Hvilke verdier man kan overstyre med textResourceBindings varierer fra komponent til komponent, men vil fungere på
 alle steder der det brukes. TextResourceBindings for repeterende grupper finner
@@ -149,25 +146,22 @@ resultatet til `false` når det blir brukt i en `if`. Les mer detaljert om dette
 
 ```json
 {
-   "id": "repeatingAddressGroup",
-   "type": "Group",
-   "children": [
-      "field-id-one",
-      "field-id-two",
-   ],
-   "dataModelBindings": {
-      "group": "Citizen.FormerAdresses"
-   },
-   "maxCount": 10,
-   "textResourceBindings": {
-      "edit_button_open": [
+  "id": "repeatingAddressGroup",
+  "type": "Group",
+  "children": ["field-id-one", "field-id-two"],
+  "dataModelBindings": {
+    "group": "Citizen.FormerAdresses"
+  },
+  "maxCount": 10,
+  "textResourceBindings": {
+    "edit_button_open": [
       "if",
-      [ "dataModel", "Citizen.FormerAdresses.IsPrefill" ],
+      ["dataModel", "Citizen.FormerAdresses.IsPrefill"],
       "View",
       "else",
       "Edit"
-      ]
-   }
+    ]
+  }
 }
 ```
 
@@ -179,22 +173,15 @@ Når man skal skrive et uttrykk er det greit å vite noenlunde hva resultatet ko
 Ugyldige uttrykk gir en advarsel i JavaScript-konsollet i nettleseren når siden lastes, så det kan være lurt å ha
 dette konsollet åpent når man utvikler en applikasjon og tester uttrykkene lokalt.
 
-Det er også mulig å teste ut kjøring av et uttrykk rett i nettleserens JavaScript-konsoll. Det gjøres ved å bruke
-funksjonen `evalExpression()`. Som første parameter tar den inn et hvilket som helst uttrykk, og resultatet skrives
-tilbake til konsollet:
-
-!["Eksempelkjøring av evalExpression()"](evalExpression.png "Eksempelkjøring av evalExpression()" )
-
-Uttrykk vil også kunne oppføre seg annerledes alt etter hvilken komponent de evalueres i nærheten av.
-Som et valgfritt andre parameter kan du også sende inn ID-en til en komponent som skal brukes som kontekst når
-uttrykket evalueres.  Hvis du er usikker på hvilke komponenter og IDer som er tilgjengelige på siden du ser på i
-applikasjonen, kan du prøve å sende inn en tom streng eller ugyldig komponent-ID som andre parameter, så vil du få tips
-til hvilke ID-er du kan bruke.
+Det er også mulig å teste ut kjøring av et uttrykk rett i utviklerverktøyene. Det gjøres ved å trykke `Ctrl + Shift + K`
+(eller `Cmd + Shift + K` på Mac) og navigere til fanen for uttrykk. Uttrykk vil kunne oppføre seg annerledes alt etter
+hvilken komponent de evalueres i nærheten av. Derfor kan man også velge en komponent som skal brukes som kontekst når
+uttrykket evalueres i utviklerverktøyene.
 
 {{% expandlarge id="rep-group-expandable" header="Eksempel på ID-er og evaluering i repterende grupper" %}}
 
 **NB:** Her beskrives noen implementasjonsdetaljer i [app-frontend-react](https://github.com/Altinn/app-frontend-react/),
-og er kun relevant når du skal prøve et uttrykk i JavaScript-konsollet som er avhengig av en kjent posisjon i en
+og er kun relevant når du skal prøve et uttrykk i utviklerverktøyene som er avhengig av en kjent posisjon i en
 repeterende gruppe. Dette kan endres i fremtiden, og slike endringer vil ikke påvirke uttrykk som man har definert i en
 applikasjon. Der hentes konteksten ut fra hvor uttrykket er definert i layout-filen.
 
@@ -205,31 +192,34 @@ Gitt dette uttrykket:
 
 Hva vil alderen være? Det vil kunne variere etter hvilken gruppe som evaluerer
 uttrykket. Har man har to grupper/rader vil både `navn`- og `alder`-komponentene finnes to ganger hver. Disse vil få
-ID-ene `navn-0` og `alder-0` (for den første raden) og `navn-1` og `alder-1` (for den andre raden). Du kan lete etter
-den nærmeste alder-komponenten (den som tilhører samme gruppe/rad som `navn`-komponenten) ved å spesifisere en
-mer nøyaktig ID i tilfeller der uttrykk evalueres i repeterende gruppe.
+ID-ene `navn-0` og `alder-0` (for den første raden) og `navn-1` og `alder-1` (for den andre raden).
 
 Tenk deg at følgende data er fyllt inn i en repeterende gruppe:
 
 | Navn | Komponent-ID | Alder | Komponent-ID |
-|------|--------------|-------|--------------|
+| ---- | ------------ | ----- | ------------ |
 | Per  | `navn-0`     | 24    | `alder-0`    |
 | Kari | `navn-1`     | 36    | `alder-1`    |
 | Ola  | `navn-2`     | 18    | `alder-2`    |
 
-```javascript
-evalExpression(["component", "alder"]); // Eksempel 1
-evalExpression(["component", "alder"], "navn"); // Eksempel 2
-evalExpression(["component", "alder"], "navn-0"); // Eksempel 3
-evalExpression(["component", "alder"], "navn-1"); // Eksempel 4
+Gitt følgende uttrykk:
+
+```json
+["component", "alder"]
 ```
+
+Og med disse forutsetningene:
+1. Man har ikke gitt noen kontekst (eventuelt, uttrykket plasseres på en komponent som ikke er i nærheten av
+   en `alder`-komponent)
+2. Man evaluerer uttrykket i kontekst av `navn-0`
+3. Man evaluerer uttrykket i kontekst av `navn-1`
+
+Hva vil resultatet bli i de forskjellige eksemplene? Her er svarene:
 
 1. Denne vil finne "første og beste" `alder`-komponent, og finner dermed `alder-0`. Den returnerer
    derfor *24*, Per sin alder.
-2. Denne prøver å evaluere uttrykket i kontekst av den første `navn`-komponenten den finner, som er `navn-0`.
-   Den nærmeste `alder`-komponenten til `navn-0` er `alder-0`, og dermed vår vi igjen *24*, Per sin alder.
-3. Her prøver vi å lete i kontekst av `navn`-komponenten på første rad, og igjen finner vi *24*, Per sin alder.
-4. I siste eksempel har vi spesifisert andre rad i den repeterende gruppen ved å evaluere i kontekst av `navn-1`.
+2. Her prøver vi å lete i kontekst av `navn`-komponenten på første rad, og igjen finner vi *24*, Per sin alder.
+3. siste eksempel har vi spesifisert andre rad i den repeterende gruppen ved å evaluere i kontekst av `navn-1`.
    Her finner vi den nærmeste `alder`-komponenten `alder-1`, som er *36*, Kari sin alder.
 
 {{% /expandlarge %}}
@@ -238,7 +228,7 @@ evalExpression(["component", "alder"], "navn-1"); // Eksempel 4
 
 Disse funksjonene er tilgjengelige for bruk i uttrykk:
 
-| Funksjonsnavn                                | Parametre                                          | Returverdi                           | Frontend | Backend | 
+| Funksjonsnavn                                | Parametre                                          | Returverdi                           | Frontend | Backend |
 |----------------------------------------------|----------------------------------------------------|--------------------------------------|----------|---------|
 | [`equals`](#func-equals)                     | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
 | [`notEquals`](#func-equals)                  | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
@@ -251,6 +241,17 @@ Disse funksjonene er tilgjengelige for bruk i uttrykk:
 | [`and`](#func-and)                           | En eller flere [boolske verdier](#boolske-verdier) | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
 | [`or`](#func-and)                            | En eller flere [boolske verdier](#boolske-verdier) | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
 | [`if`](#func-if)                             | [Se detaljert beskrivelse](#func-if)               | [Se detaljert beskrivelse](#func-if) | ✅        | ✅       |
+| [`contains`](#func-contains-not-contains)    | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅        | ❌       |
+| [`notContains`](#func-contains-not-contains) | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅        | ❌       |
+| [`commaContains`](#func-commaContains)       | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅        | ❌       |
+| [`startsWith`](#func-starts-ends-with)       | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅        | ❌       |
+| [`endsWith`](#func-starts-ends-with)         | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅        | ❌       |
+| [`lowerCase`](#func-lowerCase-upperCase)     | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅        | ❌       |
+| [`upperCase`](#func-lowerCase-upperCase)     | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅        | ❌       |
+| [`stringLength`](#func-stringLength)         | [Streng](#strenger)                                | [Tall](#tall)                        | ✅        | ❌       |
+| [`text`](#func-text)                         | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅        | ❌       |
+| [`language`](#func-language)                 | Ingenting                                          | [Streng](#strenger)                  | ✅        | ❌       |
+| [`round`](#func-round)                       | [Tall](#tall), valgfritt [Tall](#tall)             | [Streng](#strenger)                  | ✅        | ❌       |
 | [`instanceContext`](#func-instancecontext)   | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅        | ✅       |
 | [`frontendSettings`](#func-frontendsettings) | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅        | ✅       |
 | [`dataModel`](#func-datamodel)               | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅        | ✅       |
@@ -264,6 +265,7 @@ du sender inn andre verdier enn strenger, blir verdiene konvertert og sammenlign
 ([les mer om konvertering her](#strenger)).
 
 Eksempler:
+
 ```json
 {
   "id": "lastName",
@@ -297,14 +299,13 @@ hva som skal til for å _vise_ komponenten:
 {
   "id": "lastName",
   "type": "Input",
-  "hidden": ["not",
-    ["or",
-       ["dataModel", "ShowLastName"],
-       ["frontendSettings", "ShowAllFields"]
-    ]
+  "hidden": [
+    "not",
+    ["or", ["dataModel", "ShowLastName"], ["frontendSettings", "ShowAllFields"]]
   ]
 }
 ```
+
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-gt" header="greaterThan / greaterThanEq / lessThan / lessThanEq" %}}
@@ -312,7 +313,7 @@ Disse 4 funksjonene forventer to tall inn, og sammenligner om _det første_ med 
 `greaterThan` er uttrykket sant dersom det første tallet er _større enn_ det andre.
 
 | Funksjon        | Beskrivelse                                                   | Symbol |
-|-----------------|---------------------------------------------------------------|--------|
+| --------------- | ------------------------------------------------------------- | ------ |
 | `greaterThan`   | Er det første tallet _større enn_ det andre tallet?           | \>     |
 | `greaterThanEq` | Er det første tallet _større enn eller lik_ det andre tallet? | ≥      |
 | `lessThan`      | Er det første tallet _mindre enn_ det andre tallet?           | \<     |
@@ -337,11 +338,7 @@ Legg merke til at funksjonen ikke automatisk legger til mellomrom eller komma n�
 et mer lesbart resultat anbefales det å legge inn bindetegn hvor nødvendig:
 
 ```json
-["concat",
-   "Gratulerer med ",
-   ["component", "alder"],
-   "-årsdagen!"
-]
+["concat", "Gratulerer med ", ["component", "alder"], "-årsdagen!"]
 ```
 
 Uttrykket over gir teksten `Gratulerer med 18-årsdagen!` dersom verdien i alder-komponenten var `18`.
@@ -355,7 +352,7 @@ Funksjonene `and` og `or` forventer 1 eller flere boolske verdier, og gir et res
 _minst en_ av verdiene var sanne (`true`).
 
 | Funksjon | Beskrivelse                                     |
-|----------|-------------------------------------------------|
+| -------- | ----------------------------------------------- |
 | `and`    | Er **alle** argumentene sanne? (`true`)         |
 | `or`     | Er **minst ett** av argumentene sanne? (`true`) |
 
@@ -368,7 +365,7 @@ under [_Streng eller mindre streng sammenligning?_](#streng-eller-mindre-streng-
 boolsk uttrykk. Funksjonen kan kalles på to forskjellige måter; med 2 eller 4 argumenter:
 
 | Argument        | Alternativ 1                 | Alternativ 2                 |
-|-----------------|------------------------------|------------------------------|
+| --------------- | ---------------------------- | ---------------------------- |
 | Første argument | [Boolsk](#boolske-verdier)   | [Boolsk](#boolske-verdier)   |
 | Andre argument  | [Vilkårlig type](#datatyper) | [Vilkårlig type](#datatyper) |
 | Tredje argument |                              | Strengen `"else"`            |
@@ -386,18 +383,219 @@ Om man ønsker flere betingelser og mulige returverdier kan man nøste flere kal
 argument:
 
 ```json
-["if",
-   ["greaterThan", ["component", "birthYear"], 1945],
-   "Du ble født etter verdenskrigene",
-"else",
-  ["if",
-     ["greaterThanEq", ["component", "birthYear"], 1939],
-     "Du ble født under andre verdenskrig",
+[
+  "if",
+  ["greaterThan", ["component", "birthYear"], 1945],
+  "Du ble født etter verdenskrigene",
   "else",
-     "Du ble født før andre verdenskrig"
+  [
+    "if",
+    ["greaterThanEq", ["component", "birthYear"], 1939],
+    "Du ble født under andre verdenskrig",
+    "else",
+    "Du ble født før andre verdenskrig"
   ]
 ]
 ```
+
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-language" header="language" %}}
+Funksjonen `language` returnerer brukerens valgte språkkode.
+
+Eksempel:
+
+```json
+{
+   "id": "lastName",
+   "type": "Input",
+   ...
+   "readOnly": ["equal", ["language"], "en"],
+}
+```
+
+Om gjeldende språk er ukjent, vil `nb` returneres, som er standardspråket for Altinn 3-apper. Dermed kan man være trygg
+på at denne funksjonen alltid returnerer et gyldig språk.
+
+**Bemerk:** Denne funksjonen er ikke tilgjengelig i backend-kode enda, og vil derfor gi en feilmelding dersom den blir
+brukt noen steder [hvor uttrykk kjøres på backend](#bruksområder), og om man har slått på funksjonaliteten for å
+automatisk slette skjulte data (`RemoveHiddenDataPreview`).
+
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-starts-ends-with" header="startsWith/endsWith" %}}
+Funksjonen `startsWith` sjekker om strengen gitt som første argument starter med strengen gitt i andre argument, og
+på samme vis vil funksjonen `endsWith` sjekke om første streng slutter med den andre strengen.
+
+```json
+["startsWith", ["dataModel","My.Model.FirstName"], "Jo"]
+```
+
+```json
+["endsWith", ["dataModel", "My.Model.FirstName"], "hn"]
+```
+
+Noen detaljer som er verdt å nevne om disse funksjonene:
+- Alle funksjoner starter og slutter med en tom streng, så `startsWith` og `endsWith` vil alltid returnere `true`
+  dersom man bruker et uttrykk `["startsWith", "...", ""]`. Dette er viktig å passe på om man bruker verdien til
+  en komponent eller et oppslag i datamodellen som andre argument.
+- Ingen strenger starter eller slutter med en `null`-verdi. Bruker man et uttrykk som dette:
+  ```json
+  ["startsWith",
+     ["dataModel", "My.Model.FullName"],
+     ["dataModel", "My.Model.FirstName"]]
+  ```
+  vil alltid resultatet bli
+  `false` så lenge fornavnet ikke er gitt. Men som nevnt over, dersom fornavnet er satt til en tom streng (for eksempel
+  dersom brukeren har visket ut fornavnet sitt), vil uttrykket gi `true` dersom et fullt navn er satt. Dersom man vil
+  unngå noe av denne oppførselen kan man bruke `if`-funksjonen sammen med `equals` til å sjekke om noe er satt til
+  en tom streng.
+- `["startsWith", null, null]` gir alltid `false`.
+
+**Bemerk:** Disse funksjonene er ikke tilgjengelig i backend-kode enda, og vil derfor gi en feilmelding dersom de blir
+brukt noen steder [hvor uttrykk kjøres på backend](#bruksområder), og om man har slått på funksjonaliteten for å
+automatisk slette skjulte data (`RemoveHiddenDataPreview`).
+
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-stringLength" header="stringLength" %}}
+Funksjonen `stringLength` returnerer lengden på en streng (gitt i antall bokstaver/tegn), inkludert mellomrom.
+
+Eksempel:
+
+```json
+["stringLength", ["dataModel", "My.Model.FirstName"]]
+```
+
+Dersom strengen er `null` vil `stringLength` returnere `0`.
+
+**Bemerk:** Denne funksjonen er ikke tilgjengelig i backend-kode enda, og vil derfor gi en feilmelding dersom den blir
+brukt noen steder [hvor uttrykk kjøres på backend](#bruksområder), og om man har slått på funksjonaliteten for å
+automatisk slette skjulte data (`RemoveHiddenDataPreview`).
+
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-contains-not-contains" header="contains / notContains" %}}
+Disse to funksjonene sjekker om streng A inkluderer eller ikke inkluderer streng B.
+Både `contains` og `notContains` skiller mellom store og små bokstaver.
+Det betyr at strengen "Hei" ikke inkluderer "hei". Ønsker du å sammenligne uavhengig av store og små bokstaver kan du
+bruke funksjonene [`lowerCase` eller `upperCase`](#func-lowerCase-upperCase) sammen med `contains` eller `notContains`.
+
+Eksempel:
+
+```json
+{
+   "id": "lastName",
+   "type": "Input",
+   ...
+   "hidden": [
+      "contains",
+      ["dataModel", "My.Model.FirstName"],
+      "J"
+   ],
+   "readOnly": [
+      "notContains",
+      ["dataModel", "My.Model.FirstName"],
+      "D"
+   ]
+}
+```
+
+Ønsker du å sjekke om verdier finnes i en kommaseparert liste kan du bruke funksjonen [`commaContains`](#func-commaContains).
+
+**Bemerk:** Disse funksjonene er ikke tilgjengelig i backend-kode enda, og vil derfor gi en feilmelding dersom de blir
+brukt noen steder [hvor uttrykk kjøres på backend](#bruksområder), og om man har slått på funksjonaliteten for å
+automatisk slette skjulte data (`RemoveHiddenDataPreview`).
+
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-commaContains" header="commaContains" %}}
+Funksjonen commaContains tar imot to argumenter. Det første argumentet er en kommaseparert streng, og det andre
+argumentet er strengen du ønsker å sjekke om er blant de kommaseparerte verdiene i første argument.
+
+Eksempel:
+
+```json
+{
+   "id": "addName",
+   "type": "Input",
+   ...
+   "readOnly": ["commaContains", ["dataModel", "My.Model.Names"], "John"]
+}
+```
+
+Legg merke til at eventuelle mellomrom før/etter komma, eller før/etter første verdi blir ignorert. Denne funksjonen
+er spesielt nyttig i tilfeller hvor man bruker en komponent som lagrer flere verdier i en kommaseparert streng, som
+`Checkboxes` og `MultipleSelect`.
+
+**Bemerk:** Denne funksjonen er ikke tilgjengelig i backend-kode enda, og vil derfor gi en feilmelding dersom den blir
+brukt noen steder [hvor uttrykk kjøres på backend](#bruksområder), og om man har slått på funksjonaliteten for å
+automatisk slette skjulte data (`RemoveHiddenDataPreview`).
+
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-lowerCase-upperCase" header="lowerCase/upperCase" %}}
+Funksjonene `lowerCase` og `upperCase` tar imot en streng som input og returnerer en ny streng der alle tegnene er
+konvertert til henholdsvis små eller store bokstaver.
+
+```json
+["lowerCase", ["dataModel", "My.Model.LastName"]]
+```
+
+Disse funksjonene gir deg en enkel måte å konvertere mellom små og store bokstaver i en streng.
+Et bruksområde kan være å kombinere en av disse funksjonene med andre sammenligningsfunksjoner slik at sammenligningene
+gjøres uavhengig av om det ble brukt store eller små bokstaver i input-verdien.
+
+```json
+["equals", ["upperCase", ["dataModel", "My.Model.LastName"]], "SMITH"]
+```
+
+**Bemerk:** Disse funksjonene er ikke tilgjengelig i backend-kode enda, og vil derfor gi en feilmelding dersom de blir
+brukt noen steder [hvor uttrykk kjøres på backend](#bruksområder), og om man har slått på funksjonaliteten for å
+automatisk slette skjulte data (`RemoveHiddenDataPreview`).
+
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-round" header="round" %}}
+Funksjonen `round` avrunder et tall til et heltall, eller valgfritt til et desimaltall med et konfigurerbart antall desimalpunkter.
+
+Eksempel med avrunding med 2 desimalpunkter:
+
+```json
+["round", "122.99843", "2"]
+```
+
+Eksempel med avrunding til nærmeste heltall:
+
+```json
+["round", "3.4999"]
+```
+
+Returverdien fra denne funksjonen er en streng, slik at returverdien kan brukes for
+fremvisning (merk at desimalskilletegnet alltid er punktum). Selv om returverdien er en streng kan denne også brukes
+videre i uttrykk som forventer tall som inn-verdi.
+
+**Bemerk:** Denne funksjonen er ikke tilgjengelig i backend-kode enda, og vil derfor gi en feilmelding dersom den blir
+brukt noen steder [hvor uttrykk kjøres på backend](#bruksområder), og om man har slått på funksjonaliteten for å
+automatisk slette skjulte data (`RemoveHiddenDataPreview`).
+
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-text" header="text" %}}
+Funksjonen `text` tar imot en nøkkel som argument og bruker denne nøkkelen til å hente ut den tilsvarende teksten fra en tekst-ressurs. Funksjonen returnerer verdien som er knyttet til den angitte nøkkelen.
+Eksempel:
+
+```json
+["text", "min-nøkkel-id"]
+```
+
+**Bemerk:** Husk å teste manuelt med tekstnøkler som inneholder variabler. Det er ikke sikkert disse vil fungere som
+forventet.
+
+**Bemerk:** Denne funksjonen er ikke tilgjengelig i backend-kode enda, og vil derfor gi en feilmelding dersom den blir
+brukt noen steder [hvor uttrykk kjøres på backend](#bruksområder), og om man har slått på funksjonaliteten for å
+automatisk slette skjulte data (`RemoveHiddenDataPreview`).
+
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-instancecontext" header="instanceContext (oppslag)" %}}
@@ -405,7 +603,7 @@ Denne funksjonen gjør det mulig å hente ut informasjon om gjeldende instans. F
 argument:
 
 | Nøkkel                   | Verdi                          | Eksempelverdi                                       |
-|--------------------------|--------------------------------|-----------------------------------------------------|
+| ------------------------ | ------------------------------ | --------------------------------------------------- |
 | `instanceId`             | Gjeldende instans-ID           | `512345/48c31ffc-dcdd-416d-8bc7-194bec3b7bf0`       |
 | `instanceOwnerPartyId`   | Gjeldende aktør-ID             | `512345`                                            |
 | `instanceOwnerPartyType` | Hva slags aktør eier instansen | `"org", "person", "selfIdentified" eller "unknown"` |
@@ -416,7 +614,6 @@ Om man gir andre nøkler enn de over, vil oppslaget resultere i en feilmelding. 
 oppslagsfunksjonene, og gjøres for å sikre at man ikke prøver å hente informasjon som finnes i instansen men som ikke
 (enda) er eksponert via en nøkkel her. [Gi oss en tilbakemelding](https://github.com/Altinn/app-frontend-react/issues/new?assignees=&labels=kind%2Ffeature-request%2Cstatus%2Ftriage&template=feature_request.yml) om du har ønsker om å hente ut
 instansdata som ikke er tilgjengelig i denne funksjonen.
-
 
 Oppslaget gjøres i samme datakilde som er tilgjengelig for [språk/tekster](../../ux/texts#data-sources).
 {{% /expandlarge %}}
@@ -514,6 +711,7 @@ i gjeldende rad, før det letes oppover i sidestrukturen.
 {{% /expandlarge %}}
 
 ## Datatyper
+
 Funksjoner i uttrykkene har en forventning om at argumentene som blir sendt inn har en spefikk type. Dersom et argument
 blir sendt inn har en annen type enn forventet, blir verdien forsøkt konvertert til riktig type. Som et eksempel
 forventer funksjonen `equals` to strenger, men om du sender inn den boolske verdien `true` som det ene eller andre
@@ -533,12 +731,13 @@ inn [`null`](#null), men noen steder vil en `null`-verdi gi en feilmelding - for
 datamodellen med `["dataModel", null]`. I `concat`-funksjonen vil derimot en `null`-verdi bli tolket som en tom streng.
 
 ### Strenger
+
 Strenger inneholder vilkårlig tekst, og er en bred datatype som tall og boolske verdier kan konverteres til.
 
 Noen strenger kan også konverteres til andre datatyper:
 
 | Strengverdi                                        | Kan erstatte               | Eksempler                  |
-|----------------------------------------------------|----------------------------|----------------------------|
+| -------------------------------------------------- | -------------------------- | -------------------------- |
 | Heltall med eller uten negativt fortegn            | [Tall](#tall)              | `3`, `-8`, `71254`         |
 | Desimaltall med eller uten negativt fortegn        | [Tall](#tall)              | `3.14`, `-33.0`, `123.123` |
 | `true` eller `false` med små eller store bokstaver | [Boolsk](#boolske-verdier) | `true`, `True`, `FALSE`    |
@@ -547,14 +746,15 @@ Noen strenger kan også konverteres til andre datatyper:
 Alle andre strenger enn de i tabellen over vil gi feilmelding om de blir forsøkt konvertert til andre typer.
 
 ### Tall
+
 Tallverdier gjelder positive og negative heltall og desimaltall. Noen strenger blir også konvertert
 automatisk til en tallverdi, som vist i tabellen til strenger over. For at konvertering av en streng til et tall
 skal fungere, må strengen oppfylle følgende:
 
-* Strengen inneholder bare et tall, ingen annen tekst foran/bak tallet
-* Negativt fortegn (`-`) kan brukes, men positivt fortegn (`+`) støttes ikke.
-* Desimaltall må representeres med punktum, ikke komma.
-* Tusenskilletegn eller annen tallformattering støttes ikke.
+- Strengen inneholder bare et tall, ingen annen tekst foran/bak tallet
+- Negativt fortegn (`-`) kan brukes, men positivt fortegn (`+`) støttes ikke.
+- Desimaltall må representeres med punktum, ikke komma.
+- Tusenskilletegn eller annen tallformattering støttes ikke.
 
 Alle andre strenger vil gi en feilmelding om de blir forsøkt konvertert til et tall. Forsøker man å konvertere en
 [boolsk verdi](#boolske-verdier) til et tall, gir det også en feilmelding.
@@ -563,13 +763,14 @@ Funksjoner som forventer å få inn et tall kan også få inn [`null`](#null). S
 beskrivelsen til hver funksjon.
 
 ### Boolske verdier
+
 Boolske verdier omfatter `true` (sann) og `false` (usann). Når man kaller en funksjon som forventer å få inn en boolsk
 verdi, kan man også sende inn enkelte andre typer, som blir konvertert til en boolsk verdi:
 
-* Tallene `1` og `0` fungerer som henholdsvis `true` og `false`
-* Strengene `"1"` og `"0"` fungerer likt som tallene (og blir henholdsvis `true` og `false`)
-* Strengene `"true"` og `"false"` konverteres også til en boolsk verdi
-* Verdien [`null`](#null) fungerer likt som `false`
+- Tallene `1` og `0` fungerer som henholdsvis `true` og `false`
+- Strengene `"1"` og `"0"` fungerer likt som tallene (og blir henholdsvis `true` og `false`)
+- Strengene `"true"` og `"false"` konverteres også til en boolsk verdi
+- Verdien [`null`](#null) fungerer likt som `false`
 
 Alle andre verdier gir en feilmelding om de blir sendt til en funksjon som forventer en boolsk verdi. Legg merke til
 at disse reglene er litt forskjellige fra reglene til [strenger](#strenger). Det er dermed forskjell på hvilke verdier
@@ -592,6 +793,7 @@ og `"1"` er ikke lik `"true"`.
 Se også tips og triks under [_Streng eller mindre streng sammenligning?_](#streng-eller-mindre-streng-sammenligning)
 
 ### Null
+
 De fleste steder hvor man forventer å få inn en [streng](#strenger), [tall](#tall) eller
 [boolske verdier](#boolske-verdier) skal også tåle en `null`-verdi. Null-verdier indikerer at en spesifikk verdi
 mangler, og det er forskjell på f.eks. en `null`-verdi, en tom [streng](#strenger) og [tallet](#tall) `0`.
@@ -602,7 +804,8 @@ Dersom man gjør et oppslag i en funksjon som `dataModel`, og verdien man leter 
 ## Tips og triks
 
 ### Vise/skjule hele sider
-Uttrykk kan brukes til å vise/skjule hele sider. I eksempelet under vil hele siden  skjules dersom en komponent
+
+Uttrykk kan brukes til å vise/skjule hele sider. I eksempelet under vil hele siden skjules dersom en komponent
 (på en av de andre sidene) har verdien _no_ eller ikke er satt.
 
 ```json
@@ -629,6 +832,7 @@ i [side-rekkefølgen](../../ux/pages/navigation#order). Om alle de neste sidene 
 siden i rekkefølgen istedenfor.
 
 ### Streng eller mindre streng sammenligning?
+
 Måten uttrykkene kjøres på gjør at de kan virke litt strenge (ved at f.eks. `0` og `null` er ulike verdier når man
 sammenligner med `equals`). Det er et designvalg gjort i Altinn av to grunner:
 
@@ -641,11 +845,12 @@ Om man ønsker mindre streng sammenligning, kan man f.eks. konstruere et uttrykk
 til å gjenkjenne flere forskjellige verdier:
 
 ```json
-["or",
-   ["equals", ["dataModel", "My.Path"], 0],
-   ["equals", ["dataModel", "My.Path"], false],
-   ["equals", ["dataModel", "My.Path"], null],
-   ["equals", ["dataModel", "My.Path"], ""]
+[
+  "or",
+  ["equals", ["dataModel", "My.Path"], 0],
+  ["equals", ["dataModel", "My.Path"], false],
+  ["equals", ["dataModel", "My.Path"], null],
+  ["equals", ["dataModel", "My.Path"], ""]
 ]
 ```
 
@@ -654,8 +859,5 @@ Husk også at konvertering til [boolsk verdi](#boolske-verdier) tillater flere a
 `0`, `false` og `null` allerede tillates som boolske verdier vil følgende fungere likt som uttrykket over:
 
 ```json
-["or",
-   ["dataModel", "My.Path"],
-   ["equals", ["dataModel", "My.Path"], ""]
-]
+["or", ["dataModel", "My.Path"], ["equals", ["dataModel", "My.Path"], ""]]
 ```

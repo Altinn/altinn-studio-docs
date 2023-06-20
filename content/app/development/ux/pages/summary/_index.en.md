@@ -39,6 +39,25 @@ Note: PDF-generating does not support a summary page, so it has to be excluded b
         "excludeFromPdf": [ "name-of-summary-page" ]
       }
 ```
+
+### Text resources for summary
+As mentioned above, the summary component is simple with a summary of data from another component,
+but there are two cases where it is possible to set up text resources for the summary component:
+- The `title` field in `textResourceBindings` can be used to set a label/title for the summary. If this is set, it will override any title that is set on the component being summarized.
+- The `accessibleTitle` field in `textResourceBindings` can be used to define the aria-label for the change button that otherwise uses the `title` field
+
+```json {hl_lines=[7, 8]}
+{
+    "id": "summary-1",
+    "type": "Summary",
+    "componentRef": "<komponent-id>",
+    "pageRef": "<side komponenten er definert på>",
+    "textResourceBindings": {
+        "title": "Egendefinert tittel",
+        "accessibleTitle": "Egendefinert aria-label"
+    }
+},
+```
 ### Simple form component
 These are components that are only connected to one field in the data model. E.g. Input, Dropdown, Checkbox/Radio, etc.
 

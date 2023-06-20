@@ -21,7 +21,7 @@ this available for you.
 {{% /expandlarge %}}
 
 [//]: <> (Section: What does Altinn monitor on our behalf?)
-{{% expandlarge id="q1" header="What does Altinn monitor on our behalf?" %}}
+{{% expandlarge id="q2" header="What does Altinn monitor on our behalf?" %}}
 
 The Altinn team has access to all of the telemetry logged by the application that the app owners also have access to. 
 In addition we monitor the infrastructure components for each application owner such as Kubernetes cluster, 
@@ -36,7 +36,7 @@ of individual applications.__
 
 
 [//]: <> (Section: What are the top three most useful features in AI?.)
-{{% expandlarge id="q2" header="What are the top three most useful features in AI?" %}}
+{{% expandlarge id="q3" header="What are the top three most useful features in AI?" %}}
 ![Frequently used AI features marked in menu](ai-side-menu.png "Frequently used AI features marked in menu")
 
 - **Failures**: get an overview over all failing requests within a time frame and drill into the stack trace
@@ -48,7 +48,7 @@ of individual applications.__
 
 
 [//]: <> (Section: How can I see who performed the request?)
-{{% expandlarge id="q3" header="How can I see who performed the request?" %}}
+{{% expandlarge id="q4" header="How can I see who performed the request?" %}}
 The application template logs identity telemetry whenever this information is available to the app.
 Data points include authentication level (authLevel), partyId, userId and organisation number (orgNumber).
 
@@ -64,7 +64,7 @@ requests
 {{% /expandlarge %}}
 
 [//]: <> (Section: We have many apps in my organisation, but I am only interested in one of them)
-{{% expandlarge id="q4" header="We have many apps in my organisation, but I am only interested in one of them" %}}
+{{% expandlarge id="q5" header="We have many apps in my organisation, but I am only interested in one of them" %}}
 All logs and dashboard in AI can include filters. Use a _role filter_ to filter out data related to your application.
 The role (or cloud role name) for your application is equal to your application name (i.e. the repository name in Altinn Studio).
 
@@ -88,7 +88,7 @@ requests
 
 
 [//]: <> (Section: An end user is reporting that their experiencing an error)
-{{% expandlarge id="q8" header="An end user is reporting that their experiencing an error" %}}
+{{% expandlarge id="q6" header="An end user is reporting that their experiencing an error" %}}
 When end users report errors this could be an error that affects all users and it is easy to identify the failing
 request in the failure tab.
 However, if the error is affecting a single or very few users the instanceId can be a helpful tool.
@@ -108,7 +108,7 @@ requests
 {{% /expandlarge %}}
 
 [//]: <> (Section: My application shows ukjent feil...)
-{{% expandlarge id="q5" header="My application shows Ukjent feil..." %}}
+{{% expandlarge id="q7" header="My application shows Ukjent feil..." %}}
 ... but I don't know what is causing it.
 
 _Ukjent feil_ in the application is caused by the application returning an unexpected response
@@ -131,7 +131,7 @@ To see addition details for a specific request highlight it and review the blade
 {{% /expandlarge %}}
 
 [//]: <> (Section: How can I identify what is causing a request to be slow? )
-{{% expandlarge id="q7" header="How can I identify what is causing a request to be slow? " %}}
+{{% expandlarge id="q8" header="How can I identify what is causing a request to be slow? " %}}
 Use the _Performance_ page to investigate slow requests
 
 !["Steps marked for drill down on performance page"](performance-drill-down.png "Steps marked for drill down on performance page")

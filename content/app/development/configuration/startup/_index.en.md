@@ -23,7 +23,7 @@ If the field `onEntry.show` is set to `select-instance` the user is presented wi
 ### Example
 The following configuration is added to `applicationmetadata.json` to configure select from active instance.
 
-```json {hl_lines[8,9,10]}
+```json {hl_lines=[8,9,10]}
 {
   "id": "ttd/demo-app",
   "org": "ttd",

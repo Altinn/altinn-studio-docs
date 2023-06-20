@@ -21,7 +21,7 @@ og Altinnteamet jobber med å tilgjengeliggjøre dette.
 {{% /expandlarge %}}
 
 [//]: <> (Section: Hva monitorerer Altinn på våre vegne?)
-{{% expandlarge id="q1" header="Hva monitorerer Altinn på våre vegne?" %}}
+{{% expandlarge id="q2" header="Hva monitorerer Altinn på våre vegne?" %}}
 
 Altinn har også innsyn i telemetrien som logges av applikasjonene og tilgjengliggjøres for tjenesteeierene i AI.
 I tillegg monitorerer vi infrastrukturen til hver tjenesteeier som Kubernetes cluster, storagekontoer og key vault. 
@@ -33,7 +33,7 @@ __Altinn overvåker ikke aktivt ytelsen eller feilraten til den individuelle app
 {{% /expandlarge %}}
 
 [//]: <> (Section: Hva er de tre nyttigste funksjonene i AI?.)
-{{% expandlarge id="q2" header="Hva er de tre nyttigste funksjonene i AI?" %}}
+{{% expandlarge id="q3" header="Hva er de tre nyttigste funksjonene i AI?" %}}
 ![Ofte brukte AI-funksjoner markert i menyen](ai-side-menu.png "Ofte brukte AI-funksjoner markert i menyen")
 
 - **Failures**: få en oversikt over alle feilede requests i et tidsrom og drill ned i stack tracen
@@ -47,7 +47,7 @@ __Altinn overvåker ikke aktivt ytelsen eller feilraten til den individuelle app
 
 
 [//]: <> (Section: Hvordan kan jeg se hvem som utførte requesten?)
-{{% expandlarge id="q3" header="Hvordan kan jeg se hvem som utførte requesten?" %}}
+{{% expandlarge id="q4" header="Hvordan kan jeg se hvem som utførte requesten?" %}}
 Applikasjonsmalen logger identitetstelemetri når denne informasjonen er tilgjengelig for appen.
 Datapunkter inkluderer autentiseringsnivå (authLevel), partyId, userId og organisasjonsnummer (orgNumber).
 
@@ -64,7 +64,7 @@ requests
 {{% /expandlarge %}}
 
 [//]: <> (Section: Vi har mange apper i organisasjonen min, men jeg er bare interessert i én av dem)
-{{% expandlarge id="q4" header="Vi har mange apper i organisasjonen min, men jeg er bare interessert i én av dem" %}}
+{{% expandlarge id="q5" header="Vi har mange apper i organisasjonen min, men jeg er bare interessert i én av dem" %}}
 Alle logger og dashbord i AI kan inkludere filtre. Bruk et _rollefilter_ for å filtrere ut data relatert til applikasjonen din.
 Rollen (_role_ eller _cloud role name_) for applikasjonen din er applikasjonsnavnet ditt (dvs. reponavnet i Altinn Studio).
 
@@ -88,7 +88,7 @@ requests
 
 
 [//]: <> (Section: En sluttbruker rapporterer at de opplever en feil)
-{{% expandlarge id="q8" header="En sluttbruker rapporterer at de opplever en feil" %}}
+{{% expandlarge id="q6" header="En sluttbruker rapporterer at de opplever en feil" %}}
 Når sluttbrukere rapporterer feil kan dette være en feil som påvirker alle brukere og det kommer ofte
 tydelig fram hvilken request som feiler i _failure_-fanen,
 men hvis feilen påvirker en enkelt eller svært få brukere, kan instanceId være et nyttig hjelpemiddel.
@@ -108,7 +108,7 @@ requests
 {{% /expandlarge %}}
 
 [//]: <> (Section: Appen min viser ukjent feil...)
-{{% expandlarge id="q5" header="Appen min viser ukjent feil..." %}}
+{{% expandlarge id="q7" header="Appen min viser ukjent feil..." %}}
 ... men jeg vet ikke hva som forårsaker det.
 
 _Ukjent feil_ i applikasjonen er forårsaket av at applikasjonen returnerer en uventet responskode på requests fra
@@ -130,7 +130,7 @@ For å se tilleggsdetaljer for en spesifikk forespørsel, merk den og se gjennom
 {{% /expandlarge %}}
 
 [//]: <> (Section: Hvordan kan jeg identifisere hva som gjør at en forespørsel går tregt? )
-{{% expandlarge id="q7" header="Hvordan kan jeg identifisere hva som forårsaker en treg forespørsel? " %}}
+{{% expandlarge id="q8" header="Hvordan kan jeg identifisere hva som forårsaker en treg forespørsel? " %}}
 Bruk _Performance_-siden for å undersøke trege forespørsler
 
 !["Trinn-for-trinn 'drill down' på performance-siden"](performance-drill-down.png "Trinn-for-trinn 'drill down' på performance-siden")

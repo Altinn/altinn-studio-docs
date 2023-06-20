@@ -8,7 +8,7 @@ toc: false
 {{%notice warning%}}
 This functionality must be set up manually directly in form layout for now.
 
-**NOTE:** This functionality requires app-frontend v3 or newer. See [this link](/community/changelog/app-frontend/v3/breaking-changes/) 
+**NOTE:** This functionality requires app-frontend v3 or newer. See [this link](/community/changelog/app-frontend/v3/breaking-changes/)
 for more information.
 
 {{%/notice%}}
@@ -16,13 +16,13 @@ for more information.
 ## Mark a field as optional
 
 It is possible to mark a field as optional. The default is that required fields are marked as required (with `*`), while
-optional fields have no marking. 
+optional fields have no marking.
 
 ![Optional default](optional-default.png "Default optional field (no marking).")
 
 ![Required default](required.png "Default required field (marked with *).")
 
-Default behaviour can be overwritten by changing the settings of the field. This is done in the 
+Default behaviour can be overwritten by changing the settings of the field. This is done in the
 `labelSettings` property of a component in the form layout.
 
 ```json
@@ -30,7 +30,7 @@ Default behaviour can be overwritten by changing the settings of the field. This
   {
     "id": "input-felt-1",
     "type": "Input",
-    ... 
+    ...
     "labelSettings": {
       "optionalIndicator": true
     }
@@ -40,11 +40,25 @@ Default behaviour can be overwritten by changing the settings of the field. This
 
 By setting `optionalIndicator` to `true`, the text `(Optional)` will be shown after the field label.
 
-
 ![Optional with marking](optional.png "Optional field with marking.")
 
-*NOTE*: It is not possible to force the *Optional* marking on a field that is required. Changing the 
+_NOTE_: It is not possible to force the _Optional_ marking on a field that is required. Changing the
 `optionalIndicator` property does not alter or overrule the other properties of the field.
+
+## Enable character limit
+
+You can now include the maxLength property in input fields to specify the maximum number of characters allowed. This will provide a countdown display indicating the number of remaining characters. Here's an example implementation:
+
+```json
+{
+  {
+    "id": "input-felt-1",
+    "type": "Input",
+    ...
+    "maxLength": 10
+  }
+}
+```
 
 ## Configuring automatic save while typing
 
@@ -61,7 +75,7 @@ example below, data is saved 2 seconds after the user stopped typing.
   {
     "id": "input-field-1",
     "type": "Input",
-    ... 
+    ...
     "saveWhileTyping": 2000
   }
 }
