@@ -110,7 +110,6 @@ A possible workaround here is to return an empty array when the PDF-generator as
 Notice that this wil result in the option value and not the label being present as the end users answer.
 {{% /notice%}}
 
-
 ## Description and HelpText
 
 `description` and `helpText` is supported by options in apps that use version v7.8.0 or higher. `description` and
@@ -159,7 +158,7 @@ var options = new AppOptions
 
 Descriptions and help texts used in options based on repeating groups can be set up with dynamic text-resources in the
 same way as labels, described in
-[options based on repeating groups](#options-based-on-repeating-groups-from-the-data-model)."
+[options based on repeating groups](dynamic-codelists/#dynamiske-kodelister-fra-repeterede-grupper-i-datamodellen).
 
 ```json
       {
