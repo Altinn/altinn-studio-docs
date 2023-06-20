@@ -4,7 +4,7 @@ linktitle: Guider
 description: Her finner du guider på hvordan man kan integrere seg med Altinn API
 tags: [architecture, devops, todo]
 toc: false
-hidden: true
+hidden: false
 ---
 
 
