@@ -8,8 +8,10 @@ tags: [architecture, plan, authorizaton]
 
 ---
 *Siden er under konstruksjon*
+
 Altinn skal erstatte rollene som gir tilgang til tjenester i Altinn 2 når vi flytter Altinn Autorisasjon til Altinn 3. I stedet for roller vil det i Altinn 3 være ulike tilgangsgrupper som består av tjenester som hører til et ansvarsområde. 
 
+## Tidsplan for arbeidet
 Foreløpig tidsplan for arbeidet ser slik ut: 
 
 1. Foreslå nye fullmakts-/tilgangsgrupper (Q1 2023)
