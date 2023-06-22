@@ -66,4 +66,10 @@ Foreløpig tidsplan for arbeidet ser slik ut:
 
  10. *Mange av våre skjemaer dekker flere ulike tema og går ut til mange ulike næringer ? Hvordan tenker dere at vi best håndterer slike?*
 
-      Det vil være mulig å knytte tjenester til flere ulike tilgangsgrupper samtidig. I tilfeller hvor tjenester omfatter flere tema bør man knytte tjenesten til alle fullmaktsområdene som passer. 
+      Det vil være mulig å knytte tjenester til flere ulike tilgangsgrupper samtidig. I tilfeller hvor tjenester omfatter flere tema bør man knytte tjenesten til alle fullmaktsområdene som passer.
+
+11. *Når ny tjeneste for Tilgangsgrupper er satt i produksjon i Q1 2024 vil da ikke være mulig lenger å delegere rettigheter på eksisterende måte?*
+
+       Også etter at nye tilgangsgrupper er satt i produksjon så vil det fortsatt være mulig å deleger rettigheter til bare tjenesten/enkeltrettighet, på samme måte som i dag. 
+       Men de gamle Altinn 2 rollene vil det da ikke være mulig å gi videre til andre, selv om man i en overgangsperiode fortsatt vil få utført tjenesten med denne rollen. 
+
