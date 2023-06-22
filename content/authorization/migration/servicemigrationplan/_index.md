@@ -38,6 +38,10 @@ Tjenesteeiere som ønsker å opprette  nye tjenester av typen "Delegerbare API r
 Det vil bli laget nye API for å hente ut informasjon om hvilke delegeringer som foreligger. Dette er API som i dag brukes av Maskinporten, Norsk Helsenett og SKatteetaten. 
 Det vil i en overgangsfase være mulig å benytte de gamle API-ene. 
 
+Informasjon om tjenestene vil etter flytting kunne slås opp her: 
+- [Testmiljø- tt02](https://platform.tt02.altinn.no/resourceregistry/api/v1/resource/search)
+- [Produksjonsmlijø - altinn.no](https://platform.altinn.no/resourceregistry/api/v1/resource/search)
+
 #### API for delegering slås av
 I dag er det mulig for sluttbruker å benytte API for å slette eller opprette delegeringer til Delegerbare API ressurser se [API-beskrivlese](https://altinn.github.io/docs/api/rest/autorisasjon/roller-og-rettigheter/#slette-delegerte-tjenesterettigheter--roller)). I forbindelse med migrering av disse ressursene fra Altinn 2 til Altinn 3 vil det i en overgangsfase ikke lenger være mulig å utføre dette via API. Nye API vil bli tilbydt i løpet av Q4 2023. 
 
