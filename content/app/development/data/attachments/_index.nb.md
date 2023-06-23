@@ -55,6 +55,19 @@ Her under kan du se den i bruk
 
 ![Vedleggskomponenten med merking eksempelvisning](vedleggsmerkekomeks.png "Vedleggskomponenten med merking eksempel")
 
+
+### Vedleggskomponent med varsel ved sletting
+Bestemmer om en varslingspanel skal åpnes når brukeren trykker på "Slett"-knappen. Standard oppførsel hvis parameteren ikke er satt, er at varslingspanelet ikke vises.
+
+```json
+{
+  "id": "attest",
+  "type": "FileUpload",
+  ...
+  "alertOnDelete": true
+}
+```
+
 ## Innsending av vedlegg med API-kall
 
 For å legge til rette for å kunne sende inn vedlegg uten å ha støtte for dette i GUI

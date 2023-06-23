@@ -55,6 +55,18 @@ Below you can see it in use
 
 ![The file upload component with tagging example](vedleggsmerkekomeks.png "The file upload with tagging example")
 
+### File upload component with delete warning
+Determines whether a warning panel will open when the user presses the “Delete” button. The default behaviour if the parameter is not set, is for the warning panel not to be displayed.
+
+```json
+{
+  "id": "attest",
+  "type": "FileUpload",
+  ...
+  "alertOnDelete": true
+}
+```
+
 ## Submission of attachments with API-call
 
 To accommodate being able to submit attachments without this being supported in GUI,
