@@ -111,8 +111,26 @@ Type '0' to pre-select checkbox 1, type '1' for checkbox 2, etc.
 * [Table with component layout properties](../#expandable-components-code)
 * [Page layout JSON schema](https://altinncdn.no/schemas/json/layout/layout.schema.v1.json)
 
-### Component specific properties
+### Component Properties
 
+| **Property**             | **Title**                | **Type** | **Description**                                                                                                    | **Examples**                                                   |
+| ------------------------ | ------------------------ | -------- | ------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------- |
+| `optionsId`              | Options ID               | string   | Reference to connected options by ID.                                                                              |                                                                |
+| `options`                | Options                  | array    | An array of options. Only relevant if no `optionsId` is set.                                                       |                                                                |
+| `options.label`          | Label                    | string   | The option label. Can be plain text or a text resource binding.                                                    |                                                                |
+| `options.value`          | Value                    | string   | The option value.                                                                                                  |                                                                |
+| `options.description`    | Description              | string   | A description of the option displayed in Radio- and Checkbox groups. Can be plain text or a text resource binding. |                                                                |
+| `options.helpText`       | Help Text                | string   | A help text for the option displayed in Radio- and Checkbox groups. Can be plain text or a text resource binding.  |                                                                |
+| `preselectedOptionIndex` | Preselected option index | integer  | Sets a preselected index.                                                                                          | `0`, `1`                                                       |
+| `secure`                 | Secure Options           | boolean  | Boolean value indicating if the options should be instance aware. Defaults to false.                               |                                                                |
+| `source`                 | Source                   | object   | Object to define a data model source to be used as the basis for options.                                          |                                                                |
+| `source.group`           | Group                    | string   | The repeating group to base options on.                                                                            | `"model.some.group"`                                           |
+| `source.label`           | Label                    | string   | Reference to a text resource to be used as the option label.                                                       | `"some.text.key"`                                              |
+| `source.value`           | Value                    | string   | Field in the group that should be used as the value.                                                               | `"model.some.group[{0}].someField"`                            |
+| `source.description`     | Description              | string   | A description of the option displayed in Radio- and Checkbox groups. Can be plain text or a text resource binding. | `"some.text.key"`, `"My Description"`                          |
+| `source.helpText`        | Help Text                | string   | A help text for the option displayed in Radio- and Checkbox groups. Can be plain text or a text resource binding.  | `"some.text.key"`, `"My Help Text"`                            |
+| `mapping`                | Mapping                  | object   | Optionally used to map options.                                                                                    | `{ "some.source.field": "key1", "some.other.source": "key2" }` |
+| `layout`                 | Layout                   | string   | Define the layout style for the options.                                                                            | Enum: `column`, `row`, `table`                                 |
 
 ### Properties Description
 
