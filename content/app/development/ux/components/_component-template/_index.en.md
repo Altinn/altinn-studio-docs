@@ -52,8 +52,12 @@ hidden: true
 * [Table with component layout properties](../#expandable-components-code)
 * [Page layout JSON schema](https://altinncdn.no/schemas/json/layout/layout.schema.v1.json)
 
-### Component specific properties
+### Component Properties
 
+| **Property**     | **Title**             | **Type** | **Description**                      | **Examples** |
+| ---------------- | --------------------- | -------- | ------------------------------------ | ------------ |
+| `optionsId`      | Options ID            | string   | Reference to connected options by ID.|              |
+|                  |                       |          |                                      |              |
 
 ### Properties Description
 
