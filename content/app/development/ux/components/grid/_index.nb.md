@@ -209,16 +209,17 @@ legg til en `text`-egenskap til cellen og sett den til teksten du vil vise. Du k
 som teksten som skal vises i cellen. For å konfigurere en celle som viser en annen komponent, legg til en
 `component`-egenskap til cellen og sett den til id-en til komponenten du vil vise i cellen.
 
-```json {hl_lines=[5]}
+```json
 {
   "cells": [
-    { "text": "Celle 1" },
+    { "text": "Tekst i celle 1" },
+    { "text": "tekstressurs.nokkel.celle2" },
     { "component": "minKomponent" }
   ]
 }
 ```
 
-I konfigurasjonen over er det en forutsetning at `myComponent` er en komponent som er konfigurert et annet sted i
+I konfigurasjonen over er det en forutsetning at `minKomponent` er en komponent som er konfigurert et annet sted i
 layout-konfigurasjonen. Foreløpig er det støtte for følgende komponenter i Grid-komponenten:
 
 - Button

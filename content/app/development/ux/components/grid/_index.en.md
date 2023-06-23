@@ -208,10 +208,11 @@ property to the cell and set it to the text you want to display. You can also sp
 to display in the cell. To configure a cell as a component cell, add a `component` property to the cell and set it to
 the id of the component you want to display in the cell.
 
-```json {hl_lines=[5]}
+```json
 {
   "cells": [
-    { "text": "Cell 1" },
+    { "text": "Text content in cell 1" },
+    { "text": "text.resource.key" },
     { "component": "myComponent" }
   ]
 }
