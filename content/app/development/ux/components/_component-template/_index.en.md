@@ -49,7 +49,7 @@ hidden: true
 
 {{% expandlarge id="properties" header="Properties" %}}
 
-* [Table with component layout properties](../#expandable-component-layout-properties)
+* [Table with component layout properties](../#expandable-components-code)
 * [Page layout JSON schema](https://altinncdn.no/schemas/json/layout/layout.schema.v1.json)
 
 ### Component specific properties

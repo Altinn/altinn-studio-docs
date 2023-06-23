@@ -1,5 +1,6 @@
 ---
 title: Komponenter
+description: Komponenter er byggeklossene i applikasjoner.
 weight: 10
 ---
 

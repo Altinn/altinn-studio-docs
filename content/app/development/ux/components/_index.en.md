@@ -1,12 +1,20 @@
 ---
 title: Components
+description: Components are the building blocks of applications.
 weight: 10
 ---
 
- Below is a table overview of component layout properties.
-More specific properties and definitions are found in the description of each component and in the [page layout JSON schema](https://altinncdn.no/schemas/json/layout/layout.schema.v1.json) file.
+For how to add and edit components in the UI editor, see [Altinn Studio Designer](/app/getting-started/ui-editor/).
+ Component settings are described on the individual component pages linked below.
 
-{{% expandlarge id="component-layout-properties" header="Component Layout Properties" %}}
+{{% expandlarge id="components-code" header="Code" %}}
+
+Available components and their respective properties are described in the [layout JSON schema](https://altinncdn.no/schemas/json/layout/layout.schema.v1.json) file.
+
+When building an application, the layout of each page is described by a `<pageName>.json` file located in `<applicationRepo>/App/ui/layouts/`.
+Components added to the page are listed in the `layout` subsection in the file.
+
+The below table describes the general layout properties for componets. Component-specific properties are described on the individual component pages linked below.
 
 | **Property**           | **Title**              | **Type**      | **Description**                                                                                                 |
 | ---------------------- | ---------------------- | ------------- | --------------------------------------------------------------------------------------------------------------- |
