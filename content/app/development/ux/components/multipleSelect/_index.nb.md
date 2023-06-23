@@ -2,7 +2,6 @@
 title: MultipleSelect 
 description: MultipleSelect kan benyttes når brukeren kan velge blant flere valg
 toc: false
-weight: 10
 ---
 
 MultipleSelect tilbyr også støtte for lokalt søk/filtrering.
