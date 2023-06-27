@@ -41,22 +41,27 @@ Merk: PDF-generering støtter ikke oppsummering side, så må den ekskluderes ve
 ```
 
 ### Tekstressurser
-Som nevnt over er oppsummeringskomponenten enkel med oppsummering av data fra en annen komponent, 
-men det er to tilfeller hvor det er mulig å sette opp egne tekstressurser for oppsummeringskomponenten:
-- `title`-feltet i `textResourceBindings` kan brukes for å sette en label/tittel for oppsummeringen. Hvis dette er satt, vil den overstyre en evt. tittel som er satt på komponenten som oppsummeres.
-- `accessibleTitle`-feltet i `textResourceBindings` kan brukes for å egendefinere aria-label til endre-knappen som ellers bruker `title`-feltet
+Som nevnt tidligere, gir oppsummeringskomponenten et sammendrag over data fra en annen komponent.
+Men følgende tekstressurser som er satt i referansekomponenten er kun ment for oppsummeringskomponenten:
+- Feltet `summaryTitle` kan brukes til å angi en egen label/tittel i oppsummeringen. Hvis dette feltet er satt, vil det overstyre `title`-feltet.
+- Feltet `summaryAccessibleTitle` kan brukes til å egendefinere `aria-label` for redigeringsknappen i oppsummeringen. Hvis dette feltet er satt, vil det overstyre `summaryTitle`- og `title`-feltet.
 
-```json {hl_lines=[7, 8]}
+```json {hl_lines=[12, 13]}
 {
     "id": "summary-1",
     "type": "Summary",
     "componentRef": "<komponent-id>",
     "pageRef": "<side komponenten er definert på>",
-    "textResourceBindings": {
-        "title": "Egendefinert tittel",
-        "accessibleTitle": "Egendefinert aria-label"
-    }
 },
+{
+    "id": "<komponent-id>",
+    "type": "Input",
+    "textResourceBindings": {
+        "title": "",
+        "summaryTitle": "Tittel i sammendrag",
+        "summaryAccessibleTitle": "Aria-label på redigerknapp i sammendrag"
+    }
+}
 ```
 
 
