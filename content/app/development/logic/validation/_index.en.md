@@ -116,6 +116,25 @@ With resource texts:
 
 The error message would then be `"You have to fill out your first name"`.
 
+### Replacing the required validation message completely
+
+If you want to replace the default error message for required fields completely, you can do this by adding the text key
+`requiredValidation` to the components `textResourceBindings` object. This will replace the default error message for
+required fields. The text can be a text key for a [text defined in the resource files](../../ux/texts) for multilingual
+support.
+
+```json
+{
+  "id": "firstName",
+  "type": "Input",
+  "textResourceBindings": {
+    "title": "text-firstName",
+    "requiredValidation": "myCustomRequiredValidation"
+  },
+  ...
+}
+```
+
 ### Custom error messages
 It is possible to define custom error messages that will be displayed when a field doesn't pass the validation check. This is done by including a parameter `errorMessage` where the field is defined in the JSON schema. 
 The JSON schema file is in the folder `App/models` and has a naming patterns as follows; `*.schema.json`,

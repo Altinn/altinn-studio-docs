@@ -116,6 +116,25 @@ Og tekster i ressurs-fil:
 
 Da vil valideringmeldingen bli `"Du må fylle ut fornavnet ditt"`.
 
+### Erstatte feilmelding for påkrevde felter helt
+
+Hvis du ønsker å erstatte standardfeilmeldingen for obligatoriske felt fullstendig, kan du gjøre dette ved å legge til
+tekstnøkkelen `requiredValidation` i komponentens `textResourceBindings`-objekt. Dette vil erstatte standardfeilmeldingen
+for obligatoriske felt. Teksten kan være en [tekstnøkkel for en tekst som er definert i ressursfilene](../../ux/texts)
+for flerspråklig støtte.
+
+```json
+{
+  "id": "firstName",
+  "type": "Input",
+  "textResourceBindings": {
+    "title": "text-firstName",
+    "requiredValidation": "myCustomRequiredValidation"
+  },
+  ...
+}
+```
+
 ### Egendefinerte feilmeldinger
 Det er mulig å definere egne feilmeldinger som skal vises når et felt får valideringsfeil. Dette gjøres ved å legge på en parameter `errorMessage` der 
 hvor feltet er definert i JSON schema. JSON schema filen ligger i mappen `App/models` og følger navnestandard `*.schema.json`. 
