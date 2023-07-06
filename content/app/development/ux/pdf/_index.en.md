@@ -218,7 +218,7 @@ The automatic layout includes a front page with instance information like sender
         "referenceNumber": true
         },
         "pageBreak": {
-          "breakAfter": true
+          "breakAfter": "always"
         }
       }
       ...
