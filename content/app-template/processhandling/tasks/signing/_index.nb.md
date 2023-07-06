@@ -1,63 +1,58 @@
 ---
-title: Signing task
-description: Defining signing process tasks
+title: Signerings task
+description: Definer signerings prosess tasks
 tags: [altinn-apps, process, bpmn, task, sign, signing]
 hidden: true
 toc: true
 ---
 
-Setting up a signing task in the process file requires a bit more work than a regular data, confirm or feedback task.
+Oppsett av en signeringoppgave i prosessfilen krever litt mer arbeid enn en vanlig data-, bekreftelses- eller tilbakemeldingsoppgave.
 
-This page will walk you through what you need to configure and how that is connected to other parts of the configuration.
+Denne siden vil veilede deg gjennom hva du trenger å konfigurere og hvordan det er koblet til andre deler av konfigurasjonen.
 
-## Defining and configuring a signing task
+Definere og konfigurere en signeringoppgave
+En signeringoppgave i sin enkleste form ser omtrent slik ut:
 
-A signing task in its simples format looks something like this:
-
-```xml
-<bpmn:task id="Task_2" name="Signing">
+xml
+Copy code
+<bpmn:task id="Task_2" name="Signering">
     <bpmn:incoming>Flow_1enq1lu</bpmn:incoming>
     <bpmn:outgoing>Flow_0ybpfuh</bpmn:outgoing>
     <bpmn:extensionElements>
         <altinn:taskExtension>
-            <altinn:taskType>signing</altinn:taskType>
+            <altinn:taskType>signering</altinn:taskType>
             <altinn:actions>
-                <altinn:action>sign</altinn:action>
+                <altinn:action>signer</altinn:action>
             </altinn:actions>
             <altinn:signatureConfig>
                 <altinn:dataTypesToSign>
-                    <altinn:dataType>Model</altinn:dataType>
+                    <altinn:dataType>Modell</altinn:dataType>
                 </altinn:dataTypesToSign>
-                <altinn:signatureDataType>signature</altinn:signatureDataType>
+                <altinn:signatureDataType>signatur</altinn:signatureDataType>
             </altinn:signatureConfig>
         </altinn:taskExtension>
     </bpmn:extensionElements>
 </bpmn:task>
-```
+Gjøre signering tilgjengelig som handling
+Som med bekreftelsesoppgaver må vi definere de tilgjengelige handlingene. For å generere et signeringobjekt må brukeren kunne utføre handlingen "signer":
 
-#### Making sign an available action
-
-As for confirmation steps we need to define the actions available, to generate a signing object the user needs to be able to perform the sign action:
-
-```xml
+xml
+Copy code
 <altinn:actions>
-    <altinn:action>sign</altinn:action>
+    <altinn:action>signer</altinn:action>
 </altinn:actions>
-```
+"Signer" kan være det eneste alternativet eller kombinert med andre handlinger som "bekreft" og/eller "avvis", avhengig av behovene til hver applikasjon.
 
-The sign action can be the only option or in combination with other actions like confirm and/or reject, based on the needs of each application.
+Konfigurere hvilke dataelementer som skal signeres
+Når en bruker utfører handlingen "signer", vil konfigurasjonen fra <altinn:signatureConfig> bli brukt til å opprette et signeringobjekt.
 
-#### Configure what dataelements to sign
+For øyeblikket definerer apputvikleren hvilke dataelementer som skal være en del av signeringobjektet ved å definere en liste over datatyper. Dette kan være skjemadata, vedlegg eller PDF-er.
 
-Once a user performs a sign action the config from `<altinn:signatureConfig>` will be used to create a signature object.
+Datatypene er definert i filen App/config/applicationmetadata.json.
 
-Currently the app developer defines what data elements are going to be a part of the signature object by defining a list of dataTypes. This can be form data, attachments or pdfs.
+I eksemplet med signeringoppgaven ovenfor definerer den at alle dataelementer som er tilknyttet datatypen "Modell", skal være en del av signaturen.
 
-The dataTypes are defined in the `App/config/applicationmetadata.json` file. 
-
-The example signing task above defines that alle dataelements connected to the dataType Model should be a part of the signature.
-
-If the application also has a datatype with attachments  named `attachments` where the user provides additional files that the developer wants to be a part of the signature object the `<altinn:signatureConfig>` should look like this:
+Hvis applikasjonen også har en datatypen "vedlegg", der brukeren legger ved ekstra filer som utvikleren ønsker å være en del av signeringobjektet, bør <altinn:signatureConfig> se slik ut:
 
 ```xml
 <altinn:signatureConfig>
@@ -69,11 +64,11 @@ If the application also has a datatype with attachments  named `attachments` whe
 </altinn:signatureConfig>
 ```
 
-#### Configure where to store the signature object
+#### Konfigurere hvor signaturobjektet skal lagres
 
-A signature object also requires a dataType where it should be stored once generated. This is defined in the `<altinn:signatureDataTyep>` and also needs to be defined in `App/config/applicationmetadata.json`
+Et signaturobjekt krever også en datatypen der det skal lagres når det er generert. Dette er definert i `<altinn:signatureDataTyep>`, og må også være definert i `App/config/applicationmetadata.json`.
 
-Example of a applicationmetadata.json with a signature datatype named signature:
+Eksempel på en applicationmetadata.json-fil med en signaturdatatypen kalt "signatur":
 
 ```json
 {
@@ -94,7 +89,7 @@ Example of a applicationmetadata.json with a signature datatype named signature:
       "enablePdfCreation": true
     },
     {
-      "id": "Model",
+      "id": "Modell",
       "allowedContentTypes": [
         "application/xml"
       ],
@@ -110,7 +105,7 @@ Example of a applicationmetadata.json with a signature datatype named signature:
       "enablePdfCreation": true
     },
     {
-      "id": "signature",
+      "id": "signatur",
       "allowedContentTypes": [
         "application/json"
       ],
@@ -135,13 +130,13 @@ Example of a applicationmetadata.json with a signature datatype named signature:
 }
 ```
 
-#### Configure unique signatures
+#### Konfigurere unike signaturer
 
-If an application has multiple signing steps it is possible to ensure that one person cannot sign both steps even if they have the necessary roles.
+Hvis en applikasjon har flere signeringstrinn, kan du sørge for at én person ikke kan signere begge trinnene selv om de har nødvendige roller.
 
-Example if two members of the board should sign, but the same person cannot perform both signing steps.
+For eksempel, hvis to styremedlemmer skal signere, men samme person ikke kan utføre begge signeringstrinnene.
 
-To configure this we need to add the first signature dataobject to the list in `<altinn:uniqueFromSignaturesInDataTypes>` for signing task two
+For å konfigurere dette må vi legge til det første signaturdataobjektet i listen `<altinn:uniqueFromSignaturesInDataTypes>` for signeringoppgave to:
 
 ```xml
 <bpmn:task id="Task_2" name="Signing">
@@ -185,19 +180,19 @@ To configure this we need to add the first signature dataobject to the list in `
 </bpmn:task>
 ```
 
-In the example the signing object for Task_2 is stored in the dataType signature, and in signature2 for Task_3. 
+I eksempelet blir signeringobjektet for oppgave Task_2 lagret i datatypen "signature", og i "signature2" for oppgave Task_3.
 
-In addition Task_3s `<altinn:signatureConfig>` has defined that it should be unique from all signature objects stored in dataType `signature`.
+I tillegg har Task_3s `<altinn:signatureConfig>` definert at den skal være unik blant alle signaturobjekter som er lagret i datatypen "signatur".
 
 ```xml
 <altinn:uniqueFromSignaturesInDataTypes>
-    <altinn:dataType>signature</altinn:dataType>
+    <altinn:dataType>signatur</altinn:dataType>
 </altinn:uniqueFromSignaturesInDataTypes>
 ```
 
-### Signing object stored when user signs
+### Lagring av signeringobjekt når brukeren signerer
 
-Once the user performs the sign action a signature object will be stored as dataType signature. The signature object will look something like this:
+Når brukeren utfører signeringen, vil et signeringobjekt bli lagret som datatypen "signatur". Signeringobjektet vil se omtrent slik ut:
 
 ```json
 {
@@ -219,8 +214,7 @@ Once the user performs the sign action a signature object will be stored as data
 }
 ```
 
-If multiple dataElements are signed they will be added to the `dataElementSignatures` list.
+Hvis flere dataelementer er signert, vil de bli lagt til i listen `dataElementSignatures`.
 
-The field `sha256Hash` contains a base64 encoded sha256Hash generated from the data stored in Altinn at the time of signing.
-The `signeeInfo` object hold the information about who performed the signing.
-
+Feltet `sha256Hash` inneholder en base64-kodet SHA256-hash generert fra dataene som er lagret i Altinn på tidspunktet for signeringen.
+Objektet `signeeInfo` inneholder informasjonen om hvem som utførte signeringen.

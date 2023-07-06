@@ -9,10 +9,11 @@ The template follows the [BPMN 2.0 standard.](https://www.bpmn.org/)
 
 ## Supported process elements
 
-### Tasks
-### Exclusive Gateways
 
-Exclusive gateways allow a different path in the process based on direct user input, data, or other aspects available from code.
+* [__Process tasks__](tasks) _tasks that require users or systems to perform actions before the process continues_
+
+
+* [__Flow control__](flowcontrol) _controls navigation through a process with gateways_
 
 ## Process Examples
 

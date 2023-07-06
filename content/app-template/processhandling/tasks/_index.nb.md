@@ -1,20 +1,20 @@
 ---
-title: Process task
-description: Defining process tasks
+title: Prosess task
+description: Definere prosess tasks
 tags: [altinn-apps, process, bpmn, task]
 weight: 10
 toc: true
 ---
 
-## Task types
+## Oppgavetyper
 
-### Data Task
+### Data task
 
-A data task is where the user/system accessing the digital service through UI or API can read, write and modify data related to a digital service.
+En dataoppgave er der brukeren/systemet som bruker den digitale tjenesten gjennom brukergrensesnittet eller API-en kan lese, skrive og endre data relatert til en digital tjeneste.
 
-A data task requires that all data for a given process task is valid and that the user/system has added all the necessary data.
+En dataoppgave krever at all data for en gitt prosessoppgave er gyldig og at brukeren/systemet har lagt til all nødvendig data.
 
-The data validation is part of the standard logic in the template. Application developers can add custom validation for each data element and task.
+Datavalidering er en del av standardlogikken i malen. Applikasjonsutviklere kan legge til egendefinert validering for hvert dataelement og oppgave.
 
 ```xml
 <bpmn:task id="Task_1" name="Utfylling">
@@ -28,13 +28,13 @@ The data validation is part of the standard logic in the template. Application d
 </bpmn:task>
 ```
 
-### Confirmation Task
+### Confirmation task
 
-A confirmation task is where the end user accessing the application through the browser or system through API can confirm data that is part of the process.
+En bekreftelsesoppgave er der sluttbrukeren som bruker applikasjonen gjennom nettleseren eller systemet gjennom API kan bekrefte data som er en del av prosessen.
 
-When a user confirms a confirmation task a confirm instance event log is created detailing that user/system X has confirmed.
+Når en bruker bekrefter en bekreftelsesoppgave, opprettes det en bekreftelseslogg for instansen som detaljerer at bruker/system X har bekreftet.
 
-Example of a confirmation task
+Eksempel på en bekreftelsesoppgave:
 
 ```xml
 <bpmn:task id="Task_2" name="Bekreftelse">
@@ -51,13 +51,14 @@ Example of a confirmation task
 </bpmn:task>
 ```
 
-### Signing Task
+### Signing task
 
-A signing task is where the end user accessing the application through the browser or system through API can sign data that is part of the process.
+En signeringsoppgave er der sluttbrukeren som bruker applikasjonen gjennom nettleseren eller systemet gjennom API kan signere data som er en del av prosessen.
 
-When a user performs a sign action a signature object containing the user information and a hash of the data elements defined in the process task will be generated along a instance event log detailing that user/system X has signed
+Når en bruker utfører en signering, genereres det et signaturobjekt som inneholder brukerinformasjonen og en hash av dataelementene som er definert i prosessoppgaven. Samtidig opprettes en hendelseslogg for instansen som detaljerer at bruker/system X har signert.
 
-Example of a signing task
+Eksempel på en signeringsoppgave:
+
 ```xml
 <bpmn:task id="Task_1">
     <bpmn:incoming>Flow1</bpmn:incoming>
@@ -82,17 +83,18 @@ Example of a signing task
 </bpmn:task>
 ```
 
-As the example above shows a signing task needs additional information. See [Setting up signing](signing) for details on how to configure a singing task and the effects.
+Som eksempelet ovenfor viser, krever en signaturoppgave ekstra informasjon. Se [Konfigurering av signering](signing) for detaljer om hvordan du konfigurerer en signaturoppgave og dens effekter.
 
-### Feedback Task
+### Feedback task
 
-A feedback task allows the service owner or others to give feedback to the entity reporting data.
+En tilbakemeldingsoppgave lar tjenesteeieren eller andre gi tilbakemeldinger til enheten som rapporterer data.
 
-It allows uploading data and moving the process forward.
+Det lar brukeren laste opp data og fortsette prosessen.
 
-Example of a feedback task
+Eksempel på en tilbakemeldingsoppgave:
+
 ```xml
-<bpmn:task id="Task_2" name="Bekreftelse">
+<bpmn:task id="Task_2" name="Tilbakemelding">
     <bpmn:incoming>Flow1</bpmn:incoming>
     <bpmn:outgoing>Flow2</bpmn:outgoing>
     <bpmn:extensionElements>
@@ -103,30 +105,31 @@ Example of a feedback task
 </bpmn:task>
 ```
 
-## Actions in tasks
-In version 8 of the app nugets actions in tasks were introduced. This makes it possible for developers to associate ActionButtons in the UI with UserActions in the backend.
-It is possible to authorize each action in a task separately in the policy file.
+## Actions i oppgaver
 
-### Actions with special altinn logic connected to them
+I versjon 8 av app-pakken ble det introdusert handlinger i oppgaver. Dette gjør det mulig for utviklere å knytte handlingstastene i brukergrensesnittet til brukerhandlinger i backenden.
+Det er mulig å autorisere hver handling i en oppgave separat i policy-filen.
+
+### Handlinger med spesifikk Altinn-logikk knyttet til dem
 
 #### write
-Default action that is performed when a data or feedback task is submitted
+Standardhandling som utføres når en dataoppgave eller tilbakemeldingsoppgave sendes inn.
 
 #### confirm
-Default action that is performed when a confirmation task i submitted
+Standardhandling som utføres når en bekreftelsesoppgave sendes inn.
 
 #### sign
-Action that generates a signature object based on the configuration of the task see [Signature]()
+Handling som genererer et signaturobjekt basert på konfigurasjonen av oppgaven, se [Signatur]().
 
 #### reject
-Action to use when moving back from one task to another. Performing action reject will ensure data elements in the target task is unlocked.
+Handling som brukes når man går tilbake fra en oppgave til en annen. Å utføre handlingen "reject" vil låse opp dataelementene i måloppløpet.
 
-### Custom actions and custom logic when action is performed
+#### Egendefinerte handlinger og egendefinert logikk ved utførelse av handlingen
 
-#### Custom action in task
-To add actions to a task you have to modify the `App/config/process/process.bpmn` file and add the wanted action to the task.
+#### Egendefinert handling i oppgave
+For å legge til handlinger i en oppgave må du endre filen `App/config/process/process.bpmn` og legge til ønsket handling i oppgaven.
 
-Example of a process where Task_1 has the actions _demo_ and _custom_ defined:
+Eksempel på en prosess der oppgaven Task_1 har handlingene _demo_ og _custom_ definert:
 
 ```xml {hl_lines=["15-27"]}
 <?xml version="1.0" encoding="UTF-8"?>
@@ -164,5 +167,4 @@ xmlns:altinn="http://altinn.no/process">
 </bpmn:definitions>
 ```
 
-Once these actions have been [granted to users in policy.xml]() it is possible to add a [ActionButtons in the UI connected to the actions]() <!--//TODO: Add a link to docs for defining XACML and ActionButton-->
-
+Når disse handlingene har blitt [tildelt brukere i policy.xml](), er det mulig å legge til [ActionButtons i brukergrensesnittet som er koblet til handlingene](). <!--//TODO: Add a link to docs for defining XACML and ActionButton-->
