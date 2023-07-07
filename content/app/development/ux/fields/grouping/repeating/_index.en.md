@@ -84,6 +84,7 @@ Below is a form with a repeating group that:
 | dataModelBindings                                                | No       | Must be set for repeating groups with form components inside. Should point to the repeating group in the data model.           |
 | [textResourceBindings](#textresourcebindings)                    | No       | Can be set for repeating groups, see [description](#textresourcebindings).                                                     |
 | maxCount                                                         | Yes      | The number of times a group can repeat. Must be set to `1` or more for the group component to work as a repeating group.       |
+| minCount                                                         | No       | Validation. The minimum number of times a group must repeat before the user can submit the form.                               |
 | children                                                         | Yes      | List of the component IDs that are to be included in the repeating group.                                                      |
 | [edit](edit)                                                     | No       | Options for how to display the group when editing a row.                                                                       |
 | tableHeaders                                                     | No       | List of components that are to be included as part of the table header fields. If not specified, all components are displayed. |
