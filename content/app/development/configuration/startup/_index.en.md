@@ -55,6 +55,8 @@ options are available:
 - `sortDirection`: Choose between `asc` or `desc` to sort the instances ascending or descending. Default is `desc`.
 - `rowsPerPageOptions`: Choose which options the user can choose between when deciding how many instances to show per
 page. Default is `[10, 25, 50]`.
+- `defaultRowsPerPage`: Choose which option should be selected as default when the user opens the instance selection
+page. The value must be a number that is used as an index to select a value in `rowsPerPageOptions`. Default is `0`.
 
 ### Configuration Example
 
@@ -72,7 +74,8 @@ The following configuration is added to `applicationmetadata.json` to configure 
     "show": "select-instance",
     "instanceSelection": {
       "sortDirection": "asc",
-      "rowsPerPageOptions": [10, 25, 50, 100]
+      "rowsPerPageOptions": [10, 25, 50, 100],
+      "defaultRowsPerPage": 1
     }
   }
 }
