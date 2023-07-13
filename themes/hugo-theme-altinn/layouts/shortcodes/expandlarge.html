@@ -21,6 +21,7 @@
 	</div>
 	<div id="expandable-{{with .Get "id" }}{{.}}{{else}}expand-default{{end}}" class="a-collapseContent collapse" role="tabpanel">
 		<div class="a-collapseContent-inside">
+			<a name="#{{with .Get "id" }}{{.}}{{else}}expand-default{{end}}"></a>
 			{{.Inner | safeHTML}}
 		</div>
 	</div>
