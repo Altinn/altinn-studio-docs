@@ -1,0 +1,21 @@
+{{- define "follow-reference" -}}
+    {{- $split := split .ref "/" -}}
+    {{- $refItemName := index $split (sub (len $split) 1) -}}
+    {{- $prefix := index $split 0 -}}
+
+    {{- if strings.Contains .ref "expression.schema" -}}
+        <strong>type</strong>: {{- $refItemName -}}<br>
+    {{- else -}}
+        {{- if (eq $prefix "#") -}}
+            {{- $link := printf "/app/development/ux/components/commondefs#%s" $refItemName -}}
+            <strong>ref</strong>: <a href="{{- $link -}}">{{- $refItemName -}}</a><br>
+        {{- else -}}
+
+            {{- $jsonCommonDefs := getJSON "https://raw.githubusercontent.com/Altinn/app-frontend-react/chore/update-component-schemas/schemas/json/component/common-defs.schema.v1.json" -}}
+            {{- $defs := index $jsonCommonDefs "$defs" -}}
+            {{- $description := index $defs $refItemName -}}
+            {{- template "list-descriptions" (dict "property" $description "propName" $refItemName) -}}            
+
+        {{- end -}}
+    {{- end -}}
+{{- end -}}
