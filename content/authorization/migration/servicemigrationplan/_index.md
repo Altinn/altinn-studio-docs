@@ -50,13 +50,16 @@ I dag er det mulig for sluttbruker å benytte API for å slette eller opprette d
 - Oppstart utvikling: Avsluttet
 - Migrering tjenester avsluttet:  Alle tjenester ble flyttet 13.6.23
 - Informasjon sendt til tjenesteeiere finner du [her](/authorization/migration/informasjon-sent/letter-api-reources/)
-- Frist for å ta i bruk nye API: ikke besluttet
 
 ## Lenketjenester
 ### Migreringsstrategi 
 Alle tjenester av typen "Lenketjenester" flyttes èn og èn fra Altinn 2 til Altinn 3. Lenketjenester bytter navn i den forbindelse og vil i Altinn 3.0 bli kalt "tjenesteressurser".
 
-Digdir vil ta ansvar for å flytte alle disse tjenestene. Tjenesteeier må i den forbindelse bidra med noe utfyllende informasjon om sine tjenester. Alle dette gjelder vil bli kontaktet særskilt.  
+Det er tjenesteeiers ansvar at disse flyttes, men Altinn vil legge til rette for at denne jobben blir så enkel som mulig. 
+Tjenesteeier må i den forbindelse bidra med noe utfyllende informasjon om sine tjenester. Alle tjenesteeier som dette gjelder vil bli kontaktet særskilt.  
+
+Altinn 2 API for tjenesteeier vil ikke inneholde informasjon om lenketjenester som er flyttet fra A2 til A3. 
+Tjenesteeiere kan derfor ikke flytte sine ressurser før de er klar til å ta i bruk nye API for autorisasjon i Altinn 3.
 
 Alle delegeringer som finnes for disse tjenestene vil bli tatt vare på og flyttet samtidig med tjenesten fra Altinn 2 til Altinn 3. 
 Det betyr at alle brukere som i dag har tilgang til en ekstern lenketjenester på vegne av en aktør vil beholde disse delegeringene etter at tjenestene er flyttet. 
@@ -64,10 +67,17 @@ Det betyr at alle brukere som i dag har tilgang til en ekstern lenketjenester p�
 ### Konsekvenser for tilhørende API
 Det vil bli laget nye API for å hente ut informasjon om brukers rettigheter på vegne av andre.
 Dette er API som i dag brukes av alle tjenesteeiere som har opprettet lenketjenster og som bruker Altinn som tilgangsstyringsløsning på deres egen tjensteplattform. 
-Det vil i en overgangsfase være mulig å benytte de gamle API-ene på REST og SOAP
+
+Altinn 2 API for tjenesteeier vil ikke inneholde informasjon om lenketjenester som er flyttet fra A2 til A3. 
+Tjenesteeiere kan derfor ikke flytte sine ressurser før de selv er klar til å ta i bruk nye API for Accessmanagement i Altinn 3.
+
+Det vil i en overgangsfase være mulig for sluttbrukersystem å benytte de gamle API-ene på REST og SOAP. 
+Beskrivelse av de nye APIene for sluttbrukersystem finnes i [swagger](https://app.swaggerhub.com/apis/jonkjetiloye/Accessmanagement/1.0.0#/). Denne er fortsatt under arbeid. 
 
 ### Brukerflate for administrering av tilgang til tjenesteressurser
 Funksjonalitet i profil for å delegere enkeltrettigheter flyttes fra Altinn2 til Altinn 3. I all hovedsak vil utseende og funksjonalitet fortsette slik det er i dag, men vi kommer til å forbedre søk for å finne riktig tjeneste og muligheter for filterering på tjenesteeier. 
+
+![Skisseforslag på ny brukerflate for tilgangsstyring til enkeltrettigheter](ny-brukerflate-enkeltdelegering.png "Forslag til ny brukerflate for tilgangsstyring til enkeltrettigheter")
 
 
 ### Konsekvenser for Lokale roller i Altinn 2
@@ -78,8 +88,8 @@ Det er derfor tatt en beslutning om at man ikke vil videreføre lokale roller i 
 
 ### Tidsplan
 - Oppstart utvikling: 01.01.2023
-- Migrering avsluttet: Q3 2023
-- Frist for å ta i bruk nye API: ikke besluttet
+- Klart for migrering av lenketjenester: Q4 2023
+- Migrering må være gjort innen: ikke besluttet, men senest Q1 2025
 
 ## Samtykketjenester
 ### Migreringsstrategi
@@ -95,32 +105,34 @@ Det er fortsatt ikke utredet hvilke konsekvenser dette får for API som tilhøre
 Det vil i en overgangsfase være mulig å benytte de gamle API-ene. 
 
 ### Tidsplan
-- Oppstart utvikling: Q2 2023
-- Migrering av tjenester avsluttet:  Q2 2024
-- Frist for å ta i bruk nye API: ikke besluttet
+- Oppstart utvikling: ikke besluttet
+- Klart for migrering av samtykketjenester: ikke besluttet
+- Migrering må være gjort innen: ikke besluttet, men senest Q1 2025
 
 ## Formidlingstjenester
 ### Migreringsstrategi
 Det er ikke bestemt om alle tjenester av typen "Formidlingstjenester" skal flyttes èn og èn fra Altinn 2 til Altinn 3 eller om det skal gjøres i èn operasjon.  
-Digdir vil ta ansvar for å flytte alle disse tjenestene.  
+Konsept for modernisering av Formidlingstjenesten følges opp [her](https://github.com/digdir/portfolio/issues/48)
 
 ### Konsekvenser for tilhørende API
 Det er fortsatt ikke utredet hvilke konsekvenser dette får for API som tilhører formidlingstjenesten. 
 Det vil i en overgangsfase være mulig å benytte de gamle API-ene. 
 
-### Tidsplan
-- Oppstart utvikling: ikke besluttet
-- Migrering av tjenester avsluttet: ikke besluttet
-- Frist for å ta i bruk nye API: ikke besluttet
+### Tidsplan 
+- Oppstart utvikling: Q3 2023
+- Klart for migrering av tjenester: Q1 2024
+- Migrering av tjenester må være gjort innen: ikke besluttet, men senest Q1 2025
 
 ## Meldingstjenester
 ### Migreringsstrategi
-Det er ikke bestemt hvilken migreringsstrategi man skal ha for meldingstjenester (Correspondence). 
+Det er ikke bestemt hvilken migreringsstrategi man skal ha for meldingstjenester (Correspondence), 
+Valgt løsning for [dialogporten](https://digdir.github.io/dialogporten/) vil henge sammen med migrring av meldingstjenester. 
+Fremdriftsplan for dialogporten finner du [her](https://github.com/orgs/digdir/projects/8/views/25)
 
 ### Konsekvenser for tilhørende API
 Det er ikke utredet hvilke konsekvenser dette har på tilhørende API
 
 ### Tidsplan
 - Oppstart utvikling: ikke besluttet
-- Migrering av tjenester avsluttet: ikke besluttet
-- Frist for å ta i bruk nye API: ikke besluttet
+- Klart for migrering av tjenester: ikke besluttet
+- Migrering av tjenester må være gjort innen: ikke besluttet, men senest Q1 2025
