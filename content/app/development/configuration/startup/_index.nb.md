@@ -44,7 +44,7 @@ Brukere som har aktive instanser vil bli presentert med følgende brukergrensesn
 ## Konfigurer side for instansvalg
 
 {{%notice warning%}}
-**MERK:** For å bruke denne funksjonaliteten, må applikasjonen referere til versjon >= 7.12.0 av nuget-pakkene
+**MERK:** For å bruke denne funksjonaliteten, må applikasjonen referere til versjon >= 7.13.0 av nuget-pakkene
 `Altinn.App.core` og `Altinn.App.Api`.
 {{%/notice%}}
 
