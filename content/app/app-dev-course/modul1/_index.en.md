@@ -187,3 +187,5 @@ The application should be runnable on your local machine with LocalTest, and you
 If you haven't completed all the steps, we have a [solution proposal](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/1) that you can draw inspiration from.
 
 ![Screenshot of the data collection page](/app/app-dev-course/modul1/data-screenshot.png "Screenshot of the data collection page")
+
+[Next module >>](../modul2/)
