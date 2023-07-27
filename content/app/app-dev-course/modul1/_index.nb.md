@@ -193,3 +193,5 @@ Applikasjonen skal kunne kjøres opp på din lokale maskin med LocalTest og du s
 Dersom du ikke har fått til alle stegene har vi et [løsningsforslag](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/1) som du kan hente inspirasjon fra.
 
 ![Skjermbilde av datainnsamlingsside](/app/app-dev-course/modul1/data-screenshot.png "Skjermbilde av datainnsamlingsside")
+
+[Neste modul >>](../modul2/)
