@@ -3,6 +3,7 @@ title: Forslag nye tilgangsgupper i 3.0
 linktitle: Tilgangsgrupper 3.0
 description: Her finner du forslag til nye tilgangsgrupper for virksomheter. 
 toc: false
+weight: 100
 
  
 ---
@@ -49,6 +50,8 @@ Du kan knytte en tjeneste til flere maler hvis du mener det er riktig.
 I forbindelse med innføring av nye tilgangsgrupper så foreslår vi å avvikle følgende 2 generelle roller:  
 - Utfyller/innsender 
 - Begrenset signeringsrett 
+
+Øvrige Altinn 2 roller vil erstattes av en eller flere tilgangsgrupper som kan benyttes som erstatning. 
 
 ### Informasjon om tilgang til digital post kommer senere
 Akkurat nå er det uklart om vi skal styre tilgangen til digital post på samme måte når vi går fra Altinn 2 til Altinn 3. Derfor har vi ikke foreslått nye maler for å motta digital post i denne versjonen.
