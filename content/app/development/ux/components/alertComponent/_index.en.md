@@ -39,7 +39,7 @@ An `Alert` should only have `role="alert"` if it appears in the ui as a result o
 
 ### Info
 
-En alert med `severity` `"info"`
+An alert with `severity` `"info"`
 
 ![Info card](info.png)
 
@@ -60,7 +60,7 @@ En alert med `severity` `"info"`
 
 ### Success
 
-En alert med `severity` `"success"`
+An alert with `severity` `"success"`
 
 ![Info card](success.png)
 
@@ -80,7 +80,7 @@ En alert med `severity` `"success"`
 ```
 ### Warning
 
-En alert med `severity` `"warning"`
+An alert with `severity` `"warning"`
 
 ![Info card](warning.png)
 
@@ -100,7 +100,7 @@ En alert med `severity` `"warning"`
 ```
 ### Danger
 
-En alert med `severity` `"danger"`
+An alert with `severity` `"danger"`
 
 ![Info card](danger.png)
 
