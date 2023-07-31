@@ -3,6 +3,7 @@ title: Avkrysningsbokser
 linktitle: Avkrysningsbokser
 description: Inndataelement som lar brukeren velge eller fjerne valg for ett eller flere alternativer.
 schemaname: Checkboxes
+hidden: true
 weight: 10
 ---
 
@@ -121,10 +122,7 @@ Angi '0' for å forhåndsvelge avkrysningsboks 1, '1' for avkrysningsboks 2, osv
 
 Følgende er en automatisk generert liste over egenskapene som er tilgjengelige for {{% title %}} basert på komponentens JSON-skjemafil:
 
-*Kommer snart*
-<!-- Insert shortcode `component-props` that automatically generates a list of component properties from the component's json schema.
-The component name can be explicitly given as argument (e.g. `component-props "Grid"`).
-If no argument is given, the shortcode pulls the component name from 'schemaname' in the frontmatter. -->
+{{% component-props %}}
 
 {{% /expandlarge %}}
 
