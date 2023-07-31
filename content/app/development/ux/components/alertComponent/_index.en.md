@@ -31,10 +31,9 @@ The severity of the alert. This affects the styling of the alert.
 
 ## Accessibility
 
-The component does not get `role="alert"` by default. This means that screen readers will not treat this as an alert.
-An `Alert` should only have `role="alert"` if it appears in the ui as a result of an action the user has taken.
-We automatically add `role="alert"` if the `Alert` has a `hidden` property set to `false`. This means that the `Alert` 
-became visible to the user based on an action the user has taken.
+The component does not have `role="alert"` by default. This means that screen readers will not treat this as an alert.
+An `Alert` should only have `role="alert"` if it appears in the ui as a result of an action the user has taken. Therefore,
+`role="alert"` will be added if you use an expression in the hidden property.
 
 ## Examples
 
