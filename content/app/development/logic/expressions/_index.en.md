@@ -117,7 +117,7 @@ Og for en person som er 15 år (eller yngre, som f.eks. en 4-åring), returneres
 Dynamiske uttrykk er foreløpig tilgjengelig for bruk i disse egenskapene, som definert i [layout-filer](../../ux/pages).
 
 | Komponenter                                               | Egenskap                      | Forventet verdi            | Frontend | Backend |
-| --------------------------------------------------------- |-------------------------------| -------------------------- | -------- | ------- |
+| --------------------------------------------------------- | ----------------------------- | -------------------------- | -------- | ------- |
 | [Sider/layouts](#viseskjule-hele-sider)                   | `hidden`                      | [Boolsk](#boolske-verdier) | ✅       | ✅      |
 | Alle                                                      | `hidden`                      | [Boolsk](#boolske-verdier) | ✅       | ✅      |
 | Skjemakomponenter                                         | `required`                    | [Boolsk](#boolske-verdier) | ✅       | ✅      |
@@ -209,6 +209,7 @@ Gitt følgende uttrykk:
 ```
 
 Og med disse forutsetningene:
+
 1. Man har ikke gitt noen kontekst (eventuelt, uttrykket plasseres på en komponent som ikke er i nærheten av
    en `alder`-komponent)
 2. Man evaluerer uttrykket i kontekst av `navn-0`
@@ -217,10 +218,10 @@ Og med disse forutsetningene:
 Hva vil resultatet bli i de forskjellige eksemplene? Her er svarene:
 
 1. Denne vil finne "første og beste" `alder`-komponent, og finner dermed `alder-0`. Den returnerer
-   derfor *24*, Per sin alder.
-2. Her prøver vi å lete i kontekst av `navn`-komponenten på første rad, og igjen finner vi *24*, Per sin alder.
+   derfor _24_, Per sin alder.
+2. Her prøver vi å lete i kontekst av `navn`-komponenten på første rad, og igjen finner vi _24_, Per sin alder.
 3. siste eksempel har vi spesifisert andre rad i den repeterende gruppen ved å evaluere i kontekst av `navn-1`.
-   Her finner vi den nærmeste `alder`-komponenten `alder-1`, som er *36*, Kari sin alder.
+   Her finner vi den nærmeste `alder`-komponenten `alder-1`, som er _36_, Kari sin alder.
 
 {{% /expandlarge %}}
 
@@ -229,33 +230,34 @@ Hva vil resultatet bli i de forskjellige eksemplene? Her er svarene:
 Disse funksjonene er tilgjengelige for bruk i uttrykk:
 
 | Funksjonsnavn                                | Parametre                                          | Returverdi                           | Frontend | Backend |
-|----------------------------------------------|----------------------------------------------------|--------------------------------------|----------|---------|
-| [`equals`](#func-equals)                     | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
-| [`notEquals`](#func-equals)                  | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
-| [`not`](#func-not)                           | [Boolsk](#boolske-verdier)                         | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
-| [`greaterThan`](#func-gt)                    | [Tall](#tall), [Tall](#tall)                       | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
-| [`greaterThanEq`](#func-gt)                  | [Tall](#tall), [Tall](#tall)                       | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
-| [`lessThan`](#func-gt)                       | [Tall](#tall), [Tall](#tall)                       | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
-| [`lessThanEq`](#func-gt)                     | [Tall](#tall), [Tall](#tall)                       | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
-| [`concat`](#func-concat)                     | Ingen eller flere [strenger](#strenger)            | [Streng](#strenger)                  | ✅        | ✅       |
-| [`and`](#func-and)                           | En eller flere [boolske verdier](#boolske-verdier) | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
-| [`or`](#func-and)                            | En eller flere [boolske verdier](#boolske-verdier) | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
-| [`if`](#func-if)                             | [Se detaljert beskrivelse](#func-if)               | [Se detaljert beskrivelse](#func-if) | ✅        | ✅       |
-| [`contains`](#func-contains-not-contains)    | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅        | ❌       |
-| [`notContains`](#func-contains-not-contains) | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅        | ❌       |
-| [`commaContains`](#func-commaContains)       | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅        | ❌       |
-| [`startsWith`](#func-starts-ends-with)       | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅        | ❌       |
-| [`endsWith`](#func-starts-ends-with)         | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅        | ❌       |
-| [`lowerCase`](#func-lowerCase-upperCase)     | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅        | ❌       |
-| [`upperCase`](#func-lowerCase-upperCase)     | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅        | ❌       |
-| [`stringLength`](#func-stringLength)         | [Streng](#strenger)                                | [Tall](#tall)                        | ✅        | ❌       |
-| [`text`](#func-text)                         | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅        | ❌       |
-| [`language`](#func-language)                 | Ingenting                                          | [Streng](#strenger)                  | ✅        | ❌       |
-| [`round`](#func-round)                       | [Tall](#tall), valgfritt [Tall](#tall)             | [Streng](#strenger)                  | ✅        | ❌       |
-| [`instanceContext`](#func-instancecontext)   | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅        | ✅       |
-| [`frontendSettings`](#func-frontendsettings) | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅        | ✅       |
-| [`dataModel`](#func-datamodel)               | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅        | ✅       |
-| [`component`](#func-component)               | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅        | ✅       |
+| -------------------------------------------- | -------------------------------------------------- | ------------------------------------ | -------- | ------- |
+| [`equals`](#func-equals)                     | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅       | ✅      |
+| [`notEquals`](#func-equals)                  | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅       | ✅      |
+| [`not`](#func-not)                           | [Boolsk](#boolske-verdier)                         | [Boolsk](#boolske-verdier)           | ✅       | ✅      |
+| [`greaterThan`](#func-gt)                    | [Tall](#tall), [Tall](#tall)                       | [Boolsk](#boolske-verdier)           | ✅       | ✅      |
+| [`greaterThanEq`](#func-gt)                  | [Tall](#tall), [Tall](#tall)                       | [Boolsk](#boolske-verdier)           | ✅       | ✅      |
+| [`lessThan`](#func-gt)                       | [Tall](#tall), [Tall](#tall)                       | [Boolsk](#boolske-verdier)           | ✅       | ✅      |
+| [`lessThanEq`](#func-gt)                     | [Tall](#tall), [Tall](#tall)                       | [Boolsk](#boolske-verdier)           | ✅       | ✅      |
+| [`concat`](#func-concat)                     | Ingen eller flere [strenger](#strenger)            | [Streng](#strenger)                  | ✅       | ✅      |
+| [`and`](#func-and)                           | En eller flere [boolske verdier](#boolske-verdier) | [Boolsk](#boolske-verdier)           | ✅       | ✅      |
+| [`or`](#func-and)                            | En eller flere [boolske verdier](#boolske-verdier) | [Boolsk](#boolske-verdier)           | ✅       | ✅      |
+| [`if`](#func-if)                             | [Se detaljert beskrivelse](#func-if)               | [Se detaljert beskrivelse](#func-if) | ✅       | ✅      |
+| [`contains`](#func-contains-not-contains)    | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅       | ❌      |
+| [`notContains`](#func-contains-not-contains) | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅       | ❌      |
+| [`commaContains`](#func-commaContains)       | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅       | ❌      |
+| [`startsWith`](#func-starts-ends-with)       | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅       | ❌      |
+| [`endsWith`](#func-starts-ends-with)         | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅       | ❌      |
+| [`lowerCase`](#func-lowerCase-upperCase)     | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅       | ❌      |
+| [`upperCase`](#func-lowerCase-upperCase)     | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅       | ❌      |
+| [`stringLength`](#func-stringLength)         | [Streng](#strenger)                                | [Tall](#tall)                        | ✅       | ❌      |
+| [`text`](#func-text)                         | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅       | ❌      |
+| [`language`](#func-language)                 | Ingenting                                          | [Streng](#strenger)                  | ✅       | ❌      |
+| [`displayValue`](#func-displayValue)         | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅       | ❌      |
+| [`round`](#func-round)                       | [Tall](#tall), valgfritt [Tall](#tall)             | [Streng](#strenger)                  | ✅       | ❌      |
+| [`instanceContext`](#func-instancecontext)   | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅       | ✅      |
+| [`frontendSettings`](#func-frontendsettings) | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅       | ✅      |
+| [`dataModel`](#func-datamodel)               | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅       | ✅      |
+| [`component`](#func-component)               | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅       | ✅      |
 
 Detaljerte beskrivelser og eksempler
 
@@ -428,7 +430,7 @@ Funksjonen `startsWith` sjekker om strengen gitt som første argument starter me
 på samme vis vil funksjonen `endsWith` sjekke om første streng slutter med den andre strengen.
 
 ```json
-["startsWith", ["dataModel","My.Model.FirstName"], "Jo"]
+["startsWith", ["dataModel", "My.Model.FirstName"], "Jo"]
 ```
 
 ```json
@@ -436,14 +438,17 @@ på samme vis vil funksjonen `endsWith` sjekke om første streng slutter med den
 ```
 
 Noen detaljer som er verdt å nevne om disse funksjonene:
+
 - Alle funksjoner starter og slutter med en tom streng, så `startsWith` og `endsWith` vil alltid returnere `true`
   dersom man bruker et uttrykk `["startsWith", "...", ""]`. Dette er viktig å passe på om man bruker verdien til
   en komponent eller et oppslag i datamodellen som andre argument.
 - Ingen strenger starter eller slutter med en `null`-verdi. Bruker man et uttrykk som dette:
   ```json
-  ["startsWith",
-     ["dataModel", "My.Model.FullName"],
-     ["dataModel", "My.Model.FirstName"]]
+  [
+    "startsWith",
+    ["dataModel", "My.Model.FullName"],
+    ["dataModel", "My.Model.FirstName"]
+  ]
   ```
   vil alltid resultatet bli
   `false` så lenge fornavnet ikke er gitt. Men som nevnt over, dersom fornavnet er satt til en tom streng (for eksempel
@@ -591,6 +596,24 @@ Eksempel:
 
 **Bemerk:** Husk å teste manuelt med tekstnøkler som inneholder variabler. Det er ikke sikkert disse vil fungere som
 forventet.
+
+**Bemerk:** Denne funksjonen er ikke tilgjengelig i backend-kode enda, og vil derfor gi en feilmelding dersom den blir
+brukt noen steder [hvor uttrykk kjøres på backend](#bruksområder), og om man har slått på funksjonaliteten for å
+automatisk slette skjulte data (`RemoveHiddenDataPreview`).
+
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-displayValue" header="displayValue" %}}
+Funksjonen `displayValue` gjør et oppslag på en komponent og returnerer en formattert tekststreng som representerer verdien i datamodellen.
+Dette er til forskjell fra [component](#func-component)-funksjonen som returnerer rå-verdien som ligger i datamodellen.
+Denne funksjonen egner seg best til visning av en komponent sin verdi for brukeren, og mindre til videre logikk basert på verdien som returneres.
+Dette er spesielt relevant for Input-felter med [tallformattering](/app/development/ux/styling/#formatting-numbers), datofelter, radioknapper (og andre komponenter med kodelister), osv.
+
+Eksempel:
+
+```json
+["displayValue", "component-id"]
+```
 
 **Bemerk:** Denne funksjonen er ikke tilgjengelig i backend-kode enda, og vil derfor gi en feilmelding dersom den blir
 brukt noen steder [hvor uttrykk kjøres på backend](#bruksområder), og om man har slått på funksjonaliteten for å
