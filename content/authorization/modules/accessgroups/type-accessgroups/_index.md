@@ -323,3 +323,4 @@ Denne tilgangsgruppen har disse tilgangsgruppene på nivå 3.
 - *Konkursbo skrivetilgang
 
 Disse tilgangsgruppen er videreføring av tilsvarende roller som finnes i dag for konkursbo
+
