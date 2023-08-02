@@ -9,14 +9,15 @@ weight: 100
 
 # Siden er under arbeid
 Nedenfor er oversikt over fullmaktsgrupper revidert etter innspill fra Tjenesteeeiere. 
-- Under hvert bilde er forslag til fullmaktsbeskrivelse som skal presenteres administrator. 
+- Under hvert bilde er forslag til fullmaktsbeskrivelse som skal presenteres administrator for virksomheten i forbindelse med tilgangsstyring 
 - Denne beskrivelsen vil forklare hvilke type tjenester som er knyttet til fullmakten og som fullmakten dermed gir tilgang til
 - Alle fullmakstbeskrivelser vil ha følgende ettertekst: *Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir*
 
 
-- Det er tjenesteeier som avgjør hvilken fullmaktsgruppe deres tjeneste/ressus hører inn under. 
+- Det er tjenesteeier som avgjør hvilken fullmaktsgruppe deres tjeneste/ressus hører inn under. Det er viktig å legge merke til at:
   - Tjenester/ressurser knyttes alltid til laveste nivå (grønn boks)
-  - Det er mulig å knytte en tjeneste/ressurs til flere fullmaktsgrupper. 
+  - Det er mulig å knytte en tjeneste/ressurs til flere fullmaktsgrupper.
+  - En slik struktur som er rikere og mer ganulert, vil gjøre det enklere i fremtiden å endre fullmaktsgrupper. Det vil vær mulig å lage nye, dele opp eller slå sammen fullmaktsgrupper, uten at det får stor påvirkning på de ansatte i virksomhetene som skal utføre tjenestene. 
 
 ## Fullmaktsgrupppe Skatt, avgift, regnskap og toll
 ![Fullmaktsgrupper Skatt, avgift, regnskap og toll](sart.jpg "Skatt, avgift, regnskap og toll")  
@@ -28,6 +29,10 @@ Nedenfor er oversikt over fullmaktsgrupper revidert etter innspill fra Tjenestee
 	- **Regnskap og øknomirapportering:** Denne fullmakten gir tilgang til alle tjenester knyttet til regnskap og øknomirapportering som ikke tilhører skatt og merverdiavgift
 	- **Reviorattesterer:** Denne fullmakten gir tilgang til alle tjenester knyttet til skatt, avgift, regnskap og toll som krever revisorattestering
 	- **Toll:** Denne fullmakten gir tilgang til alle tjenester knyttet til toll og fortolling
+
+Fullmaktsgruppene tildeles følgende roller fra ER: 
+- For alle organisasjonsformer tildeles fullmaktsgrupper til: Daglig leder, Styrets leder, Forretningsfører, 
+- I tillegg tildeles fullmaktsgrupper til følgende roller: Innehaver i ENK, Deltakere i ANS, DA, PRE, Komplementær i KS, Bestyrende Reder i PART og Represtentant i NUF.  
 
 ## Fullmaktsgrupppe Personale
 ![Personale](per.jpg "Personale")
