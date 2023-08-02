@@ -1,10 +1,10 @@
-{{ $_hugo_config := `{ "version": 1 }` }}
+{{- $_hugo_config := `{ "version": 1 }` -}}
 
-<div class="card adocs-expand" id="{{with .Get "id" }}{{.}}{{else}}expand-default{{end}}">
+<div class="card adocs-expand" id="{{- with .Get "id" -}}{{- . -}}{{- else -}}expand-default{{- end -}}">
 	<div>
 		<a
 			data-toggle="collapse"
-			href="#expandable-{{with .Get "id" }}{{.}}{{else}}expand-default{{end}}"
+			href="#expandable-{{- with .Get "id" -}}{{- . -}}{{- else -}}expand-default{{- end -}}"
 			role="tab"
 			aria-expanded="false"
 			class="a-collapse-title no-decoration collapsed a-h3"
@@ -12,17 +12,17 @@
 			<span class="a-dropdownCircleArrow">
 			<i class="ai ai-expand ai-sm"><span class="sr-only">Vis/skjul innhold</span></i>
 			</span>
-			{{with .Get "header" }}
-				{{.}}
-			{{else}}
+			{{- with .Get "header" -}}
+				{{- . -}}
+			{{- else -}}
 				expand-default
-			{{end}}
+			{{- end -}}
 		</a>
 	</div>
-	<div id="expandable-{{with .Get "id" }}{{.}}{{else}}expand-default{{end}}" class="a-collapseContent collapse" role="tabpanel">
+	<div id="expandable-{{- with .Get "id" -}}{{- . -}}{{- else -}}expand-default{{- end -}}" class="a-collapseContent collapse" role="tabpanel">
 		<div class="a-collapseContent-inside">
-			<a name="#{{with .Get "id" }}{{.}}{{else}}expand-default{{end}}"></a>
-			{{.Inner | safeHTML}}
+			<a name="#{{- with .Get "id" -}}{{- . -}}{{- else -}}expand-default{{- end -}}"></a>
+			{{- .Inner | safeHTML -}}
 		</div>
 	</div>
 </div>
