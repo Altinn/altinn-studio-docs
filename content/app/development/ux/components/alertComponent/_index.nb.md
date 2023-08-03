@@ -27,7 +27,7 @@ Alvorlighetsgraden til varselet. Dette påvirker utseendet til varselet.
 
 #### textResourceBindings
 
-`title` og `description` kan konfigureres med `textResourceBindings` for å vise tekst fra ressursfilen.
+`title` og `body` kan konfigureres med `textResourceBindings` for å vise tekst fra ressursfilen.
 
 ## Tilgjengelighet
 
@@ -52,7 +52,7 @@ En alert med `severity` `"info"`
   "type": "Alert",
   "textResourceBindings": {
     "title": "Vedrørende navneendring",
-    "description": "Ved å bekrefte navneendring bekrefter du at du ønsker å endre navnet ditt."
+    "body": "Ved å bekrefte navneendring bekrefter du at du ønsker å endre navnet ditt."
   },
   "severity": "info"
 }
@@ -73,7 +73,7 @@ En alert med `severity` `"success"`
   "type": "Alert",
   "textResourceBindings": {
     "title": "Vedrørende navneendring",
-    "description": "Ved å bekrefte navneendring bekrefter du at du ønsker å endre navnet ditt."
+    "body": "Ved å bekrefte navneendring bekrefter du at du ønsker å endre navnet ditt."
   },
   "severity": "success"
 }
@@ -93,7 +93,7 @@ En alert med `severity` `"warning"`
   "type": "Alert",
   "textResourceBindings": {
     "title": "Vedrørende navneendring",
-    "description": "Ved å bekrefte navneendring bekrefter du at du ønsker å endre navnet ditt."
+    "body": "Ved å bekrefte navneendring bekrefter du at du ønsker å endre navnet ditt."
   },
   "severity": "warning"
 }
@@ -113,7 +113,7 @@ En alert med `severity` `"danger"`
   "type": "Alert",
   "textResourceBindings": {
     "title": "Vedrørende navneendring",
-    "description": "Ved å bekrefte navneendring bekrefter du at du ønsker å endre navnet ditt."
+    "body": "Ved å bekrefte navneendring bekrefter du at du ønsker å endre navnet ditt."
   },
   "severity": "danger"
 }
