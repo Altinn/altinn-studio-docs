@@ -45,7 +45,7 @@ while users that have active instances will be presented with the following user
 ## Configure instance selection page
 
 {{%notice warning%}}  
-**Notice:** in order to use this functionality the application must reference version >= 7.13.0 of the nuget packages
+**Notice:** in order to use this functionality the application must reference version >= 7.12.0 of the nuget packages
 `Altinn.App.core` and `Altinn.App.Api`.
 {{%/notice%}}
 
