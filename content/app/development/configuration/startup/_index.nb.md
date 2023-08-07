@@ -44,7 +44,7 @@ Brukere som har aktive instanser vil bli presentert med følgende brukergrensesn
 ## Konfigurer side for instansvalg
 
 {{%notice warning%}}
-**MERK:** For å bruke denne funksjonaliteten, må applikasjonen referere til versjon >= 7.12.0 av nuget-pakkene
+**MERK:** For å bruke denne funksjonaliteten, må applikasjonen referere til versjon >= 7.13.0 av nuget-pakkene
 `Altinn.App.core` og `Altinn.App.Api`.
 {{%/notice%}}
 
@@ -54,7 +54,7 @@ alternativer er tilgjengelige:
 - `sortDirection`: Velg mellom `asc` eller `desc` for å sortere instansene stigende eller synkende. Standard er `desc`.
 - `rowsPerPageOptions`: Velg hvilke alternativer brukeren kan velge mellom når han/hun bestemmer hvor mange instanser
 som skal vises per side. Standard er `[10, 25, 50]`.
-- `defaultRowsPerPage`: Velg hvilket alternativ som skal være valgt som standard når brukeren åpner siden for
+- `defaultSelectedOption`: Velg hvilket alternativ som skal være valgt som standard når brukeren åpner siden for
 instansvalg. Verdien må være et tall som brukes som index for å velge en verdi i `rowsPerPageOptions`. Standard er `0`.
 
 ### Configuration Example
@@ -74,7 +74,7 @@ Følgende konfigurasjon legges til i `applicationmetadata.json` for å konfigure
     "instanceSelection": {
       "sortDirection": "asc",
       "rowsPerPageOptions": [10, 25, 50, 100],
-      "defaultRowsPerPage": 1,
+      "defaultSelectedOption": 1,
     }
   }
 }

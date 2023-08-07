@@ -45,7 +45,7 @@ while users that have active instances will be presented with the following user
 ## Configure instance selection page
 
 {{%notice warning%}}  
-**Notice:** in order to use this functionality the application must reference version >= 7.12.0 of the nuget packages
+**Notice:** in order to use this functionality the application must reference version >= 7.13.0 of the nuget packages
 `Altinn.App.core` and `Altinn.App.Api`.
 {{%/notice%}}
 
@@ -55,7 +55,7 @@ options are available:
 - `sortDirection`: Choose between `asc` or `desc` to sort the instances ascending or descending. Default is `desc`.
 - `rowsPerPageOptions`: Choose which options the user can choose between when deciding how many instances to show per
 page. Default is `[10, 25, 50]`.
-- `defaultRowsPerPage`: Choose which option should be selected as default when the user opens the instance selection
+- `defaultSelectedOption`: Choose which option should be selected as default when the user opens the instance selection
 page. The value must be a number that is used as an index to select a value in `rowsPerPageOptions`. Default is `0`.
 
 ### Configuration Example
@@ -75,7 +75,7 @@ The following configuration is added to `applicationmetadata.json` to configure 
     "instanceSelection": {
       "sortDirection": "asc",
       "rowsPerPageOptions": [10, 25, 50, 100],
-      "defaultRowsPerPage": 1
+      "defaultSelectedOption": 1
     }
   }
 }
