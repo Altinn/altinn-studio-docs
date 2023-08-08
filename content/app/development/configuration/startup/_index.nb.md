@@ -51,7 +51,7 @@ Brukere som har aktive instanser vil bli presentert med følgende brukergrensesn
 Ved hjelp av feltet `onEntry.instanceSelection` kan du tilpasse siden for instansvalg ytterligere. Følgende
 alternativer er tilgjengelige:
 
-- `sortDirection`: Velg mellom `asc` eller `desc` for å sortere instansene stigende eller synkende. Standard er `desc`.
+- `sortDirection`: Velg mellom `asc` eller `desc` for å sortere instansene stigende eller synkende. Standard er `asc`.
 - `rowsPerPageOptions`: Velg hvilke alternativer brukeren kan velge mellom når han/hun bestemmer hvor mange instanser
 som skal vises per side. Standard er `[10, 25, 50]`.
 - `defaultSelectedOption`: Velg hvilket alternativ som skal være valgt som standard når brukeren åpner siden for
