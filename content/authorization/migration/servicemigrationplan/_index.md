@@ -1,7 +1,7 @@
 ---
 title: Planer for migrering av tjenester i Altinn
 linktitle: Flytte Tjenester
-description: Her finner du foreløpig plan for migrering av tjenester, i hvilken rekkefølge dette skal skje og når de enkelte tjenestetypene skal være flyttet fra Altinn 2 til Altinn 3. 
+description: Her finner du foreløpig plan for migrering av tjenester og når de enkelte tjenestetypene skal være flyttet fra Altinn 2 til Altinn 3. 
 toc: true
 weight: 200
 tags: [architecture, plan, authorizaton]
@@ -17,7 +17,7 @@ Tjenesteeier er selv ansvarlig for å migrere disse tjenestene fra Altinn 2 til 
 - Migrering tjenester avsluttet: senest Q1 2025
   
 
-## Delegerbare API ressurser
+## Delegerbare API ressurser (ferdig migrert)
 ### Migreringsstrategi 
 Alle tjenester av typen "Delegerbare api ressurser" vil bli flyttet fra Altinn 2 til Altinn 3 i en operasjon. 
 Dette vil medføre en kort nedetid for disse tjenestene. Nedetid blir varslet på forhånd. 
