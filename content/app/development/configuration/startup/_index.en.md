@@ -52,7 +52,7 @@ while users that have active instances will be presented with the following user
 Using the field `onEntry.instanceSelection`, you can further customize the instance selection page. The following
 options are available:
 
-- `sortDirection`: Choose between `asc` or `desc` to sort the instances ascending or descending. Default is `desc`.
+- `sortDirection`: Choose between `asc` or `desc` to sort the instances ascending or descending. Default is `asc`.
 - `rowsPerPageOptions`: Choose which options the user can choose between when deciding how many instances to show per
 page. Default is `[10, 25, 50]`.
 - `defaultSelectedOption`: Choose which option should be selected as default when the user opens the instance selection
