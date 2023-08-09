@@ -15,7 +15,7 @@ This is done by adding the optionId you would like to refer to either through th
 
 ```json
 {
-  "id": "8e6f7b2f-fcf0-438d-8336-c1a8e1e03f44",
+  "id": "some-dropdown-component",
   "type": "Dropdown",
   "textResourceBindings": {},
   "dataModelBindings": {},

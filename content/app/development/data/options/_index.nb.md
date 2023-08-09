@@ -15,7 +15,7 @@ Dette gjøres ved å legge til feltet optionsId som referer til hvilken option (
 
 ```json
 {
-  "id": "8e6f7b2f-fcf0-438d-8336-c1a8e1e03f44",
+  "id": "dropdown-komponent",
   "type": "Dropdown",
   "componentType": 4,
   "textResourceBindings": {},
