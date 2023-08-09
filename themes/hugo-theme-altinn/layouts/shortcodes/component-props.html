@@ -27,8 +27,6 @@
         {{- with $requiredProps -}}
             <p><strong>Required properties: </strong> {{- template "formatAsCode" $requiredProps -}}</p>
         {{- end -}}
-        
-        <br>
 
         {{- template "list-properties" (dict "properties" $componentProps) -}}
     {{- else -}}
