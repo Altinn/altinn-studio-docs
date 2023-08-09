@@ -3,6 +3,7 @@
 .content-version-selector.border-box .content-version-container {
     border: 3px solid #0062ba;
     padding:10px;
+    width: 100%;
 }
 
 #content-version-tabs {
