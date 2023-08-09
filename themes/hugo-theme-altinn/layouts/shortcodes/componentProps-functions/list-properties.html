@@ -10,23 +10,22 @@
 
     {{- range $propName := $orderedPropertyNames -}}
         {{- $property := index $properties $propName -}}
-        {{- with $property -}}
-            {{- if $parentName -}}
-                <ul>
-                    <li>
-                        <code>{{- $propName -}}</code>
-                        <ul>
-                            {{- template "list-descriptions" (dict "property" $property "propName" $propName) -}}
-                        </ul>
-                    </li>
-                </ul>
-            {{- else -}}
-                <div class="adocs-expand">
-                    <h3><code>{{- $propName -}}</code></h3>
-                    {{- template "list-descriptions" (dict "property" $property "propName" $propName) -}}
-                <br>
-                </div>
+        <div class="adocs-property-list">
+            {{- with $property -}}
+                {{- if $parentName -}}
+                    <ul>
+                        <li>
+                            <code>{{- $propName -}}</code>
+                            <ul>
+                                {{- template "list-descriptions" (dict "property" $property "propName" $propName) -}}
+                            </ul>
+                        </li>
+                    </ul>
+                {{- else -}}
+                        <h3><code>{{- $propName -}}</code></h3>
+                        {{- template "list-descriptions" (dict "property" $property "propName" $propName) -}}
+                {{- end -}}
             {{- end -}}
-        {{- end -}}
+        </div>
     {{- end -}}
 {{- end -}}

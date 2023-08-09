@@ -3,8 +3,9 @@
     {{- $refItemName := index $split (sub (len $split) 1) -}}
     {{- $prefix := index $split 0 -}}
 
+    <div class="adocs-property">
     {{- if strings.Contains .ref "expression.schema" -}}
-        <strong>type</strong>: {{- $refItemName -}}<br>
+        <strong>Type: </strong>{{- $refItemName -}}<br>
     {{- else -}}
         {{- if (eq $prefix "#") -}}
             {{- $link := printf "/app/development/ux/components/commondefs#%s" $refItemName -}}
@@ -18,4 +19,5 @@
 
         {{- end -}}
     {{- end -}}
+    </div>
 {{- end -}}
