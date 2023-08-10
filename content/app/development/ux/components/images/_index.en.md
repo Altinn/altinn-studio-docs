@@ -92,16 +92,16 @@ Property: `id`
 Unique ID for each component. This comes pre-filled, but you can change the value as you like.
 
 ### 2. Source
-Property: `src.<language-code>`  
+Property: `src`  
 The image source can be external or hosted in the app.
 
 For external images, the source is simply the image URL (e.g. `https://example.com/image.png`).
 
-All files placed inside the folder `/<app-name>/wwwroot` will be hosted in the application.
+All files placed inside the folder `/App/wwwroot` will be hosted in the application.
  If this folder does not exist, it needs to be created.
  Static hosting must be [configured](#configure-static-hosting) for apps created before december 2021.
 
-An image placed in `/<app-name>/wwwroot` can be referenced in one of two ways:
+An image placed in `/App/wwwroot` can be referenced in one of two ways:
 1. Using its relative URL: `/<org or username>/<app-name>/image.png` or
 2. Using the image path: `wwwroot/image.png` (will resolve to relative URL before image is loaded).
 
