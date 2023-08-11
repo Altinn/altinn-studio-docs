@@ -51,7 +51,7 @@ For more guidelines and examples, see [UUtilsynet](https://www.uutilsynet.no/reg
 ---
 ## Add and configure component
 
-{{<content-version-selector classes="border-box">}}
+{{<content-version-selector classes="thin-border-tabs">}}
 {{<content-version-container version-label="Code">}}
 
 ```json{linenos=false,hl_lines=["4-14"]}
@@ -105,7 +105,7 @@ An image placed in `/App/wwwroot` can be referenced in one of two ways:
 1. Using its relative URL: `/<org or username>/<app-name>/image.png` or
 2. Using the image path: `wwwroot/image.png` (will resolve to relative URL before image is loaded).
 
-{{<content-version-selector classes="border-box">}}
+{{<content-version-selector classes="thin-border-tabs">}}
 {{<content-version-container version-label="Code">}}
 Using relative URL as source:
 ```json{linenos=false,hl_lines="9"}
@@ -181,7 +181,7 @@ An alternative text is used by screen readers and will be displayed if the image
  The alt text is stored as a [text resource](/app/development/ux/texts/#add-and-change-texts-in-an-application) defined in `/App/config/texts/resource.<language>.json`.
 
 **Example 1**: Add text resource using the id `kommune-logo.altTextImg`
-{{<content-version-selector classes="border-box">}}
+{{<content-version-selector classes="thin-border-tabs">}}
 {{<content-version-container version-label="Code">}}
 Add a text resource by specifying the text resource id for the property `textResourceBindings.altTextImg`:
 ```json{hl_lines=["9-11"]}
@@ -219,7 +219,7 @@ Click the magnifying glass next to the property field to reveal a dropdown where
 <br>
 
 **Example 2**: Create or edit text resource
-{{<content-version-selector classes="border-box">}}
+{{<content-version-selector classes="thin-border-tabs">}}
 {{<content-version-container version-label="Code">}}
 Add or edit the text resource id and/or value in the appropriate language resource file.
  If the file does not exist, you can create it.
@@ -270,7 +270,7 @@ In ASD, the options are "Venstre" (left), "Midtstilt" (centered), and "Høyre" (
  These settings correspond to the property values `flex-start`, `center`, and `flex-end`, respectively.
   In addition, `align` accept the values `space-between`, `space-around`, and `space-evenly`.
 
-{{<content-version-selector classes="border-box">}}
+{{<content-version-selector classes="thin-border-tabs">}}
 {{<content-version-container version-label="Code">}}
 ```json{hl_lines="17"}
 // File: /App/ui/layouts/<page>.json
