@@ -1,4 +1,5 @@
 
+
 /* Version control for docs */
 .content-version-selector.border-box .content-version-container {
     border: 3px solid #0062ba;
@@ -31,6 +32,16 @@
     background-color: #0062ba;
     color:white;
     cursor: pointer;
+}
+
+/* Tabs with no content border (full border around tabs) */
+.thin-border-tabs .content-version-container {
+    width: 100%;
+}
+
+.thin-border-tabs #content-version-tabs li {
+    border: 1px solid #0062ba;
+    margin-bottom: 10px;
 }
 
 /* External links */
