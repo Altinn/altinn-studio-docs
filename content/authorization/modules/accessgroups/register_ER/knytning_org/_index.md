@@ -30,7 +30,7 @@ Eksempel 2 på hvordan det fungerer:
 I dette eksemplet vil virksomhetsbruker få fullmakter på vegne av "Bergen AS" gjennom sin knytning til "Trondheim AS". Virksomhetsbruker vil kunne opptre på vegne av "Bergen AS" med samme fullmater som en daglig leder. 
 
 
-## For hvor mange ledd nøstes fullmakter videre? 
+### For hvor mange ledd nøstes fullmakter videre? 
 
 Altinn nøster fullmakter kun i ett ledd. 
 
@@ -41,7 +41,7 @@ Eksempel på hvordan det fungerer:
 
 I dette tilfellet vil ikke Ola få fullmakter på vegne av "Bergen AS". 
 
-## Hva med underenheter?
+### Hva med underenheter?
 Det registreres ikke roller direkte på underenheter (AAFY og BEDR) i Enhetsregisteret. Derfor styres tilgang på vegne av en underenhet gjennom roller registert på hovedenhet i Enhetsregisteret. 
 
 Eks 1
@@ -65,7 +65,7 @@ Eks:
 I dette tilfellet vil Ola få regnskapsfullmakter på vegne av "Kari sitt ENK" og på vegne av Kari som person. 
 
 
-## Hvilke organisasjonsformer og roller nøster knytning mellom organisasjoner i Altinn? 
+## Oversikt over hvilke organisasjonsformer og roller som nøster knytning mellom organisasjoner i Altinn
 
 |Navn (kode)|Roller som nøstest videre til nøkkelroller i tilnyttet selskap|Merknader|
 |-----------|--------------------------------------------------------------|----------|
