@@ -39,7 +39,10 @@ Keep alternative texts consistent:
 - Write short and start with the most important part of the image.
 - End by saying if the photo is a photo, illustration or graphic.
 
+<br>
+
 **Example** 
+
 <img src="https://www.uutilsynet.no/sites/tilsyn/files/styles/xxl/public/2023-01/Tretralle.png?itok=gBevDs0F" alt="Old wooden trolly. Photograph." width="300px"/>
 
 Alt text: "Old wooden trolly. Photograph."
@@ -51,7 +54,10 @@ For more guidelines and examples, see [UUtilsynet](https://www.uutilsynet.no/reg
 ---
 ## Add and configure component
 
-{{<content-version-selector classes="thin-border-tabs">}}
+A component can be added in [Altinn Studio Designer](/app/getting-started/ui-editor/) by dragging it from the left-side panel to the page area in the middle.
+ Select the component you want to configure by clicking it. This will bring up the following configuration panel for the component on the right-hand side.
+
+{{<content-version-selector classes="thin-border">}}
 {{<content-version-container version-label="Code">}}
 
 ```json{linenos=false,hl_lines=["4-14"]}
@@ -77,10 +83,8 @@ For more guidelines and examples, see [UUtilsynet](https://www.uutilsynet.no/reg
 ```
 
 {{</content-version-container>}}
-{{<content-version-container version-label="ASD">}}
-
-In [Altinn Studio Designer](/app/getting-started/ui-editor/) (ASD), drag the component from the left-side panel to the page area in the middle.
-Select the component you want to configure by clicking it. This will bring up the following configuration panel for the component on the right-hand side:
+{{<content-version-container version-label="Altinn Studio Designer">}}
+<br>
 
 ![Images settings anatomy](./images-settings-anatomy.png)
 
@@ -105,7 +109,7 @@ An image placed in `/App/wwwroot` can be referenced in one of two ways:
 1. Using its relative URL: `/<org or username>/<app-name>/image.png` or
 2. Using the image path: `wwwroot/image.png` (will resolve to relative URL before image is loaded).
 
-{{<content-version-selector classes="thin-border-tabs">}}
+{{<content-version-selector classes="thin-border">}}
 {{<content-version-container version-label="Code">}}
 Using relative URL as source:
 ```json{linenos=false,hl_lines="9"}
@@ -143,12 +147,15 @@ Using image path as source:
 ```
 (Part of the code is omitted for brevity)
 {{</content-version-container>}}
-{{<content-version-container version-label="ASD">}}
+{{<content-version-container version-label="Altinn Studio Designer">}}
 Using relative URL as source:
-![Settings with source relative url. Image](<image-src-rel-url.png>)
+
+![Settings with source relative url. Image](<image-src-rel-url.png> "Relative URL as source")
 
 Using image path as source:
-![Settings with source local folder. Image](<image-src-wwwroot.png>)
+
+![Settings with source local folder. Image](<image-src-wwwroot.png> "Image path as source")
+
 {{</content-version-container>}}
 {{</content-version-selector>}}
 
@@ -181,7 +188,7 @@ An alternative text is used by screen readers and will be displayed if the image
  The alt text is stored as a [text resource](/app/development/ux/texts/#add-and-change-texts-in-an-application) defined in `/App/config/texts/resource.<language>.json`.
 
 **Example 1**: Add text resource using the id `kommune-logo.altTextImg`
-{{<content-version-selector classes="thin-border-tabs">}}
+{{<content-version-selector classes="thin-border">}}
 {{<content-version-container version-label="Code">}}
 Add a text resource by specifying the text resource id for the property `textResourceBindings.altTextImg`:
 ```json{hl_lines=["9-11"]}
@@ -209,8 +216,9 @@ Add a text resource by specifying the text resource id for the property `textRes
 }
 ```
 {{</content-version-container>}}
-{{<content-version-container version-label="ASD">}}
+{{<content-version-container version-label="Altinn Studio Designer">}}
 Click the magnifying glass next to the property field to reveal a dropdown where you can select an existing text resource:
+
 ![Select text resource screenshot](screenshot-select-text.png "Select text resource")
 
 {{</content-version-container>}}
@@ -219,7 +227,7 @@ Click the magnifying glass next to the property field to reveal a dropdown where
 <br>
 
 **Example 2**: Create or edit text resource
-{{<content-version-selector classes="thin-border-tabs">}}
+{{<content-version-selector classes="thin-border">}}
 {{<content-version-container version-label="Code">}}
 Add or edit the text resource id and/or value in the appropriate language resource file.
  If the file does not exist, you can create it.
@@ -252,10 +260,12 @@ Add or edit the text resource id and/or value in the appropriate language resour
 }
 ```
 {{</content-version-container>}}
-{{<content-version-container version-label="ASD">}}
+{{<content-version-container version-label="Altinn Studio Designer">}}
 Click the `+` sign next to the field to add a new text resource (or the pencil icon to edit if one is already selected).
  You get the option to add/edit texts in English and Norwegian bokmål. Other languages are available from the text editor (click _Tekst_ in the top-level menu).
+
 ![Create and edit text resource screenshot](screenshot-edit-text.png "Create and edit text resource")
+
 {{</content-version-container>}}
 {{</content-version-selector>}}
 
@@ -268,9 +278,9 @@ Property: `align`
 Controls the horizontal alignment of the image.
 In ASD, the options are "Venstre" (left), "Midtstilt" (centered), and "Høyre" (right).
  These settings correspond to the property values `flex-start`, `center`, and `flex-end`, respectively.
-  In addition, `align` accept the values `space-between`, `space-around`, and `space-evenly`.
+  In addition, `align` accepts the values `space-between`, `space-around`, and `space-evenly`.
 
-{{<content-version-selector classes="thin-border-tabs">}}
+{{<content-version-selector classes="thin-border">}}
 {{<content-version-container version-label="Code">}}
 ```json{hl_lines="17"}
 // File: /App/ui/layouts/<page>.json
@@ -297,7 +307,7 @@ In ASD, the options are "Venstre" (left), "Midtstilt" (centered), and "Høyre" (
 }
 ```
 {{</content-version-container>}}
-{{<content-version-container version-label="ASD">}}
+{{<content-version-container version-label="Altinn Studio Designer">}}
 ![Screenshot of alignment settings](screenshot-alignment-settings.png "Screenshot of alignment settings")
 
 ![]() <!-- Hack to reveal image caption -->
@@ -315,7 +325,6 @@ The following is an autogenerated list of the properties available for {{% title
 
 ## Examples
 
-The following configuration is currently not available in Altinn Studio Designer and must be done with [local development](/app/getting-started/local-dev/).
 ### Multiple sources based on language
 
 The default source is `nb`, and this source will be used for any language that does not define a separate source for the image.
@@ -323,6 +332,8 @@ The default source is `nb`, and this source will be used for any language that d
 
 Available language sources are `en` (English), `nb` (Norwegian bokmål),and `nn` (Norwegian nynorsk).
 
+{{<content-version-selector classes="thin-border">}}
+{{<content-version-container version-label="Code">}}
 ```json{hl_lines=["10-13"]}
 // File: /App/ui/layouts/<page>.json
 
@@ -345,17 +356,17 @@ Available language sources are `en` (English), `nb` (Norwegian bokmål),and `nn`
   }
 }
 ```
+{{</content-version-container>}}
+{{</content-version-selector>}}
 
 ### Horizontal alignment with `grid`
 
 The `grid` property controls horizontal alignment based on a 12-column layout.
  Items are allocated fractions of 12 which sets their width relative to the screen width.
   In the example below, the image component's width will be set to 2/12 of the screen width for all screen sizes.
- 
-`grid` may also be used to place items next to each other.
 
-See [Components placed side by side (grid)](/app/development/ux/styling/#components-placed-side-by-side-grid) for details and more examples.
-
+{{<content-version-selector classes="thin-border">}}
+{{<content-version-container version-label="Code">}}
 ```json{hl_lines=["15-17"]}
 // File: /App/ui/layouts/<page>.json
 
@@ -381,5 +392,12 @@ See [Components placed side by side (grid)](/app/development/ux/styling/#compone
   }
 }
 ```
+{{</content-version-container>}}
+{{</content-version-selector>}}
+
 
 ![Grid example screenshot](screenshot-grid-example.png "Example of image taking up 2/12 of the screen width")
+
+`grid` may also be used to place items next to each other.
+
+See [Components placed side by side (grid)](/app/development/ux/styling/#components-placed-side-by-side-grid) for details and more examples.
