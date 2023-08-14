@@ -14,6 +14,7 @@ description: En komponent som lar deg gruppere innhold i sammenleggbare seksjone
 {
   "id": "accordion",
   "type": "Accordion",
+  "headingLevel": 2,
   "children": ["paragraph", "paragraph-2"]
 },
 {
@@ -44,3 +45,6 @@ legge til deres ID-er til `Accordion`-komponenten sin `children`-egenskap.
 Følgende typer kan legges til en `Accordion`:
 - `Paragraph`
 - `Button`
+
+## Egenskaper
+- `headingLevel`: Nivået på overskriftelementet til `Accordion`. Kan være en av disse verdiene `2 | 3 | 4 | 5 | 6`. Standardverdien er `2`.

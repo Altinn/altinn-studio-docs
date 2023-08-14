@@ -14,6 +14,7 @@ description: A component that allows you to group content into collapsible secti
 {
   "id": "accordion",
   "type": "Accordion",
+  "headingLevel": 2,
   "children": ["paragraph", "paragraph-2"]
 },
 {
@@ -42,3 +43,6 @@ Then specify which other components you want to be able to collapse by adding th
 The following types can be added to an Accordion: 
 - `Paragraph`
 - `Button`
+
+## Options
+- `headingLevel`: The level of the heading element of the `Accordion`. Can be any of the values `2 | 3 | 4 | 5 | 6`. Defaults to `2`.
