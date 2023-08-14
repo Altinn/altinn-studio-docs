@@ -34,14 +34,16 @@
     cursor: pointer;
 }
 
-/* Tabs with no content border (full border around tabs) */
-.thin-border-tabs .content-version-container {
+/* Tabs thin border around tabs and content */
+.thin-border .content-version-container {
+    border: 1px solid #0062ba;
+    padding: 10px;
     width: 100%;
 }
 
-.thin-border-tabs #content-version-tabs li {
+.thin-border #content-version-tabs li {
     border: 1px solid #0062ba;
-    margin-bottom: 10px;
+    border-bottom: unset;
 }
 
 /* External links */
