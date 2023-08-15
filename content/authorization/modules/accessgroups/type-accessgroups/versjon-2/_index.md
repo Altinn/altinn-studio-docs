@@ -61,8 +61,8 @@ Disse fullmaktsgruppene knyttes til alle meldinger som sendes virksomheten og so
 Tjenesteeier bør alltid vurdere å knytte meldingen til andre fullmaktsgrupper når dette er naturlig. 
 
 - **Post/arkiv:** (mangler)
-	- **Tilgang til all ordinær post som sendes virksomheten:** (mangler)
-	- **Tilgang til all post med taushetsbelagt innhold som sendes virksomheten:** (mangler)
+	- **Tilgang til all ordinær post som sendes virksomheten:** Denne fullmakten gir tilgang til all post som ikke innholder særlig sensitiv og taushetsbelagt informasjon som sendes virksomheten. 
+	- **Tilgang til all post med taushetsbelagt innhold som sendes virksomheten:** Denne fullmakten gir tilgang til all post som innholder særlig sensitiv og taushetsbelagt informasjon som sendes virksomheten. 
 
 ## Fullmaktsgruppe Grunnlag for virksomheten
 ![Grunnlag for virksomheten](gfv.jpg "Grunnlag for virksomheten")
