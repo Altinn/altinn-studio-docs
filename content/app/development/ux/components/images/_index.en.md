@@ -58,6 +58,12 @@ A component can be added in [Altinn Studio Designer](/app/getting-started/ui-edi
  Select the component you want to configure by clicking it. This will bring up the following configuration panel for the component on the right-hand side.
 
 {{<content-version-selector classes="thin-border">}}
+{{<content-version-container version-label="Altinn Studio Designer">}}
+<br>
+
+![Images settings anatomy](./images-settings-anatomy.png)
+
+{{</content-version-container>}}
 {{<content-version-container version-label="Code">}}
 
 ```json{linenos=false,hl_lines=["4-14"]}
@@ -83,12 +89,6 @@ A component can be added in [Altinn Studio Designer](/app/getting-started/ui-edi
 ```
 
 {{</content-version-container>}}
-{{<content-version-container version-label="Altinn Studio Designer">}}
-<br>
-
-![Images settings anatomy](./images-settings-anatomy.png)
-
-{{</content-version-container>}}
 {{</content-version-selector>}}
 
 ### 1. Component ID
@@ -110,6 +110,16 @@ An image placed in `/App/wwwroot` can be referenced in one of two ways:
 2. Using the image path: `wwwroot/image.png` (will resolve to relative URL before image is loaded).
 
 {{<content-version-selector classes="thin-border">}}
+{{<content-version-container version-label="Altinn Studio Designer">}}
+Using relative URL as source:
+
+![Settings with source relative url. Image](<image-src-rel-url.png> "Relative URL as source")
+
+Using image path as source:
+
+![Settings with source local folder. Image](<image-src-wwwroot.png> "Image path as source")
+
+{{</content-version-container>}}
 {{<content-version-container version-label="Code">}}
 Using relative URL as source:
 ```json{linenos=false,hl_lines="9"}
@@ -147,16 +157,6 @@ Using image path as source:
 ```
 (Part of the code is omitted for brevity)
 {{</content-version-container>}}
-{{<content-version-container version-label="Altinn Studio Designer">}}
-Using relative URL as source:
-
-![Settings with source relative url. Image](<image-src-rel-url.png> "Relative URL as source")
-
-Using image path as source:
-
-![Settings with source local folder. Image](<image-src-wwwroot.png> "Image path as source")
-
-{{</content-version-container>}}
 {{</content-version-selector>}}
 
 <br>
@@ -189,6 +189,12 @@ An alternative text is used by screen readers and will be displayed if the image
 
 **Example 1**: Add text resource using the id `kommune-logo.altTextImg`
 {{<content-version-selector classes="thin-border">}}
+{{<content-version-container version-label="Altinn Studio Designer">}}
+Click the magnifying glass next to the property field to reveal a dropdown where you can select an existing text resource:
+
+![Select text resource screenshot](screenshot-select-text.png "Select text resource")
+
+{{</content-version-container>}}
 {{<content-version-container version-label="Code">}}
 Add a text resource by specifying the text resource id for the property `textResourceBindings.altTextImg`:
 ```json{hl_lines=["9-11"]}
@@ -216,18 +222,19 @@ Add a text resource by specifying the text resource id for the property `textRes
 }
 ```
 {{</content-version-container>}}
-{{<content-version-container version-label="Altinn Studio Designer">}}
-Click the magnifying glass next to the property field to reveal a dropdown where you can select an existing text resource:
-
-![Select text resource screenshot](screenshot-select-text.png "Select text resource")
-
-{{</content-version-container>}}
 {{</content-version-selector>}}
 
 <br>
 
 **Example 2**: Create or edit text resource
 {{<content-version-selector classes="thin-border">}}
+{{<content-version-container version-label="Altinn Studio Designer">}}
+Click the `+` sign next to the field to add a new text resource (or the pencil icon to edit if one is already selected).
+ You get the option to add/edit texts in English and Norwegian bokmål. Other languages are available from the text editor (click _Tekst_ in the top-level menu).
+
+![Create and edit text resource screenshot](screenshot-edit-text.png "Create and edit text resource")
+
+{{</content-version-container>}}
 {{<content-version-container version-label="Code">}}
 Add or edit the text resource id and/or value in the appropriate language resource file.
  If the file does not exist, you can create it.
@@ -260,13 +267,6 @@ Add or edit the text resource id and/or value in the appropriate language resour
 }
 ```
 {{</content-version-container>}}
-{{<content-version-container version-label="Altinn Studio Designer">}}
-Click the `+` sign next to the field to add a new text resource (or the pencil icon to edit if one is already selected).
- You get the option to add/edit texts in English and Norwegian bokmål. Other languages are available from the text editor (click _Tekst_ in the top-level menu).
-
-![Create and edit text resource screenshot](screenshot-edit-text.png "Create and edit text resource")
-
-{{</content-version-container>}}
 {{</content-version-selector>}}
 
 ### 4. Width
@@ -281,6 +281,11 @@ In ASD, the options are "Venstre" (left), "Midtstilt" (centered), and "Høyre" (
   In addition, `align` accepts the values `space-between`, `space-around`, and `space-evenly`.
 
 {{<content-version-selector classes="thin-border">}}
+{{<content-version-container version-label="Altinn Studio Designer">}}
+![Screenshot of alignment settings](screenshot-alignment-settings.png "Screenshot of alignment settings")
+
+![]() <!-- Hack to reveal image caption -->
+{{</content-version-container>}}
 {{<content-version-container version-label="Code">}}
 ```json{hl_lines="17"}
 // File: /App/ui/layouts/<page>.json
@@ -306,11 +311,6 @@ In ASD, the options are "Venstre" (left), "Midtstilt" (centered), and "Høyre" (
   }
 }
 ```
-{{</content-version-container>}}
-{{<content-version-container version-label="Altinn Studio Designer">}}
-![Screenshot of alignment settings](screenshot-alignment-settings.png "Screenshot of alignment settings")
-
-![]() <!-- Hack to reveal image caption -->
 {{</content-version-container>}}
 {{</content-version-selector>}}
 

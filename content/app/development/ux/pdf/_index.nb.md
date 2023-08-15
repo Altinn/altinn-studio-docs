@@ -56,9 +56,6 @@ Dette kan konfigureres på to ulike måter:
 Avhengig av hvilken versjon du kjører setter man opp den programmatiske metoden litt forskjellig, men logikken er helt lik. Oversikten under viser hvordan det settes opp for versjonen du kjører:
 {{<content-version-selector classes="border-box">}}
 
-{{<content-version-container version-label="v4, v5, v6">}}
-Endre `PdfHandler.cs`-filen under `App/logic/Print`-mappen.
-{{</content-version-container>}}
 
 {{<content-version-container version-label="v7">}}
 
@@ -70,6 +67,11 @@ Endre `PdfHandler.cs`-filen under `App/logic/Print`-mappen.
     ```
     Dette sørger for at din kode er kjent for applikasjonen og at koden blir kjørt når den skal.
 {{</content-version-container>}}
+
+{{<content-version-container version-label="v4, v5, v6">}}
+Endre `PdfHandler.cs`-filen under `App/logic/Print`-mappen.
+{{</content-version-container>}}
+
 {{</content-version-selector>}}
 
 {{% expandlarge id="exclude-page" header="Ekskludere sider" %}}

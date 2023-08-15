@@ -59,64 +59,6 @@ The implementation varies slightly depending on the version of the app template 
 
 {{<content-version-selector classes="border-box">}}
 
-{{<content-version-container version-label="v4, v5">}}
-
-{{%notice warning%}}
-For track selection to work for stateless applications, NuGet must be upgraded to 5.0.0 or later.
-{{%/notice%}}
-In the file App.cs one must override the method that retrieves the default order of pages defined in `Settings.json`
-This is done by adding the below function in App.cs.
-The expected output from this method is a capitalized list containing the name of the relevant pages in the application.
-
-```cs
-/// <inheritdoc />
-public override async Task<List<string>> GetPageOrder(string org, string app, int instanceOwnerId, Guid instanceGuid, string layoutSetId, string currentPage, string dataTypeId, object formData)
-{
-    List<string> pageOrder = new List<string>();
-    // Implement your own logic here
-    return pageOrder;
-}
-```
-
-The function receives several parameters that can be useful if you are going to use form data
-or other information about the end user to calculate the track selection.
-
-- *layoutSetId* If your app defines several layout sets, the id of the current layout set is submitted. 
-If the application does not have a layout set, this string will be empty. Based on this parameter one can retrieve 
-the default page order defined in the application:
-```cs
-List<string> pageOrder = new List<string>();
-if (string.IsNullOrEmpty(layoutSetId))
-{
-    pageOrder = _appResourcesService.GetLayoutSettings().Pages.Order;
-}
-else
-{
-    pageOrder = _appResourcesService.GetLayoutSettingsForSet(layoutSetId).Pages.Order;
-}
-```
-
-This assumes that the service `IAppResources` is made available in App.cs file. 
-As the service is already dependency injected into the class, only two steps are required. 
-
-1. Create a private variable in the state of the class.
-
-```cs
-private readonly IAppResources _appResourcesService;
-```
-
-2. Define the new private variable equal to the service passed in the constructor of App.cs.
-
-```cs
- _appResourcesService = appResourcesService;
-```
-
-*CurrentPage* The page you want to navigate from must be specified in this parameter.
-- *FormData* contains the form data. It can easily be worked with as an object by casting it to the correct type `Form form = (Form)formData;`.
-In this case C# model for the form data is called `Form' for your application, it can be another name.
-You can check this by finding the class name of the C# file in the App/models folder.
-{{</content-version-container>}}
-
 {{<content-version-container version-label="v6, v7">}}
 To overrule default dynamic tracks, two changes must be made.
 
@@ -205,6 +147,64 @@ public CustomOrder(IAppResources appResourcesService)
 Here, the C# model's name is `Skjema`, but for your application the name could be different.
 You can check this by finding the class name of the C# file in the App/models folder.
 {{</content-version-container>}}
+{{<content-version-container version-label="v4, v5">}}
+
+{{%notice warning%}}
+For track selection to work for stateless applications, NuGet must be upgraded to 5.0.0 or later.
+{{%/notice%}}
+In the file App.cs one must override the method that retrieves the default order of pages defined in `Settings.json`
+This is done by adding the below function in App.cs.
+The expected output from this method is a capitalized list containing the name of the relevant pages in the application.
+
+```cs
+/// <inheritdoc />
+public override async Task<List<string>> GetPageOrder(string org, string app, int instanceOwnerId, Guid instanceGuid, string layoutSetId, string currentPage, string dataTypeId, object formData)
+{
+    List<string> pageOrder = new List<string>();
+    // Implement your own logic here
+    return pageOrder;
+}
+```
+
+The function receives several parameters that can be useful if you are going to use form data
+or other information about the end user to calculate the track selection.
+
+- *layoutSetId* If your app defines several layout sets, the id of the current layout set is submitted. 
+If the application does not have a layout set, this string will be empty. Based on this parameter one can retrieve 
+the default page order defined in the application:
+```cs
+List<string> pageOrder = new List<string>();
+if (string.IsNullOrEmpty(layoutSetId))
+{
+    pageOrder = _appResourcesService.GetLayoutSettings().Pages.Order;
+}
+else
+{
+    pageOrder = _appResourcesService.GetLayoutSettingsForSet(layoutSetId).Pages.Order;
+}
+```
+
+This assumes that the service `IAppResources` is made available in App.cs file. 
+As the service is already dependency injected into the class, only two steps are required. 
+
+1. Create a private variable in the state of the class.
+
+```cs
+private readonly IAppResources _appResourcesService;
+```
+
+2. Define the new private variable equal to the service passed in the constructor of App.cs.
+
+```cs
+ _appResourcesService = appResourcesService;
+```
+
+*CurrentPage* The page you want to navigate from must be specified in this parameter.
+- *FormData* contains the form data. It can easily be worked with as an object by casting it to the correct type `Form form = (Form)formData;`.
+In this case C# model for the form data is called `Form' for your application, it can be another name.
+You can check this by finding the class name of the C# file in the App/models folder.
+{{</content-version-container>}}
+
 {{</content-version-selector>}}
 
 ## Reflect dynamic tracks in receipt (PDF)
