@@ -1,8 +1,10 @@
 
+
 /* Version control for docs */
 .content-version-selector.border-box .content-version-container {
     border: 3px solid #0062ba;
     padding:10px;
+    width: 100%;
 }
 
 #content-version-tabs {
@@ -30,6 +32,18 @@
     background-color: #0062ba;
     color:white;
     cursor: pointer;
+}
+
+/* Tabs thin border around tabs and content */
+.thin-border .content-version-container {
+    border: 1px solid #0062ba;
+    padding: 10px;
+    width: 100%;
+}
+
+.thin-border #content-version-tabs li {
+    border: 1px solid #0062ba;
+    border-bottom: unset;
 }
 
 /* External links */
@@ -417,3 +431,22 @@ figure {
     font-size: 16px; }
     .a-st-iconLabel a {
       font-size: 16px; }
+
+/* Component properties list */
+.adocs-property-list {
+    font-size: 92%;
+}
+
+.adocs-property-list ul {
+    font-size: 92%;
+}
+
+.adocs-property-list h3 {
+    border-bottom: 1px solid #BCC7CC;
+    padding: 5px 0;
+    
+}
+
+.adocs-property-list .copy-to-clipboard {
+    display: none;
+}
