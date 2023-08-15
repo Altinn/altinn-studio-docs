@@ -174,11 +174,6 @@ Valideringer skrives i C# og avhengig av hvilken versjon av applikasjonsmalen og
 
 {{<content-version-selector classes="border-box">}}
 
-{{<content-version-container version-label="v4, v5, v6">}}
-Valideringer legges til i `ValidationHandler.cs` -filen i applikasjonsmalen.
-Filen kan aksesseres og endres i Altinn Studio via logikkmenyen, ved å velge _Rediger valideringer_,
-eller direkte i applikasjonsrepoet der ligger filen i `logic/Validation`-mappen.
-{{</content-version-container>}}
 
 {{<content-version-container version-label="v7">}}
 I versjon 7 har vi endret måten preutfylling med egendefinert kode gjøres på. Vi benytter nå _dependency injection_ i stedet for overstyring av metoder. Hvis du tidligere plasserte koden din i _ValidationHandler og _ValidateTask_ metodene in _ValidationHandler.cs_ klassen så vil du erfare at det er mer eller mindre det samme som nå gjøres.
@@ -190,6 +185,13 @@ I versjon 7 har vi endret måten preutfylling med egendefinert kode gjøres på.
     ```
     Dette sørger for at din kode er kjent for applikasjonen og at koden blir kjørt når den skal.
 {{</content-version-container>}}
+
+{{<content-version-container version-label="v4, v5, v6">}}
+Valideringer legges til i `ValidationHandler.cs` -filen i applikasjonsmalen.
+Filen kan aksesseres og endres i Altinn Studio via logikkmenyen, ved å velge _Rediger valideringer_,
+eller direkte i applikasjonsrepoet der ligger filen i `logic/Validation`-mappen.
+{{</content-version-container>}}
+
 {{</content-version-selector>}}
 
 Fra dette punktet og videre skal eksemplene være de samme for alle versjoner :)

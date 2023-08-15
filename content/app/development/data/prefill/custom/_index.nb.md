@@ -11,6 +11,44 @@ enten det er resultatet av et API-kall, beregninger gjort under instansiering el
 
 {{<content-version-selector classes="border-box">}}
 
+{{<content-version-container version-label="v7">}}
+I versjon 7 har vi endret måten preutfylling med egendefinert kode gjøres på. Vi benytter nå _dependency injection_ i stedet for overstyring av metoder. Hvis du tidligere plasserte koden din i _DataCreation_ metoden in _InstantiationHandler.cs_ klassen så vil du erfare at det er mer eller mindre det samme som nå gjøres.
+1. Opprett en klasse som implementerer `IInstantiationProcessor` grensesnittet som ligger i `Altinn.App.Core.Features` navnerommet.  
+    Du kan navngi og plassere filene i den mappestrukturen du selv ønsker i prosjektet ditt. Men vi anbefaler at du benytter meningsfulle navnerom som i et hvilket som helst annet .Net prosjekt.
+    Eksempelet nedenfor populerer feltet _Bruker.FulltNavn_ i modellen _Datamodell_ med verdien "Test Testesen".  
+    ```C# {hl_lines=[23]}
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
+    using Altinn.App.Core.Features;
+    using Altinn.App.Models;
+    using Altinn.Platform.Storage.Interface.Models;
+
+    public class Instantiation: IInstantiationProcessor
+    {
+        public async Task DataCreation(Instance instance, object data, Dictionary<string, string> prefill)
+        {
+            if (data.GetType() == typeof(Datamodell))
+            {
+                Datamodell skjema = (Datamodell)data;
+                
+                Bruker b = new Bruker();
+                b.Navn = new Name();
+                b.FulltNavn = "Test Testesen";
+                
+                skjema.Bruker = b;
+            }
+
+            await Task.CompletedTask;
+        }
+    }
+    ```
+2. Registrer din implementering i _Program.cs_ klassen
+    ```C#
+    services.AddTransient<IInstantiationProcessor, Instantiation>();
+    ```
+    Dette sørger for at din kode er kjent for applikasjonen og at koden blir kjørt når den skal.
+
+{{</content-version-container>}}
 {{<content-version-container version-label="v4, v5, v6">}}
 
 Altinn apps muliggjør prefill av en instans med egendefinert data,
@@ -52,42 +90,4 @@ public async Task DataCreation(Instance instance, object data)
 ```
 {{</content-version-container>}}
 
-{{<content-version-container version-label="v7">}}
-I versjon 7 har vi endret måten preutfylling med egendefinert kode gjøres på. Vi benytter nå _dependency injection_ i stedet for overstyring av metoder. Hvis du tidligere plasserte koden din i _DataCreation_ metoden in _InstantiationHandler.cs_ klassen så vil du erfare at det er mer eller mindre det samme som nå gjøres.
-1. Opprett en klasse som implementerer `IInstantiationProcessor` grensesnittet som ligger i `Altinn.App.Core.Features` navnerommet.  
-    Du kan navngi og plassere filene i den mappestrukturen du selv ønsker i prosjektet ditt. Men vi anbefaler at du benytter meningsfulle navnerom som i et hvilket som helst annet .Net prosjekt.
-    Eksempelet nedenfor populerer feltet _Bruker.FulltNavn_ i modellen _Datamodell_ med verdien "Test Testesen".  
-    ```C# {hl_lines=[23]}
-    using System.Collections.Generic;
-    using System.Threading.Tasks;
-    using Altinn.App.Core.Features;
-    using Altinn.App.Models;
-    using Altinn.Platform.Storage.Interface.Models;
-
-    public class Instantiation: IInstantiationProcessor
-    {
-        public async Task DataCreation(Instance instance, object data, Dictionary<string, string> prefill)
-        {
-            if (data.GetType() == typeof(Datamodell))
-            {
-                Datamodell skjema = (Datamodell)data;
-                
-                Bruker b = new Bruker();
-                b.Navn = new Name();
-                b.FulltNavn = "Test Testesen";
-                
-                skjema.Bruker = b;
-            }
-
-            await Task.CompletedTask;
-        }
-    }
-    ```
-2. Registrer din implementering i _Program.cs_ klassen
-    ```C#
-    services.AddTransient<IInstantiationProcessor, Instantiation>();
-    ```
-    Dette sørger for at din kode er kjent for applikasjonen og at koden blir kjørt når den skal.
-
-{{</content-version-container>}}
 {{</content-version-selector>}}
