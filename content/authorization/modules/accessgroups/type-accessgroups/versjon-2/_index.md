@@ -55,6 +55,11 @@ Fullmaktsgruppene tildeles følgende roller fra ER:
 
 ## Fullmaktsgruppe Post/arkiv
 ![Post/arkiv](post.jpg "Post/arkiv")
+
+Disse fullmaktsgruppene knyttes til alle meldinger som sendes virksomheten og som det er naturlig at post/arkiv medarbeider har tilgang til.
+
+Tjenesteeier bør alltid vurdere å knytte meldingen til andre fullmaktsgrupper når dette er naturlig. 
+
 - **Post/arkiv:** (mangler)
 	- **Tilgang til all ordinær post som sendes virksomheten:** (mangler)
 	- **Tilgang til all post med taushetsbelagt innhold som sendes virksomheten:** (mangler)
