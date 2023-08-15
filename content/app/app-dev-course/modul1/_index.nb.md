@@ -110,7 +110,7 @@ overskrifter (labels).
 
 ### Oppgaver
 
-1. [Opprett tekstressurser](/nb/app/development/ux/texts/#legge-til-og-endre-tekster-i-en-app) for komponentene til det første skjemaet. Tekstene skal beskrive hva som beskriver hva som skal fylles inn og vil vises over feltene. Ta en titt på neste oppgave for å se hvilke komponenter du trenger tekst til.
+1. [Opprett tekstressurser](/nb/app/development/ux/texts/#legge-til-og-endre-tekster-i-en-app) for komponentene til det første skjemaet. Tekstene skal beskrive hva som skal fylles inn og vil vises over feltene. Ta en titt på neste oppgave for å se hvilke komponenter du trenger tekst til.
 2. [Endre visningsnavn for applikasjonen](/nb/app/development/ux/texts/#endre-applikasjonstittel). Det er viktig at applikasjonens visningsnavn klinger godt og er beskrivende for tjenesten.
 3. [Legg til oversettelse(r) for tekstene](/nb/app/development/ux/texts/#legge-til-og-endre-tekster-i-en-app). Applikasjonen må være tilgjengelig både på bokmål, nynorsk og engelsk. I en første versjon er det tilstrekkelig at kun ett av disse språkene støttes.
 
