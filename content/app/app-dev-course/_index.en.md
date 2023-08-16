@@ -6,6 +6,12 @@ tags: [apps, build, deploy, training]
 weight: 15
 ---
 
+{{% notice warning %}}
+**🚧 The course is currently being updated.**  
+You may still follow the course, but beware that the example solution is being updated along with the modules and will differ slightly from the old solution.
+Updated modules will link to the old solution until all modules are updated.
+{{% /notice %}}
+
 The intro course is divided into 7 modules and covers a fictional case for Sogndal Municipality.
 Each module has a description of the task and links to relevant documentation.
 
