@@ -280,7 +280,7 @@ Ja. Dersom man ikke gjør noen endringer vil en standardkomponent med forhåndsu
 Komponenten kan settes til `readOnly` på én av to måter:
 
 1\. I Altinn Studio Designer ved å huke av ved "Det skal ikke være mulig å svare (read only)" for den aktuelle komponenten:
-![Altinn Studio innstilling for 'read only'. Bilde](<readonly-asd.png>)
+![Altinn Studio innstilling for 'read only'. Bilde](<screenshot-readonly-setting.png>)
 
 2\. Sette egenskapen `readOnly` til `true` for komponenten i json-filen til siden:
 ```json{linenos=false,hl_lines=["13"]}
@@ -726,7 +726,7 @@ Nye tekstressurser som er lagt til.
 Under er et eksempel på hvordan datasiden kan se ut med forhåndsutfylt informasjon.
  I tillegg til forhåndsutfylling er flere av komponentene sidestilt og det er lagt til en 'Send inn'-knapp.
 
-![Skjermbilde av forhåndsutfylt dataside](/app/app-dev-course/modul2/prefilled-data-screenshot.png "Oppdatert dataside med forhåndsutfylling")
+![Skjermbilde av forhåndsutfylt dataside](prefilled-data-screenshot.png "Oppdatert dataside med forhåndsutfylling")
 
 ![]()
 

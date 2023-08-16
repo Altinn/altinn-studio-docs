@@ -243,8 +243,8 @@ The service should run on your local computer with local test and you should be 
 ### Solution
 If you did not manage to complete all the steps, we have an [example solution](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/2) that you can use as inspiration.
 
-![Screenshot of info page](/app/app-dev-course/modul2/infopage-screenshot.png "Screenshot of info page")
+![Screenshot of info page](/app/app-dev-course/modul2/infopage-screenshot_OLD.png "Screenshot of info page")
 
-![Screenshot of prefilled data collecting page](/app/app-dev-course/modul2/data-screenshot.png "Screenshot of prefilled data collecting page")
+![Screenshot of prefilled data collecting page](/app/app-dev-course/modul2/data-screenshot_OLD.png "Screenshot of prefilled data collecting page")
 
-![Screenshot of alternative workflow: this page is not for you](/app/app-dev-course/modul2/ikke-for-deg-screenshot.png "Screenshot of alternative workflow: this page is not for you")
+![Screenshot of alternative workflow: this page is not for you](/app/app-dev-course/modul2/ikke-for-deg-screenshot_OLD.png "Screenshot of alternative workflow: this page is not for you")
