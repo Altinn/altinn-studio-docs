@@ -49,7 +49,7 @@ Image of the Sogndal Municipality Coat of Arms that can be used in the applicati
 
 ### Tasks
 1. Add a new page. Give it an appropriate name and ensure it is displayed before the form page you created in module 1.
-2. [Add an image](/app/development/ux/components/images/#adding-images-to-the-application) of the Sogndal Municipality Coat of Arms.
+2. [Add an image](/app/development/ux/components/images) of the Sogndal Municipality Coat of Arms.
 3. Add text according to the [draft](infoside_tilflyttere.pdf).
 
 ### Useful Documentation
