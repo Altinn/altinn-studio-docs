@@ -10,6 +10,11 @@ The person lookup service can be use to verify a national identity number and to
 
 The returned person data can be used to populate additional fields in the model.
 
+{{% notice warning %}} 
+The use of this service requires that end user is authenticated with a level 2 or higher authentication mechanism.
+Hence your application must also require minimum authentication level 2.
+{{% /notice %}}
+
 {{<content-version-selector classes="border-box">}}
 
 {{<content-version-container version-label="v7">}}

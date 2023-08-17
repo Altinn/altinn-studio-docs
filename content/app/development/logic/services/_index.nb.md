@@ -11,6 +11,11 @@ Tjenesten for personoppslag kan brukes til å verifisere et personnummer og til 
 
 De returnete persondataene kan brukes til å fylle ut andre felter i datamodellen.
 
+{{% notice warning %}} 
+Bruken av denne tjenesten krever autentiseringsnivå 2 eller høyere.^
+Applikasjoner som bruker denne tjenesten må derfor kreve minimum nivå 2 eller høyere. 
+{{% /notice %}}
+
 {{<content-version-selector classes="border-box">}}
 
 {{<content-version-container version-label="v7">}}
