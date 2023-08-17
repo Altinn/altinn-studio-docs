@@ -33,7 +33,7 @@ For manual page setup, refer to 'Useful Documentation' further down the page.
 
 ### Requirements of the municipality
 
-Since Sogndal Municipality will collect a significant amount of data in this service, they need to clarify who the form is intended for and how they will use the data. Someone in the municipality has created a [draft of the information page](infoside_tilflyttere.pdf) for this purpose.
+Since Sogndal Municipality will collect a significant amount of data in this service, they need to clarify who the form is intended for and how they will use the data. Someone in the municipality has created a [draft of an information page](infoside_tilflyttere.pdf) for this purpose.
 
 The information page should reflect the following elements:
 - Placement of images
@@ -59,7 +59,7 @@ You can use the following image of the Sogndal Municipality Coat of Arms in the 
 
 ### Knowledge check
 
-{{% expandbold "Which file in the application repository do you need to edit if you want to manuelly change the page order of existing pages?" %}}
+{{% expandbold "Which file in the application repository do you need to edit if you want to manually change the page order of existing pages?" %}}
 <br>
 
 You can configure the page order in `App/ui/Settings.json` by modifying the list described under `pages.order`.
@@ -87,24 +87,24 @@ All text resources support Markdown and HTML notation, so using `<br>` can force
 
 {{% expandlarge id="dynamic-tracks" header="Alternative workflow" %}}
 
-In many cases, it is only relevant to answer some of the questions in a form, maybe because the answer is obvious or irrelevant based on an earlier response.
-By using dynamic tracks you can control which parts of the application will be visible to the user.
+In many cases, controlling which parts of the application are visible is desirable based on the user's response.
+For example, skipping some of the questions in a form may be relevant if the answer is obvious or irrelevant based on previous responses.
 
-In this task, you will set up dynamic tracks in the application based on the requirements of the municipality of Sogndal.
+In this task, you will set up dynamic tracks in the application to direct users to different pages based on their responses.
 
 ### Requirements of the municipality
 
-A user who does not meet the requirements for the form should be stopped as early as possible in the workflow.
- The user should indicate whether the form applies to them on the information page.
+A user who does not meet the requirements for the service should be stopped as early as possible in the workflow.
+ The user should indicate whether the service applies to them on the information page.
 
 The way the response is collected is optional.
- Note that a component must be associated with a field in the data model to store values (use the field `Innflytter.KanBrukeSkjema` in the data model).
+ Note that a component must be associated with a field in the data model to store values (you can use the field `Innflytter.KanBrukeSkjema` in the data model).
 
 The user should be directed to one of the following tracks based on their response:
 
 *Track 1*
 
-- The user indicates that the form does not apply to their situation.
+- The user indicates that the service does not apply to their situation.
 - The user should be directed to a page with the following text:
 
     > This form is not for you.  
@@ -114,7 +114,7 @@ The user should be directed to one of the following tracks based on their respon
 
 *Track 2*
 
-- The user has confirmed that the form applies to their situation.
+- The user has confirmed that the service applies to their situation.
 - The user should be directed to the data collection pages.
 
 ### Tasks
@@ -141,7 +141,7 @@ If you have logic in an application where users can proceed to submission for mu
 
 Altinn provides the advantage of having readily accessible metadata for individuals and businesses. With prefilling, we can retrieve user data and populate fields seamlessly, reducing the need for manual data entry, especially for standard details like names, addresses, and emails.
 
-You can directly integrate data from Altinn's [prefill sources](/app/development/data/prefill/config/#available-prefill-values) into the app by mapping the data to specific fields in the data model, automating field population during form creation. You can integrate custom code-based solutions into the app's logic for more specific prefilling needs.
+You can directly integrate data from Altinn's [prefill sources](/app/development/data/prefill/config/#available-prefill-values) into the app by mapping the data to specific fields in the data model, automating field population during form creation. You can also integrate custom code-based solutions for prefilling.
 
 This task focuses on the first data collection page, aiming to streamline the user experience by prefilling their details.
 
@@ -378,7 +378,7 @@ See *Code* for horizontal alignment of components.
 
 #### Image
 
-In this solution, we downloaded the image and saved it in the directory `/App/wwwroot` (we also created the `wwwroot` directory).
+In this solution, we have stored the image within the app and used `wwwroot/kommune-logo.png` as the source.
  Another option is to use an external URL for the image source.
 
 {{% expandbold "Add directory wwwroot and upload image in Designer" %}}
@@ -388,9 +388,9 @@ Navigate to the repository (click the logo in the top-right corner or the three 
 
 ![Repository. Image](screenshot-repository-add-file.png "Repository")
 
-In the "Add directory" field, enter `/App/wwwroot`.
+In the "Legg til mappe" field, enter `/App/wwwroot`.
 Upload the image and add a descriptive commit message.
-Click "Commit changes" to save.
+Click "Commit endringer" to save.
 
 ![Add file. Image](screenshot-add-file.png "Add file")
 
@@ -632,7 +632,7 @@ As an option, you can test the value of the field directly (`["dataModel", "Innf
 }
 ```
 
-Equivalent logic has been added to the form page as well.
+Equivalent logic has been added to the form page.
 This page will be hidden when the option for *not* meeting the service requirements is selected (the value of the `bekreftelse` component is `false`).
 
 ```json{linenos=false,hl_lines=["6-13"]}
@@ -736,9 +736,9 @@ For fields that should not be editable (name and age), tick the 'Read only' opti
 
 ![Read-only setting](screenshot-readonly-setting.png "Read-only setting")
 
-Settings for the 'Submit' button:
+New button:
 
-![Submit button settings. Image](screenshot-send-inn-button-settings.png "Submit button settings")
+![Submit button settings. Image](screenshot-send-inn-button-settings.png "'Submit' button settings")
 
 {{</content-version-container>}}
 {{<content-version-container version-label="Code">}}
