@@ -7,48 +7,45 @@ tags: [apps, training, prefill, sporvalg]
 weight: 20
 ---
 
-In this module you will further develop the application you created in [module 1](../modul1) including, among other things, a new page, dynamic tracks, and pre-filling.
+In this module, you will further develop the application you created in [Module 1](../modul1), including, among other things, a new page, dynamic tracks, and prefilling.
 
-Parts of module 2 can be done in [Altinn Studio Designer](/app/getting-started/ui-editor/) (Designer), but some tasks need to be performed using [local development](/app/getting-started/local-dev).
+You can do parts of module 2 in [Altinn Studio Designer](/app/getting-started/ui-editor/) (Designer), but some tasks need to be performed using [local development](/app/getting-started/local-dev).
 
 **Themes covered in this module:**
 
 - More pages
 - Image component
 - Dynamic tracks
-- Prefill
+- Prefilling
 
 
 ## Tasks
 
 {{% expandlarge id="add-infopage" header="Add Info Page" %}}
 
-For forms where a significant amount of information is collected or provided, dividing the application into multiple pages may enhance the user experience.
+For forms with a significant amount of information collected or provided, dividing the application into multiple pages may enhance the user experience.
 
 Let's take a closer look at how to create a new page in the application
-that appears _before_ the user reaches the first data collection page created in module 1.
+that appears _before_ the user reaches the first data collection page created in Module 1.
 
-Creating and managing multiple pages can easily be done in [Altinn Studio Designer](/app/getting-started/ui-editor/) (left panel).
+Creating and managing multiple pages can be done in [Altinn Studio Designer](/app/getting-started/ui-editor/) (left panel).
 For manual page setup, refer to 'Useful Documentation' further down the page.
 
-Now, all that remains is to familiarize yourself with the municipality's
-requirements for the information page and get started with development. Good luck!
+### Requirements of the municipality
 
-### Requirements from the municipality
+Since Sogndal Municipality will collect a significant amount of data in this service, they need to clarify who the form is intended for and how they will use the data. Someone in the municipality has created a [draft of the information page](infoside_tilflyttere.pdf) for this purpose.
 
-As a significant amount of data will be collected in this service, it is important for Sogndal Municipality to clarify who the form is intended for and how they will use the collected data. Someone in the municipality has created a [draft of the information page](infoside_tilflyttere.pdf) to be used for this purpose.
-
-The following elements are desired to be reflected in the application:
+The information page should reflect the following elements:
 - Placement of images
 - Text sizes
 - Text formatting
 
-Image of the Sogndal Municipality Coat of Arms that can be used in the application:
+You can use the following image of the Sogndal Municipality Coat of Arms in the application:
 
 ![Sogndal Municipality Coat of Arms](kommune-logo.png)
 
 ### Tasks
-1. Add a new page. Give it an appropriate name and ensure it is displayed before the form page you created in module 1.
+1. Add a new page. Give it an appropriate name and position it before the form page you created in Module 1.
 2. [Add an image](/app/development/ux/components/images) of the Sogndal Municipality Coat of Arms.
 3. Add text according to the [draft](infoside_tilflyttere.pdf).
 
@@ -62,21 +59,20 @@ Image of the Sogndal Municipality Coat of Arms that can be used in the applicati
 
 ### Knowledge check
 
-{{% expandbold "Which file in the application repository needs to be edited if you want to change the page order of existing pages manually?" %}}
+{{% expandbold "Which file in the application repository do you need to edit if you want to manuelly change the page order of existing pages?" %}}
 <br>
 
-The page order is described in `App/ui/Settings.json`.
-To adjust the page order, you need to modify the list described under `pages.order` to represent the desired page sequence.
+You can configure the page order in `App/ui/Settings.json` by modifying the list described under `pages.order`.
 Refer to [Managing the order of multiple pages](/app/development/ux/pages/navigation/#order).
 {{% /expandbold %}}
 
 <br>
 
-{{% expandbold "If you want to give a page a different name but do not have Altinn Studio available, which files need to be updated with the new file name?" %}}
+{{% expandbold "If you want to give a page a different name but do not have Altinn Studio available, which files do you need to update with the new file name?" %}}
 <br>
 
 - `App/ui/layouts/<page>.json`: Change the file name (`<page>`) of the page you want to rename.
-- `App/ui/Settings.json`: Update the name of the page under `pages.order`.
+- `App/ui/Settings.json`: Update the page's name under `pages.order`.
 {{% /expandbold %}}
 
 <br>
@@ -84,32 +80,31 @@ Refer to [Managing the order of multiple pages](/app/development/ux/pages/naviga
 {{% expandbold "How can you force a text break if the text string is not long enough to break naturally?" %}}
 <br>
 
-All text resources support Markdown and HTML notation, so by using `<br>`, you can force line breaks in the text.
+All text resources support Markdown and HTML notation, so using `<br>` can force line breaks in the text.
 {{% /expandbold %}}
 
 {{% /expandlarge %}}
 
 {{% expandlarge id="dynamic-tracks" header="Alternative workflow" %}}
 
-In many cases, it is not relevant to answer all the questions in a form, maybe because the answer is obvious or because it is not relevant based on an answer provided earlier in the form.
-In that case, dynamic tracks could be a good solution. By using dynamic tracks you will be able to control which parts of the application that will be visible for the user.
+In many cases, it is only relevant to answer some of the questions in a form, maybe because the answer is obvious or irrelevant based on an earlier response.
+By using dynamic tracks you can control which parts of the application will be visible to the user.
 
-In this task you will set up dynamic tracks in the application based on the requirements from the municipality of Sogndal.
+In this task, you will set up dynamic tracks in the application based on the requirements of the municipality of Sogndal.
 
-### Requirements from the municipality
+### Requirements of the municipality
 
 A user who does not meet the requirements for the form should be stopped as early as possible in the workflow.
- On the information page, it is desirable for the user to indicate whether the form applies to them or not.
+ The user should indicate whether the form applies to them on the information page.
 
 The way the response is collected is optional.
- Note that a component must be associated with a field in the data model to store values.
-  The field `Innflytter.KanBrukeSkjema` in the data model is available for this purpose.
+ Note that a component must be associated with a field in the data model to store values (use the field `Innflytter.KanBrukeSkjema` in the data model).
 
-Based on the response, the user should be directed to one of the following tracks:
+The user should be directed to one of the following tracks based on their response:
 
 *Track 1*
 
-- The user has not confirmed that the form applies to their situation.
+- The user indicates that the form does not apply to their situation.
 - The user should be directed to a page with the following text:
 
     > This form is not for you.  
@@ -119,13 +114,13 @@ Based on the response, the user should be directed to one of the following track
 
 *Track 2*
 
-- The user hasi confirmed that the form applies to their situation.
+- The user has confirmed that the form applies to their situation.
 - The user should be directed to the data collection pages.
 
 ### Tasks
 
-1. Add a component where the user can indicate whether the form applies to them or not.
-2. Add a page to which the user will be directed in _track 1_.
+1. Add a component where the user can indicate whether the form applies to them.
+2. Add a page to which you can direct the user in _track 1_.
 3. Add logic to activate _track 1_ or _track 2_ based on the user's answer.
 
 ### Useful documentation
@@ -134,26 +129,25 @@ Based on the response, the user should be directed to one of the following track
 - [Text formatting](/app/development/ux/texts/#formatting-of-texts)
 
 ### Knowledge check
-{{% expandbold "If there are track selections later in a workflow, and an end user changes a selection, what happens to the form data that has been previously filled out if a page is hidden from the end user?" %}}
+{{% expandbold "If a user fills out a form on a page later hidden by a user selection, what happens to that data?" %}}
 <br>
 
-If you have this type of logic in an application where users can proceed to submission for multiple tracks, the data on the page(s) that are now hidden for the user should be reset.
+If you have logic in an application where users can proceed to submission for multiple tracks, the data on the page(s) that are now hidden for the user should be reset.
 {{% /expandbold %}}
 
 {{% /expandlarge %}}
 
+{{% expandlarge id="prefill" header="Prefilling of personal information" %}}
 
-{{% expandlarge id="prefill" header="Prefill of personal information" %}}
+Altinn provides the advantage of having readily accessible metadata for individuals and businesses. With prefilling, we can retrieve user data and populate fields seamlessly, reducing the need for manual data entry, especially for standard details like names, addresses, and emails.
 
-Altinn provides the advantage of having readily accessible metadata for individuals and businesses. With prefilling, we can retrieve user data and populate fields seamlessly, reducing the need for manual data entry, especially for common details like names, addresses, and emails.
+You can directly integrate data from Altinn's [prefill sources](/app/development/data/prefill/config/#available-prefill-values) into the app by mapping the data to specific fields in the data model, automating field population during form creation. You can integrate custom code-based solutions into the app's logic for more specific prefilling needs.
 
-Data from Altinn's [prefill sources](/app/development/data/prefill/config/#available-prefill-values) can be directly integrated into the app by mapping the data to specific fields in the data model, automating field population during form creation. For more specific prefilling needs, code-based solutions can be integrated into the app's logic.
+This task focuses on the first data collection page, aiming to streamline the user experience by prefilling their details.
 
-This task focuses on the first data collection page, aiming to streamline user experience by prefilling their personal details.
+### Requirements of the municipality
 
-### Requirements from the municipality
-
-- The following values should be prefilled for the user:
+- You should configure prefilling for the following values:
   - First name: `Innflytter.fornavn`
   - Middle name: `Innflytter.Mellomnavn`
   - Last name: `Innflytter.Etternavn`
@@ -173,7 +167,7 @@ This task focuses on the first data collection page, aiming to streamline user e
 {{% expandbold "Code assistance: Calculating age from personal identification number" %}}
 <br>
 
-The following function can be used to calculate a person's age from their personal identification number:
+You can use the following function to calculate a person's age from their personal identification number:
 
 ```cs
 private static int CalculateAge(string sosialSecNumber)
@@ -255,23 +249,23 @@ private static int CalculateAge(string sosialSecNumber)
 - [Prefilling from national registers and user profile](/app/development/data/prefill/config/#prefill-from-national-register-and-user-profile)
 - [Available sources and values for prefilling](/app/development/data/prefill/config/#available-prefill-values)
 - [Custom prefilling](/app/development/data/prefill/custom)
-- [Description of the InstanceOwner object](/api/models/instance/#instanceowner) - This is where national identity number can be found.
-  In the code, the properties are referred to with an uppercase first letter, not lowercase as in this overview.
+- [Description of the InstanceOwner object](/api/models/instance/#instanceowner) - This is where you can find the national identity number.
+  In the code, the properties are referred to with an uppercase first letter, not lowercase, as in this overview.
 
 ### Knowledge check
 
-{{% expandbold "Is it possible to change a pre-filled value once it's been set?" %}}
+{{% expandbold "Is it possible to change a prefilled value?" %}}
 <br>
 
-Yes. If no changes are made, a standard component with pre-filled data will be editable.
+Yes, by default, a standard component with prefilled data is editable.
 {{% /expandbold %}}
 
 <br>
 
-{{% expandbold "How can you prevent a pre-filled value from being changed by the end user?" %}}
+{{% expandbold "How can you prevent a prefilled value from being changed by the end user?" %}}
 <br>
 
-The component can be set to `readOnly` in one of two ways:
+You can set the component to `readOnly` in one of two ways:
 
 **1\.** In Altinn Studio Designer, by checking "Det skal ikke være mulig å svare (read only)" for the specific component:  
 ![Altinn Studio setting for 'read only'. Image](<screenshot-readonly-setting.png>)
@@ -301,19 +295,19 @@ The component can be set to `readOnly` in one of two ways:
 }
 ```
 
-An option is to perform data validations on the server side to verify that the data in the field matches the data from the prefill source. This can be done in the processing or validation logic of the application.
+An option is to perform data validations on the server side to verify that the data in the field matches the data from the prefill source. You can do this in the processing or validation logic of the application.
 {{% /expandbold %}}
 
 <br>
 
-{{% expandbold "Not all Norwegian residents have a national identification number; some are assigned a D-number. How should your code be adjusted to accommodate this if age is to be based on either a national identification number or a D-number entered by the end user?" %}}
+{{% expandbold "Some Norwegian residents do not have a national identification number but are assigned a D-number. How can you adjust the code to accommodate the user entering a national identification number or a D-number?" %}}
 <br>
 
 {{% notice info %}}
-A [D-number](https://jusleksikon.no/wiki/F%C3%B8dselsnummer#D-nummer) is eleven digits, just like regular national identification numbers. It consists of a modified six-digit birth date and a five-digit personal number. The birth date is modified by _adding 4 to the first digit_. For example, a person born on January 1, 1980, would have the birth date 410180, while someone born on January 31, 1980, would have 710180.
+A [D-number](https://jusleksikon.no/wiki/F%C3%B8dselsnummer#D-nummer) is eleven digits, like a regular national identification number, and consists of a modified six-digit birth date followed by a five-digit personal number. The birth date is modified by _adding 4 to the first digit_. For example, the modified birth date would be 410180 for a person born on January 1, 1980, and be 710180 for someone born on January 31, 1980.
 {{% /notice %}}
 
-The folowing function converts an arbitrary national identification number or D-number into a date string in the format `dd-MM-yy`:
+The following function converts an arbitrary national identification number or D-number into a date string of the format `dd-MM-yy`:
 
 ```cs
 public static string GetDOB(string fOrDNumber){
@@ -347,10 +341,10 @@ public static string GetDOB(string fOrDNumber){
 
 In this module, you have expanded your application with more functionality by
 adding additional pages, configuring dynamic track to control user flow, and configuring prefilling of form fields
-both using available data sources in Altinn and custom code.
+using available data sources in Altinn and custom code.
 
 The service should run on your local machine for local testing, and you should be able to test both user flows
-and confirm that the correct fields are pre-filled.
+and confirm that the correct fields are prefilled.
 
 <br>
 
@@ -360,7 +354,7 @@ and confirm that the correct fields are pre-filled.
 [Module 2 source code](https://altinn.studio/repos/testdep/flyttemelding-sogndal/src/branch/modul2)<br>
 [(Module 2 source code - previous version)](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/2)<br>
 
-### Legge til infoside
+### Add info page
 
 In this step, we have added a simple info page with an image and text.
 
@@ -384,7 +378,7 @@ See *Code* for horizontal alignment of components.
 
 #### Image
 
-In this solution, the image has been downloaded and saved in the directory `/App/wwwroot` (the `wwwroot` directory was also created).
+In this solution, we downloaded the image and saved it in the directory `/App/wwwroot` (we also created the `wwwroot` directory).
  Another option is to use an external URL for the image source.
 
 {{% expandbold "Add directory wwwroot and upload image in Designer" %}}
@@ -422,7 +416,7 @@ Both the heading and description have been added as "Paragraph" (a subcategory o
 
 #### Info page - components and settings
 
-The `grid` property has been used to horizontally align the image and the heading (highlighted).
+We have placed the image and heading side by side using the `grid` property (highlighted) and assigned different grid fractions to the components.
 
 ```json{linenos=false,hl_lines=["17-19", "30-32"]}
 // File: /App/ui/layouts/info.json
@@ -513,13 +507,13 @@ The `grid` property has been used to horizontally align the image and the headin
 
 ### Alternative workflow
 
-In this solution, we have chosen radio buttons for the info page where users are required to specify whether they meet the requirements to use the form. The option 'No' has been pre-selected, so users must actively choose to use the form.
+In this solution, we have chosen radio buttons for the info page where users must specify whether they meet the requirements to use the form. The option 'No' has been pre-selected, so users must actively choose to use the form.
 
-As an alternative to radio buttons, checkboxes or dropdown menus can be used.
+You can use checkboxes or dropdown menus as an alternative to radio buttons.
 
 ![Screenshot of updated info page. Image](infoside-screenshot.png "Updated info page")
 
-A new page has been added to which users are directed if they do not confirm that they meet the requirements (track 1).
+We have added a new page to show users who don't meet the service requirements (track 1).
 
 ![Screenshot of alternative workflow: this form is not for you](side-ikke-for-deg-screenshot.png "New page: This form is not for you")
 
@@ -594,10 +588,11 @@ New page for *Track 1*.
 
 #### New page 'Not for You' and dynamic tracks logic
 
-A new page has been added that will only be shown if the user does not meet the requirements to use the service. One way to achieve this is by hiding the page if the user confirms that they *can* use the service.
+We have added a new page to show users who don't meet the service requirements.
+ One way to achieve this is by hiding the page if the user confirms that they *can* use the service.
 
 Logic to hide the page has been implemented using the `hidden` property (see highlighted section in the code).
-The value from the selected radio button is stored in the field `Innflytter.KanBrukeSkjema` but can be accessed through the component (`["component", "bekreftelse"]`).
+The value from the selected radio button is stored in the field `Innflytter.KanBrukeSkjema` and can be accessed through the component (`["component", "bekreftelse"]`).
 As an option, you can test the value of the field directly (`["dataModel", "Innflytter.KanBrukeSkjema"]`).
 
 ```json{linenos=false,hl_lines="6-13"}
@@ -637,8 +632,8 @@ As an option, you can test the value of the field directly (`["dataModel", "Innf
 }
 ```
 
-Equivalent logic has been added for the form page as well.
-This page will be hidden if the value of the `bekreftelse` component is set to `false`, meaning when the option for *not* meeting the service requirements is selected.
+Equivalent logic has been added to the form page as well.
+This page will be hidden when the option for *not* meeting the service requirements is selected (the value of the `bekreftelse` component is `false`).
 
 ```json{linenos=false,hl_lines=["6-13"]}
 // File: /App/ui/layouts/innflytterPersonalia.json
@@ -661,7 +656,7 @@ This page will be hidden if the value of the `bekreftelse` component is set to `
 #### Exclude page from PDF
 
 We do not want to include the 'Not for You' page when generating a PDF file.
-This can be configured using the `excludeFromPdf` property in `Settings.json`.
+Configure the `excludeFromPdf` property in `Settings.json` to exclude pages from pdf.
 
 ```json{linenos=false,hl_lines="10"}
 // File: /App/Settings.json
@@ -681,7 +676,7 @@ This can be configured using the `excludeFromPdf` property in `Settings.json`.
 
 #### Text resources (nb)
 
-New text resources that have been added.
+New text resources:
 
 ```json{linenos=false,hl_lines=["7-22"]}
 // File: /App/config/texts/resource.nb.json
@@ -719,10 +714,10 @@ New text resources that have been added.
 
 {{% markdown %}}
 
-Below is an example of how the data page may appear with pre-filled information.
- In addition to prefilling, several components are aligned side by side, and a 'Submit' button has been added.
+Below is an example of how the data page may appear with prefilled information.
+ We have also aligned some components side by side and added a 'Submit' button.
 
-![Screenshot of pre-filled data page. Image](prefilled-data-screenshot.png "Updated data page with prefill")
+![Screenshot of prefilled data page. Image](prefilled-data-screenshot.png "Updated data page with prefill")
 
 ![]()
 
@@ -737,11 +732,11 @@ See *Code* for prefilling and horizontal alignment of components.
 
 ![Data page components. Image](screenshot-data-page-components.png "Data page components")
 
-For fields that should not be editable (name and age), the 'Read only' option must be selected:
+For fields that should not be editable (name and age), tick the 'Read only' option:
 
 ![Read-only setting](screenshot-readonly-setting.png "Read-only setting")
 
-A 'Submit' button has been added for the form:
+Settings for the 'Submit' button:
 
 ![Submit button settings. Image](screenshot-send-inn-button-settings.png "Submit button settings")
 
@@ -750,11 +745,11 @@ A 'Submit' button has been added for the form:
 
 #### Updated Data Page
 
-* The components for name and age have been set to `readOnly`
-* Some components are aligned side by side
-* A new button has been added
+* The components for name and age have been set to `readOnly`.
+* Some components are aligned side by side.
+* A new button has been added.
 
-The code below provides an example with some of the components where changes have been highlighted.
+The code below provides an example of some of the changed components.
 For a complete solution, please refer to the [module 2 source code](https://altinn.studio/repos/testdep/flyttemelding-sogndal/src/branch/modul2).
 
 ```json{linenos=false,hl_lines=["22", "26-28", "37", "41-43", "47-54"]}
@@ -820,7 +815,7 @@ For a complete solution, please refer to the [module 2 source code](https://alti
 
 #### Prefilling
 
-Prefilling of personal information (except age) has been configured in the newly created file `datamodel.prefill.json`:
+We have created a prefill file, `datamodel.prefill.json`, and configured prefilling of personal information (except age):
 
 ```json{linenos=false,hl_lines=[""]}
 // File: /App/models/datamodel.prefill.json
@@ -844,7 +839,7 @@ Prefilling of personal information (except age) has been configured in the newly
 
 #### Age Calculation and Prefilling
 
-For custom prefilling of age, a file `InstantiationProcessor.cs` has been created in the `logic/Instantiation` directory (the `Instantiation` directory was also created).
+For custom prefilling of age, we created the file `InstantiationProcessor.cs` in the `logic/Instantiation` directory (we also created the optional `Instantiation` directory).
 The `DataCreation` method retrieves the personal identification number from the instance passed to it. It then uses the number to calculate the age using the `CalculateAge` method (omitted, refer to code assistance under [Prefilling](#prefill) in the task description).
 The calculated age is then assigned to the data field `skjema.Innflytter.Alder`.
 
@@ -886,7 +881,7 @@ The data type for `skjema` can be found in the datamodel file `datamodel.xsd`:
     ...
 ```
 
-Finally, the implementation needs to be registered in `Program.cs` for the code to run:
+Finally, we register the implementation in `Program.cs`:
 
 ```csharp{linenos=false,hl_lines="7"}
 // File: /App/Program.cs
@@ -894,7 +889,7 @@ Finally, the implementation needs to be registered in `Program.cs` for the code 
 
 void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
 {
-    // Register your apps custom service implementations here.
+    // register your app's custom service implementations here.
     services.AddTransient<IInstantiationProcessor, InstantiationProcessor>();
 }
 
