@@ -60,7 +60,7 @@ Alternatively, copy the file URL and run the command `curl <file-URL> > datamode
 4. Open the app's repository from the [Altinn Studio Dashboard](/app/getting-started/navigation/dashboard/) and look at the files in the `App/models` folder.
 
 {{% notice info %}}
-If you intend to carry out all or parts of the development locally, now is the time to [prepare for local development and testing](/en/app/getting-started/local-dev).
+If you intend to carry out all or parts of the development locally, now is the time to [prepare for local development and testing](/app/getting-started/local-dev).
 {{% /notice %}}
 
 ### Useful Documentation
