@@ -6,13 +6,13 @@
         <i style="font-size:small;" class="fa fa-chevron-right"></i>
         <span>
             {{- with .Get 0 -}}
-            <strong>{{- . -}}</strong>
+                <strong>{{- . | markdownify -}}</strong>
             {{- else -}}
             <strong>Expand me...</strong>
             {{- end -}}
         </span>
     </div>
     <div class="expand-content" style="display: none">
-        {{- .Inner | safeHTML -}}
+        {{- .Inner | markdownify -}}
     </div>
 </div>
