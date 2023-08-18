@@ -1,7 +1,6 @@
 ---
 title: Module 2
 description: Add more pages, dynamic tracks and prefill
-
 linktitle: Module 2
 tags: [apps, training, prefill, sporvalg]
 weight: 20
@@ -9,7 +8,7 @@ weight: 20
 
 In this module, you will further develop the application you created in [Module 1](../modul1), including, among other things, a new page, dynamic tracks, and prefilling.
 
-You can do parts of module 2 in [Altinn Studio Designer](/app/getting-started/ui-editor/) (Designer), but some tasks need to be performed using [local development](/app/getting-started/local-dev).
+You can do parts of Module 2 in [Altinn Studio Designer](/app/getting-started/ui-editor/) (Designer), but some tasks need to be performed using [local development](/app/getting-started/local-dev).
 
 **Themes covered in this module:**
 
@@ -381,7 +380,7 @@ See *Code* for horizontal alignment of components.
 In this solution, we have stored the image within the app and used `wwwroot/kommune-logo.png` as the source.
  Another option is to use an external URL for the image source.
 
-{{% expandbold "Add directory wwwroot and upload image in Designer" %}}
+{{% expandbold "Add directory `wwwroot`` and upload image in Designer" %}}
 <br>
 
 Navigate to the repository (click the logo in the top-right corner or the three dots on the right side of the menu bar) and select "Upload file" from the "Add file" menu.
@@ -750,7 +749,7 @@ New button:
 * A new button has been added.
 
 The code below provides an example of some of the changed components.
-For a complete solution, please refer to the [module 2 source code](https://altinn.studio/repos/testdep/flyttemelding-sogndal/src/branch/modul2).
+For a complete solution, please refer to the [Module 2 source code](https://altinn.studio/repos/testdep/flyttemelding-sogndal/src/branch/modul2).
 
 ```json{linenos=false,hl_lines=["22", "26-28", "37", "41-43", "47-54"]}
 // File: /App/ui/layouts/innflytterPersonalia.json

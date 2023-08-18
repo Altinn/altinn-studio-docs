@@ -1,15 +1,14 @@
 ---
 title: Modul 2
 description: Legge til flere sider, sporvalg og forhåndsutfylling
-
 linktitle: Modul 2
 tags: [apps, training, prefill, sporvalg]
 weight: 20
 ---
 
-I denne modulen skal du videreutvikle applikasjonen du laget i [modul 1](../modul1) med blant annet en ny side, dynamisk skjuling av sider, sporvalg og forhåndsutfylling.
+I denne modulen skal du videreutvikle applikasjonen du laget i [Modul 1](../modul1) med blant annet en ny side, dynamisk skjuling av sider, sporvalg og forhåndsutfylling.
 
-Deler av modul 2 kan gjøres i [Altinn Studio Designer](/nb/app/getting-started/ui-editor/) (Designer), men noe må utføres med [lokal utvikling](/nb/app/getting-started/local-dev).
+Deler av Modul 2 kan gjøres i [Altinn Studio Designer](/nb/app/getting-started/ui-editor/) (Designer), men noe må utføres med [lokal utvikling](/nb/app/getting-started/local-dev).
 
 **Temaer som dekkes i denne modulen:**
 
@@ -27,7 +26,7 @@ For skjemaer der det samles inn eller gis mye informasjon
 kan det forbedre brukeropplevelsen dersom man deler applikasjonen opp i flere sider.
 
 La oss se nærmere på hvordan man kan opprette en ny side i applikasjonen
-som vises _før_ brukeren kommer til første datainnsamlingsside som ble laget i modul 1.
+som vises _før_ brukeren kommer til første datainnsamlingsside som ble laget i Modul 1.
 
 Opprettelse og administrasjon av flere sider kan gjøres i [Altinn Studio Designer](/nb/app/getting-started/ui-editor/) (venstre panel).
  For manuelt oppsett av sider, se 'Nyttig dokumentasjon' lenger ned på siden.
@@ -383,7 +382,7 @@ Se *Kode* for sidestilling av komponenter.
 I denne løsningen har vi lagret bildet i appen og brukt `wwwroot/kommune-logo.png` som kilde.
  Et alternativ er å bruke en ekstern URL for bildet som kilde.
 
-{{% expandbold "Legg til mappe wwwroot og last opp bilde i Designer" %}}
+{{% expandbold "Legg til mappe `wwwroot` og last opp bilde i Designer" %}}
 <br>
 
 Naviger til repository (klikk logo øverst i høyre hjørne eller tre prikker til høyre på menylinjen) og velg "Last opp fil" fra menyen "Add file".
@@ -754,7 +753,7 @@ Ny knapp:
 * Det er lagt til en ny knapp.
 
 Koden under viser et eksempel med noen av de endrede komponentene.
- For en fullstendig løsning, se [kildekode for modul 2](https://altinn.studio/repos/testdep/flyttemelding-sogndal/src/branch/modul2).
+ For en fullstendig løsning, se [kildekode for Modul 2](https://altinn.studio/repos/testdep/flyttemelding-sogndal/src/branch/modul2).
 
 ```json{linenos=false,hl_lines=["22", "26-28", "37", "41-43", "47-54"]}
 // Fil: /App/ui/layouts/innflytterPersonalia.json
