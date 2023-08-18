@@ -5,6 +5,89 @@ toc: true
 weight: 100
 ---
 
+## Juli 2023
+
+- Finansforetakets meldeplikt ved inngåelse og opphør av avtale om låneformidling (KRT-3010) (Finanstilsynet)  
+  [Info](https://www.altinn.no/skjemaoversikt/finanstilsynet/finansforetakets-meldeplikt-ved-inngaelse-og-opphor-av-avtale-om-laneformidling/) | [Repo](https://altinn.studio/repos/krt/krt-3010a-1) | [Kjørende tjeneste](https://krt.apps.altinn.no/krt/krt-3010a-1/)
+- Søknad om tillatelse og melding om registrering av låneformidlingsvirksomhet (KRT-3011) (Finanstilsynet)  
+  [Info](https://www.altinn.no/skjemaoversikt/finanstilsynet/soknad-om-tillatelse-og-melding-om-registrering-av-laneformidlingsvirksomhet/) | [Repo](https://altinn.studio/repos/krt/krt-3011a-1) | [Kjørende tjeneste](https://krt.apps.altinn.no/krt/krt-3011a-1/)
+- Innlevering av sakkyndig erklæring til Den rettsmedisinske kommisjon (Statens sivilrettsforvaltning)  
+  [Info](https://www.altinn.no/skjemaoversikt/statens-sivilrettsforvaltning/innsending-av-rapporter-til-den-rettsmedisinske-kommisjon/) | [Repo](https://altinn.studio/repos/srf/drk-rapport) | [Kjørende tjeneste](https://srf.apps.altinn.no/srf/drk-rapport/)
+
+
+## Juni 2023
+
+- Godstransport på kysten (RA-0438) (Statistisk sentralbyrå)  
+  [Info](https://www.altinn.no/skjemaoversikt/statistisk-sentralbyra/godstransport-pa-kysten-/) | [Repo](https://altinn.studio/repos/ssb/ra0438-01)
+- Kollektivtransport - fylke år (RA-0758) (Statistisk sentralbyrå)  
+  [Info](https://www.altinn.no/skjemaoversikt/statistisk-sentralbyra/kollektivtransport--fylke-ar/) | [Repo](https://altinn.studio/repos/ssb/ra0758-01) 
+- Leting selskapskostnader (RA-0116) (Statistisk sentralbyrå)  
+  [Info](https://www.altinn.no/skjemaoversikt/statistisk-sentralbyra/leting-selskapskostnader/) | [Repo](https://altinn.studio/repos/ssb/ra0116-01)
+- Kollektivtransport, buss – kontrakt med fylke kvartal (RA-0763) (Statistisk sentralbyrå)  
+  [Info](https://www.altinn.no/skjemaoversikt/statistisk-sentralbyra/kollektivtransport-buss--kontrakt-med-fylke-kvartal/) | [Repo](https://altinn.studio/repos/ssb/ra0763-01) 
+- Granskerrapport OMF foretak (KRT-1178) (Finanstilsynet)  
+  [Info](https://www.altinn.no/skjemaoversikt/finanstilsynet/granskerrapport-for-omf-foretak/) | [Repo](https://altinn.studio/repos/krt/krt-1178a-1) | [Kjørende tjeneste](https://krt.apps.altinn.no/krt/krt-1178a-1/)
+- Periodisk vedleggsskjema (KRT-1025) (Finanstilsynet)  
+  [Info](https://www.altinn.no/skjemaoversikt/finanstilsynet/periodisk-vedleggsskjema-/) | [Repo](https://altinn.studio/repos/krt/krt-1025a-1) | [Kjørende tjeneste](https://krt.apps.altinn.no/krt/krt-1025a-1/)
+- Årlig melding for godkjent virksomhet som tilbyr bilpleie, hjulskift og hjullagring (Arbeidstilsynet)  
+  [Info](https://www.altinn.no/skjemaoversikt/arbeidstilsynet/arlig-melding-bilpleie-hjulskift-hjullagring/) | [Repo](https://altinn.studio/repos/dat/bilpleie-aarligmelding) | [Kjørende tjeneste](https://dat.apps.altinn.no/dat/bilpleie-aarligmelding/)
+- Søknad om utvidet overtid (Arbeidstilsynet)  
+  [Info](https://www.altinn.no/skjemaoversikt/arbeidstilsynet/utvidet-overtidsarbeid/) | [Repo](https://altinn.studio/repos/dat/overtid-soknad) | [Kjørende tjeneste](https://dat.apps.altinn.no/dat/overtid-soknad)
+- Søknad om gjennomsnittsberekning av alminneleg arbeidstid (Arbeidstilsynet)  
+  [Info](https://www.altinn.no/skjemaoversikt/arbeidstilsynet/gjennomsnittsberegning-alminnelig-arbeidstid/) | [Repo](https://altinn.studio/repos/dat/gjennomsnittsberegning-soknad) | [Kjørende tjeneste](https://dat.apps.altinn.no/dat/gjennomsnittsberegning-soknad/)
+- Innlevering av sakkyndig rapport til Barnesakkyndig kommisjon (Statens sivilrettsforvaltning)  
+  [Info](https://www.altinn.no/skjemaoversikt/statens-sivilrettsforvaltning/innsending-av-rapporter-til-barnesakkyndig-kommisjon/) | [Repo](https://altinn.studio/repos/srf/bsk-rapport) | [Kjørende tjeneste](https://srf.apps.altinn.no/srf/bsk-rapport/)
+
+
+## Mai 2023
+
+- Vareundersøkelse for industrien (RA-1130) (Statistisk sentralbyrå)  
+  [Info](https://www.altinn.no/skjemaoversikt/statistisk-sentralbyra/vareundersokelse-for-industrien/) | [Repo](https://altinn.studio/repos/ssb/ra1130-01) | [Kjørende tjeneste](https://ssb.apps.altinn.no/ssb/ra1130-01/)
+- Informasjon om revisjon av foretak av allmenn interesse (KRT-1188) (Finanstilsynet)  
+  [Info](https://www.altinn.no/skjemaoversikt/finanstilsynet/informasjon-om-revisjon-av-foretak-av-allmenn-interesse/) | [Repo](https://altinn.studio/repos/krt/krt-1188a-1) | [Kjørende tjeneste](https://krt.apps.altinn.no/krt/krt-1188a-1/)
+- Melding om utgangsstoffer for eksplosiver (Direktoratet for samfunnssikkerhet og beredskap)  
+  [Info](https://www.altinn.no/skjemaoversikt/direktoratet-for-samfunnssikkerhet-og-beredskap/melding-om-utgangsstoffer-for-eksplosiver/) | [Repo](https://altinn.studio/repos/dsb/melding-om-utgangsstoffer) | [Kjørende tjeneste](https://dsb.apps.altinn.no/dsb/melding-om-utgangsstoffer/)
+- Varsel om oppstart av reguleringsplanarbeid til høringsmyndigheter (Direktoratet for byggkvalitet)  
+  [Repo](https://altinn.studio/repos/dibk/varselplanoppstart) 
+
+
+## April 2023
+
+- Kollektivtransport - T-bane / trikk år (RA-0762) (Statistisk sentralbyrå)  
+  [Info](https://www.altinn.no/skjemaoversikt/statistisk-sentralbyra/kollektivtransport---t-bane--trikk-ar/) | [Repo](https://altinn.studio/repos/ssb/ra0762-01) | [Kjørende tjeneste](https://ssb.apps.altinn.no/ssb/ra0762-01/)
+- Generelt vedleggsskjema (KRT-1060) (Finanstilsynet)  
+  [Info](https://www.altinn.no/skjemaoversikt/finanstilsynet/generelt-vedleggsskjema--finanstilsynet/) | [Repo](https://altinn.studio/repos/krt/krt-1060a-1) | [Kjørende tjeneste](https://krt.apps.altinn.no/krt/krt-1060a-1/)
+- Elvirksomhetsregisteret (Direktoratet for samfunnssikkerhet og beredskap)  
+  [Info](https://www.altinn.no/skjemaoversikt/direktoratet-for-samfunnssikkerhet-og-beredskap/elvirksomhetsregisteret-registrering-av-foretak-som-utforer-arbeid-knyttet-til-elektriske-anlegg-og-reparerer-elektrisk-utstyr-/) | [Repo](https://altinn.studio/repos/dsb/elvirksomhet) | [Kjørende tjeneste](https://dsb.apps.altinn.no/dsb/elvirksomhet/)
+- Melding om håndtering av farlige stoffer (Direktoratet for samfunnssikkerhet og beredskap)  
+  [Info](https://www.altinn.no/skjemaoversikt/direktoratet-for-samfunnssikkerhet-og-beredskap/melding-om-handtering-av-farlige-stoffer/) | [Repo](https://altinn.studio/repos/dsb/farligstoff) | [Kjørende tjeneste](https://dsb.apps.altinn.no/dsb/farligstoff/)
+
+
+## Mars 2023
+
+- Timepris på reparasjon og vedlikehold av skip ved norske verft (RA-0677) (Statistisk sentralbyrå)  
+  [Info](https://www.altinn.no/skjemaoversikt/statistisk-sentralbyra/timepris-pa-reparasjon-og-vedlikehold-av-skip-ved-norske-verft/) | [Repo](https://altinn.studio/repos/ssb/ra0677-01) | [Kjørende tjeneste](https://ssb.apps.altinn.no/ssb/ra0677-01/)
+ - Jernbanetransport kvartal (RA-0798) (Statistisk sentralbyrå)  
+  [Info](https://www.altinn.no/skjemaoversikt/statistisk-sentralbyra/jernbanetransport-kvartal2/) | [Repo]( https://altinn.studio/repos/ssb/ra0798-01) | [Kjørende tjeneste](https://ssb.apps.altinn.no/ssb/ra0798-01/)
+- Kollektivtransport, passasjerbåt kvartal (RA-0764) (Statistisk sentralbyrå)  
+  [Info](https://www.altinn.no/skjemaoversikt/statistisk-sentralbyra/kollektivtransport---passasjerbat-kvartal/) | [Repo](https://altinn.studio/repos/ssb/ra0764-01) | [Kjørende tjeneste](https://ssb.apps.altinn.no/ssb/ra0764-01/)
+- Bekymringsmelding for forbrukertjenester (Direktoratet for samfunnssikkerhet og beredskap)  
+  [Info](https://www.altinn.no/skjemaoversikt/direktoratet-for-samfunnssikkerhet-og-beredskap/bekymringsmelding-for-forbrukertjenester/)
+ | [Repo](https://altinn.studio/repos/dsb/bekymring-forbrukertjenester) | [Kjørende tjeneste](https://dsb.apps.altinn.no/dsb/bekymring-forbrukertjenester/)
+ - Melding etter meldeplikten - farlige forbrukertjenester (Direktoratet for samfunnssikkerhet og beredskap)  
+  [Info](https://www.altinn.no/skjemaoversikt/direktoratet-for-samfunnssikkerhet-og-beredskap/melding-etter-meldeplikten---farlige-forbrukertjenester-virksomheter/) | [Repo](https://altinn.studio/repos/dsb/meldeplikt-forbrukertjenester) | [Kjørende tjeneste](https://dsb.apps.altinn.no/dsb/meldeplikt-forbrukertjenester/)
+ - Statsforvalterens tilsyn med kommunene (Direktoratet for samfunnssikkerhet og beredskap)  
+  [Info](https://www.altinn.no/skjemaoversikt/direktoratet-for-samfunnssikkerhet-og-beredskap/statsforvalterens-tilsyn-med-kommunene/) | [Repo](https://altinn.studio/repos/dsb/statsforvalter-tilsyn-kommuner) | [Kjørende tjeneste](https://dsb.apps.altinn.no/dsb/statsforvalter-tilsyn-kommuner/)
+ - Uhell i virksomheter som håndterer farlig stoff (Direktoratet for samfunnssikkerhet og beredskap)  
+  [Info](https://www.altinn.no/skjemaoversikt/direktoratet-for-samfunnssikkerhet-og-beredskap/uhell-i-virksomheter-som-handterer-farlig-stoff/) | [Repo](https://altinn.studio/repos/dsb/uhell-virksomhet-farlig-stoff) | [Kjørende tjeneste](https://dsb.apps.altinn.no/dsb/uhell-virksomhet-farlig-stoff/)
+
+
+## Februar 2023
+
+- Årsrapport for forsikringsagenter (KRT-1230) (Finanstilsynet)  
+  [Info](https://www.altinn.no/skjemaoversikt/finanstilsynet/arsrapport-for-forsikringsagenter/) | [Repo](https://altinn.studio/repos/krt/krt-1230a-1) | [Kjørende tjeneste](https://krt.apps.altinn.no/krt/krt-1230a-1/)
+
+
 ## Januar 2023
 
 - Melding om samhandlingsavvik (Helse Møre og Romsdal)  
