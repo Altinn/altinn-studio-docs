@@ -112,9 +112,12 @@ The below table list the attributes a resource has in the resource registry. For
 | availableFor | Defines what kind of actor that can use service | Catalogue  |Hvilke verdier skal dette ha?|Yes|
 | SelfIdentified UserEnabled | The service can be used by selfidentifed users | Catalogue, filter, access managment  |Trenger vi egne attributter for "SelvIdentifiedUserEnabled" i tillegg til "availableFor"? Er det i tilfellet det er "onlyForCitizen" AND "OpenForSelfIdUser"?Kan det løses med multiplechoice eller blir det "krøkkete"?|Yes|
 | Enterprise UserEnabled | Service can be used by enterprise users | Catalogue, Access management |Trenger vi egne attributter for "EnterpriseUserEnabled"i tillegg til "availableFor"? Er det i tilfellet det er "onlyForEntities" AND "OpenForEnterpriseUser"? Kan det løses med multiplechoice eller blir det "krøkkete"?|Yes|
-| Reference | Can be external service codes, scopes +++ |   |Hvilke typer referanser skal vi tillate? Hvilke har vi pr nå? |No|
+| Reference | Can be external service codes, scopes +++ |   |Hvilke typer referanser skal vi tillate? Hvilke har vi pr nå? SerivdeEditionCode, ServiceCode, MaskinportenScope, DelegationschemeID. De to siste bør væree obligatoriske på resourceType:MaskinportenScheme? |No|
 | EvenTypes | Identfies types of events a resource can publish | Altinn Events, Catalogue  | Skrivefeil i attibutt? |No|
-| Resourcetype | Type of resource.  | Access management | Hvilke typer har vi/ skal vi ha? Brukes til å f eks lage en visning for bare en resourcetype, eks maksinporten schema|Yes|
+| Resourcetype | Type of resource.  | Access management | Hvilke typer har vi/ skal vi ha? Finnes disse i dag: Systemresource og MaksinportenSchema?  Brukes til å f eks lage en visning for bare en resourcetype, eks maksinporten schema|Yes|
+|isComplete|?|?||Yes|
+|delegable|?|?||Yes|
+|visible|?|?||Yes|
 ## Policies
 
 Polices defined for apps and resources will be stored by resource registry.
