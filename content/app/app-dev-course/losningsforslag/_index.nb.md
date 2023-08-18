@@ -7,6 +7,11 @@ weight: 30
 toc: true
 ---
 
+{{% notice warning %}}
+**🚧 Under oppdatering.**
+Oppdaterte løsningsforslag og forklaring på forståelsessjekker finnes under hver oppdaterte modul.
+{{% /notice %}}
+
 ## Løsingsforslag - Applikasjonskode
 
 - [Modul 1](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/1)
