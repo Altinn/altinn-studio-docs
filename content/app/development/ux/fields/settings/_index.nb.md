@@ -46,6 +46,27 @@ Ved å sette `optionalIndicator` til `true` vil teksten `(Valgfri)` bli vist bak
 Det er ikke mulig å tvinge visning av *Valgfri* teksten på et felt som er obligatorisk. 
 Denne innstillingen styrer ikke feltets faktiske egenskaper.
 
+## Aktiver tegngrense
+
+Det er mulig å aktivere en tegngrense for et tekstfelt. Dette gjøres ved å sette `maxLength`-egenskapen til en komponent i form layout.
+Dette vil gi en tellevisning som angir antall gjenværende tegn. Her er eksmpel på en `Input`-komponent med en tegngrense på 10 tegn:
+
+```json
+{
+  {
+    "id": "input-felt-1",
+    "type": "Input",
+    ... 
+    "maxLength": 10
+  }
+}
+```
+
+_Merk_: Når du bruker `maxLength` på et felt i skjema-layouten, vil det kun indikere hvor mange tegn som gjenstår. Det vil ikke validere antallet tegn og bruker kan forsatt sende inn skjemaet selv om antall tegn er over grensen.
+For å validere antall tegn må du også inkludere `maxLength`-egenskapen i datamodellen av skjemaet. Se [validering](/nb/app/development/logic/validation/) for mer informasjon. 
+
+
+
 ## Konfigurasjon av automatisk lagring
 
 `Input`-komponenter, `TextArea`-komponenter og `AddressComponent` lagrer automatisk endringer når brukeren
