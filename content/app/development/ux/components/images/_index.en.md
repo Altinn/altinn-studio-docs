@@ -11,33 +11,30 @@ aliases:
 
 ---
 ## Usage
-Use images and illustrations to emphasize points or illustrate concepts which are difficult to explain using text.
 
-{{%notice warning%}}
-**NOTE:** the image component is not yet supported in PDF-generation and will be ignored.
-{{%/notice%}}
+Use images and illustrations to emphasize points or illustrate concepts that are difficult to explain using text.
 
 ### Anatomy
 ![Example image and alt text anatomy](image-and-alt-text-en.png)
 
 1\. *Image* – Photo, screenshot, illustration, or graphic.  
-2\. *Alternative text* – Used by screen readers and displayed if image can not be rendered.
+2\. *Alternative text* – Used by screen readers and displayed if the image can not be rendered.
 
 ### Best practices
 We recommend following the guidelines by [UUtilsynet](https://www.uutilsynet.no/regelverk/bilder-og-grafikk/205).
 
-- Add an alternative text which explains the image. This is used by screen readers and will be displayed if the image is unavailable.
-- If an image is purely decorative, it's best to not include an alternative text.
-- Don't use images for images sake. Ask yourself if the image illustrates a point or increases the understanding of what you are trying to tell.
-- Check if the image scales well on different devices, like on mobile or a tablet. An image which looks good on a PC can quickly fill a smaller screen.
-- Avoid using images in place of text, as it cannot be read by screen readers.
+- Add an alternative text which explains the image. The alt. text will be displayed if the image is unavailable and is used by screen readers.
+- If an image is purely decorative, it's best not to include an alternative text.
+- Don't use images for image's sake. Ask yourself if the image illustrates a point or increases the understanding of what you are trying to tell.
+- Check if the image scales well on devices like mobile or tablet. An image which looks good on a PC can quickly fill a smaller screen.
+- Avoid using images instead of text, as screen readers cannot read it.
 
 ### Content guidelines
 
 Keep alternative texts consistent:
 - Never start with "Image of ..."
-- Write short and start with the most important part of the image.
-- End by saying if the photo is a photo, illustration or graphic.
+- Write short and start with the most essential part of the image.
+- End by saying if the photo is an illustration or graphic.
 
 <br>
 
@@ -52,10 +49,15 @@ Alt text: "Old wooden trolly. Photograph."
 For more guidelines and examples, see [UUtilsynet](https://www.uutilsynet.no/regelverk/bilder-og-grafikk/205).
 
 ---
-## Add and configure component
+## Add and configure the component
 
-A component can be added in [Altinn Studio Designer](/app/getting-started/ui-editor/) by dragging it from the left-side panel to the page area in the middle.
- Select the component you want to configure by clicking it. This will bring up the following configuration panel for the component on the right-hand side.
+You can add a component in [Altinn Studio Designer](/app/getting-started/ui-editor/) by dragging it from the left-side panel to the page area in the middle.
+Selecting the component brings up its configuration panel on the right-hand side.
+
+{{% notice warning %}}
+We are currently updating Altinn Studio Designer with more configuration options!
+ We'll update the documentation to reflect the new changes once they are stable.
+{{% /notice %}}
 
 {{<content-version-selector classes="thin-border">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
@@ -93,7 +95,7 @@ A component can be added in [Altinn Studio Designer](/app/getting-started/ui-edi
 
 ### 1. Component ID
 Property: `id`  
-Unique ID for each component. This comes pre-filled, but you can change the value as you like.
+Unique ID for each component. The ID is auto-generated when you add a component, but you can change the value as you like.
 
 ### 2. Source
 Property: `src`  
@@ -102,26 +104,26 @@ The image source can be external or hosted in the app.
 For external images, the source is simply the image URL (e.g. `https://example.com/image.png`).
 
 All files placed inside the folder `/App/wwwroot` will be hosted in the application.
- If this folder does not exist, it needs to be created.
- Static hosting must be [configured](#configure-static-hosting) for apps created before december 2021.
+ If this folder does not exist, you can create it.
+ Static hosting must be [configured](#configure-static-hosting) for apps created before December 2021.
 
 An image placed in `/App/wwwroot` can be referenced in one of two ways:
 1. Using its relative URL: `/<org or username>/<app-name>/image.png` or
-2. Using the image path: `wwwroot/image.png` (will resolve to relative URL before image is loaded).
+2. Using the image path: `wwwroot/image.png` (will resolve to relative URL before the image is loaded).
 
 {{<content-version-selector classes="thin-border">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
-Using relative URL as source:
+Using relative URL as the source:
 
-![Settings with source relative url. Image](<image-src-rel-url.png> "Relative URL as source")
+![Settings with source relative URL. Image](<image-src-rel-url.png> "Relative URL as source")
 
-Using image path as source:
+Using image path as the source:
 
 ![Settings with source local folder. Image](<image-src-wwwroot.png> "Image path as source")
 
 {{</content-version-container>}}
 {{<content-version-container version-label="Code">}}
-Using relative URL as source:
+Using relative URL as the source:
 ```json{linenos=false,hl_lines="9"}
 // File: /App/ui/layouts/<page>.json
 
@@ -138,7 +140,7 @@ Using relative URL as source:
       }
 ...
 ```
-Using image path as source:
+Using image path as the source:
 ```json{linenos=false,hl_lines="9"}
 // File: /App/ui/layouts/<page>.json
 
@@ -161,11 +163,11 @@ Using image path as source:
 
 <br>
 
-Also see [Multiple sources based on language](#multiple-sources-based-on-language).
+Also, see [Multiple sources based on language](#multiple-sources-based-on-language).
 
 #### Configure static hosting
 For apps created *before December 2021*, static hosting must be configured manually by adding the line
- `app.UseStaticFiles('/' + applicationId);`in in the `Configure` method in `App/Program.cs` as shown below:
+ `app.UseStaticFiles('/' + applicationId);` in the `Configure` method in `App/Program.cs` as shown below:
 
 ```C# {linenos=false,hl_lines=[7]}
 // File: /App/Program.cs
@@ -184,7 +186,7 @@ void Configure()
 
 ### 3. Alternative text
 Property: `textResourceBindings.altTextImg`  
-An alternative text is used by screen readers and will be displayed if the image is unavailable.
+An alternative text will be displayed if the image is unavailable and is used by screen readers.
  The alt text is stored as a [text resource](/app/development/ux/texts/#add-and-change-texts-in-an-application) defined in `/App/config/texts/resource.<language>.json`.
 
 **Example 1**: Add text resource using the id `kommune-logo.altTextImg`
@@ -230,13 +232,13 @@ Add a text resource by specifying the text resource id for the property `textRes
 {{<content-version-selector classes="thin-border">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
 Click the `+` sign next to the field to add a new text resource (or the pencil icon to edit if one is already selected).
- You get the option to add/edit texts in English and Norwegian bokmål. Other languages are available from the text editor (click _Tekst_ in the top-level menu).
+ You can add/edit texts in English and Norwegian bokmål. Other languages are available from the text editor (click _Tekst_ in the top-level menu).
 
 ![Create and edit text resource screenshot](screenshot-edit-text.png "Create and edit text resource")
 
 {{</content-version-container>}}
 {{<content-version-container version-label="Code">}}
-Add or edit the text resource id and/or value in the appropriate language resource file.
+Add or edit the text resource id and value in the appropriate language resource file.
  If the file does not exist, you can create it.
 ```json{hl_lines=["6-9"]}
 // File: /App/config/texts/resource.en.json
@@ -271,13 +273,13 @@ Add or edit the text resource id and/or value in the appropriate language resour
 
 ### 4. Width
 Property: `width`  
-Image width given as percentage of original width.
+Image width is given as a percentage of the original width.
 
 ### 5. Alignment
 Property: `align`  
-Controls the horizontal alignment of the image.
-In ASD, the options are "Venstre" (left), "Midtstilt" (centered), and "Høyre" (right).
- These settings correspond to the property values `flex-start`, `center`, and `flex-end`, respectively.
+The `align` property controls the horizontal alignment of the image.
+In Designer, the options are "Venstre" (left), "Midtstilt" (centred), and "Høyre" (right).
+ These settings correspond to the property values `flex-start`, `center`, and `flex-end`.
   In addition, `align` accepts the values `space-between`, `space-around`, and `space-evenly`.
 
 {{<content-version-selector classes="thin-border">}}
@@ -327,10 +329,10 @@ The following is an autogenerated list of the properties available for {{% title
 
 ### Multiple sources based on language
 
-The default source is `nb`, and this source will be used for any language that does not define a separate source for the image.
-  To add a source, list another language code and image source as in the example below.
+The default source is `nb`; any language that does not define a separate image source will use this source.
+  List another language code and image source to add a source, as in the example below.
 
-Available language sources are `en` (English), `nb` (Norwegian bokmål),and `nn` (Norwegian nynorsk).
+Available language sources are `en` (English), `nb` (Norwegian Bokmål), and `nn` (Norwegian Nynorsk).
 
 {{<content-version-selector classes="thin-border">}}
 {{<content-version-container version-label="Code">}}
@@ -363,7 +365,7 @@ Available language sources are `en` (English), `nb` (Norwegian bokmål),and `nn`
 
 The `grid` property controls horizontal alignment based on a 12-column layout.
  Items are allocated fractions of 12 which sets their width relative to the screen width.
-  In the example below, the image component's width will be set to 2/12 of the screen width for all screen sizes.
+  In the example below, we set the image component's width to 2/12 of the screen width for all screen sizes.
 
 {{<content-version-selector classes="thin-border">}}
 {{<content-version-container version-label="Code">}}
@@ -398,6 +400,6 @@ The `grid` property controls horizontal alignment based on a 12-column layout.
 
 ![Grid example screenshot](screenshot-grid-example.png "Example of image taking up 2/12 of the screen width")
 
-`grid` may also be used to place items next to each other.
+You can also use `grid` to place items side by side.
 
 See [Components placed side by side (grid)](/app/development/ux/styling/#components-placed-side-by-side-grid) for details and more examples.
