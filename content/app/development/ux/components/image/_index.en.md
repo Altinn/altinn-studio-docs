@@ -6,6 +6,7 @@ schemaname: Image
 weight: 10
 aliases:
 - /app/development/ux/images/
+- /app/development/ux/components/images
 - /app/guides/design/guidelines/components/picture-component/
 ---
 
