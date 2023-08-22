@@ -59,7 +59,7 @@ We are currently updating Altinn Studio Designer with more configuration options
  We'll update the documentation to reflect the new changes once they are stable.
 {{% /notice %}}
 
-{{<content-version-selector classes="thin-border">}}
+{{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
 <br>
 
@@ -111,7 +111,7 @@ An image placed in `/App/wwwroot` can be referenced in one of two ways:
 1. Using its relative URL: `/<org or username>/<app-name>/image.png` or
 2. Using the image path: `wwwroot/image.png` (will resolve to relative URL before the image is loaded).
 
-{{<content-version-selector classes="thin-border">}}
+{{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
 Using relative URL as the source:
 
@@ -190,7 +190,7 @@ An alternative text will be displayed if the image is unavailable and is used by
  The alt text is stored as a [text resource](/app/development/ux/texts/#add-and-change-texts-in-an-application) defined in `/App/config/texts/resource.<language>.json`.
 
 **Example 1**: Add text resource using the id `kommune-logo.altTextImg`
-{{<content-version-selector classes="thin-border">}}
+{{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
 Click the magnifying glass next to the property field to reveal a dropdown where you can select an existing text resource:
 
@@ -229,7 +229,7 @@ Add a text resource by specifying the text resource id for the property `textRes
 <br>
 
 **Example 2**: Create or edit text resource
-{{<content-version-selector classes="thin-border">}}
+{{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
 Click the `+` sign next to the field to add a new text resource (or the pencil icon to edit if one is already selected).
  You can add/edit texts in English and Norwegian bokmål. Other languages are available from the text editor (click _Tekst_ in the top-level menu).
@@ -282,7 +282,7 @@ In Designer, the options are "Venstre" (left), "Midtstilt" (centred), and "Høyr
  These settings correspond to the property values `flex-start`, `center`, and `flex-end`.
   In addition, `align` accepts the values `space-between`, `space-around`, and `space-evenly`.
 
-{{<content-version-selector classes="thin-border">}}
+{{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
 ![Screenshot of alignment settings](screenshot-alignment-settings.png "Screenshot of alignment settings")
 
@@ -334,7 +334,7 @@ The default source is `nb`; any language that does not define a separate image s
 
 Available language sources are `en` (English), `nb` (Norwegian Bokmål), and `nn` (Norwegian Nynorsk).
 
-{{<content-version-selector classes="thin-border">}}
+{{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Code">}}
 ```json{hl_lines=["10-13"]}
 // File: /App/ui/layouts/<page>.json
@@ -367,7 +367,7 @@ The `grid` property controls horizontal alignment based on a 12-column layout.
  Items are allocated fractions of 12 which sets their width relative to the screen width.
   In the example below, we set the image component's width to 2/12 of the screen width for all screen sizes.
 
-{{<content-version-selector classes="thin-border">}}
+{{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Code">}}
 ```json{hl_lines=["15-17"]}
 // File: /App/ui/layouts/<page>.json

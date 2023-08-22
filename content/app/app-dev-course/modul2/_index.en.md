@@ -361,7 +361,7 @@ In this step, we have added a simple info page with an image and text.
 
 {{% /markdown %}}
 
-{{<content-version-selector classes="thin-border">}}
+{{<content-version-selector classes="border-box">}}
 
 {{<content-version-container version-label="Altinn Studio Designer">}}
 
@@ -518,7 +518,7 @@ We have added a new page to show users who don't meet the service requirements (
 
 {{% /markdown %}}
 
-{{<content-version-selector classes="thin-border">}}
+{{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
 
 {{% notice info %}}
@@ -722,7 +722,7 @@ Below is an example of how the data page may appear with prefilled information.
 
 {{% /markdown %}}
 
-{{<content-version-selector classes="thin-border">}}
+{{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
 
 {{% notice info %}}
