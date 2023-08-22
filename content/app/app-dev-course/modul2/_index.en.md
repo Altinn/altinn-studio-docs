@@ -45,13 +45,13 @@ You can use the following image of the Sogndal Municipality Coat of Arms in the 
 
 ### Tasks
 1. Add a new page. Give it an appropriate name and position it before the form page you created in Module 1.
-2. [Add an image](/app/development/ux/components/images) of the Sogndal Municipality Coat of Arms.
+2. [Add an image](/app/development/ux/components/image) of the Sogndal Municipality Coat of Arms.
 3. Add text according to the [draft](infoside_tilflyttere.pdf).
 
 ### Useful Documentation
 
 - [Text formatting](/app/development/ux/texts/#formatting-of-texts)
-- [Add images to an application](/app/development/ux/components/images/)
+- [Add images to an application](/app/development/ux/components/image/)
 - [Side-by-side components using grid](/app/development/ux/styling/#components-placed-side-by-side-grid)
 - [File structure for multiple pages](/app/development/ux/pages/)
 - [Managing the order of multiple pages](/app/development/ux/pages/navigation/#order)
