@@ -363,7 +363,7 @@ I dette steget har vi lagt til en enkel infoside med bilde og tekst.
 
 {{% /markdown %}}
 
-{{<content-version-selector classes="thin-border">}}
+{{<content-version-selector classes="border-box">}}
 
 {{<content-version-container version-label="Altinn Studio Designer">}}
 
@@ -522,7 +522,7 @@ Vi har lagt til en ny side vi kan sende brukere til dersom de ikke oppfyller kra
 
 {{% /markdown %}}
 
-{{<content-version-selector classes="thin-border">}}
+{{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
 
 {{% notice info %}}
@@ -726,7 +726,7 @@ Under er et eksempel på hvordan datasiden kan se ut med forhåndsutfylt informa
 
 {{% /markdown %}}
 
-{{<content-version-selector classes="thin-border">}}
+{{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
 
 {{% notice info %}}
