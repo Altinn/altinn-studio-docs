@@ -1,0 +1,37 @@
+{{- define "list-descriptions" -}}
+    {{- $property := .property -}}
+    {{- $propName := .propName -}}
+
+    {{- $orderedTitles := slice "$ref" "type" "description" "default" "enum" "examples" "required" "properties" -}}
+
+    <div class="adocs-property-list">
+    {{- range $title := $orderedTitles -}}
+        {{- $description := index $property $title -}}
+        {{- if or ($description) (eq $description false) -}}
+            {{- if eq $title "$ref" -}}
+                {{- template "follow-reference" (dict "ref" $description) -}}
+            {{- else if eq $title "properties" -}}
+                <br>
+                {{/*  <h4>{{- title $title -}}</h4>  */}}
+                {{- template "properties-table" (dict "properties" $description "parentName" $propName) -}}
+            {{- else -}}
+                <strong>{{- title $title -}}: </strong>
+                {{- if eq (printf "%T" $description) "map[string]interface {}" -}}
+                    <ul>
+                        <li>{{- template "list-descriptions" (dict "property" $description "propName" $title) -}}</li>
+                    </ul>
+                {{- else if eq $title "enum" -}}
+                    [{{- delimit $description ", " -}}]
+                {{- else if or (eq $title "examples") (eq $title "required") (eq $title "default") (eq $title "pattern") -}}
+                    {{- template "formatAsCode" $description -}}
+                {{- else if eq (printf "%T" $description) "[]interface {}" -}}
+                    {{- template "formatAsCode" $description -}}
+                {{- else -}}
+                {{- $description -}}
+                {{- end -}}
+                <br>
+            {{- end -}}
+        {{- end -}}
+    {{- end -}}
+    </div>
+{{- end -}}
