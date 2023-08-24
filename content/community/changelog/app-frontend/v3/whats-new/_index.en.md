@@ -1,12 +1,12 @@
 ---
 title: What's new
 description: Overview of changes introduced in v3 of app frontend.
-toc: true
 ---
 
-Changelog for app-frontend can now be [found on Github Releases](https://github.com/Altinn/app-frontend-react/releases).
-
 For a high-level overview of [upcoming changes, you can check out the roadmap](https://github.com/Altinn/altinn-roadmap/issues).
+
+## >3.37.2
+Changelog for app-frontend can now be [found on Github Releases](https://github.com/Altinn/app-frontend-react/releases).
 
 ## 3.37.2 (2022-05-20) - Dependency patching
 Patching of external dependencies for week 20 of 2022.

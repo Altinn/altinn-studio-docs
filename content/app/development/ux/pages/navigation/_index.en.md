@@ -148,13 +148,11 @@ It is possible to trigger validation when the user tries to navigate to a differ
 {
   "id": "7cbc1c00-4c8c-42b6-bcef-12b3c4c45373",
   "type": "NavigationButtons",
-  "componentType": "NavigationButtons",
   "textResourceBindings": {
     "next": "Neste",
     "back": "Tilbake"
   },
   "triggers": ["validatePage"],
-  "dataModelBindings": {},
   "showBackButton": true
 }
 ```

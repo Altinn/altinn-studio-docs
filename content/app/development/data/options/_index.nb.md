@@ -17,9 +17,6 @@ Dette gjøres ved å legge til feltet optionsId som referer til hvilken option (
 {
   "id": "dropdown-komponent",
   "type": "Dropdown",
-  "componentType": 4,
-  "textResourceBindings": {},
-  "dataModelBindings": {},
   "optionsId": "biler"
 }
 ```
