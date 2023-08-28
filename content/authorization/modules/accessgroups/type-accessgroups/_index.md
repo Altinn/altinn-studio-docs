@@ -7,6 +7,7 @@ weight: 100
 
  
 ---
+
 Altinn skal erstatte rollene som gir tilgang til tjenester i Altinn 2 når vi flytter Altinn Autorisasjon til Altinn 3. 
 I stedet for roller vil det i Altinn 3 være ulike tilgangsgrupper som består av tjenester som hører til et ansvarsområde.
 
