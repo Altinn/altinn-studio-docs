@@ -2,7 +2,8 @@
 /* Version control for docs */
 .content-version-selector.border-box .content-version-container {
     border: 1px solid #0062ba;
-    padding:10px;
+    padding:36px 24px;
+    margin-bottom: 48px;
     width: 100%;
 }
 
@@ -18,6 +19,7 @@
     border-bottom: none;
     background-color: #FFFFFF;
     margin-bottom: 0px;
+    margin-top: 24px;
     color: #0062ba
 }
 
@@ -459,4 +461,24 @@ figure {
 
 .adocs-property-table .main-prop:last-child {
     border-bottom: 1.5px solid #BCC7CC;
+}
+
+
+/* Anatomy list (numbered) */
+
+.anatomy-list ol {
+    margin: 12px 0;
+}
+
+.anatomy-list ol li {
+    font-size: 92%;
+    padding-left: 5%;
+    margin-bottom: 6px;
+}
+
+.anatomy-list ol li::before, .anatomy-list li::before {
+    color: #0062BA;
+    border: none;
+    height: fit-content;
+    /* margin-right: 15px; */
 }
