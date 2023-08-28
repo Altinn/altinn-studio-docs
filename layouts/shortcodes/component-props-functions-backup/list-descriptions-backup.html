@@ -21,7 +21,7 @@
             {{- else -}}
                 <strong>{{- title $title -}}: </strong>
                 {{- if eq $title "properties" -}}
-                    {{- template "list-properties" (dict "properties" $description "parentName" $propName) -}}
+                    {{- template "properties-table" (dict "properties" $description "parentName" $propName) -}}
                 {{- else if eq (printf "%T" $description) "map[string]interface {}" -}}
                     <ul>
                         <li>{{- template "list-descriptions" (dict "property" $description "propName" $title) -}}</li>

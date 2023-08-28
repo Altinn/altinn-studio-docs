@@ -24,13 +24,13 @@
         {{- $URL := printf "%s%s%s" $baseURL $componentName $fileExtension -}}
         <a href="{{- $URL -}}">JSON schema</a>
 
+        HELLO TABLE
+
         {{- with $requiredProps -}}
             <p><strong>Required properties: </strong> {{- template "formatAsCode" $requiredProps -}}</p>
         {{- end -}}
-        
-        <br>
 
-        {{- template "list-properties" (dict "properties" $componentProps) -}}
+        {{- template "properties-table" (dict "properties" $componentProps) -}}
     {{- else -}}
         <em>Failed to retrieve JSON schema for '{{- $componentName -}}'. Make sure the component schemaname is spelled correctly.</em>
     {{- end -}}

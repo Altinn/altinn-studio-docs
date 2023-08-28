@@ -38,8 +38,8 @@ $(document).ready(function() {
     });
 
     $('*[class*='+contentVersionSelectorId+']').each(function() {
-        $(this).find('*[class*='+contentVersionContainerId+']:last').css('display', 'block')
-        $(this).find('#'+contentVersionTabsId+' li:last').addClass('active')
+        $(this).find('*[class*='+contentVersionContainerId+']:first').css('display', 'block')
+        $(this).find('#'+contentVersionTabsId+' li:first').addClass('active')
     });
 
     $('#'+contentVersionTabsId+' li').click(function(e) { 

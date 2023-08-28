@@ -51,6 +51,14 @@ Create the section _AppSettings_, if it does not already exist, and set _EnableE
 ```
 {{<content-version-selector classes="border-box">}}
 
+{{<content-version-container version-label="v7">}}
+eFormidling integration is a part of the Altinn.App.Core nuget package, but is not enabled by default. In order to add support for eFormidling in your application you need to register it's services by adding the following to _Program.cs_:
+
+```csharp
+services.AddEFormidlingServices<EFormidlingMetadata, EFormidlingReceivers>(config);
+```
+
+{{</content-version-container>}}
 {{<content-version-container version-label="v4, v5, v6">}}
 ## Adding support for eFormidling in App.cs
 
@@ -121,14 +129,6 @@ eformidlingClient,
 appsettings,
 platformSettings,
 tokenGenerator)
-```
-{{</content-version-container>}}
-
-{{<content-version-container version-label="v7">}}
-eFormidling integration is a part of the Altinn.App.Core nuget package, but is not enabled by default. In order to add support for eFormidling in your application you need to register it's services by adding the following to _Program.cs_:
-
-```csharp
-services.AddEFormidlingServices<EFormidlingMetadata, EFormidlingReceivers>(config);
 ```
 {{</content-version-container>}}
 
@@ -210,7 +210,24 @@ public override async Task<(string, Stream)> GenerateEFormidlingMetadata(Instanc
 This functionally can be used whenever the receiver of a shipment is to be determined dynamically.
 
 {{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="v7">}}
+In version 7 the GetEformidlingReceivers method is moved to the `IEFormidlingReceivers` interface. Create a class that implements this interface and register the implementation in _Program.cs_. Below is a skeleton example for the implementation.
+```csharp
+public async Task<List<Receiver>> GetEFormidlingReceivers(Instance instance)
+{
+    Identifier identifier = new Identifier
+    {
+        Authority = "iso6523-actorid-upis"
+    };
 
+    // 0192 prefix for all Norwegian organisations.
+    identifier.Value = "[INSERT ORGANISATION NUMBER HERE WITH PREFIX `0192:`]" ;
+
+    Receiver receiver = new Receiver { Identifier = identifier };
+    return new List<Receiver> { receiver };
+}
+```
+{{</content-version-container>}}
 {{<content-version-container version-label="v4, v5, v6">}}
 In _App.cs_ it is possible to override the method retrieving the receiver from _applicationmetadata.json_.
 Three steps are required when defining the receiver in the application logic, 
@@ -240,24 +257,6 @@ and all steps are executed in _App.cs_.
 3. Add custom logic to populate _identifier.Value_ in the function.  
    Note that only Norwegian organisations are supported, 
    and that the prefix `0192:` is required before the organisation number.
-{{</content-version-container>}}
-{{<content-version-container version-label="v7">}}
-In version 7 the GetEformidlingReceivers method is moved to the `IEFormidlingReceivers` interface. Create a class that implements this interface and register the implementation in _Program.cs_. Below is a skeleton example for the implementation.
-```csharp
-public async Task<List<Receiver>> GetEFormidlingReceivers(Instance instance)
-{
-    Identifier identifier = new Identifier
-    {
-        Authority = "iso6523-actorid-upis"
-    };
-
-    // 0192 prefix for all Norwegian organisations.
-    identifier.Value = "[INSERT ORGANISATION NUMBER HERE WITH PREFIX `0192:`]" ;
-
-    Receiver receiver = new Receiver { Identifier = identifier };
-    return new List<Receiver> { receiver };
-}
-```
 {{</content-version-container>}}
 
 {{</content-version-selector>}}

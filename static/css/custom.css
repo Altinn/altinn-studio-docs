@@ -1,34 +1,46 @@
 
 /* Version control for docs */
 .content-version-selector.border-box .content-version-container {
-    border: 3px solid #0062ba;
+    border: 1px solid #0062ba;
     padding:10px;
+    width: 100%;
 }
 
-#content-version-tabs {
-    margin-bottom:unset;
+#content-version-tabs li:not(:last-child) {
+    border-right: none;
 }
 
 #content-version-tabs li {
     list-style: none!important;
     display:inline-block;
     padding: 5px 20px;
-    border: 3px solid #0062ba;
-    border-bottom: unset;
+    border: 1px solid #0062ba;
+    border-bottom: none;
+    background-color: #FFFFFF;
     margin-bottom: 0px;
+    color: #0062ba
 }
 
 #content-version-tabs li.active {
-    background-color: #0062ba;
-    color:white;
+    border-color: #00315D;
+    background-color: #B3D0EA;
+    color: #00315D;
+}
+
+#content-version-tabs li.focus {
+    border-color: #0062BA;
+    background-color: #FFFFFF;
+    color: #0062BA;
 }
 
 #content-version-tabs li::before {
     display: none!important;
 }
+
 #content-version-tabs li:hover {
-    background-color: #0062ba;
-    color:white;
+    border-color: #004E95;
+    background-color: #E6EFF8;
+    color: #004E95;
     cursor: pointer;
 }
 
@@ -417,3 +429,34 @@ figure {
     font-size: 16px; }
     .a-st-iconLabel a {
       font-size: 16px; }
+
+/* Component properties list and table */
+
+.adocs-expand .adocs-property-list {
+    font-size: 92%;
+}
+
+.adocs-property-list h3 {
+    border-bottom: 1px solid #BCC7CC;
+    padding: 5px 0;
+}
+
+.adocs-property-list .copy-to-clipboard {
+    display: none;
+}
+
+.adocs-property-table .copy-to-clipboard {
+    display: none;
+}
+
+.adocs-property-table .sub-prop:last-child {
+    border-bottom: 1.5px solid #BCC7CC;
+}
+
+.adocs-property-table .main-prop {
+    border-top: 1.5px solid #BCC7CC;
+}
+
+.adocs-property-table .main-prop:last-child {
+    border-bottom: 1.5px solid #BCC7CC;
+}

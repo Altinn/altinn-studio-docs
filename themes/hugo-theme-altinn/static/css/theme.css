@@ -115,12 +115,11 @@ h2,h3 {
     margin-top: 36px; 
 }
 
-figcaption h4 {
-    font-weight: 300 !important;
+figcaption {
     opacity: .85;
     font-size: 1em;
     text-align: center;
-    margin-top: -1.5em;
+    margin-top: -1em;
 }
 
 .is_stuck{
@@ -1666,10 +1665,6 @@ input[type="search"] {
     .adocs-content {
         padding: 36px 60px;
     }
-}
-
-figcaption {
-    margin-top: 36px;
 }
 
 figure img {
