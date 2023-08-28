@@ -1,0 +1,13 @@
+{{ $_hugo_config := `{ "version": 1 }` }}
+
+{{- with resources.GetRemote "https://raw.githubusercontent.com/Altinn/app-frontend-react/chore/update-component-schemas/schemas/json/component/common-defs.schema.v1.json" -}}
+    {{- $defs :=  index (unmarshal .Content) "$defs" -}}
+    {{- range $title, $def := $defs -}}
+
+    <div class="adocs-property-list">
+    <h2>{{- $title -}}</h2>
+        <a name="#{{$title}}"></a>
+        {{- template "list-descriptions" (dict "property" $def "propName" $title) -}}
+    </div>
+	{{- end -}}
+{{- end -}}

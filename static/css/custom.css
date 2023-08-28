@@ -1,5 +1,4 @@
 
-
 /* Version control for docs */
 .content-version-selector.border-box .content-version-container {
     border: 1px solid #0062ba;
@@ -431,21 +430,33 @@ figure {
     .a-st-iconLabel a {
       font-size: 16px; }
 
-/* Component properties list */
-.adocs-property-list {
-    font-size: 92%;
-}
+/* Component properties list and table */
 
-.adocs-property-list ul {
+.adocs-expand .adocs-property-list {
     font-size: 92%;
 }
 
 .adocs-property-list h3 {
     border-bottom: 1px solid #BCC7CC;
     padding: 5px 0;
-    
 }
 
 .adocs-property-list .copy-to-clipboard {
     display: none;
+}
+
+.adocs-property-table .copy-to-clipboard {
+    display: none;
+}
+
+.adocs-property-table .sub-prop:last-child {
+    border-bottom: 1.5px solid #BCC7CC;
+}
+
+.adocs-property-table .main-prop {
+    border-top: 1.5px solid #BCC7CC;
+}
+
+.adocs-property-table .main-prop:last-child {
+    border-bottom: 1.5px solid #BCC7CC;
 }

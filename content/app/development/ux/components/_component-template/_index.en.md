@@ -2,9 +2,13 @@
 title: Component Template
 linktitle: Component
 description: Brief description of what the component does
-schemaname: Checkboxes # Component schema name used to autogenerate list of properies from json schema
+schemaname: Image # Component schema name used to autogenerate list of properies from json schema
 hidden: true # Remove when creating new component page from template
 weight: 10
+---
+
+{{% component-props %}}
+
 ---
 
 **For an example, see [CheckboxExample](../_checkboxexample/).** 
