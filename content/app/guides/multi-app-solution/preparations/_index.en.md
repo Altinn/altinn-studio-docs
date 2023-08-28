@@ -1,8 +1,9 @@
 ---
 title: Preparations before making a multi-app solution in Altinn
-linktitle: Multi-app solution preparations
+linktitle: Preparations
 description: What preparations that should be done before creating a multi-app solution
 weight: 10
+toc: true
 aliases:
 
 - /app/multi-app-solution/preparations/

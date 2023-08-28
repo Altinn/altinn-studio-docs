@@ -1,6 +1,6 @@
 ---
 title: Instructions for making a multi-app solution in Altinn
-linktitle: Multi-app solution instructions
+linktitle: Instructions
 description: Explanations of how to go about when creating a general multi-app solution
 weight: 20
 aliases:
@@ -8,8 +8,6 @@ aliases:
 - /app/multi-app-solution/instructions/
 
 ---
-
-{{<children description="true" />}}
 
 ## General Modifications
 
@@ -21,3 +19,5 @@ do in the process of developing these applications.
 2. If adding any values as prefill for the new instance of
    the receiving application, remember to add them to the
    data model of the receiving application
+
+{{<children description="true" order="Trigger Application, Receiver Application"/>}}

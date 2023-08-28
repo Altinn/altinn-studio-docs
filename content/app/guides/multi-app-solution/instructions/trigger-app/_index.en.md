@@ -1,8 +1,8 @@
 ---
 title: Trigger Application
-linktitle: Multi-app solution instructions
+linktitle: Trigger Application
 description: Instructions for setting up the trigger application
-weight: 20
+weight: 10
 toc: true
 aliases:
 
@@ -27,20 +27,6 @@ integration there are three things that needs to be done;
    application. Remember to adapt the section
    name `MaskinportenSettings` to the name you chose for the
    secrets in Azure keyvault.
-
-```json
-{
-  "MaskinportenSettings": {
-    "Environment": "ver2",
-    "ClientId": "",
-    "Scope": "altinn:serviceowner/instances.read",
-    "EncodedJwk": "",
-    "ExhangeToAltinnToken": true,
-    "EnableDebugLog": true
-  }
-}
-```
-
 3. Modify the `program.cs` file for the same application to
    connect to Azure keyvault. Continue reading for a
    detailed explanation.
@@ -129,9 +115,9 @@ task is finished, i.e. use the `ProcessTaskEnd.End()`
 function. This is necessary since the user can go back
 to the data task and do changes.
 
-{{% panel theme="warning" %}}
-Using this task type requires nuget version 8, assuming that you wish to allow the user to go back to the data task.
-{{% /panel %}}
+{{% notice warning %}}
+Using this task type requires nuget version 8, assuming that you wish to allow the user to go back to the data task. 
+{{% /notice %}}
 
 ### Feedback Task Type
 
@@ -244,44 +230,41 @@ are several ways of doing this.
    e.g. `InsertBinaryData`, should be used to insert the
    data.
    See example code below of both below:
-
-```csharp
-DataElement pdf = updatedInstance.Data.FindLast(d => d.DataType == "ref-data-as-pdf");
-var stream = await _dataClient.GetBinaryData(instance.Org, instance.AppId,int.Parse(instance.InstanceOwner.PartyId), instanceGuid, Guid.Parse(pdf.Id));
-
-```
-
-```csharp
-public async Task<DataElement> InsertBinaryData(string org, string app, string instanceId, string dataType, string contentType, string filename, Stream stream)
-{
-   string apiUrl = $"{org}/{app}/instances/{instanceId}/data?dataType=vedlegg";
-
-   DataElement dataElement;
-
-   StreamContent content = new(stream);
-   content.Headers.ContentType = MediaTypeHeaderValue.Parse(contentType);
-   if (!string.IsNullOrEmpty(filename))
+   ```csharp
+   DataElement pdf = updatedInstance.Data.FindLast(d => d.DataType == "ref-data-as-pdf");
+   var stream = await _dataClient.GetBinaryData(instance.Org, instance.AppId,int.Parse(instance.InstanceOwner.PartyId), instanceGuid, Guid.Parse(pdf.Id));
+   
+   ```
+   ```csharp
+   public async Task<DataElement> InsertBinaryData(string org, string app, string instanceId, string dataType, string contentType, string filename, Stream stream)
    {
-       content.Headers.ContentDisposition = new ContentDispositionHeaderValue(DispositionTypeNames.Attachment)
-       {
-           FileName = filename,
-           FileNameStar = filename
-       };
+      string apiUrl = $"{org}/{app}/instances/{instanceId}/data?dataType=vedlegg";
+   
+      DataElement dataElement;
+   
+      StreamContent content = new(stream);
+      content.Headers.ContentType = MediaTypeHeaderValue.Parse(contentType);
+      if (!string.IsNullOrEmpty(filename))
+      {
+          content.Headers.ContentDisposition = new ContentDispositionHeaderValue(DispositionTypeNames.Attachment)
+          {
+              FileName = filename,
+              FileNameStar = filename
+          };
+      }
+   
+      HttpResponseMessage response = await _client.PostAsync(apiUrl, content);
+   
+      if (response.IsSuccessStatusCode)
+      {
+          string instancedata = await response.Content.ReadAsStringAsync();
+          dataElement = JsonConvert.DeserializeObject<DataElement>(instancedata);
+   
+          return dataElement;
+      }
+      throw await PlatformHttpException.CreateAsync(response);
    }
-
-   HttpResponseMessage response = await _client.PostAsync(apiUrl, content);
-
-   if (response.IsSuccessStatusCode)
-   {
-       string instancedata = await response.Content.ReadAsStringAsync();
-       dataElement = JsonConvert.DeserializeObject<DataElement>(instancedata);
-
-       return dataElement;
-   }
-   throw await PlatformHttpException.CreateAsync(response);
-}
-```
-
+   ```
 4. Data can also be added to the application
    using [DataProcessors](../../../../development/logic/dataprocessing)
    .

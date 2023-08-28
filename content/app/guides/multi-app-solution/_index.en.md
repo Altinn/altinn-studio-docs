@@ -45,8 +45,7 @@ multi-app solution:
 ### Alternative solution using eFormidling
 
 It might be that the solution you are looking for is a form,
-or multiple forms, that is set up to interact with _
-eFormidling_, which is another service offered by
+or multiple forms, that is set up to interact with _eFormidling_, which is another service offered by
 Digitaliseringsdiriktoratet. Read more about
 eFormidling [here](../../development/configuration/eformidling)
 . A solution that is integrated with eFormidling can

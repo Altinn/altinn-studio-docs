@@ -1,6 +1,6 @@
 ---
 title: Receiver Application
-linktitle: Multi-app solution instructions
+linktitle: Receiver Application
 description: Instructions for setting up the receiver application
 weight: 20
 aliases:
