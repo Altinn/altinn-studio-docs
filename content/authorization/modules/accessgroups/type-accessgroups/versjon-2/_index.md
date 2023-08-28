@@ -83,17 +83,17 @@ Tilbakemelding kan du sende på e-post til servicedesk@altinn.no innen 15.10.202
 8. [Bygg, anlegg og eiendom](/authorization/modules/accessgroups/type-accessgroups/versjon-2/_bygg/)
 9. [Transport og lagring](/authorization/modules/accessgroups/type-accessgroups/versjon-2/_transport/)
 10. [Helse, pleie, omsorg og vern](/authorization/modules/accessgroups/type-accessgroups/versjon-2/_helse/)
-11. [Oppvekst og utdanning]()
-12. [Energi, vann, avløp og avfall]()
-13. [Industrier]()
-14. [Kultur og frivillighet]()
-15. [Handel, overnatting og servering]()
-16. [Andre tjenesteytende næringer]()
+11. [Oppvekst og utdanning](/authorization/modules/accessgroups/type-accessgroups/versjon-2/_oppvekst/)
+12. [Energi, vann, avløp og avfall](/authorization/modules/accessgroups/type-accessgroups/versjon-2/_energi/)
+13. [Industrier](/authorization/modules/accessgroups/type-accessgroups/versjon-2/_industrier/)
+14. [Kultur og frivillighet](/authorization/modules/accessgroups/type-accessgroups/versjon-2/_kultur/)
+15. [Handel, overnatting og servering](/authorization/modules/accessgroups/type-accessgroups/versjon-2/_handel/)
+16. [Andre tjenesteytende næringer](/authorization/modules/accessgroups/type-accessgroups/versjon-2/_tjenesteytende/)
 
 ### Andre spesialiserte fullmaktsgrupper
-17. [Tilgangsgrupper for regnskapsførere]()
-18. [Tilgangsgrupper for revisor]()
-19. [Tilgangsgrupper for konkursbo]()
+17. [Tilgangsgrupper for regnskapsførere](/authorization/modules/accessgroups/type-accessgroups/versjon-2/_regnskapsførere/)
+18. [Tilgangsgrupper for revisor](/authorization/modules/accessgroups/type-accessgroups/versjon-2/_revisor/)
+19. [Tilgangsgrupper for konkursbo](/authorization/modules/accessgroups/type-accessgroups/versjon-2/_konkursbo/)
 
 *Siden er under arbeid*
 
