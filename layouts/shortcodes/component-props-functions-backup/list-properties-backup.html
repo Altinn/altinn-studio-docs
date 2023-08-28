@@ -1,0 +1,31 @@
+{{- define "properties-table" -}}
+    {{- $properties := .properties -}}
+    {{- $parentName := .parentName -}}
+
+    {{- $orderedPropertyNames := slice "id" "type" "dataModelBindings" "textResourceBindings" "required" "readOnly" "options" "optionsId" "preselectedOptionsIndex" -}}
+
+    {{- range $propertyName, $property := $properties -}}
+        {{- $orderedPropertyNames = $orderedPropertyNames | append $propertyName | uniq -}}
+    {{- end -}}
+
+    {{- range $propName := $orderedPropertyNames -}}
+        {{- $property := index $properties $propName -}}
+        <div class="adocs-property-list">
+            {{- with $property -}}
+                {{- if $parentName -}}
+                    <ul>
+                        <li>
+                            <code>{{- $propName -}}</code>
+                            <ul>
+                                {{- template "list-descriptions" (dict "property" $property "propName" $propName) -}}
+                            </ul>
+                        </li>
+                    </ul>
+                {{- else -}}
+                        <h3><code>{{- $propName -}}</code></h3>
+                        {{- template "list-descriptions" (dict "property" $property "propName" $propName) -}}
+                {{- end -}}
+            {{- end -}}
+        </div>
+    {{- end -}}
+{{- end -}}
