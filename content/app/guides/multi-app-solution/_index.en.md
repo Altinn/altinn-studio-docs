@@ -48,11 +48,11 @@ It might be that the solution you are looking for is a form,
 or multiple forms, that is set up to interact with _
 eFormidling_, which is another service offered by
 Digitaliseringsdiriktoratet. Read more about
-eFormidling [here](../../development/configuration/eformidling/_index.en.md)
+eFormidling [here](../../development/configuration/eformidling)
 . A solution that is integrated with eFormidling can
 implement custom code on process-changes by using the
 predefined methods i app-backend. Read more about
-that [here](../../development/configuration/process/_index.en.md)
+that [here](../../development/configuration/process)
 . This custom code can build up a
 message, with some form-specific content, that can be sent
 to some public institution, instead of using

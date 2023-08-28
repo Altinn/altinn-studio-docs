@@ -50,7 +50,7 @@ secrets between machines.
 When access to creating secrets in Azure Key vault is
 confirmed, please proceed to create the integration;
 navigate to
-the [Maskinporten Setup guide](../../../../../technology/solutions/cli/configuration/maskinporten-setup)
+the [Maskinporten Setup guide](../../../../technology/solutions/cli/configuration/maskinporten-setup)
 .
 
 ## Key Vault Usage

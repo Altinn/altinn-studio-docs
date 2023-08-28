@@ -18,10 +18,10 @@ integration there are three things that needs to be done;
 1. For the application to be able to read the secrets from
    Azure keyvault the application need to be configured to
    do so. See
-   the [secrets section](../../../../development/configuration/secrets/_index.en.md)
+   the [secrets section](../../../../development/configuration/secrets)
    to achieve this.
 2. Add the appsettings section example
-   from [Key Vault Usage](../../preparations/_index.en.md#key-vault-usage) into
+   from [Key Vault Usage](../../preparations#key-vault-usage) into
    the `appsettings.json` file in the application that
    should perform the instantiation of the receiving
    application. Remember to adapt the section
@@ -106,7 +106,7 @@ field with the name `ref-data-as-pdf`. This data element can
 be retrieved from the `instance` object in the custom code
 that can be added on predefined functions in app-backend.
 Read more about how this custom code is
-added [here](../../../../development/configuration/process/pre-post-hooks/_index.en.md)
+added [here](../../../../development/configuration/process/pre-post-hooks)
 .
 
 However, if you wish the retrieve the pdf data element, your
@@ -130,10 +130,7 @@ function. This is necessary since the user can go back
 to the data task and do changes.
 
 {{% panel theme="warning" %}}
-TODO: Ask Vemund if this require v8 or only recommended. And
-if not using v8 keep in mind that accumulated pdfs must be
-deleted and action buttons are not implemented so go-to-task
-must be used even though not recommended??
+Using this task type requires nuget version 8, assuming that you wish to allow the user to go back to the data task.
 {{% /panel %}}
 
 ### Feedback Task Type
