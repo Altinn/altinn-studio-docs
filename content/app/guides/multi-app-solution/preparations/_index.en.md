@@ -33,8 +33,6 @@ application. In order to achieve this we need to;
 3. Set up the application to use Azure Keyvault and the
    client to use Maskinporten
 
-// TODO: ASK RUNE WHAT NEEDED TO BE DONE IN THE AUTH PART
-
 ## Maskinporten Integration
 
 Before going forward on this step, make sure you have access
@@ -91,3 +89,7 @@ _NB: The secrets is read by the application on start up so
 if
 changing the secrets after the application is deployed, you
 will need to redeploy the application._
+
+## Adapt application to use Maskinporten Integration
+[See the instructions for the trigger application for this part](../instructions/trigger-app). 
+

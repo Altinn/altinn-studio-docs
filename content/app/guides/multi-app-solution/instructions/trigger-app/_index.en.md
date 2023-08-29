@@ -132,9 +132,6 @@ end the original request sent from the trigger application
 while the trigger application is waiting for the same
 request to complete, which will cause a conflict.
 
-TODO: Is it necessary with multiple steps if pdf of form is
-not sent to receiver app?
-
 ### Update `process.bpmn` and `policy.xml` accordingly
 
 Remember to update the process.bpmn file to match the the
@@ -143,6 +140,8 @@ the _confirm_ task type.
 
 Policy.xml also needs updates so read and write operations
 can be done on the new task.
+
+See [XACML policy](../../../../../authorization/guide/xacml) and [policy editor](../../../../development/configuration/authorization) for details. Most apps allow this by default by the current template.
 
 ## Trigger the instantiation of the receiving app
 
