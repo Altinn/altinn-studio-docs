@@ -2,8 +2,8 @@
 /* Version control for docs */
 .content-version-selector.border-box .content-version-container {
     border: 1px solid #0062ba;
-    padding:36px 24px;
-    margin-bottom: 48px;
+    padding:24px;
+    margin-bottom: 36px;
     width: 100%;
 }
 
