@@ -162,7 +162,7 @@ The Grid component is configured like any other, but it requires a configuration
 ``` 
 
 Each cell should either be an object with a `text` property (for text cells), an object with a `component` property
-(referencing other components), or `null` (for an empty cell). Each row must have the same amount of cell objects as
+(referencing other components), an object with a `labelFrom` property (referencing other components) or `null` (for an empty cell). Each row must have the same amount of cell objects as
 every other row.
 
 ### Rows
@@ -203,15 +203,20 @@ In other words, rows that only have text cells will never be hidden, and even if
 will not be taken into account when the Grid component decides whether to hide the row or not.
 
 ### Cells
-Cells can be configured to be either a text cell or a component cell. To configure a cell as a text cell, add a `text`
+Cells can be configured to be either as either text cell or a component cell. To configure a cell as a text cell, add a `text`
 property to the cell and set it to the text you want to display. You can also specify a text resource key as the text
-to display in the cell. To configure a cell as a component cell, add a `component` property to the cell and set it to
+to display in the cell. Additionally, it is possible to include a `help` property along with the `text` property to provide help text for the cell. Alternatively, you can retrieve the text content
+from a component's textresources by using `labelFrom` property with the id of the component. By specifying a `labelFrom` you can retrieve text resources such as `title`, `description`, and `help`.  
+To configure a cell as a component cell, add a `component` property to the cell and set it to
 the id of the component you want to display in the cell.
 
-```json {hl_lines=[5]}
+```json
 {
   "cells": [
-    { "text": "Cell 1" },
+    { "text": "Text content in cell 1" },
+    { "text": "text.resource.key" },
+    { "text": "Text content in cell 3", "help": "Help text for cell 3" },
+    { "labelFrom": "myComponent" },
     { "component": "myComponent" }
   ]
 }

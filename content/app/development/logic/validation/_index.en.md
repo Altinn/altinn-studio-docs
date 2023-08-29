@@ -174,13 +174,6 @@ Validations are written i C# and dependening on the version of the application t
 
 {{<content-version-selector classes="border-box">}}
 
-{{<content-version-container version-label="v4, v5, v6">}}
-Validations should be added to the `ValidationHandler.cs`-file in the application template.
-The file can be accessed and edited in Altinn Studio through the logic menu, by selecting _Rediger valideringer_,
-or directly in the application repo where the file is under the `logic/Validation`-folder.
-
-{{</content-version-container>}}
-
 {{<content-version-container version-label="v7">}}
 In version 7 the way to do custom code instantiation has changed. We now use an dependency injection based approach insted of overriding methods. If you previously used to place your custom code in the _ValidateData_ and _ValidateTask_ methods in the _ValidationHandler.cs_ class you will see that it's mostly the same.
 
@@ -190,7 +183,14 @@ In version 7 the way to do custom code instantiation has changed. We now use an 
     ```C#
     services.AddTransient<IInstanceValidator, InstanceValidator>();
     ```
-    This ensuers your custom code is known to the application and that it will be executed.    
+    This ensures your custom code is known to the application and that it will be executed.    
+
+{{</content-version-container>}}
+
+{{<content-version-container version-label="v4, v5, v6">}}
+Validations should be added to the `ValidationHandler.cs`-file in the application template.
+The file can be accessed and edited in Altinn Studio through the logic menu, by selecting _Rediger valideringer_,
+or directly in the application repo where the file is under the `logic/Validation`-folder.
 
 {{</content-version-container>}}
 

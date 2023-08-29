@@ -1,0 +1,43 @@
+{{- define "list-descriptions" -}}
+    {{- $property := .property -}}
+    {{- $propName := .propName -}}
+
+    {{- $orderedTitles := slice "$ref" "type" "title" "description" "default" -}}
+    {{- $titlesLast := slice "examples" "additionalProperties" "required" "properties" -}}
+
+    {{- range $title, $description := $property -}}
+        {{- if not (in $titlesLast $title) -}}
+            {{- $orderedTitles = $orderedTitles | append $title | uniq -}}
+        {{- end -}}
+    {{- end -}}
+        
+    {{- $orderedTitles = $orderedTitles | append $titlesLast -}}
+
+    {{- range $title := $orderedTitles -}}
+        {{- $description := index $property $title -}}
+        {{- if or ($description) (eq $description false) -}}
+            {{- if eq $title "$ref" -}}
+                {{- template "follow-reference" (dict "ref" $description) -}}
+            {{- else -}}
+                <strong>{{- title $title -}}: </strong>
+                {{- if eq $title "properties" -}}
+                    {{- template "properties-table" (dict "properties" $description "parentName" $propName) -}}
+                {{- else if eq (printf "%T" $description) "map[string]interface {}" -}}
+                    <ul>
+                        <li>{{- template "list-descriptions" (dict "property" $description "propName" $title) -}}</li>
+                    </ul>
+                {{- else if eq $title "enum" -}}
+                    [{{- delimit $description ", " -}}]<br>
+                {{- else if or (eq $title "oneOf") (eq $title "allOf") (eq $title "anyOf") -}}
+                    {{- template "formatAnyAllOneOf" $description -}}
+                {{- else if or (eq $title "examples") (eq $title "required") (eq $title "default") (eq $title "pattern") -}}
+                    {{- template "formatAsCode" $description -}}<br>
+                {{- else if eq (printf "%T" $description) "[]interface {}" -}}
+                    {{- template "formatAsCode" $description -}}<br>
+                {{- else -}}
+                    {{- $description -}}<br>
+                {{- end -}}
+            {{- end -}}
+        {{- end -}}
+    {{- end -}}
+{{- end -}}

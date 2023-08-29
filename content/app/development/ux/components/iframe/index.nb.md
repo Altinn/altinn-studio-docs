@@ -2,7 +2,6 @@
 title: IFrame
 description: IFrame-komponenten kan brukes til å rendre din egen HTML og CSS i en Altinn-app.
 toc: false
-weight: 10
 ---
 
 ## På denne siden

@@ -6,6 +6,7 @@ weight: 20
 aliases: 
 - /design/
 - /design/designsystem/
+- /nb/app/design/
 ---
 
 Før du begynner utviklingen av tjenesten/applikasjonen din, anbefaler vi å gjennomføre en innsiktsfase, 

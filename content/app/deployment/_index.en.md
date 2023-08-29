@@ -20,7 +20,7 @@ This routine just needs to be followed once. When the cluster is set up, the sol
 
 ## Deployment of app
 
-Deploy of an application to production is done in [the same way as for test environments](/app/guides/testing/deploy).
+Deploy of an application to production is done in [the same way as for test environments](/app/testing/deploy).
 
 ## Order "About form"-page on altinn.no
 

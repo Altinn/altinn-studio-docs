@@ -1,0 +1,18 @@
+{{- $_hugo_config := `{ "version": 1 }` -}}
+
+<div class="expand" style="padding:20px; background-color: #fafafa">
+    <div class="expand-label" style="cursor: pointer;"
+        onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fa fa-chevron-down' : 'fa fa-chevron-right';});});">
+        <i style="font-size:small;" class="fa fa-chevron-right"></i>
+        <span>
+            {{- with .Get 0 -}}
+                <strong>{{- . | markdownify -}}</strong>
+            {{- else -}}
+            <strong>Expand me...</strong>
+            {{- end -}}
+        </span>
+    </div>
+    <div class="expand-content" style="display: none">
+        {{- .Inner | markdownify -}}
+    </div>
+</div>

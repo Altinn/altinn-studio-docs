@@ -162,7 +162,7 @@ Grid-komponenten konfigureres som alle andre, men krever en konfigurasjon for ra
 ```
 
 Hver celle må være enten et objekt med en `text`-egenskap (for tekstceller), et objekt med en `component`-egenskap
-(refererer til andre komponenter), eller `null` (for en tom celle). Hver rad må ha samme antall celler som alle andre
+(refererer til andre komponenter), et objekt med en `labelFrom`-egenskap (tekstcelle som refererer til andre komponenter) eller `null` (for en tom celle). Hver rad må ha samme antall celler som alle andre
 rader.
 
 ### Rader
@@ -206,19 +206,25 @@ cellene regnet med når Grid-komponenten skal velge om raden skal skjules eller 
 ### Celler
 Celler kan konfigureres til å vise tekst eller en annen komponent. For å konfigurere en celle som viser tekst,
 legg til en `text`-egenskap til cellen og sett den til teksten du vil vise. Du kan også angi en tekstressursnøkkel
-som teksten som skal vises i cellen. For å konfigurere en celle som viser en annen komponent, legg til en
+som teksten som skal vises i cellen. I tillegg er det mulig å inkludere `help`-egenskap som vil vise en hjelpetekst i tekstcellen.
+Alternativt kan du hente teksten fra en komponents tekstressurser ved å bruke `labelFrom`-egenskapen istedenfor `text`. Kan hente tekstressurser
+som `title`, `description` og `help`.  
+For å konfigurere en celle som viser en annen komponent, legg til en
 `component`-egenskap til cellen og sett den til id-en til komponenten du vil vise i cellen.
 
-```json {hl_lines=[5]}
+```json
 {
   "cells": [
-    { "text": "Celle 1" },
+    { "text": "Tekst i celle 1" },
+    { "text": "tekstressurs.nokkel.celle2" },
+    { "text": "Tekst in celle 3", "help": "Hjelpetekst i celle 3" },
+    { "labelFrom": "minKomponent" },
     { "component": "minKomponent" }
   ]
 }
 ```
 
-I konfigurasjonen over er det en forutsetning at `myComponent` er en komponent som er konfigurert et annet sted i
+I konfigurasjonen over er det en forutsetning at `minKomponent` er en komponent som er konfigurert et annet sted i
 layout-konfigurasjonen. Foreløpig er det støtte for følgende komponenter i Grid-komponenten:
 
 - Button

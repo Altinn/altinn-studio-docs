@@ -56,10 +56,6 @@ This is can be configured in two different ways:
 Depending on the version you are using, the programmatic method is set up differently, but the logic is the same. See below how to set this up for the version you are on:
 {{<content-version-selector classes="border-box">}}
 
-{{<content-version-container version-label="v4, v5, v6">}}
-Modify the `PdfHandler.cs` file under `App/logic/Print`.
-{{</content-version-container>}}
-
 {{<content-version-container version-label="v7">}}
 
 1. Create a class that implements the `IPdfFormatter` interface found in the `Altinn.App.Core.Features.Pdf` namespace.  
@@ -70,6 +66,11 @@ Modify the `PdfHandler.cs` file under `App/logic/Print`.
     ```
     This ensures your custom code is known to the application and that it will be executed.
 {{</content-version-container>}}
+
+{{<content-version-container version-label="v4, v5, v6">}}
+Modify the `PdfHandler.cs` file under `App/logic/Print`.
+{{</content-version-container>}}
+
 {{</content-version-selector>}}
 
 {{% expandlarge id="exclude-page" header="Excluding pages" %}}

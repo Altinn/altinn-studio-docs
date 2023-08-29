@@ -12,12 +12,23 @@ brukt i forbindelse med dynamikk eller beregninger i skjema, men som ikke er en 
 Ved å ta i bruk funksjonalitet for hjelpefelt kan man lagre all slike data sammen med øvrig skjemadata underveis, for å
 så fjerne unødvendig data før det hentes ut til f.eks. fagsystem eller lignende.
 
+{{% notice info %}}
+For å kunne ta i bruk hjelpefelter-funksjonalitet må appen bruke version 7.9.0 eller nyere av pakkene Altinn.App.Api
+og Altinn.App.Core.
+{{% /notice %}}
+
 ## Konfigurasjon
 
 ### I datamodellen
 
 Hjelpefelter settes opp på samme måte som øvrige skjemafelter i datamodellen, men med et _prefiks_ som man selv velger.
 Det vil si at dersom man velger f.eks. `HF_` som prefiks, så vil et hjelpefelt i datamodellen kunne hete `HF_mittHjelpefelt`.
+
+Dette gjøres ved å endre feltnavn i [datamodellerings-verktøyet](../../data/data-modeling/). Pass på å trykke "Generer modeller" etter endringene
+for å få med oppdateringer i C#-modellen og ev. XSD.
+
+_OBS! Om man endrer på feltnavn i datamodell som allerede er i bruk i skjema, må man inn i den aktuelle skjema-komponenten
+og oppdatere til nytt feltnavn, da dette ikke gjøres automatisk._
 
 ### Fjerne hjelpefeltdata direkte fra skjemadata
 

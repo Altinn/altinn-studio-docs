@@ -3,6 +3,7 @@ title: Forslag nye tilgangsgupper i 3.0
 linktitle: Tilgangsgrupper 3.0
 description: Her finner du forslag til nye tilgangsgrupper for virksomheter. 
 toc: false
+weight: 100
 
  
 ---
@@ -49,6 +50,8 @@ Du kan knytte en tjeneste til flere maler hvis du mener det er riktig.
 I forbindelse med innføring av nye tilgangsgrupper så foreslår vi å avvikle følgende 2 generelle roller:  
 - Utfyller/innsender 
 - Begrenset signeringsrett 
+
+Øvrige Altinn 2 roller vil erstattes av en eller flere tilgangsgrupper som kan benyttes som erstatning. 
 
 ### Informasjon om tilgang til digital post kommer senere
 Akkurat nå er det uklart om vi skal styre tilgangen til digital post på samme måte når vi går fra Altinn 2 til Altinn 3. Derfor har vi ikke foreslått nye maler for å motta digital post i denne versjonen.
@@ -142,7 +145,7 @@ Denne tilgangsgruppen har disse tilgangsgruppene på nivå 3.
 - *Attester (tilsvarende som i Altinn skjemakatalog)
 - *Dokumentbasert tilsyn (tilsvarende som i Altinn skjemakatalog)
 - *Infrastruktur (tilsvarende som i Altinn skjemakatalog)
-- *Patent og varmerke (tilsvarende som i Altinn skjemakatalog)
+- *Patent, varmerke og design (tilsvarende som i Altinn skjemakatalog)
 - *Tilskudd, støtte og erstatning (tilsvarende som i Altinn skjemakatalog)
 - *Mine sider hos kommunen
 
@@ -320,3 +323,4 @@ Denne tilgangsgruppen har disse tilgangsgruppene på nivå 3.
 - *Konkursbo skrivetilgang
 
 Disse tilgangsgruppen er videreføring av tilsvarende roller som finnes i dag for konkursbo
+

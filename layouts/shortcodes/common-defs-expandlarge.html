@@ -1,0 +1,33 @@
+{{ $_hugo_config := `{ "version": 1 }` }}
+
+{{- with resources.GetRemote "https://raw.githubusercontent.com/Altinn/app-frontend-react/chore/update-component-schemas/schemas/json/component/common-defs.schema.v1.json" -}}
+    {{- $defs :=  index (unmarshal .Content) "$defs" -}}
+    {{- range $title, $def := $defs -}}
+		<div class="card adocs-expand" id="{{with $title}}{{.}}{{else}}expand-default{{end}}">
+			<div>
+				<a
+					data-toggle="collapse"
+					href="#expandable-{{with $title}}{{.}}{{else}}expand-default{{end}}"
+					role="tab"
+					aria-expanded="false"
+					class="a-collapse-title no-decoration collapsed a-h3"
+				>
+					<span class="a-dropdownCircleArrow">
+					<i class="ai ai-expand ai-sm"><span class="sr-only">Vis/skjul innhold</span></i>
+					</span>
+					{{with $title}}
+						{{$title}}
+					{{else}}
+						expand-default
+					{{end}}
+				</a>
+			</div>
+			<div id="expandable-{{with $title}}{{.}}{{else}}expand-default{{end}}" class="a-collapseContent collapse" role="tabpanel">
+				<div class="a-collapseContent-inside">
+					<a name="#{{$title}}"></a>
+					{{- template "list-descriptions" (dict "property" $def "propName" $title) -}}
+				</div>
+			</div>
+		</div>
+	{{- end -}}
+{{- end -}}

@@ -2,7 +2,6 @@
 title: Likert
 description: Likert-komponenten lar brukeren svare på spørsmål ved å velge et av flere alternativer ved hjelp av radioknapper.
 toc: false
-weight: 40
 ---
 
 {{%notice warning%}}

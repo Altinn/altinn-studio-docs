@@ -65,8 +65,3 @@ Example text resource connected:
 
 In the example above we have two parameters in the text which is referencing fields in the group.
 We also recognize the `[{0}]` syntax in the `key` prop which enables the usage of this label for each index in the group.
-
-{{%notice warning%}}
-Description and HelpText is not yet compatible with options from repeating groups as `source` does not yet support
-adding HelpText and Description.
-{{% /notice%}}

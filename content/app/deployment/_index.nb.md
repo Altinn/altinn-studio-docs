@@ -18,7 +18,7 @@ Denne rutinen trenger bare å følges en gang. Når clusteret er satt opp, er l�
 
 ## Produksjonssette en app
 
-Produksjonssetting av applikasjonen gjøres på [samme måte som for testmiljøer](/nb/app/guides/testing/deploy).
+Produksjonssetting av applikasjonen gjøres på [samme måte som for testmiljøer](/nb/app/testing/deploy).
 
 ## Databehandleravtale for behandling av personopplysninger i Altinn
 

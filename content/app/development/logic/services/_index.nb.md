@@ -11,60 +11,12 @@ Tjenesten for personoppslag kan brukes til å verifisere et personnummer og til 
 
 De returnete persondataene kan brukes til å fylle ut andre felter i datamodellen.
 
+{{% notice warning %}} 
+Bruken av denne tjenesten krever autentiseringsnivå 2 eller høyere.^
+Applikasjoner som bruker denne tjenesten må derfor kreve minimum nivå 2 eller høyere. 
+{{% /notice %}}
+
 {{<content-version-selector classes="border-box">}}
-{{<content-version-container version-label="v4, v5, v6">}}
-### Personoppslag eksempel
-Tjenesten kan benyttes fra alle "handlers" i logikk klassene i en app. Nedenfor har vi laget et eksempel som gjør oppslag i `ProcessDataWrite` metoden i `DataProcessingHandler`.
-
-```C#
-public async Task<bool> ProcessDataWrite(
-    Instance instance, Guid? dataId, object data)
-{
-    if (data is MessageV1 message)
-    {
-        Person person = await _personLookup.GetPerson(
-            message.Personnummer, 
-            message.Etternavn, 
-            CancellationToken.None);
-
-        message.Fornavn = person.FirstName;
-        return true;
-    }
-
-    return false;
-}
-```
-
-For at dette skal fungere må vi gjøre et par andre endringer i `DataProcessingHandler`. 
-
-Legg til et privat felt `_personLookup` for tjenesten og oppdater klassens konstruktør til å ta inn en instanse av tjenesten som input. Set det private feltet i konstruktøren.
-
-```C#
-private readonly IPersonLookup _personLookup;
-
-public DataProcessingHandler(IPersonLookup personLookup)
-{
-    _personLookup = personLookup;
-}
-```
-
-Endringene i `DataProcessingHandler` konstruktøren medfører at man også må gjøre endringer i konstruktøren til `App` klassen. Legg til `IPersonLookup` som input parameter og bruk verdien som input i konstruktøren til `DataProcessingHandler`.
-
-```C# {hl_lines=[4,9]}
-public App(
-    ...
-    IText textService,
-    IPersonLookup personLookup,
-    IHttpContextAccessor httpContextAccessor) : base(...)
-{
-    _logger = logger;
-    _validationHandler = new ValidationHandler(httpContextAccessor);
-    _dataProcessingHandler = new DataProcessingHandler(personLookup);
-    _instantiationHandler = new InstantiationHandler(profileService, registerService);
-    _pdfHandler = new PdfHandler();
-}
-```
-{{</content-version-container>}}
 
 {{<content-version-container version-label="v7">}}
 ### Personoppslag eksempel
@@ -127,6 +79,60 @@ void RegisterCustomAppServices(IServiceCollection services, IConfiguration confi
 }
 ```
 {{</content-version-container>}}
+{{<content-version-container version-label="v4, v5, v6">}}
+### Personoppslag eksempel
+Tjenesten kan benyttes fra alle "handlers" i logikk klassene i en app. Nedenfor har vi laget et eksempel som gjør oppslag i `ProcessDataWrite` metoden i `DataProcessingHandler`.
+
+```C#
+public async Task<bool> ProcessDataWrite(
+    Instance instance, Guid? dataId, object data)
+{
+    if (data is MessageV1 message)
+    {
+        Person person = await _personLookup.GetPerson(
+            message.Personnummer, 
+            message.Etternavn, 
+            CancellationToken.None);
+
+        message.Fornavn = person.FirstName;
+        return true;
+    }
+
+    return false;
+}
+```
+
+For at dette skal fungere må vi gjøre et par andre endringer i `DataProcessingHandler`. 
+
+Legg til et privat felt `_personLookup` for tjenesten og oppdater klassens konstruktør til å ta inn en instanse av tjenesten som input. Set det private feltet i konstruktøren.
+
+```C#
+private readonly IPersonLookup _personLookup;
+
+public DataProcessingHandler(IPersonLookup personLookup)
+{
+    _personLookup = personLookup;
+}
+```
+
+Endringene i `DataProcessingHandler` konstruktøren medfører at man også må gjøre endringer i konstruktøren til `App` klassen. Legg til `IPersonLookup` som input parameter og bruk verdien som input i konstruktøren til `DataProcessingHandler`.
+
+```C# {hl_lines=[4,9]}
+public App(
+    ...
+    IText textService,
+    IPersonLookup personLookup,
+    IHttpContextAccessor httpContextAccessor) : base(...)
+{
+    _logger = logger;
+    _validationHandler = new ValidationHandler(httpContextAccessor);
+    _dataProcessingHandler = new DataProcessingHandler(personLookup);
+    _instantiationHandler = new InstantiationHandler(profileService, registerService);
+    _pdfHandler = new PdfHandler();
+}
+```
+{{</content-version-container>}}
+
 {{</content-version-selector>}}
 
 ### Håndtering av feil

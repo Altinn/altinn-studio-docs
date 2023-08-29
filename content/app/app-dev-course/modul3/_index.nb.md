@@ -59,7 +59,7 @@ Opprett et nytt bygg for applikasjonen med versjonsnr `0.0.1`
 og legg til en beskrivende kommentar om hva versjonen inneholder.
 
 ### Nyttig dokumentasjon
-- [Bygge app i Altinn Studio](/nb/app/guides/testing/deploy/#bygge-app)
+- [Bygge app i Altinn Studio](/nb/app/testing/deploy/#bygge-app)
 
 {{% /expandlarge %}}
 
@@ -80,7 +80,7 @@ for organisasjonen i Altinn Studio.
 **Deploy applikasjonen din til TT02.**
 
 ### Nyttig dokumentasjon
-- [Deploye app til testmiljø](/nb/app/guides/testing/deploy/#deploy-av-app-til-testmiljø)
+- [Deploye app til testmiljø](/nb/app/testing/deploy/#deploy-av-app-til-testmiljø)
 - [Tilgangsstyring for organisasjon i Altinn Studio](/nb/app/guides/access-management/studio/#tilgangsstyring-for-organisasjonen)
 
 ### Forståelsessjekk

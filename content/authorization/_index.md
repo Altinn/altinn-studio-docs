@@ -5,6 +5,8 @@ description: The authorization components provide access management and control 
 tags: [architecture, solution]
 toc: false
 weight: 1
+aliases:
+ - /technology/solutions/altinn-platform/authorization/
 ---
 
 The typical scenario is that some event will be triggered, or data will be read, updated, or created by a digital or analog service. A service owner owns this service and has defined some business rules for who is allowed to use the service.
