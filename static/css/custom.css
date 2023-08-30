@@ -483,6 +483,8 @@ figure {
     /* margin-right: 15px; */
 }
 
+/* Code block title */
+
 .code-title {
     position: relative;
     top: 30px;
@@ -504,4 +506,22 @@ figure {
 
 .code-title .copy-to-clipboard {
     display: none;
+}
+
+/* Code title */
+
+h2 code, h3 code, h4 code {
+    color:unset;
+    background: none;
+    border: none;
+}
+
+h4 code {
+    font-weight: bold;
+}
+
+h2 code + .copy-to-clipboard,
+h3 code + .copy-to-clipboard,
+h4 code + .copy-to-clipboard {
+display: none;
 }
