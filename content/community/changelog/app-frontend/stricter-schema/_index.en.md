@@ -6,9 +6,9 @@ toc: true
 ---
 
 # What?
-During the end of August 2023 we will upgrade the layout JsonSchema used by Altinn 3 apps to verify the layout files.
-This will make the JsonSchema stricter and might cause your app to display an increased amount of validation errors
-(usually yellow lines) when developing locally in Visual Studio Code (or similar IDEs).
+During the start of September 2023 upgraded the layout JsonSchema used by Altinn 3 apps to verify the layout files.
+This change made the JsonSchema stricter and might have caused your app to display an increased amount of validation
+errors (usually yellow lines) when developing locally in Visual Studio Code (or similar IDEs).
 
 This document describes how to fix the most common errors in your app.
 

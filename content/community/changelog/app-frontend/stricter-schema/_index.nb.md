@@ -6,8 +6,8 @@ toc: true
 ---
 
 # Hva?
-Mot slutten av august 2023 vil vi oppgradere layouten JsonSchema brukes av Altinn 3-apper for å verifisere layoutfilene.
-Dette vil gjøre JsonSchemaen strengere og kan føre til at appen din viser flere valideringsfeil (vanligvis gule linjer)
+I starten av september 2023 oppgraderte vi layout-JsonSchema som brukes av Altinn 3-apper for å verifisere layoutfilene.
+Dette gjorde JsonSchemaen strengere og kan føre til at appen din viser flere valideringsfeil (vanligvis gule linjer)
 når du utvikler lokalt i Visual Studio Code (eller lignende IDE-er).
 
 Dette dokumentet beskriver hvordan du kan rette de vanligste feilene i appen din.
