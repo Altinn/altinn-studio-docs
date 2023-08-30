@@ -219,16 +219,13 @@ Nedenfor ser du et eksempel på en _FormLayout.json_ uten hjelpetekster.
       {
         "id": "616071dc-90b1-4ce5-8d18-492844828a41",
         "type": "Header",
-        "componentType": 0,
         "textResourceBindings": {
           "title": "appName"
-        },
-        "dataModelBindings": {}
+        }
       },
       {
         "id": "08d707a9-2475-4d23-bf76-f209fb434ec2",
         "type": "TextArea",
-        "componentType": 7,
         "textResourceBindings": {
           "title": "tilleggsopplysninger.label",
           "description": "tilleggsopplysninger.desc"
@@ -240,13 +237,9 @@ Nedenfor ser du et eksempel på en _FormLayout.json_ uten hjelpetekster.
       {
         "id": "bd6589b6-e2ab-49ba-b39a-dd3f8b63e5de",
         "type": "Button",
-        "componentType": 9,
         "textResourceBindings": {
           "title": "Send inn"
-        },
-        "dataModelBindings": {},
-        "textResourceId": "Standard.Button.Button",
-        "customType": "Standard"
+        }
       }
     ]
   }
@@ -268,16 +261,13 @@ Slik ser hele filen ut etter å ha lagt til en hjelpetekst:
       {
         "id": "616071dc-90b1-4ce5-8d18-492844828a41",
         "type": "Header",
-        "componentType": 0,
         "textResourceBindings": {
           "title": "appName"
-        },
-        "dataModelBindings": {}
+        }
       },
       {
         "id": "08d707a9-2475-4d23-bf76-f209fb434ec2",
         "type": "TextArea",
-        "componentType": 7,
         "textResourceBindings": {
           "title": "tilleggsopplysninger.label",
           "description": "tilleggsopplysninger.desc",
@@ -290,13 +280,9 @@ Slik ser hele filen ut etter å ha lagt til en hjelpetekst:
       {
         "id": "bd6589b6-e2ab-49ba-b39a-dd3f8b63e5de",
         "type": "Button",
-        "componentType": 9,
         "textResourceBindings": {
           "title": "Send inn"
-        },
-        "dataModelBindings": {},
-        "textResourceId": "Standard.Button.Button",
-        "customType": "Standard"
+        }
       }
     ]
   }

@@ -223,16 +223,13 @@ Below is an example of a _FormLayout.json_ without help texts.
       {
         "id": "616071dc-90b1-4ce5-8d18-492844828a41",
         "type": "Header",
-        "componentType": 0,
         "textResourceBindings": {
           "title": "appName"
-        },
-        "dataModelBindings": {}
+        }
       },
       {
         "id": "08d707a9-2475-4d23-bf76-f209fb434ec2",
         "type": "TextArea",
-        "componentType": 7,
         "textResourceBindings": {
           "title": "tilleggsopplysninger.label",
           "description": "tilleggsopplysninger.desc"
@@ -244,13 +241,9 @@ Below is an example of a _FormLayout.json_ without help texts.
       {
         "id": "bd6589b6-e2ab-49ba-b39a-dd3f8b63e5de",
         "type": "Button",
-        "componentType": 9,
         "textResourceBindings": {
           "title": "Send inn"
-        },
-        "dataModelBindings": {},
-        "textResourceId": "Standard.Button.Button",
-        "customType": "Standard"
+        }
       }
     ]
   }
@@ -272,16 +265,13 @@ This is how the file looks after adding help texts:
       {
         "id": "616071dc-90b1-4ce5-8d18-492844828a41",
         "type": "Header",
-        "componentType": 0,
         "textResourceBindings": {
           "title": "appName"
-        },
-        "dataModelBindings": {}
+        }
       },
       {
         "id": "08d707a9-2475-4d23-bf76-f209fb434ec2",
         "type": "TextArea",
-        "componentType": 7,
         "textResourceBindings": {
           "title": "tilleggsopplysninger.label",
           "description": "tilleggsopplysninger.desc",
@@ -294,13 +284,9 @@ This is how the file looks after adding help texts:
       {
         "id": "bd6589b6-e2ab-49ba-b39a-dd3f8b63e5de",
         "type": "Button",
-        "componentType": 9,
         "textResourceBindings": {
           "title": "Send inn"
-        },
-        "dataModelBindings": {},
-        "textResourceId": "Standard.Button.Button",
-        "customType": "Standard"
+        }
       }
     ]
   }

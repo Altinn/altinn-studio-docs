@@ -1,12 +1,12 @@
 ---
 title: Hva er nytt?
 description: Oversikt over endringer som ble introdusert i v3 av app frontend.
-toc: true
 ---
 
-Endringslogg for app-frontend er nå [tilgjengelig på Github Releases](https://github.com/Altinn/app-frontend-react/releases).
-
 For å se en oversikt over [endringer som kommer snart kan du se på roadmap](https://github.com/Altinn/altinn-roadmap/issues).
+
+## >3.37.2
+Endringslogg for app-frontend er nå [tilgjengelig på Github Releases](https://github.com/Altinn/app-frontend-react/releases).
 
 ## 3.37.2 (2022-05-20) - Oppdaterte avhengigheter
 Oppdaterte eksterne avhengigheter for uke 20 av 2022.
