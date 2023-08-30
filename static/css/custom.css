@@ -482,3 +482,26 @@ figure {
     height: fit-content;
     /* margin-right: 15px; */
 }
+
+.code-title {
+    position: relative;
+    top: 30px;
+    background-color:#222;
+    padding: 15px;
+    padding-top: 0px;
+    margin-top: -30px;
+    border: 0;
+    border-radius: 7px;
+    box-shadow: 5px 0 5px rgba(68, 68, 68, 0.6);
+}
+
+.code-title code {
+    background-color:#222;
+    color: #707880;
+    border: 0;
+    font-size: 75%;
+}
+
+.code-title .copy-to-clipboard {
+    display: none;
+}
