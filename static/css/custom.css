@@ -519,7 +519,7 @@ figure {
 /* Code title */
 
 h2 code, h3 code, h4 code {
-    color:unset;
+    color: unset;
     background: none;
     border: none;
 }
@@ -528,8 +528,19 @@ h4 code {
     font-weight: bold;
 }
 
+.expandsmall-header code + .copy-to-clipboard,
 h2 code + .copy-to-clipboard,
 h3 code + .copy-to-clipboard,
 h4 code + .copy-to-clipboard {
 display: none;
+}
+
+.expandsmall-header code {
+    color: unset;
+    background: none;
+    border: none;
+    border-radius: none;
+    padding: 0;
+    font-size: 88%;
+    vertical-align:baseline;
 }
