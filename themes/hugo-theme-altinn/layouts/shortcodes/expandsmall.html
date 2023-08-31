@@ -13,7 +13,9 @@
 			<i class="ai ai-expand ai-sm"><span class="sr-only">Vis/skjul innhold</span></i>
 			</span>
 			{{- with .Get "header" -}}
-				{{- . -}}
+				<div class="expandsmall-header">
+					{{- . | markdownify -}}
+				</div>
 			{{- else -}}
 				expand-default
 			{{- end -}}
