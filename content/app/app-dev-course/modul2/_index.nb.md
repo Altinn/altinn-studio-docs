@@ -45,6 +45,7 @@ Du kan bruke følgende bilde av Sogndals kommunevåpen i applikasjonen:
 !["Sogndal kommunevåpen"](kommune-logo.png )
 
 ### Oppgaver
+
 1. Legg til en ny side. Gi den et passende navn og plasser den foran skjemasiden du opprettet i Modul 1.
 2. [Legg til bilde](/nb/app/development/ux/components/image/#legge-til-bilder-i-applikasjonen) av Sogndals kommunevåpen.
 3. Legg til tekst i henhold til [skisse](infoside_tilflyttere.pdf).
@@ -59,29 +60,19 @@ Du kan bruke følgende bilde av Sogndals kommunevåpen i applikasjonen:
 
 ### Forståelsessjekk
 
-{{% expandbold "Hvilken fil i applikasjonsrepoet må redigeres dersom du ønsker å manuelt endre rekkefølgen på eksisterende sider?" %}}
-<br>
-
+{{% expandsmall id="m2t1q1" header="Hvilken fil i applikasjonsrepoet må redigeres dersom du ønsker å manuelt endre rekkefølgen på eksisterende sider?" %}}
 Du kan konfigurere siderekkefølgen i `App/ui/Settings.json` ved å endre listen beskrevet under `pages.order`.
 Se [Administrere rekkefølge på flere sider](/nb/app/development/ux/pages/navigation/#rekkefølge).
-{{% /expandbold %}}
+{{% /expandsmall %}}
 
-<br>
-
-{{% expandbold "Hvis du ønsker å gi en side et annet navn, men ikke har Altinn Studio tilgjengelig, hvilke filer må oppdateres med det nye filnavnet?" %}}
-<br>
-
+{{% expandsmall id="m2t1q2" header="Hvis du ønsker å gi en side et annet navn, men ikke har Altinn Studio tilgjengelig, hvilke filer må oppdateres med det nye filnavnet?" %}}
 - `App/ui/layouts/<page>.json`: Endre filnavnet (`<page>`) på siden som skal bytte navn.
 - `App/ui/Settings.json`: Endre navnet på siden under `pages.order`.
-{{% /expandbold %}}
+{{% /expandsmall %}}
 
-<br>
-
-{{% expandbold "Hvordan kan du tvinge tekst til å bryte dersom tekststrengen ikke er lang nok til å naturlig brytes?" %}}
-<br>
-
+{{% expandsmall id="m2t1q3" header="Hvordan kan du tvinge tekst til å bryte dersom tekststrengen ikke er lang nok til å naturlig brytes?" %}}
 Alle tekstressurser støtter Markdown og dermed HTML-notasjon. Du kan derfor benytte `<br>` for å tvinge tekstbrytning.
-{{% /expandbold %}}
+{{% /expandsmall %}}
 
 {{% /expandlarge %}}
 
@@ -130,11 +121,9 @@ Brukeren skal sendes til ett av følgende spor basert på svaret deres:
 
 ### Forståelsessjekk
 
-{{% expandbold "Hvis en bruker fyller ut et skjema på en side som senere blir skjult på grunn av et brukervalg, hva skjer med disse dataene?" %}}
-<br>
-
+{{% expandsmall id="q1" header="Hvis en bruker fyller ut et skjema på en side som senere blir skjult på grunn av et brukervalg, hva skjer med disse dataene?" %}}
 Dersom du har logikk i en applikasjon der man kan fortsette til innsending for flere spor, bør dataen på siden(e) som nå blir skjult for bruker nullstilles.
-{{% /expandbold %}}
+{{% /expandsmall %}}
 
 {{% /expandlarge %}}
 
@@ -161,13 +150,13 @@ Denne oppgaven fokuserer på den første siden for datainnsamling og har som må
 - Det skal være mulig å endre forhåndsutfylt e-post og telefonnummer
 
 ### Oppgaver
+
 1. Opprett en [fil for forhåndsutfylling](/nb/app/development/data/prefill/config/#oppsett-av-prefill-i-applikasjons-repository).
 2. Konfigurer forhåndsutfylling for verdier tilgjengelig i Altinns [forhåndsutfyllingskilder](/nb/app/development/data/prefill/config/#tilgjengelige-prefill-verdier) (alle unntatt alder).
 3. Opprett [egendefinert forhåndsutfylling](/nb/app/development/data/prefill/custom) for alder basert på personnummer (se kodehjelp under).
 4. Konfigurer innstillinger for felter som ikke skal kunne endres av brukeren.
 
-{{% expandbold "Kodehjelp: Beregning av alder fra personnummer" %}}
-<br>
+{{% expandsmall id="kodehjelp" header="Kodehjelp: Beregning av alder fra personnummer" %}}
 
 Du kan bruke den følgende funksjonen til å beregne en persons alder fra personnummeret deres:
 
@@ -242,8 +231,7 @@ private static int CalculateAge(string sosialSecNumber)
         return age;
     }
 ```
-{{% /expandbold %}}
-<br>
+{{% /expandsmall %}}
 
 *Husk å pushe de lokale endringene dine så de blir tilgjengelige i Altinn Studio.*
 
@@ -254,19 +242,13 @@ private static int CalculateAge(string sosialSecNumber)
 - [Beskrivelse av InstanceOwner-objektet](/nb/api/models/instance/#instanceowner) - Her finner du personnummeret.
   Vær oppmerksom på at egenskapene refereres til med store forbokstaver i koden, ikke med små, som i denne oversikten.
 
-
 ### Forståelsessjekk
 
-{{% expandbold "Er det mulig å endre en forhåndsutfylt verdi?" %}}
-<br>
-
+{{% expandsmall id="m2t2q1" header="Er det mulig å endre en forhåndsutfylt verdi?" %}}
 Ja, en standardkomponent med forhåndsutfylt data vil i utgangspunktet være redigerbar.
-{{% /expandbold %}}
+{{% /expandsmall %}}
 
-<br>
-
-{{% expandbold "Hvordan kan man hindre at en forhåndsutfylt verdi endres av sluttbrukeren?" %}}
-<br>
+{{% expandsmall id="m2t2q2" header="Hvordan kan man hindre at en forhåndsutfylt verdi endres av sluttbrukeren?" %}}
 
 Komponenten kan settes til `readOnly` på én av to måter:
 
@@ -298,12 +280,9 @@ Komponenten kan settes til `readOnly` på én av to måter:
 ```
 
 Alternativt kan man kjøre valideringer av dataen på serversiden for å verifisere at dataen i feltet matcher dataen fra forhåndsutfyllingskilden. Dette kan gjøres i prosesserings- eller valideringslogikken til applikasjonen.
-{{% /expandbold %}}
+{{% /expandsmall %}}
 
-<br>
-
-{{% expandbold "Noen norske innbyggere har ikke vanlig personnummer men får tildelt et D-nummer. Hvordan kan du tilpasse koden for å håndtere at brukeren legger inn et fødselsnummer eller et D-nummer?" %}}
-<br>
+{{% expandsmall id="m2t2q3" header="Noen norske innbyggere har ikke vanlig personnummer men får tildelt et D-nummer. Hvordan kan du tilpasse koden for å håndtere at brukeren legger inn et fødselsnummer eller et D-nummer?" %}}
 
 {{% notice info %}}
 Et [D-nummer](https://jusleksikon.no/wiki/F%C3%B8dselsnummer#D-nummer) er ellevesifret, som et ordinært personnummer, og består av en modifisert sekssifret fødselsdato og et femsifret personnummer. Fødselsdatoen modifiseres ved at _det legges til 4 på det første sifferet_. For eksempel vil den modifiserte fødselsdatoen være 410180 for en person født 1. januar 1980, og 710180 for noen født 31. januar 1980.
@@ -335,7 +314,7 @@ public static string GetDOB(string fOrDNumber){
   return dobString;
 }
 ```
-{{% /expandbold %}}
+{{% /expandsmall %}}
 
 {{% /expandlarge %}}
 
@@ -382,8 +361,7 @@ Se *Kode* for sidestilling av komponenter.
 I denne løsningen har vi lagret bildet i appen og brukt `wwwroot/kommune-logo.png` som kilde.
  Et alternativ er å bruke en ekstern URL for bildet som kilde.
 
-{{% expandbold "Legg til mappe `wwwroot` og last opp bilde i Designer" %}}
-<br>
+{{% expandsmall id="wwwroot" header="Legg til mappe `wwwroot` og last opp bilde i Designer" %}}
 
 Naviger til repository (klikk logo øverst i høyre hjørne eller tre prikker til høyre på menylinjen) og velg "Last opp fil" fra menyen "Add file".
 
@@ -398,7 +376,7 @@ I feltet "Legg til mappe" fyller du inn `/App/wwwroot`.
 
 ![Eksempel utfylt legg til fil. Bilde](screenshot-add-file-filled.png "Utsnitt utfylt skjema")
 
-{{% /expandbold %}}
+{{% /expandsmall %}}
 
 ![Innstillinger for bilde. Skjermbilde](screenshot-image-settings-wwwroot.png "Innstillinger for bilde")
 

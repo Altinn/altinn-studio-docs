@@ -17,7 +17,6 @@ You can do parts of Module 2 in [Altinn Studio Designer](/app/getting-started/ui
 - Dynamic tracks
 - Prefilling
 
-
 ## Tasks
 
 {{% expandlarge id="add-infopage" header="Add Info Page" %}}
@@ -58,29 +57,19 @@ You can use the following image of the Sogndal Municipality Coat of Arms in the 
 
 ### Knowledge check
 
-{{% expandbold "Which file in the application repository do you need to edit if you want to manually change the page order of existing pages?" %}}
-<br>
-
+{{% expandsmall id="m2t1q1" header="Which file in the application repository do you need to edit if you want to manually change the page order of existing pages?" %}}
 You can configure the page order in `App/ui/Settings.json` by modifying the list described under `pages.order`.
 Refer to [Managing the order of multiple pages](/app/development/ux/pages/navigation/#order).
-{{% /expandbold %}}
+{{% /expandsmall %}}
 
-<br>
-
-{{% expandbold "If you want to give a page a different name but do not have Altinn Studio available, which files do you need to update with the new file name?" %}}
-<br>
-
+{{% expandsmall id="m2t1q2" header="If you want to give a page a different name but do not have Altinn Studio available, which files do you need to update with the new file name?" %}}
 - `App/ui/layouts/<page>.json`: Change the file name (`<page>`) of the page you want to rename.
 - `App/ui/Settings.json`: Update the page's name under `pages.order`.
-{{% /expandbold %}}
+{{% /expandsmall %}}
 
-<br>
-
-{{% expandbold "How can you force a text break if the text string is not long enough to break naturally?" %}}
-<br>
-
+{{% expandsmall id="m2t1q3" header="How can you force a text break if the text string is not long enough to break naturally?" %}}
 All text resources support Markdown and HTML notation, so using `<br>` can force line breaks in the text.
-{{% /expandbold %}}
+{{% /expandsmall %}}
 
 {{% /expandlarge %}}
 
@@ -128,11 +117,9 @@ The user should be directed to one of the following tracks based on their respon
 - [Text formatting](/app/development/ux/texts/#formatting-of-texts)
 
 ### Knowledge check
-{{% expandbold "If a user fills out a form on a page later hidden by a user selection, what happens to that data?" %}}
-<br>
-
+{{% expandsmall id="m2t2q1" header="If a user fills out a form on a page later hidden by a user selection, what happens to that data?" %}}
 If you have logic in an application where users can proceed to submission for multiple tracks, the data on the page(s) that are now hidden for the user should be reset.
-{{% /expandbold %}}
+{{% /expandsmall %}}
 
 {{% /expandlarge %}}
 
@@ -163,9 +150,7 @@ This task focuses on the first data collection page, aiming to streamline the us
 3. Create [custom prefilling](/app/development/data/prefill/custom) for age based on the personal identification number (see code assistance below).
 4. Configure settings for fields that should not be editable by the user.
 
-{{% expandbold "Code assistance: Calculating age from personal identification number" %}}
-<br>
-
+{{% expandsmall id="code-assistance" header="Code assistance: Calculating age from personal identification number" %}}
 You can use the following function to calculate a person's age from their personal identification number:
 
 ```cs
@@ -239,7 +224,7 @@ private static int CalculateAge(string sosialSecNumber)
         return age;
     }
 ```
-{{% /expandbold %}}
+{{% /expandsmall %}}
 <br>
 
 *Remember to push your local changes to make them available in Altinn Studio.*
@@ -253,17 +238,11 @@ private static int CalculateAge(string sosialSecNumber)
 
 ### Knowledge check
 
-{{% expandbold "Is it possible to change a prefilled value?" %}}
-<br>
-
+{{% expandsmall id="m2t3q1" header="Is it possible to change a prefilled value?" %}}
 Yes, by default, a standard component with prefilled data is editable.
-{{% /expandbold %}}
+{{% /expandsmall %}}
 
-<br>
-
-{{% expandbold "How can you prevent a prefilled value from being changed by the end user?" %}}
-<br>
-
+{{% expandsmall id="m2t3q2" header="How can you prevent a prefilled value from being changed by the end user?" %}}
 You can set the component to `readOnly` in one of two ways:
 
 **1\.** In Altinn Studio Designer, by checking "Det skal ikke være mulig å svare (read only)" for the specific component:  
@@ -295,13 +274,9 @@ You can set the component to `readOnly` in one of two ways:
 ```
 
 An option is to perform data validations on the server side to verify that the data in the field matches the data from the prefill source. You can do this in the processing or validation logic of the application.
-{{% /expandbold %}}
+{{% /expandsmall %}}
 
-<br>
-
-{{% expandbold "Some Norwegian residents do not have a national identification number but are assigned a D-number. How can you adjust the code to accommodate the user entering a national identification number or a D-number?" %}}
-<br>
-
+{{% expandsmall id="m2t3q3" header="Some Norwegian residents do not have a national identification number but are assigned a D-number. How can you adjust the code to accommodate the user entering a national identification number or a D-number?" %}}
 {{% notice info %}}
 A [D-number](https://jusleksikon.no/wiki/F%C3%B8dselsnummer#D-nummer) is eleven digits, like a regular national identification number, and consists of a modified six-digit birth date followed by a five-digit personal number. The birth date is modified by _adding 4 to the first digit_. For example, the modified birth date would be 410180 for a person born on January 1, 1980, and be 710180 for someone born on January 31, 1980.
 {{% /notice %}}
@@ -332,7 +307,7 @@ public static string GetDOB(string fOrDNumber){
   return dobString;
 }
 ```
-{{% /expandbold %}}
+{{% /expandsmall %}}
 {{% /expandlarge %}}
 
 
@@ -380,9 +355,7 @@ See *Code* for horizontal alignment of components.
 In this solution, we have stored the image within the app and used `wwwroot/kommune-logo.png` as the source.
  Another option is to use an external URL for the image source.
 
-{{% expandbold "Add directory `wwwroot`` and upload image in Designer" %}}
-<br>
-
+{{% expandsmall id="wwwroot" header="Add directory `wwwroot`` and upload image in Designer" %}}
 Navigate to the repository (click the logo in the top-right corner or the three dots on the right side of the menu bar) and select "Upload file" from the "Add file" menu.
 
 ![Repository. Image](screenshot-repository-add-file.png "Repository")
@@ -395,7 +368,7 @@ Click "Commit endringer" to save.
 
 ![Completed form add file. Image](screenshot-add-file-filled.png "Completed form snapshot")
 
-{{% /expandbold %}}
+{{% /expandsmall %}}
 
 ![Image settings](screenshot-image-settings-wwwroot.png "Image settings")
 
