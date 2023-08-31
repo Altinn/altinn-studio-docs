@@ -1719,3 +1719,14 @@ figure img {
 .hljs::selection, .hljs span::selection {
     background: #e0daf7; 
 }
+
+/* Code style in links */
+a code {
+    background: none;
+    border: none;
+    color: unset;
+}
+
+a code + .copy-to-clipboard {
+    display: none;
+}
