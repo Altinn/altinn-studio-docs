@@ -1,11 +1,45 @@
 ---
-title: Authorization
-description: The Authorization DevOps team primarily work on and is responsible for solutions that provide Authentication and Authorization in Altinn 2 and Altinn 3
+title: Team Authorization
+description: Team Authorization has two groups, the Access Control group and the Access Info group. Together, they work to develop and operate authentication and authorization services for the Altinn 2 and Altinn 3 app platforms.
 ---
 
-## Responsibilities in Altinn 3:
-The Authorization team is respobsible for all these services in Altinn 3. 
-This includes development of new features, fixing issues, maintaining infrastructure and securing availablility.
+# Team Authorization - Access Control group
+
+## Altinn 2
+- Support and maintainence of authorization services
+
+## Altinn 3 
+- Access management (PAP)
+  - Access groups Phase out Altinn 2 roles
+  - Authoritative sources, for example links to ER roles and other authoritative sources, new authoritative sources as a basis for authorization and responsibility and contact with the Enhetsregisteret
+  - API and GUI for access control
+  - Requests about rights and roles
+  - Register delegation (policy) Grant users roles/rights/access groups
+- Access control
+  - Policy Enforcement Point (PEP)
+  - Policy Decision Point (PDP)
+  - Issuer list
+  - API for service owners, in terms of access control
+- Documentation
+  - Contribute to Digdir's shared design system
+
+## Team structure  
+DevOps team with total responsibility from idea to production
+
+
+# Team Authorization - Access Info
+
+- Authentication, information used for authorization and ensuring that the authorization process is traceable
+- The consent solution and authentication against events and the dialogue port
+- Documentation
+- Contribute to Digdir's shared design system
+
+## Team structure
+DevOps team with total responsibility from idea to production
+
+
+
+## Open source repositories
 
 ### Authentication
 The authentication component provides functionality to authenticate users and systems accessing Altinn Apps and Altinn platform.

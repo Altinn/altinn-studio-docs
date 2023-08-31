@@ -1,22 +1,20 @@
 ---
-title: Studio
-description: Team Studio works mainly on products related to building and developing Altinn 3 applications.
+title: Team Studio
+description: Team Studio is responsible for the Studio tool used to configure the main elements of an Altinn 3 app, such as data models, forms and text translations.
 ---
 
 ## Responsibilities 
-The Studio team is responsible for the following Altinn 3 products:
-* Studio Designer
-* Altinn App 
-  * Frontend
-  * AppTemplate (backend for Frontend)
-  
-This includes building new features, bugfixing, documentation, build and release pipelines, infrastructure and availability and of course making sure it runs in production.
+Team Studio is responsible for design and implementation of Altinn 3 Studio. 
 
-## Altinn Studio
+The current focus is on the following functional areas:
+* Data modelling
+* Form design and layout
+* Internationalization and WCAG
+
+As a mature DevOps team, Team Studio is also responsible for documentation, build and release pipelines, infrastructure and availability.
+
+## Open source repositories
 [Altinn Studio](https://github.com/Altinn/altinn-studio)\
-[Kubernetes Wrapper](https://github.com/Altinn/app-kubernetes-wrapper)]
-## Altinn App 
-[Frontend](https://github.com/Altinn/app-frontend)\
-[AppTemplate](https://github.com/Altinn/app-template-dotnet)
+[Altinn Studio Docs](https://github.com/Altinn/altinn-studio-docs)\
 
 {{<children />}}

@@ -1,10 +1,10 @@
 ---
-title: Platform
-description: The Platform DevOps team primarily work on and is responsible for the operations of the Altinn 3 platform applications.
+title: Team Altinn core
+description: Team Altinn core is responsible for developing and operating shared Altinn 3 services, including Pdf, Storage, Events, Register, SBLBridge, Receipt, Profile, Notifications and Payments. Additional, Team Altinn core is responsible for most shared infrastructure for Altinn 3 apps, including Azure Kubernetes Services, Azure Application Insights, Azure Blob Storage, Azure Key Vault, etc.
 ---
 
 ## Responsibilities
-The Platform team is respobsible for most of the common services used in Altinn 3. This includes development of new features, fixing issues, maintaining infrastructure and securing availablility.
+Team Altinn core is responsible for most of the common services used in Altinn 3. This includes development of new features, fixing issues, maintaining infrastructure and securing availablility.
 
 [Repository](https://github.com/Altinn/altinn-platform)
 
@@ -21,7 +21,7 @@ The Pdf application kan be used to generate a PDF document based on a Altinn 3 f
 ### Profile
 The Profile application give Altinn 3 access to profile information of users in Altinn.
 
-[Repository](https://github.com/Altinn/altinn-profile)
+[Repository](https://github.com/Altinn/altinn-profile)``
 
 ### Receipt
 The Receipt application is a system to display receipts for forms that have been submitted.
