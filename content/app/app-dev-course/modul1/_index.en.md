@@ -72,55 +72,40 @@ If you intend to carry out all or parts of the development locally, now is the t
 
 ### Knowledge Check
 
-{{% expandbold "What data does the service owner want to collect here?" %}}
-<br>
+{{% expandsmall id="m1t1q1" header="What data does the service owner want to collect here?" %}}
 
 The data model consists of a primary element: "innflytter" (migrant).
 This element contains sub-objects such as _Fornavn_ (first name), _Etternavn_ (last name), and _Mellomnavn_ (middle name). In addition, there are composite elements like _Adresse_ (address), _Kontaktinformasjon_ (contact information), and _Arbeidsinformasjon_ (work information).
-{{% /expandbold %}}
+{{% /expandsmall %}}
 
-<br>
-
-{{% expandbold "What effect does `minOccurs` have in the data model? You will notice that the field has different values for `Innflytter.Fornavn` and `Innflytter.Mellomnavn`." %}}
-<br>
+{{% expandsmall id="m1t1q2" header="What effect does `minOccurs` have in the data model? You will notice that the field has different values for `Innflytter.Fornavn` and `Innflytter.Mellomnavn`." %}}
 
 `minOccurs` indicates how many times the object must be mentioned at a minimum.
+- `minOccurs=0` means that the field is not required.
+- `minOccurs=1` means it is expected to appear at least once in the model.
+{{% /expandsmall %}}
 
-`minOccurs=0` means that the field is not required.
-`minOccurs=1` means it is expected to appear at least once in the model.
-
-{{% /expandbold %}}
-
-<br>
-
-{{% expandbold "What other properties are set on the field `Innflytter.Mellomnavn`?" %}}
-<br>
+{{% expandsmall id="m1t1q3" header="What other properties are set on the field `Innflytter.Mellomnavn`?" %}}
 
 `nillable=true` is defined in the middle name field, meaning a null value is allowed for the middle name.
-{{% /expandbold %}}
+{{% /expandsmall %}}
 
-<br>
-
-{{% expandbold "When uploading the data model (`.xsd` file), the following model files were generated: `.C#`, `.metadata.json`, and `.schema.json`. What is the relationship between these files and the `.xsd` file?" %}}
-<br>
+{{% expandsmall id="m1t1q4" header="When uploading the data model (`.xsd` file), the following model files were generated: `.C#`, `.metadata.json`, and `.schema.json`. What is the relationship between these files and the `.xsd` file?" %}}
 
 The mentioned files are all generated from the `.xsd` description of the data model. They describe all the data and the properties of the data fields. Not all properties are necessarily transferred to all files, but the sum of their settings should maintain the settings of the `.xsd` file.
 
 - The C# model is used by the app backend to deserialize data and make it available for processing and validation.
 - `.metadata.json` is used in Altinn Studio to connect components and dynamics to the data fields easily.
 - The `.schema.json` file is used by the Altinn app frontend for form validation on the client side.
-{{% /expandbold %}}
+{{% /expandsmall %}}
 
-<br>
+{{% expandsmall id="m1t1q5" header="Certain restrictions from the data model are not transferred to the `.C#` file. Which ones? Additionally, new properties have been added. What are they?" %}}
 
-{{% expandbold "Certain restrictions from the data model are not transferred to the `.C#` file. Which ones? Additionally, new properties have been added. What are they?" %}}
-<br>
-
-- `minOccurs`, `maxOccurs` are not transferred to the model.
+- The properties `minOccurs` and `maxOccurs` are not transferred to the model.
 - `nillable` is only transferred to certain types, such as _decimal_.
 - `XmlElement.Order` is introduced as a decoration on each property.
   - This ensures that the order of elements will always be the same when the data is serialized to XML.
-{{% /expandbold %}}
+{{% /expandsmall %}}
 
 {{% /expandlarge %}}
 
@@ -158,8 +143,7 @@ In the next step, you will create components and link them to the text resources
 
 In Altinn, we currently support three written languages: Norwegian Bokmål, Norwegian Nynorsk, and English.
 
-{{% expandbold "How can you manually add English language support to the application?" %}}
-<br>
+{{% expandsmall id="m1t2q1" header="How can you manually add English language support to the application?" %}}
 
 To manually add support for English in an application, you need to create the file `resources.en.json` in the folder `App/config/texts`:
 
@@ -173,21 +157,17 @@ To manually add support for English in an application, you need to create the fi
 ```
 
   Note that the `language` property at the top of the file must be set to `en`.
-{{% /expandbold %}}
+{{% /expandsmall %}}
 
-<br>
-
-{{% expandbold "If we were to support Ukrainian one day, what language code would you need to annotate the file?" %}}
-<br>
+{{% expandsmall id="m1t2q2" header="If we were to support Ukrainian one day, what language code would you need to annotate the file?" %}}
 
 According to the [list of ISO 639-1 codes](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes), the code for Ukrainian is `uk`.
-{{% /expandbold %}}
+{{% /expandsmall %}}
 
-{{% expandbold "If a text key referenced in `<page>.json` is not found in the text resources, what will be displayed?" %}}
-<br>
+{{% expandsmall id="m1t2q3" header="If a text key referenced in `<page>.json` is not found in the text resources, what will be displayed?" %}}
 
 If the mentioned text key can't be located in the text resource file, the text key itself will be displayed.
-{{% /expandbold %}}
+{{% /expandsmall %}}
 
 {{% /expandlarge %}}
 
@@ -232,8 +212,7 @@ In your application repository, you will find the `<pageName>.json` file in the 
 
 You can find `<page>.json` in your application repository in the folder `App/ui/layouts`. The JSON file describes the data page you have set up in Altinn Studio, assuming you have uploaded the changes (`<page>` is replaced with the page's name, for example, `data.json`).
 
-{{% expandbold "Do you find the component connected to the email field?" %}}
-<br>
+{{% expandsmall id="m1t3q1" header="Do you find the component connected to the email field?" %}}
 
 To locate the component connected to the email field, you can search for 'epost' (email).
 You will find the field name connected to the component under `dataModelBindings` (highlighted).
@@ -257,20 +236,14 @@ You will find the field name connected to the component under `dataModelBindings
 }
 ```
 
-{{% /expandbold %}}
+{{% /expandsmall %}}
 
-<br>
-
-{{% expandbold "What change is required in `<page>.json` if the email field should no longer be required?" %}}
-<br>
+{{% expandsmall id="m1t3q2" header="What change is required in `<page>.json` if the email field should no longer be required?" %}}
 
 To make a field optional, you can change `required: true` to `required: false`.
-{{% /expandbold %}}
+{{% /expandsmall %}}
 
-<br>
-
-{{% expandbold "By changing one line in `<page>.json`, you can transform the component associated with the middle name into an input field for a long answer. What change is required?" %}}
-<br>
+{{% expandsmall id="m1t3q3" header="By changing one line in `<page>.json`, you can transform the component associated with the middle name into an input field for a long answer. What change is required?" %}}
 
 The solution is to change the `type` field from `Input` to `TextArea` (highlighted).
 
@@ -290,7 +263,7 @@ The solution is to change the `type` field from `Input` to `TextArea` (highlight
   "readOnly": false
 }
 ```
-{{% /expandbold %}}
+{{% /expandsmall %}}
 {{% /expandlarge %}}
 
 ## Summary

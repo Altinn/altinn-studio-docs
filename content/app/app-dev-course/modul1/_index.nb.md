@@ -87,55 +87,40 @@ Hvis du skal gjøre hele eller deler av utviklingen lokalt kan du nå [klargjør
 
 ### Forståelsessjekk
 
-{{% expandbold "Hvilken data er det tjenesteeier ønsker å samle inn her?" %}}
-<br>
+{{% expandsmall id="m1t1q1" header="Hvilken data er det tjenesteeier ønsker å samle inn her?" %}}
 
 Datamodellen består av ett hovedelement: innflytter.
 Dette elementet består igjen av en del underobjekter som _Fornavn_, _Etternavn_, og _Mellomnavn_. I tillegg er det noen sammensatte elementer som _Adresse_, _Kontaktinformasjon_ og _Arbeidsinformasjon_.
-{{% /expandbold %}}
+{{% /expandsmall %}}
 
-<br>
-
-{{% expandbold "Hvilken effekt har `minOccurs` i datamodellen? Du vil se at feltet har ulik verdi for `Innflytter.Fornavn` og `Innflytter.Mellomnavn`." %}}
-<br>
+{{% expandsmall id="m1t1q2" header="Hvilken effekt har `minOccurs` i datamodellen? Du vil se at feltet har ulik verdi for `Innflytter.Fornavn` og `Innflytter.Mellomnavn`." %}}
 
 `minOccurs` sier noe om hvor mange ganger objektet minst må være nevnt.
+- `minOccurs=0` vil si at feltet ikke er påkrevd.
+- `minOccurs=1` vil si at man forventer at det dukker opp minumum én gang i modellen.
+{{% /expandsmall %}}
 
-``minOccurs=0`` vil si at feltet ikke er påkrevd.
-``minOccurs=1`` vil si at man forventer at det dukker opp minumum én gang i modellen.
-
-{{% /expandbold %}}
-
-<br>
-
-{{% expandbold "Hvilke andre egenskaper er satt på feltet `Innflytter.Mellomnavn`?" %}}
-<br>
+{{% expandsmall id="m1t1q3" header="Hvilke andre egenskaper er satt på feltet `Innflytter.Mellomnavn`?" %}}
 
 `nillable=true` er definert på mellomnavn-feltet. Det vil si at det er tillatt med en nullverdi på mellomnavn.
-{{% /expandbold %}}
+{{% /expandsmall %}}
 
-<br>
-
-{{% expandbold "Ved opplasting av datamodellen (`.xsd`-filen) ble følgende modellfiler generert `.C#`-, `.metadata.json` og `.schema.json`. Hva er sammenhengen mellom disse filene og `.xsd`-filen?" %}}
-<br>
+{{% expandsmall id="m1t1q4" header="Ved opplasting av datamodellen (`.xsd`-filen) ble følgende modellfiler generert `.C#`-, `.metadata.json` og `.schema.json`. Hva er sammenhengen mellom disse filene og `.xsd`-filen?" %}}
 
 De nevnte filene er alle generert ut ifra xsd-beskrivelsen av datamodellen. De beskriver all dataen og datafeltenes egenskaper. Alle egenskaper er ikke nødvendigvis overført i alle filene, men summen av dem skal opprettholde det som er beskrevet i xsd-filen.
 
 - C#-modellen benyttes av app backend til å deserialisere data og gjøre den tilgjengelig for prosessering og validering.
 - `.metadata.json` benyttes i Altinn Studio for å enkelt kunne koble komponenter og dynamikk til datafeltene.
 - `.schema.json`-filen benyttes av altinn-app-frontend for skjemavalidering på klientsiden.
-{{% /expandbold %}}
+{{% /expandsmall %}}
 
-<br>
+{{% expandsmall id="m1t1q5" header="Enkelte restriksjoner fra datamodellen overføres ikke til `C#`-filen, hvilke? Det er og lagt til nye egenskaper, hvilke?" %}}
 
-{{% expandbold "Enkelte restriksjoner fra datamodellen overføres ikke til `C#`-filen, hvilke? Det er og lagt til nye egenskaper, hvilke?" %}}
-<br>
-
-- `minOccurs`, `maxOccurs` er ikke overført til modellen.
+- Egenskapene `minOccurs` og `maxOccurs` er ikke overført til modellen.
 - `nillable` er kun overført på enkelte typer som f.eks. _decimal_.
 - `XmlElement.Order` er innført som en dekorasjon på hver egenskap.
   - Dette sørger for at rekkefølgen på elementene alltid vil bli den samme når dataen serialiseres til xml.
-{{% /expandbold %}}
+{{% /expandsmall %}}
 
 {{% /expandlarge %}}
 
@@ -172,8 +157,7 @@ I neste steg skal du opprette komponenter og knytte tekstene du har opprettet ti
 
 I Altinn i dag støtter vi tre skriftspråk: Bokmål, nynorsk og engelsk.
 
-{{% expandbold "Hvordan kan du manuelt legge inn engelsk språkstøtte i applikasjonen?" %}}
-<br>
+{{% expandsmall id="m1t2q1" header="Hvordan kan du manuelt legge inn engelsk språkstøtte i applikasjonen?" %}}
 
 For å manuelt legge til støtte for engelsk i en applikasjon må du opprette filen `resources.en.json` i mappen `App/config/texts`:
 
@@ -187,21 +171,17 @@ For å manuelt legge til støtte for engelsk i en applikasjon må du opprette fi
 ```
 
   Merk at `language`-egenskapen øverst i filen må settes til `en`.
-{{% /expandbold %}}
+{{% /expandsmall %}}
 
-<br>
-
-{{% expandbold "Hvis vi en dag skal støtte ukrainsk, hvilken språkkode vil du da måtte annotere filen med?" %}}
-<br>
+{{% expandsmall id="m1t2q2" header="Hvis vi en dag skal støtte ukrainsk, hvilken språkkode vil du da måtte annotere filen med?" %}}
 
 Ifølge [listen over ISO 639-1 koder](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) så er koden for ukrainsk `uk`.
-{{% /expandbold %}}
+{{% /expandsmall %}}
 
-{{% expandbold "Hvis en tekstnøkkel refert til i `<page>.json` ikke finnes i tekstressursene, hva vil vises da?" %}}
-<br>
+{{% expandsmall id="m1t2q3" header="Hvis en tekstnøkkel refert til i `<page>.json` ikke finnes i tekstressursene, hva vil vises da?" %}}
 
 Hvis nevnte tekstnøkkel ikke finnes i tekstressursfilen, vil tekstnøkkelen vises i stedet.
-{{% /expandbold %}}
+{{% /expandsmall %}}
 
 {{% /expandlarge %}}
 
@@ -246,8 +226,7 @@ Husk å laste opp endringer når du jobber i Designer så de reflekteres i repoe
 I applikasjonsrepoet ditt finner du `<page>.json` i mappen `App/ui/layouts`. JSON-filen beskriver skjemasiden du har satt opp i Altinn Studio
 gitt at du har lastet opp endringene (`<page>` erstattes av navnet til siden, for eksempel `data.json`).
 
-{{% expandbold "Finner du igjen komponenten som er koblet til epost-feltet?" %}}
-<br>
+{{% expandsmall id="m1t3q1" header="Finner du igjen komponenten som er koblet til epost-feltet?" %}}
 
 For å finne komponenten som er koblet til epost-feltet kan du søke etter 'epost'.
 Navnet på feltet som komponenten er koblet til finner du under `dataModelBindings` (markert).
@@ -271,20 +250,14 @@ Navnet på feltet som komponenten er koblet til finner du under `dataModelBindin
 }
 ```
 
-{{% /expandbold %}}
+{{% /expandsmall %}}
 
-<br>
-
-{{% expandbold "Hvilken endring kreves i `<page>.json` dersom e-post-feltet ikke lenger skal være påkrevd?" %}}
-<br>
+{{% expandsmall id="m1t3q2" header="Hvilken endring kreves i `<page>.json` dersom e-post-feltet ikke lenger skal være påkrevd?" %}}
 
 For å gjøre et felt valgfritt, kan man endre `required: true` til `required: false`.
-{{% /expandbold %}}
+{{% /expandsmall %}}
 
-<br>
-
-{{% expandbold "Ved å endre én linje i `<page>.json` er det mulig å endre komponenten knyttet til mellomnavn til et inndatafelt for et langt svar. Hvilken endring kreves?" %}}
-<br>
+{{% expandsmall id="m1t3q3" header="Ved å endre én linje i `<page>.json` er det mulig å endre komponenten knyttet til mellomnavn til et inndatafelt for et langt svar. Hvilken endring kreves?" %}}
 
 Løsningen er å endre `type`-feltet fra `Input` til `TextArea` (markert).
 
@@ -304,7 +277,7 @@ Løsningen er å endre `type`-feltet fra `Input` til `TextArea` (markert).
   "readOnly": false
 }
 ```
-{{% /expandbold %}}
+{{% /expandsmall %}}
 {{% /expandlarge %}}
 
 ## Oppsummering
