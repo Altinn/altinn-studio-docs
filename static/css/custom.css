@@ -432,6 +432,14 @@ figure {
     .a-st-iconLabel a {
       font-size: 16px; }
 
+
+/* expandbold shortcode */
+.expandbold {
+    padding: 20px;
+    background-color: #fafafa;
+    margin: 18px 0;
+}
+
 /* Component properties list and table */
 
 .adocs-expand .adocs-property-list {

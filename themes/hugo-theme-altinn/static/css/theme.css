@@ -1450,12 +1450,10 @@ ul.a-text.a-bullet-list:not(.connected-bullets):not(.no-decoration):not(.a-list)
     background: #fbf6bd;
 }
 
-
-
-
 /* Fix circle-list */
 .a-text ol, .a-text .a-circle-list {
     margin-left: 3px;
+    margin-top: 18px;
 }
 
 .a-text ol li::before, .a-text .a-circle-list li::before {
@@ -1465,7 +1463,6 @@ ul.a-text.a-bullet-list:not(.connected-bullets):not(.no-decoration):not(.a-list)
     display: inline-block;
     height: 32px;
 }
-
 
 /* cardImage */ 
 #body .a-cardImage img {
@@ -1684,10 +1681,31 @@ figure img {
     padding: 18px 0px;
 }
 
+
 .adocs-expand:last-of-type {
     border-bottom: 1px solid #BCC7CC;
 }
 
+.adocs-expand-small {
+    border: none;
+    margin: 18px 0;
+    padding: 0;
+}
+
+.adocs-expand-small:last-of-type {
+    border-bottom: none;
+}
+
+.adocs-expand-small .a-collapseContent-inside {
+    padding: 6px 35px;
+}
+
+/* Center small dropdown circle */
+.a-dropdownCircleArrow.a-dropdownCircleArrow--small {
+    margin-top: 1px;
+    margin-bottom: auto;
+
+}
 
 /* Selection on code*/
 .hljs::selection, .hljs span::selection {
