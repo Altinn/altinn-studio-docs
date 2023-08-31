@@ -30,7 +30,7 @@ Hvis du ønsker å bruke en annen logo for applikasjonen, kan du spesifisere det
 ```
 
 Hvis logoen din allerede inneholder navnet på organisasjonen som applikasjonen representerer, ønsker du kanskje ikke at
-app-eieren skal vises i overskriften. Du kan deaktivere dette ved å sette verdien til
+app-eieren skal vises i overskriften. Du kan deaktivere dette ved å sette `displayAppOwnerNameInHeader` verdien til `false`.
 
 ```json
 // applicationmetadata.json
