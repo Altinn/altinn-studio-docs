@@ -1450,12 +1450,10 @@ ul.a-text.a-bullet-list:not(.connected-bullets):not(.no-decoration):not(.a-list)
     background: #fbf6bd;
 }
 
-
-
-
 /* Fix circle-list */
 .a-text ol, .a-text .a-circle-list {
     margin-left: 3px;
+    margin-top: 18px;
 }
 
 .a-text ol li::before, .a-text .a-circle-list li::before {
@@ -1465,7 +1463,6 @@ ul.a-text.a-bullet-list:not(.connected-bullets):not(.no-decoration):not(.a-list)
     display: inline-block;
     height: 32px;
 }
-
 
 /* cardImage */ 
 #body .a-cardImage img {
