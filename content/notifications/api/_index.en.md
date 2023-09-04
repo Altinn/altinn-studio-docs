@@ -21,12 +21,12 @@ managing and reviewing notifications sent through Altinn.
 - TT02 (Application owner test environment)
  
     ```http
-    https://platform.tt02.altinn.cloud/notifications/api/v1
+    https://platform.tt02.altinn.no/notifications/api/v1
     ```
 - Production:
 
    ```http
-    https://platform.altinn.cloud/notifications/api/v1
+    https://platform.altinn.no/notifications/api/v1
     ```
 
 
