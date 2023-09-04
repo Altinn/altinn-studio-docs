@@ -1,7 +1,7 @@
 ---
 title: Forslag nye tilgangsgupper for innbyggere
-linktitle: Innbyggere tilgangsgrupper
-description: Her finner du forslag til nye tilgangsgrupper for innbyggere. 
+linktitle: Innbyggere 
+description: Her vil du finne forslag til nye tilgangsgrupper for innbyggere. Dette er et arbeid som pr nå ikke er påbegynt. 
 toc: true
 ---
 
