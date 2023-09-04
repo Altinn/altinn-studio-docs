@@ -1,0 +1,419 @@
+{
+	"openapi": "3.0.1",
+	"info": {
+	  "title": "Altinn.Notifications",
+	  "version": "1.0"
+	},
+	"paths": {
+	  "/orders/email": {
+		"post": {
+		  "tags": [
+			"EmailNotificationOrders"
+		  ],
+		  "requestBody": {
+			"content": {
+			  "application/json": {
+				"schema": {
+				  "$ref": "#/components/schemas/EmailNotificationOrderRequestExt"
+				}
+			  }
+			}
+		  },
+		  "responses": {
+			"200": {
+			  "description": "Success",
+			  "content": {
+				"text/plain": {
+				  "schema": {
+					"$ref": "#/components/schemas/NotificationOrderExt"
+				  }
+				},
+				"application/json": {
+				  "schema": {
+					"$ref": "#/components/schemas/NotificationOrderExt"
+				  }
+				},
+				"text/json": {
+				  "schema": {
+					"$ref": "#/components/schemas/NotificationOrderExt"
+				  }
+				}
+			  }
+			}
+		  }
+		}
+	  },
+	  "/orders/{id}": {
+		"get": {
+		  "tags": [
+			"Orders"
+		  ],
+		  "parameters": [
+			{
+			  "name": "id",
+			  "in": "path",
+			  "required": true,
+			  "schema": {
+				"type": "string",
+				"format": "uuid"
+			  }
+			}
+		  ],
+		  "responses": {
+			"200": {
+			  "description": "Success",
+			  "content": {
+				"text/plain": {
+				  "schema": {
+					"$ref": "#/components/schemas/NotificationOrderExt"
+				  }
+				},
+				"application/json": {
+				  "schema": {
+					"$ref": "#/components/schemas/NotificationOrderExt"
+				  }
+				},
+				"text/json": {
+				  "schema": {
+					"$ref": "#/components/schemas/NotificationOrderExt"
+				  }
+				}
+			  }
+			}
+		  }
+		}
+	  },
+	  "/orders": {
+		"get": {
+		  "tags": [
+			"Orders"
+		  ],
+		  "parameters": [
+			{
+			  "name": "sendersReference",
+			  "in": "query",
+			  "schema": {
+				"type": "string"
+			  }
+			}
+		  ],
+		  "responses": {
+			"200": {
+			  "description": "Success",
+			  "content": {
+				"text/plain": {
+				  "schema": {
+					"$ref": "#/components/schemas/NotificationOrderListExt"
+				  }
+				},
+				"application/json": {
+				  "schema": {
+					"$ref": "#/components/schemas/NotificationOrderListExt"
+				  }
+				},
+				"text/json": {
+				  "schema": {
+					"$ref": "#/components/schemas/NotificationOrderListExt"
+				  }
+				}
+			  }
+			}
+		  }
+		}
+	  },
+	  "/orders/{id}/status": {
+		"get": {
+		  "tags": [
+			"Orders"
+		  ],
+		  "parameters": [
+			{
+			  "name": "id",
+			  "in": "path",
+			  "required": true,
+			  "schema": {
+				"type": "string",
+				"format": "uuid"
+			  }
+			}
+		  ],
+		  "responses": {
+			"200": {
+			  "description": "Success",
+			  "content": {
+				"text/plain": {
+				  "schema": {
+					"$ref": "#/components/schemas/NotificationOrderWithStatusExt"
+				  }
+				},
+				"application/json": {
+				  "schema": {
+					"$ref": "#/components/schemas/NotificationOrderWithStatusExt"
+				  }
+				},
+				"text/json": {
+				  "schema": {
+					"$ref": "#/components/schemas/NotificationOrderWithStatusExt"
+				  }
+				}
+			  }
+			}
+		  }
+		}
+	  }
+	},
+	"components": {
+	  "schemas": {
+		"EmailContentType": {
+		  "enum": [
+			"Plain",
+			"Html"
+		  ],
+		  "type": "string"
+		},
+		"EmailNotificationOrderRequestExt": {
+		  "type": "object",
+		  "properties": {
+			"fromAddress": {
+			  "type": "string",
+			  "nullable": true
+			},
+			"subject": {
+			  "type": "string",
+			  "nullable": true
+			},
+			"body": {
+			  "type": "string",
+			  "nullable": true
+			},
+			"content-type": {
+			  "$ref": "#/components/schemas/EmailContentType"
+			},
+			"requestedSendTime": {
+			  "type": "string",
+			  "format": "date-time"
+			},
+			"sendersReference": {
+			  "type": "string",
+			  "nullable": true
+			},
+			"recipients": {
+			  "type": "array",
+			  "items": {
+				"$ref": "#/components/schemas/RecipientExt"
+			  },
+			  "nullable": true
+			}
+		  },
+		  "additionalProperties": false
+		},
+		"EmailNotificationStatusExt": {
+		  "type": "object",
+		  "properties": {
+			"links": {
+			  "$ref": "#/components/schemas/NotificationResourceLinksExt"
+			},
+			"generated": {
+			  "type": "integer",
+			  "format": "int32"
+			},
+			"succeeded": {
+			  "type": "integer",
+			  "format": "int32"
+			}
+		  },
+		  "additionalProperties": false
+		},
+		"EmailTemplateExt": {
+		  "type": "object",
+		  "properties": {
+			"fromAddress": {
+			  "type": "string",
+			  "nullable": true
+			},
+			"subject": {
+			  "type": "string",
+			  "nullable": true
+			},
+			"body": {
+			  "type": "string",
+			  "nullable": true
+			},
+			"content-type": {
+			  "$ref": "#/components/schemas/EmailContentType"
+			}
+		  },
+		  "additionalProperties": false
+		},
+		"NotificationChannel": {
+		  "enum": [
+			"Email"
+		  ],
+		  "type": "string"
+		},
+		"NotificationOrderExt": {
+		  "type": "object",
+		  "properties": {
+			"id": {
+			  "type": "string",
+			  "nullable": true
+			},
+			"creator": {
+			  "type": "string",
+			  "nullable": true
+			},
+			"sendersReference": {
+			  "type": "string",
+			  "nullable": true
+			},
+			"requestedSendTime": {
+			  "type": "string",
+			  "format": "date-time"
+			},
+			"created": {
+			  "type": "string",
+			  "format": "date-time"
+			},
+			"notificationChannel": {
+			  "$ref": "#/components/schemas/NotificationChannel"
+			},
+			"recipients": {
+			  "type": "array",
+			  "items": {
+				"$ref": "#/components/schemas/RecipientExt"
+			  },
+			  "nullable": true
+			},
+			"emailTemplate": {
+			  "$ref": "#/components/schemas/EmailTemplateExt"
+			},
+			"links": {
+			  "$ref": "#/components/schemas/OrderResourceLinksExt"
+			}
+		  },
+		  "additionalProperties": false
+		},
+		"NotificationOrderListExt": {
+		  "type": "object",
+		  "properties": {
+			"count": {
+			  "type": "integer",
+			  "format": "int32"
+			},
+			"orders": {
+			  "type": "array",
+			  "items": {
+				"$ref": "#/components/schemas/NotificationOrderExt"
+			  },
+			  "nullable": true
+			}
+		  },
+		  "additionalProperties": false
+		},
+		"NotificationOrderWithStatusExt": {
+		  "type": "object",
+		  "properties": {
+			"id": {
+			  "type": "string",
+			  "nullable": true
+			},
+			"sendersReference": {
+			  "type": "string",
+			  "nullable": true
+			},
+			"requestedSendTime": {
+			  "type": "string",
+			  "format": "date-time"
+			},
+			"creator": {
+			  "type": "string",
+			  "nullable": true
+			},
+			"created": {
+			  "type": "string",
+			  "format": "date-time"
+			},
+			"notificationChannel": {
+			  "$ref": "#/components/schemas/NotificationChannel"
+			},
+			"processingStatus": {
+			  "$ref": "#/components/schemas/ProcessingStatusExt"
+			},
+			"notificationsStatusSummary": {
+			  "$ref": "#/components/schemas/NotificationsStatusSummaryExt"
+			}
+		  },
+		  "additionalProperties": false
+		},
+		"NotificationResourceLinksExt": {
+		  "type": "object",
+		  "properties": {
+			"self": {
+			  "type": "string",
+			  "nullable": true
+			}
+		  },
+		  "additionalProperties": false
+		},
+		"NotificationsStatusSummaryExt": {
+		  "type": "object",
+		  "properties": {
+			"email": {
+			  "$ref": "#/components/schemas/EmailNotificationStatusExt"
+			}
+		  },
+		  "additionalProperties": false
+		},
+		"OrderResourceLinksExt": {
+		  "type": "object",
+		  "properties": {
+			"self": {
+			  "type": "string",
+			  "nullable": true
+			},
+			"status": {
+			  "type": "string",
+			  "nullable": true
+			},
+			"notifications": {
+			  "type": "string",
+			  "nullable": true
+			}
+		  },
+		  "additionalProperties": false
+		},
+		"ProcessingStatusExt": {
+		  "type": "object",
+		  "properties": {
+			"status": {
+			  "type": "string",
+			  "nullable": true
+			},
+			"description": {
+			  "type": "string",
+			  "nullable": true
+			},
+			"lastUpdate": {
+			  "type": "string",
+			  "format": "date-time"
+			}
+		  },
+		  "additionalProperties": false
+		},
+		"RecipientExt": {
+		  "type": "object",
+		  "properties": {
+			"id": {
+			  "type": "string",
+			  "nullable": true
+			},
+			"emailAddress": {
+			  "type": "string",
+			  "nullable": true
+			}
+		  },
+		  "additionalProperties": false
+		}
+	  }
+	}
+  }
