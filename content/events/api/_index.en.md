@@ -19,12 +19,12 @@ The Altinn Events API is an HTTP-based RESTful API that provides endpoints and a
 - TT02 (Application owner test environment)
  
     ```http
-    https://platform.tt02.altinn.cloud/events/api/v1
+    https://platform.tt02.altinn.no/events/api/v1
     ```
 - Production:
 
    ```http
-    https://platform.altinn.cloud/events/api/v1
+    https://platform.altinn.no/events/api/v1
     ```
 
 
