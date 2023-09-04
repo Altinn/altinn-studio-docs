@@ -1,18 +1,19 @@
 ---
 title: Deployment
-description: Configuring deploy and runtime behavior
+description: Configuring settings for deployment and runtime behavior
 toc: true
 weight: 600
 ---
-You can change how your application is deployed in kubernetes in the file _deployment/values.yaml_
 
-Examples of what options are available are: scale/autoscaling, ports and resources allocated.
+#### Helm Chart
 
-We provide some default values that you can choose to override as you see fit. The default values are defined [here](https://github.com/Altinn/altinn-studio-charts/blob/main/charts/deployment/values.yaml)
+Altinn applications are published to a Kubernetes cluster using a 'deployment Helm chart'. A Helm chart contains the necessary resources to publish an app, including YAML configuration files.
 
-To override a value in this file you need do add it as a child to the _deployment_ section in _deployment/values.yaml_
+Based on tests and experiences, we have set some default values in a central [Helm chart](https://github.com/Altinn/altinn-studio-charts/blob/main/charts/deployment/values.yaml) as a starting point for publishing Altinn applications. These values may change as we gain more experience.
 
-An example where initial scale is overridden.
+{{% notice info %}}
+Starting from version [2.0.0](/community/changelog/deployment/v2) of the 'deployment Helm chart,' autoscaling is available and enabled by default.
+{{% /notice %}}
 
 The values.yaml in the centralized chart defines _replicaCount_ at the root as follows:
 ```yaml
