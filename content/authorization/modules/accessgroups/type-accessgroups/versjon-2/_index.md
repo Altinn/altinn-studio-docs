@@ -8,40 +8,11 @@ weight: 100
 ---
 
 # Siden er under arbeid
+Nedenfor er oversikt over fullmaktsgrupper revidert etter innspill fra Tjenesteeeiere. 
+- Under hvert bilde er forslag til fullmaktsbeskrivelse som skal presenteres administrator for virksomheten i forbindelse med tilgangsstyring 
+- Denne beskrivelsen vil forklare hvilke type tjenester som er knyttet til fullmakten og som fullmakten dermed gir tilgang til
+- Alle fullmakstbeskrivelser vil ha følgende ettertekst: *Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir*
 
-Altinn skal erstatte rollene som gir tilgang til tjenester i Altinn 2 når vi flytter Altinn Autorisasjon til Altinn 3. 
-I stedet for roller vil det i Altinn 3 være ulike fullmaktsgrupper som består av tjenester som hører til et ansvarsområde.
-
-I forbindelse med innføring av nye fullmaktsgrupper så endres brukergrensesnitt for tilgangsstyrer slik at disse blir enklere å forstå og ta i bruk enn dagens roller.  
-![Skisseforslag på ny brukerflate for å bruke nye malering](gui-bruk-av-maler.jpg "Forslag til ny brukerflate på skissestadiet")
-
-
-**Her finner du som er tjenesteeier forslag til kategorier og navn på de nye tilgangsgruppene. Vi ønsker innspill om de nye tilgangsgruppene passer til deres tjeneste.**
-
-## Administrator gir tilgang til grupper med tjenester
-Den som skal gi tilgang til tjenester i en virksomhet kalles administrator. 
-Administrator kan gi tilgang til ansatte ved å legge de til fullmaktsgrupper. 
-
-Eksterne roller fra Enhetsregisteret (f eks Daglig leder, styreleder eller Regnskapsfører, heretter kalt ER-roller), får automatisk tilgang til fullmaktsgruppene for sin virksomhet. 
-Forslag til hvilke ER-roller som automatisk skal få hvilke fullmaktsgrupper er beskrevet på hver fullmaktsgruppe. 
-## De nye fullmaktsgruppene gjør det lettere å administrere tilganger
-
-Den største forskjellen på rollene i 2.0 og fullmaktsgruppene i 3.0 blir:
-
-- Flere fullmaktsgrupper som kan være delt inn i opptil tre nivåer, slik at administrator kan gi tilgang til færre tjenester og det blir lettere å finne riktig fullmaktsgruppe. 
-- Mer findelte fullmaktsgrupper gjør det lettere for tjenesteeiere å velge riktig målgruppe for sine tjenester.
-
-Grunnlaget for inndelingen i maler er [Altinns skjemakatalog](https://www.altinn.no/skjemaoversikt/?category=category) og [SSBs standard for å kategorisere virksomheter](https://www.ssb.no/klass/klassifikasjoner/6). 
-## Tjenester må til det laveste nivået i hierarkiet 
-
-Fullmaktsgruppene har maksimalt tre nivåer. Du må knytte tjenester til det laveste nivået for fullmaktsgruppen du skal bruke.
-Det betyr for eksempel at du ikke kan knytte en tjeneste til malen Â«Skatt, avgift, regnskap og tollÂ» som er nivå 1. Du kan heller ikke knytte til nivået under, for eksempel Â«Skatt og MerverdiavgiftÂ». Du må knytte til Â«ForetaksskattÂ», Â«Skattegrunnlag Â» og/eller "Merverdiavgift".
-
-![Hierarki av fullmaktsgrupper](hierarki-fullmaktsgrupper.jpg "Hierarki av fullmaktsgrupper")
-
-Målet med mer findelte nivåer et at folk skal få tilgang til akkurat det de trenger, men ikke få for omfattende tilganger. 
-Du kan knytte en tjeneste til flere fullmaktsgrupper hvis du mener det er riktig. 
- 
 
 ### Avvikler alle Altinn 2 generelle roller
 Alle Altinn 2 roller vil bli avviklet i forbindelse med overgang til nye fullmaktsgruppene. 
