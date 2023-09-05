@@ -44,7 +44,7 @@ Alle endringer knyttet til skalering og ressursbruk gjøres i `deployment/values
 
 ### Nyttig dokumentasjon
 - [Sette egendefinerte regler for skalering](/nb/app/development/configuration/deployment/#skalering)
-- [Sette egendefinerte grenser for ressursbruk](/nb/app/development/configuration/deployment/#resources-konfigurasjon)
+- [Sette egendefinerte grenser for ressursbruk](/nb/app/development/configuration/deployment/#konfigurasjon-av-ressurser)
 {{% /expandlarge %}}
 
 
