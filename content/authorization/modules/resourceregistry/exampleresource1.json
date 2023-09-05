@@ -1,49 +1,64 @@
 {
-    "identifier":"altinn_access_management",
-    "description": 
-         [
-            {
+    "identifier": "altinn_access_management",
+    "title": [
+        {
+            "title": "Tilgangsstyring Altinn",
+            "language": "nb-NO"
+        },
+        {
+            "title": "Access managment Altinn",
+            "language": "nb-NO"
+        }
+    ],
+    "description": [
+        {
             "language": "nb-NO",
-             "description": "Funksjonalitet for å tilgangsstyring I Altinn" 
-            },
-            {
-                "language": "EN",
-                "description": "Access management functionality" 
-            }
-        ],
-    "title": 
-           [{
-                "title":"Tilgangsstyring Altinn",
-                  "language":"nb-NO"
-            },
-            {
-                "title":"Access managment Altinn",
-                  "language":"nb-NO"
-            }],
-    "hasCompetentAuthority":
-          {
-              "organization": "991825827",
-              "orgcode":"digdir"
-          },
-     "contactpoint": 
-              [{
-                        "phone":"1231324",
-                        "email": "online@digdir.no"
-              }],
-          "isPartOf":"altiinnportal",
-          "hasPart": "delegationrequests",
-          "homepage":"platform.altinn.no/accessmanagement/",
-           "status":"Completed", 
-           "thematicArea":[],
-           "type":[],
-            "sector":[],
-            "keyword":[
-                {
-                    "keyword":"delegation"
-                },
-                {
-                    "keyword":"access management"
-                }
-            ]          
-  
-  }
+            "description": "Funksjonalitet for å tilgangsstyring I Altinn"
+        },
+        {
+            "language": "EN",
+            "description": "Access management functionality"
+        }
+    ],
+    "rightDescription": [
+        {
+            "language": "nb-NO",
+            "description": "Funksjonalitet for å tilgangsstyring I Altinn"
+        },
+        {
+            "language": "EN",
+            "description": "Access management functionality"
+        }
+    ],
+    "homepage": "platform.altinn.no/accessmanagement/",
+    "status": "Completed",
+    "delegable": true,
+    "visible": true,
+    "hasCompetentAuthority": {
+        "organization": "991825827",
+        "orgcode": "digdir"
+    },
+    "contactPoints": [
+        {
+            "category": null,
+            "telephone": "1231324",
+            "email": "online@digdir.no",
+            "contactPage": null
+        }
+    ],
+    "isPartOf": "altiinnportal",
+    "hasPart": "delegationrequests",
+    "thematicArea": [],
+    "keyword": [
+        {
+            "keyword": "delegation"
+        },
+        {
+            "keyword": "access management"
+        }
+    ],
+    "LimitedByRRR": false,
+    "SelfIdentifiedUserEnabled": false,
+    "EnterpriseUserEnabled": false,
+    "resourceType": "GenericAccessResource"
+}
