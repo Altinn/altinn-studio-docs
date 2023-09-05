@@ -43,7 +43,7 @@ All changes related to scaling and resource use are made in the `deployment/valu
 
 
 ### Useful documentation
-- [Set custom rules for scaling](/app/development/configuration/deployment/#scale)
+- [Set custom rules for scaling](/app/development/configuration/deployment/#scaling)
 - [Set custom limits for resource use](/app/development/configuration/deployment/#resources-configuration)
 {{% /expandlarge %}}
 
