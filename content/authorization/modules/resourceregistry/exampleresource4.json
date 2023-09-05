@@ -1,50 +1,63 @@
 {
-    "identifier":"brg_samordnet_registermelding",
-    "description": 
-         [
-            {
+    "identifier": "brg_samordnet_registermelding",
+    "title": [
+        {
+            "title": "Samordnet registermelding",
+            "language": "nb-NO"
+        },
+        {
+            "title": "Coordinated register notification",
+            "language": "en"
+        }
+    ],
+    "description": [
+        {
             "language": "nb-NO",
-             "description": "Elektronisk skjema for registrering av selskap" 
-            },
-            {
-                "language": "EN",
-                "description": "Registering a new entity or changing information regarding an existing entity" 
-            }
-        ],
-    "title": 
-           [{
-                "title":"Samordnet registermelding",
-                  "language":"nb-NO"
-            },
-            {
-                "title":"Coordinated register notification",
-                  "language":"en"
-            }],
-    "hasCompetentAuthority":
-          {
-              "organization": "974760673",
-              "orgcode":"brg"
-          },
-     "contactpoint": 
-              [{
-                        "phone":"1231324",
-                        "email": "online@digdir.no"
-              }],
-          "homepage":"https://www.altinn.no/Pages/ServiceEngine/Start/StartService.aspx?ServiceEditionCode=1&ServiceCode=3498&M=SP&DontChooseReportee=true&O=personal",
-           "status":"Completed", 
-           "thematicArea":[],
-           "type":[],
-            "sector":[],
-            "keyword":[
-                {
-                    "keyword":"Selskapsregistrering"
-                },
-                {
-                    "keyword":"Firmaattest"
-                },
-                {
-                    "keyword":"Organisasjonsnummer"
-                }
-            ]          
-  
-  }
+            "description": "Elektronisk skjema for registrering av selskap"
+        },
+        {
+            "language": "EN",
+            "description": "Registering a new entity or changing information regarding an existing entity"
+        }
+    ],
+    "rightDescription": [
+        {
+            "language": "nb-NO",
+            "description": "Elektronisk skjema for registrering av selskap"
+        },
+        {
+            "language": "EN",
+            "description": "Registering a new entity or changing information regarding an existing entity"
+        }
+    ],
+    "homepage": "https://www.altinn.no/Pages/ServiceEngine/Start/StartService.aspx?ServiceEditionCode=1&ServiceCode=3498&M=SP&DontChooseReportee=true&O=personal",
+    "status": "Completed",
+    "contactPoints": [
+        {
+            "category": null,
+            "telephone": "1231324",
+            "email": "online@digdir.no",
+            "contactPage": null
+        }
+    ],
+    "hasCompetentAuthority": {
+        "organization": "974760673",
+        "orgcode": "brg"
+    },
+    "thematicArea": [],
+    "keyword": [
+        {
+            "keyword": "Selskapsregistrering"
+        },
+        {
+            "keyword": "Firmaattest"
+        },
+        {
+            "keyword": "Organisasjonsnummer"
+        }
+    ],
+    "LimitedByRRR": false,
+    "SelfIdentifiedUserEnabled": false,
+    "EnterpriseUserEnabled": false,
+    "resourceType": "GenericAccessResource"
+}
