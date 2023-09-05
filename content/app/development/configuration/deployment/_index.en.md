@@ -1,103 +1,144 @@
 ---
 title: Deployment
-description: Configuring deploy and runtime behavior
+description: Configuring settings for deployment and runtime behavior
 toc: true
 weight: 600
 ---
-You can change how your application is deployed in kubernetes in the file _deployment/values.yaml_
 
-Examples of what options are available are: scale/autoscaling, ports and resources allocated.
+#### Helm Chart
 
-We provide some default values that you can choose to override as you see fit. The default values are defined [here](https://github.com/Altinn/altinn-studio-charts/blob/main/charts/deployment/values.yaml)
+Altinn applications are published to a Kubernetes cluster using a deployment Helm chart. A Helm chart contains the necessary resources to publish an app, including YAML configuration files.
 
-To override a value in this file you need do add it as a child to the _deployment_ section in _deployment/values.yaml_
+Based on tests and experiences, we have set some default values in a central [Helm chart](https://github.com/Altinn/altinn-studio-charts/blob/main/charts/deployment/values.yaml) as a starting point for publishing Altinn applications. These values may change as we gain more experience.
 
-An example where initial scale is overridden.
+{{% notice info %}}
+Starting from version [2.0.0](/community/changelog/deployment/v2) of the 'deployment Helm chart,' autoscaling is available and enabled by default.
+{{% /notice %}}
 
-The values.yaml in the centralized chart defines _replicaCount_ at the root as follows:
+#### Custom settings
+
+Custom settings are configured in the `App/deployment/values.yaml` file by adding the desired property under the `deployment` section.
+ These will override corresponding settings in the Helm chart (for exceptions, see [here](#settings-overridden-at-deploytime)).
+  See [Initial Scaling](#initial-scaling) for an example.
+
+{{% notice warning %}}
+Please note that the format in `values.yaml` in the central Helm chart differs slightly from `values.yaml` in the application; in the Helm chart, the properties are at the top level, while in the app, they must be placed under the `deployment` section.
+{{% /notice %}}
+
+## Scaling
+
+### Initial scaling
+
+The initial scaling is defined by `replicaCount`. If autoscaling is enabled, the autoscaler will override this value.
+
+Standard settings in the Helm chart:
+
+{{% code-title %}}
+altinn-studio-charts/charts/deployment/values.yaml
+{{% /code-title %}}
+
 ```yaml
 replicaCount: 2
+
 ...
 ```
 
-To override this in your _deployment/values.yaml_ you add it as a child to the deployment section:
-```yaml
+To override the settings in your app, you can add `replicaCount` under `deployment` i `App/deployment/values.yaml`:
+
+{{% code-title %}}
+App/deployment/values.yaml
+{{% /code-title %}}
+
+```yaml{linenos=false,hl_lines="3"}
 deployment:
+
   replicaCount: 3
-```
-{{%notice warning%}}
-Note the addition of "deployment:" and that the "replicaCount" is indented with two spaces (yaml-indents are spaces and not tab, your yaml will not be valid with tab indents!)
-{{% /notice %}}
 
-## Scale
-### Initial scale
-The initial scale is controlled by the field `replicaCount`. If autoscaling is enabled the autoscaler will override this value.
-Example where initial scale is set to 2:
+...
+```
+
+### Autoscaling
+
+When configuring how autoscaling behaves, you need to consider the following sections:
+
+1. `resources`: Guarantees and limits for CPU and memory for app pods during runtime. See [Resource Configuration](#resources-configuration).
+2. `autoscaling`: Settings for when the application should scale up or down.
+
+Autoscaling utilizes the [Horizontal Pod Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) to automatically scale an app up and down based on CPU usage.
+
+The `autoscaling` section configures when an application should automatically scale.
+
+Default settings in the Helm chart:
+
+{{% code-title %}}
+altinn-studio-charts/charts/deployment/values.yaml
+{{% /code-title %}}
+
 ```yaml
-deployment:
-  replicaCount: 2
-```
-### Autoscaling configuration
+...
 
-From version [2.0.0](/community/changelog/deployment/v2) of the deployment helm-chart autoscaling is available and enabled by default.
+autoscaling:
+  enabled: true
+  replicas:
+    min: 2
+    max: 10
+  avgCpuUtilization: 70
+  behavior:
+    stabilizationWindowSeconds:
+      scaleUp: 0
+      scaleDown: 120
 
-Autoscaling leverages [Horizontal Pod Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) 
-to automatically scale your application based on CPU utilization.
-
-When configuring how the autoscaling of your app behaves, there are two sections in the values that affect it.
-1. _resources_ cpu/memory guarantees and limits for the app pods at runtime, see: [Resources Configuration](#resources-configuration)
-2. _autoscaling_ when and how the autoscaling should happen
-
-Defaults if not overridden in _deployment/values.yaml_
-```yaml
-deployment:
-  autoscaling:
-    enabled: true
-    replicas:
-      min: 2
-      max: 10
-    avgCpuUtilization: 70
-    behavior:
-      stabilizationWindowSeconds:
-        scaleUp: 0
-        scaleDown: 120
+...
 ```
 
-#### deployment.autoscaling.replicas
-__min__: The lowest number of pods the autoscaler is allowed to scale down to.
-__max__: The highest number of pods the autoscaler is allowed to scale up to.
+#### `autoscaling.replicas`
+- `min`: The lowest number of pods the autoscaler is allowed to scale down to.
+- `max`: The highest number of pods the autoscaler is allowed to scale up to.
 
-#### deployment.autoscaling.avgCpuUtilization
-Average percentage of CPU request that is utilized.
+#### `autoscaling.avgCpuUtilization`
+`avgCpuUtilization` sets the threshold for the percentage of CPU requests utilized before scaling up or down.
 
-Scale up is not instant as the new pod needs some time to start (1-2 min in most cases).
-If all the resources in the cluster is consumed azure also need to start a new node (5-10 min in most cases).
-Leave some resources that can handle the load while the extra capacity is provisioned.
+Scaling up is not immediate, as a new pod takes time to start (1-2 minutes in most cases).
+ If all resources in a cluster are reserved, a new node must be started in Azure (5-10 minutes in most cases).
+ It is, therefore, wise to have a small buffer so that the application can handle the load until the capacity is expanded.
 
-#### deployment.autoscaling.behavior.stabilizationWindowSeconds
-The stabilization window is used to restrict the flapping of replicas when the metrics used for scaling keep fluctuating.
+#### `autoscaling.behavior.stabilizationWindowSeconds`
+The stabilization window limits the flickering of replicas when the values used for scaling vary.
 
-By default, apps initiate scale up as soon as the average utilization is above the threshold and wait two minutes before we start a scaledown.
+- `scaleUp`: The number of seconds Kubernetes should wait after the last scaling before performing a new scaling-up evaluation.
+- `scaleDown`: The number of seconds Kubernetes should wait after the last scaling before it performs a new evaluation for scaling down.
 
-__scaleUp__: Number of seconds to wait from the last scale-event to a new scaleUp is evaluated.
-__scaleDown__: Number of seconds to wait from the last scale-event to a new scaleDown is evaluated.
+With standard settings, scaling up will happen once the consumption exceeds the threshold values. Scaling down will wait for two minutes.
 
 ## Resources configuration
-Setting good requests and limits you need to know the app well, e.g. what tasks is it meant to perform and how it does it. 
-We try to set sane defaults, but they might not be suited for your workloads.
+The ideal settings for `resources` depend on the application's code and tasks. We have tried to set default values that should work for as many of the apps in Altinn as possible, but they may not be suitable for your app.
 
-Defaults if not overridden in _deployment/values.yaml_
+Default values in the Helm chart:
+
+{{% code-title %}}
+altinn-studio-charts/charts/deployment/values.yaml
+{{% /code-title %}}
+
 ```yaml
-deplyoment:
-  resources:
-    requests:
-      cpu: 300m
-      memory: 256Mi
+...
+
+resources:
+  requests:
+    cpu: 300m
+    memory: 256Mi
+
+...
 ```
 
-All values available, the values are only provided as an example.
+Values that are possible to configure (the values below are just an example and by no means definitive):
+
+{{% code-title %}}
+App/deployment/values.yaml
+{{% /code-title %}}
+
 ```yaml
 deplyoment:
+
   resources:
     requests:
       cpu: 200m
@@ -105,83 +146,126 @@ deplyoment:
     limits:
       cpu: 1000m
       memory: 512Mi
-``` 
 
-#### deployment.resources.requests
-This section in the yaml defines the resources that will be reserved by the kubelet for each pod of the app. 
+...
+```  
 
-Requests are used when the kubernetes scheduler decides what node the pod should run on. This will limit the number of pods that can run on a node.
+#### `deployment.resources.requests`
+The `requests` property defines the resources reserved for each pod in the app and are used when the Kubernetes scheduler determines which node the pod should run on.
+ Based on these settings, the maximum number of pods that can run on a node is calculated.
+  The maximum number is limited by the setting allowing the fewest pods.
 
-Requests are also used by the Horizontal Pod Autoscaler to determine if the app should scale up or down.
+{{% expandsmall id="example1" header="Example" %}}
 
-Given a cluster with 2 cores (2000 millicores) and 4Gi of memory and all the pods requesting 200m (200 millicores) and 256Mi.
+Given a cluster with nodes, each having 2 cores (2000 milliCores) and 4Gi memory, and where all pods have requests set to 200m (200 milliCores) and 256Mi:
+- Based on CPU requests, the number of pods that can run on each node is: _2000 / 200 = 10_
+- Based on memory requests, the number of pods that can run on each node is: _4096Mi / 256Mi = 16_
 
-The number of pods a node can run based on the CPU request is: _2000 / 200 = 10_
+*The maximum number of pods that can run on each node, with or without load in the solution, is 10.*
+{{% /expandsmall %}}
 
-The number of pods a node can run based on the memory request is: _4096Mi / 256Mi = 16_
+`requests` are also used by the Horizontal Pod Autoscaler to determine whether the app should scale up or down.
 
-The number of pods a node can run, with or without actual load, is then 10.
+The `requests` settings do not limit how much CPU or memory an application can use if there are available resources.
+ However, a pod may be "evicted" from the node if there are few available resources and the pod uses more than specified in `requests`.
 
-Requests does not limit how much CPU or memory a pod can use when there are available resources, but if resources are scarce pods exceeding their request can be evicted from the node.
+#### `deployment.resources.limits`
+`limits` define how much of a resource a pod can use at most.
 
-#### deployment.resources.limits
-This section in the yaml defines the maximum of resources a pod of this app is allowed to use. 
+If a pod tries to use more CPU than what is set as a limit, it will be throttled.
 
-If a pod tries to use more CPU than the limit it is throttled.
-
-If a pod tries to allocate more memory than the limit it is terminated with an Out Of Memory (OOM) error
+If a pod attempts to allocate more memory than what is set as a limit, it will be terminated with an Out Of Memory (OOM) error.
 ## Linkerd
-By default all services are add to the Linkerd service mesh.
+By default, all services are add to the [Linkerd](https://linkerd.io/) service mesh:
 
-We strongly recommend not changing this setting as it add mutual TLS and other security features to all communication between services in the cluster.
+{{% code-title %}}
+altinn-studio-charts/charts/deployment/values.yaml
+{{% /code-title %}}
 
 ```yaml
-deployment:
 ...
-  linkerd:
-    enabled: true
+
+linkerd:
+  enabled: true
+
 ...
 ```
 
-## Volumes and VolumeMounts
-This section defines volumes mounted into folders available to the application.
-There are some default mounts the default functionality needs to communicate with Altinn Platform.
+{{% notice warning %}}
+We strongly recommend not changing this setting as it adds mutual TLS and other security features to all communication between services in the cluster.
+{{% /notice %}}
+
+## Mounting of volumes
+`volumes` and `volumeMounts` define volumes mounted to the application's filesystem. `Volumes` describe the content of the mounted resource, and `volumeMounts` specify where in the application's filesystem the content should be mounted.
+
+There are two predefined mounted resources and mounting points in the Helm chart that are necessary for standard functionality, including communication with the Altinn Platform:
+
+{{% code-title %}}
+altinn-studio-charts/charts/deployment/values.yaml
+{{% /code-title %}}
 
 ```yaml
-deployment:
 ...
-  volumes:
-    - name : datakeys
-      persistentVolumeClaim:
-        claimName: keys
-    - name: accesstoken
-      secret:
-        secretName: accesstoken
+
+volumeMounts:
+  - name: datakeys
+    mountPath: /mnt/keys
+  - name: accesstoken
+    mountPath: "/accesstoken"
+
+volumes:
+  - name : datakeys
+    persistentVolumeClaim:
+      claimName: keys
+  - name: accesstoken
+    secret:
+      secretName: accesstoken
+
+...
 ```
 
-At the time of writing there is one case for adding other Volumes: [Secrets loaded from Azure Key Vault](../secrets)
+Custom volumes can be added under the `development` section in `App/deployment/values.yaml`.
+
+At the moment, there is only one use case for adding other volumes: [Fetching secrets from Azure Key Vault](/app/development/configuration/secrets/).
 
 ## Service
-In the service definition you can change the port forwarding rules to your application, most likely this is something you do not need to change.
 
-If your application runs on a different port than 5005, set deployment.service.internalPort to the port your app is running on.
+The `service` configuration defines which port is exposed internally in the cluster and which external port it should be mapped to.
 
-Defaults are:
-```yaml {hl_lines=[8]}
-deployment:
+Default settings in the Helm chart:
+
+```yaml
 ...
-  service:
-    name: deployment
-    type: ClusterIP
-    externalPort: 80
-    ## If your application is running on another port, change only the internal port.
-    internalPort: 5005
+
+service:
+  name: deployment
+  type: ClusterIP
+  externalPort: 80
+  ## If your application is running on another port, change only the internal port.
+  internalPort: 5005
+
 ...
 ```
 
-## Sections overridden at deploytime
+If your application is running on a different port than 5005, you can configure `deployment.service.internalPort` in the application's `values.yaml` file:
 
-* image
-* ingressRoute
+```yaml
+deployment:
+...
 
-These sections are overridden at deploytime so changes have no affect.
+  service:
+    internalPort: 5007
+
+...
+```
+
+{{% notice warning %}}
+**Note:** Setings for `externalPort` must not be changed.
+{{% /notice %}}
+
+## Settings overridden at deploytime
+
+- `image`
+- `ingressRoute`
+
+These settings are overridden during publishing, so changes here will have no effect.

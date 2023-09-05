@@ -48,6 +48,8 @@ Some examples
 - Portal functionality in external portal [Example 2](exampleresource2.json)
 - Samordna registermelding [Example 4](exampleresource4.json) [XACML](policysample4.xml)
 - Avtale om Arbeidstrening [Example 6](exampleresource6.json) [XACML](policysample6.xml)
+- Lakselus MaskinPortenSchema [Example 7](exampleresource7.json) [XACML](policysample7.xml)
+
 
 ## Resource attributes
 

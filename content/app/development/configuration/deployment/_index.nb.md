@@ -59,6 +59,7 @@ deployment:
 
 ...
 ```
+
 ### Autoskalering
 
 Når man skal konfigurere hvordan autoskaleringen oppfører seg må man ta hensyn til følgende seksjoner:
@@ -108,15 +109,15 @@ Det er derfor lurt å ha en liten buffer sånn at applikasjonen kan håndtere la
 #### `autoscaling.behavior.stabilizationWindowSeconds`
 Stabiliseringsvinduet brukes for å begrense flimringen av kopier når verdiene som brukes for skalering varierer.
 
-Som standard vil en oppskalering skje så fort forbruket er over terskelverdiene. Nedskalering vil vente i to minutter.
 
 - `scaleUp`: Antall sekunder kubernetes skal vente etter siste skalering før den gjør en ny evaluering om oppskalering.
 - `scaleDown`: Antall sekunder kubernetes skal vente etter siste skalering før den gjør en ny evaluering om nedskalering.
 
+Som standard vil en oppskalering skje så fort forbruket er over terskelverdiene. Nedskalering vil vente i to minutter.
 
 ## Konfigurasjon av ressurser
 
- Hvilke innstillinger som er ideelle for ressurser (`resources`)  er avhengig av applikasjonens kode og oppgavene den utfører.
+Hvilke innstillinger som er ideelle for ressurser (`resources`)  er avhengig av applikasjonens kode og oppgavene den utfører.
 Vi har forsøkt å sette standard verdier som skal fungere for så mange av appene i Altinn som mulig, men det er ikke sikkert de passer for din app.
 
 Standard verdier i Helm chart:
@@ -201,7 +202,7 @@ linkerd:
 ```
 
 {{% notice warning %}}
-Vi anbefaler på det sterkeste å ikke endre denne innstillingen da den legger på mutual TLS som krypterer all intern kommunikasjon mellom tjenester i klusteret før det forlater en maskin.
+Vi anbefaler på det sterkeste å ikke endre denne innstillingen da den legger til mutual TLS som krypterer all intern kommunikasjon mellom tjenester i clusteret før det forlater en maskin.
 {{% /notice %}}
 
 ## Koble til volumer
@@ -241,8 +242,7 @@ På gjeldende tidspunkt er det kun ett bruksområde for å legge til andre volum
 
 ## Service
 
-Service-konfigurasjonen definerer hvilken port som eksponeres internt i clusteret og hvilken ekstern port denne skal mappes til.
- Det er sjelden disse verdiene må endres.
+Konfigurasjon av `service` definerer hvilken port som eksponeres internt i clusteret og hvilken ekstern port denne skal mappes til.
 
 Standard innstillinger i Helm chart:
 
@@ -280,7 +280,7 @@ deployment:
 ```
 
 {{% notice warning %}}
-**NB!** `eksternalPort` må ikke endres.
+**NB!** Innstilling for `eksternalPort` må ikke endres.
 {{% /notice %}}
 
 ## Innstillinger som blir overskrevet ved publisering

@@ -38,7 +38,7 @@ Grunnlaget for inndelingen i maler er [Altinns skjemakatalog](https://www.altinn
 Malene har tre nivåer. Du må knytte tjenester til det laveste nivået, nivå 3.
 Det betyr for eksempel at du ikke kan knytte en tjeneste til malen «Skatt, avgift, regnskap og toll» som er nivå 1. Du kan heller ikke knytte til nivået under, for eksempel «Skatt og Merverdiavgift». Du må knytte til «Foretaksskatt», «Skattegrunnlag » og/eller "Merverdiavgift".
 
-![Hierarki av fullmaktsgrupper](hierarki-fullmaktsgrupper.jpg "Hierarki av fullmaktsgrupper")
+![Hierarki av fullmaktsgrupper](hierarki-tilgangsgrupper.jpg "Hierarki av fullmaktsgrupper")
 
 Målet med mer findelte nivåer et at folk skal få tilgang til akkurat det de trenger, men ikke få for omfattende tilganger. 
 Maler som foreløpig er definert som nivå 3 er markert med * i oversikten under. Hvis du trenger det, kan vi lage flere maler på de ulike nivåene. 
