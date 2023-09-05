@@ -1,11 +1,10 @@
 ---
-title: Forslag nye fullmaktsgupper i 3.0 - versjon 1
+title: Forslag nye fullmaktsgupper - versjon 1
 linktitle: Virksomhet, versjon 1
 description: Her finner du forslag til nye fullmaktsgrupper for virksomheter. Disse har vært på høring. Vi jobber nå med versjon 2 av fullmaktsgrupper. 
 toc: false
 weight: 300
 
- 
 ---
 
 *Høring er avsluttet og svar er under behandling*
