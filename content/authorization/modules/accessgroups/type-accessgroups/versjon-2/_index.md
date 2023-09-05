@@ -37,7 +37,7 @@ Grunnlaget for inndelingen i maler er [Altinns skjemakatalog](https://www.altinn
 Fullmaktsgruppene har maksimalt tre nivåer. Du må knytte tjenester til det laveste nivået for fullmaktsgruppen du skal bruke.
 Det betyr for eksempel at du ikke kan knytte en tjeneste til malen Â«Skatt, avgift, regnskap og tollÂ» som er nivå 1. Du kan heller ikke knytte til nivået under, for eksempel Â«Skatt og MerverdiavgiftÂ». Du må knytte til Â«ForetaksskattÂ», Â«Skattegrunnlag Â» og/eller "Merverdiavgift".
 
-![Hierarki av fullmaktsgrupper](hierarki-fullmaktsgrupper.jpg "Hierarki av fullmaktsgrupper")
+![Hierarki av fullmaktsgrupper](hierarki-tilgangsgrupper.jpg "Hierarki av fullmaktsgrupper")
 
 Målet med mer findelte nivåer et at folk skal få tilgang til akkurat det de trenger, men ikke få for omfattende tilganger. 
 Du kan knytte en tjeneste til flere fullmaktsgrupper hvis du mener det er riktig. 

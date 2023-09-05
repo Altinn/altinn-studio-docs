@@ -6,7 +6,8 @@ weight: 105
 ---
 Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-2/#oversikt-over-fullmaktsgrupper)
 
-![Fullmaktsgrupper Skatt, avgift, regnskap og toll](sart.jpg "Skatt, avgift, regnskap og toll")  
+
+![oversikt](sart.jpg "oversikt")
 
 
 - **Skatt, avgift, regnskap og toll:** Denne fullmakten gir tilgang til alle tjenester som angår skatt, avgift, regnskap og toll. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
@@ -31,3 +32,5 @@ Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroup
 |Toll|ja|ja|DAGL, STYR,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
 
 Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-2/#oversikt-over-fullmaktsgrupper)
+
+[def]: sart.jpg
