@@ -17,7 +17,7 @@ Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroup
 	- **Tilskudd, støtte og erstatning:** Denne fullmakten gir tilgang til alle tjenester knyttet til å søke tilskudd, støtte og erstatning. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
 	- **Mine sider hos kommunen:** Denne fullmakten gir generell tilgang til tjenester av typen "mine side" tjenester hos kommuner. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
 	- **Politi og domstol:** Denne fullmakten gir tilgang til alle tjenester knyttet til virksomhetens dialog om juridiske forhold med politi og jusitsmyndigheter. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
-	- **Rapportering av statistikk til SSB:** Denne fullmakten gir tilgang til alle pålagte rapportering til Statistisk sentralbyrå. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
+	- **Rapportering av statistikk:** Denne fullmakten gir tilgang til alle pålagte rapportering til Statistisk sentralbyrå. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
 
 
 ## Egenskaper ved fullmaktsgruppene
@@ -33,6 +33,6 @@ Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroup
 |Tilskudd, støtte og erstatning|ja|ja|DAGL, STYR,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
 |Mine sider hos kommunen|ja|ja|DAGL, STYR,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
 |Politi og domstol|ja|ja|DAGL, STYR,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
-|Rapportering av statistikk til SSB|ja|ja|DAGL, STYR,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
+|Rapportering av statistikk|ja|ja|DAGL, STYR,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
 
 Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-2/#oversikt-over-fullmaktsgrupper)
