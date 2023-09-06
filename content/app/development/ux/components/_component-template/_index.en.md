@@ -3,8 +3,9 @@ title: Component
 linktitle: Component
 description: # Brief description of what the component does
 schemaname: # Component schema name used to autogenerate list of properies from json schema (replace with appropriate component name)
-hidden: true # Remove when creating new component page from template
 weight: 10 # Do not change, the componets will be sorted alphabetically
+toc: true
+hidden: true # Remove when creating new component page from template
 ---
 
 <!-- For a full example, see [Image](../image/) -->
@@ -22,7 +23,7 @@ Image/diagram with numbered callouts.
 1. Take a screenshot of the basic version of the component with good copy (text).
 2. Use the [PowerPoint file](../numbered-callouts-anatomy.pptx) to add numbers to the screenshot
 3. Group screenshot and numbering, save as image, and add to documentation
-4. Include key with description of callouts below . See example for formatting.
+4. Include key with description of callouts below using anatomy-list shortcode (see example for formatting).
 
 Example:
 
@@ -53,6 +54,14 @@ Add the following sections if relevant:
 ### Content guidelines
 
 (E.g. punctuation rules, standard labels, etc.)
+
+### Accessibility
+
+(Component-specific best practices for accessibility.)
+
+### Mobile
+
+(How to apply component in mobile environments.)
 
 ### Related
 
@@ -114,7 +123,6 @@ Example:
 {{<content-version-container version-label="Code">}}
 
 Corresponding settings in the page's JSON file.
-The component is highlighted.
 
 <!--
 Replace "component code" in the below code block with the actual component code that corresponds to the settings in Designer.
@@ -152,6 +160,7 @@ Add sections describing the configuration of properties specific for the compone
     range: hl_lines="4-13"
     multiple lines and ranges: hl_lines=["1-4", "7", "20"]
 
+Shortcode for tabs:
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}

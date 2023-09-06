@@ -2,9 +2,10 @@
 title: Komponent
 linktitle: Komponent
 description: # Kort beskrivelse av komponenten
-schemaname: # Komponent schema-navn, brukes for å automatisk generere liste med egenskaper fra komponentens JSON schema (erstatt med riktig navn i henhold til schema)
-hidden: true # Fjern for ny komponent
+schemaname: # Komponentens schema-navn, brukes for å automatisk generere liste med egenskaper fra komponentens JSON schema (erstatt med riktig navn i henhold til schema)
 weight: 10 # Ikke endre, komponentene sorteres alfabetisk
+toc: true
+hidden: true # Fjern for ny komponent
 ---
 
 <!-- For et eksempel på utfylt mal, se [Image](../image/) -->
@@ -18,11 +19,11 @@ weight: 10 # Ikke endre, komponentene sorteres alfabetisk
 
 <!-- 
 
-Nummert skjermbilde av komponenten
+Nummerert skjermbilde av komponenten
 1. Ta et skjermbilde av basis-versjonen av komponenten.
-2. Brek [PowerPoint-filen](../numbered-callouts-anatomy.pptx) for å legge til nummerering på skjermbildet 
+2. Bruk [PowerPoint-filen](../numbered-callouts-anatomy.pptx) for å legge til nummerering på skjermbildet 
 3. Grupper skjermbilde og nummerering, lagre som bilde og legg det til i dokumentasjonen.
-4. Legg til nummerert liste med beskrivelser. Se eksempel for format.
+4. Legg til nummerert liste med beskrivelser, bruk anatomy-list shortcode (se eksempel for format).
 
 Eksempel:
 
@@ -54,9 +55,17 @@ Legg til følgende seksjoner dersom de er relevante:
 
 (E.g. regler for tegnsetting, standard etiketter, etc.)
 
+### Tilgjengelighet
+
+(Komponent-spesifikk beste praksis for tilgjengelighet.)
+
+### Mobil
+
+(Hvordan implementere komponent i mobile miljøer.)
+
 ### Relatert
 
-(Liste over relaterte kompomenter, inkluder lenker.)
+(Liste over relaterte komponenter, inkluder lenker.)
 
 -->
 
@@ -95,12 +104,14 @@ Vi oppdaterer for øyeblikket Altinn Studio med flere muligheter for innstilling
 Innstillinger for egenskaper tilgjengelig i Altinn Studio Designer.
 
 <!--
+Eksempel:
+
 ![Innstillingspanel for komponent](../image/screenshot-component-settings.png)
 
 - **Komponent-ID** (`id`): Automatisk generert komponent-ID (kan redigeres).
 - **Kilde** (`src`): Lenke eller filsti til [bildets kilde](#konfigurer-kilde-src).
 - **Alternativ tekst** (`textResourceBindings.altTextImg`): Alternativ tekst. Opprett ny eller velg eksisterende [tekstressurs](/app/development/ux/texts/#legg-til-og-endre-tekster-i-en-applikasjon).
-- **Bredde** (`width`): Bredde på bildet som prosentandel, der 100% er den opprinnelige bildes størrelse.
+- **Bredde** (`width`): Bredde på bildet i prosent (100% er opprinnelig bredde).
 - **Plassering** (`align`): [Horisontal justering av bildet](#horisontal-justering-med-align).
 
 -->
@@ -109,7 +120,6 @@ Innstillinger for egenskaper tilgjengelig i Altinn Studio Designer.
 {{<content-version-container version-label="Kode">}}
 
 Korresponderende innstillinger i sidens JSON-fil.
-Komponenten er markert.
 
 <!--
 Erstatt "komponent-kode" med den faktiske komponentkoden som tilsvarer innstillingene i Designer.
@@ -133,7 +143,6 @@ App/ui/layouts/{page}.json
 {{</content-version-container>}}
 {{</content-version-selector>}}
 
-
 <!-- 
 Legg til seksjoner som beskriver konfigurasjonen av egenskaper som er spesifikke for komponenten.
 - Bruk nedenstående shortcode for Designer/Kode-faner for å vise innstillingene.
@@ -146,6 +155,7 @@ Legg til seksjoner som beskriver konfigurasjonen av egenskaper som er spesifikke
     område: hl_lines="4-13"
     flere linjer og områder: hl_lines=["1-4", "7", "20"]
 
+Shortcode for faner:
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
@@ -164,4 +174,5 @@ Legg til seksjoner som beskriver konfigurasjonen av egenskaper som er spesifikke
 ```
 {{</content-version-container>}}
 {{</content-version-selector>}}
+
 -->
