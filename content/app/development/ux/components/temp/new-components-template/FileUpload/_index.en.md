@@ -1,8 +1,8 @@
 ---
-title: Component
-linktitle: Component
+title: FileUpload
+linktitle: FileUpload
 description: # Brief description of what the component does
-schemaname: # Component schema name used to autogenerate list of properies from json schema (replace with appropriate component name)
+schemaname: FileUpload # Component schema name used to autogenerate list of properies from json schema (replace with appropriate component name)
 weight: 10 # Do not change, the componets will be sorted alphabetically
 toc: true
 hidden: true # Remove when creating new component page from template
