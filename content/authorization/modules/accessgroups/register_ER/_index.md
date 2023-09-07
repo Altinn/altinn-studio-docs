@@ -7,7 +7,7 @@ toc: true
 weight: 200
 ---
 
-*Innhold på siden er under arbeid. Innholdet vil ikke være gjeldende før nye [tilgangsgrupper](/authorization/modules/accessgroups/type-accessgroups/) trer i kraft. Dette må derfor ikke ansees som en fasit pr nå*
+*Innhold på siden er under arbeid. Innholdet vil ikke være gjeldende før nye [fullmaktsgrupper](/authorization/modules/accessgroups/type-accessgroups/) trer i kraft. Dette må derfor ikke ansees som en fasit pr nå*
 
 ## Enhetsregisteret som fullmaktskilde
 Alle virksomheter i Norge registeres i [Enhetsregisteret](https://www.brreg.no/om-oss/registrene-vare/om-enhetsregisteret/) og får et organisasjonsnummer som de identifiseres ved.
