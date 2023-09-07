@@ -54,7 +54,9 @@ Vi gjennomfører nå høring nummer 2 av nye fullmaktsgrupper. Vi ønsker tilbak
 - om de foreslåtte fullmaktsgruppene passer til de tjenestene dere har
 - navnene på fullmaktsgruppene som dere forholder dere til
 - beskrivelsene av fullmaktsgruppene som dere vil forholder dere til
-- om forslag til hvilke ER-roller som skal få de nye fullmaktsgruppene automatisk er dekkende for dere.
+- om forslag til hvilke ER-roller som skal få de nye fullmaktsgruppene dekker deres behov. Det er særlig viktig å avklare om det er noen av de foreslåtte ER roller dere mener IKKE kan få fullmaktsgruppen i kontekst av deres tjeneste
+
+
 
 Tilbakemelding kan du sende på e-post til servicedesk@altinn.no innen 15.10.2023.
 
