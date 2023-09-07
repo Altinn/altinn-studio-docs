@@ -32,9 +32,9 @@ Den største forskjellen på rollene i 2.0 og fullmaktsgruppene i 3.0 blir:
 - Mer findelte tilgangsgrupper gjør det lettere for tjenesteeiere å velge riktig målgruppe for sine tjenester.
 
 Grunnlaget for inndelingen i maler er [Altinns skjemakatalog](https://www.altinn.no/skjemaoversikt/?category=category) og [SSBs standard for å kategorisere virksomheter](https://www.ssb.no/klass/klassifikasjoner/6). 
-## Tjenester må til det laveste nivået i hierarkiet 
+## Tjenester må knyttes til det laveste nivået i hierarkiet 
 
-Fullmaktsgruppene har maksimalt tre nivåer. Du må knytte tjenester til det laveste nivået for fullmaktsgruppen du skal bruke.
+Fullmaktsgruppene har maksimalt tre nivåer. Du må knytte tjenester til fullmaktsgrupper som er på det laveste nivå. 
 Det betyr for eksempel at du ikke kan knytte en tjeneste til malen «Skatt, avgift, regnskap og toll» som er nivå 1. Du kan heller ikke knytte til nivået under, for eksempel «Skatt og Merverdiavgift». Du må knytte til «Foretaksskatt», «Skattegrunnlag » og/eller "Merverdiavgift".
 
 ![Hierarki av tilgangsgrupper](hierarki-tilgangsgrupper.jpg "Hierarki av tilgangsgrupper")
