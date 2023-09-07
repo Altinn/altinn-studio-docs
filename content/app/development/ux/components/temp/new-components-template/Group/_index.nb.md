@@ -1,8 +1,8 @@
 ---
-title: Komponent
-linktitle: Komponent
+title: Group
+linktitle: Group
 description: # Kort beskrivelse av komponenten
-schemaname: # Komponentens schema-navn, brukes for å automatisk generere liste med egenskaper fra komponentens JSON schema (erstatt med riktig navn i henhold til schema)
+schemaname: Group # Komponentens schema-navn, brukes for å automatisk generere liste med egenskaper fra komponentens JSON schema (erstatt med riktig navn i henhold til schema)
 weight: 10 # Ikke endre, komponentene sorteres alfabetisk
 toc: true
 hidden: true # Fjern for ny komponent
