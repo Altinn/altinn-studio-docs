@@ -1,6 +1,7 @@
 ---
 title: Grid
 description: The Grid component is used to visually arrange components in a table
+weight: 10
 ---
 
 ![Grid](grid.png "Components arranged in a Grid")

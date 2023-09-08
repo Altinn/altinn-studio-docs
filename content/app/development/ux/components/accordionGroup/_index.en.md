@@ -1,6 +1,7 @@
 ---
 title: AccordionGroup
 description: A component that allows you to group multiple Accordions together
+weight: 10
 ---
 
 This component is used to group multiple `Accordion`s together. 

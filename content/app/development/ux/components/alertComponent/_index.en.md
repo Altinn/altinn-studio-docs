@@ -1,7 +1,7 @@
 ---
 title: Alert
 description: This component displays an important message to the user. The component can be used to display a message with different levels of severity.
-hidden: false
+weight: 10
 ---
 
 ## Usage

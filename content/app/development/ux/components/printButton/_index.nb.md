@@ -2,6 +2,7 @@
 title: PrintButton
 description: En knapp som åpner en utskriftsdialog for gjeldende skjemaside
 toc: false
+weight: 10
 ---
 
 PrintButton-komponenten kan legges til i form layout der du vil gi en mulighet til å åpne utskriftsdialogen til nettleseren.

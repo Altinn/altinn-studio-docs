@@ -10,7 +10,7 @@ hidden: true # Fjern for ny komponent
 <!-- HVORDAN BRUKE DENNE MALEN
 - Les kommentarer under hver seksjon for veiledning.
 - Slett kommentarer og deler av innholdet som ikke er relevant.
-- Når dokumentasjonen er klar til å publiseres, fjern "hidden: true" fra frontmatter
+- Når dokumentasjonen er klar til å publiseres, fjern "hidden: false" fra frontmatter
 - Hvis dokumentasjonen er fullstendig, fjern advarsel om at den er under oppdatering.
 
 For et eksempel på utfylt mal, se [Image](../image/)

@@ -3,6 +3,7 @@ title: List
 description: Listekomponenten kan brukes til å presentere innholdsrike data til bruker i tabellformat. Hver rad i tabellen er velgbar.
   Komponenten støtter søk, sortering og paginering.
 toc: false
+weight: 10
 ---
 
 {{%notice warning%}}

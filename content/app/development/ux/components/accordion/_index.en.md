@@ -5,7 +5,7 @@ description: A component that allows you to group content into collapsible secti
 schemaname: Accordion # Component schema name used to autogenerate list of properies from json schema (replace with appropriate component name)
 weight: 10 # Do not change, the componets will be sorted alphabetically
 toc: true
-hidden: true # Remove when creating new component page from template
+hidden: false # Remove when creating new component page from template
 ---
 
 {{% notice warning %}}
