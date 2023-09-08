@@ -3,6 +3,7 @@ title: List
 description: The List component is used to present data to the user in a table. Every row in the table is selectable. The component
  supports search, sorting and pagination.
 toc: false
+weight: 10
 ---
 
 {{%notice warning%}}

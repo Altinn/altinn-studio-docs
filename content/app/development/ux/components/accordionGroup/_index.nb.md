@@ -1,6 +1,7 @@
 ---
 title: AccordionGroup
 description: En komponent som lar deg gruppere flere Accordions sammen
+weight: 10
 ---
 
 Denne komponenten brukes til å gruppere flere `Accordion`-komponenter sammen.

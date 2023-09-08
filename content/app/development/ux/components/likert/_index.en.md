@@ -2,6 +2,7 @@
 title: Likert
 description: The Likert component is a list of questions with answers in the form of radio buttons.
 toc: false
+weight: 10
 ---
 
 

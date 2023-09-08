@@ -4,6 +4,7 @@ description: Hvordan legge til og endre referanser til bilder.
 toc: true
 aliases:
 - /nb/app/development/ux/components/images/
+weight: 10
 ---
 
 {{%notice warning%}}

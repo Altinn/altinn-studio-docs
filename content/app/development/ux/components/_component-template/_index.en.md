@@ -10,7 +10,7 @@ hidden: true # Remove when creating new component page from template
 <!-- HOW TO USE THIS TEMPLATE
 - Read the comments within each section for guidance.
 - Delete comments and content that are not relevant.
-- When the documentation is ready for publishing, remove "hidden: true" from the frontmatter.
+- When the documentation is ready for publishing, remove "hidden: false" from the frontmatter.
 - If the documentation is complete, remove the warning that it's a work in progress.
 
 Se [Image](../image/) for an example.

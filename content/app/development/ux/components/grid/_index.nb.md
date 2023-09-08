@@ -1,6 +1,7 @@
 ---
 title: Grid
 description: Grid-komponenten brukes til å visuelt oppstille komponenter i en tabellvisning
+weight: 10
 ---
 
 ![Grid](grid.png "Komponenter oppstilt i en Grid")

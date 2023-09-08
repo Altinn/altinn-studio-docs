@@ -1,11 +1,13 @@
 ---
 title: Link
 description: Button or link to redirect the user to an external page.
+weight: 10
 ---
 
 The link component can be used to redirect the user to an external page. It can be rendered as either a button or a link.
 
 - [Configuration](#configuration)
+  - [Example](#example)
 - [Dynamic URL](#dynamic-url)
 - [Environment configuration](#environment-configuration)
 

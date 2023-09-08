@@ -1,7 +1,7 @@
 ---
 title: Alert
 description: Denne komponenten viser en viktig melding til brukeren. Komponenten kan brukes til å vise en melding med ulike alvorlighetsgrader.
-skjult: false
+weight: 10
 ---
 
 ## Bruk
