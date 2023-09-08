@@ -1,6 +1,6 @@
 ---
-title: Innføring av nye tilgangsgrupper som erstatning for dagens Altinn 2 roller
-linktitle: Nye tilgangsgrupper
+title: Innføring av nye fullmaktsgrupper som erstatning for dagens Altinn 2 roller
+linktitle: Nye fullmaktsgrupper
 description: Siden er under konstruksjon 
 toc: true
 weight: 200
@@ -14,16 +14,18 @@ Altinn skal erstatte rollene som gir tilgang til tjenester i Altinn 2 når vi fl
 ## Tidsplan for arbeidet
 Foreløpig tidsplan for arbeidet ser slik ut: 
 
-1. Foreslå nye fullmakts-/tilgangsgrupper (Q1 2023)
+1. Foreslå nye fullmaktsgrupper (Q1 2023)
 2. Gjennomføre høring av forslag (Q2/Q3 2023), se [høringsbrev](https://docs.altinn.studio/authorization/migration/informasjon-sent/letter-accessgroupes/) sendt ut i starten av juni
-3. Etablere nye tilgangsgrupper versjon1 (Q3 2023)
-4. Innhente og registrere nye policyer for alle tjenester i Altinn 2 og Altinn 3 (Q4 2023/Q1 2024)
+3. Behandle innspill
+4. Gjennomføre høring nr 2 (Q3 2+23)
+5. Etablere nye fullmaktsgrupper versjon1 (Q3 2023)
+6. Innhente og registrere nye policyer for alle tjenester i Altinn 2 og Altinn 3 (Q4 2023/Q1 2024)
    - Policyen for tjenesten vil på dette tidpunktet henvise til både gamle Altinn 2 roller OG nye Altinn 3 tilgangsgrupper
-5. Lansere ny brukerflate for tilgangsstyring for virksomheter (Q1 2024)
-6. Avvikle Altinn 2 roller i løsningen (Q1 2025)
+7. Lansere ny brukerflate for tilgangsstyring for virksomheter (Q1 2024)
+8. Avvikle Altinn 2 roller i løsningen (Q1 2025)
    - Policyen for tjenesten vil på dette tidpunktet endres til å henvise til bare nye Altinn 3 tilgangsgrupper
 
- Det er ikke før vi lanserer ny brukeflate for tilgangsstyrere at de nye tilgangsgruppene faktisk blir tatt i bruk og det vil være mulig å gi disse til ansatte. 
+ Det er ikke før vi lanserer ny brukeflate for tilgangsstyrere at de nye fullmaktsgruppene faktisk blir tatt i bruk og det vil være mulig å gi disse til ansatte. 
  I en overgangsfase (mellom pkt 5 og 6) må de tjenesteeierne som bruker Altinn-roller til å bestemme om noen har tilgang eller ikke til en tjeneste slå opp på om bruker enten har gammel Altinn 2 rolle eller de har fått en ny tilgangsgruppe. 
 
  Vi har laget denne [overordnede issuen](https://github.com/Altinn/altinn-access-groups/issues/6) for innføring av nye tilgangsgrupper hvor tidsplan holdes oppdatert. 
