@@ -37,16 +37,22 @@ Din Altinn Studio bruker er personlig for deg og kan knyttes til en eller flere 
 
 ## Bli del av en organisasjon
 
-Organisasjoner i Altinn Studio er det samme som tjenesteeiere i Altinn.
-De eier applikasjonene og gjør det mulig for flere innen samme organisasjon å samarbeide.
+Organisasjoner i Altinn Studio eier applikasjonene og gjør det mulig for flere innen samme organisasjon å samarbeide.
 
 For å bli del av en organisasjon må en administrator for din organisasjon gi deg tilgang.
 Hvis du er usikker på hvem som er administrator eller du ikke vet om organisasjonen din er satt opp i Altinn Studio
- kan du spørre [Altinn Servicedesk](mailto:tjenesteeier@altinn.no) om hjelp.
+kan du spørre [Altinn Servicedesk](mailto:tjenesteeier@altinn.no) om hjelp.
 
 ## Opprette en organisasjon
 
-Det er Altinn som oppretter organisasjoner i Altinn Studio. For å kunne få en organisasjon i Altinn studio må du ha en avtale med Altinn. 
+Det er Digdir som oppretter organisasjoner i Altinn Studio.
 
-Send en mail til [Altinn Servicedesk](mailto:tjenesteeier@altinn.no) med navn på organisasjonen og hvem som skal være administrator for å opprette en ny organisasjon.
-Det vil kunne ta noen dager å opprette organisasjonen og du vil få en mail så fort det er gjort.
+For å kunne få en organisasjon i Altinn Studio må din virksomhethet
+
+- være tjenesteeier og ha inngått en avtale med Altinn, eller
+- tilby tjenesteutvikling på vegne av tjenesteiere
+
+Organisasjoner som ikke er tjenesteeiere vil ikke få tilgang til eget test- eller produksjonsmiljø. 
+
+For å opprette en ny organisasjon, send en epost til [Altinn Servicedesk](mailto:tjenesteeier@altinn.no) med navn på organisasjonen og hvem som skal være administrator.
+Det vil kunne ta noen dager og du vil få svar på epost så snart det er gjort.
