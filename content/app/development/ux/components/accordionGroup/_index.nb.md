@@ -15,7 +15,7 @@ toc: true
 
 ## Bruk
 
-`AccordionGroup` brukes til å gruppere relaterte [`Accordion`-komponenter](../Accordion/).
+`AccordionGroup` brukes til å gruppere relaterte [`Accordion`-komponenter](../accordion/).
 
 ### Anatomi
 
