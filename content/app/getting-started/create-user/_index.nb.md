@@ -50,7 +50,7 @@ Det er Digdir som oppretter organisasjoner i Altinn Studio.
 For å kunne få en organisasjon i Altinn Studio må din virksomhethet
 
 - være tjenesteeier og ha inngått en avtale med Altinn, eller
-- tilby tjenesteutvikling på vegne av tjenesteiere
+- tilby tjenesteutvikling i Altinn Studio på vegne av offentlige virksomheter
 
 Organisasjoner som ikke er tjenesteeiere vil ikke få tilgang til eget test- eller produksjonsmiljø. 
 

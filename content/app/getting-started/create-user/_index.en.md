@@ -50,7 +50,7 @@ Digdir creates the organizations in Altinn Studio.
 To get an organization in Altinn Studio, your organization must
 
 - be a service owner and have an agreement with Altinn, or
-- offer service development on behalf of service owners
+- offer service development in Altinn Studio on behalf of organizations in public sector
 
 Organizations that are not service owners will not get access to their own test or production environment.
 
