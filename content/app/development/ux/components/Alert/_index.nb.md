@@ -94,8 +94,8 @@ Når du velger komponenten, vises et panel med innstillinger for den på høyre 
 
 {{% notice warning %}}
 Vi oppdaterer for øyeblikket Altinn Studio med flere muligheter for innstillinger!
- Dokumentasjonen vil bli oppdatert for å gjenspeile endringene når de er stabile.
-  I mellomtiden kan det være flere alternativer tilgjengelige i betaversjonen enn det som beskrives her.
+ Dokumentasjonen oppdateres fortløpende,
+  men det kan være flere innstillinger tilgjengelig enn det som beskrives her og noen innstillinger kan være i betaversjon.
 {{% /notice %}}
 
 {{<content-version-selector classes="border-box">}}

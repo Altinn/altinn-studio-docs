@@ -90,8 +90,7 @@ Selecting the component brings up its configuration panel on the right-hand side
 
 {{% notice warning %}}
 We are currently updating Altinn Studio with more configuration options!
- The documentation will be updated to reflect the changes once they are stable.
-  In the meantime, there may be more options available in beta mode than is described here.
+ The documentation is continuously updated, but more settings may be available than described here, and some settings may be in beta.
 {{% /notice %}}
 
 {{<content-version-selector classes="border-box">}}
