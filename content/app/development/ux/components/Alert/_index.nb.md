@@ -5,6 +5,8 @@ description: Komponenten kan brukes til å vise en melding med ulike alvorlighet
 schemaname: Alert # Komponentens schema-navn, brukes for å automatisk generere liste med egenskaper fra komponentens JSON schema (erstatt med riktig navn i henhold til schema)
 weight: 10 # Ikke endre, komponentene sorteres alfabetisk
 toc: true
+aliases:
+- alertcomponent
 ---
 
 {{% notice warning %}}
@@ -57,11 +59,11 @@ Legg til følgende seksjoner dersom de er relevante:
 
 (Hvordan implementere komponent i mobile miljøer.)
 
+-->
 ### Relatert
 
-(Liste over relaterte komponenter, inkluder lenker.)
+- [`Panel`](../panel/)
 
--->
 
 ## Egenskaper
 
