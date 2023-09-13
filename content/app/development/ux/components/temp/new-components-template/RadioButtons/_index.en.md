@@ -13,7 +13,7 @@ hidden: true # Remove when creating new component page from template
 - When the documentation is ready for publishing, remove "hidden: true" from the frontmatter.
 - If the documentation is complete, remove the warning that it's a work in progress.
 
-Se [Image](../image/) for an example.
+See Image and Accordion for examples.
 -->
 
 {{% notice warning %}}
@@ -162,7 +162,10 @@ App/ui/layouts/{page}.json
 Add sections describing the configuration of properties specific for the component.
 - Use the below Designer/Code tabs shortcode to display the settings.
 - Include screenshots and examples where appropriate.
-- If the settings are only available in code, use only the Code tab.
+- If the settings are not available in Altinn Studio, use only the Code tab and add the following shortcode directly under the section heading:
+    {{% notice info %}}
+    The settings for this property is currently not available in Altinn Studio and must be configured manually.
+    {{% /notice %}}
 - Add file path or other info within the code-title shortcode (shown at the top of the code block)
 - Consider highlighting relevant parts of the code
   - Examples:
