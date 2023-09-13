@@ -13,7 +13,7 @@ hidden: false # Fjern for ny komponent
 - Når dokumentasjonen er klar til å publiseres, fjern "hidden: false" fra frontmatter
 - Hvis dokumentasjonen er fullstendig, fjern advarsel om at den er under oppdatering.
 
-For et eksempel på utfylt mal, se [Image](../image/)
+For et eksempel på utfylt mal, se Image og Accordion.
 -->
 
 {{% notice warning %}}
@@ -157,7 +157,10 @@ App/ui/layouts/{page}.json
 Legg til seksjoner som beskriver konfigurasjonen av egenskaper som er spesifikke for komponenten.
 - Bruk nedenstående shortcode for Designer/Kode-faner for å vise innstillingene.
 - Inkluder skjermbilder og eksempler der det er hensiktsmessig.
-- Hvis innstillingene kun er tilgjengelige i koden, bruk kun fanen for kode.
+- Hvis innstillingene ikke er tilgjengelige i Altinn Studio, bruk kun fanen for kode og legg til følgende shortcode rett under overskriften til avsnittet:
+    {{% notice info %}}
+    Innstillingene for denne egenskapen er foreløpig ikke tilgjengelig i Altinn Studio og må konfigureres manuelt.
+    {{% /notice %}}
 - Legg til filsti eller annen informasjon inni code-title (vises øverst i kodeblokken).
 - Marker gjerne relevante deler av koden.
   - Eksempler:
