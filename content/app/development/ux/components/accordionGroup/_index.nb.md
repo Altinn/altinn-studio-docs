@@ -62,7 +62,7 @@ Legg til følgende seksjoner dersom de er relevante:
 -->
 ### Relatert
 
-- [`Accordion`](../Accordion/)
+- [`Accordion`](../accordion/)
 
 
 ## Egenskaper

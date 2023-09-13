@@ -62,7 +62,7 @@ Add the following sections if relevant:
 -->
 ### Related
 
-- [`Accordion`](../Accordion/)
+- [`Accordion`](../accordion/)
 
 
 ## Properties

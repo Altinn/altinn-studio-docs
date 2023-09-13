@@ -51,7 +51,7 @@ Legg til følgende seksjoner dersom de er relevante:
 -->
 ### Relatert
 
-- [`AccordionGroup`](../AccordionGroup/)
+- [`AccordionGroup`](../accordiongroup/)
 
 
 ## Egenskaper

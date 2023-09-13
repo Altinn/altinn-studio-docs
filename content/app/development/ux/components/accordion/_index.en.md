@@ -60,7 +60,7 @@ Add the following sections if relevant:
 -->
 ### Related
 
-- [`AccordionGroup`](../AccordionGroup/)
+- [`AccordionGroup`](../accordiongroup/)
 
 
 ## Properties
