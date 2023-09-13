@@ -5,6 +5,8 @@ description: The component can be used to display a message with different level
 schemaname: Alert # Component schema name used to autogenerate list of properies from json schema (replace with appropriate component name)
 weight: 10 # Do not change, the componets will be sorted alphabetically
 toc: true
+aliases:
+- alertcomponent
 ---
 
 {{% notice warning %}}
@@ -54,11 +56,11 @@ Add the following sections if relevant:
 
 (How to apply component in mobile environments.)
 
+-->
 ### Related
 
-(List of related components or patterns, include links)
+- [`Panel`](../panel/)
 
--->
 
 ## Properties
 
@@ -89,8 +91,7 @@ Selecting the component brings up its configuration panel on the right-hand side
 
 {{% notice warning %}}
 We are currently updating Altinn Studio with more configuration options!
- The documentation will be updated to reflect the changes once they are stable.
-  In the meantime, there may be more options available in beta mode than is described here.
+ The documentation is continuously updated, but more settings may be available than described here, and some settings may be in beta.
 {{% /notice %}}
 
 {{<content-version-selector classes="border-box">}}

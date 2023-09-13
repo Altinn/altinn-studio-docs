@@ -19,28 +19,18 @@ toc: true
 
 ### Anatomi
 
-![AccordionGroup åpen](accordion-group-open.png "AccordionGroup med en åpen Accordion")
+![AccordionGroup lukket](accordion-group-closed-anatomy.png "AccordionGroup i lukket tilstand")
 
-![AccordionGroup lukket](accordion-group-closed.png "AccordionGroup i lukket tilstand")
-
-<!-- 
-
-Nummerert skjermbilde av komponenten
-1. Ta et skjermbilde av basis-versjonen av komponenten.
-2. Bruk [PowerPoint-filen](../numbered-callouts-anatomy.pptx) for å legge til nummerering på skjermbildet 
-3. Grupper skjermbilde og nummerering, lagre som bilde og legg det til i dokumentasjonen.
-4. Legg til nummerert liste med beskrivelser, bruk anatomy-list shortcode (se eksempel for format).
-
-Eksempel:
-
-![Eksempel bilde og alt tekst anatomi](../image/image-and-alt-text-en.png)
+![AccordionGroup åpen](accordion-group-open-anatomy.png "AccordionGroup med en åpen Accordion")
 
 {{% anatomy-list %}}
-1. **Bilde**: Foto, skjermbilde, illustrasjon, eller grafikk.
-2. **Alternativ tekst**: Brukes av skjermlesere og vises dersom bildet ikke er tilgjengelig.
-{{% /anatomy-list %}} 
+1. **AccordionGroup**: Gruppe med to eller flere Accordion-komponenter.
+2. **Overskrift**: Den klikkbare seksjonstittelen som brukere samhandler med for å utvide eller lukke innholdet.
+3. **Innholdsområde**: Området som utvider eller kollapser, som viser eller skjuler ytterligere informasjon når overskriften klikkes.
 
--->
+**Merk**: Overskrift og innholdsområde er egenskaper ved `Accordion` underelementer.
+
+{{% /anatomy-list %}} 
 
 <!-- 
 Legg til følgende seksjoner dersom de er relevante:
@@ -69,11 +59,11 @@ Legg til følgende seksjoner dersom de er relevante:
 
 (Hvordan implementere komponent i mobile miljøer.)
 
+-->
 ### Relatert
 
-(Liste over relaterte komponenter, inkluder lenker.)
+- [`Accordion`](../accordion/)
 
--->
 
 ## Egenskaper
 
@@ -104,8 +94,7 @@ Når du velger komponenten, vises et panel med innstillinger for den på høyre 
 
 {{% notice warning %}}
 Vi oppdaterer for øyeblikket Altinn Studio med flere muligheter for innstillinger!
- Dokumentasjonen vil bli oppdatert for å gjenspeile endringene når de er stabile.
-  I mellomtiden kan det være flere alternativer tilgjengelige i betaversjonen enn det som beskrives her.
+ Dokumentasjonen oppdateres fortløpende, men det kan være flere innstillinger tilgjengelig enn det som beskrives her og noen innstillinger kan være i betaversjon.
 {{% /notice %}}
 
 {{<content-version-selector classes="border-box">}}
@@ -154,7 +143,9 @@ App/ui/layouts/{page}.json
 
 ### Legg til underelementer
 
-Spesifiser hvilke komponenter av typen `Accordion` du vil gruppere ved å legge til deres ID-er til `AccordionGroup`-komponenten sin `children`-egenskap.
+Spesifiser hvilke komponenter av typen `Accordion` du vil gruppere ved å legge til deres ID-er til `AccordionGroup`-komponenten sin `children`-egenskap som vist under.
+`Accordion`-komponentene som skal grupperes må legges til den samme siden.
+ Rekkefølgen i gruppen bestemmes av rekkefølgen på komponent-ID'ene i `children`.
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Kode">}}
@@ -182,5 +173,94 @@ App/ui/layouts/{page}.json
 }
 ...
 ```
+{{</content-version-container>}}
+{{</content-version-selector>}}
+
+## Eksempel
+
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="Kode">}}
+
+{{< code-title >}}
+App/ui/layouts/{page}.json
+{{< /code-title >}}
+
+```json{hl_lines=""}
+{
+  "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
+  "data": {
+    "layout": [
+      {
+        "id": "accordion-group",
+        "type": "AccordionGroup",
+        "children": [
+          "accordion1",
+          "accordion2"
+        ]
+      },
+      {
+        "id": "accordion1",
+        "type": "Accordion",
+        "textResourceBindings": {
+          "title": "Lorem ipsum"
+        },
+        "children": [
+          "paragraph1",
+          "ok-button"
+        ]
+      },
+      {
+        "id": "accordion2",
+        "type": "Accordion",
+        "textResourceBindings": {
+          "title": "To avsnitt"
+        },
+        "headingLevel": 2,
+        "children": [
+          "paragraph2",
+          "paragraph3"
+        ]
+      },
+      {
+        "id": "paragraph1",
+        "type": "Paragraph",
+        "textResourceBindings": {
+          "title": "text.loremIpsum"
+        },
+        "dataModelBindings": {}
+      },
+      {
+        "id": "paragraph2",
+        "type": "Paragraph",
+        "textResourceBindings": {
+          "title": "Dette er et avsnitt."
+        },
+        "dataModelBindings": {}
+      },
+      {
+        "id": "paragraph3",
+        "type": "Paragraph",
+        "textResourceBindings": {
+          "title": "Dette er et annet avsnitt."
+        },
+        "dataModelBindings": {}
+      },
+      {
+        "id": "ok-button",
+        "type": "Button",
+        "dataModelBindings": {},
+        "textResourceBindings": {
+          "title": "OK"
+        }
+      }
+    ]
+  }
+}
+```
+
+![AccordionGroup eksempel lukket](AccordionGroup-example-closed.png "AccordionGroup eksempel lukket")
+
+![AccordionGroup eksempel åpen](AccordionGroup-example-open.png "AccordionGroup eksempel åpen")
+
 {{</content-version-container>}}
 {{</content-version-selector>}}
