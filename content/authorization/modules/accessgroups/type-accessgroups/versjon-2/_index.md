@@ -10,13 +10,13 @@ weight: 100
 # Siden er under arbeid
 
 Altinn skal erstatte rollene som gir tilgang til tjenester i Altinn 2 når vi flytter Altinn Autorisasjon til Altinn 3. 
-I stedet for roller vil det i Altinn 3 være ulike tilgangsgrupper som består av tjenester som hører til et ansvarsområde.
+I stedet for roller vil det i Altinn 3 være ulike fullmaktsgrupper som består av tjenester som hører til et ansvarsområde.
 
-I forbindelse med innføring av nye tilgangsgrupper så endres brukergrensesnitt for tilgangsstyrer slik at disse blir enklere å forstå og ta i bruk enn dagens roller.  
+I forbindelse med innføring av nye fullmaktsgrupper så endres brukergrensesnitt for tilgangsstyrer slik at disse blir enklere å forstå og ta i bruk enn dagens roller.  
 ![Skisseforslag på ny brukerflate for å bruke nye malering](gui-bruk-av-maler.jpg "Forslag til ny brukerflate på skissestadiet")
 
 
-**Her finner du som er tjenesteeier forslag til kategorier og navn på de nye tilgangsgruppene. Vi ønsker innspill om de nye tilgangsgruppene passer til deres tjeneste.**
+**Her finner du som er tjenesteeier forslag til kategorier og navn på de nye fullmaktsgruppene. Vi ønsker innspill om de nye fullmaktsgruppene passer til deres tjeneste.**
 
 ## Administrator gir tilgang til grupper med tjenester
 Den som skal gi tilgang til tjenester i en virksomhet kalles administrator. 
@@ -29,15 +29,15 @@ Forslag til hvilke ER-roller som automatisk skal få hvilke fullmaktsgrupper er 
 Den største forskjellen på rollene i 2.0 og fullmaktsgruppene i 3.0 blir:
 
 - Flere fullmaktsgrupper som kan være delt inn i opptil tre nivåer, slik at administrator kan gi tilgang til færre tjenester og det blir lettere å finne riktig fullmaktsgruppe. 
-- Mer findelte tilgangsgrupper gjør det lettere for tjenesteeiere å velge riktig målgruppe for sine tjenester.
+- Mer findelt fullmaktsgrupper gjør det lettere for tjenesteeiere å velge riktig målgruppe for sine tjenester.
 
 Grunnlaget for inndelingen i maler er [Altinns skjemakatalog](https://www.altinn.no/skjemaoversikt/?category=category) og [SSBs standard for å kategorisere virksomheter](https://www.ssb.no/klass/klassifikasjoner/6). 
 ## Tjenester må knyttes til det laveste nivået i hierarkiet 
 
-Fullmaktsgruppene har maksimalt tre nivåer. Du må knytte tjenester til fullmaktsgrupper som er på det laveste nivå. 
-Det betyr for eksempel at du ikke kan knytte en tjeneste til malen «Skatt, avgift, regnskap og toll» som er nivå 1. Du kan heller ikke knytte til nivået under, for eksempel «Skatt og Merverdiavgift». Du må knytte til «Foretaksskatt», «Skattegrunnlag » og/eller "Merverdiavgift".
+Fullmaktsgruppene har maksimalt tre nivåer. Tjenesteeier må knytte tjenester til fullmaktsgrupper som er på det laveste nivå. 
+Det betyr for eksempel at tjenesteeier ikke kan knytte en tjeneste til malen «Skatt, avgift, regnskap og toll» som er nivå 1. Tjenesteeier kan heller ikke knytte til nivået under, for eksempel «Skatt og Merverdiavgift». Tjenesteeier må knytte til «Foretaksskatt», «Skattegrunnlag » og/eller "Merverdiavgift".
 
-![Hierarki av tilgangsgrupper](hierarki-tilgangsgrupper.jpg "Hierarki av tilgangsgrupper")
+![Hierarki av fullmaktsgrupper](hierarki-tilgangsgrupper.jpg "Hierarki av fullmaktsgrupper")
 
 Målet med mer findelte nivåer et at folk skal få tilgang til akkurat det de trenger, men ikke få for omfattende tilganger. 
 Du kan knytte en tjeneste til flere fullmaktsgrupper hvis du mener det er riktig. 
@@ -46,7 +46,14 @@ Du kan knytte en tjeneste til flere fullmaktsgrupper hvis du mener det er riktig
 ### Avvikler alle Altinn 2 generelle roller
 Alle Altinn 2 roller vil bli avviklet i forbindelse med overgang til nye fullmaktsgruppene. 
 
-Noen få av de nye fullmaktsgruppene vil være identiske med gamle Altinn2 roller (gjelder bl a fullmaktsgrupper for regnskapsfører og revisor ). 
+Noen få av de nye fullmaktsgruppene vil være identiske med gamle Altinn2 roller. Dette gjelder rollene: 
+- ECKEYROLE
+- Klientadministrator
+- Tilgangsstyrer
+- Hovedadministrator
+- Roller benyttet av regnskapsfører og revisor
+- Roller benyttet for tilgang til konkursbo 
+  
 For disse tilfellene vil Altinn sørge for at de ansatte som har en utgående Altinn2 rolle automatisk får de nye fullmaktsgruppene.
 
 ## Vi ønsker innspill fra dere som er tjenesteeierne
@@ -55,8 +62,6 @@ Vi gjennomfører nå høring nummer 2 av nye fullmaktsgrupper. Vi ønsker tilbak
 - navnene på fullmaktsgruppene som dere forholder dere til
 - beskrivelsene av fullmaktsgruppene som dere vil forholder dere til
 - om forslag til hvilke ER-roller som skal få de nye fullmaktsgruppene dekker deres behov. Det er særlig viktig å avklare om det er noen av de foreslåtte ER roller dere mener IKKE kan få fullmaktsgruppen i kontekst av deres tjeneste
-
-
 
 Tilbakemelding kan du sende på e-post til servicedesk@altinn.no innen 15.10.2023.
 
@@ -94,8 +99,8 @@ Tilbakemelding kan du sende på e-post til servicedesk@altinn.no innen 15.10.202
 16. [Andre tjenesteytende næringer](/authorization/modules/accessgroups/type-accessgroups/versjon-2/tjenesteytende/)
 
 ### Andre spesialiserte fullmaktsgrupper
-17. [Tilgangsgrupper for regnskapsførere](/authorization/modules/accessgroups/type-accessgroups/versjon-2/regnskapsførere/)
-18. [Tilgangsgrupper for revisor](/authorization/modules/accessgroups/type-accessgroups/versjon-2/revisor/)
-19. [Tilgangsgrupper for konkursbo](/authorization/modules/accessgroups/type-accessgroups/versjon-2/konkursbo/)
+17. [Fullmaktsgrupper for regnskapsførere](/authorization/modules/accessgroups/type-accessgroups/versjon-2/regnskapsførere/)
+18. [Fullmaktsgrupper for revisor](/authorization/modules/accessgroups/type-accessgroups/versjon-2/revisor/)
+19. [Fullmaktsgrupper for konkursbo](/authorization/modules/accessgroups/type-accessgroups/versjon-2/konkursbo/)
 
 *Siden er under arbeid*

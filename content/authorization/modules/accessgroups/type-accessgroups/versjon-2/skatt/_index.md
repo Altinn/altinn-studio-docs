@@ -16,7 +16,7 @@ Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroup
 		- **Skattegrunnlag:** Denne fullmakten gir tilgang til alle tjenester knyttet til innhenting av skattegrunnlag. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
 		- **Merverdiavgift:** Denne fullmakten gir tilgang til alle tjenester knyttet til merverdiavgift. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
 	- **Regnskap og øknomirapportering:** Denne fullmakten gir tilgang til alle tjenester knyttet til regnskap og øknomirapportering som ikke tilhører skatt og merverdiavgift. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. 
-	- **Reviorattesterer:** Denne fullmakten gir tilgang til alle tjenester knyttet til skatt, avgift, regnskap og toll som krever revisorattestering. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. 
+	- **Reviorattesterer:** Denne fullmakten gir tilgang til alle tjenester som krever revisorattestering. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. 
 	- **Toll:** Denne fullmakten gir tilgang til alle tjenester knyttet til toll og fortolling. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. 
 
 ## Egenskaper ved fullmaktsgruppene
