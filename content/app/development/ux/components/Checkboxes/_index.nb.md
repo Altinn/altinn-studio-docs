@@ -32,8 +32,6 @@ Avkrysningsbokser brukes ofte i skjemaer for å samle input fra brukeren,
 1. **Overskrift** - Spørsmål eller instruksjon.
 2. **Avkrysningsboks** - Valgkontrollen.
 3. **Etikett** - Tekstetikett knyttet til avkrysningsboksen.
-4. **Beskrivelsestekst** - Valgfritt tekstfelt for ytterligere beskrivelse.
-5. **Hjelpetekst** - Klikk på spørsmålstegnet for vise en pop-up med hjelpetekst.
 {{% /anatomy-list %}} 
 
 ### Stil
@@ -81,62 +79,6 @@ Når du velger komponenten, vises et panel med innstillinger for den på høyre 
 Vi oppdaterer for øyeblikket Altinn Studio med flere muligheter for innstillinger!
  Dokumentasjonen oppdateres fortløpende, men det kan være flere innstillinger tilgjengelig enn det som beskrives her og noen innstillinger kan være i betaversjon.
 {{% /notice %}}
-<!-- ### Innstillinger i Altinn Studio Designer
-
-{{<content-version-selector classes="border-box">}}
-{{<content-version-container version-label="Altinn Studio Designer">}}
-
-Innstillinger for egenskaper tilgjengelig i Altinn Studio Designer.
-
-![Avkrysningsbokser innstillingspanel](Checkboxes-settings-panel.png "Innstillinger for avkrysningsbokser")
-
-
-- **Komponent-ID** (`id`): Automatisk generert komponent-ID (kan redigeres).
-- **[Lenke til datamodell](#lenke-til-datamodell)** (`dataModelBindings`): Koble komponenten til et felt i datamodellen.
-- **[Ledetekst](#ledetekst-beskrivelse-og-hjelpetekst)** (`textResourceBindings.title`): Overskrift med spørsmål eller instruksjon.
-- **[Beskrivelse](#ledetekst-beskrivelse-og-hjelpetekst)** (`textResourceBindings.description`): Tekst for ytterligere beskrivelse eller utdyping.
-- **[Hjelpetekst](#ledetekst-beskrivelse-og-hjelpetekst)** (`textResourceBindings.help`): Tekst som vises ved å klikke på spørsmålstegn v/ledetekst.
-- **Det skal ikke være mulig å svare (read only)** (`readOnly`): Når huket av deaktiveres avkrysningsboksen (ikke anbefalt, se [beste praksis](#beste-praksis)).
-- **Det skal være påkrevd for brukeren å svare** (`required`) Når huket av kreves det at brukeren gjør et valg.
-- **Hvordan vil du legge til avkrysningsbokser?**: Legg til avkrysningsbokser [manuelt](#manuelt) (`options`) eller ved hjelp av [kodelister](#kodelister) (`optionsId`).
-- **Sett forhåndsvalgt avkrysningsboks** (`preselectedOptionIndex`): Indeks (heltall) for forhåndsvalgt avkrysningsboks. Indeks starter på `0`.
-
-{{</content-version-container>}}
-{{<content-version-container version-label="Kode">}}
-
-Korresponderende innstillinger i sidens JSON-fil.
-
-{{< code-title >}}
-App/ui/layouts/{page}.json
-{{< /code-title >}}
-
-```json{hl_lines="5-18"}
-...
-{
-  "data": {
-    "layout": [
-      {
-        "id": "Checkboxes-bnPrdi",
-        "type": "Checkboxes",
-        "dataModelBindings": {},
-        "readOnly": false,
-        "required": true,
-        "textResourceBindings": {
-          "title": "",
-          "description": "",
-          "help": ""
-        },
-        "options": [],
-        "preselectedOptionIndex":
-      },
-    ]
-  }
-}
-...
-```
-
-{{</content-version-container>}}
-{{</content-version-selector>}} -->
 
 ### Tekst
 
@@ -175,12 +117,16 @@ App/ui/layouts/{page}.json
 {{</content-version-container>}}
 {{</content-version-selector>}}
 
-- **Ledetekst** (`textResourceBindings.title`): Overskrift med spørsmål eller instruksjon.
-- **Beskrivelse** (`textResourceBindings.description`): Tekst for ytterligere beskrivelse eller utdyping.
-- **Hjelpetekst** (`textResourceBindings.help`): Når hjelpetekst er fylt ut vil et spørsmålstegn vises ved siden av ledeteksten. Klikk på spørsmålstegnet for å vise teksten som en popup.
+![Tekst anatomi. Skjermbilde](Checkboxes-text-anatomy.png)
+
+{{% anatomy-list %}}
+1. **Ledetekst** (`textResourceBindings.title`): Overskrift med spørsmål eller instruksjon.
+2. **Beskrivelse** (`textResourceBindings.description`): Tekst for ytterligere beskrivelse eller utdyping.
+3. **Hjelpetekst** (`textResourceBindings.help`): Når hjelpetekst er fylt ut vil et spørsmålstegn vises ved siden av ledeteksten. Klikk på spørsmålstegnet for å vise teksten som en popup.
 Kan brukes til forklaring, eksempler, brukssituasjoner osv.
-- **Kortnavn** (`textResourceBindings.shortName`):
-- **Tittel i tabell** (`textResourceBindings.tableTitle`):
+- **Kortnavn** (`textResourceBindings.shortName`): Overstyrer tittelen til komponenten som brukes i den standard `required` valideringsmeldingen.
+- **Tittel i tabell** (`textResourceBindings.tableTitle`): Overstyrer tittelen til komponenten som blir brukt i kolonneheader når komponenten befinner seg i repeterende grupper.
+{{% /anatomy-list %}}
 
 ### Datamodell
 
@@ -309,11 +255,7 @@ For mer informasjon om kodelister, se
 
 ### Visning
 
-Standard visning er kolonne (`column`), men du kan endre til rad (`row`) eller tabell (`table`) i nedtrekksmenyen.
-
-![Eksempel visning column. Skjermbilde](checkboxes-column.png "Visning 'column'")
-
-![Eksempel visning row. Skjermbilde](checkboxes-row.png "Visning 'row'")
+Standard visning er kolonne (`column`), men du kan endre til rad (`row`) i nedtrekksmenyen (`table` har ingen funksjon for avkrysningsbokser).
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
@@ -343,3 +285,7 @@ App/ui/layouts/{page}.json
 ```
 {{</content-version-container>}}
 {{</content-version-selector>}}
+
+![Eksempel visning column. Skjermbilde](Visning-column.png "Visning 'column'")
+
+![Eksempel visning row. Skjermbilde](Visning-row.png "Visning 'row'")
