@@ -17,7 +17,7 @@ of your form(s).
 
 A multi-app solution is a solution consisting of two or more
 cooperating apps, where typically the "
-original" application(s) will trigger the creation of a new
+original" application will trigger the creation of a new
 instance of the receiving application. As a part of the
 instantiation of the receiving application it is possible
 prefill the instance with specific data from the running
