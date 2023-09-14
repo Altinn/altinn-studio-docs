@@ -1,6 +1,6 @@
 ---
 title: Avkrysningsbokser
-linktitle: Avkrysningsbokser
+linktitle: Avkrysningsbokser-gammel
 description: Inndataelement som lar brukeren velge eller fjerne valg for ett eller flere alternativer.
 schemaname: Checkboxes
 weight: 10
