@@ -41,6 +41,8 @@ Det betyr for eksempel at tjenesteeier ikke kan knytte en tjeneste til malen «S
 
 Målet med mer findelte nivåer et at folk skal få tilgang til akkurat det de trenger, men ikke få for omfattende tilganger. 
 Du kan knytte en tjeneste til flere fullmaktsgrupper hvis du mener det er riktig. 
+
+Her finner du [fremgangsmåte og rekkefølge](/authorization/migration/new-accessgroups/) av oppgaver som må gjennomføres hos Altinn, tjenesteeiere og sluttbrukere for å innføre nye fullmaktsgrupper. 
  
 
 ### Avvikler alle Altinn 2 generelle roller
