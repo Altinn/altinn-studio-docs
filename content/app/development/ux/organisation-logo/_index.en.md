@@ -62,6 +62,16 @@ Specifies where the source of the logo should be fetched from. It has two valid 
 Specifies whether the service owner's name should be displayed next to the logo. Retrieves the service owner's name 
 directly from altinn-orgs.json if appOwner is not defined in the text resource files.
 
+#### size
+
+For some logos, the default size of the logo might not always fit. The size can be specified with the `size` property.
+It has three valid values:
+
+- `"small"`
+- `"medium"` 
+- `"large"`
+
+The size defaults to `"small"` if not specified.
 
 ## Design guidelines for app owner logo
 #### Size and scale:
