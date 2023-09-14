@@ -16,7 +16,7 @@ of your form(s).
 ## What is a multi-app solution?
 
 A multi-app solution is a solution consisting of two or more
-cooperating apps, where typically (as per now) the "
+cooperating apps, where typically the "
 original" application(s) will trigger the creation of a new
 instance of the receiving application. As a part of the
 instantiation of the receiving application it is possible
