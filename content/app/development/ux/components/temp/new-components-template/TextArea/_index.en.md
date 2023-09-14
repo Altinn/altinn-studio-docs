@@ -10,7 +10,7 @@ hidden: true # Remove when creating new component page from template
 <!-- HOW TO USE THIS TEMPLATE
 - Read the comments within each section for guidance.
 - Delete comments and content that are not relevant.
-- When the documentation is ready for publishing, remove "hidden: true" from the frontmatter.
+- When the documentation is ready for publishing, remove "hidden: false" from the frontmatter.
 - If the documentation is complete, remove the warning that it's a work in progress.
 
 See Image and Accordion for examples.
@@ -90,7 +90,9 @@ We are currently updating how we implement components, and the list of propertie
 
 <!-- The `component-props` shortcode automatically generates a list of component properties from the component's json schema.
 The component name can be explicitly given as argument (e.g. `component-props "Grid"`).
-If no argument is given, the shortcode pulls the component name from 'schemaname' in the frontmatter. -->
+If no argument is given, the shortcode pulls the component name from 'schemaname' in the frontmatter. 
+If the component does not have a JSON schema, comment out the text and shortcode in this section and, if necessary, create a table manually with the most important properties (columns: Property, Type, Description).
+-->
 
 {{% component-props %}}
 
@@ -101,44 +103,30 @@ If no argument is given, the shortcode pulls the component name from 'schemaname
 You can add a component in [Altinn Studio Designer](/app/getting-started/ui-editor/) by dragging it from the left-side panel to the middle page area.
 Selecting the component brings up its configuration panel on the right-hand side.
 
-### Settings in Altinn Studio Designer
-
 {{% notice warning %}}
 We are currently updating Altinn Studio with more configuration options!
  The documentation is continuously updated, but more settings may be available than described here, and some settings may be in beta.
 {{% /notice %}}
 
+<!-- 
+Add sections describing the configuration of properties specific for the component.
+- Use the below Designer/Code tabs shortcode to display the settings.
+- Include screenshots and examples where appropriate.
+- If the settings are not available in Altinn Studio, use only the Code tab and add the following shortcode directly under the section heading:
+    {{% notice info %}}
+    The settings for this property is currently not available in Altinn Studio and must be configured manually.
+    {{% /notice %}}
+- Add file path or other info within the code-title shortcode (shown at the top of the code block)
+- Consider highlighting relevant parts of the code using hl_lines
+
+Shortcode for tabs:
+
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
 
-Property settings available in Altinn Studio Designer.
-
-<!--
-Screenshot of settings panel in Designer.
-Key with description of settings. See example for format. Include property (code) name in parentheses.
-
-Example:
-
-![Image settings](../image/screenshot-image-settings.png)
-
-- **Komponent-ID** (`id`): Automatically generated component ID (editable).
-- **Kilde** (`src`): Link or path to the [image source](#image-source).
-- **Alternativ tekst** (`textResourceBindings.altTextImg`): Alternative text. Create new or pick existing [text resource](/app/development/ux/texts/#add-and-change-texts-in-an-application).
-- **Bredde** (`width`): Image width as a percentage, with 100% as the original image size.
-- **Plassering** (`align`): [Horizontal alignment of image](#horizontal-alignment-with-align).
-
--->
-
 {{</content-version-container>}}
+
 {{<content-version-container version-label="Code">}}
-
-Corresponding settings in the page's JSON file.
-
-<!--
-Replace "component code" in the below code block with the actual component code that corresponds to the settings in Designer.
-
-Indicate line numbers to highlight the component code (e.g. hl_lines="4-13").
- -->
 
 {{< code-title >}}
 App/ui/layouts/{page}.json
@@ -157,39 +145,8 @@ App/ui/layouts/{page}.json
 {{</content-version-container>}}
 {{</content-version-selector>}}
 
-
-<!-- 
-Add sections describing the configuration of properties specific for the component.
-- Use the below Designer/Code tabs shortcode to display the settings.
-- Include screenshots and examples where appropriate.
-- If the settings are not available in Altinn Studio, use only the Code tab and add the following shortcode directly under the section heading:
-    {{% notice info %}}
-    The settings for this property is currently not available in Altinn Studio and must be configured manually.
-    {{% /notice %}}
-- Add file path or other info within the code-title shortcode (shown at the top of the code block)
-- Consider highlighting relevant parts of the code
-  - Examples:
-    single line: hl_lines="5"
-    range: hl_lines="4-13"
-    multiple lines and ranges: hl_lines=["1-4", "7", "20"]
-
-Shortcode for tabs:
-
-{{<content-version-selector classes="border-box">}}
-{{<content-version-container version-label="Altinn Studio Designer">}}
-
-{{</content-version-container>}}
-
-{{<content-version-container version-label="Code">}}
-
-{{< code-title >}}
-
-{{< /code-title >}}
-
-```{hl_lines=[""]}
-
-
-```
-{{</content-version-container>}}
-{{</content-version-selector>}}
 -->
+
+## Examples
+
+<!-- One or more examples of configuration (if relevant) -->
