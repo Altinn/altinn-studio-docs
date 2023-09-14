@@ -1,6 +1,6 @@
 ---
 title: Checkboxes
-linktitle: Checkboxes
+linktitle: Checkboxes-old
 description: Input element that allows a user to select or deselect one or more options
 schemaname: Checkboxes
 weight: 10
