@@ -9,6 +9,25 @@ aliases:
 
 ---
 
+Before getting into the implementation details of a multi-app solution,
+the components the solution consists of should be defined.
+
+- *An Instance*: When talking about instances is an application-context, these are unique pieces of data that describes
+  details about the particular session going on in the application. The data includes information on who is filling in
+  the data and what the data is.
+- *An "original" application*: This will be an application that acts as a regular Altinn application which means
+  end-users will interact with it. While filling in the form they will be working on their own private instance. However
+  it will differentiate from other Altinn apps since the service owner have customized it to include actions that
+  trigger a POST API call to another application. This POST API call will create a new instance of the _receiver_
+  application.
+- *A "receiving" application*: This will be an application that may have multiple purposes, but it's main purpose will
+  be to receive and handle some data from the other application and automatically create a new instance using this data
+  for a given instance owner. This application will differentiate from other Altinn apps since instances are created by
+  triggers in another application.
+
+This guide takes you through a multi-app solution consisting of two apps,
+but the concept can be extended to contain several "original" and "receiving" applications.
+
 Before continue reading these guidelines, please consider if
 a multi-app solution is what you need to fulfill the purpose
 of your form(s).
@@ -33,7 +52,7 @@ architectural choice for an Altinn form.
 Criteria that should be met if you could consider creating a
 multi-app solution:
 
-- My forms will be answered by users that does not have
+- My forms will be answered by users that do not have
   Altinn
 - It is okay that my receiving forms must be deleted in
   order to end the lifecycle of the form.
@@ -46,7 +65,7 @@ multi-app solution:
 
 It might be that the solution you are looking for is a form,
 or multiple forms, that is set up to interact with _eFormidling_, which is another service offered by
-Digitaliseringsdiriktoratet. Read more about
+Digitaliseringsdirektoratet. Read more about
 eFormidling [here](../../development/configuration/eformidling)
 . A solution that is integrated with eFormidling can
 implement custom code on process-changes by using the

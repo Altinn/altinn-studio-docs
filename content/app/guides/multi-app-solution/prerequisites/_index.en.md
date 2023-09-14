@@ -1,26 +1,21 @@
 ---
-title: Preparations before making a multi-app solution in Altinn
-linktitle: Preparations
-description: What preparations that should be done before creating a multi-app solution
+title: Prerequisites before making a multi-app solution in Altinn
+linktitle: Prerequisites
+description: What prerequisites that should be in place before creating a multi-app solution
 weight: 10
 toc: true
 aliases:
 
-- /app/multi-app-solution/preparations/
+- /app/multi-app-solution/prerequisites/
 
 ---
 
-A crucial part of the multi-app solution is to make sure the
-applications are able, and allowed, to communicate. This is
-essential due to the main concept of this solution - the
-instantiation of the receiving application. As a part of the
-process of the original form you will have logic that
-creates a request to the receiving application that starts a
-new instance. This request will go to Altinn Storage in
-order to create and persist the instance object, but the
-request will have credentials from the private user who
+The prerequisites for creating a multi-app solution involves making sure the request made to create an instance of
+the receiving application, is authenticated.
+
+By nature, the request will have credentials from the private user who
 logged in to the original form, thus is not allowed to start
-a new instance owned by the organisation that owns the
+a new instance on behalf of the organisation that owns the
 receiving application. As a way to bypass this obstacle, we
 can use a Maskinporten integration to authenticate the
 request on behalf of the organisation owning the receiving
@@ -91,5 +86,6 @@ changing the secrets after the application is deployed, you
 will need to redeploy the application._
 
 ## Adapt application to use Maskinporten Integration
+
 [See the instructions for the trigger application for this part](../instructions/trigger-app). 
 
