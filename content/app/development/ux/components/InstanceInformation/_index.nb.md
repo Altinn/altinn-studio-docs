@@ -10,6 +10,7 @@ hidden: false # Fjern for ny komponent
 <!-- HVORDAN BRUKE DENNE MALEN
 - Les kommentarer under hver seksjon for veiledning.
 - Slett kommentarer og deler av innholdet som ikke er relevant.
+- Gi norsk navn til title og linktitle i frontmatter
 - Når dokumentasjonen er klar til å publiseres, fjern "hidden: false" fra frontmatter
 - Hvis dokumentasjonen er fullstendig, fjern advarsel om at den er under oppdatering.
 
@@ -32,7 +33,7 @@ For et eksempel på utfylt mal, se Image og Accordion.
 
 Nummerert skjermbilde av komponenten
 1. Ta et skjermbilde av basis-versjonen av komponenten.
-2. Bruk [PowerPoint-filen](../numbered-callouts-anatomy.pptx) for å legge til nummerering på skjermbildet 
+2. Bruk PowerPoint-filen (components/numbered-callouts-anatomy.pptx) for å legge til nummerering på skjermbildet 
 3. Grupper skjermbilde og nummerering, lagre som bilde og legg det til i dokumentasjonen.
 4. Legg til nummerert liste med beskrivelser, bruk anatomy-list shortcode (se eksempel for format).
 
@@ -48,7 +49,7 @@ Eksempel:
 -->
 
 <!-- 
-Legg til følgende seksjoner dersom de er relevante:
+Legg til seksjoner dersom de er relevante:
 
 ### Oppførsel
 
@@ -90,7 +91,9 @@ Vi oppdaterer for øyeblikket hvordan vi implementerer komponenter. Listen over 
 
 <!-- Shortkoden `component-props` genererer automatisk en liste over komponentegenskaper fra komponentens JSON schema.
 Komponentnavnet kan gis eksplisitt som argument (f.eks. `component-props "Grid"`).
-Hvis ingen argument gis, henter shortkoden komponentnavnet fra 'schemaname' i frontmatter. -->
+Hvis ingen argument gis, henter shortkoden komponentnavnet fra 'schemaname' i frontmatter.
+Hvis komponenten ikke har JSON schema, kommenter ut tekst og shortcode i denne delen og lag evt. tabell manuelt med de viktigste egenskapene (kolonner: Egenskap, Type, Beskrivelse).
+ -->
 
 {{% component-props %}}
 
@@ -101,57 +104,10 @@ Hvis ingen argument gis, henter shortkoden komponentnavnet fra 'schemaname' i fr
 Du kan legge til en komponent i [Altinn Studio Designer](/nb/app/getting-started/ui-editor/) ved å dra den fra venstre sidepanel til midten av siden.
 Når du velger komponenten, vises et panel med innstillinger for den på høyre side.
 
-### Innstillinger i Altinn Studio Designer
-
 {{% notice warning %}}
 Vi oppdaterer for øyeblikket Altinn Studio med flere muligheter for innstillinger!
  Dokumentasjonen oppdateres fortløpende, men det kan være flere innstillinger tilgjengelig enn det som beskrives her og noen innstillinger kan være i betaversjon.
 {{% /notice %}}
-
-{{<content-version-selector classes="border-box">}}
-{{<content-version-container version-label="Altinn Studio Designer">}}
-
-Innstillinger for egenskaper tilgjengelig i Altinn Studio Designer.
-
-<!--
-Eksempel:
-
-![Innstillingspanel for komponent](../image/screenshot-component-settings.png)
-
-- **Komponent-ID** (`id`): Automatisk generert komponent-ID (kan redigeres).
-- **Kilde** (`src`): Lenke eller filsti til [bildets kilde](#konfigurer-kilde-src).
-- **Alternativ tekst** (`textResourceBindings.altTextImg`): Alternativ tekst. Opprett ny eller velg eksisterende [tekstressurs](/app/development/ux/texts/#legg-til-og-endre-tekster-i-en-applikasjon).
-- **Bredde** (`width`): Bredde på bildet i prosent (100% er opprinnelig bredde).
-- **Plassering** (`align`): [Horisontal justering av bildet](#horisontal-justering-med-align).
-
--->
-
-{{</content-version-container>}}
-{{<content-version-container version-label="Kode">}}
-
-Korresponderende innstillinger i sidens JSON-fil.
-
-<!--
-Erstatt "komponent-kode" med den faktiske komponentkoden som tilsvarer innstillingene i Designer.
- Angi linjenumrene for å markere komponentkoden (f.eks. hl_lines="4-13").
- -->
-
-{{< code-title >}}
-App/ui/layouts/{page}.json
-{{< /code-title >}}
-
-```json{hl_lines=""}
-{
-  "data": {
-    "layout": [
-      // komponent-kode
-    ]
-  }
-}
-```
-
-{{</content-version-container>}}
-{{</content-version-selector>}}
 
 <!-- 
 Legg til seksjoner som beskriver konfigurasjonen av egenskaper som er spesifikke for komponenten.
@@ -162,11 +118,7 @@ Legg til seksjoner som beskriver konfigurasjonen av egenskaper som er spesifikke
     Innstillingene for denne egenskapen er foreløpig ikke tilgjengelig i Altinn Studio og må konfigureres manuelt.
     {{% /notice %}}
 - Legg til filsti eller annen informasjon inni code-title (vises øverst i kodeblokken).
-- Marker gjerne relevante deler av koden.
-  - Eksempler:
-    enkel linje: hl_lines="5"
-    område: hl_lines="4-13"
-    flere linjer og områder: hl_lines=["1-4", "7", "20"]
+- Marker gjerne relevante deler av koden vha hl_lines.
 
 Shortcode for faner:
 
@@ -178,14 +130,24 @@ Shortcode for faner:
 {{<content-version-container version-label="Kode">}}
 
 {{< code-title >}}
-
+App/ui/layouts/{page}.json
 {{< /code-title >}}
 
-```{hl_lines=[""]}
-
-
+```json{hl_lines=""}
+{
+  "data": {
+    "layout": [
+      // component code
+    ]
+  }
+}
 ```
+
 {{</content-version-container>}}
 {{</content-version-selector>}}
 
 -->
+
+## Eksempler
+
+<!-- Ett eller flere eksempler på konfigurasjon (hvis relevant) -->
