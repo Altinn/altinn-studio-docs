@@ -34,6 +34,7 @@ PS: If you don't have direct write access to the repo, you need to [create a for
 and submit a [pull request](https://help.github.com/articles/about-pull-requests/) from your fork.
 
 ## Internal Code Review Guidelines
+
 General Principles:
 •	Avoid terms that might be interpreted as personal attacks (e.g., "idiotic" or "useless"). Assume that everyone is making their best effort.
 •	Be moderate in your language. Avoid strong exaggerations like "always," "never," etc.
