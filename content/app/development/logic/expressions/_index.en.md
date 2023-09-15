@@ -7,8 +7,11 @@ toc: true
 ---
 
 {{% panel theme="warning" %}}
-⚠️ Dynamic behaviour is an area under active development. This functionality is not configurable directly in Altinn Studio
-yet, and must be configured manually in the JSON files.
+⚠️ Dynamic behaviour is an area under active development. This functionality is currently available as a beta feature in
+Altinn Studio and offers limited configuration options. The UI only allows to build expressions with one level of
+nesting, meaning an unlimited number of un-nested expressions can be combined using either the *OR* or *AND* operator.
+However, the tool allows to edit more complicated expressions by freestyle writing. Currently the tool is also limited
+to connecting expression to boolean component fields.  
 {{% /panel %}}
 
 ## Introduksjon
@@ -49,7 +52,11 @@ en liste (array) med verdier, hvor den første verdien i hver liste alltid er et
 av verdiene sendes som inndata/argumenter til funksjonen.
 
 ```json
-["equals", "foo", "bar"]
+[
+  "equals",
+  "foo",
+  "bar"
+]
 ```
 
 I eksempelet over blir strengene "foo" og "bar" sammenlignet. De er ulike, så resultatet av dette uttrykket blir en
@@ -74,7 +81,14 @@ skriver inn "John" i "firstName"-komponenten et annet sted i applikasjonen:
   "id": "lastName",
   "type": "Input",
   ...
-  "hidden": ["equals", ["component", "firstName"], "John"]
+  "hidden": [
+    "equals",
+    [
+      "component",
+      "firstName"
+    ],
+    "John"
+  ]
 }
 ```
 
@@ -142,7 +156,8 @@ redigerings-knapp med teksten `"View"`. Hvis `IsPrefill` er `false` blir teksten
 `"Edit"`.
 
 Det er verdt å merke seg at dersom et oppslag på `IsPrefill` gir resultatet `null`(ikke funnet) så konverteres
-resultatet til `false` når det blir brukt i en `if`. Les mer detaljert om dette i seksjonene [if](#func-if) og [datatyper](#datatyper)
+resultatet til `false` når det blir brukt i en `if`. Les mer detaljert om dette i seksjonene [if](#func-if)
+og [datatyper](#datatyper)
 
 ```json
 {
@@ -180,7 +195,8 @@ uttrykket evalueres i utviklerverktøyene.
 
 {{% expandlarge id="rep-group-expandable" header="Eksempel på ID-er og evaluering i repterende grupper" %}}
 
-**NB:** Her beskrives noen implementasjonsdetaljer i [app-frontend-react](https://github.com/Altinn/app-frontend-react/),
+**NB:** Her beskrives noen implementasjonsdetaljer i [app-frontend-react](https://github.com/Altinn/app-frontend-react/)
+,
 og er kun relevant når du skal prøve et uttrykk i utviklerverktøyene som er avhengig av en kjent posisjon i en
 repeterende gruppe. Dette kan endres i fremtiden, og slike endringer vil ikke påvirke uttrykk som man har definert i en
 applikasjon. Der hentes konteksten ut fra hvor uttrykket er definert i layout-filen.
@@ -205,7 +221,10 @@ Tenk deg at følgende data er fyllt inn i en repeterende gruppe:
 Gitt følgende uttrykk:
 
 ```json
-["component", "alder"]
+[
+  "component",
+  "alder"
+]
 ```
 
 Og med disse forutsetningene:
@@ -303,7 +322,17 @@ hva som skal til for å _vise_ komponenten:
   "type": "Input",
   "hidden": [
     "not",
-    ["or", ["dataModel", "ShowLastName"], ["frontendSettings", "ShowAllFields"]]
+    [
+      "or",
+      [
+        "dataModel",
+        "ShowLastName"
+      ],
+      [
+        "frontendSettings",
+        "ShowAllFields"
+      ]
+    ]
   ]
 }
 ```
@@ -340,7 +369,15 @@ Legg merke til at funksjonen ikke automatisk legger til mellomrom eller komma n�
 et mer lesbart resultat anbefales det å legge inn bindetegn hvor nødvendig:
 
 ```json
-["concat", "Gratulerer med ", ["component", "alder"], "-årsdagen!"]
+[
+  "concat",
+  "Gratulerer med ",
+  [
+    "component",
+    "alder"
+  ],
+  "-årsdagen!"
+]
 ```
 
 Uttrykket over gir teksten `Gratulerer med 18-årsdagen!` dersom verdien i alder-komponenten var `18`.
@@ -412,7 +449,7 @@ Eksempel:
    "id": "lastName",
    "type": "Input",
    ...
-   "readOnly": ["equal", ["language"], "en"],
+   "readOnly": ["equal", ["language"], "en"]
 }
 ```
 
@@ -469,7 +506,13 @@ Funksjonen `stringLength` returnerer lengden på en streng (gitt i antall boksta
 Eksempel:
 
 ```json
-["stringLength", ["dataModel", "My.Model.FirstName"]]
+[
+  "stringLength",
+  [
+    "dataModel",
+    "My.Model.FirstName"
+  ]
+]
 ```
 
 Dersom strengen er `null` vil `stringLength` returnere `0`.
@@ -506,7 +549,8 @@ Eksempel:
 }
 ```
 
-Ønsker du å sjekke om verdier finnes i en kommaseparert liste kan du bruke funksjonen [`commaContains`](#func-commaContains).
+Ønsker du å sjekke om verdier finnes i en kommaseparert liste kan du bruke
+funksjonen [`commaContains`](#func-commaContains).
 
 **Bemerk:** Disse funksjonene er ikke tilgjengelig i backend-kode enda, og vil derfor gi en feilmelding dersom de blir
 brukt noen steder [hvor uttrykk kjøres på backend](#bruksområder), og om man har slått på funksjonaliteten for å
@@ -544,7 +588,13 @@ Funksjonene `lowerCase` og `upperCase` tar imot en streng som input og returnere
 konvertert til henholdsvis små eller store bokstaver.
 
 ```json
-["lowerCase", ["dataModel", "My.Model.LastName"]]
+[
+  "lowerCase",
+  [
+    "dataModel",
+    "My.Model.LastName"
+  ]
+]
 ```
 
 Disse funksjonene gir deg en enkel måte å konvertere mellom små og store bokstaver i en streng.
@@ -562,7 +612,8 @@ automatisk slette skjulte data (`RemoveHiddenDataPreview`).
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-round" header="round" %}}
-Funksjonen `round` avrunder et tall til et heltall, eller valgfritt til et desimaltall med et konfigurerbart antall desimalpunkter.
+Funksjonen `round` avrunder et tall til et heltall, eller valgfritt til et desimaltall med et konfigurerbart antall
+desimalpunkter.
 
 Eksempel med avrunding med 2 desimalpunkter:
 
@@ -587,7 +638,8 @@ automatisk slette skjulte data (`RemoveHiddenDataPreview`).
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-text" header="text" %}}
-Funksjonen `text` tar imot en nøkkel som argument og bruker denne nøkkelen til å hente ut den tilsvarende teksten fra en tekst-ressurs. Funksjonen returnerer verdien som er knyttet til den angitte nøkkelen.
+Funksjonen `text` tar imot en nøkkel som argument og bruker denne nøkkelen til å hente ut den tilsvarende teksten fra en
+tekst-ressurs. Funksjonen returnerer verdien som er knyttet til den angitte nøkkelen.
 Eksempel:
 
 ```json
@@ -604,15 +656,21 @@ automatisk slette skjulte data (`RemoveHiddenDataPreview`).
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-displayValue" header="displayValue" %}}
-Funksjonen `displayValue` gjør et oppslag på en komponent og returnerer en formattert tekststreng som representerer verdien i datamodellen.
+Funksjonen `displayValue` gjør et oppslag på en komponent og returnerer en formattert tekststreng som representerer
+verdien i datamodellen.
 Dette er til forskjell fra [component](#func-component)-funksjonen som returnerer rå-verdien som ligger i datamodellen.
-Denne funksjonen egner seg best til visning av en komponent sin verdi for brukeren, og mindre til videre logikk basert på verdien som returneres.
-Dette er spesielt relevant for Input-felter med [tallformattering](/app/development/ux/styling/#formatting-numbers), datofelter, radioknapper (og andre komponenter med kodelister), osv.
+Denne funksjonen egner seg best til visning av en komponent sin verdi for brukeren, og mindre til videre logikk basert
+på verdien som returneres.
+Dette er spesielt relevant for Input-felter med [tallformattering](/app/development/ux/styling/#formatting-numbers),
+datofelter, radioknapper (og andre komponenter med kodelister), osv.
 
 Eksempel:
 
 ```json
-["displayValue", "component-id"]
+[
+  "displayValue",
+  "component-id"
+]
 ```
 
 **Bemerk:** Denne funksjonen er ikke tilgjengelig i backend-kode enda, og vil derfor gi en feilmelding dersom den blir
@@ -635,7 +693,9 @@ argument:
 Alle disse oppslagene vil gi verdien `null` om man jobber i en [tiltandsløs kontekst](../../configuration/stateless).
 Om man gir andre nøkler enn de over, vil oppslaget resultere i en feilmelding. Denne oppførselen er unik blant
 oppslagsfunksjonene, og gjøres for å sikre at man ikke prøver å hente informasjon som finnes i instansen men som ikke
-(enda) er eksponert via en nøkkel her. [Gi oss en tilbakemelding](https://github.com/Altinn/app-frontend-react/issues/new?assignees=&labels=kind%2Ffeature-request%2Cstatus%2Ftriage&template=feature_request.yml) om du har ønsker om å hente ut
+(enda) er eksponert via en nøkkel
+her. [Gi oss en tilbakemelding](https://github.com/Altinn/app-frontend-react/issues/new?assignees=&labels=kind%2Ffeature-request%2Cstatus%2Ftriage&template=feature_request.yml)
+om du har ønsker om å hente ut
 instansdata som ikke er tilgjengelig i denne funksjonen.
 
 Oppslaget gjøres i samme datakilde som er tilgjengelig for [språk/tekster](../../ux/texts#data-sources).
@@ -713,7 +773,8 @@ Følgende kan observeres:
    den ansatte er under 18 år skjules `ansatt-navn`. Legg merke til at samme sti i datamodellen blir brukt som
    `simpleBinding` på `ansatt-alder`.
 2. Det andre oppslaget (for å styre `hidden` på komponenten `ansatt-alder`) bruker `[0]` på oppslaget i datamodellen.
-   Dette fungerer også, men oppførselen er kanskje uventet; her skjules alle alder-komponenter dersom navnet på den _første_
+   Dette fungerer også, men oppførselen er kanskje uventet; her skjules alle alder-komponenter dersom navnet på den _
+   første_
    ansatte har navnet _Ola Nordmann_.
    {{% /expandlarge %}}
 
@@ -725,7 +786,8 @@ komponenten sin `simpleBinding` i datamodellen. For øyeblikket støttes ingen a
 
 Oppslag mot en komponent vil derimot returnere `null` dersom komponenten man slår opp verdien til er skjult (selv om
 komponenten ellers har tilknyttet data i datamodellen). Dette gjør det til en viss grad mulig å styre visning av en
-komponent basert på om en annen komponent er vist eller ikke. Dersom komponenten ble funnet på en helt annen (men skjult)
+komponent basert på om en annen komponent er vist eller ikke. Dersom komponenten ble funnet på en helt annen (men
+skjult)
 side gir også oppslaget verdien `null` selv om datamodellen har en verdi tilknyttet komponenten.
 
 I likhet med [`dataModel`](#func-datamodel) vil oppslag mot en komponent-id forsøke å finne komponenten i nærheten av
@@ -870,10 +932,38 @@ til å gjenkjenne flere forskjellige verdier:
 ```json
 [
   "or",
-  ["equals", ["dataModel", "My.Path"], 0],
-  ["equals", ["dataModel", "My.Path"], false],
-  ["equals", ["dataModel", "My.Path"], null],
-  ["equals", ["dataModel", "My.Path"], ""]
+  [
+    "equals",
+    [
+      "dataModel",
+      "My.Path"
+    ],
+    0
+  ],
+  [
+    "equals",
+    [
+      "dataModel",
+      "My.Path"
+    ],
+    false
+  ],
+  [
+    "equals",
+    [
+      "dataModel",
+      "My.Path"
+    ],
+    null
+  ],
+  [
+    "equals",
+    [
+      "dataModel",
+      "My.Path"
+    ],
+    ""
+  ]
 ]
 ```
 
