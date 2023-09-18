@@ -1,8 +1,8 @@
 ---
-title: Expressions
+title: Build Expressions in Altinn Studio
 linktitle: Expressions
-weight: 7
-toc: true
+weight: 8
+description: How to build expressions with Altinn Studio.
 ---
 
 This documentation will describe _how_ to build expressions connected to component fields using the Expressions tool in
@@ -93,7 +93,7 @@ time, follow this guide:
 4. **Choose a value that you want the first element in your sub expression to have**
 
    ![Choose a value from a predefined set if data source is implicit](4-1-choose-implicit-value.png)
-   ![Choose a value from a predefined set if data source is explicit](4-2-choose-explicit-value.png)
+   ![Customize the data source value within the limitations of the data source if data source is explicit](4-2-choose-explicit-value.png)
 
 5. **Choose a comparable data source and value for the second element in your sub expression**
 
@@ -106,7 +106,7 @@ time, follow this guide:
    ![Save expression with a single sub expression](6-1-save-expression.png)
 
    Or you can keep adding sub expression by expanding the rule and set the operator, that should evaluate the sub
-   expressions together, to either `true` or `false`.
+   expressions together, to either `and` or `or`.
    ![Expand expression with additional sub expression](6-2-expand-expression.png)
 
    Then you repeat these steps from point 2 - adding a function to the new sub expression and so on.
@@ -140,7 +140,7 @@ expressions for. In a later stage of development we will enable building and int
 - text resource bindings on components
 - process
 
-### Nesting
+### <a name="Nesting"></a>Nesting
 
 Second, Studio is limited to building expressions with only one level of nesting. This means that a value in a sub
 expression only can be either an implicit or explicit value and not a sub expression. If the value is a sub expression

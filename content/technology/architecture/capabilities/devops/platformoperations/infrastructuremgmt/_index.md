@@ -10,7 +10,7 @@ Over time it is expected that the Altinn 3 platform would consist of hundreds of
 
 To be able to manage and configure all these cloud resources the architecture that is selected has several capabilities enabled with help of various tools and processes.
 
-## Infrastructure Configuration and managment Capabilities
+## Infrastructure Configuration and management Capabilities
 
 ### Tools & components
 
@@ -37,7 +37,7 @@ The resource ARM Apis are used to verify state of infrastucture and perform chan
 We use [Azure Devops Repos](https://azure.microsoft.com/services/devops/repos/) to store our Terraform scripts for the different solutions.
 We use [Azure Devops Pipelines](https://azure.microsoft.com/services/devops/pipelines/) to run the Terraform scripts.
 
-### Provision of new environemnts
+### Provision of new environments
 
 #### Altinn Apps
 
