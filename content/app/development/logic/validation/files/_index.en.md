@@ -21,7 +21,7 @@ By default, before a file is uploaded and actually stored, only simple validatio
 * The file size is below the configured limit
 * Number of files uploaded is below the configured limit
 
-Extended file validation adds extension points to analyse the uploaded files byte stream before it's stored and return an error messages to the client if something is wrong. By default a mime type checker is included that scans the file to see if it is the type it claims to be. But any custom analyser can be written to validate different types of files and different metadata. You could for example write an analyser that checks if a png file has a minimum resolution before it's accepted or that a pdf file is of a spesific version.
+Extended file validation adds extension points to analyse the uploaded files byte stream before it's stored and return an error messages to the client if something is wrong. By default a mime type checker is included that scans the file to see if it is the type it claims to be. But any custom analyser can be written to validate different types of files and different metadata. You could for example write an analyser that checks if a png file has a minimum resolution before it's accepted or that a pdf file is of a specific version.
 
 The Altinn.App.Core NuGet package only defines the interfaces required in addition to making sure the code is called. The analyser implementations are created as a separate [NuGet package](https://www.nuget.org/packages/Altinn.FileAnalyzers) that can be imported into your application. This is done to keep the core of an Altinn 3 application as small as possible and to be able to release and use new analysers without depending on having to upgrade the application (beyond v7.10.0).
 
@@ -92,7 +92,7 @@ If you would like to write your own analyser you need to implement two interface
       }
     ```
 2. **Implement the `IFileValidator` interface**  
-    Based on the analysis result you can write a validator. The validator will be tightly copuled to the metadata properties you would like to validate against, meaning you will need to know the key and type of values to expect.  
+    Based on the analysis result you can write a validator. The validator will be tightly coupled to the metadata properties you would like to validate against, meaning you will need to know the key and type of values to expect.  
     The interface has one property `Id` and one method `Validate` that needs to be implemented.  
     The `Id` property should be unique is used when you configure the analyser in the  `applicationmetadata.json` file. This is how your implementation is resolved when the application figures out which validator to run on a given data type.  
     Example from the default implementation of the mimetype validator:
@@ -127,7 +127,7 @@ If you would like to write your own analyser you need to implement two interface
           return (true, errors);
       }
     ```
-3. **Register you implementation in the applications depenency container**  
+3. **Register you implementation in the applications dependency container**  
     Once you have your code in place you need to register your implementation in order for the code to be executed when uploading files.
     ```csharp
       services.AddTransient<IFileAnalyser, YourAnalyserImplementation>();

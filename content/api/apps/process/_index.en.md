@@ -16,7 +16,7 @@ creates a current task object to hold the process state.
 
 ![Flowchart for process](mvp-process.png "Process")
 
-A process is represented by an process modell in BPMN/XML notation. Each task has an unique id, which is used to refer to the task in the api.
+A process is represented by an process model in BPMN/XML notation. Each task has an unique id, which is used to refer to the task in the api.
 
 ### Process model
 

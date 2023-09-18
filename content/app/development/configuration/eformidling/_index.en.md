@@ -263,8 +263,9 @@ and all steps are executed in _App.cs_.
 ## Testing eFormidling integration locally
 
 It is possible to test the eFormidling integration for an application in
-your development environment. 
-In addition to Altinn's Localtest, and the application, there are two things that need to run: 
+your development environment.
+In addition to Altinn's Local test, and the application, there are two things that need to run:
+
 1. eFormidling integration point (Integrasjonspunktet)
 2. A mock of eFormidling    
 

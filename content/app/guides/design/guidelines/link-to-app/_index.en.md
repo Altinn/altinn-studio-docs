@@ -13,9 +13,9 @@ current context, with Altinn being used as a solution for submitting and trackin
 ![Example to how to present a form from an agency or municipal website](link-to-altinn.png "Inngang til et skjema i Altinn bør presenteres tydelig")
 
 {{% panel %}}
-**Integrted components* 
+**Integrated components* 
 
-In close cooperation with sentral service providers we are planning to offer components which can be used 
+In close cooperation with central service providers we are planning to offer components which can be used 
 on their websites to enable completing forms in their current context.
 
 The users of Altinn want both a solution for where they are and a common overview. 

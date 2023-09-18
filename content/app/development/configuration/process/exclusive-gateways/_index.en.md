@@ -7,7 +7,7 @@ tags: [gateways,bpmn,process]
 
 ## Prerequisites
 
-* Your applicaiton uses version 7.1.0 or newer of the Altinn nugets.
+* Your application uses version 7.1.0 or newer of the Altinn nugets.
 * Application with a process containing a exclusive gateway
 
 ## Example process with exclusive gateways
@@ -57,17 +57,22 @@ Visual representation of the bpmn definition
 
 ## Implementing and injecting custom gateway code
 
-To choose correct sequenceflow out of the exclusive gateway based on instance data the application needs create a class implementing `Altinn.App.Core.Features.IProcessExclusiveGateway` and register it as a service in the dependency injection.
+To choose correct sequence flow out of the exclusive gateway based on instance data the application needs create a class
+implementing `Altinn.App.Core.Features.IProcessExclusiveGateway` and register it as a service in the dependency
+injection.
 
 The interface has one string Property `GatewayId`, and a method `FilterAsync`
 
 `GatewayId` is used to identify the Gateway in the process definition it is connected to.
 
-In our example definition a implementation for the first gateway (Gateway_1) would have this property set to `Gateway_1` as this is the value of the attribute `id` for the exclusive gateway in the process definition.
+In our example definition a implementation for the first gateway (Gateway_1) would have this property set to `Gateway_1`
+as this is the value of the attribute `id` for the exclusive gateway in the process definition.
 
-The method FilterAsync is where you implement your custom logic to filter the available sequenceflow(s) out of the gateway based on the instance data.
+The method FilterAsync is where you implement your custom logic to filter the available sequence flow(s) out of the
+gateway based on the instance data.
 
-For further documentation of the interface read the xml documentation for the interface [here](https://github.com/Altinn/app-lib-dotnet/blob/main/src/Altinn.App.Core/Features/IProcessExclusiveGateway.cs)
+For further documentation of the interface read the xml documentation for the
+interface [here](https://github.com/Altinn/app-lib-dotnet/blob/main/src/Altinn.App.Core/Features/IProcessExclusiveGateway.cs)
 
 After you have written your custom implementation register it in `Program.cs` in the `RegisterCustomAppServices` method.
 

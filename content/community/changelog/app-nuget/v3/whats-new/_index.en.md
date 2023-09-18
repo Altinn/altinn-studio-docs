@@ -4,13 +4,13 @@ description: Overview of changes introduced in version 3.
 toc: true
 ---
 
-## 3.5.1 (2021-03-11) - Possible to get ruleconfiguration for apps with layout sets
+## 3.5.1 (2021-03-11) - Possible to get rule configuration for apps with layout sets
 
-There was a bug resulting in av 404 response whenever it is attepmpted to retrieve
-the ruleconfiguration for an application while specifying the layout set id in the request.
-This has now been fixed. 
+There was a bug resulting in av 404 response whenever it is attempted to retrieve
+the rule configuration for an application while specifying the layout set id in the request.
+This has now been fixed.
 
-## 3.5.0 (2021-03-10) - Added funcionality for pdf generation for application owner
+## 3.5.0 (2021-03-10) - Added functionality for pdf generation for application owner
 
 Up until now a pdf copy has not been generated for the tasks that are completed by the application owner. 
 This has now been implemented and pdf should be generated after a task regardless if it is an 
@@ -48,8 +48,8 @@ regardless if they have opened the instance in GUI or downloaded the form data t
 
 ## 3.2.0 (2021-02-02) - Options displayed with label in PDF
 
-Before this release the selected option was shown with it's value rather than the label that the end user was 
-presented with during form filling. This has now been fixed so the label is diplayed in the pdf.
+Before this release the selected option was shown with it's value rather than the label that the end user was
+presented with during form filling. This has now been fixed so the label is displayed in the pdf.
 
 ## 3.1.6 (2021-01-29)
 
@@ -59,11 +59,13 @@ presented with during form filling. This has now been fixed so the label is dipl
 
 ## 3.0.4 (2021-01-26) - Swagger support for Apps
 
-We have added Swashbuckle to the App. It is a library that brings Swagger support and this is especially handy when developing an HTTP based API. 
+We have added Swashbuckle to the App. It is a library that brings Swagger support and this is especially handy when
+developing an HTTP based API.
 It creates a form of interactive documentation based on the OpenAPI Specification.
-To describe the Api's better, we use the xml documentation file.
+To describe the APIs better, we use the xml documentation file.
 
-This documentation will be generated automatically when the application is build. Existing api's and new api's created in the app will be documented.
+This documentation will be generated automatically when the application is build. Existing APIs and new APIs created in
+the app will be documented.
 
 The documentation will appear at `https://[org].apps.altinn.no/[org]/[app]/swagger/index.html` in the app.
 

@@ -14,7 +14,7 @@ The setup must be done manually as of today. Support for setup through Altinn St
 ![ListComponent](listComponent.png "Eksempel på hvordan listekomponenten ser ut")
 
 ## How to define the component in code 
-The component is of type `List`. One example on defintion of list component in layout.json:
+The component is of type `List`. One example on definition of list component in layout.json:
 ```json
 {
     "id": "list-component",
@@ -44,7 +44,7 @@ The component is of type `List`. One example on defintion of list component in l
 ```
 
 ## Populating the table
-The list component is populated with dynamic data. The data is defined in a seperate file which implements the interface
+The list component is populated with dynamic data. The data is defined in a separate file which implements the interface
 `IDataListProvider`. This works similar to code lists/options. The field `dataListId` defines which data list the component refers to.
 The dynamic data lists kan be either open or secured. 
 After you have written your implementation of `IDataListProvider` you have to register is as a service inside `RegisterCustomAppServices` in  `Program.cs`
@@ -142,7 +142,7 @@ The value of the data model field `soknad.navn` will then be sent as a key value
 OBS! The `mapping` field can also be used to send any other query parameters. 
 
 ## How to store data in the data model
-The selected row is stored in the data model. You choose which column/cell values to store. Each column is stored in a seperate field in the data model. 
+The selected row is stored in the data model. You choose which column/cell values to store. Each column is stored in a separate field in the data model. 
 This is defined with the field `dataModelBindings`: 
 ```json
 "dataModelBindings": {
@@ -151,7 +151,7 @@ This is defined with the field `dataModelBindings`:
 },
 ```
 
-SelectedItem and SelectedItemProfesstion are fields in the data model, and name and professtion are properties in the model used to describe a row in this case.
+SelectedItem and SelectedItemProfession are fields in the data model, and name and profession are properties in the model used to describe a row in this case.
 In the example shown here it is created a model to present a row like this: 
 ```csharp
 public class ListItem

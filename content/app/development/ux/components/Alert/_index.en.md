@@ -2,8 +2,8 @@
 title: Alert
 linktitle: Alert
 description: The component can be used to display a message with different levels of severity.
-schemaname: Alert # Component schema name used to autogenerate list of properies from json schema (replace with appropriate component name)
-weight: 10 # Do not change, the componets will be sorted alphabetically
+schemaname: Alert # Component schema name used to autogenerate list of properties from json schema (replace with appropriate component name)
+weight: 10 # Do not change, the components will be sorted alphabetically
 toc: true
 aliases:
 - alertcomponent

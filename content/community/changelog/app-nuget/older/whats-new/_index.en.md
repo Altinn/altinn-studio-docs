@@ -4,11 +4,15 @@ description: Overview of changes introduced in v1.0.62-alpha -- 2.0.1
 toc: true
 ---
 
-## 2.0.0 (2020-11-18) - Autodelete on process end
-For some apps, the fact that there's traces of it in the user archive (and the data is stored) is a problem (e.g. for security reasons). 
-The Altinn.App.* packages has been updated to support autodelete when process ends. This is introduced with version 2.0.0-alpha of the packages.
+## 2.0.0 (2020-11-18) - Auto delete on process end
 
-**Updating to this version will require changes in multiple files. See the entry in [breaking changes](../breaking-changes/#support-for-autodelete-when-process-ends)**
+For some apps, the fact that there's traces of it in the user archive (and the data is stored) is a problem (e.g. for
+security reasons).
+The Altinn.App.* packages has been updated to support auto delete when process ends. This is introduced with version
+2.0.0-alpha of the packages.
+
+**Updating to this version will require changes in multiple files. See the entry
+in [breaking changes](../breaking-changes/#support-for-auto-delete-when-process-ends)**
 
 ## 1.3.1 (2020-11-06) New layout structure in Designer
 In order to support multiple pages in an app we have done some restructuring of the app-template.

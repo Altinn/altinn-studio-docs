@@ -13,13 +13,13 @@ You will have to adjust your form after the usability testing. It could be bigge
 adjustments like language or alterations within the interaction-design. If larger changes are required it might be a good 
 idea to do another user test to check if the new changes have had the desired effect.
 
-A sign that you have succesfully created a solution that fits the users requirements is if most of the users in your 
-useability test are able to complete their task without your help, and within a reasonable timeframe. 
+A sign that you have successfully created a solution that fits the users requirements is if most of the users in your 
+usability test are able to complete their task without your help, and within a reasonable timeframe. 
 
-## Useablility testing in Figma
+## Usablility testing in Figma
 
 Have you set up a prototype in Figma by using our [Prototype-Kit](../prototype/)? Great! You can now 
-use this for useability testing! 
+use this for usability testing! 
 
 If you've added multiple steps in your form, you have to remember to link between these steps. 
 You can do this by choosing "Prototype" in the right-upper corner in Figma. Select a 
@@ -55,7 +55,7 @@ Spend plenty of time formulating the tasks for your user test, doing a pilot-tes
 will let you discover errors with the actual test.
 
 - Set a clear goal for what the participant is trying to achieve
-- choose tasks that are relevante and credible
+- choose tasks that are relevant and credible
 - Don't give away the answer or give to many hints
 
 You can find more tips on how to complete the test in the best way possible on the site [gov.uk](https://www.gov.uk/service-manual/user-research/using-moderated-usability-testing) 

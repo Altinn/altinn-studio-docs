@@ -1,6 +1,6 @@
 ---
 title: Image 
-description: Use images and illustrations to emphazise points or illustrate concepts which are difficult to explain using text
+description: Use images and illustrations to emphasize points or illustrate concepts which are difficult to explain using text
 weight: 110
 ---
 
@@ -18,7 +18,7 @@ It is important that alternative texts are written consequently. We recommend fo
 - End by saying if the photo is a photo, illustration or graphic.
 
 **Example** 
-"Three old wooden trolly. Photograph."
+"Three old wooden trolley. Photograph."
 
 ### Example of use:
 

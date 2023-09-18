@@ -50,7 +50,7 @@ Endpoint for uploading a new data element on a specific instance.
 POST basePath?dataType={data type name}
 ```
 
-The **dataType** parameter is required and should reference one of the [data types defined on the application](../../models/app-metadata/#datatype). Data types with an **appLogic** property are linked to a form and will have data validation and calculation rules associated with them. Data types without an **appLogic** property will be handeled as an attachment and streamed directly to storage.
+The **dataType** parameter is required and should reference one of the [data types defined on the application](../../models/app-metadata/#datatype). Data types with an **appLogic** property are linked to a form and will have data validation and calculation rules associated with them. Data types without an **appLogic** property will be handled as an attachment and streamed directly to storage.
 
 Request Content-Type is handled a little differently between the two cases:
 

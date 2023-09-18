@@ -1,5 +1,5 @@
 ---
-title: Altinnroles used for administering access
+title: Altinn roles used for administering access
 linktitle: Administration roles
 description: <todo>
 toc: true

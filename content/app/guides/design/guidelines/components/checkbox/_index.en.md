@@ -7,7 +7,7 @@ If the user should only be able to pick one option, use [radio buttons](../radio
 
 ### Guidelines:
 - Check boxes should always have a connected text to their right. 
-- Deactivated choice boxes should be avoided. If an alternative is unavailable, it should be removed and an explenation should be given in text as to why the option is missing. 
+- Deactivated choice boxes should be avoided. If an alternative is unavailable, it should be removed and an explanation should be given in text as to why the option is missing. 
 
 ### Example of use:
 

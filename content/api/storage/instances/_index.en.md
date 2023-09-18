@@ -24,10 +24,10 @@ Application owners can search for from a single application or across all applic
 Using this endpoint requires the scope 'altinn:instances.read'. And query parameter 'org' or 'appId' must be included in the request.
 
 Users can search for instances linked to either themselves or an instanceOwner they are authorized to read the instances of. 
-Query parametr 'instanceOwner.partyId' must be included in the request if using this endpoint as an end user.
+Query parameter 'instanceOwner.partyId' must be included in the request if using this endpoint as an end user.
 
 Search for instances with a simple GET request towards the *instances* endpoint.
-Avaliable query paramters include:
+Available query parameters include:
 
 - **process.currentTask** (string)  
 Search for instances at a specific step in its process. 

@@ -20,7 +20,7 @@ Use the date picker if something is being planned, or for selecting a (relativel
 ---
 
 ## Date field
-Date fields should be used for dates further back in time, or for dates that the user knows well. Three textfields is the simplest way to take in dates in these cases. If someone is planning something and a specific day (monday, friday, etc.) is important the datepicker should be used instead.
+Date fields should be used for dates further back in time, or for dates that the user knows well. Three text fields is the simplest way to take in dates in these cases. If someone is planning something and a specific day (monday, friday, etc.) is important the datepicker should be used instead.
 
 {{% panel theme="warning" %}} ⚠️ This component is not accessible in Altinn Studio yet. 
 {{% /panel %}}

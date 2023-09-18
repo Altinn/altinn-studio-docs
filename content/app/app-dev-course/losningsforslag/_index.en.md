@@ -26,7 +26,8 @@ Updated solutions and explanations for knowledge checks can be found within each
 ### Which data is it the service owner wishes to collect here?
 
 The data model consists of one main element: innflytter (newcomer).
-This element consists of some subelements like _Fornavn_, _Etternavn_ and _Mellomnavn_. Additionally there are some complex elements such as _Adresse_, _Kontaktinformasjon_ and _Arbeidsinformasjon_.
+This element consists of some sub elements like _Fornavn_, _Etternavn_ and _Mellomnavn_. Additionally there are some
+complex elements such as _Adresse_, _Kontaktinformasjon_ and _Arbeidsinformasjon_.
 
 ### Which effect has **\<minOccurs\>** in the data model? You may notice that the field has different value for _Innflytter.Fornavn_ and _Innflytter.Mellomnavn_
 
@@ -104,11 +105,12 @@ Note that the language property at the top of the file must be set to **en**.
 
 ### If we one day were to support ukrainian, which language code would you then need to annotate the file with?
 
-According to [the list of ISO 639-1 codes](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes), the code for ukranian is `uk`.
+According to [the list of ISO 639-1 codes](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes), the code for
+Ukrainian is `uk`.
 
 ### If a text key referred to in FormLayout.json does not exist in the text resources, what will appear on the screen?
 
-If said text key does not exist inthe text resource file, the text key will be displayed instead.
+If said text key does not exist in the text resource file, the text key will be displayed instead.
 
 ## Module 2 - Knowledge check: Add info page
 
@@ -192,13 +194,13 @@ If you deploy a different version, the existing version of the application will 
 ### What happens if you deploy the same version of the application to the environment once more?
 
 All operations connected to deploy will run again.
-Resource texts and other metadata are savedin Altinn Platform,
+Resource texts and other metadata are saved in Altinn Platform,
 and deploy pipeline to toll out the application to the cluster will also run.
 
 However, no new pods will be spun up in connection to this since there are now real changes
 on the service running in the environment.
 
-### Will the application be available immediatly after deployment?
+### Will the application be available immediately after deployment?
 
 Yes, the service will be immediately available after deployment.
 If the status is green in Altinn Studio you will be able to run the application.
@@ -225,12 +227,13 @@ In some cases you might want to expose options that are sensitive. This is where
 
 ### If a list of options is set up with mapping towards the data model - what happens when the field in question changes value?
 
-If a field in the mapping is updated, the app-frontend will make another call to retrieve the options lsit.
+If a field in the mapping is updated, the app-frontend will make another call to retrieve the options list.
 This opens up for the possibility to dynamically show options that are tailored to the user's previously submitted data.
 
 ### What happens with the chosen value on a field connected to an option-list that is retrieved over again from the server side?
 
-If the user e.g. has chosen a muncipality from a dropdown list containing muncipalities set up with mapping on `Fylke`, then returns and changes the field `Fylke`, the answer in the muncipality list will be remowed.
+If the user e.g. has chosen a municipality from a dropdown list containing municipalities set up with mapping on `Fylke`
+, then returns and changes the field `Fylke`, the answer in the municipality list will be removed.
 
 ## Module 4 - Knowledge check: Tailored offer for IT competence
 
@@ -241,8 +244,9 @@ Dynamics can be set up without these defined and will still work if you have con
 
 ### If you were to add a new function to `RuleHandlerHelper.js` - where will these functions run? Would dynamic work without this defined?
 
-Functions defined in `RuleHandlerObject.js` are actually dynamic uploaded by app-frontend and runs as part om the application flow for the user.
-Dynmaics will **not** work without this defined.
+Functions defined in `RuleHandlerObject.js` are actually dynamic uploaded by app-frontend and runs as part om the
+application flow for the user.
+Dynamics will **not** work without this defined.
 
 ### What is the correlation between functions defined in `RuleHandlerObject` and the file `RuleConfiguration.json`?
 
@@ -284,7 +288,7 @@ the authorization rules will do the check, which currently is set up as custom v
 
 ### What field in the data model decides if an element is repeating?
 
-The field `maxOccurs` in the xsd-model says something about wether a field is repetitive. If `maxOccurs` > 1 
+The field `maxOccurs` in the xsd-model says something about weather a field is repetitive. If `maxOccurs` > 1
 
 ### How many repetitions are allowed for the field `TidligereBosteder`? 
 
@@ -299,8 +303,10 @@ This behaviour can be overrun, and it is possible to trigger validations both on
 
 ### Why should validations added on the client side also be duplicated server-side?
 
-Client-side validations should be considered as an aid for better user experience and not as a guarantee that data is delivered in the correct format.
-People who don't mean well can get past these validations, and client-side validations will not be run if, for exapmle, you use the APIs directly.
+Client-side validations should be considered as an aid for better user experience and not as a guarantee that data is
+delivered in the correct format.
+People who don't mean well can get past these validations, and client-side validations will not be run if, for example,
+you use the APIs directly.
 Therefore, validations placed on the front-end should always be reflected in the back-end logic.
 
 ## Module 6 - Knowledge check: Data processing
@@ -311,11 +317,12 @@ Data processing is run every time the user either reads or writes data.
 That is, every time the user changes a given field, the logic will run.
 This therefore requires that the app developer optimizes the code that is executed and avoid heavy and complex operations on each calculation.
 
-### What seperates `ProcessDataWrite` and `ProcessDataRead`?
+### What separates `ProcessDataWrite` and `ProcessDataRead`?
 
 `ProcessDataWrite` is run once the user writes data, i.e. when the user has filled in a field or updates an existing value.
 `ProcessDataRead` is run once the user reads data from the data base, e.g. when navigating to a previous instance of the application and retrieving previously filled in data.
 
 ### What is the difference between DataProcessing and Calculations?
 
-`DataProcessing` and `calculations` are two different names to the same concept. In the nuget-packets pre 4.7.0, this went under the name `calculations` or `kalkuleringer`, while it is now reffered to as `DataProcessing`.
+`DataProcessing` and `calculations` are two different names to the same concept. In the nuget-packets pre 4.7.0, this
+went under the name `calculations` or `kalkuleringer`, while it is now referred to as `DataProcessing`.

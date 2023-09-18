@@ -21,8 +21,8 @@ If you select a given organisation only applications from the selected organisat
 
 ## Favorites
 
-From the dashboard you have easy access to your favorite applications. These favorites reflect the "Star"-concept in Gitea, and any repository starred in Gitea will automagicly appear as a favorite in the dashboard.
-These appilcations will always be displayed at the top of the dashboard and be independent of the chosen context.
+From the dashboard you have easy access to your favorite applications. These favorites reflect the "Star"-concept in Gitea, and any repository starred in Gitea will automagically appear as a favorite in the dashboard.
+These applications will always be displayed at the top of the dashboard and be independent of the chosen context.
 
 ![Favorites in dashboard](favs.png "Favorites in dashboard")
 

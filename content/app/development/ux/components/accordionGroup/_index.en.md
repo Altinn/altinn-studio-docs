@@ -2,8 +2,8 @@
 title: AccordionGroup
 linktitle: AccordionGroup
 description: A component that lets you group Accordions
-schemaname: AccordionGroup # Component schema name used to autogenerate list of properies from json schema (replace with appropriate component name)
-weight: 10 # Do not change, the componets will be sorted alphabetically
+schemaname: AccordionGroup # Component schema name used to autogenerate list of properties from json schema (replace with appropriate component name)
+weight: 10 # Do not change, the components will be sorted alphabetically
 toc: true
 ---
 
