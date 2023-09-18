@@ -34,13 +34,21 @@ Den største forskjellen på rollene i 2.0 og fullmaktsgruppene i 3.0 blir:
 Grunnlaget for inndelingen i maler er [Altinns skjemakatalog](https://www.altinn.no/skjemaoversikt/?category=category) og [SSBs standard for å kategorisere virksomheter](https://www.ssb.no/klass/klassifikasjoner/6). 
 ## Tjenester må knyttes til det laveste nivået i hierarkiet 
 
-Fullmaktsgruppene har maksimalt tre nivåer. Tjenesteeier må knytte tjenester til fullmaktsgrupper som er på det laveste nivå. 
-Det betyr for eksempel at tjenesteeier ikke kan knytte en tjeneste til malen «Skatt, avgift, regnskap og toll» som er nivå 1. Tjenesteeier kan heller ikke knytte til nivået under, for eksempel «Skatt og Merverdiavgift». Tjenesteeier må knytte til «Foretaksskatt», «Skattegrunnlag » og/eller "Merverdiavgift".
+Fullmaktsgruppene har maksimalt tre nivåer. Tjenesteeier må knytte tjenester til fullmaktsgrupper som er på det laveste nivå og kan knytte en tjeneste til flere fullmaktsgrupper hvis du mener det er riktig. 
 
 ![Hierarki av fullmaktsgrupper](hierarki-tilgangsgrupper.jpg "Hierarki av fullmaktsgrupper")
 
 Målet med mer findelte nivåer et at folk skal få tilgang til akkurat det de trenger, men ikke få for omfattende tilganger. 
-Du kan knytte en tjeneste til flere fullmaktsgrupper hvis du mener det er riktig. 
+
+Administrator vil i brukergrensesnitt oppleve av vedkommende kan gi sine ansatte tilgang til fullmaktsgrupper på alle nivå, men i virkeligheten registreres delegeringen alltid på nivå 3, f eks: 
+
+- Administrator gir sin ansatt fullmaktsgruppen «Skatt og merverdiavgift». I Altinn registeres da at den ansatte får følgende fullmakter: 
+   - Foretaksskatt
+   - Skattegrunnlag
+   - Merverdiavgift
+
+![image](https://github.com/Altinn/altinn-studio-docs/assets/25847572/8d93b858-9253-4d73-88e0-43ebd5d4a13f)
+
 
 Her finner du [fremgangsmåte og rekkefølge](/authorization/migration/new-accessgroups/) av oppgaver som må gjennomføres hos Altinn, tjenesteeiere og sluttbrukere for å innføre nye fullmaktsgrupper. 
  
