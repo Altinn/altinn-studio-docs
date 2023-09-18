@@ -3,10 +3,11 @@ title: Breaking changes
 description: Overview of breaking changes introduced into app nuget packages in v5.0.0.
 ---
 
-## 1. Update the Altinn.App* package refrences to version 5.3.0.
+## 1. Update the Altinn.App* package references to version 5.3.0.
+
 Navigate to your application repository and find App.csproj in the App folder.
 
-Once you locate the file, update the Altinn.App.* package refrences to version 5.3.0.
+Once you locate the file, update the Altinn.App.* package references to version 5.3.0.
 
 ```xml
     <PackageReference Include="Altinn.App.Api" Version="5.3.0">
@@ -17,9 +18,13 @@ Once you locate the file, update the Altinn.App.* package refrences to version 5
 ```
 
 ## 2. PDF generation implementation moved out from AppBase/IAltinnApp
-All code related the generation of Pdf has been extracted from AppBase.cs and moved into PdfService.cs which in turn implements IPdfService. This opens up and allows us as service developers to replace the default Pdf implementation entirely.
 
-Since App.cs passes parameteres to AppBase.cs you need to remove those no longer in use in the call to `base(...)` in the cosntructor:
+All code related the generation of Pdf has been extracted from AppBase.cs and moved into PdfService.cs which in turn
+implements IPdfService. This opens up and allows us as service developers to replace the default Pdf implementation
+entirely.
+
+Since App.cs passes parameters to AppBase.cs you need to remove those no longer in use in the call to `base(...)` in the
+constructor:
 * processService
 * settings
 * textService

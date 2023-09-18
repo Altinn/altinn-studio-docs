@@ -17,12 +17,15 @@ Validations can also be set up to [trigger on page navigation](/app/development/
 This is validation that is run in the browser, before data is sent to server for saving. This makes it possible to give quick feedback to 
 the user during the process of filling out the form.
 
-Client-side validation is based on the data model of the form, and uses this to determine what is valid input in a field.
-Specifically, the JSON schema version of the data model is used for validation. This is automatically generated when uploading an XSD.
+Client-side validation is based on the data model of the form, and uses this to determine what is valid input in a
+field.
+Specifically, the JSON schema version of the data model is used for validation. This is automatically generated when
+uploading an XSD.
 It is possible to make changes in the JSON schema file directly to adapt the validation when needed.
 
-**Note that if you make changes in the JSON schema manually, and then update the XSD and reupload it, a new 
-JSON schema will also be generated and all manual adaptations will have to be remade. It is therefore recommended to make changes in the XSD and/or the data modeling tool
+**Note that if you make changes in the JSON schema manually, and then update the XSD and re-upload it, a new
+JSON schema will also be generated and all manual adaptations will have to be remade. It is therefore recommended to
+make changes in the XSD and/or the data modeling tool
 for these changes to be reflected in the JSON schema.**
 
 An example of how a field can be defined in the JSON schema data model is:
@@ -170,12 +173,18 @@ Custom validation can also be split into two categories; task-validation and dat
 - Task-validation will run each time validation is triggered either manually from the application or when you attempt to move forward in the process.
 - Data-validation will run if you're on a step that has defined data elements associated with it.
 
-Validations are written i C# and dependening on the version of the application template and Nuget packages you are using, the way the implementation is done varies slightly. In the earlier versions it's a pre-created file where you put your logic, while from version 7 and onwards you implement an interface in whatever class you like. The interface happens to be equal to the pre-defined class in the earlier versions. The examples below which referers to the methods to add your validation logic to is the same.
+Validations are written i C# and depending on the version of the application template and Nuget packages you are using,
+the way the implementation is done varies slightly. In the earlier versions it's a pre-created file where you put your
+logic, while from version 7 and onwards you implement an interface in whatever class you like. The interface happens to
+be equal to the pre-defined class in the earlier versions. The examples below which referrers to the methods to add your
+validation logic to is the same.
 
 {{<content-version-selector classes="border-box">}}
 
 {{<content-version-container version-label="v7">}}
-In version 7 the way to do custom code instantiation has changed. We now use an dependency injection based approach insted of overriding methods. If you previously used to place your custom code in the _ValidateData_ and _ValidateTask_ methods in the _ValidationHandler.cs_ class you will see that it's mostly the same.
+In version 7 the way to do custom code instantiation has changed. We now use an dependency injection based approach
+instead of overriding methods. If you previously used to place your custom code in the _ValidateData_ and _ValidateTask_
+methods in the _ValidationHandler.cs_ class you will see that it's mostly the same.
 
 1. Create a class that implements the `IInstanceValidator` interface found in the `Altinn.App.Core.Features.Validation` namespace.  
     You can name and place the file in any folder you like within your project, but we suggest you use meaningful namespaces like in any other .Net project.
@@ -229,9 +238,10 @@ public void ValidateData(object data, ModelStateDictionary validationResults)
 }
 ```
 
-See comments in code above for an expnation of what the different parts do.
+See comments in code above for an explanation of what the different parts do.
 
-In the other parameter of the method `AddModelError`, where it says "_Error: First name cannot contain the value '1337'_", you can use a text key for a [text defined in the resource files](../../ux/texts) for multilingual support.
+In the other parameter of the method `AddModelError`, where it says "_Error: First name cannot contain the value '
+1337'_", you can use a text key for a [text defined in the resource files](../../ux/texts) for multilingual support.
 
 An example of a simple task validation that checks how long the user spent on Task_1 and returns an error if there has gone more than three days:
 

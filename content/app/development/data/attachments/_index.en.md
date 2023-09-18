@@ -23,7 +23,7 @@ Below is a simple description of how you can accommodate your application to be 
 
 When building your form in Altinn Studio, a file upload component is available.
 It is possible to upload multiple file attachments on one single component, and how many file upload components
-you use in your application will be determined by the characteristics of the documents you expect to be uplaoded
+you use in your application will be determined by the characteristics of the documents you expect to be uploaded
 and any restrictions you need to impose.
 (see [configuration of file attachments](#submission-of-attachments-with-api-call) for more information on this).
 
@@ -36,16 +36,19 @@ Part of the configuration for the uploaded attachments can be set up here.
 
 1. Custom file types can be specified if you want to limit the file types that can be submitted.
 In this case, a user will be prevented from uploading if the file type is not in the approved list.
-2. The minimum/maximum amount of file attachments can be specified if you want a specific amount of attachments uploaded through the component.
-By setting the value of _minst antall filvedlegg_ to '0' it will not be required to upload a file.
-3. The maxmimum file size is specified in _MB_.
+2. The minimum/maximum amount of file attachments can be specified if you want a specific amount of attachments uploaded
+   through the component.
+   By setting the value of _minst antall filvedlegg_ to '0' it will not be required to upload a file.
+3. The maximum file size is specified in _MB_.
 
 Additional configurations that can be set for attachments include: allowed contributors and description.
-This is conigured in _applicationMetadata.json_ which is placed under App/config in the application repo.
+This is configured in _applicationMetadata.json_ which is placed under App/config in the application repo.
 
 ### File upload component with tagging
+
 There is also a separate component where the user tags the file using a dropdown list.
-This is configured pretty similarily to the normal file upload component, with the addition of a codelist-ID and the name
+This is configured pretty similarily to the normal file upload component, with the addition of a code list ID and the
+name
 you want the tag to have.
 
 ![The file upload component with tagging](vedleggsmerkekom.png "The file upload component with tagging")
@@ -128,10 +131,14 @@ Allowed keys include: 'org'; three letter abbreviation for organization and *org
 It is as of today not possible to specify an organization that is not registered as a service owner.
 
 - **allowedContentTypes** specifies which file attachment types that are allowed.
-The most frequently used include: application/pdf, text/xml, image/jpeg. If you do not want to set a limit to the type of attachments, you will not need to define this parameter.
-Read more on mime types [here](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types).
+  The most frequently used include: application/pdf, text/xml, image/jpeg. If you do not want to set a limit to the type
+  of attachments, you will not need to define this parameter.
+  Read more on mime
+  types [here](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types).
 
-- **grouping** denotes the group that the file attachments should be gropued according to.
-This is an optional attribute, where file attachments with the same grouping will be sorted into the same list. Grouping can be both a string (e.g. "Certificates") or a text key if you wish to configure multiple languages (e.g. "form.attachmentgrouping"). Here is an example where the grouping "Demogruppe" is set on an file attachment type:
+- **grouping** denotes the group that the file attachments should be grouped according to.
+  This is an optional attribute, where file attachments with the same grouping will be sorted into the same list.
+  Grouping can be both a string (e.g. "Certificates") or a text key if you wish to configure multiple languages (e.g. "
+  form.attachmentgrouping"). Here is an example where the grouping "Demogruppe" is set on an file attachment type:
 
 ![Screenshot of grouping example](attachment-grouping-demo.png "Grouping example")

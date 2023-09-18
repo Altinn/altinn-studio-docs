@@ -11,10 +11,12 @@ This is new functionality. Setup must be done manually as of today. Support for 
 
 ## Setup
 
-To get functionality for multiple forms in a service, the nuget-version of the packets the app uses **must** be upgraded to version `3.1.4` _or newer_.
+To get functionality for multiple forms in a service, the nuget-version of the packets the app uses **must** be upgraded
+to version `3.1.4` _or newer_.
 See instructions on how that is done [here](../../../../maintainance/dependencies).
 
-A key to the solution is that there are mulitiple layout-sets that consists of one or more pages and configurations. Each layout-set consists of the same files as a form service.
+A key to the solution is that there are multiple layout-sets that consists of one or more pages and configurations. Each
+layout-set consists of the same files as a form service.
 
 ```
 |- App/

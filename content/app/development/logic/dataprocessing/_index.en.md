@@ -83,7 +83,7 @@ In version 7 the way to do custom code instantiation has changed. We now use an 
     ```C#
     services.AddTransient<IDataProcessor, DataProcessor>();
     ```
-    This ensuers your custom code is known to the application and that it will be executed.
+    This ensures your custom code is known to the application and that it will be executed.
 {{</content-version-container>}}
 {{<content-version-container version-label="v4, v5, v6">}}
 Data processing is coded in C#, in the file `DataProcessingHandler.cs`. This file can easily be edited by downloading the source code to the app and editing on your own computer, e.g. in Visual Studio Code.

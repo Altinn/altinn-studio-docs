@@ -18,12 +18,15 @@ calculation and validation will be supported in the future.
 
 ![Logic menu](ui-editor-logic-menu.png?height=300px "Logic menu")
 
-For backend the logic is done by implementing various interfaces. These are described in separate chapters for example in [data processing](../dataprocessing/). 
-A complete project with examples on server-side application logic can be found [in our training course application](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/master).
+For backend the logic is done by implementing various interfaces. These are described in separate chapters for example
+in [data processing](../dataprocessing/).
+A complete project with examples on server-side application logic can be
+found [in our training course application](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/master).
 
 {{%panel info%}}
 **NOTE:** The way you reference elements in the data model is different between OR and SERES type XSD's.
-For OR XSD's, `.value` is a necessary suffix in the reference. The example code beow uses a mixture of the two types of data models.
+For OR XSD's, `.value` is a necessary suffix in the reference. The example code below uses a mixture of the two types of
+data models.
 {{% /panel%}}
 
 

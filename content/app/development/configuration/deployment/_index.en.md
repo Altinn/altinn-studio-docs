@@ -17,12 +17,16 @@ Starting from version [2.0.0](/community/changelog/deployment/v2) of the 'deploy
 
 #### Custom settings
 
-Custom settings are configured in the `App/deployment/values.yaml` file by adding the desired property under the `deployment` section.
- These will override corresponding settings in the Helm chart (for exceptions, see [here](#settings-overridden-at-deploytime)).
-  See [Initial Scaling](#initial-scaling) for an example.
+Custom settings are configured in the `App/deployment/values.yaml` file by adding the desired property under
+the `deployment` section.
+These will override corresponding settings in the Helm chart (for exceptions,
+see [here](#settings-overridden-at-deploy-time)).
+See [Initial Scaling](#initial-scaling) for an example.
 
 {{% notice warning %}}
-Please note that the format in `values.yaml` in the central Helm chart differs slightly from `values.yaml` in the application; in the Helm chart, the properties are at the top level, while in the app, they must be placed under the `deployment` section.
+Please note that the format in `values.yaml` in the central Helm chart differs slightly from `values.yaml` in the
+application; in the Helm chart, the properties are at the top level, while in the app, they must be placed under
+the `deployment` section.
 {{% /notice %}}
 
 ## Scaling
@@ -137,7 +141,7 @@ App/deployment/values.yaml
 {{% /code-title %}}
 
 ```yaml
-deplyoment:
+deployment:
 
   resources:
     requests:
@@ -260,10 +264,10 @@ deployment:
 ```
 
 {{% notice warning %}}
-**Note:** Setings for `externalPort` must not be changed.
+**Note:** Settings for `externalPort` must not be changed.
 {{% /notice %}}
 
-## Settings overridden at deploytime
+## Settings overridden at deploy time
 
 - `image`
 - `ingressRoute`

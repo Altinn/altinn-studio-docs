@@ -43,7 +43,7 @@ Example of event data.
 
 > **WARNING**: This section will be redesigned
 
-Selected instance events. Created, first read, change process state. Optinally specified by application developer.
+Selected instance events. Created, first read, change process state. Optionally specified by application developer.
 
 Events can be queried. May be piped.
 

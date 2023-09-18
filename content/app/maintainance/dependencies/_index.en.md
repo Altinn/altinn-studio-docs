@@ -85,7 +85,7 @@ You need to update two references:
 <script src="https://altinncdn.no/toolkits/altinn-app-frontend/<VERSIONNUMBER>/altinn-app-frontend.css"></script>
 ```
 
-Search for the filename (àltinn-app-frontend.js` or `altinn-app-frontend.css`) and replace the version number (e.g. 1) with the desired version number (e.g. 2).
+Search for the filename (`altinn-app-frontend.js` or `altinn-app-frontend.css`) and replace the version number (e.g. 1) with the desired version number (e.g. 2).
 
 _Reminder:_ If you depend on a _major_ version (e.g. 2), every _minor_ and _patch_ version of this _major_ release will be applied automatically. If a specific version is defined (e.g. 2.0.0) the application will fetch this version until the reference is updated and no fixes or improvements will be fetched.
 

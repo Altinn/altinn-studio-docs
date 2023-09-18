@@ -6,12 +6,16 @@ toc: true
 weight: 300
 ---
 
-Altinn offers two different ways an application can use code lists - static and dynamic. Both is primarily exposed through the options api from application, and are available at `{org}/{app}/api/options/{optionsId}`.
-Checkbox, Dropdown, and RadioButton components will automatically be able to fetch such lists if you connect the component to the option id in question. Not all dynamic codelist have to be fetched from the options api - we can also have codelists based on the values from a repeating structure in the datamodel.
+Altinn offers two different ways an application can use code lists - static and dynamic. Both is primarily exposed
+through the options api from application, and are available at `{org}/{app}/api/options/{optionsId}`.
+Checkbox, Dropdown, and RadioButton components will automatically be able to fetch such lists if you connect the
+component to the option id in question. Not all dynamic code list have to be fetched from the options api - we can also
+have code lists based on the values from a repeating structure in the datamodel.
 
 ## Connect the component to options (code list)
 
-This is done by adding the optionId you would like to refer to either through the component UI in Designer or direcytly in `FormLayout.json` as shown below:
+This is done by adding the optionId you would like to refer to either through the component UI in Designer or directly
+in `FormLayout.json` as shown below:
 
 ```json
 {
@@ -73,10 +77,13 @@ You can add dynamic parameters by setting the `mapping` property on the componen
 },
 ```
 
-In the example above, the query parameter `orgnummer={nr}`, where `{nr}` is the value of `soknad.transportorOrgnummer` will be set.
-If an option is setup with mapping and the given data field changes app-frontend will refetch the option. This can be used to dynamicly decide which choices are availibable based on information given by the end user.
+In the example above, the query parameter `orgnummer={nr}`, where `{nr}` is the value of `soknad.transportorOrgnummer`
+will be set.
+If an option is setup with mapping and the given data field changes app-frontend will refetch the option. This can be
+used to dynamically decide which choices are available based on information given by the end user.
 
-Passing query parameters from repeating groups is also supported by adding an index indicator for the relevant indexes. Example for a group:
+Passing query parameters from repeating groups is also supported by adding an index indicator for the relevant indexes.
+Example for a group:
 
 ```json
 {

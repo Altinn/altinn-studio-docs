@@ -18,9 +18,9 @@ Note that the Likert-component only can be used as part of a repeating group.
 The Likert component is shown as a list on narrow screens and as a table on broad screens.
 Likert uses the same concept as repeating groups.
 
-![Desktop](desktop.png "Likert component on broad (desktop) screensize")
+![Desktop](desktop.png "Likert component on broad (desktop) screen size")
 
-![Mobile](mobile.png "Likert component on narrow (mobile) screensize")
+![Mobile](mobile.png "Likert component on narrow (mobile) screen size")
 
 ## Example
 
@@ -92,11 +92,12 @@ Example on definition of likert component in layout.json:
   }
 ]
 ```
+
 {{%notice warning%}}
 The Likert-component works the same as RadioButtons and CheckBoxes.
 {{% /notice %}}
 
-OptionsId is linked to the codelist-file (likertOptions.json)
+OptionsId is linked to the code list file (likertOptions.json)
 
 ````json
 [
@@ -123,9 +124,9 @@ OptionsId is linked to the codelist-file (likertOptions.json)
     ]
 ````
 
-
-To connect text for each row you need to create a connection between the data model and the Likert's textResourceBinding.
-This can be done in the text-resourcefiles:
+To connect text for each row you need to create a connection between the data model and the Likert's
+textResourceBinding.
+This can be done in the text resource files:
 
 ```json
 [

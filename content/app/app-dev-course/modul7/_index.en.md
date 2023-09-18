@@ -15,7 +15,7 @@ In this module there are a collection of standalone extensions of the applicatio
 
 **Topics covered in this module:**
 - Summary page
-- Statless application
+- Stateless application
 - Variables in text
 - Use of external API
 - Configuration of message box
@@ -65,7 +65,7 @@ an instance if you meet the requirements.
 ### Requirements from the municipality
 IT competence is highly sought out. In **module 4** we set up a tailored offer for those with IT competence.
 
-The municipality of Sogndal has had a look t the numbers and seen that this is generating insufficient trafikk to the job postings.
+The municipality of Sogndal has had a look on the numbers and seen that this is generating insufficient traffic to the job postings.
 To try to improve this, we want the offer to be even more tailored.
 
 We want the original text:
@@ -110,7 +110,7 @@ https://fraktguide.bring.no/fraktguide/api/postalCode.json?country=no&pnr={postn
 ### Requirements from the municipality
 - Address info should be collected through standard-input components, not through Altinn's address component
 - Postal city should be prefilled for the user when the postal code has been submitted
-- Postal city should be unmutable.
+- Postal city should be immutable.
 - The number of calls to Bring's API should be limited to maximum of once a day per postal code
 
 ### Useful documentation

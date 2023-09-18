@@ -99,7 +99,7 @@ enable the readiness and liveness probes.
      enabled: true
    ```
 
-**NOTE** identation is imporant in yaml files. `readiness` og `liveness` must be on the level below `deployment`,
+**NOTE** indentation is important in yaml files. `readiness` og `liveness` must be on the level below `deployment`,
 and at the same level av `volumeMounts` og `volumes`.
 
 ## 4.27.0 (23.02.2022) - Secure options endpoint
@@ -132,7 +132,7 @@ required a valid access token. Apps now fulfill all requirements of the integrat
 
 ## 4.21.0 (2021-12-01) - Added support for saving username for instance owner
 
-If a self indentified user instansiates an instance, their username is saved in the instance owner metadata. 
+If a self identified user instantiates an instance, their username is saved in the instance owner metadata.
 
 Added Api in App to expose XACML Policy and BPMN Process
 
@@ -158,8 +158,7 @@ You can now configure a specific OIDC provider in app.
 
 Related to [7173](https://github.com/Altinn/altinn-studio/issues/7173)
 
-
-## 4.17.2 (2021-10-27) - Added API for instansiation with key-value prefil
+## 4.17.2 (2021-10-27) - Added API for instantiation with key-value prefill
 
 It is now possible to instantiate with keyValue prefill through a new instantiation API.
 
@@ -216,6 +215,7 @@ Deserialization occurs when an external system uses the app API to submit a new 
 The change is not automatically used by all apps that update to this version. For the change to take properly effect the C# class that represents the model must be updated. The class needs to be decorated with an XmlRootAttribute with the Namespace property set to the correct namespace. 
 
 Example:
+
 ```cs
 [XmlRoot(ElementName = "Skjema", Namespace = "urn:no:altinn:skjema:v1")]
 public class Skjema {
@@ -224,19 +224,25 @@ public class Skjema {
     public string Navn { get; set; }
 }
 ```
-This change must be done manually for all old and new models. The model editor in altinn.studio has not be updated to do this automatically.
 
-## 4.13.0 (2021-09-03) - Event for changed substatus on instance
-Changing the substatus of an instance triggers an event `app.instance.substatus.changed` which can be subscribed to in the event component.
+This change must be done manually for all old and new models. The model editor in altinn.studio has not be updated to do
+this automatically.
+
+## 4.13.0 (2021-09-03) - Event for changed sub status on instance
+
+Changing the sub status of an instance triggers an event `app.instance.substatus.changed` which can be subscribed to in
+the event component.
 
 This solves issue [#6691](https://github.com/Altinn/altinn-studio/issues/6691)
 
 ## 4.12.0 (2021-08-27) - Identity data is included in the request telemetry for all requests
-In Application Insights we now register the properties listed below enabling linking of an entity to a specific request received by the application.
+
+In Application Insights we now register the properties listed below enabling linking of an entity to a specific request
+received by the application.
 
 - partyId
 - authentication level
-- userId 
+- userId
 - organisationNumber
 
 This solves issue [#5983](https://github.com/Altinn/altinn-studio/issues/5983)
@@ -319,11 +325,13 @@ Documentation on how to add data values to an instance can be found [here](../..
 ## 4.5.2 (2021-05-04) - Endpoints for stateless data elements exposed through app. Bug stopping local testing fixed
 
 Altinn Apps now expose endpoints for creating, prefilling and running calculations on stateless data elements.
-A stateless data element entails there is no link to an instance or instance owner, and the data is simply presented to the end user, but not persisted in any database.
+A stateless data element entails there is no link to an instance or instance owner, and the data is simply presented to
+the end user, but not persisted in any database.
 
-In addition, a bug breaking apps running with localtest intoduced in 4.4.1 has been fixed.
+In addition, a bug breaking apps running with local test introduced in 4.4.1 has been fixed.
 
-Information on the new endpoints can be found in the swagger exposed by each application https://{org}.apps.altinn.no/{org}{app}/swagger
+Information on the new endpoints can be found in the swagger exposed by each application https:
+//{org}.apps.altinn.no/{org}{app}/swagger
 
 ## 4.4.1 (2021-04-30) - Ask user to upgrade security level 
 
@@ -334,10 +342,11 @@ Improved performance.
 
 ## 4.3.0 (2021-04-28) - Apps now support presentation fields
 
-Altinn Apps now support presentation fields. 
-By specifying presentation fields in `applicationmetadata.json`, speficied data values from the form data
-will be stored on the instance in order to show them along with the app title in the Altinn messagebox. 
-Further documentation on how to configure presentation fields is found [here](../../../../../app/development/configuration/messagebox/presentationfields/).
+Altinn Apps now support presentation fields.
+By specifying presentation fields in `applicationmetadata.json`, specified data values from the form data
+will be stored on the instance in order to show them along with the app title in the Altinn messagebox.
+Further documentation on how to configure presentation fields is
+found [here](../../../../../app/development/configuration/messagebox/presentationfields/).
 
 This change is related to [this epic](https://app.zenhub.com/workspace/o/altinn/altinn-studio/issues/594).
 
@@ -365,7 +374,7 @@ This change is related to [this issue](https://github.com/Altinn/altinn-studio/i
 
 ## 4.0.1 (2021-03-15) - Upgraded application to .Net 5 and grouped references of Altinn App and Altinn Platform services in Startup.cs
 
-Altinn.App.* librarires target .Net 5 now, which requires that the application does the same.
-In addition we have created two methods for referencing all app and platform sevices in Startup.cs 
+Altinn.App.* libraries target .Net 5 now, which requires that the application does the same.
+In addition we have created two methods for referencing all app and platform services in Startup.cs
 
 See [breaking changes](../breaking-changes) for how to update you app to be compatible with this version.

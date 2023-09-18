@@ -66,10 +66,12 @@ Configuration of this is done in `applicationmetadata.json`. Example:
 ```
 In the field `onEntry.show` there is the opportunity to reference a layout set which you want to display during startup of the application. Read more about layout-sets [here.](../../ux/pages/layout-sets/#setup)
 
-The layout sets you refer to here will be used as the display the user is presented before navigating to the application.
+The layout sets you refer to here will be used as the display the user is presented before navigating to the
+application.
 
-The configuration file `layout-sets.json` can be created if it doesn't already exist. It should be located in the folder `App/ui`.
-In `layout-sets.json` you add the actual set you are refering to from `applicationmetadata.json`, Example:
+The configuration file `layout-sets.json` can be created if it doesn't already exist. It should be located in the
+folder `App/ui`.
+In `layout-sets.json` you add the actual set you are referring to from `applicationmetadata.json`, Example:
 
 ```json
 {
@@ -120,8 +122,10 @@ Note! Form components that affect process (Button for submission or instantiatio
 
 {{%/notice%}}
 
-To permit use of an app by a user that is not logged in, you must follow the steps that are described above. You _also_ have to define the data type which is used by the stateless app to allow anonymous use. This is done by modifying the `dataType`-element in `applicationMetadata.json`.
-The datatype's `appLogic`-object needs a new setting, `"allowAnonymousOnStateless": true`. See example below:
+To permit use of an app by a user that is not logged in, you must follow the steps that are described above. You _also_
+have to define the data type which is used by the stateless app to allow anonymous use. This is done by modifying
+the `dataType`-element in `applicationMetadata.json`.
+The data type's `appLogic`-object needs a new setting, `"allowAnonymousOnStateless": true`. See example below:
 
 ```json{hl_lines=[24]}
 {
@@ -396,8 +400,10 @@ Further down this page we will use the designation *user* synonymously with an o
     }   
     ```
 
-    To know the identity of the user, the identificator `instance.InstanceOwner.PartyId` is used, this is used as an input for the method.
-    We use Altinns register to collect the party-object which represents the user. It can contain either an organization or a person. 
+   To know the identity of the user, the identifier `instance.InstanceOwner.PartyId` is used, this is used as an input
+   for the method.
+   We use Altinns register to collect the party-object which represents the user. It can contain either an organization
+   or a person.
 
     ```cs
     Party party = await _register.GetParty(int.Parse(instance.InstanceOwner.PartyId)) 
@@ -490,7 +496,8 @@ Example request which will be sent to the backend which can be mapped to the dat
 
 ```
 
-This prefill value can then be used in the method `DataCreation` in `InstantiationHandler.cs` to map against the fields that are needed as a part of the submittance part of the application during instantiation. Example:
+This prefill value can then be used in the method `DataCreation` in `InstantiationHandler.cs` to map against the fields
+that are needed as a part of the submitting part of the application during instantiation. Example:
 
 ```c#
 public async Task DataCreation(Instance instance, object data, Dictionary<string, string> prefill)
@@ -513,7 +520,7 @@ public async Task DataCreation(Instance instance, object data, Dictionary<string
   }
 ```
 
-#### Intantiating from a repeating group
+#### Instantiating from a repeating group
 
 If in the stateless step wanted the user to, for example, pick an element from a repeating group to continue on the chosen element, you can set up the `InstantiationButton` component as a part of the repeating group.
 Here you can then configure the instantiation button to map fields from the given index the user chose to start an instance from. This requires setting up mapping fields with an index on the actual group.

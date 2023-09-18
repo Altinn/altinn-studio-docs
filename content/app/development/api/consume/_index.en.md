@@ -88,17 +88,17 @@ The `Country` object contains the fields `Capital` og `Region`.
 `Capital` is a list of strings as a country can contain multiple capital cities.
 
 In this example, the API doesn't require a complex request object, so we only need this one model.
-Should you need a seperate model for the request object, a class can be created the same way.
+Should you need a separate model for the request object, a class can be created the same way.
 
 ## Setting up an interface for the client
 
-It is recommended that an interface is defined for the client that will call the API. 
-This enables you to benefit from the strenghts of .NET with dependency injection and efficient handeling of HTTP clients. 
+It is recommended that an interface is defined for the client that will call the API.
+This enables you to benefit from the strengths of .NET with dependency injection and efficient handling of HTTP clients.
 
 In the application repository, a new folder _App/clients_ is created.
 Within this folder, a new file `ICountryClient.cs` is created.
 
-The interface consists of a single method `GetCountry`, which accepts a string and returns a _Country_-objekt.
+The interface consists of a single method `GetCountry`, which accepts a string and returns a _Country_-object.
 
 Define the interface as shown below.
 
@@ -202,7 +202,7 @@ using Altinn.App.models;
 using Microsoft.Extensions.Logging;
 ```
 
-Further, we define the class and which interface it inherrits from
+Further, we define the class and which interface it inherits from
 
 ```cs
 public class CountryClient : ICountryClient
@@ -220,7 +220,8 @@ The underscore before the name is simply a naming convention and does not have a
 
 - __client_ will be populated with an HTTP client in the constructor
 - __logger_ will be populated with a logger, enabling logging error messages and other messages in the client logic
-- __serializerOptions_ will be instantiated and configured in the contructor to support deserialization of the API response
+- __serializerOptions_ will be instantiated and configured in the constructor to support deserialization of the API
+  response
 
 Further in the class, the constructor is defined
 
@@ -238,8 +239,8 @@ public CountryClient(HttpClient client, ILogger<ICountryClient> logger)
 }
 ```
 
-Objects are populated if there are mathcing inputs in the constructor, 
-and the remaining objects are instantiated directly in the constructor. 
+Objects are populated if there are matching inputs in the constructor,
+and the remaining objects are instantiated directly in the constructor.
 
 If you require additional services in this class, simply add a private object and inject its interface
 in the constructor as we have done for __logger_  and __client_.
@@ -355,10 +356,9 @@ public async Task<bool> ProcessDataWrite(Instance instance, Guid? dataId, object
 }
 ```
 
-If you attempt to build the applicatin at this point, an error will occur. 
-DataProcessingHandler is instansiated in App.cs, 
-so all dependencies must be included in this file and included in the initialization of DataProcessingHandler. 
-
+If you attempt to build the application at this point, an error will occur.
+DataProcessingHandler is instantiated in App.cs,
+so all dependencies must be included in this file and included in the initialization of DataProcessingHandler.
 
 In the file _App/logic/App.cs_, the following changes are made
 

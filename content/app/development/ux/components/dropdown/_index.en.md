@@ -51,7 +51,7 @@ The easiest way to add a component is through the [UI editor](/app/getting-start
 {{% expandlarge id="configuration-asd" header="Configure component in UI editor" %}}
 
 *Coming soon*
-<!-- Description of how to add and configure the compoent in the UI editor. -->
+<!-- Description of how to add and configure the component in the UI editor. -->
 
 <!-- Add image(s) and key with description. -->
 

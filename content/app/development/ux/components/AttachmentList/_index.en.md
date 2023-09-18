@@ -2,8 +2,8 @@
 title: AttachmentList
 linktitle: AttachmentList
 description: # Brief description of what the component does
-schemaname: AttachmentList # Component schema name used to autogenerate list of properies from json schema (replace with appropriate component name)
-weight: 10 # Do not change, the componets will be sorted alphabetically
+schemaname: AttachmentList # Component schema name used to autogenerate list of properties from json schema (replace with appropriate component name)
+weight: 10 # Do not change, the components will be sorted alphabetically
 toc: true
 hidden: false # Remove when creating new component page from template
 ---

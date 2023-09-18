@@ -59,7 +59,7 @@ If you have uploaded a secret into the key vault with the name "secretId", the c
 
 ### Types of secrets
 
-Secret - Stored as a string directly in the keyvault. For ex. a base64 encoded certificate or a token.
+Secret - Stored as a string directly in the key vault. For ex. a base64 encoded certificate or a token.
 Key - key
 Certificate - certificate
 

@@ -32,7 +32,7 @@ Checkboxes are commonly utilized in forms to gather user input,
 ### Best Practices
 
 * Deactivated choice boxes should be avoided.
- If an alternative is unavailable, it should be removed and an explenation should be given in text as to why the option is missing.
+ If an alternative is unavailable, it should be removed and an explanation should be given in text as to why the option is missing.
 
  ### Content guidelines
 
@@ -70,7 +70,7 @@ Question, prompt, or short description positioned above checkboxes.
 Text field that allows for more elaborate description of options. Displayed directly beneath component label.
 
 #### 5. Tooltip
-When filled in, a questionmark will be displayed next to the compoent label. Clicking the questionmark will display the text as a popup.
+When filled in, a question mark will be displayed next to the component label. Clicking the question mark will display the text as a popup.
 Can be used for clarification, examples, use cases, etc.
 
 #### 6. Read-only
@@ -86,7 +86,7 @@ There are two ways of adding checkboxes: manually and by using [code (options) l
 
 The checkbox comes with a pre-filled value (3) which is the data that is stored when the user makes a selection.
  The value can be changed as you like.
- If the compoent is connected to a data model, the value(s) must correspond with the data type (e.g. boolean, string, number) specified in the model.
+ If the component is connected to a data model, the value(s) must correspond with the data type (e.g. boolean, string, number) specified in the model.
 
 ![Manually adding options](manually-add-options.png)
 
@@ -99,8 +99,8 @@ The checkbox comes with a pre-filled value (3) which is the data that is stored 
 For options retrieved from files, the options ID is the filename (without the extension).
 For more info about code lists/options, see [Connect the component to options](/app/development/data/options/#connect-the-component-to-options-code-list).
 
-![Add options with codelist](add-options-with-codelist.png)
-1\. *Codelist (options) ID* – ID identifying the code list.
+![Add options with code list](add-options-with-codelist.png)
+1\. *Code list (options) ID* – ID identifying the code list.
 
 #### 9. Pre-select
 Pre-select one of the checkboxes by typing its index.

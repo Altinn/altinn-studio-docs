@@ -59,8 +59,8 @@ Every other week, we present what we have done and what we're planning to do for
 
 ## Themed meetings
 
-The weeks where we don't presesent status, we hold themed meetings. If no presentation is available,
-we probably did a live demo or documentation walkthrough.
+The weeks where we don't present status, we hold themed meetings. If no presentation is available,
+we probably did a live demo or documentation walk through.
 
 * Hvordan komme i gang med Altinn 3? (7. oktober 2020) [Altinns presentasjon](altinnkaffe-20201007.pptx) | [SSBs presentasjon](20201007-SSB_AltinnStudio.pptx)
 * [Integrasjon med mottakssystem](altinnkaffe-20201021.pptx) (21. oktober 2020)

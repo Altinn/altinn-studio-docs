@@ -4,7 +4,8 @@ description: The Platform DevOps team primarily work on and is responsible for t
 ---
 
 ## Responsibilities
-The Platform team is respobsible for most of the common services used in Altinn 3. This includes development of new features, fixing issues, maintaining infrastructure and securing availablility.
+The Platform team is responsible for most of the common services used in Altinn 3. This includes development of new
+features, fixing issues, maintaining infrastructure and securing availability.
 
 [Repository](https://github.com/Altinn/altinn-platform)
 

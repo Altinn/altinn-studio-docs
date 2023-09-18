@@ -26,7 +26,7 @@ In the file `appsettings.json` in the folder _App_ the following should be added
 The service `IEvents` is exposed in the application and can be dependency injected
 into the class where you need to generate a self defined event.
 
-The method _AddEvent_ requires the name of the eventtype and the instance as input
+The method _AddEvent_ requires the name of the event type and the instance as input
 
 ### Code example
 

@@ -10,7 +10,8 @@ The Studio team is responsible for the following Altinn 3 products:
   * Frontend
   * AppTemplate (backend for Frontend)
   
-This includes building new features, bugfixing, documentation, build and release pipelines, infrastructure and availability and of course making sure it runs in production.
+This includes building new features, bug fixing, documentation, build and release pipelines, infrastructure and
+availability and of course making sure it runs in production.
 
 ## Altinn Studio
 [Altinn Studio](https://github.com/Altinn/altinn-studio)\

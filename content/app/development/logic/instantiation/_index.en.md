@@ -13,8 +13,10 @@ Application logic connected to instantiation can be defined in `InstantiationHan
 
 ## Custom validation rules for instantiation
 As previously mentioned, tests for instantiation are defined in `RunInstantiationValidation`
-Access to _Register_- and _Profile_-services are included in the `InstantiationHandler.cs`-file, which allows test to be run againts these.
-Validation rules for instantiation can include validating a time to specific user instructions and complex tests that require external API calls.
+Access to _Register_- and _Profile_-services are included in the `InstantiationHandler.cs`-file, which allows test to be
+run against these.
+Validation rules for instantiation can include validating a time to specific user instructions and complex tests that
+require external API calls.
 
 
 ### Example 1 - Instantiation only allowed before 3 pm on any given day

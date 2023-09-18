@@ -43,9 +43,9 @@ Keep alternative texts consistent:
 
 **Example** 
 
-<img src="https://www.uutilsynet.no/sites/tilsyn/files/styles/xxl/public/2023-01/Tretralle.png?itok=gBevDs0F" alt="Old wooden trolly. Photograph." width="300px"/>
+<img src="https://www.uutilsynet.no/sites/tilsyn/files/styles/xxl/public/2023-01/Tretralle.png?itok=gBevDs0F" alt="Old wooden trolley. Photograph." width="300px"/>
 
-Alt text: "Old wooden trolly. Photograph."
+Alt text: "Old wooden trolley. Photograph."
 
 <br>
 

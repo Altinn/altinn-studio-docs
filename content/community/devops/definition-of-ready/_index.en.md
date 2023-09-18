@@ -29,7 +29,7 @@ While the focus is on user stories, most of these also applies to technical task
 * UX/design sketches is provided
 * Security issues discussed and considered
 * WCAG and ELMER requirements are discussed and considered
-* Acceptance criterias is defined and the story is testable
-* Dependecies to other tasks and user stories is considered
+* Acceptance criteria is defined and the story is testable
+* Dependencies to other tasks and user stories is considered
 * Discussed with the team
 * Story points added by the team

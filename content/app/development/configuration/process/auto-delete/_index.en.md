@@ -5,17 +5,20 @@ description: An application can be configured to delete all traces of it when th
 toc: true
 ---
 
-If you want to limit the end user's access to an instance or data after submitting it can be done by configuring automatic deletion.
-Practically the resource will be made inaccessible to the user after submission, 
+If you want to limit the end user's access to an instance or data after submitting it can be done by configuring
+automatic deletion.
+Practically the resource will be made inaccessible to the user after submission,
 while the service owner still has access according to the application's authorisation rules.
 
-If the end user attempts to access a hard deleted resource with a direct link they will recieve `404 - Not found` in response.
+If the end user attempts to access a hard deleted resource with a direct link they will receive `404 - Not found` in
+response.
 The resource will also not be visible in the message box or be listed in any API-responses.
 
-When the service owner confirms that the instance has been recieved on their end (complete confirmed),
-the instance  is marked as ready for deletion and will be removed from the Altinn database in 7 days.
+When the service owner confirms that the instance has been received on their end (complete confirmed),
+the instance is marked as ready for deletion and will be removed from the Altinn database in 7 days.
 
-The configuration for automatic deletion is done in `applicationmetadata.json` with the flag `"autoDeleteOnProcessEnd": true`.
+The configuration for automatic deletion is done in `applicationmetadata.json` with the
+flag `"autoDeleteOnProcessEnd": true`.
 
 ## Automatic deletion of instances
 Example of configuration in `applicationmetadata.json` for instances:
