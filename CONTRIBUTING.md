@@ -36,10 +36,10 @@ and submit a [pull request](https://help.github.com/articles/about-pull-requests
 ## Internal Code Review Guidelines
 
 General Principles:
-•	Avoid terms that might be interpreted as personal attacks (e.g., "idiotic" or "useless"). Assume that everyone is making their best effort.
-•	Be moderate in your language. Avoid strong exaggerations like "always," "never," etc.
-•	We're all on the same team. The intention is not to criticize but to produce better code.
-•	Smaller, frequent pull requests are easier to manage than larger ones. Aim to limit the scope of code to approximately 200 lines for each review.
+1.	Avoid terms that might be interpreted as personal attacks (e.g., "idiotic" or "useless"). Assume that everyone is making their best effort.
+2.	Be moderate in your language. Avoid strong exaggerations like "always," "never," etc.
+3.	We're all on the same team. The intention is not to criticize but to produce better code.
+4.	Smaller, frequent pull requests are easier to manage than larger ones. Aim to limit the scope of code to approximately 200 lines for each review.
 
 Guidelines for Reviewers:
 1.	Focus on the Code, Not the Person: The goal is to elevate the quality of the code, not to showcase your expertise. Be constructive in your feedback.
