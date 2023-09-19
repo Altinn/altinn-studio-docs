@@ -117,7 +117,7 @@ time, follow this guide:
 ### "Complex" expressions
 
 There is also a possibility for adding expressions by writing them directly in the syntax expected by the configuration
-of a running Altinn app. Currently, this functionality will only be visible in the Studio UI if the expression is
+of a running Altinn app. Currently, this functionality will only be visible in Studio if the expression is
 manually added to the field through gitea or an editor IDE and if the expression is written in a way that can not be
 interpreted by the Studio Expressions tool. See section about [nested expressions](#Nesting) to see what conditions that
 must imply for Studio not to be able to interpret an expression. In addition to nested expressions, Studio will also not
