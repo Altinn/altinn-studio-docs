@@ -37,15 +37,13 @@ In Altinn Studio UI the concept is called _logic_ where an expression is address
 
 ## Building expressions in Altinn Studio
 
-When building expression in the Expressions panel in Studio it is possible to add as many expressions as the component
-you are editing has fields that can be configured into a boolean value. This means that the following fields can have
-expressions which are common for **all** components:
+When building expressions in the Expressions panel in Studio, it is always possible to add one expression for each of the following states:
 
 - `hidden`
 - `required`
 - `readOnly`
 
-While the following will also be possible to add when adding expressions to a group:
+For group components, also these states can have attached expressions:
 
 - `edit.addButton`
 - `edit.deleteButton`
