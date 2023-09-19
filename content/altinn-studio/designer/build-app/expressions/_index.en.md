@@ -33,7 +33,7 @@ In Altinn Studio UI the concept is called _logic_ where an expression is address
 - **Operator**: The operator will only be relevant when there are more than one sub expression and will be used to
   evaluate if _all_ the sub expressions should imply (use **AND**) or if it is enough that only one of the sub
   expressions
-  imply (use **OR**).
+  implies (use **OR**).
 
 ## Building expressions in Altinn Studio
 
