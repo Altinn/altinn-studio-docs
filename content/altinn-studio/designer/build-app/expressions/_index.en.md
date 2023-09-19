@@ -70,7 +70,7 @@ time, follow this guide:
 3. **Choose a data source that you want the first element in your sub expression to be**
 
    This data source can be either an actual source which will provide you with a set of available values to choose
-   after, or the data source can be a type for a value. The available data sources that will provide you with a set of
+   from, or the data source can be a type for a value. The available data sources that will provide you with a set of
    given values are:
     - Data Model: Fields from the current selected datamodel
     - Component: All component ids present in across layouts
