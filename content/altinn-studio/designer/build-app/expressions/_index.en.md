@@ -73,7 +73,7 @@ time, follow this guide:
    from, or the data source can be a type for a value. The available data sources that will provide you with a set of
    given values are:
     - Data Model: Fields from the current selected datamodel
-    - Component: All component ids present in across layouts
+    - Component: All component ids present across layouts
     - Application Settings: All custom configuration values added in the `appsettings.json`
     - Instance Context: One of the following values that exist on the instance object in Altinn storage; `instanceId`
       , `InstanceOwnerPartyId` or `appId`
