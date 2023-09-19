@@ -22,3 +22,7 @@ description: Overview of breaking changes introduced into app frontend in v4.0.0
 ### TODO: Inconsistent prev/next buttons
 - https://github.com/Altinn/app-frontend-react/pull/1446
 - Nothing should have changed, but apps should be re-tested
+
+### TODO: Validations against dataModelBindings
+- https://github.com/Altinn/app-frontend-react/issues/1463
+- Some apps may suddenly get schema-validation again
