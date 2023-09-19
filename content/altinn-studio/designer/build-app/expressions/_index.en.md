@@ -86,7 +86,7 @@ time, follow this guide:
 
    ![Choose a data source for the first element in the sub expression](3-choose-data-source.png)
 
-   _WARNING_: The given values provided when choosing `Application Settings` as the data source is not yet implemented.
+   _WARNING_: The given values provided when choosing `Application Settings` as the data source are not yet implemented.
 
 4. **Choose a value that you want the first element in your sub expression to have**
 
@@ -118,11 +118,10 @@ time, follow this guide:
 
 There is also a possibility for adding expressions by writing them directly in the syntax expected by the configuration
 of a running Altinn app. Currently, this functionality will only be visible in Studio if the expression is
-manually added to the field through gitea or an editor IDE and if the expression is written in a way that can not be
-interpreted by the Studio Expressions tool. See section about [nested expressions](#Nesting) to see what conditions that
-must imply for Studio not to be able to interpret an expression. In addition to nested expressions, Studio will also not
-be able to interpret expressions that are written in a simplified way, e.g. not including the function, since it will be
-interpreted by app-frontend implicitly.
+manually added to the field through Gitea or an editor IDE and if the expression is written in a way that can not be
+interpreted by the Studio Expressions tool. This accounts for [nested expressions](#Nesting), as well as for expressions
+that are written in a simplified way, e.g. not including the function, since it will be interpreted by app-frontend
+implicitly.
 
 ![Complex Expression Example](complex-expression-example.png)
 
