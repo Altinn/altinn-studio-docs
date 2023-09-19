@@ -8,7 +8,7 @@ description: How to build expressions with Altinn Studio.
 This documentation will describe _how_ to build expressions connected to component fields using the Expressions tool in
 Altinn Studio.
 
-Expressions are a concept in Altinn apps that let app-developers dynamically assign values to different elements in an
+Expressions are a concept in Altinn apps that lets app-developers dynamically assign values to different elements in an
 application. Please read more in
 the [Expressions section of Apps documentation](../../../../app/development/logic/expressions) of what expression can be
 used for and how the syntax works.
