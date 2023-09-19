@@ -14,7 +14,7 @@ uttrykk kan brukes til og hvordan syntaksen fungerer.
 
 ## Terminologi
 
-I Altinn Studio UI kalles konseptet for _logikk_, der et uttrykk omtales som en _logikkregel_.
+I Altinn Studio kalles konseptet for _logikk_, der et uttrykk omtales som en _logikkregel_.
 
 - **Uttrykk**: En enhet som består av et boolsk komponentfelt og det faktiske uttrykket som vil bli evaluert til å være
   en
