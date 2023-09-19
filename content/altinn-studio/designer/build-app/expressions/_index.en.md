@@ -15,7 +15,7 @@ used for and how the syntax works.
 
 ## Terminology
 
-In Altinn Studio UI the concept is called _logic_ where an expression is addressed as a _logic rule_.
+In Altinn Studio the concept is called _logic_ where an expression is addressed as a _logic rule_.
 
 - **Expression**: A unit consisting of the boolean component field and the actual expression that will evaluate to be a
   boolean value when calculated in a running app. The most simple expression can consist of a single sub expression,
