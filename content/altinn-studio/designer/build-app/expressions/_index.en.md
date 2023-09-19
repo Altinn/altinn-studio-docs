@@ -10,7 +10,7 @@ Altinn Studio.
 
 Expressions are a concept in Altinn apps that lets app-developers dynamically assign values to different elements in an
 application. Please read more in
-the [Expressions section of Apps documentation](../../../../app/development/logic/expressions) of what expression can be
+the [Expressions section of Apps documentation](../../../../app/development/logic/expressions) of what expressions can be
 used for and how the syntax works.
 
 ## Terminology
