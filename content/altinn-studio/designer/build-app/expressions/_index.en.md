@@ -50,7 +50,7 @@ For group components, also these states can have attached expressions:
 - `edit.saveButton`
 - `edit.saveAndNextButton`
 
-If all these fields have expressions added to them you will be shown an info message that you have reached the limit for
+If all these fields have expressions added to them you will be shown an info message saying that you have reached the limit for
 expressions.
 
 when going forward configuring an expression for your component in the Expression tool in Altinn Studio for the first
