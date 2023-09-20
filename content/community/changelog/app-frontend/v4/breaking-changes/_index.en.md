@@ -18,6 +18,7 @@ description: Overview of breaking changes introduced into app frontend in v4.0.0
 
 ### TODO: Font changed to Inter
 - https://github.com/Altinn/app-frontend-react/pull/1448
+- Especially important look over fixed-length Input fields (personnummer, etc.)
 
 ### TODO: Inconsistent prev/next buttons
 - https://github.com/Altinn/app-frontend-react/pull/1446
