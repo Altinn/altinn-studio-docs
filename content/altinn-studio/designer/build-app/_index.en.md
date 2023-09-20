@@ -5,6 +5,7 @@ description: Altinn Studio can been seen as a collection of different editors or
 weight: 2
 ---
 
-To support building apps Altinn Studio have different functionality to building and configuring different aspects of the app. 
+To support building apps Altinn Studio have different functionality to building and configuring different aspects of the
+app.
 
 {{<children />}}
