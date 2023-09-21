@@ -174,3 +174,7 @@ man interfacet `IInstanceDataListProvider`, og tillegg må man legge til en `sec
 ## Mobilvisning
 Tabell i mobilvisning er ganske komprimert, og man kan derfor velge hvilke felter per rad man vil vise på mobil. Det gjør man 
 med feltet `tableHeadersMobile` som er en array med strings som representerer de headerverdiene man vil vise på mobil. 
+
+## Støtte for markdown
+Tabellen støtter markdown per kolonne, ved at man spesifiserer hvilke kolonner som skal tegnes ut med markdown.
+Dette gjøres ved å legge til kolonnenavnet i `columnsWithMarkdown`-matrisen.

@@ -50,7 +50,7 @@ The dynamic data lists kan be either open or secured.
 After you have written your implementation of `IDataListProvider` you have to register is as a service inside `RegisterCustomAppServices` in  `Program.cs`
 Here is one example of a class that implements the interface `IDataListProvider`
 
-```csharp
+```csharp 
 public class ListCases : IDataListProvider
 {
     public string Id { get; set; } = "people";
@@ -176,3 +176,7 @@ In the same way as with code lists, you can secure the data list if they contain
 ## Mobile view
  The table is quite compressed in mobile view, and you can therefore choose which fields to show on mobile. That is done 
  with the field `tableHeadersMobile`, an array of strings representing the header and header values to show on mobile. 
+
+## Support for markdown
+The table supports specifying columns that should be rendered as markdown. 
+This is done by adding the column name to the `columnsWithMarkdown` array.
