@@ -117,13 +117,26 @@ time, follow this guide:
 ### "Complex" expressions
 
 There is also a possibility for adding expressions by writing them directly in the syntax expected by the configuration
-of a running Altinn app. Currently, this functionality will only be visible in Studio if the expression is
+of a running Altinn app. This functionality will be enabled in Studio if the expression is
 manually added to the field through Gitea or an editor IDE and if the expression is written in a way that can not be
 interpreted by the Studio Expressions tool. This accounts for [nested expressions](#Nesting), as well as for expressions
 that are written in a simplified way, e.g. not including the function, since it will be interpreted by app-frontend
 implicitly.
 
 ![Complex Expression Example](complex-expression-example.png)
+
+The possibility to edit the expression by free style writing can also be enabled as an option at any given point.
+However, when editing the expression free style you will only be able to switch back to using the Studio tool if you
+write an expression that can be interpreted by the tool.
+
+See that the switch is available to enable free style editing:
+![Edit Expression Free Style](edit-expression-free-style.png)
+
+Enable it and see your expression in the free style editing text area:
+![Enable Edit Expression Free Style](enable-edit-expression-free-style.png)
+
+Making changes to an invalid (or not-interpretable) expression will disable the switch:
+![Disabled Edit Expression Free Style](disabled-edit-expression-free-style.png)
 
 ## Limitations
 
