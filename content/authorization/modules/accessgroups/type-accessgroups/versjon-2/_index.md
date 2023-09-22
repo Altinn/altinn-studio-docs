@@ -47,9 +47,6 @@ Administrator vil i brukergrensesnitt oppleve av vedkommende kan gi sine ansatte
    - Skattegrunnlag
    - Merverdiavgift
 
-![image](https://github.com/Altinn/altinn-studio-docs/assets/25847572/8d93b858-9253-4d73-88e0-43ebd5d4a13f)
-
-
 Her finner du [fremgangsmåte og rekkefølge](/authorization/migration/new-accessgroups/) av oppgaver som må gjennomføres hos Altinn, tjenesteeiere og sluttbrukervirksomhetene for å innføre nye fullmaktsgrupper. 
  
 
