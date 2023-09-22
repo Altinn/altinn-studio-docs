@@ -45,8 +45,11 @@ Guidelines for Reviewers:
 1.	Focus on the Code, Not the Person: The goal is to elevate the quality of the code, not to showcase your expertise. Be constructive in your feedback.
 2.	Adhere to Established Standards: Stick to coding conventions and practices that are accepted within the team. Deviations must be justified.
 3.	Understand the Purpose: Make sure to understand the rationale behind the code you're reviewing. Go through any associated documentation or task definitions.
-4.	Clarify Importance: Distinguish between critical issues and lesser suggestions. Make it clear what needs to be amended before the code can be merged.
-5.	Invite Discussion: Ask questions like, "Have you considered isolating this logic into a separate method?" rather than giving direct instructions.
+If something is unclear, ask the author to clarify and/or add comments to the code.
+4.	Be direct and polite: Avoid wrapping your opinions in questions, like "Have you considered isolating this logic into a separate method?". Instead, be
+direct and point out your difference in opinion: "I think this logic would be easier to follow if isolated into a separate method".
+5.	Clarify Importance: Distinguish between critical issues and lesser suggestions. Make it clear what needs to change before the code can be merged, and
+respect the author's right to make the final decision about the rest.
 
 Guidelines for Authors:
 1.	Self-Check: Review your own code to catch simple errors before requesting a review.
