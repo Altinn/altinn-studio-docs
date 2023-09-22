@@ -118,12 +118,25 @@ gang, følg denne veiledningen:
 ### "Komplekse" uttrykk
 
 Det er også mulighet for å legge til uttrykk ved å skrive dem direkte i syntaksen som forventes av konfigurasjonen
-i en kjørende Altinn-applikasjon. For øyeblikket vil denne funksjonaliteten bare være synlig i Studio UI hvis uttrykket
+i en kjørende Altinn-applikasjon. Denne funksjonaliteten vil tilbys i Studio UI hvis uttrykket
 manuelt legges til feltet gjennom gitea eller en redigerings-IDE, og hvis uttrykket er skrevet på en måte som ikke kan
 tolkes av Studios uttrykksverktøy. Dette gjelder [nøstede uttrykk](#Nøsting) samt uttrykk som er skrevet på en forenklet
 måte, for eksempel uten å inkludere funksjonen, der det vil bli tolket av app-frontenden implisitt.
 
 ![Eksempel på komplekst uttrykk](complex-expression-example.png)
+
+Denne alternative uttrykksbyggingen kan også tilgjengliggjøres når som helst mens du bygger uttrykket ditt i Studio
+verktøyet. Vær obs på at du ikke når som helst kan gå tilbake til å redigere i uttrykksverktøyet da switchen vil gå i
+kun lese modus når uttrykket er i en tilstand hvor det ikke kan tolkes av verktøyet.
+
+Se at switchen er tilgjengelig for å redigere i fritekst:
+![Rediger uttrykk med fritekst](edit-expression-free-style.png)
+
+Trykk på switchen for å kunne redigere uttrykket ditt i fritekst:
+![Tillat fritekst redigering av uttrykk](enable-edit-expression-free-style.png)
+
+Endringer som fører til et ugyldig (eller ikke-tolkbart) uttrykk vil gjøre switchen kun lesbar:
+![Ikke mulighet for å avbryte fritekst redigering av uttrykk](disabled-edit-expression-free-style.png)
 
 ## Begrensninger
 
