@@ -130,13 +130,13 @@ verktøyet. Vær obs på at du ikke når som helst kan gå tilbake til å redige
 kun lese modus når uttrykket er i en tilstand hvor det ikke kan tolkes av verktøyet.
 
 Se at switchen er tilgjengelig for å redigere i fritekst:
-![Edit Expression Free Style](edit-expression-free-style.png)
+![Rediger uttrykk med fritekst](edit-expression-free-style.png)
 
 Trykk på switchen for å kunne redigere uttrykket ditt i fritekst:
-![Enable Edit Expression Free Style](enable-edit-expression-free-style.png)
+![Tillat fritekst redigering av uttrykk](enable-edit-expression-free-style.png)
 
-Endringer som fører til et ugyldig (eller ikke-tolkbart) uttrykk vil gjøre switchen kun-lesbar:
-![Disabled Edit Expression Free Style](disabled-edit-expression-free-style.png)
+Endringer som fører til et ugyldig (eller ikke-tolkbart) uttrykk vil gjøre switchen kun lesbar:
+![Ikke mulighet for å avbryte fritekst redigering av uttrykk](disabled-edit-expression-free-style.png)
 
 ## Begrensninger
 
