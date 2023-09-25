@@ -124,6 +124,7 @@ App/ui/layouts/{page}.json
 
 {{</content-version-container>}}
 {{</content-version-selector>}}
+
 ### Configure image source (`src`)
 
 The image source may be external or local to the app.
@@ -131,12 +132,12 @@ The image source may be external or local to the app.
 For external images, the source is the *image URL* (e.g. `https://examples.com/myImage.png`).
 
 To host an image in the application, place it in the folder `App/wwwroot` (if the folder does not exist, you can create it).
- Static hosting must be [configured](#configure-static-hosting) for apps created before December 2021.
+ Static hosting must be [configured manually](#configure-static-hosting) for apps created before December 2021.
 
 An image placed in `App/wwwroot` can be referenced in the following ways:
 - Using its *relative URL*: `/<org or username>/<app-name>/image.png` or
 - Using the *image path*: `wwwroot/image.png`. The path will resolve to the image's relative URL before the image is loaded.
-
+<!--  -->
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
 Using relative URL as the source:
@@ -300,9 +301,13 @@ App/ui/layouts/{page}.json
 
 ### Horizontal alignment with `grid`
 
+{{% notice info %}}
+The settings for this property is currently not available in Altinn Studio and must be configured manually.
+{{% /notice %}}
+
 The `grid` property controls horizontal alignment based on a 12-column layout.
  Items are allocated fractions of 12 which sets their width relative to the screen width.
-  In the example below, we set the image component's width to 2/12 of the screen width for all screen sizes.
+  In the example below, we set the image component's width to 2/12 of the screen width for all screen sizes (from `xs` and up).
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Code">}}
