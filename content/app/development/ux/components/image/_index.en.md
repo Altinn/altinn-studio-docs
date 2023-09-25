@@ -68,54 +68,45 @@ We are currently updating how we implement components, and the list of propertie
 You can add a component in [Altinn Studio Designer](/app/getting-started/ui-editor/) by dragging it from the left-side panel to the middle page area.
 Selecting the component brings up its configuration panel on the right-hand side.
 
-### Settings in Altinn Studio Designer
-
 {{% notice warning %}}
 We are currently updating Altinn Studio Designer with more configuration options!
  We'll update the documentation to reflect the new changes once they are stable.
   In the meantime, there may be more options available in beta mode.
 {{% /notice %}}
 
+### Alternative text (`textResourceBindings.altTextImg`)
+
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
 
-Property settings available in Altinn Studio Designer.
+Choose 'Alternativ tekst for bilde' in the drop-down menu.
 
-![Image settings](./screenshot-image-settings.png)
+![Settings add text](innstilling-tekst.png)
 
-- **Komponent-ID** (`id`): Automatically generated component ID (editable).
-- **Kilde** (`src`): Link or path to the [image source](#configure-image-source-src).
-- **Alternativ tekst** (`textResourceBindings.altTextImg`): Alternative text. Create new or pick existing [text resource](/app/development/ux/texts/#add-and-change-texts-in-an-application).
-- **Bredde** (`width`): Image width as a percentage, with 100% as the original image size.
-- **Plassering** (`align`): [Horizontal alignment of image](#horizontal-alignment-with-align).
+Click the plus sign to create a new text or the magnifying glass to pick an existing [text resource](/app/development/ux/texts/#add-and-change-texts-in-an-application).
+
+![Settings for alternative text](innstilling-alternativ-tekst.png)
 
 {{</content-version-container>}}
 {{<content-version-container version-label="Code">}}
 
 Corresponding settings in the page's JSON file.
-The component is highlighted.
 
 {{< code-title >}}
 App/ui/layouts/{page}.json
 {{< /code-title >}}
 
-```json{hl_lines="4-17"}
+```json{hl_lines="7-9"}
 {
   "data": {
     "layout": [
       {
-        "id": "Image-ijlpGL",
+        "id": "kommune-logo",
         "type": "Image",
         "textResourceBindings": {
           "altTextImg": ""
         },
-        "image": {
-          "src": {
-            "nb": ""
-          },
-          "width": "100%",
-          "align": "center"
-        }
+        ...
       }
     ]
   }
@@ -125,7 +116,43 @@ App/ui/layouts/{page}.json
 {{</content-version-container>}}
 {{</content-version-selector>}}
 
-### Configure image source (`src`)
+### Image settings (`image`)
+
+### Configure image source (`image.src`)
+
+The default source is `nb`; any language that does not define a separate image source will use this source.
+  List another language code and image source to add a source, as in the example below.
+
+Available language sources are `en` (English), `nb` (Norwegian Bokmål), and `nn` (Norwegian Nynorsk).
+
+
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="Altinn Studio Designer">}}
+
+![Settings for source](innstilling-kilde.png)
+
+{{</content-version-container>}}
+{{<content-version-container version-label="Code">}}
+
+{{< code-title >}}
+App/ui/layouts/{page}.json
+{{< /code-title >}}
+
+```json{hl_lines=["5-8"]}
+{
+  "id": "kommune-logo",
+  "type": "Image",
+  "image": {
+    "src": {
+      "nb": "/testdep/flyttemelding-sogndal/kommune-logo.png",
+      "nn": "wwwroot/kommune-logo.png"
+    },
+    ...
+  }
+}
+```
+{{</content-version-container>}}
+{{</content-version-selector>}}
 
 The image source may be external or local to the app.
 
@@ -137,62 +164,6 @@ To host an image in the application, place it in the folder `App/wwwroot` (if th
 An image placed in `App/wwwroot` can be referenced in the following ways:
 - Using its *relative URL*: `/<org or username>/<app-name>/image.png` or
 - Using the *image path*: `wwwroot/image.png`. The path will resolve to the image's relative URL before the image is loaded.
-<!--  -->
-{{<content-version-selector classes="border-box">}}
-{{<content-version-container version-label="Altinn Studio Designer">}}
-Using relative URL as the source:
-
-![Settings with source relative URL. Image](<image-src-rel-url.png> "Relative URL as source")
-
-Using image path as the source:
-
-![Settings with source local folder. Image](<image-src-wwwroot.png> "Image path as source")
-
-{{</content-version-container>}}
-{{<content-version-container version-label="Code">}}
-Using relative URL as the source:
-
-{{< code-title >}}
-App/ui/layouts/{page}.json
-{{< /code-title >}}
-
-```json{hl_lines="7"}
-...
-      {
-        "id": "kommune-logo-2",
-        "type": "Image",
-        "image": {
-          "src": {
-            "nb": "/testdep/flyttemelding-sogndal/kommune-logo.png"
-          },
-          ...
-        }
-      }
-...
-```
-Using image path as the source:
-
-{{< code-title >}}
-App/ui/layouts/{page}.json
-{{< /code-title >}}
-
-```json{hl_lines="7"}
-...
-      {
-        "id": "kommune-logo",
-        "type": "Image",
-        "image": {
-          "src": {
-            "nb": "wwwroot/kommune-logo.png"
-          },
-          ...
-        }
-      }
-...
-```
-(Part of the code is omitted for brevity)
-{{</content-version-container>}}
-{{</content-version-selector>}}
 
 #### Configure static hosting
 For apps created *before December 2021*, static hosting must be configured manually by adding the line
@@ -215,58 +186,18 @@ void Configure()
 
 `applicationId` is the same as `id`  in `App/configApplicationmetadata.json`.
 
-####  Multiple sources based on language
+### Width and alignment (`image.width`, `image.align`)
 
-The default source is `nb`; any language that does not define a separate image source will use this source.
-  List another language code and image source to add a source, as in the example below.
+By using `width`, you can adjust the image size by specifying the width of the image in percentage.
+ The height is automatically set to maintain proportions. The default setting is 100% (original width).
 
-Available language sources are `en` (English), `nb` (Norwegian Bokmål), and `nn` (Norwegian Nynorsk).
-
-{{<content-version-selector classes="border-box">}}
-{{<content-version-container version-label="Code">}}
-
-Example with different images for Norwegian (`nb`) and English (`en`) sites:
-
-{{< code-title >}}
-App/ui/layouts/{page}.json
-{{< /code-title >}}
-
-```json{hl_lines=["8-11"]}
-{
-  "data": {
-    "layout": [
-      {
-        "id": "example-image",
-        "type": "Image",
-        "image": {
-          "src": {
-            "nb": "https://example.com/image_nb.png",
-            "en": "https://example.com/image_en.png"
-          },
-          "width": "100%",
-          "align": "center"
-        }
-      }
-    ]
-  }
-}
-```
-{{</content-version-container>}}
-{{</content-version-selector>}}
-
-### Horizontal alignment with `align`
-
-The `align` property controls the horizontal position of the image relative to its container.
-In Designer, the options are "Venstre" (left), "Midtstilt" (centred), and "Høyre" (right).
- These settings correspond to the property values `flex-start`, `center`, and `flex-end` in the code.
-  In addition, `align` accepts the values `space-between`, `space-around`, and `space-evenly`.
+The property `align` controls the horizontal position of the image relative to the container.
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
 
-![Screenshot of alignment settings](screenshot-alignment-settings.png "Screenshot of alignment settings")
+![Settings for width and alignment](innstilling-bredde-plassering.png)
 
-![]() <!-- Hack to reveal image caption -->
 {{</content-version-container>}}
 {{<content-version-container version-label="Code">}}
 
@@ -274,7 +205,7 @@ In Designer, the options are "Venstre" (left), "Midtstilt" (centred), and "Høyr
 App/ui/layouts/{page}.json
 {{< /code-title >}}
 
-```json{hl_lines="15"}
+```json{hl_lines="14-15"}
 {
   "data": {
     "layout": [
@@ -289,7 +220,7 @@ App/ui/layouts/{page}.json
             "nb": "wwwroot/kommune-logo.png",
           },
           "width": "100%",
-          "align": "flex-start"
+          "align": "center"
         }
       }
     ]
@@ -299,11 +230,73 @@ App/ui/layouts/{page}.json
 {{</content-version-container>}}
 {{</content-version-selector>}}
 
-### Horizontal alignment with `grid`
+The following options are available for positioning:
+
+- `flex-start`: Left-aligned
+- `center`: Centered
+- `flex-end`: Right-aligned
+- `space-between`: The elements are evenly distributed horizontally, with equal spacing between each element and no spacing at the start and end.
+- `space-around`: The elements are evenly distributed horizontally with equal spacing between each element, including spacing at the start and end, which is half the spacing between the elements.
+- `space-evenly`: The elements are evenly distributed horizontally with equal spacing between each element, including at the start and end, so that the total spacing is evenly distributed.
+
+### Other settings
+
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="Altinn Studio Designer">}}
+
+![Settings for summary and hidden](innstilling-oppsummering-skjules.png)
+
+![Setting for page break](innstilling-sideskift.png)
+
+{{</content-version-container>}}
+{{<content-version-container version-label="Code">}}
+
+{{< code-title >}}
+App/ui/layouts/{page}.json
+{{< /code-title >}}
+
+```json{hl_lines="17-22"}
+{
+  "data": {
+    "layout": [
+      {
+        "id": "kommune-logo",
+        "type": "Image",
+        "textResourceBindings": {
+          "altTextImg": "kommune-logo.altTextImg"
+        },
+        "image": {
+          "src": {
+            "nb": "wwwroot/kommune-logo.png",
+          },
+          "width": "100%",
+          "align": "center"
+        },
+        "renderAsSummary": false,
+        "hidden": false,
+        "pageBreak": {
+          "breakBefore": "auto",
+          "breakAfter": "auto"
+        }
+      }
+    ]
+  }
+}
+```
+{{</content-version-container>}}
+{{</content-version-selector>}}
+
+- **Oppsummering** (`renderAsSummary`): Indicates whether the field should be included in a summary or not (default: `false`).
+- **Feltet skal skjules** (`hidden`): Indicates whether the field should be hidden or not (default: `false`).
+- **PDF-innstillinger** (`pageBreak`): Indicates whether a page break should be added before or after the component. Can be either: `auto` (default), `always`, or `avoid`.
+
+---
 
 {{% notice info %}}
-The settings for this property is currently not available in Altinn Studio and must be configured manually.
+The following settings are not yet supported in the form editor but can be configured manually.
 {{% /notice %}}
+
+### Horizontal alignment with `grid`
 
 The `grid` property controls horizontal alignment based on a 12-column layout.
  Items are allocated fractions of 12 which sets their width relative to the screen width.
@@ -348,3 +341,5 @@ App/ui/layouts/{page}.json
 You can also use `grid` to place items side by side.
 
 See [Components placed side by side (grid)](/app/development/ux/styling/#components-placed-side-by-side-grid) for details and more examples.
+
+<!-- ## Examples -->
