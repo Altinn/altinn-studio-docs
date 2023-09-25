@@ -47,7 +47,7 @@ Du kan bruke følgende bilde av Sogndals kommunevåpen i applikasjonen:
 ### Oppgaver
 
 1. Legg til en ny side. Gi den et passende navn og plasser den foran skjemasiden du opprettet i Modul 1.
-2. [Legg til bilde](/nb/app/development/ux/components/image/#legge-til-bilder-i-applikasjonen) av Sogndals kommunevåpen.
+2. [Legg til bilde](/nb/app/development/ux/components/image/#legg-til-komponent) av Sogndals kommunevåpen.
 3. Legg til tekst i henhold til [skisse](infoside_tilflyttere.pdf).
 
 ### Nyttig dokumentasjon
