@@ -15,18 +15,17 @@ the components the solution consists of should be defined.
 - *An Instance*: When talking about instances is an application-context, these are unique pieces of data that describes
   details about the particular session going on in the application. The data includes information on who is filling in
   the data and what the data is.
-- *An "original" application*: This will be an application that acts as a regular Altinn application which means
+- *Application A*: This will be an application that acts as a regular Altinn application which means
   end-users will interact with it. While filling in the form they will be working on their own private instance. However
   it will differentiate from other Altinn apps since the service owner have customized it to include actions that
-  trigger a POST API call to another application. This POST API call will create a new instance of the _receiver_
-  application.
-- *A "receiving" application*: This will be an application that may have multiple purposes, but it's main purpose will
+  trigger a POST API call to another application. This POST API call will create a new instance of the _application B_.
+- *Application B*: This will be an application that may have multiple purposes, but it's main purpose will
   be to receive and handle some data from the other application and automatically create a new instance using this data
   for a given instance owner. This application will differentiate from other Altinn apps since instances are created by
   triggers in another application.
 
-This guide takes you through a multi-app solution consisting of two apps,
-but the concept can be extended to contain several "original" and "receiving" applications.
+This guide takes you through a multi-app solution consisting of two apps; _application A_ and _application B_,
+but the concept can be extended to contain several applications of type A or type B, or both types.
 
 Before continue reading these guidelines, please consider if
 a multi-app solution is what you need to fulfill the purpose
@@ -35,12 +34,11 @@ of your form(s).
 ## What is a multi-app solution?
 
 A multi-app solution is a solution consisting of two or more
-cooperating apps, where typically the "
-original" application will trigger the creation of a new
-instance of the receiving application. As a part of the
-instantiation of the receiving application it is possible
+cooperating applications, where typically application A will trigger the creation of a new
+instance of application B. As a part of the
+instantiation of application B it is possible to
 prefill the instance with specific data from the running
-instance of the original application.
+instance of application A.
 
 ## Do I need a multi-app solution?
 
@@ -49,17 +47,8 @@ architectural choice for an Altinn form.
 
 ### Use cases where you can consider utilize a multi-app solution:
 
-Criteria that should be met if you could consider creating a
-multi-app solution:
-
-- My forms will be answered by users that do not have
-  Altinn
-- It is okay that my receiving forms must be deleted in
-  order to end the lifecycle of the form.
-- The receiving form will act as temporary dashboard in
-  order to view and/or process the incoming forms, since you
-  dont have any receiving platform that are processing the
-  forms.
+- The organization lacks an appropriate way of processing applications and resources to develop such a processing mechanism.
+- Existing communication channels for response processing do not satisfy requirements for security (e.g. sensitive data).
 
 ### Alternative solution using eFormidling
 

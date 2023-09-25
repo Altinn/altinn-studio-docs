@@ -1,20 +1,20 @@
 ---
-title: Receiver Application
-linktitle: Receiver Application
-description: Instructions for setting up the receiver application
+title: Application B
+linktitle: Application B
+description: Instructions for setting up application B
 weight: 20
 aliases:
 
-- /app/multi-app-solution/instructions/receiver-app
+- /app/multi-app-solution/instructions/app-b
 
 ---
 
-## Getting Data From the Trigger Application
+## Getting Data From Application A
 
-The receiving application needs much less configuration as a
-bare minimum receiver application, at least. The main task
-for the receiver application is to fetch the data received
-from the trigger application(s) and represent them in a way.
+Application B needs much less configuration, as a
+bare minimum, at least. The main task
+for application B is to fetch the data received
+from application A and represent or process them in a way.
 This is done by utilising the `ProcessDataRead` method in
 the `DataProcessor` service along with the `UpdateData`
 method on the `dataClient`. See example code below:
@@ -46,9 +46,9 @@ public async Task<bool> ProcessDataRead(Instance instance, Guid? dataId, object 
 
 ## Stopping a Running Instance
 
-Since this receiving application, in most cases, will act as
-an on-demand dashboard for collecting data from trigger
-apps, the application has no natural way of ending its
+Since this application, in most cases, will act as
+an on-demand dashboard for collecting data from
+application A, the application has no natural way of ending its
 process, since it is not sent in as any other normal form.
 To bypass this obstacle, the incoming forms should either;
 

@@ -5,7 +5,7 @@ description: Explanations of how to go about when creating a general multi-app s
 weight: 20
 aliases:
 
-- /app/multi-app-solution/instructions/
+- /app/multi-app-solution/instructions/app-b
 
 ---
 

@@ -1,12 +1,12 @@
 ---
-title: Trigger Application
-linktitle: Trigger Application
-description: Instructions for setting up the trigger application
+title: Application A
+linktitle: Application A
+description: Instructions for setting up application A
 weight: 10
 toc: true
 aliases:
 
-- /app/multi-app-solution/instructions/trigger-app
+- /app/multi-app-solution/instructions/app-a
 
 ---
 
@@ -16,19 +16,19 @@ In the process of setting up the application to use the
 integration there are three things that needs to be done;
 
 1. For the application to be able to read the secrets from
-   Azure keyvault the application need to be configured to
+   Azure key vault the application need to be configured to
    do so. See
    the [secrets section](../../../../development/configuration/secrets)
    to achieve this.
 2. Add the appsettings section example
-   from [Key Vault Usage](../../preparations#key-vault-usage) into
+   from [Key Vault Usage](../../prerequisites#key-vault-usage) into
    the `appsettings.json` file in the application that
-   should perform the instantiation of the receiving
-   application. Remember to adapt the section
+   should perform the instantiation of
+   application B. Remember to adapt the section
    name `MaskinportenSettings` to the name you chose for the
-   secrets in Azure keyvault.
+   secrets in Azure key vault.
 3. Modify the `program.cs` file for the same application to
-   connect to Azure keyvault. Continue reading for a
+   connect to Azure key vault. Continue reading for a
    detailed explanation.
 
 ### Modifying `program.cs` to use Key Vault
@@ -85,7 +85,7 @@ void ConfigureWebHostBuilder(IWebHostBuilder builder)
 ## Add task to process
 
 In most cases it is necessary to pass the data the end user
-has added to the form, to the receiver application. The data
+has added to the form, to application B. The data
 entered by the end user is represented in the pdf which is
 added to the instance object as a part of the `dataTypes`
 field with the name `ref-data-as-pdf`. This data element can
@@ -110,7 +110,7 @@ the `GetInstance` method on the `IInstanceClient`._
 ### Confirm Task Type
 
 If using the _confirm_ task type, make sure the
-instantiation of the receiver application happens when the
+instantiation of application B happens when the
 task is finished, i.e. use the `ProcessTaskEnd.End()`
 function. This is necessary since the user can go back
 to the data task and do changes.
@@ -121,15 +121,14 @@ Using this task type requires nuget version 8, assuming that you wish to allow t
 
 ### Feedback Task Type
 
-If using the _feedback_ task type, the instantiation of the
-receiving application can be done on the task start
+If using the _feedback_ task type, the instantiation of application B can be done on the task start
 function. Be aware that there has to be some external
 triggers that can make sure the application is moved to the
 end task event, or else it will stay on the feedback task
-forever. The external trigger cannot be the receiving
-application since this application will send the request to
-end the original request sent from the trigger application
-while the trigger application is waiting for the same
+forever. The external trigger cannot be application B 
+since this application will send the request to
+end the original request sent from application A
+while application A is waiting for the same
 request to complete, which will cause a conflict.
 
 ### Update `process.bpmn` and `policy.xml` accordingly
@@ -143,10 +142,10 @@ can be done on the new task.
 
 See [XACML policy](../../../../../authorization/guide/xacml) and [policy editor](../../../../development/configuration/authorization) for details. Most apps allow this by default by the current template.
 
-## Trigger the instantiation of the receiving app
+## Trigger the instantiation of application B
 
-The instantiation of the receiving application is done with
-an api call to the running receiving application. The
+The instantiation of application B is done with
+an api call to the running B application. The
 content of the call will
 be the new instance object, which will look something like
 this:
@@ -175,7 +174,7 @@ Call the method triggering the request in the appClient like
 this:
 
 ```csharp
-Instance receivingInstance = await _appClient.CreateNewInstance([AppOwnerOrgName], [receivingApp], [instanceTemplate]);
+Instance applicationBInstance = await _appClient.CreateNewInstance([AppOwnerOrgName], [applicationB], [instanceTemplate]);
 ```
 
 In the AppClient add this code:
@@ -183,7 +182,7 @@ In the AppClient add this code:
 ```csharp
 public async Task<Instance> CreateNewInstance(string org, string app, InstansiationInstance instanceTemplate)
 {
-   string apiUrl = $"{AppOwnerOrgName}/{receivingApp}/instances/create";
+   string apiUrl = $"{AppOwnerOrgName}/{applicationB}/instances/create";
                
    string envUrl = $"https://{AppOwnerOrgName}.apps.{_settings.HostName}";
    
@@ -203,18 +202,18 @@ public async Task<Instance> CreateNewInstance(string org, string app, Instansiat
 }
 ```
 
-## Delivering data to the receiver app
+## Delivering data to application B
 
-In order to pass data to the the receiving application there
-are several ways of doing this.
+In order to pass data to application B there
+are several ways to go by.
 
-1. Add data as values on the datamodel of the receiving
-   application by adding the data model field name and the
+1. Add data as values on the datamodel of
+   application B by adding the data model field name and the
    corresponding value in the `prefill` field of the the
    instance template that you created in the _Trigger the
-   instantiation of the receiving app_ section above.
+   instantiation of application B_ section above.
 2. If the intention is to manipulate the texts in Altinn
-   Inbox for the instances of the receiving application,
+   Inbox for the instances of application B,
    use [_presentation
    fields_](../../../../development/configuration/messagebox/presentationfields)
    .

@@ -6,6 +6,6 @@ weight: 20
 toc: true
 aliases:
 
-- /app/multi-app-solution/instructions/trigger-app
+- /app/multi-app-solution/instructions/app-a
 
 ---

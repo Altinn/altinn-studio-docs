@@ -20,4 +20,4 @@ do in the process of developing these applications.
    the receiving application, remember to add them to the
    data model of the receiving application
 
-{{<children description="true" order="Trigger Application, Receiver Application"/>}}
+{{<children description="true"/>}}

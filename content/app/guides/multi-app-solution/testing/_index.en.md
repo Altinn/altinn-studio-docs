@@ -21,7 +21,7 @@ production. There are different access policies for creating these, so make sure
 described
 at [Samarbeidsportalen](https://docs.digdir.no/docs/Maskinporten/maskinporten_sjolvbetjening_web#innlogging-og-tilgang).
 
-Second, since this integration is relying on authorizing through public and private keys (JWT) stored in Azure secrets,
+Second, since this integration is relying on authorizing through public and private keys (JWT) stored in Azure secrets, 
 
 ## What can be done in Studio
 
@@ -34,11 +34,11 @@ preview tool.
 
 When running the application locally in app-localtest the application you can test all logic in the trigger app until
 the point where the instantiation request is triggered. The reason for this is that the AppClient tries to access the
-Azure Keyvault in order to get the secrets needed for authorazation to Maskinporten. But the secrets needed to be
-allowed to access Azure Keyvault is not available when running in localtest.
+Azure key vault in order to get the secrets needed for authorization to Maskinporten. But the secrets needed to be
+allowed to access Azure key vault is not available when running in localtest.
 
 However, there is a way to go around this. The secrets needed, `clientID` and `encodedJWT`, for authorizing requests to
-Maskinporten can be copied from your organisations Azure Keyvault and *temporarily* be pasted into the appsettings.json
+Maskinporten can be copied from your organisations Azure key vault and *temporarily* be pasted into the appsettings.json
 file.
 
 {{% notice warning %}}
@@ -66,18 +66,18 @@ string envUrl = $"https://{org}.apps.tt02";
 
 _NB: Do not change the HostName variable in appsettings.json since this is used for other critical purposes as well._
 
-Unless you are fine by injecting your organizations Altinn Innboks with testing instances of the receiving form, you
-should adjust the receiver of the instance that is to be created in the instance template in the trigger app. This is
+Unless you are fine by injecting your organizations Altinn Innboks with testing instances of application B, you
+should adjust the receiver of the instance that is to be created in the instance template in application A. This is
 done by using `PersonNumber` instead of `OrganisationNumber` in the `InstanceOwner` part of the template object
 in `ProcessTaskEnd.End()` method. It is recommended to use a person number for a test user from Tenor test data base.
-When testing if the receiving form has come through you will need to log in to [tt02.altinn.no](https://tt02.altinn.no/)
+When testing if the application B form has come through you will need to log in to [tt02.altinn.no](https://tt02.altinn.no/)
 with the same tenor test user.
 
 ## What must be done in tt02
 
 Before actually deploying the applications to production the forms should have been tested fully in tt02 with actual
-usage of Azure keyvault and correct variable for the envUrl. This means that both applications should be tested while
+usage of Azure key vault and correct variable for the envUrl. This means that both applications should be tested while
 running in tt02. It is still possible to test with a tenor test user as the receiver of the instance, but an alternative
-is to ask for a test-organisation that can receive these forms.
+is to ask for a test-organisation that can receive these forms. This can be done by sending a request to servicedesk@altinn.no
 
 TODO: Figure out if there are any guidelines on how to go about to get a test-org
