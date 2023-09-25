@@ -211,7 +211,7 @@ Egenskapen `align` kontrollerer den horisontale posisjonen til bildet i forhold 
 App/ui/layouts/{page}.json
 {{< /code-title >}}
 
-```json{hl_lines="15"}
+```json{hl_lines="14-15"}
 {
   "data": {
     "layout": [
