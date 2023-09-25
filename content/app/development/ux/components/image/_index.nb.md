@@ -19,7 +19,7 @@ aliases:
 
 ## Bruk
 
-<!-- Kort beskrivelse av komponenten og hvordan den brukes. -->
+Bruk bilder og illustrasjoner for å fremheve poeng eller illustrere begreper som er vanskelige å forklare med tekst.
 
 ### Anatomi
 
@@ -59,31 +59,6 @@ Alt text: "Gammel trevogn. Fotografi."
 
 For flere retningslinjer og eksempler, se [UUtilsynet](https://www.uutilsynet.no/regelverk/bilder-og-grafikk/205).
 
-<!-- 
-Legg til flere seksjoner dersom de er relevante:
-
-### Oppførsel
-
-(Hvordan komponenten oppfører seg i ulike sammenhenger.)
-
-### Stil
-
-(Visuell styling, e.g. plassering, padding, "dos and don'ts")
-
-### Tilgjengelighet
-
-(Komponent-spesifikk beste praksis for tilgjengelighet.)
-
-### Mobil
-
-(Hvordan implementere komponent i mobile miljøer.)
-
-### Relatert
-
-(Liste over relaterte komponenter, inkluder lenker.)
-
--->
-
 ## Egenskaper
 
 Følgende er en liste over tilgjengelige egenskaper for {{% title %}}. Listen er automatisk generert basert på komponentens JSON schema (se link).
@@ -91,10 +66,6 @@ Følgende er en liste over tilgjengelige egenskaper for {{% title %}}. Listen er
 {{% notice warning %}}
 Vi oppdaterer for øyeblikket hvordan vi implementerer komponenter. Listen over egenskaper kan derfor være noe unøyaktig.
 {{% /notice %}}
-
-<!-- Shortkoden `component-props` genererer automatisk en liste over komponentegenskaper fra komponentens JSON schema.
-Komponentnavnet kan gis eksplisitt som argument (f.eks. `component-props "Grid"`).
-Hvis ingen argument gis, henter shortkoden komponentnavnet fra 'schemaname' i frontmatter. -->
 
 {{% component-props %}}
 
@@ -105,25 +76,23 @@ Hvis ingen argument gis, henter shortkoden komponentnavnet fra 'schemaname' i fr
 Du kan legge til en komponent i [Altinn Studio Designer](/nb/app/getting-started/ui-editor/) ved å dra den fra venstre sidepanel til midten av siden.
 Når du velger komponenten, vises et panel med innstillinger for den på høyre side.
 
-### Innstillinger i Altinn Studio Designer
-
 {{% notice warning %}}
 Vi oppdaterer for øyeblikket Altinn Studio med flere muligheter for innstillinger!
  Dokumentasjonen oppdateres fortløpende, men det kan være flere innstillinger tilgjengelig enn det som beskrives her og noen innstillinger kan være i betaversjon.
 {{% /notice %}}
 
+### Alternativ tekst
+
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
 
-Innstillinger for egenskaper tilgjengelig i Altinn Studio Designer.
+Velg 'Alternativ tekst for bilde' i nedtrekksmenyen.
 
-![Innstillingspanel for komponent](../image/screenshot-component-settings.png)
+![Innstilling legg til tekst](innstilling-tekst.png)
 
-- **Komponent-ID** (`id`): Automatisk generert komponent-ID (kan redigeres).
-- **Kilde** (`src`): Lenke eller filsti til [bildets kilde](#konfigurer-kilde-src).
-- **Alternativ tekst** (`textResourceBindings.altTextImg`): Alternativ tekst. Opprett ny eller velg eksisterende [tekstressurs](/nb/app/development/ux/texts/#legge-til-og-endre-tekster-i-en-app).
-- **Bredde** (`width`): Bredde på bildet i prosent (100% er opprinnelig bredde).
-- **Plassering** (`align`): [Horisontal justering av bildet](#horisontal-justering-med-align).
+Klikk plusstegnet for å opprette en ny tekst eller forstørrelsesglasset for å velge en eksisterende [tekstressurs](/nb/app/development/ux/texts/#legge-til-og-endre-tekster-i-en-app).
+
+![Innstilling for alternativ tekst](innstilling-alternativ-tekst.png)
 
 {{</content-version-container>}}
 {{<content-version-container version-label="Kode">}}
@@ -134,23 +103,17 @@ Korresponderende innstillinger i sidens JSON-fil.
 App/ui/layouts/{page}.json
 {{< /code-title >}}
 
-```json{hl_lines="4-17"}
+```json{hl_lines="7-9"}
 {
   "data": {
     "layout": [
       {
-        "id": "Image-ijlpGL",
+        "id": "kommune-logo",
         "type": "Image",
         "textResourceBindings": {
           "altTextImg": ""
         },
-        "image": {
-          "src": {
-            "nb": ""
-          },
-          "width": "100%",
-          "align": "center"
-        }
+        ...
       }
     ]
   }
@@ -160,76 +123,55 @@ App/ui/layouts/{page}.json
 {{</content-version-container>}}
 {{</content-version-selector>}}
 
-### Konfigurer kilde (`src`)
+### Bildeinnstillinger (`image`)
+
+#### Legg til kilde (`image.src`)
+
+Standardkilden er `nb`; ethvert språk som ikke definerer en separat bildekilde vil bruke denne kilden.
+  Oppgi en annen språkkode og bildekilde for å legge til en kilde, som i eksemplet nedenfor.
+
+Tilgjengelige språkkilder er `en` (engelsk), `nb` (norsk bokmål) og `nn` (norsk nynorsk).
+
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="Altinn Studio Designer">}}
+
+![Innstilling kilde](innstilling-kilde.png)
+
+{{</content-version-container>}}
+{{<content-version-container version-label="Kode">}}
+
+{{< code-title >}}
+App/ui/layouts/{page}.json
+{{< /code-title >}}
+
+```json{hl_lines="5-8"}
+{
+  "id": "kommune-logo",
+  "type": "Image",
+  "image": {
+    "src": {
+      "nb": "/testdep/flyttemelding-sogndal/kommune-logo.png",
+      "nn": "wwwroot/kommune-logo.png"
+    },
+    ...
+  }
+}
+```
+{{</content-version-container>}}
+{{</content-version-selector>}}
 
 Bildekilden kan være ekstern eller lokal for appen.
 
 For eksterne bilder er kilden *bilde-URL* (f.eks. `https://examples.com/myImage.png`).
 
 For å hoste et bilde i applikasjonen, plasser det i mappen `App/wwwroot` (hvis mappen ikke eksisterer, kan du opprette den).
- Statisk hosting må [konfigureres manuelt](#configure-static-hosting) for apper opprettet før desember 2021.
+ Statisk hosting må [konfigureres manuelt](#konfigurer-statisk-hosting) for apper opprettet før desember 2021.
 
 Et bilde plassert i `App/wwwroot` kan refereres til på følgende måter:
-– Ved å bruke dens *relative URL*: `/<org eller brukernavn>/<app-navn>/image.png` eller
+- Ved å bruke dens *relative URL*: `/<org eller brukernavn>/<app-navn>/image.png` eller
 - Bruk av *filstien*: `wwwroot/image.png`. Filstien vil konverteres til bildets relative URL før bildet lastes inn.
 
-{{<content-version-selector classes="border-box">}}
-{{<content-version-container version-label="Altinn Studio Designer">}}
-Bruke relativ URL som kilde:
-
-![Innstillinger med relativ URL som kilde. Skjermbilde](<image-src-rel-url.png> "Innstillinger med relativ URL som kilde")
-
-Bruke filsti som kilde:
-
-![Innstillinger med filsti som kilde. Skjermbilde](<image-src-wwwroot.png> "Innstillinger med filsti som kilde")
-
-{{</content-version-container>}}
-{{<content-version-container version-label="Kode">}}
-Bruke relativ URL som kilde:
-
-{{< code-title >}}
-App/ui/layouts/{page}.json
-{{< /code-title >}}
-
-```json{hl_lines="7"}
-...
-      {
-        "id": "kommune-logo-2",
-        "type": "Image",
-        "image": {
-          "src": {
-            "nb": "/testdep/flyttemelding-sogndal/kommune-logo.png"
-          },
-          ...
-        }
-      }
-...
-```
-Bruke filsti som kilde:
-
-{{< code-title >}}
-App/ui/layouts/{page}.json
-{{< /code-title >}}
-
-```json{hl_lines="7"}
-...
-      {
-        "id": "kommune-logo",
-        "type": "Image",
-        "image": {
-          "src": {
-            "nb": "wwwroot/kommune-logo.png"
-          },
-          ...
-        }
-      }
-...
-```
-
-{{</content-version-container>}}
-{{</content-version-selector>}}
-
-#### Configure static hosting
+#### Konfigurer statisk hosting
 For apper opprettet *før desember 2021* må statisk hosting konfigureres manuelt ved å legge til linjen
  `app.UseStaticFiles('/' + applicationId);` i metoden `Configure` i `App/Program.cs` som vist her:
 
@@ -250,58 +192,18 @@ void Configure()
 
 `applicationId` tilsvarer `id`  i `App/configApplicationmetadata.json`.
 
-####  Flere kilder basert på språk
+#### Bredde og plassering (`image.width`, `image.align`)
 
-Standardkilden er `nb`; ethvert språk som ikke definerer en separat bildekilde vil bruke denne kilden.
-  Oppgi en annen språkkode og bildekilde for å legge til en kilde, som i eksemplet nedenfor.
-
-Tilgjengelige språkkilder er `en` (engelsk), `nb` (norsk bokmål) og `nn` (norsk nynorsk).
-
-{{<content-version-selector classes="border-box">}}
-{{<content-version-container version-label="Kode">}}
-
-Eksempel med forskjellige bilder for norske (`nb`) og engelske (`en`) sider:
-
-{{< code-title >}}
-App/ui/layouts/{page}.json
-{{< /code-title >}}
-
-```json{hl_lines=["8-11"]}
-{
-  "data": {
-    "layout": [
-      {
-        "id": "example-image",
-        "type": "Image",
-        "image": {
-          "src": {
-            "nb": "https://example.com/image_nb.png",
-            "en": "https://example.com/image_en.png"
-          },
-          "width": "100%",
-          "align": "center"
-        }
-      }
-    ]
-  }
-}
-```
-{{</content-version-container>}}
-{{</content-version-selector>}}
-
-### Horisontal justering med `align`
+Med `width` kan du justere bildestørrelsen ved å angi bredde på bildet i prosent.
+ Høyden settes automatisk for å bevare proporsjoner. Standard innstilling er 100% (opprinnelig bredde).
 
 Egenskapen `align` kontrollerer den horisontale posisjonen til bildet i forhold til beholderen.
-I Designer er alternativene "Venstre" (venstre), "Midtstilt" (senter) og "Høyre" (høyre).
- Disse innstillingene tilsvarer egenskapsverdiene `flex-start`, `center` og `flex-end` i koden.
-  I tillegg aksepterer `align` verdiene `space-between`, `space-around` og `space-evenly`.
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
 
-![Innstillinger for Plassering av bilde. Skjermbilde](screenshot-alignment-settings.png "Innstillinger for plassering")
+![Innstilling bredde og plassering](innstilling-bredde-plassering.png)
 
-![]() <!-- Hack to reveal image caption -->
 {{</content-version-container>}}
 {{<content-version-container version-label="Kode">}}
 
@@ -324,7 +226,7 @@ App/ui/layouts/{page}.json
             "nb": "wwwroot/kommune-logo.png",
           },
           "width": "100%",
-          "align": "flex-start"
+          "align": "center"
         }
       }
     ]
@@ -334,11 +236,73 @@ App/ui/layouts/{page}.json
 {{</content-version-container>}}
 {{</content-version-selector>}}
 
-### Horisontal justering med `grid`
+ Følgende alternativer er tilgjengelig for plassering:
+
+- `flex-start`: Venstrejustert
+- `center`: Midtstilt
+- `flex-end`: Høyrejustert
+- `space-between`: Elementene er jevnt fordelt langs hovedaksen, med like mye mellomrom mellom hvert element og ingen mellomrom ved start og slutt.
+- `space-around`: Elementene er jevnt fordelt langs hovedaksen med like mye mellomrom mellom hvert element, inkludert mellomrom ved start og slutt, som er halvparten av mellomrommet mellom elementene.
+- `space-evenly`: Elementene er jevnt fordelt langs hovedaksen med like mye mellomrom mellom hvert element, inkludert start og slutt, slik at det totale mellomrommet er jevnt fordelt.
+
+### Andre innstillinger
+
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="Altinn Studio Designer">}}
+
+![Innstilling oppsummering og skjult](innstilling-oppsummering-skjules.png)
+
+![Innstilling sideskift](innstilling-sideskift.png)
+
+{{</content-version-container>}}
+{{<content-version-container version-label="Kode">}}
+
+{{< code-title >}}
+App/ui/layouts/{page}.json
+{{< /code-title >}}
+
+```json{hl_lines="17-22"}
+{
+  "data": {
+    "layout": [
+      {
+        "id": "kommune-logo",
+        "type": "Image",
+        "textResourceBindings": {
+          "altTextImg": "kommune-logo.altTextImg"
+        },
+        "image": {
+          "src": {
+            "nb": "wwwroot/kommune-logo.png",
+          },
+          "width": "100%",
+          "align": "center"
+        },
+        "renderAsSummary": false,
+        "hidden": false,
+        "pageBreak": {
+          "breakBefore": "auto",
+          "breakAfter": "auto"
+        }
+      }
+    ]
+  }
+}
+```
+{{</content-version-container>}}
+{{</content-version-selector>}}
+
+- **Oppsummering** (`renderAsSummary`): Indikerer om feltet skal være med i oppsummering eller ikke (standard: `false`).
+- **Feltet skal skjules** (`hidden`): Indikerer om feltet skal skjules eller ikke (standard: `false`).
+- **PDF-innstillinger** (`pageBreak`): Indikerer om en sideskift skal legges til før eller etter komponenten. Kan være enten: `auto` (standard), `always` (alltid) eller `avoid` (unngå).
+
+---
 
 {{% notice info %}}
-Innstillingene for denne egenskapen er foreløpig ikke tilgjengelig i Altinn Studio og må konfigureres manuelt.
+Følgende innstillinger er ikke støttet i skjemaeditor ennå, men kan konfigureres manuelt.
 {{% /notice %}}
+
+### Horisontal justering med `grid`
 
 `grid`-egenskapen kontrollerer horisontal justering basert på en layout med 12 kolonner.
  Elementer tildeles brøkdeler av 12 som bestemmer deres bredde i forhold til skjermbredden.
@@ -382,3 +346,5 @@ App/ui/layouts/{page}.json
 Du kan også bruke `grid` for å sidestille komponenter.
 
 Se [Sidestilte komponenter (grid)](/nb/app/development/ux/styling/#sidestilte-komponenter-grid) for detaljer og flere eksempler.
+
+<!-- ## Eksempler -->
