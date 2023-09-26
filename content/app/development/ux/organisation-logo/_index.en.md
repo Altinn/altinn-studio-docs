@@ -4,6 +4,12 @@ description: How to configure use of organisation logo
 weight: 30
 ---
 
+{{%notice warning%}}
+
+Setting application logo is only available with `Altinn.App.Core` version 7.14.0 and higher 
+
+{{% /notice%}}
+
 To use organisation logo you can specify that in `applicationmetadata.json`:
 ```json
 // applicationmetadata.json
@@ -64,6 +70,12 @@ directly from altinn-orgs.json if appOwner is not defined in the text resource f
 
 #### size
 
+{{%notice warning%}}
+
+Setting the size is only available with `Altinn.App.Core` version 7.15.0 and higher
+
+{{% /notice%}}
+
 For some logos, the default size of the logo might not always fit. The size can be specified with the `size` property.
 It has three valid values:
 
@@ -97,7 +109,7 @@ the design if needed.
 
 #### Accessibility:
 The logo's colors and placement should meet accessibility guidelines to accommodate users with different visual needs. 
-Alt tag on the logo is required for screen reader. Alt”App Owner logo” The alt text of the logo should reflect the 
+Alt tag on the logo is required for screen reader. The alt text of the logo should reflect the 
 language selected eg. "The Directorate of Education logo".
 
 
