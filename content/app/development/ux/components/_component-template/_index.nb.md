@@ -14,7 +14,7 @@ hidden: true # Fjern for ny komponent
 - Når dokumentasjonen er klar til å publiseres, fjern "hidden: false" fra frontmatter
 - Hvis dokumentasjonen er fullstendig, fjern advarsel om at den er under oppdatering.
 
-For et eksempel på utfylt mal, se Image og Accordion.
+For et eksempel på utfylt mal, se Image og Checkboxes.
 -->
 
 {{% notice warning %}}
@@ -99,15 +99,45 @@ Hvis komponenten ikke har JSON schema, kommenter ut tekst og shortcode i denne d
 
 ## Konfigurering
 
-### Legg til komponent
-
-Du kan legge til en komponent i [Altinn Studio Designer](/nb/app/getting-started/ui-editor/) ved å dra den fra venstre sidepanel til midten av siden.
-Når du velger komponenten, vises et panel med innstillinger for den på høyre side.
-
 {{% notice warning %}}
 Vi oppdaterer for øyeblikket Altinn Studio med flere muligheter for innstillinger!
  Dokumentasjonen oppdateres fortløpende, men det kan være flere innstillinger tilgjengelig enn det som beskrives her og noen innstillinger kan være i betaversjon.
 {{% /notice %}}
+
+### Legg til komponent
+
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="Altinn Studio Designer">}}
+
+Du kan legge til en komponent i [Altinn Studio Designer](/nb/app/getting-started/ui-editor/) ved å dra den fra komponent-listen til sideområdet.
+Når du velger komponenten, vises innstillingspanelet for den.
+
+{{</content-version-container>}}
+{{<content-version-container version-label="Kode">}}
+
+Grunnleggende komponent:
+
+{{< code-title >}}
+App/ui/layouts/{page}.json
+{{< /code-title >}}
+
+```json{hl_lines="6-"}
+{
+  "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
+  {
+    "data": {
+      "layout": [
+        {
+          // grunnleggende komponent-kode
+        }
+      ]
+    }
+  }
+}
+```
+
+{{</content-version-container>}}
+{{</content-version-selector>}}
 
 <!-- 
 Legg til seksjoner som beskriver konfigurasjonen av egenskaper som er spesifikke for komponenten.
@@ -135,11 +165,7 @@ App/ui/layouts/{page}.json
 
 ```json{hl_lines=""}
 {
-  "data": {
-    "layout": [
-      // component code
-    ]
-  }
+  // component code
 }
 ```
 
