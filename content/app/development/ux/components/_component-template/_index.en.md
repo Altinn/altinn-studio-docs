@@ -13,7 +13,7 @@ hidden: true # Remove when creating new component page from template
 - When the documentation is ready for publishing, remove "hidden: false" from the frontmatter.
 - If the documentation is complete, remove the warning that it's a work in progress.
 
-See Image and Accordion for examples.
+See Image and Checkboxes for examples.
 -->
 
 {{% notice warning %}}
@@ -98,15 +98,46 @@ If the component does not have a JSON schema, comment out the text and shortcode
 
 ## Configuration
 
+{{% notice warning %}}
+We are currently updating Altinn Studio Designer with more configuration options!
+ We'll update the documentation to reflect the new changes once they are stable.
+  In the meantime, there may be more options available in beta mode.
+{{% /notice %}}
+
 ### Add component
 
-You can add a component in [Altinn Studio Designer](/app/getting-started/ui-editor/) by dragging it from the left-side panel to the middle page area.
-Selecting the component brings up its configuration panel on the right-hand side.
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="Altinn Studio Designer">}}
 
-{{% notice warning %}}
-We are currently updating Altinn Studio with more configuration options!
- The documentation is continuously updated, but more settings may be available than described here, and some settings may be in beta.
-{{% /notice %}}
+You can add a component in [Altinn Studio Designer](/app/getting-started/ui-editor/) by dragging it from the list of components to the page area.
+Selecting the component brings up its configuration panel.
+
+{{</content-version-container>}}
+{{<content-version-container version-label="Code">}}
+
+Basic component:
+
+{{< code-title >}}
+App/ui/layouts/{page}.json
+{{< /code-title >}}
+
+```json{hl_lines="6-"}
+{
+  "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
+  {
+    "data": {
+      "layout": [
+        {
+          // Basic component code
+        }
+      ]
+    }
+  }
+}
+```
+
+{{</content-version-container>}}
+{{</content-version-selector>}}
 
 <!-- 
 Add sections describing the configuration of properties specific for the component.
@@ -134,11 +165,7 @@ App/ui/layouts/{page}.json
 
 ```json{hl_lines=""}
 {
-  "data": {
-    "layout": [
-      // component code
-    ]
-  }
+  // component code
 }
 ```
 

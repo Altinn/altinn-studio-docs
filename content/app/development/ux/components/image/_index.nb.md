@@ -71,17 +71,53 @@ Vi oppdaterer for øyeblikket hvordan vi implementerer komponenter. Listen over 
 
 ## Konfigurering
 
-### Legg til komponent
-
-Du kan legge til en komponent i [Altinn Studio Designer](/nb/app/getting-started/ui-editor/) ved å dra den fra venstre sidepanel til midten av siden.
-Når du velger komponenten, vises et panel med innstillinger for den på høyre side.
-
 {{% notice warning %}}
 Vi oppdaterer for øyeblikket Altinn Studio med flere muligheter for innstillinger!
  Dokumentasjonen oppdateres fortløpende, men det kan være flere innstillinger tilgjengelig enn det som beskrives her og noen innstillinger kan være i betaversjon.
 {{% /notice %}}
 
-### Alternativ tekst
+### Legg til komponent
+
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="Altinn Studio Designer">}}
+
+Du kan legge til en komponent i [Altinn Studio Designer](/nb/app/getting-started/ui-editor/) ved å dra den fra komponent-listen til sideområdet.
+Når du velger komponenten, vises innstillingspanelet for den.
+
+{{</content-version-container>}}
+{{<content-version-container version-label="Kode">}}
+
+Grunnleggende bildekomponent:
+
+{{< code-title >}}
+App/ui/layouts/{page}.json
+{{< /code-title >}}
+
+```json{hl_lines="6-14"}
+{
+  "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
+  {
+    "data": {
+      "layout": [
+        {
+          "id": "komponent-id",
+          "type": "Image",
+          "image": {
+            "src": {},
+             "width": "100%",
+             "align": "center"
+            }
+        }
+      ]
+    }
+  }
+}
+```
+
+{{</content-version-container>}}
+{{</content-version-selector>}}
+
+### Alternativ tekst (`textResourceBindings.altTextImg`)
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
@@ -125,7 +161,7 @@ App/ui/layouts/{page}.json
 
 ### Bildeinnstillinger (`image`)
 
-#### Legg til kilde (`image.src`)
+#### Kilde (`image.src`)
 
 Standardkilden er `nb`; ethvert språk som ikke definerer en separat bildekilde vil bruke denne kilden.
   Oppgi en annen språkkode og bildekilde for å legge til en kilde, som i eksemplet nedenfor.
@@ -245,14 +281,14 @@ App/ui/layouts/{page}.json
 - `space-around`: Elementene er jevnt fordelt langs hovedaksen med like mye mellomrom mellom hvert element, inkludert mellomrom ved start og slutt, som er halvparten av mellomrommet mellom elementene.
 - `space-evenly`: Elementene er jevnt fordelt langs hovedaksen med like mye mellomrom mellom hvert element, inkludert start og slutt, slik at det totale mellomrommet er jevnt fordelt.
 
-### Andre innstillinger
+### Generelle innstillinger
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
 
-![Innstilling oppsummering og skjult](innstilling-oppsummering-skjules.png)
+![Innstilling oppsummering og skjult](../innstilling-oppsummering-skjules.png)
 
-![Innstilling sideskift](innstilling-sideskift.png)
+![Innstilling sideskift](../innstilling-sideskift.png)
 
 {{</content-version-container>}}
 {{<content-version-container version-label="Kode">}}
@@ -261,31 +297,15 @@ App/ui/layouts/{page}.json
 App/ui/layouts/{page}.json
 {{< /code-title >}}
 
-```json{hl_lines="17-22"}
+```json{hl_lines="4-9"}
 {
-  "data": {
-    "layout": [
-      {
-        "id": "kommune-logo",
-        "type": "Image",
-        "textResourceBindings": {
-          "altTextImg": "kommune-logo.altTextImg"
-        },
-        "image": {
-          "src": {
-            "nb": "wwwroot/kommune-logo.png",
-          },
-          "width": "100%",
-          "align": "center"
-        },
-        "renderAsSummary": false,
-        "hidden": false,
-        "pageBreak": {
-          "breakBefore": "auto",
-          "breakAfter": "auto"
-        }
-      }
-    ]
+  "id": "komponent-id",
+  ...
+  "renderAsSummary": false,
+  "hidden": false,
+  "pageBreak": {
+    "breakBefore": "auto",
+    "breakAfter": "auto"
   }
 }
 ```
@@ -304,9 +324,9 @@ Følgende innstillinger er ikke støttet i skjemaeditor ennå, men kan konfigure
 
 ### Horisontal justering med `grid`
 
-`grid`-egenskapen kontrollerer horisontal justering basert på en layout med 12 kolonner.
+`grid`-egenskapen kontrollerer horisontal justering av komponenten basert på en layout med 12 kolonner.
  Elementer tildeles brøkdeler av 12 som bestemmer deres bredde i forhold til skjermbredden.
-  I eksemplet nedenfor setter vi bildekomponentens bredde til 2/12 av skjermbredden for alle skjermstørrelser (fra `xs` og opp).
+  I eksemplet nedenfor setter vi komponentens bredde til 2/12 av skjermbredden for alle skjermstørrelser (fra `xs` og opp).
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Kode">}}
@@ -315,27 +335,13 @@ Følgende innstillinger er ikke støttet i skjemaeditor ennå, men kan konfigure
 App/ui/layouts/{page}.json
 {{< /code-title >}}
 
-```json{hl_lines=["13-15"]}
+```json{hl_lines=["4-6"]}
 {
-  "data": {
-    "layout": [
-      {
-        "id": "kommune-logo",
-        "type": "Image",
-        "image": {
-          "src": {
-            "nb": "wwwroot/kommune-logo.png",
-          },
-          "width": "100%",
-          "align": "center",
-          "grid": {
-            "xs": 2,
-          }
-        }
-      },
-      ...
-    ]
-  }
+  "id": "komponent-id",
+  ...
+  "grid": {
+      "xs": 2,
+    }
 }
 ```
 {{</content-version-container>}}

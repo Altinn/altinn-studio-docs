@@ -63,16 +63,52 @@ We are currently updating how we implement components, and the list of propertie
 
 ## Configuration
 
-### Add component
-
-You can add a component in [Altinn Studio Designer](/app/getting-started/ui-editor/) by dragging it from the left-side panel to the middle page area.
-Selecting the component brings up its configuration panel on the right-hand side.
-
 {{% notice warning %}}
 We are currently updating Altinn Studio Designer with more configuration options!
  We'll update the documentation to reflect the new changes once they are stable.
   In the meantime, there may be more options available in beta mode.
 {{% /notice %}}
+
+### Add component
+
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="Altinn Studio Designer">}}
+
+You can add a component in [Altinn Studio Designer](/app/getting-started/ui-editor/) by dragging it from the list of components to the page area.
+Selecting the component brings up its configuration panel.
+
+{{</content-version-container>}}
+{{<content-version-container version-label="Code">}}
+
+Basic image component:
+
+{{< code-title >}}
+App/ui/layouts/{page}.json
+{{< /code-title >}}
+
+```json{hl_lines="6-14"}
+{
+  "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
+  {
+    "data": {
+      "layout": [
+        {
+          "id": "komponent-id",
+          "type": "Image",
+          "image": {
+            "src": {},
+             "width": "100%",
+             "align": "center"
+            }
+        }
+      ]
+    }
+  }
+}
+```
+
+{{</content-version-container>}}
+{{</content-version-selector>}}
 
 ### Alternative text (`textResourceBindings.altTextImg`)
 
@@ -118,7 +154,7 @@ App/ui/layouts/{page}.json
 
 ### Image settings (`image`)
 
-### Configure image source (`image.src`)
+### Image source (`image.src`)
 
 The default source is `nb`; any language that does not define a separate image source will use this source.
   List another language code and image source to add a source, as in the example below.
@@ -239,14 +275,14 @@ The following options are available for positioning:
 - `space-around`: The elements are evenly distributed horizontally with equal spacing between each element, including spacing at the start and end, which is half the spacing between the elements.
 - `space-evenly`: The elements are evenly distributed horizontally with equal spacing between each element, including at the start and end, so that the total spacing is evenly distributed.
 
-### Other settings
+### General settings
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
 
-![Settings for summary and hidden](innstilling-oppsummering-skjules.png)
+![Settings for summary and hidden](../innstilling-oppsummering-skjules.png)
 
-![Setting for page break](innstilling-sideskift.png)
+![Setting for page break](../innstilling-sideskift.png)
 
 {{</content-version-container>}}
 {{<content-version-container version-label="Code">}}
@@ -255,31 +291,15 @@ The following options are available for positioning:
 App/ui/layouts/{page}.json
 {{< /code-title >}}
 
-```json{hl_lines="17-22"}
+```json{hl_lines="4-9"}
 {
-  "data": {
-    "layout": [
-      {
-        "id": "kommune-logo",
-        "type": "Image",
-        "textResourceBindings": {
-          "altTextImg": "kommune-logo.altTextImg"
-        },
-        "image": {
-          "src": {
-            "nb": "wwwroot/kommune-logo.png",
-          },
-          "width": "100%",
-          "align": "center"
-        },
-        "renderAsSummary": false,
-        "hidden": false,
-        "pageBreak": {
-          "breakBefore": "auto",
-          "breakAfter": "auto"
-        }
-      }
-    ]
+  "id": "komponent-id",
+  ...
+  "renderAsSummary": false,
+  "hidden": false,
+  "pageBreak": {
+    "breakBefore": "auto",
+    "breakAfter": "auto"
   }
 }
 ```
@@ -300,7 +320,7 @@ The following settings are not yet supported in the form editor but can be confi
 
 The `grid` property controls horizontal alignment based on a 12-column layout.
  Items are allocated fractions of 12 which sets their width relative to the screen width.
-  In the example below, we set the image component's width to 2/12 of the screen width for all screen sizes (from `xs` and up).
+  In the example below, we set the component's width to 2/12 of the screen width for all screen sizes (from `xs` and up).
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Code">}}
@@ -309,32 +329,17 @@ The `grid` property controls horizontal alignment based on a 12-column layout.
 App/ui/layouts/{page}.json
 {{< /code-title >}}
 
-```json{hl_lines=["13-15"]}
+```json{hl_lines=["4-6"]}
 {
-  "data": {
-    "layout": [
-      {
-        "id": "kommune-logo",
-        "type": "Image",
-        "image": {
-          "src": {
-            "nb": "wwwroot/kommune-logo.png",
-          },
-          "width": "100%",
-          "align": "center",
-          "grid": {
-            "xs": 2,
-          }
-        }
-      },
-      ...
-    ]
-  }
+  "id": "komponent-id",
+  ...
+  "grid": {
+      "xs": 2,
+    }
 }
 ```
 {{</content-version-container>}}
 {{</content-version-selector>}}
-
 
 ![Grid example screenshot](screenshot-grid-example.png "Example of image taking up 2/12 of the screen width")
 
