@@ -4,6 +4,13 @@ description: Hvordan konfigurere bruk av tjenesteeiers logo
 weight: 30
 ---
 
+{{%notice warning%}}
+
+Du må være på versjon 7.14.0 av `Altinn.App.Core` eller høyere for å kunne sette applikasjonslogo
+
+{{% /notice%}}
+
+
 For å bruke en tjenesteeiers logo kan du spesifisere dette i `applicationmetadata.json`:
 
 ```json
@@ -75,7 +82,14 @@ Spesifiserer om tjenesteeiers navn skal skrives ut ved siden av logoen. Henter n
 direkte fra `altinn-orgs.json` dersom `appOwner` ikke er definert i tekstressursfilene
 
 
-#### size
+#### size 
+
+{{%notice warning%}}
+
+Du må ha versjon 7.15.0 av `Altinn.App.Core` eller høyere for å kunne sette størrelse på logoen
+
+{{% /notice%}}
+
 
 For noen logoer passer ikke alltid standardstørrelsen til logoen. Størrelsen kan spesifiseres ved hjelp av `size`-egenskapen.
 Den har tre gyldige verdier:
