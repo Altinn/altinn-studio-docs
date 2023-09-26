@@ -75,6 +75,16 @@ Spesifiserer om tjenesteeiers navn skal skrives ut ved siden av logoen. Henter n
 direkte fra `altinn-orgs.json` dersom `appOwner` ikke er definert i tekstressursfilene
 
 
+#### size
+
+For noen logoer passer ikke alltid standardstørrelsen til logoen. Størrelsen kan spesifiseres ved hjelp av `size`-egenskapen.
+Den har tre gyldige verdier:
+
+- `"small"`
+- `"medium"`
+- `"large"`
+
+Størrelsen er som standard satt til `"small"` hvis den ikke er spesifisert.
 
 ## Designretningslinjer for app-eier logo
 
