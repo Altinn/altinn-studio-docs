@@ -6,7 +6,7 @@ schemaname: Checkboxes # Komponentens schema-navn, brukes for å automatisk gene
 weight: 10 # Ikke endre, komponentene sorteres alfabetisk
 toc: true
 aliases:
-- checkboxes
+- checkbox
 ---
 
 {{% notice warning %}}
@@ -70,17 +70,17 @@ Hvis ingen argument gis, henter shortkoden komponentnavnet fra 'schemaname' i fr
 
 ## Konfigurering
 
-### Legg til komponent
-
-Du kan legge til en komponent i [Altinn Studio Designer](/nb/app/getting-started/ui-editor/) ved å dra den fra venstre sidepanel til midten av siden.
-Når du velger komponenten, vises et panel med innstillinger for den på høyre side.
-
 {{% notice warning %}}
 Vi oppdaterer for øyeblikket Altinn Studio med flere muligheter for innstillinger!
  Dokumentasjonen oppdateres fortløpende, men det kan være flere innstillinger tilgjengelig enn det som beskrives her og noen innstillinger kan være i betaversjon.
 {{% /notice %}}
 
-### Tekst
+### Legg til komponent
+
+Du kan legge til en komponent i [Altinn Studio Designer](/nb/app/getting-started/ui-editor/) ved å dra den fra venstre sidepanel til midten av siden.
+Velg komponenten for å få opp innstillingspanelet.
+
+### Tekst (`textResourceBindings`)
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
@@ -98,21 +98,18 @@ Tekst kan legges til direkte som en tekststreng eller ved å oppgi nøkkelen til
 App/ui/layouts/{page}.json
 {{< /code-title >}}
 
-```json{hl_lines="5-11"}
-...
-  "data": {
-    "layout": [
-      ...
-      "textResourceBindings": {
+```json{hl_lines="4-10"}
+{
+  "id": "komponent-id",
+  "type": "Checkboxes",
+  "textResourceBindings": {
           "title": "",
           "description": "",
           "help": "",
           "shortName": "",
           "tableTitle": ""
         }
-    ]
-  }
-...
+}
 ```
 {{</content-version-container>}}
 {{</content-version-selector>}}
@@ -124,6 +121,7 @@ App/ui/layouts/{page}.json
 2. **Beskrivelse** (`textResourceBindings.description`): Tekst for ytterligere beskrivelse eller utdyping.
 3. **Hjelpetekst** (`textResourceBindings.help`): Når hjelpetekst er fylt ut vil et spørsmålstegn vises ved siden av ledeteksten. Klikk på spørsmålstegnet for å vise teksten som en popup.
 Kan brukes til forklaring, eksempler, brukssituasjoner osv.
+
 - **Kortnavn** (`textResourceBindings.shortName`): Overstyrer tittelen til komponenten som brukes i den standard `required` valideringsmeldingen.
 - **Tittel i tabell** (`textResourceBindings.tableTitle`): Overstyrer tittelen til komponenten som blir brukt i kolonneheader når komponenten befinner seg i repeterende grupper.
 {{% /anatomy-list %}}
@@ -131,7 +129,7 @@ Kan brukes til forklaring, eksempler, brukssituasjoner osv.
 ### Datamodell
 
 For at det skal være mulig å lagre og manipulere informasjonen må komponenten kobles til et felt i en [datamodell](/nb/app/development/data/data-modeling/#datamodeller).
-Verdien for avkrysningsboksen må samsvare med datatypen for feltet. 
+Verdiene til alternativene må samsvare med datatypen for feltet. 
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
@@ -139,7 +137,7 @@ Verdien for avkrysningsboksen må samsvare med datatypen for feltet.
 Velg feltet du ønsker å koble komponenten til fra nedtrekksmenyen.
  Hvis det ikke er noen felter tilgjengelig må du først [laste opp en datamodell](/nb/app/development/data/data-modeling/#laste-opp-og-vise-datamodell).
 
-![Innstillinger datamodell. Skjermbilde](Datamodell-settings.png "Innstillinger for datamodell")
+![Innstillinger datamodell. Skjermbilde](Datamodell-settings.png)
 
 {{</content-version-container>}}
 
@@ -151,28 +149,24 @@ Legg navnet på feltet du ønsker å koble komponenten til i krøllparenteser un
 App/ui/layouts/{page}.json
 {{< /code-title >}}
 
-```json{hl_lines=["7"]}
-...
-  "data": {
-    "layout": [
-      {
-        "id": "checkbox-offentlig-transport",
-        "type": "Checkboxes",
-        "dataModelBindings": {"OffentligTransport.sisteMnd"},
-        ...
-      }
-    ]
-  }
-...
+```json{hl_lines="4-6"}
+{
+  "id": "komponent-id",
+  ...
+  "dataModelBindings": {
+    "simpleBinding": "MyDataModel.SomeField"
+    }
+}
 ```
+
 {{</content-version-container>}}
 {{</content-version-selector>}}
 
 ### Legge til avkrysningsbokser
 
-Avkrysningsbokser kan legges til manuelt eller ved hjelp av forhåndsdefinerte [kodelister](/nb/app/development/data/options).
+Avkrysningsbokser kan legges til manuelt eller ved hjelp av [kodelister](/nb/app/development/data/options).
 
-#### Manuelt
+#### Manuelt (`options`)
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
@@ -182,46 +176,45 @@ Avkrysningsboksen kommer med en forhåndsutfylt verdi (`value`), som er dataen s
  Verdien kan endres etter ønske.
   Hvis komponenten er tilknyttet en datamodell, må verdiene tilsvare datatypen (for eksempel boolsk, streng, tall) som er angitt i modellen.
 
-![Innstillinger for avkrysningsbokser lagt til manuelt](<Manuelt-settings.png> "Avkrysningsboks lagt til manuelt")
+![Innstillinger for avkrysningsbokser lagt til manuelt](Manuelt-settings.png "Avkrysningsboks lagt til manuelt")
 
 {{</content-version-container>}}
-
 {{<content-version-container version-label="Kode">}}
 
 {{< code-title >}}
 App/ui/layouts/{page}.json
 {{< /code-title >}}
 
-```json{hl_lines=["6-11"]}
-...
-"data": {
-  "layout": [
-    {
-      ...
-       "options": [
+```json{hl_lines="4-9"}
+{
+  "id": "komponent-id",
+  ...
+  "options": [
           {
             "label": "Alternativ 1",
             "value": "1"
           }
         ]
-    }
-  ]
 }
-...
 ```
 {{</content-version-container>}}
 {{</content-version-selector>}}
 
-#### Kodeliste
+#### Kodeliste (`optionsId`)
 
 En [kodeliste](/nb/app/development/data/options) er en forhåndsdefinert liste med alternativer.
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
 
-For å legge til avkrysningsbokser fra en kodeliste, velg 'Kodeliste' og angi en kodeliste ID (for å bruke en egendefinert (dynamisk) kodeliste, klikk på "Bytt til egendefinert kodeliste").
+For å legge til alternativer fra en kodeliste, velg 'Kodeliste' og angi en kodeliste ID.
+ For å bruke en egendefinert (dynamisk) kodeliste, klikk på "Bytt til egendefinert kodeliste".
 
-![Kodeliste innstillinger. Skjermbilde](Kodeliste-settings.png "Kodeliste")
+![Kodeliste innstillinger. Skjermbilde](../Kodeliste-settings.png)
+
+Om du ønsker å [sikre dynamiske kodelister](/nb/app/development/data/options/dynamic-codelists/#sikrede-dynamiske-kodelister) kan du huke av for dette:
+
+![Sikret API innstilling](../Sikret-API-settings.png)
 
 {{</content-version-container>}}
 {{<content-version-container version-label="Kode">}}
@@ -230,37 +223,26 @@ For å legge til avkrysningsbokser fra en kodeliste, velg 'Kodeliste' og angi en
 App/ui/layouts/{page}.json
 {{< /code-title >}}
 
-```json{hl_lines="8"}
-...
-"data": {
-  "layout": [
-      {
-      "id": "checkbox-offentlig-transport",
-      "type": "Checkboxes",
-      ...
-      "optionsID": "land"
-    }
-  ]
+```json{hl_lines="4-5"}
+{
+  "id": "komponent-id",
+  ...
+  "optionsId": "land",
+  "secure": true
 }
-...
 ```
-
 {{</content-version-container>}}
 {{</content-version-selector>}}
 
-For mer informasjon om kodelister, se
-- [Koble en komponent til kodeliste](/nb/app/development/data/options/#koble-en-komponent-til-kodeliste)
-- [Statiske kodelister](/nb/app/development/data/options/static-codelists/)
-- [Dynamiske kodelister](/nb/app/development/data/options/dynamic-codelists/)
+#### Kilde (`source`)
 
-### Visning
-
-Standard visning er kolonne (`column`), men du kan endre til rad (`row`) i nedtrekksmenyen (`table` har ingen funksjon for avkrysningsbokser).
+En siste måte å legge til alternativer er å koble komponenten til en kodeliste basert på skjemadata lagret i selve appen.
+Dette gjør du ved å legge til en kilde (`source`); se [dokumentasjon](/nb/app/development/data/options/repeating-group-codelists/) for hvordan dette konfigureres.
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
 
-![Innstilling visning. Skjermbilde](Visning-settings.png "Innstilling for visning")
+![Innstilling kilde. Skjermbilde](../Kilde-settings.png)
 
 {{</content-version-container>}}
 {{<content-version-container version-label="Kode">}}
@@ -269,23 +251,136 @@ Standard visning er kolonne (`column`), men du kan endre til rad (`row`) i nedtr
 App/ui/layouts/{page}.json
 {{< /code-title >}}
 
-```json{hl_lines="8"}
-...
-  "data": {
-    "layout": [
-       {
-        "id": "Checkboxes-kodeliste",
-        "type": "Checkboxes",
-        "optionsId": "land",
-        "layout": "row"
-      },
-    ]
+```json{hl_lines="4-9"}
+{
+  "id": "komponent-id",
+  ...
+  "source": {
+    "group": "some.group",
+    "label": "dropdown.label",
+    "value": "some.group[{0}].someField",
+    "description": "",
+    "helpText": ""
   }
+}
 ...
 ```
 {{</content-version-container>}}
 {{</content-version-selector>}}
 
+**Dokumentasjon for kodelister**
+- [Koble en komponent til kodeliste](/nb/app/development/data/options/#koble-en-komponent-til-kodeliste)
+- [Statiske kodelister](/nb/app/development/data/options/static-codelists/)
+- [Dynamiske kodelister](/nb/app/development/data/options/dynamic-codelists/)
+- [Dynamiske kodelister fra repeterede grupper i datamodellen](/nb/app/development/data/options/repeating-group-codelists/)
+
+### Innstillinger for avkrysningsbokser
+
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="Altinn Studio Designer">}}
+
+![Innstillnger skrivebeskyttet, påkrevd, visning, indeks](innstillinger-skrivebeskyttet-required-visning-indeks.png)
+
+{{</content-version-container>}}
+{{<content-version-container version-label="Kode">}}
+
+{{< code-title >}}
+App/ui/layouts/{page}.json
+{{< /code-title >}}
+
+```json{hl_lines="4-7"}
+{
+  "id": "komponent-id",
+  ...
+  "readOnly": false,
+  "required": true,
+  "layout": "row",
+  "preselectedOptionsIndex": 0
+}
+```
+{{</content-version-container>}}
+{{</content-version-selector>}}
+
+- **Feltet skal være skrivebeskyttet** (`readOnly`): Deaktiverer komponenten når aktivert (`true`).
+- **Feltet skal være påkrevd** (`required`): Krever at det gjøres et valg når aktivert (`true`).
+- **Visning** (`layout`): Kan være kolonne (`column`) (standard) eller rad (`row`).
+- **Forhåndsvalgt verdi** (`preselectedOptionsIndex`): Sett en forhåndsvalgt verdi. Alternativene er nullindeksert, så det første alternativet er `0`, det andre `1`, osv.
+
 ![Eksempel visning column. Skjermbilde](Visning-column.png "Visning 'column'")
 
 ![Eksempel visning row. Skjermbilde](Visning-row.png "Visning 'row'")
+
+![Eksempel skrivebeskyttet, påkrevd, forhåndsvalg](checkboxes-readonly-required-preselected.png "Skrivebeskyttet, påkrevd og forhåndsvalg")
+
+### Generelle innstillinger
+
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="Altinn Studio Designer">}}
+
+![Innstilling oppsummering og skjult](../innstilling-oppsummering-skjules.png)
+
+![Innstilling sideskift](../innstilling-sideskift.png)
+
+{{</content-version-container>}}
+{{<content-version-container version-label="Kode">}}
+
+{{< code-title >}}
+App/ui/layouts/{page}.json
+{{< /code-title >}}
+
+```json{hl_lines="4-9"}
+{
+  "id": "komponent-id",
+  ...
+  "renderAsSummary": false,
+  "hidden": false,
+  "pageBreak": {
+    "breakBefore": "auto",
+    "breakAfter": "auto"
+  }
+}
+```
+{{</content-version-container>}}
+{{</content-version-selector>}}
+
+- **Oppsummering** (`renderAsSummary`): Indikerer om feltet skal være med i oppsummering eller ikke (standard: `false`).
+- **Feltet skal skjules** (`hidden`): Indikerer om feltet skal skjules eller ikke (standard: `false`).
+- **PDF-innstillinger** (`pageBreak`): Indikerer om en sideskift skal legges til før eller etter komponenten. Kan være enten: `auto` (standard), `always` (alltid) eller `avoid` (unngå).
+
+
+---
+
+{{% notice info %}}
+Følgende innstillinger er ikke støttet i skjemaeditor ennå, men kan konfigureres manuelt.
+{{% /notice %}}
+
+### Horisontal justering med `grid`
+
+`grid`-egenskapen kontrollerer horisontal justering av komponenten basert på en layout med 12 kolonner.
+ Elementer tildeles brøkdeler av 12 som bestemmer deres bredde i forhold til skjermbredden.
+  I eksemplet nedenfor setter vi komponentens bredde til 2/12 av skjermbredden for alle skjermstørrelser (fra `xs` og opp).
+
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="Kode">}}
+
+{{< code-title >}}
+App/ui/layouts/{page}.json
+{{< /code-title >}}
+
+```json{hl_lines=["4-6"]}
+{
+  "id": "komponent-id",
+  ...
+  "grid": {
+      "xs": 2,
+    }
+}
+```
+{{</content-version-container>}}
+{{</content-version-selector>}}
+
+Du kan også bruke `grid` for å sidestille komponenter.
+
+Se [Sidestilte komponenter (grid)](/nb/app/development/ux/styling/#sidestilte-komponenter-grid) for detaljer og eksempler.
+
+<!-- ## Eksempler -->
