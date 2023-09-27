@@ -1,7 +1,7 @@
 ---
 title: v4
-description: Oversikt over endringer introdusert i v4 av app frontend.
-weight: 100
+description: Oversikt over breaking changes introdusert i v4 av app frontend.
+weight: 99
 ---
 
-{{<children />}}
+## Oversikt
