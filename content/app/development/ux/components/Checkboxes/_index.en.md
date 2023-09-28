@@ -50,8 +50,9 @@ Checkboxes are often used in forms to gather input from the user, allowing them 
 
 ### Related
 
-* If the user can only select one option from a list, use [radio buttons](../radiobuttons).
-* For a more compact way to display multiple options with single selection, use a [dropdown menu](../dropdown).
+* For a more compact way to display multiple options with multiple selection, use [MultipleSelect](../multipleselect/).
+* If the user can only select one option from a list, use [RadioButtons](../radiobuttons).
+* For a more compact way to display multiple options with single selection, use [Dropdown](../dropdown).
 
 ## Properties
 

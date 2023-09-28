@@ -55,7 +55,9 @@ Radioknapper brukes ofte i skjemaer for å samle input fra brukeren der de må v
 
 ### Relatert
 
-* Hvis brukeren kan velge flere alternativ fra en liste, bruk [Avkrysningsbokser](../checkboxes/) eller en [rullegardinmeny](../dropdown).
+* For en mer kompakt måte å vise flere alternativer med enkeltvalg, bruk en [rullegardinmeny](../dropdown).
+* Hvis brukeren kan velge flere alternativ fra en liste, bruk [Avkrysningsbokser](../checkboxes/).
+* For en mer kompakt måte å vise flere alternativer med flervalg, bruk [MultipleSelect](../multipleselect/).
 
 ## Egenskaper
 

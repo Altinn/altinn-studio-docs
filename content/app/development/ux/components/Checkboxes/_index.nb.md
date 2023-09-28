@@ -51,7 +51,8 @@ Avkrysningsbokser brukes ofte i skjemaer for å samle input fra brukeren,
 
 ### Relatert
 
-* Hvis brukeren bare kan velge ett alternativ fra en liste, bruk [radioknapper](../radiobuttons).
+* For en mer kompakt måte å vise flere alternativer med flervalg, bruk [MultipleSelect](../multipleselect/).
+* Hvis brukeren bare kan velge ett alternativ fra en liste, bruk [RadioButtons](../radiobuttons).
 * For en mer kompakt måte å vise flere alternativer med enkeltvalg, bruk en [rullegardinmeny](../dropdown).
 
 ## Egenskaper
