@@ -55,7 +55,9 @@ Radio buttons are often used in forms to collect input from the user where they 
 
 ### Related
 
-* If users can choose multiple options from a list, use [Checkboxes](../checkboxes/) or [Dropdown](../dropdown).
+* For a more compact way to display multiple options with single selection, use [Dropdown](../dropdown).
+* If users can choose multiple options from a list, use [Checkboxes](../checkboxes/).
+* For a more compact way to display multiple options with multiple selection, use [MultipleSelect](../multipleselect/).
 
 ## Properties
 
