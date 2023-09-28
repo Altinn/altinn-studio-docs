@@ -72,8 +72,44 @@ We are currently updating Altinn Studio with more configuration options!
 
 ### Add component
 
-You can add a component in [Altinn Studio Designer](/app/getting-started/ui-editor/) by dragging it from the left-side panel to the middle page area.
-Select the component to bring up the settings panel.
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="Altinn Studio Designer">}}
+
+You can add a component in [Altinn Studio Designer](/app/getting-started/ui-editor/) by dragging it from the list of components to the page area.
+Selecting the component brings up its configuration panel.
+
+{{</content-version-container>}}
+{{<content-version-container version-label="Code">}}
+
+Basic component:
+
+{{< code-title >}}
+App/ui/layouts/{page}.json
+{{< /code-title >}}
+
+```json{hl_lines="6-14"}
+{
+  "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
+  {
+    "data": {
+      "layout": [
+        {
+          "id": "Image-id",
+          "type": "Image",
+          "image": {
+            "src": {},
+            "width": "100%",
+            "align": "center"
+          }
+        }
+      ]
+    }
+  }
+}
+```
+
+{{</content-version-container>}}
+{{</content-version-selector>}}
 
 ### Text (`textResourceBindings`)
 
@@ -82,7 +118,7 @@ Select the component to bring up the settings panel.
 
 You can create a new text by clicking on the plus sign or select an existing one by clicking on the magnifying glass. See [Adding and Editing Texts in an App](/app/development/ux/texts/#add-and-change-texts-in-an-application) for more information.
 
-![Text settings](Tekst-settings-all.png "Text settings")
+![Text settings](../Tekst-settings-all.png "Text settings")
 
 {{</content-version-container>}}
 {{<content-version-container version-label="Code">}}
@@ -124,7 +160,7 @@ App/ui/layouts/{page}.json
 ### Data Model
 
 To store and manipulate the data collected by the component, the component must be linked to a field in a [data model](/app/development/data/data-modeling/#data-models).
- The values of the options must match the data type of the field.
+ The option values are stored as strings.
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
@@ -132,7 +168,7 @@ To store and manipulate the data collected by the component, the component must 
 Select the field you want to link the component to from the dropdown menu.
  If there are no fields available, you must first [upload a data model](/app/development/data/data-modeling/#upload-and-display-data-model).
 
-![Data Model Settings. Screenshot](Datamodell-settings.png)
+![Data Model Settings. Screenshot](../Datamodell-settings.png)
 
 {{</content-version-container>}}
 
@@ -168,7 +204,7 @@ Checkboxes can be added manually or by using [code lists](/app/development/data/
 Select "Manuelt" and click "Legg til flere" to add a new checkbox. Choose or create a new text to add a label (`label`).
 
 The checkbox comes with a pre-filled value (`value`), which is the data that is stored when the user makes a selection.
- The value can be changed as desired. If the component is linked to a data model, the values should correspond to the data type (e.g., boolean, string, number) specified in the model.
+ Change the value to something appropriate.
 
 ![Manually Added Checkbox Settings](Manuelt-settings.png "Manually Added Checkbox")
 
@@ -274,7 +310,7 @@ App/ui/layouts/{page}.json
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
 
-![Settings for readOnly, required, layout, and preselect](innstillinger-skrivebeskyttet-required-visning-indeks.png)
+![Settings for readOnly, required, layout, and preselect](../innstillinger-skrivebeskyttet-required-visning-indeks.png)
 
 {{</content-version-container>}}
 {{<content-version-container version-label="Code">}}
@@ -298,7 +334,7 @@ App/ui/layouts/{page}.json
  
 - **Feltet skal være skrivebeskyttet** (`readOnly`): Field is read only. Disables the component when enabled (`true`).
 - **Feltet skal være påkrevd** (`required`): Field is required when enabled (`true`).
-- **Visning** (`layout`): Layout. Can be column (`column`) (default) or row (`row`).
+- **Visning** (`layout`): Layout. Can be column (`column`) (default for more than two options) or row (`row`) (default for up to two options).
 - **Forhåndsvalgt verdi** (`preselectedOptionsIndex`): Sets a preselected value. Options are zero-indexed, so the first option is `0`, the second is `1`, and so on.
 
 ![Example layout column](Visning-column.png "Layout 'column'")
