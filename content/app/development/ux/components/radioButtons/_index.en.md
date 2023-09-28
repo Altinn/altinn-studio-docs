@@ -137,7 +137,7 @@ App/ui/layouts/{page}.json
 ```json{hl_lines="4-10"}
 {
   "id": "komponent-id",
-  "type": "Checkboxes",
+  "type": "RadioButtons",
   "textResourceBindings": {
           "title": "",
           "description": "",
@@ -151,7 +151,9 @@ App/ui/layouts/{page}.json
 {{</content-version-container>}}
 {{</content-version-selector>}}
 
-![Text Anatomy. Screenshot](Checkboxes-text-anatomy.png)
+**Text anatomy**
+
+![Text Anatomy. Screenshot](RadioButtons-text-anatomy.png)
 
 {{% anatomy-list %}}
 1. **Ledetekst** (`textResourceBindings.title`): A heading with a question or instruction.

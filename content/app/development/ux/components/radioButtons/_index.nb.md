@@ -148,6 +148,8 @@ App/ui/layouts/{page}.json
 {{</content-version-container>}}
 {{</content-version-selector>}}
 
+**Tekst anatomi**
+
 ![Tekst anatomi. Skjermbilde](RadioButtons-text-anatomy.png)
 
 {{% anatomy-list %}}
