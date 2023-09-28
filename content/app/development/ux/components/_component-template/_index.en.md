@@ -13,7 +13,12 @@ hidden: true # Remove when creating new component page from template
 - When the documentation is ready for publishing, remove "hidden: false" from the frontmatter.
 - If the documentation is complete, remove the warning that it's a work in progress.
 
-See Image and Checkboxes for examples.
+EXAMPLES AND REUSABLE SECTIONS AND SCREENSHOTS
+- See Image, Checkboxes, RadioButtons, and Dropdown for examples.
+- The above component docs contain some sections that are common to multiple components and may be copied directly or with small changes.
+  - Common sections will soon be available as shortcode.
+- Screenshots that are common to multiple components are located in the 'components' directory
+
 -->
 
 {{% notice warning %}}
@@ -100,8 +105,7 @@ If the component does not have a JSON schema, comment out the text and shortcode
 
 {{% notice warning %}}
 We are currently updating Altinn Studio Designer with more configuration options!
- We'll update the documentation to reflect the new changes once they are stable.
-  In the meantime, there may be more options available in beta mode.
+ The documentation is continuously updated, and there may be more settings available than what is described here, and some settings may be in beta version.
 {{% /notice %}}
 
 ### Add component
@@ -128,7 +132,7 @@ App/ui/layouts/{page}.json
     "data": {
       "layout": [
         {
-          // Basic component code
+          // Basic component (required properties)
         }
       ]
     }
@@ -165,7 +169,7 @@ App/ui/layouts/{page}.json
 
 ```json{hl_lines=""}
 {
-  // component code
+  // component properties
 }
 ```
 
