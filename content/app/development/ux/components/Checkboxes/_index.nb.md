@@ -77,8 +77,44 @@ Vi oppdaterer for øyeblikket Altinn Studio med flere muligheter for innstilling
 
 ### Legg til komponent
 
-Du kan legge til en komponent i [Altinn Studio Designer](/nb/app/getting-started/ui-editor/) ved å dra den fra venstre sidepanel til midten av siden.
-Velg komponenten for å få opp innstillingspanelet.
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="Altinn Studio Designer">}}
+
+Du kan legge til en komponent i [Altinn Studio Designer](/nb/app/getting-started/ui-editor/) ved å dra den fra komponent-listen til sideområdet.
+Når du velger komponenten, vises innstillingspanelet for den.
+
+{{</content-version-container>}}
+{{<content-version-container version-label="Kode">}}
+
+Grunnleggende komponent:
+
+{{< code-title >}}
+App/ui/layouts/{page}.json
+{{< /code-title >}}
+
+```json{hl_lines="6-14"}
+{
+  "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
+  {
+    "data": {
+      "layout": [
+        {
+          "id": "Image-id",
+          "type": "Image",
+          "image": {
+            "src": {},
+            "width": "100%",
+            "align": "center"
+          }
+        }
+      ]
+    }
+  }
+}
+```
+
+{{</content-version-container>}}
+{{</content-version-selector>}}
 
 ### Tekst (`textResourceBindings`)
 
@@ -87,7 +123,7 @@ Velg komponenten for å få opp innstillingspanelet.
 
 Du kan opprette en ny tekst ved å klikke på pluss-tegnet eller velge en eksisterende ved å klikke på forstørrelsesglasset. Se [Legge til og endre tekster i en app](/nb/app/development/ux/texts/#legge-til-og-endre-tekster-i-en-app) for mer info.
 
-![Tekst innstillinger. Skjermbilde](Tekst-settings-all.png "Innstillinger for tekst")
+![Tekst innstillinger. Skjermbilde](../Tekst-settings-all.png "Innstillinger for tekst")
 
 {{</content-version-container>}}
 {{<content-version-container version-label="Kode">}}
@@ -129,7 +165,7 @@ Kan brukes til forklaring, eksempler, brukssituasjoner osv.
 ### Datamodell
 
 For at det skal være mulig å lagre og manipulere informasjonen må komponenten kobles til et felt i en [datamodell](/nb/app/development/data/data-modeling/#datamodeller).
-Verdiene til alternativene må samsvare med datatypen for feltet. 
+Verdiene til alternativene lagres som streng.
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
@@ -137,7 +173,7 @@ Verdiene til alternativene må samsvare med datatypen for feltet.
 Velg feltet du ønsker å koble komponenten til fra nedtrekksmenyen.
  Hvis det ikke er noen felter tilgjengelig må du først [laste opp en datamodell](/nb/app/development/data/data-modeling/#laste-opp-og-vise-datamodell).
 
-![Innstillinger datamodell. Skjermbilde](Datamodell-settings.png)
+![Innstillinger datamodell. Skjermbilde](../Datamodell-settings.png)
 
 {{</content-version-container>}}
 
@@ -173,8 +209,7 @@ Avkrysningsbokser kan legges til manuelt eller ved hjelp av [kodelister](/nb/app
 Velg "Manuelt" og klikk "Legg til flere" for å til en ny avkrysningsboks. Velg eller opprett ny tekst for å legge til etikett (`label`).
 
 Avkrysningsboksen kommer med en forhåndsutfylt verdi (`value`), som er dataen som lagres når brukeren gjør et valg.
- Verdien kan endres etter ønske.
-  Hvis komponenten er tilknyttet en datamodell, må verdiene tilsvare datatypen (for eksempel boolsk, streng, tall) som er angitt i modellen.
+ Endre verdien til det som passer.
 
 ![Innstillinger for avkrysningsbokser lagt til manuelt](Manuelt-settings.png "Avkrysningsboks lagt til manuelt")
 
@@ -279,7 +314,7 @@ App/ui/layouts/{page}.json
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
 
-![Innstillnger skrivebeskyttet, påkrevd, visning, indeks](innstillinger-skrivebeskyttet-required-visning-indeks.png)
+![Innstillnger skrivebeskyttet, påkrevd, visning, indeks](../innstillinger-skrivebeskyttet-required-visning-indeks.png)
 
 {{</content-version-container>}}
 {{<content-version-container version-label="Kode">}}
@@ -303,7 +338,7 @@ App/ui/layouts/{page}.json
 
 - **Feltet skal være skrivebeskyttet** (`readOnly`): Deaktiverer komponenten når aktivert (`true`).
 - **Feltet skal være påkrevd** (`required`): Krever at det gjøres et valg når aktivert (`true`).
-- **Visning** (`layout`): Kan være kolonne (`column`) (standard) eller rad (`row`).
+- **Visning** (`layout`): Kan være kolonne (`column`) (standard for mer enn to alternativer) eller rad (`row`) (standard for opp til to alternativer).
 - **Forhåndsvalgt verdi** (`preselectedOptionsIndex`): Sett en forhåndsvalgt verdi. Alternativene er nullindeksert, så det første alternativet er `0`, det andre `1`, osv.
 
 ![Eksempel visning column. Skjermbilde](Visning-column.png "Visning 'column'")
