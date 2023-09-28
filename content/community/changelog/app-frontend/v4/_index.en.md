@@ -39,5 +39,3 @@ they have changed the setting in Altinn profile.
 ### TODO: Validations against dataModelBindings
 - https://github.com/Altinn/app-frontend-react/issues/1463
 - Some apps may suddenly get schema-validation again
-
-TODO: Write this documentation
