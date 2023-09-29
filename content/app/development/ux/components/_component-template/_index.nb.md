@@ -14,7 +14,12 @@ hidden: true # Fjern for ny komponent
 - Når dokumentasjonen er klar til å publiseres, fjern "hidden: false" fra frontmatter
 - Hvis dokumentasjonen er fullstendig, fjern advarsel om at den er under oppdatering.
 
-For et eksempel på utfylt mal, se Image og Checkboxes.
+EKSEMPLER OG GJENBRUKSBARE SEKSJONER OG SKJERMBILDER
+- Se Image, Checkboxes, RadioButtons og Dropdown. for eksempler.
+- Dokumentasjonen for de ovennevnte komponentene inneholder noen seksjoner som er felles for flere komponenter og kan kopieres direkte eller med små endringer.
+  - Felles seksjoner vil snart være tilgjengelige som shortcode.
+- Skjermbilder som er felles for flere komponenter ligger direkte i 'components'
+
 -->
 
 {{% notice warning %}}
@@ -53,7 +58,7 @@ Legg til seksjoner dersom de er relevante:
 
 ### Oppførsel
 
-(Hvordan komponenten oppfører seg i ulike sammenhenger.)
+(Hvordan komponenten oppfører seg i ulike sammenhenger, f.eks. på mobil vs. desktop)
 
 ### Stil
 
@@ -128,7 +133,7 @@ App/ui/layouts/{page}.json
     "data": {
       "layout": [
         {
-          // grunnleggende komponent-kode
+          // Basic component (required properties)
         }
       ]
     }
@@ -165,7 +170,7 @@ App/ui/layouts/{page}.json
 
 ```json{hl_lines=""}
 {
-  // component code
+  // component properties
 }
 ```
 

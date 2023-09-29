@@ -5,7 +5,7 @@ description: # Brief description of what the component does
 schemaname: FileUpload # Component schema name used to autogenerate list of properties from json schema (replace with appropriate component name)
 weight: 10 # Do not change, the components will be sorted alphabetically
 toc: true
-hidden: false # Remove when creating new component page from template
+hidden: true # Remove when creating new component page from template
 ---
 <!-- HOW TO USE THIS TEMPLATE
 - Read the comments within each section for guidance.
@@ -13,7 +13,12 @@ hidden: false # Remove when creating new component page from template
 - When the documentation is ready for publishing, remove "hidden: false" from the frontmatter.
 - If the documentation is complete, remove the warning that it's a work in progress.
 
-See Image and Accordion for examples.
+EXAMPLES AND REUSABLE SECTIONS AND SCREENSHOTS
+- See Image, Checkboxes, RadioButtons, and Dropdown for examples.
+- The above component docs contain some sections that are common to multiple components and may be copied directly or with small changes.
+  - Common sections will soon be available as shortcode.
+- Screenshots that are common to multiple components are located in the 'components' directory
+
 -->
 
 {{% notice warning %}}
@@ -98,15 +103,45 @@ If the component does not have a JSON schema, comment out the text and shortcode
 
 ## Configuration
 
+{{% notice warning %}}
+We are currently updating Altinn Studio Designer with more configuration options!
+ The documentation is continuously updated, and there may be more settings available than what is described here, and some settings may be in beta version.
+{{% /notice %}}
+
 ### Add component
 
-You can add a component in [Altinn Studio Designer](/app/getting-started/ui-editor/) by dragging it from the left-side panel to the middle page area.
-Selecting the component brings up its configuration panel on the right-hand side.
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="Altinn Studio Designer">}}
 
-{{% notice warning %}}
-We are currently updating Altinn Studio with more configuration options!
- The documentation is continuously updated, but more settings may be available than described here, and some settings may be in beta.
-{{% /notice %}}
+You can add a component in [Altinn Studio Designer](/app/getting-started/ui-editor/) by dragging it from the list of components to the page area.
+Selecting the component brings up its configuration panel.
+
+{{</content-version-container>}}
+{{<content-version-container version-label="Code">}}
+
+Basic component:
+
+{{< code-title >}}
+App/ui/layouts/{page}.json
+{{< /code-title >}}
+
+```json{hl_lines="6-"}
+{
+  "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
+  {
+    "data": {
+      "layout": [
+        {
+          // Basic component (required properties)
+        }
+      ]
+    }
+  }
+}
+```
+
+{{</content-version-container>}}
+{{</content-version-selector>}}
 
 <!-- 
 Add sections describing the configuration of properties specific for the component.
@@ -134,11 +169,7 @@ App/ui/layouts/{page}.json
 
 ```json{hl_lines=""}
 {
-  "data": {
-    "layout": [
-      // component code
-    ]
-  }
+  // component properties
 }
 ```
 
