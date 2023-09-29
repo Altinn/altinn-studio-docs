@@ -10,77 +10,10 @@ aliases:
 
 ---
 
-## Setup app to use Maskinporten Integration
-
-In the process of setting up the application to use the
-integration there are three things that needs to be done;
-
-1. For the application to be able to read the secrets from
-   Azure key vault the application need to be configured to
-   do so. See
-   the [secrets section](../../../../development/configuration/secrets)
-   to achieve this.
-2. Add the appsettings section example
-   from [Key Vault Usage](../../prerequisites#key-vault-usage) into
-   the `appsettings.json` file in the application that
-   should perform the instantiation of
-   application B. Remember to adapt the section
-   name `MaskinportenSettings` to the name you chose for the
-   secrets in Azure key vault.
-3. Modify the `program.cs` file for the same application to
-   connect to Azure key vault. Continue reading for a
-   detailed explanation.
-
-### Modifying `program.cs` to use Key Vault
-
-First of all you need to add the MaskinportenHttpClient
-service in the function `RegisterCustomAppServices`:
-
-```csharp
-services.AddMaskinportenHttpClient<SettingsJwkClientDefinition, AppClient>(config.GetSection("MaskinportenSettings"));
-```
-
-Then you need to add the following
-function `ConnectToKeyVault` in the bottom of the file:
-
-```csharp
-static void ConnectToKeyVault(IConfigurationBuilder config)
-{
-    IConfiguration stageOneConfig = config.Build();
-    KeyVaultSettings keyVaultSettings = new KeyVaultSettings();
-    stageOneConfig.GetSection("kvSetting").Bind(keyVaultSettings);
-    if (!string.IsNullOrEmpty(keyVaultSettings.ClientId) &&
-        !string.IsNullOrEmpty(keyVaultSettings.TenantId) &&
-        !string.IsNullOrEmpty(keyVaultSettings.ClientSecret) &&
-        !string.IsNullOrEmpty(keyVaultSettings.SecretUri))
-    {
-        string connectionString = $"RunAs=App;AppId={keyVaultSettings.ClientId};" +
-                                  $"TenantId={keyVaultSettings.TenantId};" +
-                                  $"AppKey={keyVaultSettings.ClientSecret}";
-        AzureServiceTokenProvider azureServiceTokenProvider = new AzureServiceTokenProvider(connectionString);
-        KeyVaultClient keyVaultClient = new KeyVaultClient(
-            new KeyVaultClient.AuthenticationCallback(
-                azureServiceTokenProvider.KeyVaultTokenCallback));
-        config.AddAzureKeyVault(
-            keyVaultSettings.SecretUri, keyVaultClient, new DefaultKeyVaultSecretManager());
-    }
-}
-```
-
-This function can then be used in the
-function `ConfigureWebHostBuilder`. The function already
-exist, so just change the content to the following:
-
-```csharp
-void ConfigureWebHostBuilder(IWebHostBuilder builder)
-{
-    builder.ConfigureAppConfiguration((_, configBuilder) =>
-    {
-        configBuilder.LoadAppConfig(args);
-        ConnectToKeyVault(configBuilder);
-    });
-}
-```
+{{% notice warning %}}
+The following guidelines assumes that a basic Altinn application already exists so the
+more technical adaptations can be enhanced for realizing the purpose of the multi-app solution
+{{% /notice %}}
 
 ## Add task to process
 
@@ -202,7 +135,7 @@ public async Task<Instance> CreateNewInstance(string org, string app, Instansiat
 }
 ```
 
-## Delivering data to application B
+## Delivering Data to Application B
 
 In order to pass data to application B there
 are several ways to go by.
