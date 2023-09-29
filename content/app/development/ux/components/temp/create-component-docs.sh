@@ -1,13 +1,32 @@
+components=$1
+output=$2
 
-# Create component folders
-for f in $(cat component-list.txt);do mkdir -p new-components-template/$f;done
+if [[ $components && $output ]]; then 
+	
+	echo "Generate files for the following components:"
+	for component in $(cat $components); do echo $component;done
+	
+	echo "Continue? (y)"
+	read confirm
 
-# Copy template files
-for d in $(ls new-components-template); do cp ../_component-template/_index.nb.md ../_component-template/_index.en.md new-components-template/$d/;done
+	if [[ "$confirm" = 'y' ]]; then
 
-# Replace fields in frontmatter with component name
-for d in $(ls new-components-template);do sed -i '' 's/title: Komponent/title: '"$d"'/' new-components-template/$d/_index.nb.md;done
-for d in $(ls new-components-template);do sed -i '' 's/linktitle: Komponent/linktitle: '"$d"'/' new-components-template/$d/_index.nb.md;done
-for d in $(ls new-components-template);do sed -i '' 's/title: Component/title: '"$d"'/' new-components-template/$d/_index.en.md;done
-for d in $(ls new-components-template);do sed -i '' 's/linktitle: Component/linktitle: '"$d"'/' new-components-template/$d/_index.en.md;done
-for d in $(ls new-components-template);do sed -i '' 's/schemaname:/schemaname: '"$d"'/' new-components-template/$d/_index.*;done
+		# Create component folders
+		for component in $(cat $components);do mkdir -p ${output}/$component;done
+
+
+		for component in $(ls ${output});do
+			# Copy template files
+			cp ../_component-template/_index.nb.md ../_component-template/_index.en.md ${output}/$component/
+	
+			# Replace fields in frontmatter with component name
+			sed -i '' 's/title: Komponent/title: '"$component"'/' ${output}/$component/_index.nb.md
+			sed -i '' 's/linktitle: Komponent/linktitle: '"$component"'/' ${output}/$component/_index.nb.md
+			sed -i '' 's/title: Component/title: '"$component"'/' ${output}/$component/_index.en.md
+			sed -i '' 's/linktitle: Component/linktitle: '"$component"'/' ${output}/$component/_index.en.md
+			sed -i '' 's/schemaname:/schemaname: '"$component"'/' ${output}/$component/_index.*
+		done
+	fi
+else
+	echo "Please provide a text file with component names and an output folder"
+fi

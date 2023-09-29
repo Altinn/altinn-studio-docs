@@ -5,7 +5,7 @@ description: # Kort beskrivelse av komponenten
 schemaname: NavigationBar # Komponentens schema-navn, brukes for å automatisk generere liste med egenskaper fra komponentens JSON schema (erstatt med riktig navn i henhold til schema)
 weight: 10 # Ikke endre, komponentene sorteres alfabetisk
 toc: true
-hidden: false # Fjern for ny komponent
+hidden: true # Fjern for ny komponent
 ---
 <!-- HVORDAN BRUKE DENNE MALEN
 - Les kommentarer under hver seksjon for veiledning.
@@ -14,7 +14,12 @@ hidden: false # Fjern for ny komponent
 - Når dokumentasjonen er klar til å publiseres, fjern "hidden: false" fra frontmatter
 - Hvis dokumentasjonen er fullstendig, fjern advarsel om at den er under oppdatering.
 
-For et eksempel på utfylt mal, se Image og Accordion.
+EKSEMPLER OG GJENBRUKSBARE SEKSJONER OG SKJERMBILDER
+- Se Image, Checkboxes, RadioButtons og Dropdown. for eksempler.
+- Dokumentasjonen for de ovennevnte komponentene inneholder noen seksjoner som er felles for flere komponenter og kan kopieres direkte eller med små endringer.
+  - Felles seksjoner vil snart være tilgjengelige som shortcode.
+- Skjermbilder som er felles for flere komponenter ligger direkte i 'components'
+
 -->
 
 {{% notice warning %}}
@@ -53,7 +58,7 @@ Legg til seksjoner dersom de er relevante:
 
 ### Oppførsel
 
-(Hvordan komponenten oppfører seg i ulike sammenhenger.)
+(Hvordan komponenten oppfører seg i ulike sammenhenger, f.eks. på mobil vs. desktop)
 
 ### Stil
 
@@ -99,15 +104,45 @@ Hvis komponenten ikke har JSON schema, kommenter ut tekst og shortcode i denne d
 
 ## Konfigurering
 
-### Legg til komponent
-
-Du kan legge til en komponent i [Altinn Studio Designer](/nb/app/getting-started/ui-editor/) ved å dra den fra venstre sidepanel til midten av siden.
-Når du velger komponenten, vises et panel med innstillinger for den på høyre side.
-
 {{% notice warning %}}
 Vi oppdaterer for øyeblikket Altinn Studio med flere muligheter for innstillinger!
  Dokumentasjonen oppdateres fortløpende, men det kan være flere innstillinger tilgjengelig enn det som beskrives her og noen innstillinger kan være i betaversjon.
 {{% /notice %}}
+
+### Legg til komponent
+
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="Altinn Studio Designer">}}
+
+Du kan legge til en komponent i [Altinn Studio Designer](/nb/app/getting-started/ui-editor/) ved å dra den fra komponent-listen til sideområdet.
+Når du velger komponenten, vises innstillingspanelet for den.
+
+{{</content-version-container>}}
+{{<content-version-container version-label="Kode">}}
+
+Grunnleggende komponent:
+
+{{< code-title >}}
+App/ui/layouts/{page}.json
+{{< /code-title >}}
+
+```json{hl_lines="6-"}
+{
+  "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
+  {
+    "data": {
+      "layout": [
+        {
+          // Basic component (required properties)
+        }
+      ]
+    }
+  }
+}
+```
+
+{{</content-version-container>}}
+{{</content-version-selector>}}
 
 <!-- 
 Legg til seksjoner som beskriver konfigurasjonen av egenskaper som er spesifikke for komponenten.
@@ -135,11 +170,7 @@ App/ui/layouts/{page}.json
 
 ```json{hl_lines=""}
 {
-  "data": {
-    "layout": [
-      // component code
-    ]
-  }
+  // component properties
 }
 ```
 
