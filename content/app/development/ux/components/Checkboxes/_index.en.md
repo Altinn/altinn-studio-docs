@@ -124,7 +124,7 @@ You can create a new text by clicking on the plus sign or select an existing one
 {{</content-version-container>}}
 {{<content-version-container version-label="Code">}}
 
-Tekst kan legges til direkte som en tekststreng eller ved å oppgi nøkkelen til en [tekstressurs](/app/development/ux/texts/#add-and-change-texts-in-an-application).
+Text can be added directly as a text string or by providing the key to a [text resource].(/app/development/ux/texts/#add-and-change-texts-in-an-application).
 
 {{< code-title >}}
 App/ui/layouts/{page}.json
