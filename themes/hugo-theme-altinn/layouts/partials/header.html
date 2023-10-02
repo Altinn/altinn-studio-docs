@@ -29,6 +29,8 @@
 
     <script src="{{"js/jquery-2.x.min.js" | relURL}}"></script>
 
+    <script src="{{"pagefind/pagefind-ui.js" | relURL}}"></script>
+
     {{- partial "custom-head.html" . -}}
 
     <style>
@@ -54,6 +56,14 @@
           {{ template "activeMenus" dict "page" . "value" (printf "$(\"li.dd-item a[href='%s']\").parent().addClass(\"active\");" .RelPermalink) }}
         </script>
         <section id="body">
+          <div id="search"></div>
+          <script>
+              window.addEventListener('DOMContentLoaded', (event) => {
+                  new PagefindUI({ element: "#search", showSubResults: true });
+              });
+          </script>
+
+
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text">

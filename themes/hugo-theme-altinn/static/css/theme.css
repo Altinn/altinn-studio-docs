@@ -1730,3 +1730,11 @@ a code {
 a code + .copy-to-clipboard {
     display: none;
 }
+
+body {
+  --pagefind-ui-primary: #44aaf3;
+  --pagefind-ui-text: #eeeeee;
+  --pagefind-ui-background: #152028;
+  --pagefind-ui-border: #152028;
+  --pagefind-ui-tag: #152028;
+}
