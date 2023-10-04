@@ -168,7 +168,7 @@ for the various steps, the building and publishing the NuGet package will commen
 ### Development lifecycle 
 1. Implement all changes necessary in the NuGet package project.
 2. Submit a pull request on these changes and merge changes into main.
-3. Create & publish a new preview release in the GitHub repository. The tag should match the name and version of the nuget package.
+3. Create and publish a new preview release in the GitHub repository. The tag should match the name and version of the nuget package.
     
     e.g: Altinn.Common.AccessTokenClient-1.2.0-preview 
 4. Once feature is tested ok, create a new release with an updated final tag
@@ -220,7 +220,7 @@ What follows is the common workflow that most Altinn developers use:
    The package will now be created in **{projectfolder}\bin\Release**.  
 6. Navigate to the release folder.  
 7. Publish the package:  
-   `dotnet nuget push ltinn.Common.AccessToken.2.5.10.snupkg -k [nuget api key] -s https://api.nuget.org/v3/index.json`
+   `dotnet nuget push Altinn.Common.AccessToken.2.5.10.snupkg -k [nuget api key] -s https://api.nuget.org/v3/index.json`
 8. Your package will now be published to nuget.org
 
 
