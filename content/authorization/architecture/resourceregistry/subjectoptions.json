@@ -1,14 +1,134 @@
 [
     {
+        "SubjectId": "utinn",
+        "SubjectSource": "altinn:rolecode",
+        "SubjectTitle": "Utfyller/Innsender",
+        "SubjectDescription": "Denne rollen gir rettighet til et bredt utvalg skjema og tjenester som ikke har så strenge krav til autorisasjon. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som rollen gir."
+    },
+    {
+        "SubjectId": "a0239",
+        "SubjectSource": "altinn:rolecode",
+        "SubjectTitle": "Regnskapsfører med signeringsrettighet",
+        "SubjectDescription": "Denne rollen gir regnskapsfører rettighet til aktuelle skjema og tjenester, samt signeringsrettighet for tjenestene. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som rollen gir."
+    },
+    {
+        "SubjectId": "a0240",
+        "SubjectSource": "altinn:rolecode",
+        "SubjectTitle": "Regnskapsfører uten signeringsrettighet",
+        "SubjectDescription": "Denne rollen gir regnskapsfører rettighet til aktuelle skjema og tjenester. Denne gir ikke rettighet til å signere. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som rollen gir."
+    },
+    {
+        "SubjectId": "siskd",
+        "SubjectSource": "altinn:rolecode",
+        "SubjectTitle": "Begrenset signeringsrettighet",
+        "SubjectDescription": "Tilgang til å signere utvalgte skjema og tjenester. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som rollen gir."
+    },
+    {
+        "SubjectId": "regna",
+        "SubjectSource": "altinn:rolecode",
+        "SubjectTitle": "Regnskapsmedarbeider",
+        "SubjectDescription": "Denne rollen gir rettighet til regnskapsrelaterte skjema og tjenester. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som rollen gir."
+    },
+    {
+        "SubjectId": "a0237",
+        "SubjectSource": "altinn:rolecode",
+        "SubjectTitle": "Ansvarlig revisor",
+        "SubjectDescription": "Delegerbar revisorrolle med signeringsrettighet.Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som rollen gir."
+    },
+    {
+        "SubjectId": "a0238 ",
+        "SubjectSource": "altinn:rolecode",
+        "SubjectTitle": "Revisormedarbeider",
+        "SubjectDescription": "Denne rollen gir revisor rettighet til aktuelle skjema og tjenester. Denne gir ikke rettighet til å signere. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som rollen gir."
+    },
+    {
+        "SubjectId": "a0241",
+        "SubjectSource": "altinn:rolecode",
+        "SubjectTitle": "Regnskapsfører lønn",
+        "SubjectDescription": "Denne rollen gir regnskapsfører rettighet til lønnsrelaterte tjenester. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som rollen gir."
+    },
+    {
+        "SubjectId": "revai",
+        "SubjectSource": "altinn:rolecode",
+        "SubjectTitle": "Revisorrettighet",
+        "SubjectDescription": "Denne rollen gir revisor rettighet til aktuelle skjema og tjenester"
+    },
+    {
+        "SubjectId": "",
+        "SubjectSource": "altinn:rolecode",
+        "SubjectTitle": "Kontaktperson for NUF",
+        "SubjectDescription": ""
+    },
+    {
+        "SubjectId": "knuf",
+        "SubjectSource": "altinn:rolecode",
+        "SubjectTitle": "Kontaktperson for NUF",
+        "SubjectDescription": "Kontaktperson for norskregistrert utenlandsk foretak. Ekstern rolle (fra Enhetsregisteret)"
+    },
+    {
+        "SubjectId": "a0243",
+        "SubjectSource": "altinn:rolecode",
+        "SubjectTitle": "Rapporter Kulturrådet",
+        "SubjectDescription": "Tilgang til Kulturrådet sine tjenester i tjenesteeiers arkiv"
+    },
+    {
+        "SubjectId": "sksln",
+        "SubjectSource": "altinn:rolecode",
+        "SubjectTitle": "SLN-Skjema",
+        "SubjectDescription": "SLN-Skjema"
+    },
+    {
+        "SubjectId": "seln",
+        "SubjectSource": "altinn:rolecode",
+        "SubjectTitle": "Selvregistrert bruker",
+        "SubjectDescription": "Selvregistrert bruker"
+    },
+    {
+        "SubjectId": "",
+        "SubjectSource": "altinn:rolecode",
+        "SubjectTitle": "",
+        "SubjectDescription": ""
+    },
+    {
+        "SubjectId": "",
+        "SubjectSource": "altinn:rolecode",
+        "SubjectTitle": "",
+        "SubjectDescription": ""
+    },
+    {
+        "SubjectId": "skgld",
+        "SubjectSource": "altinn:rolecode",
+        "SubjectTitle": "SKD Grunnlagsdata",
+        "SubjectDescription": "SKD Grunnlagsdata"
+    },
+    {
+        "SubjectId": "priv",
+        "SubjectSource": "altinn:rolecode",
+        "SubjectTitle": "Privatperson",
+        "SubjectDescription": "Denne rollen er hentet fra Folkeregisteret og gir rettighet til flere tjenester."
+    },
+    {
         "SubjectId": "dagl",
         "SubjectSource": "altinn:rolecode",
         "SubjectTitle": "Daglig leder",
-        "SubjectDescription": "Daglig leder fra enhetsregisteret"
+        "SubjectDescription": "Ekstern rolle (fra Enhetsregisteret)"
     },
     {
-        "SubjectId": "lede",
+        "SubjectId": "a0236",
         "SubjectSource": "altinn:rolecode",
-        "SubjectTitle": "Styreleder",
-        "SubjectDescription": "Styreleder leder fra enhetsregisteret"
+        "SubjectTitle": "Post/arkiv",
+        "SubjectDescription": "Denne rollen gir rettighet til å lese meldinger som blir sendt til brukerens meldingsboks. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som rollen gir."
+    },
+    {
+        "SubjectId": "priut",
+        "SubjectSource": "altinn:rolecode",
+        "SubjectTitle": "Privatperson begrensede rettigheter",
+        "SubjectDescription": "Denne rollen gir mulighet til å benytte tjenester på vegne av en annen privatperson. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som rollen gir."
+    },
+    {
+        "SubjectId": "uiluf",
+        "SubjectSource": "altinn:rolecode",
+        "SubjectTitle": "Samferdsel",
+        "SubjectDescription": "Rollen gir rettighet til tjenester relatert til samferdsel. For eksempel tjenester fra Statens Vegvesen, Sjøfartsdirektoratet og Luftfartstilsynet. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som rol"
     }
 ]
