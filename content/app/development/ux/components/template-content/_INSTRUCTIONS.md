@@ -2,11 +2,11 @@
 
 Innholdet i malen brukes av en partial (`get-content.html`) via shortcoden `property-docs.html`.
 * `get-content.html` finner seksjoner som starter med `<!-- begin * -->` og slutter med `<!-- end * -->`
- og henter ut innholdet mellom disse (`*` = seksjonsnavn).
+ og henter ut innholdet mellom disse.
 * `property-docs.html` får innholdet fra `get-content.html` og viser det i riktig format. Shortcoden kalles med argumentet `prop="{propName}"`. `propName` må samsvare med filnavn (se under).
 
 ## Hvordan bruke malen
-1. **Filnavn**: Kopier malen (denne eller [_TEMPLATE.md](/app/development/ux/components/_common-props-content/_template)) og gi den navn på formatet `{propName}.{languageCode}.md`. Opprett en fil for hvert språk. Alle filer skal ligge direkte under `_common-props-content`.
+1. **Filnavn**: Kopier malen (denne eller [_TEMPLATE.md](_TEMPLATE.md)) og gi den navn på formatet `{propName}.{languageCode}.md`. Opprett en fil for hvert språk. Alle filer skal ligge direkte under `template-content`.
 2. **Legg til innhold**: Legg til innhold mellom `begin`- og `end`-kommentarer. Se beskrivelse over hver seksjon. **NB! `begin`- og `end`-kommentarer må ikke endres eller slettes!**
 3. **Bilder**: Bilder skal ligge i mappen `/assets/images/component-settings/`. For å legge til bilder, bruk shortcode `image.html` med argument
     `file="component-settings/{image.png}"`.

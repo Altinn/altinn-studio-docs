@@ -6,7 +6,7 @@
     `file="component-settings/{image.png}"`.
 4. **Legg til dokumentasjonen**: Bruk shortcode `property-docs` med hakeparenteser (`< >`) og argument `prop="{propName}"`. `propName` må samsvare med filnavn.
 
-For mer veiledning, se [_INSTRUCTIONS.md](_INSTRUCTIONS.md).
+For mer veiledning, se [_INSTRUCTIONS.md](/app/development/ux/components/_common-props-content/_instructions).
 
 # Innhold
 

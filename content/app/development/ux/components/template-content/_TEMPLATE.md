@@ -11,20 +11,20 @@ For mer veiledning, se [_INSTRUCTIONS.md](_INSTRUCTIONS.md).
 # Innhold
 
 <!-- begin intro -->
-### Kilde (`source`)
-
-One way to add options is by linking the component to a code list based on form data stored within the app itself.
- You can do this by adding a source (`source`); please refer to the [documentation](/app/development/data/options/repeating-group-codelists/) for instructions on how to configure this.
+### Egenskap (`egenskap`)
 
 <!-- end intro -->
 
+
 <!-- begin asd -->
 
-Settings in Altinn Studio.
+Innstillinger i Altinn Studio.
 
-{{% image file="component-settings/source.png" %}}
+<!-- Bilde må ligge i /assets/images/component-settings. Erstatt filnavn. -->
+{{% image file="component-settings/image.png" %}}
 
 <!-- end asd -->
+
 
 <!-- begin code -->
 
@@ -32,23 +32,18 @@ Settings in Altinn Studio.
 App/ui/layouts/{page}.json
 {{< /code-title >}}
 
-```json{hl_lines="4-9"}
+```json{hl_lines=""}
 {
   "id": "komponent-id",
-  ...
-  "source": {
-    "group": "some.group",
-    "label": "dropdown.label",
-    "value": "some.group[{0}].someField",
-    "description": "",
-    "helpText": ""
-  }
+  // property code
+  
 }
-...
 ```
 
 <!-- end code -->
 
+
 <!-- begin more -->
+
 
 <!-- end more -->
