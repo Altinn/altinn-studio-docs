@@ -1732,9 +1732,13 @@ a code + .copy-to-clipboard {
 }
 
 body {
-  --pagefind-ui-primary: #44aaf3;
-  --pagefind-ui-text: #eeeeee;
-  --pagefind-ui-background: #152028;
+  --pagefind-ui-primary: #6499be;
+  --pagefind-ui-text: #363333;
+  --pagefind-ui-background: #ffffff;
   --pagefind-ui-border: #152028;
   --pagefind-ui-tag: #152028;
+}
+
+.pagefind-ui__results {
+    background: rgb(255, 255, 240);
 }

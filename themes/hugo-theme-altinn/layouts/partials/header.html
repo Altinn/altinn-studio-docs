@@ -18,6 +18,10 @@
     <link href="{{"css/horsey.css" | relURL}}" rel="stylesheet">
     <link href="{{"css/fortawesome.css" | relURL}}" rel="stylesheet">
     <link href="{{"css/designsystem.css" | relURL}}" rel="stylesheet">
+
+
+    <link href="{{"pagefind/pagefind-ui.css" | relURL}}" rel="stylesheet">
+
     {{- with .Site.Params.themeStyle -}}
     <link href="{{(printf "css/%s.css" .) | relURL}}" rel="stylesheet">
     {{- else -}}
@@ -26,6 +30,7 @@
     {{- with .Site.Params.themeVariant -}}
       <link href="{{(printf "css/theme-%s.css" .) | relURL}}" rel="stylesheet">
     {{- end -}}
+
 
     <script src="{{"js/jquery-2.x.min.js" | relURL}}"></script>
 
@@ -73,7 +78,7 @@
                 <span id="sidebar-toggle-span" class="adocs-sidebarToggle">
                   <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
                     <i class="fa fa-bars"></i>
-                    <span class="sr-only">Vis/skjul meny</span>
+                    <span class="sr-only">Show/hide menu Vis/skjul meny</span>
                   </a>
                 </span>
                 <span class="links">
