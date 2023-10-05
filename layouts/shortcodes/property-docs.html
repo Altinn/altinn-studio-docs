@@ -4,6 +4,14 @@
 {{- .Scratch.Set "page" $page -}}
 
 {{- with .Site.GetPage $page -}}
+    {{/*  If prop name ends with 'page', get the whole page content  */}}
+    {{- $split := split $prop "-" -}}
+    {{- $isFullPage := eq (index $split (sub (len $split) 1)) "page" -}}
+
+    {{- if $isFullPage -}}
+        {{- .Content -}}
+    
+    {{- else -}}
     {{- $content := partial "component-props/get-content.html" . -}}
 
     {{- with index $content "intro" -}}
@@ -22,6 +30,7 @@
 
     {{- with index $content "more" -}}
     {{- . | markdownify -}}
+    {{- end -}}
     {{- end -}}
 
 {{- else -}}

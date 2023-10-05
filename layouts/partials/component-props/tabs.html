@@ -5,7 +5,7 @@
     {{- with .Scratch.Get "asd" -}}
     <div class="content-version-container">
         <label class="content-version-label" hidden>
-            Altinn Studio Designer
+                Altinn Studio Designer
         </label>
             {{- . | markdownify -}}
         
@@ -15,7 +15,11 @@
     {{- with .Scratch.Get "code" -}}
     <div class="content-version-container">
         <label class="content-version-label" hidden>
-            Kode
+            {{- if (eq $.Site.LanguageCode "en") -}}
+                Code
+            {{- else -}}
+                Kode
+            {{- end -}}
         </label>
             {{- . | markdownify -}}
     </div>

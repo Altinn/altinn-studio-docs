@@ -21,7 +21,7 @@ For mer veiledning, se [_INSTRUCTIONS.md](/app/development/ux/components/_common
 Innstillinger i Altinn Studio.
 
 <!-- Bilde må ligge i /assets/images/component-settings. Erstatt filnavn. -->
-{{% image file="component-settings/image.png" %}}
+{{% image file="component-settings/screenshot.png" %}}
 
 <!-- end asd -->
 
