@@ -43,3 +43,8 @@ When sending a notification to an organisation or person based on a national ide
 and optionally a role code, the contact information is retrieved from preferences registered in Altinn by the end user, or a 
 copy of one of the Norwegian national registries (Folkeregisteret, Kontakt- og reservasjonsregistret
 or Enhetsregisteret).
+
+## Cost
+{{% notice info %}}
+Todo: can we say anything about cost or billing here? or link to something else? 
+{{% /notice %}}
