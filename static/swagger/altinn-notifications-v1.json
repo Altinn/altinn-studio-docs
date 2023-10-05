@@ -10,6 +10,7 @@
 		  "tags": [
 			"EmailNotificationOrders"
 		  ],
+		  "summary": "Add an order to create an email notification. \r\nThe API will accept the request after som basic validation of the request.\r\nThe system will also attempt to verify that it will be possible to fulfill the order.",
 		  "requestBody": {
 			"content": {
 			  "application/json": {
@@ -20,22 +21,38 @@
 			}
 		  },
 		  "responses": {
-			"200": {
-			  "description": "Success",
-			  "content": {
-				"text/plain": {
+			"401": {
+			  "description": "Caller is unauthorized"
+			},
+			"403": {
+			  "description": "Caller is not authorized to access the requested resource"
+			},
+			"202": {
+			  "description": "The notification order was accepted",
+			  "headers": {
+				"Location": {
+				  "description": "Link to access the newly created notification order.",
 				  "schema": {
-					"$ref": "#/components/schemas/NotificationOrderExt"
+					"type": "string",
+					"description": "Link to access the newly created notification order.",
+					"format": ""
 				  }
-				},
+				}
+			  },
+			  "content": {
 				"application/json": {
 				  "schema": {
-					"$ref": "#/components/schemas/NotificationOrderExt"
+					"$ref": "#/components/schemas/OrderIdExt"
 				  }
-				},
-				"text/json": {
+				}
+			  }
+			},
+			"400": {
+			  "description": "The notification order is invalid",
+			  "content": {
+				"application/json": {
 				  "schema": {
-					"$ref": "#/components/schemas/NotificationOrderExt"
+					"$ref": "#/components/schemas/ValidationProblemDetails"
 				  }
 				}
 			  }
@@ -48,10 +65,12 @@
 		  "tags": [
 			"Orders"
 		  ],
+		  "summary": "Endpoint for retrieving an order by id",
 		  "parameters": [
 			{
 			  "name": "id",
 			  "in": "path",
+			  "description": "The order id",
 			  "required": true,
 			  "schema": {
 				"type": "string",
@@ -60,25 +79,24 @@
 			}
 		  ],
 		  "responses": {
+			"401": {
+			  "description": "Caller is unauthorized"
+			},
+			"403": {
+			  "description": "Caller is not authorized to access the requested resource"
+			},
 			"200": {
-			  "description": "Success",
+			  "description": "The notification order matching the provided id was retrieved successfully",
 			  "content": {
-				"text/plain": {
-				  "schema": {
-					"$ref": "#/components/schemas/NotificationOrderExt"
-				  }
-				},
 				"application/json": {
-				  "schema": {
-					"$ref": "#/components/schemas/NotificationOrderExt"
-				  }
-				},
-				"text/json": {
 				  "schema": {
 					"$ref": "#/components/schemas/NotificationOrderExt"
 				  }
 				}
 			  }
+			},
+			"404": {
+			  "description": "No order with the provided id was found"
 			}
 		  }
 		}
@@ -88,30 +106,29 @@
 		  "tags": [
 			"Orders"
 		  ],
+		  "summary": "Endpoint for retrieving an order by senders reference",
 		  "parameters": [
 			{
 			  "name": "sendersReference",
 			  "in": "query",
+			  "description": "The senders reference",
+			  "required": true,
 			  "schema": {
 				"type": "string"
 			  }
 			}
 		  ],
 		  "responses": {
+			"401": {
+			  "description": "Caller is unauthorized"
+			},
+			"403": {
+			  "description": "Caller is not authorized to access the requested resource"
+			},
 			"200": {
-			  "description": "Success",
+			  "description": "The list of notification orders matching the provided senders ref was retrieved successfully",
 			  "content": {
-				"text/plain": {
-				  "schema": {
-					"$ref": "#/components/schemas/NotificationOrderListExt"
-				  }
-				},
 				"application/json": {
-				  "schema": {
-					"$ref": "#/components/schemas/NotificationOrderListExt"
-				  }
-				},
-				"text/json": {
 				  "schema": {
 					"$ref": "#/components/schemas/NotificationOrderListExt"
 				  }
@@ -126,10 +143,12 @@
 		  "tags": [
 			"Orders"
 		  ],
+		  "summary": "Endpoint for retrieving an order with processing and notificatio status by id",
 		  "parameters": [
 			{
 			  "name": "id",
 			  "in": "path",
+			  "description": "The order id",
 			  "required": true,
 			  "schema": {
 				"type": "string",
@@ -138,25 +157,24 @@
 			}
 		  ],
 		  "responses": {
+			"401": {
+			  "description": "Caller is unauthorized"
+			},
+			"403": {
+			  "description": "Caller is not authorized to access the requested resource"
+			},
 			"200": {
-			  "description": "Success",
+			  "description": "The notification order matching the provided id was retrieved successfully",
 			  "content": {
-				"text/plain": {
-				  "schema": {
-					"$ref": "#/components/schemas/NotificationOrderWithStatusExt"
-				  }
-				},
 				"application/json": {
 				  "schema": {
-					"$ref": "#/components/schemas/NotificationOrderWithStatusExt"
-				  }
-				},
-				"text/json": {
-				  "schema": {
-					"$ref": "#/components/schemas/NotificationOrderWithStatusExt"
+					"$ref": "#/components/schemas/NotificationOrderExt"
 				  }
 				}
 			  }
+			},
+			"404": {
+			  "description": "No order with the provided id was found"
 			}
 		  }
 		}
@@ -176,14 +194,17 @@
 		  "properties": {
 			"fromAddress": {
 			  "type": "string",
+			  "description": "Gets or sets the from address to use as sender of the email",
 			  "nullable": true
 			},
 			"subject": {
 			  "type": "string",
+			  "description": "Gets or sets the subject of the email",
 			  "nullable": true
 			},
 			"body": {
 			  "type": "string",
+			  "description": "Gets or sets the body of the email",
 			  "nullable": true
 			},
 			"content-type": {
@@ -191,10 +212,12 @@
 			},
 			"requestedSendTime": {
 			  "type": "string",
+			  "description": "Gets or sets the send time of the email. Defaults to UtcNow.",
 			  "format": "date-time"
 			},
 			"sendersReference": {
 			  "type": "string",
+			  "description": "Gets or sets the senders reference on the notification",
 			  "nullable": true
 			},
 			"recipients": {
@@ -202,48 +225,37 @@
 			  "items": {
 				"$ref": "#/components/schemas/RecipientExt"
 			  },
+			  "description": "Gets or sets the list of recipients",
 			  "nullable": true
 			}
 		  },
-		  "additionalProperties": false
-		},
-		"EmailNotificationStatusExt": {
-		  "type": "object",
-		  "properties": {
-			"links": {
-			  "$ref": "#/components/schemas/NotificationResourceLinksExt"
-			},
-			"generated": {
-			  "type": "integer",
-			  "format": "int32"
-			},
-			"succeeded": {
-			  "type": "integer",
-			  "format": "int32"
-			}
-		  },
-		  "additionalProperties": false
+		  "additionalProperties": false,
+		  "description": "Class representing an email notiication order request"
 		},
 		"EmailTemplateExt": {
 		  "type": "object",
 		  "properties": {
 			"fromAddress": {
 			  "type": "string",
+			  "description": "Gets the from adress of emails created by the template",
 			  "nullable": true
 			},
 			"subject": {
 			  "type": "string",
+			  "description": "Gets the subject of emails created by the template",
 			  "nullable": true
 			},
 			"body": {
 			  "type": "string",
+			  "description": "Gets the body of emails created by the template",
 			  "nullable": true
 			},
 			"content-type": {
 			  "$ref": "#/components/schemas/EmailContentType"
 			}
 		  },
-		  "additionalProperties": false
+		  "additionalProperties": false,
+		  "description": "Template for an email notification"
 		},
 		"NotificationChannel": {
 		  "enum": [
@@ -282,6 +294,7 @@
 			  "items": {
 				"$ref": "#/components/schemas/RecipientExt"
 			  },
+			  "description": "Gets or sets the list of recipients",
 			  "nullable": true
 			},
 			"emailTemplate": {
@@ -291,13 +304,15 @@
 			  "$ref": "#/components/schemas/OrderResourceLinksExt"
 			}
 		  },
-		  "additionalProperties": false
+		  "additionalProperties": false,
+		  "description": "A class representing a registered notification order."
 		},
 		"NotificationOrderListExt": {
 		  "type": "object",
 		  "properties": {
 			"count": {
 			  "type": "integer",
+			  "description": "Gets or sets the number of orders in the list",
 			  "format": "int32"
 			},
 			"orders": {
@@ -305,114 +320,101 @@
 			  "items": {
 				"$ref": "#/components/schemas/NotificationOrderExt"
 			  },
+			  "description": "Gets or sets the list of notification orders",
 			  "nullable": true
 			}
 		  },
-		  "additionalProperties": false
+		  "additionalProperties": false,
+		  "description": "A class representing a list of notification order."
 		},
-		"NotificationOrderWithStatusExt": {
+		"OrderIdExt": {
 		  "type": "object",
 		  "properties": {
-			"id": {
+			"orderId": {
 			  "type": "string",
-			  "nullable": true
-			},
-			"sendersReference": {
-			  "type": "string",
-			  "nullable": true
-			},
-			"requestedSendTime": {
-			  "type": "string",
-			  "format": "date-time"
-			},
-			"creator": {
-			  "type": "string",
-			  "nullable": true
-			},
-			"created": {
-			  "type": "string",
-			  "format": "date-time"
-			},
-			"notificationChannel": {
-			  "$ref": "#/components/schemas/NotificationChannel"
-			},
-			"processingStatus": {
-			  "$ref": "#/components/schemas/ProcessingStatusExt"
-			},
-			"notificationsStatusSummary": {
-			  "$ref": "#/components/schemas/NotificationsStatusSummaryExt"
+			  "description": "The order id",
+			  "format": "uuid"
 			}
 		  },
-		  "additionalProperties": false
-		},
-		"NotificationResourceLinksExt": {
-		  "type": "object",
-		  "properties": {
-			"self": {
-			  "type": "string",
-			  "nullable": true
-			}
-		  },
-		  "additionalProperties": false
-		},
-		"NotificationsStatusSummaryExt": {
-		  "type": "object",
-		  "properties": {
-			"email": {
-			  "$ref": "#/components/schemas/EmailNotificationStatusExt"
-			}
-		  },
-		  "additionalProperties": false
+		  "additionalProperties": false,
+		  "description": "A class representing a container for an order id."
 		},
 		"OrderResourceLinksExt": {
 		  "type": "object",
 		  "properties": {
 			"self": {
 			  "type": "string",
+			  "description": "Gets or sets the self link",
 			  "nullable": true
 			},
 			"status": {
 			  "type": "string",
+			  "description": "Gets or sets the status link",
 			  "nullable": true
 			},
 			"notifications": {
 			  "type": "string",
+			  "description": "Gets or sets the notifications link",
 			  "nullable": true
 			}
 		  },
-		  "additionalProperties": false
-		},
-		"ProcessingStatusExt": {
-		  "type": "object",
-		  "properties": {
-			"status": {
-			  "type": "string",
-			  "nullable": true
-			},
-			"description": {
-			  "type": "string",
-			  "nullable": true
-			},
-			"lastUpdate": {
-			  "type": "string",
-			  "format": "date-time"
-			}
-		  },
-		  "additionalProperties": false
+		  "additionalProperties": false,
+		  "description": "A class representing a set of resource links of a notification order."
 		},
 		"RecipientExt": {
 		  "type": "object",
 		  "properties": {
 			"id": {
 			  "type": "string",
+			  "description": "Gets or sets the recipient id",
 			  "nullable": true
 			},
 			"emailAddress": {
 			  "type": "string",
+			  "description": "Gets or sets the email address of the recipient",
 			  "nullable": true
 			}
 		  },
-		  "additionalProperties": false
+		  "additionalProperties": false,
+		  "description": "Class representing a notification recipient"
+		},
+		"ValidationProblemDetails": {
+		  "type": "object",
+		  "properties": {
+			"type": {
+			  "type": "string",
+			  "nullable": true
+			},
+			"title": {
+			  "type": "string",
+			  "nullable": true
+			},
+			"status": {
+			  "type": "integer",
+			  "format": "int32",
+			  "nullable": true
+			},
+			"detail": {
+			  "type": "string",
+			  "nullable": true
+			},
+			"instance": {
+			  "type": "string",
+			  "nullable": true
+			},
+			"errors": {
+			  "type": "object",
+			  "additionalProperties": {
+				"type": "array",
+				"items": {
+				  "type": "string"
+				}
+			  },
+			  "nullable": true,
+			  "readOnly": true
+			}
+		  },
+		  "additionalProperties": { }
 		}
 	  }
 	}

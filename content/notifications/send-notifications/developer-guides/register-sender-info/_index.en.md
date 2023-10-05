@@ -1,6 +1,7 @@
 ---
 title: Register sender info
 linktitle: Register sender info 
+description: Developer guide on registering sender details for an organisation
 weight: 10
 toc: true
 ---

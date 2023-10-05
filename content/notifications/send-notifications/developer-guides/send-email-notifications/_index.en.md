@@ -1,7 +1,8 @@
 ---
 title: Send email notifications 
 linktitle: Send email notifications 
-description: Guide on sending an email notification 
+description: Developer guide on sending an email notification order
+
 weight: 50
 toc: true
 ---
