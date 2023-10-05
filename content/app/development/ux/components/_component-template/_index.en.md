@@ -11,14 +11,14 @@ hidden: true # Remove when creating new component page from template
 <!-- HOW TO USE THIS TEMPLATE
 - Read the comments within each section for guidance.
 - Delete comments and content that are not relevant.
-- When the documentation is ready for publishing, remove "hidden: false" from the frontmatter.
+- When the documentation is ready for publishing, remove "hidden: true" from the frontmatter.
 - If the documentation is complete, remove the warning that it's a work in progress.
 
 COMMON PROPERTIES
 Documentation for properties that are common to multiple components is updated in separate files and added via shortcode.
 Add documentation: Use the shortcode `property-docs` with pointy brackets and the argument `prop="{propName}"`. `propName` must match the filename (which should correspond to the JSON schema name).
 Update/create documentation:
-- Files, templates, and instructions are located under components/template-content.
+- Files, templates, and instructions are located under components/_common-props-content.
 - Images are located under /assets/images/component-settings and are added via a separate shortcode (`image.html`).
 
 EXAMPLES

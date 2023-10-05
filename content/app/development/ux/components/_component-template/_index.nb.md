@@ -12,14 +12,14 @@ hidden: true # Fjern for ny komponent
 - Les kommentarer under hver seksjon for veiledning.
 - Slett kommentarer og deler av innholdet som ikke er relevant.
 - Gi norsk navn til title og linktitle i frontmatter
-- Når dokumentasjonen er klar til å publiseres, fjern "hidden: false" fra frontmatter
+- Når dokumentasjonen er klar til å publiseres, fjern "hidden: true" fra frontmatter
 - Hvis dokumentasjonen er fullstendig, fjern advarsel om at den er under oppdatering.
 
 FELLES EGENSKAPER
 Dokumentasjon for egenskaper som er felles for flere komponenter oppdateres i egne filer og legges til via shortcode.
 Legg til dokumentasjon: Bruk shortcode `property-docs` med hakeparenteser (`< >`) og argument `prop="{propName}"`. `propName` må samsvare med filnavn (som bør samsvare med JSON-skjema-navn).
 Oppdatere/opprette dokumentasjon:
-- Filer, maler og instruksjoner ligger under components/template-content
+- Filer, maler og instruksjoner ligger under components/_common-props-content
 - Bilder legges i /assets/images/component-settings og legges til via egen shortcode (`image.html`)
 
 EKSEMPLER
