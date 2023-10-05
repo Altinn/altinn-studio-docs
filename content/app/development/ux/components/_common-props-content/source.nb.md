@@ -11,7 +11,7 @@ For mer veiledning, se [_INSTRUCTIONS.md](/app/development/ux/components/_common
 # Innhold
 
 <!-- begin intro -->
-### Kilde (`source`)
+#### Kilde (`source`)
 
 En måte å legge til alternativer er å koble komponenten til en kodeliste basert på skjemadata lagret i selve appen.
  Dette gjør du ved å legge til en kilde (`source`); se [dokumentasjon](/nb/app/development/data/options/repeating-group-codelists/) for hvordan dette konfigureres.
