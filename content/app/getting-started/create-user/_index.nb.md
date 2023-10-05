@@ -47,7 +47,7 @@ kan du spørre [Altinn Servicedesk](mailto:tjenesteeier@altinn.no) om hjelp.
 
 Det er Digdir som oppretter organisasjoner i Altinn Studio.
 
-For å kunne få en organisasjon i Altinn Studio må din virksomhethet
+For å kunne få en organisasjon i Altinn Studio må din virksomhet
 
 - være tjenesteeier og ha inngått en avtale med Altinn, eller
 - tilby tjenesteutvikling i Altinn Studio på vegne av offentlige virksomheter
