@@ -5,20 +5,24 @@ description: # Kort beskrivelse av komponenten
 schemaname: FileUploadWithTag # Komponentens schema-navn, brukes for å automatisk generere liste med egenskaper fra komponentens JSON schema (erstatt med riktig navn i henhold til schema)
 weight: 10 # Ikke endre, komponentene sorteres alfabetisk
 toc: true
-hidden: true # Fjern for ny komponent
 ---
+
 <!-- HVORDAN BRUKE DENNE MALEN
 - Les kommentarer under hver seksjon for veiledning.
 - Slett kommentarer og deler av innholdet som ikke er relevant.
 - Gi norsk navn til title og linktitle i frontmatter
-- Når dokumentasjonen er klar til å publiseres, fjern "hidden: false" fra frontmatter
+- Når dokumentasjonen er klar til å publiseres, fjern "hidden: true" fra frontmatter
 - Hvis dokumentasjonen er fullstendig, fjern advarsel om at den er under oppdatering.
 
-EKSEMPLER OG GJENBRUKSBARE SEKSJONER OG SKJERMBILDER
+FELLES EGENSKAPER
+Dokumentasjon for egenskaper som er felles for flere komponenter oppdateres i egne filer og legges til via shortcode.
+Legg til dokumentasjon: Bruk shortcode `property-docs` med hakeparenteser (`< >`) og argument `prop="{propName}"`. `propName` må samsvare med filnavn (som bør samsvare med JSON-skjema-navn).
+Oppdatere/opprette dokumentasjon:
+- Filer, maler og instruksjoner ligger under components/_common-props-content
+- Bilder legges i /assets/images/component-settings og legges til via egen shortcode (`image.html`)
+
+EKSEMPLER
 - Se Image, Checkboxes, RadioButtons og Dropdown. for eksempler.
-- Dokumentasjonen for de ovennevnte komponentene inneholder noen seksjoner som er felles for flere komponenter og kan kopieres direkte eller med små endringer.
-  - Felles seksjoner vil snart være tilgjengelige som shortcode.
-- Skjermbilder som er felles for flere komponenter ligger direkte i 'components'
 
 -->
 
@@ -154,6 +158,7 @@ Legg til seksjoner som beskriver konfigurasjonen av egenskaper som er spesifikke
     {{% /notice %}}
 - Legg til filsti eller annen informasjon inni code-title (vises øverst i kodeblokken).
 - Marker gjerne relevante deler av koden vha hl_lines.
+- Legg til dokumentasjon for felles egenskaper ved å bruke shortcode `property-docs` med hakeparenteser (`< >`) og argument `prop="{propName}"`. `propName` må samsvare med filnavn (som bør samsvare med JSON-skjema-navn).
 
 Shortcode for faner:
 

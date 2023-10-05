@@ -7,14 +7,24 @@ weight: 10 # Ikke endre, komponentene sorteres alfabetisk
 toc: true
 hidden: true # Fjern for ny komponent
 ---
+
 <!-- HVORDAN BRUKE DENNE MALEN
 - Les kommentarer under hver seksjon for veiledning.
 - Slett kommentarer og deler av innholdet som ikke er relevant.
 - Gi norsk navn til title og linktitle i frontmatter
-- Når dokumentasjonen er klar til å publiseres, fjern "hidden: false" fra frontmatter
+- Når dokumentasjonen er klar til å publiseres, fjern "hidden: true" fra frontmatter
 - Hvis dokumentasjonen er fullstendig, fjern advarsel om at den er under oppdatering.
 
-For et eksempel på utfylt mal, se Image og Accordion.
+FELLES EGENSKAPER
+Dokumentasjon for egenskaper som er felles for flere komponenter oppdateres i egne filer og legges til via shortcode.
+Legg til dokumentasjon: Bruk shortcode `property-docs` med hakeparenteser (`< >`) og argument `prop="{propName}"`. `propName` må samsvare med filnavn (som bør samsvare med JSON-skjema-navn).
+Oppdatere/opprette dokumentasjon:
+- Filer, maler og instruksjoner ligger under components/_common-props-content
+- Bilder legges i /assets/images/component-settings og legges til via egen shortcode (`image.html`)
+
+EKSEMPLER
+- Se Image, Checkboxes, RadioButtons og Dropdown. for eksempler.
+
 -->
 
 {{% notice warning %}}
@@ -53,7 +63,7 @@ Legg til seksjoner dersom de er relevante:
 
 ### Oppførsel
 
-(Hvordan komponenten oppfører seg i ulike sammenhenger.)
+(Hvordan komponenten oppfører seg i ulike sammenhenger, f.eks. på mobil vs. desktop)
 
 ### Stil
 
@@ -99,15 +109,45 @@ Hvis komponenten ikke har JSON schema, kommenter ut tekst og shortcode i denne d
 
 ## Konfigurering
 
-### Legg til komponent
-
-Du kan legge til en komponent i [Altinn Studio Designer](/nb/app/getting-started/ui-editor/) ved å dra den fra venstre sidepanel til midten av siden.
-Når du velger komponenten, vises et panel med innstillinger for den på høyre side.
-
 {{% notice warning %}}
 Vi oppdaterer for øyeblikket Altinn Studio med flere muligheter for innstillinger!
  Dokumentasjonen oppdateres fortløpende, men det kan være flere innstillinger tilgjengelig enn det som beskrives her og noen innstillinger kan være i betaversjon.
 {{% /notice %}}
+
+### Legg til komponent
+
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="Altinn Studio Designer">}}
+
+Du kan legge til en komponent i [Altinn Studio Designer](/nb/app/getting-started/ui-editor/) ved å dra den fra komponent-listen til sideområdet.
+Når du velger komponenten, vises innstillingspanelet for den.
+
+{{</content-version-container>}}
+{{<content-version-container version-label="Kode">}}
+
+Grunnleggende komponent:
+
+{{< code-title >}}
+App/ui/layouts/{page}.json
+{{< /code-title >}}
+
+```json{hl_lines="6-"}
+{
+  "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
+  {
+    "data": {
+      "layout": [
+        {
+          // Basic component (required properties)
+        }
+      ]
+    }
+  }
+}
+```
+
+{{</content-version-container>}}
+{{</content-version-selector>}}
 
 <!-- 
 Legg til seksjoner som beskriver konfigurasjonen av egenskaper som er spesifikke for komponenten.
@@ -119,6 +159,7 @@ Legg til seksjoner som beskriver konfigurasjonen av egenskaper som er spesifikke
     {{% /notice %}}
 - Legg til filsti eller annen informasjon inni code-title (vises øverst i kodeblokken).
 - Marker gjerne relevante deler av koden vha hl_lines.
+- Legg til dokumentasjon for felles egenskaper ved å bruke shortcode `property-docs` med hakeparenteser (`< >`) og argument `prop="{propName}"`. `propName` må samsvare med filnavn (som bør samsvare med JSON-skjema-navn).
 
 Shortcode for faner:
 
@@ -135,11 +176,7 @@ App/ui/layouts/{page}.json
 
 ```json{hl_lines=""}
 {
-  "data": {
-    "layout": [
-      // component code
-    ]
-  }
+  // component properties
 }
 ```
 

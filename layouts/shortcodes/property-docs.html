@@ -1,0 +1,29 @@
+{{- $prop := .Get "prop" -}}
+{{- $contentPath := "/app/development/ux/components/_common-props-content/" -}}
+{{- $page := printf "%s%s" $contentPath $prop -}}
+{{- .Scratch.Set "page" $page -}}
+
+{{- with .Site.GetPage $page -}}
+    {{- $content := partial "component-props/get-content.html" . -}}
+
+    {{- with index $content "intro" -}}
+    {{- . | markdownify -}}
+    {{- end -}}
+
+    {{- with index $content "asd" -}}
+    {{- $.Scratch.Set "asd" . -}}
+    {{- end -}}
+
+    {{- with index $content "code" -}}
+    {{- $.Scratch.Set "code" . -}}
+    {{- end -}}
+
+    {{- partial "component-props/tabs.html" $ -}}
+
+    {{- with index $content "more" -}}
+    {{- . | markdownify -}}
+    {{- end -}}
+
+{{- else -}}
+    {{- warnf "Page not found %q (language %q)" $page .Site.LanguageCode -}}
+{{- end -}}
