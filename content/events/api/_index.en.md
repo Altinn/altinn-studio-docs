@@ -16,24 +16,15 @@ The Altinn Events API is an HTTP-based RESTful API that provides endpoints and a
 
 ### Altinn token
 
-{{% insert "content/events/api/altinn-token.md" "Events"%}}
+{{% insert "content/events//api/altinn-token.md" "Events"%}}
 
 ### Maskinporten scopes
 
-{{% notice info %}}
-TODO: find docs to link to or create them.
-{{% /notice %}}
-
-Some endpoints in the API require additional authorization in the form of a
-Maskinporten scope. [User documentation on setting up a maskinporten integration with a specific scope
-is available here]().
+{{% insert "content/events/api/maskinporten-scopes.md" %}}
 
 ### Platform Access token
 
-The use of some endpoints in the API is limited to callers within the Altinn eco-system.
-These APIs require additional authorization in the form of a
-Platform Access Token. Reference developer documentation for the client system on how to generate
-the token.
+{{% insert "content/events/api/platform-access-token.md" %}}
 
 ### Private APIs
 

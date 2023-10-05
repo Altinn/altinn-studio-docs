@@ -49,23 +49,16 @@ Reasons to consider using Altinn Notifications for communication with Norwegian 
 
 ## Notification channels
 
-Currently, Altinn offers two notification channels:
+Currently, we support sending notifications through two channels:
 
 - email
 - sms
 
-#### Combining notification channels
-
-{{% notice info %}}
-To be completed and considered. EmailPreferred, SMSPreferred. </br></br>
-Do we want to explain these concepts here or is that too early?
-{{% /notice %}}
-
 #### Future improvements
 
 In the future, we plan to extend our notification channel options to provide even more flexibility and convenience.
-Our goal is to support a wider range of communication platforms. This expansion will allow your organisation and your
-end users to communicate through the channels that best suit the end users preferences and communication habits.
+Our goal is to support a wider range of communication platforms. This expansion will allow both  your organisation 
+and the end users to communicate through the channels that best suit the end users preferences and communication habits.
 
 Stay tuned for updates as we continue to enhance our notification capabilities to better serve your needs.
 
@@ -75,6 +68,6 @@ please don't hesitate to [reach out to us through GitHub](https://github.com/Alt
 ## Who can use Altinn Notifications
 
 Sending notifications through Altinn Notifications is limited to registered service owners,
-Altinn Apps and Altinn services.
+Altinn Apps and internal Altinn services.
 
 Maskinporten authentication is be required in order to send notification via our platform.
