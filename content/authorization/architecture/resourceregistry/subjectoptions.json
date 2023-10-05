@@ -54,28 +54,10 @@
         "SubjectDescription": "Denne rollen gir revisor rettighet til aktuelle skjema og tjenester"
     },
     {
-        "SubjectId": "",
-        "SubjectSource": "altinn:rolecode",
-        "SubjectTitle": "Kontaktperson for NUF",
-        "SubjectDescription": ""
-    },
-    {
         "SubjectId": "knuf",
         "SubjectSource": "altinn:rolecode",
         "SubjectTitle": "Kontaktperson for NUF",
         "SubjectDescription": "Kontaktperson for norskregistrert utenlandsk foretak. Ekstern rolle (fra Enhetsregisteret)"
-    },
-    {
-        "SubjectId": "a0243",
-        "SubjectSource": "altinn:rolecode",
-        "SubjectTitle": "Rapporter Kulturrådet",
-        "SubjectDescription": "Tilgang til Kulturrådet sine tjenester i tjenesteeiers arkiv"
-    },
-    {
-        "SubjectId": "sksln",
-        "SubjectSource": "altinn:rolecode",
-        "SubjectTitle": "SLN-Skjema",
-        "SubjectDescription": "SLN-Skjema"
     },
     {
         "SubjectId": "seln",
@@ -84,34 +66,16 @@
         "SubjectDescription": "Selvregistrert bruker"
     },
     {
-        "SubjectId": "",
+        "SubjectId": "dagl",
         "SubjectSource": "altinn:rolecode",
-        "SubjectTitle": "",
-        "SubjectDescription": ""
-    },
-    {
-        "SubjectId": "",
-        "SubjectSource": "altinn:rolecode",
-        "SubjectTitle": "",
-        "SubjectDescription": ""
-    },
-    {
-        "SubjectId": "skgld",
-        "SubjectSource": "altinn:rolecode",
-        "SubjectTitle": "SKD Grunnlagsdata",
-        "SubjectDescription": "SKD Grunnlagsdata"
+        "SubjectTitle": "Daglig leder",
+        "SubjectDescription": "Ekstern rolle (fra Enhetsregisteret)"
     },
     {
         "SubjectId": "priv",
         "SubjectSource": "altinn:rolecode",
         "SubjectTitle": "Privatperson",
         "SubjectDescription": "Denne rollen er hentet fra Folkeregisteret og gir rettighet til flere tjenester."
-    },
-    {
-        "SubjectId": "dagl",
-        "SubjectSource": "altinn:rolecode",
-        "SubjectTitle": "Daglig leder",
-        "SubjectDescription": "Ekstern rolle (fra Enhetsregisteret)"
     },
     {
         "SubjectId": "a0236",
@@ -130,5 +94,191 @@
         "SubjectSource": "altinn:rolecode",
         "SubjectTitle": "Samferdsel",
         "SubjectDescription": "Rollen gir rettighet til tjenester relatert til samferdsel. For eksempel tjenester fra Statens Vegvesen, Sjøfartsdirektoratet og Luftfartstilsynet. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som rol"
+    },
+    {
+        "SubjectId": "lede",
+        "SubjectSource": "altinn:rolecode",
+        "SubjectTitle": "Styrets leder",
+        "SubjectDescription": "Ekstern rolle (fra Enhetsregisteret)"
+    },
+    {
+        "SubjectId": "pavad",
+        "SubjectSource": "altinn:rolecode",
+        "SubjectTitle": "Patent, varemerke og design",
+        "SubjectDescription": "Denne rollen gir rettighet til tjenester relatert til patent, varemerke og design. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som rollen gir."
+    },
+    {
+        "SubjectId": "a0282",
+        "SubjectSource": "altinn:rolecode",
+        "SubjectTitle": "Skatteforhold for privatpersoner",
+        "SubjectDescription": "Tillatelsen gjelder alle opplysninger vedrørende dine eller ditt enkeltpersonsforetaks skatteforhold. Ved regelverksendringer eller innføring av nye digitale tjenester kan Skatteetaten endre i tillatelsen."
+    },
+    {
+        "SubjectId": "dtpr",
+        "SubjectSource": "altinn:rolecode",
+        "SubjectTitle": "Deltaker med delt ansvar",
+        "SubjectDescription": "Deltaker med proratarisk ansvar. Ekstern rolle (fra Enhetsregisteret)"
+    },
+    {
+        "SubjectId": "dtso",
+        "SubjectSource": "altinn:rolecode",
+        "SubjectTitle": "Deltaker med fullt ansvar",
+        "SubjectDescription": "Deltaker med solidarisk ansvar. Ekstern rolle (fra Enhetsregisteret)."
+    },
+    {
+        "SubjectId": "loper",
+        "SubjectSource": "altinn:rolecode",
+        "SubjectTitle": "Lønn og personalmedarbeider",
+        "SubjectDescription": "Denne rollen gir rettighet til lønns- og personalrelaterte tjenester. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som rollen gir."
+    },
+    {
+        "SubjectId": "utomr",
+        "SubjectSource": "altinn:rolecode",
+        "SubjectTitle": "Energi, miljø og klima",
+        "SubjectDescription": "Tilgang til tjenester relatert til energi, miljø og klima. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som rollen gir."
+    },
+    {
+        "SubjectId": "repr",
+        "SubjectSource": "altinn:rolecode",
+        "SubjectTitle": "Norsk representant for utenlandsk enhet",
+        "SubjectDescription": "Ekstern rolle (fra Enhetsregisteret)"
+    },
+    {
+        "SubjectId": "komab",
+        "SubjectSource": "altinn:rolecode",
+        "SubjectTitle": "Kommunale tjenester",
+        "SubjectDescription": "Rollen gir tilgang til kommunale tjenester. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som rollen gir."
+    },
+    {
+        "SubjectId": "best",
+        "SubjectSource": "altinn:rolecode",
+        "SubjectTitle": "Bestyrende reder",
+        "SubjectDescription": "Ekstern rolle (fra Enhetsregisteret)"
+    },
+    {
+        "SubjectId": "komp",
+        "SubjectSource": "altinn:rolecode",
+        "SubjectTitle": "Komplementar",
+        "SubjectDescription": "Ekstern rolle (fra Enhetsregisteret)"
+    },
+    {
+        "SubjectId": "a0278",
+        "SubjectSource": "altinn:rolecode",
+        "SubjectTitle": "Plan- og byggesak",
+        "SubjectDescription": "Rollen er forbeholdt skjemaer og tjenester som er godkjent av Direktoratet for byggkvalitet (DiBK). Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som rollen gir."
+    },
+    {
+        "SubjectId": "a0212",
+        "SubjectSource": "altinn:rolecode",
+        "SubjectTitle": "Primærnæring og næringsmiddel",
+        "SubjectDescription": "Denne rollen gir rettighet til tjenester innen import, foredling, produksjon og/eller salg av primærnæringsprodukter og andre næringsmiddel, samt dyrehold, akvakultur, planter og kosmetikk. Ved regelverksendringer eller innføring av nye digitale tjenester"
+    },
+    {
+        "SubjectId": "medl",
+        "SubjectSource": "altinn:rolecode",
+        "SubjectTitle": "Styremedlem",
+        "SubjectDescription": "Ekstern rolle (fra Enhetsregisteret)"
+    },
+    {
+        "SubjectId": "",
+        "SubjectSource": "altinn:rolecode",
+        "SubjectTitle": "",
+        "SubjectDescription": "Ekstern rolle (fra Enhetsregisteret)"
+    },
+    {
+        "SubjectId": "kont",
+        "SubjectSource": "altinn:rolecode",
+        "SubjectTitle": "Kontaktperson",
+        "SubjectDescription": "Ekstern rolle (fra Enhetsregisteret)"
+    },
+    {
+        "SubjectId": "regn",
+        "SubjectSource": "altinn:rolecode",
+        "SubjectTitle": "Regnskapsfører",
+        "SubjectDescription": "Ekstern rolle (fra Enhetsregisteret)"
+    },
+    {
+        "SubjectId": "uihtl",
+        "SubjectSource": "altinn:rolecode",
+        "SubjectTitle": "Helse-, sosial- og velferdstjenester",
+        "SubjectDescription": "Tilgang til helse-, sosial- og velferdsrelaterte tjenester. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som rollen gir."
+    },
+    {
+        "SubjectId": "revi",
+        "SubjectSource": "altinn:rolecode",
+        "SubjectTitle": "Revisor",
+        "SubjectDescription": "Ekstern rolle (fra Enhetsregisteret)"
+    },
+    {
+        "SubjectId": "signe",
+        "SubjectSource": "altinn:rolecode",
+        "SubjectTitle": "Signerer av Samordnet registermelding",
+        "SubjectDescription": "Denne rollen gir rettighet til tjenester på vegne av enheter/foretak. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som rollen gir."
+    },
+    {
+        "SubjectId": "attst",
+        "SubjectSource": "altinn:rolecode",
+        "SubjectTitle": "Revisorattesterer - MVA kompensasjon",
+        "SubjectDescription": "Denne rollen gir revisor rettighet til å attestere tjenesten Merverdiavgift - søknad om kompensasjon (RF-0009)."
+    },
+    {
+        "SubjectId": "nest",
+        "SubjectSource": "altinn:rolecode",
+        "SubjectTitle": "Nestleder",
+        "SubjectDescription": "Ekstern rolle (fra Enhetsregisteret)"
+    },
+    {
+        "SubjectId": "kemn",
+        "SubjectSource": "altinn:rolecode",
+        "SubjectTitle": "Kontaktperson i Adm. enhet - offentlig sektor",
+        "SubjectDescription": "Ekstern rolle (fra Enhetsregisteret)"
+    },
+    {
+        "SubjectId": "",
+        "SubjectSource": "altinn:rolecode",
+        "SubjectTitle": "",
+        "SubjectDescription": ""
+    },
+    {
+        "SubjectId": "sign",
+        "SubjectSource": "altinn:rolecode",
+        "SubjectTitle": "Signatur",
+        "SubjectDescription": "Signatur"
+    },
+    {
+        "SubjectId": "sens01",
+        "SubjectSource": "altinn:rolecode",
+        "SubjectTitle": "Taushetsbelagt post fra kommunen",
+        "SubjectDescription": "Gir tilgang til taushetsbelagt post fra det offentlige innen oppvekst og utdanning"
+    },
+    {
+        "SubjectId": "komk",
+        "SubjectSource": "altinn:rolecode",
+        "SubjectTitle": "Kontaktperson i kommune",
+        "SubjectDescription": "Ekstern rolle (fra Enhetsregisteret)"
+    },
+    {
+        "SubjectId": "a0287",
+        "SubjectSource": "altinn:rolecode",
+        "SubjectTitle": "Taushetsbelagt post - oppvekst og utdanning",
+        "SubjectDescription": "Gir tilgang til taushetsbelagt post fra det offentlige innen oppvekst og utdanning"
+    },
+    {
+        "SubjectId": "a0286",
+        "SubjectSource": "altinn:rolecode",
+        "SubjectTitle": "Taushetsbelagt post ",
+        "SubjectDescription": "Denne rollen gir tilgang til taushetsbelagt post fra stat og kommune. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som rollen gir."
+    },
+    {
+        "SubjectId": "ffør",
+        "SubjectSource": "altinn:rolecode",
+        "SubjectTitle": "Forretningsfører",
+        "SubjectDescription": "Ekstern rolle (fra Enhetsregisteret)"
+    },
+    {
+        "SubjectId": "a0288",
+        "SubjectSource": "altinn:rolecode",
+        "SubjectTitle": "Taushetsbelagt post - administrasjon",
+        "SubjectDescription": "Gir tilgang til taushetsbelagt post fra det offentlige innen administrasjon"
     }
 ]
