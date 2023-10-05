@@ -11,20 +11,22 @@ For mer veiledning, se [_INSTRUCTIONS.md](/app/development/ux/components/_common
 # Innhold
 
 <!-- begin intro -->
-#### Kilde (`source`)
-
-One way to add options is by linking the component to a code list based on form data stored within the app itself.
- You can do this by adding a source (`source`); please refer to the [documentation](/app/development/data/options/repeating-group-codelists/) for instructions on how to configure this.
+#### Manuelt (`options`)
 
 <!-- end intro -->
 
+
 <!-- begin asd -->
 
-Settings in Altinn Studio.
+Velg "Manuelt" og klikk "Legg til flere" for å til en ny avkrysningsboks. Velg eller opprett ny tekst for å legge til etikett (`label`).
 
-{{% image file="component-settings/source.png" %}}
+Avkrysningsboksen kommer med en forhåndsutfylt verdi (`value`), som er dataen som lagres når brukeren gjør et valg.
+ Endre verdien til det som passer.
+
+{{% image file="component-settings/options-checkboxes.png" %}}
 
 <!-- end asd -->
+
 
 <!-- begin code -->
 
@@ -36,19 +38,19 @@ App/ui/layouts/{page}.json
 {
   "id": "komponent-id",
   ...
-  "source": {
-    "group": "some.group",
-    "label": "dropdown.label",
-    "value": "some.group[{0}].someField",
-    "description": "",
-    "helpText": ""
-  }
+  "options": [
+          {
+            "label": "Alternativ 1",
+            "value": "1"
+          }
+        ]
 }
-...
 ```
 
 <!-- end code -->
 
+
 <!-- begin more -->
+
 
 <!-- end more -->

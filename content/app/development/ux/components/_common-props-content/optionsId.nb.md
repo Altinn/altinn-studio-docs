@@ -11,20 +11,27 @@ For mer veiledning, se [_INSTRUCTIONS.md](/app/development/ux/components/_common
 # Innhold
 
 <!-- begin intro -->
-#### Kilde (`source`)
+#### Kodeliste (`optionsId`)
 
-One way to add options is by linking the component to a code list based on form data stored within the app itself.
- You can do this by adding a source (`source`); please refer to the [documentation](/app/development/data/options/repeating-group-codelists/) for instructions on how to configure this.
+En [kodeliste](/nb/app/development/data/options) er en forhåndsdefinert liste med alternativer.
 
 <!-- end intro -->
 
+
 <!-- begin asd -->
 
-Settings in Altinn Studio.
+For å legge til alternativer fra en kodeliste, velg 'Kodeliste' og angi en kodeliste ID.
+ For å bruke en egendefinert (dynamisk) kodeliste, klikk på "Bytt til egendefinert kodeliste".
 
-{{% image file="component-settings/source.png" %}}
+{{% image file="component-settings/optionsId.png" %}}
 
+<br>
+
+Om du ønsker å [sikre dynamiske kodelister](/nb/app/development/data/options/dynamic-codelists/#sikrede-dynamiske-kodelister) kan du huke av for dette:
+
+{{% image file="component-settings/secure.png" %}}
 <!-- end asd -->
+
 
 <!-- begin code -->
 
@@ -32,23 +39,19 @@ Settings in Altinn Studio.
 App/ui/layouts/{page}.json
 {{< /code-title >}}
 
-```json{hl_lines="4-9"}
+```json{hl_lines="4-5"}
 {
   "id": "komponent-id",
   ...
-  "source": {
-    "group": "some.group",
-    "label": "dropdown.label",
-    "value": "some.group[{0}].someField",
-    "description": "",
-    "helpText": ""
-  }
+  "optionsId": "land",
+  "secure": true
 }
-...
 ```
 
 <!-- end code -->
 
+
 <!-- begin more -->
+
 
 <!-- end more -->
