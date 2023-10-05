@@ -9,7 +9,7 @@ Innholdet i malen brukes av en partial (`get-content.html`) via shortcoden `prop
 1. **Filnavn**: Kopier malen (denne eller [_TEMPLATE.md](/app/development/ux/components/_common-props-content/_template)) og gi den navn på formatet `{propName}.{languageCode}.md`. Opprett en fil for hvert språk. Alle filer skal ligge direkte under `_common-props-content`.
 2. **Legg til innhold**: Legg til innhold mellom `begin`- og `end`-kommentarer. Se beskrivelse over hver seksjon. **NB! `begin`- og `end`-kommentarer må ikke endres eller slettes!**
 3. **Bilder**: Bilder skal ligge i mappen `/assets/images/component-settings/`. For å legge til bilder, bruk shortcode `image.html` med argument
-    `file="component-settings/{image.png}"`.
+    `file="component-settings/{screenshot.png}"`.
 4. **Legg til dokumentasjonen**: Bruk shortcode `property-docs` med hakeparenteser (`< >`) og argument `prop="{propName}"`. `propName` må samsvare med filnavn.
 
 # Innhold
@@ -36,7 +36,7 @@ Innholdet i denne seksjonen vises i tab-en "Altinn Studio Designer".
 Innstillinger i Altinn Studio.
 
 <!-- Bilde må ligge i /assets/images/component-settings. Erstatt filnavn. -->
-{{% image file="component-settings/image.png" %}}
+{{% image file="component-settings/screenshot.png" %}}
 
 <!-- end asd -->
 ---
