@@ -32,17 +32,6 @@ To be completed and considered. EmailPreferred, SMSPreferred.
 - Metadata related to a notification, who sent it, who received it, what time it was sent, 
 and send status is persisted for XX years. 
 
-## Configure sender info 
-
-Default sender on an SMS is _Altinn_ and default from address for an email
-is _noreply@altinn.no_. 
-
-If you wish to give the end user an impression that the notification comes 
-directly from your organization rather than via Altinn, you can register a short name (max 10 chars) 
-which can be used as the sender of SMSs notifications. As well as set up one or more e-mails to use 
-as the from address when sending an email notification. 
-
-
 ## Registries used for recipient addresses
 
 When sending a notification to an organisation or person based on a national identification number
