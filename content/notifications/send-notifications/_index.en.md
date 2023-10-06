@@ -16,6 +16,12 @@ Todo: quality check of what is stated here.
 {{% /notice %}}
 
 
+
+{{% notice info %}}
+TODO: QA PO, legal, devs
+{{% /notice %}}
+
+
 ## Combining notification channels
 
 To be completed and considered. EmailPreferred, SMSPreferred. 

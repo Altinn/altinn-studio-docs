@@ -12,6 +12,10 @@ This section of the documentation is a work in progress.
 There are sub sections with missing and/or only partial documentation.
 {{% /notice %}}
 
+{{% notice info %}}
+TODO: QA PO, devs
+{{% /notice %}}
+
 ## Main benefits
 
 Reasons to consider using Altinn Notifications for communication with Norwegian citizens or businesses

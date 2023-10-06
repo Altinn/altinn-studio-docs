@@ -16,3 +16,8 @@ The solution is supported by multiple cron jobs running in the same Kubernetes c
 The following diagram illustrates the overall data flow.
 
 ![Solution diagram](solution.drawio.svg "Solution diagram Altinn Notifications")
+
+
+Data flow including kafka Topic
+
+![Topics](notifications-topic.drawio.svg "Illustration of the data flow including Kafka Topics")

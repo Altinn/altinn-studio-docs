@@ -10,6 +10,10 @@ toc: true
 does this guide cover both sms or email or does that need to be separate? 
 {{% /notice %}}
 
+{{% notice info %}}
+TODO: QA devs
+{{% /notice %}}
+
 ## Endpoint
 
 POST /admin
