@@ -6,10 +6,10 @@ weight: 40
 toc: true
 description: "Kafka is used as a message broker across the components that make up the Notification solution. 
 We are currently running Apache Kafka on Confluent Cloud through Azure enabling seamless 
-integration with the rest of our components hosted in Azure. "
+integration with the rest of our components hosted in Azure."
 ---
 
-## Kafka Topics Overview
+## Kafka topic Overview
 {{% notice info %}}
 TODO: QA devs
 {{% /notice %}}
@@ -161,7 +161,7 @@ __Content:__
      for a given notification and operation id for the last status check.
 {{% /expandsmall %}}
 
-## Cluster configuration: 
+## Cluster configuration
 {{% notice info %}}
 TODO: QA infra
 {{% /notice %}}
