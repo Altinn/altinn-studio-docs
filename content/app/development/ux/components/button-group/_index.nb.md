@@ -1,6 +1,7 @@
 ---
 title: ButtonGroup
 description: Sett opp ulike typer knapper horisontalt
+weight: 10
 ---
 
 ![ButtonGroup](button-group.png "En tilbakeknapp og en send inn-knapp inni en knappegruppe")

@@ -7,22 +7,22 @@ weight: 300
 ---
 {{<notice warning >}}
 **Deprecated feature**  
-Altinn 2 provided a shared set of codelists for use in forms. Until May 2023 there really wasn't an alternative for common used codelists accross Altinn 3 applications. By exposing the Altinn 2 codelists api in Altinn 3 applications you would get access to the same set of codelists.  
+Altinn 2 provided a shared set of code lists for use in forms. Until May 2023 there really wasn't an alternative for common used code lists across Altinn 3 applications. By exposing the Altinn 2 code lists api in Altinn 3 applications you would get access to the same set of code lists.  
 <br/>
 
-This however is not a long term solution, and with the release of the [Altinn Common Codelists](https://github.com/Altinn/codelists-lib-dotnet) package, you now have access to many of the same codelists as in Altinn 2.  
+This however is not a long term solution, and with the release of the [Altinn Common Code lists](https://github.com/Altinn/codelists-lib-dotnet) package, you now have access to many of the same code lists as in Altinn 2.  
 <br/>
 
-You still might find a missing codelist or two in Altinn 3 compared with Altinn 2 - in that case please consier the following:
-1. Can you create a pull request in [Altinn Common Codelists repo](https://github.com/Altinn/codelists-lib-dotnet) and contribute allowing others to re-use your implementation?
-2. If you don't have the knowledge or time to create a pull request then just let us know, by creating a [new issue](https://github.com/Altinn/codelists-lib-dotnet/issues/new/choose) and describe what codelist you need and we will either create it or help you do it.
+You still might find a missing code list or two in Altinn 3 compared with Altinn 2 - in that case please consider the following:
+1. Can you create a pull request in [Altinn Common Code lists repo](https://github.com/Altinn/codelists-lib-dotnet) and contribute allowing others to re-use your implementation?
+2. If you don't have the knowledge or time to create a pull request then just let us know, by creating a [new issue](https://github.com/Altinn/codelists-lib-dotnet/issues/new/choose) and describe what code list you need and we will either create it or help you do it.
 3. If you decide to use the Altinn 2 variant, please know that this api won't be available after June 2025.
 {{</notice>}}
 
 
-## Configure an Altinn 2 codelist
-For an overview over available codelists in Altinn 2 please use the [api](https://altinn.github.io/docs/api/rest/metadata/#hente-oversikt-over-kodelister)
-You registrer the lists you want to use in your applications `Program.cs` and you can keep updating the code list trough TUL. 
+## Configure an Altinn 2 code list
+For an overview over available code lists in Altinn 2 please use the [api](https://altinn.github.io/docs/api/rest/metadata/#hente-oversikt-over-kodelister)
+You register the lists you want to use in your applications `Program.cs` and you can keep updating the code list trough TUL. 
 
 ```C#
 using Altinn.App.Core.Features.Options;

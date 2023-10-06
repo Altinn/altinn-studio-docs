@@ -67,7 +67,7 @@ To validate the number of characters entered, you must also include the `maxLeng
 `Input` components, `TextArea` components and `AddressComponent` automatically save changes while the user
 is typing. By default, this happens 400 milliseconds after the user last stopped typing. At this point
 validation and triggers will execute as well. In cases where validations and triggers are resource intensive, it
-might be neccesary to increase the delay before saving automatically - or disable it altogether.
+might be necessary to increase the delay before saving automatically - or disable it altogether.
 
 This functionality can be controlled using the `saveWhileTyping` property of a component in the form layout. In the
 example below, data is saved 2 seconds after the user stopped typing.

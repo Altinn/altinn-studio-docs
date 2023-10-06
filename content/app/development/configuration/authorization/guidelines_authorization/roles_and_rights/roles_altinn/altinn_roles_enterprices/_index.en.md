@@ -1,6 +1,6 @@
 ---
-title: Altinnroles used by enterprices
-linktitle: Enterprice roles
+title: Altinn roles used by enterprises
+linktitle: Enterprise roles
 description: <todo>
 toc: true
 ---

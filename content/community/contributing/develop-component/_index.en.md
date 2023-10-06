@@ -6,7 +6,7 @@ weight: 40
 
 Before you start developing new functionality, it's a good idea to check if the task is already in our backlog.
 If you can't find it, we appreciate if you [propose your wanted component/functionality](../propose-component/) 
-and enter into dialoge with us before starting.
+and enter into dialog with us before starting.
 
 ![Contributing process](contribute-develop-en.svg "The preferred process when components are developed")
 
@@ -24,7 +24,7 @@ To achieve a nice workflow for developing, dialogue is essential.
 All information you need to get started is included in our [development handbook](../handbook/). The handbook includes
 information on how to write [consistent code](/community/contributing/handbook/front-end/routine/) and [build new components](/community/contributing/handbook/front-end/new-component/).
 
-## Accessability testing
+## Accessibility testing
 
 Apps built on Altin 3 must be accessible for everyone, and to ensure that this is the case we follow the
 WCAG 2.1 guidelines. Please see the demands described at [the Norwegian Authority for Universal Design of ICT](https://www.uutilsynet.no/english/checking-your-own-website/916) 

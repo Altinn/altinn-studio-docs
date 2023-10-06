@@ -1,13 +1,15 @@
 ---
-title: Guidelines for authorization rules 
+title: Guidelines for authorization rules
 linktitle: Guidelines
-description: Authorization rules must be defined very carefully. These guidelines explain what the application owner must consider before authorization rules are set for an applicationn
+description: Authorization rules must be defined very carefully. These guidelines explain what the application owner must consider before authorization rules are set for an application
 toc: true
 ---
 
 
-Authorization rules are defined in accordance to the XACML 3.0 standard. The rules will define the conditions that must be met in order to give
-a certain user access to perform one or more steps of an application [defined workprosess](/app/development/configuration/process/). 
+Authorization rules are defined in accordance to the XACML 3.0 standard. The rules will define the conditions that must
+be met in order to give
+a certain user access to perform one or more steps of an
+application [defined work process](/app/development/configuration/process/).
 
 ## Make sure you know what you are doing!
 The owner of the service is responsible for creating authorization rules and choosing the right roles that grant access to protected information.
@@ -26,14 +28,18 @@ It is important that authorization rules and the choice of roles match the inten
 For example, the administrator probably expects that the role "Tax" gives access to services related to, for example, tax reporting, but simultaneously needs to avoid any role giving access to services within payroll and the personnel area.
 Similarly, please be careful about using, for example, the role "Contact Person" from the Entity Register to grant access to services - unless the basis for using this role has been thoroughly evaluated.
 
-## Do NOT change authorizaion rules after production launch
+## Do NOT change authorization rules after production launch
 Changes to authorization rules after a production release will render existing users unable to access the service and must have the new role delegated and any previous role deleted.
 This will impose an unexpected administrative burden on businesses that will use the service because they will then have to clean up delegations made based on the old policy. Such a practice will usually result in dissatisfied users of the application.
 
 ## Contact us - we will gladly provide assistance
-As application owner you must allways consider if the intentions in the description of the role are consistent with the service or access to data that your application provides. 
+
+As application owner you must always consider if the intentions in the description of the role are consistent with the
+service or access to data that your application provides.
 {{%notice warning%}}
-Giving wrong people access to data they shouldn't have is never good marketing for your service and we therefore strongly suggest you contact Altinn for guidance in choosing roles and setting up authorization rules if you have the slightest doubt.
+Giving wrong people access to data they shouldn't have is never good marketing for your service and we therefore
+strongly suggest you contact Altinn for guidance in choosing roles and setting up authorization rules if you have the
+slightest doubt.
 {{% /notice%}}
 
 ## Authorization rules must be tested

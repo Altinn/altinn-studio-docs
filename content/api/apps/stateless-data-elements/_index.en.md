@@ -11,7 +11,7 @@ aliases:
 ## Overview
 
 A stateless data element is a data object based on a data model without relations to an instance, instance owner or a state.
-The data is never persisted anywhere, and the avilable endpoints simply creates, prefills and/or runs calculations on a data object before 
+The data is never persisted anywhere, and the available endpoints simply creates, prefills and/or runs calculations on a data object before 
 returning it to the caller.
 
 **basePath**
@@ -21,7 +21,7 @@ returning it to the caller.
 
 ## Create new data 
 
-Endpoint for creating a new stateless dataelement based on a data type.
+Endpoint for creating a new stateless data element based on a data type.
 
 ```http
 POST basePath?dataType=[dataTypeId]

@@ -7,8 +7,13 @@ toc: true
 ---
 
 {{% panel theme="warning" %}}
-⚠️ Dynamic behaviour is an area under active development. This functionality is not configurable directly in Altinn Studio
-yet, and must be configured manually in the JSON files.
+⚠️ Dynamic behaviour is an area under active development. This functionality is currently available as a beta feature in
+Altinn Studio and offers limited configuration options. The UI only allows to build expressions with one level of
+nesting, meaning an unlimited number of un-nested expressions can be combined using either the *OR* or *AND* operator.
+However, the tool allows to edit more complicated expressions by freestyle writing. Currently the tool is also limited
+to connecting expression to boolean component fields.
+See [Expressions in Altinn Studio](../../../../altinn-studio/designer/build-app/expressions) on how to use Altinn Studio
+to configure an expression.
 {{% /panel %}}
 
 ## Introduksjon

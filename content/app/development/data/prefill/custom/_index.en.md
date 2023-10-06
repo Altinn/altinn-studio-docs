@@ -12,7 +12,9 @@ whether it is the result of an API call, calculations done under instantiation o
 {{<content-version-selector classes="border-box">}}
 
 {{<content-version-container version-label="v7">}}
-In version 7 the way to do custom code instantiation has changed. We now use an dependency injection based approach insted of overriding methods. If you previously used to place your custom code in the DataCreation method in the _InstantiationHandler.cs_ class you will see that it's mostly the same.
+In version 7 the way to do custom code instantiation has changed. We now use an dependency injection based approach
+instead of overriding methods. If you previously used to place your custom code in the DataCreation method in the _
+InstantiationHandler.cs_ class you will see that it's mostly the same.
 
 1. Create a class that implements the `IInstantiationProcessor` interface found in the `Altinn.App.Core.Features` namespace.  
     You can name and place the file in any folder you like within your project, but we suggest you use meaningful namespaces like in any other .Net project.
@@ -47,7 +49,7 @@ In version 7 the way to do custom code instantiation has changed. We now use an 
     ```C#
     services.AddTransient<IInstantiationProcessor, Instantiation>();
     ```
-    This ensuers your custom code is known to the application and that it will be executed.
+   This ensures your custom code is known to the application and that it will be executed.
 
 {{</content-version-container>}}
 {{<content-version-container version-label="v4, v5, v6">}}
@@ -67,12 +69,12 @@ public async Task DataCreation(Instance instance, object data)
 }
 ```
 
-Replace _Data model_ with the name on the C# class that has been generated based 
+Replace _Data model_ with the name on the C# class that has been generated based
 on the xsd uploaded to Altinn Studio. If you use a suitable code editor you will be able to define fields
 to be populated using intellisense.
 
 Keep in mind that if you have complex types in your model, these will need to be instantiated before you can
-assign a value to one of the type's subelements. See the example below where we assume that `Bruker` and 
+assign a value to one of the type's sub elements. See the example below where we assume that `Bruker` and
 `Name` are separate C# classes.
 
 ```C#

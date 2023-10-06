@@ -1,0 +1,14 @@
+{{- $page := .Scratch.Get "page" -}}
+
+{{ $sections := slice }}
+
+{{- range findRE `(?s)<!-- begin.+? -->(.+?)(?:<!-- end.+? -->|$)` .Content -}}
+    {{- $content :=  replaceRE `(?s)<!-- begin.+? -->(.+?)(?:<!-- end.+? -->|$)` "$1" . -}}
+    {{- $content = trim $content "\n" -}}
+
+    {{- $key := replaceRE `(?s)<!-- begin (.+?) -->.+?(?:<!-- end.+? -->|$)` "$1" . -}}
+    
+    {{- $sections = merge $sections (dict $key $content) -}}
+{{- end -}}
+
+{{ return $sections }}

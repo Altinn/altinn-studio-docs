@@ -49,7 +49,7 @@ The request body should contain the cloud event serialized as a JSON string.
 - ID for the resource that the cloud event relates to, type: string
 
 The resource must be registered in Altinn Resource Registry _before_ cloud events are published.
-Format of the resource property: _urn:altinn:resource:random.resource_
+Format of the resource property: _urn:altinn:resource:[prop1].[prop2]_
 
 ### Optional cloud event properties and extension attributes
 {{% notice info %}}

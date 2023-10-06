@@ -1,0 +1,28 @@
+<div class="content-version-selector border-box">
+
+    <ul id="content-version-tabs"></ul>
+
+    {{- with .Scratch.Get "asd" -}}
+    <div class="content-version-container">
+        <label class="content-version-label" hidden>
+                Altinn Studio Designer
+        </label>
+            {{- . | markdownify -}}
+        
+    </div>
+    {{- end -}}
+
+    {{- with .Scratch.Get "code" -}}
+    <div class="content-version-container">
+        <label class="content-version-label" hidden>
+            {{- if (eq $.Site.LanguageCode "en") -}}
+                Code
+            {{- else -}}
+                Kode
+            {{- end -}}
+        </label>
+            {{- . | markdownify -}}
+    </div>
+    {{- end -}}
+
+</div>

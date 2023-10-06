@@ -17,55 +17,54 @@
         },
         {
             "language": "EN",
-            "description":"The agreement will help people who need assistance from NAV to get or keep a job, while supporting employers who include those who have reduced working capacity. The agreement is entered into between the employer, the jobseeker and NAV."
+            "description": "The agreement will help people who need assistance from NAV to get or keep a job, while supporting employers who include those who have reduced working capacity. The agreement is entered into between the employer, the jobseeker and NAV."
         }
     ],
     "rightDescription": [
         {
             "language": "nb-NO",
-            "description": "Med denne fullmakten kan man inngå en avtale om arbeidstreing med NAV og kommune."},
+            "description": "Med denne fullmakten kan man inngå en avtale om arbeidstreing med NAV og kommune."
+        },
         {
             "language": "EN",
-            "description":"With this authorisation, you can enter into an agreement on work training with NAV and the municipality"
+            "description": "With this authorisation, you can enter into an agreement on work training with NAV and the municipality"
         }
     ],
+    "homepage": "https://www.nav.no/",
+    "status": "Completed",
+    "contactPoints": [
+        {
+            "category": null,
+            "telephone": "1231324",
+            "email": "online@digdir.no",
+            "contactPage": null
+        }
+    ],
+    "isPartOf": "nav_RapporteringOmArbeidstrening",
     "hasCompetentAuthority": {
         "organization": "889640782",
         "orgcode": "NAV"
     },
-    "contactpoint": [
+    "resourceReferences": [
         {
-            "phone": "55 55 33 36 ",
-            "email": "postmottak@nav.no"
+            "referenceSource": "altinn2",
+            "reference": "5332",
+            "referenceType": "ServiceCode"
+        },
+        {
+            "referenceSource": "altinn2",
+            "reference": "2",
+            "referenceType": "ServiceEditionCode"
         }
     ],
-    "homepage": "https://www.nav.no/",
-    "status": "Active",
-    "ValidFrom": "2019-05-08T14:00:00", 
-    "ValidTo": "2049-05-08T14:00:00",
-    "isPartOf":"nav_RapporteringOmArbeidstrening",
-    "isPublicService": "true",
-    "isLimitedToSpesificUsers": "false", 
-    "isUsedByNorwegianCitiens": "true",
-    "isUsedByNorwgianEnterprices": "true",
-    "isUsedBySelfIdentified users": "true",
     "thematicArea": "http://publications.europa.eu/resource/authority/eurovoc/2468",
-
-    "type": [],
-    "sector": [],
     "keyword": [
         {
             "keyword": "Dødsbo"
         }
     ],
-    "referencid": {
-        
-            "idsource": "altinn2",
-            "id": {
-                "ServiceCode": "5332",
-                "ServiceEditionCode": "2"
-        }
-    }
-
-    
+    "LimitedByRRR": false,
+    "SelfIdentifiedUserEnabled": false,
+    "EnterpriseUserEnabled": false,
+    "resourceType": "GenericAccessResource"
 }

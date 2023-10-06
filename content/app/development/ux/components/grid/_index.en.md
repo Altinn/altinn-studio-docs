@@ -1,6 +1,7 @@
 ---
 title: Grid
 description: The Grid component is used to visually arrange components in a table
+weight: 10
 ---
 
 ![Grid](grid.png "Components arranged in a Grid")
@@ -206,7 +207,7 @@ will not be taken into account when the Grid component decides whether to hide t
 Cells can be configured to be either as either text cell or a component cell. To configure a cell as a text cell, add a `text`
 property to the cell and set it to the text you want to display. You can also specify a text resource key as the text
 to display in the cell. Additionally, it is possible to include a `help` property along with the `text` property to provide help text for the cell. Alternatively, you can retrieve the text content
-from a component's textresources by using `labelFrom` property with the id of the component. By specifying a `labelFrom` you can retrieve text resources such as `title`, `description`, and `help`.  
+from a component's text resources by using `labelFrom` property with the id of the component. By specifying a `labelFrom` you can retrieve text resources such as `title`, `description`, and `help`.  
 To configure a cell as a component cell, add a `component` property to the cell and set it to
 the id of the component you want to display in the cell.
 

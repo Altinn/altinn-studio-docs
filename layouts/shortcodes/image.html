@@ -1,0 +1,9 @@
+{{- $name := .Get "file" -}}
+{{- $path := "images/" -}}
+{{- $image := printf "%s%s" $path $name -}}
+
+{{- with resources.Get $image -}}
+  <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}">
+{{- else -}}
+  {{- warnf "Image not found %q" $image -}}
+{{- end -}}

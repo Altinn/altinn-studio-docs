@@ -8,7 +8,7 @@ toc: true
 ## Normal input field
 
 ### Guidelines:
-- An inputfield should always have a related label with explanatory text.
+- An input field should always have a related label with explanatory text.
 - Evaluate if further explanation and helper texts should be connected to the element.
 - Two input fields can be placed beside each other if they are somehow connected, see the example below. 
 - Deactivated fields should be avoided. If a field cannot be edited, the information should instead be presented as text. 

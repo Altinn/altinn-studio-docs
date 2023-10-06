@@ -20,28 +20,38 @@
             "description": "API that exposes information about estate. REST in Peace"
         }
     ],
-    "hasCompetentAuthority": {
-        "organization": "984195796",
-        "orgcode": "DA"
-    },
-    "contactpoint": [
+    "rightDescription": [
         {
-            "phone": "73 56 70 00",
-            "email": "postmottak@domstoladministrasjonen.no"
+            "language": "nb-NO",
+            "description": "API med informasjon om dødsbo."
+        },
+        {
+            "language": "EN",
+            "description": "API that exposes information about estate. REST in Peace"
         }
     ],
     "homepage": "https://www.domstol.no/",
     "status": "Completed",
+    "contactPoints": [
+        {
+            "category": null,
+            "telephone": "1231324",
+            "email": "online@digdir.no",
+            "contactPage": null
+        }
+    ],
+    "hasCompetentAuthority": {
+        "organization": "984195796",
+        "orgcode": "DA"
+    },
     "thematicArea": [],
-    "type": [],
-    "sector": [],
     "keyword": [
         {
             "keyword": "Dødsbo"
         }
     ],
-    "events": {
-        "sourcedomain":"https://api.domstol.no/",
-        "sourcepath": "dodsbo-api/"
-    }
+    "LimitedByRRR": false,
+    "SelfIdentifiedUserEnabled": false,
+    "EnterpriseUserEnabled": false,
+    "resourceType": "GenericAccessResource"
 }

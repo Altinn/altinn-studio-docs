@@ -56,11 +56,17 @@ Additionally, it should return 200 OK when receiving our custom validation event
 ```
 _Example of validation event_
 
-#### sourceFilter
+### resourceFilter*
+- filter for the event resource
+
+Must be an exact match to the resource set on the generated events
+#### sourceFilter**
 - filter for the cloud event source
 
 Property supports wildcard _%_ for an unknown string e.g. `https://digdir.apps.altinn.no/digdir/demoapp/%`
 
+\* required for subscriptions on generic events, optional for app event subscriptions
+\** only required for app subscriptions in the case where no resource filter is provided 
 
 ### Optional subscription request properties
 
@@ -71,7 +77,7 @@ Property supports wildcard _%_ for an unknown string e.g. `https://digdir.apps.a
 - filter for the cloud event's alternative subject
 
 #### typeFilter
-- filter for the cloud event type.
+- filter for the cloud event type
 
 Omit this property if you want to subscribe to all events types for the given source and/or resource
 

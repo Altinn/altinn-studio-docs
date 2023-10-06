@@ -2,6 +2,7 @@
 title: PrintButton
 description: A button that allows the user to print the current form page
 toc: false
+weight: 10
 ---
 
 The PrintButton component can be added to the form layout where you want an option to open the browsers built-in print dialog.

@@ -31,16 +31,16 @@ This will help not just your service, but can also highlight mistakes or oversig
 Here are some tools that can be used for simple testing of accessibility.
 
 ### Keyboard navigation
-check that all buttons and input fields can be reached by keyboard navigation (tab, arrowkeys, esc, etc.) 
+check that all buttons and input fields can be reached by keyboard navigation (tab, arrow keys, esc, etc.) 
 
 ### Screen reader
 Go through your service while using a screen reader as a helping device. This way you can ensure that everything is read out correctly and that the texts are sufficiently descriptive.
 
 - **Mac:** VoiceOver is preinstalled on apples mobiles and PCs. 
-[VoiceOver User walkthrough](https://support.apple.com/no-no/guide/voiceover/welcome/mac)
+[VoiceOver User walk through](https://support.apple.com/no-no/guide/voiceover/welcome/mac)
 
-- **Windows:** NVDA Screenreader is a free screen reader tool made by NV Access. 
-[About NVDA Screenreader](https://www.nvaccess.org/about-nvda/)
+- **Windows:** NVDA Screen reader is a free screen reader tool made by NV Access. 
+[About NVDA Screen reader](https://www.nvaccess.org/about-nvda/)
 
 ## Contrast
 

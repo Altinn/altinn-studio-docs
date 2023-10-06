@@ -52,14 +52,14 @@ A group is defined as follows in `FormLayout.json`:
 
 ## Parameters
 
-| Parameter                                     | Required | Description                                                                                                                                                     |
-|-----------------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| id                                            | Yes      | Unique ID, same as ID on other components. Must be unique in the layout file, and should be unique across pages.                                                |
-| type                                          | Yes      | Must be 'Group'                                                                                                                                                 |
-| [textResourceBindings](#textresourcebindings) | No       | Can be set for groups, see [description](#textresourcebindings).                                                                                                |
-| maxCount                                      | No       | The number of times a group can repeat. Must be ommitted or set to `0` for non-repeating groups, otherwise the group becomes a [repeating group](../repeating). |
-| children                                      | Yes      | List of the component IDs that are to be included in the group.                                                                                                 |
-| showGroupingIndicator                         | No       | Shows a vertical line to the left of the group to indicate that the fields are related. Can be `true` or `false`.                                               |
+| Parameter                                     | Required | Description                                                                                                                                                    |
+|-----------------------------------------------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| id                                            | Yes      | Unique ID, same as ID on other components. Must be unique in the layout file, and should be unique across pages.                                               |
+| type                                          | Yes      | Must be 'Group'                                                                                                                                                |
+| [textResourceBindings](#textresourcebindings) | No       | Can be set for groups, see [description](#textresourcebindings).                                                                                               |
+| maxCount                                      | No       | The number of times a group can repeat. Must be omitted or set to `0` for non-repeating groups, otherwise the group becomes a [repeating group](../repeating). |
+| children                                      | Yes      | List of the component IDs that are to be included in the group.                                                                                                |
+| showGroupingIndicator                         | No       | Shows a vertical line to the left of the group to indicate that the fields are related. Can be `true` or `false`.                                              |
 
 ## textResourceBindings
 

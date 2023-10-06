@@ -5,7 +5,7 @@ toc: true
 ---
 
 ## 6.0.2 Dependency update and bugfix
-Updated eformidling dependency to 1.3.2 in [#13](https://github.com/Altinn/app-lib-dotnet/pull/13)
+Updated eFormidling dependency to 1.3.2 in [#13](https://github.com/Altinn/app-lib-dotnet/pull/13)
 
 Removed authentication on redirect endpoint in [#15](https://github.com/Altinn/app-lib-dotnet/pull/15)
 

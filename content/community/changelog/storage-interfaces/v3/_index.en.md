@@ -6,7 +6,7 @@ weight: 90
 ---
 
 
-## 3.11.0 Extended models with support for markin a data element for automatic deletion
+## 3.11.0 Extended models with support for marking a data element for automatic deletion
 - `DataElement` model has been extended with a new property _deleteStatus_.
 - `ApplicationMetadata.AppLogic`  has been extended with a new property _autoDeleteOnProcessEnd_.
 
@@ -32,7 +32,7 @@ number.
 - The `Application` model has been expanded with a new property to hold CopyInstanceSettings. 
   This property allows for enabling copying of application and specifies excluded data fields and types.
 
-## 3.4.0 Added MessageBoxConfig to Applicaton
+## 3.4.0 Added MessageBoxConfig to Application
 
 - The `Application` model has been expanded with a new property to hold Message Box configuration.
 

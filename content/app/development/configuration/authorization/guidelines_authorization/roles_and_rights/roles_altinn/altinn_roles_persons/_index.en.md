@@ -1,5 +1,5 @@
 ---
-title: Altinnroles used by persons
+title: Altinn roles used by persons
 linktitle: Person roles
 description: <todo>
 toc: true

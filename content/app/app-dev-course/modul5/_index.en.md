@@ -47,7 +47,7 @@ At this point in the workflow, the user should be able to:
 
 - [Available process steps in an Altinn app](/app/development/configuration/process/#supported-process-task-types)
 - [How to change the process flow of an application](/app/development/configuration/process/#change-the-process)
-- [Online BMPN editor](https://demo.bpmn.io/)
+- [Online BPMN editor](https://demo.bpmn.io/)
 - [BPMN standard](https://en.wikipedia.org/wiki/Business_Process_Model_and_Notation)
 
 ### Knowledge check

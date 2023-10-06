@@ -32,10 +32,16 @@ In Altinn Studio the service owners can do the following for standalone Resource
 - Publish new resources to TT02 or the production environment
 - Update existing resources in TT02 or the production environment
 
-## Sketches
+## Migrate resources from Altinn 2
 
-Below are some early sketches from [Figma Designs](https://www.figma.com/file/rHsPcwfeg5W45yMUk7cT7o/Auth-Team-B?node-id=2-48&t=PjdRHRORYCn3dtNj-0).
 
-![Sketch](sketch1.png "Early sketch")
+## Screenshots
 
-![Sketch](sketch2.png "Early sketch")
+![Sketch](screen1.png "Screenshot")
+
+![Sketch](screen2.png "Screenshot")
+
+
+## Concept
+
+![conecpt.drawio.svg](concept.drawio.svg)

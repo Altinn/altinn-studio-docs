@@ -7,8 +7,13 @@ toc: true
 ---
 
 {{% panel theme="warning" %}}
-⚠️ Dynamikk er et område under aktiv utvikling. Denne funksjonaliteten er ikke tilgjengelig for konfigurasjon direkte
-i Altinn Studio enda, og må derfor skrives manuelt i JSON-filene.
+⚠️ Dynamikk er et område under aktiv utvikling. Denne funksjonaliteten er for øyeblikket tilgjengelig som en betaversjon
+i Altinn Studio og tilbyr begrensede konfigurasjonsalternativer. Grensesnittet tillater bare å bygge uttrykk med ett
+nivå av nøsting, noe som betyr at et ubegrenset antall ikke-nøstede uttrykk kan kombineres ved å bruke enten *ELLER*
+eller *OG*-operatoren. Imidlertid tillater verktøyet å redigere mer kompliserte uttrykk ved å skrive fritt. For
+øyeblikket er verktøyet også begrenset til å koble uttrykk til boolske komponentfelt.
+Les [Uttrykk i Altinn Studio](../../../../altinn-studio/designer/build-app/expressions) om hvordan uttrykk lages i
+Altinn Studio.
 {{% /panel %}}
 
 ## Introduksjon

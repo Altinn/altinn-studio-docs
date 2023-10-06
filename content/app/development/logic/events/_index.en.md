@@ -23,7 +23,7 @@ The functionality provided within the template is:
 [Subscring to events is descibed here](subscribing) 
 
 ### Validate subscriptions
-Once the application succesfully have created a subscription, the Event Service will sende a ping event. It's a regular event with a specific type `platform.events.validatesubscription`. There is already a handler for this type registered and the validation should be done without further action required.
+Once the application successfully have created a subscription, the Event Service will send a ping event. It's a regular event with a specific type `platform.events.validatesubscription`. There is already a handler for this type registered and the validation should be done without further action required.
 
 ### Run custom code when receiving events
 All inbound events are received through the EventsReceiverController on the route `/{org}/{app}/api/v1/eventsreceiver`. The controller uses `IEventHandlerResolver` interface to resolve the the class that should handle the event based on mapping the incoming event type to the EventType property on registered implementations of `IEventHandler`.
@@ -36,7 +36,7 @@ In order to handle an inbound event, all you have to do is two things:
 #### Create an implementation of IEventHandler   
 In order to run your code when you receive an event, you need to create a class implementing the `IEventHandler` interface. `IEventHandler` is an interface that can have multiple implementations registered. The key to resolving the correct implementation is the event type which means you need to set the EventType property equal to the event type you want to handle. This is then matched against the event type of the incoming events, and the `ProcessEvent` method is invoked.  
 
-Your implementation can of course have a constructor that takes in any registred service from the dependency injection container needed to handle the event. 
+Your implementation can of course have a constructor that takes in any registered service from the dependency injection container needed to handle the event. 
 
 ```csharp
     using Altinn.App.Core.Features;

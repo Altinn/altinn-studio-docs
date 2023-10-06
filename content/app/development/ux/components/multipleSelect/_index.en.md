@@ -2,6 +2,7 @@
 title: MultipleSelect
 description: MultipleSelect can be used when the user must choose one or more values
 toc: false
+weight: 10
 ---
 
 The MultipleSelect component also offers local search/filtering of the options.

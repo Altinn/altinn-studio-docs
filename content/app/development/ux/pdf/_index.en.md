@@ -43,7 +43,7 @@ It is also possible to get a [preview](#preview-in-the-browser) of what the PDF 
 ## Automatic configuration
 
 This method is used by default unless you specify a [custom PDF layout file](#custom-layout-configuration).
-This method exctracts all of your pages and components in the order they appear, and displays them in the PDF document.
+This method extracts all of your pages and components in the order they appear, and displays them in the PDF document.
 
 ### Excluding pages and components
 
@@ -279,6 +279,10 @@ This feature only applies to version 7.5 and higher.
 
 It is possible to get a preview of what the generated PDF will look like in the browser while you are developing. Follow the instructions below:
 
-1. **Important**: Use Google Chrome to preview the PDF.<br>The PDF generator uses a version of Chrome to generate the PDF, and other browsers will not produce the correct result.
-2. In the app you want to preview, add `?pdf=preview` to the end of the URL in the browser and hit enter.<br>This will continuously run the PDF layout in the background so that you can get an instant preview. You may expecience slower performance when in this mode.
-3. When you are ready to preview, use Chrome's built in print function (`Ctrl+P`/`⌘+P`) to get a preview of what the PDF document will look like.
+1. **Important**: Use Google Chrome to preview the PDF.<br>The PDF generator uses a version of Chrome to generate the
+   PDF, and other browsers will not produce the correct result.
+2. In the app you want to preview, add `?pdf=preview` to the end of the URL in the browser and hit enter.<br>This will
+   continuously run the PDF layout in the background so that you can get an instant preview. You may experience slower
+   performance when in this mode.
+3. When you are ready to preview, use Chrome's built in print function (`Ctrl+P`/`⌘+P`) to get a preview of what the PDF
+   document will look like.

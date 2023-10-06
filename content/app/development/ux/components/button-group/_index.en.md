@@ -1,6 +1,7 @@
 ---
 title: ButtonGroup
 description: Arrange different types of button components horizontally
+weight: 10
 ---
 
 ![ButtonGroup](button-group.png "A back button and a submit button inside of a ButtonGroup")

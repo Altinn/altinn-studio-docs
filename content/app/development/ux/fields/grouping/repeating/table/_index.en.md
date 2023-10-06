@@ -30,9 +30,9 @@ Using the `tableColumns` property makes it is possible to configure the width, t
 
 - `width` - set to a string value containing a percentage, ex: `"25%"`, or `"auto"` (default).
 - `alignText` - choose between `"left"`, `"center"` or `"right"` to align text in table cell accordingly.
-- `textOverflow` - is used to controll behaviour when text content is too large for a table cell.
+- `textOverflow` - is used to control behaviour when text content is too large for a table cell.
     - `lineWrap` - set to `false` in order to turn of linebreaking. Default is `true`.
-    - `maxHeight` - sets number of lines before overflowing text is hidden with an elipsis (...). `"maxHeight": 0` results in turning off linebreaking.
+    - `maxHeight` - sets number of lines before overflowing text is hidden with an ellipsis (...). `"maxHeight": 0` results in turning off linebreaking.
 - `editInTable` - set to `true` to enable editing of the component in the table view. Default is `false`. See more about this in the [section describing this functionality](#showing-components-directly-in-the-table).
 - `showInExpandedEdit` - set to `false` to hide the component in the expanded edit view. Default is `true`. See more about this in the [section describing this functionality](#showing-components-directly-in-the-table).
 

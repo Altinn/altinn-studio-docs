@@ -20,7 +20,7 @@ Data models for applications are located in the same folder structure as the res
 An application has 4 model files:
 
 * **C# data model** (`<model>.cs`): Data model used by the application's backend/APIs to process and validate data.
-* **JSON schema** (`<model>.schema.json`): Data model in JSONschema format used by the application on the client-side (frontend) to validate data in real-time.
+* **JSON schema** (`<model>.schema.json`): Data model in JSON schema format used by the application on the client-side (frontend) to validate data in real-time.
 This is also the file that is worked on in the data modeling tool.
 * **XSD data model** (`<model>.XSD`): Data model in XML format that defines the elements that can be used in a document.
 This is not directly used by the application but can be uploaded to generate the other model files in Altinn Studio or downloaded as needed.
@@ -46,7 +46,7 @@ You can find the link to this repository in the [Altinn Studio Dashboard](/app/g
 #### Access to Data Models
 
 By default, anyone can view an organization's data models.
- To gain access to edit the data models, the user needs to be part of the _Datamodels_ team in the organization.
+ To gain access to edit the data models, the user needs to be part of the _Data models_ team in the organization.
   Refer to the [access management][3] for more information.
 
 #### Uploading XSD to Repository
@@ -151,7 +151,7 @@ Select a model from the dropdown list on the toolbar and click _Rediger_ (_edit_
 ![Edit data model](edit-model.png "Edit data model")
 
 {{% notice info %}}
-The JSONschema model is automatically saved as you work on it. To generate other model files such as XSD (and C# file for apps), you need to
+The JSON schema model is automatically saved as you work on it. To generate other model files such as XSD (and C# file for apps), you need to
 click _Generer modeller_ (_Generate Models_) on the toolbar (see [Generating Model Files](#generating-model-files-xsd-and-c)).
 {{% /notice %}}
 
