@@ -273,7 +273,7 @@ It is possible to exclude child components from a group by using the `excludedCh
 
 {{%notice warning%}}
 
-This feature only applies to version 7.5 and higher.
+This preview is only applicable to the new PDF generation method (v7.5+). See [above](#new-pdf-generation) for more information.
 
 {{% /notice%}}
 
@@ -281,8 +281,10 @@ It is possible to get a preview of what the generated PDF will look like in the 
 
 1. **Important**: Use Google Chrome to preview the PDF.<br>The PDF generator uses a version of Chrome to generate the
    PDF, and other browsers will not produce the correct result.
-2. In the app you want to preview, add `?pdf=preview` to the end of the URL in the browser and hit enter.<br>This will
-   continuously run the PDF layout in the background so that you can get an instant preview. You may experience slower
-   performance when in this mode.
-3. When you are ready to preview, use Chrome's built in print function (`Ctrl+P`/`⌘+P`) to get a preview of what the PDF
-   document will look like.
+2. Start your app locally or open your app in the test environment, and start an instance.
+3. Open the developer tools by clicking the button in the bottom right corner, or use the keyboard shortcut `Ctrl+Shift+K`/`⌘+Shift+K`.
+   <br><br>
+   ![The button that opens the developer tools, screenshot](dev-tools-button.png) 
+4. Click the `Forhåndsvis PDF` (Preview PDF) button in the developer tools panel.
+   <br><br>
+   ![Developer tools, screenshot](preview-button.png) 
