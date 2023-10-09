@@ -32,7 +32,7 @@ The following diagram illustrates the overall data flow.
 ### External
 - **Azure Kubernetes Services**: hosts the docker containers for microservices and cron jobs 
   in a fully managed Kubernetes cluster
-- **Kafka on Confluent cloud**: hosts the kafka cluster the microservices consumes and produces messages to
+- **Kafka on Confluent cloud**: hosts the kafka cluster the microservices consumes and produces messages to. Say something about why we use kafka vs something else. E.g. storage queues
 - **PostgreSQL**: used for storage
 - **Communication Services**: used to send emails
 - **Event Grid**: used to subscribe to status updates for sent emails

@@ -13,4 +13,4 @@ TODO: QA devs
 
 ## Requesting required Maskinporten scope
 
-{{% insert "content/events/request-maskinporten-scopes.md" "altinn:notifications.create" "for sending notifications in Altinn"%}}
+{{% insert "static/shared/request-maskinporten-scopes.md" "altinn:notifications.create" "for sending notifications in Altinn"%}}

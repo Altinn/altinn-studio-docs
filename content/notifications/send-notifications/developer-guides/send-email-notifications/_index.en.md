@@ -20,7 +20,7 @@ POST /order/email
 
 This API requires authentication and the request must also include one of the following: 
 - Maskinporten scope __altinn:notifications.create__ (for external system callers) 
-- Platform Access Token (for Altinn Apps or internal Altinn systems)
+- Platform Access Token (for Altinn Apps and internal Altinn systems)
 
 See [Authentication and Authorization](../../../api/#authentication--authorization) for more information.
 
@@ -32,26 +32,62 @@ application/json
 
 
 ### Request body
-The request body should contain the order request formatted as an
+The request body must contain the order request formatted as an
 [EmailNotificationOrderRequestExt](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Models/EmailNotificationOrderRequestExt.cs)
 and serialized as a JSON string.
 
 
 ### Required order request properties 
 
-#### type
-- event type of the cloud event, type: string
+#### body
+Type: _string_
 
+The body of the email in either plain text or HTML format.
 
+#### subject
+Type: _string_
+
+The subject of the emailSubject of the email
+
+#### recipients
+Type: _List of [RecipientExt](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Models/RecipientExt.cs)_
+  
+A list containing one or more recipients consisting of e-mail address and optionally a 
+recipient id.
 
 ### Optional order request properties
 
-#### reqested send time
-- 
+#### fromAddress
+Type: _string_ 
+
+Default: _noreply@altinn.no_
+
+The from address to use as sender of the email. 
+
+
+#### content-type
+Type: _enum_ _[EmailContentType](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications.Core/Enums/EmailContentType.cs)_
+
+Default: _Plain_ 
+
+The content type of the email can be either Plain or Html.
+
+#### requestedSendTime
+Type: _DateTime_ 
+
+The date and time when the notification should be sent to recipient. 
+If left blank, email will be sent immediately.
+  
+#### sendersReference
+Type: _string_
+  
+An internal reference for notification creator to lookup or identify the notification in 
+the future. Could be a case number or another id. It is recommended, but not required, 
+that the sender's reference is unique within the organisation's notification orders.
 
 ## Response
-A successful registration of the notification order should result in a _202 Accepted_ response with an orderId object
-as well as a self link to the generated notification order in the location header.
+A successful registration of the notification order will result in a _202 Accepted_ response with an orderId 
+in the response body and a self link to the generated notification order in the 'Location' header.
 
 ### Content-Type
 - application/json
@@ -61,8 +97,8 @@ as well as a self link to the generated notification order in the location heade
 - 400 Bad Request: The request was invalid.
 
   Refer to problem details in response body for further information.
-- 401 Unauthorized: Indicates a missing, invalid or expired authorization header or that app is not authorized to publish events for the provided source.
-- 403 Forbidden: Indicates that Platform Access Token is missing or invalid.
+- 401 Unauthorized: Indicates a missing, invalid or expired authorization header.
+- 403 Forbidden: Indicates that required scope or Platform Access Token is missing or invalid.
 
 ## Examples
 

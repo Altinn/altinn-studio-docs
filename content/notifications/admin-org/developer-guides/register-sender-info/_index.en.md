@@ -16,7 +16,7 @@ TODO: QA devs
 
 ## Endpoint
 
-POST /admin
+POST /org/config
 
 ## Authentication
 

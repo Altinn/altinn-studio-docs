@@ -7,10 +7,10 @@ description: A guide to requesting access to the Notifications API
 
 
 {{% notice info %}}
-TODO: QA devs
+TODO: QA devs and confirm scope
 {{% /notice %}}
 
 
 ## Requesting required Maskinporten scope
 
-{{% insert "content/events/request-maskinporten-scopes.md" "altinn:notifications.config" "for sending notifications in Altinn"%}}
+{{% insert "static/shared/api/request-maskinporten-scopes.md" "altinn:notifications.admin" "for sending notifications in Altinn"%}}
