@@ -180,12 +180,6 @@
         "SubjectDescription": "Ekstern rolle (fra Enhetsregisteret)"
     },
     {
-        "SubjectId": "",
-        "SubjectSource": "altinn:rolecode",
-        "SubjectTitle": "",
-        "SubjectDescription": "Ekstern rolle (fra Enhetsregisteret)"
-    },
-    {
         "SubjectId": "kont",
         "SubjectSource": "altinn:rolecode",
         "SubjectTitle": "Kontaktperson",
@@ -232,12 +226,6 @@
         "SubjectSource": "altinn:rolecode",
         "SubjectTitle": "Kontaktperson i Adm. enhet - offentlig sektor",
         "SubjectDescription": "Ekstern rolle (fra Enhetsregisteret)"
-    },
-    {
-        "SubjectId": "",
-        "SubjectSource": "altinn:rolecode",
-        "SubjectTitle": "",
-        "SubjectDescription": ""
     },
     {
         "SubjectId": "sign",
