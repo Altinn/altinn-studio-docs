@@ -20,5 +20,7 @@ Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroup
 
 {{% notice warning %}} Det er fortsatt uavklart hvilke fullmakter det vil være natulig å gi personer med rollen Forretningsførerer innenfor fullmaktsområdet "Post og arkiv" {{% /notice %}}
 
+{{% notice warning %}} Det er fortsatt uavklart hva som skjer med alle gamle arkiverte elementer i Altinn 2 som tilhører tjenester som er ute av produksjon. Hvis disse flyttes slik at de blir tilgjengelig for sluttbrukere også i fremtiden så kan det være aktuelt å innføre en ny fullmaktsgruppe for tilgang til arkiverte elementer. Dette vil vil være en fullmaktsgruppe som typisk tildeles arkiv-medarbeidere i virksomheten {{% /notice %}}
+
 
 Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-2/#oversikt-over-fullmaktsgrupper)
