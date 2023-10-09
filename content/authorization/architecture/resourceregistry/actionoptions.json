@@ -20,5 +20,9 @@
     {
         "ActionId": "sign",
         "ActionTitle": "Sign"
+    },
+    {
+        "ActionId": "instantiate",
+        "ActionTitle": "Instansier"
     }
 ]
