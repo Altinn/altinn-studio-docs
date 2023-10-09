@@ -18,10 +18,12 @@ Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroup
 ## Egenskaper ved fullmaktsgruppene
 |Navn fullmaktsgruppe|Kan delegeres til ansatte?|Kan knytte tjenester til?|[ER rolle](/authorization/modules/accessgroups/register_er/#rolletyper-fra-enhetsregisteret) som får fullmakten|
 |---|---|---|---|
-|Administrere tilganger| nei|nei|DAGL, STYR, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
+|Administrere tilganger| nei|nei||
 |Klientadminstrasjon for Regnskapsfører og Revisor|ja|ja|DAGL, STYR, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
 |Tilgangsstyring|ja|ja|DAGL, STYR, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
 |Hovedadministrator|ja|ja|DAGL, STYR, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
 |Kundeadministrator|ja|ja|DAGL, STYR, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
+
+{{% notice warning %}} Det er fortsatt uavklart hvilke fullmakter det vil være natulig å gi personer med rollen Forretningsførerer innenfor fullmaktsområdet "Administrere tilganger" {{% /notice %}}
 
 Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-2/#oversikt-over-fullmaktsgrupper)

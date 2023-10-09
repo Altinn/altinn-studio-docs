@@ -17,11 +17,14 @@ Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroup
 ## Egenskaper ved fullmaktsgruppene
 |Navn fullmaktsgruppe|Kan delegeres til ansatte?|Kan knytte tjenester til?|[ER rolle](/authorization/modules/accessgroups/register_er/#rolletyper-fra-enhetsregisteret) som får fullmakten|
 |---|---|---|---|
-|Personale| ja|nei|DAGL, STYR,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
-|Ansettelsesforhold|ja|nei|DAGL, STYR,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
+|Personale| ja|nei||
+|Ansettelsesforhold|ja|nei||
 |Lønn|ja|ja|DAGL, STYR,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
 |Pensjon|ja|ja|DAGL, STYR,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
 |Pensjon|ja|ja|DAGL, STYR,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
 |Permisjon og sykefravær|ja|ja|DAGL, STYR,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
+
+{{% notice warning %}} Det er fortsatt uavklart hvilke fullmakter det vil være natulig å gi personer med rollen Forretningsførerer innenfor fullmaktsområdet "Personale" {{% /notice %}}
+
 
 Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-2/#oversikt-over-fullmaktsgrupper)

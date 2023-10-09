@@ -14,8 +14,11 @@ Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroup
 ## Egenskaper ved fullmaktsgruppene
 |Navn fullmaktsgruppe|Kan delegeres til ansatte?|Kan knytte tjenester til?|[ER rolle](/authorization/modules/accessgroups/register_er/#rolletyper-fra-enhetsregisteret) som får fullmakten|
 |---|---|---|---|
-|Post og arkiv| nei|nei|ikke relevant|
+|Post og arkiv| nei|nei||
 |Tilgang til all ordinær post som sendes virksomheten| ja|ja|DAGL, STYR,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
 |Tilgang til all post med taushetsbelagt innhold som sendes virksomheten|ja|ja|DAGL, STYR,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
+
+{{% notice warning %}} Det er fortsatt uavklart hvilke fullmakter det vil være natulig å gi personer med rollen Forretningsførerer innenfor fullmaktsområdet "Post og arkiv" {{% /notice %}}
+
 
 Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-2/#oversikt-over-fullmaktsgrupper)

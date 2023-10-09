@@ -23,7 +23,7 @@ Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroup
 ## Egenskaper ved fullmaktsgruppene
 |Navn fullmaktsgruppe|Kan delegeres til ansatte?|Kan knytte tjenester til?|[ER rolle](/authorization/modules/accessgroups/register_er/#rolletyper-fra-enhetsregisteret) som får fullmakten|
 |---|---|---|---|
-|Forhold ved virksomheten| ja|nei|DAGL, STYR,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
+|Forhold ved virksomheten| ja|nei||
 |Starte, endre og avvikle virksomhet|ja|ja|DAGL, STYR,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
 |Aksjer og eierforhold:|ja|ja|DAGL, STYR,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
 |Attester|ja|ja|DAGL, STYR,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
@@ -34,5 +34,8 @@ Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroup
 |Mine sider hos kommunen|ja|ja|DAGL, STYR,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
 |Politi og domstol|ja|ja|DAGL, STYR,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
 |Rapportering av statistikk|ja|ja|DAGL, STYR,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
+
+{{% notice warning %}} Det er fortsatt uavklart hvilke fullmakter det vil være natulig å gi personer med rollen Forretningsførerer innenfor fullmaktsområdet "Forhold ved virksomheten" {{% /notice %}}
+
 
 Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-2/#oversikt-over-fullmaktsgrupper)

@@ -24,16 +24,17 @@ Tilbake til [hovedoversikt](http://localhost:1313/authorization/modules/accessgr
 ## Egenskaper ved fullmaktsgruppene
 |Navn fullmaktsgruppe|Kan delegeres til ansatte?|Kan knytte tjenester til?|[ER rolle](/authorization/modules/accessgroups/register_er/#rolletyper-fra-enhetsregisteret) som får fullmakten|
 |---|---|---|---|
-|Bygg, anlegg og eiendom| ja|nei|DAGL, STYR,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
-|Plan og byggesaker|ja|nei|DAGL, STYR,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
+|Bygg, anlegg og eiendom| ja|nei||
+|Plan og byggesaker|ja|nei||
 |Byggesøknad|ja|ja|DAGL, STYR,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
 |Plansak|ja|ja|DAGL, STYR,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
 |Motta nabo- og planvarsel|ja|ja|DAGL, STYR,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
 |Oppføring av bygg og annlegg|ja|ja|DAGL, STYR,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
-|Omsetning og drift av eiendom|ja|nei|DAGL, STYR,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
+|Omsetning og drift av eiendom|ja|nei||
 |Kjøp og salg av eiendom|ja|ja|DAGL, STYR,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
 |Utleie av eiendom|ja|ja|DAGL, STYR,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
 |Eiendomsmegler|ja|ja|DAGL, STYR,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
 
+{{% notice warning %}} Det er fortsatt uavklart hvilke fullmakter det vil være natulig å gi personer med rollen Forretningsførerer innenfor fullmaktsområdet "Bygg, anlegg og eiendom" {{% /notice %}}
 
 Tilbake til [hovedoversikt](http://localhost:1313/authorization/modules/accessgroups/type-accessgroups/versjon-2/#oversikt-over-fullmaktsgrupper)
