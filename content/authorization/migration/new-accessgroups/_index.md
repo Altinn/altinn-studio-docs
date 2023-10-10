@@ -22,7 +22,7 @@ Foreløpig tidsplan for arbeidet ser slik ut:
 6. Innhente og registrere nye policyer for alle tjenester i Altinn 2 og Altinn 3 (Q4 2023/Q1 2024)
    - Policyen for tjenesten vil på dette tidpunktet henvise til både gamle Altinn 2 roller OG nye Altinn 3 fullmaktsgrupper
    - Vi antar at det i denne runden også vil være behov for justeringer av fullmaktsgruppene for å tilfredsstille behov hos tjenesteeiere som dukker opp. Dette gjøres fortløpende etterhvert som tjenesteeiere oppdager nye utfordringer. 
-7. Lansere [ny brukerflate](/authorization/migration/#nye-tilgangsgrupper-og-ny-brukerflate-for-tilgangsstyring-for-virksomheter) for fullmaktstyring for virksomheter (Q1 2024)
+7. Lansere [ny brukerflate](/authorization/migration/#nye-tilgangsgrupper-og-ny-brukerflate-for-tilgangsstyring-for-virksomheter) for fullmaktstyring for virksomheter (Q2 2024)
    - Hver gang administrator logger på Altinn vil vedkommende få beskjed om at virksomheten har ansatte med tilgang til tjenester gjennom roller som skal fases ut innen en bestemt dato. De vil oppfordres til å rydde opp i god tid før fristen. Vi vil levere en veiviser som vil gjøre jobben enklere for administrator. 
    - Administrator for virksomheten vil fra dette tidspunktet kun få lov å gi ansatte de nye fullmaktsgruppene for sin virksomhet. Det gamle Altinn 2 rollene vil ikke lenger kunne delegeres til nye brukere, kun slettes
 8. Avvikle Altinn 2 roller i løsningen (Q1 2025)
