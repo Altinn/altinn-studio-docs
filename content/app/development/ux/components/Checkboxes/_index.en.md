@@ -119,112 +119,20 @@ App/ui/layouts/{page}.json
 
 {{< property-docs prop="options-page" >}}
 
-### Checkbox settings
+{{< property-docs prop="readOnly" >}}
 
-{{<content-version-selector classes="border-box">}}
-{{<content-version-container version-label="Altinn Studio Designer">}}
+{{< property-docs prop="required" >}}
 
-![Settings for readOnly, required, layout, and preselect](../innstillinger-skrivebeskyttet-required-visning-indeks.png)
+{{< property-docs prop="layout" >}}
 
-{{</content-version-container>}}
-{{<content-version-container version-label="Code">}}
+{{< property-docs prop="preselectedOptionsIndex" >}}
 
-{{< code-title >}}
-App/ui/layouts/{page}.json
-{{< /code-title >}}
+{{< property-docs prop="renderAsSummary" >}}
 
-```json{hl_lines="4-7"}
-{
-  "id": "komponent-id",
-  ...
-  "readOnly": false,
-  "required": true,
-  "layout": "row",
-  "preselectedOptionsIndex": 0
-}
-```
-{{</content-version-container>}}
-{{</content-version-selector>}}
- 
-- **Feltet skal være skrivebeskyttet** (`readOnly`): Field is read only. Disables the component when enabled (`true`).
-- **Feltet skal være påkrevd** (`required`): Field is required when enabled (`true`).
-- **Visning** (`layout`): Layout. Can be column (`column`) (default for more than two options) or row (`row`) (default for up to two options).
-- **Forhåndsvalgt verdi** (`preselectedOptionsIndex`): Sets a preselected value. Options are zero-indexed, so the first option is `0`, the second is `1`, and so on.
+{{< property-docs prop="hidden" >}}
 
-![Example layout column](Visning-column.png "Layout 'column'")
+{{< property-docs prop="page-break" >}}
 
-![Example layout row](Visning-row.png "Layout 'row'")
-
-![Example read-only, required, preselected](checkboxes-readonly-required-preselected.png "Read-only, required, and preselected")
-
-### General settings
-
-{{<content-version-selector classes="border-box">}}
-{{<content-version-container version-label="Altinn Studio Designer">}}
-
-![Settings for summary and hidden](../innstilling-oppsummering-skjules.png)
-
-![Setting for page break](../innstilling-sideskift.png)
-
-{{</content-version-container>}}
-{{<content-version-container version-label="Code">}}
-
-{{< code-title >}}
-App/ui/layouts/{page}.json
-{{< /code-title >}}
-
-```json{hl_lines="4-9"}
-{
-  "id": "komponent-id",
-  ...
-  "renderAsSummary": false,
-  "hidden": false,
-  "pageBreak": {
-    "breakBefore": "auto",
-    "breakAfter": "auto"
-  }
-}
-```
-{{</content-version-container>}}
-{{</content-version-selector>}}
-
-- **Oppsummering** (`renderAsSummary`): Indicates whether the field should be included in a summary or not (default: `false`).
-- **Feltet skal skjules** (`hidden`): Indicates whether the field should be hidden or not (default: `false`).
-- **PDF-innstillinger** (`pageBreak`): Indicates whether a page break should be added before or after the component. Can be either: `auto` (default), `always`, or `avoid`.
-
----
-
-{{% notice info %}}
-The following settings are not yet supported in the form editor but can be configured manually.
-{{% /notice %}}
-
-### Horizontal alignment with `grid`
-
-The `grid` property controls horizontal alignment based on a 12-column layout.
- Items are allocated fractions of 12 which sets their width relative to the screen width.
-  In the example below, we set the component's width to 2/12 of the screen width for all screen sizes (from `xs` and up).
-
-{{<content-version-selector classes="border-box">}}
-{{<content-version-container version-label="Code">}}
-
-{{< code-title >}}
-App/ui/layouts/{page}.json
-{{< /code-title >}}
-
-```json{hl_lines=["4-6"]}
-{
-  "id": "komponent-id",
-  ...
-  "grid": {
-      "xs": 2,
-    }
-}
-```
-{{</content-version-container>}}
-{{</content-version-selector>}}
-
-You can also use `grid` to place items side by side.
-
-See [Components placed side by side (grid)](/app/development/ux/styling/#components-placed-side-by-side-grid) for details and examples.
+{{< property-docs prop="grid-short" >}}
 
 <!-- ## Examples -->

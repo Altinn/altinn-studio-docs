@@ -69,9 +69,10 @@ Vi oppdaterer for øyeblikket hvordan vi implementerer komponenter. Listen over 
 
 <!-- Shortkoden `component-props` genererer automatisk en liste over komponentegenskaper fra komponentens JSON schema.
 Komponentnavnet kan gis eksplisitt som argument (f.eks. `component-props "Grid"`).
-Hvis ingen argument gis, henter shortkoden komponentnavnet fra 'schemaname' i frontmatter. -->
+Hvis ingen argument gis, henter shortkoden komponentnavnet fra 'schemaname' i frontmatter.
 
-{{% component-props %}} -->
+{{% component-props %}} 
+-->
 
 ## Konfigurering
 

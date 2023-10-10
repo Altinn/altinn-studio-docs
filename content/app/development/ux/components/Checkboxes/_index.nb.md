@@ -124,113 +124,20 @@ App/ui/layouts/{page}.json
 
 {{< property-docs prop="options-page" >}}
 
-### Innstillinger for avkrysningsbokser
+{{< property-docs prop="readOnly" >}}
 
-{{<content-version-selector classes="border-box">}}
-{{<content-version-container version-label="Altinn Studio Designer">}}
+{{< property-docs prop="required" >}}
 
-![Innstillnger skrivebeskyttet, påkrevd, visning, indeks](../innstillinger-skrivebeskyttet-required-visning-indeks.png)
+{{< property-docs prop="layout" >}}
 
-{{</content-version-container>}}
-{{<content-version-container version-label="Kode">}}
+{{< property-docs prop="preselectedOptionsIndex" >}}
 
-{{< code-title >}}
-App/ui/layouts/{page}.json
-{{< /code-title >}}
+{{< property-docs prop="renderAsSummary" >}}
 
-```json{hl_lines="4-7"}
-{
-  "id": "komponent-id",
-  ...
-  "readOnly": false,
-  "required": true,
-  "layout": "row",
-  "preselectedOptionsIndex": 0
-}
-```
-{{</content-version-container>}}
-{{</content-version-selector>}}
+{{< property-docs prop="hidden" >}}
 
-- **Feltet skal være skrivebeskyttet** (`readOnly`): Deaktiverer komponenten når aktivert (`true`).
-- **Feltet skal være påkrevd** (`required`): Krever at det gjøres et valg når aktivert (`true`).
-- **Visning** (`layout`): Kan være kolonne (`column`) (standard for mer enn to alternativer) eller rad (`row`) (standard for opp til to alternativer).
-- **Forhåndsvalgt verdi** (`preselectedOptionsIndex`): Sett en forhåndsvalgt verdi. Alternativene er nullindeksert, så det første alternativet er `0`, det andre `1`, osv.
+{{< property-docs prop="page-break" >}}
 
-![Eksempel visning column. Skjermbilde](Visning-column.png "Visning 'column'")
-
-![Eksempel visning row. Skjermbilde](Visning-row.png "Visning 'row'")
-
-![Eksempel skrivebeskyttet, påkrevd, forhåndsvalg](checkboxes-readonly-required-preselected.png "Skrivebeskyttet, påkrevd og forhåndsvalg")
-
-### Generelle innstillinger
-
-{{<content-version-selector classes="border-box">}}
-{{<content-version-container version-label="Altinn Studio Designer">}}
-
-![Innstilling oppsummering og skjult](../innstilling-oppsummering-skjules.png)
-
-![Innstilling sideskift](../innstilling-sideskift.png)
-
-{{</content-version-container>}}
-{{<content-version-container version-label="Kode">}}
-
-{{< code-title >}}
-App/ui/layouts/{page}.json
-{{< /code-title >}}
-
-```json{hl_lines="4-9"}
-{
-  "id": "komponent-id",
-  ...
-  "renderAsSummary": false,
-  "hidden": false,
-  "pageBreak": {
-    "breakBefore": "auto",
-    "breakAfter": "auto"
-  }
-}
-```
-{{</content-version-container>}}
-{{</content-version-selector>}}
-
-- **Oppsummering** (`renderAsSummary`): Indikerer om feltet skal være med i oppsummering eller ikke (standard: `false`).
-- **Feltet skal skjules** (`hidden`): Indikerer om feltet skal skjules eller ikke (standard: `false`).
-- **PDF-innstillinger** (`pageBreak`): Indikerer om en sideskift skal legges til før eller etter komponenten. Kan være enten: `auto` (standard), `always` (alltid) eller `avoid` (unngå).
-
-
----
-
-{{% notice info %}}
-Følgende innstillinger er ikke støttet i skjemaeditor ennå, men kan konfigureres manuelt.
-{{% /notice %}}
-
-### Horisontal justering med `grid`
-
-`grid`-egenskapen kontrollerer horisontal justering av komponenten basert på en layout med 12 kolonner.
- Elementer tildeles brøkdeler av 12 som bestemmer deres bredde i forhold til skjermbredden.
-  I eksemplet nedenfor setter vi komponentens bredde til 2/12 av skjermbredden for alle skjermstørrelser (fra `xs` og opp).
-
-{{<content-version-selector classes="border-box">}}
-{{<content-version-container version-label="Kode">}}
-
-{{< code-title >}}
-App/ui/layouts/{page}.json
-{{< /code-title >}}
-
-```json{hl_lines=["4-6"]}
-{
-  "id": "komponent-id",
-  ...
-  "grid": {
-      "xs": 2,
-    }
-}
-```
-{{</content-version-container>}}
-{{</content-version-selector>}}
-
-Du kan også bruke `grid` for å sidestille komponenter.
-
-Se [Sidestilte komponenter (grid)](/nb/app/development/ux/styling/#sidestilte-komponenter-grid) for detaljer og eksempler.
+{{< property-docs prop="grid-short" >}}
 
 <!-- ## Eksempler -->
