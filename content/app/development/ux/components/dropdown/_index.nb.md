@@ -3,6 +3,7 @@ title: Nedtrekksliste
 linktitle: Nedtrekksliste
 description: Inndataelement som lar brukeren velge kun ett alternativ i en liste med flere alternativer.
 schemaname: Dropdown
+toc: true
 weight: 10
 ---
 
@@ -124,6 +125,8 @@ App/ui/layouts/{page}.json
 {{< property-docs prop="required" >}}
 
 {{< property-docs prop="preselectedOptionsIndex" >}}
+
+{{< property-docs prop="autocomplete" >}}
 
 {{< property-docs prop="renderAsSummary" >}}
 
