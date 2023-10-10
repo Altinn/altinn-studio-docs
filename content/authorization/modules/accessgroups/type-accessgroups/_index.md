@@ -16,6 +16,7 @@ Arbeid med å innføre nye fullmaktsgrupper skjer i følgende trinn:
 3. Innhente og registrere nye policyer for alle tjenester i Altinn 2 og Altinn 3
 4. Lansere [ny brukerflate](/authorization/migration/#nye-tilgangsgrupper-og-ny-brukerflate-for-tilgangsstyring-for-virksomheter) for fullmaktstyring for virksomheter (Q2 2024)
 5. Avvikle Altinn 2 roller i løsningen (Q1 2025)
+   
 Se flere detaljer om tidsplan [her](/authorization/migration/new-accessgroups/#tidsplan-for-arbeidet)
 
 {{<children />}}
