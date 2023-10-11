@@ -154,7 +154,7 @@ App/ui/layouts/{page}.json
 
 ### Image settings (`image`)
 
-### Image source (`image.src`)
+#### Image source (`image.src`)
 
 The default source is `nb`; any language that does not define a separate image source will use this source.
   List another language code and image source to add a source, as in the example below.
@@ -222,7 +222,7 @@ void Configure()
 
 `applicationId` is the same as `id`  in `App/configApplicationmetadata.json`.
 
-### Width and alignment (`image.width`, `image.align`)
+#### Width and alignment (`image.width`, `image.align`)
 
 By using `width`, you can adjust the image size by specifying the width of the image in percentage.
  The height is automatically set to maintain proportions. The default setting is 100% (original width).
@@ -275,76 +275,12 @@ The following options are available for positioning:
 - `space-around`: The elements are evenly distributed horizontally with equal spacing between each element, including spacing at the start and end, which is half the spacing between the elements.
 - `space-evenly`: The elements are evenly distributed horizontally with equal spacing between each element, including at the start and end, so that the total spacing is evenly distributed.
 
-### General settings
+{{< property-docs prop="renderAsSummary" >}}
 
-{{<content-version-selector classes="border-box">}}
-{{<content-version-container version-label="Altinn Studio Designer">}}
+{{< property-docs prop="hidden" >}}
 
-![Settings for summary and hidden](../innstilling-oppsummering-skjules.png)
+{{< property-docs prop="page-break" >}}
 
-![Setting for page break](../innstilling-sideskift.png)
-
-{{</content-version-container>}}
-{{<content-version-container version-label="Code">}}
-
-{{< code-title >}}
-App/ui/layouts/{page}.json
-{{< /code-title >}}
-
-```json{hl_lines="4-9"}
-{
-  "id": "komponent-id",
-  ...
-  "renderAsSummary": false,
-  "hidden": false,
-  "pageBreak": {
-    "breakBefore": "auto",
-    "breakAfter": "auto"
-  }
-}
-```
-{{</content-version-container>}}
-{{</content-version-selector>}}
-
-- **Oppsummering** (`renderAsSummary`): Indicates whether the field should be included in a summary or not (default: `false`).
-- **Feltet skal skjules** (`hidden`): Indicates whether the field should be hidden or not (default: `false`).
-- **PDF-innstillinger** (`pageBreak`): Indicates whether a page break should be added before or after the component. Can be either: `auto` (default), `always`, or `avoid`.
-
----
-
-{{% notice info %}}
-The following settings are not yet supported in the form editor but can be configured manually.
-{{% /notice %}}
-
-### Horizontal alignment with `grid`
-
-The `grid` property controls horizontal alignment based on a 12-column layout.
- Items are allocated fractions of 12 which sets their width relative to the screen width.
-  In the example below, we set the component's width to 2/12 of the screen width for all screen sizes (from `xs` and up).
-
-{{<content-version-selector classes="border-box">}}
-{{<content-version-container version-label="Code">}}
-
-{{< code-title >}}
-App/ui/layouts/{page}.json
-{{< /code-title >}}
-
-```json{hl_lines=["4-6"]}
-{
-  "id": "komponent-id",
-  ...
-  "grid": {
-      "xs": 2,
-    }
-}
-```
-{{</content-version-container>}}
-{{</content-version-selector>}}
-
-![Grid example screenshot](screenshot-grid-example.png "Example of image taking up 2/12 of the screen width")
-
-You can also use `grid` to place items side by side.
-
-See [Components placed side by side (grid)](/app/development/ux/styling/#components-placed-side-by-side-grid) for details and more examples.
+{{< property-docs prop="grid-short" >}}
 
 <!-- ## Examples -->

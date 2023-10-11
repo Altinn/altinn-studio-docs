@@ -281,76 +281,13 @@ App/ui/layouts/{page}.json
 - `space-around`: Elementene er jevnt fordelt langs hovedaksen med like mye mellomrom mellom hvert element, inkludert mellomrom ved start og slutt, som er halvparten av mellomrommet mellom elementene.
 - `space-evenly`: Elementene er jevnt fordelt langs hovedaksen med like mye mellomrom mellom hvert element, inkludert start og slutt, slik at det totale mellomrommet er jevnt fordelt.
 
-### Generelle innstillinger
 
-{{<content-version-selector classes="border-box">}}
-{{<content-version-container version-label="Altinn Studio Designer">}}
+{{< property-docs prop="renderAsSummary" >}}
 
-![Innstilling oppsummering og skjult](../innstilling-oppsummering-skjules.png)
+{{< property-docs prop="hidden" >}}
 
-![Innstilling sideskift](../innstilling-sideskift.png)
+{{< property-docs prop="page-break" >}}
 
-{{</content-version-container>}}
-{{<content-version-container version-label="Kode">}}
-
-{{< code-title >}}
-App/ui/layouts/{page}.json
-{{< /code-title >}}
-
-```json{hl_lines="4-9"}
-{
-  "id": "komponent-id",
-  ...
-  "renderAsSummary": false,
-  "hidden": false,
-  "pageBreak": {
-    "breakBefore": "auto",
-    "breakAfter": "auto"
-  }
-}
-```
-{{</content-version-container>}}
-{{</content-version-selector>}}
-
-- **Oppsummering** (`renderAsSummary`): Indikerer om feltet skal være med i oppsummering eller ikke (standard: `false`).
-- **Feltet skal skjules** (`hidden`): Indikerer om feltet skal skjules eller ikke (standard: `false`).
-- **PDF-innstillinger** (`pageBreak`): Indikerer om en sideskift skal legges til før eller etter komponenten. Kan være enten: `auto` (standard), `always` (alltid) eller `avoid` (unngå).
-
----
-
-{{% notice info %}}
-Følgende innstillinger er ikke støttet i skjemaeditor ennå, men kan konfigureres manuelt.
-{{% /notice %}}
-
-### Horisontal justering med `grid`
-
-`grid`-egenskapen kontrollerer horisontal justering av komponenten basert på en layout med 12 kolonner.
- Elementer tildeles brøkdeler av 12 som bestemmer deres bredde i forhold til skjermbredden.
-  I eksemplet nedenfor setter vi komponentens bredde til 2/12 av skjermbredden for alle skjermstørrelser (fra `xs` og opp).
-
-{{<content-version-selector classes="border-box">}}
-{{<content-version-container version-label="Kode">}}
-
-{{< code-title >}}
-App/ui/layouts/{page}.json
-{{< /code-title >}}
-
-```json{hl_lines=["4-6"]}
-{
-  "id": "komponent-id",
-  ...
-  "grid": {
-      "xs": 2,
-    }
-}
-```
-{{</content-version-container>}}
-{{</content-version-selector>}}
-
-![Eksempel posisjonering med grid. Skjermbilde](screenshot-grid-example.png "Eksempel med bilde som tar 2/12 av skjermbredden")
-
-Du kan også bruke `grid` for å sidestille komponenter.
-
-Se [Sidestilte komponenter (grid)](/nb/app/development/ux/styling/#sidestilte-komponenter-grid) for detaljer og flere eksempler.
+{{< property-docs prop="grid-short" >}}
 
 <!-- ## Eksempler -->
