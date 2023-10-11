@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # Instruksjoner
 
 1. **Filnavn**: Kopier malen og gi den navn på formatet `{propName}.{languageCode}.md`. Opprett en fil for hvert språk. Alle filer skal ligge direkte under `_common-props-content`.

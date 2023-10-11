@@ -1,4 +1,6 @@
-# Innhold
+---
+hidden: true
+---
 
 <!-- begin intro -->
 ### Layout (`layout`)
