@@ -7,8 +7,6 @@ weight: 100
 
 ---
 
-# Siden er under arbeid
-
 Altinn skal erstatte rollene som gir tilgang til tjenester i Altinn 2 når vi flytter Altinn Autorisasjon til Altinn 3. 
 I stedet for roller vil det i Altinn 3 være ulike fullmaktsgrupper som består av tjenester som hører til et ansvarsområde.
 
@@ -70,7 +68,7 @@ Vi gjennomfører nå høring nummer 2 av nye fullmaktsgrupper. Vi ønsker tilbak
 - beskrivelsene av fullmaktsgruppene som dere vil forholder dere til
 - om forslag til hvilke ER-roller som skal få de nye fullmaktsgruppene dekker deres behov. Det er særlig viktig å avklare om det er noen av de foreslåtte ER roller dere mener IKKE kan få fullmaktsgruppen i kontekst av deres tjeneste
 
-Tilbakemelding kan du sende på e-post til servicedesk@altinn.no innen 15.10.2023.
+Tilbakemelding kan du sende på e-post til servicedesk@altinn.no innen 10.11.2023.
 
 ## Oversikt over fullmaktsgrupper: 
 
