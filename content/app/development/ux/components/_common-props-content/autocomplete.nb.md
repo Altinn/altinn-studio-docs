@@ -1,5 +1,6 @@
-
-# Innhold
+---
+hidden: true
+---
 
 <!-- begin intro -->
 ### Automatisk fullføring (`autocomplete`)
