@@ -18,6 +18,8 @@
     <link href="{{"css/horsey.css" | relURL}}" rel="stylesheet">
     <link href="{{"css/fortawesome.css" | relURL}}" rel="stylesheet">
     <link href="{{"css/designsystem.css" | relURL}}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/typesense-docsearch-css@0.3.0" rel="stylesheet" >
+
     {{- with .Site.Params.themeStyle -}}
     <link href="{{(printf "css/%s.css" .) | relURL}}" rel="stylesheet">
     {{- else -}}
@@ -28,6 +30,8 @@
     {{- end -}}
 
     <script src="{{"js/jquery-2.x.min.js" | relURL}}"></script>
+    <!-- Typesense Docsearch -->
+    <script src="https://cdn.jsdelivr.net/npm/typesense-docsearch.js@3.4"></script>
 
     {{- partial "custom-head.html" . -}}
 
@@ -54,6 +58,25 @@
           {{ template "activeMenus" dict "page" . "value" (printf "$(\"li.dd-item a[href='%s']\").parent().addClass(\"active\");" .RelPermalink) }}
         </script>
         <section id="body">
+          <div id="typesense-searchbar"></div>
+          <script>
+            docsearch({
+              container: '#typesense-searchbar',
+              typesenseCollectionName: 'altinn-studio-docs', // Should match the collection name you mention in the docsearch scraper config.js
+              typesenseServerConfig: { 
+                nodes: [{
+                  host: 'altinn-typesense-api.azurewebsites.net', // For Typesense Cloud use xxx.a1.typesense.net
+                  port: '443',      // For Typesense Cloud use 443
+                  protocol: 'https'   // For Typesense Cloud use https
+                }],
+                apiKey: 'xyx', // Use API Key with only Search permissions
+              },
+              typesenseSearchParameters: { // Optional.
+                //filter_by: 'version_tag:=0.21.0' // Useful when you have versioned docs
+              },
+            });
+          </script>
+
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text">

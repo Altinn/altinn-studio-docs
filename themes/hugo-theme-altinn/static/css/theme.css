@@ -240,6 +240,16 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
 .searchbox input:-ms-input-placeholder {
     color: rgba(255, 255, 255, 0.6);
 }
+#typesense-searchbar {
+    margin-bottom: unset;
+    background-color: unset;
+    border: unset;
+}
+input#docsearch-input {
+    margin-bottom: unset;
+    background-color: unset;
+    border: unset;
+}
 
 /* SIDEBAR TOGGLE */ 
 #sidebar-toggle-span {
