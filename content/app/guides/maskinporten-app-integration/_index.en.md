@@ -10,11 +10,11 @@ aliases:
 
 ---
 
-The prerequisites for creating a multi-app solution involves making sure the request made to create an instance of application B, is authenticated.
+TODO: Rewrite this to be independent from multi-app solution
 
 By nature, the request will have credentials from the private user who
 logged in to the application A form, thus is not allowed to start
-a new instance on behalf of the organisation that owns application B. 
+a new instance on behalf of the organisation that owns application B.
 As a way to bypass this obstacle, we
 can use a Maskinporten integration to authenticate the
 request on behalf of the organisation owning

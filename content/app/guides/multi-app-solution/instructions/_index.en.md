@@ -19,23 +19,28 @@ required prerequisites are met.
 1. The app-developer must have access to create and develop applications owned by an organization.
 2. Existing basic Altinn form where the content of the data model is assessed against the intended data flow between
    application A and application B.
+3. Who is the instance owner
+
+Does the end user of application A have the required roles to instantiate application B on behalf of the intended
+recipient?
+
+- If yes, no maskinporten integration is required.
+- If no, maskinporten integration is required in order for the
+  application to impersonate the app owner, with rights to instantiate on behalf of all parties,
 
 ### Technical Prerequisites
 
-1. Already existing Maskinporten clients (test and production) for the organization.
-2. An integration between the application(s) and the clients in Maskinporten. This must be done in the application(s) that are going to send requests that to another application that must be authorized by the application owner.
+1. Your applications are using version 8 or newer of the Altinn nugets.
+2. Already existing Maskinporten client with the altinn-specific scopes; `altinn:serviceowner/instances.read` and
+   `altinn:serviceowner/instances.write`, owned by the organization.*
+3. An integration between the application(s) and the clients in Maskinporten. This must be done in the application(s)
+   that are going to send requests to another application, which requests needs to be authorized by the application
+   owner.*
 
-If the technical requirements are missing see section [Maskinporten-App Integration](../../maskinporten-app-integration)
+If step 2 and 3 of the technical requirements are missing see
+section [Maskinporten-App Integration](../../maskinporten-app-integration)
 
-
-### Why Maskinporten-App Integration?
-
-By nature, the request will have credentials from the private user who
-logged in to the application A form, thus is not allowed to start
-a new instance on behalf of the organisation that owns application B.
-As a way to bypass this obstacle, we
-can use a Maskinporten integration to authenticate the
-request on behalf of the organisation owning
-application B.
+\* _If the end user of application A have the required roles to instantiate application B on behalf of the intended
+recipient, you can skip these technical requirements_
 
 {{<children description="true"/>}}

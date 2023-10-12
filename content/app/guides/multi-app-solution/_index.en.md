@@ -69,6 +69,21 @@ people with an official need.
 
 ## How does the multi-app solution actually work?
 
-TODO: Write this
+A multi-app solution is a way of configuring multiple forms to communicate through API calls. The specific communication
+we will describe in this guide is the creation of a new instance of an application, B, triggered by another application
+A. A typical scenario would be that an end-user fills out information in an instance of application A. And when pressing
+the button to submit the form, an API call to is sent to another application, creating a new instance of this form where
+the answers from application A is a part of the information.
+
+### Why Maskinporten-App Integration?
+
+In order for an application to do a POST request to another application to create a new instance, it needs to have the
+right credentials. By nature, the request will have credentials from the private user who
+logged in to the application A form, thus is not allowed to start
+a new instance on behalf of the organisation that owns application B.
+As a way to bypass this obstacle, we
+can use a Maskinporten integration to authenticate the
+request on behalf of the organisation owning
+application B.
 
 {{<children description="true" />}}
