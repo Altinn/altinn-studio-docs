@@ -250,7 +250,10 @@ input#docsearch-input {
     background-color: unset;
     border: unset;
 }
+.DocSearch-Footer {
+    display: none;
 
+}
 /* SIDEBAR TOGGLE */ 
 #sidebar-toggle-span {
     display: none;
