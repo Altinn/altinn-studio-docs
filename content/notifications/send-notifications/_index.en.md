@@ -1,10 +1,10 @@
 ---
 title: Send notifications
 linktitle: Send notifications
-description: "As a service owner or internal Altinn system one can send notifications to people in organisations
-based on roles or to people. The contact point for the recipient does not need to be known, as the Notification 
-component has access to a wide range or registries to retrieve contact information given an organisation number
-or a national identity number." 
+description: "Service owners and internal Altinn systems can send notifications to individuals or individuals with a
+specific role within an organisation. The contact point for the recipient does not need to be known, as 
+Altinn Notifications has access to a wide range or registries to retrieve contact information 
+given an organisation number or a national identity number." 
 tags: [notifications]
 weight: 30
 toc: true

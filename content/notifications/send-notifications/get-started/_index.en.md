@@ -1,7 +1,7 @@
 ---
 title: Get started
 linktitle: Get started
-description: An overview over administrative tasks required before creating notifications
+description: An overview over administrative tasks required before sending notifications through Altinn
 weight: 20
 ---
 

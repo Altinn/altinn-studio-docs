@@ -13,4 +13,10 @@ TODO: QA devs
 
 ## Requesting required Maskinporten scope
 
-{{% insert "static/shared/request-maskinporten-scopes.md" "altinn:notifications.create" "for sending notifications in Altinn"%}}
+{{% notice info %}}
+This is only required by external system clients. Altinn internal systems can be authenticate with Altinn Platform Access
+Tokens instead.
+{{% /notice %}}
+
+
+{{% insert "static/shared/api/request-maskinporten-scopes.md" "altinn:serviceowner/notifications.create" "for sending notifications in Altinn"%}}

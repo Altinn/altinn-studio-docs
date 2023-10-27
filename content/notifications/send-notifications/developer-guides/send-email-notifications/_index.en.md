@@ -103,31 +103,39 @@ in the response body and a self link to the generated notification order in the 
 ## Examples
 
 ### Request
+{{% notice info %}}
+In the example we have included place holders for both the Platform Access and Altinn token.
+You only need one of them, reference [Authentication](#authentication) for which one applies to your use case.
+{{% /notice %}}
 
-Note that the Platform Access and Altinn tokens should be inserted in the headers.
 
 ```bash
-curl \
---location 'https://platform.altinn.no/events/api/v1/app' \
+curl --location 'https://platform.yt01.altinn.cloud/notifications/api/v1/orders/email' \
 --header 'Content-Type: application/json' \
---header 'PlatformAccessToken: {Insert Platform Access token}' \
---header 'Authorization: Bearer {Insert Altinn token}' \
---data '{
-	"type": "app.instance.created",
-	"source": "https://ttd.apps.altinn.no/ttd/apps-test/instances/50019855/428a4575-2c04-4400-89a3-1aaadd2579cd",
-	"subject": "/party/50019855",
-	"specversion": "1.0",
-	"alternativesubject": "/person/01017512345"
+--header 'PlatformAccessToken: [INSERT PLATFORM ACCESS TOKEN]' \
+--header 'Authorization: Bearer [INSERT ALTINN TOKEN]' \
+--data-raw '{
+	"subject": "A test email from Altinn Notifications",
+	"body": "A message to be sent immediately from an org.",
+	"content-type": "Plain",
+    "recipients":[{"emailAddress":"testuser@altinn.no"}]
 }'
 ```
 
 ### Response
 
-#### 200 OK
-Response contains the ID for the cloud event.
+#### 202 Accepted
+Response body contains the ID for the cloud event.
 
 ```json
-"4815d141-8cf6-4555-8c3c-e069c7b80c79"
+{
+    "orderId": "0f92fcfb-778e-4fe4-99dc-51b4f91d71fd"
+}
+```
+
+Response headers contains a self link for retrieving the generated notification order.
+```bash
+-- header 'Location: https://platform.yt01.altinn.cloud/notifications/api/v1/orders/0f92fcfb-778e-4fe4-99dc-51b4f91d71fd'
 ```
 
 #### 400 Bad Request
@@ -135,10 +143,14 @@ Response contains a problem details object with the error message in the detail 
 
 ```json
 {
-	"type": "https://tools.ietf.org/html/rfc7231#section-6.5.1",
-	"title": "Bad Request",
-	"status": 400,
-	"detail": "Missing parameter values: source, subject and type cannot be null",
-	"traceId": "00-4b54a6a0c9b74bf5afc5e917863f96fd-eb14b06c1f0c3cf8-00"
+    "type": "https://tools.ietf.org/html/rfc7231#section-6.5.1",
+    "title": "One or more validation errors occurred.",
+    "status": 400,
+    "traceId": "00-9ac2962c93d79629aa5c3744e4259663-344b49720aa49b0a-00",
+    "errors": {
+        "Subject": [
+            "'Subject' must not be empty."
+        ]
+    }
 }
 ```
