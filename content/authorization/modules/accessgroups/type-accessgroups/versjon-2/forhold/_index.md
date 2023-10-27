@@ -7,7 +7,7 @@ weight: 109
 Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-2/#oversikt-over-fullmaktsgrupper)
 
 ![Forhold ved virksomheten](gfv.jpg "Forhold ved virksomheten")
-- **Forhold ved virksomheten:** Denne fullmakten gir tilgang til alle tjenester som er relatert til å etablere en virksomhet. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
+- **Forhold ved virksomheten:** Denne fullmakten gir tilgang til alle tjenester som er relatert til å etablere og drive en virksomhet. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
 	- **Starte, endre og avvikle virksomhet:**	Denne fullmakten gir tilgang til alle tjenester knyttet til å starte, endre og avvikle en virksomhet. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
 	- **Aksjer og eierforhold:** Denne fullmakten gir tilgang til alle tjenester knyttet til aksjer og eierforhold. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
 	- **Attester:** Denne fullmakten gir tilgang til alle tjenester knyttet til attestering av virksomhet. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
