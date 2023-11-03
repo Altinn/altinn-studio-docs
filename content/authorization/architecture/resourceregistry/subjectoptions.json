@@ -36,7 +36,7 @@
         "SubjectDescription": "Delegerbar revisorrolle med signeringsrettighet.Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som rollen gir."
     },
     {
-        "SubjectId": "a0238 ",
+        "SubjectId": "a0238",
         "SubjectSource": "altinn:rolecode",
         "SubjectTitle": "Revisormedarbeider",
         "SubjectDescription": "Denne rollen gir revisor rettighet til aktuelle skjema og tjenester. Denne gir ikke rettighet til å signere. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som rollen gir."
