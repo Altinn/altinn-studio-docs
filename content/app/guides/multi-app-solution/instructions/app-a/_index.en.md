@@ -42,15 +42,15 @@ the `GetInstance` method on the `IInstanceClient`._
 In order to add task types to extend the application process, we need to update `process.bpmn` and `policy.xml`.
 
 1. You will find examples of how to adapt the `process.bpmn` file, where the application process is defined, in
-   the [process documentation](/content/app/development/configuration/process).
+   the [process documentation](/app/development/configuration/process).
    <br><br>When using the _confirm_ task type we need to allow for going back to a previous task type, which also means
    that we
    need to take advantage of _exclusive gateways_. Read more about exclusive
-   gateways [here](/content/app/development/configuration/process/exclusive-gateways).
+   gateways [here](/app/development/configuration/process/exclusive-gateways).
 2. The `policy.xml` file, where the authorization rules are defined, needs updates so read and write operations
-   can be done on the new task. <br><br>See [XACML policy](content/authorization/guide/xacml)
-   , [policy editor](../../../../development/configuration/authorization)
-   and [Guidelines for authorization rules](/content/app/development/configuration/authorization/guidelines_authorization)
+   can be done on the new task. <br><br>See [XACML policy](/authorization/guide/xacml)
+   , [policy editor](/app/development/configuration/authorization)
+   and [Guidelines for authorization rules](/app/development/configuration/authorization/guidelines_authorization)
    for details. Most apps allow this by default by the current template.
 
 ## Trigger the instantiation of application B
@@ -67,7 +67,7 @@ this behaviour which means that we will need to trigger the API request as custo
 The general approach for an Altinn application to perform custom operations is by implement code on certain hooks, which
 are predefined functions in app-backend.
 Read about how this custom code is
-added [here](../../../../development/configuration/process/pre-post-hooks).
+added [here](/app/development/configuration/process/pre-post-hooks).
 
 1. In the file, `ProcessTaskEnd.cs`, implement the code that creates the instance object that will be used as the
    foundation for the new instance of application B. Make sure that the
@@ -100,7 +100,7 @@ added [here](../../../../development/configuration/process/pre-post-hooks).
     ```
 
 2. To actually perform the request to create the instance, we need to add a client. Refer
-   to [the consume documentation](/content/app/development/api/consume#implement-the-client) to see an example of how
+   to [the consume documentation](/app/development/api/consume#implement-the-client) to see an example of how
    such a client can be added to the application. A soothing name for the client used in this context can be
    i.e. `AppInstantiationClient`. In addition to the instructions in the referenced documentation, our constructor needs
    additional configuration to the HttpClient. Add the following code the the constructor to add a subscription key to
@@ -147,7 +147,7 @@ added [here](../../../../development/configuration/process/pre-post-hooks).
 
 3. In the `ProcessTaskEnd.cs` file, add the new _AppInstantiationClient_ to the `ProcessTaskEnd` class in the same way
    as the _CountryClient_ is added to the `DataProcessingHandler` class
-   in [the consume documentation](/content/app/development/api/consume#using-the-client-in-the-application-logic).
+   in [the consume documentation](/app/development/api/consume#using-the-client-in-the-application-logic).
    Further, call the method triggering the request in the appInstantiationClient like this:
 
     ```csharp
@@ -204,7 +204,7 @@ There are several ways to control certain data in application B, whereas one or 
 - **Alt 2:** If the intention is to manipulate the texts in Altinn
   Inbox for the instances of application B,
   use [_presentation
-  fields_](../../../../development/configuration/messagebox/presentationfields)
+  fields_](/app/development/configuration/messagebox/presentationfields)
   .
 
 TODO: Change this alt to send request to app B and not directly to storage
