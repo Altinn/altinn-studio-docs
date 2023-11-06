@@ -1,7 +1,7 @@
 ---
 title: Integrate Altinn app with Maskinporten
 linktitle: Maskinporten-App integration
-description: How to setup an integration between Altinn applications and Maskinporten.
+description: How to setup an integration between an Altinn App and Maskinporten.
 weight: 100
 toc: true
 aliases:
