@@ -14,14 +14,15 @@ aliases:
 
 When interacting with Maskinporten in an application there are a few things to keep in mind.
 
-First and foremost Samarbeidsportalen lets you maintain two different clients; one for test being `ver2` and another for
+First and foremost Samarbeidsportalen lets you maintain two different clients; one for test being `ver2`/`test` and
+another for
 production
 being `prod`. You should create both clients, but of course only use the test client for test, and prod client for
 production. There are different access policies for creating these, so make sure you are aware of these limitations
 described
 at [Samarbeidsportalen](https://docs.digdir.no/docs/Maskinporten/maskinporten_sjolvbetjening_web#innlogging-og-tilgang).
 
-Second, since this integration is relying on authorizing through public and private keys (JWT) stored in Azure secrets, 
+Second, since this integration is relying on authorizing through public and private keys (JWT) stored in Azure secrets,
 
 ## What can be done in Studio
 
