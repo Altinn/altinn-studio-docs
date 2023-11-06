@@ -146,7 +146,7 @@ og du skal kunne teste det nye prosessteget og bekrefte at visningen ser ut som 
 
 **Husk å _pushe_ de lokale endringene dine så de blir tilgjengelige i Altinn Studio.**
 
-### Løsningsforslag
+## Løsningsforslag
 [Kildekode Modul 5](https://altinn.studio/repos/testdep/flyttemelding-sogndal/src/branch/modul5)<br>
 [(Kildekode Modul 5 - tidligere versjon)](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/5)<br>
 
