@@ -50,7 +50,6 @@ type A or type B, or both types.
 
 Altinn offers a robust set of APIs and event support for processing data from Altinn Apps. However, if these options do
 not align with your needs, you might consider a multi-app solution.
-warrant such an approach.
 
 ### Use cases where you can consider utilize a multi-app solution:
 
