@@ -9,13 +9,16 @@ aliases:
 
 ---
 
-Application B is first and foremost responsible for handle and present some data which it retrieves from application A.
-Beyond that the application can act as a normal Altinn application where the final step is to submit the form, thus
+Application B is first and foremost responsible for handling and presenting data which it retrieves from application A.
+Beyond this the application can act as a regular Altinn application where the final step is to submit the form, thus
 ending the lifecycle of the created instance. However, if there is no natural way of ending the instance of application
-B, this must be handled manually. Read the following sections for more details:
+B, this must be handled manually. 
 
-1. Getting Data From Application A
-2. Stopping a Running Instance
+
+Read the following sections for more details on:
+
+- [Getting Data From Application A](#getting-data-from-application-a)
+- [Stopping an active instance](#stopping-an-active-instance)
 
 ## Getting Data From Application A
 
@@ -55,7 +58,7 @@ public async Task<bool> ProcessDataRead(Instance instance, Guid? dataId, object 
 }
 ```
 
-## Stopping a Running Instance
+## Stopping an active instance
 
 Since this application, in most cases, will act as
 an on-demand dashboard for collecting data from
