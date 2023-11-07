@@ -10,28 +10,23 @@ aliases:
 
 ---
 
-TODO: Rewrite this to be independent from multi-app solution
-
-By nature, the request will have credentials from the private user who
-logged in to the application A form, thus is not allowed to start
-a new instance on behalf of the organisation that owns application B.
-As a way to bypass this obstacle, we
-can use a Maskinporten integration to authenticate the
-request on behalf of the organisation owning
-application B. In order to achieve this we need to;
+This is a guide on how to set up an Altinn application to create a client that utilizes a Maskinporten integration for
+its requests. This is a use case that is relevant when the application are going to perform requests that needs to
+be authorized on behalf of the organization owning the application and not the end user owning the instance. By nature,
+these requests will have credentials from the private user who logged in to the application and created the new
+instance. In order to send these requests on behalf of the organization the following must be done;
 
 1. Ensure organization has access to Azure key vault
 2. Create the integration
    at [Samarbeidsportalen](https://samarbeid.digdir.no/)
 3. Store the keys from the integration in Azure key vault for
    the organisation
-4. Set up the application to use Azure key vault and the
-   client to use Maskinporten
+4. Set up the application to use the Maskinporten client by retrieving the secrets/keys from Azure key vault.
 
 ## Azure Key Vault Access
 Before going forward in this guide, make sure you have access
 to Azure key vault for your organization, so the keys
-created in the following guide can be added directly into
+created further on in the guide can be added directly into
 the secrets in Azure.
 
 If access is missing, please refer to [Access to logs and secrets](../access-management/apps).
@@ -50,76 +45,62 @@ navigate to
 the [Maskinporten Setup guide](../../../technology/solutions/cli/configuration/maskinporten-setup)
 .
 
-## Key Vault Usage
+## Azure Key Vault Configuration
 
-When the integration is created two secrets have to be
-placed in Azure key vault:
+When preparing the application to use the secrets from Azure Key vault, there are some steps that needs to be done:
 
-1. The base64 encoded JWT public and private key pair
-2. The clientID for the integration
+1. Add the secrets retrieved during the Maskinporten client configuration to Azure Key vault:
+   - The base64 encoded JWT public and private key pair
+   - The clientID for the integration
 
-It is important that the name of these secrets corresponds
-with the name of the section in the appsettings file in the
-application repository. E.g. if your appsettings section for
-the Maskinporten integration section looks like this:
+   It is important that the name of these secrets in Azure key vault corresponds
+   with the name of the section in the appsettings file in the
+   application repository. E.g. if your appsettings section for
+   the Maskinporten integration section looks like this:
 
-```json
-{
-  "MaskinportenSettings": {
-    "Environment": "ver2",
-    "ClientId": "",
-    "Scope": "altinn:serviceowner/instances.read",
-    "EncodedJwk": "",
-    "ExhangeToAltinnToken": true,
-    "EnableDebugLog": true
-  }
-}
-```
+   ```json
+   {
+     "MaskinportenSettings": {
+       "Environment": "ver2",
+       "ClientId": "",
+       "Scope": "altinn:serviceowner/instances.read",
+       "EncodedJwk": "",
+       "ExhangeToAltinnToken": true,
+       "EnableDebugLog": true
+     }
+   }
+   ```
 
-The secrets in Azure key vault should have names like this:
+   The secrets in Azure key vault should have names like this:
 
-```
-MaskinportenSettings--ClientId
-MaskinportenSettings--EncodedJwk
-```
-
-_NB: The secrets is read by the application on start up so
-if
-changing the secrets after the application is deployed, you
-will need to redeploy the application._
-
-## Setup app to use Maskinporten Integration
-
-In the process of setting up the application to use the
-integration there are three things that needs to be done;
-
-1. For the application to be able to read the secrets from
+   ```
+   MaskinportenSettings--ClientId
+   MaskinportenSettings--EncodedJwk
+   ```
+2. For the application to be able to read the secrets from
    Azure key vault the application need to be configured to
    do so. See
    the [secrets section](../../development/configuration/secrets)
    to achieve this.
-2. Add the appsettings section example
-   from [Key Vault Usage](#key-vault-usage) into
-   the `appsettings.json` file in the application that
-   should perform the instantiation of
-   application B. Remember to adapt the section
-   name `MaskinportenSettings` to the name you chose for the
-   secrets in Azure key vault.
-3. Modify the `program.cs` file for the same application to
-   connect to Azure key vault. Continue reading for a
-   detailed explanation.
+3. Add the appsettings section example
+   from above into the `appsettings.{env}.json` file.
 
-### Modifying `program.cs` to use Key Vault
+_NB: The secrets are read by the application on start up so
+if changing the secrets after the application is deployed, you
+will need to redeploy the application._
 
-First of all you need to add the MaskinportenHttpClient
-service in the function `RegisterCustomAppServices`:
+## Setup Application to use Maskinporten Integration
+
+When modifying the application to use the Maskinporten integration, we need to adapt the `program.cs` file.
+
+First of all we need to add the MaskinportenHttpClient
+service with the appropriate configuration in the function `RegisterCustomAppServices`:
 
 ```csharp
 services.AddMaskinportenHttpClient<SettingsJwkClientDefinition, AppClient>(config.GetSection("MaskinportenSettings"));
 ```
 
-Then you need to add the following
-function `ConnectToKeyVault` in the bottom of the file:
+Thwn we need to add the following function `ConnectToKeyVault` in the bottom of the file:
 
 ```csharp
 static void ConnectToKeyVault(IConfigurationBuilder config)
@@ -145,7 +126,7 @@ static void ConnectToKeyVault(IConfigurationBuilder config)
 }
 ```
 
-This function can then be used in the
+Finally, this function must then be called in the
 function `ConfigureWebHostBuilder`. The function already
 exist, so just change the content to the following:
 
