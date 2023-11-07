@@ -36,12 +36,11 @@ type A or type B, or both types.
   end-users will interact with it. While filling in the form they will
   be working on their own private instance. However
   it will differentiate from other Altinn apps since the service owner
-  have customized it to include actions that
-  trigger a POST API call to another application. This POST API call
+  has customized it to include actions that
   will create a new instance of the _application B_.
 - **Application B**: This will be an application that may have multiple
-  purposes, but it's main purpose will
-  be to receive and handle some data from the other application and
+  purposes, but its main purpose will
+  be to receive and handle data from _application A_ and
   automatically create a new instance using this data
   for a given instance owner. This application will differentiate from
   other Altinn apps since instances are created by
@@ -49,19 +48,20 @@ type A or type B, or both types.
 
 ## Do I need a multi-app solution?
 
-Altinn offers a robust set of APIs and event support for data processing from Altinn Apps. However, if these options do
-not align with your needs, you might consider a multi-app solution. Below, we've outlined some common use cases that may
+Altinn offers a robust set of APIs and event support for processing data from Altinn Apps. However, if these options do
+not align with your needs, you might consider a multi-app solution.
 warrant such an approach.
 
 ### Use cases where you can consider utilize a multi-app solution:
 
+We have outlined some common use cases that may warrant the multi-app approach.
 - The organization has limited development capacity or does not want
   to develop and maintain a new system for processing data from
   Altinn.
 - Existing setup within the organization for processing data from
   Altinn does not satisfy requirements for security.
 
-By implementing a multi-app solution an organization can use the Altinn inbox for their organization to receive data. In
+By implementing a multi-app solution, an organization can use the Altinn inbox for their organization to receive data. In
 most cases the people required to process the data will already have access to the organization in Altinn or can be
 granted this access. The last application in the data flow (application B in our case), can set authorization rules
 requiring a specific role before granting access to the data, hence supporting limiting access to sensitive data to
