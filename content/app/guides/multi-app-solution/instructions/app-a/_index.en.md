@@ -191,6 +191,7 @@ See example code below of both below:
 _NB: In order to use these methods in the `ProcessTaskEnd` class, the constructor needs to be configured to use the
 InstanceClient and/or the DataClient._
 
+<a name="control-data-in-app-b"></a>
 ### How to control data in application B from application A
 
 There are several ways to control certain data in application B, whereas one or multiple can be utilized:
