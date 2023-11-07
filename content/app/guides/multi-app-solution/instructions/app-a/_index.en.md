@@ -9,16 +9,16 @@ aliases:
 
 ---
 
-Application A is responsible for trigger the instantiation, and passing data to an instance of Application B. In order
-to achieve this some steps must be taken.
+Application A is responsible for triggering the instantiation of Application B and passing data to it. 
+ To accomplish this, several steps must be followed.
 
 1. Extend the application process with an additional process task.
 2. Add logic for instantiation of application B to an event trigger.
-3. Populate/retrieve and pass on relevant data to an instance of application B.
+3. Populate/retrieve and pass on relevant data to the newly created instance of application B.
 
 {{% notice warning %}}
-The following guidelines assumes that a basic Altinn application already exists so the
-more technical adaptations can be enhanced for realizing the purpose of the multi-app solution
+These guidelines assume that a basic Altinn application already exists. The focus is on the
+more technical adaptations necessary for realizing the purpose of the multi-app solution
 {{% /notice %}}
 
 ## Add task to process

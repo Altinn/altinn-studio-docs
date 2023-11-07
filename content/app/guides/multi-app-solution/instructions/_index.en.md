@@ -11,12 +11,12 @@ aliases:
 
 ## Prerequisites
 
-Before continue reading the technical implementation details, please make sure the
+Before starting on the technical implementation, please make sure the
 required prerequisites are met.
 
 ### Functional Prerequisites
 
-1. The app-developer must have access to create, develop and deploy applications owned by an organization.
+1. The app developer must have access to create, develop and deploy applications owned by an organization.
 2. Existing basic Altinn form where the content of the data model is assessed against the intended data flow between
    application A and application B.
 3. It should be clear who the instance owners are, meaning what roles and access they acquire.
