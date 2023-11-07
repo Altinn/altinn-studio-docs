@@ -27,7 +27,7 @@ DigDir has not experienced any other major operational disruptions caused by Azu
 Microsoft invests heavily in security, not only in the technology they develop
 but also in documentation and tools for using their solutions securely.
 More information on this can be found on Microsoft's "Trust Center".
-The Trust Center also contains information about their certifications and audits.
+The Trust Center also contains information about their [certifications and audits](https://learn.microsoft.com/en-us/azure/compliance/).
 
 The relationship between cloud providers and governments is discussed in the DPIA.
 

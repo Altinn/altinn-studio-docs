@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # Instruksjoner
 
 Innholdet i malen brukes av en partial (`get-content.html`) via shortcoden `property-docs.html`.

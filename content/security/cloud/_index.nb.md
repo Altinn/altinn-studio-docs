@@ -22,8 +22,8 @@ DigDir har ikke opplevd noen andre større driftsforstyrrelser forårsaket av Az
 
 Microsoft investerer mye i sikkerhet. Både i teknologien de utvikler,
 men også rundt dokumentasjon og verktøy på hvordan en skal ta i bruk løsningene på en sikker måte.
-Mer om dette kan man finne på Microsoft sitt «trust center» (lenke).
-«Trust center» inneholder også informasjon om hvilke sertifiseringer og revisjoner de har gjennomgått. 
+Mer om dette kan man finne på Microsoft sitt «trust center».
+«Trust center» inneholder også informasjon om hvilke [sertifiseringer og revisjoner](https://learn.microsoft.com/en-us/azure/compliance/) de har gjennomgått. 
 
 Forholdet mellom skyleverandør og myndigheter er drøftet i DPIAen.
 
