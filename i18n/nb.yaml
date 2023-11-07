@@ -19,6 +19,10 @@
   translation: Logg inn/Min profil
 - id: search
   translation: Søk
+- id: searching-for
+  translation: Hva leter du etter?
+- id: all-langs
+  translation: Søk i alle tilgjengelige språk
 - id: to-the-frontpage
   translation: Til forsiden
 - id: show-hide-menu
