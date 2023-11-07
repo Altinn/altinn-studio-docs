@@ -19,4 +19,4 @@ Tokens instead.
 {{% /notice %}}
 
 
-{{% insert "static/shared/api/request-maskinporten-scopes.md" "altinn:serviceowner/notifications.create" "for sending notifications in Altinn"%}}
+{{% insert "/shared/api/request-maskinporten-scopes.md" "altinn:serviceowner/notifications.create" "for sending notifications in Altinn"%}}

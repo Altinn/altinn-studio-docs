@@ -1,0 +1,23 @@
+---
+hidden: true
+---
+
+{{% notice info %}}
+TODO: find docs to link to or create them.
+{{% /notice %}}
+
+
+Some endpoints in the API require additional authorization in the form of a Maskinporten scope.
+A scope represents a permission that a consumer has access to.
+
+You can connect a given set of scopes to the specific integration instance that
+provides your API client with Maskinporten tokens upon request.
+
+Here is an overview of guides related to the setup of Maskinporten integrations:
+
+
+{{% expandlarge id="guide-mp-int-samarbeid" header="Guide on how to register a new Maskinporten integration in Samarbeidsportalen" %}}
+
+{{% insert "/shared/guides/maskinporten-integration-samarbeidsportal.txt" %}}
+
+{{% /expandlarge %}}

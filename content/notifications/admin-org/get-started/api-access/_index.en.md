@@ -13,4 +13,4 @@ TODO: QA devs and confirm scope
 
 ## Requesting required Maskinporten scope
 
-{{% insert "static/shared/api/request-maskinporten-scopes.md" "altinn:notifications.admin" "for sending notifications in Altinn"%}}
+{{% insert "/shared/api/request-maskinporten-scopes.md" "altinn:notifications.admin" "for sending notifications in Altinn"%}}

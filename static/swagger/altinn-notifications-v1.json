@@ -10,7 +10,8 @@
 		  "tags": [
 			"EmailNotificationOrders"
 		  ],
-		  "summary": "Add an order to create an email notification. \r\nThe API will accept the request after som basic validation of the request.\r\nThe system will also attempt to verify that it will be possible to fulfill the order.",
+		  "summary": "Add an email notification order.",
+		  "description": "The API will accept the request after som basic validation of the request.\r\nThe system will also attempt to verify that it will be possible to fulfill the order.",
 		  "requestBody": {
 			"content": {
 			  "application/json": {
@@ -65,7 +66,7 @@
 		  "tags": [
 			"Orders"
 		  ],
-		  "summary": "Endpoint for retrieving an order by id",
+		  "summary": "Endpoint for retrieving an order by id.",
 		  "parameters": [
 			{
 			  "name": "id",
@@ -168,7 +169,7 @@
 			  "content": {
 				"application/json": {
 				  "schema": {
-					"$ref": "#/components/schemas/NotificationOrderExt"
+					"$ref": "#/components/schemas/NotificationOrderWithStatusExt"
 				  }
 				}
 			  }
@@ -182,21 +183,17 @@
 	},
 	"components": {
 	  "schemas": {
-		"EmailContentType": {
+		"EmailContentTypeExt": {
 		  "enum": [
 			"Plain",
 			"Html"
 		  ],
-		  "type": "string"
+		  "type": "string",
+		  "description": "Enum describing available content types for an email."
 		},
 		"EmailNotificationOrderRequestExt": {
 		  "type": "object",
 		  "properties": {
-			"fromAddress": {
-			  "type": "string",
-			  "description": "Gets or sets the from address to use as sender of the email",
-			  "nullable": true
-			},
 			"subject": {
 			  "type": "string",
 			  "description": "Gets or sets the subject of the email",
@@ -207,8 +204,8 @@
 			  "description": "Gets or sets the body of the email",
 			  "nullable": true
 			},
-			"content-type": {
-			  "$ref": "#/components/schemas/EmailContentType"
+			"contentType": {
+			  "$ref": "#/components/schemas/EmailContentTypeExt"
 			},
 			"requestedSendTime": {
 			  "type": "string",
@@ -232,6 +229,26 @@
 		  "additionalProperties": false,
 		  "description": "Class representing an email notiication order request"
 		},
+		"EmailNotificationStatusExt": {
+		  "type": "object",
+		  "properties": {
+			"links": {
+			  "$ref": "#/components/schemas/NotificationResourceLinksExt"
+			},
+			"generated": {
+			  "type": "integer",
+			  "description": "Gets or sets the number of generated notifications",
+			  "format": "int32"
+			},
+			"succeeded": {
+			  "type": "integer",
+			  "description": "Gets or sets the number of succeeeded notifications",
+			  "format": "int32"
+			}
+		  },
+		  "additionalProperties": false,
+		  "description": "A class representing a status overview for email notifications"
+		},
 		"EmailTemplateExt": {
 		  "type": "object",
 		  "properties": {
@@ -250,18 +267,19 @@
 			  "description": "Gets the body of emails created by the template",
 			  "nullable": true
 			},
-			"content-type": {
-			  "$ref": "#/components/schemas/EmailContentType"
+			"contentType": {
+			  "$ref": "#/components/schemas/EmailContentTypeExt"
 			}
 		  },
 		  "additionalProperties": false,
 		  "description": "Template for an email notification"
 		},
-		"NotificationChannel": {
+		"NotificationChannelExt": {
 		  "enum": [
 			"Email"
 		  ],
-		  "type": "string"
+		  "type": "string",
+		  "description": "Enum describing available notification channels."
 		},
 		"NotificationOrderExt": {
 		  "type": "object",
@@ -287,7 +305,7 @@
 			  "format": "date-time"
 			},
 			"notificationChannel": {
-			  "$ref": "#/components/schemas/NotificationChannel"
+			  "$ref": "#/components/schemas/NotificationChannelExt"
 			},
 			"recipients": {
 			  "type": "array",
@@ -327,6 +345,64 @@
 		  "additionalProperties": false,
 		  "description": "A class representing a list of notification order."
 		},
+		"NotificationOrderWithStatusExt": {
+		  "type": "object",
+		  "properties": {
+			"id": {
+			  "type": "string",
+			  "nullable": true
+			},
+			"sendersReference": {
+			  "type": "string",
+			  "nullable": true
+			},
+			"requestedSendTime": {
+			  "type": "string",
+			  "format": "date-time"
+			},
+			"creator": {
+			  "type": "string",
+			  "nullable": true
+			},
+			"created": {
+			  "type": "string",
+			  "format": "date-time"
+			},
+			"notificationChannel": {
+			  "$ref": "#/components/schemas/NotificationChannelExt"
+			},
+			"processingStatus": {
+			  "$ref": "#/components/schemas/ProcessingStatusExt"
+			},
+			"notificationsStatusSummary": {
+			  "$ref": "#/components/schemas/NotificationsStatusSummaryExt"
+			}
+		  },
+		  "additionalProperties": false,
+		  "description": "A class representing a registered notification order with status information."
+		},
+		"NotificationResourceLinksExt": {
+		  "type": "object",
+		  "properties": {
+			"self": {
+			  "type": "string",
+			  "description": "Gets or sets the self link",
+			  "nullable": true
+			}
+		  },
+		  "additionalProperties": false,
+		  "description": "A class representing a set of resource links of a notification"
+		},
+		"NotificationsStatusSummaryExt": {
+		  "type": "object",
+		  "properties": {
+			"email": {
+			  "$ref": "#/components/schemas/EmailNotificationStatusExt"
+			}
+		  },
+		  "additionalProperties": false,
+		  "description": "A class representing a summary of status overviews of all notification channels"
+		},
 		"OrderIdExt": {
 		  "type": "object",
 		  "properties": {
@@ -361,14 +437,31 @@
 		  "additionalProperties": false,
 		  "description": "A class representing a set of resource links of a notification order."
 		},
+		"ProcessingStatusExt": {
+		  "type": "object",
+		  "properties": {
+			"status": {
+			  "type": "string",
+			  "description": "Gets or sets the status",
+			  "nullable": true
+			},
+			"description": {
+			  "type": "string",
+			  "description": "Gets or sets the description",
+			  "nullable": true
+			},
+			"lastUpdate": {
+			  "type": "string",
+			  "description": "Gets or sets the date time of when the status was last updated",
+			  "format": "date-time"
+			}
+		  },
+		  "additionalProperties": false,
+		  "description": "A class representing a summary of status overviews of all notification channels"
+		},
 		"RecipientExt": {
 		  "type": "object",
 		  "properties": {
-			"id": {
-			  "type": "string",
-			  "description": "Gets or sets the recipient id",
-			  "nullable": true
-			},
 			"emailAddress": {
 			  "type": "string",
 			  "description": "Gets or sets the email address of the recipient",
