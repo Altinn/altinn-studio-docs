@@ -76,15 +76,16 @@ the answers from application A is a part of the information.
 
 ### An integration between the app and Maskinporten might be required
 
-In order for an application to do a POST request to another application to create a new instance, it needs to have the
-right credentials. By nature, the request to create the instance of application B will have credentials from the private
-user who
-logged in to the application A form, thus is not allowed to start
-a new instance on behalf of the organisation that owns application B. This will always imply, unless the private person
-triggering the request has a role with access, or explicit delegated access, to instantiate app B.
-As a way to bypass this obstacle, we
-can use a Maskinporten integration to authenticate the
-request on behalf of the organization owning
-application B.
+In order for an application to perform actions on another application such as creating a new instance on behalf of 
+and end user or organisation, it needs to be authorized.
+By nature, the request to create the instance of application B will include the credentials of the end user 
+filling out application A. 
+In most cases this end user will not be authorized to instantiate new instances on behalf of the 
+organisation that owns application B, thus this will fail.
+A way to ensure the application is authorized to perform the instantiation action, is to use the 
+application ownerss credentials instead of the end user's credentials. 
+This is acheived by using a Maskinporten integration to generate a token that represents the organisation 
+and adding this token to the requests that application A makes towards application B. 
+
 
 {{<children description="true" />}}
