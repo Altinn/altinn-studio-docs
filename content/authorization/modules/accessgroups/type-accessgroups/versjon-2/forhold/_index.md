@@ -24,15 +24,15 @@ Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroup
 |Navn fullmaktsgruppe|Kan delegeres til ansatte?|Kan knytte tjenester til?|[ER rolle](/authorization/modules/accessgroups/register_er/#rolletyper-fra-enhetsregisteret) som får fullmakten|
 |---|---|---|---|
 |Forhold ved virksomheten| ja|nei||
-|Starte, endre og avvikle virksomhet|ja|ja|DAGL, STYR,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
-|Aksjer og eierforhold:|ja|ja|DAGL, STYR,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
-|Attester|ja|ja|DAGL, STYR,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
-|Dokumentbasert tilsyn|ja|ja|DAGL, STYR,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
-|Infrastruktur|ja|ja|DAGL, STYR,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
-|Patent, varmerke og design|ja|ja|DAGL, STYR,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
-|Tilskudd, støtte og erstatning|ja|ja|DAGL, STYR,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
-|Mine sider hos kommunen|ja|ja|DAGL, STYR,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
-|Politi og domstol|ja|ja|DAGL, STYR,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
+|Starte, endre og avvikle virksomhet|ja|ja|DAGL, LEDE,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
+|Aksjer og eierforhold:|ja|ja|DAGL, LEDE,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
+|Attester|ja|ja|DAGL, LEDE,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
+|Dokumentbasert tilsyn|ja|ja|DAGL, LEDE,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
+|Infrastruktur|ja|ja|DAGL, LEDE,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
+|Patent, varmerke og design|ja|ja|DAGL, LEDE,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
+|Tilskudd, støtte og erstatning|ja|ja|DAGL, LEDE,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
+|Mine sider hos kommunen|ja|ja|DAGL, LEDE,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
+|Politi og domstol|ja|ja|DAGL, LEDE,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
 |Rapportering av statistikk|ja|ja|DAGL, STYR,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
 
 {{% notice warning %}} Det er fortsatt uavklart hvilke fullmakter det vil være natulig å gi personer med rollen Forretningsførerer innenfor fullmaktsområdet "Forhold ved virksomheten" {{% /notice %}}
