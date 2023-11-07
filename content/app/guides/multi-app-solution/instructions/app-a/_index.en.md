@@ -69,14 +69,14 @@ are predefined functions in app-backend.
 Read about how this custom code is
 added [here](/app/development/configuration/process/pre-post-hooks).
 
-1. In the file, `ProcessTaskEnd.cs`, implement the code that creates the instance object that will be used as the
-   foundation for the new instance of application B. Make sure that the
+1. If not already present, create a file for implementing the custom code that runs on the end
+   events, `ProcessTaskEnd.cs`. In the file, implement the code that creates the instance object that will be used as
+   the foundation for the new instance of application B. See the below example for a template. Make sure that the
    instance creation happens when the
-   task is finished, i.e. use the `ProcessTaskEnd.End()`
-   function. This is necessary since the user can go back
+   task is finished, i.e. use the `ProcessTaskEnd.End()` function. This is necessary since the user can go back
    to the data task and do changes on the form. <br><br>The `instanceOwner`-part of the instance object is essential as
-   this
-   is where you specify the instance owner. Defining it by `OrganisationNumber` means that the owner is an organization,
+   this is where you specify the instance owner. Defining it by `OrganisationNumber` means that the owner is an
+   organization,
    while defining it by `PersonNumber` means that the owner is a private person. <br><br>A natural part of the instance
    object is the _prefill_ section where you
    will add the desired data that the new instance of application B should be prefilled with. The resulting instance
@@ -175,9 +175,8 @@ direct access to this by default.
 The probably most attractive data type to pass over from application A to application B is the pdf including all the
 information filled into the instance of application A. To retrieve this data from application A, it needs to be
 collected from Altinn Storage. The pdf exists on the instance object as a part of the `dataTypes`
-field with the name `ref-data-as-pdf`. This can be fetched by Getting the instance and fetch the data directly on the
-retrieved instance object, or by using the already defined `GetBinaryData` method on the dataClient should
-be used to get the data.
+field with the name `ref-data-as-pdf`. This can be fetched by getting the instance and fetch the data directly on the
+retrieved instance object, or by using the already defined `GetBinaryData` method on the dataClient.
 See example code below of both below:
 
    ```csharp
@@ -207,8 +206,32 @@ There are several ways to control certain data in application B, whereas one or 
   fields_](/app/development/configuration/messagebox/presentationfields)
   .
 
-TODO: Change this alt to send request to app B and not directly to storage
+- **Alt 3:** Add data as binary data by doing a POST request to the instance of application B.
+  ```csharp
+  public async Task<DataElement> InsertBinaryData(string org, string app, string instanceId, string contentType, string filename, Stream stream)
+  {
+    string envUrl = $"https://{org}.apps.{_settings.HostName}";
+    _client.BaseAddress = new Uri(envUrl);
+  
+    string apiUrl = $"{org}/{app}/instances/{instanceId}/data?dataType=vedlegg";
 
-- **Alt 3:** Add data as binary data by doing a POST request to the
-  Altinn Storage on the instance after it is instantiated.
+    StreamContent content = new(stream);
+    content.Headers.ContentType = MediaTypeHeaderValue.Parse(contentType);
+    if (!string.IsNullOrEmpty(filename))
+    {
+      content.Headers.ContentDisposition = new ContentDispositionHeaderValue(DispositionTypeNames.Attachment)
+      {
+        FileName = filename,
+        FileNameStar = filename
+      };
+    }
+
+    HttpResponseMessage response = await _client.PostAsync(apiUrl, content);
+
+    if (response.IsSuccessStatusCode)
+    {
+      await Task.CompletedTask;
+    }
+  }
+  ```
   

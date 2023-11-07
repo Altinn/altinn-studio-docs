@@ -16,12 +16,13 @@ required prerequisites are met.
 
 ### Functional Prerequisites
 
-1. The app-developer must have access to create and develop applications owned by an organization.
+1. The app-developer must have access to create, develop and deploy applications owned by an organization.
 2. Existing basic Altinn form where the content of the data model is assessed against the intended data flow between
    application A and application B.
-3. Who is the instance owner
+3. It should be clear who the instance owners are, meaning what roles and access they acquire.
 
-Does the end user of application A have the required roles to instantiate application B on behalf of the intended
+Does the end user of application A have the required roles or delegated accesses to instantiate application B on behalf
+of the intended
 recipient?
 
 - If yes, no maskinporten integration is required.
@@ -31,8 +32,9 @@ recipient?
 ### Technical Prerequisites
 
 1. Your applications are using version 8 or newer of the Altinn nugets.
-2. Already existing Maskinporten client with the altinn-specific scopes; `altinn:serviceowner/instances.read` and
-   `altinn:serviceowner/instances.write`, owned by the organization.*
+2. The organization possesses an already existing Maskinporten client with the altinn-specific
+   scopes; `altinn:serviceowner/instances.read` and
+   `altinn:serviceowner/instances.write`*
 3. An integration between the application(s) and the clients in Maskinporten. This must be done in the application(s)
    that are going to send requests to another application, which requests needs to be authorized by the application
    owner.*

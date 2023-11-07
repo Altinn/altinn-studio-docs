@@ -9,14 +9,27 @@ aliases:
 
 ---
 
+Application B is first and foremost responsible for handle and present some data which it retrieves from application A.
+Beyond that the application can act as a normal Altinn application where the final step is to submit the form, thus
+ending the lifecycle of the created instance. However, if there is no natural way of ending the instance of application
+B, this must be handled manually. Read the following sections for more details:
+
+1. Getting Data From Application A
+2. Stopping a Running Instance
+
 ## Getting Data From Application A
 
 Application B needs much less configuration, as a
 bare minimum, at least. The main task
 for application B is to fetch the data received
 from application A and represent or process them in a way.
-This is done by utilising the `ProcessDataRead` method in
-the `DataProcessor` service along with the `UpdateData`
+
+If using presentation fields or prefill, as explained
+in [alternative 1 and 2 in the final part of app A instructions](../app-a#How-to-control-data-in-application-B-from-application-A)
+, no custom code is required.
+
+If utilizing alternative 3, the data needs to be actively fetched from the instance. This is done by utilising
+the `ProcessDataRead` method in the `DataProcessor` service along with the `UpdateData`
 method on the `dataClient`. See example code below:
 
 ```csharp
@@ -28,15 +41,13 @@ public async Task<bool> ProcessDataRead(Instance instance, Guid? dataId, object 
    {
        DataModel model = (DataModel)data;
 
-       DataElement attachments = instance.Data.FirstOrDefault(de => de.DataType == "vedlegg");
+       DataElement data = instance.Data.FirstOrDefault(de => de.DataType == [DATA_TYPE]);
 
-       if (attachments != null)
+       if (data != null)
        {
-           _logger.LogInformation("// App 2 // Received data");
-
            var instanceGuid = Guid.Parse(instance.Id.Split("/")[1]);
           
-           await _dataClient.UpdateData(model, instanceGuid, typeof(DataModel), instance.Org, instance.AppId, int.Parse(instance.InstanceOwner.PartyId), Guid.Parse(instance.Data.Where(de => de.DataType == "datamodel").First().Id));
+           await _dataClient.UpdateData(model, instanceGuid, typeof(DataModel), instance.Org, instance.AppId, int.Parse(instance.InstanceOwner.PartyId), Guid.Parse(instance.Data.Where(de => de.DataType == [DATA_TYPE]).First().Id));
            edited = true;
        }
    }
@@ -49,8 +60,7 @@ public async Task<bool> ProcessDataRead(Instance instance, Guid? dataId, object 
 Since this application, in most cases, will act as
 an on-demand dashboard for collecting data from
 application A, the application has no natural way of ending its
-process, since it is not sent in as any other normal form.
-To bypass this obstacle, the incoming forms should either;
+process. To bypass this obstacle, the incoming forms should either:
 
 1. be manually deleted after being read, or
 2. they must be implemented with a demand of some sort of
