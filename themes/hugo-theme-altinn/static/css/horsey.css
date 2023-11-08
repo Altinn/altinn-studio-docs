@@ -9,6 +9,7 @@
   color: #333;
   transition: bottom 0.1s ease-in-out;
   overflow: auto;
+  z-index: 999;
 }
 .sey-show {
   display: block;
