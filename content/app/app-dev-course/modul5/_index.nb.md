@@ -146,13 +146,14 @@ og du skal kunne teste det nye prosessteget og bekrefte at visningen ser ut som 
 
 **Husk å _pushe_ de lokale endringene dine så de blir tilgjengelige i Altinn Studio.**
 
-### Løsningsforslag
+## Løsningsforslag
 [Kildekode Modul 5](https://altinn.studio/repos/testdep/flyttemelding-sogndal/src/branch/modul5)<br>
 [(Kildekode Modul 5 - tidligere versjon)](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/5)<br>
 
 {{% expandlarge id="prosessbeskrivelse-solution" header="Utvide prosess med et bekreftelsessteg" %}}
 
-Kopier innholdet i [malen](/nb/app/development/configuration/process/Data_Confirmation_Process.bpmn) og lim det inn i filen `App/config/process/process.bpmn` (erstatt hele det originale innholdet).  
+* **Kopier innholdet i [malen](/nb/app/development/configuration/process/Data_Confirmation_Process.bpmn) og lim det inn i filen `App/config/process/process.bpmn`** (erstatt hele det originale innholdet).
+ 
  Du skal nå få opp følgende side når du klikker på "Send inn":
 
 ![Skjermbilde av bekreftelsesside](/app/app-dev-course/modul5/bekreftelsesside-screenshot.png "Skjermbilde av bekreftelsesside")
@@ -163,11 +164,12 @@ Merk at hvis du klikker på "Send inn" på bekreftelsessiden vil du få en feilm
 
 {{% expandlarge id="autorisasjon-solution" header="Legge til autorisasjonsregler for bekreftelsessteget" %}}
 
-I [regelbiblioteket](/nb/app/development/configuration/authorization/rules/) finner vi den regelen vi trenger:
+* **Finn den aktuelle regelen i [regelbiblioteket](/nb/app/development/configuration/authorization/rules/):**
 [Bruker med rollen REGNA eller DAGL kan bekrefte instanser av [ORG]/[APP] som er i Task_2](/nb/app/development/configuration/authorization/rules/#bruker-med-rollen-regna-eller-dagl-kan-bekrefte-instanser-av-orgapp-som-er-i-task_2).
 
-Vi kopierer denne koden og limer den inn rett etter den siste regelen i `policy.xml` (mellom den siste `</xacml:Rule>` tagen og `<xacml:ObligationExpressions>`).
- Vi erstatter også `[RULE_ID]` med `7` (siden den foregående regelen har id `6`).
+* **Kopier denne koden og lim den inn i  `policy.xml`** (rett etter den siste regelen (mellom den siste `</xacml:Rule>` tagen og `<xacml:ObligationExpressions>`)).
+
+* **Erstatt `[RULE_ID]` med `7`** (siden den foregående regelen har id `6`).
 
 For komplett løsning, se [kildekode](https://altinn.studio/repos/testdep/flyttemelding-sogndal/src/branch/modul5/App/config/authorization/policy.xml).
 
@@ -183,8 +185,8 @@ For at kun brukeren som eier instansen skal kunne sende inn skjemaet kan vi legg
  partyId til nåværende bruker samsvarer med partyId til eieren av instansen for oppgaven med ID-en "Task_2" (som er bekreftelsessteget).
  Hvis de ikke samsvarer, legger den til en feilmelding i valideringsresultatene. Feilmeldingen vil vises på skjermen og prosessflyten stoppes.
 
-1. Følg fremgangsmåte for [egendefinert validering](/nb/app/development/logic/validation/#hvordan-legge-til-egendefinert-validering) for å opprette fil og registrere implementeringen i `Program.cs`.
-2. Legg til valideringslogikk for bruker-id i klassen `ValidateTask`:
+* **Følg fremgangsmåte for [egendefinert validering](/nb/app/development/logic/validation/#hvordan-legge-til-egendefinert-validering) for å opprette fil.**
+* **Legg til valideringslogikk for bruker-id i klassen `ValidateTask`:**
 
 {{< code-title >}}
 App/logic/Validation/InstanceValidation.cs
@@ -232,7 +234,23 @@ public class InstanceValidator : IInstanceValidator
 }
 ```
 
-Legg til tekstnøkkel med beskjed som vises dersom validering feiler:
+* **Registrer implementeringen i `Program.cs`**
+
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
+
+```csharp{hl_lines="6"}
+{
+    // Register your apps custom service implementations here.
+    services.AddTransient<IInstantiationProcessor, InstantiationProcessor>();
+    services.AddTransient<IAppOptionsProvider, YearsInWorkForceOptionsProvider>();
+    services.AddTransient<IAppOptionsProvider, IndustryOptions>();
+    services.AddTransient<IInstanceValidator, InstanceValidator>();
+}
+```
+
+* **Legg til tekstnøkkel med beskjed som vises dersom validering feiler:**
 
 {{< code-title >}}
 App/config/texts/resources.nb.json
@@ -257,7 +275,7 @@ App/config/texts/resources.nb.json
 
 ![Bekreftelsesside med egendefinert tekst. Skjermbilde](bekreftelsesside-egendefinert-screenshot.png "Bekreftelsesside med egendefinert tekst")
 
-For å legge til egendefinert tekst på bekreftelsessiden som i eksempelet over legger du til følgende tekstressurs:
+* **For å legge til egendefinert tekst på bekreftelsessiden som i eksempelet over legger du til følgende tekstressurs:**
 
 {{< code-title >}}
 App/config/texts/resources.nb.json
