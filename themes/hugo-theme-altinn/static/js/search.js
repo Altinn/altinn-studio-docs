@@ -1,5 +1,3 @@
-var lunrIndex, pagesIndex;
-
 // Setup elastic client
 var client = window.ElasticAppSearch.createClient({
     searchKey: "search-o7k5ywfvib73vbrih8ay6rxu",
@@ -26,17 +24,21 @@ function endsWith(str, suffix) {
 
 // Trigger search agaist elastic app engine
 function search(query, done) {
-    done([{ title: { raw: "Searching...." }, url_path: { raw: "" }, dummy: true }]);
+    done([{ title: { raw: "Searching..." }, url_path: { raw: "" }, dummy: true }]);
     client.search(query, searchOptions)
         .then(resultList => {
             result = resultList.rawResults
                 .filter(res => {
-                    if (language == "nb") {
+                    if ($("#all-langs").is(":checked")) {
+                        return true;
+                    }
+                    else if (language == "nb") {
                         return res._meta.engine == "docs-altinn-studio-nb"
                     } else {
                         return res._meta.engine == "docs-altinn-studio-en"
                     }
-                }).map(res => {
+                })
+                .map(res => {
                     res.requestId = resultList.info.meta.request_id;
                     res.query = query;
                     return res;
@@ -55,7 +57,7 @@ $(document).ready(function () {
             clearTimeout(timeout);
             timeout = setTimeout(function () {
                 var query = $("#search-by").val();
-                if (query.length > 2) {
+                if (query.length > 0) {
                     search(query, done);
                 }
             }, 500);
@@ -79,10 +81,10 @@ $(document).ready(function () {
                 console.log(`click reg error: ${error}`)
                 location.href = value.href;
             })
-            
+
         },
         render: function (li, suggestion) {
-            var uri = suggestion.url_path.raw.substring(1, suggestion.url_path.raw.length);
+            var uri = suggestion.url_path.raw;
 
             suggestion.href = baseurl + uri;
 
@@ -90,10 +92,11 @@ $(document).ready(function () {
             if (suggestion.meta_description) {
                 text = suggestion.meta_description.raw;
             }
-            var image = '<div>' + '» ' + suggestion.title.raw + '</div><div style="font-size:12px">' + (text) + '</div>';
-            li.innerHTML = image;
+
+            li.innerHTML = '<div><b>' + suggestion.title.raw + '</b></div><div><i>' + text + '</i></div>';
         },
-        limit: 10
+        limit: 30
     });
     horseyList.refreshPosition();
 });
+
