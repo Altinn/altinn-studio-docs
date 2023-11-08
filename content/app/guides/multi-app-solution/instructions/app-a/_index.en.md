@@ -9,7 +9,7 @@ aliases:
 
 ---
 
-Application A is responsible for triggering the instantiation of Application B and passing data to it. 
+Application A is responsible for triggering the instantiation of application B and passing data to it. 
  To accomplish this, several steps must be followed.
 
 1. Extend the application process with an additional process task.
@@ -32,10 +32,6 @@ extra task to be able to retrieve the pdf. You will need to have at least two ta
 final task is _not_ a data task. The task can be a _confirm_
 or _feedback_ task type. Since we recommend using the _confirm_ task type, this is what the following guidelines will
 use.
-
-_NB: It might be that you need to get an updated version of
-the instance object from Altinn Storage by calling
-the `GetInstance` method on the `IInstanceClient`._
 
 ### How to extend the process with multiple tasks
 
@@ -62,7 +58,7 @@ given trigger action in another Altinn application. The native way of instantiat
 API POST request to the running Altinn application. However, there is no built-in way in the Altinn context to trigger
 this behaviour which means that we will need to trigger the API request as custom code in application A.
 
-### How to customize application A to trigger instantiation of Application B
+### How to customize application A to trigger instantiation of application B
 
 The general approach for an Altinn application to perform custom operations is by implement code on certain hooks, which
 are predefined functions in app-backend.

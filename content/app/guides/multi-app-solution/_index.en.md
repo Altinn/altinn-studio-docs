@@ -24,6 +24,8 @@ apps; _application A_ and _application B_,
 but the concept can be extended to contain several applications of
 type A or type B, or both types.
 
+![Example architecture of a multi app solution](multi-app-architecture.drawio.svg)
+
 ### Terminology
 
 - **An Instance**: When talking about instances in an
@@ -83,8 +85,8 @@ filling out application A.
 In most cases this end user will not be authorized to instantiate new instances on behalf of the 
 organisation that owns application B, thus this will fail.
 A way to ensure the application is authorized to perform the instantiation action, is to use the 
-application ownerss credentials instead of the end user's credentials. 
-This is acheived by using a Maskinporten integration to generate a token that represents the organisation 
+application owners credentials instead of the end user's credentials. 
+This is achieved by using a Maskinporten integration to generate a token that represents the organisation 
 and adding this token to the requests that application A makes towards application B. 
 
 
