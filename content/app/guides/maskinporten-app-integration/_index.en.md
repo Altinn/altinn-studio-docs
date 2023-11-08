@@ -17,7 +17,7 @@ these requests will have credentials from the private user who logged in to the 
 instance. In order to send these requests on behalf of the organization the following must be done;
 
 1. Ensure organization has access to Azure key vault
-2. Create the integration
+2. Create the integration to Maskinporten
    at [Samarbeidsportalen](https://samarbeid.digdir.no/)
 3. Store the keys from the integration in Azure key vault for
    the organisation
@@ -33,17 +33,19 @@ If access is missing, please refer to [Access to logs and secrets](../access-man
 
 ## Maskinporten Integration
 
-If different people in the
-organization have access to different resources needed in
-this process, please cooperate and do the following steps on
-the same machine. This is recommended to avoid sending
-secrets between machines.
+In this section the Maskinporten client will be set up. A part of setting up the client includes creating keys that
+should be stored in Azure Key vault later on in the guide. If different people in the organization have access to
+different resources needed in this process, please cooperate and do the following steps on the same machine. This is
+recommended to avoid sending secrets between machines.
 
 When access to creating secrets in Azure key vault is
-confirmed, please proceed to create the integration;
-navigate to
-the [Maskinporten Setup guide](../../../technology/solutions/cli/configuration/maskinporten-setup)
-.
+confirmed, please proceed to create the integration.
+
+{{% expandlarge id="guide-mp-int-samarbeid" header="Guide on how to register a new Maskinporten integration in Samarbeidsportalen" %}}
+
+{{% insert "/shared/guides/maskinporten-integration/maskinporten-integration-samarbeidsportal.txt" %}}
+
+{{% /expandlarge %}}
 
 ## Azure Key Vault Configuration
 
