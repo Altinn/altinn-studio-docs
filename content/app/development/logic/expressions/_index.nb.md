@@ -261,6 +261,7 @@ Disse funksjonene er tilgjengelige for bruk i uttrykk:
 | [`frontendSettings`](#func-frontendsettings) | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅       | ✅      |
 | [`dataModel`](#func-datamodel)               | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅       | ✅      |
 | [`component`](#func-component)               | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅       | ✅      |
+| [`formatDate`](#func-formatDate)             | [Streng](#strenger), valgfri [Streng](#strenger)   | [Streng](#strenger)                  | ✅       | ❌      |
 
 Detaljerte beskrivelser og eksempler
 
@@ -734,6 +735,59 @@ side gir også oppslaget verdien `null` selv om datamodellen har en verdi tilkny
 I likhet med [`dataModel`](#func-datamodel) vil oppslag mot en komponent-id forsøke å finne komponenten i nærheten av
 uttrykket i kontekst av [repeterende grupper](../../ux/fields/grouping/repeating). Det vil først søkes etter komponenten
 i gjeldende rad, før det letes oppover i sidestrukturen.
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-formatDate" header="formatDate" %}}
+Funksjonen `formatDate` tar imot en dato som første argument, og et format som andre argument. Datoargumentet er en streng,
+mens formatargumentet er en valgfri streng som støtter _noen_ tokens i
+[Unicode Tokens](https://www.unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table).
+
+Dette er de tokenene vi støtter:
+
+| Enhet           | Token    | Resultat                             |
+| --------------- | -------- | ------------------------------------ |
+| Era             | `G..GGG` | f.Kr., e.Kr.                         |
+| Era             | `GGGG`   | før Kristus, etter Kristus           |
+| Era             | `GGGGG`  | f.Kr., e.Kr.                         |
+| År              | `y`      | 44, 1, 1900, 2017                    |
+| År              | `yy`     | 44, 01, 00, 17                       |
+| År              | `yyy`    | 044, 001, 1900, 2017                 |
+| År              | `yyyy`   | 0044, 0001, 1900, 2017               |
+| Forlenget år    | `u`      | -43, 0, 1, 1900, 2017                |
+| Forlenget år    | `uu`     | -43, 01, 1900, 2017                  |
+| Forlenget år    | `uuu`    | -043, 001, 1900, 2017                |
+| Forlenget år    | `uuuu`   | -0043, 0001, 1900, 2017              |
+| Måned           | `M`      | 1, 2,..., 12                         |
+| Måned           | `MM`     | 01, 02,..., 12                       |
+| Måned           | `MMM`    | jan, feb, ..., des                   |
+| Måned           | `MMMM`   | januar, februar, ..., desember       |
+| Dag i måned     | `d`      | 1, 2, ..., 31                        |
+| Dag i måned     | `dd`     | 01, 02, ..., 31                      |
+| Ukedag          | `E..EEE` | man, tir, ons, ..., søn              |
+| Ukedag          | `EEEE`   | mandag, tirsdag, onsdag, ..., søndag |
+| Ukedag          | `EEEEE`  | M, T, O, ..., S                      |
+| AM/PM           | `a`      | a.m., p.m.                           |
+| Time [1-12]     | `h`      | 1, 2, ..., 11, 12                    |
+| Time [1-12]     | `hh`     | 01, 02, ..., 11, 12                  |
+| Time [0-23]     | `H`      | 1, 2, ..., 22, 23                    |
+| Time [0-23]     | `HH`     | 01, 02, ..., 22, 23                  |
+| Minutt          | `m`      | 1, 2, ..., 59                        |
+| Minutt          | `mm`     | 01, 02, ..., 59                      |
+| Sekund          | `s`      | 1, 2, ..., 59                        |
+| Sekund          | `ss`     | 01, 02, ..., 59                      |
+| Brøkdels sekund | `S`      | 0, 1, ..., 9                         |
+| Brøkdels sekund | `SS`     | 00, 01, ..., 99                      |
+| Brøkdels sekund | `SSS`    | 000, 001, ..., 999                   |
+
+Dersom man ikke gir et format som andre argument, vil funksjonen bruke formatet `dd.MM.yyyy` som standard.
+
+Eksempel:
+
+```json
+["formatDate", "2023-10-30T14:54:00.000Z", "HH:mm"]
+```
+Vil resultere i `14:54`
+
 {{% /expandlarge %}}
 
 ## Datatyper

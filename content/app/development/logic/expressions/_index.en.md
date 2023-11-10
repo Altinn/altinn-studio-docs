@@ -736,6 +736,59 @@ uttrykket i kontekst av [repeterende grupper](../../ux/fields/grouping/repeating
 i gjeldende rad, før det letes oppover i sidestrukturen.
 {{% /expandlarge %}}
 
+{{% expandlarge id="func-formatDate" header="formatDate" %}}
+
+The formatDate function takes a date as its first argument, and a format as its second argument. The date argument is a
+string, while the format argument is an optional string that supports some tokens in
+[Unicode Tokens](https://www.unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table).
+
+These are the tokens we support:
+
+| Unit              | Token    | Result                                  |
+| ----------------- | -------- | --------------------------------------- |
+| Era               | `G..GGG` | BC, AD                                  |
+| Era               | `GGGG`   | Before Christ, Anno Domini              |
+| Era               | `GGGGG`  | B, A                                    |
+| Year              | `y`      | 44, 1, 1900, 2017                       |
+| Year              | `yy`     | 44, 01, 00, 17                          |
+| Year              | `yyy`    | 044, 001, 1900, 2017                    |
+| Year              | `yyyy`   | 0044, 0001, 1900, 2017                  |
+| Extended year     | `u`      | -43, 0, 1, 1900, 2017                   |
+| Extended year     | `uu`     | -43, 01, 1900, 2017                     |
+| Extended year     | `uuu`    | -043, 001, 1900, 2017                   |
+| Extended year     | `uuuu`   | -0043, 0001, 1900, 2017                 |
+| Month             | `M`      | 1, 2,..., 12                            |
+| Month             | `MM`     | 01, 02,..., 12                          |
+| Month             | `MMM`    | Jan, Feb, ..., Dec                      |
+| Month             | `MMMM`   | January, February, ..., December        |
+| Day of month      | `d`      | 1, 2, ..., 31                           |
+| Day of month      | `dd`     | 01, 02, ..., 31                         |
+| Day of week       | `E..EEE` | Mon, Tue, Wed, ..., Sun                 |
+| Day of week       | `EEEE`   | Monday, Tuesday, Wednesday, ..., Sunday |
+| Day of week       | `EEEEE`  | M, T, W, ..., S                         |
+| AM/PM             | `a`      | a.m., p.m.                              |
+| Hour [1-12]       | `h`      | 1, 2, ..., 11, 12                       |
+| Hour [1-12]       | `hh`     | 01, 02, ..., 11, 12                     |
+| Hour [0-23]       | `H`      | 1, 2, ..., 22, 23                       |
+| Hour [0-23]       | `HH`     | 01, 02, ..., 22, 23                     |
+| Minute            | `m`      | 1, 2, ..., 59                           |
+| Minute            | `mm`     | 01, 02, ..., 59                         |
+| Second            | `s`      | 1, 2, ..., 59                           |
+| Second            | `ss`     | 01, 02, ..., 59                         |
+| Fractional second | `S`      | 0, 1, ..., 9                            |
+| Fractional second | `SS`     | 00, 01, ..., 99                         |
+| Fractional second | `SSS`    | 000, 001, ..., 999                      |
+
+If the format argument is not provided, the function will use the format `MM/dd/yy` as default.
+Example:
+
+```json
+["formatDate", "2023-10-30T14:54:00.000Z", "HH:mm"]
+```
+Would result in `14:54`
+
+{{% /expandlarge %}}
+
 ## Datatyper
 
 Funksjoner i uttrykkene har en forventning om at argumentene som blir sendt inn har en spefikk type. Dersom et argument
