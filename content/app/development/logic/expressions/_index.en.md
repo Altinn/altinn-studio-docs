@@ -902,10 +902,6 @@ Uttrykk kan brukes til å vise/skjule hele sider. I eksempelet under vil hele si
 }
 ```
 
-Dette kan sees på som et alternativ til [sporvalg-funksjonaliteten](../../ux/pages/tracks), men i motsetning til
-sporvalg gjøres utregningen av disse uttrykkene i _både_ frontend _og_ backend, dermed er det ikke nødvendig å legge
-til `"triggers": ["calculatePageOrder"]` for å få funksjonaliteten til å fungere.
-
 Dersom siden man stod på blir skjult, vil applikasjonen automatisk gå videre til neste tilgjengelige side
 i [side-rekkefølgen](../../ux/pages/navigation#order). Om alle de neste sidene er skjult, vises den første mulige
 siden i rekkefølgen istedenfor.
