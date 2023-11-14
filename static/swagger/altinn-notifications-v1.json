@@ -61,6 +61,47 @@
 		  }
 		}
 	  },
+	  "/orders/{id}/notifications/email": {
+		"get": {
+		  "tags": [
+			"EmailNotifications"
+		  ],
+		  "summary": "Endpoint for retrieving a summary of all email notifications related to an order",
+		  "parameters": [
+			{
+			  "name": "id",
+			  "in": "path",
+			  "description": "The order id",
+			  "required": true,
+			  "schema": {
+				"type": "string",
+				"format": "uuid"
+			  }
+			}
+		  ],
+		  "responses": {
+			"401": {
+			  "description": "Caller is unauthorized"
+			},
+			"403": {
+			  "description": "Caller is not authorized to access the requested resource"
+			},
+			"200": {
+			  "description": "The notification order was accepted",
+			  "content": {
+				"application/json": {
+				  "schema": {
+					"$ref": "#/components/schemas/EmailNotificationSummaryExt"
+				  }
+				}
+			  }
+			},
+			"404": {
+			  "description": "No notification order mathching the id was found"
+			}
+		  }
+		}
+	  },
 	  "/orders/{id}": {
 		"get": {
 		  "tags": [
@@ -249,6 +290,63 @@
 		  "additionalProperties": false,
 		  "description": "A class representing a status overview for email notifications"
 		},
+		"EmailNotificationSummaryExt": {
+		  "type": "object",
+		  "properties": {
+			"orderId": {
+			  "type": "string",
+			  "description": "The order id",
+			  "format": "uuid"
+			},
+			"sendersReference": {
+			  "type": "string",
+			  "description": "The senders reference",
+			  "nullable": true
+			},
+			"generated": {
+			  "type": "integer",
+			  "description": "The number of generated email notifications",
+			  "format": "int32"
+			},
+			"succeeded": {
+			  "type": "integer",
+			  "description": "The number of email notifications that were sent successfully",
+			  "format": "int32"
+			},
+			"notifications": {
+			  "type": "array",
+			  "items": {
+				"$ref": "#/components/schemas/EmailNotificationWithResultExt"
+			  },
+			  "description": "A list of notifications with send result",
+			  "nullable": true
+			}
+		  },
+		  "additionalProperties": false,
+		  "description": "A class representing an email notification summary"
+		},
+		"EmailNotificationWithResultExt": {
+		  "type": "object",
+		  "properties": {
+			"id": {
+			  "type": "string",
+			  "description": "The notification id",
+			  "format": "uuid"
+			},
+			"succeeded": {
+			  "type": "boolean",
+			  "description": "Boolean indicating if the sending of the notification was successful"
+			},
+			"recipient": {
+			  "$ref": "#/components/schemas/RecipientExt"
+			},
+			"sendStatus": {
+			  "$ref": "#/components/schemas/StatusExt"
+			}
+		  },
+		  "additionalProperties": false,
+		  "description": "EmailNotificationWithResultExt class"
+		},
 		"EmailTemplateExt": {
 		  "type": "object",
 		  "properties": {
@@ -372,7 +470,7 @@
 			  "$ref": "#/components/schemas/NotificationChannelExt"
 			},
 			"processingStatus": {
-			  "$ref": "#/components/schemas/ProcessingStatusExt"
+			  "$ref": "#/components/schemas/StatusExt"
 			},
 			"notificationsStatusSummary": {
 			  "$ref": "#/components/schemas/NotificationsStatusSummaryExt"
@@ -437,7 +535,19 @@
 		  "additionalProperties": false,
 		  "description": "A class representing a set of resource links of a notification order."
 		},
-		"ProcessingStatusExt": {
+		"RecipientExt": {
+		  "type": "object",
+		  "properties": {
+			"emailAddress": {
+			  "type": "string",
+			  "description": "Gets or sets the email address of the recipient",
+			  "nullable": true
+			}
+		  },
+		  "additionalProperties": false,
+		  "description": "Class representing a notification recipient"
+		},
+		"StatusExt": {
 		  "type": "object",
 		  "properties": {
 			"status": {
@@ -457,19 +567,7 @@
 			}
 		  },
 		  "additionalProperties": false,
-		  "description": "A class representing a summary of status overviews of all notification channels"
-		},
-		"RecipientExt": {
-		  "type": "object",
-		  "properties": {
-			"emailAddress": {
-			  "type": "string",
-			  "description": "Gets or sets the email address of the recipient",
-			  "nullable": true
-			}
-		  },
-		  "additionalProperties": false,
-		  "description": "Class representing a notification recipient"
+		  "description": "A class representing a status summary"
 		},
 		"ValidationProblemDetails": {
 		  "type": "object",
