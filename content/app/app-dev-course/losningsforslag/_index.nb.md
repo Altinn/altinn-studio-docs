@@ -130,9 +130,9 @@ Alle tekstressurser støtter markdown og dermed html-notasjon, så ved å benytt
 
 ### Hvis en bruker går tilbake og endrer svaret sitt på infosiden, får den da opp datainnsamlingssidene? Hvis ikke, hvilke endringer kan du gjøre for å støtte dette i din applikasjon?
 
-I `App/logic/App.cs` finnes metoden GetPageOrder. Denne kalles fra frontend når man forlater en komponent som har konfigurert `"triggers": ["calculatePageOrder"]` i layoutfilen.
+Når man bruker dynamiske uttrykk for å skjule/vise sider, så skal disse oppdateres så fort datamodellen oppdateres.
 
-Se over løsningsforslaget for modulen for hvordan dette gjøres. Filer av interesse er `App/ui/layouts/info.json` og `App/logic/App.cs`.
+Se over løsningsforslaget for modulen for hvordan dette gjøres. Filer av interesse er `App/ui/layouts/info.json` og `App/ui/layouts/ikke-for-deg.json`.
 
 ### Dersom man har sporvalg på et senere tidspunkt i en arbeidsflyt og en sluttbruker endrer et valg. Hva skjer med skjemdataen man tidligere har fylt ut, dersom siden skjules for sluttbrukeren?
 

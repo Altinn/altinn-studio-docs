@@ -127,13 +127,13 @@ To adjust the page order, the list under _pages.order_ must be changed to repres
 
 All text resources support markdown and thus html-notation, so by using `<br/>` you will be able to force text breaks.
 
-## Module 2 - Knowledge check: Alternative workflow
+## Module 2 - Knowledge check: Alternative workflow 
 
 ### If a user goes back and changes their answer on the info page, will they then be displayed the data collecting pages? If not, what changes can you introduce to support this in your application?
 
-In `App/logic/App.cs` you can find the method GetPageOrder. This is called on from the frontend when you leave a component that has configured `"triggers": ["calculatePageOrder"]` in the layout file.
+When using dynamic expressions to show/hide pages, the correct page should be displayed at the correct time. 
 
-Take a look at the solution for this module to see how this is done. Files of interest are `App/ui/layouts/info.json` and `App/logic/App.cs`.
+Take a look at the solution for this module to see how this is done. Files of interest are `App/ui/layouts/info.json` and `App/ui/layouts/ikke-for-deg.json`.
 
 ### If dynamic tracks is implemented further into the workflow and a user changes a choice, what will happen with the form data that was filled out prior to this, if the page is now hidden from the user?
 

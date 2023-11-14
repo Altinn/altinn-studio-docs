@@ -41,7 +41,6 @@ Dersom du bruker layout sets er det en egen fil for hvert sett.
       "Summary"
     ],
     "triggers": [
-      "calculatePageOrder",
       "validatePage"
     ],
     "hideCloseButton": false,

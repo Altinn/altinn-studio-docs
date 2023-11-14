@@ -9,8 +9,8 @@ Dynamic tracks in an application can be useful if you want to show and/or hide s
 based on input from user on previous parts of the form.
 
 {{% panel theme="warning" %}}
-⚠️ Dynamic tracks are still supported, but support will be removed in the future. Hiding entire pages are now
-encouraged via [dynamic expressions](../../../logic/expressions)
+⚠️ Dynamic tracks are unsupported as of v4 (frontend). Hiding and showing entire pages
+are supported by [dynamic expressions](../../../logic/expressions)
 (read how to [hide entire pages here](../../../logic/expressions#viseskjule-hele-sider)).
 {{% /panel %}}
 
@@ -21,33 +21,29 @@ This is done by adding `calculatePageOrder` as a part of triggers. Example:
 
 ```json
 {
-    "id": "navigation-button",
-    "type": "NavigationButtons",
-    "textResourceBindings": {
-        "next": "Neste",
-        "back": "Tilbake"
-    },
-    "triggers": ["calculatePageOrder"],
-    "dataModelBindings": {},
-    "showBackButton": true
+  "id": "navigation-button",
+  "type": "NavigationButtons",
+  "textResourceBindings": {
+    "next": "Neste",
+    "back": "Tilbake"
+  },
+  "triggers": ["calculatePageOrder"],
+  "dataModelBindings": {},
+  "showBackButton": true
 }
 ```
 
 Here, the frontend will make the call to the api defined in the app and use the list returned to determine which page it will go to when the user presses next.
 This order will also be stored in the state frontend, so that navigating will work both backwards and forwards on the given order returned from the backend.
 
-If you wish to trigger calculation on every single page switch, this can be done by either entering `calculatePageOrder` as part of `triggers` for all 
+If you wish to trigger calculation on every single page switch, this can be done by either entering `calculatePageOrder` as part of `triggers` for all
 the navigation components in the application, or by adding a trigger in `Settings.json` under the `pages` section. Example:
 
 ```json
 {
   "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
   "pages": {
-    "order": [
-      "Side1",
-      "Side2",
-      "Side3"
-    ],
+    "order": ["Side1", "Side2", "Side3"],
     "triggers": ["calculatePageOrder"]
   }
 }
@@ -64,6 +60,7 @@ To overrule default dynamic tracks, two changes must be made.
 
 1. Create a class that implements the `IPageOrder` interface found in the `Altinn.App.Core.Features.PageOrder` namespace.  
    You can name and place the file in any folder you like within your project, but we suggest you use meaningful namespaces like in any other .Net project.
+
    ```C#
     using System.Collections.Generic;
     using System.Threading.Tasks;
@@ -72,7 +69,7 @@ To overrule default dynamic tracks, two changes must be made.
     using Altinn.App.Models;
 
     namespace Altinn.App.AppLogic.Custom;
-    
+
     {
         public class CustomOrder : IPageOrder
         {
@@ -80,35 +77,36 @@ To overrule default dynamic tracks, two changes must be made.
             public async Task<List<string>> GetPageOrder(AppIdentifier appIdentifier, InstanceIdentifier instanceIdentifier, string layoutSetId, string currentPage, string dataTypeId, object formData)
             {
                 List<string> pageOrder = new List<string>();
-                
+
                 // Implement your logic here.
-                
+
                 return await Task.FromResult(pageOrder);
             }
 
         }
 
     }
-    ```
-2. Register you custom implementation in the _Program.cs_ class     
-    ```C#
-    services.AddTransient<IPageOrder, CustomOrder>();
-    ```
-    This ensuers your custom code is known to the application and that it will be executed.
+   ```
+
+2. Register you custom implementation in the _Program.cs_ class
+   ```C#
+   services.AddTransient<IPageOrder, CustomOrder>();
+   ```
+   This ensuers your custom code is known to the application and that it will be executed.
 
 The interface contains a method with the name _GetPageOrder_. The expected output from this is a sorted list with the names of the relevant pages in the application.
 
-The function provides a number of parameters that can be useful if you are using form data or 
+The function provides a number of parameters that can be useful if you are using form data or
 other information about the user to trigger the dynamic tracks.
 
-- *appIdentifier* Contains organization and app name for the application
+- _appIdentifier_ Contains organization and app name for the application
 
-- *instanceIdentifier* Contains InstanceOwnerPartyId and InstanceGuid. If the application is stateless the object will be blank (InstanceIdentifier.NoInstance).
-If GetInstanceId is called on an InstanceIdentifier.NoInstance, an exception will be thrown.
+- _instanceIdentifier_ Contains InstanceOwnerPartyId and InstanceGuid. If the application is stateless the object will be blank (InstanceIdentifier.NoInstance).
+  If GetInstanceId is called on an InstanceIdentifier.NoInstance, an exception will be thrown.
 
-- *layoutSetId* If your app defines multiple layout sets, the id on the layout set in question will be submitted.
-If the application does not have a layout set, this string will be empty. Based on this parameter the default page order 
-defined in the application can be retrieved.
+- _layoutSetId_ If your app defines multiple layout sets, the id on the layout set in question will be submitted.
+  If the application does not have a layout set, this string will be empty. Based on this parameter the default page order
+  defined in the application can be retrieved.
 
 ```cs
 List<string> pageOrder = new List<string>();
@@ -141,13 +139,13 @@ public CustomOrder(IAppResources appResourcesService)
 }
 ```
 
-- *CurrentPage* The page you want to navigate from will be specified in this parameter.
+- _CurrentPage_ The page you want to navigate from will be specified in this parameter.
 
-- *FormData* contains the form data. This can easily be worked with as an object by casting it to the right type `Skjema skjema = (Skjema)formdata;`.
-Here, the C# model's name is `Skjema`, but for your application the name could be different.
-You can check this by finding the class name of the C# file in the App/models folder.
-{{</content-version-container>}}
-{{<content-version-container version-label="v4, v5">}}
+- _FormData_ contains the form data. This can easily be worked with as an object by casting it to the right type `Skjema skjema = (Skjema)formdata;`.
+  Here, the C# model's name is `Skjema`, but for your application the name could be different.
+  You can check this by finding the class name of the C# file in the App/models folder.
+  {{</content-version-container>}}
+  {{<content-version-container version-label="v4, v5">}}
 
 {{%notice warning%}}
 For track selection to work for stateless applications, NuGet must be upgraded to 5.0.0 or later.
@@ -169,9 +167,10 @@ public override async Task<List<string>> GetPageOrder(string org, string app, in
 The function receives several parameters that can be useful if you are going to use form data
 or other information about the end user to calculate the track selection.
 
-- *layoutSetId* If your app defines several layout sets, the id of the current layout set is submitted. 
-If the application does not have a layout set, this string will be empty. Based on this parameter one can retrieve 
-the default page order defined in the application:
+- _layoutSetId_ If your app defines several layout sets, the id of the current layout set is submitted.
+  If the application does not have a layout set, this string will be empty. Based on this parameter one can retrieve
+  the default page order defined in the application:
+
 ```cs
 List<string> pageOrder = new List<string>();
 if (string.IsNullOrEmpty(layoutSetId))
@@ -184,8 +183,8 @@ else
 }
 ```
 
-This assumes that the service `IAppResources` is made available in App.cs file. 
-As the service is already dependency injected into the class, only two steps are required. 
+This assumes that the service `IAppResources` is made available in App.cs file.
+As the service is already dependency injected into the class, only two steps are required.
 
 1. Create a private variable in the state of the class.
 
@@ -199,11 +198,12 @@ private readonly IAppResources _appResourcesService;
  _appResourcesService = appResourcesService;
 ```
 
-*CurrentPage* The page you want to navigate from must be specified in this parameter.
-- *FormData* contains the form data. It can easily be worked with as an object by casting it to the correct type `Form form = (Form)formData;`.
-In this case C# model for the form data is called `Form' for your application, it can be another name.
-You can check this by finding the class name of the C# file in the App/models folder.
-{{</content-version-container>}}
+_CurrentPage_ The page you want to navigate from must be specified in this parameter.
+
+- _FormData_ contains the form data. It can easily be worked with as an object by casting it to the correct type `Form form = (Form)formData;`.
+  In this case C# model for the form data is called `Form' for your application, it can be another name.
+  You can check this by finding the class name of the C# file in the App/models folder.
+  {{</content-version-container>}}
 
 {{</content-version-selector>}}
 
