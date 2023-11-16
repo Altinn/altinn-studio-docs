@@ -1,7 +1,7 @@
 ---
 title: Administrere tilganger
 linktitle: Administrere tilganger
-description: Denne fullmaktsgruppen er relevant for alle virksomheter
+description: Denne fullmaktsgruppen er relevant for alle virksomheter. Det skal ikke knyttes tjenester til disse gruppene da de er rene administrasjonsgrupper.
 weight: 111
 ---
 Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-2/#oversikt-over-fullmaktsgrupper)
