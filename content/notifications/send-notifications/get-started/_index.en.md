@@ -5,5 +5,4 @@ description: An overview over administrative tasks required before sending notif
 weight: 20
 ---
 
-
 {{<children />}}

@@ -9,6 +9,8 @@ Her bør vi kunne gjenrbuke en del som står her: https://altinn.github.io/docs/
 
 ## Hvordan ser et varsel ut
 
+Her skal vi vise et eksemplel på varsling
+
 ## Hva skal et varsel ikke inneholde
 
 ## Hvilke adresser sendes varsel til
