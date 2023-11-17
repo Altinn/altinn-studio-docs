@@ -19,7 +19,7 @@ POST /order/email
 ## Authentication
 
 This API requires authentication and the request must also include one of the following: 
-- Maskinporten scope __altinn:notifications.create__ (for external system callers) 
+- Maskinporten scope __ltinn:serviceowner/notifications.create__ (for external system callers) 
 - Platform Access Token (for Altinn Apps and internal Altinn systems)
 
 See [Authentication and Authorization](../../../api/#authentication--authorization) for more information.
@@ -37,12 +37,17 @@ The request body must contain the order request formatted as an
 and serialized as a JSON string.
 
 
-### Required order request properties 
+### Required order request properties  
+#### __body__
 
-#### body
 Type: _string_
 
 The body of the email in either plain text or HTML format.
+
+#### subject
+Type: _string_
+
+The subject of the emailSubject of the email
 
 #### subject
 Type: _string_
@@ -110,7 +115,7 @@ You only need one of them, reference [Authentication](#authentication) for which
 
 
 ```bash
-curl --location 'https://platform.yt01.altinn.cloud/notifications/api/v1/orders/email' \
+curl --location 'https://platform.altinn.no/notifications/api/v1/orders/email' \
 --header 'Content-Type: application/json' \
 --header 'PlatformAccessToken: [INSERT PLATFORM ACCESS TOKEN]' \
 --header 'Authorization: Bearer [INSERT ALTINN TOKEN]' \
@@ -135,7 +140,7 @@ Response body contains the ID for the cloud event.
 
 Response headers contains a self link for retrieving the generated notification order.
 ```bash
--- header 'Location: https://platform.yt01.altinn.cloud/notifications/api/v1/orders/0f92fcfb-778e-4fe4-99dc-51b4f91d71fd'
+-- header 'Location: https://platform.altinn.no/notifications/api/v1/orders/0f92fcfb-778e-4fe4-99dc-51b4f91d71fd'
 ```
 
 #### 400 Bad Request
