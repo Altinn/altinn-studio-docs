@@ -24,12 +24,12 @@ Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroup
 |---|---|---|---|
 |Skatt, avgift, regnskap og toll| ja|nei||
 |Skatt og Merverdiavgift|ja|nei||
-|Foretaksskatt|ja|ja|DAGL, STYR,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
-|Skattegrunnlag|ja|ja|DAGL, STYR,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
-|Merverdiavgift|ja|ja|DAGL, STYR,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
-|Regnskap og øknomirapportering|ja|ja|DAGL, STYR,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
-|Reviorattesterer|ja|ja|DAGL, STYR,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
-|Toll|ja|ja|DAGL, STYR,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
+|Foretaksskatt|ja|ja|DAGL, LEDE,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
+|Skattegrunnlag|ja|ja|DAGL, LEDE,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
+|Merverdiavgift|ja|ja|DAGL, LEDE,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
+|Regnskap og øknomirapportering|ja|ja|DAGL, LEDE,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
+|Reviorattesterer|ja|ja|DAGL, LEDE,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
+|Toll|ja|ja|DAGL, LEDE,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
 
 {{% notice warning %}} Det er fortsatt uavklart hvilke fullmakter det vil være natulig å gi personer med rollen Forretningsførerer innenfor fullmaktsområdet "Skatt, avgift, regnskap og toll" {{% /notice %}}
 

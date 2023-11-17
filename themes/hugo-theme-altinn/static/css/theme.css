@@ -382,7 +382,7 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
     color: white;
 }
 #sidebar ul.topics {
-    margin: 36px 0 0 0;
+    margin: 0;
     overflow-x: hidden;
     border-bottom: 1px solid #cacaca;
 }

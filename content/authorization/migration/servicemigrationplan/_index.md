@@ -51,6 +51,7 @@ Dette er API som i dag brukes av alle tjenesteeiere som har opprettet lenketjens
 
 AutotorisasjonsAPI i Altinn 2 for tjenesteeier vil ikke inneholde informasjon om lenketjenester som er flyttet fra A2 til A3. 
 Tjenesteeiere kan derfor ikke flytte sine ressurser før de er klar til å ta i bruk nye API for autorisasjon i Altinn 3.
+Beskrivelse av de nye APIene for tjenesteeiere finnes i [swagger](https://app.swaggerhub.com/apis/jonkjetiloye/AccessManagementServiceOwnerAPI/1.0). Denne er fortsatt under arbeid.
 
 Det vil i en overgangsfase være mulig for sluttbrukersystem å benytte de gamle API-ene på REST og SOAP. 
 Beskrivelse av de nye APIene for sluttbrukersystem finnes i [swagger](https://app.swaggerhub.com/apis/jonkjetiloye/Accessmanagement/1.0.0#/). Denne er fortsatt under arbeid. 
