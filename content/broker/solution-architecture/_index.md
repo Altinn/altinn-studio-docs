@@ -1,18 +1,14 @@
-# Altinn3 Broker Solution Architecture
+---
+title: Altinn 3 Broker Architecture
+linktitle: Altinn 3 Broker Architecture
+description: Altinn 3 Broker is a Managed File Transfer (MFT) service
+tags: [architecture, solution]
+toc: true
+weight: 1
+---
 
-## Løsningsarkitektur for Altinn3 Broker standalone
+{{<notice warning>}} <!-- info -->
+This is work in progress
+{{</notice>}}
 
-### Overordnet løsningsskisse
-
-Følgende figur viser …
-
-<img src="./media/image1.png" style="width:6.3in;height:4.66389in"
-alt="Et bilde som inneholder tekst, diagram, nummer, Font Automatisk generert beskrivelse" />
-
-### API
-
-Open API
-
-### Events
-
-Cloudevents
+{{<children />}}
