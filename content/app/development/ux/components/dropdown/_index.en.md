@@ -3,6 +3,7 @@ title: Dropdown
 linktitle: Dropdown
 description: Input element that allows a user to select only one option from a number of choices
 schemaname: Dropdown
+toc: true
 weight: 10
 ---
 
@@ -124,6 +125,8 @@ App/ui/layouts/{page}.json
 {{< property-docs prop="required" >}}
 
 {{< property-docs prop="preselectedOptionsIndex" >}}
+
+{{< property-docs prop="autocomplete" >}}
 
 {{< property-docs prop="renderAsSummary" >}}
 

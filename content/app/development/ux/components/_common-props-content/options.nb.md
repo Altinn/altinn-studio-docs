@@ -1,5 +1,6 @@
-
-# Innhold
+---
+hidden: true
+---
 
 <!-- begin intro -->
 #### Manuelt (`options`)

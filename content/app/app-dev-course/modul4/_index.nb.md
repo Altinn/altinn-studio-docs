@@ -1,6 +1,6 @@
 ---
 title: Modul 4
-description: Legge til kodelister manuelt, programatisk og dynamisk
+description: Legge til kodelister manuelt, programmatisk og dynamisk
 linktitle: Modul 4
 tags: [apps, training, options, kodelister, dynamikk ]
 weight: 20
@@ -11,7 +11,7 @@ I denne modulen skal du utvide applikasjonen du har laget i foregående moduler 
 **Temaer som dekkes i denne modulen:**
 
 - Kodelister/Options
-- Dynamikk
+- Dynamiske uttrykk
 
 ## Oppgaver
 
@@ -24,63 +24,56 @@ I Altinn Studio er dette støttet i form av radioknapper, avkrysningsbokser og n
 
 {{% notice info %}}
 Det er tre måter å sette opp kodelister i Altinn i dag
- 1. Direkte på komponenten via Altinn Studio eller manuelt i _FormLayout.json_\*
+ 1. Direkte på komponenten via Altinn Studio eller manuelt i `{page}.json`
  2. I en statisk json-fil som referes til i komponenten
  3. Programmatisk i applikasjonslogikken
-
-   \* kun tilgjengelig på radioknapp og avkrysningsboks
 {{% /notice %}}
 
-I denne oppgaven skal du få prøve deg på alle tre måtene å sette opp en kodeliste på.
+I denne oppgaven skal du få prøve deg på alle tre måtene å sette opp en kodeliste.
 
-
-Sogndal kommune ønsker å samle inn opplysninger om tilflytterens arbeidsituasjon. Blant dataen de ønsker å samle inn er hvilken **sektor** og **bransje** tilflytter jobber i, og hvor mange **år** tilflytter har vært yrkesaktiv.
+Sogndal kommune ønsker å samle inn opplysninger om tilflytterens arbeidsituasjon.
+ Blant dataen de ønsker å samle inn er hvilken **sektor** og **bransje** tilflytter jobber i og hvor mange **år** tilflytter har vært yrkesaktiv.
 
 
 ### I Altinn Studio
 
 1. Opprett en ny skjemaside for å samle inn data om arbeidsforhold
-
-2. Sett opp en **radioknapp**-komponent for _Sektor_ opprett svaralternativene `Offentlig` og `Privat` manuelt.
-
-3. Sett opp en **avkrysningsboks** for _Bransje_.
-   Velg _Kodeliste_ som metode for å legge til avkrysningsboker og legg inn _Kodeliste ID_ `industry`.
-
-   Resten av oppsettet for denne komponenten gjøres lokalt.
-
-4. Sett opp en **nedrekksliste** for _År i arbeidslivet_.
-   Legg inn _Kodeliste ID_ `years-in-work-force`.
-
-   Resten av oppsettet for denne komponenten gjøres lokalt.
-
-5. _Commit_ og _Push_ endringene dine til master,
-   og _Pull_ endringene i ditt lokale utviklingsmiljø.
+2. Legg til en **radioknapp**-komponent for _Sektor_ og opprett svaralternativene `Offentlig` og `Privat` manuelt.
+3. Legg til en **avkrysningsboks** for _Bransje_.
+   Velg _Kodeliste_ som metode for å legge til avkrysningsboker og legg inn _Kodeliste ID_ `industry`. Resten av oppsettet for denne komponenten gjøres lokalt.
+4. Legg til en **nedrekksliste** (dropdown) for _År i arbeidslivet_.
+   Legg inn _Kodeliste ID_ `years-in-work-force`. Resten av oppsettet for denne komponenten gjøres lokalt.
+5. Last opp endringene dine i Designer og last de deretter ned (_pull_) i ditt lokale utviklingsmiljø.
 
 ### I lokalt utviklingsmiljø
 
-1. Sogndal kommune har opprettet [en kodeliste for **bransjer**](../industry.json). Last ned filen og plasser denne på rett sted i repoet.
-
-2. Sett opp verdiene i kodelisten for **År i arbeidslivet** direkte i en ny C#-klasse.
-
+1. Opprett mappen `App/options` hvis den ikke eksisterer.
+2. Sogndal kommune har opprettet en [statisk kodeliste](/nb/app/development/data/options/static-codelists) for **bransjer**: [industry.json](../industry.json). Last ned filen og plasser den i `App/options`.
+3. Sett opp alternativene for **År i arbeidslivet** som en [åpen dynamisk kodeliste](/nb/app/development/data/options/dynamic-codelists#åpne-dynamiske-kodelister) i mappen `App/options` (følg anvisning i dokumentasjonen).  
    Svaralternativer:
-
    Label      | Dataverdi
    -----------|----------
    0 - 5 år   | `0-5`
    5 - 10 år  | `5-10`
    10 - 20 år | `10-20`
    20+ år     | `20+`
-
-3. Verifiser at alle kodelister fungerer som forventet.
+4. Verifiser at alle kodelister fungerer som forventet.
 
 ### Nyttig dokumentasjon
 
-- [Hvordan sette opp statiske kodelister](/nb/app/development/data/options/static-codelists)
-- [Sikrede dynamiske kodelister](/nb/app/development/data/options/dynamic-codelists)
+- [Statiske kodelister](/nb/app/development/data/options/static-codelists)
+- [Dynamiske kodelister](/nb/app/development/data/options/dynamic-codelists)
 
 ### Forståelsessjekk
-- Hva er forskjellen på statiske og dynamiske svaralternativer?
-- Hva vil være et bruksområde for sikrede, dynamiske svaralternativer?
+{{% expandsmall id="m4t1q1" header="Hva er forskjellen på statiske og dynamiske svaralternativer?" %}}
+Statiske svaralternativer er definert ved **build time**, og vil, som navnet tilsier, være statiske under hele sin levetid.
+Dynamiske svaralternativer hentes ut ved **runtime** og kan dermed hente verdier basert på tiden på døgnet eller andre dynamiske verdier.
+{{% /expandsmall %}}
+
+{{% expandsmall id="m4t1q2" header="Hva vil være et bruksområde for sikrede, dynamiske svaralternativer?" %}}
+Svaralternativer er som standard åpent tilgjengelige og API'et vil være mulig å nå for personer som ikke er logget inn i appen. Det er heller ingen restriksjoner på roller.
+I enkelte tilfeller så kan det tenkes at man ønsker å eksponere svaralternativer som er sensitive. Her kommer sikrede dynamiske svaralternativer til sin rett ved at man får automatisk verifisering på at den som gjør kallet har leserettigheter (`Instance.Read`-rettigheter).
+{{% /expandsmall %}}
 
 {{% /expandlarge %}}
 
@@ -101,13 +94,24 @@ basert på hvilken sektor de har krysset av for.
 - Privat sektor: [Standardlisten med bransjer](../industry.json)
 - Offentlig sektor: `Stat` og `Kommune`
 
+### Oppgaver
+
+1. [Send en dynamisk query-parameter](/nb/app/development/data/options/#sende-med-query-parametere-ved-henting-av-options) med Bransje-komponenten basert på Sektor.
+2. Lag en dynamisk kodeliste for _Bransje_ med logikk basert på verdien til query-parameteren (hint: du kan lese inn bransjelisten fra json-filen).
+
 ### Nyttig dokumentasjon
 - [Hvordan sende med spørringsparametre ved henting av kodelister](/nb/app/development/data/options/#sende-med-query-parametere-ved-henting-av-options)
 - [Hvordan sette opp dynamiske kodelister](/nb/app/development/data/options/dynamic-codelists)
 
 ### Forståelsessjekk
-- Om en kodeliste er satt opp med en mapping mot datamodellen, hva skjer når det aktuelle feltet endrer verdi?
-- Hva skjer med valgt verdi på et felt som er koblet til en kodeliste som hentes på nytt fra serversiden?
+{{% expandsmall id="m4t2q1" header="Om en kodeliste er satt opp med en mapping mot datamodellen, hva skjer når det aktuelle feltet endrer verdi?" %}}
+Om et felt i mappingen oppdateres, så vil app-frontend gjøre et nytt kall for å hente ut kodelisten.
+Dette muliggjør å dynamisk vise valg som er skreddersydd til brukerens tidligere utfylte data.
+{{% /expandsmall %}}
+
+{{% expandsmall id="m4t2q2" header="Hva skjer med valgt verdi på et felt som er koblet til en kodeliste som hentes på nytt fra serversiden?" %}}
+Om brukeren f.eks. har valgt kommune fra en nedtrekksliste over kommuner som er satt opp med en mapping på `Fylke`, går tilbake og endrer feltet `Fylke`, så vil det valgte svaret i kommunelisten bli fjernet.
+{{% /expandsmall %}}
 
 {{% /expandlarge %}}
 
@@ -119,39 +123,316 @@ Vi ønsker at dersom brukeren velger `IKT (data/it)` under bransje at det vises 
 
 - Under bransje-valget skal følgende tekst presenteres:
 
-    ```rich
-    Vi ser at du besitter kompetanse vi trenger i kommunen.
-    Se en oversikt over våre ledige stillinger her.
-    ```
+   
+   > Vi ser at du besitter kompetanse vi trenger i kommunen.
+   > Se en oversikt over våre ledige stillinger her.
+    
 
 - Linje 2 i teksten skal være en hyperlenke som peker på https://sogndal.easycruit.com/index.html.
 
 Tekst og lenke skal **kun** vises om man har valgt `IKT (data/it)`. I alle andre tilfeller skal dette være skjult.
 
-### Nyttig dokumentasjon
-- [Legge til funksjoner for regler eller dynamikk](/nb/app/development/logic/dynamic/#legg-tilrediger-funksjoner-for-beregninger-eller-visskjul)
-- [Eksempler på bruk av dynamikk i skjema](/nb/app/development/logic/dynamic/#eksempel-på-bruk-av-dynamikk-i-skjema)
+### Oppgaver
 
-### Forståelsessjekk
-- Hvis du legger til en ny funksjon i `RuleHandlerHelper`, hvor kjøres disse funksjonene?
-  - Vil dynamikk fungere uten denne definert?
-- Hvis du legger til en ny funksjon i `RuleHandlerObject`, hvor kjøres disse funksjonene?
-  - Vil dynamikk fungere uten denne definert?
-- Hva er sammenhengen mellom funksjoner definert i `RuleHandlerObject` og filen `RuleConfiguration.json`?
+1. Legg til en komponent som kan vise den aktuelle teksten.
+2. Legg til [dynamikk for komponenten](/nb/app/development/logic/expressions/) som gjør at den kun vises dersom `IKT (data/it)` er valgt (**MERK**: Teksten skal vises også når flere alternativer er valgt, så lenge ett av dem er `IKT (data/it)`).
+3. Flytt knappen 'Send inn' til siden for arbeidsforhold.
+
+
+### Nyttig dokumentasjon
+- [Dynamiske uttrykk](/nb/app/development/logic/expressions/)
+
 
 {{% /expandlarge %}}
 
 ## Oppsummering
 
-I denne modulen har du satt opp nedtrekksliste, radioknapp og avkrysningsbokser og lagt inn verdier for disse komponentene manuelt, programmatisk og dynamisk.
+I denne modulen har du lagt til nedtrekksliste, radioknapp og avkrysningsbokser og lagt inn alternativer for disse komponentene manuelt og med dynamiske og statiske kodelister.
+ I tillegg har du lagt til dynamikk som viser ulike alternativer basert på tidligere valg.
 
-Tjenesten skal kunne kjøres opp på din lokale maskin med lokal test
+Tjenesten skal kunne kjøres opp på din lokale maskin med localtest
 og du skal kunne validere at komponentene presenterer forventede dataverdier.
 
-**Husk å _pushe_ de lokale endringene dine, så de blir tilgjengelig i Altinn Studio når du er fornøyd**
+**Husk å _pushe_ de lokale endringene dine så de blir tilgjengelig i Altinn Studio.**
 
-### Løsningsforslag
-Dersom du ikke har fått til alle stegene, har vi et [løsningsforslag](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/4) som du kan hente inspirasjon fra.
+## Løsningsforslag
+[Kildekode Modul 4](https://altinn.studio/repos/testdep/flyttemelding-sogndal/src/branch/modul4)<br>
+[(Kildekode Modul 4 - tidligere versjon)](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/4)<br>
+
+{{% expandlarge id="options-solution-expandable" header="Innsamling av arbeidsopplysninger" %}}
+
+![Skjermbilde av innsamling av arbeidsopplysninger](./arbeidsforhold-screenshot.png "Skjermbilde av innsamling av arbeidsopplysninger")
+
+* Legg til komponenter i Altinn Studio Designer, legg til en passende ledetekst og knytt komponenten til riktig felt i datamodellen.
+
+* **Legge til alternativer manuelt:** Fyll in felter i Altinn Studio Designer. I koden ser det ut som følger:
+
+{{< code-title >}}
+App/ui/layouts/Arbeidsforhold.json
+{{< /code-title >}}
+
+```json{linenos=false,hl_lines="5-23"}
+{
+  "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
+  "data": {
+    "layout": [
+      {
+        "id": "RadioButtons-sektor",
+        "type": "RadioButtons",
+        "dataModelBindings": {
+          "simpleBinding": "Innflytter.Arbeidsinformasjon.Sektor"
+        },
+        "required": true,
+        "options": [
+          {
+            "label": "arbeidsforhold.sektor.offentlig",
+            "value": "offentlig"
+          },
+          {
+            "label": "arbeidsforhold.sektor.privat",
+            "value": "privat"
+          }
+        ],
+        "textResourceBindings": {
+          "title": "arbeidsforhold-sektor.title"
+        }
+      },
+      ...
+    ]
+  }
+}
+```
+
+* **Legge til statisk kodeliste for bransje:** Legg filen `industry.json` i `App/options`.
+
+* **Legge til dynamisk kodeliste for år i arbeidslivet:**
+
+{{< code-title >}}
+App/options/YearsInWorkForceOptionsProvider.cs
+{{< /code-title >}}
+
+```csharp
+using Altinn.App.Core.Features;
+using Altinn.App.Core.Models;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+namespace Altinn.App.AppLogic.Options
+{
+    public class YearsInWorkForceOptionsProvider : IAppOptionsProvider
+    {
+        public string Id { get; set; } = "years-in-work-force";
+
+        public Task<AppOptions> GetAppOptionsAsync(string language, Dictionary<string, string> keyValuePairs)
+        {
+            var options = new AppOptions
+            {
+                Options = new List<AppOption>
+                    {
+                        new() {
+                            Label = "0 - 5 år",
+                            Value = "0-5"
+                        },
+                        new() {
+                            Label = "5 - 10 år",
+                            Value = "5-10"
+                        },
+                        new() {
+                            Label = "10 - 20 år",
+                            Value = "10-20"
+                        },
+                        new() {
+                            Label = "20+ år",
+                            Value = "20+"
+                        }
+                    }
+            };
+
+            return Task.FromResult(options);
+        }
+    }
+}
+```
+
+* **Registrere dynamisk kodeliste:**
+
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
+
+```csharp{linenos=false,hl_lines="5"}
+...
+{
+    // Register your apps custom service implementations here.
+    services.AddTransient<IInstantiationProcessor, InstantiationProcessor>();
+    services.AddTransient<IAppOptionsProvider, YearsInWorkForceOptionsProvider>();
+   ...
+}
+
+{{% /expandlarge %}}
+
+{{% expandlarge id="dynamikk-solution-expandable" header="Differensiert datagrunnlag for offentlig og privat sektor" %}}
+
+![Skjermbilde av innsamling av arbeidsopplysninger for offentlig sektor](/app/app-dev-course/modul4/arbeidsopplysninger-offentlig-screenshot.png "Skjermbilde av innsamling av arbeidsopplysninger for offentlig sektor")
+
+* For å sende en spørreparameter med Bransje-komponenten legger vi til en mapping på komponenten knyttet til feltet `Sektor` i datamodellen:
+
+{{< code-title >}}
+App/ui/layouts/arbeidsforhold.json
+{{< /code-title >}}
+
+```json{linenos=false,hl_lines="13-15"}
+...
+      {
+        "id": "Checkboxes-bransje",
+        "type": "Checkboxes",
+        "dataModelBindings": {
+          "simpleBinding": "Innflytter.Arbeidsinformasjon.Bransje"
+        },
+        "required": true,
+        "textResourceBindings": {
+          "title": "arbeidsforhold-bransje.title"
+        },
+        "optionsId": "industry",
+        "mapping": {
+          "Innflytter.Arbeidsinformasjon.Sektor": "sektor"
+        }
+      },
+...
+```
+
+* Dynamisk kodeliste for _Bransje_ med svaralternativer som avhenger av verdien for `sektor`:
+
+{{< code-title >}}
+App/options/IndustryOptions.cs
+{{< /code-title >}}
+
+```csharp
+using Altinn.App.Core.Features;
+using Altinn.App.Core.Models;
+using Newtonsoft.Json;
+using System.Collections.Generic;
+using System.IO;
+using System.Threading.Tasks;
+
+namespace Altinn.App.AppLogic.Options
+{
+    public class IndustryOptions : IAppOptionsProvider
+    {
+        public string Id { get; set; } = "industry";
+        private List<AppOption> _privateOptions = null;
+
+        public Task<AppOptions> GetAppOptionsAsync(string language, Dictionary<string, string> keyValuePairs)
+        {
+            string sektor = keyValuePairs.GetValueOrDefault("sektor");
+
+            if (sektor == "offentlig")
+            {
+                var offentligeOptions = new AppOptions
+                {
+                    Options = new List<AppOption>
+                    {
+                        new() {
+                            Label = "Stat",
+                            Value = "stat"
+                        },
+                        new() {
+                            Label = "Kommune",
+                            Value = "kommune"
+                        },
+                    }
+                };
+                return Task.FromResult(offentligeOptions);
+            }
+            else
+            {
+                if (_privateOptions == null)
+                {
+                    using (StreamReader r = new("./options/industry.json"))
+                    {
+                        string json = r.ReadToEnd();
+                        _privateOptions = JsonConvert.DeserializeObject<List<AppOption>>(json);
+                    }
+
+                }
+                return Task.FromResult(new AppOptions { Options = _privateOptions });
+            }
+        }
+    }
+}
+```
+
+* Kodelisten registreres i `Program.cs`:
+
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
+
+```csharp{hl_lines="6"}
+{
+   ...
+    // Register your apps custom service implementations here.
+    services.AddTransient<IInstantiationProcessor, InstantiationProcessor>();
+    services.AddTransient<IAppOptionsProvider, YearsInWorkForceOptionsProvider>();
+    services.AddTransient<IAppOptionsProvider, IndustryOptions>();
+    ...
+}
+```
+
+{{% /expandlarge %}}
+
+{{% expandlarge id="dynamikk-skjemavisning0solution" header="Skreddersydd tilbud for IT-kompetanse" %}}
 
 ![Skjermbilde av innsamling av arbeidsopplysninger for privat sektor](/app/app-dev-course/modul4/arbeidsopplysninger-privat-screenshot.png "Skjermbilde av innsamling av arbeidsopplysninger for privat sektor")
-![Skjermbilde av innsamling av arbeidsopplysninger for offentlig sektor](/app/app-dev-course/modul4/arbeidsopplysninger-offentlig-screenshot.png "Skjermbilde av innsamling av arbeidsopplysninger for offentlig sektor")
+
+* **Legg til komponent for visning av tekst**. Det er lagt til logikk på komponenten som skjuler den dersom "IKT (data/IT)" ikke er valgt. Verdien `491` for feltet er hentet fra filen `industry.json`.  
+'Send inn'-knappen er også flyttet til denne siden.
+
+{{< code-title >}}
+App/ui/layouts/arbeidsforhold.json
+{{< /code-title >}}
+
+```json
+...
+{
+   "id": "info-it-kompteanse",
+   "type": "Paragraph",
+   "textResourceBindings": {
+      "title": "arbeid.it-kompetanse"
+   },
+   "hidden": ["notContains", ["component", "Checkboxes-bransje"], "491"],
+   "dataModelBindings": {}
+},
+{
+   "id": "send-inn",
+   "type": "Button",
+   "textResourceBindings": {
+      "title": "button.send-inn"
+   }
+},
+...
+```
+
+* **Legg til tekstressurs:**
+
+{{< code-title >}}
+App/config/texts/resource.nb.json
+{{< /code-title >}}
+
+```json
+...
+{
+"id": "arbeid.it-kompetanse",
+"value": "#### Vi ser at du besitter kompetanse vi trenger i kommunen. <br><br> [Se en oversikt over våre ledige stillinger her.](https://sogndal.easycruit.com/index.html)"
+},
+...
+```
+
+{{% /expandlarge %}}
+
+
+<br><br>
+
+{{% center %}}
+[<< Forrige modul](../modul3/)      [Neste modul >>](../modul5/)
+{{% /center %}}

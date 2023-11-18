@@ -12,5 +12,3 @@ This is work in progress
 {{</notice>}}
 
 {{<children />}}
-
-

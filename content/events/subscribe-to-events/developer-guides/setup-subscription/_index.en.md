@@ -15,7 +15,9 @@ POST /subscriptions
 
 This API requires authentication.
 
-When subscribing to generic events the Maskinporten scope __altinn:events.subscribe__ is also required.
+When subscribing to generic events the Maskinporten scope __altinn:events.subscribe__ is required.
+
+If you are subscribing to events as a service owner the Maskinporten scope __altinn:serviceowner__ is also requried. 
 
 See [Authentication and Authorization](../../../api/#authentication--authorization) for more information.
 
