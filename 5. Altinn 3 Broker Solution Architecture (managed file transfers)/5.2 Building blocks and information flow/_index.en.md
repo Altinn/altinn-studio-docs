@@ -12,11 +12,10 @@ This is work in progress
 {{</notice>}}
 
 
-## High Level Solution Overview – main building blocks and information flow....
+## High Level Solution Overview – main building blocks
 
-The following figure gives an overview of the main building blocks and
-information flow:
+The following figure gives an overview of the main building blocks.
 
-[{{< figure src="./image6.png" title="Figure 6: ..." alt="Alt-text">}}](https://www.vg.no)
+[{{< figure src="./image6.png" title="Figure 6: Altinn Broker main building blocks" alt="Alt-text">}}](https://www.vg.no)
 
-TBD: Further explanation …
+Building on the [context diagram](../../1.%20Introduction/image1.png) of the [introduction](../../1.%20Introduction/_index.en.md).
