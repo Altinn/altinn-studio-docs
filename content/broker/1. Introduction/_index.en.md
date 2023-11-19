@@ -34,13 +34,8 @@ transfers, Altinn Broker offers a number of benefits. Some of the main
 benefits are:
 
 - Managed service: Take the burden off Service owners and their solution
-  vendors -security, maintenance, certified compliance with relevant
+  vendors - security, maintenance, certified compliance with relevant
   legislation and regulations.
-
-- Observability and Auditability: End-to-end visibility of all activity,
-  so you know the who, what, where, and when of data transfers. Quickly
-  access file-transfer logs and analytics to audit transfer activity
-  whenever needed.
 
 - Fault tolerance and resilience: Altinn Broker will support fault
   tolerant delivery of very large files (several gigabytes and possibly
@@ -57,6 +52,14 @@ benefits are:
 
 - Real-Time Data Transfer: Altinn Broker use APIs and system events to
   trigger uploads and downloads.
+
+- Observability and Auditability: End-to-end visibility of all activity, 
+  so you know the who, what, where, and when of data transfers. Quickly
+  access file-transfer logs and analytics to audit transfer activity
+  whenever needed.
+
+- Advanced monitoring: With the in-built support for adding metadata to file transfers, 
+  it is possible to analyse file transfer sequences between multiple actors involved in e.g. a case management process. 
 
 ## Context Overview
 
