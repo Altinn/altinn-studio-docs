@@ -18,4 +18,4 @@ The following figure gives an overview of the main building blocks.
 
 [{{< figure src="./image6.png" title="Figure 6: Altinn Broker main building blocks" alt="Alt-text">}}](https://www.vg.no)
 
-Building on the [context diagram](../../1.%20Introduction/image1.png) of the [introduction](../../1.%20Introduction/_index.en.md).
+Building on the [context diagram](../../1.%20Introduction/image2.png) of the [introduction](../../1.%20Introduction/_index.en.md).
