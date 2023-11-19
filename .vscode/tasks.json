@@ -5,7 +5,7 @@
         {
             "label": "Hugo Server",
             "type": "shell",
-            "command": "${workspaceRoot}/hugo serve --navigateToChanged",
+            "command": "${workspaceRoot}/hugo serve --navigateToChanged --disableFastRender",
             "isBackground": true,
             "presentation": {
                 "echo": true,
