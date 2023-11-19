@@ -22,7 +22,8 @@ specific Solutions Building Blocks (SBBs)…
 
 An overview of relevant Digdir components … TBD… update and translate…
 
-<img src="./media/image10.png" style="width:6.3in;height:4.29861in"
+[{{< figure src="./image10.png" title="Figure 10: Altinn Solution Building Block in question for use or re-use" alt="Alt-text">}}](https://www.vg.no)
+<img src="./image10.png" style="width:6.3in;height:4.29861in"
 alt="Et bilde som inneholder tekst, skjermbilde, Font, nummer Automatisk generert beskrivelse" />
 
 ### Authentication and Authorization
@@ -48,7 +49,7 @@ tjenestetilbyder og Dialogporten må foreta oppslag mot Altinn
 Autorisasjon for å autorisere den oppgitte systembrukeren på
 tjenestenivå.
 
-<img src="./media/image11.png" style="width:6.3in;height:3.08056in"
+<img src="./image11.png" style="width:6.3in;height:3.08056in"
 alt="Et bilde som inneholder tekst, skjermbilde, line, nummer Automatisk generert beskrivelse" />
 
 #### Maskinporten-token med innbakt autorisasjon
@@ -61,7 +62,7 @@ Maskinporten og Altinn Autorisasjon. Samme token-type kan benyttes mot
 både Tjenestetilbyder og Dialogporten, men aud-claim må settes i token
 og valideres for å unngå å åpne for replay-attacks.
 
-<img src="./media/image12.png" style="width:6.3in;height:2.43264in"
+<img src="./image12.png" style="width:6.3in;height:2.43264in"
 alt="Et bilde som inneholder tekst, line, kvittering, diagram Automatisk generert beskrivelse" />
 
 ### Broker File storage

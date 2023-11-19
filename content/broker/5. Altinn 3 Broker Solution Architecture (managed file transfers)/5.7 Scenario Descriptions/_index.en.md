@@ -16,7 +16,7 @@ This is work in progress
 
 The follow sequence diagram shows…
 
-<img src="./media/image9.png" style="width:6.3in;height:4.40139in"
+<img src="./image9.png" style="width:6.3in;height:4.40139in"
 alt="Et bilde som inneholder tekst, skjermbilde, Parallell, diagram Automatisk generert beskrivelse" />
 
 Explanation: TBD, Erik: Explain each arrow (should match the online,
