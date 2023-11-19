@@ -1,7 +1,7 @@
 ---
-title: Altinn Broker Architecture Introduction
+title: Altinn Broker Introduction
 linktitle: Introduction
-description: Introduction to the Altinn Broker Architecture
+description: Introduction to the Altinn Broker Service
 tags: [architecture, solution]
 toc: true
 weight: 10

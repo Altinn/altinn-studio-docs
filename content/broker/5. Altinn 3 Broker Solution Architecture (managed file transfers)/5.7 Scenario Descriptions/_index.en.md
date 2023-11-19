@@ -16,8 +16,7 @@ This is work in progress
 
 The follow sequence diagram shows…
 
-<img src="./image9.png" style="width:6.3in;height:4.40139in"
-alt="Et bilde som inneholder tekst, skjermbilde, Parallell, diagram Automatisk generert beskrivelse" />
+[{{< figure src="./image9.png" title="Figure 9: End-to-end typical sequence (happy path)" alt="Alt-text">}}](https://www.vg.no)
 
 Explanation: TBD, Erik: Explain each arrow (should match the online,
 clickable Archi version).
