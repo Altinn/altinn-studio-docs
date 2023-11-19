@@ -5,6 +5,7 @@
         {
             "label": "Hugo Server",
             "type": "shell",
+            //"command": "\"C:\\Users\\eha\\OneDrive - Digitaliseringsdirektoratet\\altinn\\altinn-studio-docs\\hugo\" serve --navigateToChanged", //
             "command": "${workspaceRoot}/hugo serve --navigateToChanged",
             "isBackground": true,
             "presentation": {

@@ -1,5 +1,5 @@
 ---
-title: Use Cases Covered
+title: Use Cases Considered
 linktitle: Use Cases
 description: Use Cases for Altinn 3 Broker Managed File Transfers covered by this description of the solution architecture.
 tags: [architecture, solution]
@@ -11,16 +11,27 @@ weight: 10
 This is work in progress
 {{</notice>}}
 
-## One-to-one managed transfers
+## One-to-one managed transfers of individual files
+Illustration:
+[{{< figure src="./image5.png" title="Figure 5a: One-to-one managed transfers of individual files" alt="Alt-text">}}](https://www.vg.no)
 
-One-to-one managed transfers of individual files illustrated (file F1 is
-forwarded to a single, specifically addressed consumer):
+With one-to-one managed transfers of individual files, a file (F1) is forwarded to a single consumer.
 
-[{{< figure src="./image5.png" title="Figure 5a: ..." alt="Alt-text">}}](https://www.vg.no)
+{{<notice info>}} <!-- info -->
+The initial implementation considers specifically addressed consumers only.
+{{</notice>}}
 
-## One-to-many managed transfers
-One-to-many managed transfers of individual files illustrated (file F1
-is forwarded to one or more, specifically addressed consumers):
 
-[{{< figure src="./image1.png" title="Figure 5b: ..." alt="Alt-text">}}](https://www.vg.no)
+## One-to-many managed transfers of individual files
+Illustration:
+[{{< figure src="./image1.png" title="Figure 5b: One-to-many managed transfers of individual files" alt="Alt-text">}}](https://www.vg.no)
+
+With One-to-many managed transfers of individual files, a file F1 is forwarded to one or more, 
+consumers.
+
+{{<notice info>}} <!-- info -->
+The initial implementation considers specifically addressed consumers only.
+{{</notice>}}
+
+
 
