@@ -15,13 +15,15 @@ This is work in progress
 ## Solution Overview – system interfaces
 
 The following figure adds detail to the high-level solution overview by
-indicating the system interfaces in the form of APIs and webhooks.
-
-*TIP: The details of these interfaces are not shown by the image as
-such, however in the web version the image hyperlinks to a clickable
-version with further details.*
+indicating the system interfaces in the form of APIs and webhooks. 
+It also shows how the most important building blocks of teh Altinn Broker, from a security perspective, 
+are activated via the APIs.
 
 [{{< figure src="./image7.png" title="Figure 7: ..." alt="Alt-text">}}](https://www.vg.no)
 
 TBD: Further explanation …
+
+*TIP: The details of these interfaces are not shown by the image as
+such, however in the web version the image hyperlinks to a clickable
+version with further details.*
 
