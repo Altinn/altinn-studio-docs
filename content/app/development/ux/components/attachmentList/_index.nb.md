@@ -34,9 +34,9 @@ EKSEMPLER
 
 ## Bruk
 
-Komponenten {{% title %}} brukes til å vise en liste med vedlegg for en gitt oppgave.
-Denne kan brukes til å vise vedlegg som er lastet opp av brukeren, og/eller for å vise pdf-vedlegg som er generert av systemet.
-Egenskapen `dataTypeIds` lar deg filtrere og vise vedlegg basert på spesifiserte datatyper.
+Komponenten {{% title %}} brukes til å vise en liste med vedlegg.
+Denne kan brukes til å vise vedlegg lastet opp av brukeren og/eller for å vise pdf-vedlegg generert av systemet.
+Egenskapen `dataTypeIds` lar deg filtrere og vise vedlegg basert på spesifiserte datatyper. 
 Nedenfor i eksempel-seksjonen kan du se hvordan du kan vise vedlegg for spesifikke datatyper, eller for alle datatyper.
 
 ## Egenskaper
@@ -71,21 +71,20 @@ I dette tilfellet vises vedlegg for datatyper med ID-ene "attachment1" og "attac
 }
 ```
 
-### Eksempel 2: Viser Vedlegg for Alle Datatyper (Unntatt PDF-systemgenererte Vedlegg)
+### Eksempel 2: Viser Vedlegg for Alle Datatyper
 
-Dette eksemplet fremhever standardoppførselen, som er å vise vedlegg for alle datatyper, 
-mens PDF-systemgenererte vedlegg utelates. Egenskapen `dataTypeIds` er ikke spesifisert i dette tilfellet.
+Dette eksemplet fremhever standardoppførselen, som er å vise vedlegg for alle datatyper.
 
 ```json
 {
-  "component": "AttachmentList"
+  "component": "AttachmentList",
+  "dataTypeIds": [] // Alternativt kan denne egenskapen utelates
 }
 ```
 
 ### Eksempel 3: Viser Vedlegg for Alle Datatyper (Inkludert PDF-systemgenererte Vedlegg)
 
 Dette eksemplet viser hvordan du kan vise vedlegg for alle datatyper, inkludert PDF-systemgenererte vedlegg.
-Egenskapen `dataTypeIds` er satt til "include-all".
 
 ```json
 {
@@ -102,5 +101,14 @@ Dette eksemplet viser hvordan du kan vise vedlegg for spesifikke datatyper, inkl
 {
   "component": "AttachmentList",
   "dataTypeIds": ["attachment1", "attachment2", "ref-data-as-pdf"]
+}
+```
+
+### Eksempel 5: Viser Vedlegg for Alle DataTyper i nåværende prosess/oppgave
+
+```json
+{
+  "component": "AttachmentList",
+  "dataTypeIds": ["from-task"]
 }
 ```
