@@ -156,7 +156,7 @@ https://fraktguide.bring.no/fraktguide/api/postalCode.json?country=no&pnr={postn
 {{% /expandlarge %}} -->
 
 ## Løsningsforslag
-[Kildekode Modul 7](https://altinn.studio/repos/testdep/flyttemelding-sogndal/src/branch/modul7)<br>
+[Kildekode Modul 7](https://altinn.studio/repos/tss/flyttemelding-sogndal/src/branch/modul7)<br>
 
 {{% expandlarge id="Oppsummeringsside-solution" header="Oppsummeringsside" %}}
 
