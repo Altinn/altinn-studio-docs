@@ -1,14 +1,14 @@
 ---
-title: Altinn Broker Architecture Introduction
+title: Altinn Broker Introduction
 linktitle: Introduction
-description: Introduction to the Altinn Broker Architecture
+description: Introduction to the Altinn Broker Service
 tags: [architecture, solution]
 toc: true
 weight: 10
 ---
 
 {{<notice warning>}} <!-- info -->
-This is work in progress
+This is work in progress.
 {{</notice>}}
 
 ## What is Altinn Broker?
@@ -34,13 +34,8 @@ transfers, Altinn Broker offers a number of benefits. Some of the main
 benefits are:
 
 - Managed service: Take the burden off Service owners and their solution
-  vendors -security, maintenance, certified compliance with relevant
+  vendors - security, maintenance, certified compliance with relevant
   legislation and regulations.
-
-- Observability and Auditability: End-to-end visibility of all activity,
-  so you know the who, what, where, and when of data transfers. Quickly
-  access file-transfer logs and analytics to audit transfer activity
-  whenever needed.
 
 - Fault tolerance and resilience: Altinn Broker will support fault
   tolerant delivery of very large files (several gigabytes and possibly
@@ -58,14 +53,30 @@ benefits are:
 - Real-Time Data Transfer: Altinn Broker use APIs and system events to
   trigger uploads and downloads.
 
+- Observability and Auditability: End-to-end visibility of all activity, 
+  so you know the who, what, where, and when of data transfers. Quickly
+  access file-transfer logs and analytics to audit transfer activity
+  whenever needed.
+
+- Advanced monitoring: With the in-built support for adding metadata to file transfers, 
+  it is possible to analyse file transfer sequences between multiple actors involved in e.g. a case management process. 
+
 ## Context Overview
 
-The following diagram shows the main features, integration points and
-information flow of Altinn 3 Broker.
+The following diagram shows the main features, information flow and integration options of Altinn 3 Broker.
 
 [{{< figure src="./image2.png" title="Figure 2: Altinn Broker Context Diagram" alt="Alt-text">}}](https://altinn.github.io/ark/models/archi-all/?view=id-5824a04f89d04341aba661be649270b4)
 
-Further description: TBD
+Explamation to the diagram:
+
+* The main services provided by Altinn Broker are File Upload and File Download, configured via Service Management, with intermediary storage of files and metadata.
+* All features are accessible to End User Systems via APIs.
+* Human End Users communicate with Altinn Broker via GUIs provided by either their custom End User Systems or GUI-s provided ny Altinn Broker. Note: Service owners may choose to leverage Altinn Studio for building GUIs.
+* End User Systems may be triggered by events via notifications to [Webhooks](https://en.wikipedia.org/wiki/Webhook). The same events may alternatively be detected by polling the APIs, 
+  however supporting Webhooks in the End User Systems is recommended over API polling.
+* Service Owners configure the services and receive usage reports, invoices and other information according to the agreed service levels.
+* Data Providers upload files and receive status updates.
+* Data Consumers receive notifications about available files and download files, and they give status information about download processes (confirming successful download being the regular case).
 
 ## Terminology
 
@@ -97,5 +108,6 @@ Altinn 3 Broker. Also see <https://data.norge.no/concepts>.
 | Recipient                      | TBD                                                                                                                                                                                                                                                      |
 | Seamless services              | TBD                                                                                                                                                                                                                                                      |
 | Sender                         | TBD                                                                                                                                                                                                                                                      |
+| Service-based Routing          | See https://www.ehelse.no/standardisering/om-standardisering-i-e-helse/tjenestebasert-adressering                                                                                                                                                                                                                                                      |
 | User Journey                   | TBD                                                                                                                                                                                                                                                      |
 
