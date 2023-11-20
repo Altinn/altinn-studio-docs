@@ -54,11 +54,11 @@ Configure npgsql with DI as described [here](https://github.com/npgsql/npgsql/is
 [Review explain documentation](https://www.postgresql.org/docs/current/sql-explain.html)
 ### Analyze sql statement
 In your query window: Write "explain analyze" followed by our query. E.g. 
-![Simple query](simple-query.png "Simple query")
+![Simple query](../simple-query.png "Simple query")
 
 ### Analyze procedure or function
 - Make sure that auto_explain is configured on the server and that Postgres version >= 15.x
-![Auto explain](auto-explain.png "Auto explain")
+![Auto explain](../auto-explain.png "Auto explain")
 - Do the following in your query window
 ```
 SET auto_explain.log_min_duration = 0;
@@ -67,7 +67,7 @@ SET auto_explain.log_nested_statements = ON;
 SET auto_explain.log_level = INFO;
 ```
 - Run your procedure or function. NB: The analysis result will be in the Messages tab.
-![Analyze function](analyze-function.png "Analyze function")
+![Analyze function](../analyze-function.png "Analyze function")
 
 ### Index analysis
 Make sure that a proper index is used in the explained query plan. Try to add a new index if a proper candidate is missing.
