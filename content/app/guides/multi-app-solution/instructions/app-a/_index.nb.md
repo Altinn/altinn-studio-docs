@@ -102,7 +102,7 @@ Les om hvordan denne egendefinerte koden legges til [her](/app/development/confi
     ```
 
 2. For å faktisk utføre forespørselen for å opprette instansen, må vi legge til en klient. Se
-   [konsumer dokumentasjonen](/app/development/api/consume#implementere-klienten) for å se et eksempel på hvordan
+   [konsumer dokumentasjonen](/nb/app/development/api/consume#implementere-klient) for å se et eksempel på hvordan
    en slik klient kan legges til i applikasjonen. Et passende navn for klienten som brukes i denne konteksten kan for
    eksempel være
    `AppInstantiationClient`. I tillegg til instruksjonene i den refererte dokumentasjonen, trenger
@@ -153,7 +153,7 @@ Les om hvordan denne egendefinerte koden legges til [her](/app/development/confi
 
 3. I filen `ProcessTaskEnd.cs`, legg til den nye _AppInstantiationClient_ i klassen `ProcessTaskEnd` på samme måte
    som _CountryClient_ legges til i klassen `DataProcessingHandler`
-   i [konsumer dokumentasjonen](/app/development/api/consume#bruke-klienten-i-applikasjonslogikken).
+   i [konsumer dokumentasjonen](/nb/app/development/api/consume#benytte-klient-i-applikasjonslogikk).
    Videre, kall metoden som utløser forespørselen i appInstantiationClient slik:
 
     ```csharp
@@ -206,7 +206,7 @@ Det er flere måter å kontrollere visse data i applikasjon B på, der en eller 
 - **Alt 1:** Legg til data som verdier i datamodellen til
   applikasjon B ved å legge til navnet på datamodellfeltet og
   den tilsvarende verdien i `prefill`-feltet til
-  instansmalen som du opprettet i [Utløs opprettelsen av applikasjon B](#trigger-the-instantiation-of-application-b)
+  instansmalen som du opprettet i [Utløs opprettelsen av applikasjon B](#utløs-instansiering-av-applikasjon-b)
   -delen over.
 - **Alt 2:** Hvis intensjonen er å manipulere tekstene i Altinn
   Innboks for instanser av applikasjon B,

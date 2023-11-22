@@ -102,7 +102,7 @@ service with the appropriate configuration in the function `RegisterCustomAppSer
 services.AddMaskinportenHttpClient<SettingsJwkClientDefinition, AppClient>(config.GetSection("MaskinportenSettings"));
 ```
 
-Thwn we need to add the following function `ConnectToKeyVault` in the bottom of the file:
+Then we need to add the following function `ConnectToKeyVault` in the bottom of the file:
 
 ```csharp
 static void ConnectToKeyVault(IConfigurationBuilder config)
