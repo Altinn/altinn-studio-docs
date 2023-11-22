@@ -1,7 +1,7 @@
 ---
 title: Use Cases Considered
 linktitle: Use Cases
-description: Use Cases for Altinn 3 Broker Managed File Transfers covered by this description of the solution architecture.
+description: Identification of the of the Use Cases considered for the Altinn 3 Broker foundation architecture description.
 tags: [architecture, solution]
 toc: true
 weight: 10

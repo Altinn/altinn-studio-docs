@@ -1,7 +1,7 @@
 ---
-title: Altinn 3 Broker Information Security Assessment
-linktitle: Information Security Assessment
-description: Altinn 3 Broker Information Security Assessment
+title: Altinn 3 Broker High Level Information Security Assessment
+linktitle: High Level Information Security Assessment
+description: Altinn 3 Broker High Level Information Security Assessment
 tags: [architecture, solution]
 toc: true
 weight: 90
@@ -11,33 +11,18 @@ weight: 90
 This is work in progress
 {{</notice>}}
 
-## About this assessment
+{{<notice note>}} <!-- info -->
+The detailed Information Security Assessment is work in progress, 
+until further documented separately.   
+{{</notice>}}
 
-<span style="color: red;">TBD: Consider what to include openly vs. the more detailed assessment
-documented internally!</span>
 
 ## General considerations
-
-### Altinn Broker to be considered an intermediary or a data processor?
-
-Being content-agnostic means that Altinn Broker does not inspect,
-modify, or otherwise engage with the content of the data (message
-payload) it handles. Its primary function is to facilitate the
-transmission of data between entities, such as businesses and Norwegian
-government agencies.
-
-As an intermediary, Altinn Broker acts as a channel or conduit for data.
-It ensures that data is transmitted securely from one point to another
-but does not perform any processing or manipulation of the data itself.
-
-In this role, Altinn Broker's responsibilities are focused on
-maintaining the integrity and security of the data transmission process,
-rather than on the data processing activities that are typical of a data
-processor role under regulations like GDPR.
-
-Erik TBD: DGA: Ikke-kommersiell, uavhengig aktør iflg. Leo.
-
-### General threats
+Altinn Broker is content-agnostic. This means that Altinn Broker does not inspect,
+modify, or otherwise process the content of the data (files) it handles. 
+Its primary function is as an intermediary to facilitate the
+secure transmission of data between entities, 
+such as businesses and Norwegian government agencies.
 
 List of potential security threats that Altinn Broker, or similar
 systems facilitating data transmission and processing, might face:
@@ -97,51 +82,6 @@ systems facilitating data transmission and processing, might face:
     components integrated with Altinn Broker could lead to broader
     system compromise.
 
-### Threats already addressed by the Altinn Platform 
-
-1.  Interception and Eavesdropping: The use of secure protocols and
-    encryption for data in transit, as implied in the security
-    documentation, helps mitigate the risk of data interception and
-    eavesdropping.
-
-2.  Identity Theft and Impersonation: The authentication component,
-    which handles token exchanges and uses external ID-providers,
-    addresses the threat of identity theft and impersonation by ensuring
-    that only authenticated users and systems can access the platform.
-
-3.  Unauthorized Access and Data Breaches: The authorization components,
-    which manage access control and enforce business rules for service
-    usage, help prevent unauthorized access to data and services,
-    thereby reducing the risk of data breaches.
-
-4.  Compliance Risks: The overall security approach, including the use
-    of encryption and access control, suggests a focus on compliance
-    with data protection regulations like GDPR, mitigating legal and
-    compliance risks.
-
-5.  Service Disruption (DoS/DDoS Attacks): While not explicitly
-    mentioned in the provided documentation, the general security
-    measures and infrastructure robustness typically include protections
-    against service disruptions like DoS and DDoS attacks.
-
-6.  Insider Threats: The access control and authorization mechanisms,
-    which likely include role-based access and monitoring, can help
-    mitigate risks associated with insider threats.
-
-7.  Phishing and Social Engineering Attacks: By implementing strong
-    authentication measures and potentially educating users about
-    security (not explicitly mentioned in the documents), the platform
-    can reduce the risk of successful phishing and social engineering
-    attacks.
-
-8.  Configuration and Patch Management Flaws: Regular security testing
-    and monitoring, as part of the platform's security practices, would
-    help identify and rectify any configuration and patch management
-    flaws.
-
-9.  API Vulnerabilities: If Altinn Broker exposes APIs, the security
-    measures around authentication and authorization would be crucial in
-    mitigating API-related vulnerabilities.
 
 ## Risk Analysis for Altinn Broker – before mitigation
 
@@ -265,4 +205,13 @@ security.
 ## Risk Analysis for Altinn Broker – after mitigation (specific controls)
 
 The specific security controls as described under link TBD mitigates
-risks
+the risks as follows: TBD.
+
+
+{{<notice note>}} <!-- info -->
+The detailed Information Security Assessment is work in progress, 
+until further documented separately.   
+{{</notice>}}
+
+
+
