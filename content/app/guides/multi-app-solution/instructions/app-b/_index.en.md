@@ -31,7 +31,7 @@ If using presentation fields or prefill, as explained
 in [alternative 1 and 2 in the final part of app A instructions](../app-a#control-data-in-app-b)
 , no custom code is required.
 
-If utilizing alternative 3, the data needs to be actively fetched from the instance. This is done by utilising
+If utilizing alternative 3, the data needs to be actively fetched from the instance. This is done by utilizing
 the `ProcessDataRead` method in the `DataProcessor` service along with the `UpdateData`
 method on the `dataClient`. See example code below:
 

@@ -53,8 +53,8 @@ If doing this modification be very careful that these secrets must not be shared
 
 After this modification the application is set up correctly with a client that can be
 authorized with Maskinporten when sending the instantiation request to application B. However, this request will not
-be executed successfully due to the receiving application is not
-running. App-localtest is limited to only handle one running application, but if the receiving application is running in
+be executed successfully due to application B is not
+running. App-localtest is limited to only handle one running application, but if application B is running in
 the environment, preferably in tt02 during test, you can change the request to point to this environment instead of
 local.altinn.cloud. This can be done by changing the envUrl in the `AppClient.CreateNewInstance()` method.
 
