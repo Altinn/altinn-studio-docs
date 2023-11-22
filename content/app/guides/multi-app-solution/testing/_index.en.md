@@ -24,7 +24,7 @@ of these limitations
 described
 at [Samarbeidsportalen](https://docs.digdir.no/docs/Maskinporten/maskinporten_sjolvbetjening_web#innlogging-og-tilgang).
 
-Second, since integration this client with an Altinn app is relying on authorizing through public and private keys (JWT)
+Second, since integrating this client with an Altinn app relies on authorizing through public and private keys (JWT)
 stored as Azure secrets, you will need access to the Azure Key vault of the organization owning the applications.
 
 ## What can be done in Studio
