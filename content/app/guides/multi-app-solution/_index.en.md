@@ -71,7 +71,7 @@ people with an official need.
 
 A multi-app solution is a way of configuring multiple forms to communicate through API calls. The specific communication
 we will describe in this guide is the creation of a new instance of an application (B) triggered by another application
-A. A typical scenario would be that an end-user fills out information in an instance of application A. And when pressing
+(A). A typical scenario would be that an end-user fills out or uploads information in an instance of application A. And when pressing
 the button to submit the form, an API call is sent to another application, creating a new instance of this form where
 the answers from application A is a part of the information.
 
