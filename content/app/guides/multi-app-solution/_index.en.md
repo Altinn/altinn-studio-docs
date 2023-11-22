@@ -43,7 +43,7 @@ type A or type B, or both types.
 - **Application B**: This will be an application that may have multiple
   purposes, but its main purpose will
   be to receive and handle data from _application A_.
-  for a given instance owner. This application will differentiate from
+This application will differ from
   other Altinn apps since instances are created by
   triggers in another application.
 
