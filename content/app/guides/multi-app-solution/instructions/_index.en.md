@@ -17,17 +17,8 @@ required prerequisites are met.
 ### Functional Prerequisites
 
 1. The app developer must have access to create, develop and deploy applications owned by an organization.
-2. Existing basic Altinn form where the content of the data model is assessed against the intended data flow between
-   application A and application B.
+2. An existing Altinn form (application A) where the data that is intended forwarded to application B is identified.
 3. It should be clear who the instance owners are, meaning what roles and access they acquire.
-
-Does the end user of application A have the required roles or delegated accesses to instantiate application B on behalf
-of the intended
-recipient?
-
-- If yes, no maskinporten integration is required.
-- If no, maskinporten integration is required in order for the
-  application to impersonate the app owner, with rights to instantiate on behalf of all parties,
 
 ### Technical Prerequisites
 
