@@ -4,7 +4,7 @@ linktitle: Architecture Decision Log
 description: Altinn 3 Broker Architecture Decision Log
 tags: [architecture, solution]
 toc: true
-weight: 100
+weight: 110
 ---
 {{<notice warning>}} <!-- info -->
 This is work in progress

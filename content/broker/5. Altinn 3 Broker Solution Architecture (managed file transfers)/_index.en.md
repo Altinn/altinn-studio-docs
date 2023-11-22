@@ -14,7 +14,7 @@ This is work in progress.
 {{<notice info>}} <!-- info -->
 The solution architecture described here addresses the foundation architecture for Altinn Broker,
 as relevant for the basic use cases of managed file transfers.
-The solution architecture for additional use cases will build on this foundation architecture.
+Further descriptions of the solution architecture related to advanced and future use cases will build on this foundation architecture.
 {{</notice>}}
 
 
