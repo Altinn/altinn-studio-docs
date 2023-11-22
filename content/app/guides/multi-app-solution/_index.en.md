@@ -52,7 +52,7 @@ This application will differ from
 Altinn offers a robust set of APIs and event support for processing data from Altinn Apps. However, if these options do
 not align with your needs, you might consider a multi-app solution.
 
-### Use cases where you can consider utilize a multi-app solution:
+### Use cases where you can consider using a multi-app solution:
 
 We have outlined some common use cases that may warrant the multi-app approach.
 - The organization has limited development capacity or does not want
