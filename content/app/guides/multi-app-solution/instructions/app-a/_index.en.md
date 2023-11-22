@@ -98,7 +98,7 @@ added [here](/app/development/configuration/process/pre-post-hooks).
 2. To actually perform the request to create the instance, we need to add a client. Refer
    to [the consume documentation](/app/development/api/consume#implement-the-client) to see an example of how
    such a client can be added to the application. A soothing name for the client used in this context can be
-   i.e. `AppInstantiationClient`. In addition to the instructions in the referenced documentation, our constructor needs
+   f.ex. `AppInstantiationClient`. In addition to the instructions in the referenced documentation, our constructor needs
    additional configuration to the HttpClient. Add the following code the the constructor to add a subscription key to
    the header of the requests sent by the http client.
     ```csharp
