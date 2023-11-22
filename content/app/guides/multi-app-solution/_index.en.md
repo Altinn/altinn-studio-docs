@@ -37,7 +37,7 @@ type A or type B, or both types.
   Altinn application which means
   end-users will interact with it. While filling in the form they will
   be working on their own private instance. However
-  it will differentiate from other Altinn apps since the service owner
+  it will differ from other Altinn apps since the service owner
   has customized it to include actions that
   will create a new instance of the _application B_.
 - **Application B**: This will be an application that may have multiple
