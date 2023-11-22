@@ -30,7 +30,7 @@ has added to the form, further on to application B. This data is preserved in th
 of the instance object. However, this pdf is only generated at the _end_ of a process task. Hence there is need for an
 extra task to be able to retrieve the pdf. You will need to have at least two tasks, where the
 final task is _not_ a data task. The task can be a _confirm_
-or _feedback_ task type. Since we recommend using the _confirm_ task type, this is what the following guidelines will
+or _feedback_ task type. We recommend using the _confirm_ task type, and this is what the following guidelines will
 use.
 
 ### How to extend the process with multiple tasks
