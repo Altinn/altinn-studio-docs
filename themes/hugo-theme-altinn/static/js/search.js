@@ -92,11 +92,18 @@ $(document).ready(function () {
             if (suggestion.meta_description) {
                 text = suggestion.meta_description.raw;
             }
+            var lang = "";
+            if (suggestion._meta) {
+                lang = suggestion._meta.engine.substring(suggestion._meta.engine.length - 2);
+            }
+            var title = "";
+            if (suggestion.title) {
+                title = suggestion.title.raw.replace(" – Altinn", "");
+            }
 
-            li.innerHTML = '<div><b>' + suggestion.title.raw + '</b></div><div><i>' + text + '</i></div>';
+            li.innerHTML = '<div><b>' + title + '</b> <img src="/images/' + lang + '.svg" alt="" style="height: 0.75em; vertical-align:baseline;"/></div><div><i>' + text + '</i></div>';
         },
         limit: 30
     });
     horseyList.refreshPosition();
 });
-
