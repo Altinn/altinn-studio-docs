@@ -8,23 +8,28 @@ weight: 80
 ---
 
 {{<notice warning>}} <!-- info -->
-This is work in progress
+This is work in progress.
 {{</notice>}}
 
-## Realization of capabilities and featuress
+{{<notice info>}} <!-- info -->
+TBD: Split into folders to allow navigation in the left side navigation pane!  
+{{</notice>}}
+
+
+## Realization of capabilities and features
 
 ### General
 
-TBD… describe the conceptual architecture Building Blocks (ABBs) vs.
+TBD: Describe the conceptual architecture Building Blocks (ABBs) vs.
 specific Solutions Building Blocks (SBBs)…
 
 ### Use and reuse of other Digdir Solution Building Blocks
-
 An overview of relevant Digdir components … TBD… update and translate…
 
 [{{< figure src="./image10.png" title="Figure 10: Altinn Solution Building Block in question for use or re-use" alt="Alt-text">}}](https://www.vg.no)
-<img src="./image10.png" style="width:6.3in;height:4.29861in"
-alt="Et bilde som inneholder tekst, skjermbilde, Font, nummer Automatisk generert beskrivelse" />
+
+### Dependancies
+TBD
 
 ### Authentication and Authorization
 
@@ -32,12 +37,9 @@ Ref. [Authentication –
 Altinn](https://docs.altinn.studio/authentication/) and [Authorization –
 Altinn](https://docs.altinn.studio/authorization/).
 
-<span class="mark">Erik: Ekspilsitt ref. til sekvensdiagram som Rune T.
-viste meg i dag – bare finner det ikke…</span>
+TBD: Excplicit reference to the updated Maskinporten and Altinn Authorization 
+solution architecture documentation. 
 
-Erik: I så fall ikke lengre nødvendig å «låne» fra Bjørn…
-
-\###
 
 Ref. <https://digdir.github.io/dialogporten/#autorisasjon>
 
@@ -77,7 +79,7 @@ Learn](https://learn.microsoft.com/en-us/azure/storage/common/storage-service-en
 
 Broker Metadata Storage uses the PostgreSQL Database.
 
-Stored files are encrypted. Erik TBD: Add detail!
+Stored files are not accessible from the outside. TBD: Add detail!
 
 ### Addressing and capability lookup
 
@@ -109,12 +111,17 @@ Ref.
 TBD… MS Azure API Management
 
 ### Case Folder
+{{<notice warning>}} <!-- info -->
+TBD: Move to Future enhancements!!!!!!!!! 
+{{</notice>}}
 
 Features:
 
 - File versioning and change management
+- Deletion of files
 
-- Deletion of Erik
+
+
 
 ### File metadata
 
@@ -134,7 +141,7 @@ Features:
 
 - Name-value pairs
 
-- Erik TBD: Review this overview! Virksomheter, ikke personer nå.
+- TBD: Review!
 
 ### Linked data
 
@@ -147,28 +154,26 @@ TBD
 Maskinporten and Altinn Authorization
 
 #### Checksum
+TBD
 
 #### Virus check
 
-Erik TBD:
-
-- Virus check on top of encrypted files.
-
 - Configurable per transfer via intitalization
 
-#### In-transit encryption
+#### In-transit protection
 
 Encrypted file transfers with TLS/HTTPS.
 
-#### At rest encryption
+#### At rest protection
 
 Encrypted Broker File Storage; ref. [Azure Storage encryption for data
 at rest \| Microsoft
 Learn](https://learn.microsoft.com/en-us/azure/storage/common/storage-service-encryption).
 
-Encrypted Broker Metadata Storage, using the PostgreSQL Database. Erik
-TBD: Specific encryption solution. Ikke tilgjengelig på åpent internett.
-– brannmur, mullig: ikke V-net
+Encrypted Broker Metadata Storage, Metadata storage using the PostgreSQL Database. Detalis TBD
+
+TBD: Specific encryption solution... firewall, not V-net... 
+
 
 #### Alternative file storage solutions
 
@@ -190,7 +195,4 @@ TBD Open source
 
 #### Key Vault
 
-Azure Key Vault
-
-Private keys, interne ting, identities (med tokens skjult) og secrets
-autentisering på Altinn
+Azure Key Vault, Private keys, internals... identities (hidden tokens); secrets,  Altinn authentication

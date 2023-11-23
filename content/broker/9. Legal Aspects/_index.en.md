@@ -9,6 +9,9 @@ weight: 90
 {{<notice warning>}} <!-- info -->
 This is work in progress
 {{</notice>}}
+{{<notice note>}} <!-- info -->
+The Legal Due Diligence is until further documented separately.
+{{</notice>}}
 
 ## Applicable Norwegian Laws and Regulations
 TBD.
