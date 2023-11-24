@@ -215,7 +215,7 @@ Imagine the following data is filled in a repeating group:
 Given the following expression: 
 
 ```json
-["component", "alder"]
+["component", "age"]
 ```
 
 And with these assumptions:  
