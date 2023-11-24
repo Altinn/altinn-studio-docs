@@ -349,7 +349,7 @@ Note that the function doesn't automatically add spaces or commas when concatena
 result, it's recommended to add dashes where necessary:
 
 ```json
-["concat", "Congratulations on your ", ["component", "age"], "-birthday!"]
+["concat", "Congratulations on your ", ["component", "age"], "th birthday!"]
 ```
 
 The expression above gives the text Congratulations on your 18th-birthday! if the value in the age component was 18.
