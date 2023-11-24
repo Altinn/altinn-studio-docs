@@ -23,7 +23,7 @@ field should be shown or hidden, whether the field should be required or read-on
 
 These expressions are available in all Altinn 3 apps that use frontend version
 [3.54.0](https://github.com/Altinn/app-frontend-react/releases/tag/v3.54.0) or later. By using this version or the 
-latest major version, you can use dynamic expressions for [several use cases](#bruksområder).
+latest major version, you can use dynamic expressions for [several use cases](#use-cases).
 
 Starting from version `7.2.0` of the [nuget packages](../../../maintainance/dependencies#nuget) the expressions are also
 supported in the backend. This means that the server will be able to evaluate the expressions and remove data upon
@@ -293,7 +293,7 @@ Examples:
 
 `notEquals` is essentially the same as, and a shortcut to, `["not", ["equals", ...]]`.
 
-See also tips and tricks under [_String or less string comparison?_](#string-or-less-string-comparison)
+See also tips and tricks under [_String or less string comparison?_](#string-or-smaller-string-comparison)
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-not" header="not" %}}
@@ -671,7 +671,7 @@ point to a location in the data model and uses the same dot-separated format as 
 within [repeating groups](../../ux/fields/grouping/repeating), there's _no_ need to use placeholders for indexes within 
 the group - the expression automatically finds the relative position within the context of a repeating group.
 
-Please note that lookups only function against [data types](#datatypes) already supported in the expressions. If one looks up
+Please note that lookups only function against [data types](#data-types) already supported in the expressions. If one looks up
 an object or a list/array in the data model using the `dataModel` function, the result will always be `null`. 
 This functionality may change, as there are plans to support objects and lists in the expressions in the future.
 
@@ -775,8 +775,8 @@ Some strings can also be converted to other datatypes:
 
 | String Value                                       | Can Substitute             | Examples                   |
 | -------------------------------------------------- | -------------------------- | -------------------------- |
-| Integers with or without negative signs             | [Number](#number)          | `3`, `-8`, `71254`         |
-| Decimal numbers with or without negative signs      | [Number](#number)          | `3.14`, `-33.0`, `123.123` |
+| Integers with or without negative signs             | [Number](#numbers)          | `3`, `-8`, `71254`         |
+| Decimal numbers with or without negative signs      | [Number](#numbers)          | `3.14`, `-33.0`, `123.123` |
 | `true` or `false` with lowercase or uppercase      | [Boolean](#boolean-values) | `true`, `True`, `FALSE`    |
 | `null` with lowercase or uppercase                  | [Null](#null)              | `null`, `Null`, `NULL`     |
 
@@ -823,11 +823,11 @@ It might appear that the following expressions are similar:
 
 If the value (here obtained from the lookup `["dataModel", "hideName"]`) is `true` or `"true"`, the component will be hidden. 
 However, if the value is `1` or `"1"`, the component will only be hidden with expressions in options 1 and 3. This is because
-the result in the `hidden` expression [is converted to a boolean value](#applications), and 
+the result in the `hidden` expression [is converted to a boolean value](#use-cases), and 
 `if` [expects a boolean value as the first argument](#func-if). However, `equals` compares the values as strings, and 
 `"1"` is not equal to `"true"`.
 
-Also, see tips and tricks under [_String or not a string comparison?_](#string-or-not-a-string-comparison)
+Also, see tips and tricks under [_String or not a string comparison?_](#string-or-smaller-string-comparison)
 
 ### Null
 
@@ -840,7 +840,7 @@ If you perform a lookup in a function like `dataModel`, and the value you are se
 
 ## Tips and Tricks
 
-### Showing/Hiding Entire Pages
+### Show/Hide Entire Pages
 
 Expressions can be used to show/hide entire pages. In the example below, the entire page will be hidden if a component 
 (on one of the other pages) has the value _no_ or is not set.
@@ -866,7 +866,7 @@ selection, the calculation of these expressions occurs in _both_ frontend _and_ 
 If the page you are on is hidden, the application will automatically move to the next available page in the [page order](../../ux/pages/navigation#order). 
 If all the next pages are hidden, the first possible page in the order will be displayed instead.
 
-### String or Less-String Comparison?
+### String or smaller String Comparison?
 
 The way expressions are evaluated might seem strict (for example, `0` and `null` are considered different values when 
 compared with `equals`). This is a design choice made in Altinn for two reasons:
