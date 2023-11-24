@@ -104,8 +104,8 @@ expression does, and what possible values it can return:
 ]
 ```
 
-{{% expandlarge id="answer-expandable" header="Spoiler Alert: Click here for an interpretation of the 
-above expression"%}}The expression checks the value of a hypothetical component with ID "age". If the person is 16 years
+{{% expandlarge id="answer-expandable" header="Spoiler Alert: Click here for an interpretation of the above expression" %}}
+The expression checks the value of a hypothetical component with ID "age". If the person is 16 years
 or older, for example 45 years old, the text "Please consider applying for our open position!" is returned if the age is 
 less than 62. Otherwise, the text "At 45, you are eligible for retirement" is returned. If the person is younger than 
 16, the text "At 5, you should stay in (pre)school" is returned, assuming the age is 5.
