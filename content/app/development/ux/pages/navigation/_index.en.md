@@ -47,7 +47,7 @@ how far along the user is in filling out all the application pages.
 {{%notice info%}}
 All known pages in the current [process task](../../../configuration/process) will count towards the total number of
 pages shown in the progress indicator. If you have set up [tracks](../tracks) or
-many [dynamically hidden pages](../../../logic/expressions#viseskjule-hele-sider), this number may fluctuate and appear
+many [dynamically hidden pages](../../../logic/expressions#showhide-entire-pages), this number may fluctuate and appear
 confusing to the user. Make sure the progress indicator is intuitive and provides value to the user before enabling it.
 {{%/notice%}}
 
