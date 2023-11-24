@@ -113,7 +113,7 @@ The user should be directed to one of the following tracks based on their respon
 
 ### Useful documentation
 - [Dynamic expressions](/app/development/logic/expressions)
-- [How to hide an entire page](/app/development/logic/expressions#viseskjule-hele-sider)
+- [How to hide an entire page](/app/development/logic/expressions#showhide-entire-pages)
 - [Text formatting](/app/development/ux/texts/#formatting-of-texts)
 
 ### Knowledge check
