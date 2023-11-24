@@ -663,6 +663,8 @@ The lookup is performed within the same data source available for [language/text
 stored under the key `FrontEndSettings` in `appsettings.{environment}.json`. For this reason, the function has been named
 `frontendSettings` here to indicate that lookups cannot be performed in the rest of `appsettings.{environment}.json`.
 
+{{% /expandlarge %}}
+
 {{% expandlarge id="func-datamodel" header="dataModel (lookup)" %}}
 This lookup function enables retrieving values directly from the current data model. The first and only argument must 
 point to a location in the data model and uses the same dot-separated format as used in `dataModelBindings`. When used 
