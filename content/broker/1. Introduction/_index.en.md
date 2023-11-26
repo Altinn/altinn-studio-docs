@@ -15,7 +15,7 @@ This is work in progress.
 
 The main use case for Altinn Broker is Managed File Transfer (MFT). It
 facilitates secure transmission of files of any size from one provider
-to one or more specifically addressed consumers. As such, it offers many
+to one or more consumers. As such, it offers many
 benefits compared to alternative ad-hoc peer-to-peer file transfer
 solutions.  
 
@@ -102,7 +102,7 @@ Altinn 3 Broker. Also see <https://data.norge.no/concepts>.
 | Graphical User Interface (GUI) | TBD                                                                                                                                                                                                                                                      |
 | Intermediary                   | TBD                                                                                                                                                                                                                                                      |
 | Managed File Transfer (MFT)    | TBD                                                                                                                                                                                                                                                      |
-| Message Broker                 | TBDD                                                                                                                                                                                                                                                      |
+| Message Broker                 | TBD                                                                                                                                                                                                                                                     |
 | On Premise                     | TBD                                                                                                                                                                                                                                                      |
 | Process                        | TBD                                                                                                                                                                                                                                                      |
 | Provider                       | TBD                                                                                                                                                                                                                                                      |
