@@ -1,38 +1,14 @@
 ---
-title: UI Design
-description: The UI-designer is the part of Altinn Studio where the developer can create UI for the app.
-toc: true
-weight: 3
+title: Form Builder
+description: Tool for creating and configuring forms for a service
+weight: 1
 ---
 
-The possibility to effectively build a user friendly user interface for an app, is an essential feature for Altinn
-Studio.
-This is one of the more complex functionalities developed as part of Altinn Studio.
+* Visual form builder with drag-n-drop
+* Configure components
+* Preview
+* Dynamic expressions (e.g., show/hide logic)
+* Extend with custom form components
+* Define code lists*
 
-The UI-designer has the following functionality:
-
-- Define a **detailed layout** (responsive design)
-    - Add reusable [form components](#form-components)
-        - Configure form components
-            - Connection to **data model**
-            - Connection to **texts/translations**
-- Define/configure connections to **external API**
-- Define/configure rules for [validation](/app/development/logic/validation)
-  , [calculation](/app/development/logic/calculation) and [dynamics](/app/development/logic/dynamic)
-
-![Drag'n drop of web components](ux-editor-dnd.gif "Drag'n drop of web components")
-
-## Form components
-
-The form components are reusable components that are used to build the user interface of the app.
-Examples include input fields and title components. See a list of all available form components [here](/ui-components/).
-
-It is also possible to define custom components and use this in the app.
-
-## Multiple form layouts
-
-Altinn Studio supports creating form layouts for multiple data models.
-
-Read all about UI-design in [Application development handbook.](../../../../../../app/development/ux/)
-
-{{<children />}}
+![Form builder](./forms-builder.png "Form builder")

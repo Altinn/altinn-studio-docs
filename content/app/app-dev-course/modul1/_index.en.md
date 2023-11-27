@@ -8,7 +8,7 @@ weight: 20
 
 In this module, you will create the application itself, add a data model, and set up a simple form based on the requirements from Sogndal Municipality.
 
-You'll have to perform the first two tasks, creating the application and adding the data model, in Altinn Studio's graphical user interface, [Altinn Studio Designer](/app/getting-started/ui-editor) (Designer).
+You'll have to perform the first two tasks, creating the application and adding the data model, in Altinn Studio's graphical user interface, [Altinn Studio Designer](/app/getting-started) (Designer).
  If you are developing the app locally, you can follow the instructions for [preparing for local development and testing](/app/getting-started/local-dev) after completing these tasks.
 
 {{% notice info %}}
@@ -173,7 +173,7 @@ If the mentioned text key can't be located in the text resource file, the text k
 
 {{% expandlarge id="add-components" header="Add Components" %}}
 
-You can configure the components in an application using the graphical user interface [Altinn Studio Designer](/app/getting-started/ui-editor/).
+You can configure the components in an application using the graphical user interface [Altinn Studio Designer](/app/getting-started/).
  You can also configure them manually by editing the `<pageName>.json` file, which describes the structure of a form page (you can find the file in `App/ui/layouts`).
 
 ### Requirements from the Municipality
@@ -203,7 +203,7 @@ Remember to upload changes when working in Designer to update the repository.
 
 ### Useful Documentation
 
-- [Building a Form with the UI Editor in Altinn Studio](/app/getting-started/ui-editor/)
+- [Building a Form with the UI Editor in Altinn Studio](/app/getting-started/)
 - [Available components in Altinn Studio Library](/app/guides/design/guidelines/components/)
 
 ### Knowledge Check
