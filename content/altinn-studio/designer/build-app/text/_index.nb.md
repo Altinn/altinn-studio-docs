@@ -12,4 +12,4 @@ weight: 3
 - Støtte for formattering via markdown og HTML
 
 
-![Tekster og oversettelser](./text-editor.png.png "Tekster og oversettelser")
+![Tekster og oversettelser](./text-editor.png "Tekster og oversettelser")
