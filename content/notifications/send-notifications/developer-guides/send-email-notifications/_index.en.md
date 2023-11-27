@@ -19,7 +19,8 @@ POST /order/email
 ## Authentication
 
 This API requires authentication and the request must also include one of the following: 
-- Maskinporten scope __ltinn:serviceowner/notifications.create__ (for external system callers) 
+
+- Maskinporten scope __altinn:serviceowner/notifications.create__ (for external system callers) 
 - Platform Access Token (for Altinn Apps and internal Altinn systems)
 
 See [Authentication and Authorization](../../../api/#authentication--authorization) for more information.
@@ -80,8 +81,9 @@ The content type of the email can be either Plain or Html.
 #### requestedSendTime
 Type: _DateTime_ 
 
+Default: Current time
+
 The date and time when the notification should be sent to recipient. 
-If left blank, email will be sent immediately.
   
 #### sendersReference
 Type: _string_
@@ -110,7 +112,7 @@ in the response body and a self link to the generated notification order in the 
 ### Request
 {{% notice info %}}
 In the example we have included place holders for both the Platform Access and Altinn token.
-You only need one of them, reference [Authentication](#authentication) for which one applies to your use case.
+__You only need one of them__, reference the [Authentication section](#authentication) for which one applies to your use case.
 {{% /notice %}}
 
 

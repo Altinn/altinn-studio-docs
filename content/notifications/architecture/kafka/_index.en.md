@@ -161,6 +161,25 @@ __Content:__
      for a given notification and operation id for the last status check.
 {{% /expandsmall %}}
 
+### Platform services
+
+<!--New expand-->
+{{% expandsmall id="altinn.platform.service.updated" header="altinn.platform.service.updated" %}}
+
+__Description:__ A topic dedicated to hold updates on the Altinn platform components
+
+__Event trigger:__ An change in the state or availability of a platform service has occurred
+
+__Producer:__ 
+- Altinn Notifications Email, TBD 
+
+__Content:__ 
+
+- Format: json
+- Data structure: [GenericServiceUpdate](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications.Core\Models/AltinnServiceUpdate/GenericServiceUpdate.cs)
+- Description: An object contaning an Altinn service update of a schema specified in the payload.
+{{% /expandsmall %}}
+
 ## Cluster configuration
 {{% notice info %}}
 TODO: QA infra
@@ -175,11 +194,19 @@ owned by the Notifications solution.
 
 Three roles are defined and used by entities interacting with Kafka from the solution. 
 
-- **NotificationsConsumer**: can consume from topics following the naming pattern altinn.notifications.*
-- **NotificationsProducer** : can write to topics following the naming pattern altinn.notifications.*
-- **ClusterAdmin**: can create a new topics following the naming pattern altinn.notifications.*
+- **NotificationsConsumer**: can consume from topics following the naming patterns _altinn.notifications.*_ and _altinn.platform.*_
+- **NotificationsProducer** : can write to topics following the naming patterns _altinn.notifications.*_ and _altinn.platform.*_
+- **ClusterAdmin**: can create a new topics following the naming patterns _altinn.notifications.*_ and _altinn.platform.*_
+
+
+## Topic configuration
 
 ### Partitions 
 The number of partitions on a topic is set at creation. As our solution has the ability to auto scale, 
 we have set the number of partitions equal to the maximum number of nodes available in the AKS cluster
 running the consumer microservices as there is a limitation of maximum one consumer per topic. 
+
+### Retention
+Retention time varies between the environments. 
+For all AT environments retention time for a message is 7 days. 
+In YT, TT and production retention time for a message is 365 days. 

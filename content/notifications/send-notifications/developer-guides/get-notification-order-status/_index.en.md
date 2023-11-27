@@ -1,7 +1,7 @@
 ---
-title: Get email notification result
-linktitle: Get email notification result 
-description: Developer guide on retrieving a summary of the generated email notifications
+title: Get order status
+linktitle: Get order status 
+description: Developer guide on retrieving a status of a notification order
 
 weight: 60
 toc: true
@@ -14,9 +14,9 @@ TODO: QA devs
 
 ## Endpoint
 
-GET /order/{id}/notifications/email
+GET /order/{id}/status
 
-{id} represents the id of the notification order to retrieve notifications for|
+{id} represents the id of the notification order to retrieve status for
 
 ## Authentication
 
@@ -41,7 +41,7 @@ See [Authentication and Authorization](../../../api/#authentication--authorizati
 
 ### Response body 
 The response body is formatted as an 
-[EmailNotificationSummaryExt](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Models/EmailNotificationSummaryExt.cs)
+[NotificationOrderWithStatusExt.cs](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Models/NotificationOrderWithStatusExt.cs)
 and serialized as a JSON string.
 
 
