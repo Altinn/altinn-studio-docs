@@ -1,11 +1,16 @@
 ---
-title: Define app process
-linktitle: Process
-description: As part of the development one must define a process for the app that end user needs to follow.
+title: Process Editor
+linktitle: Process Editor
+description: Tool for editing and configuring the process for a service
 tags: [process]
-weight: 5
+weight: 4
 ---
 
-Altinn App template support different types of task.
+{{% notice warning %}}
+This tool is under development, and functionality will be somewhat limited during the development period.
+{{% /notice %}}
 
-Read more about defining process in [Application development handbook.](../../../../../../app/development/configuration/process/)
+- Standard or custom process
+- Control access to steps and actions
+- Dynamic expressions to control process flow
+- Based on the BPMN standard
