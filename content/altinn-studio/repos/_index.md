@@ -6,6 +6,7 @@ tags: [altinn-repos]
 aliases:
     - "/altinn-studio-repos"
 weight: 2
+hidden: true
 --- 
 
 {{<children />}}

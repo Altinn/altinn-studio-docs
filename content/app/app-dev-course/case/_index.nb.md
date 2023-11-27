@@ -202,13 +202,14 @@ Det skal være mulig å legge inn opptill 10 tidligere bosteder.
 ### Validering av tidligere bosteder
 {{% expandlarge id="vendetta-expandable" header="Krav" %}}
 
-Grunnet en personlig vendetta blant en av Sogndal kommunes ansatte, ønsker vi at om innflytter fyller inn
-postnummer `4619` som en av tidligere bosteder, skal vedkommende **IKKE** få lov til å flytte inn i Sogndal.
+Dersom innflytter fyller inn postnummer `1337` som et av tidligere bosteder må vedkommende
+ bekrefte sin uovertruffenhet ved å legge til et symbol i adressefeltet før de kan gå videre.
 
-Her ønsker vi at det skal dukke opp en feilmelding på det aktuelle feltet med følgende tekst:
+Vi ønsker derfor at det skal dukke opp en feilmelding på det aktuelle feltet med følgende tekst:
 
-```md
-Du er ikke velkommen til vår kommune. Beklager!
+```rich
+Vi er beæret over å motta en '1337' innbygger til Sogndal kommune!
+ Du må imidlertid bekrefte din uovertruffenhet ved å legge til en 🌟 i adressefeltet for å gå videre.
 ```
 
 {{% /expandlarge %}}

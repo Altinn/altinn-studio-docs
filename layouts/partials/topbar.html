@@ -38,16 +38,36 @@
               <li>
                 <a class="a-nav-link a-hvr-underline " href="{{ with .Site.GetPage `/technology`}}{{.RelPermalink}}{{end}}">tech</a>
               </li>
+              <li class="nav-item d-none d-md-block">
+                <button class="a-collapse-title nav-link adocs-toggle-search" type="button" data-toggle="collapse" data-target="#collapseSearchContent" aria-expanded="false" aria-controls="collapseSearchContent">
+                    <span>
+                        <i class="ai ai-search" aria-hidden="true">
+                          <span class="sr-only">{{T "search"}}</span></i>
+                    </span>
+                </button>
+              </li>
             </ul>
           </div>
-
         </nav> <!-- End .a-globalNav -->
+
         <ul class="nav nav-pills a-header-options" id="nav-list">
+          <li class="nav-item d-none d-md-block">
+            <img src="/images/{{ .Language }}.svg" class="" alt="" style="height: 0.8em; vertical-align: bottom;"/>&nbsp;
+          </li>
           <li class="nav-item dropdown d-none d-md-block">
             {{- partial "language-switcher.html" . -}}
           </li>
+        
         </ul>
       </div><!-- End .col -->
     </div> <!-- End .row -->
   </div> <!-- End .container -->
 </header>
+
+<div id="collapseSearchContent" class="a-collapseContent adocs-collapseSearch collapse">
+  <div class="a-collapseContent-inside px-0">
+    <div class="bg-white pt-3 pb-3">
+      {{- partial "search.html" . -}}
+    </div>
+  </div>
+</div>
