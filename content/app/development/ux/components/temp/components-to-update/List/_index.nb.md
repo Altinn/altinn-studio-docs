@@ -119,7 +119,7 @@ Vi oppdaterer for øyeblikket Altinn Studio med flere muligheter for innstilling
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
 
-Du kan legge til en komponent i [Altinn Studio Designer](/nb/app/getting-started/ui-editor/) ved å dra den fra komponent-listen til sideområdet.
+Du kan legge til en komponent i [Altinn Studio Designer](/nb/app/getting-started/) ved å dra den fra komponent-listen til sideområdet.
 Når du velger komponenten, vises innstillingspanelet for den.
 
 {{</content-version-container>}}

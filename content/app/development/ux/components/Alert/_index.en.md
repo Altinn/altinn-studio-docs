@@ -84,7 +84,7 @@ If no argument is given, the shortcode pulls the component name from 'schemaname
 
 ### Add component
 
-You can add a component in [Altinn Studio Designer](/app/getting-started/ui-editor/) by dragging it from the left-side panel to the middle page area.
+You can add a component in [Altinn Studio Designer](/app/getting-started/) by dragging it from the left-side panel to the middle page area.
 Selecting the component brings up its configuration panel on the right-hand side.
 
 ### Settings in Altinn Studio Designer

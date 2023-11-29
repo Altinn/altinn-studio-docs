@@ -3,6 +3,7 @@ title: Build Expressions in Altinn Studio
 linktitle: Expressions
 weight: 8
 description: How to build expressions with Altinn Studio.
+hidden: true
 ---
 
 This documentation will describe _how_ to build expressions connected to component fields using the Expressions tool in

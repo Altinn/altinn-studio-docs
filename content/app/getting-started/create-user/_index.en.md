@@ -3,7 +3,7 @@ title: Create user in Altinn Studio
 linktitle: Create user
 description: Configure your user in Altinn Studio for the first time.
 toc: true
-weight: 100
+weight: 1
 ---
 
 ## Create a user in Altinn Studio

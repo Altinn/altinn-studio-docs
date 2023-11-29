@@ -11,7 +11,7 @@ based on input from user on previous parts of the form.
 {{% panel theme="warning" %}}
 ⚠️ Dynamic tracks are still supported, but support will be removed in the future. Hiding entire pages are now
 encouraged via [dynamic expressions](../../../logic/expressions)
-(read how to [hide entire pages here](../../../logic/expressions#viseskjule-hele-sider)).
+(read how to [hide entire pages here](../../../logic/expressions#showhide-entire-pages)).
 {{% /panel %}}
 
 ## Trigger calculation on tracks from frontend
