@@ -39,6 +39,10 @@ The list of excluded fields can be used to indicate which fields you don't want 
 
 Configuration for turning the *Create new copy* feature on and off.
 
+{{< code-title >}}
+applicationmetadata.json
+{{< /code-title >}}
+
 ```json
 "copyInstanceSettings": {
     "enabled": true
@@ -46,6 +50,10 @@ Configuration for turning the *Create new copy* feature on and off.
 ```
 
 Configuration where the Create new copy is activated and where two fields in two separate groups within the model is being excluded.
+
+{{< code-title >}}
+applicationmetadata.json
+{{< /code-title >}}
 
 ```json
 "copyInstanceSettings": {
