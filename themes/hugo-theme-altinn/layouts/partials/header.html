@@ -75,6 +75,12 @@
               },
               typesenseSearchParameters: { // Optional.
                 //filter_by: 'version_tag:=0.21.0' // Useful when you have versioned docs
+                query_by: 'content,embedding',
+                prioritize_exact_match: false,
+                sort_by: "_text_match:desc",
+                drop_tokens_threshold: 5,
+                group_limit: 4,
+                limit: 14,
               },
 
             });

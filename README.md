@@ -47,3 +47,74 @@ Press Ctrl+C to stop
 ```
 
 The solution is now running locally at http://localhost:1313
+
+
+## Updating the search index
+
+```shell
+pipenv run python -m src.index
+```
+
+
+config
+```python
+config = '{
+  "index_name": "altinn-studio-docs",
+  "scrape_start_urls": false,
+  "start_urls": [
+    {
+      "url": "https://docs.altinn.studio"
+    }
+  ],
+  "stop_urls": [
+    "https://docs.altinn.studio/app/app-dev-course",
+    "https://docs.altinn.studio/app/development/ux/components/commondefs",
+    "https://docs.altinn.studio/authentication",
+    "https://docs.altinn.studio/authorization",
+    "https://docs.altinn.studio/community/changelog",
+    "https://docs.altinn.studio/app/launched-apps",
+    "https://docs.altinn.studio/tags",
+    "https://docs.altinn.studio/api",
+    "https://docs.altinn.studio/community",
+    "https://docs.altinn.studio/security",
+    "https://docs.altinn.studio/technology",
+    
+
+    "https://docs.altinn.studio/nb/app/app-dev-course",
+    "https://docs.altinn.studio/nb/app/development/ux/components/commondefs",
+    "https://docs.altinn.studio/nb/authentication",
+    "https://docs.altinn.studio/nb/authorization",
+    "https://docs.altinn.studio/nb/community/changelog",
+    "https://docs.altinn.studio/nb/app/launched-apps",
+    "https://docs.altinn.studio/nb/app",
+    "https://docs.altinn.studio/nb/tags",
+    "https://docs.altinn.studio/nb/api",
+    "https://docs.altinn.studio/nb/community",
+    "https://docs.altinn.studio/nb/security",
+    "https://docs.altinn.studio/nb/technology"
+
+  ],
+  "sitemap_urls": [
+    "https://docs.altinn.studio/en/sitemap.xml"
+  ],
+  "selectors": {
+    "default": {
+      "lvl0": {
+        "selector": "#breadcrumbs .links a",
+        "global": true,
+        "default_value": "Documentation"
+      },
+      "lvl1": "#body-inner h1",
+      "lvl2": "#body-inner h2",
+      "lvl3": "#body-inner h3",
+      "lvl4": "#body-inner h4",
+      "text": "#body-inner p,#body-inner il,#body-inner td:last-child"
+    }
+  },
+  "selectors_exclude": [".hash-link"],
+  "custom_settings": {
+    "attributesForFaceting": ["language"],
+    "separatorsToIndex": "_"
+  }
+}'
+```
