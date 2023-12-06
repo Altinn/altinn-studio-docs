@@ -116,7 +116,7 @@ The texts are stored in `App/config/texts`
 ## Change dafault texts and error messages in an application
 
 It is possible to change default texts and error messages that is displayed in the app. 
-Here are the id:s with its default value in [English](https://github.com/Altinn/app-frontend-react/blob/v3/src/language/texts/en.ts), 
+Here are the keys with its default value in [English](https://github.com/Altinn/app-frontend-react/blob/v3/src/language/texts/en.ts), 
 [Norwegian Bokmål](https://github.com/Altinn/app-frontend-react/blob/v3/src/language/texts/nb.ts) and [Nynorsk](https://github.com/Altinn/app-frontend-react/blob/v3/src/language/texts/nn.ts) 
 
 Those default texts that has a number needs to be handled in a different way. For exampel `file_uploader_validation_error` displays an error message if 
@@ -129,7 +129,7 @@ These default text is devided in two strings, one before
 the number: `You need to upload` and one text resource after the number: `attachement(s) to continue`. The number is for the 
 moment not possible to edit since it is connected to max and min number of attachements, in this case. but the text surrounding the number is possible to change.
 
-![Tekster i appen](defaultTextsEN.png "Default texts and id:s")
+![Tekster i appen](defaultTextsEN.png "Default texts and keys")
 
 Add the id and the new value in `App/configuration/texts/resouce`. Note that the id needs to reffer to the superior group and then the text key separated with a  `.` 
 
