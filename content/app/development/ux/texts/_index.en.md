@@ -116,7 +116,7 @@ The texts are stored in `App/config/texts`
 ## Change dafault texts and error messages in an application
 
 It is possible to change default texts and error messages that is displayed in the app. 
-Here are the id with its default value in [English](https://github.com/Altinn/app-frontend-react/blob/v3/src/language/texts/en.ts), 
+Here are the id:s with its default value in [English](https://github.com/Altinn/app-frontend-react/blob/v3/src/language/texts/en.ts), 
 [Norwegian Bokmål](https://github.com/Altinn/app-frontend-react/blob/v3/src/language/texts/nb.ts) and [Nynorsk](https://github.com/Altinn/app-frontend-react/blob/v3/src/language/texts/nn.ts) 
 
 Those default texts that has a number in needs to be handled in a different way. For exampel `file_uploader_validation_error` displays an error message if 
