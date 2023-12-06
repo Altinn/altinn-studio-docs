@@ -11,7 +11,7 @@ This is work in progress
 {{</notice>}}
 
 {{<notice info>}} <!-- info -->
-Some the FAQ items may be moved to a less product specific FAQ.
+Some of the FAQ items may be moved to a less product specific FAQ.
 {{</notice>}}
 
 

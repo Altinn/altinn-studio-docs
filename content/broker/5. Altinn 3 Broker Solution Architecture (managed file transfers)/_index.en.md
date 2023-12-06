@@ -1,7 +1,7 @@
 ---
 title: Solution Architecture - Managed File Transfers
-linktitle: Solution Architecture
-description: Altinn 3 Broker Solution Architecture - Managed File Transfers
+linktitle: MFT Solution Architecture
+description: Altinn 3 Broker Solution Architecture - Managed File Transfers (MFT)
 tags: [architecture, solution]
 toc: false
 weight: 50
