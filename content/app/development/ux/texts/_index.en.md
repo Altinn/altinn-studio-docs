@@ -119,9 +119,7 @@ It is possible to change default texts and error messages that is displayed in t
 Here are the keys with its default value in [English](https://github.com/Altinn/app-frontend-react/blob/v3/src/language/texts/en.ts), 
 [Norwegian Bokmål](https://github.com/Altinn/app-frontend-react/blob/v3/src/language/texts/nb.ts) and [Nynorsk](https://github.com/Altinn/app-frontend-react/blob/v3/src/language/texts/nn.ts) 
 
-Those default texts that has a number needs to be handled in a different way. For exampel `file_uploader_validation_error` displays an error message if 
-the user tries to continiue to the next page even though it is required to add one attachment. This default error message 
-will be displayed "You need to upload 1 attachement(s) to continue'.
+Those default texts that has a number needs to be handled in a different way. For example `file_uploader_validation_error` displays an error message if it is required to add one attachment. This default error message will be displayed as "You need to upload 1 attachement(s) to continue'.
 
 ![Tekster i appen](defaultErrorMessageEN.png "Default text displayed in application")
 
