@@ -119,7 +119,8 @@ It is possible to change default texts and error messages that is displayed in t
 Here are the keys with its default value in [English](https://github.com/Altinn/app-frontend-react/blob/main/src/language/texts/en.ts), 
 [Norwegian Bokmål](https://github.com/Altinn/app-frontend-react/blob/main/src/language/texts/nb.ts) and [Nynorsk](https://github.com/Altinn/app-frontend-react/blob/main/src/language/texts/nn.ts) 
 
-Those default texts that has a number needs to be handled in a different way. For example `file_uploader_validation_error` displays an error message if it is required to add one attachment. This default error message will be displayed as "You need to upload 1 attachement(s) to continue'.
+Those default texts that has a number needs to be handled in a different way. For example `file_uploader_validation_error` displays an error message if it is required to add one attachment. 
+This default error message will be displayed as "You need to upload 1 attachement(s) to continue'.
 
 ![Tekster i appen](defaultErrorMessageEN.png "Default text displayed in application")
 
@@ -144,6 +145,11 @@ Add the id and the new value in `App/configuration/texts/resouce`. Note that the
 
 This will result in an error message displaying this:
 ![Tekster i appen](newErrorMessageEN.png "the new error message displayed")
+
+{{% notice warning %}} 
+If you would like to find more information about how to change default texts you can go to
+[Customize Views of Steps](https://docs.altinn.studio/app/development/configuration/process/customize/)
+{{% /notice %}}
 
 ## Variables in texts
 
