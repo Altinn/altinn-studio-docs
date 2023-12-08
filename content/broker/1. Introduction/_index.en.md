@@ -1,8 +1,6 @@
 ---
 title: Altinn Broker Introduction
-title: Altinn Broker Introduction
 linktitle: Introduction
-description: Introduction to the Altinn Broker Service
 description: Introduction to the Altinn Broker Service
 tags: [architecture, solution]
 toc: true
@@ -10,7 +8,6 @@ weight: 10
 ---
 
 {{<notice warning>}} <!-- info -->
-This is work in progress.
 This is work in progress.
 {{</notice>}}
 
