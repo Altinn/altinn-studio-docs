@@ -130,7 +130,7 @@ moment not possible to edit since it is connected to max and min number of attac
 
 ![Tekster i appen](defaultTextsEN.png "Default texts and keys")
 
-Add the id and the new value in `App/configuration/texts/resouce`. Note that the id needs to reffer to the superior group and then the text key separated with a  `.` 
+Add the text key and the new value in `App/configuration/texts/resouce`. Note that the key needs to reffer to the superior group and then the text key separated with a  `.` 
 
 ```json
     {
