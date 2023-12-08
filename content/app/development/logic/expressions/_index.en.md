@@ -701,7 +701,7 @@ The following observations can be made:
 the employee is under 18 years old, `employee-name` is hidden. Note that the same path in the data model is used as 
 `simpleBinding` on `employee-age`.
 
-1. The second lookup (to control `hidden` on the component `employee-age`) uses `[0]` in the data model lookup. This 
+2. The second lookup (to control `hidden` on the component `employee-age`) uses `[0]` in the data model lookup. This 
 also works, but the behavior might be unexpected; here, all age components are hidden if the name of the _first_ 
 employee is _Ola Nordmann_.
 {{% /expandlarge %}}
