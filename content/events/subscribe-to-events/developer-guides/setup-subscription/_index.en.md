@@ -65,7 +65,7 @@ Must be an exact match to the resource set on the generated events
 #### sourceFilter**
 - filter for the cloud event source
 
-Property supports wildcard _%_ for an unknown string e.g. `https://digdir.apps.altinn.no/digdir/demoapp/%`
+When subscribing to an app event format for source filter is `https://digdir.apps.altinn.no/digdir/demoapp`
 
 \* required for subscriptions on generic events, optional for app event subscriptions
 \** only required for app subscriptions in the case where no resource filter is provided 
@@ -119,7 +119,7 @@ curl \
 --header 'Authorization: Bearer {insert Altinn token}' \
 --header 'Content-Type: application/json' \
 --data '{
-  "sourceFilter": "https://digdir.apps.altinn.no/digdir/demoapp/%",
+  "sourceFilter": "https://digdir.apps.altinn.no/digdir/demoapp",
   "endpoint":"https://webhook.site/"
   }'
 ```
@@ -131,7 +131,7 @@ curl \
 {
     "id": 1619,
     "endPoint": "https://webhook.site/43cec4b7-b20b-4cbd-9b47-592750bf06d1",
-    "sourceFilter": "https://digdir.apps.at22.altinn.cloud/digdir/demoapp/%25",
+    "sourceFilter": "https://digdir.apps.at22.altinn.cloud/digdir/demoapp",
     "consumer": "/org/digdir",
     "createdBy": "/org/digdir",
     "created": "2023-04-05T13:57:11.234994Z",
