@@ -85,7 +85,7 @@ In this task, you will set up dynamic tracks in the application to direct users 
 A user who does not meet the requirements for the service should be stopped as early as possible in the workflow.
  The user should indicate whether the service applies to them on the information page.
 
-The way the response is collected is optional.
+The way the response is collected is optional, but a tip is to use a selection component such as [checkboxes](/app/development/ux/components/checkboxes/), [radio buttons](/app/development/ux/components/radiobuttons/), or [dropdown](/app/development/ux/components/dropdown/).
  Note that a component must be associated with a field in the data model to store values (you can use the field `Innflytter.KanBrukeSkjema` in the data model).
 
 The user should be directed to one of the following tracks based on their response:
@@ -117,6 +117,7 @@ The user should be directed to one of the following tracks based on their respon
 - [Text formatting](/app/development/ux/texts/#formatting-of-texts)
 
 ### Knowledge check
+
 {{% expandsmall id="m2t2q1" header="If a user fills out a form on a page later hidden by a user selection, what happens to that data?" %}}
 If you have logic in an application where users can proceed to submission for multiple tracks, the data on the page(s) that are now hidden for the user should be reset.
 {{% /expandsmall %}}
@@ -125,7 +126,7 @@ If you have logic in an application where users can proceed to submission for mu
 
 {{% expandlarge id="prefill" header="Prefilling of personal information" %}}
 
-Altinn provides the advantage of having readily accessible metadata for individuals and businesses. With prefilling, we can retrieve user data and populate fields seamlessly, reducing the need for manual data entry, especially for standard details like names, addresses, and emails.
+Altinn provides the advantage of having readily accessible [metadata](/api/models/instance/#instance) for individuals and businesses. With prefilling, we can retrieve user data and populate fields seamlessly, reducing the need for manual data entry, especially for standard details like names, addresses, and emails.
 
 You can directly integrate data from Altinn's [prefill sources](/app/development/data/prefill/config/#available-prefill-values) into the app by mapping the data to specific fields in the data model, automating field population during form creation. You can also integrate custom code-based solutions for prefilling.
 
@@ -147,7 +148,7 @@ This task focuses on the first data collection page, aiming to streamline the us
 ### Tasks
 1. Create a [prefill file](/app/development/data/prefill/config/#setup-of-prefill-in-the-application-repository).
 2. Configure prefilling for values available through Altinn's [prefill sources](/app/development/data/prefill/config/#available-prefill-values) (all but age).
-3. Create [custom prefilling](/app/development/data/prefill/custom) for age based on the personal identification number (see code assistance below).
+3. Create [custom prefilling](/app/development/data/prefill/custom) for age based on the personal identification number (see Code assistance and Useful resources below).
 4. Configure settings for fields that should not be editable by the user.
 
 {{% expandsmall id="code-assistance" header="Code assistance: Calculating age from personal identification number" %}}
@@ -225,7 +226,10 @@ private static int CalculateAge(string sosialSecNumber)
     }
 ```
 {{% /expandsmall %}}
-<br>
+
+{{% notice info %}}
+**Note:** The application must be run locally to show prefilled values.
+{{% /notice %}}
 
 *Remember to push your local changes to make them available in Altinn Studio.*
 
@@ -233,6 +237,7 @@ private static int CalculateAge(string sosialSecNumber)
 - [Prefilling from national registers and user profile](/app/development/data/prefill/config/#prefill-from-national-register-and-user-profile)
 - [Available sources and values for prefilling](/app/development/data/prefill/config/#available-prefill-values)
 - [Custom prefilling](/app/development/data/prefill/custom)
+- [Instance](/api/models/instance/#instance) - Application metadata container
 - [Description of the InstanceOwner object](/api/models/instance/#instanceowner) - This is where you can find the national identity number.
   In the code, the properties are referred to with an uppercase first letter, not lowercase, as in this overview.
 
@@ -243,6 +248,7 @@ Yes, by default, a standard component with prefilled data is editable.
 {{% /expandsmall %}}
 
 {{% expandsmall id="m2t3q2" header="How can you prevent a prefilled value from being changed by the end user?" %}}
+
 You can set the component to `readOnly` in one of two ways:
 
 **1\.** In Altinn Studio Designer, by checking "Det skal ikke være mulig å svare (read only)" for the specific component:  
@@ -250,8 +256,11 @@ You can set the component to `readOnly` in one of two ways:
 
 **2\.** Set the `readOnly` property to `true` for the component in the JSON file of the page:
 
-```json{linenos=false,hl_lines=["13"]}
-// File: /App/ui/layouts/<page>.json
+{{< code-title >}}
+App/ui/layouts/{page}.json
+{{< /code-title >}}
+
+```json{linenos=false,hl_lines=["12"]}
 {
   "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
   "data": {
@@ -277,6 +286,7 @@ An option is to perform data validations on the server side to verify that the d
 {{% /expandsmall %}}
 
 {{% expandsmall id="m2t3q3" header="Some Norwegian residents do not have a national identification number but are assigned a D-number. How can you adjust the code to accommodate the user entering a national identification number or a D-number?" %}}
+
 {{% notice info %}}
 A [D-number](https://jusleksikon.no/wiki/F%C3%B8dselsnummer#D-nummer) is eleven digits, like a regular national identification number, and consists of a modified six-digit birth date followed by a five-digit personal number. The birth date is modified by _adding 4 to the first digit_. For example, the modified birth date would be 410180 for a person born on January 1, 1980, and be 710180 for someone born on January 31, 1980.
 {{% /notice %}}
@@ -320,29 +330,21 @@ using available data sources in Altinn and custom code.
 The service should run on your local machine for local testing, and you should be able to test both user flows
 and confirm that the correct fields are prefilled.
 
-<br>
+## Solution
 
-{{<expandlarge id="solution" header="Solution">}}
-
-{{% markdown %}}
 [Module 2 source code](https://altinn.studio/repos/testdep/flyttemelding-sogndal/src/branch/modul2)<br>
-[(Module 2 source code - previous version)](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/2)<br>
 
-### Add info page
+{{<expandlarge id="info-page-solution" header="Add info page">}}
 
 In this step, we have added a simple info page with an image and text.
 
 ![Screenshot info page. Image](screenshot-info-page-1.png "Info page")
 
-{{% /markdown %}}
-
 {{<content-version-selector classes="border-box">}}
 
 {{<content-version-container version-label="Altinn Studio Designer">}}
 
-<br>
-
-#### Components
+### Components
 
 {{% notice info %}}
 See *Code* for horizontal alignment of components.
@@ -350,12 +352,13 @@ See *Code* for horizontal alignment of components.
 
 ![Info page components. Image](screenshot-info-page-layout-1.png "Info page components")
 
-#### Image
+### Image
 
 In this solution, we have stored the image within the app and used `wwwroot/kommune-logo.png` as the source.
  Another option is to use an external URL for the image source.
 
 {{% expandsmall id="wwwroot" header="Add directory `wwwroot`` and upload image in Designer" %}}
+
 Navigate to the repository (click the logo in the top-right corner or the three dots on the right side of the menu bar) and select "Upload file" from the "Add file" menu.
 
 ![Repository. Image](screenshot-repository-add-file.png "Repository")
@@ -372,8 +375,7 @@ Click "Commit endringer" to save.
 
 ![Image settings](screenshot-image-settings-wwwroot.png "Image settings")
 
-
-#### Text
+### Text
 
 Both the heading and description have been added as "Paragraph" (a subcategory of "Text") and formatted with markdown.
 
@@ -384,15 +386,15 @@ Both the heading and description have been added as "Paragraph" (a subcategory o
 {{</content-version-container>}}
 {{<content-version-container version-label="Code">}}
 
-<br>
-
-#### Info page - components and settings
+### Info page - components and settings
 
 We have placed the image and heading side by side using the `grid` property (highlighted) and assigned different grid fractions to the components.
 
-```json{linenos=false,hl_lines=["17-19", "30-32"]}
-// File: /App/ui/layouts/info.json
+{{< code-title >}}
+App/ui/layouts/info.json
+{{< /code-title >}}
 
+```json{linenos=false,hl_lines=["15-17", "28-30"]}
 {
   "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
   "data": {
@@ -447,10 +449,13 @@ We have placed the image and heading side by side using the `grid` property (hig
 }
 ```
 
-#### Text resources (nb)
-```json
-// File: /App/config/texts/resource.nb.json
+### Text resources (nb)
 
+{{< code-title >}}
+App/config/texts/resource.nb.json
+{{< /code-title >}}
+
+```json
 {
   "language": "nb",
   "resources": [
@@ -473,11 +478,9 @@ We have placed the image and heading side by side using the `grid` property (hig
 {{</content-version-container>}}
 {{</content-version-selector>}}
 
-{{% gray-divider-line %}}
+{{</expandlarge>}}
 
-{{% markdown %}}
-
-### Alternative workflow
+{{<expandlarge id="alternative-workflow-solution" header="Alternative workflow">}}
 
 In this solution, we have chosen radio buttons for the info page where users must specify whether they meet the requirements to use the form. The option 'No' has been pre-selected, so users must actively choose to use the form.
 
@@ -488,8 +491,6 @@ You can use checkboxes or dropdown menus as an alternative to radio buttons.
 We have added a new page to show users who don't meet the service requirements (track 1).
 
 ![Screenshot of alternative workflow: this form is not for you](side-ikke-for-deg-screenshot.png "New page: This form is not for you")
-
-{{% /markdown %}}
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
@@ -503,8 +504,6 @@ See *Code* for dynamic tracks logic.
 ![Components on the info page. Image](screenshot-info-page-layout-2.png "New radio buttons component on the info page")
 
 ![Radio button settings. Image](screenshot-radio-buttons-settings.png "Radio buttons settings")
-
-![]()
 
 #### New Page
 
@@ -522,9 +521,11 @@ New page for *Track 1*.
 
 #### Radio buttons
 
-```json{linenos=false,hl_lines=["8-29"]}
-// File: /App/ui/layouts/info.json
+{{< code-title >}}
+App/ui/layouts/info.json
+{{< /code-title >}}
 
+```json{linenos=false,hl_lines=["6-27"]}
 {
   "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
   "data": {
@@ -567,9 +568,11 @@ Logic to hide the page has been implemented using the `hidden` property (see hig
 The value from the selected radio button is stored in the field `Innflytter.KanBrukeSkjema` and can be accessed through the component (`["component", "bekreftelse"]`).
 As an option, you can test the value of the field directly (`["dataModel", "Innflytter.KanBrukeSkjema"]`).
 
-```json{linenos=false,hl_lines="6-13"}
-// File: /App/ui/layouts/ikke-for-deg.json
+{{< code-title >}}
+App/ui/layouts/ikke-for-deg.json
+{{< /code-title >}}
 
+```json{linenos=false,hl_lines="4-11"}
 {
   "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
   "data": {
@@ -607,9 +610,11 @@ As an option, you can test the value of the field directly (`["dataModel", "Innf
 Equivalent logic has been added to the form page.
 This page will be hidden when the option for *not* meeting the service requirements is selected (the value of the `bekreftelse` component is `false`).
 
-```json{linenos=false,hl_lines=["6-13"]}
-// File: /App/ui/layouts/innflytterPersonalia.json
+{{< code-title >}}
+App/ui/layouts/innflytterPersonalia.json
+{{< /code-title >}}
 
+```json{linenos=false,hl_lines=["4-11"]}
 {
   "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
   "data": {
@@ -630,9 +635,11 @@ This page will be hidden when the option for *not* meeting the service requireme
 We do not want to include the 'Not for You' page when generating a PDF file.
 Configure the `excludeFromPdf` property in `Settings.json` to exclude pages from pdf.
 
-```json{linenos=false,hl_lines="10"}
-// File: /App/Settings.json
+{{< code-title >}}
+App/Settings.json
+{{< /code-title >}}
 
+```json{linenos=false,hl_lines="9"}
 {
   "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
   "pages": {
@@ -650,9 +657,11 @@ Configure the `excludeFromPdf` property in `Settings.json` to exclude pages from
 
 New text resources:
 
-```json{linenos=false,hl_lines=["7-22"]}
-// File: /App/config/texts/resource.nb.json
+{{< code-title >}}
+App/config/texts/resource.nb.json
+{{< /code-title >}}
 
+```json{linenos=false,hl_lines=["5-20"]}
 {
   "language": "nb",
   "resources": [
@@ -680,9 +689,9 @@ New text resources:
 {{</content-version-container>}}
 {{</content-version-selector>}}
 
-{{% gray-divider-line %}}
+{{</expandlarge>}}
 
-<h3>Prefilling</h3>
+{{<expandlarge id="prefill-solution" header="Prefilling">}}
 
 {{% markdown %}}
 
@@ -690,8 +699,6 @@ Below is an example of how the data page may appear with prefilled information.
  We have also aligned some components side by side and added a 'Submit' button.
 
 ![Screenshot of prefilled data page. Image](prefilled-data-screenshot.png "Updated data page with prefill")
-
-![]()
 
 {{% /markdown %}}
 
@@ -724,9 +731,11 @@ New button:
 The code below provides an example of some of the changed components.
 For a complete solution, please refer to the [Module 2 source code](https://altinn.studio/repos/testdep/flyttemelding-sogndal/src/branch/modul2).
 
-```json{linenos=false,hl_lines=["22", "26-28", "37", "41-43", "47-54"]}
-// File: /App/ui/layouts/innflytterPersonalia.json
+{{< code-title >}}
+App/ui/layouts/innflytterPersonalia.json
+{{< /code-title >}}
 
+```json{linenos=false,hl_lines=["20", "24-26", "35", "39-41", "45-52"]}
 {
   "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
   "data": {
@@ -789,9 +798,11 @@ For a complete solution, please refer to the [Module 2 source code](https://alti
 
 We have created a prefill file, `datamodel.prefill.json`, and configured prefilling of personal information (except age):
 
-```json{linenos=false,hl_lines=[""]}
-// File: /App/models/datamodel.prefill.json
+{{< code-title >}}
+App/models/datamodel.prefill.json
+{{< /code-title >}}
 
+```json{linenos=false,hl_lines=[""]}
 {
     "$schema": "https://altinncdn.no/schemas/json/prefill/prefill.schema.v1.json",
     "allowOverwrite": true,
@@ -815,9 +826,11 @@ For custom prefilling of age, we created the file `InstantiationProcessor.cs` in
 The `DataCreation` method retrieves the personal identification number from the instance passed to it. It then uses the number to calculate the age using the `CalculateAge` method (omitted, refer to code assistance under [Prefilling](#prefill) in the task description).
 The calculated age is then assigned to the data field `skjema.Innflytter.Alder`.
 
-```csharp{linenos=false,hl_lines=[""]}
-// File: App/logic/Instantiation/InstantiationProcessor.cs
+{{< code-title >}}
+App/logic/Instantiation/InstantiationProcessor.cs
+{{< /code-title >}}
 
+```csharp{linenos=false,hl_lines=[""]}
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -843,9 +856,11 @@ public class InstantiationProcessor : IInstantiationProcessor
 
 The data type for `skjema` can be found in the datamodel file `datamodel.xsd`:
 
-```xml{linenos=false,hl_lines="4"}
-<!-- Fil: /App/models/datamodel.xsd -->
+{{< code-title >}}
+App/models/datamodel.xsd
+{{< /code-title >}}
 
+```xml{linenos=false,hl_lines="2"}
  <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
   <xsd:element name="InnflytterSkjema" type="Skjema" />
   <xsd:complexType name="Skjema">
@@ -855,8 +870,11 @@ The data type for `skjema` can be found in the datamodel file `datamodel.xsd`:
 
 Finally, we register the implementation in `Program.cs`:
 
-```csharp{linenos=false,hl_lines="7"}
-// File: /App/Program.cs
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
+
+```csharp{linenos=false,hl_lines="6"}
 ...
 
 void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
