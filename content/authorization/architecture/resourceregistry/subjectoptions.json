@@ -268,5 +268,11 @@
         "SubjectSource": "altinn:rolecode",
         "SubjectTitle": "Taushetsbelagt post - administrasjon",
         "SubjectDescription": "Gir tilgang til taushetsbelagt post fra det offentlige innen administrasjon"
+    },
+    {
+        "SubjectId": "a0298",
+        "SubjectSource": "altinn:rolecode",
+        "SubjectTitle": "Revisorattesterer",
+        "SubjectDescription": "Rollen gir bruker tilgang til å attestere tjenester for avgiver som revisor.  Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som rollen gir."
     }
 ]

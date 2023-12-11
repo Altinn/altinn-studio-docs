@@ -6,10 +6,6 @@ tags: [apps, training ]
 weight: 20
 ---
 
-{{% notice warning %}}
-🚧 Denne modulen er under oppdatering.
-{{% /notice %}}
-
 I denne modulen er det en samling med frittstående utvidelser av applikasjonen. De trenger ikke å løses i gitt rekkefølge.
 
 **Temaer som dekkes i denne modulen:**
@@ -43,6 +39,7 @@ Sogndal kommune ønsker at man benytter kategoriene **Personalia** om brukerens 
 - [Kategorier i oppsummering](/nb/app/development/ux/pages/summary/#kategorier)
 
 ### Forståelsessjekk
+
 {{% expandsmall id="m7t1q1" header="Hvorfor burde oppsummeringssiden ignoreres fra PDF-genereringen?" %}}
 PDF-genereringen har per nå ikke støtte for oppsummerings-komponenten.
  For at PDF-generering skal fungere må enten alle oppsummerings-komponentene, eller hele oppsummerings-siden(e) ekskluderes fra PDF.
@@ -56,15 +53,23 @@ PDF-genereringen har per nå ikke støtte for oppsummerings-komponenten.
 Sogndal kommune har oppdaget at det er en del trafikk fra personer som ikke møter kriteriene i applikasjonen.
 For hver av disse brukerne blir det lagret en instans i databasen. Dette skaper unødige utgifter.
 
-Sogndal kommune ønsker derfor at informasjonssiden vises som en "stateless"-del av applikasjonen, og at man derfra kan velge å starte en instans om man
+Sogndal kommune ønsker derfor at informasjonssiden vises som en "stateless"-del av applikasjonen og at man derfra kan velge å starte en instans om man
 møter kriteriene.
 
+### Oppgaver
+
+1. 
+
 ### Nyttig dokumentasjon
-- [Introduksjon til stateless applikasjoner](/nb/app/development/configuration/stateless/#introduksjon-til-stateless-applikasjoner)
+- [Introduksjon til stateless applikasjoner](/nb/app/development/configuration/stateless)
 - [Konfigurasjon av stateless applikasjoner](/nb/app/development/configuration/stateless/#konfigurasjon)
 - [Starte instans fra stateless skjema](/nb/app/development/configuration/stateless/#starte-instans-fra-et-stateless-skjema)
+
 ### Forståelsessjekk
-- Hva lagres av data for stateless applikasjoner?
+
+{{% expandsmall id="m7t2q1" header="Hva lagres av data for stateless applikasjoner?" %}}
+En stateless, eller tilstandsløs, applikasjon lagrer ikke noe data, verken skjemadata eller metadata om instanser av applikasjonen. 
+{{% /expandsmall %}}
 
 {{% /expandlarge %}}
 
@@ -323,6 +328,46 @@ App/config/texts/resources.nb.json
 
 {{% /expandlarge %}}
 
+<!-- {{% expandlarge id="stateless-solution" header="Stateless førsteside" %}}
+
+* **Oppdater `applicationmetadata.json`:** Legg til `"onEntry": { "show": "stateless" }`. `stateless` refererer til layout-settet som defineres i neste steg.
+
+{{< code-title >}}
+App/config/applicationmetadata.json
+{{< /code-title >}}
+
+```json{hl_lines=10}
+{
+  "id": "ttd/flyttemelding-sogndal",
+  "org": "ttd",
+  "title": {
+    "nb": "Flyttemelding Sogndal"
+  },
+  "dataTypes": [
+    ...
+  ],
+  "onEntry": { "show": "stateless" },
+  ...
+```
+
+* Opprett `layout-sets.json` under `App/ui` og legg til et sett med id `stateless`.
+
+{{< code-title >}}
+App/ui/layout-sets.json
+{{< /code-title >}}
+
+```json
+{
+  "sets": [
+    {
+      "id": "stateless",
+      "dataType": "Stateless-model"
+    }
+  ]
+}
+```
+
+{{% /expandlarge %}} -->
 
 <br><br>
 

@@ -37,7 +37,11 @@ I listen med ekskluderte felter kan man angi navnene på felter man ikke ønsker
 
 ## Eksempler
 
-Konfigurasjon for å skru på *Lag ny kopi* uten ekskluderinger.
+Konfigurasjon for å skru på *Lag ny kopi* uten ekskluderinger. Disse endringene gjøres i applicationmetadata.json.
+
+{{< code-title >}}
+applicationmetadata.json
+{{< /code-title >}}
 
 ```json
 "copyInstanceSettings": {
@@ -46,6 +50,11 @@ Konfigurasjon for å skru på *Lag ny kopi* uten ekskluderinger.
 ```
 
 Konfigurasjon hvor Lag ny kopi blir aktivert samtidig som det legges til ekskludering av to ulike felter fra to modeller i skjema.
+
+{{< code-title >}}
+applicationmetadata.json
+{{< /code-title >}}
+
 
 ```json
 "copyInstanceSettings": {

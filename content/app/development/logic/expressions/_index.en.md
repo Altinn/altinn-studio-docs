@@ -466,10 +466,6 @@ in the data model as the second argument.
  something is set to an empty string.
 - `["startsWith", null, null]` always returns `false`.
 
-**Note:** hese functions are not yet available in backend code. Therefore, they will generate an error message if used 
-in places [where expressions run on the backend](#use-cases), og om man har slått på funksjonaliteten for å
-automatisk slette skjulte data (`RemoveHiddenDataPreview`).
-
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-stringLength" header="stringLength" %}}
@@ -482,10 +478,6 @@ Example:
 ```
 
 If the string is `null`, `stringLength` will return 0.
-
-**Note:** This function is not yet available in backend code. Therefore, it will generate an error message if used in 
-places [where expressions run on the backend](#use-cases), and if the functionality to automatically delete hidden data
- (`RemoveHiddenDataPreview`) has been enabled.
 
 {{% /expandlarge %}}
 
@@ -517,10 +509,6 @@ Example:
 
 If you want to check for values in a comma-separated list, you can use the function [`commaContains`](#func-commaContains).
 
-**Note:** These functions are not yet available in backend code. Therefore, they will generate an error message if used 
-in places [where expressions run on the backend](#use-cases), and if the functionality to automatically delete hidden 
-data (`RemoveHiddenDataPreview`) has been enabled.
-
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-commaContains" header="commaContains" %}}
@@ -542,10 +530,6 @@ Note that any spaces before/after commas or before/after the first value are ign
 useful in cases where you use a component that stores multiple values in a comma-separated string, such as `Checkboxes` 
 and `MultipleSelect`.
 
-**Note:** This function is not yet available in backend code. Therefore, it will generate an error message if used in 
-places [where expressions run on the backend](#use-cases), and if the functionality to automatically delete hidden data
-(`RemoveHiddenDataPreview`) has been enabled.
-
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-lowerCase-upperCase" header="lowerCase/upperCase" %}}
@@ -563,10 +547,6 @@ regardless of whether uppercase or lowercase letters were used in the input valu
 ```json
 ["equals", ["upperCase", ["dataModel", "My.Model.LastName"]], "SMITH"]
 ```
-
-**Note:** These functions are not yet available in backend code. Therefore, they will generate an error message if used 
-in places [where expressions run on the backend](#use-cases), and if the functionality to automatically delete hidden 
-data (`RemoveHiddenDataPreview`) has been enabled.
 
 {{% /expandlarge %}}
 
@@ -589,10 +569,6 @@ Example of rounding to the nearest integer:
 The return value from this function is a string, allowing it to be used for display purposes (note that the decimal 
 separator is always a period). Even though the return value is a string, it can also be used further in expressions that
  expect numeric input.
-
-**Note:** This function is not yet available in backend code. Therefore, it will generate an error message if used in 
-places [where expressions run on the backend](#use-cases), and if the functionality to automatically delete hidden data
- (`RemoveHiddenDataPreview`) has been enabled.
 
 {{% /expandlarge %}}
 

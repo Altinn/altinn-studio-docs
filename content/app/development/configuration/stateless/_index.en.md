@@ -1,33 +1,38 @@
 ---
 title: Stateless application (lookup-service)
 linktitle: Stateless
-description: How to add configuration to control behavior at the application startup.
+description: How to configure behavior at the application startup.
 toc: true
 weight: 500
 ---
 
 ## Introduction to stateless applications
 
-A stateless application differentiates itself from standard applications by not storing any data,
-including form data or metadata about instances of the application.
-Because of this, a stateless application is a good choice for information transparency services where the end user or a system is doing a lookup against
-one or more resources or presents data from a third party based on who the user is. 
-It is also possible to configure a stateless application to only allow anonymous users, or users that are not logged on.
+
+A stateless application distinguishes itself from standard applications by not storing any data, neither form data nor metadata about instances of the application.
+ The application will also not end up in the user's inbox.
+  A stateless application corresponds to an access service in Altinn 2.
+
+Stateless applications work well as access services where an end-user or a system queries a resource or presents data
+ from a third party based on who the user is. It is also possible to configure a stateless application to allow anonymous users, that is, users who are not logged in.
 
 ## Configuration
 
-{{%notice warning%}}
+{{% notice info %}}
 
 This is brand new functionality. Setup has to be completed manually until further notice.
 
 **Notice:** To make use of this functionality, version >= 4.5.2 of the [nuget-packages](../../../maintainance/dependencies#nuget) `Altinn.App.PlatformServices`, `Altinn.App.Common` and `Altinn.App.Api` is required.
 
-{{%/notice%}}
+{{% /notice %}}
 
-In the application metadata it is possible to control behaviours during startup. Your application can now act like a stateless application if it is enabled.
-For an application like this, no data or metadata is stored, and the application will also not end up in the message box of an end user. This is equivalent to a stateless application in Altinn 2.
+You can manage the application's behavior during startup and set it up as a stateless application if needed by configuring its application metadata, which is stored in `applicationmetadata.json`.
 
-Configuration of this is done in `applicationmetadata.json`. Example:
+Example of configuration:
+
+{{< code-title >}}
+App/config/applicationmetadata.json
+{{< /code-title >}}
 
 ```json{hl_lines=[31]}
 {
@@ -60,18 +65,20 @@ Configuration of this is done in `applicationmetadata.json`. Example:
     }
   ],
   ...
-  "onEntry": { "show": "stateless" } // legg til denne linjen
+  "onEntry": { "show": "stateless" } // add this line
 }
-
 ```
-In the field `onEntry.show` there is the opportunity to reference a layout set which you want to display during startup of the application. Read more about layout-sets [here.](../../ux/pages/layout-sets/#setup)
 
-The layout sets you refer to here will be used as the display the user is presented before navigating to the
-application.
+In the `onEntry.show` field, you have the opportunity to specify a layout set that you want to display during application startup.
 
-The configuration file `layout-sets.json` can be created if it doesn't already exist. It should be located in the
-folder `App/ui`.
-In `layout-sets.json` you add the actual set you are referring to from `applicationmetadata.json`, Example:
+The layout set itself is defined in the configuration file `App/ui/layout-sets.json`. If the file does not exist, you can create it.
+You can find more information about layout sets [here](/app/development/ux/pages/layout-sets/).
+
+Example of layout set:
+
+{{< code-title >}}
+App/ui/layout-sets.json
+{{< /code-title >}}
 
 ```json
 {
@@ -84,7 +91,9 @@ In `layout-sets.json` you add the actual set you are referring to from `applicat
   }
 ```
 
-In the example above the layout-set `stateless` is referring to the datamodel `Stateless-model`. Example of an app structure for an application which is set up in this way:
+In the example above, the layout-set `stateless` is referring to the datamodel `Stateless-model`.
+
+ Example of an app structure for an application which is set up in this way:
 
 ```text
 ├───App
@@ -104,28 +113,33 @@ In the example above the layout-set `stateless` is referring to the datamodel `S
             │   Settings.json
             │
             └───layouts
-                  FormLayout.json
+                  {page}.json
 ```
 
-`FormLayout.json` should then be set up the same way as any normal application, and will support all components which are possible to use in a normal app with the exception of:
+`{page}.json` can be configured the same way as any normal application page, and will support all components with the exception of:
 - File upload
 - Button
 
-App frontend will read the configuration in `applicationmetadata.json` and understand that it isn't supposed to instantiate, and then collect the layout-files and the connected datamodel, and present it to the end user. 
+The App frontend will read the configuration from `applicationmetadata.json` and recognize that it should not create an instance.
+ Instead, it will retrieve the layout files and associated data models and present them to the end user.
 
 ### Configuring access without login
 
-{{%notice warning%}}
+{{% notice warning %}}
 Note! Form components that affect process (Button for submission or instantiation) are not supported for anonymous users!
 
 **Note:** To make use of this functionality you must use version >= 5.1.0 of the [nuget-packages](../../../maintainance/dependencies#nuget) `Altinn.App.PlatformServices`, `Altinn.App.Common` and `Altinn.App.Api`.
 
-{{%/notice%}}
+{{% /notice %}}
 
 To permit use of an app by a user that is not logged in, you must follow the steps that are described above. You _also_
 have to define the data type which is used by the stateless app to allow anonymous use. This is done by modifying
 the `dataType`-element in `applicationMetadata.json`.
 The data type's `appLogic`-object needs a new setting, `"allowAnonymousOnStateless": true`. See example below:
+
+{{< code-title >}}
+App/config/applicationmetadata.json
+{{< /code-title >}}
 
 ```json{hl_lines=[24]}
 {
@@ -168,8 +182,8 @@ The data type's `appLogic`-object needs a new setting, `"allowAnonymousOnStatele
 When using a stateless data type you will be able to populate the data model in when the app front-end requests the form data.
 
 Data will be populated in two steps during the initial call from the front-end (GET):
-1. Prefill, read more about this [here.](../../data/prefill/)
-2. Data processing, read more about this [here.](../../logic/dataprocessing/)
+1. [Prefill](../../data/prefill/)
+2. [Data processing](../../logic/dataprocessing/)
 
 The following updates to the same form data (POST) will then run prefill one more time, but the calculation is triggered. This allows manipulating the data based on the user's input even in stateless application.
 
@@ -207,7 +221,7 @@ represented by a user in Altinn has the necessary licenses to use a service.
 ![GUI for non-authorized user](extra-credentials-example-denied.png "GUI for non-authorized user")
 
 
-The source code for the example application can be found [here](https://altinn.studio/repos/ttd/extra-credentials-demo). (Requires account in Altinn Studio.) 
+The source code for the example application can be found [here](https://altinn.studio/repos/ttd/extra-credentials-demo) (requires account in Altinn Studio). 
 
 Further down this page we will use the designation *user* synonymously with an organization represented by a person in Altinn. 
 
@@ -235,7 +249,11 @@ Further down this page we will use the designation *user* synonymously with an o
 
     ![GUI in Altinn Studio](extra-credentials-example-layout.png "GUI in Altinn Studio")
 
-    The components are connected to a data model and text resource in the following way in `FormLayout.json`
+    The components are connected to a data model and text resource in the following way in `{page}.json`:
+
+    {{< code-title >}}
+    App/ui/layouts/{page}.json
+    {{< /code-title >}}
 
     ```json
     "layout": [
@@ -318,6 +336,7 @@ Further down this page we will use the designation *user* synonymously with an o
       }
     }
     ```
+
 4. **Add text resources**
 
    In addition to the name of the service, three text resources have been added.
