@@ -25,6 +25,9 @@ The folloiwng API controllers are reserved for use internally in the Notificatio
 
 
 ## Database
+Add an overview of the various tables and a general descriptions. 
+Diagram that shows relationships e.g. foreign keys. 
+
 
 ## Integrations 
  
