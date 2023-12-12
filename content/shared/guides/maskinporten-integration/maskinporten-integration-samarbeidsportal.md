@@ -1,7 +1,7 @@
 ---
+headless: true
 hidden: true
 ---
-
 
 ### Prerequisites
 
@@ -21,6 +21,7 @@ _Ver2_ is test and _Produksjon_ is production.
 - Choose __Ny integrasjon__
 
     !["New integration"](/shared/guides/maskinporten-integration/integrasjon_ny.png "New integration")
+
 
 
 - To fill out the form, provide all required properties:
