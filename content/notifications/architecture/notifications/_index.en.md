@@ -16,16 +16,15 @@ Could we split it in two children pages: Functional and Non-functional?
 
 ### Public API
 The following API controllers are defined: 
-- EmailNotificationsOrdersController
-- EmailNotificationsController
-- OrdersController
-  
-
-### Altinn internal API
-The following API controllers are reserved for use internally in Altinn solutions only
+- [EmailNotificationsOrdersController](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Controllers/EmailNotificationOrdersController.cs):
+  API for placing new email notification order requests  
+- [EmailNotificationsController](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Controllers/EmailNotificationsController.cs):
+  API for retrieving email notifications related to a single order
+- [OrdersController](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Controllers/OrdersController.cs):
+  API for retrieving one or more orders with or without processing details and notification summaries
 
 ### Notifications internal API
-The following API controllers are reserved for use internally in the Notification solution only. 
+The API controllers listed below are exclusively for use within the Notification solution:
 
 - [Trigger controller](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Controllers/TriggerController.cs): Functionality to trigger the start of order and notifications processing flows.
 
@@ -33,6 +32,8 @@ The following API controllers are reserved for use internally in the Notificatio
 ## Database
 Add an overview of the various tables and a general descriptions. 
 Diagram that shows relationships e.g. foreign keys. 
+
+![Database](dbmodel.drawio.svg "Notifications Database")
 
 
 ## Integrations 
