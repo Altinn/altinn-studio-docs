@@ -8,12 +8,6 @@ aliases:
 weight: 15
 ---
 
-{{% notice warning %}}
-**🚧 Kurset er under oppdatering.**  
-Du kan fortsatt følge kurset, men vær oppmerksom på at eksempelløsningen blir oppdatert samtidig med modulene og vil avvike noe fra den gamle løsningen.
-Oppdaterte moduler vil lenke til den gamle løsningen inntil alle modulene er oppdatert.
-{{% /notice %}}
-
 Introkurset er delt opp i 7 moduler og dekker et fiktivt case for Sogndal kommune.
  Hver modul har en beskrivelse av oppgaven og lenker til relevant dokumentasjon.
 

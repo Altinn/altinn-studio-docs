@@ -147,9 +147,12 @@ In Altinn, we currently support three written languages: Norwegian Bokmål, Norw
 
 To manually add support for English in an application, you need to create the file `resources.en.json` in the folder `App/config/texts`:
 
-```json
-// File: App/config/texts/resources.en.json
+{{< code-title >}}
+App/config/texts/resources.en.json
+{{< /code-title >}}
 
+
+```json
 {
   "language": "en",
   "resources": []
@@ -215,11 +218,13 @@ You can find `<page>.json` in your application repository in the folder `App/ui/
 {{% expandsmall id="m1t3q1" header="Do you find the component connected to the email field?" %}}
 
 To locate the component connected to the email field, you can search for 'epost' (email).
-You will find the field name connected to the component under `dataModelBindings` (highlighted).
+You will find the field name connected to the component under `dataModelBindings.simpleBinding` (highlighted).
 
-```json{linenos=false,hl_lines="9"}
-// File: App/ui/layouts/<page>.json
+{{< code-title >}}
+App/ui/layouts/{page}.json
+{{< /code-title >}}
 
+```json{linenos=false,hl_lines="7"}
 {
   ...
   
@@ -247,9 +252,11 @@ To make a field optional, you can change `required: true` to `required: false`.
 
 The solution is to change the `type` field from `Input` to `TextArea` (highlighted).
 
-```json{linenos=false,hl_lines="5"}
-// File: App/ui/layouts/<page>.json
+{{< code-title >}}
+App/ui/layouts/{page}.json
+{{< /code-title >}}
 
+```json{linenos=false,hl_lines="3"}
 {
   "id": "mellomnavn",
   "type": "TextArea",
@@ -274,17 +281,13 @@ added a data model, and set up a form page that connects components to fields in
 If you have prepared for local development, you have also cloned the application to your local development environment.
 The application should be runnable on your local machine with LocalTest, and you should be able to fill in the fields.
 
-<br>
+## Solution
 
-{{% expandlarge id="solution" header="Solution" %}}
 [Source code Module 1](https://altinn.studio/repos/testdep/flyttemelding-sogndal/src/branch/modul1)<br>
-[(Source code Module 1 - Previous version)](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/1)<br>
 
 {{% notice info %}}
 A worked solution is underway.
 {{% /notice %}}
-
-{{% /expandlarge %}}
 
 <br><br>
 
