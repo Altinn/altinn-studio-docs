@@ -121,6 +121,7 @@ curl --location 'https://platform.altinn.no/notifications/api/v1/orders/email' \
 --header 'PlatformAccessToken: [INSERT PLATFORM ACCESS TOKEN]' \
 --header 'Authorization: Bearer [INSERT ALTINN TOKEN]' \
 --data-raw '{
+    "sendersReference": "ref-2023-12-01",
 	"subject": "A test email from Altinn Notifications",
 	"body": "A message to be sent immediately from an org.",
 	"contentType": "Plain",
@@ -135,13 +136,13 @@ Response body contains the ID for the cloud event.
 
 ```json
 {
-    "orderId": "0f92fcfb-778e-4fe4-99dc-51b4f91d71fd"
+    "orderId": "f1a1cc30-197f-4f34-8304-006ce4945fd1"
 }
 ```
 
 Response headers contains a self link for retrieving the generated notification order.
 ```bash
--- header 'Location: https://platform.altinn.no/notifications/api/v1/orders/0f92fcfb-778e-4fe4-99dc-51b4f91d71fd'
+-- header 'Location: https://platform.altinn.no/notifications/api/v1/orders/f1a1cc30-197f-4f34-8304-006ce4945fd1'
 ```
 
 #### 400 Bad Request

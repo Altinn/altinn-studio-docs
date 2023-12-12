@@ -11,7 +11,7 @@ toc: true
 
 GET /order/{id}/status
 
-{id} represents the id of the notification order to retrieve status for
+{id} represents the id of the notification order to retrieve status for.
 
 ## Authentication
 
@@ -121,6 +121,7 @@ Response body contains the notification order with status information.
 ```json
 {
     "id": "f1a1cc30-197f-4f34-8304-006ce4945fd1",
+    "sendersReference": "ref-2023-12-01",
     "requestedSendTime": "2023-12-12T14:13:27.836731Z",
     "creator": "digdir",
     "created": "2023-12-12T14:13:27.845029Z",

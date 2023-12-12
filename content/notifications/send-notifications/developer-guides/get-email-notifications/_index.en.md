@@ -7,16 +7,11 @@ weight: 60
 toc: true
 ---
 
-{{% notice info %}}
-TODO: QA devs
-{{% /notice %}}
-
-
 ## Endpoint
 
 GET /order/{id}/notifications/email
 
-{id} represents the id of the notification order to retrieve notifications for|
+{id} represents the id of the notification order to retrieve notifications for.
 
 ## Authentication
 
@@ -70,9 +65,12 @@ The number of email notifications that have been sent successfully so far
 #### notifications
 Type: _List\<[EmailNotificationWithResult](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Models/EmailNotificationWithResultExt.cs)\>_
 
-A list of generated notifications with send result.
-Each notification will include a send status. Find a description of each status in the table below.
-
+A list of the generated notifications with send result.
+Each notification will include the following properties: 
+  - id: the id of the notification
+  - succeeded: a boolean indicating whether the send status is a successful one.
+  - _recipient_: the contact details of the recipient that the notification is sent to.
+  - _sendStatus_: the send status of the notification. 
 
 | Status                        | Description       |
 |:-----------------------------:|:-----------------:|
@@ -109,7 +107,7 @@ Response body contains the email notification summary.
 ```json
 {
     "orderId": "f1a1cc30-197f-4f34-8304-006ce4945fd1",
-    "sendersReference": "ref-9d434357-f6b3-46c9-b779-ccb10479e8d4",
+    "sendersReference": "ref-2023-12-01",
     "generated": 1,
     "succeeded": 0,
     "notifications": [

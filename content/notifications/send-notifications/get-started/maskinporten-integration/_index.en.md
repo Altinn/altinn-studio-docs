@@ -28,8 +28,6 @@ on registering a new integration through their self service API.
 
 
 {{% expandlarge id="guide-mp-int-samarbeid" header="Guide on how to register a new Maskinporten integration in Samarbeidsportalen" %}}
-
-{{% insert "/shared/guides/maskinporten-integration/maskinporten-integration-samarbeidsportal.txt" %}}
-
+{{% insert "content/app/guides/shared/maskinporten-integration/maskinporten-integration-samarbeidsportal.md" %}}
 {{% /expandlarge %}}
 
