@@ -43,8 +43,7 @@ confirmed, please proceed to create the integration.
 
 {{% expandlarge id="guide-mp-int-samarbeid" header="Guide on how to register a new Maskinporten integration in Samarbeidsportalen" %}}
 
-{{% insert "/assets/guides/maskinporten-integration/maskinporten-integration-samarbeidsportal.md" %}}
-
+{{% insert "content/app/guides/shared/maskinporten-integration/maskinporten-integration-samarbeidsportal.md" %}}
 {{% /expandlarge %}}
 
 ## Azure Key Vault Configuration

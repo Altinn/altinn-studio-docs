@@ -1,7 +1,7 @@
 ---
+headless: true
 hidden: true
 ---
-
 
 ### Prerequisites
 
@@ -16,11 +16,12 @@ hidden: true
 - Choose __Selvbetjening__ and then __Integrasjoner__ for the environment you want.
 _Ver2_ is test and _Produksjon_ is production.
 
-    !["Samarbeidsportalen"](/shared/guides/maskinporten-integration/selvbetjening.png "Samarbeidsportalen")
+    !["Samarbeidsportalen"](/app/guides/shared/maskinporten-integration/selvbetjening.png "Samarbeidsportalen")
 
 - Choose __Ny integrasjon__
 
-    !["New integration"](/shared/guides/maskinporten-integration/integrasjon_ny.png "New integration")
+    !["New integration"](/app/guides/shared/maskinporten-integration/integrasjon_ny.png "New integration")
+
 
 
 - To fill out the form, provide all required properties:
@@ -29,7 +30,7 @@ _Ver2_ is test and _Produksjon_ is production.
     - Beskrivelse: Add a short description, not only for yourself but for everyone
     that administers integrations on behalf of your organization.
 
-    !["Add values for integration"](/shared/guides/maskinporten-integration/integrasjon_utfylling.png "Add values for integration")
+    !["Add values for integration"](/app/guides/shared/maskinporten-integration/integrasjon_utfylling.png "Add values for integration")
 
     The example above shows an integration used by an Altinn CLI Client which will need to generate tokens containing
     one or more of the three selected scopes; _altinn:serviceowner_,
@@ -51,11 +52,11 @@ In this example we use [mkjwk.org](https://mkjwk.org/).
 
 - Fill in values like the example below and click _Generate_
 
-    !["New JWK"](/shared/guides/maskinporten-integration/jwk_ny.png "New JWK")
+    !["New JWK"](/app/guides/shared/maskinporten-integration/jwk_ny.png "New JWK")
 
     The output should look like this:
 
-    !["The JWK"](/shared/guides/maskinporten-integration/jwk.png "The JWK")
+    !["The JWK"](/app/guides/shared/maskinporten-integration/jwk.png "The JWK")
 
 Now, the public part of the key should be added to the newly created integration in Samarbeidsportalen.
 
@@ -63,19 +64,19 @@ Now, the public part of the key should be added to the newly created integration
 
 - Choose __Egne public nøkler__
 
-    !["Own public keys"](/shared/guides/maskinporten-integration/public_nokler.png "Own public keys")
+    !["Own public keys"](/app/guides/shared/maskinporten-integration/public_nokler.png "Own public keys")
 
 - Add two empty square bracets to the empty text box as shown below
 
-    !["Add array"](/shared/guides/maskinporten-integration/nokkel_1.png "Add array")
+    !["Add array"](/app/guides/shared/maskinporten-integration/nokkel_1.png "Add array")
 
 - Navigate back to the JWK generator site
 
-    !["The JWK"](/shared/guides/maskinporten-integration/jwk.png "The JWK")
+    !["The JWK"](/app/guides/shared/maskinporten-integration/jwk.png "The JWK")
 
 - Copy the public key of the JWK (marked 1 in the picture) and paste this into the array in Samarbeidsportalen.
 
-    !["Add public key"](/shared/guides/maskinporten-integration/nokkel_2.png "Add public key")
+    !["Add public key"](/app/guides/shared/maskinporten-integration/nokkel_2.png "Add public key")
 
 -  Choose __Legg til__
 
@@ -97,7 +98,7 @@ from any client that can provide the private and public parts of the JWK.
 - Public and private key pair (marked 2 in the picture below)
     This is what your client will use when calling the Maskinporten integration.
 
-    !["The JWK"](/shared/guides/maskinporten-integration/jwk.png "The JWK")
+    !["The JWK"](/app/guides/shared/maskinporten-integration/jwk.png "The JWK")
 
 In Altinn libraries this key pair is referenced as EncodedJwk  and must be base64 encoded before
 it is included in application configuration or uploaded to a Key Vault.
