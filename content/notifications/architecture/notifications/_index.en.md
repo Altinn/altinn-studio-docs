@@ -15,13 +15,19 @@ Could we split it in two children pages: Functional and Non-functional?
 ## API
 
 ### Public API
-The following API controllers are defined
+The following API controllers are defined: 
+- EmailNotificationsOrdersController
+- EmailNotificationsController
+- OrdersController
+  
 
 ### Altinn internal API
-The folloiwng API controllers are reserved for use internally in Altinn solutions only
+The following API controllers are reserved for use internally in Altinn solutions only
 
 ### Notifications internal API
-The folloiwng API controllers are reserved for use internally in the Notification solution only
+The following API controllers are reserved for use internally in the Notification solution only. 
+
+- [Trigger controller](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Controllers/TriggerController.cs): Functionality to trigger the start of order and notifications processing flows.
 
 
 ## Database

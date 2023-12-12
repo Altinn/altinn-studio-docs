@@ -24,15 +24,24 @@ The following diagram illustrates the overall data flow.
 
 ## System and service dependencies 
 ### Internal
+
 - **Altinn Authorization**: used to authorize access to endpoints
+
+
+{{% notice info %}}
+The number of internal dependencies for Notifications is currenlty quite limited, 
+but during 2024 we expect the services below to be utilized by Notifications. 
 - **Altinn Storage**: used to retrieve status for Altinn app instances to evaluate send conditions
 - **Altinn Profile**: used to retrieve recipient information 
 - **Altinn Register**: used to retrieve recipient information
+{{% /notice %}}
+
 
 ### External
-- **Azure Kubernetes Services**: hosts the docker containers for microservices and cron jobs 
+- [**Azure Kubernetes Services**](https://azure.microsoft.com/en-us/products/kubernetes-service): hosts the docker containers for microservices and cron jobs 
   in a fully managed Kubernetes cluster
-- **Kafka on Confluent cloud**: hosts the kafka cluster the microservices consumes and produces messages to. Say something about why we use kafka vs something else. E.g. storage queues
-- **PostgreSQL**: used for storage
-- **Communication Services**: used to send emails
-- **Event Grid**: used to subscribe to status updates for sent emails
+- [**Kafka on Confluent cloud**](https://www.confluent.io/): hosts the kafka cluster the microservices consumes and produces messages to. Say something about why we use kafka vs something else. E.g. storage queues
+- [**PostgreSQL**](https://www.postgresql.org/): used for storage
+- [**Azure ommunication Services**](https://azure.microsoft.com/en-us/products/communication-services): used to send emails
+- [**Azure Event Grid**](https://azure.microsoft.com/en-us/products/event-grid): used to subscribe to status updates for sent emails
+- [**LINK Mobility**](https://www.linkmobility.com/) used to send sms
