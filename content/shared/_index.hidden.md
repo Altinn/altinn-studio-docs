@@ -1,4 +1,3 @@
 ---
-headless: true
 hidden: true
 ---
