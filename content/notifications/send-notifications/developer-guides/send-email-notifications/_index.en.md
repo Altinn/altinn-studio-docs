@@ -14,7 +14,7 @@ TODO: QA devs
 
 ## Endpoint
 
-POST /order/email
+POST /orders/email
 
 ## Authentication
 
@@ -45,45 +45,32 @@ Type: _string_
 
 The body of the email in either plain text or HTML format.
 
-#### subject
-Type: _string_
-
-The subject of the emailSubject of the email
 
 #### subject
 Type: _string_
 
-The subject of the emailSubject of the email
+The subject of the subject of the email
 
 #### recipients
 Type: _List of [RecipientExt](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Models/RecipientExt.cs)_
   
-A list containing one or more recipients consisting of e-mail address and optionally a 
-recipient id.
+A list containing one or more recipient objects, each representing a recipient with an email address
 
 ### Optional order request properties
 
-#### fromAddress
-Type: _string_ 
-
-Default: _noreply@altinn.no_
-
-The from address to use as sender of the email. 
-
-
-#### content-type
-Type: _enum_ _[EmailContentType](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications.Core/Enums/EmailContentType.cs)_
+#### contentType
+Type: _enum_ _[EmailContentTypeExt](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Models/EmailContentTypeExt.cs)_
 
 Default: _Plain_ 
 
-The content type of the email can be either Plain or Html.
+The content type of the email can be either `Plain` or `Html`.
 
 #### requestedSendTime
 Type: _DateTime_ 
 
 Default: Current time
 
-The date and time when the notification should be sent to recipient. 
+The date and time (with time zone specification) when the notification should be sent to recipient. 
   
 #### sendersReference
 Type: _string_
@@ -93,25 +80,37 @@ the future. Could be a case number or another id. It is recommended, but not req
 that the sender's reference is unique within the organisation's notification orders.
 
 ## Response
-A successful registration of the notification order will result in a _202 Accepted_ response with an orderId 
-in the response body and a self link to the generated notification order in the 'Location' header.
+A successful registration of the notification order will result in a _202 Accepted_ response.
 
 ### Content-Type
 - application/json
 
+### Response body
+
+#### orderId
+Type: GUID
+
+The generated id for the notification order
+
+### Response headers
+
+#### Location 
+Type: URL
+
+The self link for the generated notification order
+
 ### Response codes
 - 202 Accepted: The notification order request was accepted and a notification order has been successfully generated.
-- 400 Bad Request: The request was invalid.
-
-  Refer to problem details in response body for further information.
+- 400 Bad Request: The request was invalid. Refer to problem details in response body for further information.
 - 401 Unauthorized: Indicates a missing, invalid or expired authorization header.
-- 403 Forbidden: Indicates that required scope or Platform Access Token is missing or invalid.
+- 403 Forbidden: Indicates missing or invalid scope or Platform Access Token.
 
 ## Examples
 
 ### Request
 {{% notice info %}}
 In the example we have included place holders for both the Platform Access and Altinn token.
+
 __You only need one of them__, reference the [Authentication section](#authentication) for which one applies to your use case.
 {{% /notice %}}
 
@@ -124,7 +123,7 @@ curl --location 'https://platform.altinn.no/notifications/api/v1/orders/email' \
 --data-raw '{
 	"subject": "A test email from Altinn Notifications",
 	"body": "A message to be sent immediately from an org.",
-	"content-type": "Plain",
+	"contentType": "Plain",
     "recipients":[{"emailAddress":"testuser@altinn.no"}]
 }'
 ```

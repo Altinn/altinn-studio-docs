@@ -90,7 +90,8 @@ Each notification will include a send status find a description of each status i
 ### Request
 {{% notice info %}}
 In the example we have included place holders for both the Platform Access and Altinn token.
-You only need one of them, reference [Authentication](#authentication) for which one applies to your use case.
+
+__You only need one of them__, reference [Authentication](#authentication) for which one applies to your use case.
 {{% /notice %}}
 
 
