@@ -1,6 +1,6 @@
 ---
 title: Use Cases Considered
-linktitle: Use Cases
+linktitle: Use Cases Considered
 description: Identification of the of the Use Cases considered for the Altinn 3 Broker foundation architecture description.
 tags: [architecture, solution]
 toc: true
@@ -12,6 +12,7 @@ This is work in progress
 {{</notice>}}
 
 ## One-to-one managed transfers of individual files
+
 Illustration:
 [{{< figure src="./image5.png" title="Figure 5a: One-to-one managed transfers of individual files" alt="Alt-text">}}](https://www.vg.no)
 
@@ -23,6 +24,7 @@ The initial implementation considers specifically addressed consumers only.
 
 
 ## One-to-many managed transfers of individual files
+
 Illustration:
 [{{< figure src="./image1.png" title="Figure 5b: One-to-many managed transfers of individual files" alt="Alt-text">}}](https://www.vg.no)
 
