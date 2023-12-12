@@ -44,7 +44,7 @@ Når tilgang til å opprette hemmeligheter i Azure Key Vault er bekreftet, kan d
 
 {{% expandlarge id="guide-mp-int-samarbeid" header="Guide om hvordan du registrerer en ny Maskinporten-integrasjon i Samarbeidsportalen" %}}
 
-{{% insert "/shared/guides/maskinporten-integration/maskinporten-integration-samarbeidsportal.txt" %}}
+{{% insert "/assets/guides/maskinporten-integration/maskinporten-integration-samarbeidsportal.md" %}}
 
 {{% /expandlarge %}}
 
