@@ -14,7 +14,7 @@ Du må utføre de to første oppgavene, opprette applikasjon og legge til datamo
 {{% notice info %}}
 **MERK**  
 Du kan utføre alle stegene i denne modulen i Designer.
- Det krever imidlertid lokal utvikling å gjennomføre de resterende modulene og for å få en fullt fungerende applikasjon.
+ Det krever imidlertid lokal utvikling å gjennomføre de øvrige modulene og for å få en fullt fungerende applikasjon.
 {{% /notice %}}
 
 **Temaer som dekkes i denne modulen:**
@@ -161,9 +161,13 @@ I Altinn i dag støtter vi tre skriftspråk: Bokmål, nynorsk og engelsk.
 
 For å manuelt legge til støtte for engelsk i en applikasjon må du opprette filen `resources.en.json` i mappen `App/config/texts`:
 
-```json
-// Fil: App/config/texts/resources.en.json
+{{< code-title >}}
+App/config/texts/resources.en.json
+{{< /code-title >}}
 
+```csharp{linenos=false,hl_lines="6"}
+
+```json
 {
   "language": "en",
   "resources": []
@@ -229,11 +233,13 @@ gitt at du har lastet opp endringene (`<page>` erstattes av navnet til siden, fo
 {{% expandsmall id="m1t3q1" header="Finner du igjen komponenten som er koblet til epost-feltet?" %}}
 
 For å finne komponenten som er koblet til epost-feltet kan du søke etter 'epost'.
-Navnet på feltet som komponenten er koblet til finner du under `dataModelBindings` (markert).
+Navnet på feltet som komponenten er koblet til finner du under `dataModelBindings.simpleBinding` (markert).
 
-```json{linenos=false,hl_lines="9"}
-// File: App/ui/layouts/<page>.json
+{{< code-title >}}
+App/ui/layouts/{page}.json
+{{< /code-title >}}
 
+```json{linenos=false,hl_lines="7"}
 {
   ...
   
@@ -261,9 +267,11 @@ For å gjøre et felt valgfritt, kan man endre `required: true` til `required: f
 
 Løsningen er å endre `type`-feltet fra `Input` til `TextArea` (markert).
 
-```json{linenos=false,hl_lines="5"}
-// File: App/ui/layouts/<page>.json
+{{< code-title >}}
+App/ui/layouts/{page}.json
+{{< /code-title >}}
 
+```json{linenos=false,hl_lines="3"}
 {
   "id": "mellomnavn",
   "type": "TextArea",
@@ -288,18 +296,14 @@ lagt til en datamodell og satt opp en skjemaside som kobler komponenter til noen
 Dersom du har klargjort for lokal utvikling har du i tillegg klonet applikasjonen for å kunne videreutvikle den i ditt lokale utvilkingsmiljø.
 Applikasjonen skal kunne kjøres på din lokale maskin med LocalTest og du skal kunne fylle inn feltene.
 
-<br>
-
-{{% expandlarge id="solution" header="Løsningsforslag" %}}
+## Løsningsforslag
 
 [Kildekode Modul 1](https://altinn.studio/repos/testdep/flyttemelding-sogndal/src/branch/modul1)<br>
-[(Kildekode Modul 1 - tidligere versjon)](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/1)<br>
 
 {{% notice info %}}
 Løsningsforslag kommer
 {{% /notice %}}
 
-{{% /expandlarge %}}
 
 <br><br>
 
