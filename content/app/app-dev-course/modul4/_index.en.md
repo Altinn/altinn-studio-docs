@@ -49,7 +49,7 @@ The municipality of Sogndal wishes to collect information on the newcomers emplo
 
 1. Create the directory `App/options` if it does not exist.
 2. The municipality of Sogndal has created a [static code list](/app/development/data/options/static-codelists) for **industries**: [industry.json](../industry.json). Download the file and place it in `App/options`.
-3. Set up the values in the code list for **Years in work force** as an [open dynamic code list](/app/development/data/options/dynamic-codelists#åpne-dynamiske-kodelister) in `App/options` (follow the directions in the documentation).  
+3. Set up the values in the code list for **Years in work force** as an [open dynamic code list](/app/development/data/options/dynamic-codelists) in `App/options` (follow the directions in the documentation).  
    Options:
    Label         | Data value
    --------------|----------
