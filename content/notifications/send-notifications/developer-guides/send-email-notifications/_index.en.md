@@ -7,11 +7,6 @@ weight: 50
 toc: true
 ---
 
-{{% notice info %}}
-TODO: QA devs
-{{% /notice %}}
-
-
 ## Endpoint
 
 POST /orders/email
@@ -49,12 +44,12 @@ The body of the email in either plain text or HTML format.
 #### subject
 Type: _string_
 
-The subject of the subject of the email
+The subject of the subject of the email.
 
 #### recipients
 Type: _List of [RecipientExt](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Models/RecipientExt.cs)_
   
-A list containing one or more recipient objects, each representing a recipient with an email address
+A list containing one or more recipient objects, each representing a recipient with an email address.
 
 ### Optional order request properties
 
@@ -80,30 +75,35 @@ the future. Could be a case number or another id. It is recommended, but not req
 that the sender's reference is unique within the organisation's notification orders.
 
 ## Response
-A successful registration of the notification order will result in a _202 Accepted_ response.
-
-### Content-Type
-- application/json
-
-### Response body
-
-#### orderId
-Type: GUID
-
-The generated id for the notification order
-
-### Response headers
-
-#### Location 
-Type: URL
-
-The self link for the generated notification order
 
 ### Response codes
 - 202 Accepted: The notification order request was accepted and a notification order has been successfully generated.
 - 400 Bad Request: The request was invalid. Refer to problem details in response body for further information.
 - 401 Unauthorized: Indicates a missing, invalid or expired authorization header.
 - 403 Forbidden: Indicates missing or invalid scope or Platform Access Token.
+
+### Content-Type
+- application/json
+
+### Response body
+
+The response body is formatted as an 
+[OrderIdExt.cs](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Models/OrderIdExt.cs)
+and serialized as a JSON string.
+
+Find a short description of each property below.
+
+#### orderId
+Type: _GUID_
+
+The generated id for the notification order
+
+### Response headers
+
+#### Location 
+Type: _URL_
+
+The self link for the generated notification order
 
 ## Examples
 

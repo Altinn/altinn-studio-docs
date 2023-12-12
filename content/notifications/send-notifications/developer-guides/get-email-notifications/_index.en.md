@@ -1,6 +1,6 @@
 ---
-title: Get email notification result
-linktitle: Get email notification result 
+title: Get email notifications
+linktitle: Get email notifications 
 description: Developer guide on retrieving a summary of the generated email notifications
 
 weight: 60
@@ -62,7 +62,7 @@ Type: _int_
 
 The total number of email notifications generated so far based on the notification order
 
-#### generated
+#### succeeded
 Type: _int_
 
 The number of email notifications that have been sent successfully so far
@@ -71,12 +71,11 @@ The number of email notifications that have been sent successfully so far
 Type: _List\<[EmailNotificationWithResult](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Models/EmailNotificationWithResultExt.cs)\>_
 
 A list of generated notifications with send result.
-Each notification will include a send status find a description of each status in the table below.
+Each notification will include a send status. Find a description of each status in the table below.
 
 
 | Status                        | Description       |
 |:-----------------------------:|:-----------------:|
-| Status                        | Description   | 
 | New                           | The email has been created, but has not been picked up for processing yet. |
 | Sending                       | The email is being processed and will be attempted sent shortly. |
 | Succeeded                     | The email has been accepted by the third party email service and will be sent shortly. |
