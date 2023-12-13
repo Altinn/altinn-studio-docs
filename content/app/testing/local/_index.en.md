@@ -5,26 +5,21 @@ description: Description of how test of an app locally on your own machine.
 weight: 100
 aliases:
 - /app/testing/local/
-tags: [translate-to-english]
 ---
 
-Dersom man skal skrive en del kode (f.eks. [logikk](/app/development/logic/)), eller kjapt sjekke hvordan skjema ser ut kan det være nytting å kunne teste endringer uten å måtte deploye hele appen til testmiljø.
+If you need to write a significant amount of code (e.g., [logic](/app/development/logic/)), or quickly check how a form looks, it can be useful to test changes without having to deploy the entire app to a test environment.
 
-Når appen lages, kommer den med alle nødvendige filer og oppsett til å kunne kjøres som en frittstående applikasjon. Ved å laste ned alle filene knyttet til appen fra repoet til appen, kan man kjøre
-appen lokalt på egen maskin, og på den måten enkelt teste endringer.
+When the app is created, it comes with all the necessary files and settings to run as a standalone application. By downloading all the files associated with the app from its repository, you can run the app locally on your own machine, thereby easily testing changes.
 
-I testmiljø bruker appen et sett med plattform-tjenester for å kunne hente ut/lagre data osv. Det er opprettet en forenklet versjon av disse tjenestene som kan settes opp og kjøres lokalt, og dette er 
-nødvendig for at appen skal kunne testes lokalt. 
+In the test environment, the app uses a set of platform services to retrieve/store data, etc. A simplified version of these services has been created that can be set up and run locally, and this is necessary for the app to be tested locally.
 
-## Kjøre appen lokalt
+## Running the App Locally
 
-1. Naviger til app repoet i Altinn Studio. Se [her](/app/getting-started/navigation/repos/) for hvordan man navigerer seg dit.
-2. Last ned alle filene i repoet
-  - ved å bruke `git clone` kommandoen [(les mer)](https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository)
-  - ved å trykke på nedlastingsikonet (da lastes det ned som en zip-fil)
+1. Navigate to the app repository in Altinn Studio. See [here](/app/getting-started/navigation/repos/) for how to navigate there.
+2. Download all the files in the repository
+   - by using the `git clone` command [(read more)](https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository)
+   - by clicking the download icon (this downloads it as a zip file)
 
-
-Se [Altinn Studio på Github](https://github.com/Altinn/app-localtest/blob/master/README.md) for informasjon om hvordan man laster ned
-og kjører den lokale plattformen,og hvordan man kjører appen.
+See [Altinn Studio on Github](https://github.com/Altinn/app-localtest/blob/master/README.md) for information on how to download and run the local platform, and how to run the app.
 
 {{<children />}}
