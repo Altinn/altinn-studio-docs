@@ -1,14 +1,15 @@
 ---
 title: Architecture Decision Log
-linktitle: Architecture Decision Log
+linktitle: Appendix B - Architecture Decision Log
 description: Altinn 3 Broker Architecture Decision Log
 tags: [architecture, solution]
 toc: true
-weight: 110
+weight: 910
 ---
 {{<notice warning>}} <!-- info -->
 This is work in progress
 {{</notice>}}
+
 
 1.  2023-11-13 Upload and transfer of multiple files to be treated as
     individual transfers. Altinn Broker will not support “shipments”

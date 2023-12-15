@@ -12,8 +12,6 @@ This is work in progress.
 {{</notice>}}
 
 
-
-
 ## Introduction
 TBD… MS Azure API Management
 

@@ -4,7 +4,7 @@ linktitle: Metadata Storage
 description: Altinn 3 Broker Metadata Storage
 tags: [architecture, solution]
 toc: true
-weight: 80
+weight: 40
 ---
 
 {{<notice warning>}} <!-- info -->
