@@ -4,7 +4,7 @@ linktitle: FAQs
 description: Altinn 3 Broker Architecture FAQ answers common questions.
 tags: [architecture, solution]
 toc: true
-weight: 100
+weight: 90
 ---
 {{<notice warning>}} <!-- info -->
 This is work in progress

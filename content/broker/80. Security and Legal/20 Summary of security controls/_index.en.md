@@ -4,7 +4,7 @@ linktitle: Security Controls
 description: Altinn 3 Broker Security Controls - Summary 
 tags: [architecture, solution]
 toc: true
-weight: 100
+weight: 20
 ---
 
 {{<notice warning>}} <!-- info -->
