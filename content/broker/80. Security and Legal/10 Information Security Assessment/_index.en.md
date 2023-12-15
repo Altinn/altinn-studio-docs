@@ -4,7 +4,7 @@ linktitle: High Level Information Security Assessment
 description: Altinn 3 Broker High Level Information Security Assessment
 tags: [architecture, solution]
 toc: true
-weight: 90
+weight: 10
 ---
 
 {{<notice warning>}} <!-- info -->
