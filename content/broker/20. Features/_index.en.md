@@ -1,6 +1,6 @@
 ---
-title: Altinn 3 Broker Capabilities and Features
-linktitle: Capabilities and Features
+title: Altinn 3 Broker Features
+linktitle: Features
 description: Altinn 3 Broker Capabilities and Features
 tags: [architecture, solution]
 toc: true

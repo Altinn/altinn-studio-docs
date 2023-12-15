@@ -1,7 +1,7 @@
 ---
-title: Security and Legal
-linktitle: Security and Legal
-description: Altinn 3 Broker Security and Legal
+title: Information Security
+linktitle: Security
+description: Altinn 3 Broker Information Security
 tags: [architecture, solution]
 toc: true
 weight: 80
