@@ -11,7 +11,6 @@ weight: 20
 This is work in progress.
 {{</notice>}}
 
-
 ## Authentication and Authorization
 Maskinporten and Altinn Authorization
 
