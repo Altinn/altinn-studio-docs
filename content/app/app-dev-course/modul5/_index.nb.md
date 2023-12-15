@@ -103,10 +103,21 @@ Da vil alle brukere, både med og uten roller, ha tillatelse til å utføre _con
 {{% expandlarge id="validation" header="Validering av innsender" %}}
 
 ### Krav fra kommunen
-- Det skal kun være mulig for brukeren som eier instansen å sende inn skjemaet, selv om andre måtte inneha de nødvendige rollene.
+- Kun brukeren som eier instansen skal kunne sende inn skjemaet, selv om andre kan ha de nødvendige rollene.
+
+### Oppgaver
+
+For at kun brukeren som eier instansen skal kunne sende inn skjemaet kan vi legge til en validering som sjekker om
+ partyId til nåværende bruker samsvarer med partyId (se [InstanceOwner](/nb/api/models/instance/#instanceowner)) til eieren av instansen for oppgaven med ID-en "Task_2" (som er bekreftelsessteget).
+ Hvis de ikke samsvarer, legger den til en feilmelding i valideringsresultatene. Feilmeldingen vil vises på skjermen og prosessflyten stoppes.
+
+1. Opprett filen `App/logic/Validation/InstanceValidation.cs` (følg fremgangsmåte for [egendefinert validering](/nb/app/development/logic/validation/#hvordan-legge-til-egendefinert-validering)).
+2. Legg til valideringslogikk for bruker-id i klassen `ValidateTask`.
 
 ### Nyttig dokumentasjon
 - [Egendefinert validering](/nb/app/development/logic/validation/#hvordan-legge-til-egendefinert-validering)
+- [Instance](/nb/api/models/instance/#instance)
+- [InstanceOwner](/nb/api/models/instance/#instanceowner)
 
 ### Forståelsessjekk
 {{% expandsmall id="m5t3q1" header="Hvilken endring ville du foreslått for kunden for å kunne oppfylle dette kravet uten å legge inn en egendefinert validering?" %}}
@@ -131,6 +142,10 @@ Ved å sende inn dette skjemaet samtykker du til at dataen du har fylt ut kan la
 Før du sender inn vil vi anbefale å se over svarene dine. Du kan ikke endre svarene etter at du har sendt inn.
 ```
 
+### Oppgaver
+
+1. Opprett en tekstressurs som [overstyrer standardteksten for bekreftelsessiden](/nb/app/development/configuration/process/customize/#bekreftelse-confirmation).
+
 ### Nyttig dokumentasjon
 - [Tilpasning av bekreftelsessiden](/nb/app/development/configuration/process/customize/#bekreftelse-confirmation)
 
@@ -144,11 +159,10 @@ I denne modulen har du utvidet applikasjonen din med et bekreftelsessteg, tilpas
 Tjenesten skal kunne kjøres opp på din lokale maskin med lokal test
 og du skal kunne teste det nye prosessteget og bekrefte at visningen ser ut som ønsket.
 
-**Husk å _pushe_ de lokale endringene dine så de blir tilgjengelige i Altinn Studio.**
+*Husk å pushe de lokale endringene dine så de blir tilgjengelige i Altinn Studio.*
 
 ## Løsningsforslag
-[Kildekode Modul 5](https://altinn.studio/repos/testdep/flyttemelding-sogndal/src/branch/modul5)<br>
-[(Kildekode Modul 5 - tidligere versjon)](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/5)<br>
+[Kildekode Modul 5](https://altinn.studio/repos/testdep/flyttemelding-sogndal/src/branch/modul5)
 
 {{% expandlarge id="prosessbeskrivelse-solution" header="Utvide prosess med et bekreftelsessteg" %}}
 
@@ -167,7 +181,7 @@ Merk at hvis du klikker på "Send inn" på bekreftelsessiden vil du få en feilm
 * **Finn den aktuelle regelen i [regelbiblioteket](/nb/app/development/configuration/authorization/rules/):**
 [Bruker med rollen REGNA eller DAGL kan bekrefte instanser av [ORG]/[APP] som er i Task_2](/nb/app/development/configuration/authorization/rules/#bruker-med-rollen-regna-eller-dagl-kan-bekrefte-instanser-av-orgapp-som-er-i-task_2).
 
-* **Kopier denne koden og lim den inn i  `policy.xml`** (rett etter den siste regelen (mellom den siste `</xacml:Rule>` tagen og `<xacml:ObligationExpressions>`)).
+* **Kopier koden for regelen og lim den inn i  `policy.xml`** (rett etter den siste regelen (mellom den siste `</xacml:Rule>` tagen og `<xacml:ObligationExpressions>`)).
 
 * **Erstatt `[RULE_ID]` med `7`** (siden den foregående regelen har id `6`).
 
@@ -181,10 +195,6 @@ Med autorisasjonen på plass skal det gå an å sende inn skjemaet og du vil få
 
 {{% expandlarge id="validation-solution" header="Validering av innsender" %}}
 
-For at kun brukeren som eier instansen skal kunne sende inn skjemaet kan vi legge til en validering som sjekker om
- partyId til nåværende bruker samsvarer med partyId til eieren av instansen for oppgaven med ID-en "Task_2" (som er bekreftelsessteget).
- Hvis de ikke samsvarer, legger den til en feilmelding i valideringsresultatene. Feilmeldingen vil vises på skjermen og prosessflyten stoppes.
-
 * **Følg fremgangsmåte for [egendefinert validering](/nb/app/development/logic/validation/#hvordan-legge-til-egendefinert-validering) for å opprette fil.**
 * **Legg til valideringslogikk for bruker-id i klassen `ValidateTask`:**
 
@@ -193,7 +203,7 @@ App/logic/Validation/InstanceValidation.cs
 {{< /code-title >}}
 
 ```csharp
-// Import statements
+...
 
 namespace Altinn.App.AppLogic.Validation;
 
@@ -250,7 +260,7 @@ App/Program.cs
 }
 ```
 
-* **Legg til tekstnøkkel med beskjed som vises dersom validering feiler:**
+* **Legg til tekstressurs med beskjed som vises dersom validering feiler:**
 
 {{< code-title >}}
 App/config/texts/resources.nb.json
