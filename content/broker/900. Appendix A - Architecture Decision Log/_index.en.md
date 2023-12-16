@@ -1,10 +1,10 @@
 ---
 title: Architecture Decision Log
-linktitle: Appendix B - Architecture Decision Log
+linktitle: Appendix A - Architecture Decision Log
 description: Altinn 3 Broker Architecture Decision Log
 tags: [architecture, solution]
 toc: true
-weight: 910
+weight: 900
 ---
 {{<notice warning>}} <!-- info -->
 This is work in progress

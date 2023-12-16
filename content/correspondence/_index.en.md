@@ -1,14 +1,16 @@
 ---
-title: Security and Legal
-linktitle: Security and Legal
-description: Altinn 3 Broker Security and Legal
+title: Altinn 3 Correspondence
+linktitle: Correspondence
+description: Altinn 3 Correspondence is ...
 tags: [architecture, solution]
-toc: true
-weight: 80
+toc: false
+weight: 1
 ---
+
 {{<notice warning>}} <!-- info -->
 This is work in progress
 {{</notice>}}
 
 {{<children />}}
+
 
