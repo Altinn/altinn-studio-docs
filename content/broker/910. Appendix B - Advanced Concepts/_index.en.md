@@ -1,10 +1,10 @@
 ---
 title: Altinn 3 Broker Advanced Concepts
-linktitle: Appendix A - Advanced Concepts
+linktitle: Appendix B - Advanced Concepts
 description: Altinn 3 Broker Advanced Concepts
 tags: [architecture, solution]
 toc: true
-weight: 900
+weight: 910
 ---
 {{<notice warning>}} <!-- info -->
 This is work in progress

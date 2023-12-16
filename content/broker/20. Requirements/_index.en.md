@@ -1,7 +1,7 @@
 ---
-title: Altinn 3 Broker Features
-linktitle: Features
-description: Altinn 3 Broker Capabilities and Features
+title: Altinn 3 Broker Requirements
+linktitle: Requirements
+description: Altinn 3 Broker Requirements
 tags: [architecture, solution]
 toc: true
 weight: 20
