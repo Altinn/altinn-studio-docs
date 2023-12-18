@@ -4,7 +4,9 @@ linktitle: Miljø, sikkerhet
 description: Denne fullmaktsgruppen er relevant for alle virksomheter som skal utføre tjenester relatert til mlijø, ulykke og sikkerhet
 weight: 107
 ---
+
 Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-3/#oversikt-over-fullmaktsgrupper)
+
 
 ![Miljø, ulykke og sikkerhet](mus.jpg "Miljø, ulykke og sikkerhet")
 - **Miljø, ulykke og sikkerhet:** Denne fullmakten gir tilgang til alle tjenester som angår miljø, klima, renovasjon samt helse, miljø og sikkerhet. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. 

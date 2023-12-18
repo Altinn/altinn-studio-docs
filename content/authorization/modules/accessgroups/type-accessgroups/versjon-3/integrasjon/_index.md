@@ -4,7 +4,9 @@ linktitle: Integrasjoner
 description: Denne fullmaktsgruppen er relevant for alle virksomheter som har dataintegrasjoner mot og benytter API
 weight: 110
 ---
+
 Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-3/#oversikt-over-fullmaktsgrupper)
+
 
 
 ![Integrasjoner og API-er](iapi.jpg "Integrasjoner og API-er")

@@ -4,7 +4,9 @@ linktitle: Handel, overnatting
 description: Denne fullmaktsgruppen er relevant for alle virksomheter
 weight: 120
 ---
+
 Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-3/#oversikt-over-fullmaktsgrupper)
+
 
  
 ![Handel, overnatting og servering](hos.jpg "Handel, overnatting og servering")

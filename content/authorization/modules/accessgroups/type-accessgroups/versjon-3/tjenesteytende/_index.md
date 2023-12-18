@@ -4,7 +4,9 @@ linktitle: Andre tjenesteytende
 description: Denne fullmaktsgruppen er relevant for alle virksomheter
 weight: 121
 ---
+
 Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-3/#oversikt-over-fullmaktsgrupper)
+
 
  
 ![Andre tjenesteytende næringer](atn.jpg "Andre tjenesteytende næringer")

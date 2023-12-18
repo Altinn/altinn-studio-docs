@@ -3,7 +3,7 @@ title: Lokal utvikling
 linktitle: Lokal utvikling
 description: Hvordan komme i gang med lokal utvikling
 toc: true
-weight: 250
+weight: 999
 ---
 
 Under utvikling av en applikasjon vil man måtte jobbe både i Altinn Studio og 
@@ -41,7 +41,7 @@ En mappe med samme navn som applikasjonen er opprettet og innholdet i applikasjo
 ## Hvordan synkronisere endringer i lokalt utviklingsmiljø
 
 Endringer som gjøres lokalt må lastes opp (_pushes_) til repoet koden ble klonet fra.
- Hvis det gjøred endringer i Altinn Studio Designer (og disse er lastet opp til repoet) må de hentes ned (_pull_) for å oppdatere den lokale koden.
+ Hvis det gjøres endringer i Altinn Studio Designer (og disse er lastet opp til repoet) må de hentes ned (_pull_) for å oppdatere den lokale koden.
 
 Sykronisering av endringer gjort i det lokale utviklingsmiljøet kan gjøres på flere måter.
 Mange utviklingsverktøy har gode integrasjoner for nettopp dette, 

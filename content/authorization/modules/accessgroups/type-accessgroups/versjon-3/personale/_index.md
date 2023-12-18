@@ -4,6 +4,7 @@ linktitle: Personale
 description: Denne fullmaktsgruppen er relevant for alle virksomheter som har ansatte
 weight: 106
 ---
+
 Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-3/#oversikt-over-fullmaktsgrupper)
 
 ![Personale] (per.jpg "Personale")

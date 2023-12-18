@@ -4,7 +4,9 @@ linktitle: Regnskapsførere
 description: Denne fullmaktsgruppen er relevant for alle virksomheter
 weight: 122
 ---
+
 Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-3/#oversikt-over-fullmaktsgrupper)
+
 
 
 ![Regnskapsførere](regn.jpg "Regnskapsførere")

@@ -2,7 +2,7 @@
 title: Modul 6
 description: Utvidelse av skjema med repeterende gruppe
 linktitle: Modul 6
-# tags: [apps, training, repeterende grupper, validering, dataprosessering, konsumere API  ]
+tags: [apps, training, repeterende grupper, validering, dataprosessering, konsumere API  ]
 weight: 20
 ---
 
@@ -64,6 +64,7 @@ Vi ønsker derfor at det skal dukke opp en feilmelding på det aktuelle feltet m
 Vi er beæret over å motta en '1337' innbygger til Sogndal kommune!
  Du må imidlertid bekrefte din uovertruffenhet ved å legge til en 🌟 i adressefeltet for å gå videre.
 ```
+### Oppgaver
 
 1. Legg til en validering på feltet `Postnr` for tidligere bostedsadresser.
 
@@ -78,7 +79,7 @@ Valideringer på serversiden kjøres som standard kun i det brukeren velger å b
 Denne oppførselen kan overstyres, og det er mulig å trigge valideringer både på enkelte felter og f.eks. ved sidebytte mellom ulike sider.
 {{% /expandsmall %}}
 
-{{% expandsmall id="m6t2q2" header="Hvorfor burde valideringer som legges til på klientsiden også dupliseres serverside?" %}}
+{{% expandsmall id="m6t2q2" header="Hvorfor bør valideringer som legges til på klientsiden også dupliseres serverside?" %}}
 Klientside-valideringer bør anses som et hjelpemiddel for bedre bruksopplevelse og ikke som en garanti på at data leveres på riktig format.
 Ondsinnede kan komme seg forbi disse valideringene, og klientsidevalideringer vil ikke bli kjørt om man f.eks. benytter seg av api'ene direkte.
 Derfor bør valideringer som legges på frontend alltid gjenspeiles i logikken backend.
@@ -88,7 +89,9 @@ Derfor bør valideringer som legges på frontend alltid gjenspeiles i logikken b
 
 
 {{% expandlarge id="processing" header="Dataprosessering" %}}
+
 ### Krav fra kommunen
+
 En av kommunens databehandlere har sett seg lei av å manuelt rette opp i en gateadresse som ofte blir skrevet feil av innflyttere.
 Vi ønsker derfor å programmatisk fikse opp i dette under utfyllingen av appen.
 
@@ -101,7 +104,6 @@ I alle andre tilfeller skal feltet forbli urørt.
 2. Legg til prosessering av adressefeltet som beskrevet over.
 
 Husk å implementere løsningen i `Program.cs` som tidligere.
-
 
 ### Nyttig dokumentasjon
 - [Dataprosessering](/nb/app/development/logic/dataprocessing/)
@@ -118,10 +120,6 @@ Dette stiller derfor krav til at apputvikler optimaliserer koden som kjøres og 
 `ProcessDataRead` kjøres i det brukeren leser data fra databasen, f.eks. når man navigerer seg til en tidligere instans av applikasjonen og henter opp tildigere utfylt data.
 {{% /expandsmall %}}
 
-{{% expandsmall id="m6t3q3" header="Hva er forskjellen på DataProcessing og Calculations?" %}}
-Kjært barn har mange navn - også i dette tilfellet. `DataProcessing` og `Calculations` er samme navn på samme konsept. I nugetpakkene før 4.7.0 gikk dette under navnet `Calculations` eller `kalkuleringer`, mens dette nå omtales som `DataProcessing`.
-{{% /expandsmall %}}
-
 {{% /expandlarge %}}
 
 ## Oppsummering
@@ -130,8 +128,7 @@ Vi har også sett på hvordan man setter opp egendefinerte **valideringer** i ba
 Til slutt har vi sett på hvordan man kan sette opp **dataprosessering** som muliggjør manipulering av data ved kjøretid.
 
 ## Løsningsforslag
-[Kildekode Modul 6](https://altinn.studio/repos/testdep/flyttemelding-sogndal/src/branch/modul6)<br>
-[(Kildekode Modul 6 - tidligere versjon)](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/6)<br>
+[Kildekode Modul 6](https://altinn.studio/repos/testdep/flyttemelding-sogndal/src/branch/modul6)
 
 {{% expandlarge id="rep-grupper-solution" header="Repeterende grupper" %}}
 
@@ -156,44 +153,44 @@ App/ui/layouts/innflytterPersonalia.json
 {{< /code-title >}}
 
 ```json
-    ...
-      {
-        "id": "tidligere-bosteder-overskrift",
-        "type": "Header",
-        "size": "M",
-        "textResourceBindings": {
-          "title": "innflytterPersonalia.tidligere-bosteder-overskrift.title"
-        }
-      },
-      {
-        "id": "Group-tidligere-bosteder",
-        "type": "Group",
-        "maxCount": 10,
-        "dataModelBindings": {
-          "group": "Innflytter.TidligereBosteder"
-        },
-        "textResourceBindings": {
-          "add_button": "innflytterPersonalia.AddressComponent-adresse"
-        },
-        "children": [
-          "AddressComponent-tidligere-bosted"
-        ]
-      },
-      {
-        "id": "AddressComponent-tidligere-bosted",
-        "type": "AddressComponent",
-        "dataModelBindings": {
-          "address": "Innflytter.TidligereBosteder.Gateadresse",
-          "zipCode": "Innflytter.TidligereBosteder.Postnr",
-          "postPlace": "Innflytter.TidligereBosteder.Poststed"
-        },
-        "simplified": true,
-        "required": true,
-        "textResourceBindings": {
-          "title": "innflytterPersonalia.AddressComponent-tidligere-bosted.title"
-        }
-      },
-    ...
+...
+  {
+    "id": "tidligere-bosteder-overskrift",
+    "type": "Header",
+    "size": "M",
+    "textResourceBindings": {
+      "title": "innflytterPersonalia.tidligere-bosteder-overskrift.title"
+    }
+  },
+  {
+    "id": "Group-tidligere-bosteder",
+    "type": "Group",
+    "maxCount": 10,
+    "dataModelBindings": {
+      "group": "Innflytter.TidligereBosteder"
+    },
+    "textResourceBindings": {
+      "add_button": "innflytterPersonalia.AddressComponent-adresse"
+    },
+    "children": [
+      "AddressComponent-tidligere-bosted"
+    ]
+  },
+  {
+    "id": "AddressComponent-tidligere-bosted",
+    "type": "AddressComponent",
+    "dataModelBindings": {
+      "address": "Innflytter.TidligereBosteder.Gateadresse",
+      "zipCode": "Innflytter.TidligereBosteder.Postnr",
+      "postPlace": "Innflytter.TidligereBosteder.Poststed"
+    },
+    "simplified": true,
+    "required": true,
+    "textResourceBindings": {
+      "title": "innflytterPersonalia.AddressComponent-tidligere-bosted.title"
+    }
+  },
+...
 ```
 
 **Følgende tekstressurser er lagt til:**
@@ -227,9 +224,9 @@ App/config/texts/resources.nb.json
 
 {{% expandlarge id="validering-solution" header="Validering" %}}
 
-![Validering postnummer feilet. Skjermbilde](postal-code-validation-error-screenshot.png "Validering postnummer med feilmelding")
+![Validering postnummer feilet. Skjermbilde](./postal-code-validation-error-screenshot.png "Validering postnummer med feilmelding")
 
-![Validering postnummer ok. Skjermbilde](postal-code-validation-ok-screenshot.png "Validering postnummer ok")
+![Validering postnummer ok. Skjermbilde](./postal-code-validation-ok-screenshot.png "Validering postnummer ok")
 
 * **Legg til en validerings-trigger på adressekomponenten:**
 
@@ -330,7 +327,7 @@ App/logic/DataProcessing/DataProcessor.cs
 {{< /code-title >}}
 
 ```csharp
-// 'using' statements
+...
 
 namespace Altinn.App.AppLogic.DataProcessing;
 

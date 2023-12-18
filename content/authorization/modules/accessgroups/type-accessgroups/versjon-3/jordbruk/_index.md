@@ -4,7 +4,9 @@ linktitle: Jordbruk, hav
 description: Denne fullmaktsgruppen er relevant for tjenester rettet mot virksomheter med aktivitet innen jordbruk, skogbruk, jakt, fiske og akvakultur
 weight: 112
 ---
+
 Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-3/#oversikt-over-fullmaktsgrupper)
+
 
  
 ![Jordbruk, skogbruk, jakt, fiske og akvakultur](jsjfa.jpg "Jordbruk, skogbruk, jakt, fiske og akvakultur")

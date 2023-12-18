@@ -87,7 +87,7 @@ Hvis ingen argument gis, henter shortkoden komponentnavnet fra 'schemaname' i fr
 
 ### Legg til komponent
 
-Du kan legge til en komponent i [Altinn Studio Designer](/nb/app/getting-started/ui-editor/) ved å dra den fra venstre sidepanel til midten av siden.
+Du kan legge til en komponent i [Altinn Studio Designer](/nb/app/getting-started/) ved å dra den fra venstre sidepanel til midten av siden.
 Når du velger komponenten, vises et panel med innstillinger for den på høyre side.
 
 ### Innstillinger i Altinn Studio Designer

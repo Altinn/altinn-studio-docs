@@ -4,7 +4,9 @@ linktitle: Oppvekst og utdanning
 description: Denne fullmaktsgruppen er relevant for alle tjenester rettet mot virksomheter med aktivitet innen oppvekst, skole og høyere utdanning
 weight: 116
 ---
+
 Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-3/#oversikt-over-fullmaktsgrupper)
+
 
 ![Oppvekst og skole](os2.jpg "Oppvekst og skole")
 - **Oppvekst og utdanning** Denne fullmakten gir tilgang til alle tjenester som omhandler barnehage, skole og høyere utdanning. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
