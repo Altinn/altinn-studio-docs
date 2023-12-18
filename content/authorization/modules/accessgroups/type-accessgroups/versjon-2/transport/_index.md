@@ -7,7 +7,7 @@ weight: 114
 Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-2/#oversikt-over-fullmaktsgrupper)
 
 
-![Transport og lagring](tl2.jpg "Transport og lagring")
+![Transport og lagring](tl.jpg "Transport og lagring")
 - **Transport og lagring:** Denne fullmakten gir tilgang til alle tjenester som angår transport og lagring inkludert passasjer og godstransport, samt post og kurervirksomhet. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
 	- **Veitransport:** (mangler)
     	- **Transport** (mangler)
