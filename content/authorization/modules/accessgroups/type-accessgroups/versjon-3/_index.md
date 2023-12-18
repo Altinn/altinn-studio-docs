@@ -61,15 +61,11 @@ Noen få av de nye fullmaktsgruppene vil være identiske med gamle Altinn2 rolle
   
 For disse tilfellene vil Altinn sørge for at de ansatte som har en utgående Altinn2 rolle automatisk får de nye fullmaktsgruppene.
 
-## Vi ønsker innspill fra dere som er tjenesteeierne
-Vi gjennomfører nå høring nummer 2 av nye fullmaktsgrupper. Vi ønsker tilbakemeldinger på
-- om de foreslåtte fullmaktsgruppene passer til de tjenestene dere har
-- navnene på fullmaktsgruppene som dere forholder dere til
-- beskrivelsene av fullmaktsgruppene som dere vil forholder dere til
-- om forslag til hvilke ER-roller som skal få de nye fullmaktsgruppene dekker deres behov. Det er særlig viktig å avklare om det er noen av de foreslåtte ER roller dere mener IKKE kan få fullmaktsgruppen i kontekst av deres tjeneste
+## Videre arbeid med fullmaktsgrupper
+Vi har nå gjennomført høring nummer 2 av nye fullmaktsgrupper, og behandlet innspillene vi har fått. Versjon 3 er den versjonen som vil bli tilgjengeliggjort i Altinn Studio og ressursregisteret for å opprette policy'er basert på fullmaktsgruppene.
+Det dere som tjenesteeiere må gjøre fremover, er å kartlegge hvilke fullmaktsgrupper dere ønsker å benytte på tjenestene deres. Etterhvert som dere migrerer tjenestene, enten til ressursregisteret eller som app i Altinn studio, må dere bruke fullmaktsgruppene i tjenestenes/ressursenes policy-filer.
 
-Tilbakemelding kan du sende på e-post til servicedesk@altinn.no innen 10.11.2023.
-
+Merk at vi har revidert vår plan for innføring av fullmaktsgrupper angående muligheten for å fortsatt kunne delegere Altinn 2-roller. Opprinnelig plan var at delegering av Altinn 2-roller ikke skulle være mulig etter at ny brukerflate for tilgangsstyring var lansert, men vi ser at det vil være behov for denne muligheten fremover også.
 ## Oversikt over fullmaktsgrupper: 
 
 ### Generelt om beskrivelse av fullmaktsgruppene
