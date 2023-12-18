@@ -15,7 +15,7 @@ The data values are appended to the application title when the instance is displ
 
 ## Configuration
 Configuration of presentation fields is defined in `applicationmetadata.json`,
-which you can find in ythe appliation repository in the folder `App/config`.
+which you can find in ythe application repository in the folder `App/config`.
 
 Add a new section named `presentationField` that consists of the properties below.
 

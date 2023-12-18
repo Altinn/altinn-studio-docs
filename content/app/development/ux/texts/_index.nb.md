@@ -174,6 +174,44 @@ Det er per nå mulig å hente verdier fra 3 ulike datakilder.
   ]
 }
 ```
+## Endre standardtekster og feilmeldinger i en applikasjon
+
+Det er mulig å endre standardtekster og feilmeldinger som vises i appen.
+Her er nøklene med deres standardverdi på [Engelsk](https://github.com/Altinn/app-frontend-react/blob/main/src/language/texts/en.ts), 
+[Norsk Bokmål](https://github.com/Altinn/app-frontend-react/blob/main/src/language/texts/nb.ts) og [Nynorsk](https://github.com/Altinn/app-frontend-react/blob/main/src/language/texts/nn.ts) 
+
+Standardtekster som inkluderer tall må behandles på en annen måte. For eksempel vil `file_uploader_validation_error` en feilmelding 
+hvis det er påkrevd å legge til minst et vedlegg. Denne standardfeilmeldingen vil vises som "For å fortsette må du laste opp 1 vedlegg".
+
+![Tekster i appen](defaultErrorMessageNB.png "Standardtekst i Applikasjon")
+
+Denne standardteksten er delt inn i to strenger, en før tallet: `For å fortsette må du laste opp`, og en tekstressurs etter tallet: `vedlegg`. 
+Tallet er for øyeblikket ikke mulig å redigere, siden det er knyttet til maksimum og minimum antall vedlegg, i dette tilfellet. 
+Men teksten rundt tallet kan endres."
+
+![Tekster i appen](defaultTextsEN.png "Standardtekst og nøkler")
+
+Legg til tekst nøkkelen og den nye verdien i `App/configuration/texts/resouce`. Merk at nøkkelen må henvise til den overordnede 
+gruppen, og deretter tekstenøkkelen separert med `.`"
+```json
+    {
+      "id": "form_filler.file_uploader_validation_error_file_number_1",
+      "value": "For å fortsette må du laste opp"
+    },
+    {
+      "id": "form_filler.file_uploader_validation_error_file_number_2",
+      "value": "zip-fil som inneholder alle nødvendige filer."
+    }
+```
+
+Dette vil resultere i visning av en feilmelding som dette:
+![Tekster i appen](newErrorMessageNB.png "Den nye feilmeldingen")
+
+
+{{% notice warning %}} 
+Hvis du vil finne mer informasjon om hvordan du endrer standardtekster, kan du gå til
+[Tilpasse visninger av steg](https://docs.altinn.studio/nb/app/development/configuration/process/customize/)
+{{% /notice %}}
 
 ### Variabler i tekst - repeterende grupper
 
@@ -219,16 +257,13 @@ Nedenfor ser du et eksempel på en _FormLayout.json_ uten hjelpetekster.
       {
         "id": "616071dc-90b1-4ce5-8d18-492844828a41",
         "type": "Header",
-        "componentType": 0,
         "textResourceBindings": {
           "title": "appName"
-        },
-        "dataModelBindings": {}
+        }
       },
       {
         "id": "08d707a9-2475-4d23-bf76-f209fb434ec2",
         "type": "TextArea",
-        "componentType": 7,
         "textResourceBindings": {
           "title": "tilleggsopplysninger.label",
           "description": "tilleggsopplysninger.desc"
@@ -240,13 +275,9 @@ Nedenfor ser du et eksempel på en _FormLayout.json_ uten hjelpetekster.
       {
         "id": "bd6589b6-e2ab-49ba-b39a-dd3f8b63e5de",
         "type": "Button",
-        "componentType": 9,
         "textResourceBindings": {
           "title": "Send inn"
-        },
-        "dataModelBindings": {},
-        "textResourceId": "Standard.Button.Button",
-        "customType": "Standard"
+        }
       }
     ]
   }
@@ -268,16 +299,13 @@ Slik ser hele filen ut etter å ha lagt til en hjelpetekst:
       {
         "id": "616071dc-90b1-4ce5-8d18-492844828a41",
         "type": "Header",
-        "componentType": 0,
         "textResourceBindings": {
           "title": "appName"
-        },
-        "dataModelBindings": {}
+        }
       },
       {
         "id": "08d707a9-2475-4d23-bf76-f209fb434ec2",
         "type": "TextArea",
-        "componentType": 7,
         "textResourceBindings": {
           "title": "tilleggsopplysninger.label",
           "description": "tilleggsopplysninger.desc",
@@ -290,13 +318,9 @@ Slik ser hele filen ut etter å ha lagt til en hjelpetekst:
       {
         "id": "bd6589b6-e2ab-49ba-b39a-dd3f8b63e5de",
         "type": "Button",
-        "componentType": 9,
         "textResourceBindings": {
           "title": "Send inn"
-        },
-        "dataModelBindings": {},
-        "textResourceId": "Standard.Button.Button",
-        "customType": "Standard"
+        }
       }
     ]
   }

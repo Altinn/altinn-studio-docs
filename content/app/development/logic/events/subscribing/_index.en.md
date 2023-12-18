@@ -7,15 +7,17 @@ weight: 10
 ---
 
 ## Subscribing to events
-In order to receive events in the application you need create a subscription. While you can create a subscription authenticated as a user, most scenarios will probably be to authenticate as the organization owning the application, and to create the subscription as part of the startup process of the application. This example covers authenticating as an organization through maskinporten.
+In order to receive events in the application you need create a subscription. While you can create a subscription authenticated as a user, most scenarios will probably be to authenticate as the organization owning the application, and to create the subscription as part of the startup process of the application. This example covers authenticating as an organization through Maskinporten.
 
 {{% notice warning %}}
-You should first make sure you have a client definition registered in Maskinporten for your application. See [Authenticating with Maskinporten](/api/authentication/maskinporten) on how register a client.
+You should first make sure you have a client definition registered in Maskinporten for your application. See [Authenticating with Maskinporten](/api/authentication/maskinporten) on how register a client.<br><br>
+
+Currently the localtest environment does not support generating inbound events for an app. In order to do this you need use tools like Postman or REST Client in VS Code to send a request to the applicaionts event endpoint. 
 {{% /notice %}}
 
 
 ## Configuring Maskinporten integration
-Even though we are authenticating through maskinporten, we can't use the received token directly since Altinn Events only supports an Altinn token. To solve this we need to exchange the Maskinporten token into an Altinn token. The example below adds a message handler to the EventsSubscriptionClient used to communicate with Maskinporten. This handler automatically requests a token from Maskinporten, exchanges it to an Altinn token and adds the token to the request to the Event System when creating a subscription.
+Even though we are authenticating through Maskinporten, we can't use the received token directly since Altinn Events only supports an Altinn token. To solve this we need to exchange the Maskinporten token into an Altinn token. The example below adds a message handler to the EventsSubscriptionClient used to communicate with Maskinporten. This handler automatically requests a token from Maskinporten, exchanges it to an Altinn token and adds the token to the request to the Event System when creating a subscription.
 
 This code should be added to _Program.cs_.
 
@@ -34,7 +36,7 @@ Scope and ExchangeToAltinnToken need to be configured in code and not in _AppSet
 The `MaskinportenClientDefinition` in the example above is a custom implementation of `IClientDefinition` from the nuget package [Altinn.ApiClients.Maskinporten](https://github.com/Altinn/altinn-apiclient-maskinporten) which is included as a part of the `Altinn.App.Core` package. If you don't need a custom implementation you can use one of the [built in client definitions](https://github.com/Altinn/altinn-apiclient-maskinporten).
 {{% /notice %}}
 
-Depending on what type of ClientDefintion you use you typically need to specify either a certificate file and password, encoded jwk, encoded x509 certificate or enterprise username/password in order to authenticate with Maskinporten in addition to the environment and client id. These can be shared between the various integrations.
+Depending on what type of ClientDefinition you use you typically need to specify either a certificate file and password, encoded jwk, encoded x509 certificate or enterprise username/password in order to authenticate with Maskinporten in addition to the environment and client id. These can be shared between the various integrations.
 
 ```json
   "MaskinportenSettings": {
@@ -48,7 +50,13 @@ Depending on what type of ClientDefintion you use you typically need to specify 
 Here is a [C# class of the settings available](https://github.com/Altinn/altinn-apiclient-maskinporten/blob/main/src/Altinn.ApiClients.Maskinporten/Config/MaskinportenSettings.cs) for reference.
 
 ### Protecting the event endpoint with a secret
-Receving events in the application is based on exposing a webhook endpoint to which the Event Service posts the event. Upon receiving an event, the application validates if a secret is provided before accepting the event. The secret  is provided by implementing the `IEventSecretCodeProvider` interface. By default there is an example implementation in place using a key from the key vault using a key with the name `EventSubscription--SecretCode` in the key vault the value of that key is used. You should hover not use the same key/value for multiple applications so it's recomended to create your own implementation.
+Receiving events in the application is based on exposing a webhook endpoint to which the Event Service posts the event. Upon receiving an event, the application validates if a secret is provided before accepting the event. The secret  is provided by implementing the `IEventSecretCodeProvider` interface. By default there is an example implementation in place using a key from the key vault using a key with the name `EventSubscription--SecretCode` in the key vault the value of that key is used. You should hover not use the same key/value for multiple applications so it's recommended to create your own implementation.
+
+When developing locally you should set the secret as a dotnet user-secret by running the following command in the root folder of the application:
+
+```bash
+dotnet user-secrets set "EventSubscription--SecretCode" "your-secret-code"
+```
 
 {{% notice info %}}
 Note that the return url and the secret code is part of the subscription definition. This means that if you rotate the key, you should remove the existing subscription first, or else you will have two active subscriptions for the same events.
@@ -115,5 +123,5 @@ namespace Altinn.App.Core.EFormidling
 
 ```
 {{% notice theme="warning"  %}}
-If the hosted service fail to run succesfully, ie. throws an exception, the application will fail to start. If you don't won't this behavior you shold catch any exception and don't rethrow it.
+If the hosted service fail to run successfully, ie. throws an exception, the application will fail to start. If you don't won't this behavior you should catch any exception and don't rethrow it.
 {{% /notice %}}

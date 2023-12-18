@@ -24,7 +24,7 @@ GET {basePath}/api/v1/applicationmetadata
 ## Get Application texts
 
 Get text resources for the application for a specific language code. If the requested language isn't available, norsk bokmål (nb) will be returned as default. 
-The **langaugeCode** URL path element should follow the [ISO 639-1 standard](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)
+The **languageCode** URL path element should follow the [ISO 639-1 standard](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)
 
 ```http
 GET {basePath}/api/v1/texts/{languageCode}

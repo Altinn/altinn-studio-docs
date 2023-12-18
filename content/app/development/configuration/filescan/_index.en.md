@@ -6,16 +6,16 @@ weight: 400
 ---
 
 Each application owner storage is protected by Windows Defender, however, if your application requires feedback in realtime on whether or not an uploaded file is infected, enabling virus scan for some or all data types is the way to go.
-Enabling virus scan results in scan of the file immediatly after it uploaded to storage. The scan result will later be added to the metadata for the data element and can be reviewed by any entity that is authorized to read the instance.
+Enabling virus scan results in scan of the file immediately after it uploaded to storage. The scan result will later be added to the metadata for the data element and can be reviewed by any entity that is authorized to read the instance.
 
-## Enable filescan in your application
+## Enable file scan in your application
 
 {{%notice info%}}
 To allow generating events for your application it must refer to nuget version >= 7.4.0.
 See how you update nuget references for your application [here](/app/maintainance/dependencies/).
 {{% /notice%}}
 
-Deep scan of files is not enabled by default, to activate this a manual step is requried.
+Deep scan of files is not enabled by default, to activate this a manual step is required.
 If a file is scanned and found to be infected before the process is complete, this will cause a validation error.
 
 In the file `applicationmetadata.json` in the folder _App/config_ the following should be added for each datatype that should be scanned.
@@ -26,7 +26,7 @@ In the file `applicationmetadata.json` in the folder _App/config_ the following 
 
 If you would like to customize the error message for infected files you can do that by adding a text with key `DataElementFileInfected`.
 
-## Validation error when waiting for filescan
+## Validation error when waiting for file scan
 
 If the ValidationService should should trigger a validation error and prevent the completion of the process before the scan is complete, another value should be added for the datatype.
 .
@@ -35,7 +35,7 @@ If the ValidationService should should trigger a validation error and prevent th
 ```
 If you would like to customize the error message for pending files you can do that by adding a text with key `DataElementFileScanPending`.
 
-Example of `applicationmetadata.json` with filescan enabled for datatype _egenerklaring_, no validation error on pending scan.
+Example of `applicationmetadata.json` with file scan enabled for datatype _egenerklaring_, no validation error on pending scan.
 
 ```json
 {

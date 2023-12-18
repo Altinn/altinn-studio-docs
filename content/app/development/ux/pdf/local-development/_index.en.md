@@ -4,7 +4,7 @@ description: How to configure the generation of PDF on local development environ
 weight: 50
 ---
 
-1. Set up localtest according to the [description in app-localtest](https://github.com/Altinn/app-localtest)
+1. Set up local test according to the [description in app-localtest](https://github.com/Altinn/app-localtest)
 2. When you get to step 2 - add the pdf profile to your docker command  
    This ensures the new pdf service is created.
     ```shell
@@ -24,7 +24,7 @@ weight: 50
     "HostName": "local.altinn.cloud"
    }
    ```
-   This used to say `altinn3local.no`, but should be the same as the url used to access localtest environment. This could also be added in the _appsettings.Development.json_ instead of _appsettings.json_ as it is a dev setting.
+   This used to say `altinn3local.no`, but should be the same as the url used to access local test environment. This could also be added in the _appsettings.Development.json_ instead of _appsettings.json_ as it is a dev setting.
 5. Enable the new PDF Service
    ```json
      "FeatureManagement": {

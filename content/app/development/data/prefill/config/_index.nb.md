@@ -66,8 +66,8 @@ Eksempelet nedenfor vil populere feltet _Datamodell.Person.Nummer_ med telefonnu
 }
 ```
 
-- **UserProfile** her legger man inn telter fra datamodellen som skal preutfylles med data fra brukerens profil i Altinn.
-Merk at det er den innloggede brukeren om instansierer man henter ut data for.
+- **UserProfile** her legger man inn felter fra datamodellen som skal preutfylles med data fra brukerens profil i Altinn.
+Merk at det er den innloggede brukeren som instansierer man henter ut data for.
 
 Eksempelet nedenfor vil populere feltet _Datamodell.Bruker.Epost med epost hentet fra brukerens profil i Altinn.
 
@@ -85,8 +85,8 @@ kan validere og tilby intellisense for raskere editering.
 
 #### Folkeregisteret
 
-Personedataen som eksponeres er den tilknyttet personen som skjemaet instansieres på vegne av. Dersom Ola Nordman instansierer et skjema på vegne av 
-Kari Nordmann vil det være Kari sin data som eksponeres.
+Persondata som eksponeres er tilknyttet personen som skjemaet instansieres på vegne av. Dersom Ola Nordman instansierer et skjema på vegne av 
+Kari Nordmann vil det være Kari sine data som eksponeres.
 Tilgjengelige verdier for prefill inkluderer:
 
 - SSN
@@ -109,7 +109,7 @@ Tilgjengelige verdier for prefill inkluderer:
 
 #### Enhetsregisteret
 
-Enheten som eksponeres er den tilknyttet organisasjons som et skjema blir instansiert på vegne av.
+Enheten som eksponeres er tilknyttet organisasjon som et skjema blir instansiert på vegne av.
 Tilgjengelige verdier for prefill inkluderer:
 
 - OrgNumber
@@ -130,7 +130,7 @@ Tilgjengelige verdier for prefill inkluderer:
 #### Brukerprofil
 
 Brukerprofilen som eksponeres er profilen til den som instansierer tjenesten. Dersom Ola Nordmann instansierer et skjema på vegne av Kari Nordmann 
-vil dataen som hentes ut herfra være knyttet til Ola. For objektene Party.Organization og Party.Person vil man finne igjen samme feltene som man ser i ER og DSF-prefill. Merk at Party.Organization vil være null om brukeren er logget inn som en privatperson, og tilsvarende for Party.Person om man er logget inn med en virksomhetsbruker. Preutfyllingen vil feile om objektet man preutfyller fra ikke finnes, så om man ønsker å dynamisk preutfylle basert på disse verdiene må dette settes opp som [egendefinert prefill.](../custom/).
+vil data som hentes ut herfra være knyttet til Ola. For objektene Party.Organization og Party.Person vil man finne igjen samme feltene som man ser i ER og DSF-prefill. Merk at Party.Organization vil være null om brukeren er logget inn som en privatperson, og tilsvarende for Party.Person om man er logget inn med en virksomhetsbruker. Preutfyllingen vil feile om objektet man preutfyller fra ikke finnes. Om man ønsker å dynamisk preutfylle basert på disse verdiene må dette settes opp som [egendefinert prefill](../custom/).
 Tilgjengelige verdier for prefill inkluderer:
 
 - UserId
@@ -197,7 +197,7 @@ public async Task DataCreation(Instance instance, object data)
 ### Instansiering med prefill
 
 Altinn apper støtter instansiering med prefill.
-Skjemadataen legges ved i en multipart i instansieringsrequesten som sendes til appen.
+Skjemadata legges ved i en multipart i instansieringsrequest som sendes til appen.
 Nedenfor ser du et eksempel på en request for å instansiere en app med prefill for partyId 12345.
 
 ```http {hl_lines=[10]}

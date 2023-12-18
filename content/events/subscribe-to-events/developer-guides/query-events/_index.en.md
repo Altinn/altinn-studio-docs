@@ -40,11 +40,11 @@ Query parameters marked with \* are required.
 
 Result set will include events registered after the provided event ID in chronological order. (Use "0" if retrieving events for the first time.)
 
-### source*
-- the event source to include, type: string
+### resource*
+- the event resource to include, type: string
 
-The source parameter supports wildcard _%_ to escape unknown number of characters
-e.g. _https://digdir.apps.altinn.no/digdir/%_
+The resource parameter must be an exact match to the resource on the event.
+e.g. _urn:altinn:resource:altinnapp.ttd.apps-test_
 
 ### subject
 - optional string property that usually identifies the entity a cloud event is related to. [Cloud Events specification](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#subject)
@@ -82,7 +82,7 @@ application/cloudevents+json
 
 ```http
 curl \
---location 'https://platform.at23.altinn.cloud/events/api/v1/events?after=43860c25-6804-4e0c-99b2-0254373f9b16&source=https://github.com/Altinn/altinn-events%&size=2' \
+--location 'https://platform.at23.altinn.cloud/events/api/v1/events?after=43860c25-6804-4e0c-99b2-0254373f9b16&resource=urn:altinn:resource:altinnapp.ttd.apps-test&size=2' \
 --header 'Authorization: Bearer { Insert Altinn token}'
 ```
 
@@ -94,7 +94,7 @@ curl \
 Headers:
 ```http
 Content-Type: application/cloudevents+json; charset=utf-8
-Next: https://platform.at23.altinn.cloud/events/api/v1/events?after=408f4021-b2c4-4cb4-a902-f1ab110ff861&source=https://github.com/Altinn/altinn-events/tree/main/test/k6&size=2
+Next: https://platform.at23.altinn.cloud/events/api/v1/events?after=408f4021-b2c4-4cb4-a902-f1ab110ff861&resource=urn:altinn:resource:altinnapp.ttd.apps-test&size=2
 ```
 
 Body:
@@ -107,7 +107,7 @@ Body:
         "type": "automatedtest.triggered",
         "source": "https://github.com/Altinn/altinn-events/tree/main/test/k6",
         "subject": "/autotest/k6",
-        "resource": "ttd-altinn-events-automated-tests"
+        "resource": "urn:altinn:resource:altinnapp.ttd.apps-test"
     },
     {
         "specversion": "1.0",
@@ -116,7 +116,7 @@ Body:
         "type": "automatedtest.triggered",
         "source": "https://github.com/Altinn/altinn-events/tree/main/test/k6",
         "subject": "/autotest/k6",
-        "resource": "ttd-altinn-events-automated-tests"
+        "resource": "urn:altinn:resource:altinnapp.ttd.apps-test"
     }
 ]
 ```

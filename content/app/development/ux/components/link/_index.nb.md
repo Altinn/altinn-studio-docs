@@ -1,11 +1,13 @@
 ---
 title: Link
 description: Knapp eller lenke for å sende brukeren til en ekstern side.
+weight: 10
 ---
 
 Link-komponenten kan brukes for å sende brukeren til en ekstern side. Den kan rendres som enten en knapp eller en lenke.
 
 - [Konfigurasjon](#konfigurasjon)
+  - [Eksempel](#eksempel)
 - [Dynamisk URL](#dynamisk-url)
 - [Miljøkonfigurasjon](#miljøkonfigurasjon)
 

@@ -36,7 +36,7 @@ The Instance model is the main model of an instance. An instance can be regarded
 
 ## InstanceOwner
 
-The InstanceOwner model is a simple definition whose only porpose is to hold a universally known identification value of the instance owner.
+The InstanceOwner model is a simple definition whose only purpose is to hold a universally known identification value of the instance owner.
 
 ### Properties
 
@@ -68,9 +68,9 @@ The CompleteConfirmation model is a simple type for holding information about wh
 
 Data values are values either extracted from the instance data or other sources. The values are stored with the instance for easy access and can be used for example in routing logic on the receiving end.
 
-While data fields configured in the [app metadata file](../app-metadata/#datafield) will be extracted and automatically picked up by the application, there is also the option of adding values manually by using the UpdataDataValues method from the IInstance interface. You can mix and match data fields from configuration and by manually adding. It's the UpdateDataValues method that is called under the hood in both cases. UpdateDataValues merges the incoming collection with what's allready stored. However if yo specify the same id it will be overwritten by one or the other and you have no guaranties on which is stored.
+While data fields configured in the [app metadata file](../app-metadata/#datafield) will be extracted and automatically picked up by the application, there is also the option of adding values manually by using the UpdateDataValues method from the IInstance interface. You can mix and match data fields from configuration and by manually adding. It's the UpdateDataValues method that is called under the hood in both cases. UpdateDataValues merges the incoming collection with what's already stored. However if yo specify the same id it will be overwritten by one or the other and you have no guaranties on which is stored.
 
-Values passed in to the UpdataDataValues can have any source and is not restricted to data stored in the application. It can be called from any place but it's recomended to not call it more than strictly required. A good place is to override the RunProcessTaskEnd method from AppBase causing the method to be called when a task is completed.
+Values passed in to the UpdateDataValues can have any source and is not restricted to data stored in the application. It can be called from any place but it's recommended to not call it more than strictly required. A good place is to override the RunProcessTaskEnd method from AppBase causing the method to be called when a task is completed.
 
 
 ### Properties

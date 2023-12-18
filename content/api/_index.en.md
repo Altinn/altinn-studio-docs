@@ -43,19 +43,19 @@ The application API is an API that provides access to specific instances of a sp
 
 Metadata for an app is the second job of the app API. There are endpoints that give access to the metadata of the app itself, its data types and process description.
 
-Every app will expose almost identical endpoints and functionality. External parties should need only one client implementation across all app APIs, but it is possible for the application owner to extend the app API with additional endpoints and even make changes to default functionality. Documentation for app specific API and features must be retrived directly from the app or from the application owner. 
+Every app will expose almost identical endpoints and functionality. External parties should need only one client implementation across all app APIs, but it is possible for the application owner to extend the app API with additional endpoints and even make changes to default functionality. Documentation for app specific API and features must be retrieved directly from the app or from the application owner. 
 
 ```http
 https://{org}.apps.altinn.no/{org}/{appname}
 ```
 
-The URL identifies the application owner specific hostname using the short name **org**, and the identificator of the app consisting of both the application owner short name and the name of the app. Combining the org and appname results in what we call the app id **org/appname**. 
+The URL identifies the application owner specific hostname using the short name **org**, and the identifier of the app consisting of both the application owner short name and the name of the app. Combining the org and appName results in what we call the app id **org/appname**. 
 
 ### Platform API
 
 The Platform APIs are primarily made to support the applications hosted on the platform, but a lot of endpoints can be used directly by both application owners and users. Primarily on the Authentication, Events and Storage APIs.
 
-The Storage API provides access to all instances across all applications. It can be used to access metadata about applications, instances, data elements and instance activitylog (events), as well as the actual data content. This API should be the preferred method for application owners to download data associated with instances created based on their applications. Application users can use it if they need a form of message box or want to retrieve archived instances and their data.
+The Storage API provides access to all instances across all applications. It can be used to access metadata about applications, instances, data elements and instance activity log (events), as well as the actual data content. This API should be the preferred method for application owners to download data associated with instances created based on their applications. Application users can use it if they need a form of message box or want to retrieve archived instances and their data.
 
 The Authentication API provides methods for authentication.
 

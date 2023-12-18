@@ -8,13 +8,13 @@ weight: 20
 
 I denne modulen skal du opprette selve applikasjonen, legge til datamodell og sette opp et enkelt skjema basert på kravene fra Sogndal kommune.
 
-De to første oppgavene (opprette applikasjon og legge til datamodell) må utføres i Altinn Studio.
+Du må utføre de to første oppgavene, opprette applikasjon og legge til datamodell, i Altinn Studios grafiske brukergrensesnitt, [Altinn Studio Designer](/nb/app/getting-started) (Designer).
  Dersom du skal utvikle appen lokalt kan du følge instruksjonene for [klargjøre for lokal utvikling og testing](/nb/app/getting-started/local-dev) etter at du har gjort disse oppgavene.
 
 {{% notice info %}}
 **MERK**  
-Alle stegene i denne modulen kan utføres i Altinn Studios grafiske brukergrensesnitt, [Altinn Studio Designer](/nb/app/getting-started/ui-editor).
- Det krever imidlertid lokal utvikling å gjennomføre de resterende modulene og for å få en fullt fungerende applikasjon.
+Du kan utføre alle stegene i denne modulen i Designer.
+ Det krever imidlertid lokal utvikling å gjennomføre de øvrige modulene og for å få en fullt fungerende applikasjon.
 {{% /notice %}}
 
 **Temaer som dekkes i denne modulen:**
@@ -53,7 +53,7 @@ Dersom du skal teste appen i et [testmiljø](/nb/app/testing/deploy/) (beskrevet
 
 {{% expandlarge id="legge-til-datamodell" header="Legge til datamodell" %}}
 
-Datamodellen definerer hvilke data som kan sendes inn via en app og hvilket format det skal sendes på.
+Datamodellen definerer type of format for data som kan sendes inn via en app.
 
 Med Altinn Studios [verktøy for datamodellering](/nb/app/development/data/data-modeling/)
  kan du legge til en datamodell ved å [laste opp en _xsd_-fil](/nb/app/development/data/data-modeling/#laste-opp-og-vise-datamodell)
@@ -63,8 +63,7 @@ Med Altinn Studios [verktøy for datamodellering](/nb/app/development/data/data-
 
 ### Krav fra kommunen
 
-Sogndal kommune har opprettet en [datamodell](datamodel.xsd)
-som representerer type data de ønsker å samle inn fra fremtidige innbyggere.
+Sogndal kommune har opprettet en [datamodell](datamodel.xsd) som representerer type data de ønsker å samle inn fra fremtidige innbyggere.
 
 ### Oppgaver
 
@@ -75,16 +74,8 @@ som representerer type data de ønsker å samle inn fra fremtidige innbyggere.
 3. Klikk "Last opp dine endringer" og følg instruksjonene for å lagre endringene.
 4. Åpne repository til appen fra [Altinn Studio Dashboard](/nb/app/getting-started/navigation/dashboard/) og ta en nærmere titt på filene i mappen `App/models`.
 
-### Forståelsessjekk
-
-- Hvilken data er det tjenesteeier ønsker å samle inn her?
-- Hvilken effekt har **\<minOccurs\>** i datamodellen? Du vil se at feltet har ulik verdi for _Innflytter.Fornavn_ og _Innflytter.Mellomnavn_.
-- Hvilke andre egenskaper er satt på feltet _Innflytter.Mellomnavn_?
-- Det er blitt generert en _.C#_, _.metadata.json_ og _.schema.json_ fil i tillegg til _.xsd_ filen som du lastet opp. Hva er sammenhengen mellom disse filene?
-- Enkelte restriksjoner fra datamodellen overføres ikke til _C#_-filen, hvilke? Det er og lagt til nye egenskaper, hvilke?
-
 {{% notice info %}}
-Hvis du skal gjøre hele eller deler av utviklingen lokalt kan du [klargjøre for lokal utvikling og testing](/nb/app/getting-started/local-dev) etter at du har opprettet applikasjonen og lagt til datamodell.
+Hvis du skal gjøre hele eller deler av utviklingen lokalt kan du nå [klargjøre for lokal utvikling og testing](/nb/app/getting-started/local-dev).
 {{% /notice %}}
 
 ### Nyttig dokumentasjon
@@ -93,10 +84,48 @@ Hvis du skal gjøre hele eller deler av utviklingen lokalt kan du [klargjøre fo
 - [Beskrivelse av indikatorer i XSD](https://www.w3schools.com/xml/schema_complex_indicators.asp)
 - [Installere curl for Windows](https://developer.zendesk.com/documentation/api-basics/getting-started/installing-and-using-curl/#windows)
 - [Altinn Studio Repository](/nb/app/getting-started/navigation/repos/)
-  
+
+### Forståelsessjekk
+
+{{% expandsmall id="m1t1q1" header="Hvilken data er det tjenesteeier ønsker å samle inn her?" %}}
+
+Datamodellen består av ett hovedelement: innflytter.
+Dette elementet består igjen av en del underobjekter som _Fornavn_, _Etternavn_, og _Mellomnavn_. I tillegg er det noen sammensatte elementer som _Adresse_, _Kontaktinformasjon_ og _Arbeidsinformasjon_.
+{{% /expandsmall %}}
+
+{{% expandsmall id="m1t1q2" header="Hvilken effekt har `minOccurs` i datamodellen? Du vil se at feltet har ulik verdi for `Innflytter.Fornavn` og `Innflytter.Mellomnavn`." %}}
+
+`minOccurs` sier noe om hvor mange ganger objektet minst må være nevnt.
+- `minOccurs=0` vil si at feltet ikke er påkrevd.
+- `minOccurs=1` vil si at man forventer at det dukker opp minumum én gang i modellen.
+{{% /expandsmall %}}
+
+{{% expandsmall id="m1t1q3" header="Hvilke andre egenskaper er satt på feltet `Innflytter.Mellomnavn`?" %}}
+
+`nillable=true` er definert på mellomnavn-feltet. Det vil si at det er tillatt med en nullverdi på mellomnavn.
+{{% /expandsmall %}}
+
+{{% expandsmall id="m1t1q4" header="Ved opplasting av datamodellen (`.xsd`-filen) ble følgende modellfiler generert `.C#`-, `.metadata.json` og `.schema.json`. Hva er sammenhengen mellom disse filene og `.xsd`-filen?" %}}
+
+De nevnte filene er alle generert ut ifra xsd-beskrivelsen av datamodellen. De beskriver all dataen og datafeltenes egenskaper. Alle egenskaper er ikke nødvendigvis overført i alle filene, men summen av dem skal opprettholde det som er beskrevet i xsd-filen.
+
+- C#-modellen benyttes av app backend til å deserialisere data og gjøre den tilgjengelig for prosessering og validering.
+- `.metadata.json` benyttes i Altinn Studio for å enkelt kunne koble komponenter og dynamikk til datafeltene.
+- `.schema.json`-filen benyttes av altinn-app-frontend for skjemavalidering på klientsiden.
+{{% /expandsmall %}}
+
+{{% expandsmall id="m1t1q5" header="Enkelte restriksjoner fra datamodellen overføres ikke til `C#`-filen, hvilke? Det er og lagt til nye egenskaper, hvilke?" %}}
+
+- Egenskapene `minOccurs` og `maxOccurs` er ikke overført til modellen.
+- `nillable` er kun overført på enkelte typer som f.eks. _decimal_.
+- `XmlElement.Order` er innført som en dekorasjon på hver egenskap.
+  - Dette sørger for at rekkefølgen på elementene alltid vil bli den samme når dataen serialiseres til xml.
+{{% /expandsmall %}}
+
 {{% /expandlarge %}}
 
 {{% expandlarge id="redigere-tekster" header="Opprette og redigere tekster" %}}
+
 [Tekster i Altinn Studio](/nb/app/development/ux/texts/) lagres i en egne språkfiler (også kalt tekstressurser) og kan knyttes til skjema-komponenter via en tekstnøkkel.
 Tekstene kan [opprettes og redigeres i Altinn Studio Designer](/nb/app/development/ux/texts/#altinn-studio-designer) eller [direkte i filen](/nb/app/development/ux/texts/#legge-til-og-endre-tekster-i-repository).
 
@@ -110,7 +139,7 @@ overskrifter (labels).
 
 ### Oppgaver
 
-1. [Opprett tekstressurser](/nb/app/development/ux/texts/#legge-til-og-endre-tekster-i-en-app) for komponentene til det første skjemaet. Tekstene skal beskrive hva som beskriver hva som skal fylles inn og vil vises over feltene. Ta en titt på neste oppgave for å se hvilke komponenter du trenger tekst til.
+1. [Opprett tekstressurser](/nb/app/development/ux/texts/#legge-til-og-endre-tekster-i-en-app) for komponentene til det første skjemaet. Tekstene skal beskrive hva som skal fylles inn og vil vises over feltene. Ta en titt på neste oppgave for å se hvilke komponenter du trenger tekst til.
 2. [Endre visningsnavn for applikasjonen](/nb/app/development/ux/texts/#endre-applikasjonstittel). Det er viktig at applikasjonens visningsnavn klinger godt og er beskrivende for tjenesten.
 3. [Legg til oversettelse(r) for tekstene](/nb/app/development/ux/texts/#legge-til-og-endre-tekster-i-en-app). Applikasjonen må være tilgjengelig både på bokmål, nynorsk og engelsk. I en første versjon er det tilstrekkelig at kun ett av disse språkene støttes.
 
@@ -128,15 +157,42 @@ I neste steg skal du opprette komponenter og knytte tekstene du har opprettet ti
 
 I Altinn i dag støtter vi tre skriftspråk: Bokmål, nynorsk og engelsk.
 
-- Hvordan får du inn engelsk språkstøtte i applikasjonen?
-- Hvis vi en dag skal støtte ukrainsk, hvilken språkkode vil du da måtte annotere filen med?
+{{% expandsmall id="m1t2q1" header="Hvordan kan du manuelt legge inn engelsk språkstøtte i applikasjonen?" %}}
+
+For å manuelt legge til støtte for engelsk i en applikasjon må du opprette filen `resources.en.json` i mappen `App/config/texts`:
+
+{{< code-title >}}
+App/config/texts/resources.en.json
+{{< /code-title >}}
+
+```csharp{linenos=false,hl_lines="6"}
+
+```json
+{
+  "language": "en",
+  "resources": []
+}
+```
+
+  Merk at `language`-egenskapen øverst i filen må settes til `en`.
+{{% /expandsmall %}}
+
+{{% expandsmall id="m1t2q2" header="Hvis vi en dag skal støtte ukrainsk, hvilken språkkode vil du da måtte annotere filen med?" %}}
+
+Ifølge [listen over ISO 639-1 koder](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) så er koden for ukrainsk `uk`.
+{{% /expandsmall %}}
+
+{{% expandsmall id="m1t2q3" header="Hvis en tekstnøkkel refert til i `<page>.json` ikke finnes i tekstressursene, hva vil vises da?" %}}
+
+Hvis nevnte tekstnøkkel ikke finnes i tekstressursfilen, vil tekstnøkkelen vises i stedet.
+{{% /expandsmall %}}
 
 {{% /expandlarge %}}
 
 {{% expandlarge id="legge-til-komponenter" header="Legge til komponenter" %}}
 
-Komponentene i en applikasjon kan settes opp ved hjelp av "drag and drop" i [Altinn Studio Designer](/nb/app/getting-started/ui-editor/)
-eller manuelt i filen `<pageName>.json` som beskriver strukturen til en skjemaside (du finner filen i `App/ui/layouts`).
+Du kan konfigurere komponentene i en applikasjon i det grafiske brukergrensesnittet [Altinn Studio Designer](/nb/app/getting-started/).
+ Alternativt kan du gjøre det manuelt ved å redigere filen `<page>.json` som beskriver strukturen til en skjemaside. Du finner filen i `App/ui/layouts`.
 
 ### Krav fra kommunen
 
@@ -165,19 +221,71 @@ Husk å laste opp endringer når du jobber i Designer så de reflekteres i repoe
 
 ### Nyttig dokumentasjon
 
-- [Hvordan bygge et skjema med UI editor i Altinn Studio](/nb/app/getting-started/ui-editor/)
+- [Hvordan bygge et skjema med UI editor i Altinn Studio](/nb/app/getting-started/)
 - [Tilgjengelige komponenter i Altinn Studio](/altinn-studio/designer/build-app/ui-designer/components/)
 - [Retningslinjer for bruk av komponenter](/nb/app/guides/design/guidelines/components/)
 
 ### Forståelsessjekk
 
-I applikasjonsrepoet ditt finner du `<pageName>.json` i mappen `App/ui/layouts`. JSON-filen beskriver skjemasiden du har satt opp i Altinn Studio
-gitt at du har lastet opp endringene.
+I applikasjonsrepoet ditt finner du `<page>.json` i mappen `App/ui/layouts`. JSON-filen beskriver skjemasiden du har satt opp i Altinn Studio
+gitt at du har lastet opp endringene (`<page>` erstattes av navnet til siden, for eksempel `data.json`).
 
-- Finner du igjen komponenten som er koblet til e-post-feltet?
-- Hvilken endring kreves i denne filen dersom e-post-feltet ikke lenger skal være påkrevd?
-- Ved å endre én linje i `<pageName>.json` er det mulig å endre komponenten knyttet til mellomnavn
-  til et inndatafelt for et langt svar. Hvilken endring kreves?
+{{% expandsmall id="m1t3q1" header="Finner du igjen komponenten som er koblet til epost-feltet?" %}}
+
+For å finne komponenten som er koblet til epost-feltet kan du søke etter 'epost'.
+Navnet på feltet som komponenten er koblet til finner du under `dataModelBindings.simpleBinding` (markert).
+
+{{< code-title >}}
+App/ui/layouts/{page}.json
+{{< /code-title >}}
+
+```json{linenos=false,hl_lines="7"}
+{
+  ...
+  
+  "id": "epost",
+  "type": "Input",
+  "dataModelBindings": {
+    "simpleBinding": "Innflytter.Kontaktinformasjon.Epost"
+  },
+  "required": true,
+  "readOnly": false,
+  "textResourceBindings": {
+    "title": "innflytter.epost"
+  }
+}
+```
+
+{{% /expandsmall %}}
+
+{{% expandsmall id="m1t3q2" header="Hvilken endring kreves i `<page>.json` dersom e-post-feltet ikke lenger skal være påkrevd?" %}}
+
+For å gjøre et felt valgfritt, kan man endre `required: true` til `required: false`.
+{{% /expandsmall %}}
+
+{{% expandsmall id="m1t3q3" header="Ved å endre én linje i `<page>.json` er det mulig å endre komponenten knyttet til mellomnavn til et inndatafelt for et langt svar. Hvilken endring kreves?" %}}
+
+Løsningen er å endre `type`-feltet fra `Input` til `TextArea` (markert).
+
+{{< code-title >}}
+App/ui/layouts/{page}.json
+{{< /code-title >}}
+
+```json{linenos=false,hl_lines="3"}
+{
+  "id": "mellomnavn",
+  "type": "TextArea",
+  "textResourceBindings": {
+    "title": "innflytter.mellomnavn"
+  },
+  "dataModelBindings": {
+    "simpleBinding": "Innflytter.Mellomnavn"
+  },
+  "required": true,
+  "readOnly": false
+}
+```
+{{% /expandsmall %}}
 {{% /expandlarge %}}
 
 ## Oppsummering
@@ -186,10 +294,19 @@ I denne modulen har du opprettet en applikasjon i Altinn Studio,
 lagt til en datamodell og satt opp en skjemaside som kobler komponenter til noen av feltene i datamodellen.
 
 Dersom du har klargjort for lokal utvikling har du i tillegg klonet applikasjonen for å kunne videreutvikle den i ditt lokale utvilkingsmiljø.
-Applikasjonen skal kunne kjøres opp på din lokale maskin med LocalTest og du skal kunne fylle inn feltene.
+Applikasjonen skal kunne kjøres på din lokale maskin med LocalTest og du skal kunne fylle inn feltene.
 
 ## Løsningsforslag
 
-Dersom du ikke har fått til alle stegene har vi et [løsningsforslag](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/1) som du kan hente inspirasjon fra.
+[Kildekode Modul 1](https://altinn.studio/repos/testdep/flyttemelding-sogndal/src/branch/modul1)<br>
 
-![Skjermbilde av datainnsamlingsside](/app/app-dev-course/modul1/data-screenshot.png "Skjermbilde av datainnsamlingsside")
+{{% notice info %}}
+Løsningsforslag kommer
+{{% /notice %}}
+
+
+<br><br>
+
+{{% center %}}
+[Neste modul >>](../modul2/)
+{{% /center %}}

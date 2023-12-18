@@ -18,7 +18,7 @@ Application owners should be authenticated with [Maskinporten](https://www.digdi
 
 To provide an API in maskinporten Altinn has to do two operations.
 
-1. As API-provider Altinn registres a scope in *Maskinporten*
+1. As API-provider Altinn registers a scope in *Maskinporten*
     ```json
     POST /scopes
     {
@@ -199,7 +199,7 @@ The token looks something like this (after decoding):
 
 ##### The Altinn JWT Access token (output)
 
-The exchange operation validates the incomming token and generates a new JWT token that contains user data
+The exchange operation validates the incoming token and generates a new JWT token that contains user data
 retrieved from the database using the provided pid (person identification number) and pre-existing data from the ID-porten token.
 
 `pid` is referred to as ssn (social security number) i Altinn Platform.
@@ -236,7 +236,7 @@ This is work-in-progress. The response is still missing required information and
 Metadata about Altinn as an Open ID provider is exposed as a .well-known endpoint as defined
 by [OpenID Connect Discovery](https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderConfig).
 
-The primary porpose of this endpoint is to make available the Altinn signing certificate for the JSON Web Tokens being generated.
+The primary purpose of this endpoint is to make available the Altinn signing certificate for the JSON Web Tokens being generated.
 It is recommended that clients of Altinn use this discovery endpoint to automatically have their systems updated when Altinn changes their signing certificate.
 
 | Environment | URL                                                                                                |

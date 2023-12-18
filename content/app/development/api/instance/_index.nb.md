@@ -10,6 +10,7 @@ Denne siden er foreløpig ikke fullstendig, mer informasjon vil komme på et sen
 En instansiert applikasjon vil ha et tilhørende instans-objekt. Dette objektet inneholder metadata om den spesifikke instansen.
 Om du ønsker å lære mer om instans og api'et rundt så kan du lese teknisk dokumentasjon om dette under API.
 
+
 ## Substatus
 
 Som app-eier kan man sette en substatus på instansen, dette for å kunne gi sluttbruker ytterligere informasjon om hvilken tilstand instansen befinner seg i.

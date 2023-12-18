@@ -43,7 +43,7 @@ It is also possible to get a [preview](#preview-in-the-browser) of what the PDF 
 ## Automatic configuration
 
 This method is used by default unless you specify a [custom PDF layout file](#custom-layout-configuration).
-This method exctracts all of your pages and components in the order they appear, and displays them in the PDF document.
+This method extracts all of your pages and components in the order they appear, and displays them in the PDF document.
 
 ### Excluding pages and components
 
@@ -56,10 +56,6 @@ This is can be configured in two different ways:
 Depending on the version you are using, the programmatic method is set up differently, but the logic is the same. See below how to set this up for the version you are on:
 {{<content-version-selector classes="border-box">}}
 
-{{<content-version-container version-label="v4, v5, v6">}}
-Modify the `PdfHandler.cs` file under `App/logic/Print`.
-{{</content-version-container>}}
-
 {{<content-version-container version-label="v7">}}
 
 1. Create a class that implements the `IPdfFormatter` interface found in the `Altinn.App.Core.Features.Pdf` namespace.  
@@ -70,6 +66,11 @@ Modify the `PdfHandler.cs` file under `App/logic/Print`.
     ```
     This ensures your custom code is known to the application and that it will be executed.
 {{</content-version-container>}}
+
+{{<content-version-container version-label="v4, v5, v6">}}
+Modify the `PdfHandler.cs` file under `App/logic/Print`.
+{{</content-version-container>}}
+
 {{</content-version-selector>}}
 
 {{% expandlarge id="exclude-page" header="Excluding pages" %}}
@@ -218,7 +219,7 @@ The automatic layout includes a front page with instance information like sender
         "referenceNumber": true
         },
         "pageBreak": {
-          "breakAfter": true
+          "breakAfter": "always"
         }
       }
       ...
@@ -272,12 +273,18 @@ It is possible to exclude child components from a group by using the `excludedCh
 
 {{%notice warning%}}
 
-This feature only applies to version 7.5 and higher.
+This preview is only applicable to the new PDF generation method (v7.5+). See [above](#new-pdf-generation) for more information.
 
 {{% /notice%}}
 
 It is possible to get a preview of what the generated PDF will look like in the browser while you are developing. Follow the instructions below:
 
-1. **Important**: Use Google Chrome to preview the PDF.<br>The PDF generator uses a version of Chrome to generate the PDF, and other browsers will not produce the correct result.
-2. In the app you want to preview, add `?pdf=preview` to the end of the URL in the browser and hit enter.<br>This will continuously run the PDF layout in the background so that you can get an instant preview. You may expecience slower performance when in this mode.
-3. When you are ready to preview, use Chrome's built in print function (`Ctrl+P`/`⌘+P`) to get a preview of what the PDF document will look like.
+1. **Important**: Use Google Chrome to preview the PDF.<br>The PDF generator uses a version of Chrome to generate the
+   PDF, and other browsers will not produce the correct result.
+2. Start your app locally or open your app in the test environment, and start an instance.
+3. Open the developer tools by clicking the button in the bottom right corner, or use the keyboard shortcut `Ctrl+Shift+K`/`⌘+Shift+K`.
+   <br><br>
+   ![The button that opens the developer tools, screenshot](dev-tools-button.png) 
+4. Click the `Forhåndsvis PDF` (Preview PDF) button in the developer tools panel.
+   <br><br>
+   ![Developer tools, screenshot](preview-button.png) 

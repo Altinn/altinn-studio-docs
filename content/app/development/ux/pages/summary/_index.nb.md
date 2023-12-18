@@ -246,11 +246,9 @@ ved behov.
       {
         "id": "send-in-text",
         "type": "Paragraph",
-        "componentType": 1,
         "textResourceBindings": {
           "title": "finish"
-        },
-        "dataModelBindings": {}
+        }
       },
       {
         "id": "personalia-group",
@@ -265,19 +263,19 @@ ved behov.
         ]
       },
       {
-        "id": "summary-1",
+        "id": "summary1",
         "type": "Summary",
         "componentRef": "d566c79c-3e3e-445b-be25-a404508f6607",
         "pageRef": "personalia"
       },
       {
-        "id": "summary-2",
+        "id": "summary2",
         "type": "Summary",
         "componentRef": "22a60bf0-d5b7-4b45-9ac9-c266b6ad3716",
         "pageRef": "personalia"
       },
       {
-        "id": "summary-3",
+        "id": "summary3",
         "type": "Summary",
         "componentRef": "d497737b-67b2-4e03-87a9-43f58579c938",
         "pageRef": "personalia"
@@ -296,51 +294,47 @@ ved behov.
         ]
       },
       {
-        "id": "summary-4",
+        "id": "summary4",
         "type": "Summary",
         "componentRef": "064c0033-8996-4825-85fc-2a19fe654400",
         "pageRef": "drugs"
       },
       {
-        "id": "summary-5",
+        "id": "summary5",
         "type": "Summary",
         "componentRef": "7f22e523-3f6d-4371-a5dd-233dc41af824",
         "pageRef": "drugs"
       },
       {
-        "id": "summary-6",
+        "id": "summary6",
         "type": "Summary",
         "componentRef": "18a7c709-ae2f-48b3-b6f6-bd631f5d8d56",
         "pageRef": "drugs"
       },
       {
-        "id": "summary-7",
+        "id": "summary7",
         "type": "Summary",
         "componentRef": "b7417cf9-f806-4835-a3d1-424c8d094d5f",
         "pageRef": "drugs"
       },
       {
-        "id": "summary-group-1",
+        "id": "summary-group1",
         "type": "Summary",
         "componentRef": "arbeidserfaring-group",
         "pageRef": "work"
       },
       {
-        "id": "summary-8",
+        "id": "summary8",
         "type": "Summary",
         "componentRef": "25f720db-5784-4c95-a530-43f0bf523466",
         "pageRef": "attachment"
       },
       {
-        "id": "312afa87-c2a9-4ef1-a681-26cc47462878",
+        "id": "button1",
         "type": "Button",
-        "componentType": 9,
         "textResourceBindings": {
           "title": "Send inn"
-        },
-        "dataModelBindings": {},
-        "textResourceId": "Standard.Button.Button",
-        "customType": "Standard"
+        }
       }
     ]
   }

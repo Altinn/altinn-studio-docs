@@ -30,7 +30,7 @@ Here, you will recognize the appearance and settings that can be set on the pane
 }
 ```
 
-Here the group has been set up to be displayed as a panel with the variant "info". The setup is otherwise exactely the same as a regular group.
+Here the group has been set up to be displayed as a panel with the variant "info". The setup is otherwise exactly the same as a regular group.
 
 This will give the following output:
 
@@ -67,7 +67,7 @@ While filling out the suspicious transaction, the user remembers that they forgo
 
 This is where the `groupReference` parameter comes in handy. This will open up for the possibility to add an element to a repeating group from the context from which you are using this list.
 
-A picture to illustrate the usecase:
+A picture to illustrate the use case:
 
 ![GroupReference case](panel-reference-case.png "GroupReference case")
 

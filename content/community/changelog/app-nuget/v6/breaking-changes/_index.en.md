@@ -1,13 +1,13 @@
 ---
 title: Breaking changes
-description: Oversikt over breaking changes introdusert i App Nuget-pakker i v6.0.0.
+description: Overview over breaking changes introduced in App Nuget-packages in v6.0.0.
 tags: [translate-to-norwegian]
 ---
 
 
-Altinn.App.* librarires target .Net 6 now, which requires that the application does the same.
+Altinn.App.* libraries target .Net 6 now, which requires that the application does the same.
 
-In addition, all references to app and platform services have been moved from Startup.cs and should be replaced with 
+In addition, all references to app and platform services have been moved from Startup.cs and should be replaced with
 two method calls.
 
 Follow the instructions below to ensure that the app is compatible with version 6 of the Altinn.App.* packages.
@@ -69,10 +69,13 @@ Follow the instructions below to ensure that the app is compatible with version 
     ```
 
 3. Update program.cs  
-   The structure of program.cs has changed for dot net 6. Copy code from [this file](https://github.com/Altinn/app-template-dotnet/blob/5bcad2d485b3806b127604f2434d3ab833a7d142/src/App/Program.cs). 
+   The structure of program.cs has changed for dot net 6. Copy code
+   from [this file](https://github.com/Altinn/app-template-dotnet/blob/5bcad2d485b3806b127604f2434d3ab833a7d142/src/App/Program.cs)
+   .
 
-4. Add custom service referances  
-   If you have already added custom services and other changes to startup.cs and program.cs you need to add it to program.vs
+4. Add custom service references  
+   If you have already added custom services and other changes to startup.cs and program.cs you need to add it to
+   program.vs
 
 5. Delete startup.cs  
-This is no longer needed
+   This is no longer needed

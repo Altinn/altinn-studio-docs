@@ -5,11 +5,14 @@ toc: true
 weight: 40
 ---
 
-Texts are stored in resource files in the directory `App/config/texts`. Texts can be from common libraries, the data model or manually added by developers.
+Texts are stored in resource files in the directory `App/config/texts`. Texts can be from common libraries, the data
+model or manually added by developers.
 
-The text resources are available whne you edit UI components in the schema via Altinn Studio, and they are shown to the end user when the form is loaded in a browser.
+The text resources are available when you edit UI components in the schema via Altinn Studio, and they are shown to the
+end user when the form is loaded in a browser.
 
-Texts are stored in JSON-format and one file per language. The filename format for texts should be `resource.[language].json` f.ex: _resource.nb.json_.
+Texts are stored in JSON-format and one file per language. The filename format for texts should
+be `resource.[language].json` f.ex: _resource.nb.json_.
 
 Texts can be edited locally, directly in the JSON-files, or via the Altinn Studio text editor.
 
@@ -110,6 +113,44 @@ The texts are stored in `App/config/texts`
 
 ![Altinn Studio Repos](edit-texts-in-repos.png "Change texts in Altinn Studio Repos")
 
+## Change dafault texts and error messages in an application
+
+It is possible to change default texts and error messages that is displayed in the app. 
+Here are the keys with its default value in [English](https://github.com/Altinn/app-frontend-react/blob/main/src/language/texts/en.ts), 
+[Norwegian Bokmål](https://github.com/Altinn/app-frontend-react/blob/main/src/language/texts/nb.ts) and [Nynorsk](https://github.com/Altinn/app-frontend-react/blob/main/src/language/texts/nn.ts) 
+
+Those default texts that has a number needs to be handled in a different way. For example `file_uploader_validation_error` displays an error message if it is required to add one attachment. 
+This default error message will be displayed as "You need to upload 1 attachement(s) to continue'.
+
+![Tekster i appen](defaultErrorMessageEN.png "Default text displayed in application")
+
+These default text is devided in two strings, one before 
+the number: `You need to upload` and one text resource after the number: `attachement(s) to continue`. The number is for the 
+moment not possible to edit since it is connected to max and min number of attachements, in this case. but the text surrounding the number is possible to change.
+
+![Tekster i appen](defaultTextsEN.png "Default texts and keys")
+
+Add the text key and the new value in `App/configuration/texts/resouce`. Note that the key needs to reffer to the superior group and then the text key separated with a  `.` 
+
+```json
+    {
+      "id": "form_filler.file_uploader_validation_error_file_number_1",
+      "value": "You must upload",
+    },
+    {
+      "id": "form_filler.file_uploader_validation_error_file_number_2",
+      "value": "zip file containing all necessary files.",
+    }
+```
+
+This will result in an error message displaying this:
+![Tekster i appen](newErrorMessageEN.png "the new error message displayed")
+
+{{% notice warning %}} 
+If you would like to find more information about how to change default texts you can go to
+[Customize Views of Steps](https://docs.altinn.studio/app/development/configuration/process/customize/)
+{{% /notice %}}
+
 ## Variables in texts
 
 Variables in texts can be included by following the syntax below. It is important that the order of the variables in the variables array is the same order as the parameters in the text.
@@ -139,10 +180,15 @@ Variables in texts can be included by following the syntax below. It is importan
 
 It is currently possible to fetch values from 3 different data sources.
 
-1. Datamodell
-   By defining `dataModel.<dataModelNavn>` as the data source you can fetch values from the fields in the form that the user is filling out. Data can be fetched from fields regardless if they are visible or not. If the user changes data in a field referenced in a variable, the text will be updated when the user stops typing in the field.
+1. Data model
+   By defining `dataModel.<dataModelNavn>` as the data source you can fetch values from the fields in the form that the
+   user is filling out. Data can be fetched from fields regardless if they are visible or not. If the user changes data
+   in a field referenced in a variable, the text will be updated when the user stops typing in the field.
 2. Application Settings  
-   By defining `applicationSettings` as the data source you can fetch values from a specific section in `appsettings.{environment}.json` files with the key `FrontEndSettings`. This is a dynamic list you can extend without making changes to the code. This makes it possible to have different values in different environments. Be aware of the difference on first letter casing in the keys `FrontEndSettings` and `applicationSettings`.
+   By defining `applicationSettings` as the data source you can fetch values from a specific section
+   in `appsettings.{environment}.json` files with the key `FrontEndSettings`. This is a dynamic list you can extend
+   without making changes to the code. This makes it possible to have different values in different environments. Be
+   aware of the difference on first letter casing in the keys `FrontEndSettings` and `applicationSettings`.
    ```json
    "FrontEndSettings": {
      "HomeBaseUrl": "https://www.testdirektoratet.no"
@@ -223,16 +269,13 @@ Below is an example of a _FormLayout.json_ without help texts.
       {
         "id": "616071dc-90b1-4ce5-8d18-492844828a41",
         "type": "Header",
-        "componentType": 0,
         "textResourceBindings": {
           "title": "appName"
-        },
-        "dataModelBindings": {}
+        }
       },
       {
         "id": "08d707a9-2475-4d23-bf76-f209fb434ec2",
         "type": "TextArea",
-        "componentType": 7,
         "textResourceBindings": {
           "title": "tilleggsopplysninger.label",
           "description": "tilleggsopplysninger.desc"
@@ -244,13 +287,9 @@ Below is an example of a _FormLayout.json_ without help texts.
       {
         "id": "bd6589b6-e2ab-49ba-b39a-dd3f8b63e5de",
         "type": "Button",
-        "componentType": 9,
         "textResourceBindings": {
           "title": "Send inn"
-        },
-        "dataModelBindings": {},
-        "textResourceId": "Standard.Button.Button",
-        "customType": "Standard"
+        }
       }
     ]
   }
@@ -272,16 +311,13 @@ This is how the file looks after adding help texts:
       {
         "id": "616071dc-90b1-4ce5-8d18-492844828a41",
         "type": "Header",
-        "componentType": 0,
         "textResourceBindings": {
           "title": "appName"
-        },
-        "dataModelBindings": {}
+        }
       },
       {
         "id": "08d707a9-2475-4d23-bf76-f209fb434ec2",
         "type": "TextArea",
-        "componentType": 7,
         "textResourceBindings": {
           "title": "tilleggsopplysninger.label",
           "description": "tilleggsopplysninger.desc",
@@ -294,13 +330,9 @@ This is how the file looks after adding help texts:
       {
         "id": "bd6589b6-e2ab-49ba-b39a-dd3f8b63e5de",
         "type": "Button",
-        "componentType": 9,
         "textResourceBindings": {
           "title": "Send inn"
-        },
-        "dataModelBindings": {},
-        "textResourceId": "Standard.Button.Button",
-        "customType": "Standard"
+        }
       }
     ]
   }
@@ -309,17 +341,21 @@ This is how the file looks after adding help texts:
 
 ## Change application title
 
-When you create an application you have a textresource witht he label `appName`.
-This it the title of the application that will be displayed in several places in our solution, f.ex when an end user is filling out a form and when elements are displayed in the messagebox in altinn.no.
+When you create an application you have a text resource with he label `appName`.
+This it the title of the application that will be displayed in several places in our solution, f.ex when an end user is
+filling out a form and when elements are displayed in the messagebox in altinn.no.
 
 The title of the application is located in two places in the application repository:
 
-1.  In the textresource with the key `appName`.
-2.  In `applicationmetadata.json` in the `title` property. This file is located at `App/config/`.
+1. In the text resource with the key `appName`.
+2. In `applicationmetadata.json` in the `title` property. This file is located at `App/config/`.
 
-App owners are encouraged to add titles in bokmål, nynorsk and english. If a title is missing in the textresources the repository name will be used as a fallback, and may be shown to the end user.
+App owners are encouraged to add titles in bokmål, nynorsk and english. If a title is missing in the text resources the
+repository name will be used as a fallback, and may be shown to the end user.
 
-If you change `appName` from an IDE (f.ex Visual Studio Code), it is important to also update the title in `applicationmetadata.json`. If the title is changed from Altinn Studio on the "about" page or "languages" page, the `applicationmetadata.json` file is updated automatically.
+If you change `appName` from an IDE (f.ex Visual Studio Code), it is important to also update the title
+in `applicationmetadata.json`. If the title is changed from Altinn Studio on the "about" page or "languages" page,
+the `applicationmetadata.json` file is updated automatically.
 
 ### Application title configuration example
 
@@ -390,10 +426,12 @@ The application name and app owner is displayed at the top in the application.
 
 ![Tekster i appen](app-name-app-owner.png "Appnavn og appeier tekster")
 
-The application owner is fetched by default from the texts defined in [altinn-orgs.json](https://github.com/Altinn/altinn-cdn/blob/master/orgs/altinn-orgs.json).
-If you want to change this name, you can add the key `appOwner` in the text resources. This wil override the value coming from CDN.
+The application owner is fetched by default from the texts defined
+in [altinn-orgs.json](https://github.com/Altinn/altinn-cdn/blob/master/orgs/altinn-orgs.json).
+If you want to change this name, you can add the key `appOwner` in the text resources. This wil override the value
+coming from CDN.
 
-Eksempel:
+Example:
 
 ```json
 {

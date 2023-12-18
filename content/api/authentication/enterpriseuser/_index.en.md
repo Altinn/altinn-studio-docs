@@ -1,5 +1,5 @@
 ---
-title: Autentication with enterprise users
+title: Authentication with enterprise users
 linktitle: Enterprise users
 description: Description how to use enterprise users in Altinn 3
 toc: true
@@ -19,12 +19,14 @@ someone in the business needs to be involved in authorization.
 
 ## Enterprise users in Altinn 3
 
-Enterprise users in Altinn 3 can be used via regular business user login on Altinn.no with a certificate stored in a browser but is most relevant in connection with API use.
+Enterprise users in Altinn 3 can be used via regular business user login on Altinn.no with a certificate stored in a
+browser but is most relevant in connection with API use.
 
-This is done in a 2 step process. First you autehenticate the organization using Maskinporten
-and than you add username and password together 
+This is done in a 2 step process. First you authenticate the organization using Maskinporten
+and than you add username and password together
 
-the machine port for the actual authentication of the certificate, as well as an exchange of the machine port token together with the username and password.
+the machine port for the actual authentication of the certificate, as well as an exchange of the machine port token
+together with the username and password.
 
 Administration of Enterprise users is documented [here](https://altinn.github.io/docs/api/rest/kom-i-gang/virksomhetsbrukere/).
 

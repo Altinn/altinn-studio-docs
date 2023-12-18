@@ -1,34 +1,48 @@
 
 /* Version control for docs */
 .content-version-selector.border-box .content-version-container {
-    border: 3px solid #0062ba;
-    padding:10px;
+    border: 1px solid #0062ba;
+    padding:24px;
+    margin-bottom: 36px;
+    width: 100%;
 }
 
-#content-version-tabs {
-    margin-bottom:unset;
+#content-version-tabs li:not(:last-child) {
+    border-right: none;
 }
 
 #content-version-tabs li {
     list-style: none!important;
     display:inline-block;
     padding: 5px 20px;
-    border: 3px solid #0062ba;
-    border-bottom: unset;
+    border: 1px solid #0062ba;
+    border-bottom: none;
+    background-color: #FFFFFF;
     margin-bottom: 0px;
+    margin-top: 24px;
+    color: #0062ba
 }
 
 #content-version-tabs li.active {
-    background-color: #0062ba;
-    color:white;
+    border-color: #00315D;
+    background-color: #B3D0EA;
+    color: #00315D;
+}
+
+#content-version-tabs li.focus {
+    border-color: #0062BA;
+    background-color: #FFFFFF;
+    color: #0062BA;
 }
 
 #content-version-tabs li::before {
     display: none!important;
 }
+
 #content-version-tabs li:hover {
-    background-color: #0062ba;
-    color:white;
+    border-color: #004E95;
+    background-color: #E6EFF8;
+    color: #004E95;
     cursor: pointer;
 }
 
@@ -156,7 +170,7 @@ body.adocs-apps .a-globalNav-main li a[href*='/app/'],
 body.adocs-apis .a-globalNav-main li a[href*='/api/'],
 body.adocs-comm .a-globalNav-main li a[href*='/community/'],
 body.adocs-tech .a-globalNav-main li a[href*='/technology/'] {
-    border-bottom: solid white 3px !important;
+    border-bottom: solid #1e98f5 3px !important;
 }
 
 /* Jumbotron */
@@ -417,3 +431,155 @@ figure {
     font-size: 16px; }
     .a-st-iconLabel a {
       font-size: 16px; }
+
+
+/* expandbold shortcode */
+.expandbold {
+    padding: 20px;
+    background-color: #fafafa;
+    margin: 18px 0;
+}
+
+/* Component properties list and table */
+
+.adocs-expand .adocs-property-list {
+    font-size: 92%;
+}
+
+.adocs-property-list h3 {
+    border-bottom: 1px solid #BCC7CC;
+    padding: 5px 0;
+}
+
+.adocs-property-list .copy-to-clipboard {
+    display: none;
+}
+
+.adocs-property-table .copy-to-clipboard {
+    display: none;
+}
+
+.adocs-property-table .sub-prop:last-child {
+    border-bottom: 1.5px solid #BCC7CC;
+}
+
+.adocs-property-table .main-prop {
+    border-top: 1.5px solid #BCC7CC;
+}
+
+.adocs-property-table .main-prop:last-child {
+    border-bottom: 1.5px solid #BCC7CC;
+}
+
+
+/* Anatomy list (numbered) */
+
+.anatomy-list ol {
+    margin: 12px 0;
+}
+
+.anatomy-list ol li {
+    font-size: 92%;
+    padding-left: 5%;
+    margin-bottom: 6px;
+}
+
+.anatomy-list ol li::before, .anatomy-list li::before {
+    color: #0062BA;
+    border: none;
+    height: fit-content;
+    /* margin-right: 15px; */
+}
+
+/* Code block title */
+
+.code-title {
+    position: relative;
+    top: 30px;
+    background-color:#222;
+    padding: 15px;
+    padding-top: 0px;
+    margin-top: -30px;
+    border: 0;
+    border-radius: 7px;
+    box-shadow: 5px 0 5px rgba(68, 68, 68, 0.6);
+}
+
+.code-title code {
+    background-color:#222;
+    color: #707880;
+    border: 0;
+    font-size: 75%;
+}
+
+.code-title .copy-to-clipboard {
+    display: none;
+}
+
+/* Code title */
+
+h2 code, h3 code, h4 code {
+    color: unset;
+    background: none;
+    border: none;
+}
+
+h4 code {
+    font-weight: bold;
+}
+
+.expandsmall-header code + .copy-to-clipboard,
+h2 code + .copy-to-clipboard,
+h3 code + .copy-to-clipboard,
+h4 code + .copy-to-clipboard {
+display: none;
+}
+
+.expandsmall-header code {
+    color: unset;
+    background: none;
+    border: none;
+    border-radius: none;
+    padding: 0;
+    font-size: 88%;
+    vertical-align:baseline;
+}
+
+/* Clear search */
+
+input[type="search"] {
+    border: 1px solid gray;
+    padding: .2em .4em;
+    border-radius: .2em;
+  }
+  
+  input[type="search"].dark {
+    background: #222;
+    color: #fff;
+  }
+  
+  input[type="search"].light {
+    background: #fff;
+    color: #222;
+  }
+  
+  input[type="search"]::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    height: 1em;
+    width: 1em;
+    border-radius: 50em;
+    background: url(https://pro.fontawesome.com/releases/v5.10.0/svgs/solid/times-circle.svg) no-repeat 50% 50%;
+    background-size: contain;
+    opacity: 0;
+    pointer-events: none;
+    cursor: pointer;
+  }
+  
+  input[type="search"]:focus::-webkit-search-cancel-button {
+    opacity: .3;
+    pointer-events: all;
+  }
+  
+  input[type="search"].dark::-webkit-search-cancel-button {
+    filter: invert(1);
+  }

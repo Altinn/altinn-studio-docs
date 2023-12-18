@@ -59,13 +59,15 @@ You can now include the maxLength property in input fields to specify the maximu
   }
 }
 ```
+_Note_: When using `maxLength` within the form layout, it will only indicate the number of remaining characters. It doesn't validate the number of characters entered and user can still submit the form while it is exceeded the `maxLength`. 
+To validate the number of characters entered, you must also include the `maxLength` property in the JSON schema data model of the form. See [validation](/app/development/logic/validation/) for more information.
 
 ## Configuring automatic save while typing
 
 `Input` components, `TextArea` components and `AddressComponent` automatically save changes while the user
 is typing. By default, this happens 400 milliseconds after the user last stopped typing. At this point
 validation and triggers will execute as well. In cases where validations and triggers are resource intensive, it
-might be neccesary to increase the delay before saving automatically - or disable it altogether.
+might be necessary to increase the delay before saving automatically - or disable it altogether.
 
 This functionality can be controlled using the `saveWhileTyping` property of a component in the form layout. In the
 example below, data is saved 2 seconds after the user stopped typing.

@@ -4,12 +4,13 @@ description: Overview of changes introduced in version 5.
 toc: true
 ---
 
-## 5.3.0 (21.06.2022) - Support for autodeleting data elements
+## 5.3.0 (21.06.2022) - Support for auto deleting data elements
 
-This release introduces support for autodeleting dataelements when the process ends. This is to restrict end user's
-access to data elements after the process has been completed. 
+This release introduces support for auto deleting data elements when the process ends. This is to restrict end user's
+access to data elements after the process has been completed.
 
-To configure auto deletion include `"autodeleteOnProcessEnd":true` in the `appLogic` section of the dataType in `applicationmetadata.json`.
+To configure auto deletion include `"autodeleteOnProcessEnd":true` in the `appLogic` section of the dataType
+in `applicationmetadata.json`.
 A fully configured data element should look like this
 
 ```json

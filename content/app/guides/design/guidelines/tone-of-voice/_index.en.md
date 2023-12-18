@@ -1,12 +1,12 @@
 ---
 title: Language
-description: Guidelines should ensure common language and understandibility across services in Altinn. 
+description: Guidelines should ensure common language and understandability across services in Altinn. 
 weight: 20
 ---
 
 Usually you should use guidelines from the norwegian [language council (nb/nn)](https://www.sprakradet.no/klarsprak/om-skriving/generelle-skriverad-bokmal/) while writing. We have also defined some more specific rules for Altinn which we recommend following.
 
-We encurage writing form content in both bokmål, nynorsk and english.  
+We encourage writing form content in both bokmål, nynorsk and english.  
 ## General recommendations
 - Write in a spoken and simple language
 - Write directly to the user (use "you")
@@ -51,18 +51,18 @@ The text becomes more concrete when we use the verbs instead.
 - New inquiry → Inquire
 - Registration of error → Register error
 
-### Write activly, not passivly: 
+### Write actively, not passively: 
 In legal language it is often written that something has to be done and that it isn't desired to say who should do it.
 In Altinn's solutions there are often multiple people who have to do something, but we can directly address the user. 
 
 **Example:**  
-Preperations and planning activities must be done ahead of development of a service. →
+Preparations and planning activities must be done ahead of development of a service. →
 
-Make preperations and plan well before you start developing your service.
+Make preparations and plan well before you start developing your service.
 
-## Seperation of numbers
-Correct and consequent seperation of numbers assist the user in reading and seperating different types of numbers.
-None of the numbers should be seperated by a comma, only by spaces. In fields where the user will write longer numbers, it is usefull to indicate the number of digits. 
+## Separation of numbers
+Correct and consequent separation of numbers assist the user in reading and separating different types of numbers.
+None of the numbers should be seperated by a comma, only by spaces. In fields where the user will write longer numbers, it is useful to indicate the number of digits. 
 
 - Organisation numbers are seperated in groups of 3: 123 456 789
 - Bank account numbers are seperated into 4, 2 and 5: 1234 56 78901

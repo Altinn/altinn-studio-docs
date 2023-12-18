@@ -38,8 +38,9 @@ namespace Altinn.App.Api.Controllers
 }
 ```
 
-![Test of API in web browser](apiresponse1.png "API respons")
+![Test of API in web browser](apiresponse1.png "API response")
 
-The code can be viewed in [This repository](https://altinn.studio/repos/ttd/mva/src/branch/master/App/controllers/CustomApiController.cs). 
+The code can be viewed
+in [This repository](https://altinn.studio/repos/ttd/mva/src/branch/master/App/controllers/CustomApiController.cs).
 
 You can read more details about [the possibilities for exposing an API](https://docs.microsoft.com/en-us/aspnet/core/web-api/) in the documentation for ASP.NET.

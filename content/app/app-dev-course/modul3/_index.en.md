@@ -6,12 +6,11 @@ tags: [apps, training, build, deploy, test ]
 weight: 20
 ---
 {{% notice warning %}}
- This module requires that you are part of an organization with an enabled test environment for Altinn Apps. If this is not the case, move on to the next module.
+ This module requires that you are part of an [organization](/app/getting-started/create-user/#join-an-organization) with an enabled test environment for Altinn Apps. If this is not the case, move on to the [next module](../modul4/).
 {{% /notice %}}
 
 
 In this module you are going to build and deploy the application to Altinn's test environment (TT02) and verify that everything works as expected.
-
 
 **Topics covered in this module:**
 - Set custom requirements for resource use
@@ -43,11 +42,9 @@ All changes related to scaling and resource use are made in the `deployment/valu
 
 
 ### Useful documentation
-- [Set custom rules for scaling](/app/development/configuration/deployment/#scale)
+- [Set custom rules for scaling](/app/development/configuration/deployment/#scaling)
 - [Set custom limits for resource use](/app/development/configuration/deployment/#resources-configuration)
 {{% /expandlarge %}}
-
-
 
 {{% expandlarge id="build-application" header="Build application" %}}
 
@@ -62,7 +59,6 @@ and add a descriptive comment of what the version includes.
 - [Build app in Altinn Studio](/app/testing/deploy/#bygge-app)
 
 {{% /expandlarge %}}
-
 
 {{% expandlarge id="deploy-application" header="Deploy application" %}}
 
@@ -108,6 +104,35 @@ Internal users in Digdir should use one of the test users found in [the test dat
 
 In this module you have built and deployed your application to TT02, logged into Altinn with a test user and tested your application.
 
-### Solution
 
-If you did not manage to complete all the steps, we have an [example solution](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/3) that you can use as inspiration.
+## Løsningsforslag
+
+[Source code Module 3](https://altinn.studio/repos/testdep/flyttemelding-sogndal/src/branch/modul3)
+
+{{%expandlarge id="resources-solution" header="Set custom requirements for resource use"%}}
+
+The following changes have been made to the code:
+
+{{< code-title >}}
+App/deployment/values.yaml
+{{< /code-title >}}
+
+```yaml{linenos=false,hl_lines="3-7"}
+deployment:
+  
+  replicaCount: 1
+  
+  requests:
+      cpu: 50m
+      memory: 1286Mi
+
+...
+```
+
+{{%/expandlarge%}}
+
+<br><br>
+
+{{% center %}}
+[<< Previous module](../modul2/)      [Next module >>](../modul4/)
+{{% /center %}}

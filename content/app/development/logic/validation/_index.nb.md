@@ -42,8 +42,8 @@ Det er satt opp standard feilmeldinger for alle valideringene som gjøres på kl
 
 | Regel     | Feilmelding bokmål            | Feilmelding nynorsk           | Feilmelding engelsk                   |
 | --------- | ----------------------------- | ----------------------------- | ------------------------------------- |
-| min       | 'Minste gyldig verdi er {0}'  | 'Minste gyldig verdi er {0}'  | 'Minimum valid value is {0}'          |
-| max       | 'Største gyldig verdi er {0}' | 'Største gyldig verdi er {0}' | 'Maximum valid value is {0}'          |
+| minimum   | 'Minste gyldig verdi er {0}'  | 'Minste gyldig verdi er {0}'  | 'Minimum valid value is {0}'          |
+| maximum   | 'Største gyldig verdi er {0}' | 'Største gyldig verdi er {0}' | 'Maximum valid value is {0}'          |
 | minLength | 'Bruk {0} eller flere tegn'   | 'Bruk {0} eller flere tegn'   | 'Use {0} or more characters'          |
 | maxLength | 'Bruk {0} eller færre tegn'   | 'Bruk {0} eller færre tegn'   | 'Use {0} or fewer characters'         |
 | length    | 'Antall tillatte tegn er {0}' | 'Antall tillatte tegn er {0}' | 'Number of characters allowed is {0}' |
@@ -116,6 +116,25 @@ Og tekster i ressurs-fil:
 
 Da vil valideringmeldingen bli `"Du må fylle ut fornavnet ditt"`.
 
+### Erstatte feilmelding for påkrevde felter helt
+
+Hvis du ønsker å erstatte standardfeilmeldingen for obligatoriske felt fullstendig, kan du gjøre dette ved å legge til
+tekstnøkkelen `requiredValidation` i komponentens `textResourceBindings`-objekt. Dette vil erstatte standardfeilmeldingen
+for obligatoriske felt. Teksten kan være en [tekstnøkkel for en tekst som er definert i ressursfilene](../../ux/texts)
+for flerspråklig støtte.
+
+```json
+{
+  "id": "firstName",
+  "type": "Input",
+  "textResourceBindings": {
+    "title": "text-firstName",
+    "requiredValidation": "myCustomRequiredValidation"
+  },
+  ...
+}
+```
+
 ### Egendefinerte feilmeldinger
 Det er mulig å definere egne feilmeldinger som skal vises når et felt får valideringsfeil. Dette gjøres ved å legge på en parameter `errorMessage` der 
 hvor feltet er definert i JSON schema. JSON schema filen ligger i mappen `App/models` og følger navnestandard `*.schema.json`. 
@@ -174,11 +193,6 @@ Valideringer skrives i C# og avhengig av hvilken versjon av applikasjonsmalen og
 
 {{<content-version-selector classes="border-box">}}
 
-{{<content-version-container version-label="v4, v5, v6">}}
-Valideringer legges til i `ValidationHandler.cs` -filen i applikasjonsmalen.
-Filen kan aksesseres og endres i Altinn Studio via logikkmenyen, ved å velge _Rediger valideringer_,
-eller direkte i applikasjonsrepoet der ligger filen i `logic/Validation`-mappen.
-{{</content-version-container>}}
 
 {{<content-version-container version-label="v7">}}
 I versjon 7 har vi endret måten preutfylling med egendefinert kode gjøres på. Vi benytter nå _dependency injection_ i stedet for overstyring av metoder. Hvis du tidligere plasserte koden din i _ValidationHandler og _ValidateTask_ metodene in _ValidationHandler.cs_ klassen så vil du erfare at det er mer eller mindre det samme som nå gjøres.
@@ -190,6 +204,13 @@ I versjon 7 har vi endret måten preutfylling med egendefinert kode gjøres på.
     ```
     Dette sørger for at din kode er kjent for applikasjonen og at koden blir kjørt når den skal.
 {{</content-version-container>}}
+
+{{<content-version-container version-label="v4, v5, v6">}}
+Valideringer legges til i `ValidationHandler.cs` -filen i applikasjonsmalen.
+Filen kan aksesseres og endres i Altinn Studio via logikkmenyen, ved å velge _Rediger valideringer_,
+eller direkte i applikasjonsrepoet der ligger filen i `logic/Validation`-mappen.
+{{</content-version-container>}}
+
 {{</content-version-selector>}}
 
 Fra dette punktet og videre skal eksemplene være de samme for alle versjoner :)

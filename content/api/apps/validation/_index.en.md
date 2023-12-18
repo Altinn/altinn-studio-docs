@@ -71,7 +71,7 @@ Example response:
 
 ### Validate data
 
-The application will provide a method to validate the datamodel without creating a instance of the data. Data must be provided as formdata.
+The application will provide a method to validate the datamodel without creating a instance of the data. Data must be provided as form data.
 The validate method takes a data file of an dataType and performs validation on that file. It returns a validation report.
 
 ![Flowchart for data validation](data-validate.png "Validate data")

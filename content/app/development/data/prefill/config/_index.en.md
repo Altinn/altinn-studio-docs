@@ -1,7 +1,7 @@
 ---
 title: Prefilling data using configuration
 linktitle: Config
-description: How to configure prefill for an app using configration files.
+description: How to configure prefill for an app using configuration files.
 toc: false
 weight: 200
 ---
@@ -54,9 +54,10 @@ The example below will populate the field _Datamodell.Organisasjon.Organisasjons
 }
 ```
 
-- **DSF** here you enter fields from the data model that are to be prefilled with data from the National Population Register.
-The field that is prefilled with DSF-data will only have a value if you instantiate on behalf of a person.
-Instatiation will fail if you attempt to prefill DSF-data, but do not have a person available.
+- **DSF** here you enter fields from the data model that are to be prefilled with data from the National Population
+  Register.
+  The field that is prefilled with DSF-data will only have a value if you instantiate on behalf of a person.
+  Instantiation will fail if you attempt to prefill DSF-data, but do not have a person available.
 
 The example below will populate the field _Datamodell.Person.Nummer_ with the phone number retrieved from the National Population Register.
 
@@ -129,8 +130,13 @@ Available values for prefill includes:
 
 #### User profile
 
-The user profile exposed is the profile belonging to the one who instantiatd the service. If Ola Nordmann instantiates a form on behalf of
-Kari Nordmann, the data retrieved from here would belong to Ola. For the objects Party.Organization and Party.Person, you will find the same fields that are included in ER and DSF-prefill. Note that Party.Organization will be null if the user is logged in as an individual, and the equivalent if they are logged in with a business user. The prefill will fail if the object you prefill from does not exist, so if you wish to dynamically prefill based on these values it has to be setup as [custom prefill.](../custom/).
+The user profile exposed is the profile belonging to the one who instantiated the service. If Ola Nordmann instantiates
+a form on behalf of
+Kari Nordmann, the data retrieved from here would belong to Ola. For the objects Party.Organization and Party.Person,
+you will find the same fields that are included in ER and DSF-prefill. Note that Party.Organization will be null if the
+user is logged in as an individual, and the equivalent if they are logged in with a business user. The prefill will fail
+if the object you prefill from does not exist, so if you wish to dynamically prefill based on these values it has to be
+setup as [custom prefill.](../custom/).
 Available values for prefill includes:
 
 - UserId

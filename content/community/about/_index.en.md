@@ -23,7 +23,7 @@ and private sector in Norway reports that they're [saving over 15 billion NOK ea
 The current platform has almost 1000 active solutions supporting different user scenarios.  
 Examples of solutions in the current platform is: Tax reporting, aircraft incident reporting, correspondence services from health department, lookup service in to the business register and many many more.
 
-![Consept](concept3.svg "Altinn 3 concept")
+![Concept](concept3.svg "Altinn 3 concept")
 
 ## Concept
 

@@ -3,7 +3,7 @@ title: Create user in Altinn Studio
 linktitle: Create user
 description: Configure your user in Altinn Studio for the first time.
 toc: true
-weight: 100
+weight: 1
 ---
 
 ## Create a user in Altinn Studio
@@ -37,13 +37,22 @@ Your Altinn Studio user is personal to you and can be linked to one or more orga
 
 ## Join an organization
 
-Organizations in Altinn Studio are the same as service owners in Altinn.
-They own the applications and enable collaboration between people within the organization.
+Organizations in Altinn Studio own the applications and enable collaboration between people within the organization.
 
 To join an organization, an administrator must grant you access.
-If you're uncertain about the administrator or if your organization is available in Altinn Studio, you can seek assistance from the Altinn Servicedesk (mailto:tjenesteeier@altinn.no).
+If you're uncertain about the administrator or if your organization is available in Altinn Studio,
+you can seek assistance from the Altinn Servicedesk (mailto:tjenesteeier@altinn.no).
 
 ## Create an organization
+
+Digdir creates the organizations in Altinn Studio.
+
+To get an organization in Altinn Studio, your organization must
+
+- be a service owner and have an agreement with Altinn, or
+- offer service development in Altinn Studio on behalf of organizations in public sector
+
+Organizations that are not service owners will not get access to their own test or production environment.
 
 To create an organization, email [Altinn Servicedesk](mailto:tjenesteeier@altinn.no) with the organization's name and who will be the administrator.
 Creating the organization may require a few days, and we will notify you via email when it's ready.

@@ -8,7 +8,7 @@ weight: 400
 
 Altinn apps support instantiation with prefill.
 The form data is attached in a multipart in the instantiation request that is sent to the app.
-Below you will se an example of a requeest to instantiate an app with prefill for partyID 12345.
+Below you will se an example of a request to instantiate an app with prefill for partyID 12345.
 
 ```http {hl_lines=[10]}
 Content-Type: multipart/form-data; boundary="abcdefg"

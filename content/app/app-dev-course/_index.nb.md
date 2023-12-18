@@ -11,7 +11,7 @@ weight: 15
 Introkurset er delt opp i 7 moduler og dekker et fiktivt case for Sogndal kommune.
  Hver modul har en beskrivelse av oppgaven og lenker til relevant dokumentasjon.
 
-Du kan velge å utføre oppgavene i [Altinn Studio Designer](/nb/app/getting-started/ui-editor) (grafisk brukergrensesnitt med dra-og-slipp) eller i et [lokalt utviklingsmiljø](/nb/app/getting-started/local-dev) (krever noe teknisk kompetanse).
+Du kan velge å utføre oppgavene i [Altinn Studio Designer](/nb/app/getting-started) (grafisk brukergrensesnitt med dra-og-slipp) eller i et [lokalt utviklingsmiljø](/nb/app/getting-started/local-dev) (krever noe teknisk kompetanse).
  Du kan også kombinere disse fremgangsmåtene.
 
 I løpet av disse syv modulene vil du ha vært innom den mest sentrale funksjonaliteten for en Altinn-app,
@@ -32,7 +32,7 @@ Før du kan bygge en applikasjon er det en del ting som må være på plass. Gå
 
 1. [Opprett bruker](/nb/app/getting-started/create-user)
 2. [Lær å navigere Altinn Studio](/nb/app/getting-started/navigation)
-3. [Gjør deg kjent med Altinn Studio Designer](/nb/app/getting-started/ui-editor)
+3. [Gjør deg kjent med Altinn Studio Designer](/nb/app/getting-started)
 
 Les gjennom kravspesifikasjonene til Sogndal kommune og jobb deg gjennom modul for modul.
 

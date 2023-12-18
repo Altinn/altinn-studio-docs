@@ -1,12 +1,12 @@
 ---
 title: What's new
 description: Overview of changes introduced in v3 of app frontend.
-toc: true
 ---
 
-Changelog for app-frontend can now be [found on Github Releases](https://github.com/Altinn/app-frontend-react/releases).
-
 For a high-level overview of [upcoming changes, you can check out the roadmap](https://github.com/Altinn/altinn-roadmap/issues).
+
+## >3.37.2
+Changelog for app-frontend can now be [found on Github Releases](https://github.com/Altinn/app-frontend-react/releases).
 
 ## 3.37.2 (2022-05-20) - Dependency patching
 Patching of external dependencies for week 20 of 2022.
@@ -71,9 +71,11 @@ These colors have been adjusted slightly to follow standard theme colors.
 Issue [#11](https://github.com/Altinn/app-frontend-react/issues/11).
 
 ## 3.34.1 (2022-04-22) - Fixed invalid HTML attribute in ImageComponent
-The `width` attributte on `img` element can only be [a number that represents px](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-width). We have support for other units, f.ex %. 
+The `width` attribute on `img` element can only
+be [a number that represents px](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-width). We have
+support for other units, f.ex %.
 The width declaration was moved to inline styling instead to resolve this issue.
-Issue [#14](https://github.com/Altinn/app-frontend-react/issues/14). 
+Issue [#14](https://github.com/Altinn/app-frontend-react/issues/14).
 
 ## 3.34.0 (2022-04-11) - Options from the data model
 Added possibility to setup options from repeating groups in the data model. Read more on [docs.](/app/development/data/options/repeating-group-codelists)
@@ -91,7 +93,7 @@ Issue [#5073](https://github.com/Altinn/altinn-studio/issues/5073).
 Added support for defining row or columns layout for radio and checkbox.
 Issue [#5730](https://github.com/Altinn/altinn-studio/issues/5730).
 
-## 3.33.2 (2022-03-24) - Adjusted height of inputfields and date picker
+## 3.33.2 (2022-03-24) - Adjusted height of input fields and date picker
 The height of these fields was incorrect. They are now set to 36px height.
 Issue [#7377](https://github.com/Altinn/altinn-studio/issues/7377).
 
@@ -166,37 +168,45 @@ New styling for button component to match figma skcetches.
 Pull request [#8057](https://github.com/Altinn/altinn-studio/pull/8057).
 
 ## 3.31.0 (2022-02-16) - Added possibility to override texts in archive receipt
-Texts in archive receipt can now be overidden by the application, and also supports markdown and variables.
+
+Texts in archive receipt can now be overridden by the application, and also supports markdown and variables.
 
 Issue [#7902](https://github.com/Altinn/altinn-studio/issues/7902).
 
 ## 3.30.0 (2022-02-16) - Added refetching of options.
+
 Added functionality for refetching dynamic options when a mapping field changes.
 
 Issue [#7888](https://github.com/Altinn/altinn-studio/issues/7888).
 
 ## 3.29.1 (2022-02-14) - Fixed issue with variables in texts being ignored on calculation
+
 This fixes an issue that was introduced in 3.29.0
 
 Pull request [#8045](https://github.com/Altinn/altinn-studio/pull/8045).
 
-## 3.29.0 (2022-02-11) - Added Navigationbar component 
-Added Navigationbar component
+## 3.29.0 (2022-02-11) - Added Navigation bar component
+
+Added Navigation bar component
 
 Issue [#5893](https://github.com/Altinn/altinn-studio/issues/5893).
 
-## 3.28.2 (2022-02-10) - Moved testfiles
+## 3.28.2 (2022-02-10) - Moved test files
+
 No code changes
 
 Pull request [#7999](https://github.com/Altinn/altinn-studio/pull/7999).
 
 ## 3.28.1 (2022-02-09) - Fixed an issue in checkbox component
-This fixed an issue introduced in 3.27.5, where changes to checkbox items could cause the simplebinding value to be set to `,`.
+
+This fixed an issue introduced in 3.27.5, where changes to checkbox items could cause the simplebinding value to be set
+to `,`.
 
 Pull request [#7996](https://github.com/Altinn/altinn-studio/pull/7996).
 
 ## 3.28.0 (2022-02-09) - Added FileUploadWithTag component
-Added fileupload component with option to tag files
+
+Added file upload component with option to tag files
 
 Issue [#6479](https://github.com/Altinn/altinn-studio/issues/6479).
 
@@ -288,7 +298,8 @@ Patching of external dependencies for week 2 of 2022.
 Issue [#7753](https://github.com/Altinn/altinn-studio/issues/7753).
 
 ## 3.22.6 (2022-01-11) - Bugfix repeating groups
-Fixed a bug where repeating group state would not be cleared when loading a new formlayout.
+
+Fixed a bug where repeating group state would not be cleared when loading a new form layout.
 Issue [#7773](https://github.com/Altinn/altinn-studio/issues/7773).
 
 ## 3.22.5 (2022-01-10) - Optimization for SummaryGroupComponent
@@ -352,22 +363,27 @@ Fixed maxWidth for input and spacing for address component.
 Issue [#6697](https://github.com/Altinn/altinn-studio/issues/6697).
 
 ## 3.18.2 (2021-11-30) - Optimization for mobile view - spacing
+
 Fixed spacing for header and paragraph.
 Issue [#6697](https://github.com/Altinn/altinn-studio/issues/6697).
 
 ## 3.18.1 (2021-11-30) - Optimization for mobile view - maxWidth
+
 Changed max-width of validation error from auto to none.
 Issue [#6697](https://github.com/Altinn/altinn-studio/issues/6697).
 
-## 3.18.0 (2021-11-29) - Support for labelgrid
-Support for labelgrid in grid enabling long lists of short questions and answers to be presented in a table like way
+## 3.18.0 (2021-11-29) - Support for label grid
+
+Support for label grid in grid enabling long lists of short questions and answers to be presented in a table like way
 Issue [#7027](https://github.com/Altinn/altinn-studio/pull/7027).
 
 ## 3.17.1 (2021-11-24) - Bugfix DataProcessWrite
+
 Fixed bug where numeric fields that gets changed in DataProcessWrite are not updated if their value happened to be 0.
 Issue [#7393](https://github.com/Altinn/altinn-studio/issues/7393).
 
 ## 3.17.0 (2021-11-24) - Mobile optimization layout
+
 Added some optimized layout for our mobile view.
 Issue [#6697](https://github.com/Altinn/altinn-studio/issues/6697).
 
@@ -376,22 +392,27 @@ Changed help text icon from plus to question mark.
 Issue [#5722](https://github.com/Altinn/altinn-studio/issues/5722).
 
 ## 3.15.1 (2021-11-18) - Invalid types for reselect
+
 Fixed invalid types in reselect.
-Pull request [#7502](https://github.com/Altinn/altinn-studio/pull/7502).  
+Pull request [#7502](https://github.com/Altinn/altinn-studio/pull/7502).
 
 ## 3.15.0 (2021-11-15) - Support for returnUrl
+
 Added support for returnUrl in app-frontend.
 Issue [#7183](https://github.com/Altinn/altinn-studio/issues/7183).
 
-## 3.14.2 (2021-11-11) - Patching of jsonpointer
-Patching of external dependency jsonpointer.
+## 3.14.2 (2021-11-11) - Patching of json pointer
+
+Patching of external dependency json pointer.
 Issue [#7317](https://github.com/Altinn/altinn-studio/issues/7317).
 
 ## 3.14.1 (2021-11-11) - Dependency patching
+
 Patching of external dependencies for week 45.
 Issue [#7317](https://github.com/Altinn/altinn-studio/issues/7317).
 
 ## 3.14.0 (2021-11-08) - Today-flag for datepicker min/max dates
+
 Added a flag to dynamicly control min/max dates based on the current date.
 Issue [#7228](https://github.com/Altinn/altinn-studio/issues/7228).
 
@@ -503,7 +524,8 @@ Patching of external dependencies for w32.
 Issue [#6600](https://github.com/Altinn/altinn-studio/issues/6600).
 
 ## 3.9.8 (2021-08-05) - Dependency patching
-Patching of external dependenecies for w31.
+
+Patching of external dependencies for w31.
 Issue [#6571](https://github.com/Altinn/altinn-studio/issues/6571).
 
 ## 3.9.7 (2021-08-03) - Bugfix print view
@@ -511,7 +533,8 @@ Fixed a bug where the print view for Altinn Apps would display an empty containe
 Issue [#6578](https://github.com/Altinn/altinn-studio/issues/6578).
 
 ## 3.9.6 (2021-08-02) - Dependency patching
-Patching of external dependenecies for w30.
+
+Patching of external dependencies for w30.
 Issue [#6571](https://github.com/Altinn/altinn-studio/issues/6571).
 
 ## 3.9.5 (2021-07-28) - Bugfix for mobile view during app startup
@@ -565,10 +588,11 @@ Fixed bug for navigation buttons configured with multiple triggers, where only t
 Issue [#6387](https://github.com/Altinn/altinn-studio/issues/6387).
 
 ## 3.6.9 (2021-06-14) - Bugfix variables in text
-Fixed bug where only first occurance of a variable in a given text was replaced.
+
+Fixed bug where only first occurrence of a variable in a given text was replaced.
 Issue [#6091](https://github.com/Altinn/altinn-studio/issues/6091)
 
-## 3.6.8 (2021-06-11) - New endpoints for statless app
+## 3.6.8 (2021-06-11) - New endpoints for stateless app
 New endpoints for stateless app.
 Issue [#6227](https://github.com/Altinn/altinn-studio/issues/6227)
 
@@ -588,7 +612,7 @@ Issue [#6321](https://github.com/Altinn/altinn-studio/issues/6321).
 Fixed bug where simple receipt did not parse markdown if the app overrides defult texts.
 Issue [#6232](https://github.com/Altinn/altinn-studio/issues/6362).
 
-## 3.6.3 (2021-06-02) Bufix for content loader
+## 3.6.3 (2021-06-02) Bugfix for content loader
 Fixed bug where content loader did not scale for whole view.
 Issue [#4888](https://github.com/Altinn/altinn-studio/issues/4888).
 
@@ -668,7 +692,7 @@ App now supports help text for paragraph and header components. Issue [#5862.](h
 ## 3.0.16 (2021-04-06) - Dependency patching
 Patching of external dependencies. Issue [#5877.](https://github.com/Altinn/altinn-studio/issues/5877)
 
-## 3.0.15 (2021-03-22) - Bugix for group component with checkboxes
+## 3.0.15 (2021-03-22) - Bugfix for group component with checkboxes
 Fixed bug where group component summary would display an empty value for checkboxes that had several selected values. Issue [#5907.](https://github.com/Altinn/altinn-studio/issues/5907)
 
 ## 3.0.14 (2021-03-19) - Dependency patching
@@ -694,26 +718,37 @@ Patching of external dependencies. Issue [#5771.](https://github.com/Altinn/alti
 App frontend now supports dynamicly fetching the page order on next page ("sporvalg"). See [docs](https://altinn.github.io/docs/altinn-studio/app-creation/sporvalg/) for more information. Issue [#5640.](https://github.com/Altinn/altinn-studio/issues/5640) 
 
 ## 3.0.7 (2021-03-09) - Bugfix for page caching
-Fixed issue where the app would cache the first page in alphabetical order and not respect the order in Settings.json. Issue [#5819.](https://github.com/Altinn/altinn-studio/issues/5819) 
+Fixed issue where the app would cache the first page in alphabetical order and not respect the order in Settings.json. Issue [#5819.](https://github.com/Altinn/altinn-studio/issues/5819)
 
 ## 3.0.6 (2021-03-08) - Caching of last viewed page
-Introduced caching of the last viewed form page, so user is returned to this page when refreshing or coming back at a later
-time. Issue [#5278.](https://github.com/Altinn/altinn-studio/issues/5278) 
+
+Introduced caching of the last viewed form page, so user is returned to this page when refreshing or coming back at a
+later
+time. Issue [#5278.](https://github.com/Altinn/altinn-studio/issues/5278)
 
 ## 3.0.5 (2021-03-05) - Dependency patching
-Patching of external dependencies. Issue [#5770.](https://github.com/Altinn/altinn-studio/issues/5770) 
+
+Patching of external dependencies. Issue [#5770.](https://github.com/Altinn/altinn-studio/issues/5770)
 
 ## 3.0.4 (2021-03-05) - Bugfix for text styling in titles/descriptions
-Fix issue where label and description texts would get cut off mid word. Issue [#5810.](https://github.com/Altinn/altinn-studio/issues/5810)
 
-## 3.0.3 (2021-03-02) - Bugfix for metadata with layoutsets
-Fix issue where app-frontend feched wrong metadata when using layoutsets. Issue [#5624.](https://github.com/Altinn/altinn-studio/issues/5624) 
+Fix issue where label and description texts would get cut off mid word.
+Issue [#5810.](https://github.com/Altinn/altinn-studio/issues/5810)
+
+## 3.0.3 (2021-03-02) - Bugfix for metadata with layout sets
+
+Fix issue where app-frontend fetched wrong metadata when using layout sets.
+Issue [#5624.](https://github.com/Altinn/altinn-studio/issues/5624)
 
 ## 3.0.2 (2021-02-26) - Dependency patching
-Patching of external dependencies. Issue [#5676.](https://github.com/Altinn/altinn-studio/issues/5676) 
+
+Patching of external dependencies. Issue [#5676.](https://github.com/Altinn/altinn-studio/issues/5676)
 
 ## 3.0.1 (2021-02-25) - Horizontally aligned components & Bugfix for loading options
-App-frontend now supports horizontally aligned components. See [docs](https://altinn.github.io/docs/altinn-studio/app-creation/ui-editor/layout-style/#sidestilte-komponenter) for more information. Issue [#1515.](https://github.com/Altinn/altinn-studio/issues/1515) 
+
+App-frontend now supports horizontally aligned components.
+See [docs](https://altinn.github.io/docs/altinn-studio/app-creation/ui-editor/layout-style/#sidestilte-komponenter) for
+more information. Issue [#1515.](https://github.com/Altinn/altinn-studio/issues/1515)
 
 Fix issue that only loaded options related to form layout in first data task - for subsequent data tasks
 options were not loaded. Issue [#5619.](https://github.com/Altinn/altinn-studio/issues/5619)
