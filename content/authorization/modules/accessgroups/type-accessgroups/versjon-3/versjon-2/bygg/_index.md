@@ -8,7 +8,7 @@ Tilbake til [hovedoversikt](http://localhost:1313/authorization/modules/accessgr
 
 
 ## Fullmaktsgruppe 
-![Bygg, anlegg og eiendom](bae.jpg "Bygg, anlegg og eiendom")
+![Bygg, anlegg og eiendom] (bae.jpg "Bygg, anlegg og eiendom")
 - **Bygg, anlegg og eiendom:** Denne fullmakten gir tilgang til alle tjenester som angår bygge og anleggsvirksomhet, samt oppføring, omsetning og drift av anlegg/eiendom. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
 	- **Plan og byggesaker:** Denne fullmakten gir tilgang til alle tjenester knyttet til plan og byggesaker. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
 		- **Byggesøknad:** Denne fullmakten gir tilgang til alle tjenester som ansvarlig søker/tiltakshaver trenger, for eksempel byggesøknader, direkte signerte erklæringer, nabovarsel og eiendomssak. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
@@ -29,7 +29,7 @@ Tilbake til [hovedoversikt](http://localhost:1313/authorization/modules/accessgr
 |Byggesøknad|ja|ja|DAGL, LEDE, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
 |Plansak|ja|ja|DAGL, LEDE, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
 |Motta nabo- og planvarsel|ja|ja|DAGL, LEDE, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
-|Oppføring av bygg og anlegg|ja|ja|DAGL, LEDE, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
+|Oppføring av bygg og annlegg|ja|ja|DAGL, LEDE, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
 |Omsetning og drift av eiendom|ja|nei||
 |Kjøp og salg av eiendom|ja|ja|DAGL, LEDE, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
 |Utleie av eiendom|ja|ja|DAGL, LEDE, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|

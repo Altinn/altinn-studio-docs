@@ -6,7 +6,7 @@ weight: 106
 ---
 Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-2/#oversikt-over-fullmaktsgrupper)
 
-![Personale](per.jpg "Personale")
+![Personale] (per.jpg "Personale")
 
 - **Personale:** Denne fullmakten gir tilgang til alle tjenester som angår ansatte og personalforhold. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. 
 	- **Ansettelsesforhold:** Denne fullmakten gir tilgang til alle tjenester knyttet til ansettelsesforhold. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. 

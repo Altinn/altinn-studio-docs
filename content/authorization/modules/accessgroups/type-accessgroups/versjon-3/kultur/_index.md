@@ -14,7 +14,7 @@ Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroup
 	- **Lotteri og spill:** Denne fullmakten gir tilgang til alle tjenester knyttet til lotteri og spill, som f eks kasinoer, bingohaller og videospillhaller samt spillevirksomhet som f.eks. lotterier og veddemål som inngås utenfor banen
 	- **Sports- og fritid:** Denne fullmakten gir tilgang til alle tjenester knyttet til sports- og fritidsaktiviteter 
 	- **Fornøyelser:** Denne fullmakten gir tilgang til alle tjenester knyttet til drift av fornøyelsesetablissementer
-	- **Politikk:** Denne fullmakten gir tilgang til alle tjenester knyttet til aktiviteter i forbinndelse med politisk arbeid
+	- **Politikk:** Denne fullmakten gir tilgang til alle tjenester knyttet til aktiviteter i forbindelse med politisk arbeid
 
 
 ## Egenskaper ved fullmaktsgruppene
@@ -31,4 +31,4 @@ Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroup
 
 {{% notice warning %}} Det er fortsatt uavklart hvilke fullmakter det vil være natulig å gi personer med rollen Forretningsførerer innenfor fullmaktsområdet "Kultur og frivillighet" {{% /notice %}}
 
-Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-2/#oversikt-over-fullmaktsgrupper)
+Tilbake til [hovedoversikt] (/authorization/modules/accessgroups/type-accessgroups/versjon-2/#oversikt-over-fullmaktsgrupper)
