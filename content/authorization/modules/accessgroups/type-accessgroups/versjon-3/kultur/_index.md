@@ -4,7 +4,7 @@ linktitle: Kultur, frivillighet
 description: Denne fullmaktsgruppen er relevant for alle virksomheter
 weight: 119
 ---
-Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-2/#oversikt-over-fullmaktsgrupper)
+Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-3/#oversikt-over-fullmaktsgrupper)
 
 
 ![Kultur og frivillighet](kf.jpg "Kultur og frivillighet")

@@ -4,7 +4,7 @@ linktitle:  Post og arkiv
 description: Denne fullmaktsgruppen er relevant for alle virksomheter som mottar post fra det offentlige. skal utføre tjenester relatert til mlijø, ulykke og sikkerhet
 weight: 108
 ---
-Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-2/#oversikt-over-fullmaktsgrupper)
+Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-3/#oversikt-over-fullmaktsgrupper)
 
 ![Post/arkiv](post.jpg "Post/arkiv")
 - **Post og arkiv:** (ingen beskrivelse, fullmaktsgruppen kan ikke gis videre til andre)

@@ -4,7 +4,7 @@ linktitle: Energi, vann, avløp, avfall
 description: Denne fullmaktsgruppen er relevant for alle virksomheter
 weight: 117
 ---
-Tilbake til [hovedoversikt](http://localhost:1313/authorization/modules/accessgroups/type-accessgroups/versjon-2/#oversikt-over-fullmaktsgrupper)
+Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-3/#oversikt-over-fullmaktsgrupper)
 
 
 

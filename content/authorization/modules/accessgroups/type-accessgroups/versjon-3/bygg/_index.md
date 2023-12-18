@@ -4,7 +4,7 @@ linktitle: Bygg, anlegg, eiendom
 description: Denne fullmaktsgruppen er relevant for for tjenester rettet mot virksomheter med aktivitet innen bygg, anlegg og eiendom
 weight: 113
 ---
-Tilbake til [hovedoversikt](http://localhost:1313/authorization/modules/accessgroups/type-accessgroups/versjon-2/#oversikt-over-fullmaktsgrupper)
+Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-3/#oversikt-over-fullmaktsgrupper)
 
 
 ## Fullmaktsgruppe 
