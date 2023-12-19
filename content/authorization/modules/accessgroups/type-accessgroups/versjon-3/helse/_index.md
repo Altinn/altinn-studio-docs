@@ -4,6 +4,7 @@ linktitle: Helse, pleie, omsorg
 description: Denne fullmaktsgruppen er relevant for alle tjenester rettet mot virksomheter med aktivitet innen Helse, pleie, omsorg og vern
 weight: 115
 ---
+
 Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-3/#oversikt-over-fullmaktsgrupper)
 
 

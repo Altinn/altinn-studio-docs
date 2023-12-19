@@ -20,13 +20,13 @@ I denne modulen skal du utvide applikasjonen du har laget i foregående moduler 
 I mange applikasjoner er det behov for å gi brukeren et sett med svaralternativer for et datafelt.
 Svaralternativene refereres til som _kodelister_ eller _options_.
 
-I Altinn Studio er dette støttet i form av radioknapper, avkrysningsbokser og nedtrekkslister.
+I Altinn Studio er alternativer støttet av komponentene [radioknapper](/nb/app/development/ux/components/radiobuttons/), [avkrysningsbokser](/nb/app/development/ux/components/checkboxes/), [nedtrekkslister](/nb/app/development/ux/components/dropdown/) og [flervalg](/nb/app/development/ux/components/multipleselect/).
 
 {{% notice info %}}
-Det er tre måter å sette opp kodelister i Altinn i dag
- 1. Direkte på komponenten via Altinn Studio eller manuelt i `{page}.json`
- 2. I en statisk json-fil som referes til i komponenten
- 3. Programmatisk i applikasjonslogikken
+Det er tre måter å sette opp kodelister (legge til alternativer) i Altinn:
+ 1. Ved å legg til alternativer manuelt for komponenten via Altinn Studio eller i filen `{page}.json`
+ 2. Ved å la komponenten hente alternativer fra en statisk json-fil.
+ 3. Ved å generere alternativer dynamisk med applikasjonslogikk.
 {{% /notice %}}
 
 I denne oppgaven skal du få prøve deg på alle tre måtene å sette opp en kodeliste.
@@ -34,10 +34,9 @@ I denne oppgaven skal du få prøve deg på alle tre måtene å sette opp en kod
 Sogndal kommune ønsker å samle inn opplysninger om tilflytterens arbeidsituasjon.
  Blant dataen de ønsker å samle inn er hvilken **sektor** og **bransje** tilflytter jobber i og hvor mange **år** tilflytter har vært yrkesaktiv.
 
-
 ### I Altinn Studio
 
-1. Opprett en ny skjemaside for å samle inn data om arbeidsforhold
+1. Opprett en ny skjemaside for å samle inn data om arbeidsforhold.
 2. Legg til en **radioknapp**-komponent for _Sektor_ og opprett svaralternativene `Offentlig` og `Privat` manuelt.
 3. Legg til en **avkrysningsboks** for _Bransje_.
    Velg _Kodeliste_ som metode for å legge til avkrysningsboker og legg inn _Kodeliste ID_ `industry`. Resten av oppsettet for denne komponenten gjøres lokalt.
@@ -80,9 +79,9 @@ I enkelte tilfeller så kan det tenkes at man ønsker å eksponere svaralternati
 
 {{% expandlarge id="dynamikk-expandable" header="Differensiert datagrunnlag for offentlig og privat sektor" %}}
 
-I noen tilfeller kan verdiene som skal vises fram i en kodeliste være knyttet til et annet felt i skjemaet.
+I noen tilfeller kan verdiene som skal vises fram i en kodeliste være avhengig av et annet skjemafelt.
 
-Sogndal kommune ønsker at listen av bransjer å velge mellom skal spisses til hvilken sektor man jobber i.
+Sogndal kommune ønsker at listen av bransjer skal tilpasses hvilken sektor man jobber i.
 
 Les gjennom kravene til kommunen for å se om du kan hjelpe dem.
 
@@ -115,20 +114,20 @@ Om brukeren f.eks. har valgt kommune fra en nedtrekksliste over kommuner som er 
 
 {{% /expandlarge %}}
 
-{{% expandlarge id="dynamikk-skjemavisning" header="Skreddersydd tilbud for IT-kompetanse" %}}
+{{% expandlarge id="it-expandable" header="Skreddersydd tilbud for IT-kompetanse" %}}
 
 ### Krav fra kommunen
 
-Vi ønsker at dersom brukeren velger `IKT (data/it)` under bransje at det vises en tekst med en lenke til en av våre stillingsutlysninger.
+Dersom brukeren velger `IKT (data/it)` under bransje skal det vises en tekst og en lenke til en av våre stillingsutlysninger.
 
-- Under bransje-valget skal følgende tekst presenteres:
+Under bransje-valget skal følgende tekst presenteres:
 
    
    > Vi ser at du besitter kompetanse vi trenger i kommunen.
    > Se en oversikt over våre ledige stillinger her.
     
 
-- Linje 2 i teksten skal være en hyperlenke som peker på https://sogndal.easycruit.com/index.html.
+Linje 2 i teksten skal være en hyperlenke som peker på https://sogndal.easycruit.com/index.html.
 
 Tekst og lenke skal **kun** vises om man har valgt `IKT (data/it)`. I alle andre tilfeller skal dette være skjult.
 
@@ -153,15 +152,14 @@ I denne modulen har du lagt til nedtrekksliste, radioknapp og avkrysningsbokser 
 Tjenesten skal kunne kjøres opp på din lokale maskin med localtest
 og du skal kunne validere at komponentene presenterer forventede dataverdier.
 
-**Husk å _pushe_ de lokale endringene dine så de blir tilgjengelig i Altinn Studio.**
+*Husk å pushe de lokale endringene dine så de blir tilgjengelig i Altinn Studio.*
 
 ## Løsningsforslag
-[Kildekode Modul 4](https://altinn.studio/repos/testdep/flyttemelding-sogndal/src/branch/modul4)<br>
-[(Kildekode Modul 4 - tidligere versjon)](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/4)<br>
+[Kildekode Modul 4](https://altinn.studio/repos/testdep/flyttemelding-sogndal/src/branch/modul4)
 
-{{% expandlarge id="options-solution-expandable" header="Innsamling av arbeidsopplysninger" %}}
+{{% expandlarge id="options-solution" header="Innsamling av arbeidsopplysninger" %}}
 
-![Skjermbilde av innsamling av arbeidsopplysninger](./arbeidsforhold-screenshot.png "Skjermbilde av innsamling av arbeidsopplysninger")
+![Skjermbilde av skjema for innsamling av arbeidsopplysninger](./arbeidsforhold-screenshot.png "Skjermbilde av skjema for innsamling av arbeidsopplysninger")
 
 * Legg til komponenter i Altinn Studio Designer, legg til en passende ledetekst og knytt komponenten til riktig felt i datamodellen.
 
@@ -271,9 +269,9 @@ App/Program.cs
 
 {{% /expandlarge %}}
 
-{{% expandlarge id="dynamikk-solution-expandable" header="Differensiert datagrunnlag for offentlig og privat sektor" %}}
+{{% expandlarge id="dynamikk-solution" header="Differensiert datagrunnlag for offentlig og privat sektor" %}}
 
-![Skjermbilde av innsamling av arbeidsopplysninger for offentlig sektor](/app/app-dev-course/modul4/arbeidsopplysninger-offentlig-screenshot.png "Skjermbilde av innsamling av arbeidsopplysninger for offentlig sektor")
+![Skjermbilde av skjema for innsamling av arbeidsopplysninger for offentlig sektor](./arbeidsopplysninger-offentlig-screenshot.png "Skjermbilde av skjema for innsamling av arbeidsopplysninger for offentlig sektor")
 
 * For å sende en spørreparameter med Bransje-komponenten legger vi til en mapping på komponenten knyttet til feltet `Sektor` i datamodellen:
 
@@ -381,9 +379,9 @@ App/Program.cs
 
 {{% /expandlarge %}}
 
-{{% expandlarge id="dynamikk-skjemavisning0solution" header="Skreddersydd tilbud for IT-kompetanse" %}}
+{{% expandlarge id="it-solution" header="Skreddersydd tilbud for IT-kompetanse" %}}
 
-![Skjermbilde av innsamling av arbeidsopplysninger for privat sektor](/app/app-dev-course/modul4/arbeidsopplysninger-privat-screenshot.png "Skjermbilde av innsamling av arbeidsopplysninger for privat sektor")
+![Skjermbilde av skjema for innsamling av arbeidsopplysninger for privat sektor](./arbeidsopplysninger-privat-screenshot.png "Skjermbilde av skjema for innsamling av arbeidsopplysninger for privat sektor")
 
 * **Legg til komponent for visning av tekst**. Det er lagt til logikk på komponenten som skjuler den dersom "IKT (data/IT)" ikke er valgt. Verdien `491` for feltet er hentet fra filen `industry.json`.  
 'Send inn'-knappen er også flyttet til denne siden.
@@ -392,7 +390,7 @@ App/Program.cs
 App/ui/layouts/arbeidsforhold.json
 {{< /code-title >}}
 
-```json
+```json{hl_lines="8"}
 ...
 {
    "id": "info-it-kompteanse",

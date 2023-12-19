@@ -4,6 +4,7 @@ linktitle: Forhold virksomheten
 description: Denne fullmaktsgruppen er relevant for alle virksomheter
 weight: 109
 ---
+
 Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-3/#oversikt-over-fullmaktsgrupper)
 
 ![Forhold ved virksomheten](gfv3.jpg "Forhold ved virksomheten")
