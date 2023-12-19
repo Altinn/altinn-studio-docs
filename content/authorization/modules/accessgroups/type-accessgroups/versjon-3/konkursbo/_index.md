@@ -4,7 +4,9 @@ linktitle: Konkursbo
 description: Denne fullmaktsgruppen er relevant for alle virksomheter
 weight: 124
 ---
-Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-2/#oversikt-over-fullmaktsgrupper)
+
+Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-3/#oversikt-over-fullmaktsgrupper)
+
 
 
 ![Konkursbo](konk.jpg "Konkursbo")
@@ -21,4 +23,4 @@ Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroup
 |Konkursbo lesetilgang|ja|ja|BOBE|
 |Konkursbo skrivetilgang|ja|ja|BOBE|
 
-Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-2/#oversikt-over-fullmaktsgrupper)
+Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-3/#oversikt-over-fullmaktsgrupper)

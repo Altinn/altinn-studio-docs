@@ -4,7 +4,9 @@ linktitle: Skatt, regnskap, toll
 description: Denne fullmaktsgruppen er relevant for alle virksomheter som betaler eller rapporterer inn informasjon knyttet til skatt, avgift regnskap og toll
 weight: 105
 ---
-Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-2/#oversikt-over-fullmaktsgrupper)
+
+Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-3/#oversikt-over-fullmaktsgrupper)
+
 
 
 ![oversikt](sart.jpg "oversikt")
@@ -34,6 +36,6 @@ Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroup
 {{% notice warning %}} Det er fortsatt uavklart hvilke fullmakter det vil være natulig å gi personer med rollen Forretningsførerer innenfor fullmaktsområdet "Skatt, avgift, regnskap og toll" {{% /notice %}}
 
 
-Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-2/#oversikt-over-fullmaktsgrupper)
+Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-3/#oversikt-over-fullmaktsgrupper)
 
 [def]: sart.jpg

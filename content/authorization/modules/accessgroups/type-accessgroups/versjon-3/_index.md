@@ -1,10 +1,9 @@
 ---
-title: Forslag nye fullmaktsgrupper - versjon 2
-linktitle: Virksomhet, versjon 2
-description: Her finner du versjon 2 på forslag til nye fullmaktsgrupper for virksomheter. Denne versjonen er fortsatt under arbeid. 
+title: Forslag nye fullmaktsgrupper - versjon 3
+linktitle: Virksomhet, versjon 3
+description: Her finner du versjon 3 på forslag til nye fullmaktsgrupper for virksomheter. Denne versjonen vil tilgjengeliggjøres i Altinn studio og ressursregisteret. 
 toc: true
 weight: 100
-
 ---
 
 Altinn skal erstatte rollene som gir tilgang til tjenester i Altinn 2 når vi flytter Altinn Autorisasjon til Altinn 3. 
@@ -49,7 +48,7 @@ Her finner du [fremgangsmåte og rekkefølge](/authorization/migration/new-acces
  
 
 ### Avvikler alle Altinn 2 generelle roller
-Alle Altinn 2 roller vil bli avviklet i forbindelse med overgang til nye fullmaktsgruppene. 
+Alle Altinn 2 roller vil bli avviklet i forbindelse med overgang til nye fullmaktsgruppene. Roller og fullmaktsgrupper vil eksistere i parallell i en periode, før Altinn 2-rollene fjernes.
 
 Noen få av de nye fullmaktsgruppene vil være identiske med gamle Altinn2 roller. Dette gjelder rollene: 
 - ECKEYROLE
@@ -61,6 +60,13 @@ Noen få av de nye fullmaktsgruppene vil være identiske med gamle Altinn2 rolle
   
 For disse tilfellene vil Altinn sørge for at de ansatte som har en utgående Altinn2 rolle automatisk får de nye fullmaktsgruppene.
 
+
+## Videre arbeid med fullmaktsgrupper
+Vi har nå gjennomført høring nummer 2 av nye fullmaktsgrupper, og behandlet innspillene vi har fått. Versjon 3 er den versjonen som vil bli tilgjengeliggjort i Altinn Studio og ressursregisteret for å opprette policy'er basert på fullmaktsgruppene.
+Det dere som tjenesteeiere må gjøre fremover, er å kartlegge hvilke fullmaktsgrupper dere ønsker å benytte på tjenestene deres. Etterhvert som dere migrerer tjenestene, enten til ressursregisteret eller som app i Altinn studio, må dere bruke fullmaktsgruppene i tjenestenes/ressursenes policy-filer.
+
+Merk at vi har revidert vår plan for innføring av fullmaktsgrupper angående muligheten for å fortsatt kunne delegere Altinn 2-roller. Opprinnelig plan var at delegering av Altinn 2-roller ikke skulle være mulig etter at ny brukerflate for tilgangsstyring var lansert, men vi ser at det vil være behov for denne muligheten fremover også.
+
 ## Vi ønsker innspill fra dere som er tjenesteeierne
 Vi gjennomfører nå høring nummer 2 av nye fullmaktsgrupper. Vi ønsker tilbakemeldinger på
 - om de foreslåtte fullmaktsgruppene passer til de tjenestene dere har
@@ -69,6 +75,7 @@ Vi gjennomfører nå høring nummer 2 av nye fullmaktsgrupper. Vi ønsker tilbak
 - om forslag til hvilke ER-roller som skal få de nye fullmaktsgruppene dekker deres behov. Det er særlig viktig å avklare om det er noen av de foreslåtte ER roller dere mener IKKE kan få fullmaktsgruppen i kontekst av deres tjeneste
 
 Tilbakemelding kan du sende på e-post til servicedesk@altinn.no innen 10.11.2023.
+
 
 ## Oversikt over fullmaktsgrupper: 
 
@@ -83,29 +90,32 @@ Tilbakemelding kan du sende på e-post til servicedesk@altinn.no innen 10.11.202
 
 (klikk på lenken for å se nedover i hierarkiet)
 ### Fullmaktsgrupper relevant for mange/alle virksomheter
-1. [Skatt, avgift, regnskap og toll](/authorization/modules/accessgroups/type-accessgroups/versjon-2/skatt/)
-2. [Personale](/authorization/modules/accessgroups/type-accessgroups/versjon-2/personale/)
-3. [Miljø, ulykke og sikkerhet](/authorization/modules/accessgroups/type-accessgroups/versjon-2/miljo/)
-4. [Post/arkiv](https://docs.altinn.studio/authorization/modules/accessgroups/type-accessgroups/versjon-2/post/)
-5. [Forhold ved virksomheten](/authorization/modules/accessgroups/type-accessgroups/versjon-2/forhold/)
-6. [Integrasjoner og API-er](/authorization/modules/accessgroups/type-accessgroups/versjon-2/integrasjon/)
-7. [Administrere tilganger](/authorization/modules/accessgroups/type-accessgroups/versjon-2/tilgang/)
+
+1. [Skatt, avgift, regnskap og toll](/authorization/modules/accessgroups/type-accessgroups/versjon-3/skatt/)
+2. [Personale](/authorization/modules/accessgroups/type-accessgroups/versjon-3/personale/)
+3. [Miljø, ulykke og sikkerhet](/authorization/modules/accessgroups/type-accessgroups/versjon-3/miljo/)
+4. [Post/arkiv](https://docs.altinn.studio/authorization/modules/accessgroups/type-accessgroups/versjon-3/post/)
+5. [Forhold ved virksomheten](/authorization/modules/accessgroups/type-accessgroups/versjon-3/forhold/)
+6. [Integrasjoner og API-er](/authorization/modules/accessgroups/type-accessgroups/versjon-3/integrasjon/)
+7. [Administrere tilganger](/authorization/modules/accessgroups/type-accessgroups/versjon-3/tilgang/)
 
 ### Bransjespesifikke fullmaktsgrupper
-7. [Jordbruk, skogbruk, jakt, fiske og akvakultur](/authorization/modules/accessgroups/type-accessgroups/versjon-2/jordbruk/)
-8. [Bygg, anlegg og eiendom](/authorization/modules/accessgroups/type-accessgroups/versjon-2/bygg/)
-9. [Transport og lagring](/authorization/modules/accessgroups/type-accessgroups/versjon-2/transport/)
-10. [Helse, pleie, omsorg og vern](/authorization/modules/accessgroups/type-accessgroups/versjon-2/helse/)
-11. [Oppvekst og utdanning](/authorization/modules/accessgroups/type-accessgroups/versjon-2/oppvekst/)
-12. [Energi, vann, avløp og avfall](/authorization/modules/accessgroups/type-accessgroups/versjon-2/energi/)
-13. [Industrier](/authorization/modules/accessgroups/type-accessgroups/versjon-2/industrier/)
-14. [Kultur og frivillighet](/authorization/modules/accessgroups/type-accessgroups/versjon-2/kultur/)
-15. [Handel, overnatting og servering](/authorization/modules/accessgroups/type-accessgroups/versjon-2/handel/)
-16. [Andre tjenesteytende næringer](/authorization/modules/accessgroups/type-accessgroups/versjon-2/tjenesteytende/)
+7. [Jordbruk, skogbruk, jakt, fiske og akvakultur](/authorization/modules/accessgroups/type-accessgroups/versjon-3/jordbruk/)
+8. [Bygg, anlegg og eiendom](/authorization/modules/accessgroups/type-accessgroups/versjon-3/bygg/)
+9. [Transport og lagring](/authorization/modules/accessgroups/type-accessgroups/versjon-3/transport/)
+10. [Helse, pleie, omsorg og vern](/authorization/modules/accessgroups/type-accessgroups/versjon-3/helse/)
+11. [Oppvekst og utdanning](/authorization/modules/accessgroups/type-accessgroups/versjon-3/oppvekst/)
+12. [Energi, vann, avløp og avfall](/authorization/modules/accessgroups/type-accessgroups/versjon-3/energi/)
+13. [Industrier](/authorization/modules/accessgroups/type-accessgroups/versjon-3/industrier/)
+14. [Kultur og frivillighet](/authorization/modules/accessgroups/type-accessgroups/versjon-3/kultur/)
+15. [Handel, overnatting og servering](/authorization/modules/accessgroups/type-accessgroups/versjon-3/handel/)
+16. [Andre tjenesteytende næringer](/authorization/modules/accessgroups/type-accessgroups/versjon-3/tjenesteytende/)
 
 ### Andre spesialiserte fullmaktsgrupper
-17. [Fullmaktsgrupper for regnskapsførere](/authorization/modules/accessgroups/type-accessgroups/versjon-2/regnskapsførere/)
-18. [Fullmaktsgrupper for revisor](/authorization/modules/accessgroups/type-accessgroups/versjon-2/revisor/)
-19. [Fullmaktsgrupper for konkursbo](/authorization/modules/accessgroups/type-accessgroups/versjon-2/konkursbo/)
+17. [Fullmaktsgrupper for regnskapsførere](/authorization/modules/accessgroups/type-accessgroups/versjon-3/regnskapsførere/)
+18. [Fullmaktsgrupper for revisor](/authorization/modules/accessgroups/type-accessgroups/versjon-3/revisor/)
+19. [Fullmaktsgrupper for konkursbo](/authorization/modules/accessgroups/type-accessgroups/versjon-3/konkursbo/)
+
+
 
 *Siden er under arbeid*

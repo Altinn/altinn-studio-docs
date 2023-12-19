@@ -4,10 +4,12 @@ linktitle: Industrier
 description: Denne fullmaktsgruppen er relevant for alle virksomheter
 weight: 118
 ---
-Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-2/#oversikt-over-fullmaktsgrupper)
+
+Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-3/#oversikt-over-fullmaktsgrupper)
 
 
-![Industrier](ind.jpg "Industrier")
+
+![Industrier](ind3.jpg "Industrier")
 - **Industrier:** Denne fullmakten gir tilgang til alle tjenester som omhandler industrier som fysisk eller kjemisk omdanner materialer, stoffer eller deler til nye produkter. 
 	- **Næringsmidler, drikkevarer og tobakk:** Denne fullmakten gir tilgang til alle tjenester knyttet til industri i forbindelse med næringsmidler, drikkevarer og tobakk.
 	- **Tekstiler, klær og lærvarer:** Denne fullmakten gir tilgang til alle tjenester knyttet til industri i forbindelse med tekstiler, klær og lærvarer.
@@ -43,4 +45,4 @@ Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroup
 {{% notice warning %}} Det er fortsatt uavklart hvilke fullmakter det vil være natulig å gi personer med rollen Forretningsførerer innenfor fullmaktsområdet "Industrier" {{% /notice %}}
 
 
-Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-2/#oversikt-over-fullmaktsgrupper)
+Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-3/#oversikt-over-fullmaktsgrupper)
