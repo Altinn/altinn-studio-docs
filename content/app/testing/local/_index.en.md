@@ -13,7 +13,7 @@ When the app is created, it comes with all the necessary files and settings to r
 
 In the test environment, the app uses a set of platform services to retrieve/store data, etc. A simplified version of these services has been created that can be set up and run locally, and this is necessary for the app to be tested locally.
 
-## Running the App Locally
+## Running the app locally
 
 1. Navigate to the app repository in Altinn Studio. See [here](/app/getting-started/navigation/repos/) for how to navigate there.
 2. Download all the files in the repository
