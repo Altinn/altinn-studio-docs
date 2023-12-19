@@ -11,7 +11,7 @@ If you need to write a significant amount of code (e.g., [logic](/app/developmen
 
 When the app is created, it comes with all the necessary files and settings to run as a standalone application. By downloading all the files associated with the app from its repository, you can run the app locally on your own machine, thereby easily testing changes.
 
-In the test environment, the app uses a set of platform services to retrieve/store data, etc. A simplified version of these services has been created that can be set up and run locally, and this is necessary for the app to be tested locally.
+In the test environment, the app uses a set of platform services to retrieve/store data, etc. A simplified version of these services is available to set up and run locally. This is necessary for the app to be tested locally.
 
 ## Running the app locally
 
