@@ -1,12 +1,12 @@
 ---
 title: Module 2
-description: Add more pages, dynamic tracks and prefill
+description: Add more pages, hide/show pages and prefill
 linktitle: Module 2
 tags: [apps, training, prefill, sporvalg]
 weight: 20
 ---
 
-In this module, you will further develop the application you created in [Module 1](../modul1), including, among other things, a new page, dynamic tracks, and prefilling.
+In this module, you will further develop the application you created in [Module 1](../modul1), including, among other things, a new page, hiding/showing pages based on dynamic expressions, and prefilling.
 
 You can do parts of Module 2 in [Altinn Studio Designer](/app/getting-started/ui-editor/) (Designer), but some tasks need to be performed using [local development](/app/getting-started/local-dev).
 
@@ -78,7 +78,7 @@ All text resources support Markdown and HTML notation, so using `<br>` can force
 In many cases, controlling which parts of the application are visible is desirable based on the user's response.
 For example, skipping some of the questions in a form may be relevant if the answer is obvious or irrelevant based on previous responses.
 
-In this task, you will set up dynamic tracks in the application to direct users to different pages based on their responses.
+In this task, you will set up dynamic expressions on pages in the application to direct users to different pages based on their responses.
 
 ### Requirements of the municipality
 

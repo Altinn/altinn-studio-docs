@@ -1,12 +1,12 @@
 ---
 title: Modul 2
-description: Legge til flere sider, sporvalg og forhåndsutfylling
+description: Legge til flere sider, vise/skjule sider og forhåndsutfylling
 linktitle: Modul 2
 tags: [apps, training, prefill, sporvalg]
 weight: 20
 ---
 
-I denne modulen skal du videreutvikle applikasjonen du laget i [Modul 1](../modul1) med blant annet en ny side, dynamisk skjuling av sider, sporvalg og forhåndsutfylling.
+I denne modulen skal du videreutvikle applikasjonen du laget i [Modul 1](../modul1) med blant annet en ny side, dynamisk skjuling av sider og forhåndsutfylling.
 
 Deler av Modul 2 kan gjøres i [Altinn Studio Designer](/nb/app/getting-started/ui-editor/) (Designer), men noe må utføres med [lokal utvikling](/nb/app/getting-started/local-dev).
 
@@ -81,7 +81,7 @@ Alle tekstressurser støtter Markdown og dermed HTML-notasjon. Du kan derfor ben
 I mange tilfeller er det ønskelig å kontrollere hvilke deler av applikasjonen som er synlige basert på brukerens respons.
 For eksempel kan det være relevant å hoppe over noen av spørsmålene i et skjema hvis svaret er åpenbart eller irrelevant basert på tidligere svar.
 
-I denne oppgaven vil du sette opp sporvalg i applikasjonen for å dirigere brukere til ulike sider basert på deres respons.
+I denne oppgaven vil du sette opp dynamiske uttrykk i applikasjonen for å dirigere brukere til ulike sider basert på deres respons.
 
 ### Krav fra kommunen
 
