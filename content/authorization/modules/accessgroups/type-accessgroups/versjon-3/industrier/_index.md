@@ -9,7 +9,7 @@ Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroup
 
 
 
-![Industrier](ind.jpg "Industrier")
+![Industrier](ind3.jpg "Industrier")
 - **Industrier:** Denne fullmakten gir tilgang til alle tjenester som omhandler industrier som fysisk eller kjemisk omdanner materialer, stoffer eller deler til nye produkter. 
 	- **Næringsmidler, drikkevarer og tobakk:** Denne fullmakten gir tilgang til alle tjenester knyttet til industri i forbindelse med næringsmidler, drikkevarer og tobakk.
 	- **Tekstiler, klær og lærvarer:** Denne fullmakten gir tilgang til alle tjenester knyttet til industri i forbindelse med tekstiler, klær og lærvarer.

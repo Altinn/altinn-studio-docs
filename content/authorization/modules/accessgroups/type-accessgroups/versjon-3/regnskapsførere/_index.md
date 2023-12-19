@@ -20,9 +20,9 @@ Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroup
 |Navn fullmaktsgruppe|Kan delegeres til ansatte?|Kan knytte tjenester til?|[ER rolle](/authorization/modules/accessgroups/register_er/#rolletyper-fra-enhetsregisteret) som får fullmakten|
 |---|---|---|---|
 |Fullmakter for regnskapsførere| ja|nei||
-|Regnskapsfører med signeringsrettighet|ja|ja|DAGL, LEDE, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
-|Regnskapsfører uten signeringsrettighet|ja|ja|DAGL, LEDE, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
-|Regnskapsfører lønn|ja|ja|DAGL, LEDE, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
+|Regnskapsfører med signeringsrettighet|ja|ja|REGN|
+|Regnskapsfører uten signeringsrettighet|ja|ja|REGN|
+|Regnskapsfører lønn|ja|ja|REGN|
 
 
 Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-3/#oversikt-over-fullmaktsgrupper)
