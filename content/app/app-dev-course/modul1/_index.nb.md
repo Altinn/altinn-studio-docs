@@ -165,8 +165,6 @@ For å manuelt legge til støtte for engelsk i en applikasjon må du opprette fi
 App/config/texts/resources.en.json
 {{< /code-title >}}
 
-```csharp{linenos=false,hl_lines="6"}
-
 ```json
 {
   "language": "en",
