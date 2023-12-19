@@ -5,6 +5,7 @@ description: Overview of the components that are available for use.
 tags: [ui-designer, ui-components]
 aliases:
     - "/ui-components"
+hidden: true
 ---
 
 ## Available UI components

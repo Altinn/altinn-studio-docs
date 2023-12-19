@@ -138,18 +138,13 @@ Logg inn med en testbruker fra organisasjonen din eller benytt deg av [Tenors te
 I denne modulen har du bygget og publisert applikasjonen din til testmiljøet TT02,
 logget inn i Altinn med en testbruker og testet applikasjonen din.
 
-<br>
+## Løsningsforslag
 
-{{<expandlarge id="solution" header="Løsningsforslag">}}
+[Kildekode Modul 3](https://altinn.studio/repos/testdep/flyttemelding-sogndal/src/branch/modul3)
 
-{{% markdown %}}
-[Kildekode Modul 3](https://altinn.studio/repos/testdep/flyttemelding-sogndal/src/branch/modul3)<br>
-[(Kildekode Modul 3 - tidligere versjon)](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/3)<br>
+{{% expandlarge id="resources-solution" header="Sette egendefinerte krav for ressursbruk" %}}
 
-
-### Sette egendefinerte krav for ressursbruk
-
-Følgende endringer er gjort:
+Følgende endringer er gjort i koden:
 
 {{< code-title >}}
 App/deployment/values.yaml
@@ -167,8 +162,7 @@ deployment:
 ...
 ```
 
-{{% /markdown %}}
-{{</expandlarge>}}
+{{% /expandlarge %}}
 
 <br><br>
 

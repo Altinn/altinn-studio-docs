@@ -26,6 +26,32 @@ These references must be updated to get the latest version
 With this extension you can view what the latest version of all dependencies when you open App.csproj (the extension also supports npm).
 {{% /panel%}}
 
+{{<content-version-selector classes="border-box">}}
+
+{{<content-version-container version-label="v7.0.0 and newer">}}
+
+- Locate the references to the libraries used in your app. The references are located in `App/App.csproj`. 
+
+Example.:
+
+```xml
+<ItemGroup>
+  <PackageReference Include="Altinn.App.Api" Version="7.15.1" />
+  <PackageReference Include="Altinn.App.Core" Version="7.15.1" />
+</ItemGroup>
+```
+
+- Check if a new version of the libraries are published:
+    - [Altinn.App.Api](https://www.nuget.org/packages/Altinn.App.Api)
+    - [Altinn.App.Core](https://www.nuget.org/packages/Altinn.App.Core)
+- Update the reference to the latest version and save the file.
+- Check if there is any [breaking changes](/community/changelog/app-nuget) with the new version,
+  make necessary changes if there are any issues.
+- Build and deploy a new version of your app.
+{{</content-version-container>}}
+
+{{<content-version-container version-label="v6.1.0 and older">}}
+
 - Locate the references to the libraries used in your app. The references are located in `App/App.csproj`. 
 
 Example.:
@@ -49,6 +75,8 @@ Example.:
   make necessary changes if there are any issues.
 - Build and deploy a new version of your app.
 
+{{</content-version-container>}}
+{{</content-version-selector>}}
 
 ## App frontend
 

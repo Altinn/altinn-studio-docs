@@ -6,16 +6,10 @@ tags: [apps, build, deploy, training]
 weight: 15
 ---
 
-{{% notice warning %}}
-**🚧 The course is currently being updated.**  
-You may still follow the course, but beware that the example solution is being updated along with the modules and will differ slightly from the old solution.
-Updated modules will link to the old solution until all modules are updated.
-{{% /notice %}}
-
 The intro course is divided into 7 modules and covers a fictional case for Sogndal Municipality.
 Each module has a description of the task and links to relevant documentation.
 
-You can choose to perform the tasks in [Altinn Studio Designer](/app/getting-started/ui-editor) (drag-and-drop graphical user interface) or in a [local development environment](/app/getting-started/local-dev) (requires some technical skills).
+You can choose to perform the tasks in [Altinn Studio Designer](/app/getting-started) (drag-and-drop graphical user interface) or in a [local development environment](/app/getting-started/local-dev) (requires some technical skills).
 You can also combine these approaches.
 
 Throughout these seven modules, you will have covered the most essential functionality for an Altinn app, as well as testing the application locally and in a test environment.
@@ -35,7 +29,7 @@ Before you can build an application, there are some things that need to be in pl
 
 1. [Create a user](/app/getting-started/create-user)
 2. [Learn to navigate Altinn Studio](/app/getting-started/navigation)
-3. [Get familiar with Altinn Studio Designer](/app/getting-started/ui-editor)
+3. [Get familiar with Altinn Studio Designer](/app/getting-started)
 
 Read through the requirements specifications (case description) for Sogndal Municipality and work through the modules step by step.
 

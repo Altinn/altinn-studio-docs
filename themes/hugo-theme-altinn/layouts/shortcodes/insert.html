@@ -11,6 +11,15 @@
 {{ if fileExists $filePath }}
 {{ $content := readFile $filePath }}
 {{ if $content }}
+
+{{ $substring := "---" }}
+{{ $parts := split $content $substring }}
+{{ $lastIndex := sub (len $parts) 1 }}
+
+{{ with index $parts $lastIndex }}
+  {{ $content = . }}
+{{ end }}
+
 {{ range $index, $param := .Params }}
   {{ if ne $index 0 }}
     {{ $content = replace $content (printf "{%d}" (sub $index 1)) $param }}

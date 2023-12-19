@@ -462,10 +462,6 @@ Noen detaljer som er verdt å nevne om disse funksjonene:
   en tom streng.
 - `["startsWith", null, null]` gir alltid `false`.
 
-**Bemerk:** Disse funksjonene er ikke tigjengelig i backend-kode enda, og vil derfor gi en feilmelding dersom de blir
-brukt noen steder [hvor uttrykk kjøres på backend](#bruksområder), og om man har slått på funksjonaliteten for å
-automatisk slette skjulte data (`RemoveHiddenDataPreview`).
-
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-stringLength" header="stringLength" %}}
@@ -478,10 +474,6 @@ Eksempel:
 ```
 
 Dersom strengen er `null` vil `stringLength` returnere `0`.
-
-**Bemerk:** Denne funksjonen er ikke tigjengelig i backend-kode enda, og vil derfor gi en feilmelding dersom den blir
-brukt noen steder [hvor uttrykk kjøres på backend](#bruksområder), og om man har slått på funksjonaliteten for å
-automatisk slette skjulte data (`RemoveHiddenDataPreview`).
 
 {{% /expandlarge %}}
 
@@ -513,10 +505,6 @@ Eksempel:
 
 Ønsker du å sjekke om verdier finnes i en kommaseparert liste kan du bruke funksjonen [`commaContains`](#func-commaContains).
 
-**Bemerk:** Disse funksjonene er ikke tigjengelig i backend-kode enda, og vil derfor gi en feilmelding dersom de blir
-brukt noen steder [hvor uttrykk kjøres på backend](#bruksområder), og om man har slått på funksjonaliteten for å
-automatisk slette skjulte data (`RemoveHiddenDataPreview`).
-
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-commaContains" header="commaContains" %}}
@@ -538,10 +526,6 @@ Legg merke til at eventuelle mellomrom før/etter komma, eller før/etter først
 er spesielt nyttig i tilfeller hvor man bruker en komponent som lagrer flere verdier i en kommaseparert streng, som
 `Checkboxes` og `MultipleSelect`.
 
-**Bemerk:** Denne funksjonen er ikke tigjengelig i backend-kode enda, og vil derfor gi en feilmelding dersom den blir
-brukt noen steder [hvor uttrykk kjøres på backend](#bruksområder), og om man har slått på funksjonaliteten for å
-automatisk slette skjulte data (`RemoveHiddenDataPreview`).
-
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-lowerCase-upperCase" header="lowerCase/upperCase" %}}
@@ -559,10 +543,6 @@ gjøres uavhengig av om det ble brukt store eller små bokstaver i input-verdien
 ```json
 ["equals", ["upperCase", ["dataModel", "My.Model.LastName"]], "SMITH"]
 ```
-
-**Bemerk:** Disse funksjonene er ikke tilgjengelig i backend-kode enda, og vil derfor gi en feilmelding dersom de blir
-brukt noen steder [hvor uttrykk kjøres på backend](#bruksområder), og om man har slått på funksjonaliteten for å
-automatisk slette skjulte data (`RemoveHiddenDataPreview`).
 
 {{% /expandlarge %}}
 
@@ -584,10 +564,6 @@ Eksempel med avrunding til nærmeste heltall:
 Returverdien fra denne funksjonen er en streng, slik at returverdien kan brukes for
 fremvisning (merk at desimalskilletegnet alltid er punktum). Selv om returverdien er en streng kan denne også brukes
 videre i uttrykk som forventer tall som inn-verdi.
-
-**Bemerk:** Denne funksjonen er ikke tilgjengelig i backend-kode enda, og vil derfor gi en feilmelding dersom den blir
-brukt noen steder [hvor uttrykk kjøres på backend](#bruksområder), og om man har slått på funksjonaliteten for å
-automatisk slette skjulte data (`RemoveHiddenDataPreview`).
 
 {{% /expandlarge %}}
 
