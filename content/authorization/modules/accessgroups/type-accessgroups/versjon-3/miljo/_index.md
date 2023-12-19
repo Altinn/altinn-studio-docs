@@ -13,7 +13,7 @@ Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroup
 		- **Renovasjon:** Denne fullmakten gir tilgang til alle tjenester knyttet til renovasjon. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. 
         - **Miljørydding, miljørensing og lignende:** Denne fullmakten gir tilgang til alle tjenester knyttet til miljørydding, miljørensing og lignende. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. 
         - **Bærekraft:** Denne fullmakten gir tilgang til alle tjenester knyttet til tiltak og rapportering på bærekraft. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
-	- **Sikkerhet og internkontroll:** Denne fullmakten gir tilgang til alle tjenester knyttet til sikkerhet og internkontroll. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. 
+	- **Sikkerhet og internkontroll:** Denne fullmakten gir tilgang til alle tjenester knyttet til sikkerhet og internkontroll. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
 	- **Ulykke og yrkesskade:** Denne fullmakten gir tilgang til alle tjenester knyttet til ulykke og yrkesskade. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. 
 
 
