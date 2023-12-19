@@ -49,7 +49,7 @@ Her finner du [fremgangsmåte og rekkefølge](/authorization/migration/new-acces
  
 
 ### Avvikler alle Altinn 2 generelle roller
-Alle Altinn 2 roller vil bli avviklet i forbindelse med overgang til nye fullmaktsgruppene. 
+Alle Altinn 2 roller vil bli avviklet i forbindelse med overgang til nye fullmaktsgruppene. Roller og fullmaktsgrupper vil eksistere i parallell i en periode, før Altinn 2-rollene fjernes.
 
 Noen få av de nye fullmaktsgruppene vil være identiske med gamle Altinn2 roller. Dette gjelder rollene: 
 - ECKEYROLE

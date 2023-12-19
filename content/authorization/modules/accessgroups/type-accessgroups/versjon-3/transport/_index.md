@@ -7,7 +7,7 @@ weight: 114
 Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-3/#oversikt-over-fullmaktsgrupper)
 
 
-![Transport og lagring](tl.jpg "Transport og lagring")
+![Transport og lagring](tl3.jpg "Transport og lagring")
 - **Transport og lagring:** Denne fullmakten gir tilgang til alle tjenester som angår transport og lagring inkludert passasjer og godstransport, samt post- og kurervirksomhet. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
 	- **Veitransport:** (mangler)	
 	- **Transport i rør** (mangler)
@@ -29,4 +29,4 @@ Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroup
 
 {{% notice warning %}} Det er fortsatt uavklart hvilke fullmakter det vil være natulig å gi personer med rollen Forretningsførerer innenfor fullmaktsområdet "Transport og lagring" {{% /notice %}}
 
-Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-2/#oversikt-over-fullmaktsgrupper)
+Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-3/#oversikt-over-fullmaktsgrupper)

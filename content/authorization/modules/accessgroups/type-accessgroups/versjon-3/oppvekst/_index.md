@@ -6,7 +6,7 @@ weight: 116
 ---
 Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-3/#oversikt-over-fullmaktsgrupper)
 
-![Oppvekst og skole](os2.jpg "Oppvekst og skole")
+![Oppvekst og skole](os3.jpg "Oppvekst og skole")
 - **Oppvekst og utdanning** Denne fullmakten gir tilgang til alle tjenester som omhandler barnehage, skole og høyere utdanning. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
     - **Barnehageeier** Denne fullmakten gir tilgang til alle tjenester innen drift av barnehage som barnehageeier er ansvarlig for. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
     - **Barnehageleder** Denne fullmakten gir tilgang til alle tjenester innen drift av barnehage som barnehageleder er ansvarlig for. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
@@ -31,23 +31,18 @@ Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroup
 |Barnehageleder|ja|ja|DAGL, LEDE, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
 |Barnehagemyndighet|ja|ja|DAGL, LEDE, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
 |Statsforvalter-barnehage|ja|ja|DAGL, LEDE, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
-|Grunnskole og videregående skole|ja|nei||
 |Skoleeier|ja|ja|DAGL, LEDE, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
 |Skoleleder|ja|ja|DAGL, LEDE, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
-|Opplæringskontor|ja|nei||
-|Opplæringskontoreier|ja|ja|DAGL, LEDE, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
 |Opplæringskontorleder|ja|ja|DAGL, LEDE, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
-|Pedagogisk-psykologisk tjeneste (PPT)|ja|nei||
-|PPT-eier|ja|ja|DAGL, LEDE, NNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
 |PPT-leder|ja|ja|DAGL, LEDE, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
-|Førskole og fritidsordning|ja|ja|DAGL, LEDE, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
+|SFO-leder|ja|ja|DAGL, LEDE, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
 |Barnevern og familievern|ja|ja|DAGL, LEDE, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
 |Høyere utdanning og høyere yrkesfaglig utdanning|ja|ja|DAGL, LEDE, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
 |Godkjenning av utdanning|ja|nei|DAGL, LEDE, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
-|Godkjenning av personell|ja|nei|DAGL, LEDE, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
-|Godkjenning av utdanningsvirksomhet|DAGL, LEDE, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
+|Godkjenning av personell|ja|ja|DAGL, LEDE, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
+|Godkjenning av utdanningsvirksomhet| ja| ja|DAGL, LEDE, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
 
 {{% notice warning %}} Det er fortsatt uavklart hvilke fullmakter det vil være natulig å gi personer med rollen Forretningsførerer innenfor fullmaktsområdet "Oppvekst og utdanning" {{% /notice %}}
 
 
-Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-2/#oversikt-over-fullmaktsgrupper)
+Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-3/#oversikt-over-fullmaktsgrupper)

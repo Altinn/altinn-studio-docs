@@ -6,7 +6,7 @@ weight: 107
 ---
 Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-3/#oversikt-over-fullmaktsgrupper)
 
-![Miljø, ulykke og sikkerhet](mus.jpg "Miljø, ulykke og sikkerhet")
+![Miljø, ulykke og sikkerhet](mus3.jpg "Miljø, ulykke og sikkerhet")
 - **Miljø, ulykke og sikkerhet:** Denne fullmakten gir tilgang til alle tjenester som angår miljø, klima, renovasjon samt helse, miljø og sikkerhet. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. 
 	- **Miljø og klimarapportering:** Denne fullmakten gir tilgang til alle tjenester som angår renovasjon, miljø og klimarapportering. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. 
 		- **Renovasjon:** Denne fullmakten gir tilgang til alle tjenester knyttet til renovasjon. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. 
@@ -29,4 +29,4 @@ Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroup
 {{% notice warning %}} Det er fortsatt uavklart hvilke fullmakter det vil være natulig å gi personer med rollen Forretningsførerer innenfor fullmaktsområdet "Miljø, ulykke og sikkerhet" {{% /notice %}}
 
 
-Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-2/#oversikt-over-fullmaktsgrupper)
+Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-3/#oversikt-over-fullmaktsgrupper)

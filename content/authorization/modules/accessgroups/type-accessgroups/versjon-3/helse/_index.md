@@ -6,7 +6,7 @@ weight: 115
 ---
 Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-3/#oversikt-over-fullmaktsgrupper)
 
-## Fullmaktsgruppe 
+
 ![Helse, pleie, omsorg og vern](hpom.jpg "Helse, pleie, omsorg og vern")
 - **Helse, pleie, omsorg og vern:** Denne fullmakten gir tilgang til alle tjenester som omfatter helse- og sosialtjenester med og uten botilbud. Denne fullmakten kan gi bruker tilgang til helseopplysninger om personer det rapporteres om. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
 	- **Kommuneoverlege:** (mangler)		
@@ -29,4 +29,4 @@ Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroup
 
 {{% notice warning %}} Det er fortsatt uavklart hvilke fullmakter det vil være natulig å gi personer med rollen Forretningsførerer innenfor fullmaktsområdet "Helse, pleie, omsorg og vern" {{% /notice %}}
 
-Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-2/#oversikt-over-fullmaktsgrupper)
+Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-3/#oversikt-over-fullmaktsgrupper)
