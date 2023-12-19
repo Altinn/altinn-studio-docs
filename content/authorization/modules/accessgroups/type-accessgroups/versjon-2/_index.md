@@ -3,7 +3,7 @@ title: Forslag nye fullmaktsgrupper - versjon 2
 linktitle: Virksomhet, versjon 2
 description: Her finner du versjon 2 på forslag til nye fullmaktsgrupper for virksomheter. Denne versjonen er fortsatt under arbeid. 
 toc: true
-weight: 100
+weight: 200
 
 ---
 

@@ -1,11 +1,11 @@
 ---
-title: App Parameters
-description: The application contains different parameters that control the behavior.
-weight: 1
+title: Settings
+description: Settings for the service can be configured
+weight: 6
 ---
 
-You can configure the different parameters either in Altinn Studio UI or by modifying the configuration files in the application repository.
-
-![Config](config.jpg)
-
-See the complete overview of different configurations in the [application development handbook.](../../../../../../app/development/configuration/)
+Settings can be configured at the service level, i.e., settings that apply to the entire service. Examples may include:
+- Whether data should be deleted after submission
+- Whether a list of ongoing instances should be shown to the user when they open the service
+- Whether the service should be hidden from the user's inbox in Altinn
+- Whether it should be possible to create a new copy of the service based on a previous submission

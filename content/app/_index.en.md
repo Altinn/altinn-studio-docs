@@ -25,7 +25,7 @@ Follow these steps to start developing apps in Altinn Studio.
 1. [Create user](/app/getting-started/create-user)
 2. [Learn to navigate Altinn Studio](/app/getting-started/navigation)
 3. [Create an application in Altinn Studio](/app/getting-started/create-app)
-4. [Get to know Altinn Studio Designer](/app/getting-started/ui-editor)
+4. [Get to know Altinn Studio Designer](/app/getting-started)
 5. [Prepare for local development](/app/getting-started/local-dev)
 
 [![Go to intro course](introcourse_en.png "Go to intro course")](/app/app-dev-course/)

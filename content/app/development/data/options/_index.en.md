@@ -148,6 +148,33 @@ if (string.IsNullOrEmpty(someArg) || string.IsNullOrEmpty(someOtherArg)) {
 Notice that this wil result in the option value and not the label being present as the end users answer.
 {{% /notice%}}
 
+### Store metadata for the parameters used to retrieve options in tha datamodel
+
+You can store metadata for the parameters used to retrieve options in the datamodel by setting the `metadata` property
+on the components `dataModelBinding` property:
+
+```json
+{
+  "id": "some-dropdown-component",
+  "type": "Dropdown",
+  "textResourceBindings": {
+    "title": "NyGarantiLoyvetype"
+  },
+  "dataModelBindings": {
+    "simpleBinding": "soknad.nyGaranti.loyvetype",
+    "metadata":  "soknad.transportorOrgnummer"
+  },
+  "required": true,
+  "optionsId": "loyvetyper",
+  "mapping": {
+    "soknad.transportorOrgnummer": "orgnummer"
+  }
+},
+```
+
+This configuration will store the metadata of the retrieved options as a comma separated string in the
+field `soknad.transportorOrgnummer` in the datamodel.
+
 ## Description and HelpText
 
 `description` and `helpText` is supported by options in apps that use version v7.8.0 or higher. `description` and

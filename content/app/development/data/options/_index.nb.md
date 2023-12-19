@@ -138,6 +138,33 @@ if (string.IsNullOrEmpty(someArg) || string.IsNullOrEmpty(someOtherArg)) {
 Merk at dette vil resultere i at PDF vil vise verdien valgt og ikke label som sluttbrukers svar.
 {{% /notice%}}
 
+### Lagre metadata for parametrene som ble brukt til å hente options
+
+Du kan lagre metadata for parameterene som ble brukt til å hente options i datamodellen ved å sette `metadata` property
+på komponentens `dataModelBinding` property:
+
+```json
+{
+  "id": "some-dropdown-component",
+  "type": "Dropdown",
+  "textResourceBindings": {
+    "title": "NyGarantiLoyvetype"
+  },
+  "dataModelBindings": {
+    "simpleBinding": "soknad.nyGaranti.loyvetype",
+    "metadata":  "soknad.transportorOrgnummer"
+  },
+  "required": true,
+  "optionsId": "loyvetyper",
+  "mapping": {
+    "soknad.transportorOrgnummer": "orgnummer"
+  }
+},
+```
+
+Denne konfigurasjonen vil lagre metadata for parameterene som ble brukt til å hente options som en kommaseparert
+streng i feltet `soknad.transportorOrgnummer` i datamodellen.
+
 ## Beskrivelse og Hjelpetekst
 
 `description` og `helpText` støttes av options i apper som bruker versjon v7.8.0 eller høyere. Beskrivlese og
