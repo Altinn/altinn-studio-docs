@@ -16,6 +16,7 @@ Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroup
 |---|---|---|---|
 |Post og arkiv| nei|nei||
 |Ordinær post til virksomheten| ja|ja|DAGL, LEDE, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
+|Post til virksomheten med taushetsbelagt innhold| ja| ja||
 
 
 {{% notice warning %}} Det er fortsatt uavklart hvilke fullmakter det vil være natulig å gi personer med rollen Forretningsførerer innenfor fullmaktsområdet "Post og arkiv" {{% /notice %}}
