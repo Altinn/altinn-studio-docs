@@ -39,3 +39,16 @@ they have changed the setting in Altinn profile.
 ### TODO: Validations against dataModelBindings
 - https://github.com/Altinn/app-frontend-react/issues/1463
 - Some apps may suddenly get schema-validation again
+
+### Title and description changes for Groups
+- https://github.com/Altinn/app-frontend-react/pull/1693
+The `title` attribute in `textResourceBindings` for the `Group` component as a repeating group previously only applied
+to the title shown above each row in the summary view of the repeating group. This attribute is now only used as the
+title for the repeating group in the form view. This means that the title will now be shown above the repeating group in
+the form view if it has been set.
+
+The `summaryTitle` attribute in `textResourceBindings` for the `Group` component is now used for displaying the title
+above each row in the summary view of the repeating group.
+
+The `body` attribute in `textResourceBindings` for the `Group` component is now called `description` in order to be
+more consistent with the rest of the components.
