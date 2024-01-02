@@ -7,7 +7,7 @@ the required scope to access to the Notifications API"
 ---
 
 {{% notice info %}}
-NOTE. This is only required by external system clients. 
+NOTE: This is only required by external system clients. 
 Altinn internal systems should include an Altinn Platform Access Tokens to the request header to gain access 
 to the API.
 {{% /notice %}}

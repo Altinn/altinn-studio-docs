@@ -26,3 +26,4 @@ managing and reviewing notifications sent through Altinn.
 ### Platform Access token
 
 {{% insert "/shared/api/platform-access-token.txt" %}}
+

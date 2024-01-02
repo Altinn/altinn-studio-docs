@@ -32,15 +32,75 @@ Reasons to consider using Altinn Notifications for communication with Norwegian 
 
   Here is an example of a standard notification order:
 
-  [Insert json of order with 2 recipients]
+    ```json
+    {
+      "id": "a56c0933-d609-4b5c-a5da-bccfd407c9b8",
+      "creator": "ttd",
+      "sendersReference": "test-2023-1",
+      "requestedSendTime": "2024-01-02T13:49:31.5591909Z",
+      "created": "2024-01-02T13:49:31.5799658Z",
+      "notificationChannel": "Email",
+      "recipients": [
+        {
+          "emailAddress": "testuser_1@altinn.no"
+        },
+          {
+          "emailAddress": "testuser_2@altinn.no"
+        }
+      ],
+      "emailTemplate": {
+        "fromAddress": "noreply@altinn.cloud",
+        "subject": "A test email from Altinn Notifications",
+        "body": "A message sent from an application owner through Altinn.",
+        "contentType": "Html"
+      },
+      "links": {
+        "self": "https://platform.at22.altinn.cloud/notifications/api/v1/orders/a56c0933-d609-4b5c-a5da-bccfd407c9b8",
+        "status": "https://platform.at22.altinn.cloud/notifications/api/v1/orders/a56c0933-d609-4b5c-a5da-bccfd407c9b8/status"
+      }
+    }
+    ```
 
 - #### Notification
 
   A _notification_ is the one instance of an email or SMS that is sent to a single recipient.
 
-  Here is an example of a notification:
+  Here is an example of a set of notifications related to an order:
 
-  [Insert json]
+    ```json
+    {
+        "orderId": "a56c0933-d609-4b5c-a5da-bccfd407c9b8",
+        "sendersReference": "test-2023-1",
+        "generated": 2,
+        "succeeded": 1,
+        "notifications": [
+            {
+                "id": "a141753c-557f-4bce-95fd-8fc715ca9a40",
+                "succeeded": true,
+                "recipient": {
+                    "emailAddress": "testuser_1@altinn.no"
+                },
+                "sendStatus": {
+                    "status": "Succeeded",
+                    "description": "The email has been accepted by the third party email service and will be sent shortly.",
+                    "lastUpdate": "2024-01-02T13:51:12.706808Z"
+                }
+            }
+               {
+                "id": "a9d159e2-6a89-4440-80da-7f2a99c775f4",
+                "succeeded": true,
+                "recipient": {
+                    "emailAddress": "testuser_2@altinn.no"
+                },
+                "sendStatus": {
+                    "status": "Sending",
+                    "description": "The email is being processed and will be attempted sent shortly." ,
+                    "lastUpdate": "2024-01-02T13:51:12.706808Z"
+                }
+            }
+        ]
+    }
+    ```
 
 - #### Notification channel
 
@@ -67,20 +127,30 @@ please don't hesitate to [reach out to us through GitHub](https://github.com/Alt
 
 ## Who can use Altinn Notifications
 
-Sending notifications through Altinn Notifications is limited to registered service owners,
-Altinn Apps and internal Altinn services.
+Altinn Notifications allows the following parties to send messages, 
+provided they have obtained authorization through Maskinporten:
 
-Maskinporten authentication is be required in order to send notification via our platform.
+- Registered service owners
+- Altinn Apps 
+- Internal Altinn services
+
 
 ## When to use Altinn Notifications 
 
+Existing guidelines for sending notifications through Altinn 2 also applies for Altinn Notfications. 
+Please familiarize yourself with existing documentation and guidelines before using this service.
 
+https://altinn.github.io/docs/utviklingsguider/varsling/
+
+
+
+<!---
 {{% notice info %}}
 TODO: say something about "varsel" vs "melding" or "beskjed". Kan brukes til begge deler. 
 What is important to think about ? 
 {{% /notice %}}
  
- ### Communication with private persons
+### Communication with private persons
 [Kontakt- og reservasjonsregisteret](https://eid.difi.no/nb/kontakt-og-reservasjonsregisteret) 
 (the common contact register) is used to retrieve contact information when an organisation sends a notification 
 through Altinn to a private person without providing the contact details to use. 
@@ -101,5 +171,13 @@ information that is important for the subject to receive and/or is important for
 that the recipient receives.
 
 ### Communication with persons as an entity of an organisation 
-
 ### General guidelines 
+
+### What should a notification include
+Varselet bør inneholde:
+- beskrivelse av oppgaven,
+- konkret hva den gjelder,
+- hvem som er ansvarlig/kan løse oppgaven
+- informer gjerne også om frist for oppgaven
+-->
+
