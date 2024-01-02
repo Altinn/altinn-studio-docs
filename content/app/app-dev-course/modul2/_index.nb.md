@@ -517,8 +517,6 @@ Se *Kode* for logikk ved veivalg.
 
 ![Radioknapper innstillinger. Bilde](screenshot-radio-buttons-settings.png "Innstillinger for radioknapper")
 
-![]()
-
 ### Ny side
 
 Ny side for *Spor 1*.
