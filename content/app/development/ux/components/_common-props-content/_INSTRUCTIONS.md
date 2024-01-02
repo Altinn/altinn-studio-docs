@@ -7,7 +7,8 @@ hidden: true
 Innholdet i malen brukes av en partial (`get-content.html`) via shortcoden `property-docs.html`.
 * `get-content.html` finner seksjoner som starter med `<!-- begin * -->` og slutter med `<!-- end * -->`
  og henter ut innholdet mellom disse (`*` = seksjonsnavn).
-* `property-docs.html` får innholdet fra `get-content.html` og viser det i riktig format. Shortcoden kalles med argumentet `prop="{propName}"`. `propName` må samsvare med filnavn (se under).
+* `property-docs.html` får innholdet fra `get-content.html` og viser det i riktig format. 
+  * Shortcoden kalles med argumentet `prop="{propName}"`. `propName` må samsvare med filnavn (se under).
 
 ## Hvordan bruke malen
 1. **Filnavn**: Kopier malen (denne eller [_TEMPLATE.md](/app/development/ux/components/_common-props-content/_template)) og gi den navn på formatet `{propName}.{languageCode}.md`. Opprett en fil for hvert språk. Alle filer skal ligge direkte under `_common-props-content`.

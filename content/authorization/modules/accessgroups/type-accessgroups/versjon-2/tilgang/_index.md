@@ -20,9 +20,9 @@ Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroup
 |---|---|---|---|
 |Administrere tilganger| nei|nei||
 |Klientadminstrasjon for Regnskapsfører og Revisor|ja|ja|DAGL, STYR, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
-|Tilgangsstyring|ja|ja|DAGL, STYR, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
-|Hovedadministrator|ja|ja|DAGL, STYR, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
-|Kundeadministrator|ja|ja|DAGL, STYR, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
+|Tilgangsstyring|ja|ja|DAGL, LEDE, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
+|Hovedadministrator|ja|ja|DAGL, LEDE, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
+|Kundeadministrator|ja|ja|DAGL, LEDE, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
 
 {{% notice warning %}} Det er fortsatt uavklart hvilke fullmakter det vil være natulig å gi personer med rollen Forretningsførerer innenfor fullmaktsområdet "Administrere tilganger" {{% /notice %}}
 
