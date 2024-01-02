@@ -11,19 +11,20 @@ managing and reviewing notifications sent through Altinn.
 
 ## Base URL
 
-{{% insert "/shared/api/base-urls.txt" "notifications"%}}
+{{% insert "content/app/guides/shared/api/base-urls.md" "notifications"%}}
 
 ## Authentication & Authorization
 
-### Maskinporten scopes
-
-{{% insert "/shared/api/maskinporten-scopes.txt" %}}
-
 ### Altinn token
 
-{{% insert "/shared/api/altinn-token.txt" "Notifications"%}}
+{{% insert "content/app/guides/shared/api/altinn-token.md" "Notifications"%}}
+
+### Maskinporten scopes
+
+{{% insert "content/app/guides/shared/api/maskinporten-scopes.md" %}}
+
 
 ### Platform Access token
 
-{{% insert "/shared/api/platform-access-token.txt" %}}
+{{% insert "content/app/guides/shared/api/platform-access-token.md" %}}
 

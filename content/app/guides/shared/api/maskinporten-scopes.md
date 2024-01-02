@@ -1,4 +1,5 @@
 ---
+headless: true
 hidden: true
 ---
 
@@ -10,14 +11,14 @@ provides your API client with Maskinporten tokens upon request.
 
 {{% expandlarge id="guide-mp-int-api" header="Guide on how to register a new Maskinporten integration through API" %}}
 
-Please reference [Maskinporten's own documentation](https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apikonsument) on registering a new integration through their self service API.
+Please reference [Maskinporten's own documentation](https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apikonsument) 
+on registering a new integration through their self service API.
 
 {{% /expandlarge %}}
 
 
 {{% expandlarge id="guide-mp-int-samarbeid" header="Guide on how to register a new Maskinporten integration in Samarbeidsportalen" %}}
 
-{{% insert "/shared/guides/maskinporten-integration/maskinporten-integration-samarbeidsportal.txt" %}}
-
+{{% insert "content/app/guides/shared/maskinporten-integration/maskinporten-integration-samarbeidsportal.md" %}}
 {{% /expandlarge %}}
 

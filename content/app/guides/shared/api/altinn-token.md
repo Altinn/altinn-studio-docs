@@ -1,6 +1,8 @@
 ---
+headless: true
 hidden: true
 ---
+
 
 The {0} API is secured using OAuth2 and all requests must include a valid Altinn token either in the Authorization header or
 in the _AltinnStudioRuntime_ cookie.
