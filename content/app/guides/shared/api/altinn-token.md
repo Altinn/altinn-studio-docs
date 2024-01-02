@@ -17,16 +17,23 @@ Below are two guides on how to achieve this.
 
 {{% expandlarge id="guide-altinn-token-maskinporten" header="Guide on how to generate an Altinn token with Maskinporten" %}}
 
+<!--
 - fakta messig hvordan går man gjennom ting
 - gi en heads up om at vi også har en API-client for .NET
+-->
+{{% notice info %}}
+We are working on providing you with a guide.
+{{% /notice %}}
 
-TODO...
+
 {{% /expandlarge %}}
 
 
 {{% expandlarge id="guide-altinn-token-id-porten" header="Guide on how to generate an Altinn token with id-porten" %}}
 
-TODO..
+{{% notice info %}}
+We are working on providing you with a guide.
+{{% /notice %}}
 
 {{% /expandlarge %}}
 

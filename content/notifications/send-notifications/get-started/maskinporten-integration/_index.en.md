@@ -12,11 +12,20 @@ Altinn internal systems should include an Altinn Platform Access Tokens to the r
 to the API.
 {{% /notice %}}
 
-The scope **altinn:serviceowner/notifications.create** is required for external clients to gain access to the Notifications
-API both for registering notification requests and checking status for sent notifications. 
+## Required Maskinporten scope
 
-Generating a token with the requires scope as a part of the token claims is achieved through Maskinporten. 
-Below are guides on how to set up a new Maskinporten integration that can generate tokens with the required scope.
+The scope **altinn:serviceowner/notifications.create** is required for external clients to gain 
+access to the Notifications API.
+
+All registered service owners have been delegated this scope by Digdir and should 
+be able to find it in their list of scopes in Samarbeidsportalen. 
+
+## Setting up the Maskinporten integration
+
+A maskinporten client also known as a Maskinporten integration can generate tokens with a set of scopes on request. 
+The token can then be exchanged for an Altinn token and used to gain access to the API. 
+
+Below are guides on how to set up a new Maskinporten integration that generates tokens with the required scope.
 
 
 {{% expandlarge id="guide-mp-int-api" header="Guide on how to register a new Maskinporten integration through API" %}}

@@ -5,12 +5,12 @@ weight: 10
 description: "A user guide for the notification service"
 ---
 
-Her bør vi kunne gjenrbuke en del som står her: https://altinn.github.io/docs/utviklingsguider/varsling/
+{{% notice info %}}
+We are working on providing you with new and updated guidelines on usage of Altinn Notification. 
+In the meantime existing guidelines for sending notifications through Altinn 2 also apply to Altinn Notfications. 
 
-## Hvordan ser et varsel ut
 
-Her skal vi vise et eksemplel på varsling
+[Please familiarize yourself with existing documentation and guidelines](https://altinn.github.io/docs/utviklingsguider/varsling/)
+{{% /notice %}}
 
-## Hva skal et varsel ikke inneholde
 
-## Hvilke adresser sendes varsel til
