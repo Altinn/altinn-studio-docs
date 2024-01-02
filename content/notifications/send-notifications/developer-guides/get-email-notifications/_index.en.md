@@ -24,7 +24,7 @@ See [Authentication and Authorization](../../../api/#authentication--authorizati
 ## Response
 
 ### Response codes
-- 200 OK: The notification order request was accepted and a notification order has been successfully generated.
+- 200 OK: The email notifications were successfully retrieved
 - 404 Not Found: No order matching the provided id were found 
 
   Refer to problem details in response body for further information.
