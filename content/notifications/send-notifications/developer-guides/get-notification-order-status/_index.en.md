@@ -1,8 +1,7 @@
 ---
 title: Get order status
 linktitle: Get order status 
-description: Developer guide on retrieving a status of a notification order
-
+description: Endpoint for retrieving the processing status of an order and a summary of all generated notifications.
 weight: 51
 toc: true
 ---
@@ -59,7 +58,7 @@ Type: _string_
 
 
 #### created
-Type _DateTime_
+Type: _DateTime_
 
 The date and time for when the notification order request was registered.
 

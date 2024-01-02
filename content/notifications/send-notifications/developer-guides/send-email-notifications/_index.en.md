@@ -1,8 +1,7 @@
 ---
 title: Send email notifications 
 linktitle: Send email notifications 
-description: Developer guide on sending an email notification order
-
+description: Endpoint for sending an email to one or more recipient with known contact details.
 weight: 50
 toc: true
 ---
