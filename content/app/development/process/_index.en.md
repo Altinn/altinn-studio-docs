@@ -2,7 +2,9 @@
 title: Process handling
 description: The Application template supports defining a business process for the digital service.
 tags: [altinn-apps, process, bpmn]
-weight: 2
+weight: 60
+aliases:
+- /app-template/processhandling
 ---
 
 The template follows the [BPMN 2.0 standard.](https://www.bpmn.org/)

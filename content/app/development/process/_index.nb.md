@@ -2,7 +2,7 @@
 title: Prosess handling
 description: Applikasjons templaten støtter å definere en foretnings prosess for digitale tjenester
 tags: [altinn-apps, process, bpmn]
-weight: 2
+weight: 60
 ---
 
 Malen følger [BPMN 2.0-standarden](https://www.bpmn.org/).
