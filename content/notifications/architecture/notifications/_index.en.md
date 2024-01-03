@@ -26,26 +26,60 @@ The following API controllers are defined:
 ### Notifications internal API
 The API controllers listed below are exclusively for use within the Notification solution:
 
-- [Trigger controller](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Controllers/TriggerController.cs): Functionality to trigger the start of order and notifications processing flows.
+- [Trigger controller](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Controllers/TriggerController.cs):
+   Functionality to trigger the start of order and notifications processing flows.
 
 
 ## Database
-Add an overview of the various tables and a general descriptions. 
-Diagram that shows relationships e.g. foreign keys. 
 
-![Database](dbmodel.drawio.svg "Notifications Database")
+Data related to notification orders, notifications and receipients is persisted in a PostgreSQL database. 
+
+Find below a short description of each table within the notifications schema:
+
+|Table | Description|
+|-|-|
+| orders | Table containing metadata for each notification order |
+| emailtexts | Table persisting the static common texts related to a notification |
+| emailnotifications | Table persisting metadata for each notfication along with recipient contact details |
+| resourcelimitlog | Table used to keep track of resource limits outages for dependent systems e.g. Azure Communication services | 
+
+
+![Diagram of Notifications Database](dbmodel.drawio.svg "Diagram of Notifications Database")
 
 
 ## Integrations 
  
 ### Kafka Consumers
+The following Kafka consumers are defined: 
+- [AltinnServiceUpdateConsumer](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications.Integrations/Kafka/Consumers/AltinnServiceUpdateConsumer.cs):
+  Consumes service updates from other Altinn services
+- [EmailStatusConsumer](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications.Integrations/Kafka/Consumers/EmailStatusConsumer.cs):
+  Consumes updates on the send state of an email notification
+- [PastDueOrdersConsumer](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications.Integrations/Kafka/Consumers/PastDueOrdersConsumer.cs):
+  Consumes notification orders that are ready to be processed for sending
+- [PastDueOrdersRetryConsumer](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications.Integrations/Kafka/Consumers/PastDueOrdersRetryConsumer.cs):
+  Consumes snotification orders where the first attempt of processing has failed
 
 ### Kafka Producer
 
+A single producer [_KafkaProducer_](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications.Integrations/Kafka/Producers/KafkaProducer.cs) 
+is implemented and used by all services that publish to Kafka. 
 
 ## Cron jobs
 
-[Based of the official docker image for curl](https://hub.docker.com/r/curlimages/curl)
+Multiple cron jobs have been set up to enable the triggering of certain actions on the application on 
+a given schedule. 
+
+The following cron jobs are defined: 
+
+| Job name | Schedule | Description|
+|-|-| -|
+|pending-orders-trigger |  */1 * * * *| Sends request to endpoint to start processing of past due orders |
+|send-email-trigger | */1 * * * * | Sends request to endpoint to start the process of sending all new email notifications |
+
+Each cron job runs in a Docker container [based of the official docker image for curl](https://hub.docker.com/r/curlimages/curl)
+and sends a request to an endpoints in the [Trigger controller](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Controllers/TriggerController.cs).
+
 
 ## Dependencies 
 
@@ -64,8 +98,12 @@ Diagram that shows relationships e.g. foreign keys.
 ### Software
 Notifications microservice takes use of a range of libraries to support the provided functionality. 
 
-[See full list of dependencies on GitHub](https://github.com/Altinn/altinn-notifications/network/dependencies).
+|Software | Purpose | Documentation|
+|-|-|-|
+|Npgsql |Used to access the database server from the | [Documentation](https://www.npgsql.org/)|
 
+
+[See full list of dependencies on GitHub](https://github.com/Altinn/altinn-notifications/network/dependencies).
 
 ## Testing 
 Quality gates implemented for a project require an 80 % code coverage for the unit and integration tests combined.
