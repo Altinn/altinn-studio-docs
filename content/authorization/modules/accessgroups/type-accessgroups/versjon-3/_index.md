@@ -1,5 +1,5 @@
 ---
-title: Forslag nye fullmaktsgrupper - versjon 3
+title: Nye fullmaktsgrupper versjon 3
 linktitle: Virksomhet, versjon 3
 description: Her finner du versjon 3 på forslag til nye fullmaktsgrupper for virksomheter. Denne versjonen vil tilgjengeliggjøres i Altinn studio og ressursregisteret. 
 toc: true
