@@ -16,9 +16,9 @@ There are sub sections with missing and/or only partial documentation.
 
 Reasons to consider using Altinn Notifications for communication with Norwegian citizens or businesses
 
-1. Contact information in national registries can be retrieved at send time based of
+1. Contact information in national registries can be retrieved at send time based on
    organisation number or person identification number.
-2. Altinn roles can be used to identified the correct recipients within an organisation.
+2. Altinn roles can be used to identify the correct recipients within an organisation.
 3. Notifications can have send conditions related to the state of, or actions performed on, an Altinn App instance
 4. A seamless integration for notifications in an Altinn App workflow.
 
@@ -26,8 +26,7 @@ Reasons to consider using Altinn Notifications for communication with Norwegian 
 
 - #### Notification order
 
-  A _notification order_ is the request to send a notification through one or
-  multiple notifications to one or multiple recipients.
+  A _notification order_ is the request to send  one or multiple notifications to one or multiple recipients.
   A single order can result in the creation of one or multiple notifications.
 
   Here is an example of a standard notification order:

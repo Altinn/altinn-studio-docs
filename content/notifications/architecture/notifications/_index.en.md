@@ -62,7 +62,7 @@ Diagram that shows relationships e.g. foreign keys.
 
 
 ### Software
-Notifications microservice takes use of a range of libraries to support the provided functionality. 
+Notifications microservice use a range of libraries to support the provided functionality. 
 
 [See full list of dependencies on GitHub](https://github.com/Altinn/altinn-notifications/network/dependencies).
 
@@ -92,9 +92,9 @@ on the machine and exposed on port 5432. (krever og at database og roller er på
 [Laget et bash script for å enkelt få til dette også](https://github.com/Altinn/altinn-notifications/blob/main/dbsetup.sh)
 
 ### Use case tests
-Use case tests are ru every 15 minutss through GitHub Actions. 
+Use case tests are run every 15 minutss through GitHub Actions. 
 The tests themselves are implemented in k6. 
-The aim of the tests is to run through central functionality of the solution to ensure that it is running and available to our end users.
+The aim of the tests is to run through core functionality of the solution to ensure that it's available to our end users.
 
 ## Hosting
 
@@ -116,7 +116,7 @@ See [DockerFile](https://github.com/Altinn/altinn-notifications/blob/main/Docker
 TODO: Any config that would be useful to share from a functional perspective 
 {{% /notice %}}
 
-- The PostgreSQL database runs on a flexible server in Azure.
+- The PostgreSQL database is hosted by a dedicated Azure Database for PostgreSQL flexible servers service.
 
 ## Build & deploy
 

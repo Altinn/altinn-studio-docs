@@ -62,7 +62,7 @@ __Content:__
 <!--New expand-->
 {{% expandsmall id="altinn.notifications.orders.pastdue" header="altinn.notifications.orders.pastdue" %}}
 
-__Description:__ A topic dedicated to orders where the requested send time is about to, or has, passed.
+__Description:__ A topic dedicated to orders where the requested send time is about to pass, or has passed.
 
 __Event trigger:__ Requested send time of orders is about to, or has, passed.
 
@@ -78,7 +78,7 @@ __Content:__
 <!--New expand-->
 {{% expandsmall id="altinn.notifications.orders.pastdue.retry" header="altinn.notifications.orders.pastdue.retry" %}}
 
-__Description:__ A topic dedicated to orders where the requested send time is about to, or has, passed 
+__Description:__ A topic dedicated to orders where the requested send time is about to pass,or has passed 
 and processing has failed at least once.
 
 __Event trigger:__ Initial processing of the order after passed send time failed due to an unknown or intermittent reason.
@@ -171,7 +171,7 @@ __Description:__ A topic dedicated to hold updates on the Altinn platform compon
 __Event trigger:__ An change in the state or availability of a platform service has occurred
 
 __Producer:__ 
-- Altinn Notifications Email, TBD 
+- Altinn Notifications Email, SendingService 
 
 __Content:__ 
 
@@ -204,7 +204,8 @@ Three roles are defined and used by entities interacting with Kafka from the sol
 ### Partitions 
 The number of partitions on a topic is set at creation. As our solution has the ability to auto scale, 
 we have set the number of partitions equal to the maximum number of nodes available in the AKS cluster
-running the consumer microservices as there is a limitation of maximum one consumer per topic. 
+running the consumer microservices. This means the maximum numbers of consumers per consumer group will be equal to
+the number of nodes in the cluster.  
 
 ### Retention
 Retention time varies between the environments. 
