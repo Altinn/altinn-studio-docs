@@ -24,12 +24,12 @@ Tilbake til [hovedoversikt](http://localhost:1313/authorization/modules/accessgr
 |---|---|---|---|
 |Energi, vann, avløp og avfall| ja|nei||
 |Elektrisitet: produsere, overføre og distribuere|ja|ja|DAGL, STYR,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
-|Damp- og varmtvann|ja|ja|DAGL, STYR,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
-|Vann: ta ut fra kilde, rense og distribuere|ja|ja|DAGL, STYR,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
-|Samle opp og behandle avløpsvann|ja|ja|DAGL, STYR,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
-|Avfall: samle inn, behandle bruke og gjenvinne|ja|ja|DAGL, STYR,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
-|Miljøryddng, -rensing og lignende virksomhet|ja|ja|DAGL, STYR,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
-|Utvinning av råolje,  naturgass og kull|ja|ja|DAGL, STYR,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
+|Damp- og varmtvann|ja|ja|DAGL, LEDE, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
+|Vann: ta ut fra kilde, rense og distribuere|ja|ja|DAGL, LEDE, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
+|Samle opp og behandle avløpsvann|ja|ja|DAGL, LEDE, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
+|Avfall: samle inn, behandle bruke og gjenvinne|ja|ja|DAGL, LEDE, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
+|Miljøryddng, -rensing og lignende virksomhet|ja|ja|DAGL, LEDE, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
+|Utvinning av råolje,  naturgass og kull|ja|ja|DAGL, LEDE, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
 
 {{% notice warning %}} Det er fortsatt uavklart hvilke fullmakter det vil være natulig å gi personer med rollen Forretningsførerer innenfor fullmaktsområdet "Energi, vann, avløp og avfall" {{% /notice %}}
 
