@@ -87,9 +87,9 @@ There are two dependencies for the integration tests:
 
 A _docker-compose_ script is available to start all Kafka-related dependencies in a Docker containers.
 
-A PostgreSQL database need to be installed wherever the tests are running, either in a Docker container or installed 
-on the machine and exposed on port 5432. (krever og at database og roller er på plass).
-[Laget et bash script for å enkelt få til dette også](https://github.com/Altinn/altinn-notifications/blob/main/dbsetup.sh)
+A PostgreSQL database needs to be installed wherever the tests are running, either in a Docker container or installed 
+on the machine and exposed on port 5432. (Roles and database must also be in place).
+[A bash script has been implemented for easy setup.](https://github.com/Altinn/altinn-notifications/blob/main/dbsetup.sh)
 
 ### Use case tests
 Use case tests are run every 15 minutss through GitHub Actions. 
