@@ -39,3 +39,6 @@ other = "Navigation"
 
 [on-this-page]
 other = "On this page:"
+
+[Last-Modified]
+other = "Last modified: "
