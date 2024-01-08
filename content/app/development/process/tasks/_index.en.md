@@ -3,7 +3,6 @@ title: Process task
 description: Defining process tasks
 tags: [altinn-apps, process, bpmn, task]
 weight: 10
-toc: true
 ---
 
 ## Task types
@@ -16,6 +15,8 @@ A data task requires that all data for a given process task is valid and that th
 
 The data validation is part of the standard logic in the template. Application developers can add custom validation for each data element and task.
 
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="v8">}}
 ```xml
 <bpmn:task id="Task_1" name="Utfylling">
     <bpmn:incoming>Flow1</bpmn:incoming>
@@ -27,6 +28,16 @@ The data validation is part of the standard logic in the template. Application d
     </bpmn:extensionElements>
 </bpmn:task>
 ```
+{{</content-version-container>}}
+{{<content-version-container version-label="v7">}}
+```xml
+<bpmn:task id="Task_1" name="Utfylling" dataType="data">
+    <bpmn:incoming>Flow1</bpmn:incoming>
+    <bpmn:outgoing>Flow2</bpmn:outgoing>
+</bpmn:task>
+```
+{{</content-version-container>}}
+{{</content-version-selector>}}
 
 ### Confirmation Task
 
@@ -35,7 +46,8 @@ A confirmation task is where the end user accessing the application through the 
 When a user confirms a confirmation task a confirm instance event log is created detailing that user/system X has confirmed.
 
 Example of a confirmation task
-
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="v8">}}
 ```xml
 <bpmn:task id="Task_2" name="Bekreftelse">
     <bpmn:incoming>Flow1</bpmn:incoming>
@@ -50,6 +62,16 @@ Example of a confirmation task
     </bpmn:extensionElements>
 </bpmn:task>
 ```
+{{</content-version-container>}}
+{{<content-version-container version-label="v7">}}
+```xml
+<bpmn:task id="Task_2" name="Bekreftelse" dataType="confirmation">
+    <bpmn:incoming>Flow1</bpmn:incoming>
+    <bpmn:outgoing>Flow2</bpmn:outgoing>
+</bpmn:task>
+```
+{{</content-version-container>}}
+{{</content-version-selector>}}
 
 ### Signing Task
 
@@ -57,7 +79,7 @@ A signing task is where the end user accessing the application through the brows
 
 When a user performs a sign action a signature object containing the user information and a hash of the data elements defined in the process task will be generated along a instance event log detailing that user/system X has signed
 
-Example of a signing task
+Example of a signing task (only supported in v8)
 ```xml
 <bpmn:task id="Task_1">
     <bpmn:incoming>Flow1</bpmn:incoming>
@@ -91,6 +113,9 @@ A feedback task allows the service owner or others to give feedback to the entit
 It allows uploading data and moving the process forward.
 
 Example of a feedback task
+
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="v8">}}
 ```xml
 <bpmn:task id="Task_2" name="Bekreftelse">
     <bpmn:incoming>Flow1</bpmn:incoming>
@@ -102,67 +127,13 @@ Example of a feedback task
     </bpmn:extensionElements>
 </bpmn:task>
 ```
-
-## Actions in tasks
-In version 8 of the app nugets actions in tasks were introduced. This makes it possible for developers to associate ActionButtons in the UI with UserActions in the backend.
-It is possible to authorize each action in a task separately in the policy file.
-
-### Actions with special altinn logic connected to them
-
-#### write
-Default action that is performed when a data or feedback task is submitted
-
-#### confirm
-Default action that is performed when a confirmation task i submitted
-
-#### sign
-Action that generates a signature object based on the configuration of the task see [Signature]()
-
-#### reject
-Action to use when moving back from one task to another. Performing action reject will ensure data elements in the target task is unlocked.
-
-### Custom actions and custom logic when action is performed
-
-#### Custom action in task
-To add actions to a task you have to modify the `App/config/process/process.bpmn` file and add the wanted action to the task.
-
-Example of a process where Task_1 has the actions _demo_ and _custom_ defined:
-
-```xml {hl_lines=["15-27"]}
-<?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions id="Definitions_1eqx4ru" 
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" 
-xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" 
-xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" 
-xmlns:di="http://www.omg.org/spec/DD/20100524/DI" 
-targetNamespace="http://bpmn.io/schema/bpmn" 
-xmlns:altinn="http://altinn.no/process">
-  <bpmn:process id="Process_1rq9ej8" isExecutable="false">
-    <bpmn:startEvent id="StartEvent">
-      <bpmn:outgoing>Flow1</bpmn:outgoing>
-    </bpmn:startEvent>
-    <bpmn:sequenceFlow id="Flow1" sourceRef="StartEvent" targetRef="Task1" />
-    <bpmn:task id="Task_1" name="Utfylling">
-      <bpmn:incoming>Flow1</bpmn:incoming>
-      <bpmn:outgoing>Flow2</bpmn:outgoing>
-      <bpmn:extensionElements>
-        <altinn:taskExtension>
-          <altinn:taskType>data</altinn:taskType>
-          <altinn:actions>
-            <altinn:action>demo</altinn:action>
-            <altinn:action>custom</altinn:action>
-          </altinn:actions>
-        </altinn:taskExtension>
-      </bpmn:extensionElements>
-    </bpmn:task>
-    <bpmn:sequenceFlow id="Flow2" sourceRef="Task1" targetRef="EndEvent" />
-    <bpmn:endEvent id="EndEvent">
-      <bpmn:incoming>Flow2</bpmn:incoming>
-    </bpmn:endEvent>
-  </bpmn:process>
-</bpmn:definitions>
+{{</content-version-container>}}
+{{<content-version-container version-label="v7">}}
+```xml
+<bpmn:task id="Task_2" name="Bekreftelse" dataType="feedback">
+    <bpmn:incoming>Flow1</bpmn:incoming>
+    <bpmn:outgoing>Flow2</bpmn:outgoing>
+</bpmn:task>
 ```
-
-Once these actions have been [granted to users in policy.xml]() it is possible to add a [ActionButtons in the UI connected to the actions]() <!--//TODO: Add a link to docs for defining XACML and ActionButton-->
-
+{{</content-version-container>}}
+{{</content-version-selector>}}

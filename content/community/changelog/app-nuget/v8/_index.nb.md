@@ -146,8 +146,6 @@ For å se hvordan signering av oppgaver defineres, kan du se [signeringsdokument
 Det er nå mulig å ta beslutninger om prosessflyt ved hjelp av uttrykk i prosessdefinisjonen.
 For å se hvordan du kan bruke uttrykk for å diktere prosessflyt, se [bruk av uttrykk for å diktere prosessflyt]() 
 
-### Egendefinerte handlinger i oppgaver
-Egendefinerte handlinger gjør det mulig å opprette egendef
-
-Egendefinerte handlinger som kan brukes til å flytte prosessen videre. Disse handlingene kan autoriseres separat, brukes i uttrykk inni prosessdefinisjonen for å endre hvordan prosessen flyter, og utføre egendefinert kode før prosessen flyttes til neste oppgave.
+### Egendefinerte handlinger i prosess oppgaver
+Egendefinerte handlinger gjør det mulig å opprette egendefinerte handlinger som kan brukes til å flytte prosessen videre. Disse handlingene kan autoriseres separat, brukes i uttrykk inni prosessdefinisjonen for å endre hvordan prosessen flyter, og utføre egendefinert kode før prosessen flyttes til neste oppgave.
 For å se hvordan du kan bruke egendefinerte prosesshandlinger, se [definere egendefinerte handlinger i prosessoppgaver]()

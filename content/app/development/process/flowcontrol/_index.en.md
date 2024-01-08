@@ -1,5 +1,5 @@
 ---
-title: Process flow
+title: Flowcontrol
 description: Controlling process flow
 tags: [altinn-apps, process, bpmn, gateway]
 weight: 20
