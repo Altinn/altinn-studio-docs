@@ -6,6 +6,13 @@ weight: 2
 toc: false
 ---
 
-{{% notice info %}}
-TODO: Agree on structure for section
-{{% /notice %}}
+
+## Integrations
+### Kafka
+
+### Azure Communication Services 
+
+## Dependencies
+## Testing
+## Hosting
+## Build & deploy
