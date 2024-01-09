@@ -1,5 +1,5 @@
 <div class="col-12 col-lg-4 mb-5">
-    <a href="{{ with .Site.GetPage `/app`}}{{.URL}}{{end}}" class="a-illustrationLink">
+    <a href="{{ with .Site.GetPage `/app`}}{{.RelPermalink}}{{end}}" class="a-illustrationLink">
         <h2 class="a-h3">{{T "create-your-first-app"}}</h2>
         <p class="a-js-truncate-2">{{T "create-your-first-app-description"}}</p>
         <div class="a-illustration-icon">
@@ -12,7 +12,7 @@
     <div class="a-list-container mb-2 mx-auto mx-lg-2">
         <ul class="a-list a-list-noIcon">
             <li class="a-dotted a-clickable a-list-hasRowLink">
-                <a href="{{ with .Site.GetPage `/app/getting-started`}}{{.URL}}{{end}}" class="a-list-rowLink">
+                <a href="{{ with .Site.GetPage `/app/getting-started`}}{{.RelPermalink}}{{end}}" class="a-list-rowLink">
                     <div class="row">
                         <div class="col">
                             {{T "getting-started-with-altinn-studio"}}
@@ -21,7 +21,7 @@
                 </a>
             </li>
             <li class="a-dotted a-clickable a-list-hasRowLink">
-                <a href="{{ with .Site.GetPage `/app/design`}}{{.URL}}{{end}}" class="a-list-rowLink">
+                <a href="{{ with .Site.GetPage `/app/guides/design`}}{{.RelPermalink}}{{end}}" class="a-list-rowLink">
                     <div class="row">
                         <div class="col">
                             {{T "design"}}
@@ -30,7 +30,7 @@
                 </a>
             </li>
             <li class="a-dotted a-clickable a-list-hasRowLink">
-                <a href="{{ with .Site.GetPage `/app/design/guidelines`}}{{.URL}}{{end}}" class="a-list-rowLink">
+                <a href="{{ with .Site.GetPage `/app/guides/design/guidelines`}}{{.RelPermalink}}{{end}}" class="a-list-rowLink">
                     <div class="row">
                         <div class="col">
                             {{T "guidelines"}}
@@ -39,7 +39,7 @@
                 </a>
             </li>
             <li class="a-dotted a-clickable a-list-hasRowLink">
-                <a href="{{ with .Site.GetPage `/app/development`}}{{.URL}}{{end}}" class="a-list-rowLink">
+                <a href="{{ with .Site.GetPage `/app/development`}}{{.RelPermalink}}{{end}}" class="a-list-rowLink">
                     <div class="row">
                         <div class="col">
                             {{T "app-development"}}
@@ -48,7 +48,7 @@
                 </a>
             </li>
             <!-- <li class="a-dotted a-clickable a-list-hasRowLink">
-                <a href="{{ with .Site.GetPage `/app/testing`}}{{.URL}}{{end}}" class="a-list-rowLink">
+                <a href="{{ with .Site.GetPage `/app/testing`}}{{.RelPermalink}}{{end}}" class="a-list-rowLink">
                     <div class="row">
                         <div class="col">
                             {{T "testing"}}

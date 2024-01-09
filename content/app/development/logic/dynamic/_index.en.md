@@ -1,38 +1,52 @@
 ---
 title: Dynamics
 description: How to add dynamics?
-tags: [translate-to-english]
+tags: [dynamics]
 toc: true
 ---
 
-## Introduksjon
+{{% panel theme="warning" %}}
+⚠️ Dynamics are under active development. The `RuleHandler.js` file will in the future be replaced by
+[dynamic expressions](../expressions). Currently only show/hide dynamics are supported using expressions, but
+calculation and validation will be supported in the future.
+{{% /panel %}}
 
-Dynamikk er hendelser som skjer på klient-siden. Disse kan deles opp i to kategorier:
-- Beregning - kjøre beregninger på klient-side, og oppdatere felter med ny verdi
-- Vis/skjul felter - bestemme om felter skal vises eller skjules basert på verdier i skjema.
+## Introduction
 
-All dynamikk skrives som funksjoner i javascript, i filen  `RuleHandler.js`. Denne filen finner man under `App/ui`-mappen i appen, og kan også redigeres direkte i `Lage`-
-visningen i Altinn Studio, ved å velge _Rediger dynamikk_ i høyre-menyen. Funksjonene som er definert i denne filen kan da configurere til å kjøres for feltene i skjemaet.
+Dynamics are events that happen on the client side. These can be separated in two categories:
+- Calculations -  do calculations on the client side, and update the fields with new value.
+- Show/hide fields - decide if fields should be hidden or displayed based on form values.  
+
+There are two ways to add and change dynamics for an Altinn App:
+1. Directly in Altinn Studio under _Lage_-tab. Select _Rediger dynamikk_ in the right menu.
+2. In a local development environment by working in the file `RuleHandler.js` which can be found in the `App/ui` folder.
+
+All dynamics are written as JavaScript functions in the _RuleHandler_ file.
+Functions that are defined in this file can be configured to run for selected fields in the app.
+
 
 {{%notice info%}}
-Koden som definerer beregninger eller regler for vis/skjul bør settes opp sånn at den håndterer ev. feil i input. F.eks. bør de takle
-å motta tom input, eller å motta en tekst selv om de forventer et tall, uten å kræsje. Om dynamikken ikke fungerer som forventet, ta en titt på koden som definerer
-beregninger eller regler for vis/skjul for å se om det er noe feilhåndtering som mangler.
+The dynamic code to show/hide fields or perform calculations should be set up so that it handles possible errors in the input gracefully.
+It should, for instance, handle empty fields or strings where you expect numbers without crashing.
+If the dynamic does not work as expected, take a look at the code that defines the dynamic and verify that it handles errors.
 {{% /notice%}}
 
-{{%notice warning%}}**MERK**: for å støtte beregning/vis-skjul felter på eldre nettlesere så må man skrive javascript koden man legger i `RuleHandler.js` i den versjonen av ECMA-script som den aktuelle nettleseren støtter. For IE11 vil dette være ECMA-script 5. {{%/notice%}}
+{{% notice warning %}}
+NOTE: In order to support dynamics in older browsers the code defined in `RuleHandler.js` must be written in the version of ECMAScript that the given browser supports.
+For IE11 this is ECMAScript 5.
+{{% /notice %}}
 
-## Legg til/rediger funksjoner for beregninger eller vis/skjul
+## Add or edit functions for dynamics
 
-I filen `RuleHandler.js` er det satt opp 2 javascript-objekter:
+There are two JavaScript objects in the file `RuleHandler.js`:
 
-- `ruleHandlerObject` - funksjoner for beregninger
-- `conditionalRuleHandlerObject` - funksjoner med regler for vis/skjul
+- `ruleHandlerObject` - functions for calculations
+- `conditionalRuleHandlerObject` - functions for hiding/showing fields
 
-Det er inne i disse at de forskjellige funksjonene skal defineres. I tillegg er det satt opp to _hjelpe-objekter_  (`ruleHandlerHelper` og `conditionalRuleHandlerHelper`), hvor man skal sette opp hva slags input de forskjellige funksjonene forventer å få inn. Dette gjør det mulig å konfigurere opp reglene i Altinn Studio senere. For at en funksjon skal være tilgjengelig for å konfigureres som dynamikk, må selve funksjonen være definert i hoved-objektet 
-(`ruleHandlerObject` eller `conditionalRuleHandlerObject`), og parametrene den forventer å få inn må være satt opp i det tilhørende hjelpe-objektet.
+It is in these objects the functions should be defined. In addition to these there are two _help objects_ (`ruleHandlerHelper` and `conditionalRuleHandlerHelper`), where you configure what input the different functions expect. This is done in order to be able to configure up rules in Altinn Studio at a later point.
+To be able to configure dynamics in studio the functions must be defined in the JavaScript objects (`ruleHandlerObject` or `conditionalRuleHandlerObject`), and the parameters they expect in the corresponding helper object.
 
-Strukturen på hjelpe-objektet vises under:
+The structure of the help object:
 
 ```javascript
 var ruleHandlerHelper = {
@@ -47,7 +61,7 @@ var ruleHandlerHelper = {
 }
 ```
 
-Strukturen på hoved-objektet, som inneholder funksjoner som brukes i dynamikk, vises under:
+The structure of objects containing the javascript functions: 
 
 ```javascript
 var ruleHandlerObject = {
@@ -61,7 +75,7 @@ var ruleHandlerObject = {
 }
 ```
 
-For eksempel, for å lage en regel som returnerer summen av to tall (beregning), vil man trenge følgende kode:
+For instance, to create a rule that calculates the sum of two numbers (calculation) the following code is needed: 
 
 ```javascript
 var ruleHandlerHelper = {
@@ -89,20 +103,19 @@ var ruleHandlerObject = {
 }
 ```
 
-Noen standard-metoder for beregniner, med hjelpe-objekt, er satt opp automatisk når app'en lages i Altinn Studio. Noen av disse er vist i eksempelet under.
+Some default methods for calculations, with help objects, are defined as part of the app template. 
 
-| Method name          | Description                                                      | Parameters              | Defined in object/helper                                      |
-| -------------------- | ---------------------------------------------------------------- | ----------------------- | ------------------------------------------------------------- |
-| `sum`                | Returnerer summen av 2 verdier                        | `value1`, `value2`      | `ruleHandlerObject`/`ruleHandlerHelper`                       |
-| `fullName`           | Returnerer to tekster (fornavn og etternavn) satt sammen med mellomrom mellom. | `firstName`, `lastName` | `ruleHandlerObject`/`ruleHandlerHelper`                       |
-| `lengthGreaterThan4` | Returnerer `true` dersom verdien den får inn er lengre enn 4 karakterer lang.  | `value`                 | `conditionalRuleHandlerObject`/`conditionalRuleHandlerHelper` |
+| Method name          | Description                                                                | Parameters              | Defined in object/helper                                      |
+| -------------------- | -------------------------------------------------------------------------- | ----------------------- | ------------------------------------------------------------- |
+| `sum`                | Returns the sum of two values                                              | `value1`, `value2`      | `ruleHandlerObject`/`ruleHandlerHelper`                       |
+| `fullName`           | Combines two strings (first name and last name) separated with a space.    | `firstName`, `lastName` | `ruleHandlerObject`/`ruleHandlerHelper`                       |
+| `lengthGreaterThan4` | Returns `true` if the value is longer than 4 chars long.                   | `value`                 | `conditionalRuleHandlerObject`/`conditionalRuleHandlerHelper` |
 
 
-Regler for dynamikk kjøres dersom det har skjedd en endring i input-parametrene til de forskjellige reglene. 
-Funksjonene som da kjøres må kunne håndtere dersom det f.eks. har kommet inn kun 1 av 2 parametre eller lignende.
+ Dynamics are run if a change has occurred in the input fields connected to the rule. The functions have to handle cases where for instance only one of the two parameters have defined values.
 
-Et eksempel på hvordan dette kan gjøres er vist i `sum`-funksjonen under, hvor man tester hvilke parametre man 
-har fått inn, og setter verdi til `0` på den/de parametre som mangler, sånn at regelen fortsatt fungerer.
+An example of how this could be done is shown in the `sum`-function below, where missing values are corrected to the value `0`.
+
 
 ```javascript
 var ruleHandlerObject = {
@@ -147,74 +160,74 @@ var conditionalRuleHandlerHelper = {
 }
 ```
 
-## Konfigurere dynamikk for skjema-komponenter
+## Configure dynamics for UI components
 
-1. Legg til de skjema-komponentene som ønskes i layout.
-2. I høyre-menyen, velg å legge til _Regler for beregninger_ eller _Regler for vis/skjul felt_.
-3. Velg en tilgjengelig funksjon som gjør det du ønsker. Legg evt. til en ny funksjon, se beskrivelse over.
-4. Sett opp hvilke(t) felt som skal fungere som _input_ til funksjonen - her er det felt i datamodellen som gjelder.
-5. Sett opp hvilke(t) fom skal påvirkes av regelen (skal motta beregnet verdi, eller skal vises/skjules) - her er det skjemakomponent som gjelder.
-  - For regler for vis/skjul felt kan man velge flere felter som skal vises/skjules basert på samme regel.
-6. Lagre konfigurasjonen.
-7. Test at det fungerer som forventet.
+1. Add the relevant UI components to the layout.
+2. In the right menu, select _Regler for beregninger_ or _Regler for vis/skjul felt_.
+   ![Rules for hiding/showing fields](rules-show-hide.png)
+3. Select the wanted rule. Or add a function, as described in the sections above. ![Select a rule](rules-select-rule.png)
+4. Configure which field(s) that should be used as _input_ for the function - this is fields in the data model. 
+    ![Configure dynamics](rules-configure.png)
+5. Select which component(s) that should be affected by the rule (recieve value or be shown/hidden) - this is components in the layout.
+     - For rules for hiding/showing elements several fields can be selected for the same rule.
+6. Save the configuration.
+7. Test that the rules works as expected.
 
-Eksisterende oppsett ligger synlig i høyre-menyen og kan redigeres/slettes.
+Existing configured rules is shown in the right menu, and can be edited/deleted.
 
-Konfigurasjonen legges i filen `App/ui/RuleConfiguration.json`. Denne kan også redigeres manuelt ved behov.
+The configuration can also be seen in the file `App/ui/RuleConfiguration.json`. This can be manually edited if necessary.
 
-## Eksempel på bruk av dynamikk i skjema
+## Example usage of dynamics on an app
 
 Scenario:
 
-En app med skjema som har flere felter for input. En av disse er en radioknapp-gruppe, med valgene "Ja" og "Nei".
-Avhengig av hva sluttbruker velger her, skal forskjellig innhold vises i skjemaet:
+An app with a UI with several fields for input. One of these fields is a radio button with the options "Yes" and "No".
+Depending on what the user selects, different content is to be displayed:
+- Yes: a new input field is shown, together with information on what is to be filled in.
+- No: a different information text is shown.
 
-- Ja: Et nytt input-felt vises, sammen med ekstra informasjon om hvordan feltet skal fylles ut.
-- Nei: En annen informasjons-tekst vises.
-
-Dette kan gjøres ved å legge inn følgende i `RuleHandler.js`, enten via _Rediger dynamikk_ i Altinn Studio, eller ved å laste ned kildekoden
-til appen og redigere lokalt.
+This can be solved by adding the following in `RuleHandler.js`, either through _Rediger dynamikk_ in Altinn Studio, or by manually editing the source code.
 
 ```javascript
 var conditionalRuleHandlerObject = {
   sjekkVirksomhetIDrift: (obj) => {
-    return (obj.value && obj.value === "Ja");
+    return (obj.value && obj.value === "Yes");
   },
 
   sjekkVirksomhetIkkeIDrift: (obj) => {
-    return (!obj.value || obj.value != "Ja");
+    return (!obj.value || obj.value != "Yes");
   }
 }
 
 var conditionalRuleHandlerHelper = {
   sjekkVirksomhetIDrift: () => {
     return {
-      value: "Verdi"
+      value: "value"
     }
   },
   sjekkVirksomhetIkkeIDrift: () => {
     return {
-      value: "Verdi"
+      value: "value"
     }
   }
 }
 ```
 
-Her har to funksjoner blitt opprettet, som sjekker om verdien er henholdsvis "Ja" eller ikke.
-Etter at denne koden er lagt til, kan regelen konfigureres i Altinn Studio. Resultatet vises under. 
+Here, two functions have been added which checks if the value is "Yes" or not.
+After this code is added, the rules can be configured in studio. The results are displayed below:
 
 ![Test of dynamics screenshot](dynamics-test.gif "Test of dynamics example")
 
-## Dynamikk i repeterende gruppe
-Det er også mulig å sette opp dynamikk innad i en repeterende gruppe. Dette krever at man først setter opp regelen som
-vanlig, og så redigerer på oppsettet `App/ui/RuleConfiguration.json` manuelt. Helt konkret, er det følgende som må endres:
+## Dynamics in repeating groups 
 
-- For alle `inputParams`, må man legge til `{0}` etter _gruppe-delen_ av data-modellen. F.eks. `Datamodell.gruppe{0}.felt`. Dette erstattes i koden av _indeksen_ til 
-hvert enkelt innslag av den repeterende gruppen.
-- For alle `selectedFields` (altså feltene som påvirkes av reglen), må man legge til `{0}` bak felt-id'en. F.eks. `skjemaFelt1{0}`
-- I tillegg må man legge enn en ny egenskap på regelen, `repeatingGroup`. Denne skal inneholde id'en til gruppen i layout-filen.
+It is also possible to add dynamics within a repeating group. This requires that the rule is configured in Altinn Studio as 
+usual, and then manually doing some extra configuration in the `App/ui/RuleConfiguration.json` file as described below.
 
-Et eksempel på en regel som er satt opp for repeterende grupper vises under:
+- For each `inputParams`, one needs to add `{0}` after the  _group part_ of the data binding. For instance `model.group{0}.field`. The index indicator will be replaced by the index for each relevant field in the repeating group.
+- For each `selectedFields` (the fields affected by the rule), one needs to add `{0}` after the field id, for instance `layoutComponent{0}`
+- A new property must also be added to the rule, `repeatingGroup`. This object must contain the id of the relevant group in the layout file.
+
+An example of a rule that is configured for a repeating group:
 
 ```json {hl_lines=[8,12-13,15-17]}
 {
@@ -224,15 +237,15 @@ Et eksempel på en regel som er satt opp for repeterende grupper vises under:
       "9f9f2a50-360b-11ea-b69a-8510e2e248b9": {
         "selectedFunction": "lengthBiggerThan4",
         "inputParams": {
-          "value": "Skjemainnhold.personalia.arbeidserfaring{0}.stilling"
+          "value": "model.group{0}.field"
         },
         "selectedAction": "Show",
         "selectedFields": {
-          "962e2f60-3797-11ea-bfa5-9922024b4738": "a-e-4{0}",
-          "something": "arbeidsgiver-adresse{0}"
+          "first": "some-field{0}",
+          "second": "some-other-field{0}"
         },
         "repeatingGroup": {
-          "groupId": "arbeidserfaring-group",
+          "groupId": "the-group-id",
         }
       }
     }
@@ -240,27 +253,55 @@ Et eksempel på en regel som er satt opp for repeterende grupper vises under:
 }
 ```
 
-## Eksempel med mer kompleks dynamikk
-Example with more complex dynamics
+### Nested repeating groups 
+
+It is also possible to add dynamics for nested repeating groups. The configuration resembles that of repeating group, but a second parameter `childGroupId` is added in the `repeatingGroup`object, as well as an extra index indicator.
+
+Example: 
+
+```json {hl_lines=[8,12,14,15,16]}
+{
+    "data": {
+        "ruleConnection": {},
+        "conditionalRendering": {
+            "hide-nested-group-field": {
+                "selectedFunction": "shouldHide",
+                "inputParams": {
+                    "value": "someGroup{0}.nestedGroup{1}.someField"
+                },
+                "selectedAction": "Hide",
+                "selectedFields": {
+                    "field": "the-component-id{0}{1}"
+                },
+                "repeatingGroup": {
+                    "groupId": "mainGroup",
+                    "childGroupId": "subGroup"
+                }
+            }
+        }
+    }
+}
+```
+
+## Example with more complex dynamics 
 
 Scenario:
-Et skjema med to sett med radioknapper (ja/nei) og en avkrysningsboks.
+An app has two sets of radiobuttons (yes/no) and a checkbox.
 
-- Når skjema lastes, er kun det første settet med radioknapper synlig. 
-- Hvis brukeren velder _Ja_, vises det andre settet med radioknapper. 
-  - Hvis brukeren velger _Ja_ i det andre settet, blir avkrysningsboksen synlig.
-  - Hvis brukeren går tilbake til det første settet med radioknapper og velger nei, blir både det andre settet med radioknapper og avkrysningsboksen ikke lenger synlig.
+- When the app is loaded, only the fist set of radiobuttons are visible.
+- If the user selects `Yes`, the second set of radiobuttons are shown.
+  - If the user selects `Yes` in the second choice, the checkbox is shown.
+  - If the user goes back to the first set of radiobuttons and selects `No`, both the second set of radiobuttons and the checkbox is hidden.
 
+### Alternative 1
+This can be solved by configuring two different conditions for when the fields should be displayed:
 
-### Alternativ 1
-Dette kan settes opp ved å lage 2 forskjellige betingelser for når feltene skal vises:
+- One condition for the second set of radiobuttons
+  - Is shown if `Yes` is selected in the first set
+- One condition for the checkbox
+  - Is shown when `Yes` is selected in both sets of radiobuttons.
 
-- En betingelse for det andre settet med radioknapper
-  - Vises dersom _Ja_ er valgt i det første settet
-- En betingelse for avkrysningsboksen
-  - Vises når _Ja_ er valgt i begge sett med radioknapper.
-
-Koden for å løse dette kan være:
+Example code that can solve this case:
 
 ```javascript
 var conditionalRuleHandlerObject = {
@@ -296,9 +337,10 @@ var conditionalRuleHandlerHelper = {
 }
 ```
 
-### Alternativ 2
-Dette kan også settes opp ved å bruke den samme betingelsen for å vise både det andre settet med radionkapper og avkrusningsboksen. I tillegg må man 
-da ha en regel som sletter verdien i det andre settet med radioknapper dersom verdien i det første settet settes til _Nei_:
+### Alternative 2
+
+This can also be configured by using the same condition to show both the second set of radiobuttons and the checkbox.
+In addition a rule that removes the value from the second set of radiobuttons if the user selects `No` in the first set:
 
 ```javascript
 var ruleHandlerObject = {
@@ -338,15 +380,15 @@ var conditionalRuleHandlerHelper = {
 ```
 
 
-## Dynamikk i PDF
+## Dynamics in PDF
 
-Fra versjon 3.0.0 er det også mulig å legge inn dynamikk for PDF. Dette gjøres i PDF Handler. Her kan man ved hjelp av logikk velge å skjulte felter eller sider i print.
+From nuget versions 3.0.0 it is also possible to add dynamics for the PDF. This is done in the PDF Handler.
+The application must include the `layout/ui/Settings.json` file defined [here](../../../../app/development/ux/pages/navigation/#order).
 
-Appen må inkludere `layout/ui/Settings.json` filen som [her](../../../../app/development/ux/pages/navigation/#rekkefølge).
+Configuring dynamics in PDF is similar to how validations are added on the server side.
 
-Teknisk er det veldlig likt hvordan man gjør det for validering. 
-
-Eksempel nedenfor som skjuler et gitt felt basert på innhold. Komponentene er basert på ID som man finner i layouts filene til skjema.
+The example below hides a field based on if the string `some-value` exists in a given field.
+Here the code hides the component with the id `079f205b-c9ea-414d-9983-0d158e833e8a`. The id is reflected in the layout files.
 
 ```C#
         public async Task<LayoutSettings> FormatPdf(LayoutSettings layoutSettings, object data)
@@ -355,7 +397,7 @@ Eksempel nedenfor som skjuler et gitt felt basert på innhold. Komponentene er b
             {
                 Skjema skjema = (Skjema)data;
 
-                if (skjema?.Innledninggrp9342?.Kontaktinformasjongrp9344?.KontaktpersonNavndatadef2?.value.Contains("tulling") == true)
+                if (skjema?.Innledninggrp9342?.Kontaktinformasjongrp9344?.KontaktpersonNavndatadef2?.value.Contains("some-value") == true)
                 {
                     layoutSettings.Components = new Components();
                     layoutSettings.Components.ExcludeFromPdf = new System.Collections.Generic.List<string>();

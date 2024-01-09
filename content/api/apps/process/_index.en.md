@@ -12,11 +12,11 @@ aliases:
 
 All apps have a process definition that specifies start events, end events, tasks and the allowed flows (transitions) between these.
 A process is started by the application, which selects a start event to start and follows the sequence flow to the first task and
-creates a current task object to holde the process state.
+creates a current task object to hold the process state.
 
 ![Flowchart for process](mvp-process.png "Process")
 
-A process is represented by an process modell in BPMN/XML notation. Each task has an unique id, which is used to refer to the task in the api.
+A process is represented by an process model in BPMN/XML notation. Each task has an unique id, which is used to refer to the task in the api.
 
 ### Process model
 
@@ -51,10 +51,8 @@ Application developers can in their BPMN Definition specify some altinn specific
 which signify the behaviour of the task. So far we have defined the following:
 
 - *data* - user is asked to fill inn one or more data elements, e.g. upload data or fill in forms
-- *submit* - user is asked if he should submit the information which has been filled in on previous tasks
-- *payment* - user is asked to pay a specific amount
-- *signing* - user is asked to provide a digital signature
-- *external* - task is handled by an external entity, user must wait until they have completed the task.
+- *confirmation* - user is asked to confirm the correctness of the information which has been filled in on previous tasks
+- *feedback* - user is asked to wait while external feedback is uploaded to the instance
 
 ## Get process state of a specific instance
 
@@ -68,18 +66,19 @@ Notice that same task can be visited multiple times in a process if there is a s
 
 ```json
 {
-    "started": "2019-09-25T09:32:44.20Z",
-    "currentTask": {
-        "flow": 2,
-        "started": "2019-10-10T32:22.00Z",
-        "elementId": "Task_1",
-        "name": "Fyll ut",
-        "altinnTaskType": "data",
-        "validated": {
-            "timestamp": "2019-10-04T12:00.00Z",
-            "canCompleteTask": true
-        }
+  "started": "2019-09-25T09:32:44.20Z",
+  "currentTask": {
+    "flow": 2,
+    "started": "2019-10-10T32:22.00Z",
+    "elementId": "Task_1",
+    "name": "Fyll ut",
+    "altinnTaskType": "data",
+    "validated": {
+      "timestamp": "2019-10-04T12:00.00Z",
+      "canCompleteTask": true
     }
+  }
+}
 ```
 
 For an ended process the following will be returned:
@@ -183,7 +182,8 @@ GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/hist
 ```
 
 ```json
-"processHistory": [
+{
+    "processHistory": [
         {
             "eventType": "process_StartEvent",
             "elementId": "StartEvent_1",

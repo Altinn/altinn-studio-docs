@@ -1,24 +1,25 @@
 ---
 title: Instantiation
 description: How to add logic to be run when a new instance is created?
-tags: [translate-to-english]
 toc: true
 ---
 
-## Introduksjon
+## Introduction
 
-Applikasjonslogikk knyttet til instansiering kan defineres i `InstantiationHandler.cs`. For en helt ny app vil det være to funksjoner implementert i denne klassen:
+Application logic connected to instantiation can be defined in `InstantiationHandler.cs`. For a completely new app, two functions will be implemented in this class:
 
- - `RunInstantiationValidation` - lag egne sjekker for å avgjøre om en bruker/avgiver får lov til å instansiere.
- - `DataCreation` - lag tilpasset prefill data.
+ - `RunInstantiationValidation` - create your own tests for determining whether a user/submitter is allowed to instantiate.
+ - `DataCreation` - create customized prefill data.
 
-## Egendefinerte valideringsregler for instansiering
-Som tidligere nevnt, kan sjekker for instansiering defineres i `RunInstantiationValidation`.
-Tilgang til _Register_- og _Profile_-tjenester er inkludert i `InstantiationHandler.cs`-filen, som tillater å gjøre sjekker mot disse.
-Valideringsregler for instansiering kan innebære å validere tidspunkt til spesifikke brukerrestriksjoner og komplekse sjekker som krever eksterne API-kall.
+## Custom validation rules for instantiation
+As previously mentioned, tests for instantiation are defined in `RunInstantiationValidation`
+Access to _Register_- and _Profile_-services are included in the `InstantiationHandler.cs`-file, which allows test to be
+run against these.
+Validation rules for instantiation can include validating a time to specific user instructions and complex tests that
+require external API calls.
 
 
-### Eksempel 1 - Insansiering kun tillatt før kl 15:00 på en gitt dag
+### Example 1 - Instantiation only allowed before 3 pm on any given day
 
 ```C# {hl_lines=[4]}
 public async Task<InstantiationValidationResult> RunInstantiationValidation(Instance instance)
@@ -37,26 +38,26 @@ public async Task<InstantiationValidationResult> RunInstantiationValidation(Inst
 }
 ```
 
-### Eksempel 2 - Instansiering kun tillatt for applikasjonseier
+### Example 2 - Instantiation only allowed for application owner
 
-Kodebasen som eksempelet er basert på er tilgjengelig [her](https://altinn.studio/repos/ttd/example-app-1).
-(krever innlogging i altinn.studio)
+The application this example is based on is available [here](https://altinn.studio/repos/ttd/example-app-1).
+(requires login in altinn.studio)
 
-For å kunne begrense instansiering til en gitt entitet, i dette tilfellet applikasjonseier,
-er det to filer som må endres: `App.cs` og `InstantiationHandler.cs`. 
+To limit instantiation to a given entity, in this case the application owner, 
+two files must be changed: `App.cs` and `InstantiationHandler.cs`. 
 
 ![Changes to app.cs](instatiation-example-2-appcs.PNG "Changes to app.cs")
 
-I `App.cs` tilgjengeliggjøres http-konteksten og 
-brukerdata (claims principals) hentes ut fra konteksten ved å kalle ```_httpContext.User```.
+In `App.cs` the http-context is made available and
+user data (claims principals) is retrieved from the context by calling ```_httpContext.User```.
 
-For å validere instansieringen kan man sjekke ett av to claims i konteksten.
-Enten organisasjonsen trebokstavsforkortelse eller organisasjonsnummeret.
-Valideringen skjer i `InstantiationHandler.cs` og eksempelet nedenfor bruker organisasjonsforkortelsen. 
+To validate the instantiation, you can check one of two claims in the context.
+Either the organization's three-letter abbreviation or the organization number.
+The validation is run in `InstantiationHandler.cs` and the example below uses the organization abbreviation.
 
-For å validere basert på organisasjonsnummer kan du følge eksempelet nedenfor,
-og bytte ut *AltinnCoreClaimTypes&#46;Org* med *AltinnCoreClaimTypes.OrgNumber*.  
-om må gjøres i denne file ser du nedenfor.
+To validate based on organization number you can follow the example below,
+and replace *AltinnCoreClaimTypes&#46;Org* with *AltinnCoreClaimTypes.OrgNumber*.
+You can see the changes required in the file below. 
 
 ![InstantiationHandler.cs](instatiation-example-2-instantiationhandler.PNG "Changes to instantiationHandler.cs")
 
@@ -92,13 +93,13 @@ public async Task<InstantiationValidationResult> RunInstantiationValidation(Inst
     return await Task.FromResult(result);
 }
 ```
-### Eksempel 3 - Instansiering kun tillatt mellom gitte datoer
+### Example 3 - Instantiation only allowed between certain dates
 
-For å kunne begrense instansiering til en gitt tidsrom, i dette eksempelet januar 2021,
-er det én fil som må endres:`InstantiationHandler.cs`. 
+To limit instantiation to a certain time frame, in this example January 2021, 
+one file requires changes:`InstantiationHandler.cs`. 
 
-Metoden `RunInstantiationValidation` vil kjøre hver gang noen prøver å instansiere applikasjonen, 
-så her plasseres logikk for å verifiere at tidspunktet er innenfor den tillatte rammen.
+The method `RunInstantiationValidation` will run whenever someone tries to instantiate the application,
+so logic is placed here to verify that the time is within the allowed frame.
 
 ```cs
 public async Task<InstantiationValidationResult> RunInstantiationValidation(Instance instance)
@@ -125,22 +126,22 @@ public async Task<InstantiationValidationResult> RunInstantiationValidation(Inst
 }
 ```
 
-Det er lagt inn logikk knyttet til datohåndtering for å forsikre oss om at det er norsk tid som gjelder
-og som blir brukt i valideringen. 
+Logic connected to date handling has been added to ensure the Norwegian time zone
+is being used in the validation. 
 
 ```cs
 DateTime now = TimeZoneInfo.ConvertTime(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById("Central European Standard Time"));
 ```
 
-Videre gjøres det en enkel sjekk for å se om nåværende tidspunkt er innenfor rammene
+Furthermore, a simple test is run to see if the current time is within the given time frame
 
 ```cs
 (now < new DateTime(2021, 01, 01)
 ```
 
-Dersom man ikke oppfyller kravene blir returobjektet populert med et _InstantiationValidationResult_ objekt som inneholder to felter: 
-_Valid_: en boolean som benyttes for å si om instansieringen er gyldig eller ikke
-_Message_: en string som kan inneholde en feilmelding dersom det ikke er gyldig
+If the requirements are not met, the return object is populated with an _InstantiationValidationResult_ object that contains two fields:
+_Valid_: a boolean that says if the instantiation is valid or not.
+_Message_: a string that can contain an error message if it is not valid.
 
 
 ```cs
@@ -151,14 +152,14 @@ _Message_: en string som kan inneholde en feilmelding dersom det ikke er gyldig
         };
 ```
 
-I tillegg har man muligheten til å legge benytte property 
-_ValidParties_: en liste med de partiene som kan instansiere applikasjonen.
+In addition you have the opportunity to use property
+_ValidParties_: a list of the parties that are allowed to instantiate the application.
 
-Resultatet av en feilet validering er vist nedenfor: 
+The result of a failed validation is shown below:
 
-![Instansiering før tillatt dato](instantiation-validation-before-date.png "Instansiering før tillatt dato")
+![Instantiation pre allowed time frame](instantiation-validation-before-date.png "Instantiation pre allowed time frame")
 
-![Instansiering etter tillatt dato](instantiation-validation-after-date.png "Instansiering etter tillatt dato")
+![Instantiation post allowed time frame](instantiation-validation-after-date.png "Instantiation post allowed time frame")
 
 
 

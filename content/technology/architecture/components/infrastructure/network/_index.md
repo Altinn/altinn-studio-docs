@@ -2,6 +2,7 @@
 title: Network componentens
 linktitle: Network
 description: All networking infrastructure is located in Azure.
+toc: true
 tags: [architecture, infrastructure, todo]
 ---
 

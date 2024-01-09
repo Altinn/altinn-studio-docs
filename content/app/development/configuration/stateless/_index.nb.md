@@ -1,7 +1,7 @@
 ---
 title: Stateless applikasjon (innsynstjeneste)
 linktitle: Stateless
-description: Hvordan legge inn konfigurasjon for å styre oppførsel ved applikasjonens oppstart
+description: Hvordan konfigurere oppførsel ved applikasjonens oppstart
 toc: true
 weight: 500
 ---
@@ -9,25 +9,29 @@ weight: 500
 ## Introduksjon til stateless applikasjoner
 
 En stateless, eller tilstandsløs, applikasjon skiller ser fra standard applikasjoner ved at den ikke lagrer noe data,
-verken skjemadata eller metadata om instanser av applikasjonen. 
-Derfor passer stateless applikasjoner godt som innsynstjenester der en sluttbruker eller et system gjør et oppslag mot en eller annen ressurs
-evt. presenterer data fra en tredjepart basert på hvem brukeren er.
+hverken skjemadata eller metadata om instanser av applikasjonen. Applikasjonen vil heller ikke havne i meldingsboksen til sluttbruker.
+ En tilstandsløs applikasjon tilsvarer en innsynstjeneste i Altinn 2.
 
+ Stateless-applikasjoner passer godt som innsynstjenester der en sluttbruker eller et system gjør et oppslag mot en ressurs eller presenterer data fra en tredjepart basert på identiteten til brukeren.
+  Det er også mulig å konfigurere en stateless-applikasjon for å tillate anonyme brukere, det vil si brukere som ikke er pålogget.
 
 ## Konfigurasjon
 
-{{%notice warning%}}
+{{% notice info %}}
 
 Dette er helt ny funksjonalitet. Oppsett må gjøres manuelt inntil videre.
 
-**MERK:** for å benytte denne funksjonaliteten må man versjon >= 4.5.2 av nugetpakkene `Altinn.App.PlatformServices`, `Altinn.App.Common` og `Altinn.App.Api`.
+**MERK:** for å benytte denne funksjonaliteten må man versjon >= 4.5.2 av [nuget-pakkene](../../../maintainance/dependencies#nuget) `Altinn.App.PlatformServices`, `Altinn.App.Common` og `Altinn.App.Api`.
 
-{{%/notice%}}
+{{% /notice %}}
 
-I applikasjonsmetadataen er det mulig styre oppførselen en applikasjonen har under oppstart. Om man ønsker at applikasjonen skal oppføre seg som en tilstandsløs applikasjon vil det nå være mulig.
-For en slik applikasjon vil det ikke bli lagret noe data eller metadata, og applikasjonen vil heller ikke havne i meldingsboksen til sluttbruker. Dette tilsvarer en innsynstjeneste i Altinn 2.
+Du kan styre applikasjonens oppførsel under oppstart og konfigurere den som en tilstandsløs applikasjon etter behov ved å konfigurere applikasjonsmetadataen, som er lagret i applicationmetadata.json.
 
-Konfigurasjonen av dette gjøres i `applicationmetadata.json`. Eksempel:
+Eksempel på konfigurasjon:
+
+{{< code-title >}}
+App/config/applicationmetadata.json
+{{< /code-title >}}
 
 ```json{hl_lines=[31]}
 {
@@ -46,7 +50,7 @@ Konfigurasjonen av dette gjøres i `applicationmetadata.json`. Eksempel:
       "minCount": 0
     },
     {
-      "id": "Stateless",
+      "id": "Stateless-model",
       "allowedContentTypes": [
         "application/xml"
       ],
@@ -62,37 +66,44 @@ Konfigurasjonen av dette gjøres i `applicationmetadata.json`. Eksempel:
   ...
   "onEntry": { "show": "stateless" } // legg til denne linjen
 }
-
 ```
-I feltet `onEntry.show` har man mulighet til nå å referere til et layout-set som man ønsker skal vises under oppstarten av applkasjonen. Les mer om layout-sets [her.](../../ux/ui-editor/multiple-layoutsets/#oppsett)
 
-Layout-settet man referer til her blir så benyttet som visningen brukeren blir presentert for i det man navigerer til applikasjonen.
+I feltet `onEntry.show` har du muligheten til å spesifisere et layout-sett som du ønsker å vise under oppstart av applikasjonen.
 
-Konfigurasjonsfilen `layout-sets.json` kan opprettes dersom den ikke finnes fra før av. Den skal ligge i mappen `App/ui`.
-I `layout-sets.json` legger man så inn det aktuelle settet man referer til fra `applicationmetadata.json`, eksempel:
+Selve layout-settet er definert i konfigurasjonsfilen `App/ui/layout-sets.json`.
+ Hvis filen ikke eksisterer, kan du opprette den.
+  Du kan finne mer informasjon om layout-sett [her](/nb/app/development/ux/pages/layout-sets/).
+
+Eksempel på layout-sett:
+
+{{< code-title >}}
+App/ui/layout-sets.json
+{{< /code-title >}}
 
 ```json
 {
-    "sets": [
-      {
-        "id": "stateless",
-        "dataType": "Stateless"
-      }
-    ]
-  }
+  "sets": [
+    {
+      "id": "stateless",
+      "dataType": "Stateless-model"
+    }
+  ]
+}
 ```
 
-I eksempelet over så referer layout-settet `stateless` til datamodellen `Stateless`. Eksempel app-struktur på en applikasjon som har satt opp på denne måten:
+I eksempelet over referer layout-settet `stateless` til datamodellen `Stateless-model`.
+
+Eksempel app-struktur for en applikasjon som er satt opp på denne måten:
 
 ```text
 ├───App
     ├───config
     ├───logic
     ├───models
-    │       Stateless.cs
-    │       Stateless.metadata.json
-    │       Stateless.schema.json
-    │       Stateless.xsd
+    │       Stateless-model.cs
+    │       Stateless-model.metadata.json
+    │       Stateless-model.schema.json
+    │       Stateless-model.xsd
     ├───ui
         │   layout-sets.json
         │
@@ -102,24 +113,79 @@ I eksempelet over så referer layout-settet `stateless` til datamodellen `Statel
             │   Settings.json
             │
             └───layouts
-                  FormLayout.json
+                  {page}.json
 ```
 
-`FormLayout.json` vil så kunne settes opp på samme måte som en vanlig applikasjon, og vil støtte samtlige komponenter som er mulig å sette opp i en vanlig app, med unntak av:
+`{page}.json` vil kunne settes opp på samme måte som en vanlig applikasjonsside og vil støtte samtlige komponenter med unntak av:
 - Filopplaster
-- Knapp 
+- Knapp
 
-App frontend vil så skjønne ut fra konfigurasjonen i `applicationmetadata.json` at den ikke skal instansiere, og hente ned de aktuelle layout-filene og den tilkoblede datamodellen og presentere dette til sluttbrukeren.
+Appens frontend vil lese konfigurasjonen fra `applicationmetadata.json` og forstå at den ikke skal opprette en instans.
+ I stedet vil den hente layout-filene og tilhørende datamodeller og presentere dem for sluttbrukeren.
+
+### Konfigurere tilgang uten innlogging
+
+{{%notice warning%}}
+OBS! Skjemakomponenter som påvirker prosess (knapp for innsending eller instansiering) er ikke støttet for anonyme brukere!
+
+**MERK:** for å benytte denne funksjonaliteten må man bruke versjon >= 5.1.0 av [nuget-pakkene](../../../maintainance/dependencies#nuget) `Altinn.App.PlatformServices`, `Altinn.App.Common` og `Altinn.App.Api`.
+
+{{%/notice%}}
+
+For å tillate bruk av appen for bruker som ikke er innlogget, må man følge stegene som beskrevet over. _I tillegg_ må man definere at den datatypen som er satt opp
+til å brukes for stateless visningen tillater anonym (ikke innlogget) bruk. Dette gjøres ved å modifisere det aktuelle `dataType`-elementet i `applicationMetadata.json`.
+Datatypen sitt `appLogic`-objekt må få en ny innstilling, `"allowAnonymousOnStateless": true`. Se eksempel under:
+
+
+{{< code-title >}}
+App/config/applicationmetadata.json
+{{< /code-title >}}
+
+```json{hl_lines=[24]}
+{
+  "id": "ttd/stateless-app-demo",
+  "org": "ttd",
+  "title": {
+    "nb": "Stateless App Demo"
+  },
+  "dataTypes": [
+    {
+      "id": "ref-data-as-pdf",
+      "allowedContentTypes": [
+        "application/pdf"
+      ],
+      "maxCount": 0,
+      "minCount": 0
+    },
+    {
+      "id": "Stateless-model",
+      "allowedContentTypes": [
+        "application/xml"
+      ],
+      "appLogic": {
+        "autoCreate": true,
+        "classRef": "Altinn.App.Models.StatelessV1",
+        "allowAnonymousOnStateless": true,
+      },
+      "taskId": "Task_1",
+      "maxCount": 1,
+      "minCount": 1
+    }
+  ],
+  ...
+  "onEntry": { "show": "stateless" } 
+}
+```
 
 ## Datapopulering
 
 Når man benytter en stateless datatype så vil man kunne populere datamodellen i det app-frontend spør om skjemadataen.
 
 Datapopuleringen skjer i to steg på det initielle kallet fra frontend (GET):
-1. Prefill, les mer om dette [her.](../../data/prefill/)
-2. Dataprossesering, les mer om dette [her.](../../logic/dataprocessing/)
+1. [Prefill](../../data/prefill/)
+2. [Dataprossesering](../../logic/dataprocessing/)
 
-På påfølgende oppdateringer på samme skjemadata (POST) så vil man ikke kjøre prefill en gang til, men kalkuleringen trigges. Dette muligjør manipulering av dataen basert på brukerens input selv i en stateless tilstand.
+På påfølgende oppdateringer på samme skjemadata (POST) så vil man ikke kjøre prefill en gang til, men kalkuleringen trigges. Dette muliggjør manipulering av dataen basert på brukerens input selv i en stateless tilstand.
 
 Eksempel på en kalkulering som populerer datamodellen nevnt i eksempelet over:
 
@@ -141,7 +207,7 @@ public async Task<bool> ProcessDataRead(Instance instance, Guid? dataId, object 
 
 ## Autorisasjon med tredjepartsløsninger
 
-Tilgangsstyring for stateless applikasjoner kan løses med [standard app-autorisasjon](../authorisation) 
+Tilgangsstyring for stateless applikasjoner kan løses med [standard app-autorisasjon](../authorization) 
 der man hved hjelp av Altinn-roller definerer hvem som har tilgang til å benytte tjenesten.
 Dersom man har behov for ytteligere sikring av tjenesten kan man implementere logikk for autorisasjon av brukere med tredjepartløsninger.
 Dette kan være API-er som er eksponert innenfor egen virksomhet eller åpne API fra andre tilbydere.
@@ -154,9 +220,9 @@ har tilstrekkelige lisenser til å benytte tjenesten.
 ![GUI for ikke-autorisert bruker](extra-credentials-example-denied.png "GUI for ikke-autorisert bruker")
 
 
-Kildekoden til applikasjonen som eksempelet er basert på finnes [her](https://altinn.studio/repos/ttd/extra-credentials-demo). (Krever bruker i Altinn Studio.)
+Kildekoden til applikasjonen som eksempelet er basert på finnes [her](https://altinn.studio/repos/ttd/extra-credentials-demo) (krever bruker i Altinn Studio).
 
-Videre i eksempelet vil betegnelsen *bruker* være synonymt med en virksomhet representert ved en person i Altinn.
+Videre i eksempelet vil betegnelsen *bruker* være synonymt med en virksomhet representert av en person i Altinn.
 
 1. **Utvid datamodellen med felter for autorisasjon**
 
@@ -182,7 +248,12 @@ Videre i eksempelet vil betegnelsen *bruker* være synonymt med en virksomhet re
 
     ![GUI i Altinn Studio](extra-credentials-example-layout.png "GUI i Altinn Studio")
 
-    Komponentene er koblet til datamodell og tekstressurs på følgende måte i `FormLayout.json`
+    Komponentene er koblet til datamodell og tekstressurs på følgende måte i `{page}.json`:
+
+
+    {{< code-title >}}
+    App/ui/layouts/{page}.json
+    {{< /code-title >}}
 
     ```json
     "layout": [
@@ -265,6 +336,7 @@ Videre i eksempelet vil betegnelsen *bruker* være synonymt med en virksomhet re
       }
     }
     ```
+
 4. **Legg til tekstressurser**
 
    I tillegg til navnet på tjenesten er det lagt inn tre tekstressurser. 
@@ -300,7 +372,7 @@ Videre i eksempelet vil betegnelsen *bruker* være synonymt med en virksomhet re
     Logikk for å slå opp data og autorisere brukeren ligger i metoden `ProcessDataRead`.
     Denne kalles hver gang en bruker åpner applikasjonen eller sendes inn noe input data.
 
-    ```{cs, attr.source='.numberLines'}
+    ```cs
      public async Task<bool> ProcessDataRead(Instance instance, Guid? dataId, object data)
      {
          lookup lookup = (lookup)data;
@@ -396,14 +468,16 @@ Videre i eksempelet vil betegnelsen *bruker* være synonymt med en virksomhet re
 
 Dette er helt ny funksjonalitet. Oppsett må gjøres manuelt inntil videre og vil ikke være støttet i Altinn Studio.
 
-**MERK:** for å benytte denne funksjonaliteten må man versjon >= 4.17.2 av nugetpakkene `Altinn.App.PlatformServices`, `Altinn.App.Common` og `Altinn.App.Api`.
+**MERK:** for å benytte denne funksjonaliteten må man versjon >= 4.17.2 av [nuget-pakkene](../../../maintainance/dependencies#nuget) `Altinn.App.PlatformServices`, `Altinn.App.Common` og `Altinn.App.Api`.
 
 {{%/notice%}}
 
 Fra en tilstandsløs applikasjon har man mulighet til å benytte `InstantiationButton`-komponenten til å starte en instans.
-Enn så lenge støtter vi kun å starte en instans innad i samme applikasjonen som stateless skjema vises i. Det å starte en instans i en annn applikasjon er funksjonalitet som kommer.
+Enn så lenge støtter vi kun å starte en instans innad i samme applikasjonen som stateless skjema vises i. Det å starte en instans i en annen applikasjon er funksjonalitet som kommer.
 
-Det er laget en eksempel applikasjon som er satt opp som en innsynstjeneste hvor sluttbruker kan velge å starte en instans på den aktuelle applikasjonen. Denne kan brukes til inspirasjon for videre utvikling. Applikasjonen med kildekode finnes [her.](https://altinn.studio/repos/ttd/start-from-stateless)
+Det er laget en eksempel-applikasjon som er satt opp som en innsynstjeneste hvor sluttbruker kan velge å starte en instans på den aktuelle applikasjonen.
+ Denne kan brukes til inspirasjon for videre utvikling.
+  Applikasjonen med kildekode finnes [her](https://altinn.studio/repos/ttd/start-from-stateless).
 
 ### Instansiere med prefill
 

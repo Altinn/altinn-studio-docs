@@ -10,6 +10,8 @@ Valideringer sørger for at brukerens input er gyldig med tanke på datamodellen
 i tillegg til alle egendefinerte regler som settes opp for applikasjonen.
 Valideringer kan kjøres enten på klient (dvs. browseren) eller serversiden.
 
+Man kan også sette opp validering til å [kjøre ved sidebytte](/nb/app/development/ux/pages/navigation/#validering-ved-sidebytte).
+
 ## Klientside-validering
 
 Dette er validering som kjøres i browseren, FØR data er sendt til server for lagring. Dette gjør det mulig å gi raske tilbakemeldinger til 
@@ -40,14 +42,98 @@ Det er satt opp standard feilmeldinger for alle valideringene som gjøres på kl
 
 | Regel     | Feilmelding bokmål            | Feilmelding nynorsk           | Feilmelding engelsk                   |
 | --------- | ----------------------------- | ----------------------------- | ------------------------------------- |
-| min       | 'Minste gyldig verdi er {0}'  | 'Minste gyldig verdi er {0}'  | 'Minimum valid value is {0}'          |
-| max       | 'Største gyldig verdi er {0}' | 'Største gyldig verdi er {0}' | 'Maximum valid value is {0}'          |
+| minimum   | 'Minste gyldig verdi er {0}'  | 'Minste gyldig verdi er {0}'  | 'Minimum valid value is {0}'          |
+| maximum   | 'Største gyldig verdi er {0}' | 'Største gyldig verdi er {0}' | 'Maximum valid value is {0}'          |
 | minLength | 'Bruk {0} eller flere tegn'   | 'Bruk {0} eller flere tegn'   | 'Use {0} or more characters'          |
 | maxLength | 'Bruk {0} eller færre tegn'   | 'Bruk {0} eller færre tegn'   | 'Use {0} or fewer characters'         |
 | length    | 'Antall tillatte tegn er {0}' | 'Antall tillatte tegn er {0}' | 'Number of characters allowed is {0}' |
 | pattern   | 'Feil format eller verdi'     | 'Feil format eller verdi'     | 'Wrong format or value'               |
-| required  | 'Feltet er påkrevd'           | 'Feltet er påkrevd'           | 'Field is required'                   |
+| required  | 'Du må fylle ut {0}'          | 'Du må fylle ut {0}'          | 'You have to fill out {0}'            |
 | enum      | 'Kun verdiene {0} er tillatt' | 'Kun verdiene {0} er tillatt' | 'Only the values {0} are permitted'   |
+
+### Spesielt om standard feilmelding for påkrevde felter
+For en smidigere brukeropplevelse vises ikke feilmeldinger for manglende utfylling av påkrevde felter under
+utfylling av et skjema, med mindre validering trigges [på et enkeltfelt](#enkeltfeltvalidering), ved lagring
+av [en rad i en repeterende gruppe](#gruppevalidering) eller
+[ved navigering til en annen side](/nb/app/development/ux/pages/navigation/#validering-ved-sidebytte).
+
+Feilmeldingen for påkrevde felter er _"Du må fylle ut {0}"_. Her blir `{0}` erstattet med det feltet som feilmeldingen gjelder for.
+Dette gjøres på følgende måte:
+- Bruker feltets `shortName` tekst. Dette er en ny tekst som kan settes opp pr. komponent på samme måte som ledetekst (`title`) settes i dag. _Denne teksten brukes pr nå KUN i forbindelse med feilmeldingen for påkrevde felter._ 
+- Om `shortName` ikke er definert brukes feltets `title` tekst (det som er definert som ledetekst for feltet), og teksten vil bli forsøkt gjort om til en tekst med liten forbokstav (med mindre teksten ser ut som en forkortelse).
+- I noen spesialtilfeller (Adresse-komponenten) der det er flere felter i ett brukes de standard-tekstene som er definert for feltene i komponenten.
+
+#### Eksempel: Felt med kun `title`
+```json
+{
+  "id": "fornavn",
+  "type": "Input",
+  "textResourceBindings": {
+    "title": "tekst-fornavn"
+  },
+  ... //osv
+}
+```
+Og tekster i ressurs-fil:
+
+```json
+...
+{
+  "id": "tekst-fornavn",
+  "value": "Fornavn"
+}
+```
+
+Da vil valideringmeldingen bli `"Du må fylle ut Fornavn"`.
+
+#### Eksempel: Felt med `shortName`
+Dersom feltets ledetekst er lang eller ikke egner seg til bruk i valideringsmeldingen, kan man legge til en `shortName` tekst som brukes i stedet.
+_Merk at dette kun gjelder for denne spesifikke valideringsmeldingen - `shortName` teksten er ikke i bruk ellers i løsningen pr nå._
+```json
+{
+  "id": "fornavn",
+  "type": "Input",
+  "textResourceBindings": {
+    "title": "tekst-fornavn",
+    "shortName": "fornavn-kort"
+  },
+  ... //osv
+}
+```
+Og tekster i ressurs-fil:
+
+```json
+...
+{
+  "id": "tekst-fornavn",
+  "value": "Her kan du skrive ditt fornavn",
+},
+{
+  "id": "fornavn-kort",
+  "value": "fornavnet ditt",
+}
+```
+
+Da vil valideringmeldingen bli `"Du må fylle ut fornavnet ditt"`.
+
+### Erstatte feilmelding for påkrevde felter helt
+
+Hvis du ønsker å erstatte standardfeilmeldingen for obligatoriske felt fullstendig, kan du gjøre dette ved å legge til
+tekstnøkkelen `requiredValidation` i komponentens `textResourceBindings`-objekt. Dette vil erstatte standardfeilmeldingen
+for obligatoriske felt. Teksten kan være en [tekstnøkkel for en tekst som er definert i ressursfilene](../../ux/texts)
+for flerspråklig støtte.
+
+```json
+{
+  "id": "firstName",
+  "type": "Input",
+  "textResourceBindings": {
+    "title": "text-firstName",
+    "requiredValidation": "myCustomRequiredValidation"
+  },
+  ...
+}
+```
 
 ### Egendefinerte feilmeldinger
 Det er mulig å definere egne feilmeldinger som skal vises når et felt får valideringsfeil. Dette gjøres ved å legge på en parameter `errorMessage` der 
@@ -103,11 +189,33 @@ Egendefinerte validering kan igjen deles opp i to kategorier; task-validering og
   - Task-validering vil kjøres hver gang validering trigges enten manuelt fra applikasjonen eller når man prøver å flytte seg framover i prosessen.
   - Data-validering vil kjøre dersom man står på et steg som har definerte dataelementer knyttet til seg.
 
-Valideringer er skrevet i C#, i `ValidationHandler.cs` -filen i applikasjonsmalen.
+Valideringer skrives i C# og avhengig av hvilken versjon av applikasjonsmalen og Nuget pakkene du er på, så vil implementeringen variere litt. I tidligere versjon så er det en pre-definert fil med metoder du kan legge inn logikken, mens fra versjon 7 og fremover så implementerer du et grensesnitt i den klassen du selv vil. Grensesnittet er tilfeldigvis likt den pre-definerte filen. Eksemplene som refererer til metoder vil derfor være de samme for alle versjoner.
+
+{{<content-version-selector classes="border-box">}}
+
+
+{{<content-version-container version-label="v7">}}
+I versjon 7 har vi endret måten preutfylling med egendefinert kode gjøres på. Vi benytter nå _dependency injection_ i stedet for overstyring av metoder. Hvis du tidligere plasserte koden din i _ValidationHandler og _ValidateTask_ metodene in _ValidationHandler.cs_ klassen så vil du erfare at det er mer eller mindre det samme som nå gjøres.
+1. Opprett en klasse som implementerer `IInstanceValidator` grensesnittet som ligger i `Altinn.App.Core.Features.Validation` navnerommet.  
+    Du kan navngi og plassere filene i den mappestrukturen du selv ønsker i prosjektet ditt. Men vi anbefaler at du benytter meningsfulle navnerom som i et hvilket som helst annet .Net prosjekt.
+2. Registrer din implementering i _Program.cs_ klassen
+    ```C#
+    services.AddTransient<IInstanceValidator, InstanceValidator>();
+    ```
+    Dette sørger for at din kode er kjent for applikasjonen og at koden blir kjørt når den skal.
+{{</content-version-container>}}
+
+{{<content-version-container version-label="v4, v5, v6">}}
+Valideringer legges til i `ValidationHandler.cs` -filen i applikasjonsmalen.
 Filen kan aksesseres og endres i Altinn Studio via logikkmenyen, ved å velge _Rediger valideringer_,
 eller direkte i applikasjonsrepoet der ligger filen i `logic/Validation`-mappen.
+{{</content-version-container>}}
 
-Endringer gjøres i `ValidateData` og `ValidateTask`-metodene (disse er tomme når appen lages).
+{{</content-version-selector>}}
+
+Fra dette punktet og videre skal eksemplene være de samme for alle versjoner :)
+
+Endringer gjøres i `ValidateData` og `ValidateTask`-metodene.
 Førstnevnte får inn et dataobjekt og sistnevnte får inn instansen og taskId.
 For å legge til en valideringsfeil brukes `AddModelError`-metoden til `validationResults` object som sendes med i begge metodene.
 
@@ -163,6 +271,11 @@ public async Task ValidateTask(Instance instance, string taskId, ModelStateDicti
 Dersom det er behov for umiddelbar validering av et felt
 som ikke kan dekkes i klientsidevalideringen, 
 så kan man sette opp en trigger for validering på enkeltfelter i `formLayout.json`
+{{%notice warning%}}
+
+**MERK**: Det er foreløpig ikke støtte for å sette opp trigger for validering av enkeltfelter for Stateless apps.
+{{%/notice%}}
+
 
 ```json {hl_lines=[13]}
 {
@@ -209,9 +322,13 @@ Et eksempel på en egendefinert validering der headerverdien hentes ut er vist n
 ```csharp
  public async Task ValidateData(object data, ModelStateDictionary validationResults)
  {
-    _httpContextAccessor.HttpContext.Request.Headers.TryGetValue("ValidationTriggerField", out StringValues value);
+    _httpContextAccessor.HttpContext
+        .Request.Headers
+        .TryGetValue("ValidationTriggerField", out StringValues triggerValues);
+    
+    string triggerField = triggerValues.FirstOrDefault(string.Empty);
 
-    if (value.Count > 0 && value[0].Equals("kommune"))
+    if (triggerField.Equals("kommune"))
     {
       // Cast instance data to model type
       flyttemelding model = (flyttemelding)data;
@@ -221,7 +338,7 @@ Et eksempel på en egendefinert validering der headerverdien hentes ut er vist n
 
       if (!kommune.Equals("Oslo"))
       {
-          validationResults.AddModelError(value[0], "Dette er ikke en gyldig kommune.");
+          validationResults.AddModelError(triggerField, "Dette er ikke en gyldig kommune.");
       }
     }
 
@@ -265,14 +382,15 @@ Man kan bl.a. bruke en _switch statement_ for å oppnå dette.
 ```cs
 public async Task ValidateData(object data, ModelStateDictionary validationResults)
 {
-    if (data is flyttemelding model))
+    if (data is flyttemelding model)
     {
-        _httpContextAccessor.HttpContext.Request.Headers
-            .TryGetValue("ValidationTriggerField", out StringValues value);
+        _httpContextAccessor.HttpContext
+            .Request.Headers
+            .TryGetValue("ValidationTriggerField", out StringValues triggerValues);
+        
+        string triggerField = triggerValues.FirstOrDefault(string.Empty);
 
-        string dataField = value.Any() ? value[0] : string.Empty;
-
-        switch (dataField)
+        switch (triggerField)
         {
             case "kommune":
                 ValidateKommune(model, validationResults);
@@ -335,7 +453,7 @@ For å kunne fjerne gamle feilmeldinger i et sånt tilfelle, er det lagt til st�
 vil det aktuelle feltet kunne få beskjed om at en spesifikk feilmelding som den viser frem er fikset og skal skjules.
 
 Dette gjøres ved å legge til en valideringsfeil i koden i det tilfellet der det ikke er noen feil i valideringen, 
-og sette `*FIXED*` foran selve feilmeldingen. Dette tilsvarer oppsettet for [myk validering](#myk-validering). 
+og sette `*FIXED*` foran selve feilmeldingen. Dette tilsvarer oppsettet for [myk validering](#myke-valideringer). 
 Denne prefixen gjør at feilmeldingen som settes fjernes fra det aktuelle feltet, eller ignoreres (dersom det ikke er noen feilmelding på feltet fra før).
 
 Man kan da utvide eksempelet over for å støtte dette:
@@ -361,15 +479,20 @@ private void ValidateFullName(Datamodell model, ModelStateDictionary validationR
 }
 ```
 
-## Myk validering
+Dersom du har problemer med å få dette til å fungere, og du ser valideringsmeldinger med `*FIXED*` foran meldingen istedenfor at meldingen forsvinner, 
+bør du dobbeltsjekke at du har `"FixedValidationPrefix": "*FIXED*"` satt under `GeneralSettings` i `appsettings.json`.
 
-Myke valideringer (eller advarsler) er valideringsmeldinger som ikke stopper bruker fra å sende inn eller gå videre til neste steg i prosessen.
-Denne typen valideringer kan f.eks. brukes til å be brukeren om å verifisere input som virker feil eller rart, men som strengt tatt ikke er ugyldig.
+## Myke valideringer
+
+Myke valideringer er valideringsmeldinger som ikke stopper bruker fra å sende inn eller gå videre til neste steg i prosessen, men som benyttes til å gi brukeren ulike former for informasjon.
+Denne typen valideringer kan f.eks. brukes til å be brukeren om å verifisere input som virker feil eller rart, men som strengt tatt ikke er ugyldig, eller gi nyttig informasjon for videre utfylling.  
 
 Meldinger basert på myke validering vil vises en gang, men bruker kan velge å klikke seg videre uten å utføre endringer.
 
 Myke valideringer legges til fra server-siden i validerings-logikken, på samme måte som vanlige validerings-feil. Forskjellen er at valideringsmeldingen
-må prefixes med `*WARNING*`. Dette vil da tolkes som en myk validering. Prefixen `*WARNING*` blir ikke synlig for sluttbruker.
+må prefixes med typen validering man ønker å gi, f.eks `*WARNING*`. Dette vil da tolkes som en myk validering. Prefixen `*WARNING*` blir ikke synlig for sluttbruker.
+
+De tilgjengelige typene myke valideringer er `WARNING`, `INFO` og `SUCCESS`.
 
 **Kodeeksempel**
 
@@ -385,16 +508,35 @@ public async Task ValidateData(object data, ModelStateDictionary modelState)
           "Person.FirstName", 
           "*WARNING*Are you sure your first name contains 1337?");
       }
+
+      if (firstName != null && firstname.Contains("Altinn"))
+      {
+        validationResults.AddModelError(
+          "Person.FirstName", 
+          "*SUCCESS*Altinn is a great name!");
+      }
   }
   
   await Task.CompletedTask;
 }
 ```
 
+Eksempler på visning av de ulike valieringene ser du nedenfor:
+
+!["Informasjonsmelding"](info-message.jpeg "Eksempel på informasjonsmelding (*INFO* - prefix)" )
+
+!["Suksessmelding"](success-message.jpeg "Eksempel på suksessmelding (*SUCCESS* - prefix)"))
+
+!["Informasjonsmelding"](warning-message.jpeg "Eksempel på advarselsmelding (*WARNING* - prefix)" )
+
+Det er også mulig å overstyre tittelen man ser på meldingene ved å legge til nøkklene `soft_validation.info_title`, `soft_validation.warning_title`, og `soft_validation.success_title` i tekstressursene om man ønsker å sette custom tittel.
+
 ## Gruppevalidering
 
-Det er mulig å gjøre valideringer på en repeterende gruppe i det brukeren ønsker å lagre en gitt indeks.
-Dette gjøres ved å legge til en trigger på gruppe-komponenten i layoutfilen (f.eks `FormLayout.json`). Eksempel:
+Det er mulig å gjøre valideringer på en repeterende gruppe i det brukeren ønsker å lagre en gitt rad.
+Dette gjøres ved å legge til en trigger på gruppe-komponenten i layoutfilen (f.eks `FormLayout.json`).
+Det er to forskjellige triggere som kan brukes på grupper; `validation` kjører validering på hele gruppen,
+og `validateRow` kjører kun validering på raden brukeren prøver å lagre. Eksempel:
 
 ```json {hl_lines=[14]}
 {
@@ -410,7 +552,7 @@ Dette gjøres ved å legge til en trigger på gruppe-komponenten i layoutfilen (
         "dataModelBindings": {
             "group": "Endringsmelding-grp-9786.OversiktOverEndringene-grp-9788"
         },
-        "triggers": ["validation"]  // <--- Legg til denne
+        "triggers": ["validateRow"]  // <--- Legg til denne
       },
       ...
     ]
@@ -418,26 +560,46 @@ Dette gjøres ved å legge til en trigger på gruppe-komponenten i layoutfilen (
 }
 ```
 
-Dette vil da sørge for at det vil kjøres validering på komponentene som er en del av gruppen på den aktuelle indeksen man jobber på.
+Dette vil da sørge for at det vil kjøres validering på komponentene som er en del av gruppen på den aktuelle raden man jobber på.
 Om det finnes valideringsfeil så vil man stoppes fra å lagre gruppen før dette er rettet opp i.
 
 Om man legger til validering på gruppe-komponenten så vil det også gå et kall mot valideringen backend med en header som spesifiserer hvilken komponent som trigget valideringen: `ComponentId`.
-Valideringer er skrevet i C#, i `ValidationHandler.cs`-filen i applikasjonsmalen. I valideringen kan man så hente ut denne id'en og skreddersy eventuelle valideringer som skal gjøres backend, eksempel:
+I tillegg er rad-indeksen for raden som blir lagret tilgjengelig i headeren `RowIndex`. Dersom gruppen er en nøstet gruppe, er verdien en komma-separert liste med indekser, ellers er indeksen ett enkelt tall.
+Valideringer er skrevet i C#, i `ValidationHandler.cs`-filen i applikasjonsmalen. I valideringen kan man så hente ut komponent-id'en og skreddersy eventuelle valideringer som skal gjøres backend, eksempel:
 
 ```cs
 public async Task ValidateData(object data, ModelStateDictionary validationResults)
 {
-    if (data is flyttemelding model))
+    if (data is flyttemelding model)
     {
-        _httpContextAccessor.HttpContext.Request.Headers
-            .TryGetValue("ComponentId", out StringValues value);
+        _httpContextAccessor.HttpContext
+            .Request.Headers
+            .TryGetValue("ComponentId", out StringValues compIdValues);
 
-        string component = value.Any() ? value[0] : string.Empty;
+        _httpContextAccessor.HttpContext
+            .Request.Headers
+            .TryGetValue("RowIndex", out StringValues rowIndexValues);
 
-        switch (component)
+        string componentId = compIdValues.FirstOrDefault(string.Empty);
+
+        switch (componentId)
         {
-            case "demo-group":
+            case "top-level-group":
                 // kjør valideringer spesifikke til gruppen
+
+                // Hent rad-indeksen for en ikke-nøstet gruppe
+                int rowIndex = int
+                    .Parse(rowIndexValues.FirstOrDefault(string.Empty));
+                
+                break;
+              case "nested-group":
+                // Hent alle rad-indekser for en nøstet gruppe
+                int[] rowIndices = rowIndexValues
+                    .FirstOrDefault(string.Empty)
+                    .Split(",", StringSplitOptions.RemoveEmptyEntries)
+                    .Select(s => int.Parse(s))
+                    .ToArray();
+
                 break;
             default:
                 // kjør valideringene i sin helhet

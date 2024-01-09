@@ -12,7 +12,7 @@ I en Altinn app har man to alternativer for opplasting av vedlegg:
 - vedleggskomponent i skjema
 - API-kall mot app backend
 
-Førstnevnte vil være et godt alternativ for all data er det forventet at en sluttbruker vil laste opp via brukergrensesnitt i skjema.
+Førstnevnte vil være et godt alternativ for all data der det er forventet at en sluttbruker vil laste opp via brukergrensesnitt i skjema.
 Sistnevnte anbefales brukt dersom det kun er forventet at systemer skal laste opp vedlegget.
 Det er ingen begrensning på hvor mange vedlegg som kan inkluderes i en applikasjon
 og begge opplastingsmetoder kan brukes innad i samme applikasjon.
@@ -55,10 +55,23 @@ Her under kan du se den i bruk
 
 ![Vedleggskomponenten med merking eksempelvisning](vedleggsmerkekomeks.png "Vedleggskomponenten med merking eksempel")
 
+
+### Vedleggskomponent med varsel ved sletting
+Bestemmer om en varslingspanel skal åpnes når brukeren trykker på "Slett"-knappen. Standard oppførsel hvis parameteren ikke er satt, er at varslingspanelet ikke vises.
+
+```json
+{
+  "id": "attest",
+  "type": "FileUpload",
+  ...
+  "alertOnDelete": true
+}
+```
+
 ## Innsending av vedlegg med API-kall
 
 For å legge til rette for å kunne sende inn vedlegg uten å ha støtte for dette i GUI
-må man legge inn et [datatype-objekt](/technology/architecture/components/application/solution/altinn-platform/storage/#datatype)
+må man legge inn et [datatype-objekt](/technology/solutions/altinn-platform/storage/#datatype)
 i _applicationMetadata.json_ (filen ligger under App/config i applikasjonsrepoet).
 Det vil da kun være mulig å sende inn vedlegg av denne typen via API-kall.
 For en nærmere beskrivelse av de tilgjengelige feltene se

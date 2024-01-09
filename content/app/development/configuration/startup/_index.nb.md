@@ -22,7 +22,7 @@ Om man setter feltet til `onEntry.show` til `select-instance` vil brukeren bli p
 
 ### Eksempel
 Følgende konfigurasjon legges til i `applicationmetadata.json` for å sette opp valg av aktive instanser.
-```json {hl_lines[8,9,10]}
+```json {hl_lines=[8,9,10]}
 {
   "id": "ttd/demo-app",
   "org": "ttd",
@@ -40,3 +40,44 @@ For brukere som ikke har noen aktive instanser vil det automatisk bli opprettet 
 Brukere som har aktive instanser vil bli presentert med følgende brukergrensesnitt:
 
 ![Brukergrensesnitt for å velge aktiv instans](select-active-instance.png "Brukergrensesnitt for å velge aktiv instans")
+
+## Konfigurer side for instansvalg
+
+{{%notice warning%}}
+**MERK:** For å bruke denne funksjonaliteten, må applikasjonen referere til versjon >= 7.13.0 av nuget-pakkene
+`Altinn.App.core` og `Altinn.App.Api`.
+{{%/notice%}}
+
+Ved hjelp av feltet `onEntry.instanceSelection` kan du tilpasse siden for instansvalg ytterligere. Følgende
+alternativer er tilgjengelige:
+
+- `sortDirection`: Velg mellom `asc` eller `desc` for å sortere instansene stigende eller synkende. Standard er `asc`.
+- `rowsPerPageOptions`: Velg hvilke alternativer brukeren kan velge mellom når han/hun bestemmer hvor mange instanser
+som skal vises per side. Standard er `[10, 25, 50]`.
+- `defaultSelectedOption`: Velg hvilket alternativ som skal være valgt som standard når brukeren åpner siden for
+instansvalg. Verdien må være et tall som brukes som index for å velge en verdi i `rowsPerPageOptions`. Standard er `0`.
+
+### Configuration Example
+
+Følgende konfigurasjon legges til i `applicationmetadata.json` for å konfigurere siden for instansvalg.
+
+```json {hl_lines=[10,11,12,13]}
+{
+  "id": "ttd/demo-app",
+  "org": "ttd",
+  "title": {
+    "nb": "Starte fra aktiv instans"
+  },
+  ...
+  "onEntry": {
+    "show": "select-instance",
+    "instanceSelection": {
+      "sortDirection": "asc",
+      "rowsPerPageOptions": [10, 25, 50, 100],
+      "defaultSelectedOption": 1,
+    }
+  }
+}
+```
+
+![Konfigurert brukergrensesnitt for valg av aktive instanser](select-active-instance-configured.png "Konfigurert brukergrensesnitt for valg av aktive instanser")

@@ -7,4 +7,4 @@ weight: 100
 
 ### Coding guidelines for tests
 
-{{% children description="true" depth="1" %}}
+{{<children />}}

@@ -1,34 +1,38 @@
 ---
 title: Stateless application (lookup-service)
 linktitle: Stateless
-description: How to add configuration to control behavior at the application startup.
+description: How to configure behavior at the application startup.
 toc: true
-tags: [translate-to-english]
 weight: 500
 ---
 
-## Introduksjon til stateless applikasjoner
-
-En stateless, eller tilstandsløs, applikasjon skiller ser fra standard applikasjoner ved at den ikke lagrer noe data,
-verken skjemadata eller metadata om instanser av applikasjonen. 
-Derfor passer stateless applikasjoner godt som innsynstjenester der en sluttbruker eller et system gjør et oppslag mot en eller annen ressurs
-evt. presenterer data fra en tredjepart basert på hvem brukeren er.
+## Introduction to stateless applications
 
 
-## Konfigurasjon
+A stateless application distinguishes itself from standard applications by not storing any data, neither form data nor metadata about instances of the application.
+ The application will also not end up in the user's inbox.
+  A stateless application corresponds to an access service in Altinn 2.
 
-{{%notice warning%}}
+Stateless applications work well as access services where an end-user or a system queries a resource or presents data
+ from a third party based on who the user is. It is also possible to configure a stateless application to allow anonymous users, that is, users who are not logged in.
 
-Dette er helt ny funksjonalitet. Oppsett må gjøres manuelt inntil videre.
+## Configuration
 
-**MERK:** for å benytte denne funksjonaliteten må man versjon >= 4.5.2 av nugetpakkene `Altinn.App.PlatformServices`, `Altinn.App.Common` og `Altinn.App.Api`.
+{{% notice info %}}
 
-{{%/notice%}}
+This is brand new functionality. Setup has to be completed manually until further notice.
 
-I applikasjonsmetadataen er det mulig styre oppførselen en applikasjonen har under oppstart. Om man ønsker at applikasjonen skal oppføre seg som en tilstandsløs applikasjon vil det nå være mulig.
-For en slik applikasjon vil det ikke bli lagret noe data eller metadata, og applikasjonen vil heller ikke havne i meldingsboksen til sluttbruker. Dette tilsvarer en innsynstjeneste i Altinn 2.
+**Notice:** To make use of this functionality, version >= 4.5.2 of the [nuget-packages](../../../maintainance/dependencies#nuget) `Altinn.App.PlatformServices`, `Altinn.App.Common` and `Altinn.App.Api` is required.
 
-Konfigurasjonen av dette gjøres i `applicationmetadata.json`. Eksempel:
+{{% /notice %}}
+
+You can manage the application's behavior during startup and set it up as a stateless application if needed by configuring its application metadata, which is stored in `applicationmetadata.json`.
+
+Example of configuration:
+
+{{< code-title >}}
+App/config/applicationmetadata.json
+{{< /code-title >}}
 
 ```json{hl_lines=[31]}
 {
@@ -47,7 +51,7 @@ Konfigurasjonen av dette gjøres i `applicationmetadata.json`. Eksempel:
       "minCount": 0
     },
     {
-      "id": "Stateless",
+      "id": "Stateless-model",
       "allowedContentTypes": [
         "application/xml"
       ],
@@ -61,39 +65,45 @@ Konfigurasjonen av dette gjøres i `applicationmetadata.json`. Eksempel:
     }
   ],
   ...
-  "onEntry": { "show": "stateless" } // legg til denne linjen
+  "onEntry": { "show": "stateless" } // add this line
 }
-
 ```
-I feltet `onEntry.show` har man mulighet til nå å referere til et layout-set som man ønsker skal vises under oppstarten av applkasjonen. Les mer om layout-sets [her.](../../ux/ui-editor/multiple-layoutsets/#oppsett)
 
-Layout-settet man referer til her blir så benyttet som visningen brukeren blir presentert for i det man navigerer til applikasjonen.
+In the `onEntry.show` field, you have the opportunity to specify a layout set that you want to display during application startup.
 
-Konfigurasjonsfilen `layout-sets.json` kan opprettes dersom den ikke finnes fra før av. Den skal ligge i mappen `App/ui`.
-I `layout-sets.json` legger man så inn det aktuelle settet man referer til fra `applicationmetadata.json`, eksempel:
+The layout set itself is defined in the configuration file `App/ui/layout-sets.json`. If the file does not exist, you can create it.
+You can find more information about layout sets [here](/app/development/ux/pages/layout-sets/).
+
+Example of layout set:
+
+{{< code-title >}}
+App/ui/layout-sets.json
+{{< /code-title >}}
 
 ```json
 {
     "sets": [
       {
         "id": "stateless",
-        "dataType": "Stateless"
+        "dataType": "Stateless-model"
       }
     ]
   }
 ```
 
-I eksempelet over så referer layout-settet `stateless` til datamodellen `Stateless`. Eksempel app-struktur på en applikasjon som har satt opp på denne måten:
+In the example above, the layout-set `stateless` is referring to the datamodel `Stateless-model`.
+
+ Example of an app structure for an application which is set up in this way:
 
 ```text
 ├───App
     ├───config
     ├───logic
     ├───models
-    │       Stateless.cs
-    │       Stateless.metadata.json
-    │       Stateless.schema.json
-    │       Stateless.xsd
+    │       Stateless-model.cs
+    │       Stateless-model.metadata.json
+    │       Stateless-model.schema.json
+    │       Stateless-model.xsd
     ├───ui
         │   layout-sets.json
         │
@@ -103,26 +113,82 @@ I eksempelet over så referer layout-settet `stateless` til datamodellen `Statel
             │   Settings.json
             │
             └───layouts
-                  FormLayout.json
+                  {page}.json
 ```
 
-`FormLayout.json` vil så kunne settes opp på samme måte som en vanlig applikasjon, og vil støtte samtlige komponenter som er mulig å sette opp i en vanlig app, med unntak av:
-- Filopplaster
-- Knapp 
+`{page}.json` can be configured the same way as any normal application page, and will support all components with the exception of:
+- File upload
+- Button
 
-App frontend vil så skjønne ut fra konfigurasjonen i `applicationmetadata.json` at den ikke skal instansiere, og hente ned de aktuelle layout-filene og den tilkoblede datamodellen og presentere dette til sluttbrukeren.
+The App frontend will read the configuration from `applicationmetadata.json` and recognize that it should not create an instance.
+ Instead, it will retrieve the layout files and associated data models and present them to the end user.
 
-## Datapopulering
+### Configuring access without login
 
-Når man benytter en stateless datatype så vil man kunne populere datamodellen i det app-frontend spør om skjemadataen.
+{{% notice warning %}}
+Note! Form components that affect process (Button for submission or instantiation) are not supported for anonymous users!
 
-Datapopuleringen skjer i to steg på det initielle kallet fra frontend (GET):
-1. Prefill, les mer om dette [her.](../../data/prefill/)
-2. Dataprossesering, les mer om dette [her.](../../logic/dataprocessing/)
+**Note:** To make use of this functionality you must use version >= 5.1.0 of the [nuget-packages](../../../maintainance/dependencies#nuget) `Altinn.App.PlatformServices`, `Altinn.App.Common` and `Altinn.App.Api`.
 
-På påfølgende oppdateringer på samme skjemadata (POST) så vil man ikke kjøre prefill en gang til, men kalkuleringen trigges. Dette muligjør manipulering av dataen basert på brukerens input selv i en stateless tilstand.
+{{% /notice %}}
 
-Eksempel på en kalkulering som populerer datamodellen nevnt i eksempelet over:
+To permit use of an app by a user that is not logged in, you must follow the steps that are described above. You _also_
+have to define the data type which is used by the stateless app to allow anonymous use. This is done by modifying
+the `dataType`-element in `applicationMetadata.json`.
+The data type's `appLogic`-object needs a new setting, `"allowAnonymousOnStateless": true`. See example below:
+
+{{< code-title >}}
+App/config/applicationmetadata.json
+{{< /code-title >}}
+
+```json{hl_lines=[24]}
+{
+  "id": "ttd/stateless-app-demo",
+  "org": "ttd",
+  "title": {
+    "nb": "Stateless App Demo"
+  },
+  "dataTypes": [
+    {
+      "id": "ref-data-as-pdf",
+      "allowedContentTypes": [
+        "application/pdf"
+      ],
+      "maxCount": 0,
+      "minCount": 0
+    },
+    {
+      "id": "Stateless-model",
+      "allowedContentTypes": [
+        "application/xml"
+      ],
+      "appLogic": {
+        "autoCreate": true,
+        "classRef": "Altinn.App.Models.StatelessV1",
+        "allowAnonymousOnStateless": true,
+      },
+      "taskId": "Task_1",
+      "maxCount": 1,
+      "minCount": 1
+    }
+  ],
+  ...
+  "onEntry": { "show": "stateless" } 
+}
+```
+
+## Populating data
+
+When using a stateless data type you will be able to populate the data model in when the app front-end requests the form data.
+
+Data will be populated in two steps during the initial call from the front-end (GET):
+1. [Prefill](../../data/prefill/)
+2. [Data processing](../../logic/dataprocessing/)
+
+The following updates to the same form data (POST) will then run prefill one more time, but the calculation is triggered. This allows manipulating the data based on the user's input even in stateless application.
+
+Example of a calculation which populates the data model mentioned in the example above:
+
 
 ```c#
 public async Task<bool> ProcessDataRead(Instance instance, Guid? dataId, object data)
@@ -130,8 +196,8 @@ public async Task<bool> ProcessDataRead(Instance instance, Guid? dataId, object 
     if (instance.GetType() == typeof(StatelessV1))
     {
         StatelessV1 form = (StatelessV1) data;
-        // Her kan du gjøre det du ønsker, f.eks et API-kall 
-        // om tjenesten skal oppføre seg som en innsynstjeneste.
+        // Here you can do what you want, for ex. an API-call
+        // if your service is supposed to act as an information transparency service
         form.Fornavn = "Test";
         form.Etternavn = "Testesten";
         return true
@@ -140,30 +206,30 @@ public async Task<bool> ProcessDataRead(Instance instance, Guid? dataId, object 
 }
 ```
 
-## Autorisasjon med tredjepartsløsninger
+## Authorization with third party solutions
 
-Tilgangsstyring for stateless applikasjoner kan løses med [standard app-autorisasjon](../authorisation) 
-der man hved hjelp av Altinn-roller definerer hvem som har tilgang til å benytte tjenesten.
-Dersom man har behov for ytteligere sikring av tjenesten kan man implementere logikk for autorisasjon av brukere med tredjepartløsninger.
-Dette kan være API-er som er eksponert innenfor egen virksomhet eller åpne API fra andre tilbydere.
+Controlling access for stateless applications can be done with [standard app-authorization](../authorization) 
+Where by using Altinn roles you define who has access to the service.
+If you require further securing of your service you can implement logic for authorization of users with third party solutions.
+This can be an API which is exposed in your organization or an open API from a different provider.
 
-I eksempelet nedenfor benyttes Finanstilsynets API til å fastslå om virksomheten som repesenteres av en bruker i Altinn 
-har tilstrekkelige lisenser til å benytte tjenesten.
+In the example below, an API from the Financial Supervisory Authority of Norway is used to determine if a company that is
+represented by a user in Altinn has the necessary licenses to use a service. 
 
-![GUI for autorisert bruker](extra-credentials-example-allowed.png "GUI for autorisert bruker")
+![GUI for authorized user](extra-credentials-example-allowed.png "GUI for authorized user")
 
-![GUI for ikke-autorisert bruker](extra-credentials-example-denied.png "GUI for ikke-autorisert bruker")
+![GUI for non-authorized user](extra-credentials-example-denied.png "GUI for non-authorized user")
 
 
-Kildekoden til applikasjonen som eksempelet er basert på finnes [her](https://altinn.studio/repos/ttd/extra-credentials-demo). (Krever bruker i Altinn Studio.)
+The source code for the example application can be found [here](https://altinn.studio/repos/ttd/extra-credentials-demo) (requires account in Altinn Studio). 
 
-Videre i eksempelet vil betegnelsen *bruker* være synonymt med en virksomhet representert ved en person i Altinn.
+Further down this page we will use the designation *user* synonymously with an organization represented by a person in Altinn. 
 
-1. **Utvid datamodellen med felter for autorisasjon**
+1. **Expand the data model with fields for authorization**
 
-    I tillegg til et felt for å ta input fra bruker og et felt for å vise fram resultatet,
-    har vi i dette eksempelet et felt for å holde på infomasjon om hvorvidt brukeren er autentisert 
-    og et felt for å holde på en dynamisk feilmelding.
+    In addition to a field for user input and a field to display the result,
+    in this example we have a field for holding information about if the user is authenticated 
+    and a field for holding a dynamic error message.
 
     ```xml
     <xs:sequence>
@@ -174,16 +240,20 @@ Videre i eksempelet vil betegnelsen *bruker* være synonymt med en virksomhet re
     </xs:sequence>
     ```
 
-    *Hopp til steg 4 dersom applikasjonen kun skal benyttes via API.*
+    *Skip to step 4 if the application will only be used via an API.*
   
-2. **Legg til felt for å vise feilmelding i brukergrensesnittet**
+2. **Add a field to display error messages in the user interface**
     
-    I brukergrensesnittet til applikasjonen er det tre komponenter. 
-    Et søkefelt for brukerinput, et tekstfelt dedikert til å vise fram søkeresultatet og en paragraf som er reservert for feilmeldinger.
+    There are three components to the user interface of an application. 
+    A search field for user input, a text field dedicated to showing a search result and a paragraph which is reserved for error messages.
 
-    ![GUI i Altinn Studio](extra-credentials-example-layout.png "GUI i Altinn Studio")
+    ![GUI in Altinn Studio](extra-credentials-example-layout.png "GUI in Altinn Studio")
 
-    Komponentene er koblet til datamodell og tekstressurs på følgende måte i `FormLayout.json`
+    The components are connected to a data model and text resource in the following way in `{page}.json`:
+
+    {{< code-title >}}
+    App/ui/layouts/{page}.json
+    {{< /code-title >}}
 
     ```json
     "layout": [
@@ -223,18 +293,18 @@ Videre i eksempelet vil betegnelsen *bruker* være synonymt med en virksomhet re
     ]
     ```
 
-3. **Legg inn dynamikkregler for å vise/skjule felter**
+3. **Add dynamic rules to show/hide fields**
     
-    Vi bruker dynamikkregler til å vise/skjule felter avhengig av om en bruker en autorisert eller ikke. 
+    We use dynamic rules to show/hide fields depending on the users level of authorization 
     
-    Det er lagt inn en dynamikkregel i `RuleHandler.js` som sjekker om et felt i datamodellen har verdien `false`. 
-    Konfigurasjon av regler er beskrevet nærmere [her](../../logic/dynamic/#legg-tilrediger-funksjoner-for-beregninger-eller-visskjul).
+    There has been added a dynamic rule in `RuleHandler.js` which checks if a field in the datamodel has the value `false`.
+    Configuration of rules is described more closely [here](../../logic/dynamic/#add-or-edit-functions-for-dynamics).
 
-    I `RuleConfiguration.json` ser man hvordan regelen benyttes.
-    Dersom inputverdien fra datamodellen `userAuthorized` er false, så vises errorBoks-komponenten,
-    mens det motsatte skjer med søke- og resultatfeltene, disse skjules. 
-
-    Default oppførsel vil være det motsatte, altså at søk og resultat er synlig, mens error feltet er skjult.
+    In `RuleConfiguration.json` you can see how the rule is utilized.
+    If the input value from the data model `userAuthorized` is false, the errorBox-component will be made visible,
+    while the opposite happens to the search and result fields as those are hidden.
+    
+    Default behaviour will be the opposite, that search and results are visibile while the error field is hidden.
 
     ```json
     {
@@ -266,12 +336,14 @@ Videre i eksempelet vil betegnelsen *bruker* være synonymt med en virksomhet re
       }
     }
     ```
-4. **Legg til tekstressurser**
 
-   I tillegg til navnet på tjenesten er det lagt inn tre tekstressurser. 
+4. **Add text resources**
+
+   In addition to the name of the service, three text resources have been added.
   
-   Tekstressursen for feilmelding inneholder en placeholder for navnet på brukeren. 
-   Variabelen `errorMessage` vil populeres i datamodellen når det registreres at en bruker ikke er autorisert til å bruke tjenesten.
+   The text resource for error messages contains a placeholder for the name of the user.
+   The variable `errorMessage` will be populated in the data model when it is registered
+   that the user lacks the authorization to access the service.
 
     ```json
      {
@@ -293,15 +365,15 @@ Videre i eksempelet vil betegnelsen *bruker* være synonymt med en virksomhet re
       "value": "Legg inn søkeord her:"
     },
     ```
-5. **Implementér autorisasjonslogikk**
+5. **Implement authorization logic**
 
-    Alt av dataprosessering for stateless applikasjoner ligger i filen `App\logic\DataProcessing\DataProcessingHandler.cs`, 
-    og det er her autorisasjonslogikken skal plasseres. 
+    All data processing for stateless applications is located in the file `App\logic\DataProcessing\DataProcessingHandler.cs`,
+    and it is also where the authorization logic should be placed.
     
-    Logikk for å slå opp data og autorisere brukeren ligger i metoden `ProcessDataRead`.
-    Denne kalles hver gang en bruker åpner applikasjonen eller sendes inn noe input data.
+    Logic for looking up data and authorizing the user is handled in the method `ProcessDataRead`.
+    It is called every time a user opens the application or inputs any data.
 
-    ```{cs, attr.source='.numberLines'}
+    ```cs
      public async Task<bool> ProcessDataRead(Instance instance, Guid? dataId, object data)
      {
          lookup lookup = (lookup)data;
@@ -327,14 +399,13 @@ Videre i eksempelet vil betegnelsen *bruker* være synonymt med en virksomhet re
      }
     ```
 
-    Metoden starter med logikk for å hente ut skjemadataen slik at denne kan benyttes 
-    videre i metoden.
+    The method starts with logic for collecting form data for future use in the method.
 
     ```cs
     lookup lookup = (lookup)data 
     ```
-
-    Videre kommer logikken for å sjekke om brukeren er autorisert.
+    
+    Then comes the logic for checking if the user is authorized.
 
     ```cs
     // Check if user is authorized to use service
@@ -348,25 +419,27 @@ Videre i eksempelet vil betegnelsen *bruker* være synonymt med en virksomhet re
     }   
     ```
 
-    For å vite hvem brukeren er, benyttes identifikatoren `instance.InstanceOwner.PartyId`, denne får vi som input til metoden.
-    Vi slår opp i Altinn sitt register for å hente ut party-objektet som representerer brukeren. Dette kan inneholde en organisasjon eller en person.
+   To know the identity of the user, the identifier `instance.InstanceOwner.PartyId` is used, this is used as an input
+   for the method.
+   We use Altinns register to collect the party-object which represents the user. It can contain either an organization
+   or a person.
 
     ```cs
     Party party = await _register.GetParty(int.Parse(instance.InstanceOwner.PartyId)) 
     ```
 
-    Det gjøres to sjekker for å avgjøre om en bruker er autorisert eller ikke. 
-    Først verifiseres det at party-objektet har definert et organisasjonsnummer,
-    dersom dette ikke er tilfellet er brukeren en person, og dermed ikke autorisert.
+    Two checks are done to decide the authorization of a user.
+    First it is verified that the party object has a defined organization number,
+    if this is not the case and the user is not representing an organization they are not authorized.
 
-    Den andre sjekken kaller `_finanstilsynet.HasReqiuiredLicence()`, en metode som slår opp i finanstilsynets API for å avgjøre om en organisasjonen har en gitt lisens.
-    Implementasjonen av servicen er tilgjengelig [her](https://altinn.studio/repos/ttd/extra-credentials-demo/src/branch/master/App/services/FinanstilsynetService.cs).
+The other check calls `_finanstilsynet.HasReqiuiredLicence()`, a method which looks up the Financial Supervisory Authority of Norway's API to decide if an organization has been given a license.
+    The implementation of that service is available [here][her](https://altinn.studio/repos/ttd/extra-credentials-demo/src/branch/master/App/services/FinanstilsynetService.cs).
     
-    Dersom ingen av sjekkene er vellykkede populeres to felter i datamodellen; 
-    - en indikator på at brukeren ikke er autorisert
-    - en feilmelding, her kun navnet til brukeren
+    If none of the checks are successful two fields in the data model are populated;
+    - an indicator that the user is not authorized
+    - an error message, with only the name of the user
   
-     og `true` returneres for å indikere at dataverdier har blitt oppdatert.
+     And `true` is returned to indicate that the data values have been updated.
     
 
     ```cs
@@ -375,7 +448,7 @@ Videre i eksempelet vil betegnelsen *bruker* være synonymt med en virksomhet re
     return true;
     ```
 
-    Helt til slutt kommer logikken for å vise fram et resultat basert på søkestrengen.
+    Finally the logic to display the results based on the query string.
     
     ```cs
     // logic for looking up data
@@ -388,31 +461,31 @@ Videre i eksempelet vil betegnelsen *bruker* være synonymt med en virksomhet re
     return false;
     ```
 
-    `lookup.result` populeres med verdien av oppslaget, i dette tilfellet skriver vi bare søkestrenger tilbake til bruker.
-    Igjen returneres `true` for å indikere at en dataverdi er blitt endret, og `false` dersom dette ikke er tilfellet.
-## Starte instans fra et stateless skjema
+    `lookup.result` is populated with the value from the lookup, in this case we just write the query string back to the user.
+    Again, `true` is returned to indicate that a data value has been changed, and `false` if this is not the case.
+## Starting an instance from a stateless form
 
 {{%notice warning%}}
 
-Dette er helt ny funksjonalitet. Oppsett må gjøres manuelt inntil videre og vil ikke være støttet i Altinn Studio.
+This is brand new functionality. Setup must be completed manually until further notice and will not be supported in Altinn Studio.
 
-**MERK:** for å benytte denne funksjonaliteten må man versjon >= 4.17.2 av nugetpakkene `Altinn.App.PlatformServices`, `Altinn.App.Common` og `Altinn.App.Api`.
+**Note:** To make use of this functionality you must use version >= 4.17.2 of the [nuget-packages](../../../maintainance/dependencies#nuget) `Altinn.App.PlatformServices`, `Altinn.App.Common` og `Altinn.App.Api`.
 
 {{%/notice%}}
 
-Fra en tilstandsløs applikasjon har man mulighet til å benytte `InstantiationButton`-komponenten til å starte en instans.
-Enn så lenge støtter vi kun å starte en instans innad i samme applikasjonen som stateless skjema vises i. Det å starte en instans i en annn applikasjon er funksjonalitet som kommer.
+In a stateless application you have the opportunity to use the `InstantiationButton` component to start an instance.
+Currently we only support starting an instance from within the same application the stateless form is displayed in. Starting an instance in another application is functionality we will add in the future.
 
-Det er laget en eksempel applikasjon som er satt opp som en innsynstjeneste hvor sluttbruker kan velge å starte en instans på den aktuelle applikasjonen. Denne kan brukes til inspirasjon for videre utvikling. Applikasjonen med kildekode finnes [her.](https://altinn.studio/repos/ttd/start-from-stateless)
+There is an example stateless application where the end user can choose to start an instance in the actual application. It can be used as inspiration for further development. The application with source code can be found [here](https://altinn.studio/repos/ttd/start-from-stateless)
 
-### Instansiere med prefill
+### Instantiation with prefill
 
-Et bruksområde for det å starte en instans fra et stateless view kan være at man først ønsker at appen skal oppføre seg som en innsynstjeneste hvor brukeren blir presentert for gitte data som er aktuell. Fra denne informasjonen kan brukeren velge å agere videre på dataen som listes opp, og da er man over på en vanlig innsendingstjeneste.
+An example use case for starting an instance from a stateless application could be an app where the user is presented some given data at first. From this information the user can choose to act on the listed data, and then continue using the service as a normal form.
 
-For å få til en slik flyt er man først avhengig av å sette opp applikasjonen som en stateless appliksjon som står beskrevet under [konfigurasjon.](#konfigurasjon)
-Når dette er gjort kan man utvide stateless viewet til å inkludere `InstantiationButton` som kan vil starte en ny instans i det brukeren klikker på knappen.
-Standard oppførsel for denne knappen er å sende inn hele datamodellen som brukeren har benyttet inn som en del av instansieringn under feltet `prefill`. 
-Om man ønsker å velge ut deler av datamodellen som er benyttet i det tilstandsløse steget vil det også være mulig ved å legge til `mapping` på `InstantiationButton`-komponenten. F.eks
+To achieve this type of flow you are dependent on setting up your application as a stateless application, described under [configuration](#configuration).
+When this has been done, you can expand the stateless view to include `InstantiationButton` which can start a new instance when the user clicks the button.
+Standard behaviour for this button is to submit the entire data model that the user has used as a part of the instantiation under the field `prefill`.
+If one wishes to pick parts of the data model which are connected in the stateless step it will also be possible to add `mapping`to the `InstantiationButton` component. For example:
 
 ```json
  {
@@ -428,8 +501,8 @@ Om man ønsker å velge ut deler av datamodellen som er benyttet i det tilstands
   }
 ```
 
-Når brukeren da velger å starte en instans så vil app-frontend hente ut feltene `some.source.field` og `some.other.field` fra datamodellen i det tilstandsløse steget og mappe disse mot feltene `name` og `id` som sendes med i instansieringskallet for applikasjonen.
-Eksempel request som vil gå mot backend som man kan mappe over datamodellen man benytter i datamodellen man benytter i innsendingsdelen av applikasjonen:
+When the user then chooses to start an instance the app frontend will gather the fields `some.source.field` and `some.other.field` from the data model in the stateless step and map these fields to `name` and `id` which are sent with the instantiation call for the application.
+Example request which will be sent to the backend which can be mapped to the data model used in the submit part of the application:
 
 ```json
 {
@@ -442,7 +515,8 @@ Eksempel request som vil gå mot backend som man kan mappe over datamodellen man
 
 ```
 
-Denne prefill verdien kan man så benytte seg av i metoden `DataCreation` i `InstantiationHandler.cs` for å mappe mot de feltene man trenger som en del av innsendsingsdelen av applikasjonen under instansieringen. Eksempel:
+This prefill value can then be used in the method `DataCreation` in `InstantiationHandler.cs` to map against the fields
+that are needed as a part of the submitting part of the application during instantiation. Example:
 
 ```c#
 public async Task DataCreation(Instance instance, object data, Dictionary<string, string> prefill)
@@ -465,11 +539,11 @@ public async Task DataCreation(Instance instance, object data, Dictionary<string
   }
 ```
 
-#### Instansiere fra en repeterende gruppe
+#### Instantiating from a repeating group
 
-Om man i det tilstandsløse steget ønsker at brukeren f.eks velger et element fra en repeterende gruppe å jobber videre på et gitt element kan man sette opp `InstantiationButton`-komponenten som en del av den repeterende gruppen.
-Her kan man så konfigurere instansierings-knappen til å mappe felter fra den gitte indeksen brukeren velger å starte en instans fra. Dette krever at man setter opp mapping-feltene med en indeks på den aktuelle gruppen.
-Eksempel:
+If in the stateless step wanted the user to, for example, pick an element from a repeating group to continue on the chosen element, you can set up the `InstantiationButton` component as a part of the repeating group.
+Here you can then configure the instantiation button to map fields from the given index the user chose to start an instance from. This requires setting up mapping fields with an index on the actual group.
+Example:
 
 ```json
  {
@@ -485,4 +559,4 @@ Eksempel:
   }
 ```
 
-I den repeterende gruppen vil så `{0}` bli erstattet med den aktuelle indeksen på gruppen brukeren ønsker å starte fra.
+In the repeating group `{0}` will be replaced with the actual index of the group the user wishes to start from.

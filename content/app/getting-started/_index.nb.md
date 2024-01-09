@@ -1,8 +1,8 @@
 ---
 title: Kom i gang 
 linktitle: Kom i gang
-description: Kom i gang slik at du kan utvikle apper i Altinn Studio.
+description: Følg disse grunnleggende stegene for å komme i gang med utvikling av applikasjoner i Altinn Studio.
 weight: 10
 ---
 
-{{<children>}}
+{{<children />}}

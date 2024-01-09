@@ -115,12 +115,11 @@ h2,h3 {
     margin-top: 36px; 
 }
 
-figcaption h4 {
-    font-weight: 300 !important;
+figcaption {
     opacity: .85;
     font-size: 1em;
     text-align: center;
-    margin-top: -1.5em;
+    margin-top: -1em;
 }
 
 .is_stuck{
@@ -383,7 +382,7 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
     color: white;
 }
 #sidebar ul.topics {
-    margin: 36px 0 0 0;
+    margin: 0;
     overflow-x: hidden;
     border-bottom: 1px solid #cacaca;
 }
@@ -630,8 +629,9 @@ div.notices.tip {
     background: #fbf6bd;
 }
 code, kbd, pre, samp {
-    font-family: "Consolas", menlo, monospace;
-    font-size: 92%;
+    font-family: "Consolas", menlo, monospacef;
+    font-size: 86%;
+    vertical-align: baseline;
 }
 code {
     border-radius: 2px;
@@ -645,10 +645,17 @@ code + .copy-to-clipboard {
     margin-left: -1px;
     border-left: 0 !important;
     font-size: inherit !important;
-    vertical-align: middle;
-    height: 21px;
-    top: 0;
+    vertical-align: text-bottom;
+    padding: 0px 2px;
+    height: 20px;
+    border: 1px solid #fbf0cb;
+    top: 1px;
 }
+
+pre code + .copy-to-clipboard {
+    border: none;
+}
+
 pre {
     padding: 1rem;
     margin: 2rem 0;
@@ -1035,6 +1042,9 @@ td {
 #body #breadcrumbs span.adocs-breadcrumb-divider {
     padding: 0 6px;
 }
+.last-modified {
+    text-align: right;
+}
 .copy-to-clipboard {
     background-image: url(../images/clippy.svg);
     background-position: 50% 50%;
@@ -1044,14 +1054,14 @@ td {
     height: 1.45rem;
     top: -1px;
     display: inline-block;
-    vertical-align: middle;
+    vertical-align: baseline;
     position: relative;
     color: #5e5e5e;
     background-color: #FFF7DD;
     margin-left: -.2rem;
     cursor: pointer;
     border-radius: 0 2px 2px 0;
-    margin-bottom: 1px;
+    margin-bottom: 0;
 }
 .copy-to-clipboard:hover {
     background-color: #E8E2CD;
@@ -1451,12 +1461,10 @@ ul.a-text.a-bullet-list:not(.connected-bullets):not(.no-decoration):not(.a-list)
     background: #fbf6bd;
 }
 
-
-
-
 /* Fix circle-list */
 .a-text ol, .a-text .a-circle-list {
     margin-left: 3px;
+    margin-top: 18px;
 }
 
 .a-text ol li::before, .a-text .a-circle-list li::before {
@@ -1466,7 +1474,6 @@ ul.a-text.a-bullet-list:not(.connected-bullets):not(.no-decoration):not(.a-list)
     display: inline-block;
     height: 32px;
 }
-
 
 /* cardImage */ 
 #body .a-cardImage img {
@@ -1668,10 +1675,6 @@ input[type="search"] {
     }
 }
 
-figcaption {
-    margin-top: 36px;
-}
-
 figure img {
     margin: 36px auto;
 }
@@ -1689,12 +1692,44 @@ figure img {
     padding: 18px 0px;
 }
 
+
 .adocs-expand:last-of-type {
     border-bottom: 1px solid #BCC7CC;
 }
 
+.adocs-expand-small {
+    border: none;
+    margin: 18px 0;
+    padding: 0;
+}
+
+.adocs-expand-small:last-of-type {
+    border-bottom: none;
+}
+
+.adocs-expand-small .a-collapseContent-inside {
+    padding: 6px 35px;
+}
+
+/* Center small dropdown circle */
+.a-dropdownCircleArrow.a-dropdownCircleArrow--small {
+    margin-top: 1px;
+    margin-bottom: auto;
+
+}
 
 /* Selection on code*/
 .hljs::selection, .hljs span::selection {
     background: #e0daf7; 
+}
+
+/* Code style in links */
+a code {
+    background: none;
+    border: none;
+    color: unset;
+}
+
+a code + .copy-to-clipboard {
+    display: none;
 }

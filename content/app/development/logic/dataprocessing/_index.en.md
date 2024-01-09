@@ -1,80 +1,147 @@
 ---
 title: Data processing
 description: How to add Calculations and other data processing?
-tags: [translate-to-english]
-toc: true
+toc: false
 ---
 
-Dataprosessering kjøres på serveren, og er basert på input fra sluttbruker/skjemadata.
-Dataprossering kan være kan være rent matematiske kalkuleringer, det kan også være å overføre verdier mellom felter, resultater av API-kall, osv. 
+Data processing is run on the server and is based on input from the user/form data.
+Data processing can be purely mathematical calculations, or it could transfer values between fields, retrieve results from API calls, etc.
 
-Dataprossering kodes i C#, i filen `DataProsessingHandler.cs`. Denne filen kan redigeres enklest ved å laste ned kildekoden til app'en og redigere på egen maskin, f.eks. i Visual Studio Code.
-Datamodellen med skjemadata er tilgjengelig og kan redigeres/oppdateres etter ønske/behov.
+Data processing runs each time data is saved, meaning it runs each time a user has made a change.
 
-Dataprossering kjøres hver gang data lagres og når data hentes ut fra API. Med auto-lagring på (dette er standard) vil dataprossering kjøres hver gang en bruker har gjort en endring og hopper ut av et felt.
+To ensure optimal experience and control, the application template has two different events where logic can be placed.
 
-For å sikre optimal opplevelse og kontroll er applikasjonstemplaten to forskjellige hendelser hvor logikk kan plasseres.
-
-- ProcessDataWrite kjøres når data lagres
-- ProcessDataRead kjøres når data leses fra databasen
+- ProcessDataWrite runs when data is saved
+- ProcessDataRead runs when data is read from the database
 
 {{%notice info%}}
-VIKTIG: Når en dataprossering er kjørt som har oppdatert dataene på server, må front-end få beskjed om dette, sånn at de oppdaterte dataene kan lastes inn.
-For å gjøre dette, må `ProcessDataWrite`-metoden returnere `true` om det er noen av dataene som har blitt oppdatert.
-Hvis dette ikke gjøres, vil de oppdaterte dataen ikke være synlig for sluttbruker før de ev. laster inn siden på nytt.
+IMPORTANT: When a data processing that has updated the data on the server has been run, the front-end must be notified so that the updated data can be loaded.
+To do this, the ProcessdataWrite method must return true if any of the data has been updated.
+If this is not done, the updated data won't be visible for the user until they refresh the page.
 {{% /notice%}}
 
-Eksempel på kode fra app som prosesserer og populerer forskjellige data under lagring.
+{{<content-version-selector classes="border-box">}}
 
-```C# {hl_lines=[16,22]}
-      public async Task<bool> ProcessDataWrite(Instance instance, Guid? dataId, object data)
+{{<content-version-container version-label="v7">}}
+In version 7 the way to do custom code instantiation has changed. We now use an dependency injection based approach insted of overriding methods. If you previously used to place your custom code in the _ProcessDataWrite_ and ProcessDataWrite_ methods in the _DataProcessingHandler.cs_ class you will see that it's mostly the same.
+
+1. Create a class that implements the `IDataProcessor` interface found in the `Altinn.App.Core.Features.DataProcessing` namespace.  
+    You can name and place the file in any folder you like within your project, but we suggest you use meaningful namespaces like in any other .Net project.
+    Example on code from app that processes and populates different data while saving.
+    ```C#
+    public async Task<bool> ProcessDataWrite(
+        Instance instance, Guid? dataId, object data)
+    {
+        bool edited = false;
+
+        if (data is SoknadUnntakKaranteneHotellVelferd model)
         {
-            bool edited = false;
+            string org = instance.Org;
+            string app = instance.AppId.Split("/")[1];
+            int partyId = int.Parse(instance.InstanceOwner.PartyId);
+            Guid instanceGuid = Guid.Parse(instance.Id.Split("/")[1]);
 
-            if (data.GetType() == typeof(SoknadUnntakKaranteneHotellVelferd))
+            // handling mapping of multiple choice velferdsgrunner
+            if (!string.IsNullOrEmpty(model.velferdsgrunner?.sammenstilling))
             {
-                SoknadUnntakKaranteneHotellVelferd model = (SoknadUnntakKaranteneHotellVelferd)data;
+                model.velferdsgrunner.helseproblemer = model.velferdsgrunner.sammenstilling.Contains("helseproblemer");
+                model.velferdsgrunner.barnefodsel = model.velferdsgrunner.sammenstilling.Contains("barnefodsel");
+                model.velferdsgrunner.begravelse = model.velferdsgrunner.sammenstilling.Contains("begravelse");
+                model.velferdsgrunner.naerstaaende = model.velferdsgrunner.sammenstilling.Contains("naerstaaende");
+                model.velferdsgrunner.adopsjon = model.velferdsgrunner.sammenstilling.Contains("adopsjon");
+                model.velferdsgrunner.sarligeOmsorg = model.velferdsgrunner.sammenstilling.Contains("sarligeOmsorg");
+                model.velferdsgrunner.barnAlene = model.velferdsgrunner.sammenstilling.Contains("barnAlene");
+                model.velferdsgrunner.hjemmeeksamen = model.velferdsgrunner.sammenstilling.Contains("hjemmeeksamen");
+                model.velferdsgrunner.arbeidunntak = model.velferdsgrunner.sammenstilling.Contains("arbeidunntak");
+                model.velferdsgrunner.andreVelferdshensyn = model.velferdsgrunner.sammenstilling.Contains("annet");
+                model.velferdsgrunner.andreVelferdshensynBeskrivelse = model.velferdsgrunner.sammenstilling.Contains("annet") ? model.velferdsgrunner.andreVelferdshensynBeskrivelse : null;
 
-                HttpContext ctxt = _httpContextAccessor.HttpContext;
-
-                string org = instance.Org;
-                string app = instance.AppId.Split("/")[1];
-                int partyId = int.Parse(instance.InstanceOwner.PartyId);
-                Guid instanceGuid = Guid.Parse(instance.Id.Split("/")[1]);
-
-                // handling mapping of multiple choice velferdsgrunner
-                if (!string.IsNullOrEmpty(model.velferdsgrunner?.sammenstilling))
-                {
-                    model.velferdsgrunner.helseproblemer = model.velferdsgrunner.sammenstilling.Contains("helseproblemer") ? true : false;
-                    model.velferdsgrunner.barnefodsel = model.velferdsgrunner.sammenstilling.Contains("barnefodsel") ? true : false;
-                    model.velferdsgrunner.begravelse = model.velferdsgrunner.sammenstilling.Contains("begravelse") ? true : false;
-                    model.velferdsgrunner.naerstaaende = model.velferdsgrunner.sammenstilling.Contains("naerstaaende") ? true : false;
-                    model.velferdsgrunner.adopsjon = model.velferdsgrunner.sammenstilling.Contains("adopsjon") ? true : false;
-                    model.velferdsgrunner.sarligeOmsorg = model.velferdsgrunner.sammenstilling.Contains("sarligeOmsorg") ? true : false;
-                    model.velferdsgrunner.barnAlene = model.velferdsgrunner.sammenstilling.Contains("barnAlene") ? true : false;
-                    model.velferdsgrunner.hjemmeeksamen = model.velferdsgrunner.sammenstilling.Contains("hjemmeeksamen") ? true : false;
-                    model.velferdsgrunner.arbeidunntak = model.velferdsgrunner.sammenstilling.Contains("arbeidunntak") ? true : false;
-                    model.velferdsgrunner.andreVelferdshensyn = model.velferdsgrunner.sammenstilling.Contains("annet") ? true : false;
-                    model.velferdsgrunner.andreVelferdshensynBeskrivelse = model.velferdsgrunner.sammenstilling.Contains("annet") ? model.velferdsgrunner.andreVelferdshensynBeskrivelse : null;
-
-                    edited = true;
-                }
-                else
-                {
-                    model.velferdsgrunner = null;
-                }
-
-                // set data for receipt if not set
-                if (string.IsNullOrEmpty(model.applogic?.altinnRef))
-                {
-                    model.applogic ??= new Applogic();
-
-                    Party party = await _registerService.GetParty(int.Parse(instance.InstanceOwner.PartyId));
-                    model.applogic.avsender = $"{instance.InstanceOwner.PersonNumber}-{party.Name}";
-                    model.applogic.altinnRef = instance.Id.Split("-")[4];
-                }
+                edited = true;
+            }
+            else
+            {
+                model.velferdsgrunner = null;
             }
 
-            return await Task.FromResult(edited);
+            // set data for receipt if not set
+            if (string.IsNullOrEmpty(model.applogic?.altinnRef))
+            {
+                model.applogic ??= new Applogic();
+
+                Party party = await _registerService.GetParty(
+                    int.Parse(instance.InstanceOwner.PartyId));
+                model.applogic.avsender = 
+                    $"{instance.InstanceOwner.PersonNumber}-{party.Name}";
+                model.applogic.altinnRef = instance.Id.Split("-")[4];
+            }
         }
+
+        return await Task.FromResult(edited);
+    }
+    ```
+2. Register you custom implementation in the _Program.cs_ class
+    ```C#
+    services.AddTransient<IDataProcessor, DataProcessor>();
+    ```
+    This ensures your custom code is known to the application and that it will be executed.
+{{</content-version-container>}}
+{{<content-version-container version-label="v4, v5, v6">}}
+Data processing is coded in C#, in the file `DataProcessingHandler.cs`. This file can easily be edited by downloading the source code to the app and editing on your own computer, e.g. in Visual Studio Code.
+The data model with form data is available and can be edited/updated when needed.
+
+Example on code from app that processes and populates different data while saving.
+
+```C#
+public async Task<bool> ProcessDataWrite(
+    Instance instance, Guid? dataId, object data)
+{
+    bool edited = false;
+
+    if (data is SoknadUnntakKaranteneHotellVelferd model)
+    {
+        string org = instance.Org;
+        string app = instance.AppId.Split("/")[1];
+        int partyId = int.Parse(instance.InstanceOwner.PartyId);
+        Guid instanceGuid = Guid.Parse(instance.Id.Split("/")[1]);
+
+        // handling mapping of multiple choice velferdsgrunner
+        if (!string.IsNullOrEmpty(model.velferdsgrunner?.sammenstilling))
+        {
+            model.velferdsgrunner.helseproblemer = model.velferdsgrunner.sammenstilling.Contains("helseproblemer");
+            model.velferdsgrunner.barnefodsel = model.velferdsgrunner.sammenstilling.Contains("barnefodsel");
+            model.velferdsgrunner.begravelse = model.velferdsgrunner.sammenstilling.Contains("begravelse");
+            model.velferdsgrunner.naerstaaende = model.velferdsgrunner.sammenstilling.Contains("naerstaaende");
+            model.velferdsgrunner.adopsjon = model.velferdsgrunner.sammenstilling.Contains("adopsjon");
+            model.velferdsgrunner.sarligeOmsorg = model.velferdsgrunner.sammenstilling.Contains("sarligeOmsorg");
+            model.velferdsgrunner.barnAlene = model.velferdsgrunner.sammenstilling.Contains("barnAlene");
+            model.velferdsgrunner.hjemmeeksamen = model.velferdsgrunner.sammenstilling.Contains("hjemmeeksamen");
+            model.velferdsgrunner.arbeidunntak = model.velferdsgrunner.sammenstilling.Contains("arbeidunntak");
+            model.velferdsgrunner.andreVelferdshensyn = model.velferdsgrunner.sammenstilling.Contains("annet");
+            model.velferdsgrunner.andreVelferdshensynBeskrivelse = model.velferdsgrunner.sammenstilling.Contains("annet") ? model.velferdsgrunner.andreVelferdshensynBeskrivelse : null;
+
+            edited = true;
+        }
+        else
+        {
+            model.velferdsgrunner = null;
+        }
+
+        // set data for receipt if not set
+        if (string.IsNullOrEmpty(model.applogic?.altinnRef))
+        {
+            model.applogic ??= new Applogic();
+
+            Party party = await _registerService.GetParty(
+                int.Parse(instance.InstanceOwner.PartyId));
+            model.applogic.avsender = 
+                $"{instance.InstanceOwner.PersonNumber}-{party.Name}";
+            model.applogic.altinnRef = instance.Id.Split("-")[4];
+        }
+    }
+
+    return await Task.FromResult(edited);
+}
 ```
+{{</content-version-container>}}
+
+{{</content-version-selector>}}

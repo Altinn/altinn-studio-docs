@@ -19,6 +19,10 @@
   translation: Logg inn/Min profil
 - id: search
   translation: Søk
+- id: searching-for
+  translation: Hva leter du etter?
+- id: all-langs
+  translation: Søk i alle tilgjengelige språk
 - id: to-the-frontpage
   translation: Til forsiden
 - id: show-hide-menu
@@ -84,9 +88,9 @@
 - id: application
   translation: Applikasjon API
 - id: storage
-  translation: Altinn Storage API
-- id: models
-  translation: Modeller
+  translation: Storage API
+- id: events
+  translation: Events API
 - id: scenarios
   translation: Scenarier
 
@@ -110,7 +114,7 @@
 - id: solutions
   translation: Løsninger
 - id: terms
-  translation: Vilkår
+  translation: Definisjoner
 - id: tools
   translation: Verktøy og rammeverk
 

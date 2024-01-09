@@ -1,150 +1,232 @@
 ---
 title: Kodelister (options)
 linktitle: Kodelister
-description: Hvordan konfigurere options/kodelister for en app.
+description: Hvordan konfigurere options/kodelister for en app?
 toc: true
 weight: 300
 ---
 
-Altinn tilbyr i dag to ulike måter en app kan eksponere kodelister. Dette gjøres gjennom et options-api som er eksponert av appen, og kodelisten vil være tilgjengelig på endepunktet `{org}/{app}/api/options/{optionsId}`.
-Checkbox, Dropdown og RadioButton komponenter vil automatisk kunne hente ut en slik liste om man kobler denne komponenten til en slik options-id.
-
-## Statisk kodeliste fra app-repo
-
-Ved å legge json-lister i options mappen i app repo vil appen automatisk lese denne filen og eksponere det gjennom options-apiet. 
-Options filene må ligge under `App/options/` og vil bli differensiert ved hjelp av navngivningen på json-filen. F.eks `land.json`. Her vil da optionsId være `land`, og vil være eksponert gjennom endepunktet `{org}/{app}/api/options/land`.
-Kodelistene må være på et spesifikt format. Eksempel på en kodeliste som inneholder land (`App/options/land.json`):
-
-```json
-[
-    {
-        "value": "norway",
-        "label": "Norge"
-    },
-    {
-        "value": "denmark",
-        "label": "Danmark"
-    },
-    {
-        "value": "sweden",
-        "label": "country.label.sweden"
-    }
-]
-```
-
-`label` feltet kan inneholde en tekstnøkkel til teskstressursene eller ren tekst.
-
-## Kodeliste generert runtime
-
-I app-templaten har man også mulighet til å dynamisk kodelister som bestemmes under kjøringen av appen. Dette muligjør det å eksponere dynamiske verdier som kan filtreres eller hentes fra andre kilder.
-
-I versjoner eldre enn 4.24.0 ble dette gjort ved å legge til kode i metoden `GetOptions` i `App.cs`. Denne metoden er nå erstattet ved at man legger til egne klasser for hver kodeliste som implementerer `IAppOptionsProvider` interfacet og at man registrerer denne i applikasjonen sin 'dependency injection cointainer'. Dette gir bedre skille mellom de ulike kodelistene, muliggjør å sende avhengigheter inn i konstruktøren til klassen, sende inn språk og andre parametere og generelt håndtere alle aspekter av implementeringen slik du selv ønsker det.
-
-Under finner du et eksempel på hvordan dette kan settes opp. Her vil man få ut den oppsatte kodelisten i det appen får et kall mot `{org}/{app}/api/options/countries`.
-
-```C#
-using Altinn.App.Common.Models;
-using Altinn.App.PlatformServices.Options;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-
-namespace Altinn.App.Core
-{
-    public class CountryAppOptionsProvider : IAppOptionsProvider
-    {
-        public string Id { get; set; } = "countries";
-
-        public Task<AppOptions> GetAppOptionsAsync(string language, Dictionary<string, string> keyValuePairs)
-        {
-            var options = new AppOptions
-            {
-                Options = new List<AppOption>
-                    {
-                        new AppOption
-                        {
-                            Label = "Norway",
-                            Value = "47"
-                        },
-                        new AppOption
-                        {
-                            Label = "Sweden",
-                            Value = "46"
-                        }
-                    }
-            };
-
-            return Task.FromResult(options);
-        }
-    }
-}
-
-```
-
-For at denne implementasjonen skal plukkes opp av applikasjonen må den registreres i `Startup.cs`:
-```csharp
-services.AddTransient<IAppOptionsProvider, CountryAppOptionsProvider>();
-```
-
-Legg merke til at du kan ha mange implementasjoner av dette interfacet. Den rette implementasjonen finnes gjennom å se på hvilken kodeliste id det spørres etter.
-
-Interface har en egenskap `Id`, som skal settes til til den id'en man skal spørre etter, og en metoden `GetAppOptionsAsync` som returnerer selve kodelisten. Denne metoden tar i mot språk og en liste med key/value par som typisk er query parametre som plukkes opp av kontrolleren og sendes inn. Selv om språk kunne vært et key/value par og sånn sett hvert i listen, så er denne lagt utenfor for å være eksplisitt på språk.
-
-
-> Språkkoder bør baseres på ISO 639-1 standarden eller W3C IANA Language Subtag Registry standarden. Sistnevnte bygger på ISO 639-1 standarden men garanterer at alle kodene er unike, noe ISO 639-1 ikke gjør.
-> 
-
+Altinn tilbyr to ulike måter en app kan eksponere kodelister - statisk og dynamisk. Disse eksponeres primært fra options endepunktet i appen, og er tilgjengelig på `{org}/{app}/api/options/{optionsId}`.
+Checkbox, Dropdown og RadioButton komponenter vil automatisk kunne hente ut en slik liste om man kobler denne komponenten til en slik options-id. Men ikke alle dynamiske kodelister må gå via api'et - vi har også dynamiske kodelister som baserer seg på verdiene fra en repeterende struktur i datamodellen.
 
 ## Koble en komponent til kodeliste
+
 Dette gjøres ved å legge til feltet optionsId som referer til hvilken option (kodeliste) man ønsker refere til. Eksempel:
+
 ```json
 {
-    "id": "8e6f7b2f-fcf0-438d-8336-c1a8e1e03f44",
-    "type": "Dropdown",
-    "componentType": 4,
-    "textResourceBindings": {},
-    "dataModelBindings": {},
-    "optionsId": "biler",
+  "id": "dropdown-komponent",
+  "type": "Dropdown",
+  "optionsId": "biler"
 }
 ```
 
-
 ## Sende med query parametere ved henting av options
-Options støtter query parameters når det gjøres api kall. `language` er satt opp automatisk, men man kan også legge til egendefinerte parametere ved å sette opp `mapping` på den aktuelle komponenten.
+
+Options støtter query parametre når det gjøres api kall; parameteren `language` sendes med automatisk.
+
+### Sende med statiske query parametre
+
+Man kan legge til statiske query parametre ved å sette opp `queryParameters` på den aktuelle komponenten:
 
 ```json
 {
-    "id": "c66d7b69-2e18-4786-af44-1fa913853618",
-    "type": "Dropdown",
-    "textResourceBindings": {
-        "title": "NyGarantiLoyvetype"
-    },
-    "dataModelBindings": {
-        "simpleBinding": "soknad.nyGaranti.loyvetype"
-    },
-    "required": true,
-    "optionsId": "loyvetyper",
-    "mapping": {
-        "soknad.transportorOrgnummer": "orgnummer"
-    }
+  "id": "dropdown-komponent",
+  "type": "Dropdown",
+  "textResourceBindings": {
+    "title": "NyGarantiLoyvetype"
+  },
+  "dataModelBindings": {
+    "simpleBinding": "soknad.nyGaranti.loyvetype"
+  },
+  "required": true,
+  "optionsId": "loyvetyper",
+  "queryParameters": {
+    "loyvetype": "garanti"
+  }
+},
+```
+
+I eksempelet over vil parameteren `?loyvetype=garanti` bli sendt med i api kallet.
+
+### Sende med dynamiske query parametre basert på datamodellen
+
+Man kan legge til dynamiske query parametre ved å sette opp `mapping` på den aktuelle komponenten:
+
+```json
+{
+  "id": "dropdown-komponent",
+  "type": "Dropdown",
+  "textResourceBindings": {
+    "title": "NyGarantiLoyvetype"
+  },
+  "dataModelBindings": {
+    "simpleBinding": "soknad.nyGaranti.loyvetype"
+  },
+  "required": true,
+  "optionsId": "loyvetyper",
+  "mapping": {
+    "soknad.transportorOrgnummer": "orgnummer"
+  }
 },
 ```
 
 I eksempelet over vil det bli satt på et query parameter `orgnummer={nr}`, hvor `{nr}` er verdien på feltet `soknad.transportorOrgnummer`.
 Om man setter opp en kobling til et datafelt og dette feltet endrer seg så vil app-frontend hente options på nytt. På denne måten kan man dynamisk styre hvilke valg som vises basert på informasjon gitt av sluttbruker.
 
+Å sende med query parametere fra repeterende grupper er også støttet ved å legge ved en indeks-indikator for de relevante gruppene. Eksempel:
+
+```json
+{
+  "id": "dropdown-group",
+  "type": "Dropdown",
+  "textResourceBindings": {
+    "title": "Select city"
+  },
+  "dataModelBindings": {
+    "simpleBinding": "Group.City"
+  },
+  "required": true,
+  "optionsId": "cities",
+  "mapping": {
+    "Group[{0}].Country": "country"
+  }
+},
+```
+
+For nøsta repeterende grupper vil man følge det samme mønsteret, men med en ekstra indikator for den nøsta gruppa:
+
+```json
+{
+  "id": "dropdown-nested-group",
+  "type": "Dropdown",
+  "textResourceBindings": {
+    "title": "Select city"
+  },
+  "dataModelBindings": {
+    "simpleBinding": "Group.SubGroup.City"
+  },
+  "required": true,
+  "optionsId": "cities",
+  "mapping": {
+    "Group[{0}].SubGroup[{1}].Country": "country"
+  }
+},
+```
+
+For et komplett eksempel kan du se vår [demo app.](https://altinn.studio/repos/ttd/dynamic-options-rep)
+
 {{%notice warning%}}
-Under PDF-generering vil appen prøve å kalle det samme options-endepunktet som app-frontend gjør. 
+**Gjelder applikasjoner som benytter versjon 7.4.0 eller eldre av nuget pakkene** - se https://github.com/Altinn/app-lib-dotnet/release
+
+<br>
+
+Under PDF-generering vil appen prøve å kalle det samme options-endepunktet som app-frontend gjør.
 Vi har foreløpig en svakhet ved at eventuelle mapping-parametere ikke blir inkludert i denne forespørselen, se issue [#7903.](https://github.com/Altinn/altinn-studio/issues/7903)
 
 En mulig workaround her er å returnere en tom array i det PDF-generatoren spør om options med tomme query-parametere, eksempel:
-```c#
-            string someArg = keyValuePairs.GetValueOrDefault("someArg");
-            string someOtherArg = keyValuePairs.GetValueOrDefault("someOtherArg");
 
-            if (string.IsNullOrEmpty(someArg) || string.IsNullOrEmpty(someOtherArg)) {
-                return await Task.FromResult(new List<AppOption>());
-            }
+```c#
+string someArg = keyValuePairs.GetValueOrDefault("someArg");
+string someOtherArg = keyValuePairs.GetValueOrDefault("someOtherArg");
+
+if (string.IsNullOrEmpty(someArg) || string.IsNullOrEmpty(someOtherArg)) {
+    return await Task.FromResult(new List<AppOption>());
+}
 ```
 
 Merk at dette vil resultere i at PDF vil vise verdien valgt og ikke label som sluttbrukers svar.
 {{% /notice%}}
+
+### Lagre metadata for parametrene som ble brukt til å hente options
+
+Du kan lagre metadata for parameterene som ble brukt til å hente options i datamodellen ved å sette `metadata` property
+på komponentens `dataModelBinding` property:
+
+```json
+{
+  "id": "some-dropdown-component",
+  "type": "Dropdown",
+  "textResourceBindings": {
+    "title": "NyGarantiLoyvetype"
+  },
+  "dataModelBindings": {
+    "simpleBinding": "soknad.nyGaranti.loyvetype",
+    "metadata":  "soknad.transportorOrgnummer"
+  },
+  "required": true,
+  "optionsId": "loyvetyper",
+  "mapping": {
+    "soknad.transportorOrgnummer": "orgnummer"
+  }
+},
+```
+
+Denne konfigurasjonen vil lagre metadata for parameterene som ble brukt til å hente options som en kommaseparert
+streng i feltet `soknad.transportorOrgnummer` i datamodellen.
+
+## Beskrivelse og Hjelpetekst
+
+`description` og `helpText` støttes av options i apper som bruker versjon v7.8.0 eller høyere. Beskrivlese og
+hjelpetekst kan vises av komponentene `RadioButtons` og `Checkboxes` ved å sette attributtene i en `option` som
+brukes av komponenten.
+
+Beskrivelser og hjelpetekster kan gis til `options` på samme måte som en `label` er gitt, enten i statiske eller
+dynamiske kodelister. Man kan også bruke dem i options basert på repeterende grupper i `source` attributten.
+
+```json
+[
+  {
+    "value": "norway",
+    "label": "Norge",
+    "description": "This is a description",
+    "helpText": "This is a help text"
+  },
+  {
+    "value": "denmark",
+    "label": "Danmark"
+  }
+]
+```
+
+```cs
+var options = new AppOptions
+{
+  Options = new List<AppOption>
+  {
+    new AppOption
+    {
+      Label = "Ole",
+      Value = "1",
+      Description = "This is a description",
+      HelpText  = "This is a help text"
+    },
+    new AppOption
+    {
+      Label = "Dole",
+      Value = "2"
+    }
+  }
+};
+```
+
+Beskrivelser og hjelpetekster som brukes i options basert på repeterende grupper kan settes opp med dynamiske
+text-ressurser på samme måte som `label`, som er beskrevet i
+[options basert på repeterende grupper](dynamic-codelists).
+
+```json
+{
+  "id": "checkboxes-component-id",
+  "type": "Checkboxes",
+  ...
+  "source": {
+    "group": "some.group",
+    "label": "checkboxes.label",
+    "description": "checkboxes.descripiton",
+    "helpText": "checkboxes.helpText",
+    "value": "some.group[{0}].someField"
+  }
+},
+```
+
+{{<children />}}

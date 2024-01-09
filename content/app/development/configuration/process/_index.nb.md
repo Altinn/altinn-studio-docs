@@ -29,4 +29,10 @@ Nåværende applikasjonsmal støtter følgende tasks.
 For å endre på prosessen kan du manuelt redigere BPMN-filen med en valgfri XML- eller BPMN-editor.
 Den ligger lagret i app-repoet som `App/config/process/process.bpmn`.
 
-{{<children>}}
+## Eksempler på process-filer
+
+* [Data_Confirmation_Process.bpmn](Data_Confirmation_Process.bpmn)
+* [Data_Data_Data_Process.bpmn](Data_Data_Data_Process.bpmn)
+* [Data_Process.bpmn](Data_Process.bpmn)
+
+{{<children />}}

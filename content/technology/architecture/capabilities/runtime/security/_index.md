@@ -5,4 +5,4 @@ description: Security Enforcement Capabilities are capabilities typical provided
 tags: [architecture]
 ---
 
-{{% children description="true" depth="1" %}}
+{{<children />}}

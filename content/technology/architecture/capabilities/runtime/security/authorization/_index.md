@@ -1,22 +1,22 @@
 ---
 title: Authorization
 linktitle: Authorization
-description: The Altinn 3 platform has very powerful and flexible authorization capabilities. 
+description: The Altinn platform has compelling and flexible authorization capabilities.
 tags: [architecture, security]
 toc: false
 ---
 
-The [authorization](https://en.wikipedia.org/wiki/Authorization) capabilities are based around [ABAC](https://en.wikipedia.org/wiki/Attribute-based_access_control) (Attribute-Based Access Controls)
-and the [XACML 3.0 standard](https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html).
+The [authorization](https://en.wikipedia.org/wiki/Authorization) capabilities are based on [ABAC](https://en.wikipedia.org/wiki/Attribute-based_access_control) (Attribute-Based Access Controls)
+and use the [XACML 3.0 standard](https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html).
 
 These capabilities include:
 
-* The capability to define wide/narrow authorization policies for apps. Rules can be valid for the whole application or only valid for a subset of resources.
+* The capability to define wide/narrow authorization policies for apps. Rules can be valid for the whole application or only for a subset of resources.
 * The capability to evaluate policies  based on a request for a resource
 * The capability to configure authorization policies for API endpoints
 * The capability to enforce decision request (permit or deny)
-* The capability to enrich decision request with needed information
-* The capability to retrieve context information from different sources both regarding resources accessed and subjects doing that.
+* The capability to enrich decision requests with needed information
+* The capability to retrieve context information from different sources for subject and resource.
 * The capability to authorize based on API scopes
 
 ## Main Concept
@@ -25,7 +25,7 @@ The following concepts are important
 
 ### Authorization Components
 
-The authorization capabilities are provided by the following solution components
+The following solution components provide authorization capabilities
 
 * PAP - Policy Administration Point: Where the authorization policies are defined
 * PDP - Policy Decision Point:  Where the authorization request is evaluated
@@ -34,7 +34,7 @@ The authorization capabilities are provided by the following solution components
 * PRP - Policy Retrieval Point:  Where the PDP can find the correct policy to use for a request
 * Context Handler - Component adding context information to the decision request so PDP can evaluate a decision request correctly.
 
-These components are described in detail under [solution components](/technology/architecture/components/application/solution/altinn-platform/authorization/)
+These components are described in detail under [solution components](/authorization/)
 
 ### Rights
 
@@ -106,7 +106,7 @@ In Altinn Apps/Platform this is used to define the minimum authentication level.
 
 The policies in Altinn Studio Apps is defined when the app developer defines the rules for the app.
 The policy is deployed together with the App to a given Altinn Studio App environment.
-See details in [Policy Administration Point in Altinn Studio](/technology/architecture/components/application/solution/altinn-studio/designer/pap/).
+See details in [Policy Administration Point in Altinn Studio](/altinn-studio/designer/build-app/authorization-rules/).
 
 In Altinn II end users can also create policies/rules. This happens when:
 
@@ -145,3 +145,10 @@ Scopes are always used together with the authorization rules for the specific ap
 * altinn:instances.write : Give system the right to access API for writing to instances
 * altinn:serviceowner/instances.read : Give orgs the right to access API for reading instances
 * altinn:serviceowner/instances.write  : Give orgs the right to access API for writing to instances
+
+
+## The Future
+
+The below show the future of Authorization Component. [Work in progress](/authorization/)
+
+![The future](/authorization/modules/authorization_solution_components_future.drawio.svg)

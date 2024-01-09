@@ -133,6 +133,7 @@ Required body differs for the two features, and examples of the request body are
 
 ### Instantiation with key-value prefill
 
+Note that prefill is a `Dictionary<string,string>`, so if you have recursive models you need to use the same key as in `dataModelBindings`
 ```json
 {
     
@@ -141,7 +142,9 @@ Required body differs for the two features, and examples of the request body are
         "organisationNumber": null
     },
     "prefill": {
-        "navnGarantist" : "Ole Hansen"
+        "navnGarantist" : "Ole Hansen",
+	"addresse.gatenavn": "Gateveien",
+	"addresse.husnummer": "4"
      },
     "dueBefore": "2019-06-01T12:00:00Z",
     "visibleAfter": "2019-05-20T00:00:00Z"
@@ -164,7 +167,9 @@ Required body differs for the two features, and examples of the request body are
 
 ## Update sub status
 
-The instance [sub status](../../../app/development/api/instance/#substatus) is used to give an end user further details about the state of their instance. Currently, only application owner is allowed to update substatus for an instance. Include the new substatus in the body of the requests as a json.
+The instance [sub status](../../../app/development/api/instance/#substatus) is used to give an end user further details
+about the state of their instance. Currently, only application owner is allowed to update sub status for an instance.
+Include the new sub status in the body of the requests as a json.
 
 ```http
 PUT {basePath}/{instanceOwnerPartyId}/{instanceGuid}/substatus

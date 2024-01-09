@@ -1,5 +1,5 @@
 <div class="col-12 col-lg-4 mb-5">
-    <a href="{{ with .Site.GetPage `/technology`}}{{.URL}}{{end}}" class="a-illustrationLink">
+    <a href="{{ with .Site.GetPage `/technology`}}{{.RelPermalink}}{{end}}" class="a-illustrationLink">
         <h2 class="a-h3">{{ T "how-we-develop"}}</h2>
         <p class="a-js-truncate-2">{{ T "how-we-develop-description"}}</p>
         <div class="a-illustration-icon">

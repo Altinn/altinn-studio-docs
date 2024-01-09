@@ -29,4 +29,10 @@ The current application template supports the following tasks:
 To change the process, you can manually edit the BPMN file with an text, XML or BPMN editor.
 It is stored in the app repo as `App/config/process/process.bpmn`.
 
-{{<children>}}
+## Example Process Files
+
+* [Data_Confirmation_Process.bpmn](Data_Confirmation_Process.bpmn)
+* [Data_Data_Data_Process.bpmn](Data_Data_Data_Process.bpmn)
+* [Data_Process.bpmn](Data_Process.bpmn)
+
+{{<children />}}

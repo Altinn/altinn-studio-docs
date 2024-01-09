@@ -3,7 +3,6 @@
 title: Hide instances
 linktitle: Hide instances
 description: Configuration for hiding instances from the message box.
-tags: [translate-to-english]
 weight: 200
 ---
 
@@ -12,18 +11,18 @@ instances from the message box during parts of, or the whole, process.
 
 ## Configuration
 
-{{% notice info  %}}
+{{% notice info %}}
 The configuration has a retroactive effect and will also apply to previously created instances.
 {{% /notice %}}
 
 Configuration for hiding instances is defined in `applicationmetadata.json`,
-which you can find in ythe appliation repository in the folder `App/config`.
+which you can find in ythe application repository in the folder `App/config`.
 
 Add a new section called `messageBoxConfiguration` with the child property `hideSettings`.
 
 HideSettings can consist of one of two properties
 
- Navn         | Beskrivelse
+ Name         | Description
 --------------|------------
 hideOnTask  | A list of tasks where the instance should be hidden from the messagebox.
 hideAlways  | A boolean indicating that the instance should always be hidden.

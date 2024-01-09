@@ -4,4 +4,4 @@ description: Our DevOps teams
 ---
 
 
-{{<children>}}
+{{<children />}}

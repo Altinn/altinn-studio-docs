@@ -9,13 +9,87 @@ toc: true
 
 The following diagram shows the different entities stored. Click on the entity for the physical model used.
 
-![Logical datamodel](logical_data_model.svg "Logcal datamodel")
+![Logical datamodel](logicalmodel.drawio.svg "Logical datamodel")
 
 Data is stored in Cosmos DB as JSON documents.
 In addition we use object database to store the raw objects of business data that org has defined for the application.
 
 
 ![Cosmos collections](cosmos_collections.png "Cosmos collections")
+
+
+## Entities
+
+|Entity | Storage | Created by | 
+|-----|------|-------|
+|Instance| Cosmos DB | user/app owner |
+|InstanceEvent | Cosmos DB | user/app owner |
+|InstanceData | Cosmos DB | user/app owner |
+| Data | Blob storage | user/app owner |
+| Events | PostgreSQL | App | 
+| Applications | Cosmos DB | app owner | 
+
+See below for details
+
+### Instance
+
+**Usage:** The instance is the central metadatadocument for a given "data instance" created by a specific application.
+It contains information about the reportee for the specific instance, which app the instance belongs to, information about when it was created, and current process status.
+
+**Created by:** The instance document is created when someone with the needed rights create a new instance for a given app. It could be a user with roles or the org. 
+
+**Storage:**  This document is stored in Cosmos DB in a shared collection. This to make it possible to search for instances accross reportees/apps.
+
+### InstanceEvents
+
+**Usage:** The instanceEvents contains information about events that users or other have performed on the instance. This include times for for it.
+Used to present information to users and org.
+
+**Created by:** The application creates the events when events happen
+
+**Storage:** This document is stored in a Cosmos DB in a shared collection. Storage components 
+
+**Storage:** This document is stored in a shared Cosmos DB collection through the Storage component.
+
+
+### DataElements
+
+**Usage:** Contains the metadata about data for an instance. Refer to the physical data file
+
+**Created by:** Created by storage component when data is added to an instance
+
+**Storage:**  This document is stored in Cosmos DB in a shared collection.
+
+### Data
+
+**Usage:** The data is any structured or unstructured data that the org receives or send through the app. Size can vary from few bytes to Gigabytes. 
+
+**Created by:** Data can be created by both an end user and the application owner.
+
+**Storage:**  Store in Azure blob storage in a isolated storage for each org
+
+### Events
+
+**Usage:** Contains information about app events. Structured as cloud event.  Created to support external consumptions 
+
+**Created by:** Applications creates events based on logic or standard events. 
+
+**Storage:** Stored in Postgree SQL for 90 days.
+
+
+### Applications
+
+### Texts
+
+**Usage:** Used for texts in application. Connected to a given app
+
+**Created by** Application developer
+
+
+**Storage:** Cosmos DB in a shared collection
+
+
+
 
 
 ## Data Entities - Altinn Platform
@@ -180,6 +254,20 @@ Example document on application:
     "_attachments": "attachments/",
     "_ts": 1579001940
 }
+```
+
+
+### EVents
+
+```json {hl_lines=[4]}
+[{
+  "source":  "https://skd.apps.altinn.no/skd/skattemelding/instances/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8",
+  "subject": "party/234234422",
+  "type": "app.instance.process.completed",
+  "time":  "2020-02-20T09:06:50.3736712Z",
+  "id": "91f2388f-bd8c-4647-8684-fd9f68af5b14",
+  "alternativesubject": "/org/974760673"
+}]
 ```
 
 

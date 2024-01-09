@@ -7,7 +7,7 @@
             <h2 class="a-fontSizeXL a-fontBold mb-1"> {{ T "caseblock-title"}}</h2>
             <p class="a-fontSizeS mb-4">{{ T "caseblock-description" | safeHTML}}</p>
 
-            <a class="a-btn a-btn-border" href="{{ with .Site.GetPage `/community`}}{{.URL}}{{end}}">{{ T "caseblock-link"}}</a>
+            <a class="a-btn a-btn-border" href="{{ with .Site.GetPage `/community`}}{{.RelPermalink}}{{end}}">{{ T "caseblock-link"}}</a>
         </div>
     </div>
  </div>

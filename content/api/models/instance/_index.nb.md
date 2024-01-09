@@ -67,7 +67,7 @@ The CompleteConfirmation model is a simple type for holding information about wh
 
 Data values are values either extracted from the instance data or other sources. The values are stored with the instance for easy access and can be used for example in routing logic on the receiving end.
 
-While data fields configured in the [app metadata file](../app-metadata/_index.md#datafield) will be extracted and automatically picked up by the application, there is also the option of adding values manually by using the UpdataDataValues method from the IInstance interface. You can mix and match data fields from configuration and by manually adding. It's the UpdateDataValues method that is called under the hood in both cases. UpdateDataValues merges the incoming collection with what's allready stored. However if yo specify the same id it will be overwritten by one or the other and you have no guaranties on which is stored.
+While data fields configured in the [app metadata file](../app-metadata/#datafield) will be extracted and automatically picked up by the application, there is also the option of adding values manually by using the UpdataDataValues method from the IInstance interface. You can mix and match data fields from configuration and by manually adding. It's the UpdateDataValues method that is called under the hood in both cases. UpdateDataValues merges the incoming collection with what's allready stored. However if yo specify the same id it will be overwritten by one or the other and you have no guaranties on which is stored.
 
 Values passed in to the UpdataDataValues can have any source and is not restricted to data stored in the application. It can be called from any place but it's recomended to not call it more than strictly required. A good place is to override the RunProcessTaskEnd method from AppBase causing the method to be called when a task is completed.
 
@@ -137,8 +137,8 @@ This example was created by instantiating an app running locally on a developmen
     "appId": "ttd/bli-applikasjonseier",
     "org": "ttd",
     "selfLinks": {
-        "apps": "https://altinn3local.no/ttd/bli-applikasjonseier/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814",
-        "platform": "https://altinn3local.no/storage/api/v1/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814"
+        "apps": "https://local.altinn.cloud/ttd/bli-applikasjonseier/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814",
+        "platform": "https://local.altinn.cloud/storage/api/v1/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814"
     },
     "dueBefore": null,
     "visibleAfter": null,
@@ -171,8 +171,8 @@ This example was created by instantiating an app running locally on a developmen
             "contentType": "application/xml",
             "blobStoragePath": "ttd/bli-applikasjonseier/bd9edd59-b18c-4726-aa9e-6b150eade814/data/8a8a01ae-9533-4aa9-b914-8ab0fae6ea0d",
             "selfLinks": {
-                "apps": "https://altinn3local.no/ttd/bli-applikasjonseier/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814/data/8a8a01ae-9533-4aa9-b914-8ab0fae6ea0d",
-                "platform": "https://altinn3local.no/storage/api/v1/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814/data/8a8a01ae-9533-4aa9-b914-8ab0fae6ea0d"
+                "apps": "https://local.altinn.cloud/ttd/bli-applikasjonseier/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814/data/8a8a01ae-9533-4aa9-b914-8ab0fae6ea0d",
+                "platform": "https://local.altinn.cloud/storage/api/v1/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814/data/8a8a01ae-9533-4aa9-b914-8ab0fae6ea0d"
             },
             "size": 401,
             "locked": false,

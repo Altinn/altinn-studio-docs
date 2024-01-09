@@ -29,7 +29,7 @@ Applikasjonen vil da starte og han vil spørre om du skal starte en browser. Vel
 
 ![debug](debug1aa.png "Debugging startet")
 
-Åpne et browservindu og gå til http://altinn3local.no (forutsetter at du har startet lokal utviklingsplattform).
+Åpne et browservindu og gå til http://local.altinn.cloud (forutsetter at du har startet lokal utviklingsplattform).
 
 
 ### Starte appen fra commando vindu
@@ -55,3 +55,45 @@ Der debugger stopper kan du analysere lokale verdier på objekter for å finne u
 ![debug](debug4.png "Se på lokale verdier")
 
 Les mer om debugging i Visual Studio Code i [dokumentasjonen til code](https://code.visualstudio.com/docs/editor/debugging).
+
+## Endre frontend-versjon
+
+Hvis du har et lokalt utviklingsmiljø for [frontend-applikasjonen](https://github.com/Altinn/app-frontend-react/),
+eller om du ønsker å teste med en spesifikk versjon av frontend, kan dette gjøres ved å endre den kjørende
+frontend-versjonen fra lenken på forsiden av local.altinn.cloud:
+
+![use-diff-frontend-version](use-diff-frontend-version.png "Funksjonalitet for å endre frontend-versjon")
+
+{{% panel info %}}
+**BEMERK:** Dette virker bare dersom du har beholdt standardstien for lasting av frontend-applikasjonen sin JavaScript-fil
+in `Index.cshtml`-filen i appen du jobber med. Om du har endret til å bruke en annen sti, vil dette overstyre eventuelle
+endringer du gjør via local.altinn.cloud.
+{{% /panel %}}
+
+## Se og lagre redux tilstandshistorikk
+
+Frontend-applikasjonen bruker redux til å holde styr på tilstandsendringer. For enkelte typer feil i
+frontend-applikasjonen kan historikken fra disse tilstandsendringene være veldig nyttig for å feilsøke og fikse et
+problem som ellers kan være vanskelig å reprodusere. Denne tilstandshistorikken gjør det mulig å spole frem og tilbake
+i tid, og lagrer rekkefølgen på alt du har gjort i applikasjonen.
+
+{{% panel info %}}
+**BEMERK:** Dette virker bare i frontend-versjoner fra `3.50.5` og nyere, eller ved lasting fra et lokalt utviklingsmiljø.
+{{% /panel %}}
+
+{{% notice warning %}}
+Tilstandshistorikken inneholder alle tilstandsendringer i applikasjonen (hvilket inkluderer alt du har skrevet, og alle
+endringer du har gjort siden siden ble lastet). Ikke lagre eller send denne historikken dersom du jobber med
+sensitiv informasjon.
+{{% /notice %}}
+
+1. Start med å installere Redux Devtools-utvidelsen i nettleseren din ([Chrome](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd) eller [Firefox](https://addons.mozilla.org/nb-NO/firefox/addon/reduxdevtools/))
+2. Bruk applikasjonen som normalt. Når problemet du vil lagre tilstandshistorikk for har inntruffet, åpne
+   utviklerverktøyene i nettleseren din (trykk F12).
+3. Gå til Redux-flaket i utviklerverktøyene. Her pleier applikasjonsinstansen din å bli automatisk valgt, og
+   visningen ligner på denne:
+
+   ![redux-devtools](redux-devtools.png "Redux DevTools")
+
+4. Klikk eksport-knappen nederst i venstre hjørne for å lagre tilstandshistorikken: ![export](redux-devtools-export.png)
+5. Legg ved den eksporterte filen når du oppretter en [feilrapport](https://github.com/Altinn/app-frontend-react/issues/new?assignees=&labels=kind%2Fbug%2Cstatus%2Ftriage&template=bug_report.yml), eller send filen til en utvikler

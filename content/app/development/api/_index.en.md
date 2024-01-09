@@ -4,4 +4,4 @@ description: The apps developed in Altinn Studio can both expose standard and cu
 weight: 50
 ---
 
-{{<children>}}
+{{<children />}}

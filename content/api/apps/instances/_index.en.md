@@ -120,7 +120,7 @@ Content-Disposition: form-data; name="certificate"; filename=certificate.pdf
 
 This call will return the instance metadata document that was created. 
 
-## Simplified instansiation
+## Simplified instantiation
 
 For scenarios where the multipart is not required there is a new API that is simpler. 
 It supports both key-value prefilling and copying data from an archived instance. 
@@ -135,6 +135,7 @@ Required body differs for the two features, and examples are available below.
 
 ### Instantiation with key-value prefill
 
+Note that prefill is a `Dictionary<string,string>`, so if you have recursive models you need to use the same key as in `dataModelBindings`
 ```json
 {
     
@@ -143,7 +144,9 @@ Required body differs for the two features, and examples are available below.
         "organisationNumber": null
     },
     "prefill": {
-        "navnGarantist" : "Ole Hansen"
+        "navnGarantist" : "Ole Hansen",
+	"addresse.gatenavn": "Gateveien",
+	"addresse.husnummer": "4"
      },
     "dueBefore": "2019-06-01T12:00:00Z",
     "visibleAfter": "2019-05-20T00:00:00Z"
@@ -166,7 +169,9 @@ Required body differs for the two features, and examples are available below.
 
 ## Update sub status
 
-The instance [sub status](../../../app/development/api/instance/#substatus) is used to give an end user further details about the state of their instance. Currently, only application owner is allowed to update substatus for an instance. Include the new substatus in the body of the requests as a json.
+The instance [sub status](../../../app/development/api/instance/#substatus) is used to give an end user further details
+about the state of their instance. Currently, only application owner is allowed to update sub status for an instance.
+Include the new sub status in the body of the requests as a json.
 
 ```http
 PUT {basePath}/{instanceOwnerPartyId}/{instanceGuid}/substatus

@@ -51,6 +51,10 @@ POST https://integrasjon.difi.no/clients/
 
 ![Ny integrasjon](new-integration.png "Opprette ny integrasjon (klient) i samarbeidsportalen. Husk å velge riktig miljø.")
 
+## Veksle til Altinn Token
+
+Altinn godtar ikke Maskinporten API direkte. Disse må veksles inn i Altinn token. Se detaljer i scenario under.
+
 ## Mer informasjon
 
 - For mer informasjon, se [dokumentasjon for API-konsument](https://docs.digdir.no/maskinporten_guide_apikonsument.html#prosedyre-for-api-konsument) fra Maskinporten.

@@ -1,27 +1,7 @@
 ---
-title: Create app in Altinn Studio
-linktitle: Create app
-description: How to create a new application in Altinn Studio.
-weight: 150
+title: Create service in Altinn Studio
+linktitle: Create service
+description: Quick start guide to create services in Altinn Studio.
+weight: 2
 ---
-
-Altinn Studio is used to create applications (apps).
-An app could be anything from a simple form to a more  complex application with APIs, user interfaces, and everything in between.
-
-You create an app from the dashboard in Altinn Studio.
-
-![Dashboard in Altinn Studio](overview.png "Dashboard - overview")
-
-1. Click on "**ny app**"-button in the top right corner of the dashboard.
-2. Select the **eier** of the app. If you don't have access to any organisations, you have to select your self and the app would be created in your "sandbox".
-3. Add the **navn** of the app. This name is used to identify the application and will be used as the repository name, in URL's, and APIs.
-   The name should be short and descriptive, for instance "sick-leave" or "local-election-2019".  
-    _Name can **not** be changed after an app has been deployed._
-4. Click "**Opprett applikasjon**" to create the app.
-
-![New app popup](new-app.png "Create new app")
-
-Once the app is created, you will be forwarded to the created application.
-
-![App created](app-created.png "App created")
- 
+{{<children />}}

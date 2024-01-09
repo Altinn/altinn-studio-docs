@@ -5,259 +5,499 @@ description: En applikasjon kan konsumere åpne og lukkede API som er tilgjengel
 toc: true
 ---
 
-ASP.NET Core har gode muligheter til å konsumere forskjellige typer API.
+ASP.NET Core har gode muligheter til å konsumere API.
 
 Dette kan være nyttig dersom man ønsker å eksponere organisasjonens
-egne API via en app eller har behov for hjelp fra eksterne API i applikasjonslogikken.
+egne API via en app eller har behov for data fra eksterne API i appen.
 
-Det er mange måter å gjøre dette på, og på denne siden finner du eksempler på
-hvordan man kan konsumere REST APIer i en app.
+På denne siden går vi gjennom et eksempel hvor et eksternt, åpent API benyttes til å berike skjemadata.
+[Eksempelappen kan sees i sin helhet i Altinn Studio](https://altinn.studio/repos/ttd/consume-api-example).
 
+APIet som benyttes er [RestCountries v3](https://restcountries.com/#api-endpoints-v3) og det er 
+endepunktet `https://restcountries.com/v3.1/name/{country}` vi er interessert i. 
+Dette returnerer et sett med detaljer om landet som er oppgitt. 
 
-## Kalle et eksternt API direkte i en metode
+Du kan studere responsen ved å kalle APIet fra nettleseren din: [https://restcountries.com/v3.1/name/Norway](https://restcountries.com/v3.1/name/Norway).
 
-I dette eksemplet brukes et åpent API til å kalkulere et felt i skjemaet basert på input i et annet felt.
-Klientkallet implementeres direkte i kalkuleringsmetoden og det implementeres en modell for å kunne parse API responsen.
+Vi ønsker å berike skjemaet med detaljer om et land som sluttbruker har fylt inn. 
 
-[REST Countries](https://restcountries.eu/) tilbyr et API som returnerer fakta om et land dersom man sender med navnet på landet.
-Vi ønsker å lage en app som tilbyr en bruker å søke opp hovedstaden i et land
-ved å bruke deres åpne API-endepunkt: `https://restcountries.eu/rest/v2/name/`.
+## Opprettelse av API modeller
 
-![App example animation](capital-app-example.gif "App example")
-
-API-kallet er lagt til i kalkuleringsmetoden i `App/logic/CalculationHandler`
-slik at et nytt søk trigges hver gang man endrer et felt i appen.
-
-Forutsetninger:
-
-1. Det er laget en app i Altinn Studio.
-2. Det er lastet opp en datamodell som beskriver verden bestående av land med et navn og en hovedstad.
-3. Autogenerert C# klasse av datamodellen er utvidet med JSON-property tags for å kunne gjenbruke klassen i parsing av API responsen.
-
-Implementasjon:
-
-```C# {hl_lines=[14,19]}
-/// <summary>
-/// Perform calculations and update data model
-/// </summary>
-/// <param name="instance">The data</param>
-public async Task<bool> Calculate(object instance)
-{
-    if (instance.GetType() == typeof(Verden))
-    {
-        Verden verden = (Verden)instance;
-        string navn = verden?.land?.Navn;
-
-        if (!string.IsNullOrEmpty(navn))
-        {
-            using var client = new HttpClient
-            {
-                BaseAddress = new Uri("https://restcountries.eu/rest/v2/name/");
-            };
-
-            HttpResponseMessage response = await client.GetAsync(navn);
-
-            if (response.StatusCode == System.Net.HttpStatusCode.OK)
-            {
-                var land = await response.Content.ReadAsAsync<List<Land>>();
-                Land l = land.FirstOrDefault();
-                verden.land.Hovedstad = l.Hovedstad;
-            }
-            else {
-                verden.land.Hovedstad =
-                    $"Hmm.. Du skrev {navn}. Er det et land?";
-            }
-        }
-    }
-    
-    return true;
-}
-```
-
-## Konsumere REST API uten klientbibliotek
-
-I dette eksemplet setter man opp en klient som konsumerer et åpent API til bruk i ulike deler av appen.
-Vi dekker oppsett av et klient interface, implementasjon av klient, tilgjengeliggjøring av klienten i appen og dependency injection inn i ulike klasser.
-
-Hvis REST API'et ikke tilbyr et klientbibliotek for sitt API må dette opprettes som en del av applikasjonen eller som et ekstern bibliotek.
-
-### Definere API modeller
-
-Hvis API-et som skal konsumeres er dokumentert ved hjelp av Swagger eller OpenAPI kan man relativt lett genere C# klasser basert på datamodellen.
+Dersom API-et som skal konsumeres er dokumentert med Swagger eller OpenAPI kan man enkelt genere C# klasser basert på datamodellen.
 Dette kan gjøres manuelt eller ved hjelp av verktøy som tilbyr slik generering.
-Bruker man Visual Studio kan man konvertere dette direkte. Velg "Paste JSON as classes".
+
+
+I dette eksempelet er responsobjektet stort og inneholder langt mer data enn den vi er interessert i. 
+
+Her er et lite utklipp av responsobjektet for Norge.
+```json {linenos=false,hl_lines=[9,10,11,13]}
+[
+	{
+		"name": {
+			"common": "Norway",
+			"official": "Kingdom of Norway",
+			"nativeName": {}
+		},
+		"idd": {},
+		"capital": [
+			"Oslo"
+		],
+		"altSpellings": [],
+		"region": "Europe",
+		"subregion": "Northern Europe",
+		"languages": {},
+		"translations": {},
+		"latlng": [
+			62,
+			10
+		],
+		"landlocked": false,
+		"borders": [],
+		"area": 323802,
+		"demonyms": {},
+		"flag": "🇳🇴",
+		"maps": {},
+		"population": 5379475,
+		"postalCode": {
+			"format": "###",
+			"regex": "^(\\d{4})$"
+		}
+	}
+]
+```
+
+I applikasjonen ønsker vi kun å ta med oss dataen på de markerte linjene, altså hovedstad og region.
+Vi lager et minimalistisk responsobjekt som kun inneholder de feltene vi er interessert i.
+
+I mappen _App/models_ opprettes det en ny fil `Country.cs`.
 
 ```C#
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace Altinn.App.services.br.models
+namespace Altinn.App.models
 {
-    public class Enhet
+    public class Country
     {
-        public string organisasjonsnummer { get; set; }
-        public string navn { get; set; }
-        public Organisasjonsform organisasjonsform { get; set; }
-        public Adresse postadresse { get; set; }
-        public string registreringsdatoEnhetsregisteret { get; set; }
-        public bool registrertIMvaregisteret { get; set; }
-        public Naeringskode naeringskode1 { get; set; }
-        public int antallAnsatte { get; set; }
-        public Adresse forretningsadresse { get; set; }
-        public string stiftelsesdato { get; set; }
-        public Institusjonellsektorkode institusjonellSektorkode { get; set; }
-        public bool registrertIForetaksregisteret { get; set; }
-        public bool registrertIStiftelsesregisteret { get; set; }
-        public bool registrertIFrivillighetsregisteret { get; set; }
-        public string sisteInnsendteAarsregnskap { get; set; }
-        public bool konkurs { get; set; }
-        public bool underAvvikling { get; set; }
-        public bool underTvangsavviklingEllerTvangsopplosning { get; set; }
-        public string maalform { get; set; }
-        public Links _links { get; set; }
+        public List<string> Capital { get; set; }
+        public string Region { get; set; }  
     }
 }
 ```
 
-Eksempel modeller for API ses [her](https://altinn.studio/repos/ttd/mva/src/branch/master/App/services/br/models).
+`Country`-objektet består av feltene `Capital` og `Region`.
+`Capital` er en liste med strenger, da et land kan ha flere hovesteder.
 
-### Definere Klient Interface
+I dette eksempelt krever ikke APIet et komplekst request-objekt og dermed kan vi nøye oss med den ene modellen.
+Skulle det være behov for et request-objekt kan dette opprettes på samme måte. 
 
-Det anbefales at det defineres et interface for klienten som skal kalle API. Dette gjør at man kan benytte seg av dependency injection 
-ved enhetstesting for å kunne mocke vekk API kall.  Definer interface som vist nedenfor.
+
+## Oppsett av interface for klienten
+
+Det er anbefalt å definere et interface for klienten som skal kalle APIet. 
+Det gjør at vi kan benytte oss av styrkene til .NET med dependency injection og effektiv håndtering av HTTP-klienter.
+
+I applikasjonsrepoet opprettes mappen _App/clients_,
+i den nye mappen opprettes filen `ICountryClient.cs`.
+
+Interfaces består av én metode `GetCountry` som tar inn en streng og returnerer et _Country_-objekt.
+
+Definer interfacet som vist nedenfor.
 
 ```C#
-using Altinn.App.services.br.models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
-namespace Altinn.App.services.br.client
+using Altinn.App.models;
+
+namespace Altinn.App.client
 {
-    public interface IEnhetsregisteret
+    public interface ICountryClient
     {
-        Task<Enhet> GetEnhetAsync(string orgnr);
+        /// <summary>
+        /// Retrieves metadata about the provided country.
+        /// </summary>
+        /// <param name="country">The name of the country</param>
+        /// <returns>A country object</returns>
+        public Task<Country> GetCountry(string country);
     }
 }
 ```
 
-Eksempel interface kan sees [her](https://altinn.studio/repos/ttd/mva/src/branch/master/App/services/br/client/IEnhetsregisteret.cs).
+Returobjektet er omkranset av `Task<...>` denne er lagt inn for å vise til at kallet som skal gjøres
+vil være asynkront. 
 
-### Implementere klient
+## Implementere klient
 
-Klienten er selve koden som gjøre kallene mot API og omformer resultatet til gitt datamodell.
+Det er klienten som inneholder koden som gjør kallet mot APIer og omformer resultatet til `Country`-modellen 
+som forventes i retur av funksjonene som kaller klienten. 
 
-```C# {linenos=false,hl_lines=[20,25]}
-using Altinn.App.services.br.models;
-using Newtonsoft.Json;
+Den fulle implementasjonen av _Country_-klienten er vist nedenfor.
+
+```C# 
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace Altinn.App.services.br.client
+using Altinn.App.models;
+
+using Microsoft.Extensions.Logging;
+
+namespace Altinn.App.client
 {
-    public class EnhetsregistreretCI : IEnhetsregisteret
+    public class CountryClient : ICountryClient
     {
-        private HttpClient _apiClient;
+        HttpClient _client;
+        ILogger<ICountryClient> _logger;
+        JsonSerializerOptions _serializerOptions;
 
-        public async Task<Enhet> GetEnhetAsync(string orgnr)
+        public CountryClient(HttpClient client, ILogger<ICountryClient> logger)
         {
-            string apiUrl = $"enheter/" + orgnr;
-            var result = new Enhet();
+            _logger = logger;
 
-            HttpResponseMessage respons = await ApiClient.GetAsync(apiUrl);
-
-            if (respons.StatusCode == System.Net.HttpStatusCode.OK)
+            _client = client;
+            _client.BaseAddress = new Uri("https://restcountries.com/v3.1");
+            
+            _serializerOptions = new()
             {
-                string data = respons.Content.ReadAsStringAsync().Result;
-                result = JsonConvert.DeserializeObject<Enhet>(data);
-            }
-
-            return result;
+                PropertyNameCaseInsensitive = true
+            };
         }
 
-        public HttpClient ApiClient
+        public async Task<Country> GetCountry(string country)
         {
-            get
+            string query = $"name/{country}";
+
+            HttpResponseMessage res = await _client.GetAsync(query);
+
+            if (res.IsSuccessStatusCode)
             {
-                if (_apiClient != null)
-                {
-                    return _apiClient;
-                }
+                string resString = await res.Content.ReadAsStringAsync();
+               
+                List<Country> countryResponse = JsonSerializer.Deserialize<List<Country>>(resString, _serializerOptions);
 
-                string url = "https://data.brreg.no/enhetsregisteret/api/";
-                _apiClient = GetNewHttpClient(url);
-
-                return _apiClient;
+                return countryResponse.Any() ? countryResponse.First() : null;
+            }
+            else
+            {
+                _logger.LogError("Retrieving country {country} failed with status code {statusCode}", country, res.StatusCode);
+                return null;
             }
         }
+    }
+}
 
-        private HttpClient GetNewHttpClient(string apiEndpoint)
+```
+
+
+Øverst i filen finner du referansen til alle namespace som klassen er avhengig av 
+
+```cs
+using System;
+using System.Linq;
+using System.Net.Http;
+using System.Text.Json;
+using System.Threading.Tasks;
+
+using Altinn.App.models;
+
+using Microsoft.Extensions.Logging;
+```
+
+Videre definerer vi klassen og hvilket interface den arver fra
+
+```cs
+public class CountryClient : ICountryClient
+```
+
+Videre er tre private objekter __client_, __logger og __serializerOptions_ 
+
+```cs
+private readonly HttpClient _client;
+private readonly ILogger<ICountryClient> _logger;
+private readonly JsonSerializerOptions _serializerOptions;
+```        
+
+Understrek foran navnet er kun en navnekonvensjon og har ingen effekt. 
+- __client_ vil i konstruktøren populeres med en http-klient.
+- __logger_ vil i konstruktøren populeres med en logger slik at man kan logge feilmeldinger og annet i klassen
+- __serializerOptions_ vil i konstruktøren instansieres og konfigureres for å kunne deserialisere responsen fra APIet. 
+
+Videre i klassen defineres konstruktøren.
+
+```cs
+public CountryClient(HttpClient client, ILogger<ICountryClient> logger)
+{
+      _logger = logger;
+      _client = client;
+      _client.BaseAddress = new Uri("https://restcountries.com/v3.1");
+      
+      _serializerOptions = new()
+      {
+          PropertyNameCaseInsensitive = true
+      };
+}
+```
+
+Objekter populeres dersom de kommer som input i konstruktøren og andre objekter instansieres.
+Skulle du ha behov for å bruke en av de andre servicene som er registeret i applikasjonen er det bare å
+sende den inn i konstruktøren og opprette et privat objekt for å kunne ta det i bruk i klassen slik vi har gjort
+med __logger_  eller __client_.
+
+
+Videre i klassen finner du implementasjonen av metoden `GetCountry`.
+
+```cs
+public async Task<Country> GetCountry(string country)
+{
+    string query = $"name/{country}";
+    HttpResponseMessage res = await _client.GetAsync(query);
+
+    if (res.IsSuccessStatusCode)
+    {
+        string resString = await res.Content.ReadAsStringAsync();
+
+        List<Country> countryResponse = JsonSerializer.Deserialize<List<Country>>(resString, _serializerOptions);
+
+        return countryResponse.Any() ? countryResponse.First() : null;
+    }
+    else
+    {
+        _logger.LogError("Retrieving country {country} failed with status code {statusCode}", country, res.StatusCode);
+        return null;
+    }
+}
+```
+
+Her gjøres det en sjekk på at statuskoden på API-kallet er en suksess-kode før vi deserialiseres og returnerer objektet.
+Dersom det ikke er en suksess-statuskode logger vi en feil og returnerer null.
+
+## Registrere klienten i applikasjonen
+
+Når interface og klient er implementert kan den registreres i _App/Program.cs_ (.NET 6) eller i _App/Startup.cs_ (.NET 5) for bruk i applikasjonen.
+
+I `Program.cs` klassen legger vi til kodelinjen nedenfor.
+I tillegg må `using Altinn.App.client;` og `using Altinn.App.AppLogic.DataProcessing;` legges til øverst i filen.
+
+
+	
+```C#
+void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
+{
+    services.AddHttpClient<ICountryClient, CountryClient>();
+    services.AddTransient<IDataProcessor, DataProcessor>();
+    // Register your apps custom service implementations here.
+}
+```
+
+## Benytte klient i applikasjonslogikk
+
+For å berike skjemadata må vi koble klienten vår på logikken i _App/logic/DataProcessingHandler.cs_ i metoden _ProcessDataWrite_. Merk at for v7 av applikasjonsmalen er dette endret, se [dataprossessering](../../logic/dataprocessing/).
+
+Først må klienten tilgjengeliggjøres ved å _injecte_ den inn i konstruktøren til klassen.
+DataProcessingHandler har ingen konstruktør i utgangspunktet så den må opprettes i klasse. 
+
+```cs
+public DataProcessingHandler()
+{
+}
+```
+
+Videre kan vi opprette et privat objekt for klienten, injecte den i konstruktøren og assigne den til det private objektet. 
+Resultatet blir seende slik ut:
+
+```cs
+private readonly ICountryClient _countryClient;
+
+public DataProcessingHandler(ICountryClient countryClient)
+{
+    _countryClient = countryClient;
+}
+```
+I tillegg må `using Altinn.App.client;` legges til også i denne filen.
+
+__countryClient_ er nå tilgjengelig i DataProcessingHandler og vi er klare til å implementere logikken i ProcessDataWrite. 
+
+{{%notice warning%}}
+
+**MERK**: Stateless apps kaller ikke på ProcessDataWrite. Bruk ProcessDataRead for statless apps.
+{{%/notice%}}
+
+```cs
+public async Task<bool> ProcessDataWrite(Instance instance, Guid? dataId, object data)
+{
+    if (data.GetType() == typeof(skjema))
+    {
+        skjema skjema = (skjema)data;
+        if (!string.IsNullOrEmpty(skjema.land))
         {
-            var httpClient = new HttpClient
+            Country country = await _countryClient.GetCountry(skjema.land.Trim());
+
+            if (country != null)
             {
-                BaseAddress = new Uri(apiEndpoint)
+                skjema.hovedstad = string.Join(",", country.Capital);
+                skjema.region = country.Region;
+            }
+            else
+            {
+                skjema.hovedstad = skjema.region = string.Empty;
+            }
+
+            return true;
+        }
+        else
+        {
+            skjema.hovedstad = string.Empty;
+            skjema.region = string.Empty;
+        }
+    }
+    return await Task.FromResult(false);
+}
+```
+
+Prøver du å bygge applikasjonen nå vil du få en feil.
+DataProcessingHandler instansieres i App.cs, så alle dependecies må og inn i denne filen 
+og så sendes videre i konstruktøren til DataProcessingHandler.
+
+I filen _App/logic/App.cs_ gjøres følgende endringer
+
+- legg til en referanse til namespaces til klienten øverst i filen 
+  ```cs
+  using Altinn.App.client;
+  ```
+- _Inject_ `ICountryClient` nederst i App.cs-konstruktøren.
+  
+    Dette er gjort på linje 14.
+    ```cs {linenos=inline,hl_lines=[14]}
+    public App(
+        IAppResources appResourcesService,
+        ILogger<App> logger,
+        IData dataService,
+        IProcess processService,
+        IPDF pdfService,
+        IProfile profileService,
+        IRegister registerService,
+        IPrefill prefillService,
+        IInstance instanceService,
+        IOptions<GeneralSettings> settings,
+        IText textService,
+        IHttpContextAccessor httpContextAccessor,
+        ICountryClient countryClient) : base(
+            appResourcesService,
+            logger,
+            dataService,
+            processService,
+            pdfService,
+            prefillService,
+            instanceService,
+            registerService,
+            settings,
+            profileService,
+            textService,
+            httpContextAccessor)
+    ```
+
+- Legg til countryClient i konstruktøren til DataProcessingHandler 
+    ```cs
+    _dataProcessingHandler = new DataProcessingHandler(countryClient);
+    ```
+
+
+## Caching av responsdata 
+
+En ulempe med eksempelet slikt det står nå er at man for hver gang skjemaet lagres vil man gjøre et kall
+mot endepunktet for å hente ut data. 
+
+Det er rimelig å anta at et lands hovedstad og hvilken region 
+det tilhører ikke vil endre seg hyppig. Har vi hentet informasjon om Norge kan vi lagre denne lokalt i applikasjonen 
+i en tidsperiode, så man slipper å gjøre kallet igjen. 
+
+Kodeendringene beskrives ikke steg for steg, men er vist i sin helhet nedenfor. 
+Det kreves kun endringer i _CountryClient.cs_.
+
+```cs
+using Altinn.App.models;
+
+using Microsoft.Extensions.Caching.Memory;
+using Microsoft.Extensions.Logging;
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net.Http;
+using System.Text.Json;
+using System.Threading.Tasks;
+
+namespace Altinn.App.client
+{
+    public class CountryClient : ICountryClient
+    {
+        private readonly HttpClient _client;
+        private readonly ILogger<ICountryClient> _logger;
+        private readonly JsonSerializerOptions _serializerOptions;
+        private readonly IMemoryCache _memoryCache;
+        private readonly MemoryCacheEntryOptions _cacheOptions;
+
+        public CountryClient(HttpClient client, ILogger<ICountryClient> logger, IMemoryCache memoryCache)
+        {
+            _logger = logger;
+
+            _client = client;
+            _client.BaseAddress = new Uri("https://restcountries.com/v3.1/");
+
+            _serializerOptions = new()
+            {
+                PropertyNameCaseInsensitive = true
             };
 
-            return httpClient;
+            _memoryCache = memoryCache;
+            _cacheOptions = new()
+            {
+                AbsoluteExpirationRelativeToNow = TimeSpan.FromHours(24)
+            };
+        }
+
+        public async Task<Country> GetCountry(string country)
+        {
+            string uniqueCacheKey = "Country_" + country;
+
+            // Check if country is present in cache, if so return from cache
+            if (_memoryCache.TryGetValue(uniqueCacheKey, out Country outputCountry))
+            {
+                return outputCountry;
+            }
+
+            string query = $"name/{country}";
+
+            HttpResponseMessage res = await _client.GetAsync(query);
+
+            if (res.IsSuccessStatusCode)
+            {
+                string resString = await res.Content.ReadAsStringAsync();
+
+                List<Country> countryResponse = JsonSerializer.Deserialize<List<Country>>(resString, _serializerOptions);
+
+                if (countryResponse.Any())
+                {
+                    outputCountry = countryResponse.First();
+
+                    // Add response country to cache
+                    _memoryCache.Set(uniqueCacheKey, outputCountry, _cacheOptions);
+                    return outputCountry;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            else
+            {
+                _logger.LogError("Retrieving country {country} failed with status code {statusCode}", country, res.StatusCode);
+                return null;
+            }
         }
     }
 }
 ```
 
-Eksempel kan sees [her](https://altinn.studio/repos/ttd/mva/src/branch/master/App/services/br/client/EnhetsregistreretCI.cs).
-
-### Sett opp klient i applikasjon
-
-Når tjenesten med interface og klient er implementert kan den settes opp for bruk av applikasjonen.
-
-Dette gjøres i _App/Startup.cs_ hvor det settes opp interface og implementasjon av interface som tilbyr en gitt service til applikasjonen.
-
-```C#
-// Custom service used by this application
-services.AddTransient<IEnhetsregisteret, EnhetsregistreretCI>();
-```
-
-Eksempel kan sees [her](https://altinn.studio/repos/ttd/mva/src/branch/master/App/Startup.cs)
-
-
-## Konsumere API fra applikasjonslogikk/API kontrollere
-
-For å få tak i service som er satt opp i applikasjonen må disse "injectes" inn i konstrukturøen på kontrolleren eller applikasjonslogikken.
-
-```C# {linenos=false,hl_lines=[17,23]}
-using System.Threading.Tasks;
-using Altinn.App.services.br.client;
-using Altinn.App.services.br.models;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-
-namespace Altinn.App.controllers
-{
-    [ApiController]
-    [Route("{org}/{app}/enhetsregisteret")]
-    public class EnhetsregisteretController : ControllerBase
-    {
-        private IEnhetsregisteret _enhetsregisteret;
-
-        public EnhetsregisteretController(IEnhetsregisteret enhetsregisteret)
-        {
-            _enhetsregisteret = enhetsregisteret;
-        }
-
-        [HttpGet("enhet/{orgnr}")]
-        public async Task<ActionResult<Enhet>> GetEnhet([FromRoute] string orgnr)
-        {
-            Enhet enhet = await _enhetsregisteret.GetEnhetAsync(orgnr);
-            return Ok(enhet);
-        }
-    }
-}
-```
-
-Eksempel kan sees [her](https://altinn.studio/repos/ttd/mva/src/branch/master/App/controllers/EnhetsregisteretController.cs).

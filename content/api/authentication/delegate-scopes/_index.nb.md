@@ -12,33 +12,43 @@ Det er tjenesteeiers ansvar å selv fjerne delegeringene om behovet for tilgang 
 
 ## Delegering av API-tilganger til leverandør
 
-Som en bruker som er nøkkelrolleinnehaver for tjenesteeier (typisk daglig leder aka DAGL), åpne "Andre med rettigheter til virksomheten".
+Som en bruker som er nøkkelrolleinnehaver for tjenesteeier (typisk daglig leder aka DAGL), åpne "Tilgang til Programmeringsgrensesnitt - API".
 
-![Andre med rettigheter](andre-med-rettigheter.png "Andre med rettigheter til virksomheten")
+![Tilgang til Programmeringsgrensesnitt](nb_delegate-scopes-01.png "Tilgang til Programmeringsgrensesnitt - API")
 
-![Legg til leverandør](legg-til-org.png "Legg til leverandørens organisasjon")
+![Legg til delegering](en_delegate-scopes-01b.png "Start delegering")
+
+![Legg til leverandør](nb_delegate-scopes-02.png "Legg til leverandørens organisasjon")
+
+![Gå videre](nb_delegate-scopes-03.png "Gå videre til neste steg")
 
 Så må de nødvendige rettighetene gis.
 
 - **Altinn tjenesteeier-API: Appinstanser (full tilgang)** - gir tilgang til [scopes](#scopes) for både read og write.
 - **Altinn tjenesteeier-API: Appinstanser (lesetilgang)** - gir kun tilgang til read.
 
-![Gi rettigheter til leverandør](gi-rettigheter.png "Gi de nødvendige rettighetene til leverandør")
+![Gi rettigheter til leverandør](nb_delegate-scopes-04.png "Gi de nødvendige rettighetene til leverandør")
 
-![Bekreft](bekreft-gi-rettigheter.png "Bekreft")
+![Gå videre](nb_delegate-scopes-05.png "Gå videre til neste steg")
+
+![Bekreft](nb_delegate-scopes-06.png "Bekreft")
+
+![Til oversikten](nb_delegate-scopes-07.png "Gå tilbake til oversikten")
 
 ## Fjerning av delegering
 
 Delegeringer som er gjort kan også fjernes.
 Om en leverandør ikke lenger har behov for API-tilganger så er det tjenesteeier sitt ansvar å fjerne disse.
 
-![Fjern rettigheter](fjern-en-eller-flere-rettigheter.png "Trykk på \"Fjern en eller flere rettigheter\"")
+![Fjern rettigheter](nb_revoke-scopes-01.png "Trykk på \"Rediger tilganger\"")
 
-![Velg rettigheter å fjerne](fjern-rettigheter.png "Velg rettigheter å fjerne")
+![Velg rettigheter å fjerne](nb_revoke-scopes-02.png "Velg rettigheter å fjerne")
 
-![Angre fjern rettigheter](angre-fjern-rettigheter.png "Det er mulig å angre fjerning av rettigheter")
+![Lagre endringene](nb_revoke-scopes-03.png "Lagre endringene")
 
-![Fjerning av rettigheter bekreftet](fjerning-bekreftet.png "Bekreftelse på at rettigheter er fjernet")
+![Angre fjern rettigheter](nb_revoke-scopes-04.png "Det er mulig å angre fjerning av rettigheter")
+
+![Oversiktsiden viser gjenværende delegeringer](nb_revoke-scopes-05.png "Oversiktsiden viser gjenværende delegeringer")
 
 ## Scopes
 

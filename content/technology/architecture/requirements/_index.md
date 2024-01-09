@@ -10,4 +10,4 @@ aliases:
 
 They are important input to deciding which cababilities required and they also is important input to the Architecture Principles and Architecture Patterns. 
 
-{{% children description="true" depth="1" %}}
+{{<children />}}

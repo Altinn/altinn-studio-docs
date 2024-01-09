@@ -7,4 +7,4 @@ weight: 100
 
 ### Routing
 
-{{% children description="true" depth="1" %}}
+{{<children />}}

@@ -1,0 +1,7 @@
+{{- $name := .Get "filename" -}}
+{{- $path := "images/" -}}
+
+{{ $image := resources.Get (printf "%s%s" $path $name) }}
+{{- with $image -}}
+  <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}">
+{{- end -}}

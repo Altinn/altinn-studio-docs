@@ -2,15 +2,30 @@
 title: Automatisk sletting
 linktitle: Automatisk sletting
 description: En applikasjon kan konfigureres til å slette alle spor når prosessen er slutt.
-toc: false
+toc: true
 ---
 
-For enkelte applikasjoner vil det være problematisk at det er spor av instanser i arkiv osv. på grunn av sikkerhetshensyn.
+Dersom man ønsker å begrense sluttbrukers tilgang til en instans eller data i etterkant av innsending kan dette gjøres 
+ved å konfigurere automatisk sletting.
+I praksis vil ressursen gjøres utilgjengelig for sluttbruker etter innsending, 
+mens tjenesteeier enda har tilgang i tråd med applikasjonens autorisasjonsregler. 
 
-Derfor er det mulig å sette ett flagg i `applicationmetadata.json` som sørger for at instansen blir fysisk slettet når tjenesteeier bekrefter at det er mottatt.
-Ved å sette autoDeleteOnProcessEnd til true vil man trigge denne funksjonaliteten.
 
-Eksempel:
+Hvis sluttbruker forsøker å aksessere en hard deleted ressurs med en direkte lenke vil de få `404 - Not found` i respons.
+Ressursen vil heller ikke vises i meldingsboks eller listes i API-responser.
+
+
+Når tjenesteeier bekrefter at instansen er mottatt på deres side (complete confirmed), 
+så markeres instansen som klar for sletting og vil saneres fra Altinns database i løpet av 7 dager.
+
+Konfigurasjonen for automatisk sletting gjøres i  `applicationmetadata.json` med flagget 
+`"autoDeleteOnProcessEnd": true`.
+
+
+
+## Automatisk sletting av instans
+
+Eksempel på konfigurasjon i  `applicationmetadata.json` for instanser:
 
 ```json {linenos=false,hl_lines=[48]}
 {
@@ -62,4 +77,49 @@ Eksempel:
   "lastChangedBy": "someone",
   "autoDeleteOnProcessEnd": true
 }
+```
+
+## Automatisk sletting av data
+
+Eksempel på konfigurasjon i  `applicationmetadata.json` for data type:
+
+```json {linenos=false,hl_lines=[11, 35]}
+"dataTypes":[
+	{
+		"id": "Skjema",
+		"allowedContentTypes": [
+			"application/xml"
+		],
+		"appLogic": {
+			"autoCreate": true,
+			"classRef": "Altinn.App.Models.skjema",
+			"allowAnonymousOnStateless": false,
+			"autoDeleteOnProcessEnd": true
+		},
+		"taskId": "Task_1",
+		"maxCount": 1,
+		"minCount": 1,
+		"enablePdfCreation": true
+	},
+	{
+		"id": "ref-data-as-pdf",
+		"allowedContentTypes": [
+			"application/pdf"
+		],
+		"maxCount": 0,
+		"minCount": 0,
+		"enablePdfCreation": true
+	},
+	{
+		"id": "vedleggA",
+		"taskId": "Task_1",
+		"maxSize": 25,
+		"maxCount": 1,
+		"minCount": 1,
+		"enablePdfCreation": true,
+		"appLogic": {
+			"autoDeleteOnProcessEnd": true
+		}
+  }
+]
 ```

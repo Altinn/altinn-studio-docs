@@ -5,4 +5,4 @@ tags: [development, front-end]
 weight: 100
 ---
 
-{{% children description="true" depth="1" %}}
+{{<children />}}

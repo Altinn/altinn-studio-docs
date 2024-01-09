@@ -50,4 +50,4 @@ The technical architecture has load balancing capabiltiies
 The technical architecture has fail over capabilties. 
 
 
-{{% children description="true" depth="1" %}}
+{{<children />}}

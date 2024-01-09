@@ -3,19 +3,13 @@ title: Pages
 description: How to set up an app with multiple pages, tracks, summary or multiple layouts.
 toc: false
 weight: 10
-tags: [translate-to-english]
 ---
 
-{{%notice info%}}
-Oppsett av flere sider kan gjøres enten manuelt (som beskrevet under) eller direkte i skjema-editoren i Altinn Studio.
-Merk at siste side sluttbruker var innom nå caches slik at man kommer tilbake til denne siden når appen lastes inn på nytt.
-{{%/notice%}}
+Multiple layout pages can easily be set up in Altinn Studio, if you want to do it manually, see [Setup](#setup). There are also some configuration options that are not available in Altinn Studio but must be set manually; for that, see [Settings](#settings).
 
-## Oppsett
-For å få funksjonalitet for flere sider i skjema, **må** nuget-versjon til pakkene app'en bruker oppgraderes til versjon `1.2.0-alpha` _eller nyere_.
-Se instrukser for hvordan det gjøres [her](../../../maintainance/dependencies).
+## Setup
 
-Flere sider i skjema (innenfor samme prosess-task) støttes ved å dele opp dagens layout-fil `App/ui/FormLayout.json` i en fil per side. Filene må legges i en mappe `App/ui/layouts`. Hver layout-fil må bruke samme format som den eksisterende `FormLayout.json` filen.  F.eks.:
+Layout pages are placed in the `ui/layouts` folder in the app, to configure the order of the layout pages, see [Navigation](/app/development/ux/pages/navigation/). If you have multiple process steps that require layouts, the structure is slightly different; in that case see [Layout sets](/app/development/ux/pages/layout-sets/).
 
 ```
 |- App/
@@ -24,10 +18,53 @@ Flere sider i skjema (innenfor samme prosess-task) støttes ved å dele opp dage
       |- side1.json
       |- side2.json
       |- side3.json
+    |- Settings.json
 ```
 
-Anbefalt fremgangsmåte så lenge det er behov for å sette det opp manuelt, er å bruke ui-editoren i Altinn Studio for å legge inn alle komponentene inn i `FormLayout.json`, for å så kopiere de ut i sine respektive layout-filer, en for hver side man ønsker. `FormLayout.json` kan enten få nytt navn under `layouts`-mappen, eller slettes. 
+## Settings
 
-_Merk: `FormLayout.json` må enten flyttes (evt med nytt navn) inn i `layouts`-mappen, eller slettes. Dersom man har den gamle `FormLayout.json`-filen under `App/ui`-mappen som tidligere, vil kun denne brukes og alle filer under `App/ui/layouts`-mappen ignoreres._ 
+There are several different settings that can be configured for your pages.
+These settings are configured in the `Settings.json` file seen in the folder structure above and lie in the `pages` object.
+If you use layout sets there is a separate file for each layout set.
 
-{{<children>}}
+```json
+{
+  "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
+  "pages": {
+    "order": [
+      "Info",
+      "Form",
+      "Summary"
+    ],
+    "excludeFromPdf": [
+      "Info",
+      "Summary"
+    ],
+    "triggers": [
+      "calculatePageOrder",
+      "validatePage"
+    ],
+    "hideCloseButton": false,
+    "showLanguageSelector": false,
+    "showExpandWidthButton": false,
+    "showProgress": true,
+    "pdfLayoutName": "PDFLayout"
+  },
+  ...
+}
+```
+
+The available settings are the following:
+
+| Property              | Type    | Value                                                                                                                                                                          |
+| --------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| hideCloseButton       | Boolean | Whether or not the close button in the upper right corner should be hidden.                                                                                                    |
+| showLanguageSelector  | Boolean | Whether or not the language selector should be visible. Allows the user to switch language after opening the form.                                                             |
+| showExpandWidthButton | Boolean | Whether or not the expand width button should be visible. Allows the user to expand the width of the page to fill the browser window.                                          |
+| showProgress          | Boolean | see [Navigation](/app/development/ux/pages/navigation/#progress-indicator)                                                                                                     |
+| pdfLayoutName         | String  | see [PDF](/app/development/ux/pdf/#custom-layout-configuration)                                                                                      |
+| order                 | Array   | see [Navigation](/app/development/ux/pages/navigation/#order)                                                                                                                  |
+| excludeFromPdf        | Array   | see [PDF](/app/development/ux/pdf/#automatic-configuration)                                                                                                                    |
+| triggers              | Array   | see [Navigation](/app/development/ux/pages/navigation/#validation-on-page-navigation), [Tracks](/app/development/ux/pages/tracks/#trigger-calculation-on-tracks-from-frontend) |
+
+{{<children />}}

@@ -7,31 +7,18 @@ weight: 10
 
 ## Introduksjon
 
-De forskjellige filene som brukes til å definere logikk, finner man i logikk-menyen,
+De forskjellige filene som brukes til å definere logikk på frontend, finner man i logikk-menyen,
 som er tilgjengelig i UI-editoren via  _f(x)_-ikonet øverst til høyre.
+
+{{% panel theme="warning" %}}
+⚠️ Dynamikk er et område under aktiv utvikling. Logikk-filer skrevet i JavaScript fases etterhvert ut og blir erstattet
+av [dynamiske uttrykk](../expressions).
+{{% /panel %}}
 
 ![Logikkmeny](ui-editor-logic-menu.png?height=300px "Logikkmeny")
 
-
-De kan også redigeres direkte fra applikasjonsrepoet, under folderen `App/logic` (for serverside applikasjonslogikk) eller folderen `App/ui` (for dynamikk).
-Denne folderen inneholder som standard følgende filer:
-
-```C#
-🗀 App/
-  🗀 logic/
-    🗀 Calculation/
-      🗎 CalculationHandler.cs
-    🗀 Print/
-      🗎 PdfHandler.cs
-    🗀 Validation/
-      🗎 ValidationHandler.cs
-    🗎 App.cs
-    🗎 InstantiationHandler.cs
-```
-
-Flere filer kan legges til her når det er nødvendig.
-
-Et komplett prosjekt med eksempler på serverside applikasjonslogikk ligger [her](https://dev.altinn.studio/repos/ttd/webdemo2).
+For backend så håndteres logikk gjennom forskjellige grensesnitt. Disse er beskrevet på de forskjellige sidene under dette området som f. eks. [data prosessering](../dataprocessing/).
+Et komplett prosjekt med eksempler på serverside applikasjonslogikk ligger [i vår kursapplikasjon](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/master).
 
 {{%panel info%}}
 **MERK:** Måten man refererer til elementer i datamodellen er ulik mellom OR og SERES typer XSDer.

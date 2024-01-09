@@ -4,6 +4,127 @@ description: Overview of changes introduced in v2 of deployment.
 toc: true
 ---
 
+## 2.8.0
+
+* Add annotation config.linkerd.io/skip-outbound-ports: "443"
+* Add port 80 to l5d-dst-override url in middleware
+
+## 2.7.0
+
+* Update timeoutSeconds: 30 readiness and liveliness probe
+
+## 2.6.0
+
+* Add option for startupprobe
+
+## 2.5.0
+
+### Changes introduced
+
+* Raise value resource request memory to 256Mi
+
+## 2.4.0
+
+### Changes introduced
+
+* Remove hard values linkerd resources  
+
+* Add help text for extra annotations
+
+* Add if linkerd add annotation cluster-autoscaler.kubernetes.io/safe-to-evict: true
+
+## 2.3.0
+
+### Changes introduced
+
+* Upgraded HorizontalPodAutoscaler from version _autoscaling/v2beta2_ to _autoscaling/v2_
+
+{{%notice warning%}}
+autoscaling/v2beta2 is deprecated in version 1.23+ of kubernetes and removed in version 1.26+
+Apps clusters will eventually be upgraded and deployment of apps using old chart versions will fail once cluster is upgraded to version 1.26+. 
+
+[AKS release calendar](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#aks-kubernetes-release-calendar)
+{{% /notice%}}
+
+[View release on Github](https://github.com/Altinn/altinn-studio-charts/releases/tag/deployment-2.3.0)
+
+## 2.2.0
+
+### Changes introduced
+
+* Make it possible to at custom annotations to pods in values.yaml
+ 
+
+### How to add pod annotations in values.yaml
+
+```yaml
+deployment:
+  podAnnotations:
+    key1: value1
+    key2: value2
+```
+
+[View release on Github](https://github.com/Altinn/altinn-studio-charts/releases/tag/deployment-2.2.0)
+
+## 2.1.0
+
+{{%notice warning%}}
+Enabling of liveliness and/or readiness probe requires that your application is running
+version 4.30.0 or higher of the Altinn.App.* nuget packages.
+{{% /notice%}}
+
+### Changes introduced
+
+* Default CPU og memory requested per pod is reduced to 50m and 128Mi, respectively.
+* Configurable liveliness and readiness probes are available. Default behavior is that this is disabled.
+ 
+
+### New optional fields with default values available in values.yaml 
+
+```yaml {linenos=table}
+deployment:
+  readiness:
+    enabled: false
+    path: /health
+    initialDelaySeconds: 30
+    failureThreshold: 3
+    periodSeconds: 3
+    timeoutSeconds: 1
+  liveness:
+    enabled: false
+    path: /health
+    initialDelaySeconds: 3
+    failureThreshold: 3
+    periodSeconds: 10
+```
+
+Walk-through:
+
+__3.__ Enable or disable readiness probe for this application.
+
+__4.__ The path to the liveliness endpoint in the application.
+
+__5.__ Number of seconds after the container has started before readiness probes are initiated.
+
+__6.__ Minimum consecutive failures for the probe to be considered failed after having succeeded.
+
+__7.__ How often (in seconds) to perform the probe
+
+__8.__ Number of seconds after which the probe times out.
+
+__10.__ Enable or disable liveliness probe for this application.
+
+__11.__ The path to the liveliness endpoint in the application.
+
+__12.__ Number of seconds after the container has started before liveliness probes are initiated.
+
+__13.__ Minimum consecutive failures for the probe to be considered failed after having succeeded.
+
+__14.__ How often (in seconds) to perform the probe
+
+
+[View release on Github](https://github.com/Altinn/altinn-studio-charts/releases/tag/deployment-2.1.0)
+
 ## 2.0.0
 
 {{%notice warning%}}
@@ -59,6 +180,8 @@ __14.__ CPU millicores reserved by the kubelet for each pod of this application.
 
 __15.__ Memory reserved by the kubelet for each pod of this application. Pods are allowed to consume more than this if it's available
 
+
+[View release on Github](https://github.com/Altinn/altinn-studio-charts/releases/tag/deployment-2.0.0)
 
 ### New optional field without default values available in values.yaml
 ```yaml {linenos=table}

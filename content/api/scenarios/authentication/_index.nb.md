@@ -8,7 +8,7 @@ weight: 100
 
 ## Authentication for application owners
 
-Application owners should be authenticated with [Maskinporten](https://difi.github.io/felleslosninger/maskinporten_overordnet.html).
+Application owners should be authenticated with [Maskinporten](https://www.digdir.no/felleslosninger/maskinporten/869).
 
 ### API provisioning in Maskinporten
 
@@ -157,6 +157,8 @@ When authenticated the system may exchange an access token provided by ID-porten
 #### Exchange of JWT token
 
 This token has to be validated and replaced with an *Altinn JWT access token* which should be used to access the apis.
+
+**IT IS IMPORTANT THAT THE USER HAS PROFILE IN ALTINN. Profile is automatic created when login in to portal** 
 
 ##### ID-porten JWT access token (input)
 

@@ -1,7 +1,9 @@
 <nav class="a-jumpnav">
   <ul class="no-decoration d-flex">
     <li><a class="sr-only sr-only-focusable" href="#content">{{ T "jump-to-main-content" }}</a></li>
+    {{- if not .Params.jumbotron -}}
     <li><a class="sr-only sr-only-focusable" href="#docsmenu">{{ T "jump-to-main-menu" }}</a></li>
+    {{- end -}}
   </ul>
 </nav>
 
@@ -13,7 +15,7 @@
 
         <!-- Begin .a-globalNav -->
         <nav class="a-globalNav " id="primary-nav">
-          <a href="{{ with .Site.GetPage `/`}}{{.URL}}{{end}}" class="a-globalNav-logo">
+          <a href="{{ with .Site.GetPage `/`}}{{.RelPermalink}}{{end}}" class="a-globalNav-logo">
             <img src="/images/altinnstudio-logo-white.svg" alt="Altinn Studio logo" class="adocs-logo">
             <span class="sr-only">{{ T "to-the-frontpage"}}</span>
           </a>
@@ -25,27 +27,47 @@
                 {{- partial "language-switcher.html" . -}}
               </li>
               <li>
-                <a class="a-nav-link a-hvr-underline" href="{{ with .Site.GetPage `/app`}}{{.URL}}{{end}}">apps</a>
+                <a class="a-nav-link a-hvr-underline" href="{{ with .Site.GetPage `/app`}}{{.RelPermalink}}{{end}}">apps</a>
               </li>
               <li>
-                <a class="a-nav-link a-hvr-underline" href="{{ with .Site.GetPage `/api`}}{{.URL}}{{end}}">api</a>
+                <a class="a-nav-link a-hvr-underline" href="{{ with .Site.GetPage `/api`}}{{.RelPermalink}}{{end}}">api</a>
               </li>
               <li>
-                <a class="a-nav-link a-hvr-underline" href="{{ with .Site.GetPage `/community`}}{{.URL}}{{end}}">community</a>
+                <a class="a-nav-link a-hvr-underline" href="{{ with .Site.GetPage `/community`}}{{.RelPermalink}}{{end}}">community</a>
               </li>
               <li>
-                <a class="a-nav-link a-hvr-underline " href="{{ with .Site.GetPage `/technology`}}{{.URL}}{{end}}">tech</a>
+                <a class="a-nav-link a-hvr-underline " href="{{ with .Site.GetPage `/technology`}}{{.RelPermalink}}{{end}}">tech</a>
+              </li>
+              <li class="nav-item d-none d-md-block">
+                <button class="a-collapse-title nav-link adocs-toggle-search" type="button" data-toggle="collapse" data-target="#collapseSearchContent" aria-expanded="false" aria-controls="collapseSearchContent">
+                    <span>
+                        <i class="ai ai-search" aria-hidden="true">
+                          <span class="sr-only">{{T "search"}}</span></i>
+                    </span>
+                </button>
               </li>
             </ul>
           </div>
-
         </nav> <!-- End .a-globalNav -->
+
         <ul class="nav nav-pills a-header-options" id="nav-list">
+          <li class="nav-item d-none d-md-block">
+            <img src="/images/{{ .Language }}.svg" class="" alt="" style="height: 0.8em; vertical-align: bottom;"/>&nbsp;
+          </li>
           <li class="nav-item dropdown d-none d-md-block">
             {{- partial "language-switcher.html" . -}}
           </li>
+        
         </ul>
       </div><!-- End .col -->
     </div> <!-- End .row -->
   </div> <!-- End .container -->
 </header>
+
+<div id="collapseSearchContent" class="a-collapseContent adocs-collapseSearch collapse">
+  <div class="a-collapseContent-inside px-0">
+    <div class="bg-white pt-3 pb-3">
+      {{- partial "search.html" . -}}
+    </div>
+  </div>
+</div>

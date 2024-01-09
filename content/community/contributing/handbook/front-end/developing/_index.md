@@ -6,89 +6,26 @@ weight: 11
 ---
 
 ## App frontend
-1. Follow the instructions [here](https://github.com/Altinn/altinn-studio/blob/master/LOCALAPP.md) to set up an app to run locally, up to step 5 (do not do step 6 yet.)
-  - _Make sure Altinn Studio is not running_. If it is, run
-  ```
-  docker-compose down
-  ```
-  from `altinn-studio/src/studio` before proceeding with the instructions linked above.
+1. Follow the instructions [here](https://github.com/Altinn/app-localtest/blob/master/README.md) to set up an app to run locally, up to step 5 (do not do step 6 yet.)
+   - _Make sure Altinn Studio is not running_. If it is, run
+    ```
+    docker-compose down
+    ```
+    from `altinn-studio/src/studio` before proceeding with the instructions linked above.
 
-2. In the app that will be running locally, edit the `<path-to-app>/App/views/Home/Index.cshtml` file, and replace the javascript reference from:
-```
-  <script src="https://altinncdn.no/toolkits/altinn-app-frontend/3/altinn-app-frontend.js"></script>
-```
-to:
-```
-  <script src="http://localhost:8080/altinn-app-frontend.js"></script>
-```
-And Replace the reference to the CSS-file from:
-```
-  <link rel="stylesheet" type="text/css" href="https://altinncdn.no/toolkits/altinn-app-frontend/3/altinn-app-frontend.css">
-```
-to:
-```
-  <link rel="stylesheet" type="text/css" href="http://localhost:8080/altinn-app-frontend.css">
-```
+2. Follow the steps in [app-frontend-react repository](https://github.com/Altinn/app-frontend-react#developing-app-frontend) for how to serve app-frontend locally.
 
 3. Run the app (from `<path-to-app>/App/`):
-```
-dotnet run
-```
-or run it directly from VS Code.
+    ```
+    dotnet run
+    ```
+    or run it directly from VS Code.
 
-4. Install frontend dependencies if this has not been done (or dependencies have been updated) (from `src/Altinn.Apps/AppFrontend/react`):
-```
-yarn --immutable
-```
-
-5. Run the app frontend (from `src/Altinn.Apps/AppFrontend/react`):
-```
-cd altinn-app-frontend
-yarn start
-```
-This serves altinn-app-frontend at localhost:8080. The command `yarn start` runs the application with _hot reload_, which rebuilds the application any time a new change is saved. The page should refresh automatically.
-
-6. Start the app in a browser by going to [altinn3local.no](http://altinn3local.no)!
+4. Start the app in a browser by going to [local.altinn.cloud](http://local.altinn.cloud)!
 
 ## Altinn Studio Designer
-1. Follow the instructions in the Altinn Studio [README](https://github.com/Altinn/altinn-studio/blob/master/src/studio/README.md) to set up Altinn Studio locally.
-
-2. Stop the `altinn-designer` container: 
-```
-docker stop altinn-designer
-```
-
-3. Install/update dependencies (from `src/studio/src/designer/backend`):
-```
-yarn --immutable
-yarn run gulp-install-deps # Installs front-end dependencies
-```
-
-4. Run the designer application (from `src/studio/src/designer/backend`):
-```
-yarn run gulp # only needed the first time
-yarn run gulp-develop #or yarn run gulp-develop-dashboard
-```
-This will both start the backend application with `dotnet run`, and serve the front-end application at localhost:8080 with _hot reload_, which rebuilds the frontend application any time a new change is saved. You might have to refresh the page to see your changes.
-
-5. Open Altinn Studio in a browser
-
-{{% notice info %}}
-Note that you can also run Altinn Studio Designer frontend in the same way as running app frontend. This would require changing the 
-`src/studio/src/designer/backend/views/ServiceDevelopment/Index.cshtml` (for app-development) or `src/studio/src/designer/backend/views/Home/Index.cshtml` 
-(for Dashboard) to point at `http://localhost:8080` in a similar way as described in the app frontend section.
-
-The first time setting this up, you would have to follow steps 1-3 and then run the `yarn run gulp` command from step 4, before navigating to the frontend folder
-`src/studio/src/designer/frontend` and then into the application you want to run (dashboard or app-development). From there, 
-you can run `yarn run start` and the frontend will be up and running. 
-
-The backend will have to be started separately, using the `dotnet run` command.
-
-Subsequent setups, you only have to do steps 1-2, and if dependencies have been updated then step 3 can be run (or these can be installed
-directly from the `src/studio/src/designer/frontend` folder).
-
-To enable hot reload of the designer frontends, this is the method to use.
-{{% /notice %}}
+Follow the instructions in the Altinn Studio [README](https://github.com/Altinn/altinn-studio#running-and-developing-solutions-locally)
+to set up Altinn Studio for local development.
 
 ## Platform Receipt
 Open a terminal in `src/Altinn.Platform/Altinn.Platform.Receipt`, and run:

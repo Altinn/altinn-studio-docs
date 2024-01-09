@@ -25,6 +25,34 @@ bibliotekene, og disse referansene må oppdateres for å hente inn siste versjon
 Da kan du automatisk se hva som er nyeste versjon av alle pakker når du åpner App.csproj. Støtter også npm.
 {{% /panel%}}
 
+{{<content-version-selector classes="border-box">}}
+
+{{<content-version-container version-label="v7.0.0 og nyere">}}
+
+- Finn fram referansene til bibliotekene i appen. Referansene til biblioteker ligger i filen `App/App.csproj` i appens repo. 
+
+F.eks.:
+
+```xml
+<ItemGroup>
+  <PackageReference Include="Altinn.App.Api" Version="7.15.1" />
+  <PackageReference Include="Altinn.App.Core" Version="7.15.1" />
+</ItemGroup>
+```
+
+- Sjekk om det har kommet en oppdatert versjon av bibliotekene:
+    - [Altinn.App.Api](https://www.nuget.org/packages/Altinn.App.Api)
+    - [Altinn.App.Core](https://www.nuget.org/packages/Altinn.App.Core)
+- Oppdater de aktuelle referansene til den siste versjonen og lagre filen.
+- Sjekk om det er noen [breaking changes](/nb/community/changelog/app-nuget) ifm endringer i bibliotekene,
+  og gjør ev. endringer som beskrives for å løse ev. problemer. Dette gjelder når det er _major_-versjonen (det første 
+  tallet i versjonen) som er oppdatert.
+- Bygg og deploy appen på nytt.
+
+{{</content-version-container>}}
+
+{{<content-version-container version-label="v6.1.0 og eldre">}}
+
 - Finn fram referansene til bibliotekene i appen. Referansene til biblioteker ligger i filen `App/App.csproj` i appens repo. 
 
 F.eks.:
@@ -47,6 +75,9 @@ F.eks.:
 - Sjekk om det er noen [breaking changes](/nb/community/changelog/app-nuget) ifm endringer i bibliotekene,
   og gjør ev. endringer som beskrives for å løse ev. problemer.
 - Bygg og deploy appen på nytt.
+
+{{</content-version-container>}}
+{{</content-version-selector>}}
 
 
 ## App frontend
@@ -118,5 +149,5 @@ version: 1.1.0
 dependencies:
 - name: deployment
   repository: https://charts.altinn.studio/
-  version: 1.1.0                                <--- Oppdater her
+  version: 2.8.0                                <--- Oppdater her
 ```

@@ -12,8 +12,8 @@ This should provide all basic information needed to get started with development
 It should alto contain the information needed to make sure all developers write their code in a consistent way.
 
 The guidelines should work as reference material, but it should also be possible to
-read throught the whole development handbook in a logical order so that new developers quickly get up and running.
+read through the whole development handbook in a logical order so that new developers quickly get up and running.
 
 The development handbook is a dynamic material and everybody should feel free to extend or correct articles when needed.
 
-{{% children description="true" depth="1" %}}
+{{<children />}}

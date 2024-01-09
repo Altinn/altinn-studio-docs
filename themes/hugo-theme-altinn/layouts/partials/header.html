@@ -44,17 +44,24 @@
       {{- partial "jumbotron.html" . -}}
     {{- end -}}
 
-    <div class="container pt-2 pt-md-3 pt-lg-5">
+    <div class="container pt-2 pt-md-3 pt-lg-5">      
       <div class="adocs-scrollcontainer">
         <div class="row">
+        <div class="col-12 last-modified">{{T "Last-Modified"}}{{ .Page.Lastmod | time.Format ":date_medium" }}</div>
+      </div>
+        <div class="row">
             <div class="col-sm-12">
-    {{- partial "menu.html" . -}}
+              {{- partialCached "menu.html" . -}}
+
+        <script>
+          {{ template "activeMenus" dict "page" . "value" (printf "$(\"li.dd-item a[href='%s']\").parent().addClass(\"active\");" .RelPermalink) }}
+        </script>
         <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text">
         {{- if not .IsHome -}}
-          <div id="top-bar">
+          <div id="top-bar">            
             <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
                 <span id="sidebar-toggle-span" class="adocs-sidebarToggle">
                   <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
@@ -64,11 +71,11 @@
                 </span>
                 <span class="links">
                   {{- if eq .Kind "taxonomy" -}}
-                    <a href="/docs/tags/">Tags</a> /
+                    <a href="/tags/">Tags</a> /
                   {{- end -}}
                   {{- template "breadcrumb" dict "page" . "value" .LinkTitle -}}
                 </span>
-            </div>
+            </div>            
           </div>
         {{- end -}}
         {{- if .Params.tags -}}
@@ -77,8 +84,7 @@
               <a class="label label-default" href="{{$.Site.BaseURL}}tags/{{ $tag | urlize }}">{{ $tag }}</a>
             {{- end -}}
           </div>
-        {{- end -}}
-
+        {{- end -}}        
         <div id="body-inner">
           {{- if not .IsHome -}}
             {{- if eq .Kind "taxonomy" -}}
@@ -94,16 +100,25 @@
             {{- end -}}
           {{- end -}}
 
-          {{- if and (gt .WordCount 100 ) (.Params.toc) -}}
+          {{- if .Params.toc -}}
             <h2>{{T "on-this-page"}}</h2>
             {{- .TableOfContents -}}
           {{- end -}}
 
 {{- define "breadcrumb" -}}
   {{- if .page.Parent.Parent -}}
-    {{- $value := (printf "<a href='%s'>%s</a> <span class='adocs-breadcrumb-divider'> / </span> %s" .page.Parent.URL .page.Parent.LinkTitle .value) -}}
+    {{- $value := (printf "<a href='%s'>%s</a> <span class='adocs-breadcrumb-divider'> / </span> %s" .page.Parent.RelPermalink .page.Parent.LinkTitle .value) -}}
     {{- template "breadcrumb" dict "page" .page.Parent "value" $value -}}
   {{- else -}}
   {{- .value|safeHTML -}}
+  {{- end -}}
+{{- end -}}
+
+{{- define "activeMenus" -}}
+  {{- if and (.page.Parent) (not .page.Parent.IsHome) -}}
+    {{- $value := (printf "$(\"li.dd-item a[href='%s']\").parent().addClass(\"parent\");\n %s" .page.Parent.RelPermalink .value) -}}
+    {{ template "activeMenus" dict "page" .page.Parent "value" $value }}
+  {{- else -}}
+    {{.value|safeJS}}
   {{- end -}}
 {{- end -}}

@@ -6,20 +6,14 @@
         <p>{{ .Summary }} <a class="read-more" href="{{.RelPermalink}}">&raquo;</a></p>
     </section>
     <footer class=" footline" >
-         
         {{with .Params.LastModifierDisplayName}}
             <i class='fa fa-user'></i> <a href="mailto:{{ $.Params.LastModifierEmail }}">{{ . }}</a> {{with $.Date}} <i class='fa fa-calendar'></i> {{ .Format "02/01/2006" }}{{end}}
         {{end}}
 
-        
         {{if .Params.tags }}  
             {{ range $index, $tag := .Params.tags }}
                 <a class="label label-default" href="{{$.Site.BaseURL}}tags/{{ $tag | urlize }}/">{{ $tag }}</a>
             {{ end }}
         {{end}}
-
     </footer>
 </article>
-
-
-

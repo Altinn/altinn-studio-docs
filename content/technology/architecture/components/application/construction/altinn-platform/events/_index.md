@@ -6,79 +6,107 @@ tags: [architecture, solution]
 ---
 
 
-The Events components expose REST-APIs for publishing and subscribing to events. The Azure function are responsible for pushing events
-to subscriber webhooks. The below diagram shows the components
+The Events components expose public REST APIs for publishing, retrieving and subscribing to events. 
 
-![Event architecture diagram](/technology/architecture/capabilities/runtime/integration/events/event_architecture_custom.svg "Altinn Event Architecture")
+[Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/) are used internally to process and forward incoming cloud events to subscriber webhooks. 
 
-When a publish request is received it will push the event document to the event storage.
-When a request is received it will query the events stored in the event storage.
+The following diagram illustrates the overall data flow.
 
-## Api controllers
+![Event architecture diagram](altinn-events.drawio.export.svg "Altinn Event Architecture")
+
+When a publish request is posted to the `/app` endpoint, the event will first be saved in the `events-registration` queue for operational resilience and flexibility. 
+
+When an event retrieval request is received, it will respond with results from the internal relational database used for events persistence.
+
+### Public API
 
 The following API controllers are defined
 
-- [EventsController](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Events/Controllers/EventsController.cs) : responsible for registrating events and pull of events for consumers.
-- [PushController](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Events/Controllers/PushController.cs) : responsible to validate if there is any subscriptions matching the event and if so authorize the subscriper before it pushes the event to the outbound queue
-- [SubscriptionController](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Events/Controllers/SubscriptionController.cs) : responsible for managing subscriptions for consumers.
+- [AppController](https://github.com/Altinn/altinn-events/blob/main/src/Events/Controllers/AppController.cs) : publish (store and forward) and retrieve app events
 
-### Eventscontroller
+- [SubscriptionController](https://github.com/Altinn/altinn-events/blob/main/src/Events/Controllers/SubscriptionController.cs) : create, retrieve, validate and delete event subscriptions
 
-The [EventsController](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Events/Controllers/EventsController.cs) in the Events component is the one receiving events from Apps and other sources. 
+### Internal API
 
-It verifies if the app is authorized to creates events for the given source and then store in to event storage.
+The following endpoints are intended for internal use only.
+
+- [StorageController](https://github.com/Altinn/altinn-events/blob/main/src/Events/Controllers/StorageController.cs) : save incoming events to persistent storage (database)
+  
+- [InboundController](https://github.com/Altinn/altinn-events/blob/main/src/Events/Controllers/InboundController.cs) : store events in `events-inbound` queue
+
+- [OutboundController](https://github.com/Altinn/altinn-events/blob/main/src/Events/Controllers/OutboundController.cs) : forward events to authorized subscriber webhook endpoints, via `events-outbound` queue
+
+### Processing events
+
+_processing a single incoming event_
+
+![Sequence diagram - POST event](sequence-diagram-post-events.drawio.svg "Sequence diagram - POST event")
+
+## Controller details
+Base API url: **/events/api/v1**
+
+### AppController
+
+The [AppController](https://github.com/Altinn/altinn-events/blob/main/src/Events/Controllers/AppController.cs) in the Events component is the one receiving events from Apps and other sources. 
+
+It verifies that the app is authorized to publish events for the given source before saving the event in a database for at least 90 days.
 
 It also exposes API to search for events and to get events. 
 
 The access is controlled by the XACML Policy for the given App that is the source for an given event.
 
-The [AuthorizationHelper](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Events/Authorization/AuthorizationHelper.cs)
-is responsible for creating and performing the request to the [Policy Decision Point](/technology/architecture/components/application/solution/altinn-platform/authorization/pdp/).
+The [AuthorizationHelper](https://github.com/Altinn/altinn-events/blob/main/src/Events/Authorization/AuthorizationHelper.cs)
+is responsible for creating and performing the request to the [Policy Decision Point](/authorization/modules/pdp/).
 
-
-### PushController
-
-[PushController](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Events/Controllers/PushController.cs) is called by the  [EventsInbound](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Functions/EventsInbound.cs) function. 
-
-Based on details from the Event it will identify matching subscriptions. 
-
-For each match it will authorize the consumer using the Policy Authorization Point.
-
-The [AuthorizationHelper](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Events/Authorization/AuthorizationHelper.cs)
-is responsible for creating and performing the request to the [Policy Decision Point](/technology/architecture/components/application/solution/altinn-platform/authorization/pdp/).
-
-The access is controlled by the XACML Policy for the given App that is the source for an given event.
-
-If consumer is Authorized the event will be added to the "events-outbound" queue and picked up by the EventsOutbound function. (see below)
 
 ### SubscriptionController
 
-The [SubscriptionController](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Events/Controllers/SubscriptionController.cs) exposes API to 
+
+The [SubscriptionController](https://github.com/Altinn/altinn-events/blob/main/src/Events/Controllers/SubscriptionController.cs) exposes API to 
 
 - Add subscriptions
 - Delete subscriptions
 - Get subscriptions
 - Validate subscriptions
 
+
+### InboundController
+
+_Internal API_
+
+Thin client to `events-inbound` queue storage, minimal processing logic.
+
+### OutboundController (previously PushController)
+
+[OutboundController](https://github.com/Altinn/altinn-events/blob/main/src/Events/Controllers/OutboundController.cs) is called by the  [EventsInbound](https://github.com/Altinn/altinn-events/blob/main/src/Events.Functions/EventsInbound.cs) function. 
+
+Based on details from the Event it will identify matching subscriptions. 
+
+For each match it will authorize the subscriber using the Policy Authorization Point.
+
+The [AuthorizationHelper](https://github.com/Altinn/altinn-events/blob/main/src/Events/Authorization/AuthorizationHelper.cs)
+is responsible for creating and performing the request to the [Policy Decision Point](/authorization/modules/pdp/).
+
+The access is controlled by the XACML Policy for the given App that is the source for an given event.
+
+If the subscriber is Authorized, the event will be added to the "events-outbound" queue and picked up by the EventsOutbound function. (see below)
+
+
 ## Event storage
 
-To be able to get the search capability needed for the Events component we have choosen to use  [PostgreSQL](https://www.postgresql.org/).
+To be able to get the search capability needed for the Events component we have choosen to use [PostgreSQL](https://www.postgresql.org/).
 
 Using [PostgreSQL](https://www.postgresql.org/) makes is possible to sort the events based on a primary key and also makes it possible to search
-over all events based on subject or source. 
+over all events as a serialized json document based on properties such as subject or source. 
 
 The table structure 
 
 ```sql
 CREATE TABLE IF NOT EXISTS events.events
 (
-    sequenceno BIGSERIAL,
-    id character varying COLLATE pg_catalog."default" NOT NULL,
-    source character varying COLLATE pg_catalog."default" NOT NULL,
-    subject character varying COLLATE pg_catalog."default" NOT NULL,
-    "time" timestamptz  NOT NULL,
-    type character varying COLLATE pg_catalog."default" NOT NULL,
-    cloudevent text COLLATE pg_catalog."default" NOT NULL,
+    sequenceno bigint NOT NULL DEFAULT nextval('events.events_sequenceno_seq1'::regclass),
+    cloudevent jsonb NOT NULL,
+    registeredtime timestamp with time zone DEFAULT (now() AT TIME ZONE 'utc'::text),
     CONSTRAINT events_pkey PRIMARY KEY (sequenceno)
 )
 ```
@@ -86,45 +114,63 @@ CREATE TABLE IF NOT EXISTS events.events
 ```sql
 CREATE TABLE IF NOT EXISTS events.subscription
 (
-    id BIGSERIAL,
+    id bigint NOT NULL DEFAULT nextval('events.subscription_id_seq'::regclass),
     sourcefilter character varying COLLATE pg_catalog."default",
     subjectfilter character varying COLLATE pg_catalog."default",
     typefilter character varying COLLATE pg_catalog."default",
     consumer character varying COLLATE pg_catalog."default" NOT NULL,
     endpointurl character varying COLLATE pg_catalog."default" NOT NULL,
     createdby character varying COLLATE pg_catalog."default" NOT NULL,
-    validated BOOLEAN NOT NULL,
-    "time" timestamptz  NOT NULL,
+    validated boolean NOT NULL,
+    "time" timestamp with time zone NOT NULL,
+    sourcefilterhash character varying(32) COLLATE pg_catalog."default",
     CONSTRAINT eventssubscription_pkey PRIMARY KEY (id)
 )
-
 ```
 
-Stored procedures is used to add, delete and query data from the above tables. 
-See all stored procedures [here](https://github.com/Altinn/altinn-studio/tree/master/src/Altinn.Platform/Altinn.Platform.Events/Events/Migration).
+Functions and procedurees are used to add, delete and query data from the above tables. 
+See all functions and stored procedures [here](https://github.com/Altinn/altinn-events/tree/main/src/Events/Migration).
 
 #### Event sequencing
 
-Events will be sequnced by sequence number that is the primary key of the Events table. 
+Events will be sequenced by the field `sequenceno`, which is also the primary key of the Events table. 
 
 ### Indexing
 
-We would need to have index on 
-
+The events table has indexes on the columns _cloudevent_ (gin index) and  _registeredtime_ (btree index).
 
 ## Functions
 
-As part of the Event Component there is 3 [Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/) used for pushing events to the consumers. Click on name for code.
+As part of the Events Component there is a single Azure Function App with four functions involved in processing cloud events at various stages (Azure Queue Storage). Click on name for code.
 
- - [EventsInbound](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Functions/EventsInbound.cs) : responsible for pushing new events to the push controller
- - [EventsOutbound](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Functions/EventsOutbound.cs) : responsible for pushing event to consumer webhook
- - [ValidateSubscription](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Functions/ValidateSubscription.cs) : responsible for validating the endpoint given in a subscription. 
+ - [EventsRegistration](https://github.com/Altinn/altinn-events/blob/main/src/Events.Functions/EventsRegistration.cs)
+   - dequeue from `events-registration`
+   - store to database
+   - forward to `events-inbound` queue
+ - [EventsInbound](https://github.com/Altinn/altinn-events/blob/main/src/Events.Functions/EventsInbound.cs)
+   - dequeue from `events-inbound`
+   - find valid subscriptions with filters that match event
+   - forward a copy of event to `events-outbound` queue for each matching subscription
+ - [EventsOutbound](https://github.com/Altinn/altinn-events/blob/main/src/Events.Functions/EventsOutbound.cs) 
+   - dequeue from `events-outbound`
+   - POST cloud event to target webhook endpoint, retry as necessary
+ - [SubscriptionValidation](https://github.com/Altinn/altinn-events/blob/main/src/Events.Functions/SubscriptionValidation.cs) 
+   - check that the user-defined webhook endpoint is ready to receive data
+
+### EventsRegistration
+
+The [EventsRegistration](https://github.com/Altinn/altinn-events/blob/main/src/Events.Functions/EventsRegistration.cs) function is executed automatically by the Azure Function runtime when new events are posted to the `events-registration` queue.
+
+It first sends the event to storage for persistence, once sucessfully persisten, the event is forwarded to the inbound controller.
+The Function uses Platform Access token to authenticate itself for the Inbound and Storage controllers.
+
+It uses standard mechanismen for retry, if the call for controllers fails.
 
 ### EventsInbound
 
-The [EventsInbound](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Functions/EventsInbound.cs) function is triggered by QueueStorage changes in the "events-inbound" queue.
+The [EventsInbound](https://github.com/Altinn/altinn-events/blob/main/src/Events.Functions/EventsInbound.cs) function is executed automatically by the Azure Function runtime when new events are posted to the `events-inbound` queue.
 
-It just forward the event to the PushController through the [pushEventService](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Functions/Services/PushEventsService.cs).
+It forwards the event to the PushController through the [pushEventService](https://github.com/Altinn/altinn-events/blob/main/src/Events.Functions/Services/PushEventsService.cs).
 
 The Function uses Platform Access token to authenticate itself for the PushController
 
@@ -132,12 +178,12 @@ It uses standard mechanismen for retry, if the call for pushcontroller fails.
 
 ### EventsOutbound
 
-The [EventsOutbound](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Functions/EventsInbound.cs) function is triggered byQueueStorage changes in the "events-outbound" queue.
+The [EventsOutbound](https://github.com/Altinn/altinn-events/blob/main/src/Events.Functions/EventsOutbound.cs) function is triggered by QueueStorage changes in the "events-outbound" queue.
 
-It will try to push the event to given subscription endpoint given in the [CloudEventEnvelope](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Functions/Models/CloudEventEnvelope.cs)
+It will try to push the event to given subscription endpoint given in the [CloudEventEnvelope](https://github.com/Altinn/altinn-events/blob/main/src/Events.Functions/Models/CloudEventEnvelope.cs)
 that is put on the queue and containing the event.
 
-This function is configured with [CustomQueueProcessorFactory](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Functions/Factories/CustomQueueProcessorFactory.cs) to handle retry if it is not possible to push event to the endpoint.
+This function is configured with [CustomQueueProcessorFactory](https://github.com/Altinn/altinn-events/blob/main/src/Events.Functions/Factories/CustomQueueProcessorFactory.cs) to handle retry if it is not possible to push event to the endpoint.
 
 It will try send the event right away, but if the request to webhook fails  (Http status != 200) it will put the cloudevent back on the queue with a
 defined wait time.
@@ -157,12 +203,12 @@ If it fails the 12. time it will put the event in the dead letter queue and will
 
 ### SubscriptionValidation
 
-The [SubscriptionValidation](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Functions/SubscriptionValidation.cs) function is triggered byQueueStorage changes in the "subscription-validation" queue.
+The [SubscriptionValidation](https://github.com/Altinn/altinn-events/blob/main/src/Events.Functions/SubscriptionValidation.cs) function is triggered byQueueStorage changes in the "subscription-validation" queue.
 
-It will try to validate the endpoing given in the [Subscription](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Functions/Models/Subscription.cs)
+It will try to validate the endpoing given in the [Subscription](https://github.com/Altinn/altinn-events/blob/main/src/Events.Functions/Models/Subscription.cs)
 that is put on the queue.
 
-This function is configured with [CustomQueueProcessorFactory](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Functions/Factories/CustomQueueProcessorFactory.cs) to handle retry if it is not possible to push event to the endpoint.
+This function is configured with [CustomQueueProcessorFactory](https://github.com/Altinn/altinn-events/blob/main/src/Events.Functions/Factories/CustomQueueProcessorFactory.cs) to handle retry if it is not possible to push event to the endpoint.
 
 It will try send the event right away, but if the request to webhook fails (Http status != 200) it will put the cloudevent back on the queue with a
 defined wait time.
@@ -180,4 +226,4 @@ defined wait time.
 
 If it fails the 12. time it will put the event in the dead letter queue and will not try again.
 
-If endpoint responds with 200OK it will then set the subscription status to valid with calling the [validate](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Events/Controllers/SubscriptionController.cs#L111) endpoint in the Subscription API.
+If endpoint responds with 200OK it will then set the subscription status to valid with calling the [validate](https://github.com/Altinn/altinn-events/blob/main/src/Events/Controllers/SubscriptionController.cs#L111) endpoint in the Subscription API.

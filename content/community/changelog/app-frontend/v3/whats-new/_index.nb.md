@@ -1,8 +1,153 @@
 ---
 title: Hva er nytt?
 description: Oversikt over endringer som ble introdusert i v3 av app frontend.
-toc: true
 ---
+
+For å se en oversikt over [endringer som kommer snart kan du se på roadmap](https://github.com/Altinn/altinn-roadmap/issues).
+
+## >3.37.2
+Endringslogg for app-frontend er nå [tilgjengelig på Github Releases](https://github.com/Altinn/app-frontend-react/releases).
+
+## 3.37.2 (2022-05-20) - Oppdaterte avhengigheter
+Oppdaterte eksterne avhengigheter for uke 20 av 2022.
+
+## 3.37.1 (2022-05-15) - Fiks for prefill sammen med preselectedOptionIndex
+Om man bruker `preselectedOptionIndex` på et felt som igjen brukes til å påvirke
+dynamiske prefill-verdier for andre felt (eller om du bare klikker veldig fort),
+kunne feil prefill-verdier bli vist.
+Issue [#8255](https://github.com/Altinn/altinn-studio/issues/8255).
+
+## 3.37.0 (2022-05-15) - Støtte for sporvalg i tilstandsløse apper
+Tilstandsløse (stateless) apper kan nå benytte sporvalg. Krever versjon 5.1.0 eller senere av nuget-pakker.
+Issue [#8347](https://github.com/Altinn/altinn-studio/issues/8347).
+
+## 3.36.4 (2022-05-10) - Fikset validering av tomme felter for skjulte grupper (igjen)
+Etter den forrige fiksen lansert i versjon 3.35.2 ble det oppdaget at problemet vedvarte om man skjulte spesifikke
+felter istedenfor hele gruppen. Dette problemet er nå løst.
+Issue [#6398](https://github.com/Altinn/altinn-studio/issues/6398).
+
+## 3.36.3 (2022-05-10) - Kun referere til beskrivelse om denne finnes
+Fikset en feil hvor komponenter hadde satt `aria-describedby` til et element som ikke fantes.
+Issue [#23](https://github.com/Altinn/app-frontend-react/issues/23).
+
+## 3.36.2 (2022-05-06) - Fikset potensiell kræsj etter valideringsfeil fra server
+Fikser en nylig introdusert feil hvor en feilende validering fra serversiden kunne føre til at appen stoppet.
+Issue [#8481](https://github.com/Altinn/altinn-studio/issues/8481).  
+Oppdaterte eksterne avhengigheter for uke 18 av 2022.
+
+## 3.36.1 (2022-05-06) - Fikset validering av tomme felter for flerside repeterende grupper
+Fikser en feil hvor påkrevde felter i en flerside repeterende gruppe førte til en feilmelding
+selv om man ikke hadde lagt til en instans av den repeterende gruppen.
+Issue [#7478](https://github.com/Altinn/altinn-studio/issues/7478).
+
+## 3.36.0 (2022-05-03) - Støtte for dynamikk i nøstede repeterende grupper
+La til støtte for dynamikk i nøstede repeterende grupper.
+Issue [#55](https://github.com/Altinn/app-frontend-react/issues/55).
+
+## 3.35.2 (2022-05-02) - Fikset validering av tomme felter for skjulte grupper
+Fikser en feil hvor skjuling av en (ikke-repeterende) gruppe med obligatoriske felter kunne føre til valideringsfeil med
+beskjed om at noen usynlige felter ikke var fyllt ut.
+Issue [#6398](https://github.com/Altinn/altinn-studio/issues/6398).
+
+## 3.35.1 (2022-04-28) - Oppdaterte avhengigheter
+Oppdaterte eksterne avhengigheter for uke 17 av 2022.
+
+## 3.35.0 (2022-04-28) - Merke påkrevde felter
+Endret standard visning av felter til at påkrevde felter markeres med en *, mens felter som er valgfrie
+ikke har noen markering. Valgfrie felter kan settes opp til å markeres med `(Valgfri)` via `labelSettings`-property
+på feltet i form layout. Se [her](/app/development/ux/fields/settings/).
+
+## 3.34.4 (2022-04-28) - Fjernet overskrift om vedlegg når det ikke er noen vedlegg
+Under kvitteringen ble det vist en overskrift over listen med vedlegg. Etter det ble mulig å skru av generering av
+PDF ble denne overskriften fortsatt vist, men har nå blitt skjult.
+Issue [#8296](https://github.com/Altinn/altinn-studio/issues/8296).
+
+## 3.34.3 (2022-04-28) - Fikset feil relatert til caching av sist besøkte side
+Fikser en feil hvor stateless-applikasjoner brukte en delt nøkkel for persistering av sist besøkte side. Fikser også en feil hvor en tom side ville vises til brukeren om den cachede side-nøkkelen ikke lenger fantes.
+Issues [#7897](https://github.com/Altinn/altinn-studio/issues/7897) og [#6975](https://github.com/Altinn/altinn-studio/issues/6975).
+
+## 3.34.2 (2022-04-25) - Fikset kantfarger for checkbox og radio
+Kantfargene for disse komponentene fulgte ikke kontrastkravene fra WCAG 2.1.
+Fargene på disse har blitt endret til å følge en standardfarge.
+Issue [#11](https://github.com/Altinn/app-frontend-react/issues/11).
+
+## 3.34.1 (2022-04-22) - Fikset ugyldig HTML attributt i ImageComponent
+`width` attributt på `img` elementer kan kun være [tallverdi som representerer px](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-width). Vi støtter å definere width med andre måleenheter, som f.ex %. 
+Width deklarasjonen ble flyttet til inline styling for å løse problemet.
+Issue [#14](https://github.com/Altinn/app-frontend-react/issues/14). 
+
+## 3.34.0 (2022-04-11) - Options fra datamodellen
+La til støtte for å sette opp options (kodelister) fra repeterende grupper i datamodellen. Les mer på [docs.](/nb/app/development/data/options/repeating-group-codelists
+Issue [#7626](https://github.com/Altinn/altinn-studio/issues/7626). 
+
+## 3.33.5 (2022-04-11) - Oppdaterte ekstern avhengighet
+Oppdatering av ekstern avhengighet grunnet sikkerhetshull.
+Pull request [#8371](https://github.com/Altinn/altinn-studio/pull/8371).
+
+## 3.33.4 (2022-03-31) - Webpack 5 + oppdaterte avhengigheter
+App frontend bundles nå med webpack 5. Oppdaterte også eksterne avhengigheter.
+Issue [#5073](https://github.com/Altinn/altinn-studio/issues/5073).
+
+## 3.33.3 (2022-03-25) - Støtte for å definere rad eller kolonne for checkbox og radio
+Lagt til støtte for å definere om radio/checkbox skal vises på en rad eller i kolonne.
+Issue [#5730](https://github.com/Altinn/altinn-studio/issues/5730).
+
+## 3.33.2 (2022-03-24) - Justert høyde for inputfelter og datovelger
+Høyden på disse feltene var feil. Det har blitt rettet til 36px høyde.
+Issue [#7377](https://github.com/Altinn/altinn-studio/issues/7377).
+
+## 3.33.1 (2022-03-23) - Fikset feil med dynamiske options
+Fikset en feil hvor kun den første option ble hentet om man hadde definert to komponenter med samme optionId men ulik mapping.
+Issue [#8292](https://github.com/Altinn/altinn-studio/issues/8292).
+
+## 3.33.0 (2022-03-18) - Oppdatert tekst i bekreftelsessteg + mulighet til å overstyre
+Ny tekst for `confirm.sender` i bekreftelsessteget. Nå også mulighet til å overstyre denne.
+Issue [#8243](https://github.com/Altinn/altinn-studio/issues/8243).
+
+## 3.32.10 (2022-03-18) - Fikset feil i datovelgeren
+Fikset en feil hvor ugyldige datoer ikke ville vise noen feilmelding.
+Issue [#8121](https://github.com/Altinn/altinn-studio/issues/8121).
+
+## 3.32.9 (2022-03-10) - Fikset feil med vedlegg i LocalTest
+Er nå mulig å laste ned vedlegg i LocalTest.
+Pull request [#7925](https://github.com/Altinn/altinn-studio/pull/7925).
+
+## 3.32.8 (2022-03-04) - Fikset feil for nedtrekkskomponent i repeterende grupper
+Fikset en feil hvor nedtrekkskomponenten i repeterende grupper kunne resultere i en ukjent feil.
+Issue [#8169](https://github.com/Altinn/altinn-studio/issues/8169).
+
+## 3.32.7 (2022-03-04) - Oppdaterte avhengigheter
+Oppdaterte eksterne avhengigheter for uke 9 av 2022.
+Issue [#8137](https://github.com/Altinn/altinn-studio/issues/8137).
+
+## 3.32.6 (2022-03-02) - Forbedret validerings-støtte for sporvalg
+La til støtte for å kunne koble valideirngsmelding til data-felt som ble brukt på flere sider.
+Issue [#8145](https://github.com/Altinn/altinn-studio/issues/8145).
+
+## 3.32.5 (2022-03-02) - Forbedringer i tekster
+Ulike forbedringer relatert til teksthåndtering. La også til støtte for markdown i tittel-komponentens.
+Issue [#7874](https://github.com/Altinn/altinn-studio/issues/7874).
+Issue [#7571](https://github.com/Altinn/altinn-studio/issues/7571).
+
+## 3.32.4 (2022-03-01) - Visuelle fikser i modalen.
+Justeringer i padding i modalen i mobilvisningen.
+Issue [#8143](https://github.com/Altinn/altinn-studio/issues/8143).
+
+# 3.32.3 (2022-03-01) - Kjøre frontendregler på serversidekalkuleringer
+Fikset en feil der frontend regler ikke ville bli kjørt når en kalkulering på serversiden oppdaterte et felt koblet til en regel.
+Issue [#8054](https://github.com/Altinn/altinn-studio/issues/8054).
+
+# 3.32.2 (2022-02-28) - Fikset feil i Adresse-komponenten
+Fikset en feil i adresse-komponenten hvor poststed enkelte ganger ikke ble oppdatert når man skrev inn postnummer.
+Issue [#8130](https://github.com/Altinn/altinn-studio/issues/8130).
+
+# 3.32.1 (2022-02-25) - Fikset feil for layout-navn
+Fikset en feil hvor en app med en layout-side med navn "data" ikke ville starte.
+Issue [#8125](https://github.com/Altinn/altinn-studio/issues/8125).
+
+## 3.32.0 (2022-02-23) - Sikrede options
+Er nå mulig å sette opp sikrede options.
+Issue [#7893](https://github.com/Altinn/altinn-studio/issues/7893).
 
 ## 3.31.4 (2022-02-23) - Feilretting for Bekreft-steget
 Fikset feil hvor spinneren ikke ble vist mens confirm request ble gjort.
@@ -243,7 +388,7 @@ Issue [#7183](https://github.com/Altinn/altinn-studio/issues/7183).
 Oppdaterte ekstern avhenghighet jsonpointer.
 Issue [#7317](https://github.com/Altinn/altinn-studio/issues/7317).
 
-## 3.14.1 (2021-11-11) -  Oppdaterte avhengigheter
+## 3.14.1 (2021-11-11) - Oppdaterte avhengigheter
 Oppdaterte eksterne avhengigheter for uke 45.
 Issue [#7317](https://github.com/Altinn/altinn-studio/issues/7317).
 

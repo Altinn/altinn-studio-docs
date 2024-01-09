@@ -5,4 +5,4 @@ description: Description of the Altinn 3 APIs supported by the storage component
 toc: true
 ---
 
-{{% children description="true" depth="1" %}}
+{{<children />}}

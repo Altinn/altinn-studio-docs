@@ -354,6 +354,14 @@
               "type": "string",
               "format": "uuid"
             }
+          },
+          {
+            "name": "delay",
+            "in": "query",
+            "description": "A boolean to indicate if the delete should be immediate or delayed following Altinn's business logic",
+            "schema": {
+              "type": "boolean"
+            }
           }
         ],
         "responses": {
@@ -456,7 +464,7 @@
         "tags": [
           "Data"
         ],
-        "summary": "Replaces an existing data element whit the attached file. The StreamContent.Headers.ContentDisposition.FileName property shall be used to set the filename on client side",
+        "summary": "Replaces an existing data element with the attached file. The StreamContent.Headers.ContentDisposition.FileName property shall be used to set the filename on client side",
         "parameters": [
           {
             "name": "instanceOwnerPartyId",
@@ -498,6 +506,14 @@
                 "type": "string",
                 "format": "uuid"
               }
+            }
+          },
+          {
+            "name": "generatedFromTask",
+            "in": "query",
+            "description": "An optional id of the task the data element was generated from",
+            "schema": {
+              "type": "string"
             }
           }
         ],
@@ -653,11 +669,19 @@
                 "format": "uuid"
               }
             }
+          },
+          {
+            "name": "generatedFromTask",
+            "in": "query",
+            "description": "An optional id of the task the data element was generated from",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
           "201": {
-            "description": "Success",
+            "description": "Created",
             "content": {
               "application/json": {
                 "schema": {
@@ -751,6 +775,231 @@
         }
       }
     },
+    "/instances/{instanceOwnerPartyId}/{instanceGuid}/dataelements/{dataGuid}/filescanstatus": {
+      "put": {
+        "tags": [
+          "Data"
+        ],
+        "summary": "Sets the file scan status for an existing data element.",
+        "parameters": [
+          {
+            "name": "instanceGuid",
+            "in": "path",
+            "description": "The id of the instance that the data element is associated with.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "dataGuid",
+            "in": "path",
+            "description": "The id of the data element to update.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "instanceOwnerPartyId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The file scan results for this data element.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FileScanStatus"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/instances/{instanceOwnerPartyId}/{instanceGuid}/data/{dataGuid}/lock": {
+      "put": {
+        "tags": [
+          "DataLock"
+        ],
+        "summary": "Locks a data element",
+        "parameters": [
+          {
+            "name": "instanceOwnerPartyId",
+            "in": "path",
+            "description": "The party id of the instance owner.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "instanceGuid",
+            "in": "path",
+            "description": "The id of the instance that the data element is associated with.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "dataGuid",
+            "in": "path",
+            "description": "The id of the data element to delete.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataElement"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataElement"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "DataLock"
+        ],
+        "summary": "Unlocks a data element",
+        "parameters": [
+          {
+            "name": "instanceOwnerPartyId",
+            "in": "path",
+            "description": "The party id of the instance owner.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "instanceGuid",
+            "in": "path",
+            "description": "The id of the instance that the data element is associated with.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "dataGuid",
+            "in": "path",
+            "description": "The id of the data element to delete.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataElement"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/instances/{instanceOwnerPartyId}/{instanceGuid}/events": {
       "post": {
         "tags": [
@@ -791,7 +1040,7 @@
         },
         "responses": {
           "201": {
-            "description": "Success",
+            "description": "Created",
             "content": {
               "application/json": {
                 "schema": {
@@ -1148,7 +1397,7 @@
         },
         "responses": {
           "201": {
-            "description": "Success",
+            "description": "Created",
             "content": {
               "application/json": {
                 "schema": {
@@ -1268,7 +1517,7 @@
             }
           },
           "204": {
-            "description": "Success"
+            "description": "No Content"
           },
           "400": {
             "description": "Bad Request",
@@ -1588,94 +1837,36 @@
       }
     },
     "/sbl/instances/search": {
-      "get": {
+      "post": {
         "tags": [
           "MessageBoxInstances"
         ],
         "summary": "Search through instances to find match based on query params.",
-        "parameters": [
-          {
-            "name": "instanceOwner.partyId",
-            "in": "query",
-            "description": "The instance owner party id",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "appId",
-            "in": "query",
-            "description": "The application id",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "includeActive",
-            "in": "query",
-            "description": "Boolean indicating whether to include active instances.",
-            "schema": {
-              "type": "boolean"
-            }
-          },
-          {
-            "name": "includeArchived",
-            "in": "query",
-            "description": "Boolean indicating whether to include archived instances.",
-            "schema": {
-              "type": "boolean"
-            }
-          },
-          {
-            "name": "includeDeleted",
-            "in": "query",
-            "description": "Boolean indicating whether to include deleted instances.",
-            "schema": {
-              "type": "boolean"
-            }
-          },
-          {
-            "name": "lastChanged",
-            "in": "query",
-            "description": "Last changed date.",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "created",
-            "in": "query",
-            "description": "Created time.",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "searchString",
-            "in": "query",
-            "description": "Search string.",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "archiveReference",
-            "in": "query",
-            "description": "The archive reference.",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "language",
-            "in": "query",
-            "description": "language nb, en, nn-NO",
-            "schema": {
-              "type": "string"
+        "requestBody": {
+          "description": "Object with query-params",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/MessageBoxQueryModel"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MessageBoxQueryModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MessageBoxQueryModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/MessageBoxQueryModel"
+              }
             }
           }
-        ],
+        },
         "responses": {
           "200": {
             "description": "Success"
@@ -1934,6 +2125,76 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ProcessHistoryList"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/instances/{instanceOwnerPartyId}/{instanceGuid}/sign": {
+      "post": {
+        "tags": [
+          "Sign"
+        ],
+        "summary": "Create signature document from listed data elements",
+        "parameters": [
+          {
+            "name": "instanceOwnerPartyId",
+            "in": "path",
+            "description": "The party id of the instance owner.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "instanceGuid",
+            "in": "path",
+            "description": "The guid of the instance",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Signrequest containing data element ids and sign status",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SignRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SignRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SignRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SignRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               }
             }
@@ -2258,7 +2519,8 @@
           "title": {
             "type": "object",
             "additionalProperties": {
-              "type": "string"
+              "type": "string",
+              "nullable": true
             },
             "nullable": true
           },
@@ -2363,6 +2625,15 @@
           "schemaRef": {
             "type": "string",
             "nullable": true
+          },
+          "allowAnonymousOnStateless": {
+            "type": "boolean"
+          },
+          "autoDeleteOnProcessEnd": {
+            "type": "boolean"
+          },
+          "shadowFields": {
+            "$ref": "#/components/schemas/ShadowFields"
           }
         },
         "additionalProperties": false
@@ -2438,6 +2709,10 @@
             "type": "integer",
             "format": "int64"
           },
+          "contentHash": {
+            "type": "string",
+            "nullable": true
+          },
           "locked": {
             "type": "boolean"
           },
@@ -2456,6 +2731,19 @@
             "type": "array",
             "items": {
               "type": "string"
+            },
+            "nullable": true
+          },
+          "deleteStatus": {
+            "$ref": "#/components/schemas/DeleteStatus"
+          },
+          "fileScanResult": {
+            "$ref": "#/components/schemas/FileScanResult"
+          },
+          "references": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Reference"
             },
             "nullable": true
           },
@@ -2489,6 +2777,19 @@
               "$ref": "#/components/schemas/DataElement"
             },
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DataElementSignature": {
+        "type": "object",
+        "properties": {
+          "dataElementId": {
+            "type": "string",
+            "nullable": true
+          },
+          "signed": {
+            "type": "boolean"
           }
         },
         "additionalProperties": false
@@ -2564,6 +2865,29 @@
           "grouping": {
             "type": "string",
             "nullable": true
+          },
+          "enablePdfCreation": {
+            "type": "boolean"
+          },
+          "enableFileScan": {
+            "type": "boolean"
+          },
+          "validationErrorOnPendingFileScan": {
+            "type": "boolean"
+          },
+          "enabledFileAnalysers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "enabledFileValidators": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -2574,8 +2898,23 @@
           "values": {
             "type": "object",
             "additionalProperties": {
-              "type": "string"
+              "type": "string",
+              "nullable": true
             },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeleteStatus": {
+        "type": "object",
+        "properties": {
+          "isHardDeleted": {
+            "type": "boolean"
+          },
+          "hardDeleted": {
+            "type": "string",
+            "format": "date-time",
             "nullable": true
           }
         },
@@ -2585,6 +2924,10 @@
         "type": "object",
         "properties": {
           "serviceId": {
+            "type": "string",
+            "nullable": true
+          },
+          "dpfShipmentType": {
             "type": "string",
             "nullable": true
           },
@@ -2622,6 +2965,28 @@
               "type": "string"
             },
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FileScanResult": {
+        "enum": [
+          "NotApplicable",
+          "Pending",
+          "Clean",
+          "Infected"
+        ],
+        "type": "string"
+      },
+      "FileScanStatus": {
+        "type": "object",
+        "properties": {
+          "contentHash": {
+            "type": "string",
+            "nullable": true
+          },
+          "fileScanResult": {
+            "$ref": "#/components/schemas/FileScanResult"
           }
         },
         "additionalProperties": false
@@ -2696,14 +3061,16 @@
           "presentationTexts": {
             "type": "object",
             "additionalProperties": {
-              "type": "string"
+              "type": "string",
+              "nullable": true
             },
             "nullable": true
           },
           "dataValues": {
             "type": "object",
             "additionalProperties": {
-              "type": "string"
+              "type": "string",
+              "nullable": true
             },
             "nullable": true
           },
@@ -2876,6 +3243,80 @@
         },
         "additionalProperties": false
       },
+      "MessageBoxQueryModel": {
+        "required": [
+          "instanceOwnerPartyIdList"
+        ],
+        "type": "object",
+        "properties": {
+          "instanceOwnerPartyIdList": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "description": "List of instance owner party id(s)"
+          },
+          "appId": {
+            "type": "string",
+            "description": "The application id",
+            "nullable": true
+          },
+          "includeActive": {
+            "type": "boolean",
+            "description": "Boolean indicating whether to include active instances."
+          },
+          "includeArchived": {
+            "type": "boolean",
+            "description": "Boolean indicating whether to include archived instances."
+          },
+          "includeDeleted": {
+            "type": "boolean",
+            "description": "Boolean indicating whether to include deleted instances."
+          },
+          "fromLastChanged": {
+            "type": "string",
+            "description": "Gets or sets the from last changed date.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "toLastChanged": {
+            "type": "string",
+            "description": "Gets or sets the to last changed date.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "fromCreated": {
+            "type": "string",
+            "description": "Gets or sets the from created time.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "toCreated": {
+            "type": "string",
+            "description": "Gets or sets the to created time.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "searchString": {
+            "type": "string",
+            "description": "Search string.",
+            "nullable": true
+          },
+          "archiveReference": {
+            "type": "string",
+            "description": "The archive reference.",
+            "nullable": true
+          },
+          "language": {
+            "type": "string",
+            "description": "Language nb, en, nn",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents queryparams for search from messagebox."
+      },
       "OnEntryConfig": {
         "type": "object",
         "properties": {
@@ -2924,6 +3365,10 @@
             "type": "integer",
             "format": "int32",
             "nullable": true
+          },
+          "nationalIdentityNumber": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -2934,7 +3379,8 @@
           "texts": {
             "type": "object",
             "additionalProperties": {
-              "type": "string"
+              "type": "string",
+              "nullable": true
             },
             "nullable": true
           }
@@ -3033,6 +3479,10 @@
             "type": "string",
             "format": "date-time",
             "nullable": true
+          },
+          "performedBy": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -3085,6 +3535,35 @@
         ],
         "type": "string"
       },
+      "Reference": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string",
+            "nullable": true
+          },
+          "relation": {
+            "$ref": "#/components/schemas/RelationType"
+          },
+          "valueType": {
+            "$ref": "#/components/schemas/ReferenceType"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ReferenceType": {
+        "enum": [
+          "DataElement",
+          "Task"
+        ],
+        "type": "string"
+      },
+      "RelationType": {
+        "enum": [
+          "GeneratedFrom"
+        ],
+        "type": "string"
+      },
       "ResourceLinks": {
         "type": "object",
         "properties": {
@@ -3093,6 +3572,58 @@
             "nullable": true
           },
           "platform": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ShadowFields": {
+        "type": "object",
+        "properties": {
+          "prefix": {
+            "type": "string",
+            "nullable": true
+          },
+          "saveToDataType": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SignRequest": {
+        "type": "object",
+        "properties": {
+          "signatureDocumentDataType": {
+            "type": "string",
+            "nullable": true
+          },
+          "dataElementSignatures": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DataElementSignature"
+            },
+            "nullable": true
+          },
+          "signee": {
+            "$ref": "#/components/schemas/Signee"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Signee": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string",
+            "nullable": true
+          },
+          "personNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "organisationNumber": {
             "type": "string",
             "nullable": true
           }
@@ -3167,6 +3698,10 @@
             "nullable": true
           },
           "dataSource": {
+            "type": "string",
+            "nullable": true
+          },
+          "defaultValue": {
             "type": "string",
             "nullable": true
           }

@@ -13,4 +13,4 @@ The diagram below show the different areas and the platform components involved 
 [Download as Visio](platform_components.vsdx)
 
 
-{{% children description="true" depth="1" %}}
+{{<children />}}

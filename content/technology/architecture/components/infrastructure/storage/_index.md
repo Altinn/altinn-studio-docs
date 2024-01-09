@@ -2,6 +2,7 @@
 title: Storage componentens
 linktitle: Storage
 description: Altinn 3 uses different types of storage components.
+toc: true
 tags: [architecture, infrastructure]
 ---
 
@@ -69,3 +70,11 @@ two types of containers: vaults and managed HSM pools. Vaults support storing so
 Every organization cluster has two keyvaults. One is target for secrets for applications. Secrets are added by the app developers as self services.
 
 The other is targetet for secrets needed to be shared with Altinn Platform. Access token to storage accounts is one example
+
+## Azure Queue Storage
+
+Azure Queue Storage provides cloud messaging between application components. In designing applications for scale, application components are often decoupled so they can scale independently. Queue Storage delivers asynchronous messaging between application components, whether they are running in the cloud, on the desktop, on an on-premises server, or on a mobile device. Queue Storage also supports managing asynchronous tasks and building process work flows.
+
+In Altinn we use Azure Queue Storage for events processing and delegation.
+
+[Read more about Azure Queue Storage](https://learn.microsoft.com/en-us/azure/storage/queues/)

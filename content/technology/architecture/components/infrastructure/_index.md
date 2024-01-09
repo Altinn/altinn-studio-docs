@@ -9,10 +9,7 @@ Altinn 3 consists of three different technical solutions to make a complete appl
 
 The diagram below shows an simplified overview over the infrastructure components.
 
-
-![Infrastructure](altinn_infrastructure.svg "Infrastructure")
-
-[Download as Visio](altinn_infrastructure.vsdx)
+![Infrastructure](altinn.infrastructure.drawio.svg "Infrastructure")
 
 Altinn 3 is currently deployed to Microsoft Azure.
 This does not mean that Altinn 3 can't be deployed to other cloud providers.
@@ -21,4 +18,4 @@ Below you find details about the different cloud components used.
 
 <object data="infrastructure_components.svg" type="image/svg+xml" style="width: 100%;"></object>
 
-{{% children description="true" depth="1" %}}
+{{<children />}}

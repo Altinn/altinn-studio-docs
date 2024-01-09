@@ -1,21 +1,13 @@
 ---
 title: Apps
-description: Team Apps
+description: Team Apps sitt hovedansvar er å assistere tjenesteeiere i migrering av tjenester fra Altinn 2 og utvikling av nye tjenester på Altinn 3. 
 ---
 
-## Mal tjenesteeier
-
-title: Tjenesteeier
-Lenke til org i Altinn Studio
-Lenke til org i TUL
-
-## Forutsetninger
-
-- [ ] Systemer hos tjenesteeier for henting/mottak av data
-- [ ] Beslutning av at migrering kan starte
+## Ansvarsområder
+* Roadmap og planer for migrering av eksisterende tjenester
+* Kartlegge og forstå eksisterende Tjenesteeiernes tjenester, behov og krav
+* Oppfølging og gjennomføring av migrering for og sammen med Tjenesteeiere
+* Behov og kravstiller til Studio og Plattform Nøkkelpartnere
 
 
-
-
-
-{{<children>}}
+{{<children />}}

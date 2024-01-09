@@ -1,70 +1,109 @@
-var lunrIndex, pagesIndex;
+// Setup elastic client
+var client = window.ElasticAppSearch.createClient({
+    searchKey: "search-o7k5ywfvib73vbrih8ay6rxu",
+    endpointBase: "https://altinn-studio-docs-elastic.ent.westeurope.azure.elastic-cloud.com",
+    engineName: "docs-altinn-studio"
+});
+
+
+//Define elastic search options
+var searchOptions = {
+    search_fields: { title: {}, meta_description: {}, meta_keywords: {}, headings: {}, body_content: {} },
+    result_fields: { id: { raw: {} }, title: { raw: {} }, meta_description: { raw: {} }, url: { raw: {} }, url_path: { raw: {} } },
+    analytics: {
+        tags: ["docs-altinn-studio-search"]
+    }
+}
+
+// Define timeout used to wait for user to be done typing
+var timeout = null;
 
 function endsWith(str, suffix) {
     return str.indexOf(suffix, str.length - suffix.length) !== -1;
 }
 
-// Initialize lunrjs using our generated index file
-function initLunr() {
-    if (!endsWith(baseurl,"/")){
-        baseurl = baseurl+'/'
-    };
-
-    // First retrieve the index file
-    $.getJSON(baseurl +"lunr-index.json")
-        .done(function(data) {
-            pagesIndex = data.meta;
-            lunrIndex = lunr.Index.load(data.index); 
+// Trigger search agaist elastic app engine
+function search(query, done) {
+    done([{ title: { raw: "Searching..." }, url_path: { raw: "" }, dummy: true }]);
+    client.search(query, searchOptions)
+        .then(resultList => {
+            result = resultList.rawResults
+                .filter(res => {
+                    if ($("#all-langs").is(":checked")) {
+                        return true;
+                    }
+                    else if (language == "nb") {
+                        return res._meta.engine == "docs-altinn-studio-nb"
+                    } else {
+                        return res._meta.engine == "docs-altinn-studio-en"
+                    }
+                })
+                .map(res => {
+                    res.requestId = resultList.info.meta.request_id;
+                    res.query = query;
+                    return res;
+                })
+            done(result);
         })
-        .fail(function(jqxhr, textStatus, error) {
-            var err = textStatus + ", " + error;
-            console.error("Error getting lunr-index.json: ", err);
+        .catch(error => {
+            console.log(`search error: : ${error}`);
         });
 }
 
-/**
- * Trigger a search in lunr and transform the result
- *
- * @param  {String} query
- * @return {Array}  results
- */
-function search(query) {
-    // Find the item in our index corresponding to the lunr one to have more info
-    return lunrIndex.search(query).map(function(result) {
-            return pagesIndex.filter(function(page) {
-                return page.uri === result.ref;
-            })[0];
-        });
-}
-
-// Let's get started
-initLunr();
-$( document ).ready(function() {
+// Setup horsey
+$(document).ready(function () {
     var horseyList = horsey($("#search-by").get(0), {
         suggestions: function (value, done) {
-            var query = $("#search-by").val();
-            var results = search(query);
-            done(results);
+            clearTimeout(timeout);
+            timeout = setTimeout(function () {
+                var query = $("#search-by").val();
+                if (query.length > 0) {
+                    search(query, done);
+                }
+            }, 500);
         },
         filter: function (q, suggestion) {
             return true;
         },
         set: function (value) {
-            location.href=value.uri;
+            if (value.dummy) {
+                return;
+            }
+            client.click({
+                query: value.query,
+                documentId: value.id.raw,
+                requestId: value.requestId,
+                tags: ["docs-altinn-studio-search"]
+            }).then(r => {
+                location.href = value.href;
+            })
+            .catch(error => {
+                console.log(`click reg error: ${error}`)
+                location.href = value.href;
+            })
+
         },
         render: function (li, suggestion) {
-            var uri = suggestion.uri.substring(1,suggestion.uri.length);
+            var uri = suggestion.url_path.raw;
 
             suggestion.href = baseurl + uri;
 
-            var query = $("#search-by").val();
-            var numWords = 2;
-            var text = suggestion.content.match("(?:\\s?(?:[\\w]+)\\s?){0,"+numWords+"}"+query+"(?:\\s?(?:[\\w]+)\\s?){0,"+numWords+"}");
-            suggestion.context = text;
-            var image = '<div>' + '» ' + suggestion.title + '</div><div style="font-size:12px">' + (suggestion.context || '') +'</div>';
-            li.innerHTML = image;
+            var text = "";
+            if (suggestion.meta_description) {
+                text = suggestion.meta_description.raw;
+            }
+            var lang = "";
+            if (suggestion._meta) {
+                lang = suggestion._meta.engine.substring(suggestion._meta.engine.length - 2);
+            }
+            var title = "";
+            if (suggestion.title) {
+                title = suggestion.title.raw.replace(" – Altinn", "");
+            }
+
+            li.innerHTML = '<div><b>' + title + '</b> <img src="/images/' + lang + '.svg" alt="" style="height: 0.75em; vertical-align:baseline;"/></div><div><i>' + text + '</i></div>';
         },
-        limit: 10
+        limit: 30
     });
     horseyList.refreshPosition();
 });

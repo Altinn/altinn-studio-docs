@@ -5,6 +5,107 @@ toc: true
 tags: [translate-to-norwegian]
 ---
 
+## 4.34.1 (06.04.2022) - Støtte for forsendelsestype på eFormidling forsendelse
+
+Denne releasen muliggjør spesifisering av forsendelsestype. 
+
+Utvid `eFormidling`-seksjonen i applicationmetadata.json med den nye egenskapen `dpfShipmentType` som vist nedenfor.
+
+```json
+  "eFormidling": {
+    ...
+    "dpfShipmentType": "altinn3.skjema"
+  }
+```
+
+## 4.33.0 (15.03.2022) - Støtte for å slå av PDF generering for skjema
+
+- Denne releasen gjør det mulig å slå av PDF generering for enkeltskjema i en applikasjon. 
+
+Dette gjøres ved å sette flag i application metadata på en gitt datatype. Standard er true
+
+Eksempel.
+
+```json
+{
+      "id": "melding",
+      "allowedContentTypes": [ "application/xml" ],
+      "maxCount": 1,
+      "appLogic": {
+        "autoCreate": false,
+        "ClassRef": "App.IntegrationTestsRef.Data.apps.dibk.nabovarsel.Melding"
+      },
+      "taskId": "Task_1",
+      "enablePdfCreation" : false
+    }
+
+```
+
+
+## 4.32.0 (14.03.2022) - Person oppslagstjeneste
+Register applikasjonen i platform har blitt oppdatert med et nytt endepunkt som kan brukes til å verifisere et personnummer. Denne versjonen av NuGet pakkene til en app har fått implementert en oppslagstjeneste som kan brukes til å gjøre oppslag mot dette nye endepunktet i Register.
+
+
+## 4.31.1 (10.03.2022) - Fikset bug relatert til prefill og berriket instance events med personnumer
+
+- Denne releasen løser en bug der prefill av samme verdi til mer enn ett felt kaster en _duplicate key exception_.
+- Personnummer legges nå til i platformUser objektet for instance events.
+  
+## 4.30.0 (07.03.2022) - Støtte for readiness og livenessprober
+Det er nå lagt til et endepunkt for helsesjekk i applikasjonen. 
+Dette benyttes blant annet av Kubernetes til å vite når en applikasjonsinstans er klar til å settes inn i last. 
+
+For alle applikasjon opprettet før 16.03.2022 må det gjøres manuelle endringer
+for å aktivere readiness og liveness probene.
+
+1. I  `App/Startup.cs`
+   1.  Legg til linjen `using Altinn.App.Core.Health;` blant de andre _using_-referansene øverst i filen.
+
+   2. I metoden `ConfigureServices` legger du til linjen 
+
+      ```cs
+      services.AddHealthChecks().AddCheck<HealthCheck>("default_health_check");
+      ```
+   3. I metoden `Configure` legger du til linjen
+
+      ```cs
+      app.UseHealthChecks("/health");
+      ```
+2. I `deployment/Chart.yaml` skal referansen til Studio helm charten oppdateres til versjon `2.1.0`
+   
+   Endelig resultat bør likne på dette: 
+
+   ```yaml
+   apiVersion: v1
+   description: A Helm chart for Kubernetes
+   name: deployment
+   version: 1.1.0
+
+   dependencies:
+   - name: deployment
+      repository: https://charts.altinn.studio/
+      version: 2.1.0
+   ```
+
+3. I `deployment/values.yaml` legger du til 
+
+   ```yaml
+   readiness:
+     enabled: true
+
+   liveness:
+     enabled: true
+   ```
+
+**MERK** antall innrykk er viktig i filen. `readiness` og `liveness` skal stå på nivået under `deployment` 
+og på samme nivå som `volumeMounts` og `volumes`
+
+
+## 4.27.0 (23.02.2022) - Sikre kodelister
+Lagt til støtte for sikre kodelister
+Rettet url og parameter logik i GetInstanceEvents
+Endret redirect url fra string til base64 encoded string
+
 ## 4.26.0 (2022-02-10) - Forbedringer knyttet til PDF og tekstressurser
 
 Nyinnførte tekstressurs `appName`  benyttes som tittel på PDF.
@@ -17,7 +118,7 @@ Det er blitt laget en ny seksjon kalt `FrontEndSettings` for bruk i `appsetting.
 ## 4.24.0 (2020-01-21)
 
 Støtte for språk og query parametre inn til dynamiske kodelister.
-Ny måte å implementere dynamiske kodelister ved hjelp av IAppOptionsProvider. [Se dokumentasjon](../../../../../app/development/data/options/_index.nb.md)
+Ny måte å implementere dynamiske kodelister ved hjelp av IAppOptionsProvider. [Se dokumentasjon](../../../../../app/development/data/options/)
 
 ## 4.23.0 (2022-01-15) - Støtte for BPMN Gateways
 Restrukturering av prosessmotor og støtte for BPMN gateways.
@@ -111,26 +212,26 @@ public class Skjema {
 ```
 Denne endringen må foreløpig bli utført manuelt i både gamle og nye modeller. Modeleditoren i altinn.studio har ikke blitt oppdatert til å gjøre det automatisk.
 
-## 4.13.0 (2021-09-03) - Event for changed substatus on instance
-Changing the substatus of an instance triggers an event `app.instance.substatus.changed` which can be subscribed to in the event component.
+## 4.13.0 (2021-09-03) - Hendelse for endring av substatus
+Det å endre substatus på en instanse trigger nå en event av typen `app.instance.substatus.changed`. Dette kan eksterne systemer abonnere på via Events tjenesten.
 
-This solves issue [#6691](https://github.com/Altinn/altinn-studio/issues/6691)
+Dette løser sak [#6691](https://github.com/Altinn/altinn-studio/issues/6691)
 
-## 4.12.0 (2021-08-27) - Identity data is included in the request telemetry for all requests
-In Application Insights we now register the properties listed below enabling linking of an entity to a specific request received by the application.
+## 4.12.0 (2021-08-27) - Identitetsdata inkludert i request telemetri
+Logging av requests til Application Insights nå inkluderer et lite set med identifiserende data for å mer effektivt kunne spore kilden til uvanlige requester. Følgende data punkter blir registrert:
 
 - partyId
 - authentication level
 - userId 
 - organisationNumber
 
-This solves issue [#5983](https://github.com/Altinn/altinn-studio/issues/5983)
+Dette løser sak [#5983](https://github.com/Altinn/altinn-studio/issues/5983)
 
 
-## 4.11.1 (2021-08-26) - No longer possible to cache response from stateless apps
-Caching of the stateless data responses is no longer possible.
+## 4.11.1 (2021-08-26) - Hindre caching av data for apps uten "state"
+Det er lagt inn kode som gir hint til nettleser om å ikke cache data som blir brukt i apps uten state.
 
-This solves issue [#6532](https://github.com/Altinn/altinn-studio/issues/6532)
+Dette løser [#6532](https://github.com/Altinn/altinn-studio/issues/6532)
 
 ## 4.11.0 (2021-08-03) - Support for disabling reportee selection in Altinn Portal
 Apps now support adding query parameter `DontChooseReportee=true` to disable the reportee selection when an unauthorized user accesses an app. 
@@ -158,8 +259,7 @@ Issue [#6418](https://github.com/Altinn/altinn-studio/issues/6418)
 
 ## 4.9.0 (2021-06-29) - Support for marking a single field validation error as fixed
 It is now possible to mark a previous validation error as fixed by using the prefix `*FIXED*` in front of the original error. 
-[documentation on how to implement the functionality](https://altinn.github.io/docs/altinn-studio/app-creation/logic/validation/#spesifisere-at-valideringsfeil-er-fikset) (in Norwegian )
-
+[documentation on how to implement the functionality](../../../../../app/development/logic/validation/#spesifisere-at-valideringsfeil-er-fikset) (in Norwegian )
 
 ## 4.8.0 (2021-06-22) - Application version number available in AppSettings
 During app deployment an environment variable with the app version number/name is added to the app runtime environment. This version information can now be retrieved in any controller or service through the AppSettings configuration object. Just add a dependency on `AppSettings` into the class and access the new property called `AppVersion`.
@@ -184,11 +284,11 @@ The process to update is
 5. Remove CalculationHandler when code has been moved to DataProcessingHandler.
 6. Compile and test your app. 
 
-See details about data processing [here](https://altinn.github.io/docs/altinn-studio/app-creation/logic/dataprocessing/)
+See details about data processing [here](../../../../../app/development/logic/dataprocessing/)
 
 ## 4.6.2 (2021-06-01) - Duplicate keys in options causing crash
 
-This release has a fix for a crash related to PDF rendering when an app have [options](https://altinn.github.io/docs/altinn-studio/app-creation/data/options/) with duplicate entries. [#5887](https://github.com/Altinn/altinn-studio/issues/5887)
+This release has a fix for a crash related to PDF rendering when an app has [options](../../../../../app/development/data/options/) with duplicate entries. [#5887](https://github.com/Altinn/altinn-studio/issues/5887)
 
 ## 4.6.1. (2021-05-21) Changed alternative subject
 
@@ -198,7 +298,7 @@ Altinn Apps now uses org instead of organization as subject when publishing even
 Altinn Apps now support data fields.
 Data fields allows for adding data values, from either form fields or a custom source, to the instance object.
 Form data can be added by configuring data fields in `applicationmetadata.json` while custom sources require coding.
-Documentation on how to add data values to an instance can be found [here](https://altinn.github.io/docs/altinn-studio/app-creation/configuration/datafields/).
+Documentation on how to add data values to an instance can be found [here](../../../../../app/development/configuration/datafields/).
 
 
 ## 4.5.2 (2021-05-04) - Endpoints for stateless data elements exposed through app. Bug stopping local testing fixed
@@ -222,7 +322,7 @@ Improved performance.
 Altinn Apps now support presentation fields. 
 By specifying presentation fields in `applicationmetadata.json`, speficied data values from the form data
 will be stored on the instance in order to show them along with the app title in the Altinn messagebox. 
-Further documentation on how to configure presentation fields is found [here](https://altinn.github.io/docs/altinn-studio/app-creation/configuration/presentationfields/).
+Further documentation on how to configure presentation fields is found [here](../../../../../app/development/configuration/messagebox/presentationfields/).
 
 This change is related to [this epic](https://app.zenhub.com/workspace/o/altinn/altinn-studio/issues/594).
 

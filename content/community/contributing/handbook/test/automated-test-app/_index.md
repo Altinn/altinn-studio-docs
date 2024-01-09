@@ -3,15 +3,10 @@ title: App for automated test
 description: An app used solely for automated testing in the browser
 tags: [development, testing]
 weight: 100
+toc: true
 ---
 
-[Rules](#rules)
-
-[Conditional rules](#conditional-rules)
-
-[Prefill](#prefill)
-
-## [Change of name app](https://dev.altinn.studio/designer/tdd/endring-av-navn-v2)
+## [Change of name app](https://dev.altinn.studio/designer/ttd/frontend-test)
 
 This is an app which should only be used to run automated tests against.
 It contains these components:

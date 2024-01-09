@@ -6,44 +6,54 @@ toc: true
 tags: [translate-to-english]
 ---
 
-Enkelte tjenesteeiere ønsker at en underleverandør skal kunne agere på vegne av dem, f.eks. leverandører av fagsystemer.
-For å få til det, så må disse API-tilgangene delegeres til leverandøren ved bruk av Altinn.
+Certain service owners want a subcontractor to be able to act on their behalf, e.g. suppliers of specialist systems.
+To achieve that, these API accesses must be delegated to the provider using Altinn.
 
-Det er tjenesteeiers ansvar å selv fjerne delegeringene om behovet for tilgang hos leverandør forsvinner.
+It is the service owner's responsibility to remove the delegations themselves if the supplier no longer need access.
 
-## Delegering av API-tilganger til leverandør
+## Delegation of API access to the supplier
 
-Som en bruker som er nøkkelrolleinnehaver for tjenesteeier (typisk daglig leder aka DAGL), åpne "Andre med rettigheter til virksomheten".
+As a service owner key role user (typically general manager aka DAGL), open "Access to the Application Programming Interface - API".
 
-![Andre med rettigheter](andre-med-rettigheter.png "Andre med rettigheter til virksomheten")
+![Others with rights](en_delegate-scopes-01.png "Access to the Application Programming Interface - API")
 
-![Legg til leverandør](legg-til-org.png "Legg til leverandørens organisasjon")
+![Add delegation](en_delegate-scopes-01b.png "Start delegation")
 
-Så må de nødvendige rettighetene gis.
+![Add the supplier](en_delegate-scopes-02.png "Add the supplier's organization")
 
-- **Altinn tjenesteeier-API: Appinstanser (full tilgang)** - gir tilgang til [scopes](#scopes) for både read og write.
-- **Altinn tjenesteeier-API: Appinstanser (lesetilgang)** - gir kun tilgang til read.
+![Proceed](en_delegate-scopes-03.png "Proceed to the next step")
 
-![Gi rettigheter til leverandør](gi-rettigheter.png "Gi de nødvendige rettighetene til leverandør")
+Then the necessary rights must be granted.
 
-![Bekreft](bekreft-gi-rettigheter.png "Bekreft")
+- **Altinn Service Owner API: App Instances (full access)** - provides access to [scopes](#scopes) for both read and write.
+- **Altinn service owner API: App instances (read access)** - only provides read access.
 
-## Fjerning av delegering
+![Grant rights to supplier](en_delegate-scopes-04.png "Grant the necessary rights to the supplier")
 
-Delegeringer som er gjort kan også fjernes.
-Om en leverandør ikke lenger har behov for API-tilganger så er det tjenesteeier sitt ansvar å fjerne disse.
+![Proceed](en_delegate-scopes-05.png "Proceed to the next step")
 
-![Fjern rettigheter](fjern-en-eller-flere-rettigheter.png "Trykk på \"Fjern en eller flere rettigheter\"")
+![Confirm](en_delegate-scopes-06.png "Confirm")
 
-![Velg rettigheter å fjerne](fjern-rettigheter.png "Velg rettigheter å fjerne")
+![To the overview](en_delegate-scopes-07.png "Go back to the overview")
 
-![Angre fjern rettigheter](angre-fjern-rettigheter.png "Det er mulig å angre fjerning av rettigheter")
+## Removal of delegation
 
-![Fjerning av rettigheter bekreftet](fjerning-bekreftet.png "Bekreftelse på at rettigheter er fjernet")
+Delegations that have been made can also be removed.
+If a supplier no longer needs API access, it is the service owner's responsibility to remove these.
+
+![Remove rights](en_revoke-scopes-01.png "Tap \"Edit Access\"")
+
+![Select rights to remove](en_revoke-scopes-02.png "Select rights to remove")
+
+![Save changes](en_revoke-scopes-03.png "Save changes")
+
+![Undo remove rights](en_revoke-scopes-04.png "It is possible to undo the removal of rights")
+
+![The overview page shows the remaining delegations](en_revoke-scopes-05.png "The overview page shows the remaining delegations")
 
 ## Scopes
 
-Delegering gir tilgang til disse scopene for leverandør:
+Delegation gives access to these scopes for the supplier:
 
 ```js
 altinn:serviceowner/instances.read

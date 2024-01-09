@@ -4,6 +4,129 @@ description: Oversikt over endringer som ble introdusert i v2 av deployment.
 toc: true
 ---
 
+## 2.8.0
+
+* Lagt til annotation config.linkerd.io/skip-outbound-ports: "443"
+* lagt til port 80 i l5d-dst-override url i middleware
+
+## 2.7.0
+
+* Oppdatert timeoutSeconds: 30 for readiness og liveness prober
+
+## 2.6.0
+
+* Lagt til opsjon for startupprobe
+
+## 2.5.0
+
+### Endringer innført
+
+* Øke verdi resource request memory til 256Mi
+
+## 2.4.0
+
+### Endringer innført
+
+* Fjerne satte verdier for linkerd resources
+
+* Legg til hjelpetekst for extra annotations
+
+* Hvis linkerd er aktiv, legg til annotation cluster-autoscaler.kubernetes.io/safe-to-evict: true
+
+## 2.3.0
+
+### Endringer innført
+
+* Oppgrader HorizontalPodAutoscaler fra versjon _autoscaling/v2beta2_ til _autoscaling/v2_
+
+{{%notice warning%}}
+autoscaling/v2beta2 er deprecated i versjon 1.23+ av kubernetes og blir fjernet i versjon 1.26+
+Apps kluster vil ettervert bli oppgradert og deployment av apps som bruker eldre versjoner vil feile når clustrene blir oppgradert til 1.26+
+
+[AKS release kalender](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#aks-kubernetes-release-calendar)
+{{% /notice%}}
+
+
+[Se release på Github](https://github.com/Altinn/altinn-studio-charts/releases/tag/deployment-2.3.0)
+
+## 2.2.0
+
+### Endringer innført
+
+* Muliggjør å sette pod annotasjoner i values.yaml
+ 
+
+### Hvordan sette pod annotasjoner i values.yaml
+
+```yaml
+deployment:
+  podAnnotations:
+    key1: value1
+    key2: value2
+```
+
+[Se release på Github](https://github.com/Altinn/altinn-studio-charts/releases/tag/deployment-2.2.0)
+
+## 2.1.0
+
+{{%notice warning%}}
+Aktivering av liveness og/elelr readiness probe krever at applikasjonen din kjører 
+versjon 4.30.0 eller høyere av Altinn.App.* nugetpakkene.
+{{% /notice%}}
+
+### Endringer innført
+
+* Default CPU og minne tilgjengeliggjort per pod er redusert til henholdsvis 50m og 128Mi.
+* Konfigurerbar liveness og readiness probes er tilgjengelig. Default er at dette er disablet.
+ 
+
+### Nye valgfrie felter med standard verdier tilgjengelig for overstyring i values.yaml
+
+```yaml {linenos=table}
+deployment:
+  readiness:
+    enabled: false
+    path: /health
+    initialDelaySeconds: 30
+    failureThreshold: 3
+    periodSeconds: 3
+    timeoutSeconds: 1
+  liveness:
+    enabled: false
+    path: /health
+    initialDelaySeconds: 3
+    failureThreshold: 3
+    periodSeconds: 10
+```
+
+Gjennomgang: 
+
+__3.__ Aktiver eller deaktiver readinessprobe for denne applikasjonen.
+
+__4.__ Pathen til readiness-endepunktet i applikasjonen.
+
+__5.__ Hvor mange sekunder man venter før readinessproben begynner etter at containeren har startet.
+
+__6.__ Minimum antall påfølgende feil før readinessproben ansees som feilet.
+
+__7.__ Frekvens for readinessprobing
+
+__8.__ Hvor mange sekunder før readinessproben timer ut
+
+__10.__ Aktiver eller deaktiver livenessprobe for denne applikasjonen.
+
+__11.__ Pathen til liveness-endepunktet i applikasjonen.
+
+__12.__ Hvor mange sekunder man venter før livenessproben begynner etter at containeren har startet.
+
+__13.__ Minimum antall påfølgende feil før livenessproben ansees som feilet.
+
+__13.__ Frekvens for livenessprobing
+
+__14.__ Hvor mange sekunder før livenessproben timer ut
+
+[Se release på Github](https://github.com/Altinn/altinn-studio-charts/releases/tag/deployment-2.1.0)
+
 ## 2.0.0
 
 {{%notice warning%}}
@@ -69,7 +192,7 @@ deployment:
       memoty: 512Mi
 ```
 
-Lines walkthrough
+Gjennomgang
 
 __4.__ Øvre grense for CPU millicores en pod kan benytte. Forsøk på bruk utover dette vil føre til CPU throttling.
 
@@ -78,3 +201,5 @@ __5.__ Øvre grense for minne en pod kan benytte. Pods som forsøker å allokere
 ### Pull requests merged
 
 * [Horizontal Pod Autoscaler (PR #3)](https://github.com/Altinn/altinn-studio-charts/pull/3)
+
+[Se release på Github](https://github.com/Altinn/altinn-studio-charts/releases/tag/deployment-2.3.0)

@@ -1,0 +1,57 @@
+{
+    "identifier": "dodsbo.domstoladmin.api",
+    "title": [
+        {
+            "title": "Domstoladministrasjonen Digitalt dødsbo API ",
+            "language": "nb-NO"
+        },
+        {
+            "title": "Domstoladministrasjonen Dødsbo API",
+            "language": "en"
+        }
+    ],
+    "description": [
+        {
+            "language": "nb-NO",
+            "description": "API med informasjon om dødsbo."
+        },
+        {
+            "language": "EN",
+            "description": "API that exposes information about estate. REST in Peace"
+        }
+    ],
+    "rightDescription": [
+        {
+            "language": "nb-NO",
+            "description": "API med informasjon om dødsbo."
+        },
+        {
+            "language": "EN",
+            "description": "API that exposes information about estate. REST in Peace"
+        }
+    ],
+    "homepage": "https://www.domstol.no/",
+    "status": "Completed",
+    "contactPoints": [
+        {
+            "category": null,
+            "telephone": "1231324",
+            "email": "online@digdir.no",
+            "contactPage": null
+        }
+    ],
+    "hasCompetentAuthority": {
+        "organization": "984195796",
+        "orgcode": "DA"
+    },
+    "thematicArea": [],
+    "keyword": [
+        {
+            "keyword": "Dødsbo"
+        }
+    ],
+    "LimitedByRRR": false,
+    "SelfIdentifiedUserEnabled": false,
+    "EnterpriseUserEnabled": false,
+    "resourceType": "GenericAccessResource"
+}

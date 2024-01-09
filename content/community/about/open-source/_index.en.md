@@ -37,7 +37,7 @@ But to be clear, reuse is something we in Altinn consider a *central* motivation
 [open source strategy](https://ec.europa.eu/info/sites/default/files/en_ec_open_source_strategy_2020-2023.pdf) (PDF)
 for a long time.
 
-![We share our code and enable incidental ciontributions to related open-source projects](eu-strategy.png "EU Governing Principle 5.3 - Share")
+![We share our code and enable incidental contributions to related open-source projects](eu-strategy.png "EU Governing Principle 5.3 - Share")
 
 We facilitate reuse and sharing at all levels of the Altinn architecture, from [our principles](/principles)
 to the entire platform and infrastructure, down to design and UI-widgets, code and configuration.
@@ -71,7 +71,7 @@ and easily link to issues across software.
 And since Altinn is open source at Github, it is as easy for everyone else to do the same thing to us.
 Both [creating new issues](https://github.com/Altinn/altinn-studio/issues/new/choose),
 contribute in discussions or contribute code, something the label
-[external-contribution-❤️](https://github.com/Altinn/altinn-studio/pulls?q=is%3Apr+label%3Aexternal-contribution-%E2%9D%A4%EF%B8%8F)
+[external-contribution-❤️](https://github.com/search?q=org%3AAltinn+label%3Aexternal-contribution-%E2%9D%A4%EF%B8%8F&type=pullrequests)
 illustrates well.
 
 ## Vendor bindings
@@ -83,7 +83,7 @@ End-of-life for proprietary software is actually the main reason for why we had 
 
 When building a solution on top of proprietary software, then you've lost control over your own future,
 for example if the vendor chooses to phase out the product.  
-If your solution is built on top of open source products then you, or anybode else, can
+If your solution is built on top of open source products then you, or anybody else, can
 make a [fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo) in such a situation.
 
 Altinn 3 is therefore [based on software and libraries](../../../technology/tools/) which is open source.

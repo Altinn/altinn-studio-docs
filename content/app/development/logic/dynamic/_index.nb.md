@@ -4,26 +4,40 @@ description: Hvordan legge til dynamikk?
 toc: true
 ---
 
+{{% panel theme="warning" %}}
+⚠️ Dynamikk er et område under aktiv utvikling. Logikk-filer skrevet i JavaScript fases etterhvert ut og blir erstattet
+av [dynamiske uttrykk](../expressions). Foreløpig gjelder dette dynamikk for vis/skjul, men etterhvert skal uttrykk
+også kunne brukes for å utføre beregninger og styre valideringsmeldinger.
+{{% /panel %}}
+
 ## Introduksjon
 
 Dynamikk er hendelser som skjer på klient-siden. Disse kan deles opp i to kategorier:
 - Beregning - kjøre beregninger på klient-side, og oppdatere felter med ny verdi
 - Vis/skjul felter - bestemme om felter skal vises eller skjules basert på verdier i skjema.
 
-All dynamikk skrives som funksjoner i javascript, i filen  `RuleHandler.js`. Denne filen finner man under `App/ui`-mappen i appen, og kan også redigeres direkte i `Lage`-
-visningen i Altinn Studio, ved å velge _Rediger dynamikk_ i høyre-menyen. Funksjonene som er definert i denne filen kan da configurere til å kjøres for feltene i skjemaet.
+Det er to måter å legge til og endre dynamikkregler for en Altinn App.
+1. Direkte i Altinn Studio under _Lage_-fanen. Velg _Rediger dynamikk_ i høyre-menyen.
+2. I lokalt utviklingsmiljø ved å jobbe i filen `RuleHandler.js` som finnes i `App/ui`-mappen .
+
+
+All dynamikk skrives som funksjoner i JavaScript i _RuleHandler_-filen. 
+Funksjonene som er definert i denne filen kan videre konfigureres til å kjøres for feltene i skjemaet.
 
 {{%notice info%}}
-Koden som definerer beregninger eller regler for vis/skjul bør settes opp sånn at den håndterer ev. feil i input. F.eks. bør de takle
-å motta tom input, eller å motta en tekst selv om de forventer et tall, uten å kræsje. Om dynamikken ikke fungerer som forventet, ta en titt på koden som definerer
+Koden som definerer beregninger eller regler for vis/skjul bør settes opp slik at den håndterer eventuell feil i input.
+Blant annet bør de håndtere å motta et tomt felt, eller tekst der man forventer et tall, uten å kræsje.
+Dersom dynamikken ikke fungerer som forventet, ta en titt på koden som definerer
 beregninger eller regler for vis/skjul for å se om det er noe feilhåndtering som mangler.
 {{% /notice%}}
 
-{{%notice warning%}}**MERK**: for å støtte beregning/vis-skjul felter på eldre nettlesere så må man skrive javascript koden man legger i `RuleHandler.js` i den versjonen av ECMA-script som den aktuelle nettleseren støtter. For IE11 vil dette være ECMA-script 5. {{%/notice%}}
+{{%notice warning%}}MERK: For å støtte beregning/vis-skjul felter på eldre nettlesere, må man skrive 
+JavaScript-koden man legger i `RuleHandler.js` i den versjonen av ECMAScript som den aktuelle nettleseren støtter. 
+For IE11 vil dette være ECMAScript 5. {{%/notice%}}
 
 ## Legg til/rediger funksjoner for beregninger eller vis/skjul
 
-I filen `RuleHandler.js` er det satt opp 2 javascript-objekter:
+I filen `RuleHandler.js` er det satt opp to JavaScript-objekter:
 
 - `ruleHandlerObject` - funksjoner for beregninger
 - `conditionalRuleHandlerObject` - funksjoner med regler for vis/skjul
@@ -88,13 +102,13 @@ var ruleHandlerObject = {
 }
 ```
 
-Noen standard-metoder for beregniner, med hjelpe-objekt, er satt opp automatisk når app'en lages i Altinn Studio. Noen av disse er vist i eksempelet under.
+Noen standard-metoder for beregninger, med hjelpe-objekt, er satt opp automatisk når appen lages i Altinn Studio. Noen av disse er vist i eksempelet under.
 
 | Method name          | Description                                                      | Parameters              | Defined in object/helper                                      |
-| -------------------- | ---------------------------------------------------------------- | ----------------------- | ------------------------------------------------------------- |
+|----------------------| ---------------------------------------------------------------- | ----------------------- | ------------------------------------------------------------- |
 | `sum`                | Returnerer summen av 2 verdier                        | `value1`, `value2`      | `ruleHandlerObject`/`ruleHandlerHelper`                       |
 | `fullName`           | Returnerer to tekster (fornavn og etternavn) satt sammen med mellomrom mellom. | `firstName`, `lastName` | `ruleHandlerObject`/`ruleHandlerHelper`                       |
-| `lengthGreaterThan4` | Returnerer `true` dersom verdien den får inn er lengre enn 4 karakterer lang.  | `value`                 | `conditionalRuleHandlerObject`/`conditionalRuleHandlerHelper` |
+| `lengthBiggerThan4`  | Returnerer `true` dersom verdien den får inn er lengre enn 4 karakterer lang.  | `value`                 | `conditionalRuleHandlerObject`/`conditionalRuleHandlerHelper` |
 
 
 Regler for dynamikk kjøres dersom det har skjedd en endring i input-parametrene til de forskjellige reglene. 
@@ -150,10 +164,13 @@ var conditionalRuleHandlerHelper = {
 
 1. Legg til de skjema-komponentene som ønskes i layout.
 2. I høyre-menyen, velg å legge til _Regler for beregninger_ eller _Regler for vis/skjul felt_.
+   ![Regler for vis/skjul knapp](rules-show-hide.png)
 3. Velg en tilgjengelig funksjon som gjør det du ønsker. Legg evt. til en ny funksjon, se beskrivelse over.
+    ![Velg regel](rules-select-rule.png)
 4. Sett opp hvilke(t) felt som skal fungere som _input_ til funksjonen - her er det felt i datamodellen som gjelder.
-5. Sett opp hvilke(t) fom skal påvirkes av regelen (skal motta beregnet verdi, eller skal vises/skjules) - her er det skjemakomponent som gjelder.
-  - For regler for vis/skjul felt kan man velge flere felter som skal vises/skjules basert på samme regel.
+    ![Konfigurere dynamikk](rules-configure.png)
+5. Sett opp hvilke(t) felt som skal påvirkes av regelen (skal motta beregnet verdi, eller skal vises/skjules) - her er det skjemakomponent som gjelder.
+   - For regler for vis/skjul felt kan man velge flere felter som skal vises/skjules basert på samme regel.
 6. Lagre konfigurasjonen.
 7. Test at det fungerer som forventet.
 
@@ -236,6 +253,36 @@ Et eksempel på en regel som er satt opp for repeterende grupper vises under:
       }
     }
   }
+}
+```
+
+### Nøstede repeterende grupper
+
+Det er også mulig å sette opp dynamikk for nøstede repeterende grupper. Oppsettet likner på repeterende grupper, men man har med et ektra parameter `childGroupId` i `repeatingGroup`-objektet, samt en ekstra indeks-indikator.
+
+Eksempel: 
+
+```json {hl_lines=[8,12,14,15,16]}
+{
+    "data": {
+        "ruleConnection": {},
+        "conditionalRendering": {
+            "hide-nested-group-field": {
+                "selectedFunction": "shouldHide",
+                "inputParams": {
+                    "value": "someGroup{0}.nestedGroup{1}.someField"
+                },
+                "selectedAction": "Hide",
+                "selectedFields": {
+                    "field": "the-component-id{0}{1}"
+                },
+                "repeatingGroup": {
+                    "groupId": "mainGroup",
+                    "childGroupId": "subGroup"
+                }
+            }
+        }
+    }
 }
 ```
 
@@ -341,7 +388,7 @@ var conditionalRuleHandlerHelper = {
 
 Fra versjon 3.0.0 er det også mulig å legge inn dynamikk for PDF. Dette gjøres i PDF Handler. Her kan man ved hjelp av logikk velge å skjulte felter eller sider i print.
 
-Appen må inkludere `layout/ui/Settings.json` filen som [her](../../../../app/development/ux/pages/navigation/#rekkefølge).
+Appen må inkludere `ui/Settings.json` filen som [her](../../../../app/development/ux/pages/navigation/#rekkefølge).
 
 Teknisk er det veldlig likt hvordan man gjør det for validering. 
 

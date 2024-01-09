@@ -1,0 +1,853 @@
+<svg host="65bd71144e" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="1076px" height="1311px" viewBox="-0.5 -0.5 1076 1311" content="&lt;mxfile&gt;&lt;diagram id=&quot;HRTZK2QyTlv-Rvu_MV-y&quot; name=&quot;Page-1&quot;&gt;5Z1bc9o6EIB/DY9hfMG3xwTSNnPaOZnSTh87wl6MTg3yyCaB/voj2TIYMDQ4rqVEPCT2+sJ692NtSav1wB4vNx8pShdfSATJwDKizcCeDCzLtF2f/eOSrZD4lltKYoojIdsLpvg3CKEhpGscQXawY05IkuP0UBiS1QrC/ECGKCXPh7vNSXL4rSmK4UQwDVFyKv2Bo3xRSn3L28s/AY4X1TebblBuWaJqZ3El2QJF5Lkmsu8H9pgSkpdLy80YEm69yi7lcR/ObN0pRmGVv+QAqzzgCSVrcW1Cr3xbXSwl61UEfH9jYN89L3AO0xSFfOsz8y+TLfJlwtZMtjjHSTImCaHFsfbMABtcJs9ySn5BbYsBvuH7bItQAGgOm7MXYe5Mw6ACsoScbtku4gBHGLPCKRDrz3vfmIbrlMJFzTGeLfZEAoh4d+69zdiCMFux+j0D+u/sP46VZSRoBkl56G2aJjhEOSarL5CjCcpRee4Er36VuyzynAN6y09tfYhxvljPhiFZspVbBu9qxRZQsXCT5esIE7Y+S8iMa4CyHChfR+EvWEVsKaMh+zuBDMerYtOYrJiVkwRoxs94qE/E9NnvMAyzvXLfEI1BWOTnLEFM3WJbxYhdM77Apy0elOSFRmw1ME5xcQ0UmB6XM01r8nnxacLImniuwc+EEmYGJgsZM8war+NKgGT5DSBVcNU5Gl2PEVutkXSRLOa2OY6lwlSq0JKf0Vvgp/swpAg9PBAt+S04e7sEOZoQZBpqIgRpQrZLdhFyGarp0RIkVxeQ1IxF9+zZm0pFqNCgJTyeJvBYakahz2gVr3nDTCY/lRJtA5CvC0NqBiDRFyERoEKDlvAEmsBjqxmAHnEKzE0g9yFop0VLiExDF4rUDEGPFJ4wPL/pu5hpasLQSM1I9BUSQJnkQFQp0ZYhSxeG1IxDXyElGc6JOJ88iio12nL0JrqnO+DIUTUWVQ6cQs6giGVHpWN12nKlTbe1mvFpCvQJhzCBJ0hIyjv9pHJ1qk5brnTpzHbVjFdTyDJusvcBky4d2q6aQeobbPJ/YCv3ltcdTbr0cHtqhiZO03tBSZeObk/NwPQd30f8KVgqTd8fSiXaMqRLf7evZjjicrn8MAVaslNLpnzn7MiNP6cJpeIKLmWUoiwts3LneMOdUDd2SjBPM2H7OXcDZ9KU2YeXRXpuYW+RG2xae/kEL2OmaYI5dOj3mgK/IJIvCsJuHx9+PlKy2Q6zp7ijW4A3NA99YJ76wHaGXnDqBet6L5ya3NLO5KbFbG4EtY9UB9j6OYBDL5f6kXZGtyzpRnf0M7p80l3tjG7LJ93Tz+jySfe1M/pIPumBfkaXTno18UwjozvSSbf1a5s68knXr3XqVr9uSRbXrznqysdcv+aoJz+g69cc9eSTrl9z1JdPun7NUV8+6fo1R4O+ST87TYIkOJSbmvyK4Ue7v6HrCIE/DwcNw4xu6MOMD0DGFEUYDgYnPUAudDQEGag5fP0VMrKmodz5oq9gaNTfELYCDCk2jD3Sr6sgkD2OPdKvp8A0rH6NfrF6FSnLRT2s5oQuy3jRb+wU6Yc8cD4s0wR4AqLQo17PqqagOOK6wNrfjCHDcAxozAEyDHNyN25i9FwaUQe43RhD4yBrIvB874C+XSqa3Ht3Q/EyNVGstGvFYY8zQZBhFBC9OEfN9gxj3MhnBxw6jEPTqH0cJSFc5wtC8e/CsFLaI31A2OMMErUgPC62pQh1+yJXCsG2V6oVYz3OK1GMMUdJxj4yEyP2OPuDmTftPcn7EmhHml2HWY9zTtTCzDL4DVVF0iQV7bqE2K74SatQ1uOcFMUYUzOUVeWQFAKsUqkNX06P81bU4stWNoaJQjcKESY0agVYj6WbFANMzQAmrQ7PZcB2VVQersPL0hWvkbLxaxouYIlklL68hFhNq1ZxrMeyT4qB5igLWjHeKoY7P5M4xqt4AiFQ1P9M9IvoNetJCj2vo7DHIlFqUeioG+7q3n2f1Ok7cKDmMxwv3CIp3eQScXW1Wt1jtR0bOK5dphBnwpGKYdaqM83RdlzAVfYZroSFD32ySxHji12wllOAF7L2bZtC9Il9xzjB5TtnPlzW6o+c9TcwEDE3evY1nN2yJ6lR528wO1OdSjnI5I6vXyRtp1qztFS4PPC6qNdjbrBaNB7XuVKKxil7Ckcx3KappIyjszAKzY7Xa5q2oNDtMbtYMQpVjonCtxIbFNdiWFe1DYf9jUeoxmEQDI/qVqmCIs98nsAT+TfN7tY4iRRAUKjENDpcK/Rrw11/AxWKcReMZHN3kvnvvmDG+mteQy37JTIHxr6xG99P7TWY2zGvt/e5HzVK05uo22L6x226OWXmLX/Tjd+2c3eHveYd+Ie3xa0jFzVMP7IM9rvxG34T/l8NxtySaXfvjPqDzw6+aeevDvsBO/AX42dYlVy86DDLGXreX3PYaRQ7naMdoWwxI4hGrwtnnUB+HIUaLdYU81uY69Q2p1Opq4fGTLptGgpZnDGPNfQb5mG1BIoSkte2fWSXtihH6e37/wE=&lt;/diagram&gt;&lt;/mxfile&gt;">
+    <defs>
+        <linearGradient x1="0%" y1="0%" x2="0%" y2="100%" id="mx-gradient-dae8fc-1-7ea6e0-1-s-0">
+            <stop offset="0%" style="stop-color: rgb(218, 232, 252); stop-opacity: 1;"/>
+            <stop offset="100%" style="stop-color: rgb(126, 166, 224); stop-opacity: 1;"/>
+        </linearGradient>
+    </defs>
+    <g>
+        <rect x="10" y="580" width="1065" height="730" fill="#b0e3e6" stroke="#0e8088" pointer-events="all"/>
+        <a xlink:href="https://github.com/Altinn/altinn-studio/blob/master/backend/src/Designer/Controllers/ApplicationMetadataController.cs" target="_blank">
+            <rect x="-40" y="670" width="190" height="40" fill="#60a917" stroke="#2d7600" transform="rotate(90,55,690)" pointer-events="all"/>
+            <g transform="translate(-0.5 -0.5)rotate(90 55 690)">
+                <switch>
+                    <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 188px; height: 1px; padding-top: 690px; margin-left: -39px;">
+                            <div data-drawio-colors="color: #ffffff; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                                <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
+                                    ApplicationMetaData
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="55" y="694" fill="#ffffff" font-family="Helvetica" font-size="12px" text-anchor="middle">
+                        ApplicationMetaData
+                    </text>
+                </switch>
+            </g>
+        </a>
+        <a xlink:href="https://github.com/Altinn/altinn-studio/blob/master/backend/src/Designer/Controllers/ConfigController.cs" target="_blank">
+            <rect x="10" y="670" width="190" height="40" fill="#60a917" stroke="#2d7600" transform="rotate(90,105,690)" pointer-events="all"/>
+            <g transform="translate(-0.5 -0.5)rotate(90 105 690)">
+                <switch>
+                    <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 188px; height: 1px; padding-top: 690px; margin-left: 11px;">
+                            <div data-drawio-colors="color: #ffffff; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                                <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
+                                    Config
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="105" y="694" fill="#ffffff" font-family="Helvetica" font-size="12px" text-anchor="middle">
+                        Config
+                    </text>
+                </switch>
+            </g>
+        </a>
+        <a xlink:href="https://github.com/Altinn/altinn-studio/blob/master/backend/src/Designer/Controllers/ConfigController.cs" target="_blank">
+            <rect x="60" y="670" width="190" height="40" fill="#60a917" stroke="#2d7600" transform="rotate(90,155,690)" pointer-events="all"/>
+            <g transform="translate(-0.5 -0.5)rotate(90 155 690)">
+                <switch>
+                    <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 188px; height: 1px; padding-top: 690px; margin-left: 61px;">
+                            <div data-drawio-colors="color: #ffffff; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                                <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
+                                    Datamodels
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="155" y="694" fill="#ffffff" font-family="Helvetica" font-size="12px" text-anchor="middle">
+                        Datamodels
+                    </text>
+                </switch>
+            </g>
+        </a>
+        <a xlink:href="https://github.com/Altinn/altinn-studio/blob/master/backend/src/Designer/Controllers/DeploymentsController.cs" target="_blank">
+            <rect x="110" y="670" width="190" height="40" fill="#60a917" stroke="#2d7600" transform="rotate(90,205,690)" pointer-events="all"/>
+            <g transform="translate(-0.5 -0.5)rotate(90 205 690)">
+                <switch>
+                    <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 188px; height: 1px; padding-top: 690px; margin-left: 111px;">
+                            <div data-drawio-colors="color: #ffffff; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                                <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
+                                    Deployments
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="205" y="694" fill="#ffffff" font-family="Helvetica" font-size="12px" text-anchor="middle">
+                        Deployments
+                    </text>
+                </switch>
+            </g>
+        </a>
+        <a xlink:href="https://github.com/Altinn/altinn-studio/blob/master/backend/src/Designer/Controllers/ErrorController.cs" target="_blank">
+            <rect x="160" y="670" width="190" height="40" fill="#60a917" stroke="#2d7600" transform="rotate(90,255,690)" pointer-events="all"/>
+            <g transform="translate(-0.5 -0.5)rotate(90 255 690)">
+                <switch>
+                    <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 188px; height: 1px; padding-top: 690px; margin-left: 161px;">
+                            <div data-drawio-colors="color: #ffffff; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                                <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
+                                    Error
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="255" y="694" fill="#ffffff" font-family="Helvetica" font-size="12px" text-anchor="middle">
+                        Error
+                    </text>
+                </switch>
+            </g>
+        </a>
+        <a xlink:href="https://github.com/Altinn/altinn-studio/blob/master/backend/src/Designer/Controllers/LanguagesController.cs" target="_blank">
+            <rect x="210" y="670" width="190" height="40" fill="#60a917" stroke="#2d7600" transform="rotate(90,305,690)" pointer-events="all"/>
+            <g transform="translate(-0.5 -0.5)rotate(90 305 690)">
+                <switch>
+                    <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 188px; height: 1px; padding-top: 690px; margin-left: 211px;">
+                            <div data-drawio-colors="color: #ffffff; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                                <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
+                                    Language
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="305" y="694" fill="#ffffff" font-family="Helvetica" font-size="12px" text-anchor="middle">
+                        Language
+                    </text>
+                </switch>
+            </g>
+        </a>
+        <a xlink:href="https://github.com/Altinn/altinn-studio/blob/master/backend/src/Designer/Controllers/ModelController.cs" target="_blank">
+            <rect x="260" y="670" width="190" height="40" fill="#60a917" stroke="#2d7600" transform="rotate(90,355,690)" pointer-events="all"/>
+            <g transform="translate(-0.5 -0.5)rotate(90 355 690)">
+                <switch>
+                    <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 188px; height: 1px; padding-top: 690px; margin-left: 261px;">
+                            <div data-drawio-colors="color: #ffffff; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                                <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
+                                    Model
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="355" y="694" fill="#ffffff" font-family="Helvetica" font-size="12px" text-anchor="middle">
+                        Model
+                    </text>
+                </switch>
+            </g>
+        </a>
+        <a xlink:href="https://github.com/Altinn/altinn-studio/blob/master/backend/src/Designer/Controllers/PipelinesController.cs" target="_blank">
+            <rect x="310" y="670" width="190" height="40" fill="#60a917" stroke="#2d7600" transform="rotate(90,405,690)" pointer-events="all"/>
+            <g transform="translate(-0.5 -0.5)rotate(90 405 690)">
+                <switch>
+                    <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 188px; height: 1px; padding-top: 690px; margin-left: 311px;">
+                            <div data-drawio-colors="color: #ffffff; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                                <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
+                                    Pipelines
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="405" y="694" fill="#ffffff" font-family="Helvetica" font-size="12px" text-anchor="middle">
+                        Pipelines
+                    </text>
+                </switch>
+            </g>
+        </a>
+        <a xlink:href="https://github.com/Altinn/altinn-studio/blob/master/backend/src/Designer/Controllers/LanguagesController.cs" target="_blank">
+            <rect x="360" y="670" width="190" height="40" fill="#60a917" stroke="#2d7600" transform="rotate(90,455,690)" pointer-events="all"/>
+            <g transform="translate(-0.5 -0.5)rotate(90 455 690)">
+                <switch>
+                    <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 188px; height: 1px; padding-top: 690px; margin-left: 361px;">
+                            <div data-drawio-colors="color: #ffffff; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                                <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
+                                    Preview
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="455" y="694" fill="#ffffff" font-family="Helvetica" font-size="12px" text-anchor="middle">
+                        Preview
+                    </text>
+                </switch>
+            </g>
+        </a>
+        <a xlink:href="https://github.com/Altinn/altinn-studio/blob/master/backend/src/Designer/Controllers/ReleasesController.cs" target="_blank">
+            <rect x="410" y="670" width="190" height="40" fill="#60a917" stroke="#2d7600" transform="rotate(90,505,690)" pointer-events="all"/>
+            <g transform="translate(-0.5 -0.5)rotate(90 505 690)">
+                <switch>
+                    <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 188px; height: 1px; padding-top: 690px; margin-left: 411px;">
+                            <div data-drawio-colors="color: #ffffff; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                                <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
+                                    Releases
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="505" y="694" fill="#ffffff" font-family="Helvetica" font-size="12px" text-anchor="middle">
+                        Releases
+                    </text>
+                </switch>
+            </g>
+        </a>
+        <a xlink:href="https://github.com/Altinn/altinn-studio/blob/master/backend/src/Designer/Controllers/RepositoryController.cs" target="_blank">
+            <rect x="460" y="670" width="190" height="40" fill="#60a917" stroke="#2d7600" transform="rotate(90,555,690)" pointer-events="all"/>
+            <g transform="translate(-0.5 -0.5)rotate(90 555 690)">
+                <switch>
+                    <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 188px; height: 1px; padding-top: 690px; margin-left: 461px;">
+                            <div data-drawio-colors="color: #ffffff; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                                <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
+                                    Repository
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="555" y="694" fill="#ffffff" font-family="Helvetica" font-size="12px" text-anchor="middle">
+                        Repository
+                    </text>
+                </switch>
+            </g>
+        </a>
+        <a xlink:href="https://github.com/Altinn/altinn-studio/blob/master/backend/src/Designer/Controllers/RepositorySettingsController.cs" target="_blank">
+            <rect x="510" y="670" width="190" height="40" fill="#60a917" stroke="#2d7600" transform="rotate(90,605,690)" pointer-events="all"/>
+            <g transform="translate(-0.5 -0.5)rotate(90 605 690)">
+                <switch>
+                    <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 188px; height: 1px; padding-top: 690px; margin-left: 511px;">
+                            <div data-drawio-colors="color: #ffffff; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                                <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
+                                    RepositorySettings
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="605" y="694" fill="#ffffff" font-family="Helvetica" font-size="12px" text-anchor="middle">
+                        RepositorySettings
+                    </text>
+                </switch>
+            </g>
+        </a>
+        <a xlink:href="https://github.com/Altinn/altinn-studio/blob/master/backend/src/Designer/Controllers/ServiceDevelopmentController.cs" target="_blank">
+            <rect x="560" y="670" width="190" height="40" fill="#60a917" stroke="#2d7600" transform="rotate(90,655,690)" pointer-events="all"/>
+            <g transform="translate(-0.5 -0.5)rotate(90 655 690)">
+                <switch>
+                    <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 188px; height: 1px; padding-top: 690px; margin-left: 561px;">
+                            <div data-drawio-colors="color: #ffffff; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                                <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
+                                    ServiceDevelopment
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="655" y="694" fill="#ffffff" font-family="Helvetica" font-size="12px" text-anchor="middle">
+                        ServiceDevelopment
+                    </text>
+                </switch>
+            </g>
+        </a>
+        <a xlink:href="https://github.com/Altinn/altinn-studio/blob/master/backend/src/Designer/Controllers/ServiceDevelopmentController.cs" target="_blank">
+            <rect x="610" y="670" width="190" height="40" fill="#60a917" stroke="#2d7600" transform="rotate(90,705,690)" pointer-events="all"/>
+            <g transform="translate(-0.5 -0.5)rotate(90 705 690)">
+                <switch>
+                    <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 188px; height: 1px; padding-top: 690px; margin-left: 611px;">
+                            <div data-drawio-colors="color: #ffffff; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                                <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
+                                    Session
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="705" y="694" fill="#ffffff" font-family="Helvetica" font-size="12px" text-anchor="middle">
+                        Session
+                    </text>
+                </switch>
+            </g>
+        </a>
+        <a xlink:href="https://github.com/Altinn/altinn-studio/blob/master/backend/src/Designer/Controllers/ServiceDevelopmentController.cs" target="_blank">
+            <rect x="660" y="670" width="190" height="40" fill="#60a917" stroke="#2d7600" transform="rotate(90,755,690)" pointer-events="all"/>
+            <g transform="translate(-0.5 -0.5)rotate(90 755 690)">
+                <switch>
+                    <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 188px; height: 1px; padding-top: 690px; margin-left: 661px;">
+                            <div data-drawio-colors="color: #ffffff; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                                <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
+                                    TextKeys
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="755" y="694" fill="#ffffff" font-family="Helvetica" font-size="12px" text-anchor="middle">
+                        TextKeys
+                    </text>
+                </switch>
+            </g>
+        </a>
+        <a xlink:href="https://github.com/Altinn/altinn-studio/blob/master/backend/src/Designer/Controllers/ServiceDevelopmentController.cs" target="_blank">
+            <rect x="710" y="670" width="190" height="40" fill="#60a917" stroke="#2d7600" transform="rotate(90,805,690)" pointer-events="all"/>
+            <g transform="translate(-0.5 -0.5)rotate(90 805 690)">
+                <switch>
+                    <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 188px; height: 1px; padding-top: 690px; margin-left: 711px;">
+                            <div data-drawio-colors="color: #ffffff; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                                <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
+                                    Texts
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="805" y="694" fill="#ffffff" font-family="Helvetica" font-size="12px" text-anchor="middle">
+                        Texts
+                    </text>
+                </switch>
+            </g>
+        </a>
+        <a xlink:href="https://github.com/Altinn/altinn-studio/blob/master/backend/src/Designer/Controllers/UIEditorController.cs" target="_blank">
+            <rect x="760" y="670" width="190" height="40" fill="#60a917" stroke="#2d7600" transform="rotate(90,855,690)" pointer-events="all"/>
+            <g transform="translate(-0.5 -0.5)rotate(90 855 690)">
+                <switch>
+                    <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 188px; height: 1px; padding-top: 690px; margin-left: 761px;">
+                            <div data-drawio-colors="color: #ffffff; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                                <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
+                                    UiEditor
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="855" y="694" fill="#ffffff" font-family="Helvetica" font-size="12px" text-anchor="middle">
+                        UiEditor
+                    </text>
+                </switch>
+            </g>
+        </a>
+        <a xlink:href="https://github.com/Altinn/altinn-studio/blob/master/backend/src/Designer/Controllers/UserController.cs" target="_blank">
+            <rect x="810" y="670" width="190" height="40" fill="#60a917" stroke="#2d7600" transform="rotate(90,905,690)" pointer-events="all"/>
+            <g transform="translate(-0.5 -0.5)rotate(90 905 690)">
+                <switch>
+                    <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 188px; height: 1px; padding-top: 690px; margin-left: 811px;">
+                            <div data-drawio-colors="color: #ffffff; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                                <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
+                                    User
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="905" y="694" fill="#ffffff" font-family="Helvetica" font-size="12px" text-anchor="middle">
+                        User
+                    </text>
+                </switch>
+            </g>
+        </a>
+        <image x="36.6" y="599.5" width="35.79" height="20" xlink:href="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcKICAgd2lkdGg9IjE4IgogICBoZWlnaHQ9IjkuOTU5ODI0NiIKICAgdmlld0JveD0iMCAwIDE4IDkuOTU5ODI0NiIKICAgdmVyc2lvbj0iMS4xIgogICBpZD0ic3ZnNTQ0MTciCiAgIHNvZGlwb2RpOmRvY25hbWU9IkFQSV9Qcm94eS5zdmciCiAgIGlua3NjYXBlOnZlcnNpb249IjEuMSAoYzY4ZTIyYzM4NywgMjAyMS0wNS0yMykiCiAgIHhtbG5zOmlua3NjYXBlPSJodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy9uYW1lc3BhY2VzL2lua3NjYXBlIgogICB4bWxuczpzb2RpcG9kaT0iaHR0cDovL3NvZGlwb2RpLnNvdXJjZWZvcmdlLm5ldC9EVEQvc29kaXBvZGktMC5kdGQiCiAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHNvZGlwb2RpOm5hbWVkdmlldwogICBpZD0ibmFtZWR2aWV3NTQ0MTkiCiAgIHBhZ2Vjb2xvcj0iI2ZmZmZmZiIKICAgYm9yZGVyY29sb3I9IiM2NjY2NjYiCiAgIGJvcmRlcm9wYWNpdHk9IjEuMCIKICAgaW5rc2NhcGU6cGFnZXNoYWRvdz0iMiIKICAgaW5rc2NhcGU6cGFnZW9wYWNpdHk9IjAuMCIKICAgaW5rc2NhcGU6cGFnZWNoZWNrZXJib2FyZD0iMCIKICAgc2hvd2dyaWQ9ImZhbHNlIgogICBmaXQtbWFyZ2luLXRvcD0iMCIKICAgZml0LW1hcmdpbi1sZWZ0PSIwIgogICBmaXQtbWFyZ2luLXJpZ2h0PSIwIgogICBmaXQtbWFyZ2luLWJvdHRvbT0iMCIKICAgaW5rc2NhcGU6em9vbT0iNDQuMDU1NTU2IgogICBpbmtzY2FwZTpjeD0iOSIKICAgaW5rc2NhcGU6Y3k9IjQuOTgyMzQ1NSIKICAgaW5rc2NhcGU6d2luZG93LXdpZHRoPSIxOTIwIgogICBpbmtzY2FwZTp3aW5kb3ctaGVpZ2h0PSIxMDE3IgogICBpbmtzY2FwZTp3aW5kb3cteD0iLTgiCiAgIGlua3NjYXBlOndpbmRvdy15PSItOCIKICAgaW5rc2NhcGU6d2luZG93LW1heGltaXplZD0iMSIKICAgaW5rc2NhcGU6Y3VycmVudC1sYXllcj0ic3ZnNTQ0MTciIC8+CjxkZWZzCiAgIGlkPSJkZWZzNTQ0MDkiPgogIDxsaW5lYXJHcmFkaWVudAogICAgIGlkPSJmZjdhMWE5Zi1lMWE3LTQ3MWEtYjc2ZS0xZDJlYTQzYThkMTEiCiAgICAgeDE9IjguOTIzOTk5OCIKICAgICB5MT0iNzg1LjE0NTAyIgogICAgIHgyPSI4LjkyMzk5OTgiCiAgICAgeTI9Ijc3OS4xODU5NyIKICAgICBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KDEsMCwwLC0xLDAsNzg3LjQ5NzQ3KSIKICAgICBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICA8c3RvcAogICAgICAgb2Zmc2V0PSIwIgogICAgICAgc3RvcC1jb2xvcj0iIzM3YzJiMSIKICAgICAgIGlkPSJzdG9wNTQ0MDQiIC8+CiAgICA8c3RvcAogICAgICAgb2Zmc2V0PSIxIgogICAgICAgc3RvcC1jb2xvcj0iIzI1ODI3NyIKICAgICAgIGlkPSJzdG9wNTQ0MDYiIC8+CiAgPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8cmVjdAogICB4PSI2LjUzMTAwMDEiCiAgIHk9IjIuNTk2NDcyNyIKICAgd2lkdGg9IjQuNzg4MDAwMSIKICAgaGVpZ2h0PSI0Ljc4ODAwMDEiCiAgIHJ4PSIyLjM2NDAwMDEiCiAgIGZpbGw9InVybCgjZmY3YTFhOWYtZTFhNy00NzFhLWI3NmUtMWQyZWE0M2E4ZDExKSIKICAgaWQ9InJlY3Q1NDQxMSIKICAgc3R5bGU9ImZpbGw6dXJsKCNmZjdhMWE5Zi1lMWE3LTQ3MWEtYjc2ZS0xZDJlYTQzYThkMTEpIiAvPgo8cGF0aAogICBkPSJNIDgsOC42NzQ0NzI5IEEgMy43NzMsMy43NzMgMCAwIDEgNy45ODUsMS4yODc0NzI5IDAuNjQ5LDAuNjQ5IDAgMSAwIDcuNzE5LDAuMDE3NDcyOTMgNS4wOTEsNS4wOTEgMCAwIDAgMy43Myw0LjM0MDQ3MjkgSCAyLjU3NCBhIDEuMzUxLDEuMzUxIDAgMCAwIC0xLjE4NywtMC43IEggMS4zNTMgQSAxLjM1MywxLjM1MyAwIDAgMCAwLDQuOTg4NDcyOSB2IDAuMDM0IGEgMS4zNTMsMS4zNTMgMCAwIDAgMS4zNTMsMS4zNTMgaCAwLjAzNCBhIDEuMzUxLDEuMzUxIDAgMCAwIDEuMiwtMC43MzcgaCAxLjE0NiBhIDUuMDg3LDUuMDg3IDAgMCAwIDQuMDA1LDQuMzA4IDAuNjQ5MzUxMjEsMC42NDkzNTEyMSAwIDAgMCAwLjI2MiwtMS4yNzIgeiIKICAgZmlsbD0iIzNjZDRjMiIKICAgaWQ9InBhdGg1NDQxMyIgLz4KPHBhdGgKICAgZD0ibSAxNi42NDcsMy42MzU0NzI5IGggLTAuMDM0IGEgMS4zNTEsMS4zNTEgMCAwIDAgLTEuMTg3LDAuNzA1IEggMTQuMjcgYSA1LjA5MSw1LjA5MSAwIDAgMCAtMy45ODcsLTQuMzIyOTk5OTcgMC42NDksMC42NDkgMCAwIDAgLTAuMjY2LDEuMjY5OTk5OTcgMy43NzMsMy43NzMgMCAwIDEgLTAuMDE3LDcuMzg3IDAuNjQ5MTUwMjEsMC42NDkxNTAyMSAwIDAgMCAwLjI2LDEuMjcyIDUuMDg3LDUuMDg3IDAgMCAwIDQsLTQuMzA4IGggMS4xNSBhIDEuMzUxLDEuMzUxIDAgMCAwIDEuMiwwLjczNyBoIDAuMDM0IGEgMS4zNTMsMS4zNTMgMCAwIDAgMS4zNTYsLTEuMzUzIHYgLTAuMDM0IGEgMS4zNTMsMS4zNTMgMCAwIDAgLTEuMzUzLC0xLjM1MyB6IgogICBmaWxsPSIjM2NkNGMyIgogICBpZD0icGF0aDU0NDE1IiAvPgrigIsKPC9zdmc+Cg=="/>
+        <image x="86.61" y="599.5" width="35.79" height="20" xlink:href="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcKICAgd2lkdGg9IjE4IgogICBoZWlnaHQ9IjkuOTU5ODI0NiIKICAgdmlld0JveD0iMCAwIDE4IDkuOTU5ODI0NiIKICAgdmVyc2lvbj0iMS4xIgogICBpZD0ic3ZnNTQ0MTciCiAgIHNvZGlwb2RpOmRvY25hbWU9IkFQSV9Qcm94eS5zdmciCiAgIGlua3NjYXBlOnZlcnNpb249IjEuMSAoYzY4ZTIyYzM4NywgMjAyMS0wNS0yMykiCiAgIHhtbG5zOmlua3NjYXBlPSJodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy9uYW1lc3BhY2VzL2lua3NjYXBlIgogICB4bWxuczpzb2RpcG9kaT0iaHR0cDovL3NvZGlwb2RpLnNvdXJjZWZvcmdlLm5ldC9EVEQvc29kaXBvZGktMC5kdGQiCiAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHNvZGlwb2RpOm5hbWVkdmlldwogICBpZD0ibmFtZWR2aWV3NTQ0MTkiCiAgIHBhZ2Vjb2xvcj0iI2ZmZmZmZiIKICAgYm9yZGVyY29sb3I9IiM2NjY2NjYiCiAgIGJvcmRlcm9wYWNpdHk9IjEuMCIKICAgaW5rc2NhcGU6cGFnZXNoYWRvdz0iMiIKICAgaW5rc2NhcGU6cGFnZW9wYWNpdHk9IjAuMCIKICAgaW5rc2NhcGU6cGFnZWNoZWNrZXJib2FyZD0iMCIKICAgc2hvd2dyaWQ9ImZhbHNlIgogICBmaXQtbWFyZ2luLXRvcD0iMCIKICAgZml0LW1hcmdpbi1sZWZ0PSIwIgogICBmaXQtbWFyZ2luLXJpZ2h0PSIwIgogICBmaXQtbWFyZ2luLWJvdHRvbT0iMCIKICAgaW5rc2NhcGU6em9vbT0iNDQuMDU1NTU2IgogICBpbmtzY2FwZTpjeD0iOSIKICAgaW5rc2NhcGU6Y3k9IjQuOTgyMzQ1NSIKICAgaW5rc2NhcGU6d2luZG93LXdpZHRoPSIxOTIwIgogICBpbmtzY2FwZTp3aW5kb3ctaGVpZ2h0PSIxMDE3IgogICBpbmtzY2FwZTp3aW5kb3cteD0iLTgiCiAgIGlua3NjYXBlOndpbmRvdy15PSItOCIKICAgaW5rc2NhcGU6d2luZG93LW1heGltaXplZD0iMSIKICAgaW5rc2NhcGU6Y3VycmVudC1sYXllcj0ic3ZnNTQ0MTciIC8+CjxkZWZzCiAgIGlkPSJkZWZzNTQ0MDkiPgogIDxsaW5lYXJHcmFkaWVudAogICAgIGlkPSJmZjdhMWE5Zi1lMWE3LTQ3MWEtYjc2ZS0xZDJlYTQzYThkMTEiCiAgICAgeDE9IjguOTIzOTk5OCIKICAgICB5MT0iNzg1LjE0NTAyIgogICAgIHgyPSI4LjkyMzk5OTgiCiAgICAgeTI9Ijc3OS4xODU5NyIKICAgICBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KDEsMCwwLC0xLDAsNzg3LjQ5NzQ3KSIKICAgICBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICA8c3RvcAogICAgICAgb2Zmc2V0PSIwIgogICAgICAgc3RvcC1jb2xvcj0iIzM3YzJiMSIKICAgICAgIGlkPSJzdG9wNTQ0MDQiIC8+CiAgICA8c3RvcAogICAgICAgb2Zmc2V0PSIxIgogICAgICAgc3RvcC1jb2xvcj0iIzI1ODI3NyIKICAgICAgIGlkPSJzdG9wNTQ0MDYiIC8+CiAgPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8cmVjdAogICB4PSI2LjUzMTAwMDEiCiAgIHk9IjIuNTk2NDcyNyIKICAgd2lkdGg9IjQuNzg4MDAwMSIKICAgaGVpZ2h0PSI0Ljc4ODAwMDEiCiAgIHJ4PSIyLjM2NDAwMDEiCiAgIGZpbGw9InVybCgjZmY3YTFhOWYtZTFhNy00NzFhLWI3NmUtMWQyZWE0M2E4ZDExKSIKICAgaWQ9InJlY3Q1NDQxMSIKICAgc3R5bGU9ImZpbGw6dXJsKCNmZjdhMWE5Zi1lMWE3LTQ3MWEtYjc2ZS0xZDJlYTQzYThkMTEpIiAvPgo8cGF0aAogICBkPSJNIDgsOC42NzQ0NzI5IEEgMy43NzMsMy43NzMgMCAwIDEgNy45ODUsMS4yODc0NzI5IDAuNjQ5LDAuNjQ5IDAgMSAwIDcuNzE5LDAuMDE3NDcyOTMgNS4wOTEsNS4wOTEgMCAwIDAgMy43Myw0LjM0MDQ3MjkgSCAyLjU3NCBhIDEuMzUxLDEuMzUxIDAgMCAwIC0xLjE4NywtMC43IEggMS4zNTMgQSAxLjM1MywxLjM1MyAwIDAgMCAwLDQuOTg4NDcyOSB2IDAuMDM0IGEgMS4zNTMsMS4zNTMgMCAwIDAgMS4zNTMsMS4zNTMgaCAwLjAzNCBhIDEuMzUxLDEuMzUxIDAgMCAwIDEuMiwtMC43MzcgaCAxLjE0NiBhIDUuMDg3LDUuMDg3IDAgMCAwIDQuMDA1LDQuMzA4IDAuNjQ5MzUxMjEsMC42NDkzNTEyMSAwIDAgMCAwLjI2MiwtMS4yNzIgeiIKICAgZmlsbD0iIzNjZDRjMiIKICAgaWQ9InBhdGg1NDQxMyIgLz4KPHBhdGgKICAgZD0ibSAxNi42NDcsMy42MzU0NzI5IGggLTAuMDM0IGEgMS4zNTEsMS4zNTEgMCAwIDAgLTEuMTg3LDAuNzA1IEggMTQuMjcgYSA1LjA5MSw1LjA5MSAwIDAgMCAtMy45ODcsLTQuMzIyOTk5OTcgMC42NDksMC42NDkgMCAwIDAgLTAuMjY2LDEuMjY5OTk5OTcgMy43NzMsMy43NzMgMCAwIDEgLTAuMDE3LDcuMzg3IDAuNjQ5MTUwMjEsMC42NDkxNTAyMSAwIDAgMCAwLjI2LDEuMjcyIDUuMDg3LDUuMDg3IDAgMCAwIDQsLTQuMzA4IGggMS4xNSBhIDEuMzUxLDEuMzUxIDAgMCAwIDEuMiwwLjczNyBoIDAuMDM0IGEgMS4zNTMsMS4zNTMgMCAwIDAgMS4zNTYsLTEuMzUzIHYgLTAuMDM0IGEgMS4zNTMsMS4zNTMgMCAwIDAgLTEuMzUzLC0xLjM1MyB6IgogICBmaWxsPSIjM2NkNGMyIgogICBpZD0icGF0aDU0NDE1IiAvPgrigIsKPC9zdmc+Cg=="/>
+        <image x="136.61" y="599.5" width="35.79" height="20" xlink:href="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcKICAgd2lkdGg9IjE4IgogICBoZWlnaHQ9IjkuOTU5ODI0NiIKICAgdmlld0JveD0iMCAwIDE4IDkuOTU5ODI0NiIKICAgdmVyc2lvbj0iMS4xIgogICBpZD0ic3ZnNTQ0MTciCiAgIHNvZGlwb2RpOmRvY25hbWU9IkFQSV9Qcm94eS5zdmciCiAgIGlua3NjYXBlOnZlcnNpb249IjEuMSAoYzY4ZTIyYzM4NywgMjAyMS0wNS0yMykiCiAgIHhtbG5zOmlua3NjYXBlPSJodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy9uYW1lc3BhY2VzL2lua3NjYXBlIgogICB4bWxuczpzb2RpcG9kaT0iaHR0cDovL3NvZGlwb2RpLnNvdXJjZWZvcmdlLm5ldC9EVEQvc29kaXBvZGktMC5kdGQiCiAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHNvZGlwb2RpOm5hbWVkdmlldwogICBpZD0ibmFtZWR2aWV3NTQ0MTkiCiAgIHBhZ2Vjb2xvcj0iI2ZmZmZmZiIKICAgYm9yZGVyY29sb3I9IiM2NjY2NjYiCiAgIGJvcmRlcm9wYWNpdHk9IjEuMCIKICAgaW5rc2NhcGU6cGFnZXNoYWRvdz0iMiIKICAgaW5rc2NhcGU6cGFnZW9wYWNpdHk9IjAuMCIKICAgaW5rc2NhcGU6cGFnZWNoZWNrZXJib2FyZD0iMCIKICAgc2hvd2dyaWQ9ImZhbHNlIgogICBmaXQtbWFyZ2luLXRvcD0iMCIKICAgZml0LW1hcmdpbi1sZWZ0PSIwIgogICBmaXQtbWFyZ2luLXJpZ2h0PSIwIgogICBmaXQtbWFyZ2luLWJvdHRvbT0iMCIKICAgaW5rc2NhcGU6em9vbT0iNDQuMDU1NTU2IgogICBpbmtzY2FwZTpjeD0iOSIKICAgaW5rc2NhcGU6Y3k9IjQuOTgyMzQ1NSIKICAgaW5rc2NhcGU6d2luZG93LXdpZHRoPSIxOTIwIgogICBpbmtzY2FwZTp3aW5kb3ctaGVpZ2h0PSIxMDE3IgogICBpbmtzY2FwZTp3aW5kb3cteD0iLTgiCiAgIGlua3NjYXBlOndpbmRvdy15PSItOCIKICAgaW5rc2NhcGU6d2luZG93LW1heGltaXplZD0iMSIKICAgaW5rc2NhcGU6Y3VycmVudC1sYXllcj0ic3ZnNTQ0MTciIC8+CjxkZWZzCiAgIGlkPSJkZWZzNTQ0MDkiPgogIDxsaW5lYXJHcmFkaWVudAogICAgIGlkPSJmZjdhMWE5Zi1lMWE3LTQ3MWEtYjc2ZS0xZDJlYTQzYThkMTEiCiAgICAgeDE9IjguOTIzOTk5OCIKICAgICB5MT0iNzg1LjE0NTAyIgogICAgIHgyPSI4LjkyMzk5OTgiCiAgICAgeTI9Ijc3OS4xODU5NyIKICAgICBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KDEsMCwwLC0xLDAsNzg3LjQ5NzQ3KSIKICAgICBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICA8c3RvcAogICAgICAgb2Zmc2V0PSIwIgogICAgICAgc3RvcC1jb2xvcj0iIzM3YzJiMSIKICAgICAgIGlkPSJzdG9wNTQ0MDQiIC8+CiAgICA8c3RvcAogICAgICAgb2Zmc2V0PSIxIgogICAgICAgc3RvcC1jb2xvcj0iIzI1ODI3NyIKICAgICAgIGlkPSJzdG9wNTQ0MDYiIC8+CiAgPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8cmVjdAogICB4PSI2LjUzMTAwMDEiCiAgIHk9IjIuNTk2NDcyNyIKICAgd2lkdGg9IjQuNzg4MDAwMSIKICAgaGVpZ2h0PSI0Ljc4ODAwMDEiCiAgIHJ4PSIyLjM2NDAwMDEiCiAgIGZpbGw9InVybCgjZmY3YTFhOWYtZTFhNy00NzFhLWI3NmUtMWQyZWE0M2E4ZDExKSIKICAgaWQ9InJlY3Q1NDQxMSIKICAgc3R5bGU9ImZpbGw6dXJsKCNmZjdhMWE5Zi1lMWE3LTQ3MWEtYjc2ZS0xZDJlYTQzYThkMTEpIiAvPgo8cGF0aAogICBkPSJNIDgsOC42NzQ0NzI5IEEgMy43NzMsMy43NzMgMCAwIDEgNy45ODUsMS4yODc0NzI5IDAuNjQ5LDAuNjQ5IDAgMSAwIDcuNzE5LDAuMDE3NDcyOTMgNS4wOTEsNS4wOTEgMCAwIDAgMy43Myw0LjM0MDQ3MjkgSCAyLjU3NCBhIDEuMzUxLDEuMzUxIDAgMCAwIC0xLjE4NywtMC43IEggMS4zNTMgQSAxLjM1MywxLjM1MyAwIDAgMCAwLDQuOTg4NDcyOSB2IDAuMDM0IGEgMS4zNTMsMS4zNTMgMCAwIDAgMS4zNTMsMS4zNTMgaCAwLjAzNCBhIDEuMzUxLDEuMzUxIDAgMCAwIDEuMiwtMC43MzcgaCAxLjE0NiBhIDUuMDg3LDUuMDg3IDAgMCAwIDQuMDA1LDQuMzA4IDAuNjQ5MzUxMjEsMC42NDkzNTEyMSAwIDAgMCAwLjI2MiwtMS4yNzIgeiIKICAgZmlsbD0iIzNjZDRjMiIKICAgaWQ9InBhdGg1NDQxMyIgLz4KPHBhdGgKICAgZD0ibSAxNi42NDcsMy42MzU0NzI5IGggLTAuMDM0IGEgMS4zNTEsMS4zNTEgMCAwIDAgLTEuMTg3LDAuNzA1IEggMTQuMjcgYSA1LjA5MSw1LjA5MSAwIDAgMCAtMy45ODcsLTQuMzIyOTk5OTcgMC42NDksMC42NDkgMCAwIDAgLTAuMjY2LDEuMjY5OTk5OTcgMy43NzMsMy43NzMgMCAwIDEgLTAuMDE3LDcuMzg3IDAuNjQ5MTUwMjEsMC42NDkxNTAyMSAwIDAgMCAwLjI2LDEuMjcyIDUuMDg3LDUuMDg3IDAgMCAwIDQsLTQuMzA4IGggMS4xNSBhIDEuMzUxLDEuMzUxIDAgMCAwIDEuMiwwLjczNyBoIDAuMDM0IGEgMS4zNTMsMS4zNTMgMCAwIDAgMS4zNTYsLTEuMzUzIHYgLTAuMDM0IGEgMS4zNTMsMS4zNTMgMCAwIDAgLTEuMzUzLC0xLjM1MyB6IgogICBmaWxsPSIjM2NkNGMyIgogICBpZD0icGF0aDU0NDE1IiAvPgrigIsKPC9zdmc+Cg=="/>
+        <image x="186.61" y="599.5" width="35.79" height="20" xlink:href="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcKICAgd2lkdGg9IjE4IgogICBoZWlnaHQ9IjkuOTU5ODI0NiIKICAgdmlld0JveD0iMCAwIDE4IDkuOTU5ODI0NiIKICAgdmVyc2lvbj0iMS4xIgogICBpZD0ic3ZnNTQ0MTciCiAgIHNvZGlwb2RpOmRvY25hbWU9IkFQSV9Qcm94eS5zdmciCiAgIGlua3NjYXBlOnZlcnNpb249IjEuMSAoYzY4ZTIyYzM4NywgMjAyMS0wNS0yMykiCiAgIHhtbG5zOmlua3NjYXBlPSJodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy9uYW1lc3BhY2VzL2lua3NjYXBlIgogICB4bWxuczpzb2RpcG9kaT0iaHR0cDovL3NvZGlwb2RpLnNvdXJjZWZvcmdlLm5ldC9EVEQvc29kaXBvZGktMC5kdGQiCiAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHNvZGlwb2RpOm5hbWVkdmlldwogICBpZD0ibmFtZWR2aWV3NTQ0MTkiCiAgIHBhZ2Vjb2xvcj0iI2ZmZmZmZiIKICAgYm9yZGVyY29sb3I9IiM2NjY2NjYiCiAgIGJvcmRlcm9wYWNpdHk9IjEuMCIKICAgaW5rc2NhcGU6cGFnZXNoYWRvdz0iMiIKICAgaW5rc2NhcGU6cGFnZW9wYWNpdHk9IjAuMCIKICAgaW5rc2NhcGU6cGFnZWNoZWNrZXJib2FyZD0iMCIKICAgc2hvd2dyaWQ9ImZhbHNlIgogICBmaXQtbWFyZ2luLXRvcD0iMCIKICAgZml0LW1hcmdpbi1sZWZ0PSIwIgogICBmaXQtbWFyZ2luLXJpZ2h0PSIwIgogICBmaXQtbWFyZ2luLWJvdHRvbT0iMCIKICAgaW5rc2NhcGU6em9vbT0iNDQuMDU1NTU2IgogICBpbmtzY2FwZTpjeD0iOSIKICAgaW5rc2NhcGU6Y3k9IjQuOTgyMzQ1NSIKICAgaW5rc2NhcGU6d2luZG93LXdpZHRoPSIxOTIwIgogICBpbmtzY2FwZTp3aW5kb3ctaGVpZ2h0PSIxMDE3IgogICBpbmtzY2FwZTp3aW5kb3cteD0iLTgiCiAgIGlua3NjYXBlOndpbmRvdy15PSItOCIKICAgaW5rc2NhcGU6d2luZG93LW1heGltaXplZD0iMSIKICAgaW5rc2NhcGU6Y3VycmVudC1sYXllcj0ic3ZnNTQ0MTciIC8+CjxkZWZzCiAgIGlkPSJkZWZzNTQ0MDkiPgogIDxsaW5lYXJHcmFkaWVudAogICAgIGlkPSJmZjdhMWE5Zi1lMWE3LTQ3MWEtYjc2ZS0xZDJlYTQzYThkMTEiCiAgICAgeDE9IjguOTIzOTk5OCIKICAgICB5MT0iNzg1LjE0NTAyIgogICAgIHgyPSI4LjkyMzk5OTgiCiAgICAgeTI9Ijc3OS4xODU5NyIKICAgICBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KDEsMCwwLC0xLDAsNzg3LjQ5NzQ3KSIKICAgICBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICA8c3RvcAogICAgICAgb2Zmc2V0PSIwIgogICAgICAgc3RvcC1jb2xvcj0iIzM3YzJiMSIKICAgICAgIGlkPSJzdG9wNTQ0MDQiIC8+CiAgICA8c3RvcAogICAgICAgb2Zmc2V0PSIxIgogICAgICAgc3RvcC1jb2xvcj0iIzI1ODI3NyIKICAgICAgIGlkPSJzdG9wNTQ0MDYiIC8+CiAgPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8cmVjdAogICB4PSI2LjUzMTAwMDEiCiAgIHk9IjIuNTk2NDcyNyIKICAgd2lkdGg9IjQuNzg4MDAwMSIKICAgaGVpZ2h0PSI0Ljc4ODAwMDEiCiAgIHJ4PSIyLjM2NDAwMDEiCiAgIGZpbGw9InVybCgjZmY3YTFhOWYtZTFhNy00NzFhLWI3NmUtMWQyZWE0M2E4ZDExKSIKICAgaWQ9InJlY3Q1NDQxMSIKICAgc3R5bGU9ImZpbGw6dXJsKCNmZjdhMWE5Zi1lMWE3LTQ3MWEtYjc2ZS0xZDJlYTQzYThkMTEpIiAvPgo8cGF0aAogICBkPSJNIDgsOC42NzQ0NzI5IEEgMy43NzMsMy43NzMgMCAwIDEgNy45ODUsMS4yODc0NzI5IDAuNjQ5LDAuNjQ5IDAgMSAwIDcuNzE5LDAuMDE3NDcyOTMgNS4wOTEsNS4wOTEgMCAwIDAgMy43Myw0LjM0MDQ3MjkgSCAyLjU3NCBhIDEuMzUxLDEuMzUxIDAgMCAwIC0xLjE4NywtMC43IEggMS4zNTMgQSAxLjM1MywxLjM1MyAwIDAgMCAwLDQuOTg4NDcyOSB2IDAuMDM0IGEgMS4zNTMsMS4zNTMgMCAwIDAgMS4zNTMsMS4zNTMgaCAwLjAzNCBhIDEuMzUxLDEuMzUxIDAgMCAwIDEuMiwtMC43MzcgaCAxLjE0NiBhIDUuMDg3LDUuMDg3IDAgMCAwIDQuMDA1LDQuMzA4IDAuNjQ5MzUxMjEsMC42NDkzNTEyMSAwIDAgMCAwLjI2MiwtMS4yNzIgeiIKICAgZmlsbD0iIzNjZDRjMiIKICAgaWQ9InBhdGg1NDQxMyIgLz4KPHBhdGgKICAgZD0ibSAxNi42NDcsMy42MzU0NzI5IGggLTAuMDM0IGEgMS4zNTEsMS4zNTEgMCAwIDAgLTEuMTg3LDAuNzA1IEggMTQuMjcgYSA1LjA5MSw1LjA5MSAwIDAgMCAtMy45ODcsLTQuMzIyOTk5OTcgMC42NDksMC42NDkgMCAwIDAgLTAuMjY2LDEuMjY5OTk5OTcgMy43NzMsMy43NzMgMCAwIDEgLTAuMDE3LDcuMzg3IDAuNjQ5MTUwMjEsMC42NDkxNTAyMSAwIDAgMCAwLjI2LDEuMjcyIDUuMDg3LDUuMDg3IDAgMCAwIDQsLTQuMzA4IGggMS4xNSBhIDEuMzUxLDEuMzUxIDAgMCAwIDEuMiwwLjczNyBoIDAuMDM0IGEgMS4zNTMsMS4zNTMgMCAwIDAgMS4zNTYsLTEuMzUzIHYgLTAuMDM0IGEgMS4zNTMsMS4zNTMgMCAwIDAgLTEuMzUzLC0xLjM1MyB6IgogICBmaWxsPSIjM2NkNGMyIgogICBpZD0icGF0aDU0NDE1IiAvPgrigIsKPC9zdmc+Cg=="/>
+        <image x="236.61" y="599.5" width="35.79" height="20" xlink:href="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcKICAgd2lkdGg9IjE4IgogICBoZWlnaHQ9IjkuOTU5ODI0NiIKICAgdmlld0JveD0iMCAwIDE4IDkuOTU5ODI0NiIKICAgdmVyc2lvbj0iMS4xIgogICBpZD0ic3ZnNTQ0MTciCiAgIHNvZGlwb2RpOmRvY25hbWU9IkFQSV9Qcm94eS5zdmciCiAgIGlua3NjYXBlOnZlcnNpb249IjEuMSAoYzY4ZTIyYzM4NywgMjAyMS0wNS0yMykiCiAgIHhtbG5zOmlua3NjYXBlPSJodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy9uYW1lc3BhY2VzL2lua3NjYXBlIgogICB4bWxuczpzb2RpcG9kaT0iaHR0cDovL3NvZGlwb2RpLnNvdXJjZWZvcmdlLm5ldC9EVEQvc29kaXBvZGktMC5kdGQiCiAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHNvZGlwb2RpOm5hbWVkdmlldwogICBpZD0ibmFtZWR2aWV3NTQ0MTkiCiAgIHBhZ2Vjb2xvcj0iI2ZmZmZmZiIKICAgYm9yZGVyY29sb3I9IiM2NjY2NjYiCiAgIGJvcmRlcm9wYWNpdHk9IjEuMCIKICAgaW5rc2NhcGU6cGFnZXNoYWRvdz0iMiIKICAgaW5rc2NhcGU6cGFnZW9wYWNpdHk9IjAuMCIKICAgaW5rc2NhcGU6cGFnZWNoZWNrZXJib2FyZD0iMCIKICAgc2hvd2dyaWQ9ImZhbHNlIgogICBmaXQtbWFyZ2luLXRvcD0iMCIKICAgZml0LW1hcmdpbi1sZWZ0PSIwIgogICBmaXQtbWFyZ2luLXJpZ2h0PSIwIgogICBmaXQtbWFyZ2luLWJvdHRvbT0iMCIKICAgaW5rc2NhcGU6em9vbT0iNDQuMDU1NTU2IgogICBpbmtzY2FwZTpjeD0iOSIKICAgaW5rc2NhcGU6Y3k9IjQuOTgyMzQ1NSIKICAgaW5rc2NhcGU6d2luZG93LXdpZHRoPSIxOTIwIgogICBpbmtzY2FwZTp3aW5kb3ctaGVpZ2h0PSIxMDE3IgogICBpbmtzY2FwZTp3aW5kb3cteD0iLTgiCiAgIGlua3NjYXBlOndpbmRvdy15PSItOCIKICAgaW5rc2NhcGU6d2luZG93LW1heGltaXplZD0iMSIKICAgaW5rc2NhcGU6Y3VycmVudC1sYXllcj0ic3ZnNTQ0MTciIC8+CjxkZWZzCiAgIGlkPSJkZWZzNTQ0MDkiPgogIDxsaW5lYXJHcmFkaWVudAogICAgIGlkPSJmZjdhMWE5Zi1lMWE3LTQ3MWEtYjc2ZS0xZDJlYTQzYThkMTEiCiAgICAgeDE9IjguOTIzOTk5OCIKICAgICB5MT0iNzg1LjE0NTAyIgogICAgIHgyPSI4LjkyMzk5OTgiCiAgICAgeTI9Ijc3OS4xODU5NyIKICAgICBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KDEsMCwwLC0xLDAsNzg3LjQ5NzQ3KSIKICAgICBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICA8c3RvcAogICAgICAgb2Zmc2V0PSIwIgogICAgICAgc3RvcC1jb2xvcj0iIzM3YzJiMSIKICAgICAgIGlkPSJzdG9wNTQ0MDQiIC8+CiAgICA8c3RvcAogICAgICAgb2Zmc2V0PSIxIgogICAgICAgc3RvcC1jb2xvcj0iIzI1ODI3NyIKICAgICAgIGlkPSJzdG9wNTQ0MDYiIC8+CiAgPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8cmVjdAogICB4PSI2LjUzMTAwMDEiCiAgIHk9IjIuNTk2NDcyNyIKICAgd2lkdGg9IjQuNzg4MDAwMSIKICAgaGVpZ2h0PSI0Ljc4ODAwMDEiCiAgIHJ4PSIyLjM2NDAwMDEiCiAgIGZpbGw9InVybCgjZmY3YTFhOWYtZTFhNy00NzFhLWI3NmUtMWQyZWE0M2E4ZDExKSIKICAgaWQ9InJlY3Q1NDQxMSIKICAgc3R5bGU9ImZpbGw6dXJsKCNmZjdhMWE5Zi1lMWE3LTQ3MWEtYjc2ZS0xZDJlYTQzYThkMTEpIiAvPgo8cGF0aAogICBkPSJNIDgsOC42NzQ0NzI5IEEgMy43NzMsMy43NzMgMCAwIDEgNy45ODUsMS4yODc0NzI5IDAuNjQ5LDAuNjQ5IDAgMSAwIDcuNzE5LDAuMDE3NDcyOTMgNS4wOTEsNS4wOTEgMCAwIDAgMy43Myw0LjM0MDQ3MjkgSCAyLjU3NCBhIDEuMzUxLDEuMzUxIDAgMCAwIC0xLjE4NywtMC43IEggMS4zNTMgQSAxLjM1MywxLjM1MyAwIDAgMCAwLDQuOTg4NDcyOSB2IDAuMDM0IGEgMS4zNTMsMS4zNTMgMCAwIDAgMS4zNTMsMS4zNTMgaCAwLjAzNCBhIDEuMzUxLDEuMzUxIDAgMCAwIDEuMiwtMC43MzcgaCAxLjE0NiBhIDUuMDg3LDUuMDg3IDAgMCAwIDQuMDA1LDQuMzA4IDAuNjQ5MzUxMjEsMC42NDkzNTEyMSAwIDAgMCAwLjI2MiwtMS4yNzIgeiIKICAgZmlsbD0iIzNjZDRjMiIKICAgaWQ9InBhdGg1NDQxMyIgLz4KPHBhdGgKICAgZD0ibSAxNi42NDcsMy42MzU0NzI5IGggLTAuMDM0IGEgMS4zNTEsMS4zNTEgMCAwIDAgLTEuMTg3LDAuNzA1IEggMTQuMjcgYSA1LjA5MSw1LjA5MSAwIDAgMCAtMy45ODcsLTQuMzIyOTk5OTcgMC42NDksMC42NDkgMCAwIDAgLTAuMjY2LDEuMjY5OTk5OTcgMy43NzMsMy43NzMgMCAwIDEgLTAuMDE3LDcuMzg3IDAuNjQ5MTUwMjEsMC42NDkxNTAyMSAwIDAgMCAwLjI2LDEuMjcyIDUuMDg3LDUuMDg3IDAgMCAwIDQsLTQuMzA4IGggMS4xNSBhIDEuMzUxLDEuMzUxIDAgMCAwIDEuMiwwLjczNyBoIDAuMDM0IGEgMS4zNTMsMS4zNTMgMCAwIDAgMS4zNTYsLTEuMzUzIHYgLTAuMDM0IGEgMS4zNTMsMS4zNTMgMCAwIDAgLTEuMzUzLC0xLjM1MyB6IgogICBmaWxsPSIjM2NkNGMyIgogICBpZD0icGF0aDU0NDE1IiAvPgrigIsKPC9zdmc+Cg=="/>
+        <image x="286.61" y="599.5" width="35.79" height="20" xlink:href="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcKICAgd2lkdGg9IjE4IgogICBoZWlnaHQ9IjkuOTU5ODI0NiIKICAgdmlld0JveD0iMCAwIDE4IDkuOTU5ODI0NiIKICAgdmVyc2lvbj0iMS4xIgogICBpZD0ic3ZnNTQ0MTciCiAgIHNvZGlwb2RpOmRvY25hbWU9IkFQSV9Qcm94eS5zdmciCiAgIGlua3NjYXBlOnZlcnNpb249IjEuMSAoYzY4ZTIyYzM4NywgMjAyMS0wNS0yMykiCiAgIHhtbG5zOmlua3NjYXBlPSJodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy9uYW1lc3BhY2VzL2lua3NjYXBlIgogICB4bWxuczpzb2RpcG9kaT0iaHR0cDovL3NvZGlwb2RpLnNvdXJjZWZvcmdlLm5ldC9EVEQvc29kaXBvZGktMC5kdGQiCiAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHNvZGlwb2RpOm5hbWVkdmlldwogICBpZD0ibmFtZWR2aWV3NTQ0MTkiCiAgIHBhZ2Vjb2xvcj0iI2ZmZmZmZiIKICAgYm9yZGVyY29sb3I9IiM2NjY2NjYiCiAgIGJvcmRlcm9wYWNpdHk9IjEuMCIKICAgaW5rc2NhcGU6cGFnZXNoYWRvdz0iMiIKICAgaW5rc2NhcGU6cGFnZW9wYWNpdHk9IjAuMCIKICAgaW5rc2NhcGU6cGFnZWNoZWNrZXJib2FyZD0iMCIKICAgc2hvd2dyaWQ9ImZhbHNlIgogICBmaXQtbWFyZ2luLXRvcD0iMCIKICAgZml0LW1hcmdpbi1sZWZ0PSIwIgogICBmaXQtbWFyZ2luLXJpZ2h0PSIwIgogICBmaXQtbWFyZ2luLWJvdHRvbT0iMCIKICAgaW5rc2NhcGU6em9vbT0iNDQuMDU1NTU2IgogICBpbmtzY2FwZTpjeD0iOSIKICAgaW5rc2NhcGU6Y3k9IjQuOTgyMzQ1NSIKICAgaW5rc2NhcGU6d2luZG93LXdpZHRoPSIxOTIwIgogICBpbmtzY2FwZTp3aW5kb3ctaGVpZ2h0PSIxMDE3IgogICBpbmtzY2FwZTp3aW5kb3cteD0iLTgiCiAgIGlua3NjYXBlOndpbmRvdy15PSItOCIKICAgaW5rc2NhcGU6d2luZG93LW1heGltaXplZD0iMSIKICAgaW5rc2NhcGU6Y3VycmVudC1sYXllcj0ic3ZnNTQ0MTciIC8+CjxkZWZzCiAgIGlkPSJkZWZzNTQ0MDkiPgogIDxsaW5lYXJHcmFkaWVudAogICAgIGlkPSJmZjdhMWE5Zi1lMWE3LTQ3MWEtYjc2ZS0xZDJlYTQzYThkMTEiCiAgICAgeDE9IjguOTIzOTk5OCIKICAgICB5MT0iNzg1LjE0NTAyIgogICAgIHgyPSI4LjkyMzk5OTgiCiAgICAgeTI9Ijc3OS4xODU5NyIKICAgICBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KDEsMCwwLC0xLDAsNzg3LjQ5NzQ3KSIKICAgICBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICA8c3RvcAogICAgICAgb2Zmc2V0PSIwIgogICAgICAgc3RvcC1jb2xvcj0iIzM3YzJiMSIKICAgICAgIGlkPSJzdG9wNTQ0MDQiIC8+CiAgICA8c3RvcAogICAgICAgb2Zmc2V0PSIxIgogICAgICAgc3RvcC1jb2xvcj0iIzI1ODI3NyIKICAgICAgIGlkPSJzdG9wNTQ0MDYiIC8+CiAgPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8cmVjdAogICB4PSI2LjUzMTAwMDEiCiAgIHk9IjIuNTk2NDcyNyIKICAgd2lkdGg9IjQuNzg4MDAwMSIKICAgaGVpZ2h0PSI0Ljc4ODAwMDEiCiAgIHJ4PSIyLjM2NDAwMDEiCiAgIGZpbGw9InVybCgjZmY3YTFhOWYtZTFhNy00NzFhLWI3NmUtMWQyZWE0M2E4ZDExKSIKICAgaWQ9InJlY3Q1NDQxMSIKICAgc3R5bGU9ImZpbGw6dXJsKCNmZjdhMWE5Zi1lMWE3LTQ3MWEtYjc2ZS0xZDJlYTQzYThkMTEpIiAvPgo8cGF0aAogICBkPSJNIDgsOC42NzQ0NzI5IEEgMy43NzMsMy43NzMgMCAwIDEgNy45ODUsMS4yODc0NzI5IDAuNjQ5LDAuNjQ5IDAgMSAwIDcuNzE5LDAuMDE3NDcyOTMgNS4wOTEsNS4wOTEgMCAwIDAgMy43Myw0LjM0MDQ3MjkgSCAyLjU3NCBhIDEuMzUxLDEuMzUxIDAgMCAwIC0xLjE4NywtMC43IEggMS4zNTMgQSAxLjM1MywxLjM1MyAwIDAgMCAwLDQuOTg4NDcyOSB2IDAuMDM0IGEgMS4zNTMsMS4zNTMgMCAwIDAgMS4zNTMsMS4zNTMgaCAwLjAzNCBhIDEuMzUxLDEuMzUxIDAgMCAwIDEuMiwtMC43MzcgaCAxLjE0NiBhIDUuMDg3LDUuMDg3IDAgMCAwIDQuMDA1LDQuMzA4IDAuNjQ5MzUxMjEsMC42NDkzNTEyMSAwIDAgMCAwLjI2MiwtMS4yNzIgeiIKICAgZmlsbD0iIzNjZDRjMiIKICAgaWQ9InBhdGg1NDQxMyIgLz4KPHBhdGgKICAgZD0ibSAxNi42NDcsMy42MzU0NzI5IGggLTAuMDM0IGEgMS4zNTEsMS4zNTEgMCAwIDAgLTEuMTg3LDAuNzA1IEggMTQuMjcgYSA1LjA5MSw1LjA5MSAwIDAgMCAtMy45ODcsLTQuMzIyOTk5OTcgMC42NDksMC42NDkgMCAwIDAgLTAuMjY2LDEuMjY5OTk5OTcgMy43NzMsMy43NzMgMCAwIDEgLTAuMDE3LDcuMzg3IDAuNjQ5MTUwMjEsMC42NDkxNTAyMSAwIDAgMCAwLjI2LDEuMjcyIDUuMDg3LDUuMDg3IDAgMCAwIDQsLTQuMzA4IGggMS4xNSBhIDEuMzUxLDEuMzUxIDAgMCAwIDEuMiwwLjczNyBoIDAuMDM0IGEgMS4zNTMsMS4zNTMgMCAwIDAgMS4zNTYsLTEuMzUzIHYgLTAuMDM0IGEgMS4zNTMsMS4zNTMgMCAwIDAgLTEuMzUzLC0xLjM1MyB6IgogICBmaWxsPSIjM2NkNGMyIgogICBpZD0icGF0aDU0NDE1IiAvPgrigIsKPC9zdmc+Cg=="/>
+        <image x="336.61" y="599.5" width="35.79" height="20" xlink:href="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcKICAgd2lkdGg9IjE4IgogICBoZWlnaHQ9IjkuOTU5ODI0NiIKICAgdmlld0JveD0iMCAwIDE4IDkuOTU5ODI0NiIKICAgdmVyc2lvbj0iMS4xIgogICBpZD0ic3ZnNTQ0MTciCiAgIHNvZGlwb2RpOmRvY25hbWU9IkFQSV9Qcm94eS5zdmciCiAgIGlua3NjYXBlOnZlcnNpb249IjEuMSAoYzY4ZTIyYzM4NywgMjAyMS0wNS0yMykiCiAgIHhtbG5zOmlua3NjYXBlPSJodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy9uYW1lc3BhY2VzL2lua3NjYXBlIgogICB4bWxuczpzb2RpcG9kaT0iaHR0cDovL3NvZGlwb2RpLnNvdXJjZWZvcmdlLm5ldC9EVEQvc29kaXBvZGktMC5kdGQiCiAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHNvZGlwb2RpOm5hbWVkdmlldwogICBpZD0ibmFtZWR2aWV3NTQ0MTkiCiAgIHBhZ2Vjb2xvcj0iI2ZmZmZmZiIKICAgYm9yZGVyY29sb3I9IiM2NjY2NjYiCiAgIGJvcmRlcm9wYWNpdHk9IjEuMCIKICAgaW5rc2NhcGU6cGFnZXNoYWRvdz0iMiIKICAgaW5rc2NhcGU6cGFnZW9wYWNpdHk9IjAuMCIKICAgaW5rc2NhcGU6cGFnZWNoZWNrZXJib2FyZD0iMCIKICAgc2hvd2dyaWQ9ImZhbHNlIgogICBmaXQtbWFyZ2luLXRvcD0iMCIKICAgZml0LW1hcmdpbi1sZWZ0PSIwIgogICBmaXQtbWFyZ2luLXJpZ2h0PSIwIgogICBmaXQtbWFyZ2luLWJvdHRvbT0iMCIKICAgaW5rc2NhcGU6em9vbT0iNDQuMDU1NTU2IgogICBpbmtzY2FwZTpjeD0iOSIKICAgaW5rc2NhcGU6Y3k9IjQuOTgyMzQ1NSIKICAgaW5rc2NhcGU6d2luZG93LXdpZHRoPSIxOTIwIgogICBpbmtzY2FwZTp3aW5kb3ctaGVpZ2h0PSIxMDE3IgogICBpbmtzY2FwZTp3aW5kb3cteD0iLTgiCiAgIGlua3NjYXBlOndpbmRvdy15PSItOCIKICAgaW5rc2NhcGU6d2luZG93LW1heGltaXplZD0iMSIKICAgaW5rc2NhcGU6Y3VycmVudC1sYXllcj0ic3ZnNTQ0MTciIC8+CjxkZWZzCiAgIGlkPSJkZWZzNTQ0MDkiPgogIDxsaW5lYXJHcmFkaWVudAogICAgIGlkPSJmZjdhMWE5Zi1lMWE3LTQ3MWEtYjc2ZS0xZDJlYTQzYThkMTEiCiAgICAgeDE9IjguOTIzOTk5OCIKICAgICB5MT0iNzg1LjE0NTAyIgogICAgIHgyPSI4LjkyMzk5OTgiCiAgICAgeTI9Ijc3OS4xODU5NyIKICAgICBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KDEsMCwwLC0xLDAsNzg3LjQ5NzQ3KSIKICAgICBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICA8c3RvcAogICAgICAgb2Zmc2V0PSIwIgogICAgICAgc3RvcC1jb2xvcj0iIzM3YzJiMSIKICAgICAgIGlkPSJzdG9wNTQ0MDQiIC8+CiAgICA8c3RvcAogICAgICAgb2Zmc2V0PSIxIgogICAgICAgc3RvcC1jb2xvcj0iIzI1ODI3NyIKICAgICAgIGlkPSJzdG9wNTQ0MDYiIC8+CiAgPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8cmVjdAogICB4PSI2LjUzMTAwMDEiCiAgIHk9IjIuNTk2NDcyNyIKICAgd2lkdGg9IjQuNzg4MDAwMSIKICAgaGVpZ2h0PSI0Ljc4ODAwMDEiCiAgIHJ4PSIyLjM2NDAwMDEiCiAgIGZpbGw9InVybCgjZmY3YTFhOWYtZTFhNy00NzFhLWI3NmUtMWQyZWE0M2E4ZDExKSIKICAgaWQ9InJlY3Q1NDQxMSIKICAgc3R5bGU9ImZpbGw6dXJsKCNmZjdhMWE5Zi1lMWE3LTQ3MWEtYjc2ZS0xZDJlYTQzYThkMTEpIiAvPgo8cGF0aAogICBkPSJNIDgsOC42NzQ0NzI5IEEgMy43NzMsMy43NzMgMCAwIDEgNy45ODUsMS4yODc0NzI5IDAuNjQ5LDAuNjQ5IDAgMSAwIDcuNzE5LDAuMDE3NDcyOTMgNS4wOTEsNS4wOTEgMCAwIDAgMy43Myw0LjM0MDQ3MjkgSCAyLjU3NCBhIDEuMzUxLDEuMzUxIDAgMCAwIC0xLjE4NywtMC43IEggMS4zNTMgQSAxLjM1MywxLjM1MyAwIDAgMCAwLDQuOTg4NDcyOSB2IDAuMDM0IGEgMS4zNTMsMS4zNTMgMCAwIDAgMS4zNTMsMS4zNTMgaCAwLjAzNCBhIDEuMzUxLDEuMzUxIDAgMCAwIDEuMiwtMC43MzcgaCAxLjE0NiBhIDUuMDg3LDUuMDg3IDAgMCAwIDQuMDA1LDQuMzA4IDAuNjQ5MzUxMjEsMC42NDkzNTEyMSAwIDAgMCAwLjI2MiwtMS4yNzIgeiIKICAgZmlsbD0iIzNjZDRjMiIKICAgaWQ9InBhdGg1NDQxMyIgLz4KPHBhdGgKICAgZD0ibSAxNi42NDcsMy42MzU0NzI5IGggLTAuMDM0IGEgMS4zNTEsMS4zNTEgMCAwIDAgLTEuMTg3LDAuNzA1IEggMTQuMjcgYSA1LjA5MSw1LjA5MSAwIDAgMCAtMy45ODcsLTQuMzIyOTk5OTcgMC42NDksMC42NDkgMCAwIDAgLTAuMjY2LDEuMjY5OTk5OTcgMy43NzMsMy43NzMgMCAwIDEgLTAuMDE3LDcuMzg3IDAuNjQ5MTUwMjEsMC42NDkxNTAyMSAwIDAgMCAwLjI2LDEuMjcyIDUuMDg3LDUuMDg3IDAgMCAwIDQsLTQuMzA4IGggMS4xNSBhIDEuMzUxLDEuMzUxIDAgMCAwIDEuMiwwLjczNyBoIDAuMDM0IGEgMS4zNTMsMS4zNTMgMCAwIDAgMS4zNTYsLTEuMzUzIHYgLTAuMDM0IGEgMS4zNTMsMS4zNTMgMCAwIDAgLTEuMzUzLC0xLjM1MyB6IgogICBmaWxsPSIjM2NkNGMyIgogICBpZD0icGF0aDU0NDE1IiAvPgrigIsKPC9zdmc+Cg=="/>
+        <image x="386.61" y="599.5" width="35.79" height="20" xlink:href="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcKICAgd2lkdGg9IjE4IgogICBoZWlnaHQ9IjkuOTU5ODI0NiIKICAgdmlld0JveD0iMCAwIDE4IDkuOTU5ODI0NiIKICAgdmVyc2lvbj0iMS4xIgogICBpZD0ic3ZnNTQ0MTciCiAgIHNvZGlwb2RpOmRvY25hbWU9IkFQSV9Qcm94eS5zdmciCiAgIGlua3NjYXBlOnZlcnNpb249IjEuMSAoYzY4ZTIyYzM4NywgMjAyMS0wNS0yMykiCiAgIHhtbG5zOmlua3NjYXBlPSJodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy9uYW1lc3BhY2VzL2lua3NjYXBlIgogICB4bWxuczpzb2RpcG9kaT0iaHR0cDovL3NvZGlwb2RpLnNvdXJjZWZvcmdlLm5ldC9EVEQvc29kaXBvZGktMC5kdGQiCiAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHNvZGlwb2RpOm5hbWVkdmlldwogICBpZD0ibmFtZWR2aWV3NTQ0MTkiCiAgIHBhZ2Vjb2xvcj0iI2ZmZmZmZiIKICAgYm9yZGVyY29sb3I9IiM2NjY2NjYiCiAgIGJvcmRlcm9wYWNpdHk9IjEuMCIKICAgaW5rc2NhcGU6cGFnZXNoYWRvdz0iMiIKICAgaW5rc2NhcGU6cGFnZW9wYWNpdHk9IjAuMCIKICAgaW5rc2NhcGU6cGFnZWNoZWNrZXJib2FyZD0iMCIKICAgc2hvd2dyaWQ9ImZhbHNlIgogICBmaXQtbWFyZ2luLXRvcD0iMCIKICAgZml0LW1hcmdpbi1sZWZ0PSIwIgogICBmaXQtbWFyZ2luLXJpZ2h0PSIwIgogICBmaXQtbWFyZ2luLWJvdHRvbT0iMCIKICAgaW5rc2NhcGU6em9vbT0iNDQuMDU1NTU2IgogICBpbmtzY2FwZTpjeD0iOSIKICAgaW5rc2NhcGU6Y3k9IjQuOTgyMzQ1NSIKICAgaW5rc2NhcGU6d2luZG93LXdpZHRoPSIxOTIwIgogICBpbmtzY2FwZTp3aW5kb3ctaGVpZ2h0PSIxMDE3IgogICBpbmtzY2FwZTp3aW5kb3cteD0iLTgiCiAgIGlua3NjYXBlOndpbmRvdy15PSItOCIKICAgaW5rc2NhcGU6d2luZG93LW1heGltaXplZD0iMSIKICAgaW5rc2NhcGU6Y3VycmVudC1sYXllcj0ic3ZnNTQ0MTciIC8+CjxkZWZzCiAgIGlkPSJkZWZzNTQ0MDkiPgogIDxsaW5lYXJHcmFkaWVudAogICAgIGlkPSJmZjdhMWE5Zi1lMWE3LTQ3MWEtYjc2ZS0xZDJlYTQzYThkMTEiCiAgICAgeDE9IjguOTIzOTk5OCIKICAgICB5MT0iNzg1LjE0NTAyIgogICAgIHgyPSI4LjkyMzk5OTgiCiAgICAgeTI9Ijc3OS4xODU5NyIKICAgICBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KDEsMCwwLC0xLDAsNzg3LjQ5NzQ3KSIKICAgICBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICA8c3RvcAogICAgICAgb2Zmc2V0PSIwIgogICAgICAgc3RvcC1jb2xvcj0iIzM3YzJiMSIKICAgICAgIGlkPSJzdG9wNTQ0MDQiIC8+CiAgICA8c3RvcAogICAgICAgb2Zmc2V0PSIxIgogICAgICAgc3RvcC1jb2xvcj0iIzI1ODI3NyIKICAgICAgIGlkPSJzdG9wNTQ0MDYiIC8+CiAgPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8cmVjdAogICB4PSI2LjUzMTAwMDEiCiAgIHk9IjIuNTk2NDcyNyIKICAgd2lkdGg9IjQuNzg4MDAwMSIKICAgaGVpZ2h0PSI0Ljc4ODAwMDEiCiAgIHJ4PSIyLjM2NDAwMDEiCiAgIGZpbGw9InVybCgjZmY3YTFhOWYtZTFhNy00NzFhLWI3NmUtMWQyZWE0M2E4ZDExKSIKICAgaWQ9InJlY3Q1NDQxMSIKICAgc3R5bGU9ImZpbGw6dXJsKCNmZjdhMWE5Zi1lMWE3LTQ3MWEtYjc2ZS0xZDJlYTQzYThkMTEpIiAvPgo8cGF0aAogICBkPSJNIDgsOC42NzQ0NzI5IEEgMy43NzMsMy43NzMgMCAwIDEgNy45ODUsMS4yODc0NzI5IDAuNjQ5LDAuNjQ5IDAgMSAwIDcuNzE5LDAuMDE3NDcyOTMgNS4wOTEsNS4wOTEgMCAwIDAgMy43Myw0LjM0MDQ3MjkgSCAyLjU3NCBhIDEuMzUxLDEuMzUxIDAgMCAwIC0xLjE4NywtMC43IEggMS4zNTMgQSAxLjM1MywxLjM1MyAwIDAgMCAwLDQuOTg4NDcyOSB2IDAuMDM0IGEgMS4zNTMsMS4zNTMgMCAwIDAgMS4zNTMsMS4zNTMgaCAwLjAzNCBhIDEuMzUxLDEuMzUxIDAgMCAwIDEuMiwtMC43MzcgaCAxLjE0NiBhIDUuMDg3LDUuMDg3IDAgMCAwIDQuMDA1LDQuMzA4IDAuNjQ5MzUxMjEsMC42NDkzNTEyMSAwIDAgMCAwLjI2MiwtMS4yNzIgeiIKICAgZmlsbD0iIzNjZDRjMiIKICAgaWQ9InBhdGg1NDQxMyIgLz4KPHBhdGgKICAgZD0ibSAxNi42NDcsMy42MzU0NzI5IGggLTAuMDM0IGEgMS4zNTEsMS4zNTEgMCAwIDAgLTEuMTg3LDAuNzA1IEggMTQuMjcgYSA1LjA5MSw1LjA5MSAwIDAgMCAtMy45ODcsLTQuMzIyOTk5OTcgMC42NDksMC42NDkgMCAwIDAgLTAuMjY2LDEuMjY5OTk5OTcgMy43NzMsMy43NzMgMCAwIDEgLTAuMDE3LDcuMzg3IDAuNjQ5MTUwMjEsMC42NDkxNTAyMSAwIDAgMCAwLjI2LDEuMjcyIDUuMDg3LDUuMDg3IDAgMCAwIDQsLTQuMzA4IGggMS4xNSBhIDEuMzUxLDEuMzUxIDAgMCAwIDEuMiwwLjczNyBoIDAuMDM0IGEgMS4zNTMsMS4zNTMgMCAwIDAgMS4zNTYsLTEuMzUzIHYgLTAuMDM0IGEgMS4zNTMsMS4zNTMgMCAwIDAgLTEuMzUzLC0xLjM1MyB6IgogICBmaWxsPSIjM2NkNGMyIgogICBpZD0icGF0aDU0NDE1IiAvPgrigIsKPC9zdmc+Cg=="/>
+        <image x="436.61" y="599.5" width="35.79" height="20" xlink:href="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcKICAgd2lkdGg9IjE4IgogICBoZWlnaHQ9IjkuOTU5ODI0NiIKICAgdmlld0JveD0iMCAwIDE4IDkuOTU5ODI0NiIKICAgdmVyc2lvbj0iMS4xIgogICBpZD0ic3ZnNTQ0MTciCiAgIHNvZGlwb2RpOmRvY25hbWU9IkFQSV9Qcm94eS5zdmciCiAgIGlua3NjYXBlOnZlcnNpb249IjEuMSAoYzY4ZTIyYzM4NywgMjAyMS0wNS0yMykiCiAgIHhtbG5zOmlua3NjYXBlPSJodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy9uYW1lc3BhY2VzL2lua3NjYXBlIgogICB4bWxuczpzb2RpcG9kaT0iaHR0cDovL3NvZGlwb2RpLnNvdXJjZWZvcmdlLm5ldC9EVEQvc29kaXBvZGktMC5kdGQiCiAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHNvZGlwb2RpOm5hbWVkdmlldwogICBpZD0ibmFtZWR2aWV3NTQ0MTkiCiAgIHBhZ2Vjb2xvcj0iI2ZmZmZmZiIKICAgYm9yZGVyY29sb3I9IiM2NjY2NjYiCiAgIGJvcmRlcm9wYWNpdHk9IjEuMCIKICAgaW5rc2NhcGU6cGFnZXNoYWRvdz0iMiIKICAgaW5rc2NhcGU6cGFnZW9wYWNpdHk9IjAuMCIKICAgaW5rc2NhcGU6cGFnZWNoZWNrZXJib2FyZD0iMCIKICAgc2hvd2dyaWQ9ImZhbHNlIgogICBmaXQtbWFyZ2luLXRvcD0iMCIKICAgZml0LW1hcmdpbi1sZWZ0PSIwIgogICBmaXQtbWFyZ2luLXJpZ2h0PSIwIgogICBmaXQtbWFyZ2luLWJvdHRvbT0iMCIKICAgaW5rc2NhcGU6em9vbT0iNDQuMDU1NTU2IgogICBpbmtzY2FwZTpjeD0iOSIKICAgaW5rc2NhcGU6Y3k9IjQuOTgyMzQ1NSIKICAgaW5rc2NhcGU6d2luZG93LXdpZHRoPSIxOTIwIgogICBpbmtzY2FwZTp3aW5kb3ctaGVpZ2h0PSIxMDE3IgogICBpbmtzY2FwZTp3aW5kb3cteD0iLTgiCiAgIGlua3NjYXBlOndpbmRvdy15PSItOCIKICAgaW5rc2NhcGU6d2luZG93LW1heGltaXplZD0iMSIKICAgaW5rc2NhcGU6Y3VycmVudC1sYXllcj0ic3ZnNTQ0MTciIC8+CjxkZWZzCiAgIGlkPSJkZWZzNTQ0MDkiPgogIDxsaW5lYXJHcmFkaWVudAogICAgIGlkPSJmZjdhMWE5Zi1lMWE3LTQ3MWEtYjc2ZS0xZDJlYTQzYThkMTEiCiAgICAgeDE9IjguOTIzOTk5OCIKICAgICB5MT0iNzg1LjE0NTAyIgogICAgIHgyPSI4LjkyMzk5OTgiCiAgICAgeTI9Ijc3OS4xODU5NyIKICAgICBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KDEsMCwwLC0xLDAsNzg3LjQ5NzQ3KSIKICAgICBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICA8c3RvcAogICAgICAgb2Zmc2V0PSIwIgogICAgICAgc3RvcC1jb2xvcj0iIzM3YzJiMSIKICAgICAgIGlkPSJzdG9wNTQ0MDQiIC8+CiAgICA8c3RvcAogICAgICAgb2Zmc2V0PSIxIgogICAgICAgc3RvcC1jb2xvcj0iIzI1ODI3NyIKICAgICAgIGlkPSJzdG9wNTQ0MDYiIC8+CiAgPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8cmVjdAogICB4PSI2LjUzMTAwMDEiCiAgIHk9IjIuNTk2NDcyNyIKICAgd2lkdGg9IjQuNzg4MDAwMSIKICAgaGVpZ2h0PSI0Ljc4ODAwMDEiCiAgIHJ4PSIyLjM2NDAwMDEiCiAgIGZpbGw9InVybCgjZmY3YTFhOWYtZTFhNy00NzFhLWI3NmUtMWQyZWE0M2E4ZDExKSIKICAgaWQ9InJlY3Q1NDQxMSIKICAgc3R5bGU9ImZpbGw6dXJsKCNmZjdhMWE5Zi1lMWE3LTQ3MWEtYjc2ZS0xZDJlYTQzYThkMTEpIiAvPgo8cGF0aAogICBkPSJNIDgsOC42NzQ0NzI5IEEgMy43NzMsMy43NzMgMCAwIDEgNy45ODUsMS4yODc0NzI5IDAuNjQ5LDAuNjQ5IDAgMSAwIDcuNzE5LDAuMDE3NDcyOTMgNS4wOTEsNS4wOTEgMCAwIDAgMy43Myw0LjM0MDQ3MjkgSCAyLjU3NCBhIDEuMzUxLDEuMzUxIDAgMCAwIC0xLjE4NywtMC43IEggMS4zNTMgQSAxLjM1MywxLjM1MyAwIDAgMCAwLDQuOTg4NDcyOSB2IDAuMDM0IGEgMS4zNTMsMS4zNTMgMCAwIDAgMS4zNTMsMS4zNTMgaCAwLjAzNCBhIDEuMzUxLDEuMzUxIDAgMCAwIDEuMiwtMC43MzcgaCAxLjE0NiBhIDUuMDg3LDUuMDg3IDAgMCAwIDQuMDA1LDQuMzA4IDAuNjQ5MzUxMjEsMC42NDkzNTEyMSAwIDAgMCAwLjI2MiwtMS4yNzIgeiIKICAgZmlsbD0iIzNjZDRjMiIKICAgaWQ9InBhdGg1NDQxMyIgLz4KPHBhdGgKICAgZD0ibSAxNi42NDcsMy42MzU0NzI5IGggLTAuMDM0IGEgMS4zNTEsMS4zNTEgMCAwIDAgLTEuMTg3LDAuNzA1IEggMTQuMjcgYSA1LjA5MSw1LjA5MSAwIDAgMCAtMy45ODcsLTQuMzIyOTk5OTcgMC42NDksMC42NDkgMCAwIDAgLTAuMjY2LDEuMjY5OTk5OTcgMy43NzMsMy43NzMgMCAwIDEgLTAuMDE3LDcuMzg3IDAuNjQ5MTUwMjEsMC42NDkxNTAyMSAwIDAgMCAwLjI2LDEuMjcyIDUuMDg3LDUuMDg3IDAgMCAwIDQsLTQuMzA4IGggMS4xNSBhIDEuMzUxLDEuMzUxIDAgMCAwIDEuMiwwLjczNyBoIDAuMDM0IGEgMS4zNTMsMS4zNTMgMCAwIDAgMS4zNTYsLTEuMzUzIHYgLTAuMDM0IGEgMS4zNTMsMS4zNTMgMCAwIDAgLTEuMzUzLC0xLjM1MyB6IgogICBmaWxsPSIjM2NkNGMyIgogICBpZD0icGF0aDU0NDE1IiAvPgrigIsKPC9zdmc+Cg=="/>
+        <image x="486.61" y="599.5" width="35.79" height="20" xlink:href="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcKICAgd2lkdGg9IjE4IgogICBoZWlnaHQ9IjkuOTU5ODI0NiIKICAgdmlld0JveD0iMCAwIDE4IDkuOTU5ODI0NiIKICAgdmVyc2lvbj0iMS4xIgogICBpZD0ic3ZnNTQ0MTciCiAgIHNvZGlwb2RpOmRvY25hbWU9IkFQSV9Qcm94eS5zdmciCiAgIGlua3NjYXBlOnZlcnNpb249IjEuMSAoYzY4ZTIyYzM4NywgMjAyMS0wNS0yMykiCiAgIHhtbG5zOmlua3NjYXBlPSJodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy9uYW1lc3BhY2VzL2lua3NjYXBlIgogICB4bWxuczpzb2RpcG9kaT0iaHR0cDovL3NvZGlwb2RpLnNvdXJjZWZvcmdlLm5ldC9EVEQvc29kaXBvZGktMC5kdGQiCiAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHNvZGlwb2RpOm5hbWVkdmlldwogICBpZD0ibmFtZWR2aWV3NTQ0MTkiCiAgIHBhZ2Vjb2xvcj0iI2ZmZmZmZiIKICAgYm9yZGVyY29sb3I9IiM2NjY2NjYiCiAgIGJvcmRlcm9wYWNpdHk9IjEuMCIKICAgaW5rc2NhcGU6cGFnZXNoYWRvdz0iMiIKICAgaW5rc2NhcGU6cGFnZW9wYWNpdHk9IjAuMCIKICAgaW5rc2NhcGU6cGFnZWNoZWNrZXJib2FyZD0iMCIKICAgc2hvd2dyaWQ9ImZhbHNlIgogICBmaXQtbWFyZ2luLXRvcD0iMCIKICAgZml0LW1hcmdpbi1sZWZ0PSIwIgogICBmaXQtbWFyZ2luLXJpZ2h0PSIwIgogICBmaXQtbWFyZ2luLWJvdHRvbT0iMCIKICAgaW5rc2NhcGU6em9vbT0iNDQuMDU1NTU2IgogICBpbmtzY2FwZTpjeD0iOSIKICAgaW5rc2NhcGU6Y3k9IjQuOTgyMzQ1NSIKICAgaW5rc2NhcGU6d2luZG93LXdpZHRoPSIxOTIwIgogICBpbmtzY2FwZTp3aW5kb3ctaGVpZ2h0PSIxMDE3IgogICBpbmtzY2FwZTp3aW5kb3cteD0iLTgiCiAgIGlua3NjYXBlOndpbmRvdy15PSItOCIKICAgaW5rc2NhcGU6d2luZG93LW1heGltaXplZD0iMSIKICAgaW5rc2NhcGU6Y3VycmVudC1sYXllcj0ic3ZnNTQ0MTciIC8+CjxkZWZzCiAgIGlkPSJkZWZzNTQ0MDkiPgogIDxsaW5lYXJHcmFkaWVudAogICAgIGlkPSJmZjdhMWE5Zi1lMWE3LTQ3MWEtYjc2ZS0xZDJlYTQzYThkMTEiCiAgICAgeDE9IjguOTIzOTk5OCIKICAgICB5MT0iNzg1LjE0NTAyIgogICAgIHgyPSI4LjkyMzk5OTgiCiAgICAgeTI9Ijc3OS4xODU5NyIKICAgICBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KDEsMCwwLC0xLDAsNzg3LjQ5NzQ3KSIKICAgICBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICA8c3RvcAogICAgICAgb2Zmc2V0PSIwIgogICAgICAgc3RvcC1jb2xvcj0iIzM3YzJiMSIKICAgICAgIGlkPSJzdG9wNTQ0MDQiIC8+CiAgICA8c3RvcAogICAgICAgb2Zmc2V0PSIxIgogICAgICAgc3RvcC1jb2xvcj0iIzI1ODI3NyIKICAgICAgIGlkPSJzdG9wNTQ0MDYiIC8+CiAgPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8cmVjdAogICB4PSI2LjUzMTAwMDEiCiAgIHk9IjIuNTk2NDcyNyIKICAgd2lkdGg9IjQuNzg4MDAwMSIKICAgaGVpZ2h0PSI0Ljc4ODAwMDEiCiAgIHJ4PSIyLjM2NDAwMDEiCiAgIGZpbGw9InVybCgjZmY3YTFhOWYtZTFhNy00NzFhLWI3NmUtMWQyZWE0M2E4ZDExKSIKICAgaWQ9InJlY3Q1NDQxMSIKICAgc3R5bGU9ImZpbGw6dXJsKCNmZjdhMWE5Zi1lMWE3LTQ3MWEtYjc2ZS0xZDJlYTQzYThkMTEpIiAvPgo8cGF0aAogICBkPSJNIDgsOC42NzQ0NzI5IEEgMy43NzMsMy43NzMgMCAwIDEgNy45ODUsMS4yODc0NzI5IDAuNjQ5LDAuNjQ5IDAgMSAwIDcuNzE5LDAuMDE3NDcyOTMgNS4wOTEsNS4wOTEgMCAwIDAgMy43Myw0LjM0MDQ3MjkgSCAyLjU3NCBhIDEuMzUxLDEuMzUxIDAgMCAwIC0xLjE4NywtMC43IEggMS4zNTMgQSAxLjM1MywxLjM1MyAwIDAgMCAwLDQuOTg4NDcyOSB2IDAuMDM0IGEgMS4zNTMsMS4zNTMgMCAwIDAgMS4zNTMsMS4zNTMgaCAwLjAzNCBhIDEuMzUxLDEuMzUxIDAgMCAwIDEuMiwtMC43MzcgaCAxLjE0NiBhIDUuMDg3LDUuMDg3IDAgMCAwIDQuMDA1LDQuMzA4IDAuNjQ5MzUxMjEsMC42NDkzNTEyMSAwIDAgMCAwLjI2MiwtMS4yNzIgeiIKICAgZmlsbD0iIzNjZDRjMiIKICAgaWQ9InBhdGg1NDQxMyIgLz4KPHBhdGgKICAgZD0ibSAxNi42NDcsMy42MzU0NzI5IGggLTAuMDM0IGEgMS4zNTEsMS4zNTEgMCAwIDAgLTEuMTg3LDAuNzA1IEggMTQuMjcgYSA1LjA5MSw1LjA5MSAwIDAgMCAtMy45ODcsLTQuMzIyOTk5OTcgMC42NDksMC42NDkgMCAwIDAgLTAuMjY2LDEuMjY5OTk5OTcgMy43NzMsMy43NzMgMCAwIDEgLTAuMDE3LDcuMzg3IDAuNjQ5MTUwMjEsMC42NDkxNTAyMSAwIDAgMCAwLjI2LDEuMjcyIDUuMDg3LDUuMDg3IDAgMCAwIDQsLTQuMzA4IGggMS4xNSBhIDEuMzUxLDEuMzUxIDAgMCAwIDEuMiwwLjczNyBoIDAuMDM0IGEgMS4zNTMsMS4zNTMgMCAwIDAgMS4zNTYsLTEuMzUzIHYgLTAuMDM0IGEgMS4zNTMsMS4zNTMgMCAwIDAgLTEuMzUzLC0xLjM1MyB6IgogICBmaWxsPSIjM2NkNGMyIgogICBpZD0icGF0aDU0NDE1IiAvPgrigIsKPC9zdmc+Cg=="/>
+        <image x="536.61" y="599.5" width="35.79" height="20" xlink:href="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcKICAgd2lkdGg9IjE4IgogICBoZWlnaHQ9IjkuOTU5ODI0NiIKICAgdmlld0JveD0iMCAwIDE4IDkuOTU5ODI0NiIKICAgdmVyc2lvbj0iMS4xIgogICBpZD0ic3ZnNTQ0MTciCiAgIHNvZGlwb2RpOmRvY25hbWU9IkFQSV9Qcm94eS5zdmciCiAgIGlua3NjYXBlOnZlcnNpb249IjEuMSAoYzY4ZTIyYzM4NywgMjAyMS0wNS0yMykiCiAgIHhtbG5zOmlua3NjYXBlPSJodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy9uYW1lc3BhY2VzL2lua3NjYXBlIgogICB4bWxuczpzb2RpcG9kaT0iaHR0cDovL3NvZGlwb2RpLnNvdXJjZWZvcmdlLm5ldC9EVEQvc29kaXBvZGktMC5kdGQiCiAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHNvZGlwb2RpOm5hbWVkdmlldwogICBpZD0ibmFtZWR2aWV3NTQ0MTkiCiAgIHBhZ2Vjb2xvcj0iI2ZmZmZmZiIKICAgYm9yZGVyY29sb3I9IiM2NjY2NjYiCiAgIGJvcmRlcm9wYWNpdHk9IjEuMCIKICAgaW5rc2NhcGU6cGFnZXNoYWRvdz0iMiIKICAgaW5rc2NhcGU6cGFnZW9wYWNpdHk9IjAuMCIKICAgaW5rc2NhcGU6cGFnZWNoZWNrZXJib2FyZD0iMCIKICAgc2hvd2dyaWQ9ImZhbHNlIgogICBmaXQtbWFyZ2luLXRvcD0iMCIKICAgZml0LW1hcmdpbi1sZWZ0PSIwIgogICBmaXQtbWFyZ2luLXJpZ2h0PSIwIgogICBmaXQtbWFyZ2luLWJvdHRvbT0iMCIKICAgaW5rc2NhcGU6em9vbT0iNDQuMDU1NTU2IgogICBpbmtzY2FwZTpjeD0iOSIKICAgaW5rc2NhcGU6Y3k9IjQuOTgyMzQ1NSIKICAgaW5rc2NhcGU6d2luZG93LXdpZHRoPSIxOTIwIgogICBpbmtzY2FwZTp3aW5kb3ctaGVpZ2h0PSIxMDE3IgogICBpbmtzY2FwZTp3aW5kb3cteD0iLTgiCiAgIGlua3NjYXBlOndpbmRvdy15PSItOCIKICAgaW5rc2NhcGU6d2luZG93LW1heGltaXplZD0iMSIKICAgaW5rc2NhcGU6Y3VycmVudC1sYXllcj0ic3ZnNTQ0MTciIC8+CjxkZWZzCiAgIGlkPSJkZWZzNTQ0MDkiPgogIDxsaW5lYXJHcmFkaWVudAogICAgIGlkPSJmZjdhMWE5Zi1lMWE3LTQ3MWEtYjc2ZS0xZDJlYTQzYThkMTEiCiAgICAgeDE9IjguOTIzOTk5OCIKICAgICB5MT0iNzg1LjE0NTAyIgogICAgIHgyPSI4LjkyMzk5OTgiCiAgICAgeTI9Ijc3OS4xODU5NyIKICAgICBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KDEsMCwwLC0xLDAsNzg3LjQ5NzQ3KSIKICAgICBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICA8c3RvcAogICAgICAgb2Zmc2V0PSIwIgogICAgICAgc3RvcC1jb2xvcj0iIzM3YzJiMSIKICAgICAgIGlkPSJzdG9wNTQ0MDQiIC8+CiAgICA8c3RvcAogICAgICAgb2Zmc2V0PSIxIgogICAgICAgc3RvcC1jb2xvcj0iIzI1ODI3NyIKICAgICAgIGlkPSJzdG9wNTQ0MDYiIC8+CiAgPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8cmVjdAogICB4PSI2LjUzMTAwMDEiCiAgIHk9IjIuNTk2NDcyNyIKICAgd2lkdGg9IjQuNzg4MDAwMSIKICAgaGVpZ2h0PSI0Ljc4ODAwMDEiCiAgIHJ4PSIyLjM2NDAwMDEiCiAgIGZpbGw9InVybCgjZmY3YTFhOWYtZTFhNy00NzFhLWI3NmUtMWQyZWE0M2E4ZDExKSIKICAgaWQ9InJlY3Q1NDQxMSIKICAgc3R5bGU9ImZpbGw6dXJsKCNmZjdhMWE5Zi1lMWE3LTQ3MWEtYjc2ZS0xZDJlYTQzYThkMTEpIiAvPgo8cGF0aAogICBkPSJNIDgsOC42NzQ0NzI5IEEgMy43NzMsMy43NzMgMCAwIDEgNy45ODUsMS4yODc0NzI5IDAuNjQ5LDAuNjQ5IDAgMSAwIDcuNzE5LDAuMDE3NDcyOTMgNS4wOTEsNS4wOTEgMCAwIDAgMy43Myw0LjM0MDQ3MjkgSCAyLjU3NCBhIDEuMzUxLDEuMzUxIDAgMCAwIC0xLjE4NywtMC43IEggMS4zNTMgQSAxLjM1MywxLjM1MyAwIDAgMCAwLDQuOTg4NDcyOSB2IDAuMDM0IGEgMS4zNTMsMS4zNTMgMCAwIDAgMS4zNTMsMS4zNTMgaCAwLjAzNCBhIDEuMzUxLDEuMzUxIDAgMCAwIDEuMiwtMC43MzcgaCAxLjE0NiBhIDUuMDg3LDUuMDg3IDAgMCAwIDQuMDA1LDQuMzA4IDAuNjQ5MzUxMjEsMC42NDkzNTEyMSAwIDAgMCAwLjI2MiwtMS4yNzIgeiIKICAgZmlsbD0iIzNjZDRjMiIKICAgaWQ9InBhdGg1NDQxMyIgLz4KPHBhdGgKICAgZD0ibSAxNi42NDcsMy42MzU0NzI5IGggLTAuMDM0IGEgMS4zNTEsMS4zNTEgMCAwIDAgLTEuMTg3LDAuNzA1IEggMTQuMjcgYSA1LjA5MSw1LjA5MSAwIDAgMCAtMy45ODcsLTQuMzIyOTk5OTcgMC42NDksMC42NDkgMCAwIDAgLTAuMjY2LDEuMjY5OTk5OTcgMy43NzMsMy43NzMgMCAwIDEgLTAuMDE3LDcuMzg3IDAuNjQ5MTUwMjEsMC42NDkxNTAyMSAwIDAgMCAwLjI2LDEuMjcyIDUuMDg3LDUuMDg3IDAgMCAwIDQsLTQuMzA4IGggMS4xNSBhIDEuMzUxLDEuMzUxIDAgMCAwIDEuMiwwLjczNyBoIDAuMDM0IGEgMS4zNTMsMS4zNTMgMCAwIDAgMS4zNTYsLTEuMzUzIHYgLTAuMDM0IGEgMS4zNTMsMS4zNTMgMCAwIDAgLTEuMzUzLC0xLjM1MyB6IgogICBmaWxsPSIjM2NkNGMyIgogICBpZD0icGF0aDU0NDE1IiAvPgrigIsKPC9zdmc+Cg=="/>
+        <image x="589.5" y="599.5" width="35.79" height="20" xlink:href="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcKICAgd2lkdGg9IjE4IgogICBoZWlnaHQ9IjkuOTU5ODI0NiIKICAgdmlld0JveD0iMCAwIDE4IDkuOTU5ODI0NiIKICAgdmVyc2lvbj0iMS4xIgogICBpZD0ic3ZnNTQ0MTciCiAgIHNvZGlwb2RpOmRvY25hbWU9IkFQSV9Qcm94eS5zdmciCiAgIGlua3NjYXBlOnZlcnNpb249IjEuMSAoYzY4ZTIyYzM4NywgMjAyMS0wNS0yMykiCiAgIHhtbG5zOmlua3NjYXBlPSJodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy9uYW1lc3BhY2VzL2lua3NjYXBlIgogICB4bWxuczpzb2RpcG9kaT0iaHR0cDovL3NvZGlwb2RpLnNvdXJjZWZvcmdlLm5ldC9EVEQvc29kaXBvZGktMC5kdGQiCiAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHNvZGlwb2RpOm5hbWVkdmlldwogICBpZD0ibmFtZWR2aWV3NTQ0MTkiCiAgIHBhZ2Vjb2xvcj0iI2ZmZmZmZiIKICAgYm9yZGVyY29sb3I9IiM2NjY2NjYiCiAgIGJvcmRlcm9wYWNpdHk9IjEuMCIKICAgaW5rc2NhcGU6cGFnZXNoYWRvdz0iMiIKICAgaW5rc2NhcGU6cGFnZW9wYWNpdHk9IjAuMCIKICAgaW5rc2NhcGU6cGFnZWNoZWNrZXJib2FyZD0iMCIKICAgc2hvd2dyaWQ9ImZhbHNlIgogICBmaXQtbWFyZ2luLXRvcD0iMCIKICAgZml0LW1hcmdpbi1sZWZ0PSIwIgogICBmaXQtbWFyZ2luLXJpZ2h0PSIwIgogICBmaXQtbWFyZ2luLWJvdHRvbT0iMCIKICAgaW5rc2NhcGU6em9vbT0iNDQuMDU1NTU2IgogICBpbmtzY2FwZTpjeD0iOSIKICAgaW5rc2NhcGU6Y3k9IjQuOTgyMzQ1NSIKICAgaW5rc2NhcGU6d2luZG93LXdpZHRoPSIxOTIwIgogICBpbmtzY2FwZTp3aW5kb3ctaGVpZ2h0PSIxMDE3IgogICBpbmtzY2FwZTp3aW5kb3cteD0iLTgiCiAgIGlua3NjYXBlOndpbmRvdy15PSItOCIKICAgaW5rc2NhcGU6d2luZG93LW1heGltaXplZD0iMSIKICAgaW5rc2NhcGU6Y3VycmVudC1sYXllcj0ic3ZnNTQ0MTciIC8+CjxkZWZzCiAgIGlkPSJkZWZzNTQ0MDkiPgogIDxsaW5lYXJHcmFkaWVudAogICAgIGlkPSJmZjdhMWE5Zi1lMWE3LTQ3MWEtYjc2ZS0xZDJlYTQzYThkMTEiCiAgICAgeDE9IjguOTIzOTk5OCIKICAgICB5MT0iNzg1LjE0NTAyIgogICAgIHgyPSI4LjkyMzk5OTgiCiAgICAgeTI9Ijc3OS4xODU5NyIKICAgICBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KDEsMCwwLC0xLDAsNzg3LjQ5NzQ3KSIKICAgICBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICA8c3RvcAogICAgICAgb2Zmc2V0PSIwIgogICAgICAgc3RvcC1jb2xvcj0iIzM3YzJiMSIKICAgICAgIGlkPSJzdG9wNTQ0MDQiIC8+CiAgICA8c3RvcAogICAgICAgb2Zmc2V0PSIxIgogICAgICAgc3RvcC1jb2xvcj0iIzI1ODI3NyIKICAgICAgIGlkPSJzdG9wNTQ0MDYiIC8+CiAgPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8cmVjdAogICB4PSI2LjUzMTAwMDEiCiAgIHk9IjIuNTk2NDcyNyIKICAgd2lkdGg9IjQuNzg4MDAwMSIKICAgaGVpZ2h0PSI0Ljc4ODAwMDEiCiAgIHJ4PSIyLjM2NDAwMDEiCiAgIGZpbGw9InVybCgjZmY3YTFhOWYtZTFhNy00NzFhLWI3NmUtMWQyZWE0M2E4ZDExKSIKICAgaWQ9InJlY3Q1NDQxMSIKICAgc3R5bGU9ImZpbGw6dXJsKCNmZjdhMWE5Zi1lMWE3LTQ3MWEtYjc2ZS0xZDJlYTQzYThkMTEpIiAvPgo8cGF0aAogICBkPSJNIDgsOC42NzQ0NzI5IEEgMy43NzMsMy43NzMgMCAwIDEgNy45ODUsMS4yODc0NzI5IDAuNjQ5LDAuNjQ5IDAgMSAwIDcuNzE5LDAuMDE3NDcyOTMgNS4wOTEsNS4wOTEgMCAwIDAgMy43Myw0LjM0MDQ3MjkgSCAyLjU3NCBhIDEuMzUxLDEuMzUxIDAgMCAwIC0xLjE4NywtMC43IEggMS4zNTMgQSAxLjM1MywxLjM1MyAwIDAgMCAwLDQuOTg4NDcyOSB2IDAuMDM0IGEgMS4zNTMsMS4zNTMgMCAwIDAgMS4zNTMsMS4zNTMgaCAwLjAzNCBhIDEuMzUxLDEuMzUxIDAgMCAwIDEuMiwtMC43MzcgaCAxLjE0NiBhIDUuMDg3LDUuMDg3IDAgMCAwIDQuMDA1LDQuMzA4IDAuNjQ5MzUxMjEsMC42NDkzNTEyMSAwIDAgMCAwLjI2MiwtMS4yNzIgeiIKICAgZmlsbD0iIzNjZDRjMiIKICAgaWQ9InBhdGg1NDQxMyIgLz4KPHBhdGgKICAgZD0ibSAxNi42NDcsMy42MzU0NzI5IGggLTAuMDM0IGEgMS4zNTEsMS4zNTEgMCAwIDAgLTEuMTg3LDAuNzA1IEggMTQuMjcgYSA1LjA5MSw1LjA5MSAwIDAgMCAtMy45ODcsLTQuMzIyOTk5OTcgMC42NDksMC42NDkgMCAwIDAgLTAuMjY2LDEuMjY5OTk5OTcgMy43NzMsMy43NzMgMCAwIDEgLTAuMDE3LDcuMzg3IDAuNjQ5MTUwMjEsMC42NDkxNTAyMSAwIDAgMCAwLjI2LDEuMjcyIDUuMDg3LDUuMDg3IDAgMCAwIDQsLTQuMzA4IGggMS4xNSBhIDEuMzUxLDEuMzUxIDAgMCAwIDEuMiwwLjczNyBoIDAuMDM0IGEgMS4zNTMsMS4zNTMgMCAwIDAgMS4zNTYsLTEuMzUzIHYgLTAuMDM0IGEgMS4zNTMsMS4zNTMgMCAwIDAgLTEuMzUzLC0xLjM1MyB6IgogICBmaWxsPSIjM2NkNGMyIgogICBpZD0icGF0aDU0NDE1IiAvPgrigIsKPC9zdmc+Cg=="/>
+        <image x="636.61" y="599.5" width="35.79" height="20" xlink:href="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcKICAgd2lkdGg9IjE4IgogICBoZWlnaHQ9IjkuOTU5ODI0NiIKICAgdmlld0JveD0iMCAwIDE4IDkuOTU5ODI0NiIKICAgdmVyc2lvbj0iMS4xIgogICBpZD0ic3ZnNTQ0MTciCiAgIHNvZGlwb2RpOmRvY25hbWU9IkFQSV9Qcm94eS5zdmciCiAgIGlua3NjYXBlOnZlcnNpb249IjEuMSAoYzY4ZTIyYzM4NywgMjAyMS0wNS0yMykiCiAgIHhtbG5zOmlua3NjYXBlPSJodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy9uYW1lc3BhY2VzL2lua3NjYXBlIgogICB4bWxuczpzb2RpcG9kaT0iaHR0cDovL3NvZGlwb2RpLnNvdXJjZWZvcmdlLm5ldC9EVEQvc29kaXBvZGktMC5kdGQiCiAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHNvZGlwb2RpOm5hbWVkdmlldwogICBpZD0ibmFtZWR2aWV3NTQ0MTkiCiAgIHBhZ2Vjb2xvcj0iI2ZmZmZmZiIKICAgYm9yZGVyY29sb3I9IiM2NjY2NjYiCiAgIGJvcmRlcm9wYWNpdHk9IjEuMCIKICAgaW5rc2NhcGU6cGFnZXNoYWRvdz0iMiIKICAgaW5rc2NhcGU6cGFnZW9wYWNpdHk9IjAuMCIKICAgaW5rc2NhcGU6cGFnZWNoZWNrZXJib2FyZD0iMCIKICAgc2hvd2dyaWQ9ImZhbHNlIgogICBmaXQtbWFyZ2luLXRvcD0iMCIKICAgZml0LW1hcmdpbi1sZWZ0PSIwIgogICBmaXQtbWFyZ2luLXJpZ2h0PSIwIgogICBmaXQtbWFyZ2luLWJvdHRvbT0iMCIKICAgaW5rc2NhcGU6em9vbT0iNDQuMDU1NTU2IgogICBpbmtzY2FwZTpjeD0iOSIKICAgaW5rc2NhcGU6Y3k9IjQuOTgyMzQ1NSIKICAgaW5rc2NhcGU6d2luZG93LXdpZHRoPSIxOTIwIgogICBpbmtzY2FwZTp3aW5kb3ctaGVpZ2h0PSIxMDE3IgogICBpbmtzY2FwZTp3aW5kb3cteD0iLTgiCiAgIGlua3NjYXBlOndpbmRvdy15PSItOCIKICAgaW5rc2NhcGU6d2luZG93LW1heGltaXplZD0iMSIKICAgaW5rc2NhcGU6Y3VycmVudC1sYXllcj0ic3ZnNTQ0MTciIC8+CjxkZWZzCiAgIGlkPSJkZWZzNTQ0MDkiPgogIDxsaW5lYXJHcmFkaWVudAogICAgIGlkPSJmZjdhMWE5Zi1lMWE3LTQ3MWEtYjc2ZS0xZDJlYTQzYThkMTEiCiAgICAgeDE9IjguOTIzOTk5OCIKICAgICB5MT0iNzg1LjE0NTAyIgogICAgIHgyPSI4LjkyMzk5OTgiCiAgICAgeTI9Ijc3OS4xODU5NyIKICAgICBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KDEsMCwwLC0xLDAsNzg3LjQ5NzQ3KSIKICAgICBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICA8c3RvcAogICAgICAgb2Zmc2V0PSIwIgogICAgICAgc3RvcC1jb2xvcj0iIzM3YzJiMSIKICAgICAgIGlkPSJzdG9wNTQ0MDQiIC8+CiAgICA8c3RvcAogICAgICAgb2Zmc2V0PSIxIgogICAgICAgc3RvcC1jb2xvcj0iIzI1ODI3NyIKICAgICAgIGlkPSJzdG9wNTQ0MDYiIC8+CiAgPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8cmVjdAogICB4PSI2LjUzMTAwMDEiCiAgIHk9IjIuNTk2NDcyNyIKICAgd2lkdGg9IjQuNzg4MDAwMSIKICAgaGVpZ2h0PSI0Ljc4ODAwMDEiCiAgIHJ4PSIyLjM2NDAwMDEiCiAgIGZpbGw9InVybCgjZmY3YTFhOWYtZTFhNy00NzFhLWI3NmUtMWQyZWE0M2E4ZDExKSIKICAgaWQ9InJlY3Q1NDQxMSIKICAgc3R5bGU9ImZpbGw6dXJsKCNmZjdhMWE5Zi1lMWE3LTQ3MWEtYjc2ZS0xZDJlYTQzYThkMTEpIiAvPgo8cGF0aAogICBkPSJNIDgsOC42NzQ0NzI5IEEgMy43NzMsMy43NzMgMCAwIDEgNy45ODUsMS4yODc0NzI5IDAuNjQ5LDAuNjQ5IDAgMSAwIDcuNzE5LDAuMDE3NDcyOTMgNS4wOTEsNS4wOTEgMCAwIDAgMy43Myw0LjM0MDQ3MjkgSCAyLjU3NCBhIDEuMzUxLDEuMzUxIDAgMCAwIC0xLjE4NywtMC43IEggMS4zNTMgQSAxLjM1MywxLjM1MyAwIDAgMCAwLDQuOTg4NDcyOSB2IDAuMDM0IGEgMS4zNTMsMS4zNTMgMCAwIDAgMS4zNTMsMS4zNTMgaCAwLjAzNCBhIDEuMzUxLDEuMzUxIDAgMCAwIDEuMiwtMC43MzcgaCAxLjE0NiBhIDUuMDg3LDUuMDg3IDAgMCAwIDQuMDA1LDQuMzA4IDAuNjQ5MzUxMjEsMC42NDkzNTEyMSAwIDAgMCAwLjI2MiwtMS4yNzIgeiIKICAgZmlsbD0iIzNjZDRjMiIKICAgaWQ9InBhdGg1NDQxMyIgLz4KPHBhdGgKICAgZD0ibSAxNi42NDcsMy42MzU0NzI5IGggLTAuMDM0IGEgMS4zNTEsMS4zNTEgMCAwIDAgLTEuMTg3LDAuNzA1IEggMTQuMjcgYSA1LjA5MSw1LjA5MSAwIDAgMCAtMy45ODcsLTQuMzIyOTk5OTcgMC42NDksMC42NDkgMCAwIDAgLTAuMjY2LDEuMjY5OTk5OTcgMy43NzMsMy43NzMgMCAwIDEgLTAuMDE3LDcuMzg3IDAuNjQ5MTUwMjEsMC42NDkxNTAyMSAwIDAgMCAwLjI2LDEuMjcyIDUuMDg3LDUuMDg3IDAgMCAwIDQsLTQuMzA4IGggMS4xNSBhIDEuMzUxLDEuMzUxIDAgMCAwIDEuMiwwLjczNyBoIDAuMDM0IGEgMS4zNTMsMS4zNTMgMCAwIDAgMS4zNTYsLTEuMzUzIHYgLTAuMDM0IGEgMS4zNTMsMS4zNTMgMCAwIDAgLTEuMzUzLC0xLjM1MyB6IgogICBmaWxsPSIjM2NkNGMyIgogICBpZD0icGF0aDU0NDE1IiAvPgrigIsKPC9zdmc+Cg=="/>
+        <image x="686.61" y="599.5" width="35.79" height="20" xlink:href="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcKICAgd2lkdGg9IjE4IgogICBoZWlnaHQ9IjkuOTU5ODI0NiIKICAgdmlld0JveD0iMCAwIDE4IDkuOTU5ODI0NiIKICAgdmVyc2lvbj0iMS4xIgogICBpZD0ic3ZnNTQ0MTciCiAgIHNvZGlwb2RpOmRvY25hbWU9IkFQSV9Qcm94eS5zdmciCiAgIGlua3NjYXBlOnZlcnNpb249IjEuMSAoYzY4ZTIyYzM4NywgMjAyMS0wNS0yMykiCiAgIHhtbG5zOmlua3NjYXBlPSJodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy9uYW1lc3BhY2VzL2lua3NjYXBlIgogICB4bWxuczpzb2RpcG9kaT0iaHR0cDovL3NvZGlwb2RpLnNvdXJjZWZvcmdlLm5ldC9EVEQvc29kaXBvZGktMC5kdGQiCiAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHNvZGlwb2RpOm5hbWVkdmlldwogICBpZD0ibmFtZWR2aWV3NTQ0MTkiCiAgIHBhZ2Vjb2xvcj0iI2ZmZmZmZiIKICAgYm9yZGVyY29sb3I9IiM2NjY2NjYiCiAgIGJvcmRlcm9wYWNpdHk9IjEuMCIKICAgaW5rc2NhcGU6cGFnZXNoYWRvdz0iMiIKICAgaW5rc2NhcGU6cGFnZW9wYWNpdHk9IjAuMCIKICAgaW5rc2NhcGU6cGFnZWNoZWNrZXJib2FyZD0iMCIKICAgc2hvd2dyaWQ9ImZhbHNlIgogICBmaXQtbWFyZ2luLXRvcD0iMCIKICAgZml0LW1hcmdpbi1sZWZ0PSIwIgogICBmaXQtbWFyZ2luLXJpZ2h0PSIwIgogICBmaXQtbWFyZ2luLWJvdHRvbT0iMCIKICAgaW5rc2NhcGU6em9vbT0iNDQuMDU1NTU2IgogICBpbmtzY2FwZTpjeD0iOSIKICAgaW5rc2NhcGU6Y3k9IjQuOTgyMzQ1NSIKICAgaW5rc2NhcGU6d2luZG93LXdpZHRoPSIxOTIwIgogICBpbmtzY2FwZTp3aW5kb3ctaGVpZ2h0PSIxMDE3IgogICBpbmtzY2FwZTp3aW5kb3cteD0iLTgiCiAgIGlua3NjYXBlOndpbmRvdy15PSItOCIKICAgaW5rc2NhcGU6d2luZG93LW1heGltaXplZD0iMSIKICAgaW5rc2NhcGU6Y3VycmVudC1sYXllcj0ic3ZnNTQ0MTciIC8+CjxkZWZzCiAgIGlkPSJkZWZzNTQ0MDkiPgogIDxsaW5lYXJHcmFkaWVudAogICAgIGlkPSJmZjdhMWE5Zi1lMWE3LTQ3MWEtYjc2ZS0xZDJlYTQzYThkMTEiCiAgICAgeDE9IjguOTIzOTk5OCIKICAgICB5MT0iNzg1LjE0NTAyIgogICAgIHgyPSI4LjkyMzk5OTgiCiAgICAgeTI9Ijc3OS4xODU5NyIKICAgICBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KDEsMCwwLC0xLDAsNzg3LjQ5NzQ3KSIKICAgICBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICA8c3RvcAogICAgICAgb2Zmc2V0PSIwIgogICAgICAgc3RvcC1jb2xvcj0iIzM3YzJiMSIKICAgICAgIGlkPSJzdG9wNTQ0MDQiIC8+CiAgICA8c3RvcAogICAgICAgb2Zmc2V0PSIxIgogICAgICAgc3RvcC1jb2xvcj0iIzI1ODI3NyIKICAgICAgIGlkPSJzdG9wNTQ0MDYiIC8+CiAgPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8cmVjdAogICB4PSI2LjUzMTAwMDEiCiAgIHk9IjIuNTk2NDcyNyIKICAgd2lkdGg9IjQuNzg4MDAwMSIKICAgaGVpZ2h0PSI0Ljc4ODAwMDEiCiAgIHJ4PSIyLjM2NDAwMDEiCiAgIGZpbGw9InVybCgjZmY3YTFhOWYtZTFhNy00NzFhLWI3NmUtMWQyZWE0M2E4ZDExKSIKICAgaWQ9InJlY3Q1NDQxMSIKICAgc3R5bGU9ImZpbGw6dXJsKCNmZjdhMWE5Zi1lMWE3LTQ3MWEtYjc2ZS0xZDJlYTQzYThkMTEpIiAvPgo8cGF0aAogICBkPSJNIDgsOC42NzQ0NzI5IEEgMy43NzMsMy43NzMgMCAwIDEgNy45ODUsMS4yODc0NzI5IDAuNjQ5LDAuNjQ5IDAgMSAwIDcuNzE5LDAuMDE3NDcyOTMgNS4wOTEsNS4wOTEgMCAwIDAgMy43Myw0LjM0MDQ3MjkgSCAyLjU3NCBhIDEuMzUxLDEuMzUxIDAgMCAwIC0xLjE4NywtMC43IEggMS4zNTMgQSAxLjM1MywxLjM1MyAwIDAgMCAwLDQuOTg4NDcyOSB2IDAuMDM0IGEgMS4zNTMsMS4zNTMgMCAwIDAgMS4zNTMsMS4zNTMgaCAwLjAzNCBhIDEuMzUxLDEuMzUxIDAgMCAwIDEuMiwtMC43MzcgaCAxLjE0NiBhIDUuMDg3LDUuMDg3IDAgMCAwIDQuMDA1LDQuMzA4IDAuNjQ5MzUxMjEsMC42NDkzNTEyMSAwIDAgMCAwLjI2MiwtMS4yNzIgeiIKICAgZmlsbD0iIzNjZDRjMiIKICAgaWQ9InBhdGg1NDQxMyIgLz4KPHBhdGgKICAgZD0ibSAxNi42NDcsMy42MzU0NzI5IGggLTAuMDM0IGEgMS4zNTEsMS4zNTEgMCAwIDAgLTEuMTg3LDAuNzA1IEggMTQuMjcgYSA1LjA5MSw1LjA5MSAwIDAgMCAtMy45ODcsLTQuMzIyOTk5OTcgMC42NDksMC42NDkgMCAwIDAgLTAuMjY2LDEuMjY5OTk5OTcgMy43NzMsMy43NzMgMCAwIDEgLTAuMDE3LDcuMzg3IDAuNjQ5MTUwMjEsMC42NDkxNTAyMSAwIDAgMCAwLjI2LDEuMjcyIDUuMDg3LDUuMDg3IDAgMCAwIDQsLTQuMzA4IGggMS4xNSBhIDEuMzUxLDEuMzUxIDAgMCAwIDEuMiwwLjczNyBoIDAuMDM0IGEgMS4zNTMsMS4zNTMgMCAwIDAgMS4zNTYsLTEuMzUzIHYgLTAuMDM0IGEgMS4zNTMsMS4zNTMgMCAwIDAgLTEuMzUzLC0xLjM1MyB6IgogICBmaWxsPSIjM2NkNGMyIgogICBpZD0icGF0aDU0NDE1IiAvPgrigIsKPC9zdmc+Cg=="/>
+        <image x="736.61" y="599.5" width="35.79" height="20" xlink:href="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcKICAgd2lkdGg9IjE4IgogICBoZWlnaHQ9IjkuOTU5ODI0NiIKICAgdmlld0JveD0iMCAwIDE4IDkuOTU5ODI0NiIKICAgdmVyc2lvbj0iMS4xIgogICBpZD0ic3ZnNTQ0MTciCiAgIHNvZGlwb2RpOmRvY25hbWU9IkFQSV9Qcm94eS5zdmciCiAgIGlua3NjYXBlOnZlcnNpb249IjEuMSAoYzY4ZTIyYzM4NywgMjAyMS0wNS0yMykiCiAgIHhtbG5zOmlua3NjYXBlPSJodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy9uYW1lc3BhY2VzL2lua3NjYXBlIgogICB4bWxuczpzb2RpcG9kaT0iaHR0cDovL3NvZGlwb2RpLnNvdXJjZWZvcmdlLm5ldC9EVEQvc29kaXBvZGktMC5kdGQiCiAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHNvZGlwb2RpOm5hbWVkdmlldwogICBpZD0ibmFtZWR2aWV3NTQ0MTkiCiAgIHBhZ2Vjb2xvcj0iI2ZmZmZmZiIKICAgYm9yZGVyY29sb3I9IiM2NjY2NjYiCiAgIGJvcmRlcm9wYWNpdHk9IjEuMCIKICAgaW5rc2NhcGU6cGFnZXNoYWRvdz0iMiIKICAgaW5rc2NhcGU6cGFnZW9wYWNpdHk9IjAuMCIKICAgaW5rc2NhcGU6cGFnZWNoZWNrZXJib2FyZD0iMCIKICAgc2hvd2dyaWQ9ImZhbHNlIgogICBmaXQtbWFyZ2luLXRvcD0iMCIKICAgZml0LW1hcmdpbi1sZWZ0PSIwIgogICBmaXQtbWFyZ2luLXJpZ2h0PSIwIgogICBmaXQtbWFyZ2luLWJvdHRvbT0iMCIKICAgaW5rc2NhcGU6em9vbT0iNDQuMDU1NTU2IgogICBpbmtzY2FwZTpjeD0iOSIKICAgaW5rc2NhcGU6Y3k9IjQuOTgyMzQ1NSIKICAgaW5rc2NhcGU6d2luZG93LXdpZHRoPSIxOTIwIgogICBpbmtzY2FwZTp3aW5kb3ctaGVpZ2h0PSIxMDE3IgogICBpbmtzY2FwZTp3aW5kb3cteD0iLTgiCiAgIGlua3NjYXBlOndpbmRvdy15PSItOCIKICAgaW5rc2NhcGU6d2luZG93LW1heGltaXplZD0iMSIKICAgaW5rc2NhcGU6Y3VycmVudC1sYXllcj0ic3ZnNTQ0MTciIC8+CjxkZWZzCiAgIGlkPSJkZWZzNTQ0MDkiPgogIDxsaW5lYXJHcmFkaWVudAogICAgIGlkPSJmZjdhMWE5Zi1lMWE3LTQ3MWEtYjc2ZS0xZDJlYTQzYThkMTEiCiAgICAgeDE9IjguOTIzOTk5OCIKICAgICB5MT0iNzg1LjE0NTAyIgogICAgIHgyPSI4LjkyMzk5OTgiCiAgICAgeTI9Ijc3OS4xODU5NyIKICAgICBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KDEsMCwwLC0xLDAsNzg3LjQ5NzQ3KSIKICAgICBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICA8c3RvcAogICAgICAgb2Zmc2V0PSIwIgogICAgICAgc3RvcC1jb2xvcj0iIzM3YzJiMSIKICAgICAgIGlkPSJzdG9wNTQ0MDQiIC8+CiAgICA8c3RvcAogICAgICAgb2Zmc2V0PSIxIgogICAgICAgc3RvcC1jb2xvcj0iIzI1ODI3NyIKICAgICAgIGlkPSJzdG9wNTQ0MDYiIC8+CiAgPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8cmVjdAogICB4PSI2LjUzMTAwMDEiCiAgIHk9IjIuNTk2NDcyNyIKICAgd2lkdGg9IjQuNzg4MDAwMSIKICAgaGVpZ2h0PSI0Ljc4ODAwMDEiCiAgIHJ4PSIyLjM2NDAwMDEiCiAgIGZpbGw9InVybCgjZmY3YTFhOWYtZTFhNy00NzFhLWI3NmUtMWQyZWE0M2E4ZDExKSIKICAgaWQ9InJlY3Q1NDQxMSIKICAgc3R5bGU9ImZpbGw6dXJsKCNmZjdhMWE5Zi1lMWE3LTQ3MWEtYjc2ZS0xZDJlYTQzYThkMTEpIiAvPgo8cGF0aAogICBkPSJNIDgsOC42NzQ0NzI5IEEgMy43NzMsMy43NzMgMCAwIDEgNy45ODUsMS4yODc0NzI5IDAuNjQ5LDAuNjQ5IDAgMSAwIDcuNzE5LDAuMDE3NDcyOTMgNS4wOTEsNS4wOTEgMCAwIDAgMy43Myw0LjM0MDQ3MjkgSCAyLjU3NCBhIDEuMzUxLDEuMzUxIDAgMCAwIC0xLjE4NywtMC43IEggMS4zNTMgQSAxLjM1MywxLjM1MyAwIDAgMCAwLDQuOTg4NDcyOSB2IDAuMDM0IGEgMS4zNTMsMS4zNTMgMCAwIDAgMS4zNTMsMS4zNTMgaCAwLjAzNCBhIDEuMzUxLDEuMzUxIDAgMCAwIDEuMiwtMC43MzcgaCAxLjE0NiBhIDUuMDg3LDUuMDg3IDAgMCAwIDQuMDA1LDQuMzA4IDAuNjQ5MzUxMjEsMC42NDkzNTEyMSAwIDAgMCAwLjI2MiwtMS4yNzIgeiIKICAgZmlsbD0iIzNjZDRjMiIKICAgaWQ9InBhdGg1NDQxMyIgLz4KPHBhdGgKICAgZD0ibSAxNi42NDcsMy42MzU0NzI5IGggLTAuMDM0IGEgMS4zNTEsMS4zNTEgMCAwIDAgLTEuMTg3LDAuNzA1IEggMTQuMjcgYSA1LjA5MSw1LjA5MSAwIDAgMCAtMy45ODcsLTQuMzIyOTk5OTcgMC42NDksMC42NDkgMCAwIDAgLTAuMjY2LDEuMjY5OTk5OTcgMy43NzMsMy43NzMgMCAwIDEgLTAuMDE3LDcuMzg3IDAuNjQ5MTUwMjEsMC42NDkxNTAyMSAwIDAgMCAwLjI2LDEuMjcyIDUuMDg3LDUuMDg3IDAgMCAwIDQsLTQuMzA4IGggMS4xNSBhIDEuMzUxLDEuMzUxIDAgMCAwIDEuMiwwLjczNyBoIDAuMDM0IGEgMS4zNTMsMS4zNTMgMCAwIDAgMS4zNTYsLTEuMzUzIHYgLTAuMDM0IGEgMS4zNTMsMS4zNTMgMCAwIDAgLTEuMzUzLC0xLjM1MyB6IgogICBmaWxsPSIjM2NkNGMyIgogICBpZD0icGF0aDU0NDE1IiAvPgrigIsKPC9zdmc+Cg=="/>
+        <image x="786.61" y="599.5" width="35.79" height="20" xlink:href="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcKICAgd2lkdGg9IjE4IgogICBoZWlnaHQ9IjkuOTU5ODI0NiIKICAgdmlld0JveD0iMCAwIDE4IDkuOTU5ODI0NiIKICAgdmVyc2lvbj0iMS4xIgogICBpZD0ic3ZnNTQ0MTciCiAgIHNvZGlwb2RpOmRvY25hbWU9IkFQSV9Qcm94eS5zdmciCiAgIGlua3NjYXBlOnZlcnNpb249IjEuMSAoYzY4ZTIyYzM4NywgMjAyMS0wNS0yMykiCiAgIHhtbG5zOmlua3NjYXBlPSJodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy9uYW1lc3BhY2VzL2lua3NjYXBlIgogICB4bWxuczpzb2RpcG9kaT0iaHR0cDovL3NvZGlwb2RpLnNvdXJjZWZvcmdlLm5ldC9EVEQvc29kaXBvZGktMC5kdGQiCiAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHNvZGlwb2RpOm5hbWVkdmlldwogICBpZD0ibmFtZWR2aWV3NTQ0MTkiCiAgIHBhZ2Vjb2xvcj0iI2ZmZmZmZiIKICAgYm9yZGVyY29sb3I9IiM2NjY2NjYiCiAgIGJvcmRlcm9wYWNpdHk9IjEuMCIKICAgaW5rc2NhcGU6cGFnZXNoYWRvdz0iMiIKICAgaW5rc2NhcGU6cGFnZW9wYWNpdHk9IjAuMCIKICAgaW5rc2NhcGU6cGFnZWNoZWNrZXJib2FyZD0iMCIKICAgc2hvd2dyaWQ9ImZhbHNlIgogICBmaXQtbWFyZ2luLXRvcD0iMCIKICAgZml0LW1hcmdpbi1sZWZ0PSIwIgogICBmaXQtbWFyZ2luLXJpZ2h0PSIwIgogICBmaXQtbWFyZ2luLWJvdHRvbT0iMCIKICAgaW5rc2NhcGU6em9vbT0iNDQuMDU1NTU2IgogICBpbmtzY2FwZTpjeD0iOSIKICAgaW5rc2NhcGU6Y3k9IjQuOTgyMzQ1NSIKICAgaW5rc2NhcGU6d2luZG93LXdpZHRoPSIxOTIwIgogICBpbmtzY2FwZTp3aW5kb3ctaGVpZ2h0PSIxMDE3IgogICBpbmtzY2FwZTp3aW5kb3cteD0iLTgiCiAgIGlua3NjYXBlOndpbmRvdy15PSItOCIKICAgaW5rc2NhcGU6d2luZG93LW1heGltaXplZD0iMSIKICAgaW5rc2NhcGU6Y3VycmVudC1sYXllcj0ic3ZnNTQ0MTciIC8+CjxkZWZzCiAgIGlkPSJkZWZzNTQ0MDkiPgogIDxsaW5lYXJHcmFkaWVudAogICAgIGlkPSJmZjdhMWE5Zi1lMWE3LTQ3MWEtYjc2ZS0xZDJlYTQzYThkMTEiCiAgICAgeDE9IjguOTIzOTk5OCIKICAgICB5MT0iNzg1LjE0NTAyIgogICAgIHgyPSI4LjkyMzk5OTgiCiAgICAgeTI9Ijc3OS4xODU5NyIKICAgICBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KDEsMCwwLC0xLDAsNzg3LjQ5NzQ3KSIKICAgICBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICA8c3RvcAogICAgICAgb2Zmc2V0PSIwIgogICAgICAgc3RvcC1jb2xvcj0iIzM3YzJiMSIKICAgICAgIGlkPSJzdG9wNTQ0MDQiIC8+CiAgICA8c3RvcAogICAgICAgb2Zmc2V0PSIxIgogICAgICAgc3RvcC1jb2xvcj0iIzI1ODI3NyIKICAgICAgIGlkPSJzdG9wNTQ0MDYiIC8+CiAgPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8cmVjdAogICB4PSI2LjUzMTAwMDEiCiAgIHk9IjIuNTk2NDcyNyIKICAgd2lkdGg9IjQuNzg4MDAwMSIKICAgaGVpZ2h0PSI0Ljc4ODAwMDEiCiAgIHJ4PSIyLjM2NDAwMDEiCiAgIGZpbGw9InVybCgjZmY3YTFhOWYtZTFhNy00NzFhLWI3NmUtMWQyZWE0M2E4ZDExKSIKICAgaWQ9InJlY3Q1NDQxMSIKICAgc3R5bGU9ImZpbGw6dXJsKCNmZjdhMWE5Zi1lMWE3LTQ3MWEtYjc2ZS0xZDJlYTQzYThkMTEpIiAvPgo8cGF0aAogICBkPSJNIDgsOC42NzQ0NzI5IEEgMy43NzMsMy43NzMgMCAwIDEgNy45ODUsMS4yODc0NzI5IDAuNjQ5LDAuNjQ5IDAgMSAwIDcuNzE5LDAuMDE3NDcyOTMgNS4wOTEsNS4wOTEgMCAwIDAgMy43Myw0LjM0MDQ3MjkgSCAyLjU3NCBhIDEuMzUxLDEuMzUxIDAgMCAwIC0xLjE4NywtMC43IEggMS4zNTMgQSAxLjM1MywxLjM1MyAwIDAgMCAwLDQuOTg4NDcyOSB2IDAuMDM0IGEgMS4zNTMsMS4zNTMgMCAwIDAgMS4zNTMsMS4zNTMgaCAwLjAzNCBhIDEuMzUxLDEuMzUxIDAgMCAwIDEuMiwtMC43MzcgaCAxLjE0NiBhIDUuMDg3LDUuMDg3IDAgMCAwIDQuMDA1LDQuMzA4IDAuNjQ5MzUxMjEsMC42NDkzNTEyMSAwIDAgMCAwLjI2MiwtMS4yNzIgeiIKICAgZmlsbD0iIzNjZDRjMiIKICAgaWQ9InBhdGg1NDQxMyIgLz4KPHBhdGgKICAgZD0ibSAxNi42NDcsMy42MzU0NzI5IGggLTAuMDM0IGEgMS4zNTEsMS4zNTEgMCAwIDAgLTEuMTg3LDAuNzA1IEggMTQuMjcgYSA1LjA5MSw1LjA5MSAwIDAgMCAtMy45ODcsLTQuMzIyOTk5OTcgMC42NDksMC42NDkgMCAwIDAgLTAuMjY2LDEuMjY5OTk5OTcgMy43NzMsMy43NzMgMCAwIDEgLTAuMDE3LDcuMzg3IDAuNjQ5MTUwMjEsMC42NDkxNTAyMSAwIDAgMCAwLjI2LDEuMjcyIDUuMDg3LDUuMDg3IDAgMCAwIDQsLTQuMzA4IGggMS4xNSBhIDEuMzUxLDEuMzUxIDAgMCAwIDEuMiwwLjczNyBoIDAuMDM0IGEgMS4zNTMsMS4zNTMgMCAwIDAgMS4zNTYsLTEuMzUzIHYgLTAuMDM0IGEgMS4zNTMsMS4zNTMgMCAwIDAgLTEuMzUzLC0xLjM1MyB6IgogICBmaWxsPSIjM2NkNGMyIgogICBpZD0icGF0aDU0NDE1IiAvPgrigIsKPC9zdmc+Cg=="/>
+        <image x="836.61" y="599.5" width="35.79" height="20" xlink:href="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcKICAgd2lkdGg9IjE4IgogICBoZWlnaHQ9IjkuOTU5ODI0NiIKICAgdmlld0JveD0iMCAwIDE4IDkuOTU5ODI0NiIKICAgdmVyc2lvbj0iMS4xIgogICBpZD0ic3ZnNTQ0MTciCiAgIHNvZGlwb2RpOmRvY25hbWU9IkFQSV9Qcm94eS5zdmciCiAgIGlua3NjYXBlOnZlcnNpb249IjEuMSAoYzY4ZTIyYzM4NywgMjAyMS0wNS0yMykiCiAgIHhtbG5zOmlua3NjYXBlPSJodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy9uYW1lc3BhY2VzL2lua3NjYXBlIgogICB4bWxuczpzb2RpcG9kaT0iaHR0cDovL3NvZGlwb2RpLnNvdXJjZWZvcmdlLm5ldC9EVEQvc29kaXBvZGktMC5kdGQiCiAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHNvZGlwb2RpOm5hbWVkdmlldwogICBpZD0ibmFtZWR2aWV3NTQ0MTkiCiAgIHBhZ2Vjb2xvcj0iI2ZmZmZmZiIKICAgYm9yZGVyY29sb3I9IiM2NjY2NjYiCiAgIGJvcmRlcm9wYWNpdHk9IjEuMCIKICAgaW5rc2NhcGU6cGFnZXNoYWRvdz0iMiIKICAgaW5rc2NhcGU6cGFnZW9wYWNpdHk9IjAuMCIKICAgaW5rc2NhcGU6cGFnZWNoZWNrZXJib2FyZD0iMCIKICAgc2hvd2dyaWQ9ImZhbHNlIgogICBmaXQtbWFyZ2luLXRvcD0iMCIKICAgZml0LW1hcmdpbi1sZWZ0PSIwIgogICBmaXQtbWFyZ2luLXJpZ2h0PSIwIgogICBmaXQtbWFyZ2luLWJvdHRvbT0iMCIKICAgaW5rc2NhcGU6em9vbT0iNDQuMDU1NTU2IgogICBpbmtzY2FwZTpjeD0iOSIKICAgaW5rc2NhcGU6Y3k9IjQuOTgyMzQ1NSIKICAgaW5rc2NhcGU6d2luZG93LXdpZHRoPSIxOTIwIgogICBpbmtzY2FwZTp3aW5kb3ctaGVpZ2h0PSIxMDE3IgogICBpbmtzY2FwZTp3aW5kb3cteD0iLTgiCiAgIGlua3NjYXBlOndpbmRvdy15PSItOCIKICAgaW5rc2NhcGU6d2luZG93LW1heGltaXplZD0iMSIKICAgaW5rc2NhcGU6Y3VycmVudC1sYXllcj0ic3ZnNTQ0MTciIC8+CjxkZWZzCiAgIGlkPSJkZWZzNTQ0MDkiPgogIDxsaW5lYXJHcmFkaWVudAogICAgIGlkPSJmZjdhMWE5Zi1lMWE3LTQ3MWEtYjc2ZS0xZDJlYTQzYThkMTEiCiAgICAgeDE9IjguOTIzOTk5OCIKICAgICB5MT0iNzg1LjE0NTAyIgogICAgIHgyPSI4LjkyMzk5OTgiCiAgICAgeTI9Ijc3OS4xODU5NyIKICAgICBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KDEsMCwwLC0xLDAsNzg3LjQ5NzQ3KSIKICAgICBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICA8c3RvcAogICAgICAgb2Zmc2V0PSIwIgogICAgICAgc3RvcC1jb2xvcj0iIzM3YzJiMSIKICAgICAgIGlkPSJzdG9wNTQ0MDQiIC8+CiAgICA8c3RvcAogICAgICAgb2Zmc2V0PSIxIgogICAgICAgc3RvcC1jb2xvcj0iIzI1ODI3NyIKICAgICAgIGlkPSJzdG9wNTQ0MDYiIC8+CiAgPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8cmVjdAogICB4PSI2LjUzMTAwMDEiCiAgIHk9IjIuNTk2NDcyNyIKICAgd2lkdGg9IjQuNzg4MDAwMSIKICAgaGVpZ2h0PSI0Ljc4ODAwMDEiCiAgIHJ4PSIyLjM2NDAwMDEiCiAgIGZpbGw9InVybCgjZmY3YTFhOWYtZTFhNy00NzFhLWI3NmUtMWQyZWE0M2E4ZDExKSIKICAgaWQ9InJlY3Q1NDQxMSIKICAgc3R5bGU9ImZpbGw6dXJsKCNmZjdhMWE5Zi1lMWE3LTQ3MWEtYjc2ZS0xZDJlYTQzYThkMTEpIiAvPgo8cGF0aAogICBkPSJNIDgsOC42NzQ0NzI5IEEgMy43NzMsMy43NzMgMCAwIDEgNy45ODUsMS4yODc0NzI5IDAuNjQ5LDAuNjQ5IDAgMSAwIDcuNzE5LDAuMDE3NDcyOTMgNS4wOTEsNS4wOTEgMCAwIDAgMy43Myw0LjM0MDQ3MjkgSCAyLjU3NCBhIDEuMzUxLDEuMzUxIDAgMCAwIC0xLjE4NywtMC43IEggMS4zNTMgQSAxLjM1MywxLjM1MyAwIDAgMCAwLDQuOTg4NDcyOSB2IDAuMDM0IGEgMS4zNTMsMS4zNTMgMCAwIDAgMS4zNTMsMS4zNTMgaCAwLjAzNCBhIDEuMzUxLDEuMzUxIDAgMCAwIDEuMiwtMC43MzcgaCAxLjE0NiBhIDUuMDg3LDUuMDg3IDAgMCAwIDQuMDA1LDQuMzA4IDAuNjQ5MzUxMjEsMC42NDkzNTEyMSAwIDAgMCAwLjI2MiwtMS4yNzIgeiIKICAgZmlsbD0iIzNjZDRjMiIKICAgaWQ9InBhdGg1NDQxMyIgLz4KPHBhdGgKICAgZD0ibSAxNi42NDcsMy42MzU0NzI5IGggLTAuMDM0IGEgMS4zNTEsMS4zNTEgMCAwIDAgLTEuMTg3LDAuNzA1IEggMTQuMjcgYSA1LjA5MSw1LjA5MSAwIDAgMCAtMy45ODcsLTQuMzIyOTk5OTcgMC42NDksMC42NDkgMCAwIDAgLTAuMjY2LDEuMjY5OTk5OTcgMy43NzMsMy43NzMgMCAwIDEgLTAuMDE3LDcuMzg3IDAuNjQ5MTUwMjEsMC42NDkxNTAyMSAwIDAgMCAwLjI2LDEuMjcyIDUuMDg3LDUuMDg3IDAgMCAwIDQsLTQuMzA4IGggMS4xNSBhIDEuMzUxLDEuMzUxIDAgMCAwIDEuMiwwLjczNyBoIDAuMDM0IGEgMS4zNTMsMS4zNTMgMCAwIDAgMS4zNTYsLTEuMzUzIHYgLTAuMDM0IGEgMS4zNTMsMS4zNTMgMCAwIDAgLTEuMzUzLC0xLjM1MyB6IgogICBmaWxsPSIjM2NkNGMyIgogICBpZD0icGF0aDU0NDE1IiAvPgrigIsKPC9zdmc+Cg=="/>
+        <image x="886.61" y="599.5" width="35.79" height="20" xlink:href="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcKICAgd2lkdGg9IjE4IgogICBoZWlnaHQ9IjkuOTU5ODI0NiIKICAgdmlld0JveD0iMCAwIDE4IDkuOTU5ODI0NiIKICAgdmVyc2lvbj0iMS4xIgogICBpZD0ic3ZnNTQ0MTciCiAgIHNvZGlwb2RpOmRvY25hbWU9IkFQSV9Qcm94eS5zdmciCiAgIGlua3NjYXBlOnZlcnNpb249IjEuMSAoYzY4ZTIyYzM4NywgMjAyMS0wNS0yMykiCiAgIHhtbG5zOmlua3NjYXBlPSJodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy9uYW1lc3BhY2VzL2lua3NjYXBlIgogICB4bWxuczpzb2RpcG9kaT0iaHR0cDovL3NvZGlwb2RpLnNvdXJjZWZvcmdlLm5ldC9EVEQvc29kaXBvZGktMC5kdGQiCiAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHNvZGlwb2RpOm5hbWVkdmlldwogICBpZD0ibmFtZWR2aWV3NTQ0MTkiCiAgIHBhZ2Vjb2xvcj0iI2ZmZmZmZiIKICAgYm9yZGVyY29sb3I9IiM2NjY2NjYiCiAgIGJvcmRlcm9wYWNpdHk9IjEuMCIKICAgaW5rc2NhcGU6cGFnZXNoYWRvdz0iMiIKICAgaW5rc2NhcGU6cGFnZW9wYWNpdHk9IjAuMCIKICAgaW5rc2NhcGU6cGFnZWNoZWNrZXJib2FyZD0iMCIKICAgc2hvd2dyaWQ9ImZhbHNlIgogICBmaXQtbWFyZ2luLXRvcD0iMCIKICAgZml0LW1hcmdpbi1sZWZ0PSIwIgogICBmaXQtbWFyZ2luLXJpZ2h0PSIwIgogICBmaXQtbWFyZ2luLWJvdHRvbT0iMCIKICAgaW5rc2NhcGU6em9vbT0iNDQuMDU1NTU2IgogICBpbmtzY2FwZTpjeD0iOSIKICAgaW5rc2NhcGU6Y3k9IjQuOTgyMzQ1NSIKICAgaW5rc2NhcGU6d2luZG93LXdpZHRoPSIxOTIwIgogICBpbmtzY2FwZTp3aW5kb3ctaGVpZ2h0PSIxMDE3IgogICBpbmtzY2FwZTp3aW5kb3cteD0iLTgiCiAgIGlua3NjYXBlOndpbmRvdy15PSItOCIKICAgaW5rc2NhcGU6d2luZG93LW1heGltaXplZD0iMSIKICAgaW5rc2NhcGU6Y3VycmVudC1sYXllcj0ic3ZnNTQ0MTciIC8+CjxkZWZzCiAgIGlkPSJkZWZzNTQ0MDkiPgogIDxsaW5lYXJHcmFkaWVudAogICAgIGlkPSJmZjdhMWE5Zi1lMWE3LTQ3MWEtYjc2ZS0xZDJlYTQzYThkMTEiCiAgICAgeDE9IjguOTIzOTk5OCIKICAgICB5MT0iNzg1LjE0NTAyIgogICAgIHgyPSI4LjkyMzk5OTgiCiAgICAgeTI9Ijc3OS4xODU5NyIKICAgICBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KDEsMCwwLC0xLDAsNzg3LjQ5NzQ3KSIKICAgICBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICA8c3RvcAogICAgICAgb2Zmc2V0PSIwIgogICAgICAgc3RvcC1jb2xvcj0iIzM3YzJiMSIKICAgICAgIGlkPSJzdG9wNTQ0MDQiIC8+CiAgICA8c3RvcAogICAgICAgb2Zmc2V0PSIxIgogICAgICAgc3RvcC1jb2xvcj0iIzI1ODI3NyIKICAgICAgIGlkPSJzdG9wNTQ0MDYiIC8+CiAgPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8cmVjdAogICB4PSI2LjUzMTAwMDEiCiAgIHk9IjIuNTk2NDcyNyIKICAgd2lkdGg9IjQuNzg4MDAwMSIKICAgaGVpZ2h0PSI0Ljc4ODAwMDEiCiAgIHJ4PSIyLjM2NDAwMDEiCiAgIGZpbGw9InVybCgjZmY3YTFhOWYtZTFhNy00NzFhLWI3NmUtMWQyZWE0M2E4ZDExKSIKICAgaWQ9InJlY3Q1NDQxMSIKICAgc3R5bGU9ImZpbGw6dXJsKCNmZjdhMWE5Zi1lMWE3LTQ3MWEtYjc2ZS0xZDJlYTQzYThkMTEpIiAvPgo8cGF0aAogICBkPSJNIDgsOC42NzQ0NzI5IEEgMy43NzMsMy43NzMgMCAwIDEgNy45ODUsMS4yODc0NzI5IDAuNjQ5LDAuNjQ5IDAgMSAwIDcuNzE5LDAuMDE3NDcyOTMgNS4wOTEsNS4wOTEgMCAwIDAgMy43Myw0LjM0MDQ3MjkgSCAyLjU3NCBhIDEuMzUxLDEuMzUxIDAgMCAwIC0xLjE4NywtMC43IEggMS4zNTMgQSAxLjM1MywxLjM1MyAwIDAgMCAwLDQuOTg4NDcyOSB2IDAuMDM0IGEgMS4zNTMsMS4zNTMgMCAwIDAgMS4zNTMsMS4zNTMgaCAwLjAzNCBhIDEuMzUxLDEuMzUxIDAgMCAwIDEuMiwtMC43MzcgaCAxLjE0NiBhIDUuMDg3LDUuMDg3IDAgMCAwIDQuMDA1LDQuMzA4IDAuNjQ5MzUxMjEsMC42NDkzNTEyMSAwIDAgMCAwLjI2MiwtMS4yNzIgeiIKICAgZmlsbD0iIzNjZDRjMiIKICAgaWQ9InBhdGg1NDQxMyIgLz4KPHBhdGgKICAgZD0ibSAxNi42NDcsMy42MzU0NzI5IGggLTAuMDM0IGEgMS4zNTEsMS4zNTEgMCAwIDAgLTEuMTg3LDAuNzA1IEggMTQuMjcgYSA1LjA5MSw1LjA5MSAwIDAgMCAtMy45ODcsLTQuMzIyOTk5OTcgMC42NDksMC42NDkgMCAwIDAgLTAuMjY2LDEuMjY5OTk5OTcgMy43NzMsMy43NzMgMCAwIDEgLTAuMDE3LDcuMzg3IDAuNjQ5MTUwMjEsMC42NDkxNTAyMSAwIDAgMCAwLjI2LDEuMjcyIDUuMDg3LDUuMDg3IDAgMCAwIDQsLTQuMzA4IGggMS4xNSBhIDEuMzUxLDEuMzUxIDAgMCAwIDEuMiwwLjczNyBoIDAuMDM0IGEgMS4zNTMsMS4zNTMgMCAwIDAgMS4zNTYsLTEuMzUzIHYgLTAuMDM0IGEgMS4zNTMsMS4zNTMgMCAwIDAgLTEuMzUzLC0xLjM1MyB6IgogICBmaWxsPSIjM2NkNGMyIgogICBpZD0icGF0aDU0NDE1IiAvPgrigIsKPC9zdmc+Cg=="/>
+        <a xlink:href="https://github.com/Altinn/altinn-studio/blob/master/backend/src/Designer/Controllers/UserController.cs" target="_blank">
+            <rect x="860" y="670" width="190" height="40" fill="url(#mx-gradient-dae8fc-1-7ea6e0-1-s-0)" stroke="#6c8ebf" transform="rotate(90,955,690)" pointer-events="all"/>
+            <g transform="translate(-0.5 -0.5)rotate(90 955 690)">
+                <switch>
+                    <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 188px; height: 1px; padding-top: 690px; margin-left: 861px;">
+                            <div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                                <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
+                                    Policy
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="955" y="694" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px" text-anchor="middle">
+                        Policy
+                    </text>
+                </switch>
+            </g>
+        </a>
+        <a xlink:href="https://github.com/Altinn/altinn-studio/blob/master/backend/src/Designer/Controllers/UserController.cs" target="_blank">
+            <rect x="910" y="670" width="190" height="40" fill="url(#mx-gradient-dae8fc-1-7ea6e0-1-s-0)" stroke="#6c8ebf" transform="rotate(90,1005,690)" pointer-events="all"/>
+            <g transform="translate(-0.5 -0.5)rotate(90 1005 690)">
+                <switch>
+                    <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 188px; height: 1px; padding-top: 690px; margin-left: 911px;">
+                            <div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                                <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
+                                    Resource
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="1005" y="694" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px" text-anchor="middle">
+                        Resource
+                    </text>
+                </switch>
+            </g>
+        </a>
+        <image x="936.6" y="599.5" width="35.79" height="20" xlink:href="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcKICAgd2lkdGg9IjE4IgogICBoZWlnaHQ9IjkuOTU5ODI0NiIKICAgdmlld0JveD0iMCAwIDE4IDkuOTU5ODI0NiIKICAgdmVyc2lvbj0iMS4xIgogICBpZD0ic3ZnNTQ0MTciCiAgIHNvZGlwb2RpOmRvY25hbWU9IkFQSV9Qcm94eS5zdmciCiAgIGlua3NjYXBlOnZlcnNpb249IjEuMSAoYzY4ZTIyYzM4NywgMjAyMS0wNS0yMykiCiAgIHhtbG5zOmlua3NjYXBlPSJodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy9uYW1lc3BhY2VzL2lua3NjYXBlIgogICB4bWxuczpzb2RpcG9kaT0iaHR0cDovL3NvZGlwb2RpLnNvdXJjZWZvcmdlLm5ldC9EVEQvc29kaXBvZGktMC5kdGQiCiAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHNvZGlwb2RpOm5hbWVkdmlldwogICBpZD0ibmFtZWR2aWV3NTQ0MTkiCiAgIHBhZ2Vjb2xvcj0iI2ZmZmZmZiIKICAgYm9yZGVyY29sb3I9IiM2NjY2NjYiCiAgIGJvcmRlcm9wYWNpdHk9IjEuMCIKICAgaW5rc2NhcGU6cGFnZXNoYWRvdz0iMiIKICAgaW5rc2NhcGU6cGFnZW9wYWNpdHk9IjAuMCIKICAgaW5rc2NhcGU6cGFnZWNoZWNrZXJib2FyZD0iMCIKICAgc2hvd2dyaWQ9ImZhbHNlIgogICBmaXQtbWFyZ2luLXRvcD0iMCIKICAgZml0LW1hcmdpbi1sZWZ0PSIwIgogICBmaXQtbWFyZ2luLXJpZ2h0PSIwIgogICBmaXQtbWFyZ2luLWJvdHRvbT0iMCIKICAgaW5rc2NhcGU6em9vbT0iNDQuMDU1NTU2IgogICBpbmtzY2FwZTpjeD0iOSIKICAgaW5rc2NhcGU6Y3k9IjQuOTgyMzQ1NSIKICAgaW5rc2NhcGU6d2luZG93LXdpZHRoPSIxOTIwIgogICBpbmtzY2FwZTp3aW5kb3ctaGVpZ2h0PSIxMDE3IgogICBpbmtzY2FwZTp3aW5kb3cteD0iLTgiCiAgIGlua3NjYXBlOndpbmRvdy15PSItOCIKICAgaW5rc2NhcGU6d2luZG93LW1heGltaXplZD0iMSIKICAgaW5rc2NhcGU6Y3VycmVudC1sYXllcj0ic3ZnNTQ0MTciIC8+CjxkZWZzCiAgIGlkPSJkZWZzNTQ0MDkiPgogIDxsaW5lYXJHcmFkaWVudAogICAgIGlkPSJmZjdhMWE5Zi1lMWE3LTQ3MWEtYjc2ZS0xZDJlYTQzYThkMTEiCiAgICAgeDE9IjguOTIzOTk5OCIKICAgICB5MT0iNzg1LjE0NTAyIgogICAgIHgyPSI4LjkyMzk5OTgiCiAgICAgeTI9Ijc3OS4xODU5NyIKICAgICBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KDEsMCwwLC0xLDAsNzg3LjQ5NzQ3KSIKICAgICBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICA8c3RvcAogICAgICAgb2Zmc2V0PSIwIgogICAgICAgc3RvcC1jb2xvcj0iIzM3YzJiMSIKICAgICAgIGlkPSJzdG9wNTQ0MDQiIC8+CiAgICA8c3RvcAogICAgICAgb2Zmc2V0PSIxIgogICAgICAgc3RvcC1jb2xvcj0iIzI1ODI3NyIKICAgICAgIGlkPSJzdG9wNTQ0MDYiIC8+CiAgPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8cmVjdAogICB4PSI2LjUzMTAwMDEiCiAgIHk9IjIuNTk2NDcyNyIKICAgd2lkdGg9IjQuNzg4MDAwMSIKICAgaGVpZ2h0PSI0Ljc4ODAwMDEiCiAgIHJ4PSIyLjM2NDAwMDEiCiAgIGZpbGw9InVybCgjZmY3YTFhOWYtZTFhNy00NzFhLWI3NmUtMWQyZWE0M2E4ZDExKSIKICAgaWQ9InJlY3Q1NDQxMSIKICAgc3R5bGU9ImZpbGw6dXJsKCNmZjdhMWE5Zi1lMWE3LTQ3MWEtYjc2ZS0xZDJlYTQzYThkMTEpIiAvPgo8cGF0aAogICBkPSJNIDgsOC42NzQ0NzI5IEEgMy43NzMsMy43NzMgMCAwIDEgNy45ODUsMS4yODc0NzI5IDAuNjQ5LDAuNjQ5IDAgMSAwIDcuNzE5LDAuMDE3NDcyOTMgNS4wOTEsNS4wOTEgMCAwIDAgMy43Myw0LjM0MDQ3MjkgSCAyLjU3NCBhIDEuMzUxLDEuMzUxIDAgMCAwIC0xLjE4NywtMC43IEggMS4zNTMgQSAxLjM1MywxLjM1MyAwIDAgMCAwLDQuOTg4NDcyOSB2IDAuMDM0IGEgMS4zNTMsMS4zNTMgMCAwIDAgMS4zNTMsMS4zNTMgaCAwLjAzNCBhIDEuMzUxLDEuMzUxIDAgMCAwIDEuMiwtMC43MzcgaCAxLjE0NiBhIDUuMDg3LDUuMDg3IDAgMCAwIDQuMDA1LDQuMzA4IDAuNjQ5MzUxMjEsMC42NDkzNTEyMSAwIDAgMCAwLjI2MiwtMS4yNzIgeiIKICAgZmlsbD0iIzNjZDRjMiIKICAgaWQ9InBhdGg1NDQxMyIgLz4KPHBhdGgKICAgZD0ibSAxNi42NDcsMy42MzU0NzI5IGggLTAuMDM0IGEgMS4zNTEsMS4zNTEgMCAwIDAgLTEuMTg3LDAuNzA1IEggMTQuMjcgYSA1LjA5MSw1LjA5MSAwIDAgMCAtMy45ODcsLTQuMzIyOTk5OTcgMC42NDksMC42NDkgMCAwIDAgLTAuMjY2LDEuMjY5OTk5OTcgMy43NzMsMy43NzMgMCAwIDEgLTAuMDE3LDcuMzg3IDAuNjQ5MTUwMjEsMC42NDkxNTAyMSAwIDAgMCAwLjI2LDEuMjcyIDUuMDg3LDUuMDg3IDAgMCAwIDQsLTQuMzA4IGggMS4xNSBhIDEuMzUxLDEuMzUxIDAgMCAwIDEuMiwwLjczNyBoIDAuMDM0IGEgMS4zNTMsMS4zNTMgMCAwIDAgMS4zNTYsLTEuMzUzIHYgLTAuMDM0IGEgMS4zNTMsMS4zNTMgMCAwIDAgLTEuMzUzLC0xLjM1MyB6IgogICBmaWxsPSIjM2NkNGMyIgogICBpZD0icGF0aDU0NDE1IiAvPgrigIsKPC9zdmc+Cg=="/>
+        <image x="986.6" y="599.5" width="35.79" height="20" xlink:href="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcKICAgd2lkdGg9IjE4IgogICBoZWlnaHQ9IjkuOTU5ODI0NiIKICAgdmlld0JveD0iMCAwIDE4IDkuOTU5ODI0NiIKICAgdmVyc2lvbj0iMS4xIgogICBpZD0ic3ZnNTQ0MTciCiAgIHNvZGlwb2RpOmRvY25hbWU9IkFQSV9Qcm94eS5zdmciCiAgIGlua3NjYXBlOnZlcnNpb249IjEuMSAoYzY4ZTIyYzM4NywgMjAyMS0wNS0yMykiCiAgIHhtbG5zOmlua3NjYXBlPSJodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy9uYW1lc3BhY2VzL2lua3NjYXBlIgogICB4bWxuczpzb2RpcG9kaT0iaHR0cDovL3NvZGlwb2RpLnNvdXJjZWZvcmdlLm5ldC9EVEQvc29kaXBvZGktMC5kdGQiCiAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHNvZGlwb2RpOm5hbWVkdmlldwogICBpZD0ibmFtZWR2aWV3NTQ0MTkiCiAgIHBhZ2Vjb2xvcj0iI2ZmZmZmZiIKICAgYm9yZGVyY29sb3I9IiM2NjY2NjYiCiAgIGJvcmRlcm9wYWNpdHk9IjEuMCIKICAgaW5rc2NhcGU6cGFnZXNoYWRvdz0iMiIKICAgaW5rc2NhcGU6cGFnZW9wYWNpdHk9IjAuMCIKICAgaW5rc2NhcGU6cGFnZWNoZWNrZXJib2FyZD0iMCIKICAgc2hvd2dyaWQ9ImZhbHNlIgogICBmaXQtbWFyZ2luLXRvcD0iMCIKICAgZml0LW1hcmdpbi1sZWZ0PSIwIgogICBmaXQtbWFyZ2luLXJpZ2h0PSIwIgogICBmaXQtbWFyZ2luLWJvdHRvbT0iMCIKICAgaW5rc2NhcGU6em9vbT0iNDQuMDU1NTU2IgogICBpbmtzY2FwZTpjeD0iOSIKICAgaW5rc2NhcGU6Y3k9IjQuOTgyMzQ1NSIKICAgaW5rc2NhcGU6d2luZG93LXdpZHRoPSIxOTIwIgogICBpbmtzY2FwZTp3aW5kb3ctaGVpZ2h0PSIxMDE3IgogICBpbmtzY2FwZTp3aW5kb3cteD0iLTgiCiAgIGlua3NjYXBlOndpbmRvdy15PSItOCIKICAgaW5rc2NhcGU6d2luZG93LW1heGltaXplZD0iMSIKICAgaW5rc2NhcGU6Y3VycmVudC1sYXllcj0ic3ZnNTQ0MTciIC8+CjxkZWZzCiAgIGlkPSJkZWZzNTQ0MDkiPgogIDxsaW5lYXJHcmFkaWVudAogICAgIGlkPSJmZjdhMWE5Zi1lMWE3LTQ3MWEtYjc2ZS0xZDJlYTQzYThkMTEiCiAgICAgeDE9IjguOTIzOTk5OCIKICAgICB5MT0iNzg1LjE0NTAyIgogICAgIHgyPSI4LjkyMzk5OTgiCiAgICAgeTI9Ijc3OS4xODU5NyIKICAgICBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KDEsMCwwLC0xLDAsNzg3LjQ5NzQ3KSIKICAgICBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICA8c3RvcAogICAgICAgb2Zmc2V0PSIwIgogICAgICAgc3RvcC1jb2xvcj0iIzM3YzJiMSIKICAgICAgIGlkPSJzdG9wNTQ0MDQiIC8+CiAgICA8c3RvcAogICAgICAgb2Zmc2V0PSIxIgogICAgICAgc3RvcC1jb2xvcj0iIzI1ODI3NyIKICAgICAgIGlkPSJzdG9wNTQ0MDYiIC8+CiAgPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8cmVjdAogICB4PSI2LjUzMTAwMDEiCiAgIHk9IjIuNTk2NDcyNyIKICAgd2lkdGg9IjQuNzg4MDAwMSIKICAgaGVpZ2h0PSI0Ljc4ODAwMDEiCiAgIHJ4PSIyLjM2NDAwMDEiCiAgIGZpbGw9InVybCgjZmY3YTFhOWYtZTFhNy00NzFhLWI3NmUtMWQyZWE0M2E4ZDExKSIKICAgaWQ9InJlY3Q1NDQxMSIKICAgc3R5bGU9ImZpbGw6dXJsKCNmZjdhMWE5Zi1lMWE3LTQ3MWEtYjc2ZS0xZDJlYTQzYThkMTEpIiAvPgo8cGF0aAogICBkPSJNIDgsOC42NzQ0NzI5IEEgMy43NzMsMy43NzMgMCAwIDEgNy45ODUsMS4yODc0NzI5IDAuNjQ5LDAuNjQ5IDAgMSAwIDcuNzE5LDAuMDE3NDcyOTMgNS4wOTEsNS4wOTEgMCAwIDAgMy43Myw0LjM0MDQ3MjkgSCAyLjU3NCBhIDEuMzUxLDEuMzUxIDAgMCAwIC0xLjE4NywtMC43IEggMS4zNTMgQSAxLjM1MywxLjM1MyAwIDAgMCAwLDQuOTg4NDcyOSB2IDAuMDM0IGEgMS4zNTMsMS4zNTMgMCAwIDAgMS4zNTMsMS4zNTMgaCAwLjAzNCBhIDEuMzUxLDEuMzUxIDAgMCAwIDEuMiwtMC43MzcgaCAxLjE0NiBhIDUuMDg3LDUuMDg3IDAgMCAwIDQuMDA1LDQuMzA4IDAuNjQ5MzUxMjEsMC42NDkzNTEyMSAwIDAgMCAwLjI2MiwtMS4yNzIgeiIKICAgZmlsbD0iIzNjZDRjMiIKICAgaWQ9InBhdGg1NDQxMyIgLz4KPHBhdGgKICAgZD0ibSAxNi42NDcsMy42MzU0NzI5IGggLTAuMDM0IGEgMS4zNTEsMS4zNTEgMCAwIDAgLTEuMTg3LDAuNzA1IEggMTQuMjcgYSA1LjA5MSw1LjA5MSAwIDAgMCAtMy45ODcsLTQuMzIyOTk5OTcgMC42NDksMC42NDkgMCAwIDAgLTAuMjY2LDEuMjY5OTk5OTcgMy43NzMsMy43NzMgMCAwIDEgLTAuMDE3LDcuMzg3IDAuNjQ5MTUwMjEsMC42NDkxNTAyMSAwIDAgMCAwLjI2LDEuMjcyIDUuMDg3LDUuMDg3IDAgMCAwIDQsLTQuMzA4IGggMS4xNSBhIDEuMzUxLDEuMzUxIDAgMCAwIDEuMiwwLjczNyBoIDAuMDM0IGEgMS4zNTMsMS4zNTMgMCAwIDAgMS4zNTYsLTEuMzUzIHYgLTAuMDM0IGEgMS4zNTMsMS4zNTMgMCAwIDAgLTEuMzUzLC0xLjM1MyB6IgogICBmaWxsPSIjM2NkNGMyIgogICBpZD0icGF0aDU0NDE1IiAvPgrigIsKPC9zdmc+Cg=="/>
+        <a xlink:href="https://github.com/Altinn/altinn-studio/blob/master/backend/src/Designer/Services/Implementation/ApplicationInformationService.cs" target="_blank">
+            <rect x="-40.01" y="1190" width="190" height="40" fill="#0050ef" stroke="#001dbc" transform="rotate(90,54.99,1210)" pointer-events="all"/>
+            <g transform="translate(-0.5 -0.5)rotate(90 54.99000000000001 1210)">
+                <switch>
+                    <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 188px; height: 1px; padding-top: 1210px; margin-left: -39px;">
+                            <div data-drawio-colors="color: #ffffff; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                                <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
+                                    AppliocationInformation
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="55" y="1214" fill="#ffffff" font-family="Helvetica" font-size="12px" text-anchor="middle">
+                        AppliocationInformation
+                    </text>
+                </switch>
+            </g>
+        </a>
+        <a xlink:href="https://github.com/Altinn/altinn-studio/blob/master/backend/src/Designer/Services/Implementation/ApplicationMetadataService.cs" target="_blank">
+            <rect x="10.01" y="1190" width="190" height="40" fill="#6a00ff" stroke="#3700cc" transform="rotate(90,105.01,1210)" pointer-events="all"/>
+            <g transform="translate(-0.5 -0.5)rotate(90 105.00999999999999 1210)">
+                <switch>
+                    <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 188px; height: 1px; padding-top: 1210px; margin-left: 11px;">
+                            <div data-drawio-colors="color: #ffffff; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                                <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
+                                    ApplicationMetadata
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="105" y="1214" fill="#ffffff" font-family="Helvetica" font-size="12px" text-anchor="middle">
+                        ApplicationMetadata
+                    </text>
+                </switch>
+            </g>
+        </a>
+        <a xlink:href="https://github.com/Altinn/altinn-studio/blob/master/backend/src/Designer/Services/Implementation/ApplicationMetadataService.cs" target="_blank">
+            <rect x="60" y="1190" width="190" height="40" fill="#6a00ff" stroke="#3700cc" transform="rotate(90,155,1210)" pointer-events="all"/>
+            <g transform="translate(-0.5 -0.5)rotate(90 155 1210)">
+                <switch>
+                    <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 188px; height: 1px; padding-top: 1210px; margin-left: 61px;">
+                            <div data-drawio-colors="color: #ffffff; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                                <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
+                                    AuthorizationPolicy
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="155" y="1214" fill="#ffffff" font-family="Helvetica" font-size="12px" text-anchor="middle">
+                        AuthorizationPolicy
+                    </text>
+                </switch>
+            </g>
+        </a>
+        <a xlink:href="https://github.com/Altinn/altinn-studio/blob/master/backend/src/Designer/Services/Implementation/DeploymentService.cs" target="_blank">
+            <rect x="110" y="1190" width="190" height="40" fill="#6a00ff" stroke="#3700cc" transform="rotate(90,205,1210)" pointer-events="all"/>
+            <g transform="translate(-0.5 -0.5)rotate(90 205 1210)">
+                <switch>
+                    <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 188px; height: 1px; padding-top: 1210px; margin-left: 111px;">
+                            <div data-drawio-colors="color: #ffffff; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                                <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
+                                    Deployment
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="205" y="1214" fill="#ffffff" font-family="Helvetica" font-size="12px" text-anchor="middle">
+                        Deployment
+                    </text>
+                </switch>
+            </g>
+        </a>
+        <a xlink:href="https://github.com/Altinn/altinn-studio/blob/master/backend/src/Designer/Services/Implementation/GiteaAPIWrapper.cs" target="_blank">
+            <rect x="160.01" y="1190" width="190" height="40" fill="#6a00ff" stroke="#3700cc" transform="rotate(90,255.01,1210)" pointer-events="all"/>
+            <g transform="translate(-0.5 -0.5)rotate(90 255.01 1210)">
+                <switch>
+                    <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 188px; height: 1px; padding-top: 1210px; margin-left: 161px;">
+                            <div data-drawio-colors="color: #ffffff; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                                <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
+                                    GiteaAPIWrapper
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="255" y="1214" fill="#ffffff" font-family="Helvetica" font-size="12px" text-anchor="middle">
+                        GiteaAPIWrapper
+                    </text>
+                </switch>
+            </g>
+        </a>
+        <a xlink:href="https://github.com/Altinn/altinn-studio/blob/master/backend/src/Designer/Services/Implementation/LanguagesService.cs" target="_blank">
+            <rect x="210" y="1190" width="190" height="40" fill="#6a00ff" stroke="#3700cc" transform="rotate(90,305,1210)" pointer-events="all"/>
+            <g transform="translate(-0.5 -0.5)rotate(90 305 1210)">
+                <switch>
+                    <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 188px; height: 1px; padding-top: 1210px; margin-left: 211px;">
+                            <div data-drawio-colors="color: #ffffff; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                                <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
+                                    Language
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="305" y="1214" fill="#ffffff" font-family="Helvetica" font-size="12px" text-anchor="middle">
+                        Language
+                    </text>
+                </switch>
+            </g>
+        </a>
+        <a xlink:href="https://github.com/Altinn/altinn-studio/blob/master/backend/src/Designer/Services/Implementation/PipelineService.cs" target="_blank">
+            <rect x="260.01" y="1190" width="190" height="40" fill="#6a00ff" stroke="#3700cc" transform="rotate(90,355.01,1210)" pointer-events="all"/>
+            <g transform="translate(-0.5 -0.5)rotate(90 355.01 1210)">
+                <switch>
+                    <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 188px; height: 1px; padding-top: 1210px; margin-left: 261px;">
+                            <div data-drawio-colors="color: #ffffff; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                                <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
+                                    Pipeline
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="355" y="1214" fill="#ffffff" font-family="Helvetica" font-size="12px" text-anchor="middle">
+                        Pipeline
+                    </text>
+                </switch>
+            </g>
+        </a>
+        <a xlink:href="https://github.com/Altinn/altinn-studio/blob/master/backend/src/Designer/Services/Implementation/ReleaseService.cs" target="_blank">
+            <rect x="310" y="1190" width="190" height="40" fill="#6a00ff" stroke="#3700cc" transform="rotate(90,405,1210)" pointer-events="all"/>
+            <g transform="translate(-0.5 -0.5)rotate(90 405 1210)">
+                <switch>
+                    <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 188px; height: 1px; padding-top: 1210px; margin-left: 311px;">
+                            <div data-drawio-colors="color: #ffffff; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                                <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
+                                    Release
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="405" y="1214" fill="#ffffff" font-family="Helvetica" font-size="12px" text-anchor="middle">
+                        Release
+                    </text>
+                </switch>
+            </g>
+        </a>
+        <a xlink:href="https://github.com/Altinn/altinn-studio/blob/master/backend/src/Designer/Services/Implementation/RepositorySI.cs" target="_blank">
+            <rect x="360.01" y="1190" width="190" height="40" fill="#6a00ff" stroke="#3700cc" transform="rotate(90,455.01,1210)" pointer-events="all"/>
+            <g transform="translate(-0.5 -0.5)rotate(90 455.01 1210)">
+                <switch>
+                    <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 188px; height: 1px; padding-top: 1210px; margin-left: 361px;">
+                            <div data-drawio-colors="color: #ffffff; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                                <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
+                                    Repository
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="455" y="1214" fill="#ffffff" font-family="Helvetica" font-size="12px" text-anchor="middle">
+                        Repository
+                    </text>
+                </switch>
+            </g>
+        </a>
+        <a xlink:href="https://github.com/Altinn/altinn-studio/blob/master/backend/src/Designer/Services/Implementation/SchemaModelService.cs" target="_blank">
+            <rect x="410.01" y="1190" width="190" height="40" fill="#6a00ff" stroke="#3700cc" transform="rotate(90,505.01,1210)" pointer-events="all"/>
+            <g transform="translate(-0.5 -0.5)rotate(90 505.01 1210)">
+                <switch>
+                    <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 188px; height: 1px; padding-top: 1210px; margin-left: 411px;">
+                            <div data-drawio-colors="color: #ffffff; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                                <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
+                                    SchemaModel
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="505" y="1214" fill="#ffffff" font-family="Helvetica" font-size="12px" text-anchor="middle">
+                        SchemaModel
+                    </text>
+                </switch>
+            </g>
+        </a>
+        <a xlink:href="https://github.com/Altinn/altinn-studio/blob/master/backend/src/Designer/Services/Implementation/SourceControlLoggingDecorator.cs" target="_blank">
+            <rect x="460.01" y="1190" width="190" height="40" fill="#6a00ff" stroke="#3700cc" transform="rotate(90,555.01,1210)" pointer-events="all"/>
+            <g transform="translate(-0.5 -0.5)rotate(90 555.01 1210)">
+                <switch>
+                    <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 188px; height: 1px; padding-top: 1210px; margin-left: 461px;">
+                            <div data-drawio-colors="color: #ffffff; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                                <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
+                                    SourceControlLoggingDecerator
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="555" y="1214" fill="#ffffff" font-family="Helvetica" font-size="12px" text-anchor="middle">
+                        SourceControlLoggingDecerator
+                    </text>
+                </switch>
+            </g>
+        </a>
+        <a xlink:href="https://github.com/Altinn/altinn-studio/blob/master/backend/src/Designer/Services/Implementation/SourceControlLoggingDecorator.cs" target="_blank">
+            <rect x="510" y="1190" width="190" height="40" fill="#6a00ff" stroke="#3700cc" transform="rotate(90,605,1210)" pointer-events="all"/>
+            <g transform="translate(-0.5 -0.5)rotate(90 605 1210)">
+                <switch>
+                    <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 188px; height: 1px; padding-top: 1210px; margin-left: 511px;">
+                            <div data-drawio-colors="color: #ffffff; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                                <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
+                                    SourceControl
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="605" y="1214" fill="#ffffff" font-family="Helvetica" font-size="12px" text-anchor="middle">
+                        SourceControl
+                    </text>
+                </switch>
+            </g>
+        </a>
+        <a xlink:href="https://github.com/Altinn/altinn-studio/blob/master/backend/src/Designer/Services/Implementation/TextResourceService.cs" target="_blank">
+            <rect x="560" y="1190" width="190" height="40" fill="#6a00ff" stroke="#3700cc" transform="rotate(90,655,1210)" pointer-events="all"/>
+            <g transform="translate(-0.5 -0.5)rotate(90 655 1210)">
+                <switch>
+                    <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 188px; height: 1px; padding-top: 1210px; margin-left: 561px;">
+                            <div data-drawio-colors="color: #ffffff; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                                <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
+                                    TextResource
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="655" y="1214" fill="#ffffff" font-family="Helvetica" font-size="12px" text-anchor="middle">
+                        TextResource
+                    </text>
+                </switch>
+            </g>
+        </a>
+        <a xlink:href="https://github.com/Altinn/altinn-studio/blob/master/backend/src/Designer/Services/Implementation/TextsService.cs" target="_blank">
+            <rect x="610.01" y="1190" width="190" height="40" fill="#6a00ff" stroke="#3700cc" transform="rotate(90,705.01,1210)" pointer-events="all"/>
+            <g transform="translate(-0.5 -0.5)rotate(90 705.0100000000002 1210)">
+                <switch>
+                    <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 188px; height: 1px; padding-top: 1210px; margin-left: 611px;">
+                            <div data-drawio-colors="color: #ffffff; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                                <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
+                                    TextService
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="705" y="1214" fill="#ffffff" font-family="Helvetica" font-size="12px" text-anchor="middle">
+                        TextService
+                    </text>
+                </switch>
+            </g>
+        </a>
+        <a xlink:href="https://github.com/Altinn/altinn-studio/tree/master/backend/src/Designer/TypedHttpClients/AltinnAuthentication" target="_blank">
+            <rect x="710" y="1190" width="190" height="40" fill="#d80073" stroke="#a50040" transform="rotate(90,805,1210)" pointer-events="all"/>
+            <g transform="translate(-0.5 -0.5)rotate(90 805 1210)">
+                <switch>
+                    <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 188px; height: 1px; padding-top: 1210px; margin-left: 711px;">
+                            <div data-drawio-colors="color: #ffffff; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                                <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
+                                    AltinnAuthentication
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="805" y="1214" fill="#ffffff" font-family="Helvetica" font-size="12px" text-anchor="middle">
+                        AltinnAuthentication
+                    </text>
+                </switch>
+            </g>
+        </a>
+        <a xlink:href="https://github.com/Altinn/altinn-studio/blob/master/backend/src/Designer/TypedHttpClients/AltinnAuthorization/AltinnAuthorizationPolicyClient.cs" target="_blank">
+            <rect x="760" y="1190" width="190" height="40" fill="#d80073" stroke="#a50040" transform="rotate(90,855,1210)" pointer-events="all"/>
+            <g transform="translate(-0.5 -0.5)rotate(90 855 1210)">
+                <switch>
+                    <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 188px; height: 1px; padding-top: 1210px; margin-left: 761px;">
+                            <div data-drawio-colors="color: #ffffff; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                                <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
+                                    AltinnAuthorizationPolicy
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="855" y="1214" fill="#ffffff" font-family="Helvetica" font-size="12px" text-anchor="middle">
+                        AltinnAuthorizationPolicy
+                    </text>
+                </switch>
+            </g>
+        </a>
+        <a xlink:href="https://github.com/Altinn/altinn-studio/blob/master/backend/src/Designer/TypedHttpClients/AltinnStorage/AltinnStorageAppMetadataClient.cs" target="_blank">
+            <rect x="810" y="1190" width="190" height="40" fill="#d80073" stroke="#a50040" transform="rotate(90,905,1210)" pointer-events="all"/>
+            <g transform="translate(-0.5 -0.5)rotate(90 905 1210)">
+                <switch>
+                    <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 188px; height: 1px; padding-top: 1210px; margin-left: 811px;">
+                            <div data-drawio-colors="color: #ffffff; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                                <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
+                                    AltinnStorageAppMetadata
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="905" y="1214" fill="#ffffff" font-family="Helvetica" font-size="12px" text-anchor="middle">
+                        AltinnStorageAppMetadata
+                    </text>
+                </switch>
+            </g>
+        </a>
+        <a xlink:href="https://github.com/Altinn/altinn-studio/blob/master/backend/src/Designer/TypedHttpClients/AltinnStorage/AltinnStorageTextResourceClient.cs" target="_blank">
+            <rect x="859.99" y="1190" width="190" height="40" fill="#d80073" stroke="#a50040" transform="rotate(90,954.99,1210)" pointer-events="all"/>
+            <g transform="translate(-0.5 -0.5)rotate(90 954.9899999999998 1210)">
+                <switch>
+                    <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 188px; height: 1px; padding-top: 1210px; margin-left: 861px;">
+                            <div data-drawio-colors="color: #ffffff; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                                <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
+                                    AltinnStorageTextResource
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="955" y="1214" fill="#ffffff" font-family="Helvetica" font-size="12px" text-anchor="middle">
+                        AltinnStorageTextResource
+                    </text>
+                </switch>
+            </g>
+        </a>
+        <a xlink:href="https://github.com/Altinn/altinn-studio/blob/master/backend/src/Designer/TypedHttpClients/AzureDevOps/AzureDevOpsBuildClient.cs" target="_blank">
+            <rect x="909.99" y="1190" width="190" height="40" fill="#d80073" stroke="#a50040" transform="rotate(90,1004.99,1210)" pointer-events="all"/>
+            <g transform="translate(-0.5 -0.5)rotate(90 1004.9899999999998 1210)">
+                <switch>
+                    <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 188px; height: 1px; padding-top: 1210px; margin-left: 911px;">
+                            <div data-drawio-colors="color: #ffffff; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                                <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
+                                    AzureDevoOpsBuild
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="1005" y="1214" fill="#ffffff" font-family="Helvetica" font-size="12px" text-anchor="middle">
+                        AzureDevoOpsBuild
+                    </text>
+                </switch>
+            </g>
+        </a>
+        <rect x="0" y="0" width="1070" height="510" fill="#60a917" stroke="#2d7600" pointer-events="all"/>
+        <a xlink:href="https://github.com/Altinn/altinn-studio/tree/master/frontend/app-development">
+            <rect x="10.02" y="10" width="209.98" height="480" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" pointer-events="all"/>
+            <g transform="translate(-0.5 -0.5)">
+                <switch>
+                    <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 208px; height: 1px; padding-top: 250px; margin-left: 11px;">
+                            <div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                                <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
+                                    app-development
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="115" y="254" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px" text-anchor="middle">
+                        app-development
+                    </text>
+                </switch>
+            </g>
+        </a>
+        <a xlink:href="https://github.com/Altinn/altinn-studio/tree/master/frontend/app-preview">
+            <rect x="224.23" y="10" width="225.77" height="480" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" pointer-events="all"/>
+            <g transform="translate(-0.5 -0.5)">
+                <switch>
+                    <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 224px; height: 1px; padding-top: 250px; margin-left: 225px;">
+                            <div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                                <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
+                                    app-preview
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="337" y="254" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px" text-anchor="middle">
+                        app-preview
+                    </text>
+                </switch>
+            </g>
+        </a>
+        <rect x="460" y="10" width="220" height="480" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 218px; height: 1px; padding-top: 250px; margin-left: 461px;">
+                        <div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                            <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
+                                dashboard
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="570" y="254" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px" text-anchor="middle">
+                    dashboard
+                </text>
+            </switch>
+        </g>
+        <rect x="687.11" y="10" width="222.89" height="480" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 221px; height: 1px; padding-top: 250px; margin-left: 688px;">
+                        <div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                            <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
+                                Resources
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="799" y="254" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px" text-anchor="middle">
+                    Resources
+                </text>
+            </switch>
+        </g>
+    </g>
+    <switch>
+        <g requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"/>
+        <a transform="translate(0,-5)" xlink:href="https://www.diagrams.net/doc/faq/svg-export-text-problems" target="_blank">
+            <text text-anchor="middle" font-size="10px" x="50%" y="100%">
+                Text is not SVG - cannot display
+            </text>
+        </a>
+    </switch>
+</svg>

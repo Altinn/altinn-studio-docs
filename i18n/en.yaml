@@ -19,6 +19,10 @@
   translation: Login/My profile
 - id: search
   translation: Search
+- id: searching-for
+  translation: What are you looking for?
+- id: all-langs
+  translation: Search in all available languages
 - id: to-the-frontpage
   translation: To the frontpage
 - id: show-hide-menu
@@ -85,9 +89,9 @@
 - id: application
   translation: Application APIs
 - id: storage
-  translation: Altinn Storage APIs
-- id: models
-  translation: Models
+  translation: Storage APIs
+- id: events
+  translation: Events APIs
 - id: scenarios
   translation: Scenarios
 

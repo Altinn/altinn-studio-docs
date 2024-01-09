@@ -23,3 +23,5 @@ Read more about our [Kubernetes Clusters](kubernetes).
 ### Service Mesh & Proxy
 
 We use [Traefik](https://traefik.io) as proxy in Kubernetes and [Linkerd](https://linkerd.io/) as service mesh.
+
+{{<children />}}

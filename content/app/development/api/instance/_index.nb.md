@@ -10,6 +10,7 @@ Denne siden er foreløpig ikke fullstendig, mer informasjon vil komme på et sen
 En instansiert applikasjon vil ha et tilhørende instans-objekt. Dette objektet inneholder metadata om den spesifikke instansen.
 Om du ønsker å lære mer om instans og api'et rundt så kan du lese teknisk dokumentasjon om dette under API.
 
+
 ## Substatus
 
 Som app-eier kan man sette en substatus på instansen, dette for å kunne gi sluttbruker ytterligere informasjon om hvilken tilstand instansen befinner seg i.
@@ -52,7 +53,7 @@ For å oppnå dette er det tre steg som må tas.
 
 Standarden for en applikasjon er at tjenesteeier ikke har lov til å slette instanser.
 For å få lov til dette må det legges til en ny regel i `policy.xml` den finnes i `App/config/authorization`.
-Regelen kan kopieres fra [regelbiblioteket](../autorisasjon/regelbibliotek/#org-can-delete-an-instance-of-orgapp-in-any-task-or-event).
+Regelen kan kopieres fra [regelbiblioteket](../../configuration/authorization/rules/#org-kan-slette-en-instans-av-orgapp-uavhengig-av-hvor-den-er-i-prosessen).
 
 ### Steg 2: Identifiser hvilke instanser som ikke er fullført v.h.a. spørring mot storage
 

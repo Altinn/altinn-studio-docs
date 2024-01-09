@@ -7,4 +7,4 @@ aliases:
 - /teknologi/altinnstudio/changelog/app-frontend/
 ---
 
-{{% children sort="Weight" description="true" depth="1" %}}
+{{<children />}}

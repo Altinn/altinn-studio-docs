@@ -1,0 +1,27 @@
+{{- define "formatAnyAllOneOf" -}}
+    {{- $itemArray := . -}}
+
+    {{- range $item := $itemArray -}}
+        <ul><li>
+        {{- if eq (printf "%T" $item) "map[string]interface {}" -}}
+            {{- $isNotReference := true -}}
+
+            {{- range $key, $val := $item -}}
+                {{- if eq $key "$ref" -}}
+                    {{- $isNotReference = false -}}
+                    {{- $split := split $val "/" -}}
+                    {{- $refItemName := index $split (sub (len $split) 1) -}}
+                    {{- $link := printf "/app/development/ux/components/commondefs#%s" $refItemName -}}
+                    <a href="{{- $link -}}">{{- $refItemName -}}</a><br>
+                {{- end -}}
+            {{- end -}}
+            
+            {{- if $isNotReference -}}
+                {{- template "list-descriptions" (dict "property" $item "propName" "-") -}}
+            {{- end -}}
+        {{- else -}}
+            {{- $item -}}
+        {{- end -}}
+        </li></ul>
+    {{- end -}}
+{{- end -}}

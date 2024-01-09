@@ -1,0 +1,29 @@
+name: Hugo Verifications
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Build and Check links
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: 'latest'
+
+      - name: Build docs
+        run: hugo
+
+      - name: Verify links
+        uses: untitaker/hyperlink@0.1.32
+        with:
+          args: public/ --check-anchors --sources content/

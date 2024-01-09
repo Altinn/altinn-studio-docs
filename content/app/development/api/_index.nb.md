@@ -4,4 +4,4 @@ description: Appene som man utvikler i Altinn Studio kan både eksponere standar
 weight: 50
 ---
 
-{{<children>}}
+{{<children />}}

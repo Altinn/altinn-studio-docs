@@ -1,18 +1,23 @@
 ---
 title: Tracks
 description: How to add dynamic tracks in the app.
-tags: [translate-to-english]
 toc: true
 weight: 20
 ---
 
-Dynamisk sporvalg i en applikasjon kan være nyttig dersom man ønsker å vise og/eller skjule enkelte sider 
-basert input fra sluttbruker på forutgående deler av skjemaet. 
+Dynamic tracks in an application can be useful if you want to show and/or hide some pages
+based on input from user on previous parts of the form.
 
-## Trigge kalkulering av sporvalg fra frontend
+{{% panel theme="warning" %}}
+⚠️ Dynamic tracks are still supported, but support will be removed in the future. Hiding entire pages are now
+encouraged via [dynamic expressions](../../../logic/expressions)
+(read how to [hide entire pages here](../../../logic/expressions#showhide-entire-pages)).
+{{% /panel %}}
 
-Appen vil gjøre et initielt kall for å kalkulere rekkefølgen ved innlasting. For å trigge kalkuleringingen av sporvalg på sidebytte må man legge inn dette som en trigger på den aktuelle navigasjons-komponenten man ønsker.
-Dette gjøres ved å legge til `calculatePageOrder` som en del av triggers. Eksempel:
+## Trigger calculation on tracks from frontend
+
+The app will perform an initial call to calculate the order when loading. To trigger calculation of dynamic tracks when switching pages, this needs to be added as a trigger on the navigation component you want.
+This is done by adding `calculatePageOrder` as a part of triggers. Example:
 
 ```json
 {
@@ -28,11 +33,11 @@ Dette gjøres ved å legge til `calculatePageOrder` som en del av triggers. Ekse
 }
 ```
 
-Her vil frontend da gjøre kallet mot apiet definert i appen og benytte listen som returneres til å avgjøre hvilke side den går til i det brukeren trykker neste.
-Denne rekkefølgen blir også lagret i staten frontend slik at navigering vil fungere både frem og tilbake på den gitte rekkefølgen man returnerer fra backend.
+Here, the frontend will make the call to the api defined in the app and use the list returned to determine which page it will go to when the user presses next.
+This order will also be stored in the state frontend, so that navigating will work both backwards and forwards on the given order returned from the backend.
 
-Om man ønsker å trigge kalkulering på hvert eneste sidebytte kan dette gjøres ved å enten legge inn `calculatePageOrder` som en del av `triggers` for alle
-navigasjonskomponentene man har i applikasjonen, eller legge til en trigger i `Settings.json` under `pages`-seksjonen. Eksempel:
+If you wish to trigger calculation on every single page switch, this can be done by either entering `calculatePageOrder` as part of `triggers` for all 
+the navigation components in the application, or by adding a trigger in `Settings.json` under the `pages` section. Example:
 
 ```json
 {
@@ -48,71 +53,164 @@ navigasjonskomponentene man har i applikasjonen, eller legge til en trigger i `S
 }
 ```
 
-Om `triggers` er satt på navigasjonskomponenten vil denne overstyre `triggers` som settes i Settings.json, på denne måten er det mulig å styre default-oppførsel på komponentnivå om ønskelig.
+If `triggers` is set on the navigation component, this will overrule `triggers` set in Settings.json, and by doing this it is possible to control default behaviour on component level if desirable.
 
-## Sette opp sporvalg backend
+The implementation varies slightly depending on the version of the app template and Nuget packages you are using.
 
-I App.cs må man overstyre metoden som henter ut den standardrekkefølgen av sider som er definert i `Settings.json`
-Dette gjøres ved å legge til funksjonen nedenfor i App.cs.
-Forventet output fra denne metoden er en stortert liste som inneholder navnet på de relevante sidene i applikasjonen.
+{{<content-version-selector classes="border-box">}}
 
-```cs
-/// <inheritdoc />
-public override async Task<List<string>> GetPageOrder(string org, string app, int instanceOwnerId, Guid instanceGuid, string layoutSetId, string currentPage, string dataTypeId, object formData)
-{
-    List<string> pageOrder = new List<string>();
+{{<content-version-container version-label="v6, v7">}}
+To overrule default dynamic tracks, two changes must be made.
 
-    // Implement your own logic here
+1. Create a class that implements the `IPageOrder` interface found in the `Altinn.App.Core.Features.PageOrder` namespace.  
+   You can name and place the file in any folder you like within your project, but we suggest you use meaningful namespaces like in any other .Net project.
+   ```C#
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
+    using Altinn.App.Core.Features.PageOrder;
+    using Altinn.App.Core.Models;
+    using Altinn.App.Models;
 
-    return pageOrder;
-}
-```
+    namespace Altinn.App.AppLogic.Custom;
+    
+    {
+        public class CustomOrder : IPageOrder
+        {
+            /// <inheritdoc />
+            public async Task<List<string>> GetPageOrder(AppIdentifier appIdentifier, InstanceIdentifier instanceIdentifier, string layoutSetId, string currentPage, string dataTypeId, object formData)
+            {
+                List<string> pageOrder = new List<string>();
+                
+                // Implement your logic here.
+                
+                return await Task.FromResult(pageOrder);
+            }
 
-Funksjonen får inn en rekke parametere som kan være nyttig dersom man skal benytte skjemadata
-eller annen informasjon om sluttbruker til å kalkulere sporvalget.
+        }
 
-- *layoutSetId* Dersom appen din definerer flere layout set vil id på det gjeldende layout settet sendes inn.
-Dersom applikasjonen ikke har layout set vil denne strengen være tom. Basert på denne parameteren kan man hente
-ut standard siderekkefølge som er definert i applikasjonen:
+    }
+    ```
+2. Register you custom implementation in the _Program.cs_ class     
+    ```C#
+    services.AddTransient<IPageOrder, CustomOrder>();
+    ```
+    This ensures your custom code is known to the application and that it will be executed.
+
+The interface contains a method with the name _GetPageOrder_. The expected output from this is a sorted list with the names of the relevant pages in the application.
+
+The function provides a number of parameters that can be useful if you are using form data or 
+other information about the user to trigger the dynamic tracks.
+
+- *appIdentifier* Contains organization and app name for the application
+
+- *instanceIdentifier* Contains InstanceOwnerPartyId and InstanceGuid. If the application is stateless the object will be blank (InstanceIdentifier.NoInstance).
+If GetInstanceId is called on an InstanceIdentifier.NoInstance, an exception will be thrown.
+
+- *layoutSetId* If your app defines multiple layout sets, the id on the layout set in question will be submitted.
+If the application does not have a layout set, this string will be empty. Based on this parameter the default page order 
+defined in the application can be retrieved.
 
 ```cs
 List<string> pageOrder = new List<string>();
 
 if (string.IsNullOrEmpty(layoutSetId))
 {
-    pageOrder = _appResources.GetLayoutSettings().Pages.Order;
+    pageOrder = _appResourcesService.GetLayoutSettings().Pages.Order;
 }
 else
 {
-    pageOrder = _appResources.GetLayoutSettingsForSet(layoutSetId).Pages.Order;
+    pageOrder = _appResourcesService.GetLayoutSettingsForSet(layoutSetId).Pages.Order;
 }
 ```
 
-Dette forutsetter at servicen `IAppResources` gjøres tilgjengelig i App.cs. 
-Da servicen allerede dependency injectes inn i klasen er det kun to steg som kreves. 
+This requires that the service `IAppResources` is made available in the class.
+When the service is already available through dependency injected into the class, only two steps are required:
 
-1. Opprett en privat variabel i staten av klassen.
-
-```cs
-private readonly IAppResources _appResources;
-```
-
-2. Definer den nye private variabelen lik servicen som sendes med i konstruktøren til App.cs
+1. Create a private variable in the state of the class
 
 ```cs
- _appResources = appResourcesService;
+private readonly IAppResources _appResourcesService;
 ```
 
-- *CurrentPage* Siden man ønsker å navigere fra vil være spesifisert i denne parameteren.
+2. Define a constructor that takes in IAppResources and initializes the private variable that was created in step 1.
 
-- *FormData* inneholder skjemadataen. Den kan enkelt jobbes med som et objekt ved å caste den til riktig type `Skjema skjema = (Skjema)formData;`.
-Her heter C# modellen til skjemadataen `Skjema` for din applikasjon kan det være et annet navn. 
-Dette kan du sjekke ved å finne klassenavnet på C# filen i App/models-mappen.
+```cs
+public CustomOrder(IAppResources appResourcesService)
+{
+    _appResourcesService = appResourcesService;
+}
+```
 
-## Reflektere sporvalg i kvittering (PDF)
+- *CurrentPage* The page you want to navigate from will be specified in this parameter.
 
-Som applikasjonsutvikler må man selv sørge for å reflektere de sporvalgene som gjøres i PDFen som opprettes i slutten av hver task. 
-I `App.cs` finnes funksjonen `FormatPdf`: 
+- *FormData* contains the form data. This can easily be worked with as an object by casting it to the right type `Skjema skjema = (Skjema)formdata;`.
+Here, the C# model's name is `Skjema`, but for your application the name could be different.
+You can check this by finding the class name of the C# file in the App/models folder.
+{{</content-version-container>}}
+{{<content-version-container version-label="v4, v5">}}
+
+{{%notice warning%}}
+For track selection to work for stateless applications, NuGet must be upgraded to 5.0.0 or later.
+{{%/notice%}}
+In the file App.cs one must override the method that retrieves the default order of pages defined in `Settings.json`
+This is done by adding the below function in App.cs.
+The expected output from this method is a capitalized list containing the name of the relevant pages in the application.
+
+```cs
+/// <inheritdoc />
+public override async Task<List<string>> GetPageOrder(string org, string app, int instanceOwnerId, Guid instanceGuid, string layoutSetId, string currentPage, string dataTypeId, object formData)
+{
+    List<string> pageOrder = new List<string>();
+    // Implement your own logic here
+    return pageOrder;
+}
+```
+
+The function receives several parameters that can be useful if you are going to use form data
+or other information about the end user to calculate the track selection.
+
+- *layoutSetId* If your app defines several layout sets, the id of the current layout set is submitted. 
+If the application does not have a layout set, this string will be empty. Based on this parameter one can retrieve 
+the default page order defined in the application:
+```cs
+List<string> pageOrder = new List<string>();
+if (string.IsNullOrEmpty(layoutSetId))
+{
+    pageOrder = _appResourcesService.GetLayoutSettings().Pages.Order;
+}
+else
+{
+    pageOrder = _appResourcesService.GetLayoutSettingsForSet(layoutSetId).Pages.Order;
+}
+```
+
+This assumes that the service `IAppResources` is made available in App.cs file. 
+As the service is already dependency injected into the class, only two steps are required. 
+
+1. Create a private variable in the state of the class.
+
+```cs
+private readonly IAppResources _appResourcesService;
+```
+
+2. Define the new private variable equal to the service passed in the constructor of App.cs.
+
+```cs
+ _appResourcesService = appResourcesService;
+```
+
+*CurrentPage* The page you want to navigate from must be specified in this parameter.
+- *FormData* contains the form data. It can easily be worked with as an object by casting it to the correct type `Form form = (Form)formData;`.
+In this case C# model for the form data is called `Form' for your application, it can be another name.
+You can check this by finding the class name of the C# file in the App/models folder.
+{{</content-version-container>}}
+
+{{</content-version-selector>}}
+
+## Reflect dynamic tracks in receipt (PDF)
+
+As an app developer you must make sure to reflect the dynamic track choices made in the PDF that is created at the end of each task.
+In `App.cs` the function `FormatPdf` can be found:
 
 ```cs
 public override async Task<LayoutSettings> FormatPdf(LayoutSettings layoutSettings, object data)
@@ -121,23 +219,26 @@ public override async Task<LayoutSettings> FormatPdf(LayoutSettings layoutSettin
 }
 ```
 
-Som input til metoden får man `layoutSettings` som inneholder default siderekkefølge under propertyen `layoutSettings.Pages.Order`.
-I tillegg får man skjemadataen som er knyttet til steget som skal avsluttes. Denne kan parses til en C# modell som beskrevet lengere oppe på denne siden.
+As input to the method you have `layoutSettings` which contains the default page order under the property `layoutSettings.Pages.Order`.
+In addition, you have the form data that is associated with the step to be completed. This can be parsed to a C# model as described further up on this page.
 
-Ved å manipulere `layoutSettings.Pages.Order` i denne metoden vil man kunne duplisere de sporvalgene som er gjort for sluttbruker.
-MERK! Kallet til PDF handler, vist nedenfor, må ikke fjernes fra `FormatPDF` metoden dersom du har implementert ytterlig logikk for kvitteringen i `PDFHandler.cs`.
+By manipulating `layoutSettings.Pages.Order` in this method, it will be possible to duplicate the dynamic track choices made for the user.
+NOTE! The call to PDF handler, as shown below, must not be removed from the `FormatPDF` method, if you have implemented additional logic for the receipt in `PDFHandler.cs`.
 
 ```cs
 return await _pdfHandler.FormatPdf(layoutSettings, data);
 ```
 
-For å unngå å duplisere logikk vil vi anbefale å lage en privat metode som manipulerer siderekkefølgen basert på skjemadata og kalle denne både fra `FormatPdf`og `GetPageOrder`.
-Et kodeeksempel på en slik implementasjon følger.
+To avoid duplicating logic, we recommend creating a method that manipulates the page order based on form data and calling this both from `FormatPdf` and `GetPageOrder`.
+A code example of such an implementation follows. This can, for example, be placed in the same class that implements the interface IPageOrder to keep all logic for order in the same place.
+
+In the class implementing logic for page order:
 
 ```cs
-public override async Task<List<string>> GetPageOrder(string org, string app, int instanceOwnerId, Guid instanceGuid, string layoutSetId, string currentPage, string dataTypeId, object formData)
+public async Task<List<string>> GetPageOrder(AppIdentifier appIdentifier, InstanceIdentifier instanceIdentifier, string layoutSetId, string currentPage, string dataTypeId, object formData)
 {
     List<string> pageOrder = new List<string>();
+
     if (string.IsNullOrEmpty(layoutSetId))
     {
         pageOrder = _appResourcesService.GetLayoutSettings().Pages.Order;
@@ -150,12 +251,7 @@ public override async Task<List<string>> GetPageOrder(string org, string app, in
     return pageOrder;
 }
 
-public override async Task<LayoutSettings> FormatPdf(LayoutSettings layoutSettings, object data)
-{
-    UpdatePageOrder(layoutSettings.Pages.Order, (FavorittArtist)data);
-    return await _pdfHandler.FormatPdf(layoutSettings, data);
-}
-private void UpdatePageOrder(List<string> pageOrder, FavorittArtist formdata)
+public void UpdatePageOrder(List<string> pageOrder, FavorittArtist formdata)
 {
     if (formdata.EnGodNrTo.Contains("Tix"))
     {
@@ -165,5 +261,15 @@ private void UpdatePageOrder(List<string> pageOrder, FavorittArtist formdata)
     {
         pageOrder.Remove("Tix");
     }
-}        
+}
+```
+
+The method is then called from the method `FormatPdf` in `App.cs`
+
+```cs
+public override async Task<LayoutSettings> FormatPdf(LayoutSettings layoutSettings, object data)
+{
+    UpdatePageOrder(layoutSettings.Pages.Order, (FavorittArtist)data);
+    return await _pdfHandler.FormatPdf(layoutSettings, data);
+}
 ```

@@ -2,29 +2,28 @@
 title: Secrets
 description: How to deal with secrets and sensitive data in an app.
 weight: 300
-tags: [translate-to-english]
 ---
 
-## Administrasjon av hemmeligheter i Azure
+## Administration of secrets in Azure
 
-Som applikasjonsutvikler administrerer man selv hemmelighetene som applikasjonen benytter i Azure Key Vault.
+As an application developer you administer the secrets which the application use in the Azure Key Vault.
 
-[Rutiner for bestilling av tilgang til din organisasjons ressurser er beskrevet her](../../../getting-started/access-management/apps/).
+[Routines for ordering access to your organizations resources are described here](/nb/app/guides/access-management/apps/).
 
-## Konfigurer støtte for hemmeligheter i din app
+## Configure support for secrets in your app
 
-For å tilgjengeliggjøre hemmeligheter i applikasjonen må det gjøres oppdateringer i helm charten tilknyttet applikasjonen.
+To make secrets accessible within your application the affiliated helm chart has to be updated. 
 
-I applikasjonsrepoet ditt finner du filen `values.yaml` i mappen _deployment_.
+In your application repository you can find the file `values.yaml` in the folder _deployment_.
 
-Under seksjonen _volumeMounts_ legger du til følgende linjer:
+Under the section _volumeMounts_ you add the following lines:
 
 ```yaml
 - name: altinn-appsettings-secret
   mountPath: "/altinn-appsettings-secret"
 ```
 
-Under seksjonen _volumes_ legger du til følgende linjer:
+Under the section _volumes_ you add the following lines:
 
 ```yaml
 - name: altinn-appsettings-secret
@@ -33,44 +32,42 @@ Under seksjonen _volumes_ legger du til følgende linjer:
 ```
 
 {{%notice warning%}}
-Vær påpasselig med innrykk når du jobber i _values.yaml_.
-I yaml skal indents være mellomrom og ikke tab, benytter du tab vil ikke din yaml være gyldig.
+Be wary of indentations while working in _values.yaml_.
+In yaml indents should be spaces and not tabs, tab will cause the file to not be interpreted as a yaml file.
 {{% /notice %}}
 
-Siste del av filen skal se omtrent slik ut når du har gjort ferdig alle endringer.
+The last part of the file should look something like this after your changes are complete.
 
-![Steg 1](yaml.png)
+![Step 1](yaml.png)
 
-## Hvordan benytte hemmeligheter i applikasjonen
+## How to make use of secrets in your application
 
-Servicen `ISecret` er eksponert i applikasjonen og kan dependency injectes
-i den klassen der du har behov for å hente ut en hemmelighet.
+The service `ISecret` is exposed to the application and can be dependency injected into the class in which you need to collect a secret.
 
-### Lokal mock
+### Local mock
 
-For å kunne kjøre tjenesten din lokalt uten å koble seg til Azure Key vault
-må man opprette filen `secrets.json` under mappen _App_.
-I Json strukturen kan man legge inn dummydata for hemmelighetene man har behov for.
-Har man lastet opp en hemmelighet i Key Vault med navnet "secretId" vil innholdet i json-filen se slik ut
+To run your service locally without connecting to the Azure Key vault you have to 
+create the file `secrets.json` under the folder _App_.
+In the json structure you can add dummy data for the secrets you need for your service.
+If you have uploaded a secret into the key vault with the name "secretId", the content should look like the following:
 
 ```json
 {
-  "secretId": "local cecret dummy data"
+  "secretId": "local secret dummy data"
 }
 ```
 
-### Type hemmeligheter
+### Types of secrets
 
-Secret - lagres som en streng direkte i keyvault. F.eks et sertifikat som er base64 encoded eller et token.
-Key - Nøkkel
-Certificate - et sertifikat
+Secret - Stored as a string directly in the key vault. For ex. a base64 encoded certificate or a token.
+Key - key
+Certificate - certificate
 
-### Kodeeksempel
+### Code example
 
-I denne seksjonen finner du et eksempel på hvordan man benytter en hemmelighet
-til å populere et skjemafelt under instansiering.
+In this section you can find an example of how to use a secret to populate a form field during instantiation.
 
-Logikken er implementert i `InstantiationHandler.cs`
+The logic is implemented within `InstantiationHandler.cs`
 
 ```cs
 using Altinn.App.Models;
@@ -121,13 +118,13 @@ namespace Altinn.App.AppLogic
 }
 ```
 
-1. Den private variabelen for servicen inkluderes i klassen
+1. The private variable for the service is included in the class
 
     ```cs
     private ISecrets _secretsService;
     ```
 
-2. ISecrets servicen dependency injectes inn i klassen. Og den private variabelen blir assignet en verdi.
+2. The ISecrets service is dependency injected into the class, and the private variable assigned a value
 
     ```cs
     public InstantiationHandler(IProfile profileService, IRegister registerService, ISecrets secretsService)
@@ -139,19 +136,19 @@ namespace Altinn.App.AppLogic
 
     ```
 
-3. I metoden der man har behov for hemmeligheten kaller man på servicen.
-    `secretId` vil være navnet på hemmeligheten i KeyVault evt. i lokal mock.
+3. In the method where you need the secret you call the service
+    `secretId` will be the name of our secret in KeyVault, or in our local mock. 
 
     ```cs
     await _secretsService_.GetSecretAsync("secretId");
     ```
 
-4. Dersom du prøver å bygge løsningen nå vil det feile.
+4. If you try to build the solution now, it will fail. 
 
-    ISecrets vil mangle der InstantiationHandler instansieres. Naviger til `App.cs`
-    og dependency inject servicen inn i konstruktøren til App.
+    ISecrets will be missing where the InstantiationHandler is instantiated. Navigate to `App.cs`
+    and dependency inject the service into the constructor in App.
 
-    Videre må tjenesten legges til i kallet der InstantiationHandler instansieres som vist nedenfor.
+    The service must be added to the call where InstantiationHandler is instantiated as illustrated below.
 
     ```cs
     public App(

@@ -2,22 +2,21 @@
 title: Message
 description: How to set up a message in Altinn Studio.
 toc: true
-tags: [translate-to-english]
 ---
 
-En melding i Altinn 3 er egentlig bare et data-steg, på samme måte som f.eks. skjemautfylling. Det settes opp med en datamodell for meldingen, og en 
-layout for hva som skal vises på siden. Melding er dermed ikke en egen steg-type. Dette gjør at en melding i Altinn 3 er ekstremt fleksibel, og kan settes opp enten som eneste steg i en prosess, eller som en del av en større prosess.
+A message in Altinn 3 is really just a data step, in the same way as for example filling out a form. It is set up through a data model for the message, and a layout 
+describing what the message should look like in the GUI. Because of this, message is not its own task type. This enables greater flexibility for Messages in Altinn 3 and allows them to be used as either the only task in a process, or as a part of a larger process.
 
-Vi har lagd noen verktøy som skal gjøre det enkelt å komme i gang med å sette opp en melding i en app.
+We have made some tools to simplify the process of getting started with setting up a message in an app.
 
-## Datamodell
-Vi har lagd en standard datamodell for meldinger, for å gjøre det enkelt å komme i gang. Denne datamodellen kan man finne [her](https://altinncdn.no/schemas/xsd/message/message.schema.v1.xsd). Denne kan enten brukes som den er, brukes som et utgangspunkt, eller man kan bruke en helt annen datamodell. 
+## Data model
+We have made a standard data model for messages, to make getting started easier. This data model can be found [here](https://altinncdn.no/schemas/xsd/message/message.schema.v1.xsd). It can be used as is, as a starting point, or exchanged for your own data model.
 
 ## Layout
-Layout'en kan man definere helt selv, på samme måte som for skjema. Vi har allikevel opprettet en [meldings-widget](../../../ux/ui-editor/widgets), for å gjøre det enklere å komme i gang. Denne widget'en inneholder alle komponentene som trengs for å lage visningen under. Den inneholder også tekster som legges til i ressurs-filene automatisk, som har [variabler](../../../ux/tekster/#variabler-i-tekster) med referanser til feltene `Title` og `Body` i standard datamodell. Dersom man ønsker andre tekster eller å bruke en annen datamodell, er det bare å redigere enten komponentene eller tekstene etter ønske etter at de er lagt inn i siden.
+The layout can be defined by yourself in the same way as a form. We have also created a [message widget](../../../ux/widgets), to make it easier to get started. This widget contains all the necessary components to recreate the example below. It also contains texts which are added to the resource files automatically, and contains [variables](../../../ux/texts#variables-in-texts) with references to `Title` and `Body` in a standard data model. If you should wish for different texts, or to use a different data model, just edit either the components or the texts according to your wishes after they have been added to the page.
 
 {{%notice warning%}}
-Merk at om en ønsker å bruke _vedleggslisten_, som er med i standard meldings-widget, må man i tillegg manuelt legge inn hvilke _datatyper_ vedleggene som skal vises har i layout-filen. Det er lagt inn en placeholder for dette i komponenten når den legges til med widget'en. Funksjonalitet for å sette dette i Altinn Studio vil komme senere. Tilgjengelige datatyper ligger i `applicationMetadata.json`-filen til appen. Om dette ikke gjøres vil ikke generering av PDF fungere.
-{{% /notice%}}
+Note that if one wishes to use the _attachment list_, which is a standard message widget, one must manually add the _data types_ of the attachments to the layout file. A placeholder has been added to this component when it is added to the widget. Functionality to set it in Altinn Studio will be added at a later date. Accessible data types are located in the `applicationMetadata.json` file in the app. If the data types are missing in `applicationMetadata.json` generation of PDFs will not work.
+{{% /notice %}}
 
-![Standard meldings-visning](message-app.png "Standard meldings-visning")
+![Standard message display](message-app.png "Standard message display")

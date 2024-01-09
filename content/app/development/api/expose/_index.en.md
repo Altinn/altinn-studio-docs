@@ -3,21 +3,19 @@ title: Exposing APIs from an app
 linktitle: Expose
 description: One can add more APIs than what is defined as the default API for applications developed in Altinn Studio.
 toc: false
-tags: [translate-to-english]
 ---
 
 
 The applications that are developed in Altinn Studio are based on [ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/introduction-to-aspnet-core) for back-end.
-This provides high flexible to change and modify the applications.
+This provides a highly flexible environment to change and modify the applications.
 
 
-## Legge til API kontroller
+## Adding an API-controller
 
-For å kunne eksponere et nytt API i applikasjonen må det legges til en eller flere API kontrollere. 
+To expose a new API to the application you have to add one or multiple API-controllers.
 
-
-Nedenfor vises et eksempel fra en API controller som er lagt til i en gitt app. 
-Her settes det opp hvilken path API skal lytte på og logikken. 
+Below is an example from an API-controller which has been added to an app.
+This is where the API path listener is set up along with API logic.
 
 
 ```C# {linenos=false,hl_lines=[8,11]}
@@ -40,8 +38,9 @@ namespace Altinn.App.Api.Controllers
 }
 ```
 
-![Test av API i nettleser](apiresponse1.png "API respons")
+![Test of API in web browser](apiresponse1.png "API response")
 
-Koden kan ses i [dette repositoriet](https://altinn.studio/repos/ttd/mva/src/branch/master/App/controllers/CustomApiController.cs). 
+The code can be viewed
+in [This repository](https://altinn.studio/repos/ttd/mva/src/branch/master/App/controllers/CustomApiController.cs).
 
-I dokumentasjonen til ASP.NET kan du lese flere detaljer om [mulighetene for å eksponere API](https://docs.microsoft.com/en-us/aspnet/core/web-api/).
+You can read more details about [the possibilities for exposing an API](https://docs.microsoft.com/en-us/aspnet/core/web-api/) in the documentation for ASP.NET.

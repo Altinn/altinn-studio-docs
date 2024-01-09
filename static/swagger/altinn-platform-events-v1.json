@@ -18,12 +18,338 @@
     "/app": {
       "post": {
         "tags": [
-          "Events"
+          "App"
         ],
         "summary": "Inserts a new event.",
         "requestBody": {
           "content": {
             "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AppCloudEventRequestModel"
+              },
+              "examples": {
+                "Instance created event with alternative subject": {
+                  "value": {
+                    "resource": "urn:altinn:resource:altinnapp.ttd.apps-test",
+                    "resourceinstance": "50015641/a72223a3-926b-4095-a2a6-bacc10815f2d",
+                    "source": "https://ttd.apps.altinn.no/ttd/apps-test/instances/50015641/a72223a3-926b-4095-a2a6-bacc10815f2d",
+                    "specversion": "1.0",
+                    "type": "app.instance.created",
+                    "subject": "/party/50015641",
+                    "alternativesubject": "/person/01017512345"
+                  }
+                },
+                "Instance created event without alternative subject": {
+                  "value": {
+                    "resource": "urn:altinn:resource:altinnapp.ttd.apps-test",
+                    "resourceinstance": "50067592/f3c92d96-0eb3-4532-a16f-bcafd94bde3a",
+                    "source": "https://ttd.apps.altinn.no/ttd/apps-test/instances/50067592/f3c92d96-0eb3-4532-a16f-bcafd94bde3a",
+                    "specversion": "1.0",
+                    "type": "app.instance.created",
+                    "subject": "/party/50067592"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        }
+      }
+    },
+    "/app/{org}/{app}": {
+      "get": {
+        "tags": [
+          "App"
+        ],
+        "summary": "Retrieves a set of events related to an application owner based on query parameters.",
+        "parameters": [
+          {
+            "name": "org",
+            "in": "path",
+            "description": "The organisation short code",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "app",
+            "in": "path",
+            "description": "The name of the app",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "after",
+            "in": "query",
+            "description": "Id of the latter even that should be included",
+            "schema": {
+              "type": "string"
+            },
+            "example": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "description": "The lower limit for when the cloud event was created in UTC",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "example": "2022-02-14 07:22:19Z"
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "description": "The upper limit for when the cloud event was created in UTC",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "example": "2022-06-16 13:37:00Z"
+          },
+          {
+            "name": "party",
+            "in": "query",
+            "description": "The party id representing the subjects",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "example": 50002108
+          },
+          {
+            "name": "unit",
+            "in": "query",
+            "description": "The organisation number representing the subject",
+            "schema": {
+              "type": "string"
+            },
+            "example": "989271156"
+          },
+          {
+            "name": "person",
+            "in": "header",
+            "description": "The person number representing the subject",
+            "schema": {
+              "type": "string"
+            },
+            "example": "01014922047"
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "A list of the event types to include",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "example": [
+              "app.instance.created",
+              "app.instance.process.completed"
+            ]
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "description": "The maximum number of events to include in the response",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 50
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CloudEvent"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        }
+      }
+    },
+    "/app/party": {
+      "get": {
+        "tags": [
+          "App"
+        ],
+        "summary": "Retrieves a set of events related to a party based on query parameters.",
+        "parameters": [
+          {
+            "name": "after",
+            "in": "query",
+            "description": "Id of the latter event that should be included",
+            "schema": {
+              "type": "string"
+            },
+            "example": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "description": "The lower limit for when the cloud event was created in UTC",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "example": "2022-02-14 07:22:19Z"
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "description": "The upper limit for when the cloud event was created in UTC",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "example": "2022-06-16 13:37:00Z"
+          },
+          {
+            "name": "party",
+            "in": "query",
+            "description": "The party id representing the subjects",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "example": 50002108
+          },
+          {
+            "name": "unit",
+            "in": "query",
+            "description": "The organisation number representing the subject",
+            "schema": {
+              "type": "string"
+            },
+            "example": "989271156"
+          },
+          {
+            "name": "person",
+            "in": "header",
+            "description": "The person number representing the subject",
+            "schema": {
+              "type": "string"
+            },
+            "example": "01014922047"
+          },
+          {
+            "name": "source",
+            "in": "query",
+            "description": "A list of the sources to include",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "example": [
+              "https://ttd.apps.at22.altinn.cloud/ttd/apps-test/",
+              "https://ttd.apps.at22.altinn.cloud/digdir/bli-tjenesteeier/",
+              "https://ttd.apps.at22.altinn.cloud/ttd/apps-%/"
+            ]
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "A list of the event types to include",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "example": [
+              "app.instance.created",
+              "app.instance.process.completed"
+            ]
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "description": "The maximum number of events to include in the response",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 50
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CloudEvent"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        }
+      }
+    },
+    "/events": {
+      "post": {
+        "tags": [
+          "Events"
+        ],
+        "summary": "Endpoint for posting a new cloud event",
+        "requestBody": {
+          "description": "The incoming cloud event",
+          "content": {
+            "application/cloudevents+json": {
               "schema": {
                 "$ref": "#/components/schemas/CloudEvent"
               }
@@ -34,108 +360,86 @@
           "200": {
             "description": "Success",
             "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
               "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
                 "schema": {
                   "type": "string"
                 }
               }
             }
-          },
-          "400": {
-            "description": "Bad Request"
           }
         }
-      }
-    },
-    "/app/{org}/{app}": {
+      },
       "get": {
         "tags": [
           "Events"
         ],
-        "summary": "Retrieves a set of events based on query parameters.",
+        "summary": "Retrieves a set of events related based on query parameters.",
         "parameters": [
           {
-            "name": "org",
-            "in": "path",
+            "name": "resource",
+            "in": "query",
+            "description": "Required resource attribute",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
-            }
-          },
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            }
+              "type": "string"
+            },
+            "example": "urn:altinn:resource:altinnapp.ttd.apps-test"
           },
           {
             "name": "after",
             "in": "query",
+            "description": "Retrieve events that were registered after this event Id",
             "schema": {
-              "type": "string",
-              "nullable": true
-            }
+              "type": "string"
+            },
+            "example": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
           },
           {
-            "name": "from",
+            "name": "subject",
             "in": "query",
+            "description": "Optional filter by subject. Only exact matches will be returned.",
             "schema": {
-              "type": "string",
-              "format": "date-time",
-              "nullable": true
+              "type": "string"
             }
           },
           {
-            "name": "to",
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "format": "date-time",
-              "nullable": true
-            }
-          },
-          {
-            "name": "party",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "unit",
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "nullable": true
-            }
-          },
-          {
-            "name": "person",
+            "name": "Altinn-AlternativeSubject",
             "in": "header",
+            "description": "Optional filter by extension attribute alternative subject. Only exact matches will be returned.",
             "schema": {
-              "type": "string",
-              "nullable": true
-            }
+              "type": "string"
+            },
+            "example": "/person/16035001577"
           },
           {
             "name": "type",
             "in": "query",
+            "description": "Optional filter by event type.",
             "schema": {
               "type": "array",
               "items": {
                 "type": "string"
-              },
-              "nullable": true
-            }
+              }
+            },
+            "example": [
+              "instance.created",
+              "instance.process.completed"
+            ]
           },
           {
             "name": "size",
             "in": "query",
+            "description": "The maximum number of events to include in the response.",
             "schema": {
               "type": "integer",
               "format": "int32",
@@ -147,7 +451,7 @@
           "200": {
             "description": "Success",
             "content": {
-              "application/json": {
+              "application/cloudevents+json": {
                 "schema": {
                   "type": "array",
                   "items": {
@@ -158,130 +462,61 @@
             }
           },
           "400": {
-            "description": "Bad Request"
-          }
-        }
-      }
-    },
-    "/app/party": {
-      "get": {
-        "tags": [
-          "Events"
-        ],
-        "summary": "Retrieves a set of events based on query parameters.",
-        "parameters": [
-          {
-            "name": "after",
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "nullable": true
-            }
-          },
-          {
-            "name": "from",
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "format": "date-time",
-              "nullable": true
-            }
-          },
-          {
-            "name": "to",
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "format": "date-time",
-              "nullable": true
-            }
-          },
-          {
-            "name": "party",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "unit",
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "nullable": true
-            }
-          },
-          {
-            "name": "person",
-            "in": "header",
-            "schema": {
-              "type": "string",
-              "nullable": true
-            }
-          },
-          {
-            "name": "source",
-            "in": "query",
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              },
-              "nullable": true
-            }
-          },
-          {
-            "name": "type",
-            "in": "query",
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              },
-              "nullable": true
-            }
-          },
-          {
-            "name": "size",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "default": 50
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
+            "description": "Bad Request",
             "content": {
-              "application/json": {
+              "application/cloudevents+json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/CloudEvent"
-                  }
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               }
             }
-          },
-          "400": {
-            "description": "Bad Request"
           }
         }
       }
     },
-    "/push": {
+    "/inbound": {
       "post": {
         "tags": [
-          "Push"
+          "Inbound"
         ],
-        "summary": "Alert push controller about a new event.",
-        "description": "This method will then identify any matching subscriptions and authorize if the consumer is authorized\r\nto receive event. If autorized it will put it on a outbound queue",
+        "summary": "Post a previously registered cloudEvent to the inbound events queue\r\nand further processing by the EventsInbound Azure function",
         "requestBody": {
           "content": {
-            "application/json": {
+            "application/cloudevents+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CloudEvent"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Server Error"
+          }
+        }
+      }
+    },
+    "/outbound": {
+      "post": {
+        "tags": [
+          "Outbound"
+        ],
+        "summary": "Submit event for Outbound processing",
+        "description": "Identifies matching subscriptions based on subscription filter hash.\r\nRuns authorization check before adding event to the outbound queue.",
+        "requestBody": {
+          "content": {
+            "application/cloudevents+json": {
               "schema": {
                 "$ref": "#/components/schemas/CloudEvent"
               }
@@ -292,6 +527,39 @@
           "200": {
             "description": "Success"
           },
+          "503": {
+            "description": "Server Error"
+          }
+        }
+      }
+    },
+    "/storage/events": {
+      "post": {
+        "tags": [
+          "Storage"
+        ],
+        "summary": "Saves a cloud event to persistent storage.",
+        "requestBody": {
+          "content": {
+            "application/cloudevents+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CloudEvent"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              }
+            }
+          },
           "400": {
             "description": "Bad Request",
             "content": {
@@ -301,6 +569,19 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Server Error"
           }
         }
       }
@@ -317,24 +598,93 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Subscription"
+                "$ref": "#/components/schemas/SubscriptionRequestModel"
+              },
+              "examples": {
+                "End user (system) subscribing to events regarding themselves": {
+                  "value": {
+                    "endpoint": "https://org-reception-func.azurewebsites.net/api/processCompleteInstance?code=APIKEY",
+                    "sourceFilter": "https://skd.apps.altinn.no/skd/mva-melding",
+                    "alternativeSubjectFilter": "/person/01017512345",
+                    "typeFilter": "app.instance.process.completed"
+                  }
+                },
+                "End user (system) subscribing to events from a specific regarding an organisation": {
+                  "value": {
+                    "endpoint": "https://org-reception-func.azurewebsites.net/api/processCompleteInstance?code=APIKEY",
+                    "sourceFilter": "https://skd.apps.altinn.no/skd/mva-melding",
+                    "alternativeSubjectFilter": "/org/897069651",
+                    "typeFilter": "app.instance.process.completed"
+                  }
+                },
+                "Org subscription to events of all their apps": {
+                  "value": {
+                    "endpoint": "https://org-reception-func.azurewebsites.net/api/processCompleteInstance?code=APIKEY",
+                    "sourceFilter": "https://ttd.apps.altinn.no/ttd/%25",
+                    "typeFilter": "app.instance.process.completed"
+                  }
+                },
+                "Subscription with Slack webhook": {
+                  "value": {
+                    "endpoint": "https://hooks.slack.com/services/TSRSASBVNF3/ADRRSDSSSAahttsasdfasFO3w83456ss",
+                    "resourceFilter": "urn:altinn:resource:altinnapp.ttd.apps-test"
+                  }
+                }
               }
             }
           }
         },
         "responses": {
-          "200": {
-            "description": "Success",
+          "201": {
+            "description": "Created",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string"
+                  "$ref": "#/components/schemas/Subscription"
                 }
               }
             }
           },
           "400": {
             "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Subscription"
+        ],
+        "summary": "Get all subscription for the authorized consumer",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SubscriptionList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
             "content": {
               "application/json": {
                 "schema": {
@@ -367,19 +717,29 @@
           "200": {
             "description": "Success",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "string"
-                }
-              },
               "application/json": {
                 "schema": {
-                  "type": "string"
+                  "$ref": "#/components/schemas/Subscription"
                 }
-              },
-              "text/json": {
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
                 "schema": {
-                  "type": "string"
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               }
             }
@@ -404,21 +764,24 @@
         ],
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "string"
-                }
-              },
               "application/json": {
                 "schema": {
-                  "type": "string"
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
-              },
-              "text/json": {
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
                 "schema": {
-                  "type": "string"
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               }
             }
@@ -431,7 +794,7 @@
         "tags": [
           "Subscription"
         ],
-        "summary": "Validate a specific subscription",
+        "summary": "Method to validate a specific subscription. Only avaiable from validation function.",
         "parameters": [
           {
             "name": "id",
@@ -447,22 +810,35 @@
           "200": {
             "description": "Success",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "string"
-                }
-              },
               "application/json": {
                 "schema": {
-                  "type": "string"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "string"
+                  "$ref": "#/components/schemas/Subscription"
                 }
               }
             }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tests/webhookreceiver": {
+      "post": {
+        "tags": [
+          "WebhookReceiver"
+        ],
+        "summary": "Accepts an http post request and responds OK.",
+        "responses": {
+          "200": {
+            "description": "Success"
           }
         }
       }
@@ -470,14 +846,9 @@
   },
   "components": {
     "schemas": {
-      "CloudEvent": {
+      "AppCloudEventRequestModel": {
         "type": "object",
         "properties": {
-          "id": {
-            "type": "string",
-            "description": "Gets or sets the id of the event.",
-            "nullable": true
-          },
           "source": {
             "type": "string",
             "description": "Gets or sets the source of the event.",
@@ -497,12 +868,6 @@
           "subject": {
             "type": "string",
             "description": "Gets or sets the subject of the event.",
-            "nullable": true
-          },
-          "time": {
-            "type": "string",
-            "description": "Gets or sets the time of the event.",
-            "format": "date-time",
             "nullable": true
           },
           "alternativesubject": {
@@ -525,7 +890,407 @@
           }
         },
         "additionalProperties": false,
-        "description": "Represents a cloud event. Based on CloudEvent: https://github.com/cloudevents/spec/blob/v1.0/spec.md."
+        "description": "The model used in the request for registering a new cloud event."
+      },
+      "Assembly": {
+        "type": "object",
+        "properties": {
+          "definedTypes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TypeInfo"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "exportedTypes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Type"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "codeBase": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true,
+            "deprecated": true
+          },
+          "entryPoint": {
+            "$ref": "#/components/schemas/MethodInfo"
+          },
+          "fullName": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "imageRuntimeVersion": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "isDynamic": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "location": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "reflectionOnly": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isCollectible": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isFullyTrusted": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "customAttributes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CustomAttributeData"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "escapedCodeBase": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true,
+            "deprecated": true
+          },
+          "manifestModule": {
+            "$ref": "#/components/schemas/Module"
+          },
+          "modules": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Module"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "globalAssemblyCache": {
+            "type": "boolean",
+            "readOnly": true,
+            "deprecated": true
+          },
+          "hostContext": {
+            "type": "integer",
+            "format": "int64",
+            "readOnly": true
+          },
+          "securityRuleSet": {
+            "$ref": "#/components/schemas/SecurityRuleSet"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CallingConventions": {
+        "enum": [
+          1,
+          2,
+          3,
+          32,
+          64
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "CloudEvent": {
+        "type": "object",
+        "properties": {
+          "specVersion": {
+            "$ref": "#/components/schemas/CloudEventsSpecVersion"
+          },
+          "data": {
+            "nullable": true
+          },
+          "dataContentType": {
+            "type": "string",
+            "nullable": true
+          },
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "dataSchema": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "source": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "subject": {
+            "type": "string",
+            "nullable": true
+          },
+          "time": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "extensionAttributes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CloudEventAttribute"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "isValid": {
+            "type": "boolean",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false,
+        "example": {
+          "id": "ce2f5e3b-5e2d-40ac-9bc5-1cf8124579e7",
+          "resource": "urn:altinn:resource:altinapp.ttd.apps-test",
+          "source": "https://ttd.apps.altinn.no/ttd/apps-test/instances/50015641/a72223a3-926b-4095-a2a6-bacc10815f2d",
+          "specversion": "1.0",
+          "type": "app.instance.created",
+          "subject": "/party/50015641",
+          "alternativesubject": "/person/27124902369",
+          "time": "2020-10-29T07:22:19.438039Z"
+        }
+      },
+      "CloudEventAttribute": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/CloudEventAttributeType"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "isRequired": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isExtension": {
+            "type": "boolean",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CloudEventAttributeType": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "clrType": {
+            "$ref": "#/components/schemas/Type"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CloudEventsSpecVersion": {
+        "type": "object",
+        "properties": {
+          "versionId": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "idAttribute": {
+            "$ref": "#/components/schemas/CloudEventAttribute"
+          },
+          "dataContentTypeAttribute": {
+            "$ref": "#/components/schemas/CloudEventAttribute"
+          },
+          "dataSchemaAttribute": {
+            "$ref": "#/components/schemas/CloudEventAttribute"
+          },
+          "sourceAttribute": {
+            "$ref": "#/components/schemas/CloudEventAttribute"
+          },
+          "subjectAttribute": {
+            "$ref": "#/components/schemas/CloudEventAttribute"
+          },
+          "timeAttribute": {
+            "$ref": "#/components/schemas/CloudEventAttribute"
+          },
+          "typeAttribute": {
+            "$ref": "#/components/schemas/CloudEventAttribute"
+          },
+          "requiredAttributes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CloudEventAttribute"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "optionalAttributes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CloudEventAttribute"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "allAttributes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CloudEventAttribute"
+            },
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ConstructorInfo": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "declaringType": {
+            "$ref": "#/components/schemas/Type"
+          },
+          "reflectedType": {
+            "$ref": "#/components/schemas/Type"
+          },
+          "module": {
+            "$ref": "#/components/schemas/Module"
+          },
+          "customAttributes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CustomAttributeData"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "isCollectible": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "metadataToken": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "attributes": {
+            "$ref": "#/components/schemas/MethodAttributes"
+          },
+          "methodImplementationFlags": {
+            "$ref": "#/components/schemas/MethodImplAttributes"
+          },
+          "callingConvention": {
+            "$ref": "#/components/schemas/CallingConventions"
+          },
+          "isAbstract": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isConstructor": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isFinal": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isHideBySig": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isSpecialName": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isStatic": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isVirtual": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isAssembly": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isFamily": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isFamilyAndAssembly": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isFamilyOrAssembly": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isPrivate": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isPublic": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isConstructedGenericMethod": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isGenericMethod": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isGenericMethodDefinition": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "containsGenericParameters": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "methodHandle": {
+            "$ref": "#/components/schemas/RuntimeMethodHandle"
+          },
+          "isSecurityCritical": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isSecuritySafeCritical": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isSecurityTransparent": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "memberType": {
+            "$ref": "#/components/schemas/MemberTypes"
+          }
+        },
+        "additionalProperties": false
       },
       "ContentType": {
         "type": "object",
@@ -550,6 +1315,828 @@
             "type": "array",
             "items": { },
             "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CustomAttributeData": {
+        "type": "object",
+        "properties": {
+          "attributeType": {
+            "$ref": "#/components/schemas/Type"
+          },
+          "constructor": {
+            "$ref": "#/components/schemas/ConstructorInfo"
+          },
+          "constructorArguments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CustomAttributeTypedArgument"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "namedArguments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CustomAttributeNamedArgument"
+            },
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CustomAttributeNamedArgument": {
+        "type": "object",
+        "properties": {
+          "memberInfo": {
+            "$ref": "#/components/schemas/MemberInfo"
+          },
+          "typedValue": {
+            "$ref": "#/components/schemas/CustomAttributeTypedArgument"
+          },
+          "memberName": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "isField": {
+            "type": "boolean",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CustomAttributeTypedArgument": {
+        "type": "object",
+        "properties": {
+          "argumentType": {
+            "$ref": "#/components/schemas/Type"
+          },
+          "value": {
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EventAttributes": {
+        "enum": [
+          0,
+          512,
+          1024
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "EventInfo": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "declaringType": {
+            "$ref": "#/components/schemas/Type"
+          },
+          "reflectedType": {
+            "$ref": "#/components/schemas/Type"
+          },
+          "module": {
+            "$ref": "#/components/schemas/Module"
+          },
+          "customAttributes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CustomAttributeData"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "isCollectible": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "metadataToken": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "memberType": {
+            "$ref": "#/components/schemas/MemberTypes"
+          },
+          "attributes": {
+            "$ref": "#/components/schemas/EventAttributes"
+          },
+          "isSpecialName": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "addMethod": {
+            "$ref": "#/components/schemas/MethodInfo"
+          },
+          "removeMethod": {
+            "$ref": "#/components/schemas/MethodInfo"
+          },
+          "raiseMethod": {
+            "$ref": "#/components/schemas/MethodInfo"
+          },
+          "isMulticast": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "eventHandlerType": {
+            "$ref": "#/components/schemas/Type"
+          }
+        },
+        "additionalProperties": false
+      },
+      "FieldAttributes": {
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          16,
+          32,
+          64,
+          128,
+          256,
+          512,
+          1024,
+          4096,
+          8192,
+          32768,
+          38144
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "FieldInfo": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "declaringType": {
+            "$ref": "#/components/schemas/Type"
+          },
+          "reflectedType": {
+            "$ref": "#/components/schemas/Type"
+          },
+          "module": {
+            "$ref": "#/components/schemas/Module"
+          },
+          "customAttributes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CustomAttributeData"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "isCollectible": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "metadataToken": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "memberType": {
+            "$ref": "#/components/schemas/MemberTypes"
+          },
+          "attributes": {
+            "$ref": "#/components/schemas/FieldAttributes"
+          },
+          "fieldType": {
+            "$ref": "#/components/schemas/Type"
+          },
+          "isInitOnly": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isLiteral": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isNotSerialized": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isPinvokeImpl": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isSpecialName": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isStatic": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isAssembly": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isFamily": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isFamilyAndAssembly": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isFamilyOrAssembly": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isPrivate": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isPublic": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isSecurityCritical": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isSecuritySafeCritical": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isSecurityTransparent": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "fieldHandle": {
+            "$ref": "#/components/schemas/RuntimeFieldHandle"
+          }
+        },
+        "additionalProperties": false
+      },
+      "GenericParameterAttributes": {
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          8,
+          16,
+          28
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "ICustomAttributeProvider": {
+        "type": "object",
+        "additionalProperties": false
+      },
+      "IntPtr": {
+        "type": "object",
+        "additionalProperties": false
+      },
+      "LayoutKind": {
+        "enum": [
+          0,
+          2,
+          3
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "MemberInfo": {
+        "type": "object",
+        "properties": {
+          "memberType": {
+            "$ref": "#/components/schemas/MemberTypes"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "declaringType": {
+            "$ref": "#/components/schemas/Type"
+          },
+          "reflectedType": {
+            "$ref": "#/components/schemas/Type"
+          },
+          "module": {
+            "$ref": "#/components/schemas/Module"
+          },
+          "customAttributes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CustomAttributeData"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "isCollectible": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "metadataToken": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "MemberTypes": {
+        "enum": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          191
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "MethodAttributes": {
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256,
+          512,
+          1024,
+          2048,
+          4096,
+          8192,
+          16384,
+          32768,
+          53248
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "MethodBase": {
+        "type": "object",
+        "properties": {
+          "memberType": {
+            "$ref": "#/components/schemas/MemberTypes"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "declaringType": {
+            "$ref": "#/components/schemas/Type"
+          },
+          "reflectedType": {
+            "$ref": "#/components/schemas/Type"
+          },
+          "module": {
+            "$ref": "#/components/schemas/Module"
+          },
+          "customAttributes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CustomAttributeData"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "isCollectible": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "metadataToken": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "attributes": {
+            "$ref": "#/components/schemas/MethodAttributes"
+          },
+          "methodImplementationFlags": {
+            "$ref": "#/components/schemas/MethodImplAttributes"
+          },
+          "callingConvention": {
+            "$ref": "#/components/schemas/CallingConventions"
+          },
+          "isAbstract": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isConstructor": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isFinal": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isHideBySig": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isSpecialName": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isStatic": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isVirtual": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isAssembly": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isFamily": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isFamilyAndAssembly": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isFamilyOrAssembly": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isPrivate": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isPublic": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isConstructedGenericMethod": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isGenericMethod": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isGenericMethodDefinition": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "containsGenericParameters": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "methodHandle": {
+            "$ref": "#/components/schemas/RuntimeMethodHandle"
+          },
+          "isSecurityCritical": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isSecuritySafeCritical": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isSecurityTransparent": {
+            "type": "boolean",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "MethodImplAttributes": {
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256,
+          512,
+          4096,
+          65535
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "MethodInfo": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "declaringType": {
+            "$ref": "#/components/schemas/Type"
+          },
+          "reflectedType": {
+            "$ref": "#/components/schemas/Type"
+          },
+          "module": {
+            "$ref": "#/components/schemas/Module"
+          },
+          "customAttributes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CustomAttributeData"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "isCollectible": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "metadataToken": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "attributes": {
+            "$ref": "#/components/schemas/MethodAttributes"
+          },
+          "methodImplementationFlags": {
+            "$ref": "#/components/schemas/MethodImplAttributes"
+          },
+          "callingConvention": {
+            "$ref": "#/components/schemas/CallingConventions"
+          },
+          "isAbstract": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isConstructor": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isFinal": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isHideBySig": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isSpecialName": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isStatic": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isVirtual": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isAssembly": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isFamily": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isFamilyAndAssembly": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isFamilyOrAssembly": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isPrivate": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isPublic": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isConstructedGenericMethod": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isGenericMethod": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isGenericMethodDefinition": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "containsGenericParameters": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "methodHandle": {
+            "$ref": "#/components/schemas/RuntimeMethodHandle"
+          },
+          "isSecurityCritical": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isSecuritySafeCritical": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isSecurityTransparent": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "memberType": {
+            "$ref": "#/components/schemas/MemberTypes"
+          },
+          "returnParameter": {
+            "$ref": "#/components/schemas/ParameterInfo"
+          },
+          "returnType": {
+            "$ref": "#/components/schemas/Type"
+          },
+          "returnTypeCustomAttributes": {
+            "$ref": "#/components/schemas/ICustomAttributeProvider"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Module": {
+        "type": "object",
+        "properties": {
+          "assembly": {
+            "$ref": "#/components/schemas/Assembly"
+          },
+          "fullyQualifiedName": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "mdStreamVersion": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "moduleVersionId": {
+            "type": "string",
+            "format": "uuid",
+            "readOnly": true
+          },
+          "scopeName": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "moduleHandle": {
+            "$ref": "#/components/schemas/ModuleHandle"
+          },
+          "customAttributes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CustomAttributeData"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "metadataToken": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ModuleHandle": {
+        "type": "object",
+        "properties": {
+          "mdStreamVersion": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ParameterAttributes": {
+        "enum": [
+          0,
+          1,
+          2,
+          4,
+          8,
+          16,
+          4096,
+          8192,
+          16384,
+          32768,
+          61440
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "ParameterInfo": {
+        "type": "object",
+        "properties": {
+          "attributes": {
+            "$ref": "#/components/schemas/ParameterAttributes"
+          },
+          "member": {
+            "$ref": "#/components/schemas/MemberInfo"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "parameterType": {
+            "$ref": "#/components/schemas/Type"
+          },
+          "position": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "isIn": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isLcid": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isOptional": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isOut": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isRetval": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "defaultValue": {
+            "nullable": true,
+            "readOnly": true
+          },
+          "rawDefaultValue": {
+            "nullable": true,
+            "readOnly": true
+          },
+          "hasDefaultValue": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "customAttributes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CustomAttributeData"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "metadataToken": {
+            "type": "integer",
+            "format": "int32",
             "readOnly": true
           }
         },
@@ -582,24 +2169,156 @@
         },
         "additionalProperties": { }
       },
+      "PropertyAttributes": {
+        "enum": [
+          0,
+          512,
+          1024,
+          4096,
+          8192,
+          16384,
+          32768,
+          62464
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "PropertyInfo": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "declaringType": {
+            "$ref": "#/components/schemas/Type"
+          },
+          "reflectedType": {
+            "$ref": "#/components/schemas/Type"
+          },
+          "module": {
+            "$ref": "#/components/schemas/Module"
+          },
+          "customAttributes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CustomAttributeData"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "isCollectible": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "metadataToken": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "memberType": {
+            "$ref": "#/components/schemas/MemberTypes"
+          },
+          "propertyType": {
+            "$ref": "#/components/schemas/Type"
+          },
+          "attributes": {
+            "$ref": "#/components/schemas/PropertyAttributes"
+          },
+          "isSpecialName": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "canRead": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "canWrite": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "getMethod": {
+            "$ref": "#/components/schemas/MethodInfo"
+          },
+          "setMethod": {
+            "$ref": "#/components/schemas/MethodInfo"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RuntimeFieldHandle": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/IntPtr"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RuntimeMethodHandle": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/IntPtr"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RuntimeTypeHandle": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/IntPtr"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SecurityRuleSet": {
+        "enum": [
+          0,
+          1,
+          2
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "StructLayoutAttribute": {
+        "type": "object",
+        "properties": {
+          "typeId": {
+            "nullable": true,
+            "readOnly": true
+          },
+          "value": {
+            "$ref": "#/components/schemas/LayoutKind"
+          }
+        },
+        "additionalProperties": false
+      },
       "Subscription": {
         "type": "object",
         "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Subscription Id",
+            "format": "int32"
+          },
           "endPoint": {
             "type": "string",
             "description": "Endpoint to receive matching events",
             "format": "uri",
             "nullable": true
           },
-          "id": {
-            "type": "integer",
-            "description": "Subscription Id",
-            "format": "int32"
-          },
           "sourceFilter": {
             "type": "string",
             "description": "Filter on source",
             "format": "uri",
+            "nullable": true
+          },
+          "resourceFilter": {
+            "type": "string",
+            "description": "Filter on resource",
             "nullable": true
           },
           "subjectFilter": {
@@ -614,7 +2333,7 @@
           },
           "typeFilter": {
             "type": "string",
-            "description": "Filter for type. Starts with",
+            "description": "Filter for type. The different sources has different types.",
             "nullable": true
           },
           "consumer": {
@@ -631,11 +2350,826 @@
             "type": "string",
             "description": "When subscription was created",
             "format": "date-time"
+          },
+          "validated": {
+            "type": "boolean",
+            "description": "Indicate whether the subscription has been validated to be ok."
           }
         },
         "additionalProperties": false,
-        "description": "Class that describes a events subscriptions"
+        "description": "Class that describes an events subscription",
+        "example": {
+          "endPoint": "https://enduser-reception-func.azurewebsites.net/api/processCompleteInstance?code=APIKEY",
+          "id": 1,
+          "sourceFilter": "https://skd.apps.altinn.cloud/skd/mva-melding",
+          "subjectFilter": "/party/512345",
+          "typeFilter": "app.instance.process.completed",
+          "consumer": "/user/12345",
+          "createdBy": "/user/12345",
+          "created": "2022-07-27T13:14:14.395226Z"
+        }
+      },
+      "SubscriptionList": {
+        "type": "object",
+        "properties": {
+          "count": {
+            "type": "integer",
+            "description": "The nuber of subscriptions in the list",
+            "format": "int32"
+          },
+          "subscriptions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Subscription"
+            },
+            "description": "The list of subscriptions",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "An object containing a list of subscriptions and metadata",
+        "example": {
+          "count": 2,
+          "subscriptions": [
+            {
+              "endPoint": "https://enduser-reception-func.azurewebsites.net/api/processCompleteInstance?code=APIKEY",
+              "id": 1,
+              "sourceFilter": "https://skd.apps.altinn.cloud/skd/mva-melding",
+              "subjectFilter": "/party/512345",
+              "typeFilter": "app.instance.process.completed",
+              "consumer": "/user/12345",
+              "createdBy": "/user/12345",
+              "created": "2022-07-27T13:14:14.395226Z"
+            },
+            {
+              "endPoint": "https://hooks.slack.com/services/ID/CODE",
+              "id": 2,
+              "sourceFilter": "https://ttd.apps.altinn.cloud/ttd/apps-test",
+              "consumer": "/org/ttd",
+              "createdBy": "/org/ttd5",
+              "created": "2022-08-02T08:49:07.269958Z"
+            }
+          ]
+        }
+      },
+      "SubscriptionRequestModel": {
+        "type": "object",
+        "properties": {
+          "endPoint": {
+            "type": "string",
+            "description": "Endpoint to receive matching events",
+            "format": "uri",
+            "nullable": true
+          },
+          "sourceFilter": {
+            "type": "string",
+            "description": "Filter on source",
+            "format": "uri",
+            "nullable": true
+          },
+          "subjectFilter": {
+            "type": "string",
+            "description": "Filter on subject",
+            "nullable": true
+          },
+          "resourceFilter": {
+            "type": "string",
+            "description": "Filter on resource",
+            "nullable": true
+          },
+          "alternativeSubjectFilter": {
+            "type": "string",
+            "description": "Filter on alternative subject",
+            "nullable": true
+          },
+          "typeFilter": {
+            "type": "string",
+            "description": "Filter for type. The different sources has different types.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Class that describes the events subscription request model"
+      },
+      "Type": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "customAttributes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CustomAttributeData"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "isCollectible": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "metadataToken": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "isInterface": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "memberType": {
+            "$ref": "#/components/schemas/MemberTypes"
+          },
+          "namespace": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "assemblyQualifiedName": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "fullName": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "assembly": {
+            "$ref": "#/components/schemas/Assembly"
+          },
+          "module": {
+            "$ref": "#/components/schemas/Module"
+          },
+          "isNested": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "declaringType": {
+            "$ref": "#/components/schemas/Type"
+          },
+          "declaringMethod": {
+            "$ref": "#/components/schemas/MethodBase"
+          },
+          "reflectedType": {
+            "$ref": "#/components/schemas/Type"
+          },
+          "underlyingSystemType": {
+            "$ref": "#/components/schemas/Type"
+          },
+          "isTypeDefinition": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isArray": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isByRef": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isPointer": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isConstructedGenericType": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isGenericParameter": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isGenericTypeParameter": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isGenericMethodParameter": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isGenericType": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isGenericTypeDefinition": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isSZArray": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isVariableBoundArray": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isByRefLike": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "hasElementType": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "genericTypeArguments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Type"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "genericParameterPosition": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "genericParameterAttributes": {
+            "$ref": "#/components/schemas/GenericParameterAttributes"
+          },
+          "attributes": {
+            "$ref": "#/components/schemas/TypeAttributes"
+          },
+          "isAbstract": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isImport": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isSealed": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isSpecialName": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isClass": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isNestedAssembly": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isNestedFamANDAssem": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isNestedFamily": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isNestedFamORAssem": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isNestedPrivate": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isNestedPublic": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isNotPublic": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isPublic": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isAutoLayout": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isExplicitLayout": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isLayoutSequential": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isAnsiClass": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isAutoClass": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isUnicodeClass": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isCOMObject": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isContextful": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isEnum": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isMarshalByRef": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isPrimitive": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isValueType": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isSignatureType": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isSecurityCritical": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isSecuritySafeCritical": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isSecurityTransparent": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "structLayoutAttribute": {
+            "$ref": "#/components/schemas/StructLayoutAttribute"
+          },
+          "typeInitializer": {
+            "$ref": "#/components/schemas/ConstructorInfo"
+          },
+          "typeHandle": {
+            "$ref": "#/components/schemas/RuntimeTypeHandle"
+          },
+          "guid": {
+            "type": "string",
+            "format": "uuid",
+            "readOnly": true
+          },
+          "baseType": {
+            "$ref": "#/components/schemas/Type"
+          },
+          "isSerializable": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "containsGenericParameters": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isVisible": {
+            "type": "boolean",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TypeAttributes": {
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          16,
+          24,
+          32,
+          128,
+          256,
+          1024,
+          2048,
+          4096,
+          8192,
+          16384,
+          65536,
+          131072,
+          196608,
+          262144,
+          264192,
+          1048576,
+          12582912
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "TypeInfo": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "customAttributes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CustomAttributeData"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "isCollectible": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "metadataToken": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "isInterface": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "memberType": {
+            "$ref": "#/components/schemas/MemberTypes"
+          },
+          "namespace": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "assemblyQualifiedName": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "fullName": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "assembly": {
+            "$ref": "#/components/schemas/Assembly"
+          },
+          "module": {
+            "$ref": "#/components/schemas/Module"
+          },
+          "isNested": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "declaringType": {
+            "$ref": "#/components/schemas/Type"
+          },
+          "declaringMethod": {
+            "$ref": "#/components/schemas/MethodBase"
+          },
+          "reflectedType": {
+            "$ref": "#/components/schemas/Type"
+          },
+          "underlyingSystemType": {
+            "$ref": "#/components/schemas/Type"
+          },
+          "isTypeDefinition": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isArray": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isByRef": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isPointer": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isConstructedGenericType": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isGenericParameter": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isGenericTypeParameter": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isGenericMethodParameter": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isGenericType": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isGenericTypeDefinition": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isSZArray": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isVariableBoundArray": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isByRefLike": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "hasElementType": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "genericTypeArguments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Type"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "genericParameterPosition": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "genericParameterAttributes": {
+            "$ref": "#/components/schemas/GenericParameterAttributes"
+          },
+          "attributes": {
+            "$ref": "#/components/schemas/TypeAttributes"
+          },
+          "isAbstract": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isImport": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isSealed": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isSpecialName": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isClass": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isNestedAssembly": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isNestedFamANDAssem": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isNestedFamily": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isNestedFamORAssem": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isNestedPrivate": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isNestedPublic": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isNotPublic": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isPublic": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isAutoLayout": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isExplicitLayout": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isLayoutSequential": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isAnsiClass": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isAutoClass": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isUnicodeClass": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isCOMObject": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isContextful": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isEnum": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isMarshalByRef": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isPrimitive": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isValueType": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isSignatureType": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isSecurityCritical": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isSecuritySafeCritical": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isSecurityTransparent": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "structLayoutAttribute": {
+            "$ref": "#/components/schemas/StructLayoutAttribute"
+          },
+          "typeInitializer": {
+            "$ref": "#/components/schemas/ConstructorInfo"
+          },
+          "typeHandle": {
+            "$ref": "#/components/schemas/RuntimeTypeHandle"
+          },
+          "guid": {
+            "type": "string",
+            "format": "uuid",
+            "readOnly": true
+          },
+          "baseType": {
+            "$ref": "#/components/schemas/Type"
+          },
+          "isSerializable": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "containsGenericParameters": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isVisible": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "genericTypeParameters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Type"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "declaredConstructors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ConstructorInfo"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "declaredEvents": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EventInfo"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "declaredFields": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FieldInfo"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "declaredMembers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MemberInfo"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "declaredMethods": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MethodInfo"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "declaredNestedTypes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TypeInfo"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "declaredProperties": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PropertyInfo"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "implementedInterfaces": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Type"
+            },
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "http",
+        "description": "Please enter JWT token",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
       }
     }
-  }
+  },
+  "security": [
+    {
+      "Bearer": [ ]
+    }
+  ],
+  "tags": [
+    {
+      "name": "Inbound",
+      "description": "Private API"
+    },
+    {
+      "name": "Outbound",
+      "description": "Private API"
+    },
+    {
+      "name": "Storage",
+      "description": "Private API"
+    },
+    {
+      "name": "WebhookReceiver",
+      "description": "Private API"
+    }
+  ]
 }

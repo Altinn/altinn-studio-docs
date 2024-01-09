@@ -3,53 +3,55 @@ title: Layout sets
 description: How to set up multiple layouts or forms in the same app.
 toc: false
 weight: 40
-tags: [translate-to-english]
 ---
 
 {{%notice warning%}}
-Dette er helt ny funksjonalitet. Oppsett må gjøres manuelt inntil videre. Støtte for oppsett via Altinn Studio kommer snart.
+This is new functionality. Setup must be done manually as of today. Support for setup through Altinn Studio will be coming shortly.
 {{%/notice%}}
 
-## Oppsett
+## Setup
 
-For å få funksjonalitet for flere skjema i tjeneste, **må** nuget-versjon til pakkene app'en bruker oppgraderes til versjon `3.1.4` _eller nyere_.
-Se instrukser for hvordan det gjøres [her](../../../../maintainance/dependencies).
+To get functionality for multiple forms in a service, the nuget-version of the packets the app uses **must** be upgraded
+to version `3.1.4` _or newer_.
+See instructions on how that is done [here](../../../../maintainance/dependencies).
 
-Sentralt i løsningen er at man har flere layout-sets som består av en eller flere sider og configurasjon. Hvert layout-set består av tilsvarende filer som en skjema tjenester.
+A key to the solution is that there are multiple layout-sets that consists of one or more pages and configurations. Each
+layout-set consists of the same files as a form service.
 
 ```
 |- App/
   |- ui/
     | - layout-sets.json
-    |- skjema-a/
+    |- form-a/
       |- Settings.json
       |- RuleHandler.js
       |- RuleConfiguration.json
       |- layouts/
-        |- side1.json
-        |- side2.json
-        |- side3.json
-    |- skjema-b/
+        |- page1.json
+        |- page2.json
+        |- page3.json
+    |- form-b/
       |- Settings.json
       |- RuleHandler.js
       |- RuleConfiguration.json
       |- layouts/
-        |- side1.json
-        |- side2.json
-        |- side3.json  
+        |- page1.json
+        |- page2.json
+        |- page3.json  
 ```
 
 
-I `layout-set.json` defineres det hvilke steg i prosessen (task) hvor et gitt layout-set skal brukes.
-Merk at id'en er case sensitiv, så om du har stor bokstav i mappenavnet må id'en reflektere dette. Vi anbefaler små bokstaver i mappenavn.
+In `layout-sets.json` it is defined which steps in the process (task) where a given layout-set should be used.
+Note that the ID is case sensitive, so if you have a capital letter in the folder name, the ID must reflect this. We recommend lower case letters in folder names.
 
-Eksempel:
+Example:
 
 ```json
 {
+  "$schema": "https://altinncdn.no/schemas/json/layout/layout-sets.schema.v1.json",
   "sets": [
     {
-      "id": "rf0002",
+      "id": "form-a",
       "dataType": "schema_4222_160523_forms_212_20160523",
       "tasks": [
         "Task_1"
@@ -57,7 +59,7 @@ Eksempel:
     },
 
     {
-      "id": "superform",
+      "id": "form-b",
       "dataType": "schema_3161_140411_forms_1549_11554",
       "tasks": [
         "Task_2"

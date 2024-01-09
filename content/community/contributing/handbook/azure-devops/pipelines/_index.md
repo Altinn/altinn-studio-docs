@@ -23,8 +23,8 @@ The build pipelines are grouped in folders based on either the part of the solut
 or the purpose of the pipeline. See build pipelines [here](https://dev.azure.com/brreg/altinn-studio/_build?treeState=XGFsdGlubi1hcHBz&view=folders).
 
 - [altinn-apps](#altinn-apps)
-- [altinn-platform](#altinn-platform)
-- [altinn-studio](#altinn-studio)
+- [altinn-platform](#altinn-platform--altinn-studio)
+- [altinn-studio](#altinn-platform--altinn-studio)
 - [code-analysis](#code-analysis)
 - [load-test](#load-test)
 - [test](#test)
@@ -57,6 +57,10 @@ Remaing pipelines in this folder are described below.
 
 - trigger: final step in build/deploy app image pipelines
 - details: Sends request to designer to update status of a given buil or release of an app.
+
+#### PDF-generator master
+- trigger: new code is pushed to the gh-pages branch of the [altinn-studio-charts repository](https://github.com/Altinn/altinn-studio-charts)
+- default: the created build is used as the artifact to trigger the release pipeline for the PDF generator to AT-environments.
 
 ### altinn-platform / altinn-studio
 

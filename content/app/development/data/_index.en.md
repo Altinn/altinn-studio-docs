@@ -5,4 +5,4 @@ description: Data model configuration, pre-filling and other items related to da
 weight: 10
 ---
 
-{{<children>}}
+{{<children />}}

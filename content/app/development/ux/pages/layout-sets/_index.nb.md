@@ -40,16 +40,17 @@ Sentralt i løsningen er at man har flere layout-sets som består av en eller fl
 ```
 
 
-I `layout-set.json` defineres det hvilke steg i prosessen (task) hvor et gitt layout-set skal brukes.
+I `layout-sets.json` defineres det hvilke steg i prosessen (task) hvor et gitt layout-set skal brukes.
 Merk at id'en er case sensitiv, så om du har stor bokstav i mappenavnet må id'en reflektere dette. Vi anbefaler små bokstaver i mappenavn.
 
 Eksempel:
 
 ```json
 {
+  "$schema": "https://altinncdn.no/schemas/json/layout/layout-sets.schema.v1.json",
   "sets": [
     {
-      "id": "rf0002",
+      "id": "skjema-a",
       "dataType": "schema_4222_160523_forms_212_20160523",
       "tasks": [
         "Task_1"
@@ -57,7 +58,7 @@ Eksempel:
     },
 
     {
-      "id": "superform",
+      "id": "skjema-b",
       "dataType": "schema_3161_140411_forms_1549_11554",
       "tasks": [
         "Task_2"

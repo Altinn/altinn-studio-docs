@@ -1,0 +1,94 @@
+{{- define "properties-table" -}}
+    {{- $properties := .properties -}}
+    {{- $parentName := .parentName -}}
+
+    {{- $orderedPropertyNames := slice "id" "type" "dataModelBindings" "textResourceBindings" "required" "readOnly" "options" "optionsId" "preselectedOptionsIndex" -}}
+
+    {{- range $propertyName, $property := $properties -}}
+        {{- $orderedPropertyNames = $orderedPropertyNames | append $propertyName | uniq -}}
+    {{- end -}}
+
+    <div class="adocs-property-table">
+        <table>
+            <tr>
+                <th><strong>Property</strong></th>
+                <th><strong>Type</strong></th>
+                <th><strong>Description</strong></th>
+            </tr>
+
+            {{- range $propName := $orderedPropertyNames -}}
+                {{- $property := index $properties $propName -}}
+
+                {{- with $property -}}
+                    {{- template "add-row" (dict "propName" $propName "property" $property) -}}
+                {{- end -}}
+            {{- end -}}
+        </table>
+    </div>
+{{- end -}}
+
+{{- define "add-row" -}}
+{{- $property := .property -}}
+{{- $propName := .propName -}}
+{{- $parentName := .parentName -}}
+
+{{- $type := (index $property "type") -}}
+{{- $title := (index $property "title") -}}
+{{- $description := (index $property "description") -}}
+{{- $reference := index $property "$ref" -}}
+{{- $examples := index $property "examples" -}}
+{{- $enum := index $property "enum" -}}
+{{- $subProperties := index $property "properties" -}}
+
+{{- if or ($description) ($title) ($type) -}}
+<tr class="{{- with $parentName -}}sub-prop{{- else -}}main-prop{{- end -}}">
+    <td>
+        {{- if $parentName -}}
+            {{- $propName = (printf "%s.%s" $parentName $propName) -}}
+            <code>{{- $propName -}}</code>
+        {{- else -}}
+            <h4><code>{{- $propName -}}</code></h4>
+        {{- end -}}
+
+    </td>
+    <td>
+        {{- with $type -}}
+            {{- $type -}}
+        {{- else -}}
+            {{- with $reference -}}
+                {{- $split := split $reference "/" -}}
+                {{- $refItemName := index $split (sub (len $split) 1) -}}
+                    {{- $refItemName -}}
+            {{- end -}}
+        {{- end -}}
+    </td>
+    <td>
+        {{- if $description -}}
+            {{- $description -}}<br>
+        {{- else -}}
+            {{- $title -}}<br>
+        {{- end -}}
+        {{- with $examples -}}
+        <strong>Example(s): </strong>{{- template "formatAsCode" $examples -}}<br>
+        {{- end -}}
+        {{- with $enum -}}
+        <strong>Enum: </strong>[{{- delimit $enum ", " -}}]<br>
+        {{- end -}}
+        {{- with $reference -}}
+            {{- template "follow-reference" (dict "ref" $reference) -}} 
+        {{- end -}}
+    </td>
+</tr>
+{{- else if $reference -}}
+    {{- template "follow-reference" (dict "ref" $reference) -}}
+{{- end -}}
+
+{{- with $subProperties -}}
+    {{- range $subPropName, $properties := $subProperties -}}
+        {{- template "add-row" (dict "propName" $subPropName "parentName" $propName "property" $properties)}}
+    {{- end -}}
+{{- end -}}
+
+{{- end -}} {{/*  end define properties-table  */}}
+
+

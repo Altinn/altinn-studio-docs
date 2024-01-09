@@ -1,2 +1,4 @@
-<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}">
-{{ with .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
+<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}" />
+<meta name="altinn_pagedir" class="elastic" content="{{ with .Page.File }}{{ .Dir }}{{ end }}" />
+<meta name="altinn_title" class="elastic" content="{{ .Title }}" />
+{{ with .Site.Params.author }}<meta name="author" content="{{ . }}" />{{ end }}
