@@ -151,7 +151,6 @@ To manually add support for English in an application, you need to create the fi
 App/config/texts/resources.en.json
 {{< /code-title >}}
 
-
 ```json
 {
   "language": "en",

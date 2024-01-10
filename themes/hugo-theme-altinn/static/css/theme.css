@@ -1042,6 +1042,9 @@ td {
 #body #breadcrumbs span.adocs-breadcrumb-divider {
     padding: 0 6px;
 }
+.last-modified {
+    text-align: right;
+}
 .copy-to-clipboard {
     background-image: url(../images/clippy.svg);
     background-position: 50% 50%;

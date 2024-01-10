@@ -12,7 +12,7 @@ metadataFormat = "yaml"
 pluralizeListTitles = false
 preservetaxonomynames = true
 enableEmoji = true
-enableGitInfo = false
+enableGitInfo = true
 disableKinds = ["RSS"] # page home section taxonomy taxonomyTerm RSS sitemap robotsTXT 404
 ignoreErrors = ["error-remote-getjson"]
 

@@ -9,8 +9,7 @@ Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroup
  
 ![Jordbruk, skogbruk, jakt, fiske og akvakultur](jsjfa.jpg "Jordbruk, skogbruk, jakt, fiske og akvakultur")
 - **Jordbruk, skogbruk, jakt, fiske og akvakultur:** Denne fullmakten gir tilgang til alle tjenester som angår jordbruk, skogbruk, jakt, fiske og akvakultur"
-	- **Planteproduksjon og dyrehold:** Denne fullmakten gir tilgang til alle tjenester knyttet til planteproduksjon og dyrehold
-"
+	- **Planteproduksjon, dyrehold og reindrift:** Denne fullmakten gir tilgang til alle tjenester knyttet til planteproduksjon, dyrehold og reindrift"
     - **Jakt og viltstell:** Denne fullmakten gir tilgang til alle tjenester knyttet til jakt og viltstell
     - **Skogbruk:** Denne fullmakten gir tilgang til alle tjenester knyttet til skogbruk
     - **Fiske:** Denne fullmakten gir tilgang til alle tjenester knyttet til fiske

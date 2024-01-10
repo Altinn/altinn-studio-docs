@@ -20,10 +20,10 @@ Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroup
 |---|---|---|---|
 |Miljø, ulykke og sikkerhet| ja|nei||
 |Miljø og klimarapportering|ja|nei||
-|Renovasjon|ja|ja|DAGL, LEDE,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
-|Miljørydding, miljørensing og lignende|ja|ja|DAGL, LEDE,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
-|Sikkerhet og internkontroll|ja|ja|DAGL, LEDE,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
-|Ulykke og yrkesskade|ja|ja|DAGL, LEDE,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
+|Renovasjon|ja|ja|DAGL, LEDE, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
+|Miljørydding, miljørensing og lignende|ja|ja|DAGL, LEDE, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
+|Sikkerhet og internkontroll|ja|ja|DAGL, LEDE, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
+|Ulykke og yrkesskade|ja|ja|DAGL, LEDE, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
 
 {{% notice warning %}} Det er fortsatt uavklart hvilke fullmakter det vil være natulig å gi personer med rollen Forretningsførerer innenfor fullmaktsområdet "Miljø, ulykke og sikkerhet" {{% /notice %}}
 
