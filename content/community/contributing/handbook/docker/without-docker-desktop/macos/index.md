@@ -136,7 +136,15 @@ export DOCKER_HOST="unix://${HOME}/.colima/default/docker.sock"
 
 https://github.com/abiosoft/colima/blob/main/docs/FAQ.md#cannot-connect-to-the-docker-daemon-at-unixvarrundockersock-is-the-docker-daemon-running
 
-### Colima stopped working after updating macOS
+### Build fails
+
+If build fails, try increasing the memory of the VM:
+
+```
+colima start --cpu 2 --memory  4 --disk 60
+```
+
+### Colima stopped working (e.g. after updating macOS)
 
 Uninstall colima
 
@@ -146,6 +154,18 @@ Uninstall colima
 
 ```
 brew uninstall colima
+```
+
+```
+brew uninstall lima
+```
+
+```
+brew uninstall qemu
+```
+
+```
+brew autoremove
 ```
 
 Delete .colima folder
@@ -158,6 +178,27 @@ Reinstall colima
 
 ```
 brew install colima
+```
+
+## Unresolved Issues
+
+I still experience some issues for which I have not yet found a solution.
+
+### The symlink keeps getting deleted
+
+The symlink keeps getting deleted when restarting my mac and needs to be manually recreated by running this command:
+
+```
+sudo ln ~/.colima/default/docker.sock /var/run
+```
+
+### Corrupted Postgres
+
+The PostgresSQL database database keeps getting corrupted when shutting down my Mac.
+I tried increasing the waiting time, without success:
+
+```
+docker-compose up -d -t 20
 ```
 
 ## Resources
