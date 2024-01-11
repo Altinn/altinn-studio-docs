@@ -10,10 +10,10 @@ Altinn skal fase ut eksisterende Altinn 2 roller som gir tilgang til tjenester g
 
 Arbeid med å innføre nye tilgangspakker skjer i følgende trinn: 
 1. Foreslå nye tilgangspakker og gjennomføre høringer (vår/høst 2023)
-2. Etablere endelig versjon av tilgangspakker (desember 2023)
-3. Innhente og registrere nye policyer for alle tjenester i Altinn 2 og Altinn 3
+2. Etablere endelig versjon av tilgangspakker (januar 2024)
+3. Tjenesteeiere kan begynne å ta i bruk tilgangspakker i policy-filene for på Altinn 3-apper og ressurser, men frem til pkt. 4 er gjennomført, må Altinn 2-roller også inngå i policyene.
 4. Lansere [ny brukerflate](/authorization/migration/#nye-tilgangsgrupper-og-ny-brukerflate-for-tilgangsstyring-for-virksomheter) for fullmaktstyring for virksomheter (Q2 2024)
-5. Avvikle Altinn 2 roller i løsningen (Q1 2025)
+5. Avvikle Altinn 2 roller i løsningen (Q2 2026)
    
 Se flere detaljer om tidsplan [her](/authorization/migration/new-accessgroups/#tidsplan-for-arbeidet)
 
