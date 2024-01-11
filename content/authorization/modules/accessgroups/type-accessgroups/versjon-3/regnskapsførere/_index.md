@@ -1,11 +1,11 @@
 ---
 title: Regnskapsførere
 linktitle: Regnskapsførere
-description: Denne fullmaktsgruppen er relevant for alle virksomheter
+description: Denne tilgangspakken er relevant for alle virksomheter
 weight: 122
 ---
 
-Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-3/#oversikt-over-fullmaktsgrupper)
+Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-3/#oversikt-over-tilgangspakker)
 
 
 
@@ -16,8 +16,8 @@ Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroup
 	- **Regnskapsfører lønn:** Denne fullmakten gir tilgang til regnskapsfører å rapportere lønn for sin kunde. Dette er tjenester som man har vurdert det som naturlig at en regnskapsfører utfører på vegne av sin kunde. Fullmakten gis kun til autoriserte regnskapsførere. Fullmakt hos regnskapfører oppstår når kunden registrerer regnskapsfører i Enhetsregisteret. 
 
 
-## Egenskaper ved fullmaktsgruppene
-|Navn fullmaktsgruppe|Kan delegeres til ansatte?|Kan knytte tjenester til?|[ER rolle](/authorization/modules/accessgroups/register_er/#rolletyper-fra-enhetsregisteret) som får fullmakten|
+## Egenskaper ved tilgangspakkene
+|Navn tillgangspakke|Kan delegeres til ansatte?|Kan knytte tjenester til?|[ER rolle](/authorization/modules/accessgroups/register_er/#rolletyper-fra-enhetsregisteret) som får fullmakten|
 |---|---|---|---|
 |Fullmakter for regnskapsførere| ja|nei||
 |Regnskapsfører med signeringsrettighet|ja|ja|REGN|
@@ -25,4 +25,4 @@ Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroup
 |Regnskapsfører lønn|ja|ja|REGN|
 
 
-Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-3/#oversikt-over-fullmaktsgrupper)
+Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-3/#oversikt-over-tilgangspakker)

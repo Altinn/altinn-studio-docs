@@ -1,11 +1,11 @@
 ---
 title: Skatt, avgift, regnskap og toll
 linktitle: Skatt, regnskap, toll
-description: Denne fullmaktsgruppen er relevant for alle virksomheter som betaler eller rapporterer inn informasjon knyttet til skatt, avgift regnskap og toll
+description: Denne tilgangspakken er relevant for alle virksomheter som betaler eller rapporterer inn informasjon knyttet til skatt, avgift regnskap og toll
 weight: 105
 ---
 
-Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-3/#oversikt-over-fullmaktsgrupper)
+Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-3/#oversikt-over-tilgangspakker)
 
 
 
@@ -21,8 +21,8 @@ Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroup
 	- **Reviorattesterer:** Denne fullmakten gir tilgang til alle tjenester som krever revisorattestering. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. 
 	- **Toll:** Denne fullmakten gir tilgang til alle tjenester knyttet til toll og fortolling. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. 
 
-## Egenskaper ved fullmaktsgruppene
-|Navn fullmaktsgruppe|Kan delegeres til ansatte?|Kan knytte tjenester til?|[ER rolle](/authorization/modules/accessgroups/register_er/#rolletyper-fra-enhetsregisteret) som får fullmakten|
+## Egenskaper ved tilgangspakkene
+|Navn tillgangspakke|Kan delegeres til ansatte?|Kan knytte tjenester til?|[ER rolle](/authorization/modules/accessgroups/register_er/#rolletyper-fra-enhetsregisteret) som får fullmakten|
 |---|---|---|---|
 |Skatt, avgift, regnskap og toll| ja|nei||
 |Skatt og Merverdiavgift|ja|nei||
@@ -36,6 +36,6 @@ Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroup
 {{% notice warning %}} Det er fortsatt uavklart hvilke fullmakter det vil være natulig å gi personer med rollen Forretningsførerer innenfor fullmaktsområdet "Skatt, avgift, regnskap og toll" {{% /notice %}}
 
 
-Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-3/#oversikt-over-fullmaktsgrupper)
+Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-3/#oversikt-over-tilgangspakker)
 
 [def]: sart.jpg
