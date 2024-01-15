@@ -18,6 +18,10 @@ Altinn solutions for Authentication and Authorization are described under:
 * [Altinn Authentication](https://docs.altinn.studio/authentication/)  
 * [Altinn Authorization](https://docs.altinn.studio/authorization/).
 
+## Authentication
+
+In order to authenticate to the API, you need to use a Maskinporten token as a bearer token. You should use delegated tokens as described [here](https://samarbeid.digdir.no/maskinporten/konsument-delegert-til-leverandor/120).
+
 TBD: More excplicit reference to the updated Maskinporten and Altinn Authorization 
 solution architecture documentation. 
 
