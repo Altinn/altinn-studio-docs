@@ -160,7 +160,7 @@ In version 4 of app frontend, the `NavigationButtons` component have properties 
 }
 ```
 
-Where `page` can be one of: `current | all | currentAndPrevious`. And `show` contains a set of validation types to check; this can be one or more of:
+Where `page` can be one of: `current | all | currentAndPrevious`, and `show` contains a set of validation types to check; this can be one or more of:
 
 - `Schema`
 - `Component`
@@ -208,4 +208,3 @@ There are three different triggers that can be used on page navigation:
 | `validateCurrentAndPreviousPages` | Runs validation on all components in the current page and all previous pages in the current order.                                                            |
 {{</content-version-container>}}
 {{</content-version-selector>}}
-

@@ -144,18 +144,59 @@ Om du ønsker å dynamisk endre på rekkefølgen på sidene kan dette gjøres me
 
 ## Validering ved sidebytte
 
-Det er mulig å trigge validering i det brukeren prøver å bevege seg til neste side, dersom det er valideringsfeil vil det stoppe brukeren fra å navigere. Dette kan gjøres ved å legge til en trigger på navigasjons-knapp komponenten. Eksempel:
+Det er mulig å trigge validering i det brukeren prøver å bevege seg til neste side, dersom det er valideringsfeil vil det stoppe brukeren fra å navigere.
 
-```json
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="v4 (App Frontend)">}}
+I versjon 4 av app frontend, har `NavigationButtons`-komponenten egenskapene `validateOnNext` og `validateOnPrevious` som kan konfigureres. Eksempel:
+
+```json {linenos=false,hl_lines=[5,6,7,8]}
 {
-  "id": "7cbc1c00-4c8c-42b6-bcef-12b3c4c45373",
+  "id": "nav-buttons-1",
+  "type": "NavigationButtons",
+  "textResourceBindings": {...},
+  "validateOnNext": {
+    "page": "current",
+    "show": ["All"]
+  }
+}
+```
+
+Hvor `page` kan være en av: `current | all | currentAndPrevious`, og `show` inneholder et sett med validerings-typer som skal sjekkes; dette kan være én eller flere av:
+
+- `Schema`
+- `Component`
+- `Expression`
+- `CustomBackend`
+- `Required`
+- `AllExceptRequired`
+- `All`
+
+Tilsvarende, har `NavigationBar`-komponenten egenskapene `validateOnForward` og `validateOnBackward`:
+
+```json {linenos=false,hl_lines=[4,5,6,7]}
+{
+  "id": "nav-1",
+  "type": "NavigationBar",
+  "validateOnForward": {
+    "page": "current",
+    "show": ["All"]
+  }
+}
+```
+
+{{</content-version-container>}}
+{{<content-version-container version-label="v3 (App Frontend)">}}
+I versjon 3 av app frontend kan du legge til en trigger på navigasjonsknappen:
+
+```json {linenos=false,hl_lines=[7]}
+{
+  "id": "nav-buttons-1",
   "type": "NavigationButtons",
   "textResourceBindings": {
     "next": "Neste",
-    "back": "Tilbake"
   },
   "triggers": ["validatePage"],
-  "showBackButton": true
 }
 ```
 
@@ -166,3 +207,5 @@ Det er tre ulike triggere som kan brukes ved side-navigasjon:
 | `validatePage`                    | Kjører validering på komponentene i den nåværende siden. IDen til siden som trigget valideringen sendes med til backend i headeren `LayoutId`.                                            |
 | `validateAllPages`                | Kjører validering på alle komponentene i alle sider i skjemaet. Hindrer ikke brukeren å navigere dersom det ikke finnes valideringsfeil på nåværende eller tidligere sider i rekkefølgen. |
 | `validateCurrentAndPreviousPages` | Kjører validering på alle komponentene i nåværende og tidligere sider i rekkefølgen.                                                                                                      |
+{{</content-version-container>}}
+{{</content-version-selector>}}
