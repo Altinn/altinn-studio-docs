@@ -47,11 +47,11 @@ Administrator vil i brukergrensesnitt oppleve av vedkommende kan gi sine ansatte
 Her finner du [fremgangsmåte og rekkefølge](/authorization/migration/new-accessgroups/) av oppgaver som må gjennomføres hos Altinn, tjenesteeiere og sluttbrukervirksomhetene for å innføre nye tilgangspakker. 
  
 
-### Avvikler alle Altinn 2 generelle roller
-Alle Altinn 2 roller vil bli avviklet i forbindelse med overgang til nye tilgangspakkene. Roller og tilgangspakker vil eksistere i parallell i en periode, før Altinn 2-rollene fjernes.
+### Avvikling av Altinn 2 generelle roller
+Altinn 2 roller vil bli avviklet senest ved avslutning av Altinn 2-løsningen. Tjenester som ligger på Altinn 2 vil fortsatt bruke Altinn 2-roller for tilgangsstyring, men ved flytting av tjenestene til Altinn Studio eller ressursregisteret, må nye tilgangspakker tas i bruk. I en overgangsfase vil roller og tilgangspakker vil eksistere i parallell i en periode, før Altinn 2-rollene fjernes.
 
 Noen få av de nye tilgangspakkene vil være identiske med gamle Altinn2 roller. Dette gjelder rollene: 
-- ECKEYROLE
+- ECKEYROLE - lik funksjonalitet, men nytt navn som tilgangsgruppe er Opptre for virksomhetens kunder
 - Klientadministrator
 - Tilgangsstyrer
 - Hovedadministrator
@@ -67,15 +67,6 @@ Det dere som tjenesteeiere må gjøre fremover, er å kartlegge hvilke tilgangsp
 
 Merk at vi har revidert vår plan for innføring av tilgangspakker angående muligheten for å fortsatt kunne delegere Altinn 2-roller. Opprinnelig plan var at delegering av Altinn 2-roller ikke skulle være mulig etter at ny brukerflate for tilgangsstyring var lansert, men vi ser at det vil være behov for denne muligheten fremover også.
 
-## Vi ønsker innspill fra dere som er tjenesteeierne
-Vi gjennomfører nå høring nummer 2 av nye tilgangspakker. Vi ønsker tilbakemeldinger på
-- om de foreslåtte tilgangspakkene passer til de tjenestene dere har
-- navnene på tilgangspakkene som dere forholder dere til
-- beskrivelsene av tilgangspakkene som dere vil forholder dere til
-- om forslag til hvilke ER-roller som skal få de nye tilgangspakkene dekker deres behov. Det er særlig viktig å avklare om det er noen av de foreslåtte ER roller dere mener IKKE kan få tilgangspakken i kontekst av deres tjeneste
-
-Tilbakemelding kan du sende på e-post til servicedesk@altinn.no innen 10.11.2023.
-
 
 ## Oversikt over tilgangspakker: 
 
@@ -89,7 +80,7 @@ Tilbakemelding kan du sende på e-post til servicedesk@altinn.no innen 10.11.202
 
 
 (klikk på lenken for å se nedover i hierarkiet)
-### tilgangspakker relevant for mange/alle virksomheter
+### Tilgangspakker relevant for mange/alle virksomheter
 
 1. [Skatt, avgift, regnskap og toll](/authorization/modules/accessgroups/type-accessgroups/versjon-3/skatt/)
 2. [Personale](/authorization/modules/accessgroups/type-accessgroups/versjon-3/personale/)
@@ -112,9 +103,9 @@ Tilbakemelding kan du sende på e-post til servicedesk@altinn.no innen 10.11.202
 16. [Andre tjenesteytende næringer](/authorization/modules/accessgroups/type-accessgroups/versjon-3/tjenesteytende/)
 
 ### Andre spesialiserte tilgangspakker
-17. [tilgangspakker for regnskapsførere](/authorization/modules/accessgroups/type-accessgroups/versjon-3/regnskapsførere/)
-18. [tilgangspakker for revisor](/authorization/modules/accessgroups/type-accessgroups/versjon-3/revisor/)
-19. [tilgangspakker for konkursbo](/authorization/modules/accessgroups/type-accessgroups/versjon-3/konkursbo/)
+17. [Tilgangspakker for regnskapsførere](/authorization/modules/accessgroups/type-accessgroups/versjon-3/regnskapsførere/)
+18. [Tilgangspakker for revisor](/authorization/modules/accessgroups/type-accessgroups/versjon-3/revisor/)
+19. [Tilgangspakker for konkursbo](/authorization/modules/accessgroups/type-accessgroups/versjon-3/konkursbo/)
 
 
 
