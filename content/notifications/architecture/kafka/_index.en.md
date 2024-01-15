@@ -9,18 +9,7 @@ We are currently running Apache Kafka on Confluent Cloud through Azure enabling 
 integration with the rest of our components hosted in Azure."
 ---
 
-## Kafka topic Overview
-{{% notice info %}}
-TODO: QA devs
-{{% /notice %}}
-
-{{% notice info  %}}
-Consideration: 
-
-Do we want to express a description of the topic or rather the event trigger for the topic? 
-I don't think we need both as they tell the same story.
-{{% /notice %}}
-
+## Kafka topic overview
 
 Below is an overview of the Kafka topics used in our system, 
 along with information about the producers and the content of each topic
@@ -181,9 +170,6 @@ __Content:__
 {{% /expandsmall %}}
 
 ## Cluster configuration
-{{% notice info %}}
-TODO: QA infra
-{{% /notice %}}
 
 The kafka cluster used by Altinn Notifications, is a cluster shared between multiple Altinn components.
 Configuration in relation to roles and topic policies are in place to ensure integrity in the data on topics 
