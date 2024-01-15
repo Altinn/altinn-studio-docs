@@ -144,7 +144,7 @@ Om du ønsker å dynamisk endre på rekkefølgen på sidene kan dette gjøres me
 
 ## Validering ved sidebytte
 
-Det er mulig å trigge validering i det brukeren prøver å bevege seg til neste side, dersom det er valideringsfeil vil det stoppe brukeren fra å navigere.
+Det er mulig å sjekke valideringsfeil i det brukeren prøver å bevege seg til neste side, dersom det er valideringsfeil vil det stoppe brukeren fra å navigere.
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="v4 (App Frontend)">}}
