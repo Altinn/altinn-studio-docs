@@ -6,7 +6,9 @@ weight: 2
 toc: false
 ---
 
-
-{{% notice info %}}
-TODO: Agree on structure for section
-{{% /notice %}}
+## Integrations
+## Dependencies
+## Testing
+## Hosting
+## Build & deploy
+## Run on local machine

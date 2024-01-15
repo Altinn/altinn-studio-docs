@@ -107,6 +107,7 @@ Find descriptions of key dependencies below.
 ### Altinn Services
 | Service | Purpose | Resources |
 |-|-|-|
+| Altinn Authorization | Authorizes access to the API  | [Repository](https://github.com/altinn/altinn-authorization)| 
 | Altinn Notifications Email* | Service for sending emails related to a notification | [Repository](https://github.com/altinn/altinn-notifications-email) |
 
 
@@ -135,10 +136,10 @@ Quality gates implemented for a project require an 80 % code coverage for the un
 parts of the solution.
 
 ### Unit tests
-[The unit test project is available on Github](https://github.com/Altinn/altinn-notifications/tree/main/test/Altinn.Notifications.Tests).
+[The unit test project is available on GitHub](https://github.com/Altinn/altinn-notifications/tree/main/test/Altinn.Notifications.Tests).
 
 ### Integration tests
-[The integration test project is available on Github](https://github.com/Altinn/altinn-notifications/tree/main/test/Altinn.Notifications.IntegrationTests).
+[The integration test project is available on GitHub](https://github.com/Altinn/altinn-notifications/tree/main/test/Altinn.Notifications.IntegrationTests).
 
 There are two dependencies for the integration tests: 
 - Kafka server. 
@@ -157,9 +158,17 @@ start all Kafka-related dependencies in a Docker containers.
     [See section on running the application locally](#run-on-local-machine) if futher assistance is required in 
     running the integration tests.
 
+### Automated tests 
+[The automated test project is available on GitHub](https://github.com/Altinn/altinn-notifications/tree/main/test/k6)
+
+The automated tests for this micro service are implemented through [Grafana's k6](https://k6.io/). 
+The tool is specialized for load tests, but we do use it for automated API tests as well. 
+
 ### Use case tests
+[All use case workflows are available on GitHub](https://github.com/Altinn/altinn-notifications/tree/main/.github/workflows)
+
 Use case tests are run every 15 minuts through GitHub Actions. 
-The tests themselves are implemented in k6. 
+The tests run during the use case tests are defined in the k6 test project. 
 The aim of the tests is to run through central functionality of the solution to ensure that it is running and available to our end users.
 
 ## Hosting
@@ -182,7 +191,7 @@ The database is hosted on a PostgreSQL flexible server in Azure.
 ## Build & deploy
 
 ### Web API 
-  - Build and Code analysis are done by an [Github action](https://github.com/Altinn/altinn-notifications/actions)
+  - Build and Code analysis runs in a [Github workflow](https://github.com/Altinn/altinn-notifications/actions)
   - Build of the image is done in an [Azure Devops Pipeline](https://dev.azure.com/brreg/altinn-studio/_build?definitionId=383)
   - Deploy of the image is enabled with Helm and implemented in an [Azure Devops Release pipeline](https://dev.azure.com/brreg/altinn-studio/_release?_a=releases&view=all&definitionId=49)
 
