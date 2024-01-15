@@ -1,11 +1,11 @@
 ---
 title: Revisor
 linktitle: Revisor
-description: Denne fullmaktsgruppen er relevant for alle virksomheter
+description: Denne tilgangspakken er relevant for alle virksomheter
 weight: 123
 ---
 
-Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-3/#oversikt-over-fullmaktsgrupper)
+Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-3/#oversikt-over-tilgangspakker)
 
 
 ![Revisor](revi.jpg "Revisor")
@@ -15,11 +15,11 @@ Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroup
 
 
 
-## Egenskaper ved fullmaktsgruppene
-|Navn fullmaktsgruppe|Kan delegeres til ansatte?|Kan knytte tjenester til?|[ER rolle](/authorization/modules/accessgroups/register_er/#rolletyper-fra-enhetsregisteret) som får fullmakten|
+## Egenskaper ved tilgangspakkene
+|Navn tillgangspakke|Kan delegeres til ansatte?|Kan knytte tjenester til?|[ER rolle](/authorization/modules/accessgroups/register_er/#rolletyper-fra-enhetsregisteret) som får fullmakten|
 |---|---|---|---|
 |Fullmakter for revisor|nei|nei||
 |Ansvarlig revisor|ja|ja|REVI|
 |Revisormedarbeider|ja|ja|REVI|
 
-Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-3/#oversikt-over-fullmaktsgrupper)
+Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-3/#oversikt-over-tilgangspakker)

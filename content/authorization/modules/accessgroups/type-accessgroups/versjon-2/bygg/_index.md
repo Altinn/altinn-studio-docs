@@ -1,13 +1,13 @@
 ---
 title: Bygg, anlegg og eiendom
 linktitle: Bygg, anlegg, eiendom
-description: Denne fullmaktsgruppen er relevant for for tjenester rettet mot virksomheter med aktivitet innen bygg, anlegg og eiendom
+description: Denne tilgangspakken er relevant for for tjenester rettet mot virksomheter med aktivitet innen bygg, anlegg og eiendom
 weight: 113
 ---
-Tilbake til [hovedoversikt](http://localhost:1313/authorization/modules/accessgroups/type-accessgroups/versjon-2/#oversikt-over-fullmaktsgrupper)
+Tilbake til [hovedoversikt](http://localhost:1313/authorization/modules/accessgroups/type-accessgroups/versjon-2/#oversikt-over-tilgangspakker)
 
 
-## Fullmaktsgruppe 
+## tilgangspakke 
 ![Bygg, anlegg og eiendom](bae.jpg "Bygg, anlegg og eiendom")
 - **Bygg, anlegg og eiendom:** Denne fullmakten gir tilgang til alle tjenester som angår bygge og anleggsvirksomhet, samt oppføring, omsetning og drift av anlegg/eiendom. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
 	- **Plan og byggesaker:** Denne fullmakten gir tilgang til alle tjenester knyttet til plan og byggesaker. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
@@ -21,8 +21,8 @@ Tilbake til [hovedoversikt](http://localhost:1313/authorization/modules/accessgr
 		- **Eiendomsmegler:** Denne fullmakten gir tilgang til alle tjenester knyttet til omsetning og drift av fast eiendom på oppdrag, som eiendomsmegling og eiendomsforvaltning. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
 
 
-## Egenskaper ved fullmaktsgruppene
-|Navn fullmaktsgruppe|Kan delegeres til ansatte?|Kan knytte tjenester til?|[ER rolle](/authorization/modules/accessgroups/register_er/#rolletyper-fra-enhetsregisteret) som får fullmakten|
+## Egenskaper ved tilgangspakkene
+|Navn tilgangspakke|Kan delegeres til ansatte?|Kan knytte tjenester til?|[ER rolle](/authorization/modules/accessgroups/register_er/#rolletyper-fra-enhetsregisteret) som får fullmakten|
 |---|---|---|---|
 |Bygg, anlegg og eiendom| ja|nei||
 |Plan og byggesaker|ja|nei||
@@ -37,4 +37,4 @@ Tilbake til [hovedoversikt](http://localhost:1313/authorization/modules/accessgr
 
 {{% notice warning %}} Det er fortsatt uavklart hvilke fullmakter det vil være natulig å gi personer med rollen Forretningsførerer innenfor fullmaktsområdet "Bygg, anlegg og eiendom" {{% /notice %}}
 
-Tilbake til [hovedoversikt](http://localhost:1313/authorization/modules/accessgroups/type-accessgroups/versjon-2/#oversikt-over-fullmaktsgrupper)
+Tilbake til [hovedoversikt](http://localhost:1313/authorization/modules/accessgroups/type-accessgroups/versjon-2/#oversikt-over-tilgangspakker)
