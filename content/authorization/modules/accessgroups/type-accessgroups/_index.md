@@ -1,6 +1,6 @@
 ---
 title: Forslag nye tilgangspakker i 3.0
-linktitle: tilgangspakker 3.0
+linktitle: Tilgangspakker 3.0
 description: Her finner du forslag til nye tilgangspakker for virksomheter og innbyggere 
 toc: false
 weight: 100
