@@ -42,6 +42,6 @@ but during 2024 we expect the services below to be utilized by Notifications.
   in a fully managed Kubernetes cluster
 - [**Kafka on Confluent cloud**](https://www.confluent.io/): hosts the kafka cluster the microservices consumes and produces messages to. Say something about why we use kafka vs something else. E.g. storage queues
 - [**PostgreSQL**](https://www.postgresql.org/): used for storage
-- [**Azure ommunication Services**](https://azure.microsoft.com/en-us/products/communication-services): used to send emails
+- [**Azure Communication Services**](https://azure.microsoft.com/en-us/products/communication-services): used to send emails
 - [**Azure Event Grid**](https://azure.microsoft.com/en-us/products/event-grid): used to subscribe to status updates for sent emails
 - [**LINK Mobility**](https://www.linkmobility.com/) used to send sms
