@@ -83,7 +83,7 @@ parts of the solution.
 ### Integration tests
 [The integration test project is available on GitHub](https://github.com/Altinn/altinn-notifications-email/tree/main/test/Altinn.Notifications.Email.IntegrationTests).
 
-There is a single dependency for the integration tests. Remaining dependencies such as Azure Communication Services gave been mocked. 
+There is a single dependency for the integration tests. Remaining dependencies such as Azure Communication Services have been mocked. 
 
 - Kafka server. 
   

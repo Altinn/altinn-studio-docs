@@ -57,7 +57,7 @@ The following Kafka consumers are defined:
 - [PastDueOrdersConsumer](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications.Integrations/Kafka/Consumers/PastDueOrdersConsumer.cs):
   Consumes notification orders that are ready to be processed for sending
 - [PastDueOrdersRetryConsumer](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications.Integrations/Kafka/Consumers/PastDueOrdersRetryConsumer.cs):
-  Consumes snotification orders where the first attempt of processing has failed
+  Consumes notification orders where the first attempt of processing has failed
 
 **Producers:**
 
