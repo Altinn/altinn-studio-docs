@@ -11,6 +11,12 @@ thoroughly before deploying to production.
 ### Requires backend version 8.0.0
 App frontend v4 requires at least version 8.0.0 of the `Altinn.App.Core` and `Altinn.App.Api` nuget packages. See the [overview of changes in backend v8](/community/changelog/app-nuget/v8) for more information on how to upgrade.
 
+### Using layout sets is now required
+Layout sets is a way to support multiple data steps in a single application. 
+This entails a sligtly different folder structure in the `ui` folder of your app. 
+This used to be optional, but as of v4 it is required, even for apps with only a single data step. 
+See the [documentation on layout sets](/app/development/ux/pages/layout-sets) for more information.
+
 ### Language rewrite
 - https://github.com/Altinn/app-frontend-react/pull/1444
 - New defaultValue feature helps (https://github.com/Altinn/app-frontend-react/pull/1441)
