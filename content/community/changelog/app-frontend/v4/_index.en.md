@@ -9,9 +9,7 @@ changes and how they may affect your app. As always, with a new major version, w
 thoroughly before deploying to production.
 
 ### Requires backend version 8.0.0
-- https://github.com/Altinn/app-frontend-react/pull/1450
-- 'required' validations no longer being filtered
-- and more?
+App frontend v4 requires at least version 8.0.0 of the `Altinn.App.Core` and `Altinn.App.Api` nuget packages. See the [overview of changes in backend v8](/community/changelog/app-nuget/v8) for more information on how to upgrade.
 
 ### Language rewrite
 - https://github.com/Altinn/app-frontend-react/pull/1444
