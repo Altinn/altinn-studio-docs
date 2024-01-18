@@ -25,8 +25,11 @@ _to be prompted_ for a party each time, so in v4 we changed the default behaviou
 setting in Altinn profile. This means that most users will be prompted for party each time they start an app, unless
 they have changed the setting in Altinn profile.
 
-[//]: # (TODO: Add screenshots of the setting in Altinn profile)
-[//]: # (TODO: Add screenshots of the party preference prompt in app-frontend)
+The setting can be found under __Advanced settings__ in the Altinn profile:
+![Altinn profile setting called 'Do not ask what party I represent each time I start to fill in a new form'](profile-preference-en.png "Altinn profile setting called 'Do not ask what party I represent each time I start to fill in a new form'")
+
+Unless the user changes this setting, they will be prompted with the following page each time they start a new instance:
+![Page asking who the user wants to represent](prompt-en.png "Page asking who the user wants to represent")
 
 ### TODO: Font changed to Inter
 - https://github.com/Altinn/app-frontend-react/pull/1448
