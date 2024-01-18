@@ -36,14 +36,6 @@ The setting can be found under __Advanced settings__ in the Altinn profile:
 Unless the user changes this setting, they will be prompted with the following page each time they start a new instance:
 ![Page asking who the user wants to represent](prompt-en.png "Page asking who the user wants to represent")
 
-<!-- ### TODO: Font changed to Inter -->
-<!-- - https://github.com/Altinn/app-frontend-react/pull/1448 -->
-<!-- - Especially important look over fixed-length Input fields (personnummer, etc.) -->
-
-### TODO: Inconsistent prev/next buttons
-- https://github.com/Altinn/app-frontend-react/pull/1446
-- Nothing should have changed, but apps should be re-tested
-
 ### TODO: Validations against dataModelBindings
 - https://github.com/Altinn/app-frontend-react/issues/1463
 - Some apps may suddenly get schema-validation again
