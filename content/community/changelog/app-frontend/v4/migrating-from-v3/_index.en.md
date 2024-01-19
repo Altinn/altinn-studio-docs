@@ -18,6 +18,8 @@ To use App-frontend v4 in your app, you need to change which version is referenc
 This file should be located in the `App/views/Home` folder. 
 In addition to changing the version, you should also remove the links to the third party CSS and font, as the font is now loaded by App-frontend itself, and the third party CSS is no longer used.
 
+<!-- TODO: Should we change '4' in the URLs to the release candiate version to begin with? -->
+
 Changes inside __&lt;head&gt;__:
 ```diff
   <title>@ViewBag.Org- @ViewBag.App</title>
