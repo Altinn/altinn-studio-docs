@@ -538,9 +538,7 @@ Examples on display of different validations below:
 
 !["Success message"](success-message.jpeg "Example on success message (*SUCCESS* - prefix)")
 
-!["Warning message"](warning-message.jpeg "Example on warning message (*WARNING* - prefix)" )
-
-It is also possible to overrule the title you see on the messages by adding the keys `soft_validation.info_title`, `soft_validation.warning_title`, and `soft_validation.success_title` in the text resources if you want to set a custom title.
+!["Warning message"](warning-message.jpeg "Example on warning message (*WARNING* - prefix)" ) 
 
 ## Group validation
 
@@ -554,7 +552,7 @@ and `validateRow` only runs validation on the row the user is trying to save. Ex
   "data": {
     "layout": [
       {
-        "id": "demo-gruppe",
+        "id": "demo-gruppe",|
         "type": "Group",
         "children": [
             "..."
