@@ -235,3 +235,5 @@ where these validations were shown immediatly while typing, you need to set `"sh
 - https://github.com/Altinn/app-frontend-react/pull/1642
 - https://github.com/Altinn/app-frontend-react/pull/1656
 
+<!-- TODO(Lars?): I am unsure how this component used to work since there doesn't seem to be any documentation on it. Could you explain what has changed and how to migrate? -->
+
