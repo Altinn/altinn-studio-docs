@@ -9,13 +9,15 @@ changes and how they may affect your app. As always, with a new major version, w
 thoroughly before deploying to production.
 
 ### Requires backend version 8.0.0
-App frontend v4 requires at least version 8.0.0 of the `Altinn.App.Core` and `Altinn.App.Api` nuget packages. 
+
+App frontend v4 requires at least version 8.0.0 of the `Altinn.App.Core` and `Altinn.App.Api` nuget packages.
 See the [overview of changes in backend v8](/community/changelog/app-nuget/v8) for more information on how to upgrade.
 
 ### Using layout sets is now required
-Layout sets is a way to support multiple data steps in a single application. 
+
+Layout sets is a way to support multiple data steps in a single application.
 This entails a slightly different folder structure in the `ui` folder of your app, as well as a new `layout-sets.json` file.
-This used to be optional, but as of v4 it is required, even for apps with only a single data step. 
+This used to be optional, but as of v4 it is required, even for apps with only a single data step.
 See the [documentation on layout sets](/app/development/ux/pages/layout-sets) for more information.
 
 ### Language rewrite
@@ -32,6 +34,7 @@ It should work mostly the same as before but there are a few subtle changes that
 - Using `dataModel.default` as the data source in text resources is no longer recommended. Instead, refer to the specific data model like this: `dataModel.myDataModel`. <!-- TODO(Ole Martin): Elaborate on why using default is a bad idea. -->
 
 ### Most users will be prompted for party each time
+
 In the Altinn profile it was possible to change a setting to 'not be prompted for party each time'. This setting was
 mistakenly never read by app-frontend, so we failed to respect it. The default setting in Altinn profile is
 _to be prompted_ for a party each time, so in v4 we changed the default behaviour of app-frontend to match the
@@ -45,12 +48,21 @@ Unless the user changes this setting, they will be prompted with the following p
 ![Page asking who the user wants to represent](prompt-en.png "Page asking who the user wants to represent")
 
 ### Tracks are no longer supported
-Showing and hiding pages using [tracks](/app/development/ux/pages/tracks/) (calculate page order) is no longer supported. 
+
+Showing and hiding pages using [tracks](/app/development/ux/pages/tracks/) (calculate page order) is no longer supported.
 This also means that the trigger `calculatePageOrder` no longer has any effect and should be removed from any components where it is used.
 Instead, you should use dynamic expressions on the `hidden` property of a layout page to determine whether pages should be visible or hidden.
 See the [documentation on dynamic expressions](/app/development/logic/expressions/#viseskjule-hele-sider) for more information.
 
+### Data model schema validation works for more data models
+
+The form data gets validated against the data model schema to show validation messages to the user filling out the form.
+There was a bug in v3 that caused this validation to not happen at all for certain data model structures.
+This has been now been fixed, but is a breaking change since if you previously did not get any schema validation errors, you may suddenly see them now.
+If this was the case you should test your app to make sure validation works as expected.
+
 ### TODO: Validations against dataModelBindings
+
 - https://github.com/Altinn/app-frontend-react/issues/1463
 - Some apps may suddenly get schema-validation again
 
