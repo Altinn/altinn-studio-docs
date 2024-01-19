@@ -61,10 +61,13 @@ There was a bug in v3 that caused this validation to not happen at all for certa
 This has been now been fixed, but is a breaking change since if you previously did not get any schema validation errors, you may suddenly see them now.
 If this was the case you should test your app to make sure validation works as expected.
 
-### TODO: Validations against dataModelBindings
+### Validations against dataModelBindings
 
-- https://github.com/Altinn/app-frontend-react/issues/1463
-- Some apps may suddenly get schema-validation again
+We now warn against invalid data model binding configurations. 
+This will show an error in place of the component if the data model binding is invalid, making this a breaking change. 
+Previously, there was no indication that anything was wrong if the data model binding was misconfigured, and the data from the component would simply not be saved.
+You should thoroughly test your app to make sure that components display correctly and that all data model bindings are correct.
+<!-- TODO(Ole Martin): please review this, and maybe add an image if relevant? -->
 
 ### TODO: Split group into separate components
 
@@ -90,8 +93,6 @@ The `body` attribute in `textResourceBindings` for the `Group` component is now 
 more consistent with the rest of the components.
 
 ### Validation triggers have been replaced
-
-- https://github.com/Altinn/app-frontend-react/pull/1719
 
 The concept of triggering validations has been removed in favor of keeping the validations in sync with the data model.
 Instead of controlling when validations are triggered, you now control when validations are displayed to the user.
