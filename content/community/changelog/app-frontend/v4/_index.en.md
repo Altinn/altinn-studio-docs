@@ -36,12 +36,20 @@ The setting can be found under __Advanced settings__ in the Altinn profile:
 Unless the user changes this setting, they will be prompted with the following page each time they start a new instance:
 ![Page asking who the user wants to represent](prompt-en.png "Page asking who the user wants to represent")
 
+### Tracks are no longer supported
+Showing and hiding pages using [tracks](/app/development/ux/pages/tracks/) (calculate page order) is no longer supported. 
+This also means that the trigger `calculatePageOrder` no longer has any effect and should be removed from any components where it is used.
+Instead, you should use dynamic expressions on the `hidden` property of a layout page to determine whether pages should be visible or hidden.
+See the [documentation on dynamic expressions](/app/development/logic/expressions/#viseskjule-hele-sider) for more information.
+
 ### TODO: Validations against dataModelBindings
 - https://github.com/Altinn/app-frontend-react/issues/1463
 - Some apps may suddenly get schema-validation again
 
 ### Title and description changes for Groups
+
 - https://github.com/Altinn/app-frontend-react/pull/1693
+
 The `title` attribute in `textResourceBindings` for the `Group` component as a repeating group previously only applied
 to the title shown above each row in the summary view of the repeating group. This attribute is now only used as the
 title for the repeating group in the form view. This means that the title will now be shown above the repeating group in
