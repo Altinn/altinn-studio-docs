@@ -19,9 +19,17 @@ This used to be optional, but as of v4 it is required, even for apps with only a
 See the [documentation on layout sets](/app/development/ux/pages/layout-sets) for more information.
 
 ### Language rewrite
-- https://github.com/Altinn/app-frontend-react/pull/1444
-- New defaultValue feature helps (https://github.com/Altinn/app-frontend-react/pull/1441)
-- Support for variables in deeply nested groups
+
+The language system has that handles internal texts and app-specific text resources has been rewritten.
+It should work mostly the same as before but there are a few subtle changes that may affect your app:
+
+- Previously, when refering to a path in the data model which resulted in a null value, the full path would be shown instead for most components.
+  However, in options from repeating groups it would instead show an empty string in place of the null value.
+  This has been changed so that the full path is shown in all cases instead.
+- To alleviate the problem of refering to null values, a new `defaultValue` property has been added to the text resource files that, if set, will be shown instead of the data model path.
+  See the [documentation on text resources](/app/development/ux/texts/#default-value) for more information.
+- Variables in text are now supported for nested repeating groups which did not previously work as expected. <!-- TODO(Ole Martin): Is this correct? -->
+- Using `dataModel.default` as the data source in text resources is no longer recommended. Instead, refer to the specific data model like this: `dataModel.myDataModel`. <!-- TODO(Ole Martin): Elaborate on why using default is a bad idea. -->
 
 ### Most users will be prompted for party each time
 In the Altinn profile it was possible to change a setting to 'not be prompted for party each time'. This setting was
@@ -50,9 +58,13 @@ See the [documentation on dynamic expressions](/app/development/logic/expression
 
 - https://github.com/Altinn/app-frontend-react/pull/1713
 
+<!-- TODO(Magnus): Explain what has changed and how to migrate -->
+
 ### Title and description changes for Groups
 
 - https://github.com/Altinn/app-frontend-react/pull/1693
+
+<!-- TODO(Magnus): Fix this to make sense with the new group components -->
 
 The `title` attribute in `textResourceBindings` for the `Group` component as a repeating group previously only applied
 to the title shown above each row in the summary view of the repeating group. This attribute is now only used as the
