@@ -46,6 +46,10 @@ See the [documentation on dynamic expressions](/app/development/logic/expression
 - https://github.com/Altinn/app-frontend-react/issues/1463
 - Some apps may suddenly get schema-validation again
 
+### TODO: Split group into separate components
+
+- https://github.com/Altinn/app-frontend-react/pull/1713
+
 ### Title and description changes for Groups
 
 - https://github.com/Altinn/app-frontend-react/pull/1693
