@@ -229,3 +229,9 @@ There are also some changes to the default behavior of validations.
 Previously, `Schema` and `Component` validations were implicitly triggered whenever the data changed.
 In v4, these validations are not implicitly set to be always visible. If you want to keep the old behavior,
 where these validations were shown immediatly while typing, you need to set `"showValidations": ["Schema", "Component"]` on those components.
+
+### TODO: AttachmentList config changes
+
+- https://github.com/Altinn/app-frontend-react/pull/1642
+- https://github.com/Altinn/app-frontend-react/pull/1656
+
