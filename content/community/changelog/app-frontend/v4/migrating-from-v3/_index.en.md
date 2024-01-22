@@ -6,7 +6,7 @@ weight: 50
 
 {{% notice warning %}}
 There are several breaking changes between App-frontend v3 and v4. 
-Make sure to read through the [list of breaking changes](/community/changelog/app-frontend/v4), and make the necessary changes throughout your app.
+Make sure to read through the [list of breaking changes](/community/changelog/app-frontend/v4), and make the necessary changes throughout your app in addition to the changes below.
 {{% /notice %}}
 
 We are planning to release an upgrade tool that will automate the migration process and fix most breaking changes. 
@@ -67,4 +67,13 @@ App/views/Home/Index.cshtml
 + <script src="https://altinncdn.no/toolkits/altinn-app-frontend/4/altinn-app-frontend.js"></script>
 ```
 
+If you are testing a release candidate version of App-frontend v4, you can use the following URLs instead:
+```html
+ <link rel="stylesheet" type="text/css" href="https://altinncdn.no/toolkits/altinn-app-frontend/4.0.0-rc1/altinn-app-frontend.css">
+ <script src="https://altinncdn.no/toolkits/altinn-app-frontend/4.0.0-rc1/altinn-app-frontend.js"></script>  
+```
+
+{{% notice warning %}}
 __Note__: These are only the changes necessary to switch frontend version, you also need to fix any [breaking changes](/community/changelog/app-frontend/v4) affecting your app, including upgrading the nuget packages to version 8.0.
+{{% /notice %}}
+
