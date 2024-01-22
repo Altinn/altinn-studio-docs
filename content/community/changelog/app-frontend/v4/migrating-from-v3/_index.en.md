@@ -21,6 +21,9 @@ In addition to changing the version, you should also remove the links to the thi
 <!-- TODO: Should we change '4' in the URLs to the release candiate version to begin with? -->
 
 Changes inside __&lt;head&gt;__:
+{{< code-title >}}
+App/views/Home/Index.cshtml
+{{< /code-title >}}
 ```diff
   <title>@ViewBag.Org- @ViewBag.App</title>
 
@@ -40,6 +43,9 @@ Changes inside __&lt;head&gt;__:
 ```
 
 Changes inside __&lt;body&gt;__:
+{{< code-title >}}
+App/views/Home/Index.cshtml
+{{< /code-title >}}
 ```diff
   <div class="flex-column d-flex media-body">
 
