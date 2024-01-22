@@ -57,6 +57,33 @@ public async Task DataCreation(Instance instance, object data)
 
 Example on definition of likert component in layout.json:
 
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="v4 (App Frontend)">}}
+
+```json
+[
+  {
+    "id": "likert-row",
+    "type": "Likert",
+    "textResourceBindings": {
+      "title": "Skolearbeid",
+      "description": "På de neste spørsmålene skal du svare i kontekst av klasserommet.",
+      "questions": "likert-row-title"
+    },
+    "dataModelBindings": {
+      "questions": "Questions",
+      "simpleBinding": "Questions.Answer"
+    },
+    "optionsId": "likertOptions",
+    "required": false,
+    "readOnly": false
+  }
+]
+```
+
+{{</content-version-container >}}
+{{<content-version-container version-label="v3 (App Frontend)">}}
+
 ```json
 [
   {
@@ -92,6 +119,9 @@ Example on definition of likert component in layout.json:
   }
 ]
 ```
+
+{{</content-version-container>}}
+{{</content-version-selector>}}
 
 {{%notice warning%}}
 The Likert-component works the same as RadioButtons and CheckBoxes.
