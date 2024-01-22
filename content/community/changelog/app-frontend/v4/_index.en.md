@@ -8,6 +8,11 @@ App frontend v4 brings with it some new features and breaking changes. This docu
 changes and how they may affect your app. As always, with a new major version, we recommend that you test your app
 thoroughly before deploying to production.
 
+{{% notice warning %}}
+Make sure to read through this page before you continue with the [migration routine](migrating-from-v3), and make the necessary changes throughout your app.
+{{% /notice %}}
+
+
 ### Requires backend version 8.0.0
 
 App frontend v4 requires at least version 8.0.0 of the `Altinn.App.Core` and `Altinn.App.Api` nuget packages.
@@ -15,7 +20,7 @@ See the [overview of changes in backend v8](/community/changelog/app-nuget/v8) f
 
 ### Using layout sets is now required
 
-Layout sets is a way to support multiple data steps in a single application.
+Layout sets is a way to support multiple forms in a single application.
 This entails a slightly different folder structure in the `ui` folder of your app, as well as a new `layout-sets.json` file.
 This used to be optional, but as of v4 it is required, even for apps with only a single data step.
 See the [documentation on layout sets](/app/development/ux/pages/layout-sets) for more information.
