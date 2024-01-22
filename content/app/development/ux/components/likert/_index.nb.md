@@ -62,7 +62,7 @@ Eksempel på definisjon av likert komponent i layout.json:
 ```json
 [
   {
-    "id": "likert-row",
+    "id": "likert-group",
     "type": "Likert",
     "textResourceBindings": {
       "title": "Skolearbeid",
