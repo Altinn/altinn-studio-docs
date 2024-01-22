@@ -68,7 +68,7 @@ xmlns:altinn="http://altinn.no/process">
 
 The type attribute that is defined for the _custom_ action (processAction) is the default value so the type for demo is also processAction.
 
-### Define neccessart authorization policies
+### Define necessary authorization policies
 
 Users needs to be granted the right to perform the action _custom_ and _demo_ when moving out of _Task1_
 
@@ -139,7 +139,7 @@ The custom code assosiated with a process action is executed before the process 
 
 To write custom logic create a new class that implements `Altinn.App.Core.Models.UserAction.IUserAction`.
 
-This interface requires you to define an `Id` and an implementation of `public async Task<UserActionResult> HandleAction(UserActionContext context)`
+This interface requires you to define an `Id` and an implementation of `public async Task<UserActionResult> HandleAction(UserActionContext context)`. The id provided is used to match the C# implementation with the action specified in the process file.
 
 A very simple implementation of the _custom_ action that only logs the users userId and the instanceId can be implemented as this:
 

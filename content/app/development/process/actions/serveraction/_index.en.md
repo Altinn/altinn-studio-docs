@@ -45,7 +45,7 @@ Example of a process task with a server action called `myServerAction`
 <!-- End of process definition omitted for brevity -->
 ```
 
-### Add access polic
+### Add access policy
 
 To allow users to trigger the server action we need to add authorization policies to the policy.xml file.
 
