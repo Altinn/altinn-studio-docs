@@ -415,21 +415,22 @@ The `AttachmentList` component has undergone updates in v4 to address two key is
 
 #### 1. Enhanced Attachment Display
 
-Previously, the AttachmentList could only showcase either PDFs or other attachments.
-In version 4, it has been refined to exhibit both PDFs and various attachments simultaneously.
+Previously, the AttachmentList could only show either PDFs or other attachments.
+In version 4, it has been changed to show both PDFs and other attachments simultaneously.
 
-Changes to configurations:  
-The `includePDF` property has been deprecated. It was previously used to display generated PDF's,
-but when set to `true`, it excluded other attachments. Now the attachmentList can display both PDF's and other attachments by using one of the following configurations:
+Changes to configurations:\
+The `includePDF` property has been removed. It was previously used to display generated PDF's,
+but when set to `true`, it excluded all other attachments. Now the AttachmentList can display both PDF's and other attachments by using one of the following configurations:
 
 - `"dataTypeIds": ["include-all"]` - This is a new property and will display all data types including PDF's.
-- `"dataTypeIds": ["fileUpload-changename", "ref-data-as-pdf"]` - This will display both PDF's and other attachments that are specified, in this case data type `fileUpload-changename`.
+- `"dataTypeIds": ["fileUpload-changename", "ref-data-as-pdf"]` - This will display both PDF's and other attachments that are specified, in this case the data type `fileUpload-changename`.
 
 #### 2. Displaying Attachments from other process tasks
 
-Previously, the AttachmentList was limited to displaying attachments solely from the current process task, which was not that optimal.
-This limitation was particularly noticeable when the component was used in the receipt page, which often has its own process task.
+Previously, the AttachmentList was limited to displaying attachments solely from the current process task, which was not optimal.
+This limitation was particularly noticeable when the component was used in the receipt page, which is displayed only after the last process task.
 
-Changes to configurations:  
-Now, by default, the AttachmentList will display attachments from other process tasks as well. If `dataTypeIds` is undefined or an empty array, it will showcase all attachments (excluding PDFs) from different process tasks.
+Changes to configurations:\
+Now, by default, the AttachmentList will display attachments from other process tasks as well.
+If `dataTypeIds` is undefined or an empty array, it will show all attachments (excluding PDFs) from different process tasks.
 Alternatively, configuring `dataTypeIds` as `["current-task"]` will yield the same behavior but for the current task only.
