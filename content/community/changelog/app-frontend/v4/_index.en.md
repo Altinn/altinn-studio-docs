@@ -41,7 +41,7 @@ _to be prompted_ for a party each time, so in v4 we changed the default behaviou
 setting in Altinn profile. This means that most users will be prompted for party each time they start an app, unless
 they have changed the setting in Altinn profile.
 
-The setting can be found under __Advanced settings__ in the Altinn profile:
+The setting can be found under **Advanced settings** in the Altinn profile:
 ![Altinn profile setting called 'Do not ask what party I represent each time I start to fill in a new form'](profile-preference-en.png "Altinn profile setting called 'Do not ask what party I represent each time I start to fill in a new form'")
 
 Unless the user changes this setting, they will be prompted with the following page each time they start a new instance:
@@ -63,10 +63,11 @@ If this was the case you should test your app to make sure validation works as e
 
 ### Validations against dataModelBindings
 
-We now warn against invalid data model binding configurations. 
-This will show an error in place of the component if the data model binding is invalid, making this a breaking change. 
+We now warn against invalid data model binding configurations.
+This will show an error in place of the component if the data model binding is invalid, making this a breaking change.
 Previously, there was no indication that anything was wrong if the data model binding was misconfigured, and the data from the component would simply not be saved.
 You should thoroughly test your app to make sure that components display correctly and that all data model bindings are correct.
+
 <!-- TODO(Ole Martin): please review this, and maybe add an image if relevant? -->
 
 ### TODO: Split group into separate components
@@ -230,10 +231,27 @@ Previously, `Schema` and `Component` validations were implicitly triggered whene
 In v4, these validations are not implicitly set to be always visible. If you want to keep the old behavior,
 where these validations were shown immediatly while typing, you need to set `"showValidations": ["Schema", "Component"]` on those components.
 
-### TODO: AttachmentList config changes
+### AttachmentList config changes
 
-- https://github.com/Altinn/app-frontend-react/pull/1642
-- https://github.com/Altinn/app-frontend-react/pull/1656
+The `AttachmentList` component has undergone updates in v4 to address two key issues:
 
-<!-- TODO(Lars?): I am unsure how this component used to work since there doesn't seem to be any documentation on it. Could you explain what has changed and how to migrate? -->
+#### 1. Enhanced Attachment Display
 
+Previously, the AttachmentList could only showcase either PDFs or other attachments.
+In version 4, it has been refined to exhibit both PDFs and various attachments simultaneously.
+
+Changes to configurations:  
+The `includePDF` property has been deprecated. It was previously used to display generated PDF's,
+but when set to `true`, it excluded other attachments. Now the attachmentList can display both PDF's and other attachments by using one of the following configurations:
+
+- `"dataTypeIds": ["include-all"]` - This is a new property and will display all data types including PDF's.
+- `"dataTypeIds": ["fileUpload-changename", "ref-data-as-pdf"]` - This will display both PDF's and other attachments that are specified, in this case data type `fileUpload-changename`.
+
+#### 2. Displaying Attachments from other process tasks
+
+Previously, the AttachmentList was limited to displaying attachments solely from the current process task, which was not that optimal.
+This limitation was particularly noticeable when the component was used in the receipt page, which often has its own process task.
+
+Changes to configurations:  
+Now, by default, the AttachmentList will display attachments from other process tasks as well. If `dataTypeIds` is undefined or an empty array, it will showcase all attachments (excluding PDFs) from different process tasks.
+Alternatively, configuring `dataTypeIds` as `["current-task"]` will yield the same behavior but for the current task only.
