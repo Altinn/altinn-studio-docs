@@ -187,6 +187,26 @@ Dette kan gjøres i tekst-ressursfilene:
 ### Filtrer ut spørsmål med start og end
 
 Du kan velge å filtrere rader du ikke ønsker å inkludere i likerten ved å benytte start og stop:
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="v4 (App Frontend)">}}
+
+```json
+{
+  "filter": [
+    {
+      "key": "start",
+      "value": "1"
+    },
+    {
+      "key": "stop",
+      "value": "10"
+    }
+  ]
+}
+```
+
+{{</content-version-container >}}
+{{<content-version-container version-label="v3 (App Frontend)">}}
 
 ```json
 {
@@ -205,3 +225,6 @@ Du kan velge å filtrere rader du ikke ønsker å inkludere i likerten ved å be
   }
 }
 ```
+
+{{</content-version-container>}}
+{{</content-version-selector>}}
