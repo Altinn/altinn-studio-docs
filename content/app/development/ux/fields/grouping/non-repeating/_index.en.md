@@ -52,6 +52,20 @@ A group is defined as follows in `FormLayout.json`:
 
 ## Parameters
 
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="v4 (App Frontend)">}}
+
+| Parameter                                     | Required | Description                                                                                                                                                    |
+|-----------------------------------------------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| id                                            | Yes      | Unique ID, same as ID on other components. Must be unique in the layout file, and should be unique across pages.                                               |
+| type                                          | Yes      | Must be 'Group'                                                                                                                                                |
+| [textResourceBindings](#textresourcebindings) | No       | Can be set for groups, see [description](#textresourcebindings).                                                                                               |
+| children                                      | Yes      | List of the component IDs that are to be included in the group.                                                                                                |
+| showGroupingIndicator                         | No       | Shows a vertical line to the left of the group to indicate that the fields are related. Can be `true` or `false`.                                              |
+
+{{</content-version-container >}}
+{{<content-version-container version-label="v3 (App Frontend)">}}
+
 | Parameter                                     | Required | Description                                                                                                                                                    |
 |-----------------------------------------------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | id                                            | Yes      | Unique ID, same as ID on other components. Must be unique in the layout file, and should be unique across pages.                                               |
@@ -60,6 +74,9 @@ A group is defined as follows in `FormLayout.json`:
 | maxCount                                      | No       | The number of times a group can repeat. Must be omitted or set to `0` for non-repeating groups, otherwise the group becomes a [repeating group](../repeating). |
 | children                                      | Yes      | List of the component IDs that are to be included in the group.                                                                                                |
 | showGroupingIndicator                         | No       | Shows a vertical line to the left of the group to indicate that the fields are related. Can be `true` or `false`.                                              |
+
+{{</content-version-container>}}
+{{</content-version-selector>}}
 
 ## textResourceBindings
 
