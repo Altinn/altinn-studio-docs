@@ -52,10 +52,6 @@ Vi vil sende prosessen for å følge _Flow_g1_t2_ hvis feltet Amount i formdata 
 For å oppnå dette må vi legge til
 
 # Prosessflyt
-beskrivelse: Kontroll av prosessflyt
-tags: [altinn-applikasjoner, prosess, bpmn, gateway]
-vekt: 20
-toc: true
 
 ## Eksklusive gateways
 
@@ -114,7 +110,7 @@ til betingelsesuttrykkene i de utgående flytene.
 ```
 Hvis brukeren har sendt inn en Amount på 1000, vil uttrykkene i sekvensflyten _Flow_g1_end_ evaluere til falsk, og flyten blir fjernet fra de mulige flytene å velge mellom, og den eneste tilgjengelige flyten er _Flow_g1_t2_, og derfor blir den valgt.
 
-For å se flere muligheter med uttrykk, se [Uttrykk](../../../app/development/logic/expressions/)
+For å se flere muligheter med uttrykk, se [Uttrykk](../../../../app/development/logic/expressions/)
 
 ### Kontrollere flyten ut av en gateway basert på brukerhandling utført ved hjelp av uttrykk
 

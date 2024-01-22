@@ -61,7 +61,7 @@ To achive this we need to add conditionExpressions to the outgoing flows
 ```
 If the user has submitted a Amount of 1000 the expressions in sequenceFlow _Flow_g1_end_ evaluates to false and the flow is removed from the possible flows to choose and the only available flow is _Flow_g1_t2_ and therefor it is chosen.
 
-To see more possibilities with expressions see [Expressions](../../../app/development/logic/expressions/)
+To see more possibilities with expressions see [Expressions](../../../../app/development/logic/expressions/)
 
 
 ### Controlling flow out of a gateway base on user action performed using expressions
@@ -110,7 +110,7 @@ To do this we use the expression function _gatewayAction_
 
 The expressions function _gatewayAction_ returns the action performed in the task the process just left. In the example above the previous task is _Task_2_.
 
-The _gatewayAction_ function can be combine with all the other functions in [expressions](../../../app/development/logic/expressions/)
+The _gatewayAction_ function can be combine with all the other functions in [expressions](../../../../app/development/logic/expressions/)
 
 ## Complex gateways requiring custom code
 

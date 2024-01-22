@@ -2,7 +2,6 @@
 title: Signerings task
 description: Definer signerings prosess tasks
 tags: [altinn-apps, process, bpmn, task, sign, signing]
-hidden: true
 toc: true
 ---
 
@@ -14,11 +13,10 @@ Oppsett av en signeringoppgave i prosessfilen krever litt mer arbeid enn en vanl
 
 Denne siden vil veilede deg gjennom hva du trenger å konfigurere og hvordan det er koblet til andre deler av konfigurasjonen.
 
-Definere og konfigurere en signeringoppgave
+## Definere og konfigurere en signeringoppgave
 En signeringoppgave i sin enkleste form ser omtrent slik ut:
 
-xml
-Copy code
+```xml
 <bpmn:task id="Task_2" name="Signering">
     <bpmn:incoming>Flow_1enq1lu</bpmn:incoming>
     <bpmn:outgoing>Flow_0ybpfuh</bpmn:outgoing>
@@ -39,12 +37,13 @@ Copy code
 </bpmn:task>
 Gjøre signering tilgjengelig som handling
 Som med bekreftelsesoppgaver må vi definere de tilgjengelige handlingene. For å generere et signeringobjekt må brukeren kunne utføre handlingen "signer":
-
-xml
-Copy code
+```
+```xml
 <altinn:actions>
     <altinn:action>signer</altinn:action>
 </altinn:actions>
+```
+
 "Signer" kan være det eneste alternativet eller kombinert med andre handlinger som "bekreft" og/eller "avvis", avhengig av behovene til hver applikasjon.
 
 Konfigurere hvilke dataelementer som skal signeres

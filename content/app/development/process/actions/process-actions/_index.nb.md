@@ -18,7 +18,7 @@ Standard handling som utføres når en data- eller tilbakemeldingsoppgave sendes
 Standard handling som utføres når en bekreftelsesoppgave sendes inn.
 
 ### sign
-Handling som genererer et signaturobjekt basert på konfigurasjonen av oppgaven, se [Signatur](../tasks/signing)
+Handling som genererer et signaturobjekt basert på konfigurasjonen av oppgaven, se [Signatur](../../tasks/signing)
 
 ### reject
 Handling å bruke når du flytter tilbake fra en oppgave til en annen. Å utføre handlingen "reject" vil sikre at dataelementene i måloppgaven låses opp.

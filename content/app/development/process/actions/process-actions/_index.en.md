@@ -18,7 +18,7 @@ Default action that is performed when a data or feedback task is submitted. This
 Default action that is performed when a confirmation task i submitted
 
 ### sign
-Action that generates a signature object based on the configuration of the task see [Signature](../tasks/signing)
+Action that generates a signature object based on the configuration of the task see [Signature](../../tasks/signing)
 
 ### reject
 Action to use when moving back from one task to another. Performing action reject will ensure data elements in the target task is unlocked.
