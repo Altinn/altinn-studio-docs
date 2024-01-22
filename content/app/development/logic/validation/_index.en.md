@@ -552,7 +552,7 @@ and `validateRow` only runs validation on the row the user is trying to save. Ex
   "data": {
     "layout": [
       {
-        "id": "demo-gruppe",|
+        "id": "demo-gruppe",
         "type": "Group",
         "children": [
             "..."
