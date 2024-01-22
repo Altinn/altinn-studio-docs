@@ -44,6 +44,20 @@ En gruppe defineres på følgende måte i FormLayout.json:
 
 ## Parameters
 
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="v4 (App Frontend)">}}
+
+| Parameter                                     | Påkrevd | Beskrivelse                                                                                                                                                       |
+|-----------------------------------------------|---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| id                                            | Ja      | Unik ID, tilsvarer ID på andre komponenter. Må være unik i layout-filen, og bør være unik på tvers av sider.                                                      |
+| type                                          | Ja      | Må settes til `Group`                                                                                                                                             |
+| [textResourceBindings](#textresourcebindings) | Nei     | Kan settes for grupper, se [nærmere beskrivelse under](#textresourcebindings).                                                                                    |
+| children                                      | Ja      | Liste over komponent-IDer som inkluderes i gruppen.                                                                                                               |
+| showGroupingIndicator                         | Nei     | Viser en vertikal linje til venstre for gruppen for å indikere at feltene har en sammenheng. Kan være `true` eller `false`.                                       |
+
+{{</content-version-container >}}
+{{<content-version-container version-label="v3 (App Frontend)">}}
+
 | Parameter                                     | Påkrevd | Beskrivelse                                                                                                                                                       |
 |-----------------------------------------------|---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | id                                            | Ja      | Unik ID, tilsvarer ID på andre komponenter. Må være unik i layout-filen, og bør være unik på tvers av sider.                                                      |
@@ -52,6 +66,9 @@ En gruppe defineres på følgende måte i FormLayout.json:
 | maxCount                                      | Nei     | Antall ganger en gruppe kan repetere. Må enten unnlates eller settes til `0` for ikke-repeterende grupper, ellers blir det en [repeterende gruppe](../repeating). |
 | children                                      | Ja      | Liste over komponent-IDer som inkluderes i gruppen.                                                                                                               |
 | showGroupingIndicator                         | Nei     | Viser en vertikal linje til venstre for gruppen for å indikere at feltene har en sammenheng. Kan være `true` eller `false`.                                       |
+
+{{</content-version-container>}}
+{{</content-version-selector>}}
 
 ## textResourceBindings
 
