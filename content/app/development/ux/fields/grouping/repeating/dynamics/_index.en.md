@@ -10,11 +10,31 @@ Sometimes you want to hide rows within repeating groups when some criteria are m
 This can be done with expression by using the `hiddenRow` property. The example below shows how to
 hide a row when the firstName within the data model is equal to "John".
 
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="v4 (App Frontend)">}}
+
 ```json {linenos=inline}
 {
   "id": "myGroup",
-  "type": "group",
+  "type": "RepeatingGroup",
   "hiddenRow": ["equal", ["dataModel", "firstName"], "John"],
+  ...
 }
 ```
+
+{{</content-version-container >}}
+{{<content-version-container version-label="v3 (App Frontend)">}}
+
+```json {linenos=inline}
+{
+  "id": "myGroup",
+  "type": "Group",
+  "hiddenRow": ["equal", ["dataModel", "firstName"], "John"],
+  ...
+}
+```
+
+{{</content-version-container>}}
+{{</content-version-selector>}}
+
 You can read more about [expressions here](/app/development/logic/expressions).
