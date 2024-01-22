@@ -160,7 +160,7 @@ For å gjøre dette bruker vi uttrykksfunksjonen _gatewayAction_
 
 Uttrykksfunksjonen _gatewayAction_ returnerer handlingen utført i oppgaven som prosessen nettopp forlot. I eksempelet ovenfor er forrige oppgave _Task_2_.
 
-Funksjonen _gatewayAction_ kan kombineres med alle de andre funksjonene i [uttrykk](../../../app/development/logic/expressions/)
+Funksjonen _gatewayAction_ kan kombineres med alle de andre funksjonene i [uttrykk](../../../../app/development/logic/expressions/)
 
 ## Komplekse gateways som krever tilpasset kode
 
