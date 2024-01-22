@@ -139,7 +139,7 @@ Den tilpassede koden assosiert med en prosesshandling utføres før prosessen fl
 
 For å skrive tilpasset logikk, opprett en ny klasse som implementerer `Altinn.App.Core.Models.UserAction.IUserAction`.
 
-Denne grensesnittet krever at du definerer en `Id` og en implementering av `public async Task<UserActionResult> HandleAction(UserActionContext context)`
+Denne grensesnittet krever at du definerer en `Id` og en implementering av `public async Task<UserActionResult> HandleAction(UserActionContext context)`. Iden er brukt for å finne riktig C# implementasjon av det handlingen definert i prosessfilen.
 
 En svært enkel implementering av _custom_-handlingen som bare logger brukerens bruker-ID og instans-ID kan implementeres som følger:
 
