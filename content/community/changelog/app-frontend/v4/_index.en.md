@@ -63,34 +63,223 @@ If this was the case you should test your app to make sure validation works as e
 
 ### Validations against dataModelBindings
 
-We now warn against invalid data model binding configurations. 
-This will show an error in place of the component if the data model binding is invalid, making this a breaking change. 
+We now warn against invalid data model binding configurations.
+This will show an error in place of the component if the data model binding is invalid, making this a breaking change.
 Previously, there was no indication that anything was wrong if the data model binding was misconfigured, and the data from the component would simply not be saved.
 You should thoroughly test your app to make sure that components display correctly and that all data model bindings are correct.
 <!-- TODO(Ole Martin): please review this, and maybe add an image if relevant? -->
 
-### TODO: Split group into separate components
+### The group component has been split into multiple components
 
-- https://github.com/Altinn/app-frontend-react/pull/1713
+The different methods of configuring the `Group` component have been split into separate components.
 
-<!-- TODO(Magnus): Explain what has changed and how to migrate -->
+{{% expandlarge id="group" header="Group" %}}
+
+- The group component has been stripped down and is now only used to group components together and provide them with an
+  accessible top level title and description as well as optionally visually grouping the items together by using `"groupingIndicator"`.
+
+{{% /expandlarge %}}
+
+{{% expandlarge id="group-as-panel" header="Group as panel" %}}
+
+- Severity indicators (the icons and meaning bearing colors) have been removed, the default color (blue) is used. This
+  is done since the display of important information should be handled with Alert and its meaning bearing colors and icons.
+- `showGroupingIndicator` has changed name to `"groupingIndicator"`, and has been changed from a boolean to an enum of
+  `"panel"` or `"indented"`. Where `"indented"` behaves like the old `"showGroupingIndicator": true`
+- Using the panel styling is now achieved by setting `"groupingIndicator"` to `"panel"`.
+
+Example of old to new config:
+
+```json
+{
+  "id": "my-id",
+  "type": "Group",
+  "textResourceBindings": {
+    "title": "My title",
+   "description": "My description"
+  },
+  "panel": {
+    "variant": "info",
+    "showIcon": false
+  },
+  "children": [
+    "some-child-id",
+    "some-other-child-id"
+  ],
+}
+```
+
+-->
+
+```json
+{
+  "id": "my-id",
+  "type": "Group",
+  "textResourceBindings": {
+    "title": "My title",
+   "description": "My description"
+  },
+  "groupingIndicator": "panel",
+  "children": [
+    "some-child-id",
+    "some-other-child-id"
+  ],
+}
+```
+
+{{% /expandlarge %}}
+
+{{% expandlarge id="repeating-group" header="Repeating group" %}}
+
+- Repeating group is no longer configured with `"type": "Group"` and a `maxCount` greater than 1, but with its own
+  type; `"RepeatingGroup"`
+- `"maxCount"` is no longer required to create a repeating group, but is still able to be used to restrict the maximum
+  number of addable rows.
+
+Example of old to new config:
+
+```json
+{
+  "id": "my-id",
+  "type": "Group",
+  "maxCount": 99,
+  "textResourceBindings": {
+    "title": "My title",
+  },
+  "dataModelBindings": { 
+    "group": "Datamodel.MyGroup"
+  },
+  "children": [
+    "some-child-id",
+    "some-other-child-id"
+  ],
+}
+```
+
+-->
+
+```json
+{
+  "id": "my-id",
+  "type": "RepeatingGroup",
+  "textResourceBindings": {
+    "title": "My title",
+  },
+  "dataModelBindings": { 
+    "group": "Datamodel.MyGroup"
+  },
+  "children": [
+    "some-child-id",
+    "some-other-child-id"
+  ],
+}
+```
+
+{{% /expandlarge %}}
+
+{{% expandlarge id="likert-group" header="Likert group" %}}
+
+- The Likert component is no longer configured using a `"Group"` component with `"edit": {"mode": "likert"}` and a separate
+  `"Likert"` component as a child of the group that handles the possible answers to the questions. It is now configured with
+  a single component using `"type": "Likert"`
+- The `"filter"` property have been moved out of the `"edit"` property as the edit property has been removed. This is done
+  because the filter property was the only one that was valid for the likert component, and the likert does not have an edit functionality.
+- New `textResourceBindings` has been added to control the texts available on the likert questions.
+  - `"questions"` is used for the question labels themselves.
+  - `"questionDescriptions"` is used for the description of the questions, displayed beneath each question.
+  - `"questionHelpTexts"` is used for the help text of the questions, displayed after each question.
+
+Example of old to new config:
+
+```json
+{
+  "id": "my-id",
+  "type": "Group",
+  "maxCount": 99,
+  "textResourceBindings": {
+    "title": "My title",
+  },
+  "dataModelBindings": { 
+    "group": "Questions"
+  },
+  "children": [
+    "my-likert-id",
+  ],
+  "edit": {
+    "mode": "likert",
+    "filter": [
+       {
+         "key": "start",
+         "value": "0"
+       },
+       {
+         "key": "stop",
+         "value": "3"
+       }
+    ],
+  }
+},
+{
+  "id": "my-likert-id",
+  "type": "Likert",
+  "textResourceBindings": {
+    "title": "dynamic-text-resource-binding-title",
+  },
+  "dataModelBindings": { 
+    "simpleBinding": "Questions.Answer"
+  },
+  "options": "optionsId"
+}
+
+```
+-->
+
+```json
+{
+  "id": "my-likert-id",
+  "type": "Likert",
+  "textResourceBindings": {
+    "title": "My title",
+    "questions": "dynamic-text-resource-binding-title"
+  },
+  "dataModelBindings": { 
+    "questions": "Questions",
+    "simpleBinding": "Questions.Answer"
+  },
+  "options": "optionsId",
+  "filter": [
+    {
+      "key": "start",
+       "value": "0"
+     },
+     {
+       "key": "stop",
+       "value": "3"
+     }
+  ]
+}
+```
+
+{{% /expandlarge %}}
+
+{{% expandlarge id="repeating-group-reference" header="Repeating group reference" %}}
+
+- This feature has been removed in favour of code maintenance because it is not used anywhere.
+
+{{% /expandlarge %}}
 
 ### Title and description changes for Groups
 
-- https://github.com/Altinn/app-frontend-react/pull/1693
-
-<!-- TODO(Magnus): Fix this to make sense with the new group components -->
-
-The `title` attribute in `textResourceBindings` for the `Group` component as a repeating group previously only applied
+The `title` attribute in `textResourceBindings` for the `RepeatingGroup` component previously only applied
 to the title shown above each row in the summary view of the repeating group. This attribute is now only used as the
 title for the repeating group in the form view. This means that the title will now be shown above the repeating group in
 the form view if it has been set.
 
-The `summaryTitle` attribute in `textResourceBindings` for the `Group` component is now used for displaying the title
-above each row in the summary view of the repeating group.
+The `summaryTitle` attribute in `textResourceBindings` for the `RepeatingGroup` component will override the `title` and
+is used for displaying the title above each row in the summary view of the repeating group.
 
-The `body` attribute in `textResourceBindings` for the `Group` component is now called `description` in order to be
-more consistent with the rest of the components.
+The `body` attribute in `textResourceBindings` for the `Group` component and `RepeatingGroup` component is now called
+`description` in order to be more consistent with the rest of the components.
 
 ### Validation triggers have been replaced
 
@@ -236,4 +425,3 @@ where these validations were shown immediatly while typing, you need to set `"sh
 - https://github.com/Altinn/app-frontend-react/pull/1656
 
 <!-- TODO(Lars?): I am unsure how this component used to work since there doesn't seem to be any documentation on it. Could you explain what has changed and how to migrate? -->
-
