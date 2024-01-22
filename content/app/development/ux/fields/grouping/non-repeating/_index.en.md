@@ -50,21 +50,31 @@ A group is defined as follows in `FormLayout.json`:
 ]
 ```
 
-## Parameters
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="v4 (App Frontend)">}}
 
-| Parameter                                     | Required | Description                                                                                                                                                    |
-|-----------------------------------------------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| id                                            | Yes      | Unique ID, same as ID on other components. Must be unique in the layout file, and should be unique across pages.                                               |
-| type                                          | Yes      | Must be 'Group'                                                                                                                                                |
-| [textResourceBindings](#textresourcebindings) | No       | Can be set for groups, see [description](#textresourcebindings).                                                                                               |
-| children                                      | Yes      | List of the component IDs that are to be included in the group.                                                                                                |
-| showGroupingIndicator                         | No       | Shows a vertical line to the left of the group to indicate that the fields are related. Can be `true` or `false`.                                              |
+## Parameters
+
+| Parameter                                     | Required | Description                                                                                                                                                                |
+|-----------------------------------------------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| id                                            | Yes      | Unique ID, same as ID on other components. Must be unique in the layout file, and should be unique across pages.                                                           |
+| type                                          | Yes      | Must be 'Group'                                                                                                                                                            |
+| [textResourceBindings](#textresourcebindings) | No       | Can be set for groups, see [description](#textresourcebindings).                                                                                                           |
+| children                                      | Yes      | List of the component IDs that are to be included in the group.                                                                                                            |
+| showGroupingIndicator                         | No       | Can be `"indent"` or `"panel"`. Indent shows a vertical line to the left of the group, and panel shows the group as a blue panel to indicate that the fields are related.  |
+
+## textResourceBindings
+
+It is possible to add different keys in textResourceBindings:
+
+- `title` - Sets the group title. If not set, the components in the group will display just as if they were not part of a group (with no title above them)
+- `description` - Sets the group body text. This is displayed below the title, and above the components in the group.
 
 {{</content-version-container >}}
 {{<content-version-container version-label="v3 (App Frontend)">}}
+
+## Parameters
 
 | Parameter                                     | Required | Description                                                                                                                                                    |
 |-----------------------------------------------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -75,12 +85,12 @@ A group is defined as follows in `FormLayout.json`:
 | children                                      | Yes      | List of the component IDs that are to be included in the group.                                                                                                |
 | showGroupingIndicator                         | No       | Shows a vertical line to the left of the group to indicate that the fields are related. Can be `true` or `false`.                                              |
 
-{{</content-version-container>}}
-{{</content-version-selector>}}
-
 ## textResourceBindings
 
 It is possible to add different keys in textResourceBindings:
 
 - `title` - Sets the group title. If not set, the components in the group will display just as if they were not part of a group (with no title above them)
 - `body` - Sets the group body text. This is displayed below the title, and above the components in the group.
+- 
+{{</content-version-container>}}
+{{</content-version-selector>}}
