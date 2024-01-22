@@ -1,8 +1,12 @@
 ---
 title: Group displayed as panel
 linktitle: Panel
-description: Configuration details for groups displayed as panels, and referencing group values in a panel
+description: Configuration details for groups displayed as panels
 ---
+
+{{% notice warning %}}
+This concept is not available for version 4 of the App Frontend. See [non-repeating groups](../non-repeating/_index.en.md) for more information about how to visually group components.
+{{% /notice %}}
 
 ## Display group as part of Panel
 
