@@ -52,7 +52,7 @@ Unless the user changes this setting, they will be prompted with the following p
 Showing and hiding pages using [tracks](/app/development/ux/pages/tracks/) (calculate page order) is no longer supported.
 This also means that the trigger `calculatePageOrder` no longer has any effect and should be removed from any components where it is used.
 Instead, you should use dynamic expressions on the `hidden` property of a layout page to determine whether pages should be visible or hidden.
-See the [documentation on dynamic expressions](/app/development/logic/expressions/#viseskjule-hele-sider) for more information.
+See the [documentation on dynamic expressions](/app/development/logic/expressions/#showhide-entire-pages) for more information.
 
 ### Data model schema validation works for more data models
 

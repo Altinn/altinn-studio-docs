@@ -47,7 +47,7 @@ how far along the user is in filling out all the application pages.
 {{%notice info%}}
 All known pages in the current [process task](../../../configuration/process) will count towards the total number of
 pages shown in the progress indicator. If you have set up [tracks](../tracks) or
-many [dynamically hidden pages](../../../logic/expressions#viseskjule-hele-sider), this number may fluctuate and appear
+many [dynamically hidden pages](../../../logic/expressions#showhide-entire-pages), this number may fluctuate and appear
 confusing to the user. Make sure the progress indicator is intuitive and provides value to the user before enabling it.
 {{%/notice%}}
 
@@ -71,7 +71,7 @@ To set up this feature, add the following line to your `App/ui/Settings.json` fi
 The Navigation Bar gives easy access to all pages in an application.
 
 {{%notice info%}}
-The Navigaion Bar lists all pages in the application, and is not suited for use with the tracks feature.
+The Navigation Bar lists all pages in the application, and is not suited for use with the tracks feature.
 {{%/notice%}}
 
 ![Navigation Bar desktop](navigationbar-desktop.png "Navigation Bar desktop")
@@ -99,7 +99,7 @@ It can also be configured to display Navigation Bar mobile also in desktop viewp
 }
 ```
 
-### Change texts on navigationbar buttons
+### Change texts on navigation bar buttons
 
 The text in the navigation bar buttons will by default use the filename of the page without the extension. F.ex if you have `page1.json` and `page2.json`, the buttons will contain `page1` and `page2`. To override these texts, you can add texts in the `resources.XX.json`, where the `id` is the filename without extension. Example:
 

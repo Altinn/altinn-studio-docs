@@ -274,13 +274,18 @@ Det er mulig å ekskludere enkeltkomponenter inne i en gruppe ved å bruke `excl
 
 {{%notice warning%}}
 
-Denne funksjonen er kun tilgjengelig i versjon 7.5 og høyere.
+Forhåndsvisningen gjelder kun dersom du bruker ny PDF generering (v7.5+). Se [ovenfor](#ny-pdf-generering) for mer informasjon.
 
 {{% /notice%}}
 
 Det er mulig å se en forhåndsvisning av hvordan den genererte PDF'en kommer til å se ut i nettleseren imens du jobber. Følg instruksjonene nedenfor:
 
 1. **Viktig**: Bruk Google Chrome til å forhåndsvise PDF.<br>PDF-generatoren bruker en variant av Chrome til å generere PDF'en, så andre nettlesere vil ikke produsere et korrekt resultat ved forhåndsvisning.
-2. I appen du ønsker å forhåndsvise, legg til `?pdf=preview` på slutten av URLen i nettleseren og trykk enter.<br>Dette vil sørge for at PDF-layouten ligger klar i bakgrunnen slik at du kan få en umiddelbar preview. Du kan oppleve svakere ytelse i denne modusen.
-3. Når du er klar til å fohåndsvise, bruk Chrome sin innebygde print-funksjon (`Ctrl+P`/`⌘+P`) for å se en forhåndsvisning av hvordan PDF-dokumentet kommer til å se ut.
+2. Kjør opp appen din lokalt eller åpne appen din i testmiljøet, og start en instans.
+3. Åpne utviklerverktøyet ved å trykke på knappen nederst i høyre hjørne, eller bruk hurtigtasten `Ctrl+Shift+K`/`⌘+Shift+K`.
+   <br><br>
+   ![Knappen som åpner utviklerverktøyet, skjermbilde](dev-tools-button.png) 
+4. Trykk på `Forhåndsvis PDF`-knappen i utviklerverktøyet.
+   <br><br>
+   ![Utviklerverktøyet, skjermbilde](preview-button.png) 
 

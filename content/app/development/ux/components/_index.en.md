@@ -4,7 +4,7 @@ description: Components are the building blocks of applications.
 weight: 10
 ---
 
-Components can be added and edited in the UI editor, see [Altinn Studio Designer](/app/getting-started/ui-editor/).
+Components can be added and edited in the UI editor, see [Altinn Studio Designer](/app/getting-started/).
  Available settings are described for each component below.
 
 When building an application, the layout of each page is described by a `<pageName>.json` file located in `<applicationRepo>/App/ui/layouts/`.

@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Build and Check links
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           submodules: true
 
@@ -24,6 +24,6 @@ jobs:
         run: hugo
 
       - name: Verify links
-        uses: untitaker/hyperlink@0.1.27
+        uses: untitaker/hyperlink@0.1.32
         with:
           args: public/ --check-anchors --sources content/

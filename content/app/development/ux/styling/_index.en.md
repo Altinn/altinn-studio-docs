@@ -25,7 +25,9 @@ The following sizes with breakpoints are defined:
 - **lg**: 1440px
 - **xl**: 1920px
 
-To place components side by side horizontally, small changes must be done in formlayout. A seperate property `grid` has been defined, where you can fill in desired width on the different sizes. Here is an example where two input fields has been set to cover half the screen (some props are removed for readability):
+To place components side by side horizontally, small changes must be done in form layout. A separate property `grid` has
+been defined, where you can fill in desired width on the different sizes. Here is an example where two input fields has
+been set to cover half the screen (some props are removed for readability):
 
 ```json
  {
@@ -125,8 +127,9 @@ Here, you will have the opportunity to control the width of both the outer grid 
 
 ```
 
-Here, it has been set that the component grid shall occupy the whole width, while limiting the component's input to only occupy half the width.
-Innergrid can be controlled for these components:
+Here, it has been set that the component grid shall occupy the whole width, while limiting the component's input to only
+occupy half the width.
+Inner grid can be controlled for these components:
 - Input
 - TextArea
 - FileUpload
@@ -261,9 +264,11 @@ Valid values for **unit** are for now the following list:
 
 
 ## Aligning text in input fields
+
 When a schema contains a list of numbers that are automatically summarized, it is common to align text to the right,
-like when summarizing on paper and how Excel shows numbers. This can be done by setting `"align": "right"` under `formatting`
-on the input componenten. Other valid values are `"center"` and `"left"`.
+like when summarizing on paper and how Excel shows numbers. This can be done by setting `"align": "right"`
+under `formatting`
+on the input component. Other valid values are `"center"` and `"left"`.
 
 ![Right aligned numbers](align-right.png "Right aligned numbers")
 

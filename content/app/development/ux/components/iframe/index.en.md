@@ -2,6 +2,7 @@
 title: IFrame
 description: The IFrame component can be used to render your own HTML and CSS within an Altinn app.
 toc: false
+weight: 10
 ---
 
 ## On this page

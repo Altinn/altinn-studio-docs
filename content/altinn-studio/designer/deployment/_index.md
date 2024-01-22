@@ -2,6 +2,7 @@
 title: App Deployment
 linktitle: Deploy
 description: Altinn Studio will let the developer deploy apps to all enviroments without any manuel steps.
+hidden: true
 ---
 
 An app developer can build and deploy apps to all test and production environments available for that org.

@@ -12,7 +12,7 @@ This page explains the different views and how they can be customized.
 
 ## Data 
 In this process task a form which the user can fill in data.
-The form can be edited using the [UI editor](/app/getting-started/ui-editor) or by changing `FormLayout.json` manually.
+The form can be edited using the [UI editor](/app/getting-started) or by changing `FormLayout.json` manually.
 
 ## Confirmation
 In this process task some standard texts are presented and the user can choose to *confirm* to go forward.
@@ -63,11 +63,14 @@ This results in the following view:
 
 ### Custom form layout
 
-For the confirm task the app developer has the possibility for configuring their own [layout set](../../../ux/pages/layout-sets/) with corresponding form layout definitions and other ui-configuration files which are included in the data step.
+For the confirm task the app developer has the possibility for configuring their
+own [layout set](../../../ux/pages/layout-sets/) with corresponding form layout definitions and other ui-configuration
+files which are included in the data step.
 
-This makes the confirmation page custumizable, and can use the components that are supported in Altinn Studio.
+This makes the confirmation page customizable, and can use the components that are supported in Altinn Studio.
 
-Since the confirm step is not meant to be used for writing data, a good practice would be to use static components (header, paragraph) and set other components to `readOnly`.
+Since the confirm step is not meant to be used for writing data, a good practice would be to use static components (
+header, paragraph) and set other components to `readOnly`.
 
 An example setup of the `layout-sets.json` where `Task_1` is a data step, and `Task_2` a confirmation step:
 
@@ -233,7 +236,7 @@ Example of custom texts in the file  `resources.nb.json`:
 }
 ```
 
-Note that if you change the value of the text key `receipt.subtitle` the url will still point to Altinn Innbox.
+Note that if you change the value of the text key `receipt.subtitle` the url will still point to Altinn Inbox.
 
 This results in the following view:
 
@@ -245,9 +248,11 @@ This results in the following view:
 This is a temporary approach for customizing the receipt page just as any other pages in the form. When support for layout-sets is available in Altinn Studio it will be possible to customize the receipt page in the same way as the confirmation page.
 {{%/notice%}}
 
-A custom receipt can be made in the same way as any other form page. The functionality will also be available in Altinn Studio shortly.
+A custom receipt can be made in the same way as any other form page. The functionality will also be available in Altinn
+Studio shortly.
 
-Build the layout as usual and refer to the filename of the layout in `setting.json` with the key `receiptLayoutName`. See below example where the layoutfile `receipt.json` is referred to.
+Build the layout as usual and refer to the filename of the layout in `setting.json` with the key `receiptLayoutName`.
+See below example where the layout file `receipt.json` is referred to.
 
 ```json
 {

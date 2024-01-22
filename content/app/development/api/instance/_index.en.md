@@ -7,19 +7,23 @@ toc: true
 
 This page is currently incomplete and more information will be provided at a later date.
 
-An instantiated application will have a corresponding instance object. This object contains metadta about the specific instance.
-If you want to learn more about the instance and the affiliated API you can read the technical documentation about this under "API".
-
+An instantiated application will have a corresponding instance object. This object contains metadata about the specific
+instance.
+If you want to learn more about the instance and the affiliated API you can read the technical documentation about this
+under "API".
 
 ## Substatus
 
-As an app-owner you can set a substatus for the instance, this is to allow the end user further information about which condition the instance is currently in.
-Substatus is displayed both in the Altinn message box and in the receipt page. 
+As an app-owner you can set a sub status for the instance, this is to allow the end user further information about which
+condition the instance is currently in.
+Sub status is displayed both in the Altinn message box and in the receipt page.
 
-The substatus is an object which can be set in the instance object. How this is done is described under API. 
-Substatus is a simple object which contains `label` and `description`. These fields can either contain clean text, or a text key that refers to the application
-texts. It is worth noting that we do not support variables in text for these texts. 
-In the message box, `label` is limited to 25 symbols and if it contains more than 25 symbols, only the first 22 symbols will be used and "..." will be added to the end.
+The sub status is an object which can be set in the instance object. How this is done is described under API.
+Sub status is a simple object which contains `label` and `description`. These fields can either contain clean text, or a
+text key that refers to the application
+texts. It is worth noting that we do not support variables in text for these texts.
+In the message box, `label` is limited to 25 symbols and if it contains more than 25 symbols, only the first 22 symbols
+will be used and "..." will be added to the end.
 
 Example of a status object:
 ```json
@@ -29,7 +33,8 @@ Example of a status object:
 }
 ```
 
-Below you see an example of how substatus looks like in the message box and in the receipt where the substatus is set up in the following way:
+Below you see an example of how sub status looks like in the message box and in the receipt where the sub status is set
+up in the following way:
 ```json
 {
     "label": "Accepted",

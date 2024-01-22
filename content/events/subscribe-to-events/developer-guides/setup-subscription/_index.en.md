@@ -15,7 +15,9 @@ POST /subscriptions
 
 This API requires authentication.
 
-When subscribing to generic events the Maskinporten scope __altinn:events.subscribe__ is also required.
+When subscribing to generic events the Maskinporten scope __altinn:events.subscribe__ is required.
+
+If you are subscribing to events as a service owner the Maskinporten scope __altinn:serviceowner__ is also requried. 
 
 See [Authentication and Authorization](../../../api/#authentication--authorization) for more information.
 
@@ -56,11 +58,17 @@ Additionally, it should return 200 OK when receiving our custom validation event
 ```
 _Example of validation event_
 
-#### sourceFilter
+### resourceFilter*
+- filter for the event resource
+
+Must be an exact match to the resource set on the generated events
+#### sourceFilter**
 - filter for the cloud event source
 
-Property supports wildcard _%_ for an unknown string e.g. `https://digdir.apps.altinn.no/digdir/demoapp/%`
+When subscribing to an app event format for source filter is `https://digdir.apps.altinn.no/digdir/demoapp`
 
+\* required for subscriptions on generic events, optional for app event subscriptions
+\** only required for app subscriptions in the case where no resource filter is provided 
 
 ### Optional subscription request properties
 
@@ -71,7 +79,7 @@ Property supports wildcard _%_ for an unknown string e.g. `https://digdir.apps.a
 - filter for the cloud event's alternative subject
 
 #### typeFilter
-- filter for the cloud event type.
+- filter for the cloud event type
 
 Omit this property if you want to subscribe to all events types for the given source and/or resource
 
@@ -111,7 +119,7 @@ curl \
 --header 'Authorization: Bearer {insert Altinn token}' \
 --header 'Content-Type: application/json' \
 --data '{
-  "sourceFilter": "https://digdir.apps.altinn.no/digdir/demoapp/%",
+  "sourceFilter": "https://digdir.apps.altinn.no/digdir/demoapp",
   "endpoint":"https://webhook.site/"
   }'
 ```
@@ -123,7 +131,7 @@ curl \
 {
     "id": 1619,
     "endPoint": "https://webhook.site/43cec4b7-b20b-4cbd-9b47-592750bf06d1",
-    "sourceFilter": "https://digdir.apps.at22.altinn.cloud/digdir/demoapp/%25",
+    "sourceFilter": "https://digdir.apps.at22.altinn.cloud/digdir/demoapp",
     "consumer": "/org/digdir",
     "createdBy": "/org/digdir",
     "created": "2023-04-05T13:57:11.234994Z",

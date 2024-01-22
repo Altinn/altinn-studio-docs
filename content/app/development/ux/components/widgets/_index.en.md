@@ -2,6 +2,7 @@
 title: Widgets
 description: How to use compound components (widgets).
 toc: true
+weight: 10
 aliases:
 - /app/development/ux/widgets/
 ---

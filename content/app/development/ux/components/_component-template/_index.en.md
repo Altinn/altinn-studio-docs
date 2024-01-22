@@ -2,12 +2,34 @@
 title: Component
 linktitle: Component
 description: # Brief description of what the component does
-schemaname: # Component schema name used to autogenerate list of properies from json schema (replace with appropriate component name)
+schemaname: # Component schema name used to autogenerate list of properties from json schema (replace with appropriate component name)
+weight: 10 # Do not change, the components will be sorted alphabetically
+toc: true
 hidden: true # Remove when creating new component page from template
-weight: 10 # Do not change, the componets will be sorted alphabetically
 ---
 
-<!-- For a full example, see [Image](../image/) -->
+<!-- HOW TO USE THIS TEMPLATE
+- Read the comments within each section for guidance.
+- Delete comments and content that are not relevant.
+- When the documentation is ready for publishing, remove "hidden: true" from the frontmatter.
+- If the documentation is complete, remove the warning that it's a work in progress.
+
+COMMON PROPERTIES
+Documentation for properties that are common to multiple components is updated in separate files and added via shortcode.
+Add documentation: Use the shortcode `property-docs` with pointy brackets and the argument `prop="{propName}"`. `propName` must match the filename (which should correspond to the JSON schema name).
+Update/create documentation:
+- Files, templates, and instructions are located under components/_common-props-content.
+- Images are located under /assets/images/component-settings and are added via a separate shortcode (`image.html`).
+
+EXAMPLES
+- See Image, Checkboxes, RadioButtons, and Dropdown for examples.
+
+-->
+
+{{% notice warning %}}
+🚧 This documentation is a work in progress.
+{{% /notice %}}
+
 ---
 
 ## Usage
@@ -22,7 +44,7 @@ Image/diagram with numbered callouts.
 1. Take a screenshot of the basic version of the component with good copy (text).
 2. Use the [PowerPoint file](../numbered-callouts-anatomy.pptx) to add numbers to the screenshot
 3. Group screenshot and numbering, save as image, and add to documentation
-4. Include key with description of callouts below . See example for formatting.
+4. Include key with description of callouts below using anatomy-list shortcode (see example for formatting).
 
 Example:
 
@@ -54,6 +76,14 @@ Add the following sections if relevant:
 
 (E.g. punctuation rules, standard labels, etc.)
 
+### Accessibility
+
+(Component-specific best practices for accessibility.)
+
+### Mobile
+
+(How to apply component in mobile environments.)
+
 ### Related
 
 (List of related components or patterns, include links)
@@ -70,68 +100,47 @@ We are currently updating how we implement components, and the list of propertie
 
 <!-- The `component-props` shortcode automatically generates a list of component properties from the component's json schema.
 The component name can be explicitly given as argument (e.g. `component-props "Grid"`).
-If no argument is given, the shortcode pulls the component name from 'schemaname' in the frontmatter. -->
+If no argument is given, the shortcode pulls the component name from 'schemaname' in the frontmatter. 
+If the component does not have a JSON schema, comment out the text and shortcode in this section and, if necessary, create a table manually with the most important properties (columns: Property, Type, Description).
+-->
 
 {{% component-props %}}
 
 ## Configuration
 
-### Add component
-
-You can add a component in [Altinn Studio Designer](/app/getting-started/ui-editor/) by dragging it from the left-side panel to the middle page area.
-Selecting the component brings up its configuration panel on the right-hand side.
-
-### Settings in Altinn Studio Designer
-
 {{% notice warning %}}
-We are currently updating Altinn Studio with more configuration options!
- The documentation will be updated to reflect the changes once they are stable.
-  In the meantime, there may be more options available in beta mode than is described here.
+We are currently updating Altinn Studio Designer with more configuration options!
+ The documentation is continuously updated, and there may be more settings available than what is described here, and some settings may be in beta version.
 {{% /notice %}}
+
+### Add component
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
 
-Property settings available in Altinn Studio Designer.
-
-<!--
-Screenshot of settings panel in Designer.
-Key with description of settings. See example for format. Include property (code) name in parentheses.
-
-Example:
-
-![Image settings](../image/screenshot-image-settings.png)
-
-- **Komponent-ID** (`id`): Automatically generated component ID (editable).
-- **Kilde** (`src`): Link or path to the [image source](#image-source).
-- **Alternativ tekst** (`textResourceBindings.altTextImg`): Alternative text. Create new or pick existing [text resource](/app/development/ux/texts/#add-and-change-texts-in-an-application).
-- **Bredde** (`width`): Image width as a percentage, with 100% as the original image size.
-- **Plassering** (`align`): [Horizontal alignment of image](#horizontal-alignment-with-align).
-
--->
+You can add a component in [Altinn Studio Designer](/app/getting-started/) by dragging it from the list of components to the page area.
+Selecting the component brings up its configuration panel.
 
 {{</content-version-container>}}
 {{<content-version-container version-label="Code">}}
 
-Corresponding settings in the page's JSON file.
-The component is highlighted.
-
-<!--
-Replace "component code" in the below code block with the actual component code that corresponds to the settings in Designer.
-
-Indicate line numbers to highlight the component code (e.g. hl_lines="4-13").
- -->
+Basic component:
 
 {{< code-title >}}
 App/ui/layouts/{page}.json
 {{< /code-title >}}
 
-```json{hl_lines=""}
+```json{hl_lines="6-"}
 {
-  "data": {
-    "layout": [
-      // component code
-    ]
+  "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
+  {
+    "data": {
+      "layout": [
+        {
+          // Basic component (required properties)
+        }
+      ]
+    }
   }
 }
 ```
@@ -139,19 +148,19 @@ App/ui/layouts/{page}.json
 {{</content-version-container>}}
 {{</content-version-selector>}}
 
-
 <!-- 
 Add sections describing the configuration of properties specific for the component.
 - Use the below Designer/Code tabs shortcode to display the settings.
 - Include screenshots and examples where appropriate.
-- If the settings are only available in code, use only the Code tab.
+- If the settings are not available in Altinn Studio, use only the Code tab and add the following shortcode directly under the section heading:
+    {{% notice info %}}
+    The settings for this property is currently not available in Altinn Studio and must be configured manually.
+    {{% /notice %}}
 - Add file path or other info within the code-title shortcode (shown at the top of the code block)
-- Consider highlighting relevant parts of the code
-  - Examples:
-    single line: hl_lines="5"
-    range: hl_lines="4-13"
-    multiple lines and ranges: hl_lines=["1-4", "7", "20"]
+- Consider highlighting relevant parts of the code using hl_lines
+- Add documentation for common properties using the shortcode `property-docs` with pointy brackets and the argument `prop="{propName}"`. `propName` must match the filename (which should correspond to the JSON schema name).
 
+Shortcode for tabs:
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
@@ -161,13 +170,20 @@ Add sections describing the configuration of properties specific for the compone
 {{<content-version-container version-label="Code">}}
 
 {{< code-title >}}
-
+App/ui/layouts/{page}.json
 {{< /code-title >}}
 
-```{hl_lines=[""]}
-
-
+```json{hl_lines=""}
+{
+  // component properties
+}
 ```
+
 {{</content-version-container>}}
 {{</content-version-selector>}}
+
 -->
+
+## Examples
+
+<!-- One or more examples of configuration (if relevant) -->

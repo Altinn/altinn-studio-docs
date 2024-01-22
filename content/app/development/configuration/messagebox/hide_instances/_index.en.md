@@ -11,12 +11,12 @@ instances from the message box during parts of, or the whole, process.
 
 ## Configuration
 
-{{% notice info  %}}
+{{% notice info %}}
 The configuration has a retroactive effect and will also apply to previously created instances.
 {{% /notice %}}
 
 Configuration for hiding instances is defined in `applicationmetadata.json`,
-which you can find in ythe appliation repository in the folder `App/config`.
+which you can find in ythe application repository in the folder `App/config`.
 
 Add a new section called `messageBoxConfiguration` with the child property `hideSettings`.
 

@@ -1,42 +1,42 @@
 ---
-title: Forslag nye tilgangsgupper for innbyggere
+title: Forslag nye tilgangspakker for innbyggere
 linktitle: Innbyggere 
-description: Her vil du finne forslag til nye tilgangsgrupper for innbyggere. Dette er et arbeid som pr nå ikke er påbegynt. 
+description: Her vil du finne forslag til nye tilgangspakker for innbyggere. Dette er et arbeid som pr nå ikke er påbegynt. 
 toc: true
 ---
 
-*Denne siden er under arbeid. Nye tilgangsgrupper for innbyggere innføres tidligst i løpet av 2024.*
-## Om tilgangsgrupper
+*Denne siden er under arbeid. Nye tilgangspakker for innbyggere innføres tidligst i løpet av 2024.*
+## Om tilgangspakker
 
-I forbindelse med migrering av Altinn Autorisasjon fra Altinn 2 til Altinn 3 plattformen skal dagens Altinn-roller erstattes med tilgangsgrupper. 
+I forbindelse med migrering av Altinn Autorisasjon fra Altinn 2 til Altinn 3 plattformen skal dagens Altinn-roller erstattes med tilgangspakker. 
 
-Tilgangsgrupper for innbyggere bygger på en kategorisering av fullmakter gjennomført av Sivilrettsforvaltningen i forbindelse med innføring av nye vergemålsfullmakter. Dette arbeidet er gjort i samarbeid med offentlige etater og oversikt over fullmaktene finner du [her](https://www.sivilrett.no/fullmaktstekst).
+tilgangspakker for innbyggere bygger på en kategorisering av fullmakter gjennomført av Sivilrettsforvaltningen i forbindelse med innføring av nye vergemålsfullmakter. Dette arbeidet er gjort i samarbeid med offentlige etater og oversikt over fullmaktene finner du [her](https://www.sivilrett.no/fullmaktstekst).
 
 Et vergemål vil fra Altinn Autorisasjon sitt perspektiv være en eksten kilde for representasjonsforhold.
 
-Det vil være mulig for innbygger å gi andre tilgang til å opptre på egne vegne ved å legge de til en tilgangsgruppe. Tilgangsgruppe for innbygger er i denne sammenheng synonymt med fullmakt eller rolle for innbygger.  
+Det vil være mulig for innbygger å gi andre tilgang til å opptre på egne vegne ved å legge de til en tilgangspakke. Tillgangspakke for innbygger er i denne sammenheng synonymt med fullmakt eller rolle for innbygger.  
 
 
-Den største forskjellen på rollene i 2.0 og tilgangsgruppene i 3.0 blir:
+Den største forskjellen på rollene i 2.0 og tilgangspakkene i 3.0 blir:
 
-- Tilgangsgrupper er potensielt delt inn i tre nivåer, slik at administrator kan gi tilgang til færre tjenester og det blir lettere å finne riktig mal. 
+- tilgangspakker er potensielt delt inn i tre nivåer, slik at administrator kan gi tilgang til færre tjenester og det blir lettere å finne riktig mal. 
 - Du må knytte tjenester til det laveste nivået. Disse er merket med *
-- Mer findelte tilgangsgrupper gjør det lettere for tjenesteeiere å velge riktig målgruppe for sine tjenester.
+- Mer findelte tilgangspakker gjør det lettere for tjenesteeiere å velge riktig målgruppe for sine tjenester.
 
 ## Nivå 1: Bank
-Tilgangsgruppen har følgende undergrupper: 
+Tilgangspakken har følgende undergrupper: 
 - *Representasjon dagligbank
   - Fullmakten omfatter oppgaver knyttet til å opprette kundeforhold, opprette/avslutte konto, disposisjonsrett, etablere/endre betalingsavtaler og forvalte låneavtaler
 - *Ta opp lån/kreditter
   - Fullmakten gjelder søknad om etablering av banklån - dette krever statsforvalterens samtykke
 
 ## Nivå 1: Forsinkringsselskap
-Tilgangsgruppen har følgende undergrupper: 
+Tilgangspakken har følgende undergrupper: 
 - *Forvalte forsikringsavtaler	
   - Fullmakten Omfatter oppgaver knyttet til å etablere/endre/avslutte forsikringsavtaler og representasjon ved forsikringsoppgjør
 
 ## Nivå 1: Husbanken
-Tilgangsgruppen har følgende undergrupper: 
+Tilgangspakken har følgende undergrupper: 
 
 - *Bostøtte	
   - Fullmakten gjelder søknad om og/eller eventuelt klage på vedtak om statlig bostøtte hos Husbanken
@@ -44,7 +44,7 @@ Tilgangsgruppen har følgende undergrupper:
   - Fullmakten gjelder søknad om og/eller eventuelt klage på vedtak om startlån hos Husbanken
 
 ## Nivå 1: Inkassoselskap
-Tilgangsgruppen har følgende undergrupper: 
+Tilgangspakken har følgende undergrupper: 
 
 - *Forhandle og inngå inkassoavtaler	
   - Fullmakten gjelder avtaleinngåelse og forhandling med ulike inkassoselskaper
@@ -67,13 +67,13 @@ Tilgangsgruppen har følgende undergrupper:
 
 
 ## Nivå 1: Kredittvurderingsselskap
-Tilgangsgruppen har følgende undergrupper: 
+Tilgangspakken har følgende undergrupper: 
 
 - *Kredittsperre	
   - Fullmakten gjelder avtaleinngåelse om kredittsperre 
 - 
 ## Nivå 1: Namsmannen
-Tilgangsgruppen har følgende undergrupper: 
+Tilgangspakken har følgende undergrupper: 
 
 - *Gjeldsordning	
   - Fullmakten gjelder søknad om og/eller forvaltning av eksisterende gjeldsordninger
@@ -83,7 +83,7 @@ Tilgangsgruppen har følgende undergrupper:
 
 
 ## Nivå 1: Skatteesten
-Tilgangsgruppen har følgende undergrupper: 
+Tilgangspakken har følgende undergrupper: 
 
 - *Innkreving 	
   - Fullmakten gjelder oppfølging og behandling av krav fra Skatteetaten, for eksempel restskatt
@@ -95,19 +95,19 @@ Tilgangsgruppen har følgende undergrupper:
   - Fullmakten gjelder innsyn i skattedata, og representasjon overfor skattemyndighetene i saker om skatt og avgift, herunder levering av skattemelding og endring av skattekort
 
 ## Nivå 1: Statens Innkrevningssentral
-Tilgangsgruppen har følgende undergrupper: 
+Tilgangspakken har følgende undergrupper: 
 
 - *Gjeldsordning og betalingsavtaler	
   - Fullmakten gjelder søknad om og forvaltning av gjeldsordning og betalingsavtaler
 
 ## Nivå 1: Statsforvalteren
-Tilgangsgruppen har følgende undergrupper: 
+Tilgangspakken har følgende undergrupper: 
 
 - *Søke om samtykke til disposisjon	
   - Fullmakten gjelder søknad om disposisjoner som krever statsforvalterens samtykke
 
 ## Nivå 1: Tingretten
-Tilgangsgruppen har følgende undergrupper: 
+Tilgangspakken har følgende undergrupper: 
 
 - *Begjære uskifte 	
   - Fullmakten gjelder melding om uskiftet bo jf. vgml. § 41 (3) og arvl. §§ 14 og 32 - dette krever statsforvalterens samtykke
@@ -117,7 +117,7 @@ Tilgangsgruppen har følgende undergrupper:
   - Fullmakten gjelder skifte av uskiftebo jf. vgml. § 41 (3) og arvl. §§ 28 og 29 - dette krever statsforvalterens samtykke
 
 ## Nivå 1:  Annen kjøp og avtaleinngåelse
-Tilgangsgruppen har følgende undergrupper: 
+Tilgangspakken har følgende undergrupper: 
 
 - *Kjøp/leie av varer og tjenester 	
   - Fullmakten gjelder i forbindelse med kjøp av varer og tjenester, omfatter også heving av avtaler, reklamasjon mm. 
@@ -132,7 +132,7 @@ Tilgangsgruppen har følgende undergrupper:
   - Fullmakten gir adgang til å bruke dine inntekter til å betale regninger, betjene gjeld, og dekke øvrige utgifter.
 
 ## Nivå 1: Kommune
-Tilgangsgruppen har følgende undergrupper: 
+Tilgangspakken har følgende undergrupper: 
 
 - *Bygg og eiendom	
   - Fullmakten omfatter oppgaver som hører inn under områdene bygging, eiendom, kjøp og salg, leie og utleie, samt priser og gebyr for bygg og eiendom - dette krever statsforvalterens samtykke
@@ -146,7 +146,7 @@ Tilgangsgruppen har følgende undergrupper:
   - Fullmakten omfatter tilbud og støtteordninger som hører inn under områdene grunnskole, videregående skole, høyere utdanning, voksenopplæring og skolehverdag 
 
 ## Nivå 1: NAV
-Tilgangsgruppen har følgende undergrupper: 
+Tilgangspakken har følgende undergrupper: 
 
 - *Arbeid	
   - Fullmakten omfatter tilbud og støtteordninger som hører inn under områdene forsikring/sykepenger (selvstendig næringsdrivende og frilansere), sykepenger, tilleggsstønad og yrkesskade/menerstatning og arbeidsavklaringspenger. Gjelder innsyn/saksbehandling og utbetaling
@@ -160,13 +160,13 @@ Tilgangsgruppen har følgende undergrupper:
   - Fullmakten omfatter tilbud og støtteordninger som hører inn under områdene gjeldsrådgivning, kvalifiseringsprogrammet, midlertidig botilbud, økonomisk rådgivning, forsvarlig livsopphold, midlertidig inntektssikring og økonomisk stønad. Gjelder innsyn/saksbehandling og utbetaling
 
 ## Nivå 1: Pasientreiser
-Tilgangsgruppen har følgende undergrupper: 
+Tilgangspakken har følgende undergrupper: 
 
 - *Refusjon av pasientreiser	
   - Fullmakten søknad om og/eller eventuell klage på vedtak om refusjon av reiseutgifter i forbindelse med behandlinger som dekkes av det offentlige
 
 ## Nivå 1: Helfo
-Tilgangsgruppen har følgende undergrupper: 
+Tilgangspakken har følgende undergrupper: 
 - *Refusjon for privatpersoner	
   - Fullmakten gjelder bistand til å søke om stønad til helsetjenester etter folketrygdloven, herunder innsyn i og håndtering av egenandel-/frikortordningen og helsetjenester gitt i utlandet. Gjelder også når en tredjepart sender søknad på vegne av en person (eks. lege, arbeidsgiver, forsikringsselskap)
 - *Fastlege	
@@ -174,12 +174,12 @@ Tilgangsgruppen har følgende undergrupper:
 
 ## Nivå 1: Pasientopplsyninger og -tjenester
 
-Denne tilgangsgruppen er fortsatt under "kartlegging" og vil endres. 
+Denne tilgangspakken er fortsatt under "kartlegging" og vil endres. 
 Det er pr i dag ikke definert vergefullmakter for området som gjelder pasientopplysninger og -tjenester. 
 
 Fullmaktene som finnes i dag innenfor pasientopplysnigner/pasienttjeneser er veldig app/system/helseforetak spesifikke. 
 
-Fra Altinn autorisasjon sitt perspektiv representerer nivå 3 (merket *) i listen nedenfor spesifikke tjenester/ressurser heller enn tilgangsgrupper som andre tjenester knyttes til.
+Fra Altinn autorisasjon sitt perspektiv representerer nivå 3 (merket *) i listen nedenfor spesifikke tjenester/ressurser heller enn tilgangspakker som andre tjenester knyttes til.
 Behovet hos kommuner for tilsvarende fullmakter innen pasientopplysnigner/pasienttjeneser er ikke kartlagt.  
 
 - HelseNorge (gjelder ikke Helse Midt)
@@ -196,4 +196,4 @@ Behovet hos kommuner for tilsvarende fullmakter innen pasientopplysnigner/pasien
   - *Bare kommuneisere
     - Fullmakten gir tilgang til å se og administrere timer og til å sende meldinger på dine vegne. 
 - Kommune (gjelder pasient og helseopplysninger hos kommuner)
-  - Ikke definert videre tilgangsgrupper på nivå 3
+  - Ikke definert videre tilgangspakker på nivå 3

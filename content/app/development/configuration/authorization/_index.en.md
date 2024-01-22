@@ -63,7 +63,7 @@ The subject part of the target for the rule defines who the rule target.
 
 A complete list of role types can be found [here](https://www.altinn.no/api/metadata/roledefinitions).
 
-**It is important to read the [guidlines](guidelines_authorization) before selecting role.**
+**It is important to read the [guidelines](guidelines_authorization) before selecting role.**
 
 ### Examples
 
@@ -107,9 +107,11 @@ Example with read action:
 
 ## Obligation
 
-The obligation part is used to define information that should be used by PEP. The required authentication level is set to 2 by default. This is done as an obligation in the XACML Policy file.
+The obligation part is used to define information that should be used by PEP. The required authentication level is set
+to 2 by default. This is done as an obligation in the XACML Policy file.
 
-If the required authentication level is set to 4, you must define that the service owner can interact with it through level 3 authentification for Maskinporten.
+If the required authentication level is set to 4, you must define that the service owner can interact with it through
+level 3 authentication for Maskinporten.
 This is because Maskinporten is defined as level 3. See the rule library for examples.
 
 Example with authentication level 2

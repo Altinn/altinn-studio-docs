@@ -19,6 +19,10 @@
   translation: Login/My profile
 - id: search
   translation: Search
+- id: searching-for
+  translation: What are you looking for?
+- id: all-langs
+  translation: Search in all available languages
 - id: to-the-frontpage
   translation: To the frontpage
 - id: show-hide-menu

@@ -1,13 +1,14 @@
 ---
 title: Rule library
-description: Library of authorization rules that can be used in an app. Remember to replace tags ([RULE_ID]) with your own ID. [ORG] and [APP] can will be replaced later, so they can remain in the file if you use Localtest from january 2023 or newer.
+description: Library of authorization rules that can be used in an app. Remember to replace tags ([RULE_ID]) with your own ID. [ORG] and [APP] can will be replaced later, so they can remain in the file if you use Local test from january 2023 or newer.
 toc: true
 ---
 
 ## [ORG] can instantiate an instance of [ORG]/[APP]
 
-[OORG_1] and [ORG_2] can here be the same or different.
-In the case that they are different [ORG_1] will correspond to the application owner and [ORG_2] be another organization that is allowed to instanciate. 
+[ORG_1] and [ORG_2] can here be the same or different.
+In the case that they are different [ORG_1] will correspond to the application owner and [ORG_2] be another organization
+that is allowed to instantiate.
 
 ```xml {linenos=false,hl_lines=[2,7,15,19,27]}
 <xacml:Rule RuleId="urn:altinn:example:ruleid:[RULE_ID]" Effect="Permit">
@@ -180,7 +181,7 @@ By either modifying task or roles, you will here be able to set rules for who wi
 </xacml:Rule>
 ```
 
-## User with role REGNA can read instanes of [ORG]/[APP] when it is in EndEvent_1
+## User with role REGNA can read instances of [ORG]/[APP] when it is in EndEvent_1
 
 This rules permits a user with the given role to read instance data after the process has ended.
 This will, among other things, include downloading attachments and receipts associated with the instance.

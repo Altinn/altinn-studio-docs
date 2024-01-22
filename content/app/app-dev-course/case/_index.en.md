@@ -31,7 +31,7 @@ There is a wish that one or more of the words "newcomer" and "Sogndal" is includ
 
 {{% /expandlarge %}}
 
-### First page of datacollecting
+### First page of data collecting
 {{% expandlarge id="first-page-datacollecting-expandable" header="Requirements" %}}
 
 - Name and age of the person who is a newcomer
@@ -67,7 +67,7 @@ Someone in the municipality has created a sketch of the information page.
 The following is desirable to be similar in the application:
  - Placing of pictures
  - Text size
- - Formating of text
+ - Formatting of text
 
 [Sketch of information page](/app/app-dev-course/modul2/infoside_tilflyttere.pdf)
 

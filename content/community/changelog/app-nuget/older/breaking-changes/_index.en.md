@@ -4,9 +4,12 @@ description: Overview of breaking changes introduced into app nuget packages in 
 toc: true
 ---
 
-## Support for autodelete when process ends
-For some apps, the fact that there's traces of it in the user archive (and the data is stored) is a problem (e.g. for security reasons). 
-The Altinn.App.* packages has been updated to support autodelete when process ends. This is introduced with version 2.0.0-alpha of the packages.
+## Support for auto delete when process ends
+
+For some apps, the fact that there's traces of it in the user archive (and the data is stored) is a problem (e.g. for
+security reasons).
+The Altinn.App.* packages has been updated to support auto delete when process ends. This is introduced with version
+2.0.0-alpha of the packages.
 
 Updating to this version will require changes in multiple files.
 1. Updated package dependencies
@@ -160,8 +163,11 @@ If you are running a newer release, skip to step 2.
             });
    ```
 
-3. If deleting instances should be available for the application owner this must be explicitly stated in the application policy. 
-The requred rule is documented [here](https://altinn.github.io/docs/altinn-studio/app-creation/autorisasjon/regelbibliotek/#org-can-delete-an-instance-of-orgapp-in-any-task-or-event).
+3. If deleting instances should be available for the application owner this must be explicitly stated in the application
+   policy.
+   The required rule is
+   documented [here](https://altinn.github.io/docs/altinn-studio/app-creation/autorisasjon/regelbibliotek/#org-can-delete-an-instance-of-orgapp-in-any-task-or-event)
+   .
 
 ## Update path of Data Protection Keys for Apps
 
@@ -201,7 +207,7 @@ Build pipeline fails due to failing task: _Build and push docker image to acr_.
 Expanding the task reveals error message:
 
 ```bash
-Startup.cs(5,35): error CS0234: The type or namespace name 'Extentions' does not exist in the namespace 'Altinn.App.PlatformServices' (are you missing an assembly reference?)".
+Startup.cs(5,35): error CS0234: The type or namespace name 'Extensions' does not exist in the namespace 'Altinn.App.PlatformServices' (are you missing an assembly reference?)".
 ```
 
 Screenshot of the failing build pipeline.
@@ -315,8 +321,8 @@ There are three steps you must take in order to update your application to adher
     or inspect your code. Be ware that indentation is important when working with .yaml files.
     ![add new volume to values](breaking_change_new-volume-in-values.png "add-new-volume-to-values")
 2. Update nuget dependencies in `App.csproj` to version 1.0.86-alpha.
-    Navigate to you application repository and find `App.csproj` in the `App` folder.
-    Upgrade the three Altinn.App nugetpackages to version 1.0.86.
+   Navigate to you application repository and find `App.csproj` in the `App` folder.
+   Upgrade the three Altinn.App nuget packages to version 1.0.86.
     ```xml
         <PackageReference Include="Altinn.App.Api" Version="1.0.86-alpha" />
         <PackageReference Include="Altinn.App.Common" Version="1.0.86-alpha" />
@@ -527,7 +533,8 @@ Introduced with issue: [#3820](https://github.com/Altinn/altinn-studio/issues/38
 The base class that every application inherits has been altered to allow for both data and task validation. 
 
 ### Error
-When building App.cs errors simillar to those depicted in the picture below are logged.
+
+When building App.cs errors similar to those depicted in the picture below are logged.
 
 ![build-errors](3820-errors.png "Build errors")
 

@@ -12,5 +12,5 @@ We use a consistent language and the same components in all our digital solution
 4. **Visual design that motivates** The visual design should contribute to ensuring clear and concise dialog between the user and the agency. 
 We use a friendly colour palette, a simple UI, obvious interaction elements and clear illustrations to create a good atmosphere. 
 All visual considerations should have a clear purpose of creating a specific effect.
-5. **Accessibility for all** We strive to create digital solutions that are accessable by everyone. 
-We reuse components in a way which optimalizes accessibility - technically and in terms of interaction and visual design.
+5. **Accessibility for all** We strive to create digital solutions that are accessible by everyone. 
+We reuse components in a way which optimizes accessibility - technically and in terms of interaction and visual design.

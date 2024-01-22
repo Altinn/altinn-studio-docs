@@ -11,7 +11,7 @@ based on input from user on previous parts of the form.
 {{% panel theme="warning" %}}
 ⚠️ Dynamic tracks are unsupported as of v4 (frontend). Hiding and showing entire pages
 are supported by [dynamic expressions](../../../logic/expressions)
-(read how to [hide entire pages here](../../../logic/expressions#viseskjule-hele-sider)).
+(read how to [hide entire pages here](../../../logic/expressions#showhide-entire-pages)).
 {{% /panel %}}
 
 ## Trigger calculation on tracks from frontend
@@ -86,6 +86,7 @@ To overrule default dynamic tracks, two changes must be made.
         }
 
     }
+<<<<<<< HEAD
    ```
 
 2. Register you custom implementation in the _Program.cs_ class
@@ -93,6 +94,14 @@ To overrule default dynamic tracks, two changes must be made.
    services.AddTransient<IPageOrder, CustomOrder>();
    ```
    This ensuers your custom code is known to the application and that it will be executed.
+=======
+    ```
+2. Register you custom implementation in the _Program.cs_ class     
+    ```C#
+    services.AddTransient<IPageOrder, CustomOrder>();
+    ```
+    This ensures your custom code is known to the application and that it will be executed.
+>>>>>>> master
 
 The interface contains a method with the name _GetPageOrder_. The expected output from this is a sorted list with the names of the relevant pages in the application.
 
@@ -121,7 +130,7 @@ else
 }
 ```
 
-This prequires that the service `IAppResources` is made available in the class.
+This requires that the service `IAppResources` is made available in the class.
 When the service is already available through dependency injected into the class, only two steps are required:
 
 1. Create a private variable in the state of the class

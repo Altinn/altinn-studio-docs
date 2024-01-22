@@ -20,5 +20,13 @@
     {
         "ActionId": "sign",
         "ActionTitle": "Sign"
+    },
+    {
+        "ActionId": "instantiate",
+        "ActionTitle": "Instansier"
+    },
+    {
+        "ActionId": "complete",
+        "ActionTitle": "Bekreft mottatt tjenesteeier"
     }
 ]

@@ -8,7 +8,11 @@ weight: 500
 
 ## Standard .NET configuration
 
-Altinn 3's app template is based on an ASP.Net Core application and has a multidude of possibilities for controlling configuration of an app. This documentation is therefore in large part quotes from or links to [Microsoft's own documentation](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/?view=aspnetcore-3.1). However, not everything is possible in an application because Altinn 3 does not give full access to the environment an app is run within. 
+Altinn 3's app template is based on an ASP.Net Core application and has a multitude of possibilities for controlling
+configuration of an app. This documentation is therefore in large part quotes from or links
+to [Microsoft's own documentation](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/?view=aspnetcore-3.1)
+. However, not everything is possible in an application because Altinn 3 does not give full access to the environment an
+app is run within.
 
 ## appsettings.json
 

@@ -96,7 +96,7 @@ DataField represents a form field extraction rule. Every time a form is being sa
 This type is used by a feature still in development.
 
 eFormidlingContract holds the configuration of the eFormidling integration for the application.
-An application configured to enable eFormidling integration in combination with the eFormidiling contract will send a shipment to eFormidling for every instance that is created.
+An application configured to enable eFormidling integration in combination with the eFormidling contract will send a shipment to eFormidling for every instance that is created.
 
 | Name            | Description                                                                                                                                          |
 | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -129,7 +129,7 @@ Only one of the two settings should be used at a time.
 
 ## CopyInstanceSettings
 
-Configure if copying data from an archived instance is allowed and what datatypes and datafields that should be excluded in the new instance.
+Configure if copying data from an archived instance is allowed and what data types and data fields that should be excluded in the new instance.
 
 | Name               | Description                                                                      |
 | ------------------ | -------------------------------------------------------------------------------- |

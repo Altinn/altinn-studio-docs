@@ -26,6 +26,32 @@ These references must be updated to get the latest version
 With this extension you can view what the latest version of all dependencies when you open App.csproj (the extension also supports npm).
 {{% /panel%}}
 
+{{<content-version-selector classes="border-box">}}
+
+{{<content-version-container version-label="v7.0.0 and newer">}}
+
+- Locate the references to the libraries used in your app. The references are located in `App/App.csproj`. 
+
+Example.:
+
+```xml
+<ItemGroup>
+  <PackageReference Include="Altinn.App.Api" Version="7.15.1" />
+  <PackageReference Include="Altinn.App.Core" Version="7.15.1" />
+</ItemGroup>
+```
+
+- Check if a new version of the libraries are published:
+    - [Altinn.App.Api](https://www.nuget.org/packages/Altinn.App.Api)
+    - [Altinn.App.Core](https://www.nuget.org/packages/Altinn.App.Core)
+- Update the reference to the latest version and save the file.
+- Check if there is any [breaking changes](/community/changelog/app-nuget) with the new version,
+  make necessary changes if there are any issues.
+- Build and deploy a new version of your app.
+{{</content-version-container>}}
+
+{{<content-version-container version-label="v6.1.0 and older">}}
+
 - Locate the references to the libraries used in your app. The references are located in `App/App.csproj`. 
 
 Example.:
@@ -49,6 +75,8 @@ Example.:
   make necessary changes if there are any issues.
 - Build and deploy a new version of your app.
 
+{{</content-version-container>}}
+{{</content-version-selector>}}
 
 ## App frontend
 
@@ -85,7 +113,7 @@ You need to update two references:
 <script src="https://altinncdn.no/toolkits/altinn-app-frontend/<VERSIONNUMBER>/altinn-app-frontend.css"></script>
 ```
 
-Search for the filename (àltinn-app-frontend.js` or `altinn-app-frontend.css`) and replace the version number (e.g. 1) with the desired version number (e.g. 2).
+Search for the filename (`altinn-app-frontend.js` or `altinn-app-frontend.css`) and replace the version number (e.g. 1) with the desired version number (e.g. 2).
 
 _Reminder:_ If you depend on a _major_ version (e.g. 2), every _minor_ and _patch_ version of this _major_ release will be applied automatically. If a specific version is defined (e.g. 2.0.0) the application will fetch this version until the reference is updated and no fixes or improvements will be fetched.
 

@@ -30,6 +30,8 @@
               "examples": {
                 "Instance created event with alternative subject": {
                   "value": {
+                    "resource": "urn:altinn:resource:altinnapp.ttd.apps-test",
+                    "resourceinstance": "50015641/a72223a3-926b-4095-a2a6-bacc10815f2d",
                     "source": "https://ttd.apps.altinn.no/ttd/apps-test/instances/50015641/a72223a3-926b-4095-a2a6-bacc10815f2d",
                     "specversion": "1.0",
                     "type": "app.instance.created",
@@ -39,6 +41,8 @@
                 },
                 "Instance created event without alternative subject": {
                   "value": {
+                    "resource": "urn:altinn:resource:altinnapp.ttd.apps-test",
+                    "resourceinstance": "50067592/f3c92d96-0eb3-4532-a16f-bcafd94bde3a",
                     "source": "https://ttd.apps.altinn.no/ttd/apps-test/instances/50067592/f3c92d96-0eb3-4532-a16f-bcafd94bde3a",
                     "specversion": "1.0",
                     "type": "app.instance.created",
@@ -382,6 +386,16 @@
         "summary": "Retrieves a set of events related based on query parameters.",
         "parameters": [
           {
+            "name": "resource",
+            "in": "query",
+            "description": "Required resource attribute",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "urn:altinn:resource:altinnapp.ttd.apps-test"
+          },
+          {
             "name": "after",
             "in": "query",
             "description": "Retrieve events that were registered after this event Id",
@@ -389,15 +403,6 @@
               "type": "string"
             },
             "example": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
-          },
-          {
-            "name": "source",
-            "in": "query",
-            "description": "Optional source",
-            "schema": {
-              "type": "string"
-            },
-            "example": "https://ttd.apps.at22.altinn.cloud/ttd/apps-test/"
           },
           {
             "name": "subject",
@@ -604,7 +609,7 @@
                     "typeFilter": "app.instance.process.completed"
                   }
                 },
-                "End user (system) subscribing to events regarding an organisation": {
+                "End user (system) subscribing to events from a specific regarding an organisation": {
                   "value": {
                     "endpoint": "https://org-reception-func.azurewebsites.net/api/processCompleteInstance?code=APIKEY",
                     "sourceFilter": "https://skd.apps.altinn.no/skd/mva-melding",
@@ -622,7 +627,7 @@
                 "Subscription with Slack webhook": {
                   "value": {
                     "endpoint": "https://hooks.slack.com/services/TSRSASBVNF3/ADRRSDSSSAahttsasdfasFO3w83456ss",
-                    "sourceFilter": "https://ttd.apps.altinn.no/ttd/apps-test"
+                    "resourceFilter": "urn:altinn:resource:altinnapp.ttd.apps-test"
                   }
                 }
               }
@@ -789,7 +794,7 @@
         "tags": [
           "Subscription"
         ],
-        "summary": "Method to validate an specific subscription. Only avaiable from validation function.",
+        "summary": "Method to validate a specific subscription. Only avaiable from validation function.",
         "parameters": [
           {
             "name": "id",
@@ -821,6 +826,19 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "/tests/webhookreceiver": {
+      "post": {
+        "tags": [
+          "WebhookReceiver"
+        ],
+        "summary": "Accepts an http post request and responds OK.",
+        "responses": {
+          "200": {
+            "description": "Success"
           }
         }
       }
@@ -896,7 +914,8 @@
           "codeBase": {
             "type": "string",
             "nullable": true,
-            "readOnly": true
+            "readOnly": true,
+            "deprecated": true
           },
           "entryPoint": {
             "$ref": "#/components/schemas/MethodInfo"
@@ -943,7 +962,8 @@
           "escapedCodeBase": {
             "type": "string",
             "nullable": true,
-            "readOnly": true
+            "readOnly": true,
+            "deprecated": true
           },
           "manifestModule": {
             "$ref": "#/components/schemas/Module"
@@ -1038,7 +1058,8 @@
         },
         "additionalProperties": false,
         "example": {
-          "id": "0417812d-19f5-4612-953c-c7a5c94775dd",
+          "id": "ce2f5e3b-5e2d-40ac-9bc5-1cf8124579e7",
+          "resource": "urn:altinn:resource:altinapp.ttd.apps-test",
           "source": "https://ttd.apps.altinn.no/ttd/apps-test/instances/50015641/a72223a3-926b-4095-a2a6-bacc10815f2d",
           "specversion": "1.0",
           "type": "app.instance.created",
@@ -1603,16 +1624,16 @@
           "memberType": {
             "$ref": "#/components/schemas/MemberTypes"
           },
+          "name": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
           "declaringType": {
             "$ref": "#/components/schemas/Type"
           },
           "reflectedType": {
             "$ref": "#/components/schemas/Type"
-          },
-          "name": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
           },
           "module": {
             "$ref": "#/components/schemas/Module"
@@ -2295,6 +2316,11 @@
             "format": "uri",
             "nullable": true
           },
+          "resourceFilter": {
+            "type": "string",
+            "description": "Filter on resource",
+            "nullable": true
+          },
           "subjectFilter": {
             "type": "string",
             "description": "Filter on subject",
@@ -2404,6 +2430,11 @@
           "subjectFilter": {
             "type": "string",
             "description": "Filter on subject",
+            "nullable": true
+          },
+          "resourceFilter": {
+            "type": "string",
+            "description": "Filter on resource",
             "nullable": true
           },
           "alternativeSubjectFilter": {
@@ -3134,6 +3165,10 @@
     },
     {
       "name": "Storage",
+      "description": "Private API"
+    },
+    {
+      "name": "WebhookReceiver",
       "description": "Private API"
     }
   ]
