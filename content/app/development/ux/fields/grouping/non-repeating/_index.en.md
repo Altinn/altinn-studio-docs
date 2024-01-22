@@ -50,7 +50,6 @@ A group is defined as follows in `FormLayout.json`:
 ]
 ```
 
-
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="v4 (App Frontend)">}}
 
@@ -62,7 +61,7 @@ A group is defined as follows in `FormLayout.json`:
 | type                                          | Yes      | Must be 'Group'                                                                                                                                                            |
 | [textResourceBindings](#textresourcebindings) | No       | Can be set for groups, see [description](#textresourcebindings).                                                                                                           |
 | children                                      | Yes      | List of the component IDs that are to be included in the group.                                                                                                            |
-| showGroupingIndicator                         | No       | Can be `"indent"` or `"panel"`. Indent shows a vertical line to the left of the group, and panel shows the group as a blue panel to indicate that the fields are related.  |
+| groupingIndicator                             | No       | Can be `"indented"` or `"panel"`. Indent shows a vertical line to the left of the group, and panel shows the group as a blue panel to indicate that the fields are related.  |
 
 ## textResourceBindings
 
@@ -70,6 +69,18 @@ It is possible to add different keys in textResourceBindings:
 
 - `title` - Sets the group title. If not set, the components in the group will display just as if they were not part of a group (with no title above them)
 - `description` - Sets the group body text. This is displayed below the title, and above the components in the group.
+
+## Visual grouping of components
+
+It is possible to visually group components together. This can be done by setting the `groupingIndicator` parameter to `indent` or `panel` on the group component.
+
+### Panel
+
+![Gruppe as panel](group-panel.png "Gruppe with panel view")
+
+### Indented
+
+![Visually grouped](group-indent.png "Grouped with indented line")
 
 {{</content-version-container >}}
 {{<content-version-container version-label="v3 (App Frontend)">}}

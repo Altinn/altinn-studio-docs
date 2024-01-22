@@ -6,7 +6,7 @@ description: Konfigurasjonsdetaljer for grupper vist som panel
 
 {{% notice warning %}}
 Deler av denne konfigurasjonen er ikke tilgjengelig i v4 og gjøres litt anderledes. Se
-[ikke-repeterende grupper](../non-repeating/_index.nb.md) for mer informasjon på hvordan man kan gruppere komponenter visuelt.
+[ikke-repeterende grupper](../non-repeating/) for mer informasjon på hvordan man kan gruppere komponenter visuelt.
 {{% /notice %}}
 
 ## Vise gruppen som del av Panel

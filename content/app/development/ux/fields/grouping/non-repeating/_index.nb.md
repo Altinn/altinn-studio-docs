@@ -54,7 +54,7 @@ En gruppe defineres på følgende måte i FormLayout.json:
 | type                                          | Ja      | Må settes til `Group`                                                                                                                                             |
 | [textResourceBindings](#textresourcebindings) | Nei     | Kan settes for grupper, se [nærmere beskrivelse under](#textresourcebindings).                                                                                    |
 | children                                      | Ja      | Liste over komponent-IDer som inkluderes i gruppen.                                                                                                               |
-| showGroupingIndicator                         | Nei     | Viser en vertikal linje til venstre for gruppen for å indikere at feltene har en sammenheng. Kan være `true` eller `false`.                                       |
+| groupingIndicator                             | Nei     | Visuellt grupperer komponentene i gruppen. Kan være `"indented"` eller `"panel"`.                                       |
 
 ## textResourceBindings
 
@@ -62,6 +62,18 @@ Det er mulig å legge til ulike nøkler i textResourceBindings:
 
 - `title` - Setter tittelen på gruppen. Om ikke satt, vil komponentene i gruppen vises som om de ikke var en del av en gruppe (uten tittel over)
 - `description` - Setter en beskrivelsestekst. Denne vises under tittelen, og over komponentene i gruppen.
+
+## Visuell gruppering av komponenter
+
+Det er mulig å sette opp en gruppe slik at komponentene i gruppen vises visuelt som en gruppe. Dette gjøres ved å sette `groupingIndicator` til `indent` eller `panel` på gruppen.
+
+### Panel
+
+![Gruppe som panel](group-panel.png "Gruppe med panel visning")
+
+### Indented
+
+![Visuelt gruppert](group-indent.png "Gruppe med indentert linje vinsing")
 
 {{</content-version-container >}}
 {{<content-version-container version-label="v3 (App Frontend)">}}
