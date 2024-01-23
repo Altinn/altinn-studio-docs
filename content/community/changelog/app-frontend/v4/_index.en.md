@@ -10,9 +10,16 @@ changes and how they may affect your app. As always, with a new major version, w
 thoroughly before deploying to production.
 
 {{% notice warning %}}
-Make sure to read through this page before you continue with the [migration routine](migrating-from-v3), and make the necessary changes throughout your app.
+Make sure to read through this page before you continue with the [migration routine](migrating-from-v3), and
+make the necessary changes throughout your app.
 {{% /notice %}}
 
+{{% notice warning %}}
+App frontend v4 is still in its early stages with release candidates. While we recommend you to try it out, test
+your app(s) with it, and build your future apps with v4, but we do not recommend you to deploy it to production at
+this stage. We will update this page with more as it arrives, and there may arrive more breaking changes in future
+release candidates before the final stable release.
+{{% /notice %}}
 
 ## Requires backend version 8.0.0
 
@@ -30,6 +37,12 @@ Layout sets is a way to support multiple forms in a single application.
 This entails a slightly different folder structure in the `ui` folder of your app, as well as a new `layout-sets.json` file.
 This used to be optional, but as of v4 it is required, even for apps with only a single data step.
 See the [documentation on layout sets](/app/development/ux/pages/layout-sets) for more information.
+
+## Custom receipt pages do not work (temporarily)
+
+The functionality for custom receipt pages has been temporarily removed in the v4 release candidate, but will be
+re-introduced in a future release, prior to the stable `v4.0.0` release. The configuration for custom receipt pages
+will move elsewhere, and this section will be updated with more information when available.
 
 ## Language and text resource changes
 
@@ -78,7 +91,7 @@ There was a bug in v3 that caused this validation to not happen at all for certa
 This has been now been fixed, but is a breaking change since if you previously did not get any schema validation errors, you may suddenly see them now.
 If this was the case you should test your app to make sure validation works as expected.
 
-## Support for `number`, `integer` and `boolean` data types
+## Support for `number`, `integer` and `boolean` and other data types
 
 One of the new features is full support for non-string data types in the data model. This means that you can now have
 data model fields of type `number`, `boolean`, and bind them to components. For example, if you bind
@@ -89,6 +102,33 @@ frontend will convert the strings to booleans.
 As of `v4.0.0-rc1` invalid values (also invalid typed values like `-` for a numeric field) will not be saved to the
 data model. Before we release `v4.0.0` these cases will also present validation errors to the user.
 {{% /notice %}}
+
+**Note:** If you have set up a `RuleHandler.js` file in your app, you may need to update it to handle the new data types.
+In cases where the `RuleConfiguration.json` file specified a path that pointed to a `number` or `boolean` field,
+the `RuleHandler.js` file would previously receive a string value. This is no longer the case, and
+code in `RuleHandler.js` should be updated accordingly.
+
+**Note:** In addition to all of this, the app frontend now properly supports objects and `null` values. This should
+not affect most apps, but it might be of interest when writing data processor code on the backend. If your data model
+initializes an object, even if empty, the app-frontend will now preserve that object in later communication with the
+backend. Previously, app-frontend would remove empty objects from the data model, leading to data processors
+having to re-initialize the object on the backend every time. Please note that app-frontend does not initialize
+objects for you the first time, so you still need to do that in your data model or data processor code.
+
+## The `saveWhileTyping` property now only accepts numbers
+
+The `saveWhileTyping` property on the `Input` component and other Input-like components used to accept a boolean value
+for turning off saving while typing. In v4, saving while typing is always enabled, but it is still possible to
+delay saving by setting `saveWhileTyping` to a number larger than 400 (our default debounce time in milliseconds).
+
+When delaying saving, we may still save the data to the backend before that time, for example when the user navigates
+away from the field and starts typing in a new field (with a lower, or default `saveWhileTyping` value).
+
+If your app relied on disabling `saveWhileTyping` to ensure your custom data processor was not called too often
+(as we've often seen done when a change in one field triggers an API call), you should consider making the expensive
+action in your data processor a custom action instead, via adding
+a [CustomButton component](/app/development/ux/components/custombutton/) nearby the field. This way the user controls
+when the action is triggered, not our automatic saving functionality.
 
 ## Components will not show up if they contain configuration errors
 
@@ -173,6 +213,8 @@ Example of old to new config:
   type; `"RepeatingGroup"`
 - `"maxCount"` is no longer required to create a repeating group, but is still able to be used to restrict the maximum
   number of addable rows.
+- `edit.filter` is no longer supported, but the same functionality (or better) can be achieved by using the 
+  existing `hiddenRow` property with [expressions](/app/development/logic/expressions).
 
 Example of old to new config:
 

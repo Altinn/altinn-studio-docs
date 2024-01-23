@@ -3,6 +3,7 @@ title: CustomButton
 linktitle: CustomButton
 description: Overview over the CustomButton component
 tags: [actions, translate-to-english]
+weight: 10 # Do not change, the components will be sorted alphabetically
 toc: true
 ---
 
