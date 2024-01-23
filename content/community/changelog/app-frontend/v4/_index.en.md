@@ -2,6 +2,7 @@
 title: v4
 description: Overview of breaking changes introduced in v4 of app frontend.
 weight: 99
+toc: true
 ---
 
 App frontend v4 brings with it some new features and breaking changes. This document aims to give an overview of the
@@ -13,32 +14,43 @@ Make sure to read through this page before you continue with the [migration rout
 {{% /notice %}}
 
 
-### Requires backend version 8.0.0
+## Requires backend version 8.0.0
 
 App frontend v4 requires at least version 8.0.0 of the `Altinn.App.Core` and `Altinn.App.Api` nuget packages.
 See the [overview of changes in backend v8](/community/changelog/app-nuget/v8) for more information on how to upgrade.
 
-### Using layout sets is now required
+{{% notice warning %}}
+The `v4.0.0-rc1` release requires version `v8.0.0-preview15` or above. When both major releases of app frontend and
+backend are released, the `v4.0.0` release will require version `v8.0.0` or above.
+{{% /notice %}}
+
+## Using layout sets is now required
 
 Layout sets is a way to support multiple forms in a single application.
 This entails a slightly different folder structure in the `ui` folder of your app, as well as a new `layout-sets.json` file.
 This used to be optional, but as of v4 it is required, even for apps with only a single data step.
 See the [documentation on layout sets](/app/development/ux/pages/layout-sets) for more information.
 
-### Language rewrite
+## Language and text resource changes
 
-The language system has that handles internal texts and app-specific text resources has been rewritten.
+The language system has that handles internal texts and app-specific text resources has been rewritten and improved.
 It should work mostly the same as before but there are a few subtle changes that may affect your app:
 
-- Previously, when refering to a path in the data model which resulted in a null value, the full path would be shown instead for most components.
-  However, in options from repeating groups it would instead show an empty string in place of the null value.
-  This has been changed so that the full path is shown in all cases instead.
-- To alleviate the problem of refering to null values, a new `defaultValue` property has been added to the text resource files that, if set, will be shown instead of the data model path.
+- Previously, when referring to a path in the data model which resulted in a null value, the full path would be shown
+  instead for most components. However, in options from repeating groups it would instead show an empty string in place
+  of the null value. This has been changed so that the full path is shown in all cases instead.
+- To alleviate the problem of referring to null values, a new `defaultValue` property has been added to the text
+  resources that, if set, will be shown instead of the data model path.
   See the [documentation on text resources](/app/development/ux/texts/#default-value) for more information.
-- Variables in text are now supported for nested repeating groups which did not previously work as expected. <!-- TODO(Ole Martin): Is this correct? -->
-- Using `dataModel.default` as the data source in text resources is no longer recommended. Instead, refer to the specific data model like this: `dataModel.myDataModel`. <!-- TODO(Ole Martin): Elaborate on why using default is a bad idea. -->
+- Variables in text are now supported for items in nested repeating groups. Previously only items in top-level repeating groups
+  were supported in text resource variables.
+- Using `dataModel.default` as the data source in text resources is no longer recommended. Instead, refer to the
+  specific data type like this: `dataModel.myDataModel`. The frontend will now automatically retrieve the data model
+  it needs when a text resource is displayed anywhere on the page, but `dataModel.default` will only work when rendering
+  a form, as it will use the default data model for that form. We're planning to add support for multiple data models
+  in one form in the future, and at that point there will be no concept of a default data model.
 
-### Most users will be prompted for party each time
+## Most users will be prompted for party each time
 
 In the Altinn profile it was possible to change a setting to 'not be prompted for party each time'. This setting was
 mistakenly never read by app-frontend, so we failed to respect it. The default setting in Altinn profile is
@@ -52,37 +64,63 @@ The setting can be found under **Advanced settings** in the Altinn profile:
 Unless the user changes this setting, they will be prompted with the following page each time they start a new instance:
 ![Page asking who the user wants to represent](prompt-en.png "Page asking who the user wants to represent")
 
-### Tracks are no longer supported
+## Tracks are no longer supported
 
 Showing and hiding pages using [tracks](/app/development/ux/pages/tracks/) (calculate page order) is no longer supported.
 This also means that the trigger `calculatePageOrder` no longer has any effect and should be removed from any components where it is used.
 Instead, you should use dynamic expressions on the `hidden` property of a layout page to determine whether pages should be visible or hidden.
 See the [documentation on dynamic expressions](/app/development/logic/expressions/#showhide-entire-pages) for more information.
 
-### Data model schema validation works for more data models
+## Data model schema validation works for more data models
 
 The form data gets validated against the data model schema to show validation messages to the user filling out the form.
 There was a bug in v3 that caused this validation to not happen at all for certain data model structures.
 This has been now been fixed, but is a breaking change since if you previously did not get any schema validation errors, you may suddenly see them now.
 If this was the case you should test your app to make sure validation works as expected.
 
-### Validations against dataModelBindings
+## Support for `number`, `integer` and `boolean` data types
 
-We now warn against invalid data model binding configurations.
-This will show an error in place of the component if the data model binding is invalid, making this a breaking change.
-Previously, there was no indication that anything was wrong if the data model binding was misconfigured, and the data from the component would simply not be saved.
-You should thoroughly test your app to make sure that components display correctly and that all data model bindings are correct.
+One of the new features is full support for non-string data types in the data model. This means that you can now have
+data model fields of type `number`, `boolean`, and bind them to components. For example, if you bind
+a `Checkboxes` component to a `boolean` field, and provide an options list with the strings `"true"` and `"false"`, the
+frontend will convert the strings to booleans.
 
-<!-- TODO(Ole Martin): please review this, and maybe add an image if relevant? -->
+{{% notice warning %}}
+As of `v4.0.0-rc1` invalid values (also invalid typed values like `-` for a numeric field) will not be saved to the
+data model. Before we release `v4.0.0` these cases will also present validation errors to the user.
+{{% /notice %}}
 
-### The group component has been split into multiple components
+## Components will not show up if they contain configuration errors
+
+Because of the support for other data types, we now have to be more strict about the configuration of components,
+as the frontend has to make sure it is able to look up the data model value expected for a component in order to save
+data into it. Previously the app-frontend would assume data model bindings were correct, and in combination with the
+backend invalid bindings would result in data being lost.
+
+To be on the safer side, components will now be replaced with an error message if they contain configuration errors,
+including invalid data model bindings. These error messages will only appear in development mode (i.e. in a test
+environment, or when running locally). In production, it will appear as if invalid components are hidden.
+
+You should thoroughly test your app to make sure that components display correctly and that all data model bindings
+are correct. Testing this should include opening repeating groups and triggering conditions to un-hide
+hidden components.
+
+If you get an error message for an invalid binding you disagree with, please check that the data model `*.schema.json`
+file is up-to-date with the latest changes to the data model. Do not hesitate to contact us if you need help with this.
+
+![Error message shown when a component has an invalid data model binding](component-render-err.png "Error message shown when a component has an invalid data model binding")
+
+## The group component has been split into multiple components
 
 The different methods of configuring the `Group` component have been split into separate components.
 
 {{% expandlarge id="group" header="Group" %}}
 
-- The group component has been stripped down and is now only used to group components together and provide them with an
+- The group component is now only used to group components together and provide them with an
   accessible top level title and description as well as optionally visually grouping the items together by using `"groupingIndicator"`.
+- After the split, invalid configurations for a `Group` will be shown as an error message. Consider if you want to use
+  one of the other group components instead. A commonly confused configuration is using `"dataModelBindings"` on a
+  `Group` component, which is not supported. The group itself does not bind to data, only its children may.
 
 {{% /expandlarge %}}
 
@@ -263,7 +301,7 @@ Example of old to new config:
 
 {{% /expandlarge %}}
 
-### Title and description changes for Groups
+## Title and description changes for Groups
 
 The `title` attribute in `textResourceBindings` for the `RepeatingGroup` component previously only applied
 to the title shown above each row in the summary view of the repeating group. This attribute is now only used as the
@@ -276,7 +314,7 @@ is used for displaying the title above each row in the summary view of the repea
 The `body` attribute in `textResourceBindings` for the `Group` component and `RepeatingGroup` component is now called
 `description` in order to be more consistent with the rest of the components.
 
-### Validation triggers have been replaced
+## Validation triggers have been replaced
 
 The concept of triggering validations has been removed in favor of keeping the validations in sync with the data model.
 Instead of controlling when validations are triggered, you now control when validations are displayed to the user.
@@ -414,11 +452,11 @@ Previously, `Schema` and `Component` validations were implicitly triggered whene
 In v4, these validations are not implicitly set to be always visible. If you want to keep the old behavior,
 where these validations were shown immediatly while typing, you need to set `"showValidations": ["Schema", "Component"]` on those components.
 
-### AttachmentList config changes
+## AttachmentList config changes
 
 The `AttachmentList` component has undergone updates in v4 to address two key issues:
 
-#### 1. Enhanced Attachment Display
+### 1. Enhanced Attachment Display
 
 Previously, the AttachmentList could only show either PDFs or other attachments.
 In version 4, it has been changed to show both PDFs and other attachments simultaneously.
@@ -430,7 +468,7 @@ but when set to `true`, it excluded all other attachments. Now the AttachmentLis
 - `"dataTypeIds": ["include-all"]` - This is a new property and will display all data types including PDF's.
 - `"dataTypeIds": ["fileUpload-changename", "ref-data-as-pdf"]` - This will display both PDF's and other attachments that are specified, in this case the data type `fileUpload-changename`.
 
-#### 2. Displaying Attachments from other process tasks
+### 2. Displaying Attachments from other process tasks
 
 Previously, the AttachmentList was limited to displaying attachments solely from the current process task, which was not optimal.
 This limitation was particularly noticeable when the component was used in the receipt page, which is displayed only after the last process task.
