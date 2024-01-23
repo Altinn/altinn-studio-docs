@@ -12,7 +12,7 @@ weight: 100
   if (content.innerHTML === '') {
     content.innerHTML = 'Loading from github...';
   }
-   axios.get(`${'https://cors-anywhere.herokuapp.com/'}https://github.com/Altinn/altinn-studio/blob/master/docs/CONTRIBUTING.md`)
+   axios.get(`${'https://cors-anywhere.herokuapp.com/'}https://github.com/Altinn/altinn-studio/blob/main/CONTRIBUTING.md`)
     .then((res) => {
       const doc = new DOMParser().parseFromString(res.data, "text/html");
 
