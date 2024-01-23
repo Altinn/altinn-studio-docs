@@ -95,7 +95,7 @@ We think this naturally is also very important for those who consider whether to
 Even though [Altinn is a cooperation](https://www.altinn.no/en/about-altinn/the-altinn-co-operation/),
 this will be an important question.
 
-Altinn 3 is therefore completely open source with [a permissive license](https://github.com/Altinn/altinn-studio/blob/master/LICENSE.md),
+Altinn 3 is therefore completely open source with [a permissive license](https://github.com/Altinn/altinn-studio/blob/main/LICENSE.md),
 and everything runs as regular [containers](https://www.docker.com/resources/what-container).
 
 ## The best tools

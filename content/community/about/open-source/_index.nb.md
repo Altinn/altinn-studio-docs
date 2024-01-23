@@ -98,7 +98,7 @@ Vi tenker at dette naturlig nok også er veldig viktig for de som vurderer om ma
 *Hvilke bindinger innfører vi til Altinn som teknisk løsning og Digdir som "leverandør"?*
 Selv om Altinn er [et samarbeid](https://www.altinn.no/om-altinn/om-altinn-samarbeidet/), så vil dette være viktige spørsmål.
 
-Altinn 3 er derfor helt åpen kildekode med [liberal lisensiering](https://github.com/Altinn/altinn-studio/blob/master/LICENSE.md),
+Altinn 3 er derfor helt åpen kildekode med [liberal lisensiering](https://github.com/Altinn/altinn-studio/blob/main/LICENSE.md),
 og alt som utvikles kjører som vanlige [containere](https://www.docker.com/resources/what-container).
 
 ## De beste verktøyene
