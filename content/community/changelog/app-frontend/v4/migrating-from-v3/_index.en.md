@@ -9,6 +9,14 @@ There are several breaking changes between App-frontend v3 and v4.
 Make sure to read through the [list of breaking changes](/community/changelog/app-frontend/v4), and make the necessary changes throughout your app in addition to the changes below.
 {{% /notice %}}
 
+{{% notice info %}}
+As of writing this documentation, the latest release candidate of app-frontend v4 is `4.0.0-rc1`. Updated information
+[is available on GitHub](https://github.com/Altinn/app-frontend-react/releases). Before the release of v4.0.0 stable,
+you will have to use exact version numbers in the URLs, e.g. `4.0.0-rc1` instead of `4`. Each time we release a new
+release candidate and you want to try out the new release, this URL will have to be updated. When the stable
+version is released, you can use `4` as the version number in the URLs and get the latest stable version automatically.
+{{% /notice %}}
+
 We are planning to release an upgrade tool that will automate the migration process and fix most breaking changes. 
 Until then, you can use the following guide to migrate manually.
 
@@ -39,7 +47,7 @@ App/views/Home/Index.cshtml
 
   <!-- Runtime CSS -->
 - <link rel="stylesheet" type="text/css" href="https://altinncdn.no/toolkits/altinn-app-frontend/3/altinn-app-frontend.css">
-+ <link rel="stylesheet" type="text/css" href="https://altinncdn.no/toolkits/altinn-app-frontend/4/altinn-app-frontend.css">
++ <link rel="stylesheet" type="text/css" href="https://altinncdn.no/toolkits/altinn-app-frontend/4.0.0-rc1/altinn-app-frontend.css">
 ```
 
 Changes inside __&lt;body&gt;__:
@@ -64,7 +72,7 @@ App/views/Home/Index.cshtml
   </div>
 
 - <script src="https://altinncdn.no/toolkits/altinn-app-frontend/3/altinn-app-frontend.js"></script>
-+ <script src="https://altinncdn.no/toolkits/altinn-app-frontend/4/altinn-app-frontend.js"></script>
++ <script src="https://altinncdn.no/toolkits/altinn-app-frontend/4.0.0-rc1/altinn-app-frontend.js"></script>
 ```
 
 If you are testing a release candidate version of App-frontend v4, you can use the following URLs instead:
