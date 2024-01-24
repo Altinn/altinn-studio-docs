@@ -138,46 +138,10 @@ https://github.com/abiosoft/colima/blob/main/docs/FAQ.md#cannot-connect-to-the-d
 
 ### Build fails
 
-If build fails, try increasing the memory of the VM:
+If build fails with this error `The command '/bin/sh -c yarn build' returned a non-zero code: 1`, try increasing the memory of the VM:
 
 ```
 colima start --cpu 2 --memory  4 --disk 60
-```
-
-### Colima stopped working (e.g. after updating macOS)
-
-Uninstall colima
-
-{{<notice warning>}}
-⚠️ This will delete all your Docker volumes.
-{{</notice>}}
-
-```
-brew uninstall colima
-```
-
-```
-brew uninstall lima
-```
-
-```
-brew uninstall qemu
-```
-
-```
-brew autoremove
-```
-
-Delete .colima folder
-
-```
-rm -rf $HOME/.colima
-```
-
-Reinstall colima
-
-```
-brew install colima
 ```
 
 ## Unresolved Issues
@@ -192,13 +156,43 @@ The symlink keeps getting deleted when restarting my mac and needs to be manuall
 sudo ln ~/.colima/default/docker.sock /var/run
 ```
 
-### Corrupted Postgres
+### Corrupted database (database system was not properly shut down; automatic recovery in progress)
 
-The PostgresSQL database database keeps getting corrupted when shutting down my Mac.
+The PostgresSQL database keeps getting corrupted when shutting down my Mac.
 I tried increasing the waiting time, without success:
 
 ```
 docker-compose up -d -t 20
+```
+
+### Colima stopped working ("user-v2_qemu.sock: connect: connection refused")
+
+Colima VM stops working from time to time.
+Try restarting your machine.
+If it still does not work, the only solution I found is to reinstall Colima.
+
+Uninstall colima
+
+{{<notice warning>}}
+⚠️ This will delete all your Docker volumes.
+{{</notice>}}
+
+```
+brew uninstall colima
+```
+
+Delete .colima folder
+
+```
+rm -rf $HOME/.colima
+```
+
+Restart your machine
+
+Reinstall colima
+
+```
+brew install colima
 ```
 
 ## Resources
