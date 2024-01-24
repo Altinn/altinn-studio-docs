@@ -148,16 +148,37 @@ Det er per nå mulig å hente verdier fra 3 ulike datakilder.
    2. `instanceId` inneholder id'en til den aktive instansen.
    3. `appId` inneholder id'en til appen instansen er knyttet til.
 
+### Standardverdi
+
+Hvis en variabel ikke finnes i datakilden, vises stien til det feltet i datakilden. Hvis du imidlertid ønsker å vise noe annet enn denne stien, kan du legge til en standardverdi-alternativ til hver variabel.
+
+Hvis du ønsker at teksten ikke skal vises i det hele tatt hvis feltet i datakilden ikke kan bli funnet, kan du sette standardverdien til en tom streng.
+
+```json
+{
+  "id": "good.text.id",
+  "value":  "{0}",
+  "variables": [
+    {
+      "key": "someField",
+      "dataSource": "dataModel.default",
+      "defaultValue": " "
+    }
+  ]
+}
+```
+
 ### Komplett eksempel:
 
 ```json
 {
   "id": "common.submitinfo",
-  "value": "Du leverer nå skjema for: {0} med organisasjonsnummer: {1}. Organisasjonens party id er {2}. [Link til oss]({3}).",
+  "value": "You are submitting for: {0} with organisation number: {1}. The organisations party id is {2}. [Link to our page]({3}).",
   "variables": [
     {
       "key": "skattepliktig.organisasjonsnavn",
-      "dataSource": "dataModel.default"
+      "dataSource": "dataModel.default",
+      "dataValue": "Mattilsynet"
     },
     {
       "key": "skattepliktig.organisasjonsnummer",

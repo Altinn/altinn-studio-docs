@@ -41,6 +41,42 @@ En gruppe defineres på følgende måte i FormLayout.json:
 }
 ```
 
+## Parameters
+
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="v4 (App Frontend)">}}
+
+## Parameters
+
+| Parameter                                     | Påkrevd | Beskrivelse                                                                                                                                                       |
+|-----------------------------------------------|---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| id                                            | Ja      | Unik ID, tilsvarer ID på andre komponenter. Må være unik i layout-filen, og bør være unik på tvers av sider.                                                      |
+| type                                          | Ja      | Må settes til `Group`                                                                                                                                             |
+| [textResourceBindings](#textresourcebindings) | Nei     | Kan settes for grupper, se [nærmere beskrivelse under](#textresourcebindings).                                                                                    |
+| children                                      | Ja      | Liste over komponent-IDer som inkluderes i gruppen.                                                                                                               |
+| groupingIndicator                             | Nei     | Visuellt grupperer komponentene i gruppen. Kan være `"indented"` eller `"panel"`.                                       |
+
+## textResourceBindings
+
+Det er mulig å legge til ulike nøkler i textResourceBindings:
+
+- `title` - Setter tittelen på gruppen. Om ikke satt, vil komponentene i gruppen vises som om de ikke var en del av en gruppe (uten tittel over)
+- `description` - Setter en beskrivelsestekst. Denne vises under tittelen, og over komponentene i gruppen.
+
+## Visuell gruppering av komponenter
+
+Det er mulig å sette opp en gruppe slik at komponentene i gruppen vises visuelt som en gruppe. Dette gjøres ved å sette `groupingIndicator` til `indent` eller `panel` på gruppen.
+
+### Panel
+
+![Gruppe som panel](group-panel.png "Gruppe med panel visning")
+
+### Indented
+
+![Visuelt gruppert](group-indent.png "Gruppe med indentert linje vinsing")
+
+{{</content-version-container >}}
+{{<content-version-container version-label="v3 (App Frontend)">}}
 
 ## Parameters
 
@@ -59,3 +95,6 @@ Det er mulig å legge til ulike nøkler i textResourceBindings:
 
 - `title` - Setter tittelen på gruppen. Om ikke satt, vil komponentene i gruppen vises som om de ikke var en del av en gruppe (uten tittel over)
 - `body` - Setter en beskrivelsestekst. Denne vises under tittelen, og over komponentene i gruppen.
+
+{{</content-version-container>}}
+{{</content-version-selector>}}

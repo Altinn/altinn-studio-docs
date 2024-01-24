@@ -20,6 +20,33 @@ komponenten skal vises på, etterfulgt av `:`. Vi starter tellingen på `0`, dvs
 `0:`. Komponenter som skal vises på den andre siden prefikses med `1:`. Osv. I tillegg må man sette `"multiPage": true` i `edit`-parameteren.
 Se eksempel under:
 
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="v4 (App Frontend)">}}
+
+```json {hl_lines=["5-8", "14-16"]} {linenos=inline}
+{
+  "id": "Some-group-id",
+  "type": "RepeatingGroup",
+  "children": [
+    "0:fnr",
+    "1:fornavn",
+    "1:mellomnavn",
+    "1:etternavn"
+  ],
+  "maxCount": 10,
+  "dataModelBindings": {
+    "group": "familie.barn"
+  },
+  "edit": {
+    "multiPage": true,
+    "mode": "hideTable",
+  }
+}
+```
+
+{{</content-version-container >}}
+{{<content-version-container version-label="v3 (App Frontend)">}}
+
 ```json {hl_lines=["5-8", "14-16"]} {linenos=inline}
 {
   "id": "Some-group-id",
@@ -40,6 +67,9 @@ Se eksempel under:
   }
 }
 ```
+
+{{</content-version-container>}}
+{{</content-version-selector>}}
 
 Her har man også lagt inn en [mode](../edit#mode) som skjuler tabellen under redigering.
 Resultatet blir som vist under.

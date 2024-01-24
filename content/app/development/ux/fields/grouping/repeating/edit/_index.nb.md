@@ -14,6 +14,19 @@ mtp visning av et gruppe-element under redigering/utfylling. Følgende innstilli
 Definerer om tabellen (som viser alle elementene i gruppen) skal vises når et element er åpent i redigerings-modus.
 Følgende verdier godtas:
 
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="v4 (App Frontend)">}}
+
+| Verdi       | Beskrivelse                                                                                                                                                         |
+|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| "showTable" | Standard oppførsel om ingenting er satt. Viser tabellen over flaten for redigering av gruppe-element.                                                               |
+| "hideTable" | Skjuler tabellen når et gruppe-element er åpent for redigering.                                                                                                     |
+| "showAll"   | Skjuler tabellen. Viser alle elementene i gruppen i redigerings-modus, under hverandre. Lagre-knapp skjules.                                                        |
+| "onlyTable" | Viser tabellen, men viser aldri redigeringsområdet for en rad. Nyttig sammen med [komponentvisning i tabellen](../table#visning-av-komponenter-direkte-i-tabellen). |
+
+{{</content-version-container >}}
+{{<content-version-container version-label="v3 (App Frontend)">}}
+
 | Verdi       | Beskrivelse                                                                                                                                                         |
 |-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | "showTable" | Standard oppførsel om ingenting er satt. Viser tabellen over flaten for redigering av gruppe-element.                                                               |
@@ -21,6 +34,9 @@ Følgende verdier godtas:
 | "showAll"   | Skjuler tabellen. Viser alle elementene i gruppen i redigerings-modus, under hverandre. Lagre-knapp skjules.                                                        |
 | "onlyTable" | Viser tabellen, men viser aldri redigeringsområdet for en rad. Nyttig sammen med [komponentvisning i tabellen](../table#visning-av-komponenter-direkte-i-tabellen). |
 | "likert"    | Likert visning, må brukes om eneste komponent i gruppen er en [Likert-komponent](../../../../components/likert)                                                     |
+
+{{</content-version-container>}}
+{{</content-version-selector>}}
 
 ## addButton
 

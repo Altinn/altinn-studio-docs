@@ -199,6 +199,27 @@ It is currently possible to fetch values from 3 different data sources.
    1. `instanceOwnerPartyId` inneholder avgiver sin party id.
    2. `instanceId` inneholder id'en til den aktive instansen.
    3. `appId` inneholder id'en til appen instansen er knyttet til.
+    
+### Default value
+
+If a variable is not found in the data source, the path to that field in the data source is displayed. If you however want to display something other than this path,
+you can add a `defaultValue` option to each variable.
+
+If you want the text to not be displayed at all if the field in the data source cannot be found, you can set the `defaultValue` to an empty string.
+
+```json
+{
+  "id": "good.text.id",
+  "value":  "{0}",
+  "variables": [
+    {
+      "key": "someField",
+      "dataSource": "dataModel.default",
+      "defaultValue": " "
+    }
+  ]
+}
+```
 
 ### Complete example:
 
@@ -209,7 +230,8 @@ It is currently possible to fetch values from 3 different data sources.
   "variables": [
     {
       "key": "skattepliktig.organisasjonsnavn",
-      "dataSource": "dataModel.default"
+      "dataSource": "dataModel.default",
+      "dataValue": "Mattilsynet"
     },
     {
       "key": "skattepliktig.organisasjonsnummer",
