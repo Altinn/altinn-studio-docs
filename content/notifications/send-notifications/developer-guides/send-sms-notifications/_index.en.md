@@ -1,14 +1,14 @@
 ---
-title: Send email notifications 
-linktitle: Send email notifications 
-description: Endpoint for sending an email to one or more recipient with known contact details.
+title: Send sms notifications 
+linktitle: Send sms notifications 
+description: Endpoint for sending an sms to one or more recipient with known contact details.
 weight: 50
 toc: true
 ---
 
 ## Endpoint
 
-POST /orders/email
+POST /orders/sms
 
 ## Authentication
 
@@ -28,36 +28,29 @@ application/json
 
 ### Request body
 The request body must contain the order request formatted as an
-[EmailNotificationOrderRequestExt](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Models/EmailNotificationOrderRequestExt.cs)
+[SmsNotificationOrderRequestExt](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Models/SmsNotificationOrderRequestExt.cs)
 and serialized as a JSON string.
 
 
 ### Required order request properties  
+
 #### __body__
-
 Type: _string_
 
-The body of the email in either plain text or HTML format.
-
-
-#### subject
-Type: _string_
-
-The subject of the subject of the email.
+The contents of the SMS.
 
 #### recipients
 Type: _List of [RecipientExt](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Models/RecipientExt.cs)_
   
-A list containing one or more recipient objects, each representing a recipient with an email address.
+A list containing one or more recipient objects, each representing a recipient with a mobile number.
 
 ### Optional order request properties
+#### __senderNumber__
 
-#### contentType
-Type: _enum_ _[EmailContentTypeExt](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Models/EmailContentTypeExt.cs)_
+Type: _string_
 
-Default: _Plain_ 
-
-The content type of the email can be either `Plain` or `Html`.
+Default: _Altinn_ 
+The string to use as the sender of the SMS. 
 
 #### requestedSendTime
 Type: _DateTime_ 
@@ -115,16 +108,14 @@ __You only need one of them__, reference the [Authentication section](#authentic
 
 
 ```bash
-curl --location 'https://platform.altinn.no/notifications/api/v1/orders/email' \
+curl --location 'https://platform.altinn.no/notifications/api/v1/orders/sms' \
 --header 'Content-Type: application/json' \
 --header 'PlatformAccessToken: [INSERT PLATFORM ACCESS TOKEN]' \
 --header 'Authorization: Bearer [INSERT ALTINN TOKEN]' \
 --data-raw '{
-    "sendersReference": "ref-2023-12-01",
-	"subject": "A test email from Altinn Notifications",
-	"body": "A message to be sent immediately from an org.",
-	"contentType": "Plain",
-    "recipients":[{"emailAddress":"testuser@altinn.no"}]
+    "sendersReference": "ref-2024-01-01",
+	"body": "A text message to be sent immediately from an org.",
+    "recipients":[{"mobileNumber":"+4799999999"}]
 }'
 ```
 
@@ -155,7 +146,7 @@ Response contains a problem details object with the error message in the detail 
     "traceId": "00-9ac2962c93d79629aa5c3744e4259663-344b49720aa49b0a-00",
     "errors": {
         "Subject": [
-            "'Subject' must not be empty."
+            "'Body' must not be empty."
         ]
     }
 }
