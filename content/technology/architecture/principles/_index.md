@@ -27,7 +27,7 @@ Possibility to share the platform as Open Source. The possibility to create an O
 
 **Implications** 
 
-- Code developed is [shared on GitHub](https://github.com/Altinn/altinn-studio). [See License](https://github.com/Altinn/altinn-studio/blob/master/LICENSE.md).
+- Code developed is [shared on GitHub](https://github.com/Altinn/altinn-studio). [See License](https://github.com/Altinn/altinn-studio/blob/main/LICENSE.md).
 - We also have our [backlog](https://github.com/Altinn/altinn-studio/issues) on GitHub.
 - Can't use closed source products in the platform
 - Can't use products with licensing limiting use and modifications
