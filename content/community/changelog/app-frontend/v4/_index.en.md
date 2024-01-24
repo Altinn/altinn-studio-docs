@@ -360,7 +360,14 @@ The `body` attribute in `textResourceBindings` for the `Group` component and `Re
 
 The concept of triggering validations has been removed in favor of keeping the validations in sync with the data model.
 Instead of controlling when validations are triggered, you now control when validations are displayed to the user.
-This functions more or less the same as before, but the configuration has been changed:
+This functions more or less the same as before, but the configuration has been changed.
+
+This change also has the advantage that the need for `*FIXED*` validations no longer exists, as a
+`IFormDataValidator` in your custom backend code can now control when it should run, and when it runs all its validation
+messages are treated as one *group*. This means that if you have a validation that checks the value of *another field*,
+or multiple fields at once, the validation message will disappear in frontend when the validation message is no longer
+added to the list of validation messages in the backend - even if another component than the validation message target
+was the one that changed.
 
 {{% expandlarge id="validate-page" header="Validation on page navigation" %}}
 
