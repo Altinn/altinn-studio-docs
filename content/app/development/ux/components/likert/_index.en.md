@@ -72,7 +72,7 @@ Example on definition of likert component in layout.json:
     },
     "dataModelBindings": {
       "questions": "Questions",
-      "simpleBinding": "Questions.Answer"
+      "answer": "Questions.Answer"
     },
     "optionsId": "likertOptions",
     "required": false,

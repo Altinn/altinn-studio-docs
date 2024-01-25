@@ -71,7 +71,7 @@ Eksempel på definisjon av likert komponent i layout.json:
     },
     "dataModelBindings": {
       "questions": "Questions",
-      "simpleBinding": "Questions.Answer"
+      "answer": "Questions.Answer"
     },
     "optionsId": "likertOptions",
     "required": false,

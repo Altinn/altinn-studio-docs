@@ -319,7 +319,7 @@ Example of old to new config:
   },
   "dataModelBindings": {
     "questions": "Questions",
-    "simpleBinding": "Questions.Answer"
+    "answer": "Questions.Answer"
   },
   "options": "optionsId",
   "filter": [
