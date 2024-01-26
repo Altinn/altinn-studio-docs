@@ -105,6 +105,48 @@ Ny bekreftelsesoppgave:
 </bpmn:task>
 ```
 
+#### Ny versjon av dotnet
+Løsningen har blitt oppdatert til å bruke den nyeste LTS-versjonen av dotnet, .Net 8.0.
+Dette må bli oppdatert i prosjektflien og i dockerfilen.
+
+Old docker file:
+```Dockerfile {hl_lines=[1,11]}
+FROM mcr.microsoft.com/dotnet/sdk:6.0-alpine AS build
+WORKDIR /App
+
+COPY /App/App.csproj .
+RUN dotnet restore App.csproj
+
+COPY /App .
+
+RUN dotnet publish App.csproj --configuration Release --output /app_output
+
+FROM mcr.microsoft.com/dotnet/aspnet:6.0-alpine AS final
+EXPOSE 5005
+WORKDIR /App
+COPY --from=build /app_output .
+ENV ASPNETCORE_URLS=
+```
+
+New docker file:
+```Dockerfile {hl_lines=[1,11]}
+FROM mcr.microsoft.com/dotnet/sdk:8.0-alpine AS build
+WORKDIR /App
+
+COPY /App/App.csproj .
+RUN dotnet restore App.csproj
+
+COPY /App .
+
+RUN dotnet publish App.csproj --configuration Release --output /app_output
+
+FROM mcr.microsoft.com/dotnet/aspnet:8.0-alpine AS final
+EXPOSE 5005
+WORKDIR /App
+COPY --from=build /app_output .
+ENV ASPNETCORE_URLS=
+```
+
 ### Endringer i grensesnitt for klienter og tjenester
 Klienter og tjenester vi leverer for å kommunisere med kjernetjenestene våre, som lagring og hemmeligheter, har blitt flyttet og omdøpt for å tydeliggjøre hvilke de samhandler med.
 

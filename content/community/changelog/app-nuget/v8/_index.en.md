@@ -104,6 +104,49 @@ New confirmation task:
 </bpmn:task>
 ```
 
+#### New dotnet version
+The solution has been updated to use the newest LTS version of dotnet, .NET 8.0
+This needs to be updated in the project file and in the docker file.
+
+Old docker file:
+```Dockerfile {hl_lines=[1,11]}
+FROM mcr.microsoft.com/dotnet/sdk:6.0-alpine AS build
+WORKDIR /App
+
+COPY /App/App.csproj .
+RUN dotnet restore App.csproj
+
+COPY /App .
+
+RUN dotnet publish App.csproj --configuration Release --output /app_output
+
+FROM mcr.microsoft.com/dotnet/aspnet:6.0-alpine AS final
+EXPOSE 5005
+WORKDIR /App
+COPY --from=build /app_output .
+ENV ASPNETCORE_URLS=
+```
+
+New docker file:
+```Dockerfile {hl_lines=[1,11]}
+FROM mcr.microsoft.com/dotnet/sdk:8.0-alpine AS build
+WORKDIR /App
+
+COPY /App/App.csproj .
+RUN dotnet restore App.csproj
+
+COPY /App .
+
+RUN dotnet publish App.csproj --configuration Release --output /app_output
+
+FROM mcr.microsoft.com/dotnet/aspnet:8.0-alpine AS final
+EXPOSE 5005
+WORKDIR /App
+COPY --from=build /app_output .
+ENV ASPNETCORE_URLS=
+```
+
+
 ### Changes to interfaces for clients and services
 Clients and services we provide to communicate with the core services we provide like storage and secrets have been moved and rename to make it more clearly what they interact with.
 
