@@ -13,9 +13,7 @@ This is work in progress.
 
 
 ## Introduction
-TBD… MS Azure API Management
 
+Azure API Management (APIM) plays a vital role in enhancing the security, management, and operational insights of Altinn API's. By placing APIM in front of the broker service, we can leverage a range of capabilities to ensure secure, efficient, and scalable file transfer operations. We run on an APIM instance that is shared with other platform services in Altinn.
 
-## MS Azure API Management
-
-TBD
+TBD: How should Ocp-APIM-Subscription-Key be distributed to clients, and should subscription keys be possible to use across different Altinn API's.
