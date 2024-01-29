@@ -29,7 +29,7 @@ application/json
 ### Request body
 The request body must contain the order request formatted as an
 [SmsNotificationOrderRequestExt](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Models/SmsNotificationOrderRequestExt.cs)
-and serialized as a JSON string.
+and serialized as JSON.
 
 
 ### Required order request properties  
