@@ -29,7 +29,7 @@ application/json
 ### Request body
 The request body must contain the order request formatted as an
 [EmailNotificationOrderRequestExt](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Models/EmailNotificationOrderRequestExt.cs)
-and serialized as a JSON string.
+and serialized as JSON.
 
 
 ### Required order request properties  
@@ -88,7 +88,7 @@ that the sender's reference is unique within the organisation's notification ord
 
 The response body is formatted as an 
 [OrderIdExt.cs](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Models/OrderIdExt.cs)
-and serialized as a JSON string.
+and serialized as JSON.
 
 Find a short description of each property below.
 
