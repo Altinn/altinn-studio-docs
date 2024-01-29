@@ -81,7 +81,7 @@ that the sender's reference is unique within the organisation's notification ord
 
 The response body is formatted as an 
 [OrderIdExt.cs](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Models/OrderIdExt.cs)
-and serialized as a JSON string.
+and serialized as JSON.
 
 Find a short description of each property below.
 
