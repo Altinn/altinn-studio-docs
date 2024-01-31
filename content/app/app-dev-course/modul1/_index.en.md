@@ -39,6 +39,19 @@ If you want to test the app in a [test environment](/app/testing/deploy/) (descr
 You must have [access to the organization](/app/getting-started/create-user/#join-an-organization), and the organization must have access to a test environment.
 {{% /notice %}}
 
+### Tasks
+
+1. [Create an application in Altinn Studio](/app/getting-started/create-app/new-app/)
+
+### Useful Documentation
+
+- [Navigating Altinn Studio](/app/getting-started/navigation)
+- [Altinn Studio Dashboard](/app/getting-started/navigation/dashboard/)
+
+{{% /expandlarge %}}
+
+{{% expandlarge id="adding-a-data-model" header="Adding a Data Model" %}}
+
 The data model defines the type and format of data that can be submitted through an app.
 
 With Altinn Studio's [Data Modeling tool](/app/development/data/data-modeling/),
@@ -112,10 +125,10 @@ The mentioned files are all generated from the `.xsd` description of the data mo
 {{% expandlarge id="edit-texts" header="Create and Edit Texts" %}}
 
 [Texts in Altinn Studio](/app/development/ux/texts/) are stored in separate language files (also called resource files) and can be linked to form components using a text key.
-The texts can be [created and edited in Altinn Studio Designer](/app/development/ux/texts/#altinn-studio-text-editor) or [directly in the file](/app/development/ux/texts/#changing-texts-directly-in-the-repository).
+The texts can be [created and edited in Altinn Studio Designer](/app/development/ux/texts/#using-altinn-studio) or [directly in the file](/app/development/ux/texts/#changing-texts-directly-in-the-repository).
 
 {{% notice warning %}}
-**NOTE**: The display name for the application must be changed both in `App/config/applicationMetadata.json` and in the language files.
+**NOTE**: The display name for the application must be changed both in `App/config/applicationmetadata.json` and in the language files.
 {{% /notice %}}
 
 ### Requirements from the Municipality
@@ -129,7 +142,7 @@ All components must have suitable descriptive labels to make the service user-fr
 3. [Add translation(s) for the texts](/app/development/ux/texts/#add-and-change-texts-in-an-application). The application must be available in Norwegian Bokmål, Norwegian Nynorsk, and English. In the initial version, supporting only one of these languages is sufficient.
 
 
-Remember to upload changes when working in Designer to update the repository.
+Remember to upload your changes when working in Designer so that the repository will reflect these changes.
 In the next step, you will create components and link them to the text resources.
 
 ### Useful Documentation
@@ -201,12 +214,13 @@ The fields should be mandatory unless indicated otherwise.
 1. Set up the first form page with components based on the requirements of the Municipality.
 2. Add labels by connecting text resources to each of the components.
 
-Remember to upload changes when working in Designer to update the repository.
+Remember to upload your changes when working in Designer so that the repository will reflect these changes.
 
 ### Useful Documentation
 
-- [Building a Form with the UI Editor in Altinn Studio](/app/getting-started/)
-- [Available components in Altinn Studio Library](/app/guides/design/guidelines/components/)
+- [Building a Form with the UI Editor in Altinn Studio](/app/getting-started/create-app/ui-editor/)s
+- [Available components in Altinn Studio Library](/altinn-studio/designer/build-app/ui-designer/components/)
+- [Guidelines for the use of components](/app/guides/design/guidelines/components/)
 
 ### Knowledge Check
 
@@ -214,7 +228,7 @@ In your application repository, you will find the `<pageName>.json` file in the 
 
 You can find `<page>.json` in your application repository in the folder `App/ui/layouts`. The JSON file describes the data page you have set up in Altinn Studio, assuming you have uploaded the changes (`<page>` is replaced with the page's name, for example, `data.json`).
 
-{{% expandsmall id="m1t3q1" header="Do you find the component connected to the email field?" %}}
+{{% expandsmall id="m1t3q1" header="Can you find the component connected to the email field?" %}}
 
 To locate the component connected to the email field, you can search for 'epost' (email).
 You will find the field name connected to the component under `dataModelBindings.simpleBinding` (highlighted).
