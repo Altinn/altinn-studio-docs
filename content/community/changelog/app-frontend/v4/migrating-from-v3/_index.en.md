@@ -10,9 +10,9 @@ Make sure to read through the [list of breaking changes](/community/changelog/ap
 {{% /notice %}}
 
 {{% notice info %}}
-As of writing this documentation, the latest release candidate of app-frontend v4 is `4.0.0-rc1`. Updated information
+As of writing this documentation, the latest release candidate of app-frontend v4 is `4.0.0-rc2`. Updated information
 [is available on GitHub](https://github.com/Altinn/app-frontend-react/releases). Before the release of v4.0.0 stable,
-you will have to use exact version numbers in the URLs, e.g. `4.0.0-rc1` instead of `4`. Each time we release a new
+you will have to use exact version numbers in the URLs, e.g. `4.0.0-rc2` instead of `4`. Each time we release a new
 release candidate and you want to try out the new release, this URL will have to be updated. When the stable
 version is released, you can use `4` as the version number in the URLs and get the latest stable version automatically.
 {{% /notice %}}
@@ -25,8 +25,6 @@ Until then, you can use the following guide to migrate manually.
 To use App-frontend v4 in your app, you need to change which version is referenced in your app's `Index.cshtml` file. 
 This file should be located in the `App/views/Home` folder. 
 In addition to changing the version, you should also remove the links to the third party CSS and font, as the font is now loaded by App-frontend itself, and the third party CSS is no longer used.
-
-<!-- TODO: Should we change '4' in the URLs to the release candiate version to begin with? -->
 
 Changes inside __&lt;head&gt;__:
 {{< code-title >}}
@@ -47,7 +45,7 @@ App/views/Home/Index.cshtml
 
   <!-- Runtime CSS -->
 - <link rel="stylesheet" type="text/css" href="https://altinncdn.no/toolkits/altinn-app-frontend/3/altinn-app-frontend.css">
-+ <link rel="stylesheet" type="text/css" href="https://altinncdn.no/toolkits/altinn-app-frontend/4.0.0-rc1/altinn-app-frontend.css">
++ <link rel="stylesheet" type="text/css" href="https://altinncdn.no/toolkits/altinn-app-frontend/4.0.0-rc2/altinn-app-frontend.css">
 ```
 
 Changes inside __&lt;body&gt;__:
@@ -72,13 +70,31 @@ App/views/Home/Index.cshtml
   </div>
 
 - <script src="https://altinncdn.no/toolkits/altinn-app-frontend/3/altinn-app-frontend.js"></script>
-+ <script src="https://altinncdn.no/toolkits/altinn-app-frontend/4.0.0-rc1/altinn-app-frontend.js"></script>
++ <script src="https://altinncdn.no/toolkits/altinn-app-frontend/4.0.0-rc2/altinn-app-frontend.js"></script>
 ```
 
-If you are testing a release candidate version of App-frontend v4, you can use the following URLs instead:
-```html
- <link rel="stylesheet" type="text/css" href="https://altinncdn.no/toolkits/altinn-app-frontend/4.0.0-rc1/altinn-app-frontend.css">
- <script src="https://altinncdn.no/toolkits/altinn-app-frontend/4.0.0-rc1/altinn-app-frontend.js"></script>  
+It's optionally also possible to change the `$schema` reference in layout files to get the latest suggestions
+and validations for layout configuration. This is not required for v4 to work, but is recommended when developing
+applications locally, as you'll get the most up-to-date suggestions and validations in Visual Studio Code.
+{{< code-title >}}
+App/ui/*/layouts/*.json
+{{< /code-title >}}
+
+```diff
+  {
+-   "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
++   "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4.0.0-rc2/schemas/json/layout/layout.schema.v1.json",
+    "data": {
+      "layout": [
+        {
+          "id": "nav1",
+          "type": "NavigationBar"
+          ...
+        },
+        ...
+      ]
+    }
+  }
 ```
 
 {{% notice warning %}}
