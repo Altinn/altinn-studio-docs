@@ -167,13 +167,22 @@ start all Kafka-related dependencies in a Docker containers.
 
 The automated tests for this micro service are implemented through [Grafana's k6](https://k6.io/). 
 The tool is specialized for load tests, but we do use it for automated API tests as well. 
+The test set is used for both use case and regression tests. 
 
-### Use case tests
+#### Use case tests
 [All use case workflows are available on GitHub](https://github.com/Altinn/altinn-notifications/tree/main/.github/workflows)
 
 Use case tests are run every 15 minuts through GitHub Actions. 
 The tests run during the use case tests are defined in the k6 test project. 
 The aim of the tests is to run through central functionality of the solution to ensure that it is running and available to our end users.
+
+#### Regression tests 
+[All regression test workflows are available on GitHub](https://github.com/Altinn/altinn-notifications/tree/main/.github/workflows)
+
+The regression tests are run once a week and 5 minutes after deploy to a given environment.
+The tests run during the regression tests are defined in the k6 test project. 
+The aim of the regression tests is to cover as much of our functionality as possible, 
+to ensure that a new release does not break any existing functionality. 
 
 ## Hosting
 
