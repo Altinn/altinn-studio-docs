@@ -73,6 +73,30 @@ App/views/Home/Index.cshtml
 + <script src="https://altinncdn.no/toolkits/altinn-app-frontend/4.0.0-rc2/altinn-app-frontend.js"></script>
 ```
 
+It's optionally also possible to change the `$schema` reference in layout files to get the latest suggestions
+and validations for layout configuration. This is not required for v4 to work, but is recommended when developing
+applications locally, as you'll get the most up-to-date suggestions and validations in Visual Studio Code.
+{{< code-title >}}
+App/ui/*/layouts/*.json
+{{< /code-title >}}
+
+```diff
+  {
+-   "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
++   "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4.0.0-rc2/schemas/json/layout/layout.schema.v1.json",
+    "data": {
+      "layout": [
+        {
+          "id": "nav1",
+          "type": "NavigationBar"
+          ...
+        },
+        ...
+      ]
+    }
+  }
+```
+
 {{% notice warning %}}
 __Note__: These are only the changes necessary to switch frontend version, you also need to fix any [breaking changes](/community/changelog/app-frontend/v4) affecting your app, including upgrading the nuget packages to version 8.0.
 {{% /notice %}}
