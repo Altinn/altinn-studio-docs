@@ -33,12 +33,14 @@ Data related to notification orders, notifications and receipients is persisted 
 Each table in the _notifications_ schema is described in the table below, 
 followed by a diagram showing the relation between the tables.
 
-| Table              | Description                                                                                                 |
-| ------------------ | ----------------------------------------------------------------------------------------------------------- |
-| orders             | Contains metadata for each notification order                                                       |
-| emailtexts         | Holds the static common texts related to a notification                                          |
-| emailnotifications | Holds metadata for each notfication along with recipient contact details                         |
-| resourcelimitlog   | Keeps track of resource limits outages for dependent systems e.g. Azure Communication services |
+| Table              | Description                                                                                      |
+| ------------------ | ------------------------------------------------------------------------------------------------ |
+| orders             | Contains metadata for each notification order                                                    |
+| emailtexts         | Holds the static common texts related to an email notification                                   |
+| emailnotifications | Holds metadata for each email notfication along with recipient contact details                   |
+| smstexts           | Holds the static common texts related to an sms notification                                     |
+| smsnotifications   | Holds metadata for each sms notification along with recipient contact details                    |
+| resourcelimitlog   | Keeps track of resource limits outages for dependent systems e.g. Azure Communication services   |
 
 ![Diagram of Notifications Database](dbmodel.drawio.svg "Diagram of Notifications Database")
 
