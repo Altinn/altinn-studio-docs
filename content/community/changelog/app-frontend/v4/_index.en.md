@@ -27,7 +27,7 @@ App frontend v4 requires at least version 8.0.0 of the `Altinn.App.Core` and `Al
 See the [overview of changes in backend v8](/community/changelog/app-nuget/v8) for more information on how to upgrade.
 
 {{% notice warning %}}
-The `v4.0.0-rc1` release requires version `v8.0.0-preview15` or above. When both major releases of app frontend and
+The `v4.0.0-rc2` release requires version `v8.0.0-preview16` or above. When both major releases of app frontend and
 backend are released, the `v4.0.0` release will require version `v8.0.0` or above.
 {{% /notice %}}
 
@@ -37,6 +37,16 @@ Layout sets is a way to support multiple forms in a single application.
 This entails a slightly different folder structure in the `ui` folder of your app, as well as a new `layout-sets.json` file.
 This used to be optional, but as of v4 it is required, even for apps with only a single data step.
 See the [documentation on layout sets](/app/development/ux/pages/layout-sets) for more information.
+
+## AddressComponent has been renamed to Address
+
+{{% notice info %}}
+This change was introduced in `v4.0.0-rc2`. It was not present in `v4.0.0-rc1`, so the component was still called
+`AddressComponent` in that release.
+{{% /notice %}}
+
+In the layout files, the `AddressComponent` component has been renamed to `Address`. Our upgrade tool will rename
+this for you automatically, but if you are migrating manually you will have to do this yourself.
 
 ## Custom receipt pages do not work (temporarily)
 
