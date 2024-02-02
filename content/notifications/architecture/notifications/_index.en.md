@@ -33,12 +33,14 @@ Data related to notification orders, notifications and receipients is persisted 
 Each table in the _notifications_ schema is described in the table below, 
 followed by a diagram showing the relation between the tables.
 
-| Table              | Description                                                                                                 |
-| ------------------ | ----------------------------------------------------------------------------------------------------------- |
-| orders             | Contains metadata for each notification order                                                       |
-| emailtexts         | Holds the static common texts related to a notification                                          |
-| emailnotifications | Holds metadata for each notfication along with recipient contact details                         |
-| resourcelimitlog   | Keeps track of resource limits outages for dependent systems e.g. Azure Communication services |
+| Table              | Description                                                                                      |
+| ------------------ | ------------------------------------------------------------------------------------------------ |
+| orders             | Contains metadata for each notification order                                                    |
+| emailtexts         | Holds the static common texts related to an email notification                                   |
+| emailnotifications | Holds metadata for each email notfication along with recipient contact details                   |
+| smstexts           | Holds the static common texts related to an sms notification                                     |
+| smsnotifications   | Holds metadata for each sms notification along with recipient contact details                    |
+| resourcelimitlog   | Keeps track of resource limits outages for dependent systems e.g. Azure Communication services   |
 
 ![Diagram of Notifications Database](dbmodel.drawio.svg "Diagram of Notifications Database")
 
@@ -127,6 +129,7 @@ Notifications microservice takes use of a range of libraries to support the prov
 | Confluent.Kafka | Integrate with kafka broker | [Repository](https://github.com/confluentinc/confluent-kafka-dotnet), [Documentation](https://developer.confluent.io/get-started/dotnet/) |
 | FluentValidation | Used to validate content of API request | [Repository](https://github.com/FluentValidation/FluentValidation), [Documentation](https://docs.fluentvalidation.net/en/latest/)|
 | JWTCookieAuthentication| Used to validate Altinn token (JWT) | [Repository](https://github.com/Altinn/altinn-authentication),  [Documentation](../../../authentication/architecture/jwtcookie/)| 
+| libphonenumber-csharp | Used to validate mobile numbers | [Repository](https://github.com/caseykramer/libphonenumber-csharp), [Documentation](https://github.com/caseykramer/libphonenumber-csharp) |
 | Npgsql    | Used to access the database server          |  [Repository]( https://github.com/rdagumampan/yuniql ), [Documentation](https://www.npgsql.org/)|
 | Yuniql | DB migration | [Repository](https://github.com/rdagumampan/yuniql), [Documentation](https://yuniql.io/)|
 
@@ -165,13 +168,22 @@ start all Kafka-related dependencies in a Docker containers.
 
 The automated tests for this micro service are implemented through [Grafana's k6](https://k6.io/). 
 The tool is specialized for load tests, but we do use it for automated API tests as well. 
+The test set is used for both use case and regression tests. 
 
-### Use case tests
+#### Use case tests
 [All use case workflows are available on GitHub](https://github.com/Altinn/altinn-notifications/tree/main/.github/workflows)
 
 Use case tests are run every 15 minuts through GitHub Actions. 
 The tests run during the use case tests are defined in the k6 test project. 
 The aim of the tests is to run through central functionality of the solution to ensure that it is running and available to our end users.
+
+#### Regression tests 
+[All regression test workflows are available on GitHub](https://github.com/Altinn/altinn-notifications/tree/main/.github/workflows)
+
+The regression tests are run once a week and 5 minutes after deploy to a given environment.
+The tests run during the regression tests are defined in the k6 test project. 
+The aim of the regression tests is to cover as much of our functionality as possible, 
+to ensure that a new release does not break any existing functionality. 
 
 ## Hosting
 

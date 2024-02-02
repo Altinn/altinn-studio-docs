@@ -14,8 +14,8 @@ toc: true
 ## Combining notification channels
 
 {{% notice info %}}
-Per November '23 only one communication chanel is supported. 
-Once multiple channels are provided, it will be possible to combine notification channels for a single order request.
+Per January '24 it is not possible to combine notification channels for a single order request.
+This functionality can be expected in the first half of '24. 
 {{% /notice %}}
 
 ## Registries used for recipient addresses
