@@ -26,12 +26,12 @@ The following diagram illustrates the overall data flow.
 
 
 {{% expandlarge id="anotifications-topic-process-email.drawio.svg" header="Flow chart for email notification processing" %}}
-![Topics](notifications-topic-process-email.drawio.svg "IFlow chart including  including Kafka topics for email notification processing")
+![Topics](notifications-topic-process-email.drawio.svg "Flow chart including Kafka topics for email notification processing")
 {{% /expandlarge %}}
 
 
 {{% expandlarge id="anotifications-topic-process-sms.drawio.svg" header="Flow chart for sms notification processing" %}}
-![Topics](notifications-topic-process-sms.drawio.svg "Flow chart including  including Kafka topics for sms notification processing")
+![Topics](notifications-topic-process-sms.drawio.svg "Flow chart including Kafka topics for sms notification processing")
 {{% /expandlarge %}}
 
 
