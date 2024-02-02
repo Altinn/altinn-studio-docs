@@ -15,16 +15,16 @@ In the meantime existing guidelines for sending notifications through Altinn 2 a
 
 ## Notification
 ### SMS
-- Mobile number must conain country code, perferrably with "+", while "00" would also work. i.e. +47900XXXXX, 0047900XXXXX
+- The mobile number must contain the country code, preferably with "+", while "00" would also work (e.g., +47900XXXXX, 0047900XXXXX).
 - SMS to 5-digit numbers is not supported.
-- Norwegian mobile number must need to start with "4" or "9" after the country code "+47".
-  - Valid Mobile Number Example: +47400XXXXX, +47900XXXXX, 0047400XXXXX, 0047900XXXXX
-  - Invalid Mobile Number Example: +47500XXXXX, +47600XXXXX, 0047500XXXXX, 0047600XXXXX
+- Norwegian mobile numbers must start with "4" or "9" after the country code "+47."
+  - Valid Mobile Number Examples: +47400XXXXX, +47900XXXXX, 0047400XXXXX, 0047900XXXXX.
+  - Invalid Mobile Number Examples: +47500XXXXX, +47600XXXXX, 0047500XXXXX, 0047600XXXXX.
 
 # International Mobile Number
-- We also support international mobile numbers(outside of Norway) to send SMS as long as they are valid and provided with country code.
-- Notificaiton to 5 digits number aren't supported. Therefore the mobile number must need to be more than 5 digits.
-- Mobile numbers are validated against a list of country codes.
+- We also support international mobile numbers (outside of Norway) to send SMS as long as they are valid and provided with a country code.
+- Notifications to 5-digit numbers aren't supported. Therefore, the mobile number must be more than 5 digits.
+- Country code in the mobile numbers undergo validation against a comprehensive list of country codes.
 
 <!---
 {{% notice info %}}
