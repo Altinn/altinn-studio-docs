@@ -13,8 +13,18 @@ In the meantime existing guidelines for sending notifications through Altinn 2 a
 [Please familiarize yourself with existing documentation and guidelines](https://altinn.github.io/docs/utviklingsguider/varsling/)
 {{% /notice %}}
 
+## Notification
+### SMS
+- The mobile number must contain the country code, preferably with "+", while "00" would also work (e.g., +47900XXXXX, 0047900XXXXX).
+- SMS to 5-digit numbers is not supported.
+- Norwegian mobile numbers must start with "4" or "9" after the country code "+47."
+  - Valid Mobile Number Examples: +47400XXXXX, +47900XXXXX, 0047400XXXXX, 0047900XXXXX.
+  - Invalid Mobile Number Examples: +47500XXXXX, +47600XXXXX, 0047500XXXXX, 0047600XXXXX.
 
-
+#### International Mobile Number
+- We also support international mobile numbers (outside of Norway) to send SMS as long as they are valid and provided with a country code.
+- Notifications to 5-digit numbers aren't supported. Therefore, the mobile number must be more than 5 digits.
+- Country code in the mobile numbers undergo validation against a comprehensive list of country codes.
 
 <!---
 {{% notice info %}}
