@@ -22,9 +22,9 @@ In the meantime existing guidelines for sending notifications through Altinn 2 a
   - Invalid Mobile Number Example: +47500XXXXX, +47600XXXXX, 0047500XXXXX, 0047600XXXXX
 
 # International Mobile Number
-- We aslo support international mobile numbers(outside of Norway) to send SMS as long as they are valid and provided with country code.
+- We also support international mobile numbers(outside of Norway) to send SMS as long as they are valid and provided with country code.
 - Notificaiton to 5 digits number aren't supported. Therefore the mobile number must need to be more than 5 digits.
-- Mobile numbers are validated against a list of country codes. You can see [the country codes here](https://github.com/google/libphonenumber/tree/master/resources/metadata).
+- Mobile numbers are validated against a list of country codes.
 
 <!---
 {{% notice info %}}
