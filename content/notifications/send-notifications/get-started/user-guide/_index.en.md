@@ -21,7 +21,7 @@ In the meantime existing guidelines for sending notifications through Altinn 2 a
   - Valid Mobile Number Examples: +47400XXXXX, +47900XXXXX, 0047400XXXXX, 0047900XXXXX.
   - Invalid Mobile Number Examples: +47500XXXXX, +47600XXXXX, 0047500XXXXX, 0047600XXXXX.
 
-# International Mobile Number
+#### International Mobile Number
 - We also support international mobile numbers (outside of Norway) to send SMS as long as they are valid and provided with a country code.
 - Notifications to 5-digit numbers aren't supported. Therefore, the mobile number must be more than 5 digits.
 - Country code in the mobile numbers undergo validation against a comprehensive list of country codes.
