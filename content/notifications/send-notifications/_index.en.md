@@ -15,7 +15,7 @@ toc: true
 
 {{% notice info %}}
 Per November '23 only one communication chanel is supported. 
-Once multiple channels are provided, it will be possible to comnine notification channels for a single order request.
+Once multiple channels are provided, it will be possible to combine notification channels for a single order request.
 {{% /notice %}}
 
 ## Registries used for recipient addresses
