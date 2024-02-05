@@ -220,6 +220,62 @@
 			}
 		  }
 		}
+	  },
+	  "/orders/sms": {
+		"post": {
+		  "tags": [
+			"SmsNotificationOrders"
+		  ],
+		  "summary": "Add an SMS notification order.",
+		  "description": "The API will accept the request after som basic validation of the request.\r\nThe system will also attempt to verify that it will be possible to fulfill the order.",
+		  "requestBody": {
+			"content": {
+			  "application/json": {
+				"schema": {
+				  "$ref": "#/components/schemas/SmsNotificationOrderRequestExt"
+				}
+			  }
+			}
+		  },
+		  "responses": {
+			"401": {
+			  "description": "Caller is unauthorized"
+			},
+			"403": {
+			  "description": "Caller is not authorized to access the requested resource"
+			},
+			"202": {
+			  "description": "The notification order was accepted",
+			  "headers": {
+				"Location": {
+				  "description": "Link to access the newly created notification order.",
+				  "schema": {
+					"type": "string",
+					"description": "Link to access the newly created notification order.",
+					"format": ""
+				  }
+				}
+			  },
+			  "content": {
+				"application/json": {
+				  "schema": {
+					"$ref": "#/components/schemas/OrderIdExt"
+				  }
+				}
+			  }
+			},
+			"400": {
+			  "description": "The notification order is invalid",
+			  "content": {
+				"application/json": {
+				  "schema": {
+					"$ref": "#/components/schemas/ValidationProblemDetails"
+				  }
+				}
+			  }
+			}
+		  }
+		}
 	  }
 	},
 	"components": {
@@ -374,7 +430,8 @@
 		},
 		"NotificationChannelExt": {
 		  "enum": [
-			"Email"
+			"Email",
+			"Sms"
 		  ],
 		  "type": "string",
 		  "description": "Enum describing available notification channels."
@@ -415,6 +472,9 @@
 			},
 			"emailTemplate": {
 			  "$ref": "#/components/schemas/EmailTemplateExt"
+			},
+			"smsTemplate": {
+			  "$ref": "#/components/schemas/SmsTemplateExt"
 			},
 			"links": {
 			  "$ref": "#/components/schemas/OrderResourceLinksExt"
@@ -496,6 +556,9 @@
 		  "properties": {
 			"email": {
 			  "$ref": "#/components/schemas/EmailNotificationStatusExt"
+			},
+			"sms": {
+			  "$ref": "#/components/schemas/SmsNotificationStatusExt"
 			}
 		  },
 		  "additionalProperties": false,
@@ -525,11 +588,6 @@
 			  "type": "string",
 			  "description": "Gets or sets the status link",
 			  "nullable": true
-			},
-			"notifications": {
-			  "type": "string",
-			  "description": "Gets or sets the notifications link",
-			  "nullable": true
 			}
 		  },
 		  "additionalProperties": false,
@@ -542,10 +600,87 @@
 			  "type": "string",
 			  "description": "Gets or sets the email address of the recipient",
 			  "nullable": true
+			},
+			"mobileNumber": {
+			  "type": "string",
+			  "description": "Gets or sets the mobile number of the recipient",
+			  "nullable": true
 			}
 		  },
 		  "additionalProperties": false,
 		  "description": "Class representing a notification recipient"
+		},
+		"SmsNotificationOrderRequestExt": {
+		  "type": "object",
+		  "properties": {
+			"senderNumber": {
+			  "type": "string",
+			  "description": "Gets or sets the sender number of the SMS",
+			  "nullable": true
+			},
+			"body": {
+			  "type": "string",
+			  "description": "Gets or sets the body of the SMS",
+			  "nullable": true
+			},
+			"requestedSendTime": {
+			  "type": "string",
+			  "description": "Gets or sets the send time of the SMS. Defaults to UtcNow.",
+			  "format": "date-time"
+			},
+			"sendersReference": {
+			  "type": "string",
+			  "description": "Gets or sets the senders reference on the notification",
+			  "nullable": true
+			},
+			"recipients": {
+			  "type": "array",
+			  "items": {
+				"$ref": "#/components/schemas/RecipientExt"
+			  },
+			  "description": "Gets or sets the list of recipients",
+			  "nullable": true
+			}
+		  },
+		  "additionalProperties": false,
+		  "description": "Class representing an SMS notiication order request"
+		},
+		"SmsNotificationStatusExt": {
+		  "type": "object",
+		  "properties": {
+			"links": {
+			  "$ref": "#/components/schemas/NotificationResourceLinksExt"
+			},
+			"generated": {
+			  "type": "integer",
+			  "description": "Gets or sets the number of generated notifications",
+			  "format": "int32"
+			},
+			"succeeded": {
+			  "type": "integer",
+			  "description": "Gets or sets the number of succeeeded notifications",
+			  "format": "int32"
+			}
+		  },
+		  "additionalProperties": false,
+		  "description": "A class representing a status overview for sms notifications"
+		},
+		"SmsTemplateExt": {
+		  "type": "object",
+		  "properties": {
+			"senderNumber": {
+			  "type": "string",
+			  "description": "Gets the number from which the SMS is created by the template",
+			  "nullable": true
+			},
+			"body": {
+			  "type": "string",
+			  "description": "Gets the body of SMSs created by the template",
+			  "nullable": true
+			}
+		  },
+		  "additionalProperties": false,
+		  "description": "Template for an sms notification"
 		},
 		"StatusExt": {
 		  "type": "object",
@@ -601,8 +736,7 @@
 				  "type": "string"
 				}
 			  },
-			  "nullable": true,
-			  "readOnly": true
+			  "nullable": true
 			}
 		  },
 		  "additionalProperties": { }

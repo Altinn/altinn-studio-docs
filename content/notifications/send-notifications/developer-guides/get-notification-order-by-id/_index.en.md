@@ -64,7 +64,7 @@ Type: _DateTime_
 The date and time for when the notification order request was registered.
 
 #### notificationChannel
-Type: enum [_NotificationChannel_](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Models/NotificationChannelExt.cs)
+Type: enum [_NotificationChannelExt_](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Models/NotificationChannelExt.cs)
 
 The notification channel used for the notifications sent can be _Email_ or _Sms_.
 
@@ -78,10 +78,15 @@ Type: [_EmailTemplateExt_](https://github.com/Altinn/altinn-notifications/blob/m
 
 All the email template values used to generate notifications.
 
+#### emailTemplate
+Type: [_SmsTemplateExt_](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Models/SmsTemplateExt.cs)
+
+All the sms template values used to generate notifications.
+
 #### links
 Type: [_OrderResourceLinksExt_](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Models/OrderResourceLinksExt.cs#L11)
 
-An object containing a set of self links for the notificatin order.
+An object containing a set of self links for the notification order.
 
 ## Examples
 
