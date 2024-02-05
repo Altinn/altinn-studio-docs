@@ -108,7 +108,9 @@ curl --location 'https://platform.altinn.no/notifications/api/v1/orders/f1a1cc30
 ### Response
 
 #### 200 OK
-Response body contains the notification order with status information.
+Response body contains the notification order with notification template.
+
+_Example: Email notification order with notification template._
 
 ```json
 {
@@ -128,6 +130,32 @@ Response body contains the notification order with status information.
         "subject": "A test email from Altinn Notifications",
         "body": "A message sent from an application owner through Altinn.",
         "contentType": "Plain"
+    },
+    "links": {
+        "self": "https://platform.altinn.no/notifications/api/v1/orders/ca964629-fba5-48e6-80b3-d75502c08f5b",
+        "status": "https://platform.altinn.no/notifications/api/v1/orders/ca964629-fba5-48e6-80b3-d75502c08f5b/status"
+    }
+}
+```
+
+_Example: Sms notification order with notification template._
+
+```json
+{
+    "id": "ca964629-fba5-48e6-80b3-d75502c08f5b",
+    "creator": "ttd",
+    "sendersReference": "demo-2023-01",
+    "requestedSendTime": "2023-12-12T14:13:27.8367317Z",
+    "created": "2023-12-12T14:13:27.8450294Z",
+    "notificationChannel": "Sms",
+    "recipients": [
+        {
+            "mobileNumber": "+4799999999"
+        }
+    ],
+    "smsTemplate": {
+        "senderNumber": "Altinn",
+        "body": "A text message sent by a service owner through Altinn."
     },
     "links": {
         "self": "https://platform.altinn.no/notifications/api/v1/orders/ca964629-fba5-48e6-80b3-d75502c08f5b",
