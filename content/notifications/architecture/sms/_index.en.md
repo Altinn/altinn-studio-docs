@@ -23,12 +23,12 @@ is implemented and used by all services that publish to Kafka.
 [Please reference the Kafka architecture section for a closer description of the Kafka setup.](../kafka/)
 
 ### Link Mobility
-Link Mobility is used as serviceprovider for sending sms to the end users.
+Link Mobility is used as service provider for sending sms to the end users.
 A client, [SmsClient](https://github.com/Altinn/altinn-notifications-sms/blob/main/src/Altinn.Notifications.Sms.Integrations/LinkMobility/SmsClient.cs)
 has been implemented based on the SDK made available by Link to interact with their API. 
 
 ## Dependencies
-The microservice takes use of a range of external and Altinn services as well as .NET libraries to support the provivded
+The microservice takes use of a range of external and Altinn services as well as .NET libraries to support the provided
 functionality. 
 Find descriptions of key dependencies below. 
 

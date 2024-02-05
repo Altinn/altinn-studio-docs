@@ -218,7 +218,7 @@ __Content:__
 
 - Format: json
 - Data structure: [GenericServiceUpdate](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications.Core\Models/AltinnServiceUpdate/GenericServiceUpdate.cs)
-- Description: An object contaning an Altinn service update of a schema specified in the payload.
+- Description: An object containing an Altinn service update of a schema specified in the payload.
 {{% /expandsmall %}}
 
 ## Cluster configuration
