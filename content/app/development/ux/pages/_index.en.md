@@ -62,4 +62,21 @@ The available settings are the following:
 | order                 | Array   | see [Navigation](/app/development/ux/pages/navigation/#order)                                                                                                                  |
 | excludeFromPdf        | Array   | see [PDF](/app/development/ux/pdf/#automatic-configuration)                                                                                                                    |
 
+## Expanded width
+
+You can set the default value of a page to be expanded by adding the `expandedWidth` property to a layout in the `data`
+property. This will make the page expand to the full width of the browser window when it is opened.
+
+```json
+{
+  "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
+  "data": {
+    "expandedWidth": true,
+    "layout": [
+      components...
+    ],
+  }
+}
+```
+
 {{<children />}}

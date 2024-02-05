@@ -62,4 +62,21 @@ De tilgjengelige innstillingene er følgende:
 | order                 | Array   | se [Navigasjon](/nb/app/development/ux/pages/navigation/#rekkefølge)                                                                                                             |
 | excludeFromPdf        | Array   | se [PDF](/nb/app/development/ux/pdf/#automatisk-konfigurasjon)                                                                                                                   |
 
+## Expaned width
+Default verdien for en sides breddehåndtering kan settes til å være utvidet ved å legge til `expandedWidth`-egenskapen
+til en layout i `data`-egenskapen. Dette vil gjøre at siden utvider seg til å fylle hele bredden av nettleservinduet når
+den åpnes.
+
+```json
+{
+  "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
+  "data": {
+    "expandedWidth": true,
+    "layout": [
+      components...
+    ],
+  }
+}
+```
+
 {{<children />}}
