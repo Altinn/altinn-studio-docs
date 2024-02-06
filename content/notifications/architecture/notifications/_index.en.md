@@ -28,19 +28,19 @@ The API controllers listed below are exclusively for use within the Notification
 
 ## Database
 
-Data related to notification orders, notifications and receipients is persisted in a PostgreSQL database. 
+Data related to notification orders, notifications and recipients is persisted in a PostgreSQL database. 
 
 Each table in the _notifications_ schema is described in the table below, 
 followed by a diagram showing the relation between the tables.
 
-| Table              | Description                                                                                      |
-| ------------------ | ------------------------------------------------------------------------------------------------ |
-| orders             | Contains metadata for each notification order                                                    |
-| emailtexts         | Holds the static common texts related to an email notification                                   |
-| emailnotifications | Holds metadata for each email notfication along with recipient contact details                   |
-| smstexts           | Holds the static common texts related to an sms notification                                     |
-| smsnotifications   | Holds metadata for each sms notification along with recipient contact details                    |
-| resourcelimitlog   | Keeps track of resource limits outages for dependent systems e.g. Azure Communication services   |
+| Table              | Description                                                                                    |
+| ------------------ | ---------------------------------------------------------------------------------------------- |
+| orders             | Contains metadata for each notification order                                                  |
+| emailtexts         | Holds the static common texts related to an email notification                                 |
+| emailnotifications | Holds metadata for each email notification along with recipient contact details                 |
+| smstexts           | Holds the static common texts related to an sms notification                                   |
+| smsnotifications   | Holds metadata for each sms notification along with recipient contact details                  |
+| resourcelimitlog   | Keeps track of resource limits outages for dependent systems e.g. Azure Communication services |
 
 ![Diagram of Notifications Database](dbmodel.drawio.svg "Diagram of Notifications Database")
 
@@ -51,17 +51,23 @@ followed by a diagram showing the relation between the tables.
 The Notifications microservice has an integration towards a Kafka broker, and this integration is used
 both to publish and consume messages from topics relevant to the microservice. 
 
+</br>
+
 **Consumers:**
 
 The following Kafka consumers are defined: 
 - [AltinnServiceUpdateConsumer](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications.Integrations/Kafka/Consumers/AltinnServiceUpdateConsumer.cs):
   Consumes service updates from other Altinn services
-- [EmailStatusConsumer](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications.Integrations/Kafka/Consumers/EmailStatusConsumer.cs):
-  Consumes updates on the send state of an email notification
 - [PastDueOrdersConsumer](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications.Integrations/Kafka/Consumers/PastDueOrdersConsumer.cs):
   Consumes notification orders that are ready to be processed for sending
 - [PastDueOrdersRetryConsumer](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications.Integrations/Kafka/Consumers/PastDueOrdersRetryConsumer.cs):
   Consumes notification orders where the first attempt of processing has failed
+- [EmailStatusConsumer](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications.Integrations/Kafka/Consumers/EmailStatusConsumer.cs):
+  Consumes updates on the send state of an email notification
+- [SmsStatusConsumer](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications.Integrations/Kafka/Consumers/SmsStatusConsumer.cs):
+  Consumes updates on the send state of an sms notification
+
+</br>
 
 **Producers:**
 
@@ -82,6 +88,7 @@ The following cron jobs are defined:
 | ---------------------- | ----------- | ------------------------------------------------------------------------------------- |
 | pending-orders-trigger | */1 * * * * | Sends request to endpoint to start processing of past due orders                      |
 | send-email-trigger     | */1 * * * * | Sends request to endpoint to start the process of sending all new email notifications |
+| send-sms-trigger       | */1 * * * * | Sends request to endpoint to start the process of sending all new sms notifications   |
 
 Each cron job runs in a Docker container [based of the official docker image for curl](https://hub.docker.com/r/curlimages/curl)
 and sends a request to an endpoints in the [Trigger controller](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Controllers/TriggerController.cs).
@@ -90,48 +97,45 @@ The specifications of the cron jobs are hosted in a [private repository in Azure
 (requires login).
 
 
-
 ## Dependencies 
 
-The microservice takes use of a range of external and Altinn services as well as .NET libraries to support the porivded
+The microservice takes use of a range of external and Altinn services as well as .NET libraries to support the provided
 functionality. 
 Find descriptions of key dependencies below. 
 
 ### External Services
-| Service | Purpose | Resources |
-|-|-|-|
-| Apache Kafka on Confluent Cloud | Hosts the Kafka broker | [Documentation](https://www.confluent.io/confluent-cloud/)|
-| Azure Database for PostgreSQL | Hosts the database| [Documentation](https://azure.microsoft.com/en-us/products/postgresql) |
-| Azure API Management | Manages access to public API | [Documentation](https://azure.microsoft.com/en-us/products/api-management) |
-| Azure Monitor | Telemetry from the application is sent to Application Insights | [Documentation](https://azure.microsoft.com/en-us/products/monitor) |
-| Azure Key Vault | Safeguards secrets used by the microservice | [Documentation](https://azure.microsoft.com/en-us/products/key-vault) |
-| Azure Kubernetes Services (AKS)| Hosts the microservice and cron jobs | [Documentation](https://azure.microsoft.com/en-us/products/kubernetes-service/) |
+| Service                         | Purpose                                                        | Resources                                                                       |
+| ------------------------------- | -------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| Apache Kafka on Confluent Cloud | Hosts the Kafka broker                                         | [Documentation](https://www.confluent.io/confluent-cloud/)                      |
+| Azure Database for PostgreSQL   | Hosts the database                                             | [Documentation](https://azure.microsoft.com/en-us/products/postgresql)          |
+| Azure API Management            | Manages access to public API                                   | [Documentation](https://azure.microsoft.com/en-us/products/api-management)      |
+| Azure Monitor                   | Telemetry from the application is sent to Application Insights | [Documentation](https://azure.microsoft.com/en-us/products/monitor)             |
+| Azure Key Vault                 | Safeguards secrets used by the microservice                    | [Documentation](https://azure.microsoft.com/en-us/products/key-vault)           |
+| Azure Kubernetes Services (AKS) | Hosts the microservice and cron jobs                           | [Documentation](https://azure.microsoft.com/en-us/products/kubernetes-service/) |
 
 
 ### Altinn Services
-| Service | Purpose | Resources |
-|-|-|-|
-| Altinn Authorization | Authorizes access to the API  | [Repository](https://github.com/altinn/altinn-authorization)| 
+| Service                     | Purpose                                              | Resources                                                          |
+| --------------------------- | ---------------------------------------------------- | ------------------------------------------------------------------ |
+| Altinn Authorization        | Authorizes access to the API                         | [Repository](https://github.com/altinn/altinn-authorization)       |
 | Altinn Notifications Email* | Service for sending emails related to a notification | [Repository](https://github.com/altinn/altinn-notifications-email) |
-
-
+| Altinn Notifications Sms*   | Service for sending sms related to a notification    | [Repository](https://github.com/altinn/altinn-notifications-sms) |
 
 \*Functional dependency to enable the full functionality of Altinn Notifications.
-
 
 
 ### .NET Libraries
 Notifications microservice takes use of a range of libraries to support the provided functionality. 
 
-| Library   | Purpose                                     | Resources                            |
-| --------  | ------------------------------------------- | ---------------------------------------- |
-| AccessToken | Used to validate tokens in requests | [Repository](https://github.com/altinn/altinn-accesstoken), [Documentation](../../../authentication/architecture/accesstoken/)|
-| Confluent.Kafka | Integrate with kafka broker | [Repository](https://github.com/confluentinc/confluent-kafka-dotnet), [Documentation](https://developer.confluent.io/get-started/dotnet/) |
-| FluentValidation | Used to validate content of API request | [Repository](https://github.com/FluentValidation/FluentValidation), [Documentation](https://docs.fluentvalidation.net/en/latest/)|
-| JWTCookieAuthentication| Used to validate Altinn token (JWT) | [Repository](https://github.com/Altinn/altinn-authentication),  [Documentation](../../../authentication/architecture/jwtcookie/)| 
-| libphonenumber-csharp | Used to validate mobile numbers | [Repository](https://github.com/caseykramer/libphonenumber-csharp), [Documentation](https://github.com/caseykramer/libphonenumber-csharp) |
-| Npgsql    | Used to access the database server          |  [Repository]( https://github.com/rdagumampan/yuniql ), [Documentation](https://www.npgsql.org/)|
-| Yuniql | DB migration | [Repository](https://github.com/rdagumampan/yuniql), [Documentation](https://yuniql.io/)|
+| Library                 | Purpose                                 | Resources                                                                                                                                 |
+| ----------------------- | --------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| AccessToken             | Used to validate tokens in requests     | [Repository](https://github.com/altinn/altinn-accesstoken), [Documentation](../../../authentication/architecture/accesstoken/)            |
+| Confluent.Kafka         | Integrate with kafka broker             | [Repository](https://github.com/confluentinc/confluent-kafka-dotnet), [Documentation](https://developer.confluent.io/get-started/dotnet/) |
+| FluentValidation        | Used to validate content of API request | [Repository](https://github.com/FluentValidation/FluentValidation), [Documentation](https://docs.fluentvalidation.net/en/latest/)         |
+| JWTCookieAuthentication | Used to validate Altinn token (JWT)     | [Repository](https://github.com/Altinn/altinn-authentication),  [Documentation](../../../authentication/architecture/jwtcookie/)          |
+| libphonenumber-csharp   | Used to validate mobile numbers         | [Repository](https://github.com/caseykramer/libphonenumber-csharp), [Documentation](https://github.com/caseykramer/libphonenumber-csharp) |
+| Npgsql                  | Used to access the database server      | [Repository]( https://github.com/rdagumampan/yuniql ), [Documentation](https://www.npgsql.org/)                                           |
+| Yuniql                  | DB migration                            | [Repository](https://github.com/rdagumampan/yuniql), [Documentation](https://yuniql.io/)                                                  |
 
 [A full list of NuGet dependencies is available on GitHub](https://github.com/Altinn/altinn-notifications/network/dependencies).
 
@@ -160,7 +164,7 @@ start all Kafka-related dependencies in a Docker containers.
     A [bash script](https://github.com/Altinn/altinn-notifications/blob/main/dbsetup.sh) has been set up to easily 
     generate all required roles and rights in the database. 
 
-    [See section on running the application locally](#run-on-local-machine) if futher assistance is required in 
+    [See section on running the application locally](#run-on-local-machine) if further assistance is required in 
     running the integration tests.
 
 ### Automated tests 
@@ -173,7 +177,7 @@ The test set is used for both use case and regression tests.
 #### Use case tests
 [All use case workflows are available on GitHub](https://github.com/Altinn/altinn-notifications/tree/main/.github/workflows)
 
-Use case tests are run every 15 minuts through GitHub Actions. 
+Use case tests are run every 15 minutes through GitHub Actions. 
 The tests run during the use case tests are defined in the k6 test project. 
 The aim of the tests is to run through central functionality of the solution to ensure that it is running and available to our end users.
 

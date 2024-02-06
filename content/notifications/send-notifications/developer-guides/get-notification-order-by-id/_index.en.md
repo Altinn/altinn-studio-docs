@@ -64,7 +64,7 @@ Type: _DateTime_
 The date and time for when the notification order request was registered.
 
 #### notificationChannel
-Type: enum [_NotificationChannel_](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Models/NotificationChannelExt.cs)
+Type: enum [_NotificationChannelExt_](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Models/NotificationChannelExt.cs)
 
 The notification channel used for the notifications sent can be _Email_ or _Sms_.
 
@@ -78,10 +78,15 @@ Type: [_EmailTemplateExt_](https://github.com/Altinn/altinn-notifications/blob/m
 
 All the email template values used to generate notifications.
 
+#### smsTemplate
+Type: [_SmsTemplateExt_](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Models/SmsTemplateExt.cs)
+
+All the sms template values used to generate notifications.
+
 #### links
 Type: [_OrderResourceLinksExt_](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Models/OrderResourceLinksExt.cs#L11)
 
-An object containing a set of self links for the notificatin order.
+An object containing a set of self links for the notification order.
 
 ## Examples
 
@@ -103,7 +108,9 @@ curl --location 'https://platform.altinn.no/notifications/api/v1/orders/f1a1cc30
 ### Response
 
 #### 200 OK
-Response body contains the notification order with status information.
+Response body contains the notification order with notification template.
+
+_Example: Email notification order with notification template._
 
 ```json
 {
@@ -123,6 +130,32 @@ Response body contains the notification order with status information.
         "subject": "A test email from Altinn Notifications",
         "body": "A message sent from an application owner through Altinn.",
         "contentType": "Plain"
+    },
+    "links": {
+        "self": "https://platform.altinn.no/notifications/api/v1/orders/ca964629-fba5-48e6-80b3-d75502c08f5b",
+        "status": "https://platform.altinn.no/notifications/api/v1/orders/ca964629-fba5-48e6-80b3-d75502c08f5b/status"
+    }
+}
+```
+
+_Example: Sms notification order with notification template._
+
+```json
+{
+    "id": "ca964629-fba5-48e6-80b3-d75502c08f5b",
+    "creator": "ttd",
+    "sendersReference": "demo-2023-01",
+    "requestedSendTime": "2023-12-12T14:13:27.8367317Z",
+    "created": "2023-12-12T14:13:27.8450294Z",
+    "notificationChannel": "Sms",
+    "recipients": [
+        {
+            "mobileNumber": "+4799999999"
+        }
+    ],
+    "smsTemplate": {
+        "senderNumber": "Altinn",
+        "body": "A text message sent by a service owner through Altinn."
     },
     "links": {
         "self": "https://platform.altinn.no/notifications/api/v1/orders/ca964629-fba5-48e6-80b3-d75502c08f5b",
