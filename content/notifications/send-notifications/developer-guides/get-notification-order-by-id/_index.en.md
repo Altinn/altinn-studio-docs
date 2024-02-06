@@ -78,7 +78,7 @@ Type: [_EmailTemplateExt_](https://github.com/Altinn/altinn-notifications/blob/m
 
 All the email template values used to generate notifications.
 
-#### emailTemplate
+#### smsTemplate
 Type: [_SmsTemplateExt_](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Models/SmsTemplateExt.cs)
 
 All the sms template values used to generate notifications.
