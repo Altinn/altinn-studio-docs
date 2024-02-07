@@ -10,14 +10,17 @@ toc: true
 
 ### Public API
 The following API controllers are defined: 
-- [EmailNotificationsOrdersController](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Controllers/EmailNotificationOrdersController.cs):
-  API for placing new email notification order requests  
-- [SmsNotificationsOrdersController](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Controllers/SmsNotificationOrdersController.cs):
-  API for placing new sms notification order requests  
-- [EmailNotificationsController](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Controllers/EmailNotificationsController.cs):
-  API for retrieving email notifications related to a single order
 - [OrdersController](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Controllers/OrdersController.cs):
   API for retrieving one or more orders with or without processing details and notification summaries
+- [EmailNotificationsOrdersController](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Controllers/EmailNotificationOrdersController.cs):
+  API for placing new email notification order requests  
+- [EmailNotificationsController](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Controllers/EmailNotificationsController.cs):
+  API for retrieving email notifications related to a single order
+- [SmsNotificationsOrdersController](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Controllers/SmsNotificationOrdersController.cs):
+  API for placing new sms notification order requests  
+- [SmsNotificationsController](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Controllers/SmsNotificationsController.cs):
+  API for retrieving sms notifications related to a single order
+
 
 ### Notifications internal API
 The API controllers listed below are exclusively for use within the Notification solution:
