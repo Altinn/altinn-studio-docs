@@ -311,7 +311,7 @@ Nedenfor kan du se hvordan tekstene vi har lagt til ser ut i Altinn Studio og hv
 
 ### Tekster i Altinn Studio
 
-![Tekstene vist i Altinn Studio. Bilde](add-texts-module1-screenshot.png "Tekstene vist i Altinn Studio")
+![Tekstene vist i Altinn Studio. Bilde](module1-add-texts-screenshot.png "Tekstene vist i Altinn Studio")
 
 {{</content-version-container>}}
 {{<content-version-container version-label="Kode">}}
@@ -396,12 +396,12 @@ Se *Kode* for å se hvordan oppsettet av skjemasiden reflekteres i koden.
 
 {{% markdown %}}
 Under kan du se innholdet til "Mellomnavn"-komponenten.   
-Her har vi satt komponent-ID, feltet i datamodellen komponenten er knyttet til og oppgitt nøkkelen til tekstressursen som vi definerte i forrige steg.
+Her har vi satt komponent-ID, feltet i datamodellen komponenten er knyttet til og angitt nøkkelen til tekstressursen som vi definerte i forrige steg.
 
-![Innholdet til "Mellomnavn"-komponenten i Altinn Studio. Bilde.](module1-add-components-setup-screenshot.png "Innholdet til \"Mellomnavn\"-komponenten i Altinn Studio")
+![Innholdet til \"Mellomnavn\"-komponenten i Altinn Studio. Bilde.](module1-add-components-setup-screenshot.png "Innholdet til \"Mellomnavn\"-komponenten i Altinn Studio")
 {{% /markdown %}}
 
-### Innstillinger - Obligatorisk
+### Innstillinger - "Påkrevd"
 
 {{% markdown %}}
 Huk av for 'Det skal være påkrevd for brukeren å svare' for felt som er obligatoriske for brukeren (alle felt med unntak av "Mellomnavn"):

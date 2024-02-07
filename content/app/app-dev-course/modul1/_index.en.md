@@ -296,11 +296,234 @@ The application should be runnable on your local machine with LocalTest, and you
 
 ## Solution
 
-[Source code Module 1](https://altinn.studio/repos/testdep/flyttemelding-sogndal/src/branch/modul1)<br>
+[Module 1 source code](https://altinn.studio/repos/testdep/flyttemelding-sogndal/src/branch/modul1)<br>
+
+{{<expandlarge id="add-texts-solution" header="Create and Edit Texts">}}
+
+{{% markdown %}}
+Below you can find what the added texts look like in Altinn Studio and, in the *Code* tab, how this is reflected in the `resources.nb.json` file in the repository.
+
+{{% /markdown %}}
+
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="Altinn Studio Designer">}}
+
+### Texts in Altinn Studio
+
+![The texts shown in Altinn Studio. Image](module1-add-texts-screenshot.png "The texts shown in Altinn Studio")
+
+{{</content-version-container>}}
+{{<content-version-container version-label="Code">}}
+
+### Texts in the repository
+
+{{< code-title >}}
+App/config/texts/resource.nb.json
+{{< /code-title >}}
+
+```json
+{
+  "language": "nb",
+  "resources": [
+    {
+      "id": "appName",
+      "value": "Flyttemelding Sogndal"
+    },
+    {
+      "id": "firstName",
+      "value": "Fornavn"
+    },
+    {
+      "id": "middleName",
+      "value": "Mellomnavn"
+    },
+    {
+      "id": "lastName",
+      "value": "Etternavn"
+    },
+    {
+      "id": "age",
+      "value": "Alder"
+    },
+    {
+      "id": "streetName",
+      "value": "Gatenavn"
+    },
+    {
+      "id": "postalCode",
+      "value": "Postnummer"
+    },
+    {
+      "id": "postalLocation",
+      "value": "Sted"
+    },
+    {
+      "id": "email",
+      "value": "E-post"
+    },
+    {
+      "id": "phone",
+      "value": "Telefonnummer"
+    }
+  ]
+}
+```
+{{</content-version-container>}}
+{{</content-version-selector>}}
+{{</expandlarge>}}
+
+{{<expandlarge id="add-components-solution" header="Add Components">}}
+
+{{% markdown %}}
+Below you can find the form we created and the components used.
+
+![Screenshot of the form.](module1-add-components-form-screenshot.png "The first form page")
+{{% /markdown %}}
+
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="Altinn Studio Designer">}}
+
+### Components
 
 {{% notice info %}}
-A worked solution is underway.
+See *Code* to see how the layout and configurations of the form is reflected in the code.
 {{% /notice %}}
+
+![The components used in the form. Image.](module1-add-components-components-screenshot.png "The components used in the form")
+
+### Component - Configuration
+
+{{% markdown %}}
+For the components we have set the component-ID, linked the component with the correct field in the data model and set the label by supplying the ID to the text resource we defined in the previous task.   
+
+In the example below, the setup for the "Mellomnavn"-Component is shown.
+
+![Configuration of the \"Mellomnavn\"-Component in Altinn Studio. Image.](module1-add-components-setup-screenshot.png "Configuration of the \"Mellomnavn\"-Component in Altinn Studio")
+{{% /markdown %}}
+
+### Settings - "Required"
+
+{{% markdown %}}
+Toggle the 'Det skal være påkrevd for brukeren å svare'-switch on the fields that are mandatory for the user to fill (which are all fields, with the exception of "Mellomnavn"):
+
+![Required setting. Image.](module1-add-components-required-screenshot.png "Required setting")
+{{% /markdown %}}
+
+{{</content-version-container>}}
+{{<content-version-container version-label="Code">}}
+
+### Form page
+
+The code for the first form page, which can be found in the repository in `App/ui/layouts/`, is as follows:
+
+{{< code-title >}}
+App/ui/layouts/innflytterPersonalia.json
+{{< /code-title >}}
+
+```json
+{
+  "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
+  "data": {
+    "layout": [
+      {
+        "id": "firstName",
+        "type": "Input",
+        "dataModelBindings": {
+          "simpleBinding": "Innflytter.Fornavn"
+        },
+        "required": true,
+        "readOnly": false,
+        "textResourceBindings": {
+          "title": "firstName"
+        }
+      },
+      {
+        "id": "middleName",
+        "type": "Input",
+        "dataModelBindings": {
+          "simpleBinding": "Innflytter.Mellomnavn"
+        },
+        "required": false,
+        "readOnly": false,
+        "textResourceBindings": {
+          "title": "middleName"
+        }
+      },
+      {
+        "id": "lastName",
+        "type": "Input",
+        "dataModelBindings": {
+          "simpleBinding": "Innflytter.Etternavn"
+        },
+        "required": true,
+        "readOnly": false,
+        "textResourceBindings": {
+          "title": "lastName"
+        }
+      },
+      {
+        "id": "age",
+        "type": "Input",
+        "dataModelBindings": {
+          "simpleBinding": "Innflytter.Alder"
+        },
+        "required": true,
+        "readOnly": false,
+        "textResourceBindings": {
+          "title": "age"
+        }
+      },
+      {
+        "id": "addressComponent",
+        "type": "AddressComponent",
+        "dataModelBindings": {
+          "address": "Innflytter.Adresse.Gateadresse",
+          "zipCode": "Innflytter.Adresse.Postnr",
+          "postPlace": "Innflytter.Adresse.Poststed"
+        },
+        "simplified": true,
+        "readOnly": false,
+        "required": true
+      },
+      {
+        "id": "email",
+        "type": "Input",
+        "dataModelBindings": {
+          "simpleBinding": "Innflytter.Kontaktinformasjon.Epost"
+        },
+        "required": true,
+        "readOnly": false,
+        "textResourceBindings": {
+          "title": "email"
+        }
+      },
+      {
+        "id": "phoneNumber",
+        "type": "Input",
+        "dataModelBindings": {
+          "simpleBinding": "Innflytter.Kontaktinformasjon.Telefonnummer"
+        },
+        "required": true,
+        "readOnly": false,
+        "textResourceBindings": {
+          "title": "phone"
+        }
+      },
+      {
+        "id": "NavigationButtons-yxdxMR",
+        "type": "NavigationButtons",
+        "componentType": "NavigationButtons",
+        "dataModelBindings": {},
+        "showBackButton": true,
+        "textResourceBindings": {}
+      }
+    ]
+  }
+}
+```
+{{</content-version-container>}}
+{{</content-version-selector>}}
+{{</expandlarge>}}
 
 <br><br>
 
