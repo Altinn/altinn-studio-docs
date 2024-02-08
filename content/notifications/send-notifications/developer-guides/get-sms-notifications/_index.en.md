@@ -74,12 +74,12 @@ Each notification will include the following properties:
 
 | Status                        | Description       |
 |:-----------------------------:|:-----------------:|
-| New                           | The sms has been created, but has not been picked up for processing yet. |
-| Sending                       | The sms is being processed and will be attempted sent shortly. |
-| Accepted                      | The sms has been accepted by the gateway service and will be sent shortly. |
-| Failed                        | The sms was not sent due to an unspecified failure.|
-| Failed_RecipientNotIdentified | The sms was not sent because the recipient's sms address was not found. |
-| Failed_InvalidRecipient       | The sms was not sent because the recipient number was invalid. |    
+| New                           | The SMS has been created, but has not been picked up for processing yet. |
+| Sending                       | The SMS is being processed and will be attempted sent shortly. |
+| Accepted                      | The SMS has been accepted by the gateway service and will be sent shortly. |
+| Failed                        | The SMS was not sent due to an unspecified failure.|
+| Failed_RecipientNotIdentified | The SMS was not sent because the recipient's SMS address was not found. |
+| Failed_InvalidRecipient       | The SMS was not sent because the recipient number was invalid. |    
 
 ## Examples
 
