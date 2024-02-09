@@ -139,12 +139,14 @@ package generation and publishing.
             with:
               fetch-depth: 0
 
-          - name: Install dotnet8
+          - name: Install dotnet
             uses: actions/setup-dotnet@v3
             with:
               dotnet-version: 8.0.x
           - name: Install deps
-            run:  dotnet restore
+            run: |
+              cd src/Altinn.Common.AccessTokenClient
+              dotnet restore
           - name: Build AccessTokenClient
             if: startsWith(github.ref, 'refs/tags/Altinn.Common.AccessTokenClient-')
             run: |
