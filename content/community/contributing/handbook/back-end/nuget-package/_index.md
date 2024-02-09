@@ -139,10 +139,10 @@ package generation and publishing.
             with:
               fetch-depth: 0
 
-          - name: Install dotnet6
+          - name: Install dotnet8
             uses: actions/setup-dotnet@v3
             with:
-              dotnet-version: 7.0.x
+              dotnet-version: 8.0.x
           - name: Install deps
             run:  dotnet restore
           - name: Build AccessTokenClient
