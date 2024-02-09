@@ -76,7 +76,7 @@ We are currently updating Altinn Studio with more configuration options!
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
 
-You can add a component in [Altinn Studio Designer](/app/getting-started/ui-editor/) by dragging it from the list of components to the page area.
+You can add a component in [Altinn Studio Designer](/app/getting-started/) by dragging it from the list of components to the page area.
 Selecting the component brings up its configuration panel.
 
 {{</content-version-container>}}

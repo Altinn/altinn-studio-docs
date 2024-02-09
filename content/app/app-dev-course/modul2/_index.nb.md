@@ -1,14 +1,14 @@
 ---
 title: Modul 2
-description: Legge til flere sider, sporvalg og forhåndsutfylling
+description: Legge til flere sider, vise/skjule sider og forhåndsutfylling
 linktitle: Modul 2
 tags: [apps, training, prefill, sporvalg]
 weight: 20
 ---
 
-I denne modulen skal du videreutvikle applikasjonen du laget i [Modul 1](../modul1) med blant annet en ny side, dynamisk skjuling av sider, sporvalg og forhåndsutfylling.
+I denne modulen skal du videreutvikle applikasjonen du laget i [Modul 1](../modul1) med blant annet en ny side, dynamisk skjuling av sider og forhåndsutfylling.
 
-Deler av Modul 2 kan gjøres i [Altinn Studio Designer](/nb/app/getting-started/ui-editor/) (Designer), men noe må utføres med [lokal utvikling](/nb/app/getting-started/local-dev).
+Deler av Modul 2 kan gjøres i [Altinn Studio Designer](/nb/app/getting-started/) (Designer), men noe må utføres med [lokal utvikling](/nb/app/getting-started/local-dev).
 
 **Temaer som dekkes i denne modulen:**
 
@@ -28,7 +28,7 @@ kan det forbedre brukeropplevelsen dersom man deler applikasjonen opp i flere si
 La oss se nærmere på hvordan man kan opprette en ny side i applikasjonen
 som vises _før_ brukeren kommer til første datainnsamlingsside som ble laget i Modul 1.
 
-Opprettelse og administrasjon av flere sider kan gjøres i [Altinn Studio Designer](/nb/app/getting-started/ui-editor/) (venstre panel).
+Opprettelse og administrasjon av flere sider kan gjøres i [Altinn Studio Designer](/nb/app/getting-started/) (venstre panel).
  For manuelt oppsett av sider, se 'Nyttig dokumentasjon' lenger ned på siden.
 
 ### Krav fra kommunen
@@ -81,14 +81,14 @@ Alle tekstressurser støtter Markdown og dermed HTML-notasjon. Du kan derfor ben
 I mange tilfeller er det ønskelig å kontrollere hvilke deler av applikasjonen som er synlige basert på brukerens respons.
 For eksempel kan det være relevant å hoppe over noen av spørsmålene i et skjema hvis svaret er åpenbart eller irrelevant basert på tidligere svar.
 
-I denne oppgaven vil du sette opp sporvalg i applikasjonen for å dirigere brukere til ulike sider basert på deres respons.
+I denne oppgaven vil du sette opp dynamiske uttrykk i applikasjonen for å dirigere brukere til ulike sider basert på deres respons.
 
 ### Krav fra kommunen
 
 En bruker som ikke oppfyller kravene for tjenesten, bør stoppes så tidlig som mulig i arbeidsflyten.
  Brukeren skal indikere om tjenesten gjelder dem på informasjonssiden.
 
-Måten svaret samles inn på er valgfri.
+Måten svaret samles inn på er valgfri, men et tips er å bruke en valg-komponent som [avkrysningsbokser](/nb/app/development/ux/components/checkboxes/), [radioknapper](/nb/app/development/ux/components/radiobuttons/) eller [nedtrekksliste](/nb/app/development/ux/components/dropdown/).
 Merk at en komponent må være knyttet til et felt i datamodellen for å lagre verdier (du kan bruke feltet `Innflytter.KanBrukeSkjema` i datamodellen).
 
 Brukeren skal sendes til ett av følgende spor basert på svaret deres:
@@ -127,10 +127,11 @@ Dersom du har logikk i en applikasjon der man kan fortsette til innsending for f
 
 {{% /expandlarge %}}
 
-
 {{% expandlarge id="prefill" header="Forhåndsutfylling av personopplysninger" %}}
 
-Altinn gir fordelen av å ha lett tilgjengelig metadata for enkeltpersoner og bedrifter. Ved hjelp av forhåndsutfylling kan vi hente brukerdata og fylle ut felt sømløst, noe som reduserer behovet for manuell inntasting av data, spesielt for standardopplysninger som navn, adresser og e-postadresser.
+Altinn gir fordelen av å ha lett tilgjengelig [metadata](/nb/api/models/instance/#instance) for enkeltpersoner og bedrifter.
+ Ved hjelp av forhåndsutfylling kan vi hente brukerdata og fylle ut felt sømløst.
+ Dette reduserer behovet for manuell inntasting av data, spesielt for standardopplysninger som navn, adresser og e-postadresser.
 
 Du kan integrere data fra Altinns [forhåndsutfyllingskilder](/nb/app/development/data/prefill/config/#tilgjengelige-prefill-verdier) direkte i appen ved å tilordne dataene til spesifikke felt i datamodellen. Dette automatiserer utfylling av felt under opprettelse av skjema. Du kan også integrere egendefinerte løsninger for forhåndsutfylling.
 
@@ -153,7 +154,7 @@ Denne oppgaven fokuserer på den første siden for datainnsamling og har som må
 
 1. Opprett en [fil for forhåndsutfylling](/nb/app/development/data/prefill/config/#oppsett-av-prefill-i-applikasjons-repository).
 2. Konfigurer forhåndsutfylling for verdier tilgjengelig i Altinns [forhåndsutfyllingskilder](/nb/app/development/data/prefill/config/#tilgjengelige-prefill-verdier) (alle unntatt alder).
-3. Opprett [egendefinert forhåndsutfylling](/nb/app/development/data/prefill/custom) for alder basert på personnummer (se kodehjelp under).
+3. Opprett [egendefinert forhåndsutfylling](/nb/app/development/data/prefill/custom) for alder basert på personnummer (se Kodehjelp og Nyttig dokumentasjon under).
 4. Konfigurer innstillinger for felter som ikke skal kunne endres av brukeren.
 
 {{% expandsmall id="kodehjelp" header="Kodehjelp: Beregning av alder fra personnummer" %}}
@@ -233,12 +234,17 @@ private static int CalculateAge(string sosialSecNumber)
 ```
 {{% /expandsmall %}}
 
+{{% notice info %}}
+**Merk:** Applikasjonen må kjøres lokalt for at forhåndsutfyllinger skal vises.
+{{% /notice %}}
+
 *Husk å pushe de lokale endringene dine så de blir tilgjengelige i Altinn Studio.*
 
 ### Nyttig dokumentasjon
 - [Forhåndsutfylling fra nasjonale registre og brukerprofil](/nb/app/development/data/prefill/config/#prefill-fra-nasjonale-register-og-brukerprofil)
 - [Tilgjengelige kilder og verdier for forhåndsutfylling](/nb/app/development/data/prefill/config/#tilgjengelige-prefill-verdier)
 - [Egendefinert forhåndsutfylling](/nb/app/development/data/prefill/custom)
+- [Instance](/nb/api/models/instance/#instance) - Metadata for applikasjonen.
 - [Beskrivelse av InstanceOwner-objektet](/nb/api/models/instance/#instanceowner) - Her finner du personnummeret.
   Vær oppmerksom på at egenskapene refereres til med store forbokstaver i koden, ikke med små, som i denne oversikten.
 
@@ -256,8 +262,12 @@ Komponenten kan settes til `readOnly` på én av to måter:
 ![Altinn Studio innstilling for 'read only'. Bilde](<screenshot-readonly-setting.png>)
 
 **2\.** Sette egenskapen `readOnly` til `true` for komponenten i json-filen til siden:
-```json{linenos=false,hl_lines=["13"]}
-// Fil: /App/ui/layouts/<page>.json
+
+{{< code-title >}}
+App/ui/layouts/{page}.json
+{{< /code-title >}}
+
+```json{linenos=false,hl_lines=["12"]}
 {
   "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
   "data": {
@@ -315,10 +325,10 @@ public static string GetDOB(string fOrDNumber){
 }
 ```
 {{% /expandsmall %}}
-
 {{% /expandlarge %}}
 
 ## Oppsummering
+
 I denne modulen har du utvidet applikasjonen din med mer funksjonalitet ved å
 legge til flere sider, sette opp sporvalg for å styre brukerflyten og sette opp forhåndsutfylling av skjemafelter
 med tilgjengelige datakilder i Altinn og egendefinert kode.
@@ -326,29 +336,23 @@ med tilgjengelige datakilder i Altinn og egendefinert kode.
 Tjenesten skal kunne kjøres på din lokale maskin for lokal testing og du skal kunne teste begge brukerflytene og
 bekrefte at riktige felter blir forhåndsutfylt.
 
-<br>
+## Løsningsforslag
 
-{{<expandlarge id="solution" header="Løsningsforslag">}}
+[Kildekode Modul 2](https://altinn.studio/repos/testdep/flyttemelding-sogndal/src/branch/modul2)
+
+{{<expandlarge id="info-page-solution" header="Legge til infoside">}}
 
 {{% markdown %}}
-[Kildekode Modul 2](https://altinn.studio/repos/testdep/flyttemelding-sogndal/src/branch/modul2)<br>
-[(Kildekode Modul 2 - tidligere versjon)](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/2)<br>
-
-### Legge til infoside
-
 I dette steget har vi lagt til en enkel infoside med bilde og tekst.
 
 ![Skjermbilde av infoside. Bilde](screenshot-info-page-1.png "Infoside")
-
 {{% /markdown %}}
 
 {{<content-version-selector classes="border-box">}}
 
 {{<content-version-container version-label="Altinn Studio Designer">}}
 
-<br>
-
-#### Komponenter
+### Komponenter
 
 {{% notice info %}}
 Se *Kode* for sidestilling av komponenter.
@@ -356,7 +360,7 @@ Se *Kode* for sidestilling av komponenter.
 
 ![Komponenter på info-side. Bilde](screenshot-info-page-layout-1.png "Komponenter på info-side")
 
-#### Bilde
+### Bilde
 
 I denne løsningen har vi lagret bildet i appen og brukt `wwwroot/kommune-logo.png` som kilde.
  Et alternativ er å bruke en ekstern URL for bildet som kilde.
@@ -381,7 +385,7 @@ I feltet "Legg til mappe" fyller du inn `/App/wwwroot`.
 ![Innstillinger for bilde. Skjermbilde](screenshot-image-settings-wwwroot.png "Innstillinger for bilde")
 
 
-#### Tekst
+### Tekst
 
 Både overskrift og beskrivelse er lagt til som "Paragraf" (underkategori av "Tekst") og formatert med markdown.
 
@@ -392,15 +396,15 @@ Både overskrift og beskrivelse er lagt til som "Paragraf" (underkategori av "Te
 {{</content-version-container>}}
 {{<content-version-container version-label="Kode">}}
 
-<br>
-
-#### Infoside - komponenter og innstillinger
+### Infoside - komponenter og innstillinger
 
 Vi har plassert bildet og overskriften ved siden av hverandre ved hjelp av `grid`-egenskapen (markert) og tildelt ulike grid-fraksjoner til komponentene.
 
-```json{linenos=false,hl_lines=["17-19", "30-32"]}
-// Fil: /App/ui/layouts/info.json
+{{< code-title >}}
+App/ui/layouts/info.json
+{{< /code-title >}}
 
+```json{linenos=false,hl_lines=["15-17", "28-30"]}
 {
   "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
   "data": {
@@ -455,10 +459,13 @@ Vi har plassert bildet og overskriften ved siden av hverandre ved hjelp av `grid
 }
 ```
 
-#### Tekstressurser (nb)
-```json
-// Fil: /App/config/texts/resource.nb.json
+### Tekstressurser (nb)
 
+{{< code-title >}}
+App/config/texts/resource.nb.json
+{{< /code-title >}}
+
+```json
 {
   "language": "nb",
   "resources": [
@@ -481,12 +488,10 @@ Vi har plassert bildet og overskriften ved siden av hverandre ved hjelp av `grid
 {{</content-version-container>}}
 {{</content-version-selector>}}
 
-{{% gray-divider-line %}}
+{{</expandlarge>}}
 
+{{<expandlarge id="alternative-workflow-solution" header="Alternativ arbeidsflyt">}}
 {{% markdown %}}
-
-### Alternativ arbeidsflyt
-
 I denne løsningen har vi valgt å legge til en komponent for radioknapper på info-siden hvor brukeren skal angi om de oppfyller kravene for å bruke skjemaet.
  Det er valgt å forhåndsmarkere alternativet 'Nei' så brukeren må gjøre et aktivt valg for å bruke skjemaet.
  
@@ -497,7 +502,6 @@ I denne løsningen har vi valgt å legge til en komponent for radioknapper på i
 Vi har lagt til en ny side vi kan sende brukere til dersom de ikke oppfyller kravene (spor 1).
 
 ![Skjermbilde av alternativ arbeidsflyt: dette skjemaet er ikke for deg](side-ikke-for-deg-screenshot.png "Ny side: Dette skjemaet er ikke for deg")
-
 {{% /markdown %}}
 
 {{<content-version-selector classes="border-box">}}
@@ -507,15 +511,13 @@ Vi har lagt til en ny side vi kan sende brukere til dersom de ikke oppfyller kra
 Se *Kode* for logikk ved veivalg.
 {{% /notice %}}
 
-#### Radioknapper
+### Radioknapper
 
 ![Komponenter på info-side. Bilde](screenshot-info-page-layout-2.png "Ny komponent på info-siden")
 
 ![Radioknapper innstillinger. Bilde](screenshot-radio-buttons-settings.png "Innstillinger for radioknapper")
 
-![]()
-
-#### Ny side
+### Ny side
 
 Ny side for *Spor 1*.
 
@@ -527,13 +529,13 @@ Ny side for *Spor 1*.
 
 {{<content-version-container version-label="Kode">}}
 
-<br>
+### Radioknapper
 
-#### Radioknapper
+{{< code-title >}}
+App/ui/layouts/info.json
+{{< /code-title >}}
 
-```json{linenos=false,hl_lines=["8-29"]}
-// Fil: /App/ui/layouts/info.json
-
+```json{linenos=false,hl_lines=["6-27"]}
 {
   "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
   "data": {
@@ -567,7 +569,7 @@ Ny side for *Spor 1*.
 }
 ```
 
-#### Ny side 'Ikke for deg' og logikk ved veivalg
+### Ny side 'Ikke for deg' og logikk ved veivalg
 
 Vi har lagt til en ny side som kun skal vises dersom brukeren ikke oppfyller kravene for å bruke tjenesten.
  En måte å oppnå dette på er ved å skjule siden hvis brukeren bekrefter at de *kan* bruke tjenesten.
@@ -576,9 +578,11 @@ Logikk for å skjule siden er implementert ved hjelp av egenskapen `hidden` (se 
 Verdien fra valgt radioknapp lagres i feltet `Innflytter.KanBrukeSkjema` og kan nås gjennom komponenten (`["component", "bekreftelse"]`).
 Som et alternativ kan du teste verdien til feltet direkte (`["dataModel", "Innflytter.KanBrukeSkjema"]`).
 
-```json{linenos=false,hl_lines="6-13"}
-// Fil: /App/ui/layouts/ikke-for-deg.json
+{{< code-title >}}
+App/ui/layouts/ikke-for-deg.json
+{{< /code-title >}}
 
+```json{linenos=false,hl_lines="4-11"}
 {
   "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
   "data": {
@@ -616,9 +620,11 @@ Som et alternativ kan du teste verdien til feltet direkte (`["dataModel", "Innfl
 Tilsvarende logikk er lagt til for skjemasiden.
  Denne siden vil bli skjult når alternativet for *ikke* å oppfylle tjenestekravene blir valgt (verdien av komponenten `bekreftelse` er `false`).
 
-```json{linenos=false,hl_lines=["6-13"]}
-// Fil: /App/ui/layouts/innflytterPersonalia.json
+{{< code-title >}}
+App/ui/layouts/innflytterPersonalia.json
+{{< /code-title >}}
 
+```json{linenos=false,hl_lines=["4-11"]}
 {
   "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
   "data": {
@@ -634,14 +640,16 @@ Tilsvarende logikk er lagt til for skjemasiden.
       ...
 ```
 
-#### Ekskludere side fra pdf
+### Ekskludere side fra pdf
 
 Vi ønsker ikke å inkludere siden 'Ikke for deg' dersom det skal genereres en pdf-fil.
  Konfigurer egenskapen `excludeFromPdf` i `Settings.json` for å ekskludere sider fra pdf.
 
-```json{linenos=false,hl_lines="10"}
-// Fil: /App/Settings.json
+{{< code-title >}}
+App/Settings.json
+{{< /code-title >}}
 
+```json{linenos=false,hl_lines="9"}
 {
   "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
   "pages": {
@@ -655,13 +663,15 @@ Vi ønsker ikke å inkludere siden 'Ikke for deg' dersom det skal genereres en p
 }
 ```
 
-#### Tekstressurser (nb)
+### Tekstressurser (nb)
 
 Nye tekstressurser:
 
-```json{linenos=false,hl_lines=["7-22"]}
-// Fil: /App/config/texts/resource.nb.json
+{{< code-title >}}
+App/config/texts/resource.nb.json
+{{< /code-title >}}
 
+```json{linenos=false,hl_lines=["5-20"]}
 {
   "language": "nb",
   "resources": [
@@ -689,9 +699,9 @@ Nye tekstressurser:
 {{</content-version-container>}}
 {{</content-version-selector>}}
 
-{{% gray-divider-line %}}
+{{</expandlarge>}}
 
-<h3>Forhåndsutfylling</h3>
+{{<expandlarge id="prefill-solution" header="Forhåndsutfylling">}}
 
 {{% markdown %}}
 
@@ -699,8 +709,6 @@ Under er et eksempel på hvordan datasiden kan se ut med forhåndsutfylt informa
  Vi har også sidestilt flere av komponentene og lagt til en 'Send inn'-knapp.
 
 ![Skjermbilde av forhåndsutfylt dataside](prefilled-data-screenshot.png "Oppdatert dataside med forhåndsutfylling")
-
-![]()
 
 {{% /markdown %}}
 
@@ -733,9 +741,11 @@ Ny knapp:
 Koden under viser et eksempel med noen av de endrede komponentene.
  For en fullstendig løsning, se [kildekode for Modul 2](https://altinn.studio/repos/testdep/flyttemelding-sogndal/src/branch/modul2).
 
-```json{linenos=false,hl_lines=["22", "26-28", "37", "41-43", "47-54"]}
-// Fil: /App/ui/layouts/innflytterPersonalia.json
+{{< code-title >}}
+App/ui/layouts/innflytterPersonalia.json
+{{< /code-title >}}
 
+```json{linenos=false,hl_lines=["20", "24-26", "35", "39-41", "45-52"]}
 {
   "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
   "data": {
@@ -798,9 +808,11 @@ Koden under viser et eksempel med noen av de endrede komponentene.
 
 Vi har opprettet filen `datamodel.prefill.json` og konfigurert forhåndsutfylling av personlig informasjon (unntatt alder):
 
-```json{linenos=false,hl_lines=[""]}
-// Fil: /App/models/datamodel.prefill.json
+{{< code-title >}}
+App/models/datamodel.prefill.json
+{{< /code-title >}}
 
+```json{linenos=false,hl_lines=[""]}
 {
     "$schema": "https://altinncdn.no/schemas/json/prefill/prefill.schema.v1.json",
     "allowOverwrite": true,
@@ -824,9 +836,11 @@ For egendefinert forhåndsutfylling av alder har vi opprettet en fil `Instantiat
  Metoden `DataCreation` henter personnummeret fra instansen som blir sendt til den. Deretter bruker den nummeret til å beregne alderen ved hjelp av metoden `CalculateAge` (utelatt, se kodehjelp under [Forhåndsutfylling](#prefill) i oppgavebeskrivelsen).
 Den beregnede alderen blir så tilordnet datafeltet `skjema.Innflytter.Alder`.
 
-```csharp{linenos=false,hl_lines=[""]}
-// Fil: App/logic/Instantiation/InstantiationProcessor.cs
+{{< code-title >}}
+App/logic/Instantiation/InstantiationProcessor.cs
+{{< /code-title >}}
 
+```csharp{linenos=false,hl_lines=[""]}
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -852,9 +866,11 @@ public class InstantiationProcessor : IInstantiationProcessor
 
 Datatypen for `skjema` er gitt av datamodellen `datamodel.xsd`:
 
-```xml{linenos=false,hl_lines="4"}
-<!-- Fil: /App/models/datamodel.xsd -->
+{{< code-title >}}
+App/models/datamodel.xsd
+{{< /code-title >}}
 
+```xml{linenos=false,hl_lines="2"}
  <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
   <xsd:element name="InnflytterSkjema" type="Skjema" />
   <xsd:complexType name="Skjema">
@@ -864,8 +880,11 @@ Datatypen for `skjema` er gitt av datamodellen `datamodel.xsd`:
 
 Til slutt har vi registrert implementeringen i `Program.cs`:
 
-```csharp{linenos=false,hl_lines="7"}
-// Fil: /App/Program.cs
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
+
+```csharp{linenos=false,hl_lines="6"}
 ...
 
 void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)

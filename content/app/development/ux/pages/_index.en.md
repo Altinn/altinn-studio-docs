@@ -40,10 +40,6 @@ If you use layout sets there is a separate file for each layout set.
       "Info",
       "Summary"
     ],
-    "triggers": [
-      "calculatePageOrder",
-      "validatePage"
-    ],
     "hideCloseButton": false,
     "showLanguageSelector": false,
     "showExpandWidthButton": false,
@@ -65,6 +61,5 @@ The available settings are the following:
 | pdfLayoutName         | String  | see [PDF](/app/development/ux/pdf/#custom-layout-configuration)                                                                                      |
 | order                 | Array   | see [Navigation](/app/development/ux/pages/navigation/#order)                                                                                                                  |
 | excludeFromPdf        | Array   | see [PDF](/app/development/ux/pdf/#automatic-configuration)                                                                                                                    |
-| triggers              | Array   | see [Navigation](/app/development/ux/pages/navigation/#validation-on-page-navigation), [Tracks](/app/development/ux/pages/tracks/#trigger-calculation-on-tracks-from-frontend) |
 
 {{<children />}}

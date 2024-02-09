@@ -115,6 +115,40 @@ feltet (adresse) er satt opp til å være redigerbar kun i den utvidede redigeri
 
 Konfigurasjonen for Group-komponenten i eksempelet over er som følger:
 
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="v4 (App Frontend)">}}
+
+```json
+{
+  "id": "myRepeatingGroup",
+  "type": "RepeatingGroup",
+  "children": ["fornavn", "etternavn", "alder", "fullt-navn", "adresse"],
+  "tableHeaders": ["fornavn", "etternavn", "alder"],
+  "tableColumns": {
+    "fornavn": {
+      "editInTable": true,
+      "showInExpandedEdit": false
+    },
+    "etternavn": {
+      "editInTable": true,
+      "showInExpandedEdit": false
+    },
+    "alder": {
+      "editInTable": true
+    }
+  },
+  "textResourceBindings": {
+    "add_button": "person"
+  },
+  "dataModelBindings": {
+    "group": "RepGroup.Personer"
+  }
+}
+```
+
+{{</content-version-container >}}
+{{<content-version-container version-label="v3 (App Frontend)">}}
+
 ```json
 {
   "id": "myRepeatingGroup",
@@ -143,3 +177,6 @@ Konfigurasjonen for Group-komponenten i eksempelet over er som følger:
   }
 }
 ```
+
+{{</content-version-container>}}
+{{</content-version-selector>}}

@@ -3,7 +3,7 @@ title: Opprette bruker i Altinn Studio
 linktitle: Opprette bruker
 description: Konfigurer brukeren din i Altinn Studio for første gang.
 toc: true
-weight: 100
+weight: 1
 ---
 
 ## Lag en bruker i Altinn Studio

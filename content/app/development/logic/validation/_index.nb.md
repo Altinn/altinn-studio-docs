@@ -42,8 +42,8 @@ Det er satt opp standard feilmeldinger for alle valideringene som gjøres på kl
 
 | Regel     | Feilmelding bokmål            | Feilmelding nynorsk           | Feilmelding engelsk                   |
 | --------- | ----------------------------- | ----------------------------- | ------------------------------------- |
-| min       | 'Minste gyldig verdi er {0}'  | 'Minste gyldig verdi er {0}'  | 'Minimum valid value is {0}'          |
-| max       | 'Største gyldig verdi er {0}' | 'Største gyldig verdi er {0}' | 'Maximum valid value is {0}'          |
+| minimum   | 'Minste gyldig verdi er {0}'  | 'Minste gyldig verdi er {0}'  | 'Minimum valid value is {0}'          |
+| maximum   | 'Største gyldig verdi er {0}' | 'Største gyldig verdi er {0}' | 'Maximum valid value is {0}'          |
 | minLength | 'Bruk {0} eller flere tegn'   | 'Bruk {0} eller flere tegn'   | 'Use {0} or more characters'          |
 | maxLength | 'Bruk {0} eller færre tegn'   | 'Bruk {0} eller færre tegn'   | 'Use {0} or fewer characters'         |
 | length    | 'Antall tillatte tegn er {0}' | 'Antall tillatte tegn er {0}' | 'Number of characters allowed is {0}' |
@@ -115,6 +115,25 @@ Og tekster i ressurs-fil:
 ```
 
 Da vil valideringmeldingen bli `"Du må fylle ut fornavnet ditt"`.
+
+### Erstatte feilmelding for påkrevde felter helt
+
+Hvis du ønsker å erstatte standardfeilmeldingen for obligatoriske felt fullstendig, kan du gjøre dette ved å legge til
+tekstnøkkelen `requiredValidation` i komponentens `textResourceBindings`-objekt. Dette vil erstatte standardfeilmeldingen
+for obligatoriske felt. Teksten kan være en [tekstnøkkel for en tekst som er definert i ressursfilene](../../ux/texts)
+for flerspråklig støtte.
+
+```json
+{
+  "id": "firstName",
+  "type": "Input",
+  "textResourceBindings": {
+    "title": "text-firstName",
+    "requiredValidation": "myCustomRequiredValidation"
+  },
+  ...
+}
+```
 
 ### Egendefinerte feilmeldinger
 Det er mulig å definere egne feilmeldinger som skal vises når et felt får valideringsfeil. Dette gjøres ved å legge på en parameter `errorMessage` der 
@@ -251,48 +270,51 @@ public async Task ValidateTask(Instance instance, string taskId, ModelStateDicti
 
 Dersom det er behov for umiddelbar validering av et felt
 som ikke kan dekkes i klientsidevalideringen, 
-så kan man sette opp en trigger for validering på enkeltfelter i `formLayout.json`
+så kan man sette opp en trigger for validering på enkeltfelter i komponent-konfigurasjonen.
 {{%notice warning%}}
 
 **MERK**: Det er foreløpig ikke støtte for å sette opp trigger for validering av enkeltfelter for Stateless apps.
 {{%/notice%}}
 
 
-```json {hl_lines=[13]}
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="v4 (App Frontend)">}}
+
+Ved å sette `showValidations`-egenskapen på en komponent vil valideringsfeil gjøres synlig umiddelbart når de oppstår.
+
+```json {hl_lines=[6]}
 {
-  "data": {
-    "layout": [
-      {
-        "id": "3611fb2a-c06b-4fa7-a400-3f6c1ece64e1",
-        "textResourceBindings": {
-          "title": "25795.OppgavegiverNavnPreutfyltdatadef25795.Label"
-        },
-        "dataModelBindings": {
-          "simpleBinding": "etatid"
-        },
-        "type": "Input",
-        "triggers": ["validation"] , // <--- Add this field
-      },
-      {
-        "id": "9ec368da-d6a9-4fbd-94d0-b4dfa8891981",
-        "type": "Button",
-        "textResourceBindings": {
-          "title": "Button"
-        },
-        "dataModelBindings": {},
-        "textResourceId": "Standard.Button.Button",
-        "customType": "Standard"
-      }
-    ]
-  }
+  "id": "some-input-field",
+  "type": "Input",
+  "textResourceBindings": {...},
+  "dataModelBindings": {...},
+  "showValidations": ["AllExceptRequired"]
 }
 ```
 
-{{% notice warning %}}
-Merk at dersom du definerer at et felt skal trigge validering på serverside, så er det kun resultatet av denne valideringen som vil vises. Det vil si at dersom det er 
-annen klient-side validering som er definert, så vil en ev. server-validering av feltet overskrive disse. Pass derfor på å implementere alle nødvendige
-valideringer på feltet også på server-siden, det går an å legge flere feilmeldinger på samme felt ved behov.
-{{% /notice %}}
+Hvor `showValidations` inneholder et sett med validerings-typer som skal sjekkes; dette kan være én eller flere av:
+
+- `Schema`
+- `Component`
+- `Expression`
+- `CustomBackend`
+- `Required`
+- `AllExceptRequired`
+- `All`
+{{</content-version-container>}}
+{{<content-version-container version-label="v3 (App Frontend)">}}
+
+Merk at i versjon 3 av app frontend, kjøres JSON schema og komponent-spesifikk validering automatisk som standard, å legge til en validerings-trigger fører til at custom backend validering kjøres i tillegg.
+
+```json {hl_lines=[6]}
+{
+  "id": "some-input-field",
+  "type": "Input",
+  "textResourceBindings": {...},
+  "dataModelBindings": {...},
+  "triggers": ["validation"]
+}
+```
 
 Konfigurasjonen overfor vil resultere i at din egendefinerte validering i `ValidationHandler.cs`
 vil trigges hver gang feltet oppdaterer seg. Dersom du har behov for å vite hvilket
@@ -462,6 +484,9 @@ private void ValidateFullName(Datamodell model, ModelStateDictionary validationR
 
 Dersom du har problemer med å få dette til å fungere, og du ser valideringsmeldinger med `*FIXED*` foran meldingen istedenfor at meldingen forsvinner, 
 bør du dobbeltsjekke at du har `"FixedValidationPrefix": "*FIXED*"` satt under `GeneralSettings` i `appsettings.json`.
+{{</content-version-container>}}
+{{</content-version-selector>}}
+
 
 ## Myke valideringer
 
@@ -515,34 +540,42 @@ Det er også mulig å overstyre tittelen man ser på meldingene ved å legge til
 ## Gruppevalidering
 
 Det er mulig å gjøre valideringer på en repeterende gruppe i det brukeren ønsker å lagre en gitt rad.
-Dette gjøres ved å legge til en trigger på gruppe-komponenten i layoutfilen (f.eks `FormLayout.json`).
-Det er to forskjellige triggere som kan brukes på grupper; `validation` kjører validering på hele gruppen,
-og `validateRow` kjører kun validering på raden brukeren prøver å lagre. Eksempel:
+Dersom det er valideringsfeil i raden, vil brukeren hindres fra å lukke raden til feilene er fikset.
 
-```json {hl_lines=[14]}
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="v4 (App Frontend)">}}
+```json {hl_lines=[7]}
 {
-  "data": {
-    "layout": [
-      {
-        "id": "demo-gruppe",
-        "type": "Group",
-        "children": [
-            "..."
-        ],
-        "maxCount": 3,
-        "dataModelBindings": {
-            "group": "Endringsmelding-grp-9786.OversiktOverEndringene-grp-9788"
-        },
-        "triggers": ["validateRow"]  // <--- Legg til denne
-      },
-      ...
-    ]
-  }
+  "id": "demo-gruppe",
+  "type": "Group",
+  "children": [...],
+  "maxCount": 9,
+  "dataModelBindings": {...},
+  "validateOnSaveRow": ["All"],
 }
 ```
 
-Dette vil da sørge for at det vil kjøres validering på komponentene som er en del av gruppen på den aktuelle raden man jobber på.
-Om det finnes valideringsfeil så vil man stoppes fra å lagre gruppen før dette er rettet opp i.
+Hvor `validateOnSaveRow` inneholder et sett med validerings-typer som skal sjekkes; dette kan være én eller flere av:
+
+- `Schema`
+- `Component`
+- `Expression`
+- `CustomBackend`
+- `Required`
+- `AllExceptRequired`
+- `All`
+{{</content-version-container>}}
+{{<content-version-container version-label="v3 (App Frontend)">}}
+```json {hl_lines=[7]}
+{
+  "id": "demo-gruppe",
+  "type": "Group",
+  "children": [...],
+  "maxCount": 9,
+  "dataModelBindings": {...},
+  "triggers": ["validateRow"]
+}
+```
 
 Om man legger til validering på gruppe-komponenten så vil det også gå et kall mot valideringen backend med en header som spesifiserer hvilken komponent som trigget valideringen: `ComponentId`.
 I tillegg er rad-indeksen for raden som blir lagret tilgjengelig i headeren `RowIndex`. Dersom gruppen er en nøstet gruppe, er verdien en komma-separert liste med indekser, ellers er indeksen ett enkelt tall.
@@ -589,5 +622,8 @@ public async Task ValidateData(object data, ModelStateDictionary validationResul
     }
 }
 ```
+{{</content-version-container>}}
+{{</content-version-selector>}}
+
 
 For tips til hvordan man løser komplekse valideringer se ekemplene under [enkeltfeltvalidering](#enkeltfeltvalidering).

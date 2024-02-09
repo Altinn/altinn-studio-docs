@@ -7,7 +7,7 @@
     </defs>
     <g>
         <rect x="10" y="580" width="1065" height="730" fill="#b0e3e6" stroke="#0e8088" pointer-events="all"/>
-        <a xlink:href="https://github.com/Altinn/altinn-studio/blob/master/backend/src/Designer/Controllers/ApplicationMetadataController.cs" target="_blank">
+        <a xlink:href="https://github.com/Altinn/altinn-studio/blob/main/backend/src/Designer/Controllers/ApplicationMetadataController.cs" target="_blank">
             <rect x="-40" y="670" width="190" height="40" fill="#60a917" stroke="#2d7600" transform="rotate(90,55,690)" pointer-events="all"/>
             <g transform="translate(-0.5 -0.5)rotate(90 55 690)">
                 <switch>
@@ -26,7 +26,7 @@
                 </switch>
             </g>
         </a>
-        <a xlink:href="https://github.com/Altinn/altinn-studio/blob/master/backend/src/Designer/Controllers/ConfigController.cs" target="_blank">
+        <a xlink:href="https://github.com/Altinn/altinn-studio/blob/main/backend/src/Designer/Controllers/ConfigController.cs" target="_blank">
             <rect x="10" y="670" width="190" height="40" fill="#60a917" stroke="#2d7600" transform="rotate(90,105,690)" pointer-events="all"/>
             <g transform="translate(-0.5 -0.5)rotate(90 105 690)">
                 <switch>
@@ -45,7 +45,7 @@
                 </switch>
             </g>
         </a>
-        <a xlink:href="https://github.com/Altinn/altinn-studio/blob/master/backend/src/Designer/Controllers/ConfigController.cs" target="_blank">
+        <a xlink:href="https://github.com/Altinn/altinn-studio/blob/main/backend/src/Designer/Controllers/ConfigController.cs" target="_blank">
             <rect x="60" y="670" width="190" height="40" fill="#60a917" stroke="#2d7600" transform="rotate(90,155,690)" pointer-events="all"/>
             <g transform="translate(-0.5 -0.5)rotate(90 155 690)">
                 <switch>
@@ -64,7 +64,7 @@
                 </switch>
             </g>
         </a>
-        <a xlink:href="https://github.com/Altinn/altinn-studio/blob/master/backend/src/Designer/Controllers/DeploymentsController.cs" target="_blank">
+        <a xlink:href="https://github.com/Altinn/altinn-studio/blob/main/backend/src/Designer/Controllers/DeploymentsController.cs" target="_blank">
             <rect x="110" y="670" width="190" height="40" fill="#60a917" stroke="#2d7600" transform="rotate(90,205,690)" pointer-events="all"/>
             <g transform="translate(-0.5 -0.5)rotate(90 205 690)">
                 <switch>
@@ -83,7 +83,7 @@
                 </switch>
             </g>
         </a>
-        <a xlink:href="https://github.com/Altinn/altinn-studio/blob/master/backend/src/Designer/Controllers/ErrorController.cs" target="_blank">
+        <a xlink:href="https://github.com/Altinn/altinn-studio/blob/main/backend/src/Designer/Controllers/ErrorController.cs" target="_blank">
             <rect x="160" y="670" width="190" height="40" fill="#60a917" stroke="#2d7600" transform="rotate(90,255,690)" pointer-events="all"/>
             <g transform="translate(-0.5 -0.5)rotate(90 255 690)">
                 <switch>
@@ -102,7 +102,7 @@
                 </switch>
             </g>
         </a>
-        <a xlink:href="https://github.com/Altinn/altinn-studio/blob/master/backend/src/Designer/Controllers/LanguagesController.cs" target="_blank">
+        <a xlink:href="https://github.com/Altinn/altinn-studio/blob/main/backend/src/Designer/Controllers/LanguagesController.cs" target="_blank">
             <rect x="210" y="670" width="190" height="40" fill="#60a917" stroke="#2d7600" transform="rotate(90,305,690)" pointer-events="all"/>
             <g transform="translate(-0.5 -0.5)rotate(90 305 690)">
                 <switch>
@@ -121,7 +121,7 @@
                 </switch>
             </g>
         </a>
-        <a xlink:href="https://github.com/Altinn/altinn-studio/blob/master/backend/src/Designer/Controllers/ModelController.cs" target="_blank">
+        <a xlink:href="https://github.com/Altinn/altinn-studio/blob/main/backend/src/Designer/Controllers/ModelController.cs" target="_blank">
             <rect x="260" y="670" width="190" height="40" fill="#60a917" stroke="#2d7600" transform="rotate(90,355,690)" pointer-events="all"/>
             <g transform="translate(-0.5 -0.5)rotate(90 355 690)">
                 <switch>
@@ -140,7 +140,7 @@
                 </switch>
             </g>
         </a>
-        <a xlink:href="https://github.com/Altinn/altinn-studio/blob/master/backend/src/Designer/Controllers/PipelinesController.cs" target="_blank">
+        <a xlink:href="https://github.com/Altinn/altinn-studio/blob/main/backend/src/Designer/Controllers/PipelinesController.cs" target="_blank">
             <rect x="310" y="670" width="190" height="40" fill="#60a917" stroke="#2d7600" transform="rotate(90,405,690)" pointer-events="all"/>
             <g transform="translate(-0.5 -0.5)rotate(90 405 690)">
                 <switch>
@@ -159,7 +159,7 @@
                 </switch>
             </g>
         </a>
-        <a xlink:href="https://github.com/Altinn/altinn-studio/blob/master/backend/src/Designer/Controllers/LanguagesController.cs" target="_blank">
+        <a xlink:href="https://github.com/Altinn/altinn-studio/blob/main/backend/src/Designer/Controllers/LanguagesController.cs" target="_blank">
             <rect x="360" y="670" width="190" height="40" fill="#60a917" stroke="#2d7600" transform="rotate(90,455,690)" pointer-events="all"/>
             <g transform="translate(-0.5 -0.5)rotate(90 455 690)">
                 <switch>
@@ -178,7 +178,7 @@
                 </switch>
             </g>
         </a>
-        <a xlink:href="https://github.com/Altinn/altinn-studio/blob/master/backend/src/Designer/Controllers/ReleasesController.cs" target="_blank">
+        <a xlink:href="https://github.com/Altinn/altinn-studio/blob/main/backend/src/Designer/Controllers/ReleasesController.cs" target="_blank">
             <rect x="410" y="670" width="190" height="40" fill="#60a917" stroke="#2d7600" transform="rotate(90,505,690)" pointer-events="all"/>
             <g transform="translate(-0.5 -0.5)rotate(90 505 690)">
                 <switch>
@@ -197,7 +197,7 @@
                 </switch>
             </g>
         </a>
-        <a xlink:href="https://github.com/Altinn/altinn-studio/blob/master/backend/src/Designer/Controllers/RepositoryController.cs" target="_blank">
+        <a xlink:href="https://github.com/Altinn/altinn-studio/blob/main/backend/src/Designer/Controllers/RepositoryController.cs" target="_blank">
             <rect x="460" y="670" width="190" height="40" fill="#60a917" stroke="#2d7600" transform="rotate(90,555,690)" pointer-events="all"/>
             <g transform="translate(-0.5 -0.5)rotate(90 555 690)">
                 <switch>

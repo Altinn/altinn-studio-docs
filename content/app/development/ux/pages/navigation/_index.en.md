@@ -47,7 +47,7 @@ how far along the user is in filling out all the application pages.
 {{%notice info%}}
 All known pages in the current [process task](../../../configuration/process) will count towards the total number of
 pages shown in the progress indicator. If you have set up [tracks](../tracks) or
-many [dynamically hidden pages](../../../logic/expressions#viseskjule-hele-sider), this number may fluctuate and appear
+many [dynamically hidden pages](../../../logic/expressions#showhide-entire-pages), this number may fluctuate and appear
 confusing to the user. Make sure the progress indicator is intuitive and provides value to the user before enabling it.
 {{%/notice%}}
 
@@ -142,18 +142,60 @@ If you want to dynamically change the page order this can be done using [tracks.
 
 ## Validation on page navigation
 
-It is possible to trigger validation when the user tries to navigate to a different page, if there are validation errors, the user will be prevented from proceeding. This can be done by adding a trigger to the navigation button component. Example:
+It is possible to check validation when the user tries to navigate to a different page, if there are validation errors, the user will be prevented from proceeding.
 
-```json
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="v4 (App Frontend)">}}
+In version 4 of app frontend, the `NavigationButtons` component have properties called `validateOnNext` and `validateOnPrevious` that can be configured. Example:
+
+```json {linenos=false,hl_lines=[5,6,7,8]}
 {
-  "id": "7cbc1c00-4c8c-42b6-bcef-12b3c4c45373",
+  "id": "nav-buttons-1",
+  "type": "NavigationButtons",
+  "textResourceBindings": {...},
+  "validateOnNext": {
+    "page": "current",
+    "show": ["All"]
+  }
+}
+```
+
+Where `page` can be one of: `current | all | currentAndPrevious`, and `show` contains a set of validation types to check; this can be one or more of:
+
+- `Schema`
+- `Component`
+- `Expression`
+- `CustomBackend`
+- `Required`
+- `AllExceptRequired`
+- `All`
+
+Similarly, the `NavigationBar` component have the `validateOnForward` and `validateOnBackward` property:
+
+```json {linenos=false,hl_lines=[4,5,6,7]}
+{
+  "id": "nav-1",
+  "type": "NavigationBar",
+  "validateOnForward": {
+    "page": "current",
+    "show": ["All"]
+  }
+}
+```
+
+{{</content-version-container>}}
+{{<content-version-container version-label="v3 (App Frontend)">}}
+
+In version 3 of app frontend, add a trigger to the navigation button component:
+
+```json {linenos=false,hl_lines=[7]}
+{
+  "id": "nav-buttons-1",
   "type": "NavigationButtons",
   "textResourceBindings": {
     "next": "Neste",
-    "back": "Tilbake"
   },
   "triggers": ["validatePage"],
-  "showBackButton": true
 }
 ```
 
@@ -164,3 +206,5 @@ There are three different triggers that can be used on page navigation:
 | `validatePage`                    | Runs validation on the components in the current page. The ID of the page that triggered the validation will be sent in the header `LayoutId` to the backend. |
 | `validateAllPages`                | Runs validation on all components in all pages. Does not prevent the user from proceeding if there are no errors on the current or previous pages.            |
 | `validateCurrentAndPreviousPages` | Runs validation on all components in the current page and all previous pages in the current order.                                                            |
+{{</content-version-container>}}
+{{</content-version-selector>}}

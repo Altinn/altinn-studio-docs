@@ -8,13 +8,13 @@ weight: 20
 
 I denne modulen skal du opprette selve applikasjonen, legge til datamodell og sette opp et enkelt skjema basert på kravene fra Sogndal kommune.
 
-Du må utføre de to første oppgavene, opprette applikasjon og legge til datamodell, i Altinn Studios grafiske brukergrensesnitt, [Altinn Studio Designer](/nb/app/getting-started/ui-editor) (Designer).
+Du må utføre de to første oppgavene, opprette applikasjon og legge til datamodell, i Altinn Studios grafiske brukergrensesnitt, [Altinn Studio Designer](/nb/app/getting-started) (Designer).
  Dersom du skal utvikle appen lokalt kan du følge instruksjonene for [klargjøre for lokal utvikling og testing](/nb/app/getting-started/local-dev) etter at du har gjort disse oppgavene.
 
 {{% notice info %}}
 **MERK**  
 Du kan utføre alle stegene i denne modulen i Designer.
- Det krever imidlertid lokal utvikling å gjennomføre de resterende modulene og for å få en fullt fungerende applikasjon.
+ Det krever imidlertid lokal utvikling å gjennomføre de øvrige modulene og for å få en fullt fungerende applikasjon.
 {{% /notice %}}
 
 **Temaer som dekkes i denne modulen:**
@@ -161,9 +161,11 @@ I Altinn i dag støtter vi tre skriftspråk: Bokmål, nynorsk og engelsk.
 
 For å manuelt legge til støtte for engelsk i en applikasjon må du opprette filen `resources.en.json` i mappen `App/config/texts`:
 
-```json
-// Fil: App/config/texts/resources.en.json
+{{< code-title >}}
+App/config/texts/resources.en.json
+{{< /code-title >}}
 
+```json
 {
   "language": "en",
   "resources": []
@@ -187,7 +189,7 @@ Hvis nevnte tekstnøkkel ikke finnes i tekstressursfilen, vil tekstnøkkelen vis
 
 {{% expandlarge id="legge-til-komponenter" header="Legge til komponenter" %}}
 
-Du kan konfigurere komponentene i en applikasjon i det grafiske brukergrensesnittet [Altinn Studio Designer](/nb/app/getting-started/ui-editor/).
+Du kan konfigurere komponentene i en applikasjon i det grafiske brukergrensesnittet [Altinn Studio Designer](/nb/app/getting-started/).
  Alternativt kan du gjøre det manuelt ved å redigere filen `<page>.json` som beskriver strukturen til en skjemaside. Du finner filen i `App/ui/layouts`.
 
 ### Krav fra kommunen
@@ -217,7 +219,7 @@ Husk å laste opp endringer når du jobber i Designer så de reflekteres i repoe
 
 ### Nyttig dokumentasjon
 
-- [Hvordan bygge et skjema med UI editor i Altinn Studio](/nb/app/getting-started/ui-editor/)
+- [Hvordan bygge et skjema med UI editor i Altinn Studio](/nb/app/getting-started/)
 - [Tilgjengelige komponenter i Altinn Studio](/altinn-studio/designer/build-app/ui-designer/components/)
 - [Retningslinjer for bruk av komponenter](/nb/app/guides/design/guidelines/components/)
 
@@ -229,11 +231,13 @@ gitt at du har lastet opp endringene (`<page>` erstattes av navnet til siden, fo
 {{% expandsmall id="m1t3q1" header="Finner du igjen komponenten som er koblet til epost-feltet?" %}}
 
 For å finne komponenten som er koblet til epost-feltet kan du søke etter 'epost'.
-Navnet på feltet som komponenten er koblet til finner du under `dataModelBindings` (markert).
+Navnet på feltet som komponenten er koblet til finner du under `dataModelBindings.simpleBinding` (markert).
 
-```json{linenos=false,hl_lines="9"}
-// File: App/ui/layouts/<page>.json
+{{< code-title >}}
+App/ui/layouts/{page}.json
+{{< /code-title >}}
 
+```json{linenos=false,hl_lines="7"}
 {
   ...
   
@@ -261,9 +265,11 @@ For å gjøre et felt valgfritt, kan man endre `required: true` til `required: f
 
 Løsningen er å endre `type`-feltet fra `Input` til `TextArea` (markert).
 
-```json{linenos=false,hl_lines="5"}
-// File: App/ui/layouts/<page>.json
+{{< code-title >}}
+App/ui/layouts/{page}.json
+{{< /code-title >}}
 
+```json{linenos=false,hl_lines="3"}
 {
   "id": "mellomnavn",
   "type": "TextArea",
@@ -288,18 +294,14 @@ lagt til en datamodell og satt opp en skjemaside som kobler komponenter til noen
 Dersom du har klargjort for lokal utvikling har du i tillegg klonet applikasjonen for å kunne videreutvikle den i ditt lokale utvilkingsmiljø.
 Applikasjonen skal kunne kjøres på din lokale maskin med LocalTest og du skal kunne fylle inn feltene.
 
-<br>
-
-{{% expandlarge id="solution" header="Løsningsforslag" %}}
+## Løsningsforslag
 
 [Kildekode Modul 1](https://altinn.studio/repos/testdep/flyttemelding-sogndal/src/branch/modul1)<br>
-[(Kildekode Modul 1 - tidligere versjon)](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/1)<br>
 
 {{% notice info %}}
 Løsningsforslag kommer
 {{% /notice %}}
 
-{{% /expandlarge %}}
 
 <br><br>
 

@@ -113,6 +113,44 @@ The texts are stored in `App/config/texts`
 
 ![Altinn Studio Repos](edit-texts-in-repos.png "Change texts in Altinn Studio Repos")
 
+## Change dafault texts and error messages in an application
+
+It is possible to change default texts and error messages that is displayed in the app. 
+Here are the keys with its default value in [English](https://github.com/Altinn/app-frontend-react/blob/main/src/language/texts/en.ts), 
+[Norwegian Bokmål](https://github.com/Altinn/app-frontend-react/blob/main/src/language/texts/nb.ts) and [Nynorsk](https://github.com/Altinn/app-frontend-react/blob/main/src/language/texts/nn.ts) 
+
+Those default texts that has a number needs to be handled in a different way. For example `file_uploader_validation_error` displays an error message if it is required to add one attachment. 
+This default error message will be displayed as "You need to upload 1 attachement(s) to continue'.
+
+![Tekster i appen](defaultErrorMessageEN.png "Default text displayed in application")
+
+These default text is devided in two strings, one before 
+the number: `You need to upload` and one text resource after the number: `attachement(s) to continue`. The number is for the 
+moment not possible to edit since it is connected to max and min number of attachements, in this case. but the text surrounding the number is possible to change.
+
+![Tekster i appen](defaultTextsEN.png "Default texts and keys")
+
+Add the text key and the new value in `App/configuration/texts/resouce`. Note that the key needs to reffer to the superior group and then the text key separated with a  `.` 
+
+```json
+    {
+      "id": "form_filler.file_uploader_validation_error_file_number_1",
+      "value": "You must upload",
+    },
+    {
+      "id": "form_filler.file_uploader_validation_error_file_number_2",
+      "value": "zip file containing all necessary files.",
+    }
+```
+
+This will result in an error message displaying this:
+![Tekster i appen](newErrorMessageEN.png "the new error message displayed")
+
+{{% notice warning %}} 
+If you would like to find more information about how to change default texts you can go to
+[Customize Views of Steps](https://docs.altinn.studio/app/development/configuration/process/customize/)
+{{% /notice %}}
+
 ## Variables in texts
 
 Variables in texts can be included by following the syntax below. It is important that the order of the variables in the variables array is the same order as the parameters in the text.
@@ -161,6 +199,27 @@ It is currently possible to fetch values from 3 different data sources.
    1. `instanceOwnerPartyId` inneholder avgiver sin party id.
    2. `instanceId` inneholder id'en til den aktive instansen.
    3. `appId` inneholder id'en til appen instansen er knyttet til.
+    
+### Default value
+
+If a variable is not found in the data source, the path to that field in the data source is displayed. If you however want to display something other than this path,
+you can add a `defaultValue` option to each variable.
+
+If you want the text to not be displayed at all if the field in the data source cannot be found, you can set the `defaultValue` to an empty string.
+
+```json
+{
+  "id": "good.text.id",
+  "value":  "{0}",
+  "variables": [
+    {
+      "key": "someField",
+      "dataSource": "dataModel.default",
+      "defaultValue": " "
+    }
+  ]
+}
+```
 
 ### Complete example:
 
@@ -171,7 +230,8 @@ It is currently possible to fetch values from 3 different data sources.
   "variables": [
     {
       "key": "skattepliktig.organisasjonsnavn",
-      "dataSource": "dataModel.default"
+      "dataSource": "dataModel.default",
+      "dataValue": "Mattilsynet"
     },
     {
       "key": "skattepliktig.organisasjonsnummer",

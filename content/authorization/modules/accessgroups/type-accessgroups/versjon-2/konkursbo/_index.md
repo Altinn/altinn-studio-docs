@@ -1,10 +1,10 @@
 ---
 title: Konkursbo
 linktitle: Konkursbo
-description: Denne fullmaktsgruppen er relevant for alle virksomheter
+description: Denne tilgangspakken er relevant for alle virksomheter
 weight: 124
 ---
-Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-2/#oversikt-over-fullmaktsgrupper)
+Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-2/#oversikt-over-tilgangspakker)
 
 
 ![Konkursbo](konk.jpg "Konkursbo")
@@ -13,12 +13,12 @@ Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroup
 	- **Konkursbo lesetilgang:** (mangler)
 	- **Konkursbo skrivetilgang:** (mangler)
 
-## Egenskaper ved fullmaktsgruppene
-|Navn fullmaktsgruppe|Kan delegeres til ansatte?|Kan knytte tjenester til?|[ER rolle](/authorization/modules/accessgroups/register_er/#rolletyper-fra-enhetsregisteret) som får fullmakten|
+## Egenskaper ved tilgangspakkene
+|Navn tillgangspakke|Kan delegeres til ansatte?|Kan knytte tjenester til?|[ER rolle](/authorization/modules/accessgroups/register_er/#rolletyper-fra-enhetsregisteret) som får fullmakten|
 |---|---|---|---|
 |Fullmakter for konkursbo|nei|nei||
-|Konkursbo tilgangsstyring|ja|ja|DAGL, STYR,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
-|Konkursbo lesetilgang|ja|ja|DAGL, STYR,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
-|Konkursbo skrivetilgang|ja|ja|DAGL, STYR,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
+|Konkursbo tilgangsstyring|ja|ja|PRIV|
+|Konkursbo lesetilgang|ja|ja|BOBE|
+|Konkursbo skrivetilgang|ja|ja|BOBE|
 
-Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-2/#oversikt-over-fullmaktsgrupper)
+Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-2/#oversikt-over-tilgangspakker)
