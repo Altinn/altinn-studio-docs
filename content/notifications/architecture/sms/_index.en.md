@@ -112,4 +112,4 @@ See [DockerFile](https://github.com/Altinn/altinn-notifications-sms/blob/main/Do
 
 ## Run on local machine
 Instructions on how to set up the service on local machine for development or testing is covered by 
-[the README in the repository](https://github.com/Altinn/altinn-notifications-email). 
+[the README in the repository](https://github.com/Altinn/altinn-notifications-sms). 
