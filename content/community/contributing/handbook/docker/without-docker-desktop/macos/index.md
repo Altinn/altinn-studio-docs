@@ -19,7 +19,10 @@ You can do this either from the UI or using the command line: https://docs.docke
 
 ### Install Homebrew
 
-You can install Homebrew by visiting [https://brew.sh/](https://brew.sh/).
+Homebrew is a package manager for macOS.
+It will be used in this guide to install different tools.
+
+You can install Homebrew by visiting https://brew.sh/.
 
 ## Installation
 
@@ -85,7 +88,7 @@ nano ~/.docker/config.json
 ### Start Colima
 
 ```
-colima start
+colima start --cpu 2 --memory 4 --disk 60
 ```
 
 To check that the virtual machine is running
@@ -94,31 +97,29 @@ To check that the virtual machine is running
 colima ls
 ```
 
-To increase the capacity of the virtual machine
-
-```
-colima start --cpu 2 --memory  4 --disk 60
-```
-
-To enable Colima to start automatically when you start your mac
-
-```
-brew services restart colima
-```
-
-### Check the current context
-
-You can check that the current Docker context is set to Colima with:
+To check that the current Docker context is set to Colima
 
 ```
 docker context ls
 ```
 
-## Troubleshooting
+If you want Colima to start automatically when you start your mac
 
-### Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?
+```
+brew services restart colima
+```
 
-Some applications, like Podman Desktop, try to attach directly to the Docker socket at `/var/run/docker.sock` instead of respecting the active configuration for the current context. As a result, we'll need to set up a hard symlink pointing the Colima socket to the expected Docker socket location.
+## UI (optional)
+
+### Install Podman Desktop
+
+Podman Desktop is a free alternative to Docker Desktop UI for managing Docker through a user interface:
+
+https://podman-desktop.io/
+
+### Linking the Colima socket to the default socket path
+
+Some applications, like Podman Desktop, try to attach directly to the Docker socket at `/var/run/docker.sock` instead of respecting the active configuration for the current context. As a result, we'll need to set up a hard symlink pointing to Colima socket to the expected Docker socket location.
 
 ```
 sudo ln -sf $HOME/.colima/default/docker.sock /var/run/docker.sock
@@ -136,12 +137,18 @@ export DOCKER_HOST="unix://${HOME}/.colima/default/docker.sock"
 
 https://github.com/abiosoft/colima/blob/main/docs/FAQ.md#cannot-connect-to-the-docker-daemon-at-unixvarrundockersock-is-the-docker-daemon-running
 
+## Troubleshooting
+
+### Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?
+
+Ensure that you created the symlink described in [Linking the Colima socket to the default socket path](#linking-the-colima-socket-to-the-default-socket-path).
+
 ### Build fails
 
 If build fails with this error `The command '/bin/sh -c yarn build' returned a non-zero code: 1`, try increasing the memory of the VM:
 
 ```
-colima start --cpu 2 --memory  4 --disk 60
+colima start --cpu 2 --memory 4 --disk 60
 ```
 
 ## Unresolved Issues
