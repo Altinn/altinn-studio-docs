@@ -114,6 +114,40 @@ the last component is only editable in the expanded edit view (address).
 
 The Group component configuration for the example above is as follows:
 
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="v4 (App Frontend)">}}
+
+```json
+{
+  "id": "myRepeatingGroup",
+  "type": "RepeatingGroup",
+  "children": ["fornavn", "etternavn", "alder", "fullt-navn", "adresse"],
+  "tableHeaders": ["fornavn", "etternavn", "alder"],
+  "tableColumns": {
+    "fornavn": {
+      "editInTable": true,
+      "showInExpandedEdit": false
+    },
+    "etternavn": {
+      "editInTable": true,
+      "showInExpandedEdit": false
+    },
+    "alder": {
+      "editInTable": true
+    }
+  },
+  "textResourceBindings": {
+    "add_button": "person"
+  },
+  "dataModelBindings": {
+    "group": "RepGroup.Personer"
+  }
+}
+```
+
+{{</content-version-container >}}
+{{<content-version-container version-label="v3 (App Frontend)">}}
+
 ```json
 {
   "id": "myRepeatingGroup",
@@ -142,3 +176,6 @@ The Group component configuration for the example above is as follows:
   }
 }
 ```
+
+{{</content-version-container>}}
+{{</content-version-selector>}}

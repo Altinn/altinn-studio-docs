@@ -270,6 +270,12 @@
         "SubjectDescription": "Gir tilgang til taushetsbelagt post fra det offentlige innen administrasjon"
     },
     {
+        "SubjectId": "ektj",
+        "SubjectSource": "altinn:rolecode",
+        "SubjectTitle": "Eksplisitt tjenestedelegering",
+        "SubjectDescription": "Ikke-delegerbar roller for tjenester som kun skal delegeres enkeltvis"
+    },
+        {
         "SubjectId": "a0298",
         "SubjectSource": "altinn:rolecode",
         "SubjectTitle": "Revisorattesterer",

@@ -10,7 +10,7 @@ in the _AltinnStudioRuntime_ cookie.
 For clients within the Altinn eco-system representing an external user or organization,
 the Altinn token in an incoming request can be forwarded to the {0} API.
 
-If you are using the API from an external system you will need to generate a maskinporten or id-porten token
+If you are using the API from an external system you will need to generate a Maskinporten or ID-porten token
 and exchange this for an Altinn token before calling the {0} API.
 
 Below are two guides on how to achieve this.

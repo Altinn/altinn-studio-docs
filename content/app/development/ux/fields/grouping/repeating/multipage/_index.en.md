@@ -20,6 +20,34 @@ the component should be displayed on, followed by `:`. We start the count on `0`
 `0:`. Components to be displayed on the second page must be prefixed with `1:`, and so on. In addition, you must set `"multiPage": true` in the `edit`-parameter.
 See example below:
 
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="v4 (App Frontend)">}}
+
+```json {hl_lines=["5-8", "14-16"]} {linenos=inline}
+{
+  "id": "Some-group-id",
+  "type": "RepeatingGroup",
+  "children": [
+    "0:fnr",
+    "1:fornavn",
+    "1:mellomnavn",
+    "1:etternavn"
+  ],
+  "maxCount": 10,
+  "dataModelBindings": {
+    "group": "familie.barn"
+  },
+  "edit": {
+    "multiPage": true,
+    "mode": "hideTable",
+  }
+}
+```
+
+{{</content-version-container >}}
+{{<content-version-container version-label="v3 (App Frontend)">}}
+
+
 ```json {hl_lines=["5-8", "14-16"]} {linenos=inline}
 {
   "id": "Some-group-id",
@@ -40,6 +68,9 @@ See example below:
   }
 }
 ```
+
+{{</content-version-container>}}
+{{</content-version-selector>}}
 
 Here a [mode](../edit#mode) that hides the table when editing has also been added.
 The result will be as displayed below.

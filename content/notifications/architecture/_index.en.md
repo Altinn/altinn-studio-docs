@@ -20,7 +20,20 @@ The following diagram illustrates the overall data flow.
 
 ## Process flow between microservices and Kafka topics
 
-![Topics](notifications-topic.drawio.svg "Illustration of the data flow including Kafka Topics")
+{{% expandlarge id="notifications-topic-process-order.drawio.svg" header="Flow chart for order processing" %}}
+![Topics](notifications-topic-process-order.drawio.svg "Flow chart including Kafka topics for order processing")
+{{% /expandlarge %}}
+
+
+{{% expandlarge id="notifications-topic-process-email.drawio.svg" header="Flow chart for email notification processing" %}}
+![Topics](notifications-topic-process-email.drawio.svg "Flow chart including Kafka topics for email notification processing")
+{{% /expandlarge %}}
+
+
+{{% expandlarge id="notifications-topic-process-sms.drawio.svg" header="Flow chart for sms notification processing" %}}
+![Topics](notifications-topic-process-sms.drawio.svg "Flow chart including Kafka topics for sms notification processing")
+{{% /expandlarge %}}
+
 
 ## System and service dependencies 
 ### Internal
@@ -29,7 +42,7 @@ The following diagram illustrates the overall data flow.
 
 
 {{% notice info %}}
-The number of internal dependencies for Notifications is currenlty quite limited, 
+The number of internal dependencies for Notifications is currently quite limited, 
 but during 2024 we expect the services below to be utilized by Notifications. 
 - **Altinn Storage**: used to retrieve status for Altinn app instances to evaluate send conditions
 - **Altinn Profile**: used to retrieve recipient information 
@@ -42,6 +55,6 @@ but during 2024 we expect the services below to be utilized by Notifications.
   in a fully managed Kubernetes cluster
 - [**Kafka on Confluent cloud**](https://www.confluent.io/): hosts the kafka cluster the microservices consumes and produces messages to. Say something about why we use kafka vs something else. E.g. storage queues
 - [**PostgreSQL**](https://www.postgresql.org/): used for storage
-- [**Azure ommunication Services**](https://azure.microsoft.com/en-us/products/communication-services): used to send emails
+- [**Azure Communication Services**](https://azure.microsoft.com/en-us/products/communication-services): used to send emails
 - [**Azure Event Grid**](https://azure.microsoft.com/en-us/products/event-grid): used to subscribe to status updates for sent emails
 - [**LINK Mobility**](https://www.linkmobility.com/) used to send sms

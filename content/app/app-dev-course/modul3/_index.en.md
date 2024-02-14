@@ -124,7 +124,7 @@ deployment:
   
   requests:
       cpu: 50m
-      memory: 1286Mi
+      memory: 128Mi
 
 ...
 ```

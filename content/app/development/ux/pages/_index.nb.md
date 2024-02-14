@@ -40,10 +40,6 @@ Dersom du bruker layout sets er det en egen fil for hvert sett.
       "Info",
       "Summary"
     ],
-    "triggers": [
-      "calculatePageOrder",
-      "validatePage"
-    ],
     "hideCloseButton": false,
     "showLanguageSelector": false,
     "showExpandWidthButton": false,
@@ -65,6 +61,5 @@ De tilgjengelige innstillingene er følgende:
 | pdfLayoutName         | String  | se [PDF](/nb/app/development/ux/pdf/#egendefinert-konfigurasjon)                                                                                                                 |
 | order                 | Array   | se [Navigasjon](/nb/app/development/ux/pages/navigation/#rekkefølge)                                                                                                             |
 | excludeFromPdf        | Array   | se [PDF](/nb/app/development/ux/pdf/#automatisk-konfigurasjon)                                                                                                                   |
-| triggers              | Array   | se [Navigasjon](/nb/app/development/ux/pages/navigation/#validering-ved-sidebytte), [Sporvalg](/nb/app/development/ux/pages/tracks/#trigge-kalkulering-av-sporvalg-fra-frontend) |
 
 {{<children />}}

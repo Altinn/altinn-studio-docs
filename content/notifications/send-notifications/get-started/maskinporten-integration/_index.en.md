@@ -1,5 +1,5 @@
 ---
-title: Makinporten integration
+title: Maskinporten integration
 linktitle: Maskinporten integration
 weight: 10
 description: "A guide to setting up a maskinporten integration to generate tokens with 

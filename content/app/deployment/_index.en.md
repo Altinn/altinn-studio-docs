@@ -25,7 +25,7 @@ Deploy of an application to production is done in [the same way as for test envi
 ## Order "About form"-page on altinn.no
 
 Altinn maintains [an overview of all services](https://www.altinn.no/skjemaoversikt/).
-In order for Altinn User Service to be able to help users with a service, information must be entered here.
+In order for Altinn User Service to be able to help users with a service, information must be entered here. To ensure effective communication with Altinn user service and a seamless allocation of rights to the service, it is crucial to register the exact same name on both the "About form'-page and in the App.
 The order form is called _"Publiser informasjon om tjeneste på Altinn PROD og TT02"_, and can be found after login on [altinndigtal.no](https://altinndigital.no).
 
 

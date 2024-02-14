@@ -20,13 +20,9 @@ Denne rutinen trenger bare å følges en gang. Når clusteret er satt opp, er l�
 
 Produksjonssetting av applikasjonen gjøres på [samme måte som for testmiljøer](/nb/app/testing/deploy).
 
-## Databehandleravtale for behandling av personopplysninger i Altinn
-
-Du må fylle ut [Vedlegg til Bilag 2](https://www.altinndigital.no/globalassets/samarbeidsavtale-bilag-2.---vedlegg-1.xlsx) og sende dette til tjenesteeier@altinn.no
-
 ## Bestille Om skjema-side
 
-Altinn vedlikeholder en [oversikt over alle tjenester i løsningen](https://www.altinn.no/skjemaoversikt/). For at Altinn brukerservice skal kunne hjelpe brukerne med en tjeneste, må informasjon legges inn her. Bestillingsskjemaet heter _"Publiser informasjon om tjeneste på Altinn PROD og TT02"_, og finnes etter innlogging på [altinndigtal.no](https://altinndigital.no).
+Altinn vedlikeholder en [oversikt over alle tjenester i løsningen](https://www.altinn.no/skjemaoversikt/). For at Altinn brukerservice skal kunne hjelpe brukerne med en tjeneste, må informasjon legges inn her. For å sikre effektiv kommunikasjon med Altinn brukerservice og en smidig tildeling av rettigheter til tjenesten, er det avgjørende å registrere nøyaktig samme navn på både Om skjema-siden og i Appen. Bestillingsskjemaet heter _"Publiser informasjon om tjeneste på Altinn PROD og TT02"_, og finnes etter innlogging på [altinndigtal.no](https://altinndigital.no).
 
 
 **Merk!** Bestillingsskjemaet er inntil videre optimalisert for Altinn II-tjenester. Gjør derfor følgende:

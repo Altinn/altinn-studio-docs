@@ -451,7 +451,7 @@
 			<path d="M7.09 1780.14 L7.09 1818.46" class="st28"/>
 		</g>
 		<a
-				xlink:href="https://github.com/Altinn/altinn-studio/blob/master/backend/src/Designer/Controllers/ApplicationMetadataController.cs">
+				xlink:href="https://github.com/Altinn/altinn-studio/blob/main/backend/src/Designer/Controllers/ApplicationMetadataController.cs">
 			<g id="shape276-196" v:mID="276" v:groupContext="shape" transform="translate(-1330.53,1276.74) rotate(-90)">
 				<title>Sheet.276</title>
 				<desc>ApplicationMetadata</desc>
@@ -465,7 +465,7 @@
 				<text x="4" y="1770.99" class="st18" v:langID="1044"><v:paragraph/><v:tabList/>ApplicationMetadata</text>			</g>
 		</a>
 		<a
-				xlink:href="https://github.com/Altinn/altinn-studio/blob/master/backend/src/Designer/Controllers/ConfigController.cs">
+				xlink:href="https://github.com/Altinn/altinn-studio/blob/main/backend/src/Designer/Controllers/ConfigController.cs">
 			<g id="shape277-202" v:mID="277" v:groupContext="shape" transform="translate(-1302.18,1276.74) rotate(-90)">
 				<title>Sheet.277</title>
 				<desc>Config</desc>
@@ -479,7 +479,7 @@
 				<text x="4" y="1770.99" class="st18" v:langID="1044"><v:paragraph/><v:tabList/>Config</text>			</g>
 		</a>
 		<a
-				xlink:href="https://github.com/Altinn/altinn-studio/blob/master/backend/src/Designer/Controllers/DeploymentsController.cs">
+				xlink:href="https://github.com/Altinn/altinn-studio/blob/main/backend/src/Designer/Controllers/DeploymentsController.cs">
 			<g id="shape278-208" v:mID="278" v:groupContext="shape" transform="translate(-1273.84,1276.74) rotate(-90)">
 				<title>Sheet.278</title>
 				<desc>Deployment</desc>
@@ -519,7 +519,7 @@
 			<rect x="0" y="1595.89" width="211.181" height="184.252" class="st15"/>
 		</g>
 		<a
-				xlink:href="https://github.com/Altinn/altinn-studio/blob/master/backend/src/Designer/Controllers/PipelinesController.cs">
+				xlink:href="https://github.com/Altinn/altinn-studio/blob/main/backend/src/Designer/Controllers/PipelinesController.cs">
 			<g id="shape282-232" v:mID="282" v:groupContext="shape" transform="translate(-1245.49,1276.74) rotate(-90)">
 				<title>Sheet.282</title>
 				<desc>Pipelines</desc>
@@ -533,7 +533,7 @@
 				<text x="4" y="1770.99" class="st18" v:langID="1044"><v:paragraph/><v:tabList/>Pipelines</text>			</g>
 		</a>
 		<a
-				xlink:href="https://github.com/Altinn/altinn-studio/blob/master/backend/src/Designer/Controllers/ReleasesController.cs">
+				xlink:href="https://github.com/Altinn/altinn-studio/blob/main/backend/src/Designer/Controllers/ReleasesController.cs">
 			<g id="shape283-238" v:mID="283" v:groupContext="shape" transform="translate(-1217.15,1276.74) rotate(-90)">
 				<title>Sheet.283</title>
 				<desc>Releases</desc>
@@ -547,7 +547,7 @@
 				<text x="4" y="1770.99" class="st18" v:langID="1044"><v:paragraph/><v:tabList/>Releases</text>			</g>
 		</a>
 		<a
-				xlink:href="https://github.com/Altinn/altinn-studio/blob/master/backend/src/Designer/Controllers/RepositoryController.cs">
+				xlink:href="https://github.com/Altinn/altinn-studio/blob/main/backend/src/Designer/Controllers/RepositoryController.cs">
 			<g id="shape284-244" v:mID="284" v:groupContext="shape" transform="translate(-1188.8,1276.74) rotate(-90)">
 				<title>Sheet.284</title>
 				<desc>Repository</desc>
@@ -561,7 +561,7 @@
 				<text x="4" y="1770.99" class="st18" v:langID="1044"><v:paragraph/><v:tabList/>Repository</text>			</g>
 		</a>
 		<a
-				xlink:href="https://github.com/Altinn/altinn-studio/blob/master/backend/src/Designer/Controllers/ServiceDevelopmentController.cs">
+				xlink:href="https://github.com/Altinn/altinn-studio/blob/main/backend/src/Designer/Controllers/ServiceDevelopmentController.cs">
 			<g id="shape285-250" v:mID="285" v:groupContext="shape" transform="translate(-1160.45,1276.74) rotate(-90)">
 				<title>Sheet.285</title>
 				<desc>ServiceDevelopment</desc>
@@ -575,7 +575,7 @@
 				<text x="4" y="1770.99" class="st18" v:langID="1044"><v:paragraph/><v:tabList/>ServiceDevelopment</text>			</g>
 		</a>
 		<a
-				xlink:href="https://github.com/Altinn/altinn-studio/blob/master/backend/src/Designer/Controllers/UIEditorController.cs">
+				xlink:href="https://github.com/Altinn/altinn-studio/blob/main/backend/src/Designer/Controllers/UIEditorController.cs">
 			<g id="shape286-256" v:mID="286" v:groupContext="shape" transform="translate(-1132.11,1276.74) rotate(-90)">
 				<title>Sheet.286</title>
 				<desc>UIEditor</desc>
@@ -589,7 +589,7 @@
 				<text x="4" y="1770.99" class="st18" v:langID="1044"><v:paragraph/><v:tabList/>UIEditor</text>			</g>
 		</a>
 		<a
-				xlink:href="https://github.com/Altinn/altinn-studio/blob/master/backend/src/Designer/Controllers/UserController.cs">
+				xlink:href="https://github.com/Altinn/altinn-studio/blob/main/backend/src/Designer/Controllers/UserController.cs">
 			<g id="shape287-262" v:mID="287" v:groupContext="shape" transform="translate(-1103.76,1276.74) rotate(-90)">
 				<title>Sheet.287</title>
 				<desc>User</desc>
@@ -603,7 +603,7 @@
 				<text x="4" y="1770.99" class="st18" v:langID="1044"><v:paragraph/><v:tabList/>User</text>			</g>
 		</a>
 		<a
-				xlink:href="https://github.com/Altinn/altinn-studio/blob/master/backend/src/Designer/Controllers/HomeController.cs">
+				xlink:href="https://github.com/Altinn/altinn-studio/blob/main/backend/src/Designer/Controllers/HomeController.cs">
 			<g id="shape288-268" v:mID="288" v:groupContext="shape" transform="translate(-777.775,1276.74) rotate(-90)">
 				<title>Sheet.288</title>
 				<desc>Home</desc>
@@ -646,7 +646,7 @@
 			<rect x="0" y="1754.63" width="141.732" height="25.5118" class="st30"/>
 			<text x="66.48" y="1770.99" class="st18" v:langID="1044"><v:paragraph v:indentLeft="14.17" v:horizAlign="1"/><v:tabList/>Web</text>		</g>
 		<a
-				xlink:href="https://github.com/Altinn/altinn-studio/blob/master/backend/src/Designer/Controllers/ModelController.cs">
+				xlink:href="https://github.com/Altinn/altinn-studio/blob/main/backend/src/Designer/Controllers/ModelController.cs">
 			<g id="shape292-289" v:mID="292" v:groupContext="shape" transform="translate(-749.429,1276.74) rotate(-90)">
 				<title>Sheet.292</title>
 				<desc>Model</desc>
@@ -660,7 +660,7 @@
 				<text x="4" y="1770.99" class="st18" v:langID="1044"><v:paragraph/><v:tabList/>Model</text>			</g>
 		</a>
 		<a
-				xlink:href="https://github.com/Altinn/altinn-studio/blob/master/backend/src/Designer/Controllers/TextController.cs">
+				xlink:href="https://github.com/Altinn/altinn-studio/blob/main/backend/src/Designer/Controllers/TextController.cs">
 			<g id="shape293-295" v:mID="293" v:groupContext="shape" transform="translate(-721.082,1276.74) rotate(-90)">
 				<title>Sheet.293</title>
 				<desc>Text</desc>

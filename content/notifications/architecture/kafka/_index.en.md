@@ -9,18 +9,7 @@ We are currently running Apache Kafka on Confluent Cloud through Azure enabling 
 integration with the rest of our components hosted in Azure."
 ---
 
-## Kafka topic Overview
-{{% notice info %}}
-TODO: QA devs
-{{% /notice %}}
-
-{{% notice info  %}}
-Consideration: 
-
-Do we want to express a description of the topic or rather the event trigger for the topic? 
-I don't think we need both as they tell the same story.
-{{% /notice %}}
-
+## Kafka topic overview
 
 Below is an overview of the Kafka topics used in our system, 
 along with information about the producers and the content of each topic
@@ -161,6 +150,58 @@ __Content:__
      for a given notification and operation id for the last status check.
 {{% /expandsmall %}}
 
+### Emails
+
+<!--New expand-->
+{{% expandsmall id="altinn.notifications.sms.queue" header="altinn.notifications.sms.queue" %}}
+
+__Description:__ A topic dedicated to sms that are completed and ready to be sent to out.
+
+__Event trigger:__ All required information has been retrieved and populated to the sms
+
+__Producer:__ Altinn Notifications, SmsNotificationService 
+
+__Content:__ 
+
+- Format: json
+- Data structure: [Sms](https://github.com/Altinn/altinn-notifications-sms/blob/main/src/Altinn.Notifications.Sms.Core/Sending/Sms.cs)
+- Description: An sms with all required properties present
+{{% /expandsmall %}}
+
+<!--New expand-->
+{{% expandsmall id="altinn.notifications.sms.queue.retry" header="altinn.notifications.sms.queue.retry" %}}
+
+__Description:__ A topic dedicated to sms messages that are completed and ready to be sent to out where at least
+one previous attempt of sending the sms has failed.
+
+__Event trigger:__ Initial attempt to send the sms has failed due to an unknown or intermittent reason.
+
+__Producer:__ Altinn Notifications Sms, SendSmsQueueConsumer  
+
+__Content:__ 
+
+- Format: json
+- Data structure: [Sms](https://github.com/Altinn/altinn-notifications-sms/blob/main/src/Altinn.Notifications.Sms.Core/Sending/Sms.cs)
+- Description: An sms with all required properties present.
+{{% /expandsmall %}}
+
+<!--New expand-->
+{{% expandsmall id="altinn.notifications.sms.status.updated" header="altinn.notifications.sms.status.updated" %}}
+
+__Description:__ A topic dedicated to hold updates on the send status of an sms notification
+
+__Event trigger:__ An update on the progress of sending an sms notification has been received from Link Mobility.
+
+__Producer:__ Altinn Notifications Sms, StatusService
+
+__Content:__ 
+
+- Format: json
+- Data structure: [SendOperationResult](https://github.com/Altinn/altinn-notifications-sms/blob/main/src/Altinn.Notifications.Sms.Core/Status/SendOperationResult.cs)
+- Description: An object containing the [SmsSendResult](https://github.com/Altinn/altinn-notifications-sms/blob/main/src/Altinn.Notifications.Sms.Core/Status/SmsSendResult.cs) 
+     for a given notification and gatewatyreference to Link Mobility for the transaction.
+{{% /expandsmall %}}
+
 ### Platform services
 
 <!--New expand-->
@@ -177,13 +218,10 @@ __Content:__
 
 - Format: json
 - Data structure: [GenericServiceUpdate](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications.Core\Models/AltinnServiceUpdate/GenericServiceUpdate.cs)
-- Description: An object contaning an Altinn service update of a schema specified in the payload.
+- Description: An object containing an Altinn service update of a schema specified in the payload.
 {{% /expandsmall %}}
 
 ## Cluster configuration
-{{% notice info %}}
-TODO: QA infra
-{{% /notice %}}
 
 The kafka cluster used by Altinn Notifications, is a cluster shared between multiple Altinn components.
 Configuration in relation to roles and topic policies are in place to ensure integrity in the data on topics 

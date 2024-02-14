@@ -1,11 +1,11 @@
 ---
 title: Oppvekst og utdanning
 linktitle: Oppvekst og utdanning
-description: Denne fullmaktsgruppen er relevant for alle tjenester rettet mot virksomheter med aktivitet innen oppvekst, skole og høyere utdanning
+description: Denne tilgangspakken er relevant for alle tjenester rettet mot virksomheter med aktivitet innen oppvekst, skole og høyere utdanning
 weight: 116
 ---
 
-Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-3/#oversikt-over-fullmaktsgrupper)
+Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-3/#oversikt-over-tilgangspakker)
 
 
 ![Oppvekst og skole](os3.jpg "Oppvekst og skole")
@@ -25,8 +25,8 @@ Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroup
     	- **Godkjenning av personell** Denne fullmakten gir tilgang til alle tjenester knyttet til å søke om godkjenning til enkeltpersoner. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
     	- **Godkjenning av utdanningsvirksomhet** Denne fullmakten gir tilgang til alle tjenester knyttet til å søke om godkjenning av utdanningsvirksomheter. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
 
-## Egenskaper ved fullmaktsgruppene
-|Navn fullmaktsgruppe|Kan delegeres til ansatte?|Kan knytte tjenester til?|[ER rolle](/authorization/modules/accessgroups/register_er/#rolletyper-fra-enhetsregisteret) som får fullmakten|
+## Egenskaper ved tilgangspakkene
+|Navn tillgangspakke|Kan delegeres til ansatte?|Kan knytte tjenester til?|[ER rolle](/authorization/modules/accessgroups/register_er/#rolletyper-fra-enhetsregisteret) som får fullmakten|
 |---|---|---|---|
 |Oppvekst og utdanning| ja|nei||
 |Barnehageeier|ja|ja|DAGL, LEDE, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
@@ -47,4 +47,4 @@ Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroup
 {{% notice warning %}} Det er fortsatt uavklart hvilke fullmakter det vil være natulig å gi personer med rollen Forretningsførerer innenfor fullmaktsområdet "Oppvekst og utdanning" {{% /notice %}}
 
 
-Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-3/#oversikt-over-fullmaktsgrupper)
+Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-3/#oversikt-over-tilgangspakker)
