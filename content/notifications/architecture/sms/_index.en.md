@@ -10,7 +10,7 @@ toc: false
 ### Public API
 The Altinn Sms Notifications API is an HTTP-based RESTful API that provides an endpoint for receiving delivery reports from the SMS provider. 
 - [DeliveryReportController](https://github.com/Altinn/altinn-notifications-sms/blob/main/src/Altinn.Notifications.Sms/Controllers/DeliveryReportController.cs)
-  Endpoint receiving delivery reports in XML-format.
+  Endpoint receiving delivery reports in XML-format from SMS provider.
   The controller is protected with [basic authentication](https://github.com/Altinn/altinn-notifications-sms/blob/main/src/Altinn.Notifications.Sms/Configuration/BasicAuthenticationHandler.cs).
 
 ## Integrations
