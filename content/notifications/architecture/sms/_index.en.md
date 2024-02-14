@@ -34,6 +34,8 @@ Link Mobility is used as service provider for sending sms to the end users.
 A client, [SmsClient](https://github.com/Altinn/altinn-notifications-sms/blob/main/src/Altinn.Notifications.Sms.Integrations/LinkMobility/SmsClient.cs)
 has been implemented based on the SDK made available by Link to interact with their API. 
 
+Delivery reports from Link Mobility are pushed to the delivery report endpoint in our public API.
+
 ## Dependencies
 The microservice takes use of a range of external and Altinn services as well as .NET libraries to support the provided
 functionality. 
