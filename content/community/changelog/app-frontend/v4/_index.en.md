@@ -38,6 +38,84 @@ This entails a slightly different folder structure in the `ui` folder of your ap
 This used to be optional, but as of v4 it is required, even for apps with only a single data step.
 See the [documentation on layout sets](/app/development/ux/pages/layout-sets) for more information.
 
+## Defining a custom receipt is now done with a layout set
+
+{{% notice info %}}
+This change was introduced in `v4.0.0-rc3`. It was not present in `v4.0.0-rc1` or `v4.0.0-rc2`. In these previous versions,
+a custom receipt was not supported.
+{{% /notice %}}
+A custom receipt view can now be created in the same way as all other form pages.
+
+To create a custom receipt view, you create a new layout set. This layout set works exactly like
+all other page types. Within the layout set, you can create a layouts folder and here define all the pages you want to
+include in the receipt view (Yes, the receipt view supports multiple pages!). Inside the layout set, you must also create
+a `Settings.json`, where you can define the order of the pages in the receipt view.
+
+For the app to understand that this layout set should be used as a receipt view, you must refer to the name of the layout set
+in `layout-sets.json`. Add a new layout set with `id` that refers to the name of your layout set, and add
+the key value `"CustomReceipt"` in the `tasks` array of the layout set. In addition, you can specify which data model
+should be available in the receipt view by adding the key `dataType` with the name of the data model you want to support.
+
+Here is a complete example where we have a layout set named custom-receipt that will be used as a receipt view:
+
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="Folder structure">}}
+
+```
+|- App/
+  |- ui/
+    |- layout-sets.json
+    |- custom-receipt/
+      |- layouts/
+        |- page1.json
+        |- page2.json
+      |- Settings.json
+```
+
+{{</content-version-container>}}
+{{</content-version-selector>}}
+
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="Code">}}
+
+{{<code-title>}}
+App/ui/layout-sets.json
+{{</code-title>}}
+
+```json {hl_lines=[4,6]}
+{
+  "sets": [
+    {
+      "id": "custom-receipt",
+      "dataType": "fields",
+      "tasks": ["CustomReceipt"]
+    }
+  ]
+}
+```
+
+{{</content-version-container>}}
+{{</content-version-selector>}}
+
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="Code">}}
+
+{{<code-title>}}
+App/ui/custom-receipt/Settings.json
+{{</code-title>}}
+
+```json
+{
+  "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
+  "pages": {
+    "order": ["page1", "page2"]
+  }
+}
+```
+
+{{</content-version-container>}}
+{{</content-version-selector>}}
+
 ## AddressComponent has been renamed to Address
 
 {{% notice info %}}
@@ -223,7 +301,7 @@ Example of old to new config:
   type; `"RepeatingGroup"`
 - `"maxCount"` is no longer required to create a repeating group, but is still able to be used to restrict the maximum
   number of addable rows.
-- `edit.filter` is no longer supported, but the same functionality (or better) can be achieved by using the 
+- `edit.filter` is no longer supported, but the same functionality (or better) can be achieved by using the
   existing `hiddenRow` property with [expressions](/app/development/logic/expressions).
 
 Example of old to new config:
@@ -374,7 +452,7 @@ This functions more or less the same as before, but the configuration has been c
 
 This change also has the advantage that the need for `*FIXED*` validations no longer exists, as a
 `IFormDataValidator` in your custom backend code can now control when it should run, and when it runs all its validation
-messages are treated as one *group*. This means that if you have a validation that checks the value of *another field*,
+messages are treated as one _group_. This means that if you have a validation that checks the value of _another field_,
 or multiple fields at once, the validation message will disappear in frontend when the validation message is no longer
 added to the list of validation messages in the backend - even if another component than the validation message target
 was the one that changed.
