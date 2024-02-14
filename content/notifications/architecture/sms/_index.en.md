@@ -32,7 +32,7 @@ The Altinn Sms Notifications API is an HTTP-based RESTful API that provides an e
 from Link Mobility.
 - [DeliveryReportController](https://github.com/Altinn/altinn-notifications-sms/blob/main/src/Altinn.Notifications.Sms/Controllers/DeliveryReportController.cs)
   Endpoint receiving deliveryreports from Link Mobility in XML-format.
-  The controller is protected with [basic authentication](https://github.com/Altinn/altinn-notifications-sms/blob/main/src/Altinn.Notifications.Sms/Configuration/BasicAuthenticationHandler.cs)
+  The controller is protected with [basic authentication](https://github.com/Altinn/altinn-notifications-sms/blob/main/src/Altinn.Notifications.Sms/Configuration/BasicAuthenticationHandler.cs).
 
 ## Dependencies
 The microservice takes use of a range of external and Altinn services as well as .NET libraries to support the provided
