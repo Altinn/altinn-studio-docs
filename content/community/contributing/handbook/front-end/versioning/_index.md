@@ -12,7 +12,7 @@ package. In this context, _package_ refers to the different applications we are 
 
 Each time we make a change to a package, we need to update the version of the package to reflect the change. 
 This is especially important in the packages related to `Altinn.Apps` - whenever changes are merged into the 
-master branch, the compiled javascript is uploaded to a CDN where it can be used by the app, and the 
+main branch, the compiled javascript is uploaded to a CDN where it can be used by the app, and the 
 CDN supports versioning. So an app can refer to a specific version of f.ex. the app frontend.
 
 The packages use [semantic versioning](https://semver.org/):

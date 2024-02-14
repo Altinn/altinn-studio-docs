@@ -10,7 +10,7 @@ When selecting an issue from the backlog, assign yourself to the issue and set i
 
 ## App frontend
 
-1. Create a new branch from `master`. 
+1. Create a new branch from `main`. 
    - Naming convention for branches is `bug/<issue number>-<short description>` or `feature/<issue number>-<short description>`, depending on the issue type.
 2. Code your changes and test them by [running an app locally](../developing#app-frontend).
 3. Run unit tests
@@ -26,7 +26,7 @@ When selecting an issue from the backlog, assign yourself to the issue and set i
    - No new code smells should be introduced. 
 7. Once approval of code is in and all pipelines run green, move the issue to **Testing** pipeline in board and unassign yourself.
 8. Fix any bugs that are uncovered by manual testing.
-9. Once testing is completed, tester will move issue to **Done** pipeline in board. When this is done, code can be merged into `master`. 
+9. Once testing is completed, tester will move issue to **Done** pipeline in board. When this is done, code can be merged into `main`. 
    - Make sure the `version` in `altinn-app-frontend/package.json` is still updated to a new version (new code might have been merged in the mean time).
 10. Update any relevant documentation. F.ex.
     - [Changelog for app frontend](/community/changelog/app-frontend/).
@@ -35,7 +35,7 @@ When selecting an issue from the backlog, assign yourself to the issue and set i
 
 ## Studio frontend
 
-1. Create a new branch from `master`. Naming convention for branches is `bug/<issue number>-<short description>` or `feature/<issue number>-<short description>`, depending on the issue type.
+1. Create a new branch from `main`. Naming convention for branches is `bug/<issue number>-<short description>` or `feature/<issue number>-<short description>`, depending on the issue type.
 2. Code your changes and test them by [running Designer locally](../developing#altinn-studio-designer).
 3. Run unit tests
    - Update any failing tests
@@ -45,9 +45,9 @@ When selecting an issue from the backlog, assign yourself to the issue and set i
    - Move the issue to the **Review/QA** pipeline in board and tag/notify any reviewers.
 5. Fix any review comments and/or issues that come up from running the automated pipelines.
    - All pipelines should run green.
-   - Test coverage should be >65%.
+   - Test coverage should be >85%.
    - No new code smells should be introduced. 
-6. Once approval of code is in and all pipelines run green, merge the code to `master`, move the issue to **Testing** pipeline in board and unassign yourself.
+6. Once approval of code is in and all pipelines run green, merge the code to `main`, move the issue to **Testing** pipeline in board and unassign yourself.
 7. Fix any bugs that are uncovered by manual testing.
 8. Update any relevant documentation. F.ex.
    - [User documentation](https://altinn.github.io/docs/altinn-studio/app-creation/).
