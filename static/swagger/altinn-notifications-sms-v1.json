@@ -1,0 +1,29 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Altinn.Notifications.Sms",
+    "version": "1.0"
+  },
+  "paths": {
+    "/notifications/sms/api/v1/reports": {
+      "post": {
+        "tags": [
+          "DeliveryReport"
+        ],
+        "summary": "Post method for handling delivery reports from Link Mobility",
+        "responses": {
+          "401": {
+            "description": "Caller is unauthorized"
+          },
+          "200": {
+            "description": "The delivery report is received"
+          },
+          "400": {
+            "description": "The delivery report is invalid"
+          }
+        }
+      }
+    }
+  },
+  "components": { }
+}
