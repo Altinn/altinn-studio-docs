@@ -1,7 +1,7 @@
 ---
 title: Post og arkiv
 linktitle:  Post og arkiv
-description: Denne tilgangspakken er relevant for alle virksomheter som mottar post fra det offentlige. skal utføre tjenester relatert til mlijø, ulykke og sikkerhet
+description: Denne tilgangspakken er relevant for alle virksomheter som mottar post fra det offentlige. 
 weight: 108
 ---
 Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-3/#oversikt-over-tilgangspakker)
