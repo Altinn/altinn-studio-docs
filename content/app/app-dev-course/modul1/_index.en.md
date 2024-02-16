@@ -39,6 +39,19 @@ If you want to test the app in a [test environment](/app/testing/deploy/) (descr
 You must have [access to the organization](/app/getting-started/create-user/#join-an-organization), and the organization must have access to a test environment.
 {{% /notice %}}
 
+### Tasks
+
+1. [Create an application in Altinn Studio](/app/getting-started/create-app/new-app/)
+
+### Useful Documentation
+
+- [Navigating Altinn Studio](/app/getting-started/navigation)
+- [Altinn Studio Dashboard](/app/getting-started/navigation/dashboard/)
+
+{{% /expandlarge %}}
+
+{{% expandlarge id="adding-a-data-model" header="Adding a Data Model" %}}
+
 The data model defines the type and format of data that can be submitted through an app.
 
 With Altinn Studio's [Data Modeling tool](/app/development/data/data-modeling/),
@@ -112,10 +125,10 @@ The mentioned files are all generated from the `.xsd` description of the data mo
 {{% expandlarge id="edit-texts" header="Create and Edit Texts" %}}
 
 [Texts in Altinn Studio](/app/development/ux/texts/) are stored in separate language files (also called resource files) and can be linked to form components using a text key.
-The texts can be [created and edited in Altinn Studio Designer](/app/development/ux/texts/#altinn-studio-text-editor) or [directly in the file](/app/development/ux/texts/#changing-texts-directly-in-the-repository).
+The texts can be [created and edited in Altinn Studio Designer](/app/development/ux/texts/#using-altinn-studio) or [directly in the file](/app/development/ux/texts/#changing-texts-directly-in-the-repository).
 
 {{% notice warning %}}
-**NOTE**: The display name for the application must be changed both in `App/config/applicationMetadata.json` and in the language files.
+**NOTE**: The display name for the application must be changed both in `App/config/applicationmetadata.json` and in the language files.
 {{% /notice %}}
 
 ### Requirements from the Municipality
@@ -129,7 +142,7 @@ All components must have suitable descriptive labels to make the service user-fr
 3. [Add translation(s) for the texts](/app/development/ux/texts/#add-and-change-texts-in-an-application). The application must be available in Norwegian Bokmål, Norwegian Nynorsk, and English. In the initial version, supporting only one of these languages is sufficient.
 
 
-Remember to upload changes when working in Designer to update the repository.
+Remember to upload your changes when working in Designer so that the repository will reflect these changes.
 In the next step, you will create components and link them to the text resources.
 
 ### Useful Documentation
@@ -201,12 +214,13 @@ The fields should be mandatory unless indicated otherwise.
 1. Set up the first form page with components based on the requirements of the Municipality.
 2. Add labels by connecting text resources to each of the components.
 
-Remember to upload changes when working in Designer to update the repository.
+Remember to upload your changes when working in Designer so that the repository will reflect these changes.
 
 ### Useful Documentation
 
-- [Building a Form with the UI Editor in Altinn Studio](/app/getting-started/)
-- [Available components in Altinn Studio Library](/app/guides/design/guidelines/components/)
+- [Building a Form with the UI Editor in Altinn Studio](/app/getting-started/create-app/ui-editor/)s
+- [Available components in Altinn Studio Library](/altinn-studio/designer/build-app/ui-designer/components/)
+- [Guidelines for the use of components](/app/guides/design/guidelines/components/)
 
 ### Knowledge Check
 
@@ -214,7 +228,7 @@ In your application repository, you will find the `<pageName>.json` file in the 
 
 You can find `<page>.json` in your application repository in the folder `App/ui/layouts`. The JSON file describes the data page you have set up in Altinn Studio, assuming you have uploaded the changes (`<page>` is replaced with the page's name, for example, `data.json`).
 
-{{% expandsmall id="m1t3q1" header="Do you find the component connected to the email field?" %}}
+{{% expandsmall id="m1t3q1" header="Can you find the component connected to the email field?" %}}
 
 To locate the component connected to the email field, you can search for 'epost' (email).
 You will find the field name connected to the component under `dataModelBindings.simpleBinding` (highlighted).
@@ -282,11 +296,234 @@ The application should be runnable on your local machine with LocalTest, and you
 
 ## Solution
 
-[Source code Module 1](https://altinn.studio/repos/testdep/flyttemelding-sogndal/src/branch/modul1)<br>
+[Module 1 source code](https://altinn.studio/repos/testdep/flyttemelding-sogndal/src/branch/modul1)<br>
+
+{{<expandlarge id="add-texts-solution" header="Create and Edit Texts">}}
+
+{{% markdown %}}
+Below you can find what the added texts look like in Altinn Studio and, in the *Code* tab, how this is reflected in the `resources.nb.json` file in the repository.
+
+{{% /markdown %}}
+
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="Altinn Studio Designer">}}
+
+### Texts in Altinn Studio
+
+![The texts shown in Altinn Studio. Image](module1-add-texts-screenshot.png "The texts shown in Altinn Studio")
+
+{{</content-version-container>}}
+{{<content-version-container version-label="Code">}}
+
+### Texts in the repository
+
+{{< code-title >}}
+App/config/texts/resource.nb.json
+{{< /code-title >}}
+
+```json
+{
+  "language": "nb",
+  "resources": [
+    {
+      "id": "appName",
+      "value": "Flyttemelding Sogndal"
+    },
+    {
+      "id": "firstName",
+      "value": "Fornavn"
+    },
+    {
+      "id": "middleName",
+      "value": "Mellomnavn"
+    },
+    {
+      "id": "lastName",
+      "value": "Etternavn"
+    },
+    {
+      "id": "age",
+      "value": "Alder"
+    },
+    {
+      "id": "streetName",
+      "value": "Gatenavn"
+    },
+    {
+      "id": "postalCode",
+      "value": "Postnummer"
+    },
+    {
+      "id": "postalLocation",
+      "value": "Sted"
+    },
+    {
+      "id": "email",
+      "value": "E-post"
+    },
+    {
+      "id": "phone",
+      "value": "Telefonnummer"
+    }
+  ]
+}
+```
+{{</content-version-container>}}
+{{</content-version-selector>}}
+{{</expandlarge>}}
+
+{{<expandlarge id="add-components-solution" header="Add Components">}}
+
+{{% markdown %}}
+Below you can find the form we created and the components used.
+
+![Screenshot of the form.](module1-add-components-form-screenshot.png "The first form page")
+{{% /markdown %}}
+
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="Altinn Studio Designer">}}
+
+### Components
 
 {{% notice info %}}
-A worked solution is underway.
+See *Code* to see how the layout and configurations of the form is reflected in the code.
 {{% /notice %}}
+
+![The components used in the form. Image.](module1-add-components-components-screenshot.png "The components used in the form")
+
+### Component - Configuration
+
+{{% markdown %}}
+For the components we have set the component-ID, linked the component with the correct field in the data model and set the label by supplying the ID to the text resource we defined in the previous task.   
+
+In the example below, the setup for the "Mellomnavn"-Component is shown.
+
+![Configuration of the \"Mellomnavn\"-Component in Altinn Studio. Image.](module1-add-components-setup-screenshot.png "Configuration of the \"Mellomnavn\"-Component in Altinn Studio")
+{{% /markdown %}}
+
+### Settings - "Required"
+
+{{% markdown %}}
+Toggle the 'Det skal være påkrevd for brukeren å svare'-switch on the fields that are mandatory for the user to fill (which are all fields, with the exception of "Mellomnavn"):
+
+![Required setting. Image.](module1-add-components-required-screenshot.png "Required setting")
+{{% /markdown %}}
+
+{{</content-version-container>}}
+{{<content-version-container version-label="Code">}}
+
+### Form page
+
+The code for the first form page, which can be found in the repository in `App/ui/layouts/`, is as follows:
+
+{{< code-title >}}
+App/ui/layouts/innflytterPersonalia.json
+{{< /code-title >}}
+
+```json
+{
+  "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
+  "data": {
+    "layout": [
+      {
+        "id": "firstName",
+        "type": "Input",
+        "dataModelBindings": {
+          "simpleBinding": "Innflytter.Fornavn"
+        },
+        "required": true,
+        "readOnly": false,
+        "textResourceBindings": {
+          "title": "firstName"
+        }
+      },
+      {
+        "id": "middleName",
+        "type": "Input",
+        "dataModelBindings": {
+          "simpleBinding": "Innflytter.Mellomnavn"
+        },
+        "required": false,
+        "readOnly": false,
+        "textResourceBindings": {
+          "title": "middleName"
+        }
+      },
+      {
+        "id": "lastName",
+        "type": "Input",
+        "dataModelBindings": {
+          "simpleBinding": "Innflytter.Etternavn"
+        },
+        "required": true,
+        "readOnly": false,
+        "textResourceBindings": {
+          "title": "lastName"
+        }
+      },
+      {
+        "id": "age",
+        "type": "Input",
+        "dataModelBindings": {
+          "simpleBinding": "Innflytter.Alder"
+        },
+        "required": true,
+        "readOnly": false,
+        "textResourceBindings": {
+          "title": "age"
+        }
+      },
+      {
+        "id": "addressComponent",
+        "type": "AddressComponent",
+        "dataModelBindings": {
+          "address": "Innflytter.Adresse.Gateadresse",
+          "zipCode": "Innflytter.Adresse.Postnr",
+          "postPlace": "Innflytter.Adresse.Poststed"
+        },
+        "simplified": true,
+        "readOnly": false,
+        "required": true
+      },
+      {
+        "id": "email",
+        "type": "Input",
+        "dataModelBindings": {
+          "simpleBinding": "Innflytter.Kontaktinformasjon.Epost"
+        },
+        "required": true,
+        "readOnly": false,
+        "textResourceBindings": {
+          "title": "email"
+        }
+      },
+      {
+        "id": "phoneNumber",
+        "type": "Input",
+        "dataModelBindings": {
+          "simpleBinding": "Innflytter.Kontaktinformasjon.Telefonnummer"
+        },
+        "required": true,
+        "readOnly": false,
+        "textResourceBindings": {
+          "title": "phone"
+        }
+      },
+      {
+        "id": "NavigationButtons-yxdxMR",
+        "type": "NavigationButtons",
+        "componentType": "NavigationButtons",
+        "dataModelBindings": {},
+        "showBackButton": true,
+        "textResourceBindings": {}
+      }
+    ]
+  }
+}
+```
+{{</content-version-container>}}
+{{</content-version-selector>}}
+{{</expandlarge>}}
 
 <br><br>
 
