@@ -95,7 +95,7 @@ Below is a form with a repeating group that:
 | [edit](edit)                                                     | No       | Options for how to display the group when editing a row.                                                                       |
 | tableHeaders                                                     | No       | List of components that are to be included as part of the table header fields. If not specified, all components are displayed. |
 | [tableColumns](table/#widths-alignment-and-overflow-for-columns) | No       | Object containing column options for specified headers. If not specified, all columns will use default display settings.       |
-| [stickyHeaders](table/#sticky-table-headers)                           | No       | If set to `true`, the table headers will be sticky.                                                                            |
+| [stickyHeaders](table/#sticky-table-headers)                     | No       | If set to `true`, the table headers will be sticky.                                                                            |
 
 ## textResourceBindings
 
