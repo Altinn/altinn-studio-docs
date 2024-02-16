@@ -21,10 +21,13 @@ The following API controllers are defined:
 - [SmsNotificationsController](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Controllers/SmsNotificationsController.cs):
   API for retrieving sms notifications related to a single order
 
+### Internal API
+The API controllers listed below are exclusively for use within in the Altinn organization: 
+- [Metrics controller](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Controllers/MetricsController.cs)
+  API for retrieving metrics over the use of the service
 
-### Notifications internal API
+### Private API
 The API controllers listed below are exclusively for use within the Notification solution:
-
 - [Trigger controller](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Controllers/TriggerController.cs):
    Functionality to trigger the start of order and notifications processing flows.
 
