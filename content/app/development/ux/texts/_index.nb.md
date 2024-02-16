@@ -1,6 +1,6 @@
 ---
 title: Tekster
-description: Hvordan editere og formatere tekster, bruke variabler og legge til hjelpetekster.
+description: Hvordan redigere og formatere tekster, bruke variabler og legge til hjelpetekster.
 toc: true
 weight: 40
 ---

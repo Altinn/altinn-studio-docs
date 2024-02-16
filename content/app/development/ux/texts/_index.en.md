@@ -188,9 +188,9 @@ It is currently possible to fetch values from 3 different data sources.
    ```
 3. Instance  
    By defining `instanceContext` as the data source you will be able to access certain properties from the active instance. The properties that are currently available are:
-   1. `instanceOwnerPartyId` inneholder avgiver sin party id.
-   2. `instanceId` inneholder id'en til den aktive instansen.
-   3. `appId` inneholder id'en til appen instansen er knyttet til.
+   1. `instanceOwnerPartyId` contains the party ID of the instance owner.
+   2. `instanceId` contains the ID of the active instance.
+   3. `appId` contains the ID of the application, which the active instance belongs to.
    
 ### Default value
 
