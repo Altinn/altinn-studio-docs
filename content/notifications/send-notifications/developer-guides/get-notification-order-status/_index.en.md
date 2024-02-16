@@ -117,6 +117,7 @@ curl --location 'https://platform.altinn.no/notifications/api/v1/orders/f1a1cc30
 #### 200 OK
 Response body contains the notification order with status information.
 
+_Example: Email notification order with status information._
 ```json
 {
     "id": "f1a1cc30-197f-4f34-8304-006ce4945fd1",
@@ -134,6 +135,32 @@ Response body contains the notification order with status information.
         "email": {
             "links": {
                 "self": "https://platform.at22.altinn.cloud/notifications/api/v1/orders/f1a1cc30-197f-4f34-8304-006ce4945fd1/notifications/email"
+            },
+            "generated": 1,
+            "succeeded": 0
+        }
+    }
+}
+```
+
+_Example: Sms notification order with status information._
+```json
+{
+    "id": "f1a1cc30-197f-4f34-8304-006ce4945fd1",
+    "sendersReference": "ref-2023-12-01",
+    "requestedSendTime": "2023-12-12T14:13:27.836731Z",
+    "creator": "digdir",
+    "created": "2023-12-12T14:13:27.845029Z",
+    "notificationChannel": "Sms",
+    "processingStatus": {
+        "status": "Completed",
+        "description": "Order processing is completed. All notifications have been generated.",
+        "lastUpdate": "2023-12-12T14:13:27.845029Z"
+    },
+    "notificationsStatusSummary": {
+        "sms": {
+            "links": {
+                "self": "https://platform.at22.altinn.cloud/notifications/api/v1/orders/f1a1cc30-197f-4f34-8304-006ce4945fd1/notifications/sms"
             },
             "generated": 1,
             "succeeded": 0

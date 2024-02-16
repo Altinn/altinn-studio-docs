@@ -22,10 +22,10 @@ Application owners can search for from a single application or across all applic
 Using this endpoint requires the scope 'altinn:instances.read'. And query parameter 'org' or 'appId' must be included in the request.
 
 Users can search for instances linked to either themselves or an instanceOwner they are authorized to read the instances of. 
-Query parametr 'instanceOwner.partyId' must be included in the request if using this endpoint as an end user.
+Query parameter 'instanceOwner.partyId' must be included in the request if using this endpoint as an end user.
 
 Search for instances with a simple GET request towards the *instances* endpoint.
-Avaliable query paramters include:
+Available query parameters include:
 
 - **process.currentTask** (string)  
 Search for instances at a specific step in its process. 
@@ -47,11 +47,11 @@ Filter instances based on when they became visible.
 Filter instances based on their due date.
 - **excludeConfirmedBy** (string)  
 Exclude instances already confirmed by a specific stakeholder. Usually the short name of an application owner.
-- **isArchived** (bool)
+- **status.isArchived** (bool)
 Filter instances based on whether they are archived.
-- **isSoftDeleted** (bool)
+- **status.isSoftDeleted** (bool)
 Filter instances based on whether they are soft deleted.
-- **isHardDeleted** (bool)
+- **status.isHardDeleted** (bool)
 Filter instances based on whether they are hard deleted. 
 Note that hard deleted instances are only included if an application owner retrieves instances, and the results may include deleted drafts. 
 
