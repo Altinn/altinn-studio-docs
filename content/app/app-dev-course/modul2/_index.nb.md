@@ -349,7 +349,6 @@ I dette steget har vi lagt til en enkel infoside med bilde og tekst.
 {{% /markdown %}}
 
 {{<content-version-selector classes="border-box">}}
-
 {{<content-version-container version-label="Altinn Studio Designer">}}
 
 ### Komponenter
@@ -493,9 +492,9 @@ App/config/texts/resource.nb.json
 {{<expandlarge id="alternative-workflow-solution" header="Alternativ arbeidsflyt">}}
 {{% markdown %}}
 I denne løsningen har vi valgt å legge til en komponent for radioknapper på info-siden hvor brukeren skal angi om de oppfyller kravene for å bruke skjemaet.
- Det er valgt å forhåndsmarkere alternativet 'Nei' så brukeren må gjøre et aktivt valg for å bruke skjemaet.
- 
- Du kan bruke avkrysningsboks eller nedrekksfelt som alternativ til radioknapper.
+Det er valgt å forhåndsmarkere alternativet 'Nei' så brukeren må gjøre et aktivt valg for å bruke skjemaet.
+
+Du kan bruke avkrysningsbokser eller nedtrekksliste som alternativ til radioknapper.
 
 ![Skjermbilde av oppdatert infoside. Bilde](infoside-screenshot.png "Oppdatert infoside")
 
@@ -638,6 +637,9 @@ App/ui/layouts/innflytterPersonalia.json
     ],
     "layout": [
       ...
+    ]
+  }
+}
 ```
 
 ### Ekskludere side fra pdf
@@ -732,7 +734,7 @@ Ny knapp:
 {{</content-version-container>}}
 {{<content-version-container version-label="Kode">}}
 
-#### Oppdatert dataside
+### Oppdatert dataside
 
 * Komponentene for navn og alder er satt til `readOnly`.
 * Noen komponenter er sidestilt.
@@ -804,7 +806,7 @@ App/ui/layouts/innflytterPersonalia.json
 }
 ```
 
-#### Forhåndsutfylling
+### Forhåndsutfylling
 
 Vi har opprettet filen `datamodel.prefill.json` og konfigurert forhåndsutfylling av personlig informasjon (unntatt alder):
 
@@ -830,7 +832,7 @@ App/models/datamodel.prefill.json
 }
 ```
 
-#### Beregning og forhåndsutfylling av alder
+### Beregning og forhåndsutfylling av alder
 
 For egendefinert forhåndsutfylling av alder har vi opprettet en fil `InstantiationProcessor.cs` i mappen `logic/Instantiation` (vi har også opprettet den valgfrie mappen `Instantiation`).
  Metoden `DataCreation` henter personnummeret fra instansen som blir sendt til den. Deretter bruker den nummeret til å beregne alderen ved hjelp av metoden `CalculateAge` (utelatt, se kodehjelp under [Forhåndsutfylling](#prefill) i oppgavebeskrivelsen).

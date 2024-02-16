@@ -42,7 +42,7 @@ Dersom du skal teste appen i et [testmiljø](/nb/app/testing/deploy/) (beskrevet
 
 ### Oppgaver
 
-1. [Opprett applikasjon i Altinn Studio](/nb/app/getting-started/create-app/)
+1. [Opprett applikasjon i Altinn Studio](/nb/app/getting-started/create-app/new-app/)
 
 ### Nyttig dokumentasjon
 
@@ -53,7 +53,7 @@ Dersom du skal teste appen i et [testmiljø](/nb/app/testing/deploy/) (beskrevet
 
 {{% expandlarge id="legge-til-datamodell" header="Legge til datamodell" %}}
 
-Datamodellen definerer type of format for data som kan sendes inn via en app.
+Datamodellen definerer type og format for data som kan sendes inn via en app.
 
 Med Altinn Studios [verktøy for datamodellering](/nb/app/development/data/data-modeling/)
  kan du legge til en datamodell ved å [laste opp en _xsd_-fil](/nb/app/development/data/data-modeling/#laste-opp-og-vise-datamodell)
@@ -97,7 +97,7 @@ Dette elementet består igjen av en del underobjekter som _Fornavn_, _Etternavn_
 
 `minOccurs` sier noe om hvor mange ganger objektet minst må være nevnt.
 - `minOccurs=0` vil si at feltet ikke er påkrevd.
-- `minOccurs=1` vil si at man forventer at det dukker opp minumum én gang i modellen.
+- `minOccurs=1` vil si at man forventer at det dukker opp minimum én gang i modellen.
 {{% /expandsmall %}}
 
 {{% expandsmall id="m1t1q3" header="Hvilke andre egenskaper er satt på feltet `Innflytter.Mellomnavn`?" %}}
@@ -130,7 +130,7 @@ De nevnte filene er alle generert ut ifra xsd-beskrivelsen av datamodellen. De b
 Tekstene kan [opprettes og redigeres i Altinn Studio Designer](/nb/app/development/ux/texts/#altinn-studio-designer) eller [direkte i filen](/nb/app/development/ux/texts/#legge-til-og-endre-tekster-i-repository).
 
 {{% notice warning %}}
-**MERK**: Visningsnavn for applikasjonen må endres både i `App/config/applicationMetadata.json` og i språkfilene.
+**MERK**: Visningsnavn for applikasjonen må endres både i `App/config/applicationmetadata.json` og i språkfilene.
 {{% /notice %}}
 
 ### Krav fra kommunen
@@ -155,7 +155,7 @@ I neste steg skal du opprette komponenter og knytte tekstene du har opprettet ti
 
 ### Forståelsessjekk
 
-I Altinn i dag støtter vi tre skriftspråk: Bokmål, nynorsk og engelsk.
+I Altinn i dag støtter vi tre skriftspråk: bokmål, nynorsk og engelsk.
 
 {{% expandsmall id="m1t2q1" header="Hvordan kan du manuelt legge inn engelsk språkstøtte i applikasjonen?" %}}
 
@@ -180,7 +180,7 @@ App/config/texts/resources.en.json
 Ifølge [listen over ISO 639-1 koder](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) så er koden for ukrainsk `uk`.
 {{% /expandsmall %}}
 
-{{% expandsmall id="m1t2q3" header="Hvis en tekstnøkkel refert til i `<page>.json` ikke finnes i tekstressursene, hva vil vises da?" %}}
+{{% expandsmall id="m1t2q3" header="Hvis en tekstnøkkel referert til i `<page>.json` ikke finnes i tekstressursene, hva vil vises da?" %}}
 
 Hvis nevnte tekstnøkkel ikke finnes i tekstressursfilen, vil tekstnøkkelen vises i stedet.
 {{% /expandsmall %}}
@@ -219,7 +219,7 @@ Husk å laste opp endringer når du jobber i Designer så de reflekteres i repoe
 
 ### Nyttig dokumentasjon
 
-- [Hvordan bygge et skjema med UI editor i Altinn Studio](/nb/app/getting-started/)
+- [Hvordan bygge et skjema med UI editor i Altinn Studio](/nb/app/getting-started/create-app/ui-editor/)
 - [Tilgjengelige komponenter i Altinn Studio](/altinn-studio/designer/build-app/ui-designer/components/)
 - [Retningslinjer for bruk av komponenter](/nb/app/guides/design/guidelines/components/)
 
@@ -291,17 +291,239 @@ App/ui/layouts/{page}.json
 I denne modulen har du opprettet en applikasjon i Altinn Studio,
 lagt til en datamodell og satt opp en skjemaside som kobler komponenter til noen av feltene i datamodellen.
 
-Dersom du har klargjort for lokal utvikling har du i tillegg klonet applikasjonen for å kunne videreutvikle den i ditt lokale utvilkingsmiljø.
+Dersom du har klargjort for lokal utvikling har du i tillegg klonet applikasjonen for å kunne videreutvikle den i ditt lokale utviklingsmiljø.
 Applikasjonen skal kunne kjøres på din lokale maskin med LocalTest og du skal kunne fylle inn feltene.
 
 ## Løsningsforslag
 
 [Kildekode Modul 1](https://altinn.studio/repos/testdep/flyttemelding-sogndal/src/branch/modul1)<br>
 
+{{<expandlarge id="add-texts-solution" header="Opprette og redigere tekster">}}
+
+{{% markdown %}}
+
+Nedenfor kan du se hvordan tekstene vi har lagt til ser ut i Altinn Studio og hvordan dette reflekteres i `resources.nb.json` filen i repoet.
+
+{{% /markdown %}}
+
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="Altinn Studio Designer">}}
+
+### Tekster i Altinn Studio
+
+![Tekstene vist i Altinn Studio. Bilde](module1-add-texts-screenshot.png "Tekstene vist i Altinn Studio")
+
+{{</content-version-container>}}
+{{<content-version-container version-label="Kode">}}
+
+### Tekster i repository
+
+{{< code-title >}}
+App/config/texts/resource.nb.json
+{{< /code-title >}}
+
+```json
+{
+  "language": "nb",
+  "resources": [
+    {
+      "id": "appName",
+      "value": "Flyttemelding Sogndal"
+    },
+    {
+      "id": "firstName",
+      "value": "Fornavn"
+    },
+    {
+      "id": "middleName",
+      "value": "Mellomnavn"
+    },
+    {
+      "id": "lastName",
+      "value": "Etternavn"
+    },
+    {
+      "id": "age",
+      "value": "Alder"
+    },
+    {
+      "id": "streetName",
+      "value": "Gatenavn"
+    },
+    {
+      "id": "postalCode",
+      "value": "Postnummer"
+    },
+    {
+      "id": "postalLocation",
+      "value": "Sted"
+    },
+    {
+      "id": "email",
+      "value": "E-post"
+    },
+    {
+      "id": "phone",
+      "value": "Telefonnummer"
+    }
+  ]
+}
+```
+{{</content-version-container>}}
+{{</content-version-selector>}}
+{{</expandlarge>}}
+
+{{<expandlarge id="add-components-solution" header="Legge til komponenter">}}
+
+{{% markdown %}}
+Nedenfor kan du se hvordan den første skjemasiden ser ut og hvilke komponenter vi har brukt.
+
+![Skjermbilde av første skjemaside](module1-add-components-form-screenshot.png "Første skjemaside")
+{{% /markdown %}}
+
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="Altinn Studio Designer">}}
+
+### Komponenter
+
 {{% notice info %}}
-Løsningsforslag kommer
+Se *Kode* for å se hvordan oppsettet av skjemasiden reflekteres i koden.
 {{% /notice %}}
 
+![Komponenter på første skjemaside. Bilde.](module1-add-components-components-screenshot.png "Komponenter på første skjemaside")
+
+### Komponentinnhold
+
+{{% markdown %}}
+Under kan du se innholdet til "Mellomnavn"-komponenten.   
+Her har vi satt komponent-ID, feltet i datamodellen komponenten er knyttet til og angitt nøkkelen til tekstressursen som vi definerte i forrige steg.
+
+![Innholdet til \"Mellomnavn\"-komponenten i Altinn Studio. Bilde.](module1-add-components-setup-screenshot.png "Innholdet til \"Mellomnavn\"-komponenten i Altinn Studio")
+{{% /markdown %}}
+
+### Innstillinger - "Påkrevd"
+
+{{% markdown %}}
+Huk av for 'Det skal være påkrevd for brukeren å svare' for felt som er obligatoriske for brukeren (alle felt med unntak av "Mellomnavn"):
+
+![Påkrevd instilling. Bilde.](module1-add-components-required-screenshot.png "Påkrevd instilling")
+{{% /markdown %}}
+
+{{</content-version-container>}}
+{{<content-version-container version-label="Kode">}}
+
+### Skjemaside
+
+Under finner du koden for den første skjemasiden som ligger i repoet under `App/ui/layouts/`.
+
+{{< code-title >}}
+App/ui/layouts/innflytterPersonalia.json
+{{< /code-title >}}
+
+```json
+{
+  "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
+  "data": {
+    "layout": [
+      {
+        "id": "firstName",
+        "type": "Input",
+        "dataModelBindings": {
+          "simpleBinding": "Innflytter.Fornavn"
+        },
+        "required": true,
+        "readOnly": false,
+        "textResourceBindings": {
+          "title": "firstName"
+        }
+      },
+      {
+        "id": "middleName",
+        "type": "Input",
+        "dataModelBindings": {
+          "simpleBinding": "Innflytter.Mellomnavn"
+        },
+        "required": false,
+        "readOnly": false,
+        "textResourceBindings": {
+          "title": "middleName"
+        }
+      },
+      {
+        "id": "lastName",
+        "type": "Input",
+        "dataModelBindings": {
+          "simpleBinding": "Innflytter.Etternavn"
+        },
+        "required": true,
+        "readOnly": false,
+        "textResourceBindings": {
+          "title": "lastName"
+        }
+      },
+      {
+        "id": "age",
+        "type": "Input",
+        "dataModelBindings": {
+          "simpleBinding": "Innflytter.Alder"
+        },
+        "required": true,
+        "readOnly": false,
+        "textResourceBindings": {
+          "title": "age"
+        }
+      },
+      {
+        "id": "addressComponent",
+        "type": "AddressComponent",
+        "dataModelBindings": {
+          "address": "Innflytter.Adresse.Gateadresse",
+          "zipCode": "Innflytter.Adresse.Postnr",
+          "postPlace": "Innflytter.Adresse.Poststed"
+        },
+        "simplified": true,
+        "readOnly": false,
+        "required": true
+      },
+      {
+        "id": "email",
+        "type": "Input",
+        "dataModelBindings": {
+          "simpleBinding": "Innflytter.Kontaktinformasjon.Epost"
+        },
+        "required": true,
+        "readOnly": false,
+        "textResourceBindings": {
+          "title": "email"
+        }
+      },
+      {
+        "id": "phoneNumber",
+        "type": "Input",
+        "dataModelBindings": {
+          "simpleBinding": "Innflytter.Kontaktinformasjon.Telefonnummer"
+        },
+        "required": true,
+        "readOnly": false,
+        "textResourceBindings": {
+          "title": "phone"
+        }
+      },
+      {
+        "id": "NavigationButtons-yxdxMR",
+        "type": "NavigationButtons",
+        "componentType": "NavigationButtons",
+        "dataModelBindings": {},
+        "showBackButton": true,
+        "textResourceBindings": {}
+      }
+    ]
+  }
+}
+```
+{{</content-version-container>}}
+{{</content-version-selector>}}
+{{</expandlarge>}}
 
 <br><br>
 
