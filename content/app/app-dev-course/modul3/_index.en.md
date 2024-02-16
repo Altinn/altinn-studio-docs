@@ -12,7 +12,6 @@ weight: 20
 
 In this module you are going to build and deploy the application to Altinn's test environment (TT02) and verify that everything works as expected.
 
-
 **Topics covered in this module:**
 - Set custom requirements for resource use
 - Building application
@@ -47,8 +46,6 @@ All changes related to scaling and resource use are made in the `deployment/valu
 - [Set custom limits for resource use](/app/development/configuration/deployment/#resources-configuration)
 {{% /expandlarge %}}
 
-
-
 {{% expandlarge id="build-application" header="Build application" %}}
 
 When you refer to building an application in Altinn Studio,
@@ -62,7 +59,6 @@ and add a descriptive comment of what the version includes.
 - [Build app in Altinn Studio](/app/testing/deploy/#bygge-app)
 
 {{% /expandlarge %}}
-
 
 {{% expandlarge id="deploy-application" header="Deploy application" %}}
 
@@ -109,9 +105,31 @@ Internal users in Digdir should use one of the test users found in [the test dat
 In this module you have built and deployed your application to TT02, logged into Altinn with a test user and tested your application.
 
 
-{{% expandlarge id="solution" header="Solution" %}}
-[(Module 3 source code - previous version)](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/bolk/3) that you can use as inspiration.
-{{% /expandlarge %}}
+## Løsningsforslag
+
+[Source code Module 3](https://altinn.studio/repos/testdep/flyttemelding-sogndal/src/branch/modul3)
+
+{{%expandlarge id="resources-solution" header="Set custom requirements for resource use"%}}
+
+The following changes have been made to the code:
+
+{{< code-title >}}
+App/deployment/values.yaml
+{{< /code-title >}}
+
+```yaml{linenos=false,hl_lines="3-7"}
+deployment:
+  
+  replicaCount: 1
+  
+  requests:
+      cpu: 50m
+      memory: 128Mi
+
+...
+```
+
+{{%/expandlarge%}}
 
 <br><br>
 

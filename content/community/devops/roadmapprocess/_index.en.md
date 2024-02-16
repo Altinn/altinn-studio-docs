@@ -2,6 +2,7 @@
 title: Roadmap prosess
 description: Hvordan jobber vi med vår roadmap
 tags: [needstranslation]
+toc: true
 ---
 Dette dokumentet beskriver hvordan vi jobber med features for Altinn 3 plattformen.
 
@@ -91,20 +92,20 @@ Vi ønsker å legge oss på detaljnivået til [Github Roadmap](https://github.co
 - Ansvarlig: Produkteier
 - Utførene: Produkteier
 
-# Prosess
+## Prosess
 Følgende prosess følges med artifakten
 
 ![Backlogs](roadmapprocess.drawio.svg "Roadmap process")
 [Fullscreen](roadmapprocess.drawio.svg)
 
-## Product planing
+### Product planing
 Dette er arbeidet som produkteierne utfører, sammen med andre ressurser, for å skape og jobbe med epics i produkt backloggen og tilhørende analyse issues.
 En oppsummering av et slikt element vil kunne ende opp som et road map feature.
 
 - Ansvarlig: Produkteier
 - Støtte: Forretningsutviklere, Arkitekter, UX, Jurister, Sikkerhet, Forretning, Leverandørstyrere, samt andre produkteiere.
 
-## Product refinement
+### Product refinement
 Dette er en behandling med utgangspunkt i produkt epics med hensikt om å definere underliggende development issues.
 Altså gjøre klart for sprintplaning, eventuelt sende det tilbake til produkt planing.
 
@@ -114,7 +115,7 @@ Målet med feature refinement er å detaljere issue til et nivå at team kan ta 
 - Bør være mulig å identifisere oppgaver å dele opp i egne issues
 - Være detaljert nok til at man kan si noe om omfang. 
 
-## Sprint planing
+### Sprint planing
 DevOps teamet tar inn development issues i en (eller flere) sprinter basert på kapasitet. 
 
 {{<children />}}

@@ -119,6 +119,25 @@ With resource texts:
 
 The error message would then be `"You have to fill out your first name"`.
 
+### Replacing the required validation message completely
+
+If you want to replace the default error message for required fields completely, you can do this by adding the text key
+`requiredValidation` to the components `textResourceBindings` object. This will replace the default error message for
+required fields. The text can be a text key for a [text defined in the resource files](../../ux/texts) for multilingual
+support.
+
+```json
+{
+  "id": "firstName",
+  "type": "Input",
+  "textResourceBindings": {
+    "title": "text-firstName",
+    "requiredValidation": "myCustomRequiredValidation"
+  },
+  ...
+}
+```
+
 ### Custom error messages
 It is possible to define custom error messages that will be displayed when a field doesn't pass the validation check. This is done by including a parameter `errorMessage` where the field is defined in the JSON schema. 
 The JSON schema file is in the folder `App/models` and has a naming patterns as follows; `*.schema.json`,
@@ -263,47 +282,50 @@ public async Task ValidateTask(Instance instance, string taskId, ModelStateDicti
 
 If there is a need for immediate validation of a field
 that can not be covered in the client side validation,
-you can set up a trigger for validation on single fields in `formLayout.json`
+you can set up a trigger for validation on single fields in the component configuration.
 {{%notice warning%}}
 
 **NOTE**: Trigger for validation on single fields in Stateless apps is not currently supported.
 {{%/notice%}}
 
-```json {hl_lines=[13]}
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="v4 (App Frontend)">}}
+
+Setting the `showValidations` property on a component will cause validations to become visible immediately when they occur.
+
+```json {hl_lines=[6]}
 {
-  "data": {
-    "layout": [
-      {
-        "id": "3611fb2a-c06b-4fa7-a400-3f6c1ece64e1",
-        "textResourceBindings": {
-          "title": "25795.OppgavegiverNavnPreutfyltdatadef25795.Label"
-        },
-        "dataModelBindings": {
-          "simpleBinding": "etatid"
-        },
-        "type": "Input",
-        "triggers": ["validation"] , // <--- Add this field
-      },
-      {
-        "id": "9ec368da-d6a9-4fbd-94d0-b4dfa8891981",
-        "type": "Button",
-        "textResourceBindings": {
-          "title": "Button"
-        },
-        "dataModelBindings": {},
-        "textResourceId": "Standard.Button.Button",
-        "customType": "Standard"
-      }
-    ]
-  }
+  "id": "some-input-field",
+  "type": "Input",
+  "textResourceBindings": {...},
+  "dataModelBindings": {...},
+  "showValidations": ["AllExceptRequired"]
 }
 ```
 
-{{% notice warning %}}
-Note that if you define a field to trigger validation server-side, only the result of this validation will be displayed. Meaning,
-if there is another client-side validation defined, a possible server-side validation of the field will overwrite these. Therefore, you should make sure
-to implement all necessary validations on the server-side as well. It is possible to attach multiple error messages to the same field if needed.
-{{% /notice %}}
+Where `showValidations` contains a set of validation types to check; this can be one or more of:
+
+- `Schema`
+- `Component`
+- `Expression`
+- `CustomBackend`
+- `Required`
+- `AllExceptRequired`
+- `All`
+{{</content-version-container>}}
+{{<content-version-container version-label="v3 (App Frontend)">}}
+
+Note that in version 3 of app frontend, JSON schema and component specific validation is run automatically by default, adding the validation trigger causes custom backend validation to be run as well.
+
+```json {hl_lines=[6]}
+{
+  "id": "some-input-field",
+  "type": "Input",
+  "textResourceBindings": {...},
+  "dataModelBindings": {...},
+  "triggers": ["validation"]
+}
+```
 
 The configuration above will result in your own custom validation in `ValidationHandler.cs` 
 being triggered each time the field is updated. If you need to know which field
@@ -473,6 +495,9 @@ private void ValidateFullName(Datamodell model, ModelStateDictionary validationR
 
 If you are having trouble with getting this to work, and you are instead seeing validation messages that include the `*FIXED*`-prefix, 
 double check that you have `"FixedValidationPrefix": "*FIXED*"` set under `GeneralSettings` in `appsettings.json`.
+{{</content-version-container>}}
+{{</content-version-selector>}}
+
 
 ## Soft validations
 
@@ -519,43 +544,48 @@ Examples on display of different validations below:
 
 !["Success message"](success-message.jpeg "Example on success message (*SUCCESS* - prefix)")
 
-!["Warning message"](warning-message.jpeg "Example on warning message (*WARNING* - prefix)" )
-
-It is also possible to overrule the title you see on the messages by adding the keys `soft_validation.info_title`, `soft_validation.warning_title`, and `soft_validation.success_title` in the text resources if you want to set a custom title.
+!["Warning message"](warning-message.jpeg "Example on warning message (*WARNING* - prefix)" ) 
 
 ## Group validation
 
-It is possible to apply validations to a repeating group when the user saves a row in the group.
-This can be done by adding a trigger on the group component in the layout file (e.g. `FormLayout.json`).
-There are two different triggers that can be used for groups; `validation` runs validation on the entire group,
-and `validateRow` only runs validation on the row the user is trying to save. Example:
+It is possible to check validations in a repeating group when the user saves a row in the group. If there are validations errors in the row, the user is prevented from closing that row until the errors are fixed.
 
-```json {hl_lines=[14]}
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="v4 (App Frontend)">}}
+```json {hl_lines=[7]}
 {
-  "data": {
-    "layout": [
-      {
-        "id": "demo-gruppe",
-        "type": "Group",
-        "children": [
-            "..."
-        ],
-        "maxCount": 3,
-        "dataModelBindings": {
-            "group": "Endringsmelding-grp-9786.OversiktOverEndringene-grp-9788"
-        },
-        "triggers": ["validateRow"]  // <--- Add this
-      },
-      ...
-    ]
-  }
+  "id": "demo-gruppe",
+  "type": "Group",
+  "children": [...],
+  "maxCount": 9,
+  "dataModelBindings": {...},
+  "validateOnSaveRow": ["All"],
 }
 ```
 
-This will ensure that validation is run on the components that are a part of the group in the row you're working on.
-If there are validation errors you will be stopped from saving the group until this has been corrected.
+Where `validateOnSaveRow` contains a set of validation types to check; this can be one or more of:
 
-If you add validation on the group component, a call will be made towards the validation back-end with a header specifying which component triggered the validation: `ComponentId`.
+- `Schema`
+- `Component`
+- `Expression`
+- `CustomBackend`
+- `Required`
+- `AllExceptRequired`
+- `All`
+{{</content-version-container>}}
+{{<content-version-container version-label="v3 (App Frontend)">}}
+```json {hl_lines=[7]}
+{
+  "id": "demo-gruppe",
+  "type": "Group",
+  "children": [...],
+  "maxCount": 9,
+  "dataModelBindings": {...},
+  "triggers": ["validateRow"]
+}
+```
+
+If you add validation trigger on the group component, a call will be made towards the validation back-end with a header specifying which component triggered the validation: `ComponentId`.
 Additionally, the row index of the row being saved is available in the header `RowIndex`. If the group is a nested group, a comma separated list of row indices is returned, otherwise it is a single number.
 Validations are written in C# in the `ValidationHandler.cs`-file in the application template. In the validation, you can retrieve component id and tailor possible validations to run in the back-end, example:
 
@@ -599,5 +629,8 @@ public async Task ValidateData(object data, ModelStateDictionary validationResul
     }
 }
 ```
+{{</content-version-container>}}
+{{</content-version-selector>}}
+
 
 For tips on how you solve complex validations, see the examples under [single field validation](#single-field-validation).

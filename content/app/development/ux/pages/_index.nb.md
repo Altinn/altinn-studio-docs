@@ -40,10 +40,6 @@ Dersom du bruker layout sets er det en egen fil for hvert sett.
       "Info",
       "Summary"
     ],
-    "triggers": [
-      "calculatePageOrder",
-      "validatePage"
-    ],
     "hideCloseButton": false,
     "showLanguageSelector": false,
     "showExpandWidthButton": false,
@@ -65,6 +61,63 @@ De tilgjengelige innstillingene er følgende:
 | pdfLayoutName         | String  | se [PDF](/nb/app/development/ux/pdf/#egendefinert-konfigurasjon)                                                                                                                 |
 | order                 | Array   | se [Navigasjon](/nb/app/development/ux/pages/navigation/#rekkefølge)                                                                                                             |
 | excludeFromPdf        | Array   | se [PDF](/nb/app/development/ux/pdf/#automatisk-konfigurasjon)                                                                                                                   |
-| triggers              | Array   | se [Navigasjon](/nb/app/development/ux/pages/navigation/#validering-ved-sidebytte), [Sporvalg](/nb/app/development/ux/pages/tracks/#trigge-kalkulering-av-sporvalg-fra-frontend) |
+| expandedWidth         | Boolean | se [Utvidet skjemabredde](#utvidet-skjemabredde)                                                                                                                                             |
+
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="v4 (App Frontend)">}}
+
+## Utvidet skjemabredde
+
+Default verdien for en sides breddehåndtering kan settes til å være utvidet ved å legge til `expandedWidth`-egenskapen
+til en layout i `data`-egenskapen. Dette vil gjøre at siden utvider seg til å fylle hele bredden av nettleservinduet når
+den åpnes. If you set `expandedWidth` on multiple levels, the more specific value will override the general.
+
+`layout-settings.json`:
+
+```json
+{
+  "uiSettings": {
+    "expandedWidth": true
+  },
+  "sets": [
+    ...
+  ]
+}
+```
+
+`Settings.json`:
+
+```json
+{
+  "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
+  "pages": {
+      "order": [
+         ...
+      ],
+      "expandedWidth": true,
+      ...
+  },
+  "components": {
+    ...
+  }
+}
+```
+
+Layout-file:
+
+```json
+{
+  "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
+  "data": {
+    "expandedWidth": true,
+    "layout": [
+      components...
+    ],
+  }
+}
+```
+
+{{</content-version-container>}}
+{{</content-version-selector>}}
 
 {{<children />}}

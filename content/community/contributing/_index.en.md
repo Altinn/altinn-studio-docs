@@ -14,7 +14,7 @@ and tell us that issues are important to you by giving them a thumbs up (👍). 
 recommend that you add a comment.
 - **Report or fix bugs** If you have found a bug that is yet to be reported, we would appreciate it if you
 [create an issue on Github](https://github.com/Altinn/altinn-studio/issues/new?assignees=&labels=kind%2Fbug&template=bug_report.md). 
-If you have fixed a bug, you can [create a Pull Request](https://github.com/Altinn/altinn-studio/blob/master/docs/CONTRIBUTING.md#pull-requests). 
+If you have fixed a bug, you can [create a Pull Request](https://github.com/Altinn/altinn-studio/blob/main/CONTRIBUTING.md#pull-requests). 
 - **New component/functionality** Are you in need of a new component or functionality while developing an app? 
 If so, we would appreciate it if you tell us about your need, so that we can assess whether the request matches
 the patterns of interaction we want to support. We will also assess whether a new common component should be made,

@@ -44,8 +44,11 @@
       {{- partial "jumbotron.html" . -}}
     {{- end -}}
 
-    <div class="container pt-2 pt-md-3 pt-lg-5">
+    <div class="container pt-2 pt-md-3 pt-lg-5">      
       <div class="adocs-scrollcontainer">
+        <div class="row">
+        <div class="col-12 last-modified">{{T "Last-Modified"}}{{ .Page.Lastmod | time.Format ":date_medium" }}</div>
+      </div>
         <div class="row">
             <div class="col-sm-12">
               {{- partialCached "menu.html" . -}}
@@ -58,7 +61,7 @@
         <div id="overlay"></div>
         <div class="a-text">
         {{- if not .IsHome -}}
-          <div id="top-bar">
+          <div id="top-bar">            
             <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
                 <span id="sidebar-toggle-span" class="adocs-sidebarToggle">
                   <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
@@ -72,7 +75,7 @@
                   {{- end -}}
                   {{- template "breadcrumb" dict "page" . "value" .LinkTitle -}}
                 </span>
-            </div>
+            </div>            
           </div>
         {{- end -}}
         {{- if .Params.tags -}}
@@ -81,8 +84,7 @@
               <a class="label label-default" href="{{$.Site.BaseURL}}tags/{{ $tag | urlize }}">{{ $tag }}</a>
             {{- end -}}
           </div>
-        {{- end -}}
-
+        {{- end -}}        
         <div id="body-inner">
           {{- if not .IsHome -}}
             {{- if eq .Kind "taxonomy" -}}

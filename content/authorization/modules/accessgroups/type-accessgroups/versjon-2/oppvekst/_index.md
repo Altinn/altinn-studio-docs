@@ -1,10 +1,10 @@
 ---
 title: Oppvekst og utdanning
 linktitle: Oppvekst og utdanning
-description: Denne fullmaktsgruppen er relevant for alle tjenester rettet mot virksomheter med aktivitet innen oppvekst, skole og høyere utdanning
+description: Denne tilgangspakken er relevant for alle tjenester rettet mot virksomheter med aktivitet innen oppvekst, skole og høyere utdanning
 weight: 116
 ---
-Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-2/#oversikt-over-fullmaktsgrupper)
+Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-2/#oversikt-over-tilgangspakker)
 
 ![Oppvekst og skole](os.jpg "Oppvekst og skole")
 - **Oppvekst og utdanning:** Denne fullmakten gir tilgang til alle tjenester som omhandler barnehage, skole og høyere utdanning. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
@@ -25,28 +25,28 @@ Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroup
 	- **Barnevern og familievern:** Denne fullmakten gir tilgang til alle tjenester knyttet til barnevern og familievern. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
 	- **Høyere utdanning** Denne fullmakten gir tilgang til alle tjenester knyttet til høyere utdanning. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
 
-## Egenskaper ved fullmaktsgruppene
-|Navn fullmaktsgruppe|Kan delegeres til ansatte?|Kan knytte tjenester til?|[ER rolle](/authorization/modules/accessgroups/register_er/#rolletyper-fra-enhetsregisteret) som får fullmakten|
+## Egenskaper ved tilgangspakkene
+|Navn tillgangspakke|Kan delegeres til ansatte?|Kan knytte tjenester til?|[ER rolle](/authorization/modules/accessgroups/register_er/#rolletyper-fra-enhetsregisteret) som får fullmakten|
 |---|---|---|---|
 |Oppvekst og utdanning| ja|nei||
 |Barnehage|ja|nei||
-|Barnehageeier|ja|ja|DAGL, STYR,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
-|Barnehageleder|ja|ja|DAGL, STYR,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
-|Barnehagemyndighet|ja|ja|DAGL, STYR,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
+|Barnehageeier|ja|ja|DAGL, LEDE, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
+|Barnehageleder|ja|ja|DAGL, LEDE, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
+|Barnehagemyndighet|ja|ja|DAGL, LEDE, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
 |Grunnskole og videregående skole|ja|nei||
-|Skoleeier|ja|ja|DAGL, STYR,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
-|Skoleleder|ja|ja|DAGL, STYR,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
+|Skoleeier|ja|ja|DAGL, LEDE, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
+|Skoleleder|ja|ja|DAGL, LEDE, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
 |Opplæringskontor|ja|nei||
-|Opplæringskontoreier|ja|ja|DAGL, STYR,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
-|Opplæringskontorleder|ja|ja|DAGL, STYR,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
+|Opplæringskontoreier|ja|ja|DAGL, LEDE, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
+|Opplæringskontorleder|ja|ja|DAGL, LEDE, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
 |Pedagogisk-psykologisk tjeneste (PPT)|ja|nei||
-|PPT-eier|ja|ja|DAGL, STYR,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
-|PPT-leder|ja|ja|DAGL, STYR,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
-|Førskole og fritidsordning|ja|ja|DAGL, STYR,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
-|Barnevern og familievern|ja|ja|DAGL, STYR,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
-|Høyere utdanning|ja|ja|DAGL, STYR,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
+|PPT-eier|ja|ja|DAGL, LEDE, NNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
+|PPT-leder|ja|ja|DAGL, LEDE, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
+|Førskole og fritidsordning|ja|ja|DAGL, LEDE, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
+|Barnevern og familievern|ja|ja|DAGL, LEDE, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
+|Høyere utdanning|ja|ja|DAGL, LEDE, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
 
 {{% notice warning %}} Det er fortsatt uavklart hvilke fullmakter det vil være natulig å gi personer med rollen Forretningsførerer innenfor fullmaktsområdet "Oppvekst og utdanning" {{% /notice %}}
 
 
-Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-2/#oversikt-over-fullmaktsgrupper)
+Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-2/#oversikt-over-tilgangspakker)

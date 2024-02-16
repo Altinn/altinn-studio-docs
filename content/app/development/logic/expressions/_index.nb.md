@@ -121,19 +121,22 @@ Og for en person som er 15 år (eller yngre, som f.eks. en 4-åring), returneres
 
 Dynamiske uttrykk er foreløpig tilgjengelig for bruk i disse egenskapene, som definert i [layout-filer](../../ux/pages).
 
-| Komponenter                                               | Egenskap                      | Forventet verdi            | Frontend | Backend |
-| --------------------------------------------------------- | ----------------------------- | -------------------------- | -------- | ------- |
-| [Sider/layouts](#viseskjule-hele-sider)                   | `hidden`                      | [Boolsk](#boolske-verdier) | ✅       | ✅      |
-| Alle                                                      | `hidden`                      | [Boolsk](#boolske-verdier) | ✅       | ✅      |
-| Skjemakomponenter                                         | `required`                    | [Boolsk](#boolske-verdier) | ✅       | ✅      |
-| Skjemakomponenter                                         | `readOnly`                    | [Boolsk](#boolske-verdier) | ✅       | ❌      |
-| [Repeterende grupper](../../ux/fields/grouping/repeating) | `hiddenRow`                   | [Boolsk](#boolske-verdier) | ✅       | ❌      |
-| [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.addButton`              | [Boolsk](#boolske-verdier) | ✅       | ❌      |
-| [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.saveButton`             | [Boolsk](#boolske-verdier) | ✅       | ❌      |
-| [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.deleteButton`           | [Boolsk](#boolske-verdier) | ✅       | ❌      |
-| [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.alertOnDelete`          | [Boolsk](#boolske-verdier) | ✅       | ❌      |
-| [Repeterende grupper](../../ux/fields/grouping/repeating) | `edit.saveAndNextButton`      | [Boolsk](#boolske-verdier) | ✅       | ❌      |
-| Alle                                                      | `textResourceBindings.[*]` \* | [Streng](#strenger)        | ✅       | ❌      |
+| Komponenter                                                                                                                                         | Egenskap                      | Forventet verdi            | Frontend | Backend |
+| --------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- | -------------------------- | -------- | ------- |
+| [Sider/layouts](#viseskjule-hele-sider)                                                                                                             | `hidden`                      | [Boolsk](#boolske-verdier) | ✅       | ✅      |
+| Alle                                                                                                                                                | `hidden`                      | [Boolsk](#boolske-verdier) | ✅       | ✅      |
+| Skjemakomponenter                                                                                                                                   | `required`                    | [Boolsk](#boolske-verdier) | ✅       | ✅      |
+| Skjemakomponenter                                                                                                                                   | `readOnly`                    | [Boolsk](#boolske-verdier) | ✅       | ❌      |
+| [Repeterende grupper](../../ux/fields/grouping/repeating)                                                                                           | `hiddenRow`                   | [Boolsk](#boolske-verdier) | ✅       | ❌      |
+| [Repeterende grupper](../../ux/fields/grouping/repeating)                                                                                           | `edit.addButton`              | [Boolsk](#boolske-verdier) | ✅       | ❌      |
+| [Repeterende grupper](../../ux/fields/grouping/repeating)                                                                                           | `edit.saveButton`             | [Boolsk](#boolske-verdier) | ✅       | ❌      |
+| [Repeterende grupper](../../ux/fields/grouping/repeating)                                                                                           | `edit.deleteButton`           | [Boolsk](#boolske-verdier) | ✅       | ❌      |
+| [Repeterende grupper](../../ux/fields/grouping/repeating)                                                                                           | `edit.alertOnDelete`          | [Boolsk](#boolske-verdier) | ✅       | ❌      |
+| [Repeterende grupper](../../ux/fields/grouping/repeating)                                                                                           | `edit.saveAndNextButton`      | [Boolsk](#boolske-verdier) | ✅       | ❌      |
+| [Radioknapper](../../ux/components/radiobuttons), [Avkrysningsbokser](../../ux/components/checkbox), [Nedtrekksliste](../../ux/components/dropdown) | `source.label`                | [Streng](#strenger)        | ✅       | ❌      |
+| [Radioknapper](../../ux/components/radiobuttons), [Avkrysningsbokser](../../ux/components/checkbox), [Nedtrekksliste](../../ux/components/dropdown) | `source.description`          | [Streng](#strenger)        | ✅       | ❌      |
+| [Radioknapper](../../ux/components/radiobuttons), [Avkrysningsbokser](../../ux/components/checkbox), [Nedtrekksliste](../../ux/components/dropdown) | `source.helpText`             | [Streng](#strenger)        | ✅       | ❌      |
+| Alle                                                                                                                                                | `textResourceBindings.[*]` \* | [Streng](#strenger)        | ✅       | ❌      |
 
 \* = Hvilke verdier man kan overstyre med textResourceBindings varierer fra komponent til komponent, men vil fungere på
 alle steder der det brukes. TextResourceBindings for repeterende grupper finner
@@ -263,6 +266,7 @@ Disse funksjonene er tilgjengelige for bruk i uttrykk:
 | [`frontendSettings`](#func-frontendsettings) | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅       | ✅      |
 | [`dataModel`](#func-datamodel)               | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅       | ✅      |
 | [`component`](#func-component)               | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅       | ✅      |
+| [`formatDate`](#func-formatDate)             | [Streng](#strenger), valgfri [Streng](#strenger)   | [Streng](#strenger)                  | ✅       | ❌      |
 
 Detaljerte beskrivelser og eksempler
 
@@ -462,10 +466,6 @@ Noen detaljer som er verdt å nevne om disse funksjonene:
   en tom streng.
 - `["startsWith", null, null]` gir alltid `false`.
 
-**Bemerk:** Disse funksjonene er ikke tigjengelig i backend-kode enda, og vil derfor gi en feilmelding dersom de blir
-brukt noen steder [hvor uttrykk kjøres på backend](#bruksområder), og om man har slått på funksjonaliteten for å
-automatisk slette skjulte data (`RemoveHiddenDataPreview`).
-
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-stringLength" header="stringLength" %}}
@@ -478,10 +478,6 @@ Eksempel:
 ```
 
 Dersom strengen er `null` vil `stringLength` returnere `0`.
-
-**Bemerk:** Denne funksjonen er ikke tigjengelig i backend-kode enda, og vil derfor gi en feilmelding dersom den blir
-brukt noen steder [hvor uttrykk kjøres på backend](#bruksområder), og om man har slått på funksjonaliteten for å
-automatisk slette skjulte data (`RemoveHiddenDataPreview`).
 
 {{% /expandlarge %}}
 
@@ -513,10 +509,6 @@ Eksempel:
 
 Ønsker du å sjekke om verdier finnes i en kommaseparert liste kan du bruke funksjonen [`commaContains`](#func-commaContains).
 
-**Bemerk:** Disse funksjonene er ikke tigjengelig i backend-kode enda, og vil derfor gi en feilmelding dersom de blir
-brukt noen steder [hvor uttrykk kjøres på backend](#bruksområder), og om man har slått på funksjonaliteten for å
-automatisk slette skjulte data (`RemoveHiddenDataPreview`).
-
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-commaContains" header="commaContains" %}}
@@ -538,10 +530,6 @@ Legg merke til at eventuelle mellomrom før/etter komma, eller før/etter først
 er spesielt nyttig i tilfeller hvor man bruker en komponent som lagrer flere verdier i en kommaseparert streng, som
 `Checkboxes` og `MultipleSelect`.
 
-**Bemerk:** Denne funksjonen er ikke tigjengelig i backend-kode enda, og vil derfor gi en feilmelding dersom den blir
-brukt noen steder [hvor uttrykk kjøres på backend](#bruksområder), og om man har slått på funksjonaliteten for å
-automatisk slette skjulte data (`RemoveHiddenDataPreview`).
-
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-lowerCase-upperCase" header="lowerCase/upperCase" %}}
@@ -559,10 +547,6 @@ gjøres uavhengig av om det ble brukt store eller små bokstaver i input-verdien
 ```json
 ["equals", ["upperCase", ["dataModel", "My.Model.LastName"]], "SMITH"]
 ```
-
-**Bemerk:** Disse funksjonene er ikke tilgjengelig i backend-kode enda, og vil derfor gi en feilmelding dersom de blir
-brukt noen steder [hvor uttrykk kjøres på backend](#bruksområder), og om man har slått på funksjonaliteten for å
-automatisk slette skjulte data (`RemoveHiddenDataPreview`).
 
 {{% /expandlarge %}}
 
@@ -584,10 +568,6 @@ Eksempel med avrunding til nærmeste heltall:
 Returverdien fra denne funksjonen er en streng, slik at returverdien kan brukes for
 fremvisning (merk at desimalskilletegnet alltid er punktum). Selv om returverdien er en streng kan denne også brukes
 videre i uttrykk som forventer tall som inn-verdi.
-
-**Bemerk:** Denne funksjonen er ikke tilgjengelig i backend-kode enda, og vil derfor gi en feilmelding dersom den blir
-brukt noen steder [hvor uttrykk kjøres på backend](#bruksområder), og om man har slått på funksjonaliteten for å
-automatisk slette skjulte data (`RemoveHiddenDataPreview`).
 
 {{% /expandlarge %}}
 
@@ -738,6 +718,59 @@ uttrykket i kontekst av [repeterende grupper](../../ux/fields/grouping/repeating
 i gjeldende rad, før det letes oppover i sidestrukturen.
 {{% /expandlarge %}}
 
+{{% expandlarge id="func-formatDate" header="formatDate" %}}
+Funksjonen `formatDate` tar imot en dato som første argument, og et format som andre argument. Datoargumentet er en streng,
+mens formatargumentet er en valgfri streng som støtter _noen_ tokens i
+[Unicode Tokens](https://www.unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table).
+
+Dette er de tokenene vi støtter:
+
+| Enhet           | Token    | Resultat                             |
+| --------------- | -------- | ------------------------------------ |
+| Era             | `G..GGG` | f.Kr., e.Kr.                         |
+| Era             | `GGGG`   | før Kristus, etter Kristus           |
+| Era             | `GGGGG`  | f.Kr., e.Kr.                         |
+| År              | `y`      | 44, 1, 1900, 2017                    |
+| År              | `yy`     | 44, 01, 00, 17                       |
+| År              | `yyy`    | 044, 001, 1900, 2017                 |
+| År              | `yyyy`   | 0044, 0001, 1900, 2017               |
+| Forlenget år    | `u`      | -43, 0, 1, 1900, 2017                |
+| Forlenget år    | `uu`     | -43, 01, 1900, 2017                  |
+| Forlenget år    | `uuu`    | -043, 001, 1900, 2017                |
+| Forlenget år    | `uuuu`   | -0043, 0001, 1900, 2017              |
+| Måned           | `M`      | 1, 2,..., 12                         |
+| Måned           | `MM`     | 01, 02,..., 12                       |
+| Måned           | `MMM`    | jan, feb, ..., des                   |
+| Måned           | `MMMM`   | januar, februar, ..., desember       |
+| Dag i måned     | `d`      | 1, 2, ..., 31                        |
+| Dag i måned     | `dd`     | 01, 02, ..., 31                      |
+| Ukedag          | `E..EEE` | man, tir, ons, ..., søn              |
+| Ukedag          | `EEEE`   | mandag, tirsdag, onsdag, ..., søndag |
+| Ukedag          | `EEEEE`  | M, T, O, ..., S                      |
+| AM/PM           | `a`      | a.m., p.m.                           |
+| Time [1-12]     | `h`      | 1, 2, ..., 11, 12                    |
+| Time [1-12]     | `hh`     | 01, 02, ..., 11, 12                  |
+| Time [0-23]     | `H`      | 1, 2, ..., 22, 23                    |
+| Time [0-23]     | `HH`     | 01, 02, ..., 22, 23                  |
+| Minutt          | `m`      | 1, 2, ..., 59                        |
+| Minutt          | `mm`     | 01, 02, ..., 59                      |
+| Sekund          | `s`      | 1, 2, ..., 59                        |
+| Sekund          | `ss`     | 01, 02, ..., 59                      |
+| Brøkdels sekund | `S`      | 0, 1, ..., 9                         |
+| Brøkdels sekund | `SS`     | 00, 01, ..., 99                      |
+| Brøkdels sekund | `SSS`    | 000, 001, ..., 999                   |
+
+Dersom man ikke gir et format som andre argument, vil funksjonen bruke formatet `dd.MM.yyyy` som standard.
+
+Eksempel:
+
+```json
+["formatDate", "2023-10-30T14:54:00.000Z", "HH:mm"]
+```
+Vil resultere i `14:54`
+
+{{% /expandlarge %}}
+
 ## Datatyper
 
 Funksjoner i uttrykkene har en forventning om at argumentene som blir sendt inn har en spefikk type. Dersom et argument
@@ -850,10 +883,6 @@ Uttrykk kan brukes til å vise/skjule hele sider. I eksempelet under vil hele si
    }
 }
 ```
-
-Dette kan sees på som et alternativ til [sporvalg-funksjonaliteten](../../ux/pages/tracks), men i motsetning til
-sporvalg gjøres utregningen av disse uttrykkene i _både_ frontend _og_ backend, dermed er det ikke nødvendig å legge
-til `"triggers": ["calculatePageOrder"]` for å få funksjonaliteten til å fungere.
 
 Dersom siden man stod på blir skjult, vil applikasjonen automatisk gå videre til neste tilgjengelige side
 i [side-rekkefølgen](../../ux/pages/navigation#rekkefølge). Om alle de neste sidene er skjult, vises den første mulige

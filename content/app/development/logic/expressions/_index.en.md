@@ -126,19 +126,22 @@ And for a person who is 15 years old (or younger, such as a 4-year-old), the tex
   
 Dynamic expressions are currently available for use in these properties, as defined in [layout files](../../ux/pages).  
   
-| Components                                                | Property                      | Expected Value             | Frontend | Backend |  
-| --------------------------------------------------------- | ----------------------------- | -------------------------- | -------- | ------- |  
-| [Pages/layouts](#showhide-entire-pages)                   | `hidden`                      | [Boolean](#boolean-values) | ✅       | ✅      |  
-| All                                                       | `hidden`                      | [Boolean](#boolean-values) | ✅       | ✅      |  
-| Form components                                           | `required`                    | [Boolean](#boolean-values) | ✅       | ✅      |  
-| Form components                                           | `readOnly`                    | [Boolean](#boolean-values) | ✅       | ❌      |  
-| [Repeating groups](../../ux/fields/grouping/repeating)    | `hiddenRow`                   | [Boolean](#boolean-values) | ✅       | ❌      |  
-| [Repeating groups](../../ux/fields/grouping/repeating)    | `edit.addButton`              | [Boolean](#boolean-values) | ✅       | ❌      |  
-| [Repeating groups](../../ux/fields/grouping/repeating)    | `edit.saveButton`             | [Boolean](#boolean-values) | ✅       | ❌      |  
-| [Repeating groups](../../ux/fields/grouping/repeating)    | `edit.deleteButton`           | [Boolean](#boolean-values) | ✅       | ❌      |  
-| [Repeating groups](../../ux/fields/grouping/repeating)    | `edit.alertOnDelete`          | [Boolean](#boolean-values) | ✅       | ❌      |  
-| [Repeating groups](../../ux/fields/grouping/repeating)    | `edit.saveAndNextButton`      | [Boolean](#boolean-values) | ✅       | ❌      |  
-| All                                                       | `textResourceBindings.[*]` \* | [String](#strings)         | ✅       | ❌      |                                                   
+| Components                                                                                                                             | Property                      | Expected Value             | Frontend | Backend |  
+| -------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- | -------------------------- | -------- | ------- |  
+| [Pages/layouts](#showhide-entire-pages)                                                                                                | `hidden`                      | [Boolean](#boolean-values) | ✅       | ✅      |  
+| All                                                                                                                                    | `hidden`                      | [Boolean](#boolean-values) | ✅       | ✅      |  
+| Form components                                                                                                                        | `required`                    | [Boolean](#boolean-values) | ✅       | ✅      |  
+| Form components                                                                                                                        | `readOnly`                    | [Boolean](#boolean-values) | ✅       | ❌      |  
+| [Repeating groups](../../ux/fields/grouping/repeating)                                                                                 | `hiddenRow`                   | [Boolean](#boolean-values) | ✅       | ❌      |  
+| [Repeating groups](../../ux/fields/grouping/repeating)                                                                                 | `edit.addButton`              | [Boolean](#boolean-values) | ✅       | ❌      |  
+| [Repeating groups](../../ux/fields/grouping/repeating)                                                                                 | `edit.saveButton`             | [Boolean](#boolean-values) | ✅       | ❌      |  
+| [Repeating groups](../../ux/fields/grouping/repeating)                                                                                 | `edit.deleteButton`           | [Boolean](#boolean-values) | ✅       | ❌      |  
+| [Repeating groups](../../ux/fields/grouping/repeating)                                                                                 | `edit.alertOnDelete`          | [Boolean](#boolean-values) | ✅       | ❌      |  
+| [Repeating groups](../../ux/fields/grouping/repeating)                                                                                 | `edit.saveAndNextButton`      | [Boolean](#boolean-values) | ✅       | ❌      |  
+| [RadioButtons](../../ux/components/radiobuttons), [Checkboxes](../../ux/components/checkbox), [Dropdown](../../ux/components/dropdown) | `source.label`                | [Streng](#strings)         | ✅       | ❌      |
+| [RadioButtons](../../ux/components/radiobuttons), [Checkboxes](../../ux/components/checkbox), [Dropdown](../../ux/components/dropdown) | `source.description`          | [Streng](#strings)         | ✅       | ❌      |
+| [RadioButtons](../../ux/components/radiobuttons), [Checkboxes](../../ux/components/checkbox), [Dropdown](../../ux/components/dropdown) | `source.helpText`             | [Streng](#strings)         | ✅       | ❌      |
+| All                                                                                                                                    | `textResourceBindings.[*]` \* | [String](#strings)         | ✅       | ❌      |                                                   
 
 \* = The values that can be overridden with textResourceBindings vary from component to component, but will work wherever
 used. For repeating groups, you can find [more information here](../../ux/fields/grouping/repeating#textresourcebindings)  
@@ -466,10 +469,6 @@ in the data model as the second argument.
  something is set to an empty string.
 - `["startsWith", null, null]` always returns `false`.
 
-**Note:** hese functions are not yet available in backend code. Therefore, they will generate an error message if used 
-in places [where expressions run on the backend](#use-cases), og om man har slått på funksjonaliteten for å
-automatisk slette skjulte data (`RemoveHiddenDataPreview`).
-
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-stringLength" header="stringLength" %}}
@@ -482,10 +481,6 @@ Example:
 ```
 
 If the string is `null`, `stringLength` will return 0.
-
-**Note:** This function is not yet available in backend code. Therefore, it will generate an error message if used in 
-places [where expressions run on the backend](#use-cases), and if the functionality to automatically delete hidden data
- (`RemoveHiddenDataPreview`) has been enabled.
 
 {{% /expandlarge %}}
 
@@ -517,10 +512,6 @@ Example:
 
 If you want to check for values in a comma-separated list, you can use the function [`commaContains`](#func-commaContains).
 
-**Note:** These functions are not yet available in backend code. Therefore, they will generate an error message if used 
-in places [where expressions run on the backend](#use-cases), and if the functionality to automatically delete hidden 
-data (`RemoveHiddenDataPreview`) has been enabled.
-
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-commaContains" header="commaContains" %}}
@@ -542,10 +533,6 @@ Note that any spaces before/after commas or before/after the first value are ign
 useful in cases where you use a component that stores multiple values in a comma-separated string, such as `Checkboxes` 
 and `MultipleSelect`.
 
-**Note:** This function is not yet available in backend code. Therefore, it will generate an error message if used in 
-places [where expressions run on the backend](#use-cases), and if the functionality to automatically delete hidden data
-(`RemoveHiddenDataPreview`) has been enabled.
-
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-lowerCase-upperCase" header="lowerCase/upperCase" %}}
@@ -563,10 +550,6 @@ regardless of whether uppercase or lowercase letters were used in the input valu
 ```json
 ["equals", ["upperCase", ["dataModel", "My.Model.LastName"]], "SMITH"]
 ```
-
-**Note:** These functions are not yet available in backend code. Therefore, they will generate an error message if used 
-in places [where expressions run on the backend](#use-cases), and if the functionality to automatically delete hidden 
-data (`RemoveHiddenDataPreview`) has been enabled.
 
 {{% /expandlarge %}}
 
@@ -589,10 +572,6 @@ Example of rounding to the nearest integer:
 The return value from this function is a string, allowing it to be used for display purposes (note that the decimal 
 separator is always a period). Even though the return value is a string, it can also be used further in expressions that
  expect numeric input.
-
-**Note:** This function is not yet available in backend code. Therefore, it will generate an error message if used in 
-places [where expressions run on the backend](#use-cases), and if the functionality to automatically delete hidden data
- (`RemoveHiddenDataPreview`) has been enabled.
 
 {{% /expandlarge %}}
 
@@ -746,6 +725,59 @@ of the expression within the context of [repeating groups](../../ux/fields/group
 component in the current row before looking up through the page structure. 
 {{% /expandlarge %}}
 
+{{% expandlarge id="func-formatDate" header="formatDate" %}}
+
+The formatDate function takes a date as its first argument, and a format as its second argument. The date argument is a
+string, while the format argument is an optional string that supports some tokens in
+[Unicode Tokens](https://www.unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table).
+
+These are the tokens we support:
+
+| Unit              | Token    | Result                                  |
+| ----------------- | -------- | --------------------------------------- |
+| Era               | `G..GGG` | BC, AD                                  |
+| Era               | `GGGG`   | Before Christ, Anno Domini              |
+| Era               | `GGGGG`  | B, A                                    |
+| Year              | `y`      | 44, 1, 1900, 2017                       |
+| Year              | `yy`     | 44, 01, 00, 17                          |
+| Year              | `yyy`    | 044, 001, 1900, 2017                    |
+| Year              | `yyyy`   | 0044, 0001, 1900, 2017                  |
+| Extended year     | `u`      | -43, 0, 1, 1900, 2017                   |
+| Extended year     | `uu`     | -43, 01, 1900, 2017                     |
+| Extended year     | `uuu`    | -043, 001, 1900, 2017                   |
+| Extended year     | `uuuu`   | -0043, 0001, 1900, 2017                 |
+| Month             | `M`      | 1, 2,..., 12                            |
+| Month             | `MM`     | 01, 02,..., 12                          |
+| Month             | `MMM`    | Jan, Feb, ..., Dec                      |
+| Month             | `MMMM`   | January, February, ..., December        |
+| Day of month      | `d`      | 1, 2, ..., 31                           |
+| Day of month      | `dd`     | 01, 02, ..., 31                         |
+| Day of week       | `E..EEE` | Mon, Tue, Wed, ..., Sun                 |
+| Day of week       | `EEEE`   | Monday, Tuesday, Wednesday, ..., Sunday |
+| Day of week       | `EEEEE`  | M, T, W, ..., S                         |
+| AM/PM             | `a`      | a.m., p.m.                              |
+| Hour [1-12]       | `h`      | 1, 2, ..., 11, 12                       |
+| Hour [1-12]       | `hh`     | 01, 02, ..., 11, 12                     |
+| Hour [0-23]       | `H`      | 1, 2, ..., 22, 23                       |
+| Hour [0-23]       | `HH`     | 01, 02, ..., 22, 23                     |
+| Minute            | `m`      | 1, 2, ..., 59                           |
+| Minute            | `mm`     | 01, 02, ..., 59                         |
+| Second            | `s`      | 1, 2, ..., 59                           |
+| Second            | `ss`     | 01, 02, ..., 59                         |
+| Fractional second | `S`      | 0, 1, ..., 9                            |
+| Fractional second | `SS`     | 00, 01, ..., 99                         |
+| Fractional second | `SSS`    | 000, 001, ..., 999                      |
+
+If the format argument is not provided, the function will use the format `MM/dd/yy` as default.
+Example:
+
+```json
+["formatDate", "2023-10-30T14:54:00.000Z", "HH:mm"]
+```
+Would result in `14:54`
+
+{{% /expandlarge %}}
+
 ## Data Types
 
 Expressions in the functions expect that the arguments sent in have a specific type. If an argument sent in has a 
@@ -859,9 +891,6 @@ Expressions can be used to show/hide entire pages. In the example below, the ent
    }
 }
 ```
-This can be seen as an alternative to the [track selection functionality](../../ux/pages/tracks), but unlike track 
-selection, the calculation of these expressions occurs in _both_ frontend _and_ backend. Therefore, it's not necessary
- to add `"triggers": ["calculatePageOrder"]` to make the functionality work.
 
 If the page you are on is hidden, the application will automatically move to the next available page in the [page order](../../ux/pages/navigation#order). 
 If all the next pages are hidden, the first possible page in the order will be displayed instead.

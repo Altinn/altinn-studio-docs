@@ -10,7 +10,9 @@ weight: 10
 In order to receive events in the application you need create a subscription. While you can create a subscription authenticated as a user, most scenarios will probably be to authenticate as the organization owning the application, and to create the subscription as part of the startup process of the application. This example covers authenticating as an organization through Maskinporten.
 
 {{% notice warning %}}
-You should first make sure you have a client definition registered in Maskinporten for your application. See [Authenticating with Maskinporten](/api/authentication/maskinporten) on how register a client.
+You should first make sure you have a client definition registered in Maskinporten for your application. See [Authenticating with Maskinporten](/api/authentication/maskinporten) on how register a client.<br><br>
+
+Currently the localtest environment does not support generating inbound events for an app. In order to do this you need use tools like Postman or REST Client in VS Code to send a request to the applicaionts event endpoint. 
 {{% /notice %}}
 
 
@@ -49,6 +51,12 @@ Here is a [C# class of the settings available](https://github.com/Altinn/altinn-
 
 ### Protecting the event endpoint with a secret
 Receiving events in the application is based on exposing a webhook endpoint to which the Event Service posts the event. Upon receiving an event, the application validates if a secret is provided before accepting the event. The secret  is provided by implementing the `IEventSecretCodeProvider` interface. By default there is an example implementation in place using a key from the key vault using a key with the name `EventSubscription--SecretCode` in the key vault the value of that key is used. You should hover not use the same key/value for multiple applications so it's recommended to create your own implementation.
+
+When developing locally you should set the secret as a dotnet user-secret by running the following command in the root folder of the application:
+
+```bash
+dotnet user-secrets set "EventSubscription--SecretCode" "your-secret-code"
+```
 
 {{% notice info %}}
 Note that the return url and the secret code is part of the subscription definition. This means that if you rotate the key, you should remove the existing subscription first, or else you will have two active subscriptions for the same events.

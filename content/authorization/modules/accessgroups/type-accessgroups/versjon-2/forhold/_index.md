@@ -1,10 +1,10 @@
 ---
 title: Forhold ved virksomheten
 linktitle: Forhold virksomheten
-description: Denne fullmaktsgruppen er relevant for alle virksomheter
+description: Denne tilgangspakken er relevant for alle virksomheter
 weight: 109
 ---
-Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-2/#oversikt-over-fullmaktsgrupper)
+Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-2/#oversikt-over-tilgangspakker)
 
 ![Forhold ved virksomheten](gfv.jpg "Forhold ved virksomheten")
 - **Forhold ved virksomheten:** Denne fullmakten gir tilgang til alle tjenester som er relatert til å etablere og drive en virksomhet. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
@@ -20,8 +20,8 @@ Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroup
 	- **Rapportering av statistikk:** Denne fullmakten gir tilgang til alle pålagte rapportering av statistikk. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
 
 
-## Egenskaper ved fullmaktsgruppene
-|Navn fullmaktsgruppe|Kan delegeres til ansatte?|Kan knytte tjenester til?|[ER rolle](/authorization/modules/accessgroups/register_er/#rolletyper-fra-enhetsregisteret) som får fullmakten|
+## Egenskaper ved tilgangspakkene
+|Navn tillgangspakke|Kan delegeres til ansatte?|Kan knytte tjenester til?|[ER rolle](/authorization/modules/accessgroups/register_er/#rolletyper-fra-enhetsregisteret) som får fullmakten|
 |---|---|---|---|
 |Forhold ved virksomheten| ja|nei||
 |Starte, endre og avvikle virksomhet|ja|ja|DAGL, LEDE, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
@@ -38,4 +38,4 @@ Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroup
 {{% notice warning %}} Det er fortsatt uavklart hvilke fullmakter det vil være natulig å gi personer med rollen Forretningsførerer innenfor fullmaktsområdet "Forhold ved virksomheten" {{% /notice %}}
 
 
-Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-2/#oversikt-over-fullmaktsgrupper)
+Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-2/#oversikt-over-tilgangspakker)
