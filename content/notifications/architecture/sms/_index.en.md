@@ -5,6 +5,12 @@ tags: [architecture, solution, notifications, sms]
 weight: 2
 toc: false
 ---
+## API
+
+### Public API
+- [DeliveryReportController](https://github.com/Altinn/altinn-notifications-sms/blob/main/src/Altinn.Notifications.Sms/Controllers/DeliveryReportController.cs)
+  Endpoint receiving delivery reports in XML-format from SMS provider.
+  The controller is protected with [basic authentication](https://github.com/Altinn/altinn-notifications-sms/blob/main/src/Altinn.Notifications.Sms/Configuration/BasicAuthenticationHandler.cs).
 
 ## Integrations
 ### Kafka
@@ -26,6 +32,8 @@ is implemented and used by all services that publish to Kafka.
 Link Mobility is used as service provider for sending sms to the end users.
 A client, [SmsClient](https://github.com/Altinn/altinn-notifications-sms/blob/main/src/Altinn.Notifications.Sms.Integrations/LinkMobility/SmsClient.cs)
 has been implemented based on the SDK made available by Link to interact with their API. 
+
+Delivery reports from Link Mobility are pushed to the delivery report endpoint in our public API.
 
 ## Dependencies
 The microservice takes use of a range of external and Altinn services as well as .NET libraries to support the provided
@@ -103,4 +111,4 @@ See [DockerFile](https://github.com/Altinn/altinn-notifications-sms/blob/main/Do
 
 ## Run on local machine
 Instructions on how to set up the service on local machine for development or testing is covered by 
-[the README in the repository](https://github.com/Altinn/altinn-notifications-email). 
+[the README in the repository](https://github.com/Altinn/altinn-notifications-sms). 
