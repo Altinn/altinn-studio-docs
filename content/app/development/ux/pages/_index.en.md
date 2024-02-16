@@ -58,14 +58,53 @@ The available settings are the following:
 | showLanguageSelector  | Boolean | Whether or not the language selector should be visible. Allows the user to switch language after opening the form.                                                             |
 | showExpandWidthButton | Boolean | Whether or not the expand width button should be visible. Allows the user to expand the width of the page to fill the browser window.                                          |
 | showProgress          | Boolean | see [Navigation](/app/development/ux/pages/navigation/#progress-indicator)                                                                                                     |
-| pdfLayoutName         | String  | see [PDF](/app/development/ux/pdf/#custom-layout-configuration)                                                                                      |
+| pdfLayoutName         | String  | see [PDF](/app/development/ux/pdf/#custom-layout-configuration)                                                                                                                |
 | order                 | Array   | see [Navigation](/app/development/ux/pages/navigation/#order)                                                                                                                  |
 | excludeFromPdf        | Array   | see [PDF](/app/development/ux/pdf/#automatic-configuration)                                                                                                                    |
+| expandedWidth         | Boolean | see [Expanded form width](#expanded-form-width)                                                                                                                                           |
 
-## Expanded width
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="v4 (App Frontend)">}}
 
-You can set the default value of a page to be expanded by adding the `expandedWidth` property to a layout in the `data`
-property. This will make the page expand to the full width of the browser window when it is opened.
+## Expanded form width
+
+For å få en side til å automatisk utvide seg til full bredde av nettleservinduet når den åpnes, kan du legge til
+egenskapen `expandedWidth` for en layout. Dette setter standardtilstanden til siden til å være utvidet.
+Du kan sette expandedWidth på tre nivåer: i filen `layout-sets.json`, i filen `Settings.json` og i en spesifikk side sin
+layout-fil. Dersom du setter expandedWidth på flere nivåer, vil den spesifikke verdien overskrive de generelle.
+
+`layout-settings.json`:
+
+```json
+{
+  "uiSettings": {
+    "expandedWidth": true
+  },
+  "sets": [
+    ...
+  ]
+}
+```
+
+`Settings.json`:
+
+```json
+{
+  "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
+  "pages": {
+      "order": [
+         ...
+      ],
+      "expandedWidth": true,
+      ...
+  },
+  "components": {
+    ...
+  }
+}
+```
+
+Layout-fil:
 
 ```json
 {
@@ -78,5 +117,8 @@ property. This will make the page expand to the full width of the browser window
   }
 }
 ```
+
+{{</content-version-container>}}
+{{</content-version-selector>}}
 
 {{<children />}}
