@@ -73,6 +73,20 @@ Example:
 
 ![Example for column options](column-options-example.png "Example for column options")
 
+## Sticky table headers
+
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="v4 (App Frontend)">}}
+
+The table headers can be made sticky by setting the `stickyHeaders` property to `true`. This will make the headers stick
+to the top of the table when scrolling. This is useful for tables with a lot of rows, where the headers are not visible
+when scrolling down.
+
+![Example for sticky header](sticky-header.gif "Example for sticky header")
+
+{{</content-version-container>}}
+{{</content-version-selector>}}
+
 ## Showing components directly in the table
 
 It is possible to show components directly in the table view. This is done by setting `editInTable` to `true` for the
