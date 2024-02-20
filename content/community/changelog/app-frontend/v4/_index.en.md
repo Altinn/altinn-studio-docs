@@ -126,12 +126,6 @@ This change was introduced in `v4.0.0-rc2`. It was not present in `v4.0.0-rc1`, 
 In the layout files, the `AddressComponent` component has been renamed to `Address`. Our upgrade tool will rename
 this for you automatically, but if you are migrating manually you will have to do this yourself.
 
-## Custom receipt pages do not work (temporarily)
-
-The functionality for custom receipt pages has been temporarily removed in the v4 release candidate, but will be
-re-introduced in a future release, prior to the stable `v4.0.0` release. The configuration for custom receipt pages
-will move elsewhere, and this section will be updated with more information when available.
-
 ## Language and text resource changes
 
 The language system has that handles internal texts and app-specific text resources has been rewritten and improved.
