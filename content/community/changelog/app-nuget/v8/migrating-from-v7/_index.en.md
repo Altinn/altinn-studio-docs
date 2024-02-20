@@ -6,7 +6,7 @@ toc: true
 ---
 
 {{% notice info %}}
-As of writing this documentation, the latest preview release of v8 is `8.0.0-preview.16`. Updated information
+As of writing this documentation, the latest preview release of v8 is `8.0.0-preview.17`. Updated information
 [is available on GitHub](https://github.com/Altinn/app-lib-dotnet/releases).
 {{% /notice %}}
 
@@ -66,18 +66,18 @@ The CLI will then make the necessary changes to your code to upgrade it to versi
 
 ## Migrate manually
 
-1. To migrate manually from v7 to v8, you need to upgrade the nuget packages in your `App.csproj` file to version `8.0.0-preview.16`.
+1. To migrate manually from v7 to v8, you need to upgrade the nuget packages in your `App.csproj` file to version `8.0.0-preview.17`.
     <br><br>
     {{< code-title >}}
     App/App.csproj
     {{< /code-title >}}
     ```diff
     -   <PackageReference Include="Altinn.App.Api" Version="7.15.3">
-    +   <PackageReference Include="Altinn.App.Api" Version="8.0.0-preview.16">
+    +   <PackageReference Include="Altinn.App.Api" Version="8.0.0-preview.17">
             <CopyToOutputDirectory>lib\$(TargetFramework)\*.xml</CopyToOutputDirectory>
         </PackageReference>
     -   <PackageReference Include="Altinn.App.Core" Version="7.15.3" />
-    +   <PackageReference Include="Altinn.App.Core" Version="8.0.0-preview.16" />
+    +   <PackageReference Include="Altinn.App.Core" Version="8.0.0-preview.17" />
             <CopyToOutputDirectory>lib\$(TargetFramework)\*.xml</CopyToOutputDirectory>
         </PackageReference>
     ```
