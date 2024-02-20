@@ -27,7 +27,7 @@ App frontend v4 requires at least version 8.0.0 of the `Altinn.App.Core` and `Al
 See the [overview of changes in backend v8](/community/changelog/app-nuget/v8) for more information on how to upgrade.
 
 {{% notice warning %}}
-The `v4.0.0-rc2` release requires version `v8.0.0-preview16` or above. When both major releases of app frontend and
+The `v4.0.0-rc3` release requires version `v8.0.0-preview.17` or above. When both major releases of app frontend and
 backend are released, the `v4.0.0` release will require version `v8.0.0` or above.
 {{% /notice %}}
 
