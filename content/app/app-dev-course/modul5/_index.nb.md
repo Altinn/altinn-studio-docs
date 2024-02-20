@@ -108,7 +108,7 @@ Da vil alle brukere, både med og uten roller, ha tillatelse til å utføre _con
 ### Oppgaver
 
 For at kun brukeren som eier instansen skal kunne sende inn skjemaet kan vi legge til en validering som sjekker om
- partyId til nåværende bruker samsvarer med partyId (se [InstanceOwner](/nb/api/models/instance/#instanceowner)) til eieren av instansen for oppgaven med ID-en "Task_2" (som er bekreftelsessteget).
+ `partyId` til nåværende bruker samsvarer med `partyId` (se [InstanceOwner](/nb/api/models/instance/#instanceowner)) til eieren av instansen for oppgaven med ID-en "Task_2" (som er bekreftelsessteget).
  Hvis de ikke samsvarer, legger den til en feilmelding i valideringsresultatene. Feilmeldingen vil vises på skjermen og prosessflyten stoppes.
 
 1. Opprett filen `App/logic/Validation/InstanceValidation.cs` (følg fremgangsmåte for [egendefinert validering](/nb/app/development/logic/validation/#hvordan-legge-til-egendefinert-validering)).

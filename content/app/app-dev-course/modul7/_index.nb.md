@@ -2,7 +2,7 @@
 title: Modul 7
 description: Utvidelser av appen
 linktitle: Modul 7
-tags: [apps, training ]
+tags: [apps, training]
 weight: 20
 ---
 
@@ -18,6 +18,8 @@ I denne modulen er det en samling med frittstående utvidelser av applikasjonen.
 - Events -->
 
 ## Oppgaver
+
+<!-- Oppsummeringsside -->
 
 {{% expandlarge id="Oppsummeringsside" header="Oppsummeringsside" %}}
 ### Krav fra kommunen
@@ -47,6 +49,7 @@ PDF-genereringen har per nå ikke støtte for oppsummerings-komponenten.
 
 {{% /expandlarge %}}
 
+<!-- Stateless -->
 
 {{% expandlarge id="stateless" header="Stateless førsteside" %}}
 ### Krav fra kommunen
@@ -54,11 +57,15 @@ Sogndal kommune har oppdaget at det er en del trafikk fra personer som ikke møt
 For hver av disse brukerne blir det lagret en instans i databasen. Dette skaper unødige utgifter.
 
 Sogndal kommune ønsker derfor at informasjonssiden vises som en "stateless"-del av applikasjonen og at man derfra kan velge å starte en instans om man
-møter kriteriene.
+møter kriteriene.  
+Om man ikke møter kriteriene skal man tas videre til "Ikke for deg"-siden som også er en del av "stateless"-settet.
 
 ### Oppgaver
 
-1. 
+1. Opprett [layout-sets](/nb/app/development/ux/pages/layout-sets/) i appen. Flytt førstesiden og "Ikke for deg"-siden til "stateless"-settet (Husk å oppdatere `Settings.json`-filene).
+2. Oppdater `applicationmetadata.json`.
+3. Legg til en `InstantiationButton`-komponent på førstesiden.
+4. Legg til logikk der brukeren enten kan starte en instans eller sendes videre til "Ikke for deg"-siden basert på om [de møter kriteriene](/nb/app/app-dev-course/case/#alternativ-arbeidsflyt-sporvalg).
 
 ### Nyttig dokumentasjon
 - [Introduksjon til stateless applikasjoner](/nb/app/development/configuration/stateless)
@@ -73,6 +80,7 @@ En stateless, eller tilstandsløs, applikasjon lagrer ikke noe data, verken skje
 
 {{% /expandlarge %}}
 
+<!-- Variabler i tekst -->
 
 {{% expandlarge id="variabler-i-tekst" header="Variabler i tekst" %}}
 ### Krav fra kommunen
@@ -184,34 +192,36 @@ App/ui/layouts/oppsummering.json
 {{< /code-title >}}
 
 ```json
-...
-      {
-        "id": "arbeidsforhold-group",
-        "type": "Group",
-        "textResourceBindings": {
-          "title": "Arbeid"
-        },
-        "children": ["summary9", "summary10", "summary11"]
-      },
-      {
-        "id": "summary9",
-        "type": "Summary",
-        "componentRef": "RadioButtons-sektor",
-        "pageRef": "Arbeidsforhold"
-      },
-      {
-        "id": "summary10",
-        "type": "Summary",
-        "componentRef": "Checkboxes-bransje",
-        "pageRef": "Arbeidsforhold"
-      },
-      {
-        "id": "summary11",
-        "type": "Summary",
-        "componentRef": "Dropdown-years-in-workforce",
-        "pageRef": "Arbeidsforhold"
-      },
-      ...
+[
+  ...
+  {
+    "id": "arbeidsforhold-group",
+    "type": "Group",
+    "textResourceBindings": {
+      "title": "Arbeid"
+    },
+    "children": ["summary9", "summary10", "summary11"]
+  },
+  {
+    "id": "summary9",
+    "type": "Summary",
+    "componentRef": "RadioButtons-sektor",
+    "pageRef": "Arbeidsforhold"
+  },
+  {
+    "id": "summary10",
+    "type": "Summary",
+    "componentRef": "Checkboxes-bransje",
+    "pageRef": "Arbeidsforhold"
+  },
+  {
+    "id": "summary11",
+    "type": "Summary",
+    "componentRef": "Dropdown-years-in-workforce",
+    "pageRef": "Arbeidsforhold"
+  },
+  ...
+]
 ```
 
 * Legg til en innsendingsknapp med teksten 'Bekreft' og fjern innsendingsknappen fra siden `Arbeidsforhold.json`.
@@ -222,25 +232,27 @@ App/ui/layouts/oppsummering.json
 {{< /code-title >}}
 
 ```json
-...
-      {
-        "id": "panelinfo",
-        "type": "Panel",
-        "textResourceBindings": {
-          "title": "MERK",
-          "body": "preview.warning"
-        },
-        "variant": "warning",
-        "showIcon": true
-      },
-      {
-        "id": "preview-confirm",
-        "type": "Button",
-        "textResourceBindings": {
-          "title": "button.confirm"
-        }
-      },
-      ...
+[
+  ...
+  {
+    "id": "panelinfo",
+    "type": "Panel",
+    "textResourceBindings": {
+      "title": "MERK",
+      "body": "preview.warning"
+    },
+    "variant": "warning",
+    "showIcon": true
+  },
+  {
+    "id": "preview-confirm",
+    "type": "Button",
+    "textResourceBindings": {
+      "title": "button.confirm"
+    }
+  },
+  ...
+]
 ```
 
 Fullstendig løsning: [oppsummering.json](https://altinn.studio/repos/tss/flyttemelding-sogndal/src/branch/modul7/App/ui/layouts/oppsummering.json)
@@ -328,9 +340,96 @@ App/config/texts/resources.nb.json
 
 {{% /expandlarge %}}
 
-<!-- {{% expandlarge id="stateless-solution" header="Stateless førsteside" %}}
+<!-- Stateless Løsning -->
 
-* **Oppdater `applicationmetadata.json`:** Legg til `"onEntry": { "show": "stateless" }`. `stateless` refererer til layout-settet som defineres i neste steg.
+{{% expandlarge id="stateless-solution" header="Stateless førsteside" %}}
+
+### Opprett layout-sets
+Nedenfor ser du strukturen på `App/ui`-mappen vår etter at vi har opprettet layout-sets:
+```
+|- App/
+  |- ui/
+    | - layout-sets.json
+    | - footer.json
+    |- statefull/
+      |- Settings.json
+      |- RuleHandler.js
+      |- layouts/
+        |- innflytterPersonalia.json
+        |- arbeidsforhold.json
+        |- oppsummering.json
+    |- stateless/
+      |- Settings.json
+      |- RuleHandler.js
+      |- layouts/
+        |- info.json
+        |- ikkeForDeg.json
+```
+
+* **Opprett `layout-sets.json`** og legg til to sett ("stateless" og "statefull"):
+
+{{< code-title >}}
+App/ui/layout-sets.json
+{{< /code-title >}}
+
+```json
+{
+  ...
+  "sets": [
+    {
+      "id": "stateless",
+      "dataType": "datamodel"
+    },
+    {
+      "id": "statefull",
+      "dataType": "datamodel",
+      "tasks": ["Task_1"]
+    }
+  ]
+}
+```
+
+* **Oppdater `Settings.json`-filene** under hvert layout-set for å få riktige sider/rekkefølge i appen:
+
+{{< code-title >}}
+App/ui/stateless/Settings.json
+{{< /code-title >}}
+
+```json
+{
+  ...
+  "pages": {
+    "order": [
+      "info",
+      "ikkeForDeg"
+    ]
+  }
+}
+```
+
+{{< code-title >}}
+App/ui/statefull/Settings.json
+{{< /code-title >}}
+
+```json
+{
+  ...
+  "pages": {
+    "order": [
+      "innflytterPersonalia",
+      "arbeidsforhold",
+      "oppsummering"
+    ],
+    "excludeFromPdf": [
+      "oppsummering"
+    ]
+  }
+}
+```
+
+### Oppdater `applicationmetadata.json`
+Legg til `"onEntry": { "show": "stateless" }`.  
+`"stateless"` refererer til layout-settet som vi definerte tidligere.
 
 {{< code-title >}}
 App/config/applicationmetadata.json
@@ -348,26 +447,41 @@ App/config/applicationmetadata.json
   ],
   "onEntry": { "show": "stateless" },
   ...
-```
-
-* Opprett `layout-sets.json` under `App/ui` og legg til et sett med id `stateless`.
-
-{{< code-title >}}
-App/ui/layout-sets.json
-{{< /code-title >}}
-
-```json
-{
-  "sets": [
-    {
-      "id": "stateless",
-      "dataType": "Stateless-model"
-    }
-  ]
 }
 ```
 
-{{% /expandlarge %}} -->
+### Starte instans fra førstesiden
+
+* **Legg til `InstantiationButton`** på førstesiden:  
+Legg til en instansieringsknapp på førstesiden i tillegg til navigasjonsknappen som vi hadde lagt til tidligere.  
+Vi har brukt uttrykk på knappene for å bestemme hvilken knapp som skal vises/skjules basert på brukerens valg.
+
+{{< code-title >}}
+App/ui/stateless/layouts/info.json
+{{< /code-title >}}
+
+```json{hl_lines=[9,17]}
+[
+  ...
+  {
+    "id": "Instantiation-button",
+    "type": "InstantiationButton",
+    "textResourceBindings": {
+      "title": "navigation.next"
+    },
+    "hidden": ["equals", ["dataModel", "Innflytter.KanBrukeSkjema"], false]
+  },
+  {
+    "id": "NavigationButtons-hateTR",
+    "type": "NavigationButtons",
+    "textResourceBindings": {
+      "next": "navigation.next"
+    },
+    "hidden": ["equals", ["dataModel", "Innflytter.KanBrukeSkjema"], true]
+  }
+]
+```
+{{% /expandlarge %}}
 
 <br><br>
 
