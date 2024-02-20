@@ -10,12 +10,14 @@ An application wil have a process which the user of the application follows.
 Depending of the type of step the user is in, different views are presented.
 This page explains the different views and how they can be customized.
 
-## Data 
+## Data
+
 In this process task a form which the user can fill in data.
 The form can be edited using the [UI editor](/app/getting-started) or by changing `FormLayout.json` manually.
 
 ## Confirmation
-In this process task some standard texts are presented and the user can choose to *confirm* to go forward.
+
+In this process task some standard texts are presented and the user can choose to _confirm_ to go forward.
 
 These texts can be overridden by manually adding each defined text keys in the apps text resources. More information about how this is done can be found [here](../../../ux/texts).
 In the following section we will present an overview of the different texts that can be customized.
@@ -24,16 +26,16 @@ In the following section we will present an overview of the different texts that
 
 ### Customize texts
 
-| Text # (see image above)  | Text key            |
-| ------------------------- | ------------------- |
-| 1                         | confirm.title       |
-| 2                         | confirm.sender      |
-| 3                         | confirm.body        |
-| 4                         | confirm.answers     |
-| 5                         | confirm.attachments |
-| 6                         | confirm.button_text |
+| Text # (see image above) | Text key            |
+| ------------------------ | ------------------- |
+| 1                        | confirm.title       |
+| 2                        | confirm.sender      |
+| 3                        | confirm.body        |
+| 4                        | confirm.answers     |
+| 5                        | confirm.attachments |
+| 6                        | confirm.button_text |
 
-Example of custom texts in the file  `resources.nb.json`:
+Example of custom texts in the file `resources.nb.json`:
 
 ```json
 {
@@ -76,23 +78,19 @@ An example setup of the `layout-sets.json` where `Task_1` is a data step, and `T
 
 ```json
 {
-    "sets": [
-      {
-        "id": "simple",
-        "dataType": "simple",
-        "tasks": [
-          "Task_1"
-        ]
-      },
-      {
-        "id": "custom-confirmation",
-        "dataType": "simple",
-        "tasks": [
-          "Task_2"
-        ]
-      }
-    ]
-  }
+  "sets": [
+    {
+      "id": "simple",
+      "dataType": "simple",
+      "tasks": ["Task_1"]
+    },
+    {
+      "id": "custom-confirmation",
+      "dataType": "simple",
+      "tasks": ["Task_2"]
+    }
+  ]
+}
 ```
 
 Notice that the layout-set configuration for `Task_2` references the data model used in `Task_1`.
@@ -165,6 +163,7 @@ The end result:
 For a complete setup of this feature see our [example app.](https://altinn.studio/repos/ttd/custom-view-confirm)
 
 ## Feedback
+
 This is a process step where the application owner can validate the filled data to generate a feedback before the data is archived.
 
 In the following section we will present an overview of the different texts that can be customized.
@@ -173,12 +172,12 @@ In the following section we will present an overview of the different texts that
 
 ### Customize texts
 
-| Text # (see image above)  | Text key          |
-| ------------------------- | ----------------- |
-| 1                         | feedback.title    |
-| 2                         | feedback.body     |
+| Text # (see image above) | Text key       |
+| ------------------------ | -------------- |
+| 1                        | feedback.title |
+| 2                        | feedback.body  |
 
-Example of custom texts in the file  `resources.nb.json`:
+Example of custom texts in the file `resources.nb.json`:
 
 ```json
 {
@@ -192,6 +191,7 @@ Example of custom texts in the file  `resources.nb.json`:
 ```
 
 ## Receipt
+
 In this process task the process will be ended and some standard texts are shown.
 
 These texts can be overridden by manually adding each defined text key in the app's text resources. More information about how this is done can be found [here](../../../ux/texts).
@@ -202,16 +202,15 @@ If the actual recipient of the form is a different organization than the organiz
 
 ![Receipt view](receipt-step.png "Texts that can be customized in the receipt view")
 
-| Text # (see image above)  | Text key                |
-|---------------------------|-------------------------|
-| 1                         | receipt.receipt         |
-| 2                         | receipt.title           |
-| 3                         | receipt.subtitle        |
-| 4                         | receipt.body            |
-| 5                         | receipt.title_submitted |
+| Text # (see image above) | Text key                |
+| ------------------------ | ----------------------- |
+| 1                        | receipt.receipt         |
+| 2                        | receipt.title           |
+| 3                        | receipt.subtitle        |
+| 4                        | receipt.body            |
+| 5                        | receipt.title_submitted |
 
-
-Example of custom texts in the file  `resources.nb.json`:
+Example of custom texts in the file `resources.nb.json`:
 
 ```json
 {
@@ -244,31 +243,87 @@ This results in the following view:
 
 ### Custom form layout
 
-{{%notice warning%}}
-This is a temporary approach for customizing the receipt page just as any other pages in the form. When support for layout-sets is available in Altinn Studio it will be possible to customize the receipt page in the same way as the confirmation page.
-{{%/notice%}}
+A custom receipt view can now be created in the same way as all other form pages. The functionality will also
+soon be available in Altinn Studio.
 
-A custom receipt can be made in the same way as any other form page. The functionality will also be available in Altinn
-Studio shortly.
+To create a custom receipt view, you create a new layout set. This layout set works exactly like
+all other page types. Within the layout set, you can create a layouts folder and here define all the pages you want to
+include in the receipt view (Yes, the receipt view supports multiple pages!). Inside the layout set, you must also create
+a `Settings.json`, where you can define the order of the pages in the receipt view.
 
-Build the layout as usual and refer to the filename of the layout in `setting.json` with the key `receiptLayoutName`.
-See below example where the layout file `receipt.json` is referred to.
+For the app to understand that this layout set should be used as a receipt view, you must refer to the name of the layout set
+in `layout-sets.json`. Add a new layout set with `id` that refers to the name of your layout set, and add
+the key value `"CustomReceipt"` in the `tasks` array of the layout set. In addition, you can specify which data model
+should be available in the receipt view by adding the key `dataType` with the name of the data model you want to support.
+
+Here is a complete example where we have a layout set named custom-receipt that will be used as a receipt view:
+
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="Folder structure">}}
+
+```
+|- App/
+  |- ui/
+    |- layout-sets.json
+    |- custom-receipt/
+      |- layouts/
+        |- page1.json
+        |- page2.json
+      |- Settings.json
+```
+
+{{</content-version-container>}}
+{{</content-version-selector>}}
+
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="Code">}}
+
+{{<code-title>}}
+App/ui/layout-sets.json
+{{</code-title>}}
+
+```json {hl_lines=[4,6]}
+{
+  "sets": [
+    {
+      "id": "custom-receipt",
+      "dataType": "fields",
+      "tasks": ["CustomReceipt"]
+    }
+  ]
+}
+```
+
+{{</content-version-container>}}
+{{</content-version-selector>}}
+
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="Code">}}
+
+{{<code-title>}}
+App/ui/custom-receipt/Settings.json
+{{</code-title>}}
 
 ```json
 {
   "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
   "pages": {
-    "order": [
-      "page1",
-      "page2",
-      "page3"
-    ]
-  },
-  "receiptLayoutName": "receipt"
+    "order": ["page1", "page2"]
+  }
 }
 ```
 
-Example of a customized layout file for the receipt.
+{{</content-version-container>}}
+{{</content-version-selector>}}
+
+Example of a custom layout for the receipt:
+
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="Code">}}
+
+{{<code-title>}}
+App/ui/custom-receipt/layouts/page1.json
+{{</code-title>}}
 
 ```json
 {
@@ -315,7 +370,7 @@ Example of a customized layout file for the receipt.
       {
         "id": "ReceiptInstanceInformation",
         "type": "InstanceInformation",
-        "elements":{
+        "elements": {
           "dateSent": false
         }
       },
@@ -338,6 +393,9 @@ Example of a customized layout file for the receipt.
 }
 ```
 
+{{</content-version-container>}}
+{{</content-version-selector>}}
+
 Resulting receipt in the application:
 
 ![Custom receipt](custom-receipt.png "Custom receipt")
@@ -351,13 +409,13 @@ In the following section we will present an overview of the different texts that
 
 ![Simple receipt view](simple-receipt-step.png "Texts that can be customized in the simple receipt view")
 
-| Text # (see image above)  | Text key                |
-|---------------------------|-------------------------|
-| 1                         | receipt.receipt         |
-| 2                         | receipt.title           |
-| 3                         | receipt.body_simple     |
+| Text # (see image above) | Text key            |
+| ------------------------ | ------------------- |
+| 1                        | receipt.receipt     |
+| 2                        | receipt.title       |
+| 3                        | receipt.body_simple |
 
-Example of custom texts in the file  `resources.nb.json`:
+Example of custom texts in the file `resources.nb.json`:
 
 ```json
 {
