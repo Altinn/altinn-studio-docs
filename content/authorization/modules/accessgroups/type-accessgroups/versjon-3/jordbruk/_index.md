@@ -11,18 +11,25 @@ Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroup
  
 ![Jordbruk, skogbruk, jakt, fiske og akvakultur](jsjfa.jpg "Jordbruk, skogbruk, jakt, fiske og akvakultur")
 - **Jordbruk, skogbruk, jakt, fiske og akvakultur:** Denne fullmakten gir tilgang til alle tjenester som angår jordbruk, skogbruk, jakt, fiske og akvakultur.
-	- **Planteproduksjon og dyrehold:** Denne fullmakten gir tilgang til alle tjenester knyttet til planteproduksjon og dyrehold.
-    - **Jakt og viltstell:** Denne fullmakten gir tilgang til alle tjenester knyttet til jakt og viltstell.
-    - **Skogbruk:** Denne fullmakten gir tilgang til alle tjenester knyttet til skogbruk.
-    - **Fiske:** Denne fullmakten gir tilgang til alle tjenester knyttet til fiske.
-    - **Akvakultur:** Denne fullmakten gir tilgang til alle tjenester knyttet til akvakultur og fiskeoppdrett.
+	- **Jordbruk, dyrehold og reindrift:** Denne fullmakten gir tilgang til alle tjenester knyttet til jordbruk, dyrehold og reindrift.
+		- **Jordbruk:** Denne fullmakten gir tilgang til tjenester knyttet til jordbruk.
+   		- **Dyrehold:** Denne fullmakten gir tilgang til tjenester knyttet til dyrehold.
+   		- **Reindrift:** Denne fullmakten gir tilgang til tjenester knyttet til reindrift.
+   		
+     - **Jakt og viltstell:** Denne fullmakten gir tilgang til alle tjenester knyttet til jakt og viltstell.
+     - **Skogbruk:** Denne fullmakten gir tilgang til alle tjenester knyttet til skogbruk.
+     - **Fiske:** Denne fullmakten gir tilgang til alle tjenester knyttet til fiske.
+     - **Akvakultur:** Denne fullmakten gir tilgang til alle tjenester knyttet til akvakultur og fiskeoppdrett.
 
 
 ## Egenskaper ved tilgangspakkene
 |Navn tillgangspakke|Kan delegeres til ansatte?|Kan knytte tjenester til?|[ER rolle](/authorization/modules/accessgroups/register_er/#rolletyper-fra-enhetsregisteret) som får fullmakten|
 |---|---|---|---|
 |Jordbruk, skogbruk, jakt, fiske og akvakultur| ja|nei||
-|Planteproduksjon og dyrehold|ja|ja|DAGL, LEDE, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
+|Jordbruk, dyrehold og reindrift| ja|nei||
+|Jordbruk|ja|ja|DAGL, LEDE, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
+|Dyrehold|ja|ja|DAGL, LEDE, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
+|Reindrift|ja|ja|DAGL, LEDE, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
 |Jakt og viltstell|ja|ja|DAGL, LEDE, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
 |Skogbruk|ja|ja|DAGL, LEDE, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
 |Fiske|ja|ja|DAGL, LEDE, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
