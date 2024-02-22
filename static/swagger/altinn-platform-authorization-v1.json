@@ -4,16 +4,6 @@
     "title": "Altinn Platform Authorization",
     "version": "v1"
   },
-  "servers": [
-    {
-      "url": "https://platform.tt02.altinn.no/authorization/api/v1",
-      "description": "TT02"
-    },
-    {
-      "url": "https://platform.altinn.no/authorization/api/v1",
-      "description": "Production"
-    }
-  ],
   "paths": {
     "/Decision": {
       "post": {
@@ -61,10 +51,468 @@
             "description": "Success"
           }
         }
-      },
-      "get": {
+      }
+    },
+    "/authorize": {
+      "post": {
         "tags": [
           "Decision"
+        ],
+        "summary": "External endpoint for autorization",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/XacmlJsonRequestRootExternal"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/XacmlJsonRequestRootExternal"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/XacmlJsonRequestRootExternal"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/XacmlJsonRequestRootExternal"
+              }
+            },
+            "text/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/XacmlJsonRequestRootExternal"
+              }
+            },
+            "application/*+xml": {
+              "schema": {
+                "$ref": "#/components/schemas/XacmlJsonRequestRootExternal"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/XacmlJsonResponseExternal"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/XacmlJsonResponseExternal"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/XacmlJsonResponseExternal"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/XacmlJsonResponseExternal"
+                }
+              },
+              "text/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/XacmlJsonResponseExternal"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Delegations/AddRules": {
+      "post": {
+        "tags": [
+          "Delegations"
+        ],
+        "summary": "Endpoint for adding one or more rules for the given app/offeredby/coveredby. This updates or creates a new delegated policy of type \"DirectlyDelegated\". DelegatedByUserId is included to store history information in 3.0.",
+        "requestBody": {
+          "description": "All rules to be delegated",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Rule"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Rule"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Rule"
+                }
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Rule"
+                }
+              }
+            },
+            "text/xml": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Rule"
+                }
+              }
+            },
+            "application/*+xml": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Rule"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "201": {
+            "description": "Created"
+          },
+          "206": {
+            "description": "Partial Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/Delegations/GetRules": {
+      "post": {
+        "tags": [
+          "Delegations"
+        ],
+        "summary": "Endpoint for retrieving delegated rules between parties",
+        "parameters": [
+          {
+            "name": "onlyDirectDelegations",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RuleQuery"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RuleQuery"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RuleQuery"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/RuleQuery"
+              }
+            },
+            "text/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/RuleQuery"
+              }
+            },
+            "application/*+xml": {
+              "schema": {
+                "$ref": "#/components/schemas/RuleQuery"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Rule"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Rule"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Rule"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Rule"
+                  }
+                }
+              },
+              "text/xml": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Rule"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/Delegations/DeleteRules": {
+      "post": {
+        "tags": [
+          "Delegations"
+        ],
+        "summary": "Endpoint for deleting delegated rules between parties",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/RequestToDelete"
+                },
+                "description": "Class to wrap a list of RequestToDelete"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/RequestToDelete"
+                },
+                "description": "Class to wrap a list of RequestToDelete"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/RequestToDelete"
+                },
+                "description": "Class to wrap a list of RequestToDelete"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/RequestToDelete"
+                },
+                "description": "Class to wrap a list of RequestToDelete"
+              }
+            },
+            "text/xml": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/RequestToDelete"
+                },
+                "description": "Class to wrap a list of RequestToDelete"
+              }
+            },
+            "application/*+xml": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/RequestToDelete"
+                },
+                "description": "Class to wrap a list of RequestToDelete"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Deleted"
+          },
+          "206": {
+            "description": "Partial Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/Delegations/DeletePolicy": {
+      "post": {
+        "tags": [
+          "Delegations"
+        ],
+        "summary": "Endpoint for deleting an entire delegated policy between parties",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/RequestToDelete"
+                },
+                "description": "Class to wrap a list of RequestToDelete"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/RequestToDelete"
+                },
+                "description": "Class to wrap a list of RequestToDelete"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/RequestToDelete"
+                },
+                "description": "Class to wrap a list of RequestToDelete"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/RequestToDelete"
+                },
+                "description": "Class to wrap a list of RequestToDelete"
+              }
+            },
+            "text/xml": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/RequestToDelete"
+                },
+                "description": "Class to wrap a list of RequestToDelete"
+              }
+            },
+            "application/*+xml": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/RequestToDelete"
+                },
+                "description": "Class to wrap a list of RequestToDelete"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Deleted"
+          },
+          "206": {
+            "description": "Partial Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/Delegations/delegationchangeevents/replay": {
+      "post": {
+        "tags": [
+          "Delegations"
+        ],
+        "summary": "Endpoint for triggering a replay of delegationchange events pushing them to the delegationevents queue for syncronization with Altinn 2.0",
+        "parameters": [
+          {
+            "name": "startId",
+            "in": "query",
+            "description": "The first id in the range to replay",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "endId",
+            "in": "query",
+            "description": "The last id in the range to replay. If left/set to 0 all events found after the startId will be replayed",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/Delegations": {
+      "get": {
+        "tags": [
+          "Delegations"
         ],
         "summary": "Test method. Should be deleted?",
         "responses": {
@@ -114,7 +562,6 @@
             "description": "the user id",
             "schema": {
               "type": "integer",
-              "description": "the user id",
               "format": "int32"
             }
           }
@@ -139,7 +586,6 @@
             "description": "The user id\"",
             "schema": {
               "type": "integer",
-              "description": "The user id\"",
               "format": "int32"
             }
           },
@@ -150,7 +596,6 @@
             "required": true,
             "schema": {
               "type": "integer",
-              "description": "The party id\"",
               "format": "int32"
             }
           }
@@ -174,9 +619,7 @@
             "in": "query",
             "description": "Unique identifier of the organisation responsible for the app.",
             "schema": {
-              "type": "string",
-              "description": "Unique identifier of the organisation responsible for the app.",
-              "nullable": true
+              "type": "string"
             }
           },
           {
@@ -184,12 +627,137 @@
             "in": "query",
             "description": "Application identifier which is unique within an organisation.",
             "schema": {
-              "type": "string",
-              "description": "Application identifier which is unique within an organisation.",
-              "nullable": true
+              "type": "string"
             }
           }
         ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/policies/roleswithaccess/{org}/{app}": {
+      "get": {
+        "tags": [
+          "Policy"
+        ],
+        "summary": "Gets a list of role codes which might give access to an app",
+        "parameters": [
+          {
+            "name": "org",
+            "in": "path",
+            "description": "Unique identifier of the organisation responsible for the app.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "app",
+            "in": "path",
+            "description": "Application identifier which is unique within an organisation.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/policies/GetPolicies": {
+      "post": {
+        "tags": [
+          "Policy"
+        ],
+        "summary": "Gets a list of resource policies for the list of org/apps",
+        "parameters": [
+          {
+            "name": "language",
+            "in": "query",
+            "description": "The language (not in use yet; exactly how is yet to be determined)",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The list of org/apps",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AttributeMatch"
+                  }
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AttributeMatch"
+                  }
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AttributeMatch"
+                  }
+                }
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AttributeMatch"
+                  }
+                }
+              }
+            },
+            "text/xml": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AttributeMatch"
+                  }
+                }
+              }
+            },
+            "application/*+xml": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AttributeMatch"
+                  }
+                }
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "Success"
@@ -210,7 +778,6 @@
             "description": "the logged in user id",
             "schema": {
               "type": "integer",
-              "description": "the logged in user id",
               "format": "int32"
             }
           },
@@ -220,7 +787,6 @@
             "description": "the partyid of the person/org the logged in user is representing",
             "schema": {
               "type": "integer",
-              "description": "the partyid of the person/org the logged in user is representing",
               "format": "int32"
             }
           }
@@ -235,6 +801,563 @@
   },
   "components": {
     "schemas": {
+      "AttributeMatch": {
+        "required": [
+          "id",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Gets or sets the attribute id for the match"
+          },
+          "value": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Gets or sets the attribute value for the match"
+          }
+        },
+        "additionalProperties": false,
+        "description": "This model describes a pair of AttributeId and AttributeValue for use in matching in XACML policies, for instance a resource, a user, a party or an action."
+      },
+      "PolicyMatch": {
+        "required": [
+          "coveredBy"
+        ],
+        "type": "object",
+        "properties": {
+          "offeredByPartyId": {
+            "type": "integer",
+            "description": "Gets or sets the unique identifier for a specific party for which the requested rule in the policy applies",
+            "format": "int32"
+          },
+          "resource": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AttributeMatch"
+            },
+            "description": "Gets or sets resource match which uniquely identifies the resource this policy applies to.",
+            "nullable": true
+          },
+          "coveredBy": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AttributeMatch"
+            },
+            "description": "Gets or sets the set of Attribute Id and Attribute Value for the coveredby id"
+          }
+        },
+        "additionalProperties": false,
+        "description": "This model describes a single rule in a delegated policy"
+      },
+      "RequestToDelete": {
+        "required": [
+          "deletedByUserId",
+          "policyMatch"
+        ],
+        "type": "object",
+        "properties": {
+          "ruleIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Gets or sets a list of unique identifier for specific rules within a policy.",
+            "nullable": true
+          },
+          "deletedByUserId": {
+            "type": "integer",
+            "description": "Gets or sets the user id of the user who performed the deletion.",
+            "format": "int32"
+          },
+          "policyMatch": {
+            "$ref": "#/components/schemas/PolicyMatch"
+          }
+        },
+        "additionalProperties": false,
+        "description": "This model describes a list of rules to delete from a single policyfile"
+      },
+      "Rule": {
+        "required": [
+          "action",
+          "coveredBy",
+          "delegatedByUserId",
+          "offeredByPartyId",
+          "resource"
+        ],
+        "type": "object",
+        "properties": {
+          "ruleId": {
+            "type": "string",
+            "description": "Gets or sets the unique identifier for a specific rule within a policy (Output only).",
+            "nullable": true
+          },
+          "type": {
+            "$ref": "#/components/schemas/RuleType"
+          },
+          "createdSuccessfully": {
+            "type": "boolean",
+            "description": "Gets or sets the a value indicating whered the result of the create operation finished successfully (Output only)."
+          },
+          "delegatedByUserId": {
+            "type": "integer",
+            "description": "Gets or sets the user id of the user who performed the delegation. When creating new rules, this is supplied to indicate who performed the delegation, allowing the 3.0 PAP to determine whether or not the user is allowed to do so and to log accordingly. Only part of input model when adding single rules.",
+            "format": "int32"
+          },
+          "offeredByPartyId": {
+            "type": "integer",
+            "description": "Gets or sets the party offering the rights to the receiving (CoveredBy) entity.",
+            "format": "int32"
+          },
+          "coveredBy": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AttributeMatch"
+            },
+            "description": "Gets or sets the party receiving (covered by) the rights from the delegating (OfferedByPartyId) entity"
+          },
+          "resource": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AttributeMatch"
+            },
+            "description": "Gets or sets the list of resource matches which uniquely identifies the resource this rule applies to."
+          },
+          "action": {
+            "$ref": "#/components/schemas/AttributeMatch"
+          }
+        },
+        "additionalProperties": false,
+        "description": "This model describes a single rule in a delegated policy"
+      },
+      "RuleQuery": {
+        "required": [
+          "coveredBy",
+          "keyRolePartyIds"
+        ],
+        "type": "object",
+        "properties": {
+          "parentPartyId": {
+            "type": "integer",
+            "description": "Gets or sets the unique identifier for a the parent party id",
+            "format": "int32"
+          },
+          "keyRolePartyIds": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "description": "Gets or sets the list of key role party ids"
+          },
+          "offeredByPartyId": {
+            "type": "integer",
+            "description": "Gets or sets the unique identifier for a specific party for which the requested rule in the policy applies",
+            "format": "int32"
+          },
+          "resources": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/AttributeMatch"
+              }
+            },
+            "description": "Gets or sets resource match which uniquely identifies the resource this policy applies to.",
+            "nullable": true
+          },
+          "coveredBy": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AttributeMatch"
+            },
+            "description": "Gets or sets the set of Attribute Id and Attribute Value for the coveredby id"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Queries for a list of already delegated rules from the supplied offeredby for the supplied app. If coveredby\r\nhas any key roles, those party ids can be included in the query to have the 3.0 PIP lookup those as well.\r\nIf offeredby is a sub unit, parenty party id can be supplied to include rules given from that party as well."
+      },
+      "RuleType": {
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "type": "integer",
+        "description": "This model defines the different types of rules and why it is relevant for a given coveredby (recipient).",
+        "format": "int32"
+      },
+      "XacmlJsonAttributeAssignmentExternal": {
+        "type": "object",
+        "properties": {
+          "attributeId": {
+            "type": "string",
+            "description": "Gets or sets a string containing a XACML attribute URI. Mandatory.",
+            "nullable": true
+          },
+          "value": {
+            "type": "string",
+            "description": "Gets or sets the value. Mandatory.",
+            "nullable": true
+          },
+          "category": {
+            "type": "string",
+            "description": "Gets or sets a string containing a XACML category URI or the shorthand notation defined in section 4.2.2.1.",
+            "nullable": true
+          },
+          "dataType": {
+            "type": "string",
+            "description": "Gets or sets the datattype of the attribute.",
+            "nullable": true
+          },
+          "issuer": {
+            "type": "string",
+            "description": "Gets or sets the issuer of the attribute. Optional.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Json reprentation of Attribute assignment returned."
+      },
+      "XacmlJsonAttributeExternal": {
+        "type": "object",
+        "properties": {
+          "attributeId": {
+            "type": "string",
+            "description": "Gets or sets the AttributeId. Required.",
+            "nullable": true
+          },
+          "value": {
+            "type": "string",
+            "description": "Gets or sets the value for the Attribute. Required.",
+            "nullable": true
+          },
+          "issuer": {
+            "type": "string",
+            "description": "Gets or sets the issuer of the attribute. Optional.",
+            "nullable": true
+          },
+          "dataType": {
+            "type": "string",
+            "description": "Gets or sets the datatype of the attribute. Optional in some cases.",
+            "nullable": true
+          },
+          "includeInResult": {
+            "type": "boolean",
+            "description": "Gets or sets a value indicating whether the attribute should be returned in the result."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Defines the Attribute Json object."
+      },
+      "XacmlJsonCategoryExternal": {
+        "type": "object",
+        "properties": {
+          "categoryId": {
+            "type": "string",
+            "description": "Gets or sets CategoryId.\r\nMandatory for a Category object in the \"Category\" member array; otherwise, optional. See section 4.2.2.2.",
+            "nullable": true
+          },
+          "id": {
+            "type": "string",
+            "description": "Gets or sets the Id of the category, mappes to attributeId in xml version of ContextRequest.",
+            "nullable": true
+          },
+          "content": {
+            "type": "string",
+            "description": "Gets or sets optional XML content.",
+            "nullable": true
+          },
+          "attribute": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/XacmlJsonAttributeExternal"
+            },
+            "description": "Gets or sets a list over all attributes for a given attribute Id mappes to the.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "The Category object corresponds to the XML <Attributes /> element. Just like the <Attributes /> element is specific to a given XACML\r\nattribute category, the Category object in JSON is specific to a given XACML attribute category.\r\nhttp://docs.oasis-open.org/xacml/xacml-json-http/v1.1/csprd01/xacml-json-http-v1.1-csprd01.html."
+      },
+      "XacmlJsonIdReferenceExternal": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Gets or sets a string containing a XACML policy or policy set URI.\r\nRepresents the value stored inside the XACML XML<PolicyIdReference /> or<PolicySetIdReference /> element.",
+            "nullable": true
+          },
+          "version": {
+            "type": "string",
+            "description": "Gets or sets the version.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "A JSON object for policy refernces."
+      },
+      "XacmlJsonMultiRequestsExternal": {
+        "type": "object",
+        "properties": {
+          "requestReference": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/XacmlJsonRequestReferenceExternal"
+            },
+            "description": "Gets or sets the request reference.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "A JSON object that defines references to multiple requests."
+      },
+      "XacmlJsonObligationOrAdviceExternal": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Gets or sets a string containing a XACML obligation or advice URI.",
+            "nullable": true
+          },
+          "attributeAssignment": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/XacmlJsonAttributeAssignmentExternal"
+            },
+            "description": "Gets or sets an array of AttributeAssignment objects.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Defines a Json object for ObligationOrAdvice."
+      },
+      "XacmlJsonPolicyIdentifierListExternal": {
+        "type": "object",
+        "properties": {
+          "policyIdReference": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/XacmlJsonIdReferenceExternal"
+            },
+            "description": "Gets or sets list over policy id references.",
+            "nullable": true
+          },
+          "policySetIdReference": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/XacmlJsonIdReferenceExternal"
+            },
+            "description": "Gets or sets list policy sets references.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "A JSON object that refernces a policy or policy set."
+      },
+      "XacmlJsonRequestExternal": {
+        "type": "object",
+        "properties": {
+          "returnPolicyIdList": {
+            "type": "boolean",
+            "description": "Gets or sets a value indicating whether the PolicyIdList should be returned. Optional. Default false."
+          },
+          "combinedDecision": {
+            "type": "boolean",
+            "description": "Gets or sets a value indicating whether it is a combined decision."
+          },
+          "xPathVersion": {
+            "type": "string",
+            "description": "Gets or sets the xpath version.",
+            "nullable": true
+          },
+          "category": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/XacmlJsonCategoryExternal"
+            },
+            "description": "Gets or sets the Category object corresponds to the XML <Attributes /> element. Just like the <Attributes /> element is\r\nspecific to a given XACML attribute category, the Category object in JSON is specific to a given XACML attribute category.",
+            "nullable": true
+          },
+          "resource": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/XacmlJsonCategoryExternal"
+            },
+            "description": "Gets or sets the resource attributes.",
+            "nullable": true
+          },
+          "action": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/XacmlJsonCategoryExternal"
+            },
+            "description": "Gets or sets the action attributes.",
+            "nullable": true
+          },
+          "accessSubject": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/XacmlJsonCategoryExternal"
+            },
+            "description": "Gets or sets the subject attributes.",
+            "nullable": true
+          },
+          "recipientSubject": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/XacmlJsonCategoryExternal"
+            },
+            "description": "Gets or sets the recipent subjet.",
+            "nullable": true
+          },
+          "intermediarySubject": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/XacmlJsonCategoryExternal"
+            },
+            "description": "Gets or sets the intermediary subjects attributes.",
+            "nullable": true
+          },
+          "requestingMachine": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/XacmlJsonCategoryExternal"
+            },
+            "description": "Gets or sets attributes about requsting machine.",
+            "nullable": true
+          },
+          "multiRequests": {
+            "$ref": "#/components/schemas/XacmlJsonMultiRequestsExternal"
+          }
+        },
+        "additionalProperties": false,
+        "description": "4.2 Representation of the XACML request in JSON\r\nAn XACML request is represented as an object with a single member named \"Request\". The value of the \"Request\" member is a Request object.\r\nhttps://docs.oasis-open.org/xacml/xacml-json-http/v1.1/os/xacml-json-http-v1.1-os.html#_Toc5116207"
+      },
+      "XacmlJsonRequestReferenceExternal": {
+        "type": "object",
+        "properties": {
+          "referenceId": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Gets or sets the reference Id.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "JSON object for request references."
+      },
+      "XacmlJsonRequestRootExternal": {
+        "type": "object",
+        "properties": {
+          "request": {
+            "$ref": "#/components/schemas/XacmlJsonRequestExternal"
+          }
+        },
+        "additionalProperties": false,
+        "description": "The JSON object root needed to be able to parse the request."
+      },
+      "XacmlJsonResponseExternal": {
+        "type": "object",
+        "properties": {
+          "response": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/XacmlJsonResultExternal"
+            },
+            "description": "Gets or sets a list over JSON XACML results.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "The JSON Response.\r\nhttps://docs.oasis-open.org/xacml/xacml-json-http/v1.1/os/xacml-json-http-v1.1-os.html#_Toc5116225"
+      },
+      "XacmlJsonResultExternal": {
+        "type": "object",
+        "properties": {
+          "decision": {
+            "type": "string",
+            "description": "Gets or sets the XACML Decision.",
+            "nullable": true
+          },
+          "status": {
+            "$ref": "#/components/schemas/XacmlJsonStatusExternal"
+          },
+          "obligations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/XacmlJsonObligationOrAdviceExternal"
+            },
+            "description": "Gets or sets any obligations of the result.",
+            "nullable": true
+          },
+          "associateAdvice": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/XacmlJsonObligationOrAdviceExternal"
+            },
+            "description": "Gets or sets xACML Advice.",
+            "nullable": true
+          },
+          "category": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/XacmlJsonCategoryExternal"
+            },
+            "description": "Gets or sets category.",
+            "nullable": true
+          },
+          "policyIdentifierList": {
+            "$ref": "#/components/schemas/XacmlJsonPolicyIdentifierListExternal"
+          }
+        },
+        "additionalProperties": false,
+        "description": "The JSON object Result.\r\nhttps://docs.oasis-open.org/xacml/xacml-json-http/v1.1/os/xacml-json-http-v1.1-os.html#_Toc5116225"
+      },
+      "XacmlJsonStatusCodeExternal": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string",
+            "description": "Gets or sets the value.",
+            "nullable": true
+          },
+          "statusCode": {
+            "$ref": "#/components/schemas/XacmlJsonStatusCodeExternal"
+          }
+        },
+        "additionalProperties": false,
+        "description": "A XACML Json object for status Code."
+      },
+      "XacmlJsonStatusExternal": {
+        "type": "object",
+        "properties": {
+          "statusMessage": {
+            "type": "string",
+            "description": "Gets or sets the status message.",
+            "nullable": true
+          },
+          "statusDetails": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Gets or sets list over status details.",
+            "nullable": true
+          },
+          "statusCode": {
+            "$ref": "#/components/schemas/XacmlJsonStatusCodeExternal"
+          }
+        },
+        "additionalProperties": false,
+        "description": "XACML Json object for status."
+      },
       "XacmlRequestApiModel": {
         "type": "object",
         "properties": {
