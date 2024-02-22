@@ -24,7 +24,7 @@ we recommend going through an [introductory course before you start](https://www
 1. Create a user on [https://www.figma.com/](https://www.figma.com/). Figma can be installed locally or be used from your browser.
 2. Open the Altinn prototype-kit and follow the steps as described in the introduction on the first page if the file:
 
-{{% highlighted-link src="https://www.figma.com/community/file/1278649851387178020/altinn-studio-komponenter" %}}
+{{< highlighted-link src="https://www.figma.com/community/file/1278649851387178020/altinn-studio-komponenter" >}}Link Text{{< /highlighted-link >}}
 
 When the designer/professional has designed and user tested the form, 
 it can be used as a specification for what the developers should create in Altinn Studio. 
