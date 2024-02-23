@@ -7,7 +7,7 @@ toc: false
 weight: 1
 ---
 
-In 2022-2024, Altinn will modernize its authorization architecture and components. Therefore, the below description is a mix of as-is and to-be.
+In 2022-2025, Altinn will modernize its authorization architecture and components. Therefore, the below description is a mix of as-is and to-be.
 
 Altinn uses [attribute-based access control (ABAC)](https://en.wikipedia.org/wiki/Attribute-based_access_control).
 

@@ -23,6 +23,31 @@ the instance workflow state and the reporteId for the existing resource.
 
 For request for non existing instances the appId will be used and the reportee is a required input.
 
+
+## API  
+
+The PDP component exposes a XACML 3.0 Json API to allow PDP checks. This API supports JSON formatet request. 
+
+Documentation for this API is found [here](http://localhost:1313/nb/api/authorization/spec/#/Decision/post_authorize)
+
+It is required to have access to a scope altinn:authorization:pdp and a API key for this access. Contact Altinn to get this. 
+
+
+## XACML 3.0 Conformance
+
+The PDP tries to follow XACML 3.0 standard and have implemented some conformance tests. The goal is to fully implement
+all conformance test.
+
+There exist no official XACML 3.0 conformance test but AT&T research made som available for OASIS in [this thread](https://lists.oasis-open.org/archives/xacml-comment/201404/msg00001.html).
+
+See our tests [here](https://github.com/Altinn/altinn-authorization/blob/main/test/IntegrationTests/Xacml30ConformanceTests.cs). 
+
+Testdata for conformance tests is found [here](https://github.com/Altinn/altinn-authorization/tree/main/test/IntegrationTests/Data/Xacml/3.0/ConformanceTests), and official description of tests [here](https://raw.githubusercontent.com/Altinn/altinn-studio/master/src/Altinn.Platform/Altinn.Platform.Authorization/IntegrationTests/Data/Xacml/3.0/ConformanceTests/ConformanceTests.html).
+
+[See Github 2818 for status on conformance test coverage](https://github.com/Altinn/altinn-authorization/issues/1)
+
+
+
 ## PDP flow
 
 The diagram below show the detailed flow.
@@ -44,18 +69,6 @@ Flow explained
 11. Add any obligations to the result
 12. Return the decsion result
 
-## XACML 3.0 Conformance
-
-The PDP tries to follow XACML 3.0 standard and have implemented some conformance tests. The goal is to fully implement
-all conformance test.
-
-There exist no official XACML 3.0 conformance test but AT&T research made som available for OASIS in [this thread](https://lists.oasis-open.org/archives/xacml-comment/201404/msg00001.html).
-
-See our tests [here](https://github.com/Altinn/altinn-authorization/blob/main/test/IntegrationTests/Xacml30ConformanceTests.cs). 
-
-Testdata for conformance tests is found [here](https://github.com/Altinn/altinn-authorization/tree/main/test/IntegrationTests/Data/Xacml/3.0/ConformanceTests), and official description of tests [here](https://raw.githubusercontent.com/Altinn/altinn-studio/master/src/Altinn.Platform/Altinn.Platform.Authorization/IntegrationTests/Data/Xacml/3.0/ConformanceTests/ConformanceTests.html).
-
-[See Github 2818 for status on conformance test coverage](https://github.com/Altinn/altinn-studio/issues/2818)
 
 ## Implementation and construction details
 
