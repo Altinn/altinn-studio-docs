@@ -19,7 +19,7 @@ Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroup
 ## Egenskaper ved tilgangspakkene
 |Navn tillgangspakke|Kan delegeres til ansatte?|Kan knytte tjenester til?|[ER rolle](/authorization/modules/accessgroups/register_er/#rolletyper-fra-enhetsregisteret) som får fullmakten|
 |---|---|---|---|
-|Fullmakter for regnskapsførere| ja|nei||
+|Fullmakter for regnskapsførere| nei|nei||
 |Regnskapsfører med signeringsrettighet|ja|ja|REGN|
 |Regnskapsfører uten signeringsrettighet|ja|ja|REGN|
 |Regnskapsfører lønn|ja|ja|REGN|
