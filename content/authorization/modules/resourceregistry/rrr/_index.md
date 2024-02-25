@@ -14,6 +14,35 @@ When a resource has enabled resource rights registry requirement, a reportee mus
 The resource rights register allows defining who can use a digital service.
 
 
+### Access Lists
+
+The main concept of Resource Rights Registry is that possibility to define AccessList containg a list of organizations
+
+
+### Access List Connections
+
+When you have a list you can connect it to a resource with a set of rights given to organizations in that lists. 
+
+
+
+## Administration
+
+
+### API
+
+
+
+### Altinn Studio
+
+From Altinn Studio it is possible to administrate AccessLists and 
+
+
+
+
+
+
+
+
 ### Used in UI
 
 A resource that has enabled RRR will require that reportee have at least one right in the registry for the given service.

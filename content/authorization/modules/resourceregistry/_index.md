@@ -1,7 +1,7 @@
 ---
 title: Resource Registry
 linktitle: Resource Registry
-description: The Resource Registry 
+description: The resource registry contains information about resources where Altinn Authorization is used for access management and control. 
 tags: [architecture, security, authorization, xacml]
 weight: 1
 ---
@@ -10,45 +10,38 @@ weight: 1
 This is work in progress
 {{</notice>}}
 
-The service registry will contain information about the service resources 
-
-See [Github #24](https://github.com/Altinn/altinn-resource-registry/issues/23)
-
 ## Type of resources
 
 There are different types of resources that can be registrated 
 
-- Altinn 3 apps - Refered with org/app id
-- Altinn 2 Services - Refered with externalServiceCode and EditionCode
-- Service Resources
+- GenericAccessResource
+- MaskinportenSchema
+- Systemresource
+  
+Later it will be possible to registrate
 
-### Altinn 3 Apps 
-
-Apps hosted in Altinn 3 Apps will be registred in the Altinn Service Registry. 
-
-The referenced id would be org/app
-
-The registration is required to be able to list apps that is included in the rights for a group
+- Altinn 3 Apps
+- Legacy Altinn 2 services for legacy archive authorization (not finalized)
 
 
-### Altinn 2 Services
+### Generic Access Resources
 
-Apps hosted in Altinn 2 platform will be registrated in Altinn Service Registry
+GenericAccessResources will be used as linkServices are used in Altinn 2. 
 
-The reference id would be externalServiceCode/serviceeditionCode
+The resource would be any type of service provided by public 
+organiazations. 
+We used [cpsv:PublicService](https://informasjonsforvaltning.github.io/cpsv-ap-no/#OffentligTjeneste) as inspiration to the data model.
 
-### Altinn Service Resource
+See full list [in production](https://platform.altinn.no/resourceregistry/api/v1/resource/search).
 
-The service resource would be any type of service provided by public or private organiazations. We will use [cpsv:PublicService](https://informasjonsforvaltning.github.io/cpsv-ap-no/#OffentligTjeneste) as inspiration to the data model.
-
-Some examples
+Some examples 
 
 - API's exposing data [Example3](exampleresource3.json) [XACML](policysample3.xml)
 - Portal functionality in Altinn [Example 1](exampleresource1.json) [XACML](policysample3.xml)
 - Portal functionality in external portal [Example 2](exampleresource2.json)
 - Samordna registermelding [Example 4](exampleresource4.json) [XACML](policysample4.xml)
 - Avtale om Arbeidstrening [Example 6](exampleresource6.json) [XACML](policysample6.xml)
-- Lakselus MaskinPortenSchema [Example 7](exampleresource7.json) [XACML](policysample7.xml)
+- Lakselus MaskinPortenSchema [Example 7](https://platform.altinn.no/resourceregistry/api/v1/resource/mat-maskinportenschema-lakselusrapportering/) [XACML](https://platform.altinn.no/resourceregistry/api/v1/resource/mat-maskinportenschema-lakselusrapportering/policy)
 
 
 ## Resource attributes
