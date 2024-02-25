@@ -12,7 +12,7 @@ This is work in progress
 
 ## Type of resources
 
-There are different types of resources that can be registrated 
+There are different types of resources that can be registrated
 
 - GenericAccessResource
 - MaskinportenSchema
@@ -23,18 +23,19 @@ Later it will be possible to registrate
 - Altinn 3 Apps
 - Legacy Altinn 2 services for legacy archive authorization (not finalized)
 
-
 ### Generic Access Resources
 
-GenericAccessResources will be used as linkServices are used in Altinn 2. 
+GenericAccessResources will be used as linkServices are used in Altinn 2.
 
-The resource would be any type of service provided by public 
-organiazations. 
+The resource would be any type of service provided by public organiazations.
+
 We used [cpsv:PublicService](https://informasjonsforvaltning.github.io/cpsv-ap-no/#OffentligTjeneste) as inspiration to the data model.
+
+This also allows Felles datakatalog to consume the definition for their [service catalogue](https://data.norge.no/public-services-and-events)
 
 See full list [in production](https://platform.altinn.no/resourceregistry/api/v1/resource/search).
 
-Some examples 
+Some examples
 
 - API's exposing data [Example3](exampleresource3.json) [XACML](policysample3.xml)
 - Portal functionality in Altinn [Example 1](exampleresource1.json) [XACML](policysample3.xml)
