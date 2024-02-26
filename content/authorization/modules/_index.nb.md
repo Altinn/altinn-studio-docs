@@ -47,7 +47,7 @@ og Altinn Ressursregister
 
 ### Context Handler - I produksjon
 
-Ansvarlig for å berike beslutningsforespørselen slik at autorisasjonen kan evalueres korrekt. [Les mer](konteksthandler)
+Ansvarlig for å berike beslutningsforespørselen slik at autorisasjonen kan evalueres korrekt. [Les mer](../.../konteksthandler)
 
 ### PIP - Policyinformasjonspunkt - I produksjon
 

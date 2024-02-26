@@ -8,8 +8,10 @@ toc: false
 
 ---
 
+When defining the authorization components, we used the [XACML reference architecture](https://en.wikipedia.org/wiki/XACML).
 
 ## Conceptual components
+
 
 We have defined the following conceptual components/functional areas from the reference architecture.
 
@@ -19,7 +21,7 @@ The policy decision point is responsible for deciding if an authorization reques
 is authorized or not. It bases its decision on rules and information it has of the resource and the user/system
 trying to access and perform an operation on a resource.
 
-[Read more](pdp)
+[Read more](accesscontrol)
 
 ### PAP - Policy Administration Point
 
@@ -31,7 +33,7 @@ In Altinn Authorization, there are the following components that function as a P
 - Altinn Access Management for defining delegated rules
 - Altinn Resource Registry allows the administration of resource policies.
 
-[Read more](pap)
+[Read more](../modules/accessmanagement/pap/)
 
 ### PRP - Policy Retrieval Point
 
@@ -40,7 +42,7 @@ The Policy Retrieval Point is responsible for finding the right policy.
 In Altinn, there are two sources of Policies. Altinn Access Management for delegated policies
 and Altinn Resource Registry  
 
-[Read more](prp)
+[Read more](../modules/resourceregistry/prp)
 
 ### Context Handler - In production
 
@@ -54,7 +56,7 @@ Responsible for providing information about the subject and the resource to the 
 
 Responsible for enforcing the decision from PDP. PEP is the component that blocks a request or lets it through.
 
-[Read more](pep)
+[Read more](accesscontrol/pep)
 
 
 
