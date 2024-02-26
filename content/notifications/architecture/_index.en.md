@@ -20,20 +20,17 @@ The following diagram illustrates the overall data flow.
 
 ## Process flow between microservices and Kafka topics
 
-{{% expandlarge id="notifications-topic-process-order.drawio.svg" header="Flow chart for order processing" %}}
-![Topics](notifications-topic-process-order.drawio.svg "Flow chart including Kafka topics for order processing")
+{{% expandlarge id="notifications-topic-process-order" header="Flow chart for order processing" %}}
+![Topics](flowchart-order-process.drawio.svg "Flow chart including Kafka topics for order processing")
 {{% /expandlarge %}}
 
-
-{{% expandlarge id="notifications-topic-process-email.drawio.svg" header="Flow chart for email notification processing" %}}
-![Topics](notifications-topic-process-email.drawio.svg "Flow chart including Kafka topics for email notification processing")
+{{% expandlarge id="notifications-topic-process-email" header="Flow chart for email notification processing" %}}
+![Topics](flowchart-email-notifications-process.drawio.svg "Flow chart including Kafka topics for email notification processing")
 {{% /expandlarge %}}
 
-
-{{% expandlarge id="notifications-topic-process-sms.drawio.svg" header="Flow chart for sms notification processing" %}}
-![Topics](notifications-topic-process-sms.drawio.svg "Flow chart including Kafka topics for sms notification processing")
+{{% expandlarge id="notifications-topic-process-sms" header="Flow chart for sms notification processing" %}}
+![Topics](flowchart-sms-notifications-process.drawio.svg "Flow chart including Kafka topics for sms notification processing")
 {{% /expandlarge %}}
-
 
 ## System and service dependencies 
 ### Internal
