@@ -77,8 +77,6 @@ Context handler uses instance data from storage and role data for the subject.
 
 The authorization component request this information from PIP for roles and PIP for resources.
 
-This is described in the [pip section](../pip)
-
 ### Implementation details
 
 See [construction components for context handler](../../../../../authorization/architecture/accesscontrol/#context-handler) for implementation details for the context handler.
