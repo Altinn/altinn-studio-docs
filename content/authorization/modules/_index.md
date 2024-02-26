@@ -15,6 +15,52 @@ In short, Altinn authorization control access through rules defined in XACML Pol
 
 When defining the authorization components, we used the [XACML reference architecture](https://en.wikipedia.org/wiki/XACML).
 
+
+## Altinn Authorization - Components
+
+The below diagram shows the future components of a new Altinn Architecture.
+
+![Future solution Altinn Authorization](authorization_solution_components_future.drawio.svg "Future solution Altinn Authorization")
+
+This architecture defines the following components.
+
+### Altinn Access Management
+
+This component will be the component responsible for the administration of access to self and organization
+
+- Giving the end-users an overview of which rights they and others have.
+- Administration of AccessGroups
+- Possibility to delegate and revoke rights
+
+[Read more](accessmanagement)
+
+### Altinn Resource Registry
+
+This component will provide a register of
+
+- Altinn 3 Apps
+- Altinn 2 apps
+- External services are hosted on other platforms but registered in Altinn for authorization purposes.
+
+[Read more](resourceregistry)
+
+### Altinn Consent
+
+This component provides functionality to request consent and give consent. 
+
+[Github issue](https://github.com/Altinn/altinn-authorization/issues/22)
+
+### Altinn Policy Decision Point
+
+The PDP component is responsible for evaluating if the user should get access to a given resource or not.
+
+The component has a context handler, PIP functionality, PRP information, and more.
+[Read more](pdp)
+
+
+
+
+
 We have defined the following conceptual components/functional areas from the reference architecture.
 
 ### PDP - Policy Decision Point
@@ -59,62 +105,3 @@ Responsible for providing information about the subject and the resource to the 
 Responsible for enforcing the decision from PDP. PEP is the component that blocks a request or lets it through.
 
 [Read more](pep)
-
-## Altinn Authorization - Components
-
-The below diagram shows the future components of a new Altinn Architecture.
-
-![Future solution Altinn Authorization](authorization_solution_components_future.drawio.svg "Future solution Altinn Authorization")
-
-This architecture defines the following components.
-
-### Altinn Access Management
-
-This component will be the component responsible for the administration of access to self and organization
-
-- Giving the end-users an overview of which rights they and others have.
-- Administration of AccessGroups
-- Possibility to delegate and revoke rights
-
-[Read more](accessmanagement)
-
-### Altinn Resource Registry
-
-This component will provide a register of
-
-- Altinn 3 Apps
-- Altinn 2 apps
-- External services are hosted on other platforms but registered in Altinn for authorization purposes.
-
-[Read more](resourceregistry)
-
-### Altinn Access Groups
-
-The Altinn Access Groups component contains the Altinn-defined Access Groups and information about members of these groups.
-
-Exposes API to list and delegate Access Groups.
-
-[Read more](accessgroups)
-
-### Altinn Access Information
-
-Altinn Access Information exposes API for Reportee, access groups, and rights for external consumers. Therefore, it needs to be highly scalable. 
-
-### Altinn Consent
-
-This component provides functionality to request consent and give consent. 
-
-[Github issue](https://github.com/Altinn/altinn-authorization/issues/22)
-
-### Altinn Policy Decision Point
-
-The PDP component is responsible for evaluating if the user should get access to a given resource or not.
-
-The component has a context handler, PIP functionality, PRP information, and more.
-[Read more](pdp)
-
-### Altinn Resource Rights Registry
-
-A register allows resource owners to control which organizations or persons can access a service resource.
-
-[Read more](rrr)

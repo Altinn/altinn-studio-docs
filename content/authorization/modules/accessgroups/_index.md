@@ -1,91 +1,16 @@
 ---
-title: Access Groups
-linktitle: Access Groups
-description: The Access Groups component is responsible for keeping track of membership of different Access Groups defined in Altinn. 
+title: Access Packages
+linktitle: Access Packages
+description: Access Packages replaces roles from Altinn 2
 tags: [architecture, security, authorization, xacml]
-weight: 1
+weight: 99
 ---
 
 {{<notice warning>}}
 This is work in progress
 {{</notice>}}
 
-Access registry contains information about the centrally  [defined access groups](https://docs.altinn.studio/authorization/modules/accessgroups/type-accessgroups/). 
 
-See [Github #25](https://github.com/Altinn/altinn-authorization/issues/25)
+Access Packages can be delegated or can be connected to external roles
 
-The Access groups are grouped in one or more category trees. 
-
-The category trees will be used to present the access groups in UI.
-
-## Data model
-
-### AccessGroupCategory
-
-This model describes a category. A category can have a parent category. If no parent is present, it is assumed to be a top category.
-
-The category will be used by ui to present the access group category hierky.
-
-The properties
-- Categoryid
-- ParentCategory
-
-### AccessGroup texts
-
-Texts for access groups or AccessGroupsCategory
-
-- CategoryId
-- AccessGroupdId
-- Langauge
-- TextType
-- Text
-
-### AccessGroupCategory
-
-Contains the reference between access groups and a category
-
-### AccessGroup defintion
-
-- Name of group in different languges
-- AccessGroup identifier
-
-### External Relationship
-
-- ExternalSource (Like ER) 
-- ExternalID (Example DAGL, LEDE)
-- PartyTypeFilter(AS, ENK)
-- AccessGroupdID 
-
-### AccessGroup Membership
-
-- MembershipID
-- CoveredBy UserId
-- Covered
-- OfferedByParty
-- AccessGroupId
-- ValidTo?
-
-### AccessGroup Delegation
-
-- DelegatedByParty
-- DelegatedByUserId
-- DelegationType
-- DelegatetDateTime
-
-### AccessGroup History
-
-- DelegatedBy
-- AccessGroupID
-- OfferedBy
-- CoveredByUserId
-- CoveredByPartyId
-- ChangeType (created, deleted)
-
-### 
-
-![Hierar](dbmodel.drawio.svg "Db model")
-
-
-![Hierar](hierchy.drawio.svg "Db model")
-
-
+Example ER Role DAGL could give access to AccessPackage X,Y Z
