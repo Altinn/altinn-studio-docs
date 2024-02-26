@@ -1,9 +1,9 @@
 ---
-title: Policy Decision Point
-linktitle: PDP
-description: Policy Decision Point er ansvarlig for å evaluere om brukere og systemer er autorisert til å utføre den forespurte operasjonen på en ressurs.
+title: Tilgangskontroll (PDP)
+linktitle: Tilgangskontroll (PDP)
+description: Tilgangskontroll (Policy Decision Point,PDP) er ansvarlig for å evaluere om brukere og systemer er autorisert til å utføre den forespurte operasjonen på en ressurs.
 tags: [architecture, security, authorization, xacml]
-weight: 1
+weight: 2
 ---
 
 Policy Decision Point er implementert i [tilgangskontrollkomponenten](../../../../authorization/architecture/accesscontrol/) som er distribuert til Altinn-plattformen.

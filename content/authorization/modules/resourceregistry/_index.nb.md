@@ -3,7 +3,7 @@ title: Ressursregisteret
 linktitle: Ressursregisteret
 description: Ressursregisteret inneholder nødvendige metadata om alle tjenester som skal benytte Altinn til tilgangstyring og tilgangskontroll
 tags: [architecture, security, authorization, xacml]
-weight: 1
+weight: 3
 ---
 
 {{<notice warning>}}
