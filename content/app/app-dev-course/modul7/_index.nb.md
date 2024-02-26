@@ -42,7 +42,7 @@ Sogndal kommune ønsker at man benytter kategoriene **Personalia** om brukerens 
 
 ### Forståelsessjekk
 
-{{% expandsmall id="m7t1q1" header="Hvorfor burde oppsummeringssiden ignoreres fra PDF-genereringen?" %}}
+{{% expandsmall id="summary-knowledge-check" header="Hvorfor burde oppsummeringssiden ignoreres fra PDF-genereringen?" %}}
 PDF-genereringen har per nå ikke støtte for oppsummerings-komponenten.
  For at PDF-generering skal fungere må enten alle oppsummerings-komponentene, eller hele oppsummerings-siden(e) ekskluderes fra PDF.
 {{% /expandsmall %}}
@@ -74,7 +74,7 @@ Om man ikke møter kriteriene skal man tas videre til "Ikke for deg"-siden som o
 
 ### Forståelsessjekk
 
-{{% expandsmall id="m7t2q1" header="Hva lagres av data for stateless applikasjoner?" %}}
+{{% expandsmall id="stateless-knowledge-check" header="Hva lagres av data for stateless applikasjoner?" %}}
 En stateless, eller tilstandsløs, applikasjon lagrer ikke noe data, verken skjemadata eller metadata om instanser av applikasjonen. 
 {{% /expandsmall %}}
 
@@ -84,12 +84,12 @@ En stateless, eller tilstandsløs, applikasjon lagrer ikke noe data, verken skje
 
 {{% expandlarge id="variabler-i-tekst" header="Variabler i tekst" %}}
 ### Krav fra kommunen
-IT-kompetanse er svært ettertraktet. I **Modul 4** satt vi opp et skreddersydd tilbud til de med IT-kompetanse.
+IT-kompetanse er svært ettertraktet. I **Modul 4** satte vi opp et skreddersydd tilbud til de med IT-kompetanse.
 
 Sogndal kommune har sett på tallene og ser at det genererer for lite trafikk til stillingsutlysningene.
 For å prøve å forbedre dette ønsker vi at tilbudet blir enda litt mer skreddersydd.
 
-Vi ønsker at den originale teksten;
+Vi ønsker at den originale teksten:
 
 ```rich
 Vi ser at du besitter kompetanse vi trenger i kommunen.
@@ -105,13 +105,20 @@ Se en oversikt over våre ledige stillinger her.
 
 Siste linje i teksten skal fortsatt være en lenke til stillingsutlysningene.
 
+### Oppgaver
+1. Endre teksten slik som det er beskrevet over og erstatt "{innsenders navn}" med en variabel som er knyttet til `Fornavn`-feltet i datamodellen.
+
 ### Nyttig dokumentasjon
 - [Variabler i tekster](/nb/app/development/ux/texts/#variabler-i-tekster)
 
 ### Forståelsessjekk
-- Hva vises som en del av teksten om den aktuelle variabelen ikke har noen verdi i datamodellen?
+{{% expandsmall id="text-variables-knowledge-check" header="Hva vises som en del av teksten om den aktuelle variabelen ikke har noen verdi i datamodellen?" %}}
+Hvis en variabel ikke har noen verdi vil stien til feltet i datakilden vises.
+{{% /expandsmall %}}
 
 {{% /expandlarge %}}
+
+<!-- Eksternt API -->
 
 {{% expandlarge id="api" header="Eksternt API" %}}
 I noen tilfeller vil man måtte ta i bruk eksterne APIer for å dekke alle behovene til en applikasjon. 
@@ -169,11 +176,9 @@ https://fraktguide.bring.no/fraktguide/api/postalCode.json?country=no&pnr={postn
 {{% /expandlarge %}} -->
 
 ## Løsningsforslag
-[Kildekode Modul 7](https://altinn.studio/repos/tss/flyttemelding-sogndal/src/branch/modul7)<br>
+[Kildekode Modul 7](https://altinn.studio/repos/tss/flyttemelding-sogndal/src/branch/modul7)
 
 {{% expandlarge id="Oppsummeringsside-solution" header="Oppsummeringsside" %}}
-
-<br>
 
 **Skjermbilde av oppsummeringsside:**
 
@@ -480,6 +485,42 @@ App/ui/stateless/layouts/info.json
     "hidden": ["equals", ["dataModel", "Innflytter.KanBrukeSkjema"], true]
   }
 ]
+```
+{{% /expandlarge %}}
+
+<!-- Variabler i tekst - Løsning -->
+
+{{% expandlarge id="text-variables-solution" header="Variabler i tekst" %}}
+
+Nedenfor kan du se den "skreddersydde" teksten i skjemaet og hvordan vi satte dette opp i tekstressursfilen.
+
+![Skreddersydd IT-kompetanse tekst. Skjermbilde.](module7-text-variables-solution-screenshot.png "Skreddersydd IT-kompetanse tekst")
+
+* **Endre teksten i tekstressursfilen:**  
+I koden under kan du se hvordan vi har lagt til fornavnet til brukeren i `resource.nb.json` som en variabel:
+
+{{< code-title >}}
+App/config/texts/resource.nb.json
+{{< /code-title >}}
+
+```json
+{
+  "language": "nb",
+  "resources": [
+    ...
+    {
+      "id": "arbeid.it-kompetanse",
+      "value": "#### Hei, {0}! Vi ser at du besitter kompetanse vi trenger i kommunen. <br><br> [Se en oversikt over våre ledige stillinger her.](https://sogndal.easycruit.com/index.html)",
+      "variables": [
+        {
+          "key": "Innflytter.Fornavn",
+          "dataSource": "dataModel.Skjema"
+        }
+      ]
+    },
+    ...
+  ]
+}
 ```
 {{% /expandlarge %}}
 
