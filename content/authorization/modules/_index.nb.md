@@ -28,7 +28,7 @@ Denne komponenten vil være ansvarlig for å administrere tilgang til seg selv o
 - Administrasjon av AccessGroups
 - Mulighet for å delegere og tilbakekalle rettigheter
 
-[Les mer](tilgangsadministrasjon)
+[Les mer](accessmanagement)
 
 ### Ressursregister
 
@@ -38,7 +38,7 @@ Denne komponenten vil gi et register over
 - Altinn 2 apper
 – Eksterne tjenester vert på andre plattformer, men registrert i Altinn for autorisasjon.
 
-[Les mer](ressursregister)
+[Les mer](resourceregistry)
 
 ### Adgangskontroll
 
