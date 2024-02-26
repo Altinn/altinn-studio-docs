@@ -16,7 +16,7 @@ PDP evaluerer kontekstforespørselen basert på standard XACML 3.0-atferd. Det e
 
 Policy Decision Point viser en metode som autoriserer beslutningsforespørselen.
 
-PDP bruker den konfigurerte [Context Handler](../contexthandler) for å berike beslutningsforespørselen med attributter om emnet, ressursen og miljøet.
+PDP bruker den konfigurerte [Context Handler](/authorization/architecture/accesscontrol/contexthandler/) for å berike beslutningsforespørselen med attributter om emnet, ressursen og miljøet.
 
 Hvis forekomst-ID eller data-ID brukes som ressurs-ID, vil PDP bruke kontekstbehandleren til å identifisere riktig app-ID,
 forekomstens arbeidsflyttilstand og reporteId for den eksisterende ressursen.
