@@ -10,26 +10,25 @@ App backend exposes different APIS that is relevant during a app process.
 
 This page show examples
 
-### Process Interaction App Frontend - App Backend - 
+### Process Interaction App Frontend - App Backend
 
-{{%excerpt%}}
-<object data="../process_interaction.svg" type="image/svg+xml" style="width: 100%;  max-width: 800px;"></object>
-{{% /excerpt%}}
+{{% excerpt %}}
+<object data="../app_process_interaction.svg" type="image/svg+xml" style="width: 100%;  max-width: 800px;"></object>
+{{% /excerpt %}}
 
-
-[Full Screen](../process_interaction.svg)
+[Full Screen](../app_process_interaction.svg)
 
 The above example show the following
 
 - User clicks link to a App from service catalog
 - The browser redirect to the start service page in the app. The react application renders the correct view
 - User click on instantiate button.
-- App Frontend calls instansiate API
+- App Frontend calls instantiate API
 - Instantiate create a new instance with data for the datamodell with prefill and returns instance information that user should be redirect to.
 - User/browser open the instance
 - App frontend calls app backed to get the instance state
 - App Frontend render the correct component for the given state.
-- User input data . App Frontend call Data API to update data. If calculation or dataretrieavel causes additional data updates on server side, the response indicates to app frontend to get the latest data
+- User input data . App Frontend call Data API to update data. If calculation or data retrieval causes additional data updates on server side, the response indicates to app frontend to get the latest data
 - App frontend gets the updated data
 9 and 10 is repeated as long user has data to input
 
@@ -42,17 +41,17 @@ The above example show the following
 ### Process Interaction End User System - App Backend - 
 
 {{%excerpt%}}
-<object data="../process_interaction_eus.svg" type="image/svg+xml" style="width: 100%;  max-width: 800px;"></object>
+<object data="../app_process_interaction_eus.svg" type="image/svg+xml" style="width: 100%;  max-width: 800px;"></object>
 {{% /excerpt%}}
 
-[Full Screen](../process_interaction_eus.svg)
+[Full Screen](../app_process_interaction_eus.svg)
 
 
 ### Process Interaction Sirius Use case 
 
 {{%excerpt%}}
-<object data="../process_interaction_sirius.svg" type="image/svg+xml" style="width: 100%;  max-width: 800px;"></object>
+<object data="../app_process_interaction_sirius.svg" type="image/svg+xml" style="width: 100%;  max-width: 800px;"></object>
 {{% /excerpt%}}
 
-[Full Screen](../process_interaction_sirius.svg)
+[Full Screen](../app_process_interaction_sirius.svg)
 

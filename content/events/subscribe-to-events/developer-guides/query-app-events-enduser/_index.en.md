@@ -58,7 +58,7 @@ Accepted format is  `2023-02-16T18:00Z`
 - the event sources to include, type: array[string]
 
 The source parameter supports wildcard _%_ to escape unknown number of characters
-e.g. _https://digdir.apps.altinn.no/digdir/%_
+e.g. `https://digdir.apps.altinn.no/digdir/%`
 
 #### type
 - the event types to include, type: array[string]

@@ -102,6 +102,6 @@ It is possible to add different keys in textResourceBindings:
 
 - `title` - Sets the group title. If not set, the components in the group will display just as if they were not part of a group (with no title above them)
 - `body` - Sets the group body text. This is displayed below the title, and above the components in the group.
-- 
+  
 {{</content-version-container>}}
 {{</content-version-selector>}}
