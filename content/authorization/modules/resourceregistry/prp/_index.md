@@ -11,6 +11,6 @@ The rules are defined as a XACML 3.0 Policy document.
 
 For delegated rights Altinn II will provide the delegated policy.
 
-See [Policy Adminstration Point](../pap) for details about how the policies are created.
+See [Policy Adminstration Point](../../accessmanagement/pap) for details about how the policies are created.
 
 See [construction components](/authorization/architecture/accesscontrol/#policy-retrieval-point---prp) how PRP is built.
