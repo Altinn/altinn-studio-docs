@@ -46,11 +46,11 @@ and Altinn Resource Registry
 
 ### Context Handler - In production
 
-Responsible for enriching the decision request so authorization correctly can be evaluated. [Read more](contexthandler)
+Responsible for enriching the decision request so authorization correctly can be evaluated. [Read more](accesscontrol/contexthandler)
 
 ### PIP - Policy information point - In production
 
-Responsible for providing information about the subject and the resource to the context handler. [Read more](pip)
+Responsible for providing information about the subject and the resource to the context handler. 
 
 ### PEP - Policy Enforcement Point - In Pro
 
