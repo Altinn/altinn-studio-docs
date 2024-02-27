@@ -27,7 +27,7 @@ For request for non existing instances the appId will be used and the reportee i
 
 The PDP component exposes a XACML 3.0 Json API to allow PDP checks. This API supports JSON formatet request. 
 
-Documentation for this API is found [here](/api/authorization/spec/#/Decision/post_authorize)
+Documentation for this API is found [here](/api/authorization/spec/)
 
 It is required to have access to a scope altinn:authorization:pdp and a API key for this access. Contact Altinn to get this. 
 
