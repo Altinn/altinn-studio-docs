@@ -10,7 +10,7 @@ title = "Altinn Studio"
 theme = "hugo-theme-altinn"
 metadataFormat = "yaml"
 pluralizeListTitles = false
-preservetaxonomynames = true
+preserveTaxonomyNames = true
 enableEmoji = true
 enableGitInfo = true
 disableKinds = ["RSS"] # page home section taxonomy taxonomyTerm RSS sitemap robotsTXT 404
@@ -29,6 +29,9 @@ ignoreErrors = ["error-remote-getjson"]
 #   title = "Altinn"
 #   languageName = "Nynorsk"
 #   weight = 3
+
+[markup.goldmark]
+duplicateResourceFiles = true
 
 [markup.goldmark.parser.attribute]
 block = true

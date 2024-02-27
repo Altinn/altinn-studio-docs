@@ -1,49 +1,54 @@
 ---
-title: Resource Registry
-linktitle: Resource Registry
-description: The resource registry contains information about resources where Altinn Authorization is used for access management and control. 
+title: Ressursregisteret
+linktitle: Ressursregisteret
+description: Ressursregisteret inneholder nødvendige metadata om alle tjenester som skal benytte Altinn til tilgangstyring og tilgangskontroll
 tags: [architecture, security, authorization, xacml]
 weight: 3
 ---
 
 {{<notice warning>}}
-This is work in progress
+Under utvikling
 {{</notice>}}
 
-## Type of resources
+Tjenesteregisteret vil inneholde informasjon om tjenesteressursene
 
-There are different types of resources that can be registrated
+Se [Github #24](https://github.com/Altinn/altinn-resource-registry/issues/23)
 
-- GenericAccessResource
-- MaskinportenSchema
-- Systemresource
-  
-Later it will be possible to registrate
+## Type ressurser
 
-- Altinn 3 Apps
-- Legacy Altinn 2 services for legacy archive authorization (not finalized)
+Det finnes ulike typer ressurser som kan registreres
 
-### Generic Access Resources
+- Altinn 3 apper - Referert med org/app id
+- Altinn 2 Tjenester - Referert med eksternTjenestekode og EditionKode
+- Tjenesteressurser
 
-GenericAccessResources will be used as linkServices are used in Altinn 2.
+### Altinn 3 Apps
 
-The resource would be any type of service provided by public organiazations.
+Apper som er vert i Altinn 3 Apper vil bli registrert i Altinn Service Registry.
 
-We used [cpsv:PublicService](https://informasjonsforvaltning.github.io/cpsv-ap-no/#OffentligTjeneste) as inspiration to the data model.
+Den refererte IDen vil være org/app
 
-This also allows Felles datakatalog to consume the definition for their [service catalogue](https://data.norge.no/public-services-and-events)
+Registreringen kreves for å kunne liste opp apper som er inkludert i rettighetene for en gruppe
 
-See full list [in production](https://platform.altinn.no/resourceregistry/api/v1/resource/search).
 
-Some examples
+### Altinn 2 Tjenester
 
-- API's exposing data [Example3](exampleresource3.json) [XACML](policysample3.xml)
-- Portal functionality in Altinn [Example 1](exampleresource1.json) [XACML](policysample3.xml)
-- Portal functionality in external portal [Example 2](exampleresource2.json)
-- Samordna registermelding [Example 4](exampleresource4.json) [XACML](policysample4.xml)
+Apper som er vert i Altinn 2-plattformen vil bli registrert i Altinn Service Registry
+
+Referanse-ID-en vil være externalServiceCode/serviceeditionCode
+
+### Altinn tjenesteressurs
+
+Tjenesteressursen vil være enhver type tjeneste levert av offentlige eller private organisasjoner. Vi vil bruke [cpsv:PublicService](https://informasjonsforvaltning.github.io/cpsv-ap-no/#OffentligTjeneste) som inspirasjon til datamodellen.
+
+Noen eksempler
+
+– API-eksponeringsdata [Example3](exampleresource3.json) [XACML](policysample3.xml)
+- Portalfunksjonalitet i Altinn [Eksempel 1](exampleresource1.json) [XACML](policysample3.xml)
+– Portalfunksjonalitet i ekstern portal [Eksempel 2](exampleresource2.json)
+- Samordna registermelding [Eksempel 4](exampleresource4.json) [XACML](policysample4.xml)
 - Avtale om Arbeidstrening [Example 6](exampleresource6.json) [XACML](policysample6.xml)
-- Lakselus MaskinPortenSchema [Example 7](https://platform.altinn.no/resourceregistry/api/v1/resource/mat-maskinportenschema-lakselusrapportering/) [XACML](https://platform.altinn.no/resourceregistry/api/v1/resource/mat-maskinportenschema-lakselusrapportering/policy)
-
+- Lakselus MaskinPortenSchema [Eksempel 7](exampleresource7.json) [XACML](policysample7.xml)
 
 ## Resource attributes
 
@@ -72,25 +77,26 @@ The below table list the attributes a resource has in the resource registry. For
 | Resourcetype | Type of resource.|Tilgangsstyring| Mulige verdier: Systemresource, MaksinportenSchema, GenericAccessResource|Yes|
 |delegable|Indicates if a rights to perfome a service can be given to others|Tilgangsstyring|Boolean?|Yes|
 |visible|Indicates if a service should be visable to users i GUI|Tilgangsstyring|Boolean?|Yes|
-## Policies
 
-Polices defined for apps and resources will be stored by resource registry.
+## Retningslinjer
 
-### App Policies
+Politikker definert for apper og ressurser vil bli lagret av ressursregisteret.
 
-The App Policies are policies for Apps [created in Altinn Studio](../../../../../../../../app/development/configuration/authorization/). 
-The policy is created in Altinn Studio and migrated to the Access Policy component when the app is deployed to a test or production environment.
+### App retningslinjer
 
-An app policy contains information about the different resources in an App and who and what kind of operations they are allowed to perform. 
-The who is identified using Altinn Roles, Access Groups, or roles/groups from other sources.
+App-policyene er retningslinjer for apper [opprettet i Altinn Studio](../../../../../../../../app/development/configuration/authorization/).
+Policyen opprettes i Altinn Studio og migreres til Access Policy-komponenten når appen distribueres til et test- eller produksjonsmiljø.
 
-### Resource Registry Policies
+En apppolicy inneholder informasjon om de ulike ressursene i en app og hvem og hva slags operasjoner de har lov til å utføre.
+Hvem er identifisert ved hjelp av Altinn-roller, tilgangsgrupper eller roller/grupper fra andre kilder.
 
-The resource registry policies are policies for resources that is not comming from Altinn 3 apps. It could be any functionality hosted on any platform. 
+### Retningslinjer for ressursregister
 
-Both digital and analog services can be registrated in the resource registry.
+Ressursregisterpolicyene er retningslinjer for ressurser som ikke kommer fra Altinn 3-apper. Det kan være hvilken som helst funksjonalitet på hvilken som helst plattform.
+
+Både digitale og analoge tjenester kan registreres i ressursregisteret.
 
 
-## Construction
+## Konstruksjon
 
-See [construction components](/authorization/architecture/resourceregistry/) if you want to see how the component is built. 
+Se [konstruksjonskomponenter](/authorization/architecture/resourceregistry/) hvis du vil se hvordan komponenten er bygget.

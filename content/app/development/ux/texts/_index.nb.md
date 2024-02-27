@@ -386,9 +386,7 @@ I `App/config/texts/resource.nb.json`:
       "id": "appName",
       "value": "Automatisk deploy applikasjonen"
     },
-    .
-    .
-    .
+    ...
   ]
 }
 ```
@@ -403,9 +401,7 @@ I `App/config/texts/resource.nn.json`:
       "id": "appName",
       "value": "Automatisk deploy applikasjonen"
     },
-    .
-    .
-    .
+    ...
   ]
 }
 ```
@@ -420,9 +416,7 @@ I `App/config/texts/resource.en.json`:
       "id": "appName",
       "value": "Auto deploy application"
     },
-    .
-    .
-    .
+    ...
   ]
 }
 ```
@@ -446,9 +440,7 @@ Eksempel:
       "id": "appOwner",
       "value": "Test Ministry"
     },
-    .
-    .
-    .
+    ...
   ]
 }
 ```

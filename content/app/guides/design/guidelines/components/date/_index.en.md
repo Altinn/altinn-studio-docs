@@ -28,6 +28,6 @@ Date fields should be used for dates further back in time, or for dates that the
 ### Guidelines:
 - Always label the input boxes (day, month, year), and add a label/heading for the input group as well. 
 - If the foundational data exists, a specific date can be suggested in the field, or it can be preset with the current date.
-- 
+  
 ### Example of usage:
 {{% figma-example src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwnBveAG2ikUspFsQwM3GNE%2FPrototyping-av-skjematjenester%3Fnode-id%3D5139%253A832" %}}

@@ -29,3 +29,5 @@ The below drawing show all aspects that control who and what rights a user or or
 - Obligation - describes additional information like minimum authentication level.
 - Condition - Describes additional conditions like the reportee needs to be registered in SRR/RRR for this resource/service.
 
+
+
