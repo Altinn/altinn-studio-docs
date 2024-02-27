@@ -23,14 +23,18 @@ the instance workflow state and the reporteId for the existing resource.
 
 For request for non existing instances the appId will be used and the reportee is a required input.
 
-
 ## API  
 
 The PDP component exposes a XACML 3.0 Json API to allow PDP checks. This API supports JSON formatet request. 
 
-Documentation for this API is found [here](http://localhost:1313/nb/api/authorization/spec/#/Decision/post_authorize)
+Documentation for this API is found [here](/api/authorization/spec/#/Decision/post_authorize)
 
 It is required to have access to a scope altinn:authorization:pdp and a API key for this access. Contact Altinn to get this. 
+
+### Example requests from Unit Tests 
+
+- [Example with ssn performing read on ttd-externalpdp-resource1 for orgno](https://github.com/Altinn/altinn-authorization/blob/main/test/IntegrationTests/Data/Xacml/3.0/ResourceRegistry/AltinnResourceRegistry0005Request.json)
+- [Example with ssn performing read on ttd-externalpdp-resource1 for ssn](https://github.com/Altinn/altinn-authorization/blob/main/test/IntegrationTests/Data/Xacml/3.0/ResourceRegistry/AltinnResourceRegistry0006Request.json)
 
 
 ## XACML 3.0 Conformance
