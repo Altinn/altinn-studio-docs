@@ -11,15 +11,15 @@ Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroup
  
 ![Jordbruk, skogbruk, jakt, fiske og akvakultur](jsjfa.jpg "Jordbruk, skogbruk, jakt, fiske og akvakultur")
 - **Jordbruk, skogbruk, jakt, fiske og akvakultur:** Denne fullmakten gir tilgang til alle tjenester som angår jordbruk, skogbruk, jakt, fiske og akvakultur.
-	- **Jordbruk, dyrehold og reindrift:** Denne fullmakten gir tilgang til alle tjenester knyttet til jordbruk, dyrehold og reindrift.
+	- **Jordbruk, dyrehold og reindrift:** Denne tilgangspakken gir fullmakter til tjenester knyttet til jordbruk, dyrehold og reindrift.
 		- **Jordbruk:** Denne fullmakten gir tilgang til tjenester knyttet til jordbruk. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
    		- **Dyrehold:** Denne fullmakten gir tilgang til tjenester knyttet til dyrehold. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
    		- **Reindrift:** Denne fullmakten gir tilgang til tjenester knyttet til reindrift. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
    		
-     - **Jakt og viltstell:** Denne fullmakten gir tilgang til alle tjenester knyttet til jakt og viltstell. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
-     - **Skogbruk:** Denne fullmakten gir tilgang til alle tjenester knyttet til skogbruk. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
-     - **Fiske:** Denne fullmakten gir tilgang til alle tjenester knyttet til fiske. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
-     - **Akvakultur:** Denne fullmakten gir tilgang til alle tjenester knyttet til akvakultur og fiskeoppdrett. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
+     - **Jakt og viltstell:** Denne tilgangspakken gir fullmakter til tjenester knyttet til jakt og viltstell. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
+     - **Skogbruk:** Denne tilgangspakken gir fullmakter til tjenester knyttet til skogbruk. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
+     - **Fiske:** Denne tilgangspakken gir fullmakter til tjenester knyttet til fiske. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
+     - **Akvakultur:** Denne tilgangspakken gir fullmakter til tjenester knyttet til akvakultur og fiskeoppdrett. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
 
 
 ## Egenskaper ved tilgangspakkene

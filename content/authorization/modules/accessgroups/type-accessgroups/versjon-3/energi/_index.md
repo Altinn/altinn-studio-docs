@@ -11,13 +11,13 @@ Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroup
 
 ![Energi, vann, avløp og avfall](evaa.png "Energi, vann, avløp og avfall")
 - **Energi, vann, avløp og avfall:** Denne fullmakten gir tilgang til alle tjenester som omhandler energi, vann, avløp og avfall.
-	- **Elektrisitet: produsere, overføre og distribuere:** Denne fullmakten gir tilgang til alle tjenester knyttet til elektrisitet: produsere, overføre og distribuere. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
-	- **Damp- og varmtvann:** Denne fullmakten gir tilgang til alle tjenester knyttet til damp- og varmtvann. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
-	- **Vann: ta ut fra kilde, rense og distribuere:** Denne fullmakten gir tilgang til alle tjenester knyttet til vann: ta ut fra kilde, rense og distribuere. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
-	- **Samle opp og behandle avløpsvann:** Denne fullmakten gir tilgang til alle tjenester knyttet til samle opp og behandle avløpsvann. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
-	- **Avfall: samle inn, behandle bruke og gjenvinne:** Denne fullmakten gir tilgang til alle tjenester knyttet til avfall: samle inn, behandle bruke og gjenvinne. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
-	- **Miljøryddng, -rensing og lignende virksomhet:** Denne fullmakten gir tilgang til alle tjenester knyttet til miljøryddng, -rensing og lignende virksomhet. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
-	- **Utvinning av råolje,  naturgass og kull:** Denne fullmakten gir tilgang til alle tjenester knyttet til utvinning av råolje,  naturgass og kull. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
+	- **Elektrisitet: produsere, overføre og distribuere:** Denne tilgangspakken gir fullmakter til tjenester knyttet til elektrisitet: produsere, overføre og distribuere. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. **urn:altinn.acccesspackage:utleieeiendom**
+	- **Damp- og varmtvann:** Denne tilgangspakken gir fullmakter til tjenester knyttet til damp- og varmtvann. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
+	- **Vann: ta ut fra kilde, rense og distribuere:** Denne tilgangspakken gir fullmakter til tjenester knyttet til vann: ta ut fra kilde, rense og distribuere. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
+	- **Samle opp og behandle avløpsvann:** Denne tilgangspakken gir fullmakter til tjenester knyttet til samle opp og behandle avløpsvann. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
+	- **Avfall: samle inn, behandle bruke og gjenvinne:** Denne tilgangspakken gir fullmakter til tjenester knyttet til avfall: samle inn, behandle bruke og gjenvinne. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
+	- **Miljøryddng, -rensing og lignende virksomhet:** Denne tilgangspakken gir fullmakter til tjenester knyttet til miljøryddng, -rensing og lignende virksomhet. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
+	- **Utvinning av råolje,  naturgass og kull:** Denne tilgangspakken gir fullmakter til tjenester knyttet til utvinning av råolje,  naturgass og kull. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
 
 
 ## Egenskaper ved tilgangspakkene

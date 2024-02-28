@@ -11,9 +11,9 @@ Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroup
  
 ![Handel, overnatting og servering](hos.jpg "Handel, overnatting og servering")
 - **Handel, overnatting og servering:** Denne fullmakten gir tilgang til alle tjenester som omhandler varehandel(engros- og detaljhandel, import og eksport), overnatting og servering
-	- **Varehandel:** Denne fullmakten gir tilgang til alle tjenester knyttet til varehandel, inkludert engros- og detaljhandel, import og eksport, og salg og reparasjon av motorvogner. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
-	- **Overnatting:** Denne fullmakten gir tilgang til alle tjenester knyttet til overnattingsvirksomhet. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
-	- **Servering:** Denne fullmakten gir tilgang til alle tjenester knyttet til serveringsvirksomhet. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
+	- **Varehandel:** Denne tilgangspakken gir fullmakter til tjenester knyttet til varehandel, inkludert engros- og detaljhandel, import og eksport, og salg og reparasjon av motorvogner. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
+	- **Overnatting:** Denne tilgangspakken gir fullmakter til tjenester knyttet til overnattingsvirksomhet. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
+	- **Servering:** Denne tilgangspakken gir fullmakter til tjenester knyttet til serveringsvirksomhet. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
 
 ## Egenskaper ved tilgangspakkene
 |Navn tillgangspakke|Kan delegeres til ansatte?|Kan knytte tjenester til?|[ER rolle](/authorization/modules/accessgroups/register_er/#rolletyper-fra-enhetsregisteret) som får fullmakten|
