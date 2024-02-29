@@ -1,6 +1,6 @@
 ---
-title: Ressurser for ekstern autorisasjon
-linktitle: Resource Registry
+title: Migrering av lenketjenester fra Altinn 2
+linktitle: Migrering fra Altinn 2
 description: Ressursregisteret er sentral for de som ønsker å benytte Altinn autorisasjon til tilgangsstyring og kontroll for tjenester de drifter utenfor Altinn.
 tags: [architecture, security, authorization, xacml]
 weight: 1

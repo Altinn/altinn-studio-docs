@@ -29,13 +29,127 @@ The PDP component exposes a XACML 3.0 Json API to allow PDP checks. This API sup
 
 Documentation for this API is found [here](/api/authorization/spec/)
 
-It is required to have access to a scope altinn:authorization:pdp and a API key for this access. Contact Altinn to get this. 
+Url for API is
+- TT02: https://platform.tt02.altinn.no/authorization/api/v1/authorize
+- Production: https://platform.altinn.no/authorization/api/v1/authorize
+
+**It is required to have access to a scope altinn:authorization:pdp and a API key for this access. Contact Altinn to get this.**
+
+Api Key need to be sent as "Ocp-Apim-Subscription-Key" header.
+
+It requires a Altinn bearer token (header name Authorization). Use Maskinporten and exchange to Altinn. Details [here](/api/authentication/maskinporten/)
+
+Example request from TT02
+
+```json
+{
+  "Request": {
+    "ReturnPolicyIdList": true,
+    "AccessSubject": [
+      {
+        "Attribute": [
+          {
+            "AttributeId": "urn:altinn:person:identifier-no",
+            "Value": "13896998948"
+          }
+        ]
+      }
+    ],
+    "Action": [
+      {
+        "Attribute": [
+          {
+            "AttributeId": "urn:oasis:names:tc:xacml:1.0:action:action-id",
+            "Value": "read",
+            "DataType": "http://www.w3.org/2001/XMLSchema#string"
+          }
+        ]
+      }
+    ],
+    "Resource": [
+      {
+        "Attribute": [
+          {
+            "AttributeId": "urn:altinn:resource",
+            "Value": "ttdintegrasjonstest1"
+          },
+          {
+            "AttributeId": "urn:altinn:organization:identifier-no",
+            "Value": "312824450"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+Response
+
+```json
+{
+    "response": [
+        {
+            "decision": "Permit",
+            "status": {
+                "statusMessage": null,
+                "statusDetails": null,
+                "statusCode": {
+                    "value": "urn:oasis:names:tc:xacml:1.0:status:ok",
+                    "statusCode": null
+                }
+            },
+            "obligations": [
+                {
+                    "id": "urn:altinn:obligation:authenticationLevel1",
+                    "attributeAssignment": [
+                        {
+                            "attributeId": "urn:altinn:obligation1-assignment1",
+                            "value": "3",
+                            "category": "urn:altinn:minimum-authenticationlevel",
+                            "dataType": "http://www.w3.org/2001/XMLSchema#integer",
+                            "issuer": null
+                        }
+                    ]
+                },
+                {
+                    "id": "urn:altinn:obligation:authenticationLevel2",
+                    "attributeAssignment": [
+                        {
+                            "attributeId": "urn:altinn:obligation2-assignment2",
+                            "value": "3",
+                            "category": "urn:altinn:minimum-authenticationlevel-org",
+                            "dataType": "http://www.w3.org/2001/XMLSchema#integer",
+                            "issuer": null
+                        }
+                    ]
+                }
+            ],
+            "associateAdvice": null,
+            "category": null,
+            "policyIdentifierList": null
+        }
+    ]
+}
+```
+
 
 ### Example requests from Unit Tests 
 
 - [Example with ssn performing read on ttd-externalpdp-resource1 for orgno](https://github.com/Altinn/altinn-authorization/blob/main/test/IntegrationTests/Data/Xacml/3.0/ResourceRegistry/AltinnResourceRegistry0005Request.json)
 - [Example with ssn performing read on ttd-externalpdp-resource1 for ssn](https://github.com/Altinn/altinn-authorization/blob/main/test/IntegrationTests/Data/Xacml/3.0/ResourceRegistry/AltinnResourceRegistry0006Request.json)
 
+
+### Attributes
+
+The following attributeIds can be used in XACML request
+
+- **urn:altinn:person:identifier-no**   For fødselsnummer and d-nummer.  Both in subject and resource
+- **urn:altinn:organization:identifier-no**  For organisation number. Both in subject and resource
+- **urn:oasis:names:tc:xacml:1.0:action:action-id**  Action ID. XACML standard
+- **urn:altinn:resource**   Resource id for resource registry
+- **urn:altinn:org**   Org. (tjenesteier code)  both in resource and subject where relevant
+- **urn:altinn:app**  App identifier for resource section
 
 ## XACML 3.0 Conformance
 
