@@ -266,7 +266,7 @@ Example document on application:
   "type": "app.instance.process.completed",
   "time":  "2020-02-20T09:06:50.3736712Z",
   "id": "91f2388f-bd8c-4647-8684-fd9f68af5b14",
-  "alternativesubject": "/org/974760673"
+  "alternativesubject": "/organisation/974760673"
 }]
 ```
 
