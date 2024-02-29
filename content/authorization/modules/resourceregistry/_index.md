@@ -86,7 +86,7 @@ The who is identified using Altinn Roles, Access Groups, or roles/groups from ot
 
 **Example**
 
-- [BRG RRH-Innrapportgering](apppolicy_brg_rrh-innrapportering)
+- [BRG RRH-Innrapportering](apppolicy_brg_rrh-innrapportering.xml)
 
 ### Resource Registry Policies
 

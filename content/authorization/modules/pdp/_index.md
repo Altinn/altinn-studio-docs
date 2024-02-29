@@ -142,7 +142,7 @@ Response
 
 ### Attributes
 
-The following attributeIds should be used in XACML request
+The following attributeIds can be used in XACML request
 
 - **urn:altinn:person:identifier-no**   For fødselsnummer and d-nummer.  Both in subject and resource
 - **urn:altinn:organization:identifier-no**  For organisation number. Both in subject and resource
