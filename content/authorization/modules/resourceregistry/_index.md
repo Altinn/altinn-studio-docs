@@ -84,11 +84,26 @@ The policy is created in Altinn Studio and migrated to the Access Policy compone
 An app policy contains information about the different resources in an App and who and what kind of operations they are allowed to perform. 
 The who is identified using Altinn Roles, Access Groups, or roles/groups from other sources.
 
+**Example**
+
+- [BRG RRH-Innrapportgering](apppolicy_brg_rrh-innrapportering)
+
 ### Resource Registry Policies
 
 The resource registry policies are policies for resources that is not comming from Altinn 3 apps. It could be any functionality hosted on any platform. 
 
 Both digital and analog services can be registrated in the resource registry.
+
+### Administration from Altinn Studio
+
+![Resource Admin](resourceadmin1.png "Resource Admin in Altinn Studio")
+
+
+![Resource Admin](resourceadmin2.png "Resource Admin in Altinn Studio")
+
+
+![Resource Admin](resourceadmin3.png "Resource Admin in Altinn Studio")
+
 
 
 ## Construction
