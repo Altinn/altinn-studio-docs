@@ -24,8 +24,8 @@ For å sikre fremtidige behov så tegnes det en ny arkitektur for Altinn Autoris
 Alle tjenester som i dag bruker Altinn som autorisasjonsløsning må flyttes fra Altinn 2 til Altinn 3 plattformen. 
 Det er laget en egen [plan](../migration/servicemigrationplan/) for hvilken rekkefølge dette skal skje og når de enkelte tjenestene skal være ferdig migrert.
 
-### Nye tilgangsgrupper og ny brukerflate for tilgangsstyring for virksomheter
-*Dette arbeidet vil starte opp Q1 2023. Målet er å lansere ny brukerflate og tilgangsgrupper Q2 2024.*
+### Nye tilgangspakker og ny brukerflate for tilgangsstyring for virksomheter
+*Dette arbeidet vil starte opp Q1 2023. Målet er å lansere ny brukerflate og tilgangspakker Q2 2024.*
 
 I dag administrerer hvem som kan opptre på virksomhetens vegne i Altinns profil. Denne brukerflaten vil få et nytt utseende i Altinn 3. 
 
@@ -39,21 +39,21 @@ Den nye brukerflaten i Altinn Autorisasjon har som mål å tilby en tilrettelagt
 Dette skal også sikre at man ikke får tilgang til mer enn man strengt tatt trenger.
 
 En konsekvens av dette er at dagens [roller i Altinn 2.0](/app/development/configuration/authorization/guidelines_authorization/roles_and_rights/roles_altinn/altinn_roles_enterprices/) 
-skal fases ut og erstattes med nye [tilgangsgrupper i Altinn 3.0](../modules/accessgroups/type-accessgroups/)
+skal fases ut og erstattes med nye [tilgangspakker i Altinn 3.0](../modules/accessgroups/type-accessgroups/)
 
-#### Hva blir konsekvensen av at man infører nye tilgangsgrupper? 
-I forkant av lansering av nye tilgangsgrupper og i en overgangsfase vil det være nødvendig å angi både gamle Altinn 2.0 roller og nye 3.0 tilgangsgrupper som rollekrav knyttet til tjenesten. 
-Det betyr at en bruker enten kan få tilgang til en tjeneste fordi vedkommende har en gammel 2.0 rolle eller fordi hun har fått en ny 3.0 tilgangsgruppe. 
+#### Hva blir konsekvensen av at man infører nye tilgangspakker? 
+I forkant av lansering av nye tilgangspakker og i en overgangsfase vil det være nødvendig å angi både gamle Altinn 2.0 roller og nye 3.0 tilgangspakker som rollekrav knyttet til tjenesten. 
+Det betyr at en bruker enten kan få tilgang til en tjeneste fordi vedkommende har en gammel 2.0 rolle eller fordi hun har fått en ny 3.0 tilgangspakke. 
 
 
-Samtidig som nye tilgangsgrupper lanseres så vil det ikke lenger være mulig å delegere gamle 2.0 roller til sine ansatte. 
-I tillegg vil vi utvikle en veileder som "motiverer" virksomheter som har ansatte med gamle 2.0 roller om å erstatte disse med nye 3.0 tilgangsgrupper. 
+Samtidig som nye tilgangspakker lanseres så vil det ikke lenger være mulig å delegere gamle 2.0 roller til sine ansatte. 
+I tillegg vil vi utvikle en veileder som "motiverer" virksomheter som har ansatte med gamle 2.0 roller om å erstatte disse med nye 3.0 tilgangspakker. 
 
-Ved å innføre nye 3.0 tilgangsgrupper på denne måten så vil ingen brukere miste tilgang til tjenester "over natta" fordi vi innfører nye tilgangsgrupper. 
+Ved å innføre nye 3.0 tilgangspakker på denne måten så vil ingen brukere miste tilgang til tjenester "over natta" fordi vi innfører nye tilgangspakker. 
 
 Virksomhetene kommer til å få god tid til å rydde opp gamle 2.0 roller som er delegert får disse fjernes. 
 
-### Nye tilgangsgrupper og ny brukerflate for tilgangsstyring for innbyggere
+### Nye tilgangspakker og ny brukerflate for tilgangsstyring for innbyggere
 *Dette arbeidet starter Q1 2024.*
 
 I dag administrerer innbygger hvem som kan opptre på egne vegne i Altinns profil. 
