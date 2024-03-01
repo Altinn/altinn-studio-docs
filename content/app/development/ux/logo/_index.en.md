@@ -1,6 +1,7 @@
 ---
-title: Use organisation logo
-description: How to configure use of organisation logo
+title: Logo
+description: How to configure use of organization logo
+toc: true
 weight: 30
 ---
 
@@ -10,7 +11,8 @@ Setting application logo is only available with `Altinn.App.Core` version 7.14.0
 
 {{% /notice%}}
 
-To use organisation logo you can specify that in `applicationmetadata.json`:
+## Use logo from organization
+To use the organization logo you can specify that in `applicationmetadata.json`:
 ```json
 // applicationmetadata.json
 {
@@ -54,6 +56,37 @@ You can also override the alt text for the logo:
   "value": "Logo for Brønnøysund Register Centre"
 }
 ```
+
+## Use custom logo
+
+In order to use a custom logo, the logo must first be uploaded. 
+
+1. Create a folder named `wwwroot`. This should be under App, `App/wwwroot`.
+2. Upload a logo following the [design guidelines](#design-guidelines-for-app-owner-logo) to the folder.
+
+Each of the `resource.json` must reference the url the logo is in. 
+
+```json
+// resource.nb.json
+{
+  "id": "appLogo.url",
+  "value": "/{appID}/{logoName}.svg"
+}
+```
+
+The `appID` here refers to the `id` property in `applicationmetadata.json`.
+
+Finally, the `applicationmetadata.json` file needs to update the source of which the logo is from.
+```json
+// applicationmetadata.json
+"logo": {
+    "displayAppOwnerNameInHeader": false,
+    "source": "resource", // from "org" to "resource"
+    "size": "medium"
+  },
+```
+
+
 
 ## Properties
 

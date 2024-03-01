@@ -1,6 +1,7 @@
 ---
-title: Bruk tjenesteeiers logo
+title: Logo
 description: Hvordan konfigurere bruk av tjenesteeiers logo
+toc: true
 weight: 30
 ---
 
@@ -11,6 +12,7 @@ Du må være på versjon 7.14.0 av `Altinn.App.Core` eller høyere for å kunne 
 {{% /notice%}}
 
 
+## Bruke logo fra tjenesteeier
 For å bruke en tjenesteeiers logo kan du spesifisere dette i `applicationmetadata.json`:
 
 ```json
@@ -66,6 +68,34 @@ Du kan også overstyle alt-teksten på logoen:
   "value": "Logo til Brønnøysundregistrene"
 }
 
+```
+
+## Bruk egendefinert logo
+
+For å bruke din egen logo, må den først lastes opp.
+
+1. Lage en mappe med navnet `wwwroot`. Denne skal ligge under App-mappen, `App/wwwroot`.
+2. Last opp logoen, som følger [designretningslinjene](#designretningslinjer-for-app-eier-logo), til mappen.
+
+Hver av `resource.json` må referere til url-en som logoen er i.
+
+```json
+// resource.nb.json
+{
+  "id": "appLogo.url",
+  "value": "/{appID}/{logoName}.svg"
+}
+```
+Her refererer `appID` til `id` egenskapen i `applicationmetadata.json`.
+
+Til slutt så må `applicationmetadata.json` filen endres for å hente riktig kilde til hvor logoen hentes fra.
+```json
+// applicationmetadata.json
+"logo": {
+    "displayAppOwnerNameInHeader": false,
+    "source": "resource", // from "org" to "resource"
+    "size": "medium"
+  },
 ```
 
 ## Egenskaper
