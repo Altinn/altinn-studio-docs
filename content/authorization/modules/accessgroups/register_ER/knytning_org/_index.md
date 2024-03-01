@@ -6,7 +6,7 @@ tags: [architecture, security, authorization, ]
 toc: true
 weight: 1
 ---
-*Innhold på siden er under arbeid. Innholdet vil ikke være gjeldende før nye [tilgangsgrupper](/authorization/modules/accessgroups/type-accessgroups/) trer i kraft. Dette må derfor ikke ansees som en fasit pr nå*
+*Innhold på siden er under arbeid. Innholdet vil ikke være gjeldende før nye [tilgangspakker](/authorization/modules/accessgroups/type-accessgroups/) trer i kraft. Dette må derfor ikke ansees som en fasit pr nå*
 
 
 I mange tilfeller er det mulig å registrere andre organisasjoner i en eller flere roller på virksomeheten. 
