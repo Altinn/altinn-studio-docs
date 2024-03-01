@@ -13,11 +13,13 @@ Dette er et arbeid som pågår
 Tilgangsstyringen vil gi funksjonalitet for å administrere ulike aspekter ved autorisasjon i Altinn.
 
 - Delegere og tilbakekalle Altinn 2 roller
+- Delegere og tilbakekalle tilgangspakker
+- Opprette tilgangsgrupper
 - Legg til og fjern medlemskap for tilgangsgrupper
 - Delegere app- og instansrettigheter
 - [Administrer delegerbare Maskinporten API-ressurser](https://github.com/Altinn/altinn-authorization/issues/59)
 - Liste tilgangsgrupper medlemmer
-- Liste ressurser som er knyttet til tilgangsgrupper
+- Liste ressurser som er knyttet til tilgangspakker
 
 
 Dette designet er i tidlig fase.
@@ -34,11 +36,11 @@ Denne funksjonaliteten forventes levert vinteren 2022/2023.
 
 Den andre funksjonen som leveres fra den nye Access Management-komponenten vil være
 
-## Delegering og administrasjon av tilgangsgrupper
+## Delegering og administrasjon av tilgangspakker
 
-Som en del av ny design vil ledelse av tilgangsgrupper overta for rollestyring
+Som en del av ny design vil ledelse av tilgangspakker overta for rollestyring
 
-![Tilgangsgrupper](accessgroups.jpg "Administrasjon av tilgangsgrupper")
+![Tilgangspakker](accessgroups.jpg "Administrasjon av tilgangspakker")
 
 ### Konstruksjon
 
