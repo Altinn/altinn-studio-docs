@@ -14,7 +14,7 @@ This is work in progress
 ## One-to-one managed transfers of individual files
 
 Illustration:
-[{{< figure src="./image5.png" title="Figure 5a: One-to-one managed transfers of individual files" alt="Alt-text">}}](https://www.vg.no)
+{{< figure src="./image5.png" title="Figure 5a: One-to-one managed transfers of individual files" alt="Alt-text">}}
 
 With one-to-one managed transfers of individual files, a file (F1) is forwarded to a single consumer.
 
@@ -26,7 +26,7 @@ The initial implementation considers specifically addressed consumers only.
 ## One-to-many managed transfers of individual files
 
 Illustration:
-[{{< figure src="./image1.png" title="Figure 5b: One-to-many managed transfers of individual files" alt="Alt-text">}}](https://www.vg.no)
+{{< figure src="./image1.png" title="Figure 5b: One-to-many managed transfers of individual files" alt="Alt-text">}}
 
 With One-to-many managed transfers of individual files, a file F1 is forwarded to one or more consumers.
 

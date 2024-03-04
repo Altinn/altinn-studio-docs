@@ -19,7 +19,7 @@ to one or more consumers. As such, it offers many
 benefits compared to alternative ad-hoc peer-to-peer file transfer
 solutions.  
 
-[{{< figure src="./image1.png" title="Figure 1: Main use case of Altinn Broker illustrated. File F1 is conveyed from a provider to one or more consumers via intermediate storage" alt="Alt-text">}}](https://www.vg.no)
+{{< figure src="./image1.png" title="Figure 1: Main use case of Altinn Broker illustrated. File F1 is conveyed from a provider to one or more consumers via intermediate storage" alt="Alt-text">}}
 
 While transfer of individual files is the main use case and original purpose of
 Altinn Broker, Altinn 3 Broker has been designed with some more advanced
