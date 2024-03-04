@@ -12,14 +12,35 @@ This is work in progress.
 {{</notice>}}
 
 ## What is Altinn Correspondence?
-TBD
+Altinn Correspondence enables the secure exchange of correspondence, 
+such as official letters, notifications, and other documents, 
+between public agencies and individuals or businesses. 
+
+The goal of Altinn Correspondence is to streamline and improve the efficiency of 
+communication between the government and the public, 
+ensuring that important information is delivered securely and can be accessed conveniently online.
+
+The service is part of the broader Altinn platform, which aims to digitize and simplify processes related to public services and administration in Norway. 
+
+The basic use case supported by Altinn 3 Correspondence is 1:1 messaging from one sender to one recipent.
+
+{{< figure src="./Correspondence Pattern 1-1 messaging.png" title="Figure: Main use case of Correspondence is 1:1 messaging" alt="Alt-text">}}
+
+
+
+
+
+
+
 
 ## Benefits of Altinn Correspondence
 TBD
 
 ## Context Overview
 
-TBD
+Description TBD
+
+{{< figure src="./Altinn 3 Correspondence Context Diagram 1.png" title="Figure: Altinn Correspondence context diagram" alt="Alt-text">}}
 
 ## Terminology
 
