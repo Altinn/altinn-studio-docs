@@ -1,6 +1,7 @@
 ---
-title: Bruk tjenesteeiers logo
-description: Hvordan konfigurere bruk av tjenesteeiers logo
+title: Logo
+description: Hvordan legge til og konfigurere logo i applikasjon
+toc: true
 weight: 30
 ---
 
@@ -11,10 +12,12 @@ Du må være på versjon 7.14.0 av `Altinn.App.Core` eller høyere for å kunne 
 {{% /notice%}}
 
 
-For å bruke en tjenesteeiers logo kan du spesifisere dette i `applicationmetadata.json`:
-
+## Bruke logo fra tjenesteeier
+For å bruke tjenesteeiers logo spesifisert for organisasjonen i `altinn-orgs.json` kan du skrive følgende i `applicationmetadata.json`:
+{{< code-title >}}
+App/config/applicationmetadata.json
+{{< /code-title >}}
 ```json
-// applicationmetadata.json
 {
   "logo": {
     "source": "org",
@@ -23,13 +26,13 @@ For å bruke en tjenesteeiers logo kan du spesifisere dette i `applicationmetada
 }
 ```
 
-Når du aktiverer denne opsjonen, vil logoen som standard bli den som er spesifisert for organisasjonen i
-altinn-orgs.json.
 
 Hvis du ønsker å bruke en annen logo for applikasjonen, kan du spesifisere dette i resource.json med verdien
 
-```json
-// resource.nb.json 
+{{< code-title >}}
+App/config/texts/resource.nb.json
+{{< /code-title >}}
+```json 
 {
   "id": "appLogo.url",
   "value": "https://altinncdn.no/orgs/brg/brreg.png"
@@ -39,8 +42,10 @@ Hvis du ønsker å bruke en annen logo for applikasjonen, kan du spesifisere det
 Hvis logoen din allerede inneholder navnet på organisasjonen som applikasjonen representerer, ønsker du kanskje ikke at
 app-eieren skal vises i overskriften. Du kan deaktivere dette ved å sette `displayAppOwnerNameInHeader` verdien til `false`.
 
+{{< code-title >}}
+App/config/applicationmetadata.json
+{{< /code-title >}}
 ```json
-// applicationmetadata.json
 {
   "logo": {
     ...
@@ -51,6 +56,9 @@ app-eieren skal vises i overskriften. Du kan deaktivere dette ved å sette `disp
 
 Dersom du ønsker å overstyre navnet på tjenesteeieren, kan du gjøre dette i `resource.json` med verdien
 
+{{< code-title >}}
+App/config/texts/resource.nb.json
+{{< /code-title >}}
 ```json
 {
   "id": "appOwner",
@@ -58,14 +66,49 @@ Dersom du ønsker å overstyre navnet på tjenesteeieren, kan du gjøre dette i 
 }
 ```
 
-Du kan også overstyle alt-teksten på logoen:
+Du kan også overstyre alt-teksten på logoen:
 
+{{< code-title >}}
+App/config/texts/resource.nb.json
+{{< /code-title >}}
 ```json
 {
   "id": "appLogo.altText",
   "value": "Logo til Brønnøysundregistrene"
 }
 
+```
+
+## Bruk egendefinert logo
+
+For å bruke din egen logo, må den først lastes opp.
+
+1. Lage en mappe med navnet `wwwroot`. Denne skal ligge under App-mappen, `App/wwwroot`.
+2. Last opp logoen, som følger [designretningslinjene](#designretningslinjer-for-app-eier-logo), til mappen.
+
+Husk at hver tekstressursfil (`resource.[language].json`) må oppdateres for at endringene skal vises i alle språk.
+
+{{< code-title >}}
+App/config/texts/resource.nb.json
+{{< /code-title >}}
+```json
+{
+  "id": "appLogo.url",
+  "value": "/{appID}/{logoName}.svg"
+}
+```
+Her refererer `appID` til `id` egenskapen i `applicationmetadata.json`.
+
+Til slutt så må `source` i `applicationmetadata.json` endres til å være `resource` for å hente logoen som ble lastet opp.
+{{< code-title >}}
+App/config/applicationmetadata.json
+{{< /code-title >}}
+```json {hl_lines=[3]}
+"logo": {
+    "displayAppOwnerNameInHeader": false,
+    "source": "resource",
+    "size": "medium"
+  },
 ```
 
 ## Egenskaper

@@ -1,18 +1,22 @@
 ---
-title: Use organisation logo
-description: How to configure use of organisation logo
+title: Logo
+description: How to set and configure the logo of an application
+toc: true
 weight: 30
 ---
 
 {{%notice warning%}}
 
-Setting application logo is only available with `Altinn.App.Core` version 7.14.0 and higher 
+Setting the application logo is only available with `Altinn.App.Core` version 7.14.0 and higher 
 
 {{% /notice%}}
 
-To use organisation logo you can specify that in `applicationmetadata.json`:
+## Use organization logo
+To use the organization logo specified for the organization in `altinn-orgs.json` you can write the following in `applicationmetadata.json`:
+{{< code-title >}}
+App/config/applicationmetadata.json
+{{< /code-title >}}
 ```json
-// applicationmetadata.json
 {
   "logo": {
     "source": "org",
@@ -21,12 +25,12 @@ To use organisation logo you can specify that in `applicationmetadata.json`:
 }
 ```
 
-When enabling this option, the logo will default to the one specified for the organization in `altinn-orgs.json`.
-
 If you want to use a different logo for the application, you can specify that in `resource.json` with the value
 
+{{< code-title >}}
+App/config/texts/resource.nb.json
+{{< /code-title >}}
 ```json
-// resource.nb.json
 {
   "id": "appLogo.url",
   "value": "https://altinncdn.no/orgs/brg/brreg.png"
@@ -36,8 +40,10 @@ If you want to use a different logo for the application, you can specify that in
 If your logo already contains the name of the organization the application represents, you might not want
 the appOwner to be displayed in the header. You can disable this by setting the value `displayAppOwnerNameInHeader` to `false`.
 
+{{< code-title >}}
+App/config/applicationmetadata.json
+{{< /code-title >}}
 ```json
-// applicationmetadata.json
 {
   "logo": {
     ...
@@ -48,12 +54,50 @@ the appOwner to be displayed in the header. You can disable this by setting the 
 
 You can also override the alt text for the logo:
 
+{{< code-title >}}
+App/config/texts/resource.nb.json
+{{< /code-title >}}
 ```json
 {
   "id": "appLogo.altText",
   "value": "Logo for Brønnøysund Register Centre"
 }
 ```
+
+## Use custom logo
+
+In order to use a custom logo, the logo must first be uploaded. 
+
+1. Create a folder named `wwwroot`. This should be under App, `App/wwwroot`.
+2. Upload a logo following the [design guidelines](#design-guidelines-for-app-owner-logo) to the folder.
+
+Remember that each text resource file (`resource.[language].json`) must be updated for changes to apply to all languages.
+
+{{< code-title >}}
+App/config/texts/resource.nb.json
+{{< /code-title >}}
+```json
+{
+  "id": "appLogo.url",
+  "value": "/{appID}/{logoName}.svg"
+}
+```
+
+The `appID` here refers to the `id` property in `applicationmetadata.json`.
+
+Finally, `source` in `applicationmetadata.json` needs to be set to `resource` in order to access the logo uploaded.
+{{< code-title >}}
+App/config/applicationmetadata.json
+{{< /code-title >}}
+```json {hl_lines=[3]}
+"logo": {
+    "displayAppOwnerNameInHeader": false,
+    "source": "resource", 
+    "size": "medium"
+  },
+```
+
+
 
 ## Properties
 
