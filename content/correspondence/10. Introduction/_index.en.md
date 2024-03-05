@@ -1,7 +1,7 @@
 ---
-title: Altinn Correspondence Introduction
+title: Altinn 3 Correspondence Introduction
 linktitle: Introduction
-description: Introduction to the Altinn Correspondence Service
+description: Altinn 3 Correspondence Introduction
 tags: [architecture, solution]
 toc: true
 weight: 10
