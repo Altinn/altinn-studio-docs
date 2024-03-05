@@ -1,13 +1,13 @@
 ---
 title: PDF
-description: Hvordan konfigurere generering av PDF.
+description: Hvordan konfigurere generering av PDF
 weight: 50
 ---
 
 {{%notice warning%}}
-## Ny PDF generering
-### Aktivere ny PDF generering
-Fra og med versjon 7.5 av nuget pakkene (Altinn.App.Api og Altinn.App.Core) er det lansert en ny måte å generere PDF'er på. Denne nye måten kan skrus av og på ved å legge til følgende seksjon og innstilling i _appsettings.json_.
+## Ny PDF-generering
+### Aktivere ny PDF-generering
+Fra og med versjon 7.5 av nuget-pakkene (Altinn.App.Api og Altinn.App.Core) er det lansert en ny måte å generere PDF-er på. Denne nye måten kan skrus av og på ved å legge til følgende seksjon og innstilling i _appsettings.json_.
 
 ```json
   "FeatureManagement": {
@@ -15,10 +15,10 @@ Fra og med versjon 7.5 av nuget pakkene (Altinn.App.Api og Altinn.App.Core) er d
   }
 ```
 
-Dette vil sørge for at den nye PDF tjenesten kalles. Denne aksepterer en url som peker tilbake til en automatisk generert side i appen. Siden bygges opp og danner grunnlaget for PDF'en. `IPdfFormatter` grensesnittet som dokumentert nedenfor er fortsatt relevant hvis du trenger spesiallogikk for skjuling av komponenter/sider fra PDF'en.
+Dette vil sørge for at den nye PDF-tjenesten kalles. Denne aksepterer en URL som peker tilbake til en automatisk generert side i appen. Siden bygges opp og danner grunnlaget for PDF-en. Grensesnittet `IPdfFormatter` som dokumentert nedenfor er fortsatt relevant hvis du trenger spesiallogikk for å skjule komponenter/sider fra PDF-en.
 
 ### Innstillinger
-Selv om standard innstillingene for den nye tjenesten skal være nok for de fleste applikasjoner kan de overstyres ved å legge til en PdfGeneratorSettings seksjon i _appsettings.json_ (standard innstillinger vises under).
+Selv om standardinnstillingene for den nye tjenesten skal være nok for de fleste applikasjoner, kan de overstyres ved å legge til en PdfGeneratorSettings-seksjon i _appsettings.json_ (standardinnstillinger vises under).
 
 ```json
   "PdfGeneratorSettings": {
@@ -29,7 +29,7 @@ Selv om standard innstillingene for den nye tjenesten skal være nok for de fles
   }
 ```
 
-Hvis WaitForSelector er satt så blir WaitForTime ignorert. WaitForSelector sikrer at siden er ferdig oppbygd og presentert før PDF'en genereres.
+Hvis WaitForSelector er satt så blir WaitForTime ignorert. WaitForSelector sikrer at siden er ferdig oppbygd og presentert før PDF-en genereres.
 
 {{% /notice%}}
 
@@ -38,7 +38,7 @@ Det er to ulike måter å konfigurere PDF-genereringen på:
 1. [Automatisk basert på skjema-sidene dine](#automatisk-konfigurasjon)
 2. [Manuelt basert på en egendefinert PDF-side](#egendefinert-konfigurasjon)
 
-Det er også mulig å se en [forhåndsvisning](#forhåndsvisning-i-nettleseren) av hvordan PDF'en kommer til å se ut i nettleseren imens du jobber med den (kun v7.5+).
+Det er også mulig å se en [forhåndsvisning](#forhåndsvisning-i-nettleseren) av hvordan PDF-en kommer til å se ut i nettleseren imens du jobber med den (kun v7.5+).
 
 ## Automatisk konfigurasjon
 
@@ -59,9 +59,9 @@ Avhengig av hvilken versjon du kjører setter man opp den programmatiske metoden
 
 {{<content-version-container version-label="v7">}}
 
-1. Opprett en klasse som implementerer `IPdfFormatter` grensesnittet som ligger i `Altinn.App.Core.Features` navnerommet.  
-    Du kan navngi og plassere filene i den mappestrukturen du selv ønsker i prosjektet ditt. Men vi anbefaler at du benytter meningsfulle navnerom som i et hvilket som helst annet .Net prosjekt.
-2. Registrer din implementering i _Program.cs_ klassen
+1. Opprett en klasse som implementerer `IPdfFormatter`-grensesnittet som ligger i `Altinn.App.Core.Features`-navnerommet.  
+    Du kan navngi og plassere filene i den mappestrukturen du selv ønsker i prosjektet ditt. Men vi anbefaler at du benytter meningsfulle navnerom som i et hvilket som helst annet .Net-prosjekt.
+2. Registrér din implementering i _Program.cs_-klassen.
     ```C#
     services.AddTransient<IPdfFormatter, PdfFormatter>();
     ```
@@ -78,7 +78,7 @@ Endre `PdfHandler.cs`-filen under `App/logic/Print`-mappen.
 
 ### 1. Settings.json
 
-Legg til en liste med side-navn som skal eksluderes på `excludeFromPdf` under `pages`:
+Legg til en liste med sidenavn som skal eksluderes på `excludeFromPdf` under `pages`:
 
 ```json {linenos=false,hl_lines=["3-5"]}
 {
@@ -103,14 +103,14 @@ public async Task<LayoutSettings> FormatPdf(LayoutSettings layoutSettings, objec
 ```
 <br>
 
-**NB**: Du trenger kun å velge en av disse metodene.
+**NB**: Du trenger kun å velge én av disse metodene.
 {{% /expandlarge %}}
 
 {{% expandlarge id="exclude-component" header="Ekskludere komponenter" %}}
 
 ### 1. Settings.json
 
-Legg til en liste over komponent-IDer som skal ekskluderes på `excludeFromPdf` under `components`:
+Legg til en liste over komponent-ID-er som skal ekskluderes på `excludeFromPdf` under `components`:
 
 ```json {linenos=false,hl_lines=["3-5"]}
 {
@@ -135,11 +135,11 @@ public async Task<LayoutSettings> FormatPdf(LayoutSettings layoutSettings, objec
 ```
 <br>
 
-**NB**: Du trenger kun å velge en av disse metodene.
+**NB**: Du trenger kun å velge én av disse metodene.
 {{% /expandlarge %}}
 
 {{% expandlarge id="exclude-specific-component" header="Ekskludere komponenter fra en spesifikk rad i en repeterende gruppe" %}}
-Dersom du trenger å ekskludere en komponent fra en spesifikk rad i en repeterende gruppe må du spesifisere rad-nummeret i tillegg til komponent-IDen.
+Dersom du trenger å ekskludere en komponent fra en spesifikk rad i en repeterende gruppe må du spesifisere radnummeret i tillegg til komponent-ID-en.
 
 Formatet er: `komponentID-<rad-nummer>`.
 
@@ -168,7 +168,7 @@ public async Task<LayoutSettings> FormatPdf(LayoutSettings layoutSettings, objec
 ```
 <br>
 
-**NB**: Du trenger kun å velge en av disse metodene.
+**NB**: Du trenger kun å velge én av disse metodene.
 {{% /expandlarge %}}
 
 ## Egendefinert konfigurasjon
@@ -181,7 +181,7 @@ Denne metoden er kun tilgjengelig i versjon 7.5 og høyere.
 
 Denne metoden lar deg spesifisere en helt egendefinert PDF ved å definere en layout-fil som bestemmer hva den skal inneholde.
 
-For å ta i bruk denne metoden må du opprette en ny layout-fil for PDF'en og sette `pdfLayoutName` i `Settings.json` til å peke på den filen:
+For å ta i bruk denne metoden må du opprette en ny layout-fil for PDF-en og sette `pdfLayoutName` i `Settings.json` til å peke til den filen:
 ```json {linenos=false,hl_lines=["3-5"]}
 {
   "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
@@ -191,7 +191,7 @@ For å ta i bruk denne metoden må du opprette en ny layout-fil for PDF'en og se
 }
 ```
 
-Denne layout-filen konfigureres på akkurat samme måte som andre layout-filer, bortsett fra at ikke alle komponent-typer er tilgjengelig. Komponent-typene som kan brukes i en PDF-layout er følgende:
+Denne layout-filen konfigureres på akkurat samme måte som andre layout-filer, bortsett fra at ikke alle komponenttyper er tilgjengelig. Komponenttypene som kan brukes i en PDF-layout er følgende:
 
 - `Summary`
 - `Group`
@@ -256,7 +256,7 @@ Du kan spesifisere at en komponent skal starte på en ny side eller at et sidesk
 
 {{% expandlarge id="exclude-components-from-groups" header="Ekskludere komponenter inne i en gruppe" %}}
 
-Det er mulig å ekskludere enkeltkomponenter inne i en gruppe ved å bruke `excludedChildren`-egenskapen på en `Summary`-komponent som refererer til en `Group`-komponent. Dette gjøres ved å legge IDen til komponenten i listen over ekskluderte komponenter som i eksempelet under:
+Det er mulig å ekskludere enkeltkomponenter inne i en gruppe ved å bruke `excludedChildren`-egenskapen på en `Summary`-komponent som refererer til en `Group`-komponent. Dette gjøres ved å legge ID-en til komponenten i listen over ekskluderte komponenter som i eksempelet under:
 
 ```json {linenos=false,hl_lines=["6"]}
 {
@@ -278,9 +278,9 @@ Forhåndsvisningen gjelder kun dersom du bruker ny PDF generering (v7.5+). Se [o
 
 {{% /notice%}}
 
-Det er mulig å se en forhåndsvisning av hvordan den genererte PDF'en kommer til å se ut i nettleseren imens du jobber. Følg instruksjonene nedenfor:
+Det er mulig å se en forhåndsvisning av hvordan den genererte PDF-en kommer til å se ut i nettleseren imens du jobber. Følg instruksjonene nedenfor:
 
-1. **Viktig**: Bruk Google Chrome til å forhåndsvise PDF.<br>PDF-generatoren bruker en variant av Chrome til å generere PDF'en, så andre nettlesere vil ikke produsere et korrekt resultat ved forhåndsvisning.
+1. **Viktig**: Bruk Google Chrome til å forhåndsvise PDF.<br>PDF-generatoren bruker en variant av Chrome til å generere PDF-en, så andre nettlesere vil ikke produsere et korrekt resultat ved forhåndsvisning.
 2. Kjør opp appen din lokalt eller åpne appen din i testmiljøet, og start en instans.
 3. Åpne utviklerverktøyet ved å trykke på knappen nederst i høyre hjørne, eller bruk hurtigtasten `Ctrl+Shift+K`/`⌘+Shift+K`.
    <br><br>
