@@ -5,14 +5,6 @@ weight: 50
 toc: true
 ---
 
-{{% notice info %}}
-As of writing this documentation, the latest release candidate of app-frontend v4 is `4.0.0-rc3`. Updated information
-[is available on GitHub](https://github.com/Altinn/app-frontend-react/releases). Before the release of v4.0.0 stable,
-you will have to use exact version numbers in the URLs, e.g. `4.0.0-rc3` instead of `4`. Each time we release a new
-release candidate and you want to try out the new release, this URL will have to be updated. When the stable
-version is released, you can use `4` as the version number in the URLs and get the latest stable version automatically.
-{{% /notice %}}
-
 ## Introduction
 
 This guide will help you migrate your app from using version 3 of App-frontend to version 4. 
@@ -96,7 +88,7 @@ In addition to changing the version, you should also remove the links to the thi
 
       <!-- Runtime CSS -->
     - <link rel="stylesheet" type="text/css" href="https://altinncdn.no/toolkits/altinn-app-frontend/3/altinn-app-frontend.css">
-    + <link rel="stylesheet" type="text/css" href="https://altinncdn.no/toolkits/altinn-app-frontend/4.0.0-rc3/altinn-app-frontend.css">
+    + <link rel="stylesheet" type="text/css" href="https://altinncdn.no/toolkits/altinn-app-frontend/4/altinn-app-frontend.css">
     ```
 2. Changes inside __&lt;body&gt;__:
     <br><br>
@@ -121,7 +113,7 @@ In addition to changing the version, you should also remove the links to the thi
       </div>
 
     - <script src="https://altinncdn.no/toolkits/altinn-app-frontend/3/altinn-app-frontend.js"></script>
-    + <script src="https://altinncdn.no/toolkits/altinn-app-frontend/4.0.0-rc3/altinn-app-frontend.js"></script>
+    + <script src="https://altinncdn.no/toolkits/altinn-app-frontend/4/altinn-app-frontend.js"></script>
     ```
 3. It's optionally also possible to change the `$schema` reference in layout files to get the latest suggestions
     and validations for layout configuration. This is not required for v4 to work, but is recommended when developing
@@ -133,7 +125,7 @@ In addition to changing the version, you should also remove the links to the thi
     ```diff
       {
     -   "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
-    +   "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4.0.0-rc3/schemas/json/layout/layout.schema.v1.json",
+    +   "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
         "data": {
           "layout": [
             {
