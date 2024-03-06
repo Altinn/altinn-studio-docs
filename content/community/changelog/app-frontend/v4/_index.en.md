@@ -26,11 +26,6 @@ release candidates before the final stable release.
 App frontend v4 requires at least version 8.0.0 of the `Altinn.App.Core` and `Altinn.App.Api` nuget packages.
 See the [overview of changes in backend v8](/community/changelog/app-nuget/v8) for more information on how to upgrade.
 
-{{% notice warning %}}
-The `v4.0.0-rc3` release requires version `v8.0.0-preview.17` or above. When both major releases of app frontend and
-backend are released, the `v4.0.0` release will require version `v8.0.0` or above.
-{{% /notice %}}
-
 ## Using layout sets is now required
 
 Layout sets is a way to support multiple forms in a single application.
@@ -180,10 +175,9 @@ data model fields of type `number`, `boolean`, and bind them to components. For 
 a `Checkboxes` component to a `boolean` field, and provide an options list with the strings `"true"` and `"false"`, the
 frontend will convert the strings to booleans.
 
-{{% notice warning %}}
-As of `v4.0.0-rc1` invalid values (also invalid typed values like `-` for a numeric field) will not be saved to the
-data model. Before we release `v4.0.0` these cases will also present validation errors to the user.
-{{% /notice %}}
+If you bind an `Input` component to a `number` field, the frontend will convert the string to a number while the user
+is typing. For the best possible user experience, set up [number formatting](/app/development/ux/styling/#formatting-numbers)
+on the `Input` component.
 
 **Note:** If you have set up a `RuleHandler.js` file in your app, you may need to update it to handle the new data types.
 In cases where the `RuleConfiguration.json` file specified a path that pointed to a `number` or `boolean` field,
