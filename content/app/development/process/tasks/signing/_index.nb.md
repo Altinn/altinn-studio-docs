@@ -36,7 +36,7 @@ En signeringoppgave i sin enkleste form ser omtrent slik ut:
     </bpmn:extensionElements>
 </bpmn:task>
 ```
-#### Gjøre signering tilgjengelig som handling
+### Gjøre signering tilgjengelig som handling
 
 Som med bekreftelsesoppgaver må vi definere de tilgjengelige handlingene. For å generere et signeringobjekt må brukeren kunne utføre handlingen "signer":
 
@@ -48,7 +48,7 @@ Som med bekreftelsesoppgaver må vi definere de tilgjengelige handlingene. For �
 
 "Signer" kan være det eneste alternativet eller kombinert med andre handlinger som "bekreft" og/eller "avvis", avhengig av behovene til hver applikasjon.
 
-#### Konfigurere hvilke dataelementer som skal signeres
+### Konfigurere hvilke dataelementer som skal signeres
 
 Når en bruker utfører handlingen "sign", vil konfigurasjonen fra <altinn:signatureConfig> bli brukt til å opprette et signeringobjekt.
 
@@ -70,7 +70,7 @@ Hvis applikasjonen også har en datatypen "attachments", der brukeren legger ved
 </altinn:signatureConfig>
 ```
 
-#### Konfigurere hvor signaturobjektet skal lagres
+### Konfigurere hvor signaturobjektet skal lagres
 
 Et signaturobjekt krever også en datatypen der det skal lagres når det er generert. Dette er definert i `<altinn:signatureDataTyep>`, og må også være definert i `App/config/applicationmetadata.json`.
 
@@ -136,7 +136,7 @@ Eksempel på en applicationmetadata.json-fil med en signaturdatatypen kalt "sign
 }
 ```
 
-#### Design layout for signeringssteget
+### Design layout for signeringssteget
 
 Signerings steget trenger en layout som definerer hva som skal vises til brukeren. Dette gjøres via en egen layoutset som i sin tur knyttes til signering prosesssteget (`Task_2 i vårt eksemepel`)
 
@@ -176,7 +176,7 @@ Eksempel på en enkel layout med et read only tekst felt og en signerings knapp 
 }
 ```
 
-#### Sett autorisasjons regel som gir bruker lov til å signere
+### Sett autorisasjons regel som gir bruker lov til å signere
 
 For at brukere skal få lov til å signere må det defineres en regel i `App/config/authorization/policy.xml` som gir brukerne rettigheter til på signere på det nye prosesssteget.
 
@@ -236,7 +236,7 @@ Eksempel på en autorisasjon regel som gir disse tilgange for _DAGL_ rollen på 
 </xacml:Rule>
 ```
 
-#### Konfigurere unike signaturer
+### Konfigurere unike signaturer
 
 Hvis en applikasjon har flere signeringstrinn, kan du sørge for at én person ikke kan signere begge trinnene selv om de har nødvendige roller.
 
@@ -295,6 +295,14 @@ I tillegg har Task_3s `<altinn:signatureConfig>` definert at den skal være unik
     <altinn:dataType>signatur</altinn:dataType>
 </altinn:uniqueFromSignaturesInDataTypes>
 ```
+
+### Gjøre det mulig for signerer å avslå å signere
+
+Hvis det skal være mulig å avslå å signere og for eksempel sende instansen tilbake til forrige steg kan dette gjøres ved å legge til en `reject` action på dette prosesssteget.
+
+Denne legges da til i autorisasjons regelen og det defineres en egen ActionButton som knyttes til action `reject`.
+
+Se [Kontroller proess flyt](../../flowcontrol/) for mer informasjon.
 
 ### Lagring av signeringobjekt når brukeren signerer
 

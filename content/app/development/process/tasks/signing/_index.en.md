@@ -38,7 +38,7 @@ A signing task in its simples format looks something like this:
 </bpmn:task>
 ```
 
-#### Making sign an available action
+### Making sign an available action
 
 As for confirmation steps we need to define the actions available, to generate a signing object the user needs to be able to perform the sign action:
 
@@ -50,7 +50,7 @@ As for confirmation steps we need to define the actions available, to generate a
 
 The sign action can be the only option or in combination with other actions like confirm and/or reject, based on the needs of each application.
 
-#### Configure what dataelements to sign
+### Configure what dataelements to sign
 
 Once a user performs a sign action the config from `<altinn:signatureConfig>` will be used to create a signature object.
 
@@ -72,7 +72,7 @@ If the application also has a datatype with attachments  named `attachments` whe
 </altinn:signatureConfig>
 ```
 
-#### Configure where to store the signature object
+### Configure where to store the signature object
 
 A signature object also requires a dataType where it should be stored once generated. This is defined in the `<altinn:signatureDataTyep>` and also needs to be defined in `App/config/applicationmetadata.json`
 
@@ -138,7 +138,7 @@ Example of a applicationmetadata.json with a signature datatype named signature:
 }
 ```
 
-#### Design layout for the signing step
+### Design layout for the signing step
 
 The signing step requires a layout that defines what should be displayed to the user. This is done through a separate layout set, which in turn is associated with the signing process step (`Task_2` in our example).
 
@@ -179,7 +179,7 @@ An example of a simple layout with a read-only text field and a signing button m
 }
 ```
 
-#### Define authorization rule that gives the user signing rights
+### Define authorization rule that gives the user signing rights
 
 To allow users to sign, a rule must be defined in `App/config/authorization/policy.xml` that grants users the rights to sign in the given process step.
 
@@ -239,7 +239,7 @@ An example of an authorization rule granting these permissions for the _DAGL_ ro
 </xacml:Rule>
 ```
 
-#### Configure unique signatures
+### Configure unique signatures
 
 If an application has multiple signing steps it is possible to ensure that one person cannot sign both steps even if they have the necessary roles.
 
@@ -298,6 +298,15 @@ In addition Task_3s `<altinn:signatureConfig>` has defined that it should be uni
     <altinn:dataType>signature</altinn:dataType>
 </altinn:uniqueFromSignaturesInDataTypes>
 ```
+
+### Enable the signer to decline signing
+
+If it should be possible to decline signing and, for example send the instance back to the previous step, this can be done by adding a `reject` action to this process step.
+
+This is then added to the authorization rule, and a separate `ActionButton` is defined that is associated with the `reject` action.
+
+See [Controlling process flow](../../flowcontrol/) for more information.
+
 
 ### Signing object stored when user signs
 
