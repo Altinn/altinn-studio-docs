@@ -138,6 +138,107 @@ Example of a applicationmetadata.json with a signature datatype named signature:
 }
 ```
 
+#### Design layout for the signing step
+
+The signing step requires a layout that defines what should be displayed to the user. This is done through a separate layout set, which in turn is associated with the signing process step (`Task_2` in our example).
+
+If you have a v3 application without a layout set, see [Layout-sets](../../../ux/pages/layout-sets/) for how to set this up.
+
+Create a new folder in `App/ui/` with a name that describes this layout set, for example, _signing_. In this folder, create the file `Settings.json` and a folder named `layouts`.
+
+In the `layouts` folder, create files that define how pages in this layout set should look. The only component that a signing layout must have is an [`ActionButton`](../../../ux/components/ActionButton/) with `"action": "sign"`, which defines that when the user presses this, they perform the sign action, advancing the process.
+
+An example of a simple layout with a read-only text field and a signing button may look like this:
+
+
+```json
+{
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
+  "data": {
+    "layout": [
+      {
+        "id": "name-readonly-input",
+        "type": "Input",
+        "dataModelBindings": {
+          "simpleBinding": "Name"
+        },
+        "readOnly": true,
+        "required": true
+      },
+      {
+        "id": "sign-button",
+        "type": "ActionButton",
+        "textResourceBindings": {
+          "title": "Sign"
+        },
+        "action": "sign",
+        "buttonStyle": "primary"
+      }
+    ]
+  }
+}
+```
+
+#### Define authorization rule that gives the user signing rights
+
+To allow users to sign, a rule must be defined in `App/config/authorization/policy.xml` that grants users the rights to sign in the given process step.
+
+This rule must specify that users who should be able to sign have the permission rights: _read_, _write_, and _sign_ on the step.
+
+An example of an authorization rule granting these permissions for the _DAGL_ role on the process step with the ID _Task_2_ could look like this:
+
+```xml
+<xacml:Rule RuleId="urn:altinn:example:ruleid:7" Effect="Permit">
+    <xacml:Description>Rule that defines that user with role DAGL can read, write and sign for [ORG]/[APP] when it is in Task_2</xacml:Description>
+    <xacml:Target>
+        <xacml:AnyOf>
+            <xacml:AllOf>
+                <xacml:Match MatchId="urn:oasis:names:tc:xacml:3.0:function:string-equal-ignore-case">
+                    <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">DAGL</xacml:AttributeValue>
+                    <xacml:AttributeDesignator AttributeId="urn:altinn:rolecode" Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
+                </xacml:Match>
+            </xacml:AllOf>
+        </xacml:AnyOf>
+        <xacml:AnyOf>
+            <xacml:AllOf>
+                <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                    <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">[ORG]</xacml:AttributeValue>
+                    <xacml:AttributeDesignator AttributeId="urn:altinn:org" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
+                </xacml:Match>
+                <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                    <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">[APP]</xacml:AttributeValue>
+                    <xacml:AttributeDesignator AttributeId="urn:altinn:app" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
+                </xacml:Match>
+                <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                    <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">Task_2</xacml:AttributeValue>
+                    <xacml:AttributeDesignator AttributeId="urn:altinn:task" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
+                </xacml:Match>
+            </xacml:AllOf>
+        </xacml:AnyOf>
+        <xacml:AnyOf>
+            <xacml:AllOf>
+                <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                    <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">read</xacml:AttributeValue>
+                    <xacml:AttributeDesignator AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
+                </xacml:Match>
+            </xacml:AllOf>
+            <xacml:AllOf>
+                <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                    <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">write</xacml:AttributeValue>
+                    <xacml:AttributeDesignator AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
+                </xacml:Match>
+            </xacml:AllOf>
+            <xacml:AllOf>
+                <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                    <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">sign</xacml:AttributeValue>
+                    <xacml:AttributeDesignator AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
+                </xacml:Match>
+            </xacml:AllOf>
+        </xacml:AnyOf>
+    </xacml:Target>
+</xacml:Rule>
+```
+
 #### Configure unique signatures
 
 If an application has multiple signing steps it is possible to ensure that one person cannot sign both steps even if they have the necessary roles.
