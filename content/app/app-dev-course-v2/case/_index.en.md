@@ -4,6 +4,7 @@ description: Description of the municipality's requirements and wishes for the s
 linktitle: Case
 tags: [apps, case, training]
 weight: 10
+hidden: true
 ---
 Sogndal is in need of more young residents and wishes to become a desirable 
 municipality for young adults and others who wish to settle down.

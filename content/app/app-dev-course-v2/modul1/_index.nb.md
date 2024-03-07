@@ -4,6 +4,7 @@ description: Opprette app og lage enkelt skjema
 linktitle: Modul 1
 tags: [apps, training, datamodel, texts]
 weight: 20
+hidden: true
 ---
 
 I denne modulen skal du opprette selve applikasjonen, sette opp noen enkle innstillinger, lage en datamodell og sette 
