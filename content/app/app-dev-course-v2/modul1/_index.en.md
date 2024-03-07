@@ -109,70 +109,6 @@ The mentioned files are all generated from the `.xsd` description of the data mo
 
 {{% /expandlarge %}}
 
-{{% expandlarge id="edit-texts" header="Create and Edit Texts" %}}
-
-[Texts in Altinn Studio](/app/development/ux/texts/) are stored in separate language files (also called resource files) and can be linked to form components using a text key.
-The texts can be [created and edited in Altinn Studio Designer](/app/development/ux/texts/#altinn-studio-text-editor) or [directly in the file](/app/development/ux/texts/#changing-texts-directly-in-the-repository).
-
-{{% notice warning %}}
-**NOTE**: The display name for the application must be changed both in `App/config/applicationMetadata.json` and in the language files.
-{{% /notice %}}
-
-### Requirements from the Municipality
-
-All components must have suitable descriptive labels to make the service user-friendly and accessible for visually impaired people.
-
-### Tasks
-
-1. [Create text resources](/app/development/ux/texts/#add-and-change-texts-in-an-application) for the components of the first form. The text should provide descriptions of the required input and will appear above the respective fields. Refer to the upcoming task to identify the components for which you'll need these texts.
-2. [Change the display name for the application](/app/development/ux/texts/#change-application-title). It is important that the application's display name sounds good and describes the service well.
-3. [Add translation(s) for the texts](/app/development/ux/texts/#add-and-change-texts-in-an-application). The application must be available in Norwegian Bokmål, Norwegian Nynorsk, and English. In the initial version, supporting only one of these languages is sufficient.
-
-
-Remember to upload changes when working in Designer to update the repository.
-In the next step, you will create components and link them to the text resources.
-
-### Useful Documentation
-
-- [Texts in Altinn Studio](/app/development/ux/texts/)
-- [Editing Application Texts](/app/development/ux/texts/#add-and-change-texts-in-an-application)
-- [Formatting of Texts](/app/development/ux/texts/#formatting-of-texts)
-- [ISO 639-1 Standard language codes](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)
-
-### Knowledge Check
-
-In Altinn, we currently support three written languages: Norwegian Bokmål, Norwegian Nynorsk, and English.
-
-{{% expandsmall id="m1t2q1" header="How can you manually add English language support to the application?" %}}
-
-To manually add support for English in an application, you need to create the file `resources.en.json` in the folder `App/config/texts`:
-
-{{< code-title >}}
-App/config/texts/resources.en.json
-{{< /code-title >}}
-
-```json
-{
-  "language": "en",
-  "resources": []
-}
-```
-
-  Note that the `language` property at the top of the file must be set to `en`.
-{{% /expandsmall %}}
-
-{{% expandsmall id="m1t2q2" header="If we were to support Ukrainian one day, what language code would you need to annotate the file?" %}}
-
-According to the [list of ISO 639-1 codes](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes), the code for Ukrainian is `uk`.
-{{% /expandsmall %}}
-
-{{% expandsmall id="m1t2q3" header="If a text key referenced in `<page>.json` is not found in the text resources, what will be displayed?" %}}
-
-If the mentioned text key can't be located in the text resource file, the text key itself will be displayed.
-{{% /expandsmall %}}
-
-{{% /expandlarge %}}
-
 {{% expandlarge id="add-components" header="Add Components" %}}
 
 You can configure the components in an application using the graphical user interface [Altinn Studio Designer](/app/getting-started/).
@@ -291,5 +227,5 @@ A worked solution is underway.
 <br><br>
 
 {{% center %}}
-[Next module >>](../modul2/)
+<!--[Next module >>](../modul2/)-->
 {{% /center %}}

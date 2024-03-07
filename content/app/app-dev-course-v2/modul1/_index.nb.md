@@ -208,5 +208,5 @@ Løsningsforslag kommer
 <br><br>
 
 {{% center %}}
-[Neste modul >>](../modul2/)
+<!--[Neste modul >>](../modul2/)-->
 {{% /center %}}
