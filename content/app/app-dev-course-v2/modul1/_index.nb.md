@@ -3,8 +3,7 @@ title: Modul 1
 description: Opprette app og lage enkelt skjema
 linktitle: Modul 1
 tags: [apps, training, datamodel, texts]
-weight: 20
-hidden: true
+weight: 10
 ---
 
 I denne modulen skal du opprette selve applikasjonen, sette opp noen enkle innstillinger, lage en datamodell og sette 
@@ -16,6 +15,7 @@ opp et enkelt skjema basert på kravene fra Sogndal kommune.
 - Lage datamodell
 - Legge til skjemakomponenter og koble dem til datamodell
 - Redigering av tekster i skjema
+- Flere sider
 
 ## Oppgaver
 
@@ -209,5 +209,5 @@ Løsningsforslag kommer
 <br><br>
 
 {{% center %}}
-<!--[Neste modul >>](../modul2/)-->
+[Neste modul (modul 2) >>](../modul2/)
 {{% /center %}}
