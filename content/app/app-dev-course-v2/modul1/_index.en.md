@@ -15,7 +15,6 @@ opp et enkelt skjema basert på kravene fra Sogndal kommune.
 - Lage datamodell
 - Legge til skjemakomponenter og koble dem til datamodell
 - Redigering av tekster i skjema
-- Flere sider
 
 ## Oppgaver
 
@@ -134,22 +133,7 @@ Du kan sette opp skjemaet fra "Lage"-siden. Naviger til denne via "Lage"-knappen
 
 Der ser du at det er opprettet en tom første-side for skjemaet som utgangspunkt.
 
-### Krav fra kommunen
-{{% expandsmall id="m1-form-k1" header="Første side" %}}
-Første side skal være en informasjonsside. Noen i kommunen har opprettet en skisse av informasjonssiden.
-
-Følgende er det ønskelig at reflekteres i applikasjonen:
- - Plassering av bilder
- - Tekststørrelser
- - Formatering av tekst
-
-[Skisse på informasjonsside](/app/app-dev-course/modul2/infoside_tilflyttere.pdf)
-
-!["Sogndal kommunevåpen"](/app/app-dev-course/modul2/kommune-logo.png "Et bilde av Sogndals kommunevåpen som kan benyttes i applikasjonen" )
-{{% /expandsmall %}}
-
-{{% expandsmall id="m1-form-k2" header="Andre side" %}}
-Andre skjemaside innhenter personlig informasjon om tilflytteren og skal ha følgende komponenter:
+Skjemaet innhenter personlig informasjon om tilflytteren og skal ha følgende komponenter:
 - Navn
   - Fornavn
   - Mellomnavn (valgfritt)
@@ -163,19 +147,9 @@ Andre skjemaside innhenter personlig informasjon om tilflytteren og skal ha føl
   - Epost
   - Telefon
 
-{{% /expandsmall %}}
-
 ### Oppgaver
 
-1. Sett opp den første siden (informasjonssiden) basert på kravene fra kommunen.
-   - Komponenter for tekster finner du under "Tekst"-seksjonen i komponentoversikten til venstre.
-   - Komponenter dras inn i skjemasiden fra oversikten.
-   - Klikk på en komponent på skjemasiden for å få opp redigeringsmuligheter i høyre-panelet.
-   - Når komponenten har nødvendig konfigurasjon satt opp vil den dukke opp i forhåndsvisningen helt til høyre.
-   - For å begrense bredden til en komponent brukes 
-2. Legg til en ny side i skjemaet ved å trykke på "Legg til ny side".
-   - Merk at navigasjonsknapper mellom sidene automatisk legges til på sidene. 
-3. Sett opp den andre siden (skjemasiden) basert på kravene fra kommunen.
+1. Sett opp skjemaet basert på kravene fra kommunen.
    - Pass på å legge inn ledetekster for alle skjemafelter.
    - For adresse kan du bruke Adresse-komponenten som ligger under "Avansert", eller 3 tekstfelter.
    - For at skjemaet skal kunne sendes inn må du legge til en "Knapp" på den siste siden.
@@ -195,18 +169,7 @@ Husk å laste opp endringer når du jobber i Designer så de reflekteres i det s
 ## Oppsummering
 
 I denne modulen har du opprettet en applikasjon i Altinn Studio,
-lagd en datamodell og satt opp to skjemasider som kobler komponenter til noen av feltene i datamodellen.
-
-## Løsningsforslag
-
-[Kildekode Modul 1](https://altinn.studio/repos/testdep/flyttemelding-sogndal/src/branch/modul1)<br>
-
-{{% notice info %}}
-Løsningsforslag kommer
-{{% /notice %}}
-
-
-<br><br>
+lagd en datamodell og satt opp et skjema som kobler komponenter til feltene i datamodellen.
 
 {{% center %}}
 [Neste modul (modul 2) >>](../modul2/)
