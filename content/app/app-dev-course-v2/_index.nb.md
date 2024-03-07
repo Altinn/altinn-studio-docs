@@ -13,8 +13,8 @@ Du kan velge å utføre oppgavene i [Altinn Studio Designer](/nb/app/getting-sta
 (krever noe teknisk kompetanse).
 Du kan også kombinere disse fremgangsmåtene.
 
-Vi har lagt opp kurset sånn at det skal være mulig å gjennomføre modul 1-4 utelukkende i Altinn Studio Designer.
-Fra modul 5 introduseres avanserte konsepter som vil kreve noe utvikling, og dermed større teknisk kompetanse.
+Vi har lagt opp kurset sånn at det skal være mulig å gjennomføre modul 1-5 utelukkende i Altinn Studio Designer.
+Fra modul 6 introduseres avanserte konsepter som vil kreve noe utvikling, og dermed større teknisk kompetanse.
 Oppgavene fra modul 5 vil kreve endriner i applikasjonens kildekode.
 
 I løpet av disse syv modulene vil du ha vært innom den mest sentrale funksjonaliteten for en Altinn-app,
