@@ -4,6 +4,7 @@ description: Create an app and make a simple form
 linktitle: Module 1
 tags: [apps, training, datamodel, localtest, texts]
 weight: 20
+hidden: true
 ---
 
 In this module, you will create the application itself, add a data model, and set up a simple form based on the requirements from Sogndal Municipality.

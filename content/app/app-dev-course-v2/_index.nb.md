@@ -1,11 +1,8 @@
 ---
 title: Introkurs
 description: Bygg en applikasjon med Altinn Studio
-linktitle: Introkurs
 tags: [apps, build, deploy, training]
-aliases:
- - /kurs
-weight: 15
+hidden: true
 ---
 
 Introkurset er delt opp i 7 moduler og dekker et fiktivt case for Sogndal kommune.

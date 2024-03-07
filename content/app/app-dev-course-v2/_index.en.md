@@ -1,9 +1,8 @@
 ---
 title: Intro Course
 description: Build an application with Altinn Studio
-linktitle: Intro Course
 tags: [apps, build, deploy, training]
-weight: 15
+hidden: true
 ---
 
 The intro course is divided into 7 modules and covers a fictional case for Sogndal Municipality.

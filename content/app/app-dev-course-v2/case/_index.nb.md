@@ -4,6 +4,7 @@ description: Beskrivelse av kommunens krav og ønsker til tjenesten.
 linktitle: Case
 tags: [apps, case, training]
 weight: 10
+hidden: true
 ---
 
 Sogndal kommune trenger sårt flere unge mennesker og ønsker å bli en
