@@ -70,7 +70,7 @@ We recommend to include an alternative subject if the subject property is an int
 that is unknown to the event subscribers
 
 For Altinn-related events alternative subject follows the format `/person/16069412345`
-and `/org/987564321`.
+and `/organisation/987564321`.
 
 
 ## Response

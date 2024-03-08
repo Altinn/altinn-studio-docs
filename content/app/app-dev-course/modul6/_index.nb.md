@@ -25,7 +25,7 @@ På datasiden ønsker vi at det legges opp til at brukeren kan fylle inn tidlige
 - Postnummer
 - Poststed
 
-Det skal være mulig å legge inn opptill 10 tidligere bosteder.
+Det skal være mulig å legge inn opptil 10 tidligere bosteder.
 
 ### Oppgaver
 
@@ -117,7 +117,7 @@ Dette stiller derfor krav til at apputvikler optimaliserer koden som kjøres og 
 
 {{% expandsmall id="m6t3q2" header="Hva skiller `ProcessDataWrite` og `ProcessDataRead`?" %}}
 `ProcessDataWrite` kjøres i det brukeren skriver data, altså når brukeren har fylt inn et felt eller oppdaterer en eksisterende verdi.
-`ProcessDataRead` kjøres i det brukeren leser data fra databasen, f.eks. når man navigerer seg til en tidligere instans av applikasjonen og henter opp tildigere utfylt data.
+`ProcessDataRead` kjøres i det brukeren leser data fra databasen, f.eks. når man navigerer seg til en tidligere instans av applikasjonen og henter opp tidligere utfylt data.
 {{% /expandsmall %}}
 
 {{% /expandlarge %}}

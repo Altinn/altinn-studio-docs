@@ -1,45 +1,39 @@
 ---
 title: Resource Registry
 linktitle: Resource Registry
-description: The Resource Registry 
+description: The resource registry contains information about resources where Altinn Authorization is used for access management and control. 
 tags: [architecture, security, authorization, xacml]
-weight: 1
+weight: 3
 ---
 
 {{<notice warning>}}
 This is work in progress
 {{</notice>}}
 
-The service registry will contain information about the service resources 
-
-See [Github #24](https://github.com/Altinn/altinn-resource-registry/issues/23)
-
 ## Type of resources
 
-There are different types of resources that can be registrated 
+There are different types of resources that can be registrated
 
-- Altinn 3 apps - Refered with org/app id
-- Altinn 2 Services - Refered with externalServiceCode and EditionCode
-- Service Resources
+- GenericAccessResource
+- MaskinportenSchema
+- Systemresource
+  
+Later it will be possible to registrate
 
-### Altinn 3 Apps 
+- Altinn 3 Apps
+- Legacy Altinn 2 services for legacy archive authorization (not finalized)
 
-Apps hosted in Altinn 3 Apps will be registred in the Altinn Service Registry. 
+### Generic Access Resources
 
-The referenced id would be org/app
+GenericAccessResources will be used as linkServices are used in Altinn 2.
 
-The registration is required to be able to list apps that is included in the rights for a group
+The resource would be any type of service provided by public organiazations.
 
+We used [cpsv:PublicService](https://informasjonsforvaltning.github.io/cpsv-ap-no/#OffentligTjeneste) as inspiration to the data model.
 
-### Altinn 2 Services
+This also allows Felles datakatalog to consume the definition for their [service catalogue](https://data.norge.no/public-services-and-events)
 
-Apps hosted in Altinn 2 platform will be registrated in Altinn Service Registry
-
-The reference id would be externalServiceCode/serviceeditionCode
-
-### Altinn Service Resource
-
-The service resource would be any type of service provided by public or private organiazations. We will use [cpsv:PublicService](https://informasjonsforvaltning.github.io/cpsv-ap-no/#OffentligTjeneste) as inspiration to the data model.
+See full list [in production](https://platform.altinn.no/resourceregistry/api/v1/resource/search).
 
 Some examples
 
@@ -48,7 +42,7 @@ Some examples
 - Portal functionality in external portal [Example 2](exampleresource2.json)
 - Samordna registermelding [Example 4](exampleresource4.json) [XACML](policysample4.xml)
 - Avtale om Arbeidstrening [Example 6](exampleresource6.json) [XACML](policysample6.xml)
-- Lakselus MaskinPortenSchema [Example 7](exampleresource7.json) [XACML](policysample7.xml)
+- Lakselus MaskinPortenSchema [Example 7](https://platform.altinn.no/resourceregistry/api/v1/resource/mat-maskinportenschema-lakselusrapportering/) [XACML](https://platform.altinn.no/resourceregistry/api/v1/resource/mat-maskinportenschema-lakselusrapportering/policy)
 
 
 ## Resource attributes
@@ -90,11 +84,26 @@ The policy is created in Altinn Studio and migrated to the Access Policy compone
 An app policy contains information about the different resources in an App and who and what kind of operations they are allowed to perform. 
 The who is identified using Altinn Roles, Access Groups, or roles/groups from other sources.
 
+**Example**
+
+- [BRG RRH-Innrapportering](apppolicy_brg_rrh-innrapportering.xml)
+
 ### Resource Registry Policies
 
 The resource registry policies are policies for resources that is not comming from Altinn 3 apps. It could be any functionality hosted on any platform. 
 
 Both digital and analog services can be registrated in the resource registry.
+
+### Administration from Altinn Studio
+
+![Resource Admin](resourceadmin1.png "Resource Admin in Altinn Studio")
+
+
+![Resource Admin](resourceadmin2.png "Resource Admin in Altinn Studio")
+
+
+![Resource Admin](resourceadmin3.png "Resource Admin in Altinn Studio")
+
 
 
 ## Construction

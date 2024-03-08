@@ -26,17 +26,90 @@ release candidates before the final stable release.
 App frontend v4 requires at least version 8.0.0 of the `Altinn.App.Core` and `Altinn.App.Api` nuget packages.
 See the [overview of changes in backend v8](/community/changelog/app-nuget/v8) for more information on how to upgrade.
 
-{{% notice warning %}}
-The `v4.0.0-rc2` release requires version `v8.0.0-preview16` or above. When both major releases of app frontend and
-backend are released, the `v4.0.0` release will require version `v8.0.0` or above.
-{{% /notice %}}
-
 ## Using layout sets is now required
 
 Layout sets is a way to support multiple forms in a single application.
 This entails a slightly different folder structure in the `ui` folder of your app, as well as a new `layout-sets.json` file.
 This used to be optional, but as of v4 it is required, even for apps with only a single data step.
 See the [documentation on layout sets](/app/development/ux/pages/layout-sets) for more information.
+
+## Defining a custom receipt is now done with a layout set
+
+{{% notice info %}}
+This change was introduced in `v4.0.0-rc3`. It was not present in `v4.0.0-rc1` or `v4.0.0-rc2`. In these previous versions,
+a custom receipt was not supported.
+{{% /notice %}}
+A custom receipt view can now be created in the same way as all other form pages.
+
+To create a custom receipt view, you create a new layout set. This layout set works exactly like
+all other page types. Within the layout set, you can create a layouts folder and here define all the pages you want to
+include in the receipt view (Yes, the receipt view supports multiple pages!). Inside the layout set, you must also create
+a `Settings.json`, where you can define the order of the pages in the receipt view.
+
+For the app to understand that this layout set should be used as a receipt view, you must refer to the name of the layout set
+in `layout-sets.json`. Add a new layout set with `id` that refers to the name of your layout set, and add
+the key value `"CustomReceipt"` in the `tasks` array of the layout set. In addition, you can specify which data model
+should be available in the receipt view by adding the key `dataType` with the name of the data model you want to support.
+
+Here is a complete example where we have a layout set named custom-receipt that will be used as a receipt view:
+
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="Folder structure">}}
+
+```
+|- App/
+  |- ui/
+    |- layout-sets.json
+    |- custom-receipt/
+      |- layouts/
+        |- page1.json
+        |- page2.json
+      |- Settings.json
+```
+
+{{</content-version-container>}}
+{{</content-version-selector>}}
+
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="Code">}}
+
+{{<code-title>}}
+App/ui/layout-sets.json
+{{</code-title>}}
+
+```json {hl_lines=[4,6]}
+{
+  "sets": [
+    {
+      "id": "custom-receipt",
+      "dataType": "fields",
+      "tasks": ["CustomReceipt"]
+    }
+  ]
+}
+```
+
+{{</content-version-container>}}
+{{</content-version-selector>}}
+
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="Code">}}
+
+{{<code-title>}}
+App/ui/custom-receipt/Settings.json
+{{</code-title>}}
+
+```json
+{
+  "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
+  "pages": {
+    "order": ["page1", "page2"]
+  }
+}
+```
+
+{{</content-version-container>}}
+{{</content-version-selector>}}
 
 ## AddressComponent has been renamed to Address
 
@@ -47,12 +120,6 @@ This change was introduced in `v4.0.0-rc2`. It was not present in `v4.0.0-rc1`, 
 
 In the layout files, the `AddressComponent` component has been renamed to `Address`. Our upgrade tool will rename
 this for you automatically, but if you are migrating manually you will have to do this yourself.
-
-## Custom receipt pages do not work (temporarily)
-
-The functionality for custom receipt pages has been temporarily removed in the v4 release candidate, but will be
-re-introduced in a future release, prior to the stable `v4.0.0` release. The configuration for custom receipt pages
-will move elsewhere, and this section will be updated with more information when available.
 
 ## Language and text resource changes
 
@@ -108,10 +175,9 @@ data model fields of type `number`, `boolean`, and bind them to components. For 
 a `Checkboxes` component to a `boolean` field, and provide an options list with the strings `"true"` and `"false"`, the
 frontend will convert the strings to booleans.
 
-{{% notice warning %}}
-As of `v4.0.0-rc1` invalid values (also invalid typed values like `-` for a numeric field) will not be saved to the
-data model. Before we release `v4.0.0` these cases will also present validation errors to the user.
-{{% /notice %}}
+If you bind an `Input` component to a `number` field, the frontend will convert the string to a number while the user
+is typing. For the best possible user experience, set up [number formatting](/app/development/ux/styling/#formatting-numbers)
+on the `Input` component.
 
 **Note:** If you have set up a `RuleHandler.js` file in your app, you may need to update it to handle the new data types.
 In cases where the `RuleConfiguration.json` file specified a path that pointed to a `number` or `boolean` field,
@@ -223,7 +289,7 @@ Example of old to new config:
   type; `"RepeatingGroup"`
 - `"maxCount"` is no longer required to create a repeating group, but is still able to be used to restrict the maximum
   number of addable rows.
-- `edit.filter` is no longer supported, but the same functionality (or better) can be achieved by using the 
+- `edit.filter` is no longer supported, but the same functionality (or better) can be achieved by using the
   existing `hiddenRow` property with [expressions](/app/development/logic/expressions).
 
 Example of old to new config:
@@ -374,7 +440,7 @@ This functions more or less the same as before, but the configuration has been c
 
 This change also has the advantage that the need for `*FIXED*` validations no longer exists, as a
 `IFormDataValidator` in your custom backend code can now control when it should run, and when it runs all its validation
-messages are treated as one *group*. This means that if you have a validation that checks the value of *another field*,
+messages are treated as one _group_. This means that if you have a validation that checks the value of _another field_,
 or multiple fields at once, the validation message will disappear in frontend when the validation message is no longer
 added to the list of validation messages in the backend - even if another component than the validation message target
 was the one that changed.

@@ -77,9 +77,16 @@ Each notification will include the following properties:
 | New                           | The SMS has been created, but has not been picked up for processing yet. |
 | Sending                       | The SMS is being processed and will be attempted sent shortly. |
 | Accepted                      | The SMS has been accepted by the gateway service and will be sent shortly. |
+| Delivered                     | The SMS was successfully delivered to its destination. |
 | Failed                        | The SMS was not sent due to an unspecified failure.|
-| Failed_RecipientNotIdentified | The SMS was not sent because the recipient's SMS address was not found. |
+| Failed_BarredReceiver         | The SMS was not delivered because the recipient's number is barred, blocked or not in use. |
+| Failed_Deleted                | The SMS was not delivered because the message has been deleted. |
+| Failed_Expired                | The SMS was not delivered because it has expired. |
 | Failed_InvalidRecipient       | The SMS was not sent because the recipient number was invalid. |    
+| Failed_Undelivered            | The SMS was not delivered due to invalid number or no available route to destination. |
+| Failed_RecipientNotIdentified | The SMS was not sent because the recipient's SMS address was not found. |
+| Failed_Rejected               | The SMS was not delivered because it was rejected. |
+
 
 ## Examples
 

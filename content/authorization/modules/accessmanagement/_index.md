@@ -19,9 +19,6 @@ The access management will provide functionality to manage different aspects of 
 - List access groups members
 - List resources that is linked to access groups
 
-
-This design is in early phase. 
-
 ## Delegation & Administration of Delegated API Access 
 
 This functionality allows users to delegate access throug API with help of delegating access in maskinporten.
@@ -38,7 +35,16 @@ The second feature delivered from the new Access Management component will be
 
 As part of new design, management of access groups will take over for role management
 
-![Access groups](accessgroups.jpg "Access groups management")
+This design is in early phase. 
+
+![Concept](concept1.png "Authorization Landing page")
+
+
+![Concept](concept2.png "Concept: Delegation of access package")
+
+
+![Concept](concept3.png "Concept: Creation of Access Group")
+
 
 ### Construction
 

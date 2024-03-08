@@ -1,11 +1,21 @@
 {
 	"openapi": "3.0.1",
 	"info": {
-	  "title": "Altinn.Notifications",
-	  "version": "1.0"
+		"title": "Altinn.Notifications",
+		"version": "1.0"
 	},
+	"servers": [
+		{
+			"url": "https://platform.tt02.altinn.no/notifications/api/v1",
+			"description": "TT02"
+		},
+		{
+			"url": "https://platform.altinn.no/notifications/api/v1",
+			"description": "Production"
+		}
+	],
 	"paths": {
-	  "/orders/email": {
+	  "orders/email": {
 		"post": {
 		  "tags": [
 			"EmailNotificationOrders"
@@ -61,7 +71,7 @@
 		  }
 		}
 	  },
-	  "/orders/{id}/notifications/email": {
+	  "orders/{id}/notifications/email": {
 		"get": {
 		  "tags": [
 			"EmailNotifications"
@@ -102,7 +112,58 @@
 		  }
 		}
 	  },
-	  "/orders/{id}": {
+	  "metrics": {
+		"get": {
+		  "tags": [
+			"Metrics"
+		  ],
+		  "summary": "Presents the initial view of the metrics page",
+		  "responses": {
+			"200": {
+			  "description": "Success"
+			}
+		  }
+		},
+		"post": {
+		  "tags": [
+			"Metrics"
+		  ],
+		  "summary": "Gets the metrics for the provided month and year",
+		  "requestBody": {
+			"content": {
+			  "multipart/form-data": {
+				"schema": {
+				  "type": "object",
+				  "properties": {
+					"month": {
+					  "type": "integer",
+					  "format": "int32"
+					},
+					"year": {
+					  "type": "integer",
+					  "format": "int32"
+					}
+				  }
+				},
+				"encoding": {
+				  "month": {
+					"style": "form"
+				  },
+				  "year": {
+					"style": "form"
+				  }
+				}
+			  }
+			}
+		  },
+		  "responses": {
+			"200": {
+			  "description": "Success"
+			}
+		  }
+		}
+	  },
+	  "orders/{id}": {
 		"get": {
 		  "tags": [
 			"Orders"
@@ -143,7 +204,7 @@
 		  }
 		}
 	  },
-	  "/orders": {
+	  "orders": {
 		"get": {
 		  "tags": [
 			"Orders"
@@ -180,7 +241,7 @@
 		  }
 		}
 	  },
-	  "/orders/{id}/status": {
+	  "orders/{id}/status": {
 		"get": {
 		  "tags": [
 			"Orders"
@@ -221,7 +282,7 @@
 		  }
 		}
 	  },
-	  "/orders/sms": {
+	  "orders/sms": {
 		"post": {
 		  "tags": [
 			"SmsNotificationOrders"
@@ -273,6 +334,47 @@
 				  }
 				}
 			  }
+			}
+		  }
+		}
+	  },
+	  "orders/{id}/notifications/sms": {
+		"get": {
+		  "tags": [
+			"SmsNotifications"
+		  ],
+		  "summary": "Endpoint for retrieving a summary of all sms notifications related to an order",
+		  "parameters": [
+			{
+			  "name": "id",
+			  "in": "path",
+			  "description": "The order id",
+			  "required": true,
+			  "schema": {
+				"type": "string",
+				"format": "uuid"
+			  }
+			}
+		  ],
+		  "responses": {
+			"401": {
+			  "description": "Caller is unauthorized"
+			},
+			"403": {
+			  "description": "Caller is not authorized to access the requested resource"
+			},
+			"200": {
+			  "description": "The notification order was accepted",
+			  "content": {
+				"application/json": {
+				  "schema": {
+					"$ref": "#/components/schemas/SmsNotificationSummaryExt"
+				  }
+				}
+			  }
+			},
+			"404": {
+			  "description": "No notification order mathching the id was found"
 			}
 		  }
 		}
@@ -605,6 +707,16 @@
 			  "type": "string",
 			  "description": "Gets or sets the mobile number of the recipient",
 			  "nullable": true
+			},
+			"organisationNumber": {
+			  "type": "string",
+			  "description": "Gets or sets the organisation number of the recipient",
+			  "nullable": true
+			},
+			"nationalIdentityNumber": {
+			  "type": "string",
+			  "description": "Gets or sets the national identity number of the recipient",
+			  "nullable": true
 			}
 		  },
 		  "additionalProperties": false,
@@ -664,6 +776,63 @@
 		  },
 		  "additionalProperties": false,
 		  "description": "A class representing a status overview for sms notifications"
+		},
+		"SmsNotificationSummaryExt": {
+		  "type": "object",
+		  "properties": {
+			"orderId": {
+			  "type": "string",
+			  "description": "The order id",
+			  "format": "uuid"
+			},
+			"sendersReference": {
+			  "type": "string",
+			  "description": "The senders reference",
+			  "nullable": true
+			},
+			"generated": {
+			  "type": "integer",
+			  "description": "The number of generated sms notifications",
+			  "format": "int32"
+			},
+			"succeeded": {
+			  "type": "integer",
+			  "description": "The number of sms notifications that were sent successfully",
+			  "format": "int32"
+			},
+			"notifications": {
+			  "type": "array",
+			  "items": {
+				"$ref": "#/components/schemas/SmsNotificationWithResultExt"
+			  },
+			  "description": "A list of notifications with send result",
+			  "nullable": true
+			}
+		  },
+		  "additionalProperties": false,
+		  "description": "A class representing an sms notification summary"
+		},
+		"SmsNotificationWithResultExt": {
+		  "type": "object",
+		  "properties": {
+			"id": {
+			  "type": "string",
+			  "description": "The notification id",
+			  "format": "uuid"
+			},
+			"succeeded": {
+			  "type": "boolean",
+			  "description": "Boolean indicating if the sending of the notification was successful"
+			},
+			"recipient": {
+			  "$ref": "#/components/schemas/RecipientExt"
+			},
+			"sendStatus": {
+			  "$ref": "#/components/schemas/StatusExt"
+			}
+		  },
+		  "additionalProperties": false,
+		  "description": "A class representing an sms notification with result"
 		},
 		"SmsTemplateExt": {
 		  "type": "object",

@@ -22,7 +22,7 @@ Description TBD.
 
 Description: TBD
 
-[{{< figure src="./image4.png" title="Figure 4: ..." alt="Alt-text">}}](https://www.vg.no)
+{{< figure src="./image4.png" title="Figure 4: ..." alt="Alt-text">}}
 
 
 For further breakdown into features and more fine-granulated user

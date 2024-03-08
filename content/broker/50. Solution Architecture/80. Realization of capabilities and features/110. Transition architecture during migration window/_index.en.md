@@ -30,13 +30,13 @@ services:
 
 Concept: Uploaded files always stored
 
-[{{< figure src="./image15.png" title="Figure 15: ..." alt="Alt-text">}}](https://www.vg.no) 
+{{< figure src="./image15.png" title="Figure 15: ..." alt="Alt-text">}} 
 
 ## Alt. B: Soft shift from Altinn 2 to Altinn 3
 
 Concept: Uploaded files always stored on Altinn 3 Broker Storage …
 
-[{{< figure src="./image16.png" title="Figure 16: ..." alt="Alt-text">}}](https://www.vg.no) 
+{{< figure src="./image16.png" title="Figure 16: ..." alt="Alt-text">}} 
 
 ## Solution for uploading to Altinn 3 via Altinn 22
 

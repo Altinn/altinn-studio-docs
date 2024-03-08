@@ -2,7 +2,7 @@
 title: Modul 7
 description: Utvidelser av appen
 linktitle: Modul 7
-tags: [apps, training ]
+tags: [apps, training]
 weight: 20
 ---
 
@@ -18,6 +18,8 @@ I denne modulen er det en samling med frittstående utvidelser av applikasjonen.
 - Events -->
 
 ## Oppgaver
+
+<!-- Oppsummeringsside -->
 
 {{% expandlarge id="Oppsummeringsside" header="Oppsummeringsside" %}}
 ### Krav fra kommunen
@@ -40,13 +42,14 @@ Sogndal kommune ønsker at man benytter kategoriene **Personalia** om brukerens 
 
 ### Forståelsessjekk
 
-{{% expandsmall id="m7t1q1" header="Hvorfor burde oppsummeringssiden ignoreres fra PDF-genereringen?" %}}
+{{% expandsmall id="summary-knowledge-check" header="Hvorfor burde oppsummeringssiden ignoreres fra PDF-genereringen?" %}}
 PDF-genereringen har per nå ikke støtte for oppsummerings-komponenten.
  For at PDF-generering skal fungere må enten alle oppsummerings-komponentene, eller hele oppsummerings-siden(e) ekskluderes fra PDF.
 {{% /expandsmall %}}
 
 {{% /expandlarge %}}
 
+<!-- Stateless -->
 
 {{% expandlarge id="stateless" header="Stateless førsteside" %}}
 ### Krav fra kommunen
@@ -54,11 +57,15 @@ Sogndal kommune har oppdaget at det er en del trafikk fra personer som ikke møt
 For hver av disse brukerne blir det lagret en instans i databasen. Dette skaper unødige utgifter.
 
 Sogndal kommune ønsker derfor at informasjonssiden vises som en "stateless"-del av applikasjonen og at man derfra kan velge å starte en instans om man
-møter kriteriene.
+møter kriteriene.  
+Om man ikke møter kriteriene skal man tas videre til "Ikke for deg"-siden som også er en del av "stateless"-settet.
 
 ### Oppgaver
 
-1. 
+1. Opprett [layout-sets](/nb/app/development/ux/pages/layout-sets/) i appen. Flytt førstesiden og "Ikke for deg"-siden til "stateless"-settet (Husk å oppdatere `Settings.json`-filene).
+2. Konfigurer appen til å starte opp som en "stateless" applikasjon.
+3. Legg til en `InstantiationButton`-komponent på førstesiden.
+4. Legg til logikk der brukeren enten kan starte en instans eller sendes videre til "Ikke for deg"-siden basert på om [de møter kriteriene](/nb/app/app-dev-course/case/#alternativ-arbeidsflyt-sporvalg).
 
 ### Nyttig dokumentasjon
 - [Introduksjon til stateless applikasjoner](/nb/app/development/configuration/stateless)
@@ -67,21 +74,22 @@ møter kriteriene.
 
 ### Forståelsessjekk
 
-{{% expandsmall id="m7t2q1" header="Hva lagres av data for stateless applikasjoner?" %}}
+{{% expandsmall id="stateless-knowledge-check" header="Hva lagres av data for stateless applikasjoner?" %}}
 En stateless, eller tilstandsløs, applikasjon lagrer ikke noe data, verken skjemadata eller metadata om instanser av applikasjonen. 
 {{% /expandsmall %}}
 
 {{% /expandlarge %}}
 
+<!-- Variabler i tekst -->
 
 {{% expandlarge id="variabler-i-tekst" header="Variabler i tekst" %}}
 ### Krav fra kommunen
-IT-kompetanse er svært ettertraktet. I **Modul 4** satt vi opp et skreddersydd tilbud til de med IT-kompetanse.
+IT-kompetanse er svært ettertraktet. I **Modul 4** satte vi opp et skreddersydd tilbud til de med IT-kompetanse.
 
 Sogndal kommune har sett på tallene og ser at det genererer for lite trafikk til stillingsutlysningene.
 For å prøve å forbedre dette ønsker vi at tilbudet blir enda litt mer skreddersydd.
 
-Vi ønsker at den originale teksten;
+Vi ønsker at den originale teksten:
 
 ```rich
 Vi ser at du besitter kompetanse vi trenger i kommunen.
@@ -97,13 +105,20 @@ Se en oversikt over våre ledige stillinger her.
 
 Siste linje i teksten skal fortsatt være en lenke til stillingsutlysningene.
 
+### Oppgaver
+1. Endre teksten slik som det er beskrevet over og erstatt "{innsenders navn}" med en variabel som er knyttet til `Fornavn`-feltet i datamodellen.
+
 ### Nyttig dokumentasjon
 - [Variabler i tekster](/nb/app/development/ux/texts/#variabler-i-tekster)
 
 ### Forståelsessjekk
-- Hva vises som en del av teksten om den aktuelle variabelen ikke har noen verdi i datamodellen?
+{{% expandsmall id="text-variables-knowledge-check" header="Hva vises som en del av teksten om den aktuelle variabelen ikke har noen verdi i datamodellen?" %}}
+Hvis en variabel ikke har noen verdi vil stien til feltet i datakilden vises.
+{{% /expandsmall %}}
 
 {{% /expandlarge %}}
+
+<!-- Eksternt API -->
 
 {{% expandlarge id="api" header="Eksternt API" %}}
 I noen tilfeller vil man måtte ta i bruk eksterne APIer for å dekke alle behovene til en applikasjon. 
@@ -161,11 +176,9 @@ https://fraktguide.bring.no/fraktguide/api/postalCode.json?country=no&pnr={postn
 {{% /expandlarge %}} -->
 
 ## Løsningsforslag
-[Kildekode Modul 7](https://altinn.studio/repos/tss/flyttemelding-sogndal/src/branch/modul7)<br>
+[Kildekode Modul 7](https://altinn.studio/repos/tss/flyttemelding-sogndal/src/branch/modul7)
 
 {{% expandlarge id="Oppsummeringsside-solution" header="Oppsummeringsside" %}}
-
-<br>
 
 **Skjermbilde av oppsummeringsside:**
 
@@ -184,34 +197,36 @@ App/ui/layouts/oppsummering.json
 {{< /code-title >}}
 
 ```json
-...
-      {
-        "id": "arbeidsforhold-group",
-        "type": "Group",
-        "textResourceBindings": {
-          "title": "Arbeid"
-        },
-        "children": ["summary9", "summary10", "summary11"]
-      },
-      {
-        "id": "summary9",
-        "type": "Summary",
-        "componentRef": "RadioButtons-sektor",
-        "pageRef": "Arbeidsforhold"
-      },
-      {
-        "id": "summary10",
-        "type": "Summary",
-        "componentRef": "Checkboxes-bransje",
-        "pageRef": "Arbeidsforhold"
-      },
-      {
-        "id": "summary11",
-        "type": "Summary",
-        "componentRef": "Dropdown-years-in-workforce",
-        "pageRef": "Arbeidsforhold"
-      },
-      ...
+[
+  ...
+  {
+    "id": "arbeidsforhold-group",
+    "type": "Group",
+    "textResourceBindings": {
+      "title": "Arbeid"
+    },
+    "children": ["summary9", "summary10", "summary11"]
+  },
+  {
+    "id": "summary9",
+    "type": "Summary",
+    "componentRef": "RadioButtons-sektor",
+    "pageRef": "Arbeidsforhold"
+  },
+  {
+    "id": "summary10",
+    "type": "Summary",
+    "componentRef": "Checkboxes-bransje",
+    "pageRef": "Arbeidsforhold"
+  },
+  {
+    "id": "summary11",
+    "type": "Summary",
+    "componentRef": "Dropdown-years-in-workforce",
+    "pageRef": "Arbeidsforhold"
+  },
+  ...
+]
 ```
 
 * Legg til en innsendingsknapp med teksten 'Bekreft' og fjern innsendingsknappen fra siden `Arbeidsforhold.json`.
@@ -222,25 +237,27 @@ App/ui/layouts/oppsummering.json
 {{< /code-title >}}
 
 ```json
-...
-      {
-        "id": "panelinfo",
-        "type": "Panel",
-        "textResourceBindings": {
-          "title": "MERK",
-          "body": "preview.warning"
-        },
-        "variant": "warning",
-        "showIcon": true
-      },
-      {
-        "id": "preview-confirm",
-        "type": "Button",
-        "textResourceBindings": {
-          "title": "button.confirm"
-        }
-      },
-      ...
+[
+  ...
+  {
+    "id": "panelinfo",
+    "type": "Panel",
+    "textResourceBindings": {
+      "title": "MERK",
+      "body": "preview.warning"
+    },
+    "variant": "warning",
+    "showIcon": true
+  },
+  {
+    "id": "preview-confirm",
+    "type": "Button",
+    "textResourceBindings": {
+      "title": "button.confirm"
+    }
+  },
+  ...
+]
 ```
 
 Fullstendig løsning: [oppsummering.json](https://altinn.studio/repos/tss/flyttemelding-sogndal/src/branch/modul7/App/ui/layouts/oppsummering.json)
@@ -328,9 +345,96 @@ App/config/texts/resources.nb.json
 
 {{% /expandlarge %}}
 
-<!-- {{% expandlarge id="stateless-solution" header="Stateless førsteside" %}}
+<!-- Stateless Løsning -->
 
-* **Oppdater `applicationmetadata.json`:** Legg til `"onEntry": { "show": "stateless" }`. `stateless` refererer til layout-settet som defineres i neste steg.
+{{% expandlarge id="stateless-solution" header="Stateless førsteside" %}}
+
+### Opprett layout-sets
+Nedenfor ser du strukturen på `App/ui`-mappen vår etter at vi har opprettet layout-sets:
+```
+|- App/
+  |- ui/
+    | - layout-sets.json
+    | - footer.json
+    |- statefull/
+      |- Settings.json
+      |- RuleHandler.js
+      |- layouts/
+        |- innflytterPersonalia.json
+        |- arbeidsforhold.json
+        |- oppsummering.json
+    |- stateless/
+      |- Settings.json
+      |- RuleHandler.js
+      |- layouts/
+        |- info.json
+        |- ikkeForDeg.json
+```
+
+* **Opprett `layout-sets.json`** og legg til to sett ("stateless" og "statefull"):
+
+{{< code-title >}}
+App/ui/layout-sets.json
+{{< /code-title >}}
+
+```json
+{
+  ...
+  "sets": [
+    {
+      "id": "stateless",
+      "dataType": "datamodel"
+    },
+    {
+      "id": "statefull",
+      "dataType": "datamodel",
+      "tasks": ["Task_1"]
+    }
+  ]
+}
+```
+
+* **Oppdater `Settings.json`-filene** under hvert layout-set for å få riktige sider/rekkefølge i appen:
+
+{{< code-title >}}
+App/ui/stateless/Settings.json
+{{< /code-title >}}
+
+```json
+{
+  ...
+  "pages": {
+    "order": [
+      "info",
+      "ikkeForDeg"
+    ]
+  }
+}
+```
+
+{{< code-title >}}
+App/ui/statefull/Settings.json
+{{< /code-title >}}
+
+```json
+{
+  ...
+  "pages": {
+    "order": [
+      "innflytterPersonalia",
+      "arbeidsforhold",
+      "oppsummering"
+    ],
+    "excludeFromPdf": [
+      "oppsummering"
+    ]
+  }
+}
+```
+
+### Oppdater `applicationmetadata.json`
+Legg til `"onEntry": { "show": "stateless" }`.  
+`"stateless"` refererer til layout-settet som vi definerte tidligere.
 
 {{< code-title >}}
 App/config/applicationmetadata.json
@@ -348,26 +452,77 @@ App/config/applicationmetadata.json
   ],
   "onEntry": { "show": "stateless" },
   ...
+}
 ```
 
-* Opprett `layout-sets.json` under `App/ui` og legg til et sett med id `stateless`.
+### Starte instans fra førstesiden
+
+* **Legg til `InstantiationButton`** på førstesiden:  
+Legg til en instansieringsknapp på førstesiden i tillegg til navigasjonsknappen som vi hadde lagt til tidligere.  
+Vi har brukt uttrykk på knappene for å bestemme hvilken knapp som skal vises/skjules basert på brukerens valg.
 
 {{< code-title >}}
-App/ui/layout-sets.json
+App/ui/stateless/layouts/info.json
+{{< /code-title >}}
+
+```json{hl_lines=[9,17]}
+[
+  ...
+  {
+    "id": "Instantiation-button",
+    "type": "InstantiationButton",
+    "textResourceBindings": {
+      "title": "navigation.next"
+    },
+    "hidden": ["equals", ["dataModel", "Innflytter.KanBrukeSkjema"], false]
+  },
+  {
+    "id": "NavigationButtons-hateTR",
+    "type": "NavigationButtons",
+    "textResourceBindings": {
+      "next": "navigation.next"
+    },
+    "hidden": ["equals", ["dataModel", "Innflytter.KanBrukeSkjema"], true]
+  }
+]
+```
+{{% /expandlarge %}}
+
+<!-- Variabler i tekst - Løsning -->
+
+{{% expandlarge id="text-variables-solution" header="Variabler i tekst" %}}
+
+Nedenfor kan du se den "skreddersydde" teksten i skjemaet og hvordan vi satte dette opp i tekstressursfilen.
+
+![Skreddersydd IT-kompetanse tekst. Skjermbilde.](module7-text-variables-solution-screenshot.png "Skreddersydd IT-kompetanse tekst")
+
+* **Endre teksten i tekstressursfilen:**  
+I koden under kan du se hvordan vi har lagt til fornavnet til brukeren i `resource.nb.json` som en variabel:
+
+{{< code-title >}}
+App/config/texts/resource.nb.json
 {{< /code-title >}}
 
 ```json
 {
-  "sets": [
+  "language": "nb",
+  "resources": [
+    ...
     {
-      "id": "stateless",
-      "dataType": "Stateless-model"
-    }
+      "id": "arbeid.it-kompetanse",
+      "value": "#### Hei, {0}! Vi ser at du besitter kompetanse vi trenger i kommunen. <br><br> [Se en oversikt over våre ledige stillinger her.](https://sogndal.easycruit.com/index.html)",
+      "variables": [
+        {
+          "key": "Innflytter.Fornavn",
+          "dataSource": "dataModel.Skjema"
+        }
+      ]
+    },
+    ...
   ]
 }
 ```
-
-{{% /expandlarge %}} -->
+{{% /expandlarge %}}
 
 <br><br>
 

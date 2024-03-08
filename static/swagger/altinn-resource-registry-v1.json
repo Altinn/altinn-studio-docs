@@ -5,11 +5,1234 @@
     "version": "1.0"
   },
   "paths": {
-    "/resourceregistry/api/v1/resource/resourcelist": {
+    "/access-lists/{owner}": {
+      "get": {
+        "tags": [
+          "Access List"
+        ],
+        "summary": "Get all access lists for a given resource owner.",
+        "operationId": "access-lists/get-by-owner",
+        "parameters": [
+          {
+            "name": "owner",
+            "in": "path",
+            "description": "The resource owner",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "query",
+            "description": "Optional continuation token",
+            "schema": {
+              "$ref": "#/components/schemas/StringOpaque"
+            }
+          },
+          {
+            "name": "include",
+            "in": "query",
+            "description": "What additional information to include in the response",
+            "schema": {
+              "$ref": "#/components/schemas/AccessListIncludes"
+            }
+          },
+          {
+            "name": "resource",
+            "in": "query",
+            "description": "Optional resource identifier. Required if include has flag Altinn.ResourceRegistry.Core.AccessLists.AccessListIncludes.ResourceConnections\r\nset. This is used to filter the resource connections included in the access lists to only the provided resource.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccessListInfoDtoPaginated"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "AccessListRead"
+            ]
+          }
+        ]
+      }
+    },
+    "/access-lists/{owner}/{identifier}": {
+      "get": {
+        "tags": [
+          "Access List"
+        ],
+        "summary": "Gets an access list by owner and identifier.",
+        "parameters": [
+          {
+            "name": "owner",
+            "in": "path",
+            "description": "The resource owner",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "identifier",
+            "in": "path",
+            "description": "The resource owner-unique identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "include",
+            "in": "query",
+            "description": "What additional information to include in the response",
+            "schema": {
+              "$ref": "#/components/schemas/AccessListIncludes"
+            }
+          },
+          {
+            "name": "If-Match",
+            "in": "header",
+            "description": "If-Match header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "If-None-Match",
+            "in": "header",
+            "description": "If-None-Match header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "If-Modified-Since",
+            "in": "header",
+            "description": "If-Modified-Since header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "If-Unmodified-Since",
+            "in": "header",
+            "description": "If-Unmodified-Since header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "headers": {
+              "ETag": {
+                "description": "The version tag of the resource",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Last-Modified": {
+                "description": "The last modified date of the resource",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccessListInfoDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "412": {
+            "description": "Precondition Failed"
+          },
+          "304": {
+            "description": "Not Modified",
+            "headers": {
+              "ETag": {
+                "description": "The version tag of the resource",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Last-Modified": {
+                "description": "The last modified date of the resource",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "AccessListRead"
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Access List"
+        ],
+        "summary": "Deletes an access list by owner and identifier.",
+        "parameters": [
+          {
+            "name": "owner",
+            "in": "path",
+            "description": "The resource owner",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "identifier",
+            "in": "path",
+            "description": "The resource owner-unique identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "If-Match",
+            "in": "header",
+            "description": "If-Match header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "If-None-Match",
+            "in": "header",
+            "description": "If-None-Match header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "If-Modified-Since",
+            "in": "header",
+            "description": "If-Modified-Since header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "If-Unmodified-Since",
+            "in": "header",
+            "description": "If-Unmodified-Since header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list was deleted",
+            "headers": {
+              "ETag": {
+                "description": "The version tag of the resource",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Last-Modified": {
+                "description": "The last modified date of the resource",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccessListInfoDto"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "The access list did not exist or was already deleted"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "412": {
+            "description": "Precondition Failed"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "AccessListRead",
+              "AccessListWrite"
+            ]
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "Access List"
+        ],
+        "summary": "Create or update an access list.",
+        "parameters": [
+          {
+            "name": "owner",
+            "in": "path",
+            "description": "The resource owner",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "identifier",
+            "in": "path",
+            "description": "The resource owner-unique identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "If-Match",
+            "in": "header",
+            "description": "If-Match header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "If-None-Match",
+            "in": "header",
+            "description": "If-None-Match header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "If-Modified-Since",
+            "in": "header",
+            "description": "If-Modified-Since header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "If-Unmodified-Since",
+            "in": "header",
+            "description": "If-Unmodified-Since header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Information about the access list",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateAccessListModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "headers": {
+              "ETag": {
+                "description": "The version tag of the resource",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Last-Modified": {
+                "description": "The last modified date of the resource",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccessListInfoDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "412": {
+            "description": "Precondition Failed"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "AccessListRead",
+              "AccessListWrite"
+            ]
+          }
+        ]
+      },
+      "patch": {
+        "tags": [
+          "Access List"
+        ],
+        "summary": "Update an access list.",
+        "parameters": [
+          {
+            "name": "owner",
+            "in": "path",
+            "description": "The resource owner",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "identifier",
+            "in": "path",
+            "description": "The resource owner-unique identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The patch document containing what to update",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/JsonPatchDocument"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JsonPatchDocument"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccessListInfoDto"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "AccessListRead",
+              "AccessListWrite"
+            ]
+          }
+        ]
+      }
+    },
+    "/access-lists/{owner}/{identifier}/members": {
+      "get": {
+        "tags": [
+          "Access List Members"
+        ],
+        "summary": "Get access list members.",
+        "parameters": [
+          {
+            "name": "owner",
+            "in": "path",
+            "description": "The resource owner",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "identifier",
+            "in": "path",
+            "description": "The resource owner-unique identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccessListMembershipDtoPaginated"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "AccessListRead"
+            ]
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "Access List Members"
+        ],
+        "summary": "Replace access list members.",
+        "description": "This effectively overwrites all members with the ones included in the request. It should not be used for lists with more than 100 members.",
+        "parameters": [
+          {
+            "name": "owner",
+            "in": "path",
+            "description": "The resource owner",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "identifier",
+            "in": "path",
+            "description": "The resource owner-unique identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The new members-list",
+          "content": {
+            "application/json": {
+              "schema": {
+                "required": [
+                  "data"
+                ],
+                "type": "object",
+                "items": {
+                  "$ref": "#/components/schemas/PartyReference"
+                },
+                "properties": {
+                  "data": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/PartyReference"
+                    }
+                  }
+                },
+                "description": "Object sent to the API to add/remove/overwrite members from an access list."
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccessListMembershipDtoPaginated"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "AccessListRead",
+              "AccessListWrite"
+            ]
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Access List Members"
+        ],
+        "summary": "Add new members to an access list.",
+        "description": "This method is idempotent, meaning that if a member already exists, it will not be added again.",
+        "parameters": [
+          {
+            "name": "owner",
+            "in": "path",
+            "description": "The resource owner",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "identifier",
+            "in": "path",
+            "description": "The resource owner-unique identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The new members-list",
+          "content": {
+            "application/json": {
+              "schema": {
+                "required": [
+                  "data"
+                ],
+                "type": "object",
+                "items": {
+                  "$ref": "#/components/schemas/PartyReference"
+                },
+                "properties": {
+                  "data": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/PartyReference"
+                    }
+                  }
+                },
+                "description": "Object sent to the API to add/remove/overwrite members from an access list."
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccessListMembershipDtoPaginated"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "AccessListRead",
+              "AccessListWrite"
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Access List Members"
+        ],
+        "summary": "Remove members from an access list if they exist.",
+        "description": "This method is idempotent, meaning that if a member does not exist, it will not be removed.",
+        "parameters": [
+          {
+            "name": "owner",
+            "in": "path",
+            "description": "The resource owner",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "identifier",
+            "in": "path",
+            "description": "The resource owner-unique identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The new members-list",
+          "content": {
+            "application/json": {
+              "schema": {
+                "required": [
+                  "data"
+                ],
+                "type": "object",
+                "items": {
+                  "$ref": "#/components/schemas/PartyReference"
+                },
+                "properties": {
+                  "data": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/PartyReference"
+                    }
+                  }
+                },
+                "description": "Object sent to the API to add/remove/overwrite members from an access list."
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccessListMembershipDtoPaginated"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "AccessListRead",
+              "AccessListWrite"
+            ]
+          }
+        ]
+      }
+    },
+    "/access-lists/{owner}/{identifier}/resource-connections": {
+      "get": {
+        "tags": [
+          "Access List Resource Connections"
+        ],
+        "summary": "Get all resource connections for an access list.",
+        "operationId": "access-lists/get-resource-connections",
+        "parameters": [
+          {
+            "name": "owner",
+            "in": "path",
+            "description": "The resource owner",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "identifier",
+            "in": "path",
+            "description": "The resource owner-unique identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "query",
+            "description": "Optional continuation token",
+            "schema": {
+              "$ref": "#/components/schemas/AccessListResourceConnectionContinuationTokenOpaque"
+            }
+          },
+          {
+            "name": "If-Match",
+            "in": "header",
+            "description": "If-Match header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "If-None-Match",
+            "in": "header",
+            "description": "If-None-Match header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "If-Modified-Since",
+            "in": "header",
+            "description": "If-Modified-Since header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "If-Unmodified-Since",
+            "in": "header",
+            "description": "If-Unmodified-Since header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "headers": {
+              "ETag": {
+                "description": "The version tag of the resource",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Last-Modified": {
+                "description": "The last modified date of the resource",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccessListResourceConnectionDtoAggregateVersionVersionedPaginated"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "412": {
+            "description": "Precondition Failed"
+          },
+          "304": {
+            "description": "Not Modified",
+            "headers": {
+              "ETag": {
+                "description": "The version tag of the resource",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Last-Modified": {
+                "description": "The last modified date of the resource",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "AccessListRead"
+            ]
+          }
+        ]
+      }
+    },
+    "/access-lists/{owner}/{identifier}/resource-connections/{resourceIdentifier}": {
+      "put": {
+        "tags": [
+          "Access List Resource Connections"
+        ],
+        "summary": "Creates or update a resource connection to an access list.",
+        "description": "This method is idempotent, meaning that if a resource connection already exists, it will be updated.",
+        "parameters": [
+          {
+            "name": "owner",
+            "in": "path",
+            "description": "The resource owner",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "identifier",
+            "in": "path",
+            "description": "The resource owner-unique identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "resourceIdentifier",
+            "in": "path",
+            "description": "The resource identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "If-Match",
+            "in": "header",
+            "description": "If-Match header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "If-None-Match",
+            "in": "header",
+            "description": "If-None-Match header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "If-Modified-Since",
+            "in": "header",
+            "description": "If-Modified-Since header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "If-Unmodified-Since",
+            "in": "header",
+            "description": "If-Unmodified-Since header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The resource connection info",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpsertAccessListResourceConnectionDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "headers": {
+              "ETag": {
+                "description": "The version tag of the resource",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Last-Modified": {
+                "description": "The last modified date of the resource",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccessListResourceConnectionWithVersionDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "412": {
+            "description": "Precondition Failed"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "AccessListRead",
+              "AccessListWrite"
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Access List Resource Connections"
+        ],
+        "summary": "Removes a resource connection from an access list if it exists.",
+        "description": "This method is idempotent, meaning that if a resource connection does not exist, it will not be removed.",
+        "parameters": [
+          {
+            "name": "owner",
+            "in": "path",
+            "description": "The resource owner",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "identifier",
+            "in": "path",
+            "description": "The resource owner-unique identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "resourceIdentifier",
+            "in": "path",
+            "description": "The resource identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "If-Match",
+            "in": "header",
+            "description": "If-Match header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "If-None-Match",
+            "in": "header",
+            "description": "If-None-Match header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "If-Modified-Since",
+            "in": "header",
+            "description": "If-Modified-Since header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "If-Unmodified-Since",
+            "in": "header",
+            "description": "If-Unmodified-Since header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The resource connection was removed",
+            "headers": {
+              "ETag": {
+                "description": "The version tag of the resource",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Last-Modified": {
+                "description": "The last modified date of the resource",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccessListResourceConnectionWithVersionDto"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "The resource connection did not exist"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "412": {
+            "description": "Precondition Failed"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "AccessListRead",
+              "AccessListWrite"
+            ]
+          }
+        ]
+      }
+    },
+    "/altinn2export/resource": {
+      "get": {
+        "tags": [
+          "Altinn2Export"
+        ],
+        "summary": "Returns a Service Resources based on Altinn 2 ServiceMetadata for a service",
+        "parameters": [
+          {
+            "name": "serviceCode",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "serviceEditionCode",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceResource"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/altinn2export/policy": {
+      "get": {
+        "tags": [
+          "Altinn2Export"
+        ],
+        "summary": "Returns a Service Resources based on Altinn 2 ServiceMetadata for a service",
+        "parameters": [
+          {
+            "name": "serviceCode",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "serviceEditionCode",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "resourceIdentifier",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/resource/resourcelist": {
       "get": {
         "tags": [
           "Resource"
         ],
+        "summary": "List of all resources",
         "responses": {
           "200": {
             "description": "Success",
@@ -27,11 +1250,12 @@
         }
       }
     },
-    "/resourceregistry/api/v1/resource/export": {
+    "/resource/export": {
       "get": {
         "tags": [
           "Resource"
         ],
+        "summary": "List of all resources",
         "responses": {
           "200": {
             "description": "Success",
@@ -46,15 +1270,17 @@
         }
       }
     },
-    "/resourceregistry/api/v1/resource/{id}": {
+    "/resource/{id}": {
       "get": {
         "tags": [
           "Resource"
         ],
+        "summary": "Gets a single resource by its resource identifier if it exists in the resource registry",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "The resource identifier to retrieve",
             "required": true,
             "schema": {
               "type": "string"
@@ -78,10 +1304,12 @@
         "tags": [
           "Resource"
         ],
+        "summary": "Updates a service resource in the resource registry if it pass all validation checks",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "Resource ID",
             "required": true,
             "schema": {
               "type": "string"
@@ -89,6 +1317,7 @@
           }
         ],
         "requestBody": {
+          "description": "Service resource model for update in the resource registry",
           "content": {
             "application/json": {
               "schema": {
@@ -120,10 +1349,12 @@
         "tags": [
           "Resource"
         ],
+        "summary": "Deletes a resource from the resource registry",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "The resource identifier to delete",
             "required": true,
             "schema": {
               "type": "string"
@@ -150,12 +1381,14 @@
         ]
       }
     },
-    "/resourceregistry/api/v1/resource": {
+    "/resource": {
       "post": {
         "tags": [
           "Resource"
         ],
+        "summary": "Creates a service resource in the resource registry if it pass all validation checks",
         "requestBody": {
+          "description": "Service resource model to create in the resource registry",
           "content": {
             "application/json": {
               "schema": {
@@ -184,15 +1417,17 @@
         ]
       }
     },
-    "/resourceregistry/api/v1/resource/{id}/policy": {
+    "/resource/{id}/policy": {
       "get": {
         "tags": [
           "Resource"
         ],
+        "summary": "Returns the XACML policy for a resource in resource registry.",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "Resource Id",
             "required": true,
             "schema": {
               "type": "string"
@@ -209,10 +1444,12 @@
         "tags": [
           "Resource"
         ],
+        "summary": "Creates or overwrites the existing XACML policy for the resource, if it pass all validation checks.\r\nThe XACML policy must define at least a subject and resource, and will be used to restrict access for the resource.",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "The resource identifier to store the policy for",
             "required": true,
             "schema": {
               "type": "string"
@@ -262,10 +1499,12 @@
         "tags": [
           "Resource"
         ],
+        "summary": "Creates or overwrites the existing XACML policy for the resource, if it pass all validation checks.\r\nThe XACML policy must define at least a subject and resource, and will be used to restrict access for the resource.",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "The resource identifier to store the policy for",
             "required": true,
             "schema": {
               "type": "string"
@@ -312,11 +1551,82 @@
         ]
       }
     },
-    "/resourceregistry/api/v1/resource/Search": {
+    "/resource/{id}/policy/subjects": {
       "get": {
         "tags": [
           "Resource"
         ],
+        "summary": "Returns the XACML policy for a resource in resource registry.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Resource Id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AttributeMatchV2"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/resource/findforsubjects": {
+      "post": {
+        "tags": [
+          "Resource"
+        ],
+        "summary": "Returns a list of Subject resources. For each which subject and then a list of all resources that are connected.",
+        "requestBody": {
+          "description": "List of subjects for resource information is needed",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SubjectResources"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/resource/Search": {
+      "get": {
+        "tags": [
+          "Resource"
+        ],
+        "summary": "Allows for searching for resources in the resource registry",
         "parameters": [
           {
             "name": "Id",
@@ -352,13 +1662,6 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "name": "IncludeExpired",
-            "in": "query",
-            "schema": {
-              "type": "boolean"
-            }
           }
         ],
         "responses": {
@@ -378,11 +1681,12 @@
         }
       }
     },
-    "/resourceregistry/api/v1/resource/orgs": {
+    "/resource/orgs": {
       "get": {
         "tags": [
           "ResourceOwner"
         ],
+        "summary": "Endpoint to get the org list from CDN",
         "responses": {
           "200": {
             "description": "Success",
@@ -400,6 +1704,288 @@
   },
   "components": {
     "schemas": {
+      "AccessListIncludes": {
+        "type": "array",
+        "items": {
+          "enum": [
+            "resources",
+            "resource-actions",
+            "members"
+          ],
+          "type": "string"
+        }
+      },
+      "AccessListInfoDto": {
+        "required": [
+          "createdAt",
+          "description",
+          "identifier",
+          "name",
+          "updatedAt"
+        ],
+        "type": "object",
+        "properties": {
+          "identifier": {
+            "type": "string",
+            "description": "The access list identifier",
+            "format": "slug",
+            "example": "godkjente-banker"
+          },
+          "name": {
+            "type": "string",
+            "description": "The access list name",
+            "example": "Godkjente banker"
+          },
+          "description": {
+            "type": "string",
+            "description": "The access list description",
+            "example": "En liste over godkjente banker"
+          },
+          "createdAt": {
+            "type": "string",
+            "description": "When the access list was created",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "description": "When the access list was updated",
+            "format": "date-time"
+          },
+          "resourceConnections": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AccessListResourceConnectionDto"
+            },
+            "description": "The resource connections",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents public access list metadata."
+      },
+      "AccessListInfoDtoPaginated": {
+        "required": [
+          "data",
+          "links"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AccessListInfoDto"
+            },
+            "description": "The items."
+          },
+          "links": {
+            "$ref": "#/components/schemas/PaginatedLinks"
+          }
+        },
+        "additionalProperties": false,
+        "description": "A paginated Altinn.ResourceRegistry.Models.ListObject`1."
+      },
+      "AccessListMembershipDto": {
+        "required": [
+          "id",
+          "since"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The party id.",
+            "format": "urn",
+            "example": "urn:altinn:party:e458014d-4d4f-49a1-96d5-a869d95e8715"
+          },
+          "since": {
+            "type": "string",
+            "description": "Since when the party has been a member of the registry.",
+            "format": "date-time"
+          },
+          "identifiers": {
+            "$ref": "#/components/schemas/PartyIdentifiers"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents an access list membership."
+      },
+      "AccessListMembershipDtoPaginated": {
+        "required": [
+          "data",
+          "links"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AccessListMembershipDto"
+            },
+            "description": "The items."
+          },
+          "links": {
+            "$ref": "#/components/schemas/PaginatedLinks"
+          }
+        },
+        "additionalProperties": false,
+        "description": "A paginated Altinn.ResourceRegistry.Models.ListObject`1."
+      },
+      "AccessListResourceConnectionContinuationToken": {
+        "type": "object",
+        "properties": {
+          "version": {
+            "type": "integer",
+            "description": "The access list version.",
+            "format": "int64"
+          },
+          "continueFrom": {
+            "type": "string",
+            "description": "What resource identifier to continue from."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Continuation token for access list resource connections."
+      },
+      "AccessListResourceConnectionContinuationTokenOpaque": {
+        "type": "string",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/AccessListResourceConnectionContinuationToken"
+          }
+        },
+        "additionalProperties": false,
+        "description": "<br>\r\n                An opaque value is a value that can be transmitted to another party\r\n                without divulging any type information or expectations about the value.\r\n            \r\n<br>\r\n                Opaque values are typically usefull in APIs where the server wants to\r\n                be able to return a value that the client later needs to send back to\r\n                the server, but where the server does not want to expose the type of\r\n                the value to the client. For instance, in a pagination scenario, the\r\n                server can use an opaque int to do pagination by page number, while\r\n                allowing itself to later change the implementation to use a cursor\r\n                instead of a page number without breaking the API.\r\n            "
+      },
+      "AccessListResourceConnectionDto": {
+        "required": [
+          "createdAt",
+          "resourceIdentifier",
+          "updatedAt"
+        ],
+        "type": "object",
+        "properties": {
+          "resourceIdentifier": {
+            "type": "string",
+            "description": "The resource identifier."
+          },
+          "actions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The allowed actions.",
+            "nullable": true
+          },
+          "createdAt": {
+            "type": "string",
+            "description": "When the connection was created.",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "description": "When the connection was last updated.",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Model for creating an access list resource connection."
+      },
+      "AccessListResourceConnectionDtoAggregateVersionVersionedPaginated": {
+        "required": [
+          "data",
+          "links"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AccessListResourceConnectionDto"
+            },
+            "description": "The items."
+          },
+          "links": {
+            "$ref": "#/components/schemas/PaginatedLinks"
+          }
+        },
+        "additionalProperties": false,
+        "description": "A paginated Altinn.ResourceRegistry.Models.ListObject`1 with version information."
+      },
+      "AccessListResourceConnectionWithVersionDto": {
+        "required": [
+          "createdAt",
+          "resourceIdentifier",
+          "updatedAt"
+        ],
+        "type": "object",
+        "properties": {
+          "resourceIdentifier": {
+            "type": "string",
+            "description": "The resource identifier."
+          },
+          "actions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The allowed actions.",
+            "nullable": true
+          },
+          "createdAt": {
+            "type": "string",
+            "description": "When the connection was created.",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "description": "When the connection was last updated.",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false,
+        "description": "A Altinn.ResourceRegistry.Models.AccessListResourceConnectionDto with version information."
+      },
+      "AggregateVersionIVersionedEntityCondition": {
+        "type": "object",
+        "additionalProperties": false
+      },
+      "AttributeMatchV2": {
+        "required": [
+          "type",
+          "urn",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "value": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "urn": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "AuthorizationReferenceAttribute": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "value": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "CompetentAuthority": {
         "type": "object",
         "properties": {
@@ -421,6 +2007,247 @@
           }
         },
         "additionalProperties": false
+      },
+      "ContactPoint": {
+        "type": "object",
+        "properties": {
+          "category": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "telephone": {
+            "type": "string",
+            "nullable": true
+          },
+          "contactPage": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateAccessListModel": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The party registry name."
+          },
+          "description": {
+            "type": "string",
+            "description": "The (optional) party registry description.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Model used for creating or updating an access list."
+      },
+      "JsonPatchAddOperation": {
+        "required": [
+          "op",
+          "path",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "op": {
+            "enum": [
+              "add"
+            ],
+            "type": "string",
+            "description": "The operation to perform"
+          },
+          "path": {
+            "$ref": "#/components/schemas/JsonPointer"
+          },
+          "value": {
+            "description": "The value to add."
+          }
+        },
+        "additionalProperties": false
+      },
+      "JsonPatchCopyOperation": {
+        "required": [
+          "op",
+          "from",
+          "path"
+        ],
+        "type": "object",
+        "properties": {
+          "op": {
+            "enum": [
+              "copy"
+            ],
+            "type": "string",
+            "description": "The operation to perform"
+          },
+          "from": {
+            "$ref": "#/components/schemas/JsonPointer"
+          },
+          "path": {
+            "$ref": "#/components/schemas/JsonPointer"
+          }
+        },
+        "additionalProperties": false
+      },
+      "JsonPatchDocument": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/JsonPatchOperation"
+        },
+        "description": "A RFC 6902 JSON Patch document."
+      },
+      "JsonPatchMoveOperation": {
+        "required": [
+          "op",
+          "from",
+          "path"
+        ],
+        "type": "object",
+        "properties": {
+          "op": {
+            "enum": [
+              "move"
+            ],
+            "type": "string",
+            "description": "The operation to perform"
+          },
+          "from": {
+            "$ref": "#/components/schemas/JsonPointer"
+          },
+          "path": {
+            "$ref": "#/components/schemas/JsonPointer"
+          }
+        },
+        "additionalProperties": false
+      },
+      "JsonPatchOperation": {
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/JsonPatchAddOperation"
+          },
+          {
+            "$ref": "#/components/schemas/JsonPatchCopyOperation"
+          },
+          {
+            "$ref": "#/components/schemas/JsonPatchMoveOperation"
+          },
+          {
+            "$ref": "#/components/schemas/JsonPatchRemoveOperation"
+          },
+          {
+            "$ref": "#/components/schemas/JsonPatchReplaceOperation"
+          },
+          {
+            "$ref": "#/components/schemas/JsonPatchTestOperation"
+          }
+        ],
+        "additionalProperties": false,
+        "description": "Represents a RFC 6902 JSON Patch operation.",
+        "discriminator": {
+          "propertyName": "op",
+          "mapping": {
+            "add": "#/components/schemas/JsonPatchAddOperation",
+            "copy": "#/components/schemas/JsonPatchCopyOperation",
+            "move": "#/components/schemas/JsonPatchMoveOperation",
+            "remove": "#/components/schemas/JsonPatchRemoveOperation",
+            "replace": "#/components/schemas/JsonPatchReplaceOperation",
+            "test": "#/components/schemas/JsonPatchTestOperation"
+          }
+        }
+      },
+      "JsonPatchOperationType": {
+        "enum": [
+          null,
+          "add",
+          "remove",
+          "replace",
+          "move",
+          "copy",
+          "test"
+        ],
+        "type": "integer",
+        "description": "JSON Patch operation types.",
+        "format": "int32"
+      },
+      "JsonPatchRemoveOperation": {
+        "required": [
+          "op",
+          "path"
+        ],
+        "type": "object",
+        "properties": {
+          "op": {
+            "enum": [
+              "remove"
+            ],
+            "type": "string",
+            "description": "The operation to perform"
+          },
+          "path": {
+            "$ref": "#/components/schemas/JsonPointer"
+          }
+        },
+        "additionalProperties": false
+      },
+      "JsonPatchReplaceOperation": {
+        "required": [
+          "op",
+          "path",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "op": {
+            "enum": [
+              "replace"
+            ],
+            "type": "string",
+            "description": "The operation to perform"
+          },
+          "path": {
+            "$ref": "#/components/schemas/JsonPointer"
+          },
+          "value": {
+            "description": "The value to replace with."
+          }
+        },
+        "additionalProperties": false
+      },
+      "JsonPatchTestOperation": {
+        "required": [
+          "op",
+          "path",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "op": {
+            "enum": [
+              "test"
+            ],
+            "type": "string",
+            "description": "The operation to perform"
+          },
+          "path": {
+            "$ref": "#/components/schemas/JsonPointer"
+          },
+          "value": {
+            "description": "The value to match."
+          }
+        },
+        "additionalProperties": false
+      },
+      "JsonPointer": {
+        "type": "string",
+        "description": "Represents a JSON Pointer as defined in RFC 6901.",
+        "format": "json-pointer",
+        "example": "/foo/bar"
       },
       "Keyword": {
         "type": "object",
@@ -482,6 +2309,58 @@
         },
         "additionalProperties": false
       },
+      "PaginatedLinks": {
+        "required": [
+          "next"
+        ],
+        "type": "object",
+        "properties": {
+          "next": {
+            "type": "string",
+            "description": "Link to the next page of items (if any).",
+            "format": "uri-reference",
+            "nullable": true,
+            "example": "/foo/bar/bat?page=2"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Pagination links."
+      },
+      "PartyIdentifiers": {
+        "type": "object",
+        "properties": {
+          "partyId": {
+            "type": "string",
+            "description": "The party id.",
+            "format": "uuid"
+          },
+          "organizationNumber": {
+            "type": "string",
+            "description": "The organization number.",
+            "format": "org.nr",
+            "nullable": true,
+            "example": "123456789"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Additional identifiers for a party."
+      },
+      "PartyReference": {
+        "type": "string",
+        "additionalProperties": false,
+        "description": "A unique reference to a party in the form of an URN.",
+        "format": "urn",
+        "example": "urn:altinn:party:e458014d-4d4f-49a1-96d5-a869d95e8715"
+      },
+      "PartyReferenceType": {
+        "enum": [
+          0,
+          1
+        ],
+        "type": "integer",
+        "description": "Supported party reference types.",
+        "format": "int32"
+      },
       "ReferenceSource": {
         "enum": [
           0,
@@ -506,6 +2385,16 @@
         "type": "integer",
         "format": "int32"
       },
+      "ResourcePartyType": {
+        "enum": [
+          "PrivatePerson",
+          "LegalEntityEnterprise",
+          "Company",
+          "BankruptcyEstate",
+          "SelfRegisteredUser"
+        ],
+        "type": "string"
+      },
       "ResourceReference": {
         "type": "object",
         "properties": {
@@ -528,15 +2417,31 @@
           1,
           2,
           4,
-          8
+          8,
+          16
         ],
         "type": "integer",
         "format": "int32"
+      },
+      "Segment": {
+        "type": "object",
+        "properties": {
+          "isEmpty": {
+            "type": "boolean",
+            "description": "Gets weather the segment is empty.",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "A segment of a JSON Pointer."
       },
       "ServiceResource": {
         "type": "object",
         "properties": {
           "identifier": {
+            "type": "string"
+          },
+          "version": {
             "type": "string",
             "nullable": true
           },
@@ -544,45 +2449,50 @@
             "type": "object",
             "additionalProperties": {
               "type": "string"
-            },
-            "nullable": true
+            }
           },
           "description": {
             "type": "object",
             "additionalProperties": {
               "type": "string"
-            },
-            "nullable": true
+            }
           },
           "rightDescription": {
             "type": "object",
             "additionalProperties": {
               "type": "string"
-            },
-            "nullable": true
+            }
           },
           "homepage": {
             "type": "string",
             "nullable": true
           },
           "status": {
-            "type": "string",
+            "type": "string"
+          },
+          "spatial": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
             "nullable": true
           },
-          "validFrom": {
-            "type": "string",
-            "format": "date-time"
+          "contactPoints": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ContactPoint"
+            }
           },
-          "validTo": {
-            "type": "string",
-            "format": "date-time"
+          "produces": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
           },
           "isPartOf": {
             "type": "string",
             "nullable": true
-          },
-          "isPublicService": {
-            "type": "boolean"
           },
           "thematicAreas": {
             "type": "array",
@@ -596,10 +2506,6 @@
             "items": {
               "$ref": "#/components/schemas/ResourceReference"
             },
-            "nullable": true
-          },
-          "isComplete": {
-            "type": "boolean",
             "nullable": true
           },
           "delegable": {
@@ -618,22 +2524,75 @@
             },
             "nullable": true
           },
-          "sector": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "nullable": true
+          "limitedByRRR": {
+            "type": "boolean"
+          },
+          "selfIdentifiedUserEnabled": {
+            "type": "boolean"
+          },
+          "enterpriseUserEnabled": {
+            "type": "boolean"
           },
           "resourceType": {
             "$ref": "#/components/schemas/ResourceType"
           },
-          "mainLanguage": {
-            "type": "string",
+          "availableForType": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ResourcePartyType"
+            },
+            "nullable": true
+          },
+          "authorizationReference": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AuthorizationReferenceAttribute"
+            },
             "nullable": true
           }
         },
         "additionalProperties": false
+      },
+      "StringOpaque": {
+        "type": "string",
+        "properties": {
+          "value": {
+            "type": "string",
+            "description": "Gets the inner value."
+          }
+        },
+        "additionalProperties": false,
+        "description": "<br>\r\n                An opaque value is a value that can be transmitted to another party\r\n                without divulging any type information or expectations about the value.\r\n            \r\n<br>\r\n                Opaque values are typically usefull in APIs where the server wants to\r\n                be able to return a value that the client later needs to send back to\r\n                the server, but where the server does not want to expose the type of\r\n                the value to the client. For instance, in a pagination scenario, the\r\n                server can use an opaque int to do pagination by page number, while\r\n                allowing itself to later change the implementation to use a cursor\r\n                instead of a page number without breaking the API.\r\n            "
+      },
+      "SubjectResources": {
+        "type": "object",
+        "properties": {
+          "subject": {
+            "$ref": "#/components/schemas/AttributeMatchV2"
+          },
+          "resources": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AttributeMatchV2"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpsertAccessListResourceConnectionDto": {
+        "type": "object",
+        "properties": {
+          "actions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The allowed actions."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Model for creating or updateing an access list resource connection."
       }
     },
     "securitySchemes": {

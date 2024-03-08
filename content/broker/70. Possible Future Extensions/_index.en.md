@@ -16,7 +16,7 @@ This is work in progress
 
 ### Extension: Solution Overview
 
-[{{< figure src="./image14.png" title="Figure 13: ..." alt="Alt-text">}}](https://www.vg.no)
+{{< figure src="./image14.png" title="Figure 13: ..." alt="Alt-text">}}
 
 ## eFormidling integration
 

@@ -12,15 +12,9 @@ The text resources are available when you edit UI components in the schema via A
 end user when the form is loaded in a browser.
 
 Texts are stored in JSON-format and one file per language. The filename format for texts should
-be `resource.[language].json` f.ex: _resource.nb.json_.
+be `resource.[language].json` e.g: _resource.nb.json_.
 
 Texts can be edited locally, directly in the JSON-files, or via the Altinn Studio text editor.
-
-## Altinn Studio text editor
-
-When editing an app in Altinn Studio, select the `Text` tab from the top menu.
-
-![Text editor in Altinn Studio](./)
 
 ## Formatting of texts
 
@@ -74,7 +68,7 @@ link, but the current state of the form is maintained in the instance data shoul
 
 ## Add and change texts in an application
 
-You have two options when you want to modify texts in an application, either via Altinn Studio, changing it directly in the repository.
+You have two options when you want to modify texts in an application, either via Altinn Studio or directly in the repository.
 
 ### Using Altinn Studio
 
@@ -82,7 +76,7 @@ You have two options when you want to modify texts in an application, either via
 
 In the top navigation bar in Altinn Studio, select _Text_ to be able to edit texts. An overview of the texts that already exist in the application are listed.
 
-On this page you can edit the existing texts and add new ones. New texts can be added by clikcing the _New text_ button, and fill in the fields.
+On this page you can edit the existing texts and add new ones. New texts can be added by clicking the _New text_ button.
 A unique key is automatically generated, this can be changed by clicking the pencil-icon next to the key. Texts are
 automatically saved when changed.
 
@@ -109,28 +103,27 @@ Add an existing text to your component by clicking the search-icon and select th
 
 This is the recommended way to update texts if there are many changes you want to make. The texts can be changed directly in the repository, or by cloning the repository and using your preferred text editor.
 
-The texts are stored in `App/config/texts`
+The texts are stored in `App/config/texts`.
 
 ![Altinn Studio Repos](edit-texts-in-repos.png "Change texts in Altinn Studio Repos")
 
-## Change dafault texts and error messages in an application
+## Change default texts and error messages in an application
 
-It is possible to change default texts and error messages that is displayed in the app. 
+It is possible to change the default texts and error messages that are displayed in the app. 
 Here are the keys with its default value in [English](https://github.com/Altinn/app-frontend-react/blob/main/src/language/texts/en.ts), 
-[Norwegian Bokmål](https://github.com/Altinn/app-frontend-react/blob/main/src/language/texts/nb.ts) and [Nynorsk](https://github.com/Altinn/app-frontend-react/blob/main/src/language/texts/nn.ts) 
+[Norwegian Bokmål](https://github.com/Altinn/app-frontend-react/blob/main/src/language/texts/nb.ts) and [Norwegian Nynorsk](https://github.com/Altinn/app-frontend-react/blob/main/src/language/texts/nn.ts) 
 
-Those default texts that has a number needs to be handled in a different way. For example `file_uploader_validation_error` displays an error message if it is required to add one attachment. 
+Default texts that have a number need to be handled in a different way. For example `file_uploader_validation_error` displays an error message if it is required to add at least one attachment. 
 This default error message will be displayed as "You need to upload 1 attachement(s) to continue'.
 
 ![Tekster i appen](defaultErrorMessageEN.png "Default text displayed in application")
 
-These default text is devided in two strings, one before 
-the number: `You need to upload` and one text resource after the number: `attachement(s) to continue`. The number is for the 
-moment not possible to edit since it is connected to max and min number of attachements, in this case. but the text surrounding the number is possible to change.
+These default texts consist of two strings, one before the number: `You need to upload` and one text resource after the number: `attachment(s) to continue`.
+Currently, it is only possible to edit the text surrounding the number, not the number itself.
 
 ![Tekster i appen](defaultTextsEN.png "Default texts and keys")
 
-Add the text key and the new value in `App/configuration/texts/resouce`. Note that the key needs to reffer to the superior group and then the text key separated with a  `.` 
+Add the text key and the new value in `App/configuration/texts/resource`. Note that the key needs to refer to the superior group and then the text key separated with a  `.` 
 
 ```json
     {
@@ -145,6 +138,7 @@ Add the text key and the new value in `App/configuration/texts/resouce`. Note th
 
 This will result in an error message displaying this:
 ![Tekster i appen](newErrorMessageEN.png "the new error message displayed")
+
 
 {{% notice warning %}} 
 If you would like to find more information about how to change default texts you can go to
@@ -180,32 +174,30 @@ Variables in texts can be included by following the syntax below. It is importan
 
 It is currently possible to fetch values from 3 different data sources.
 
-1. Data model
-   By defining `dataModel.<dataModelNavn>` as the data source you can fetch values from the fields in the form that the
-   user is filling out. Data can be fetched from fields regardless if they are visible or not. If the user changes data
+1. Data model  
+   By defining `dataModel.<dataModelNavn>` as the data source you can fetch values from the fields in the form that the user is filling out. Data can be fetched from fields regardless if they are visible or not. If the user changes data
    in a field referenced in a variable, the text will be updated when the user stops typing in the field.
 2. Application Settings  
    By defining `applicationSettings` as the data source you can fetch values from a specific section
    in `appsettings.{environment}.json` files with the key `FrontEndSettings`. This is a dynamic list you can extend
-   without making changes to the code. This makes it possible to have different values in different environments. Be
-   aware of the difference on first letter casing in the keys `FrontEndSettings` and `applicationSettings`.
+   without making changes to the code. This makes it possible to have different values in different environments. Keep in mind the difference in capitalization of the first letter in the keys `FrontEndSettings` and `applicationSettings`.
    ```json
    "FrontEndSettings": {
      "HomeBaseUrl": "https://www.testdirektoratet.no"
    },
    ```
-3. Instance
-   This datasource is based on the instance and will contain some values from the active instance. We cannot access the entire instance object. The list of available properties is currently:
-   1. `instanceOwnerPartyId` inneholder avgiver sin party id.
-   2. `instanceId` inneholder id'en til den aktive instansen.
-   3. `appId` inneholder id'en til appen instansen er knyttet til.
-    
+3. Instance  
+   By defining `instanceContext` as the data source you will be able to access certain properties from the active instance. The properties that are currently available are:
+   1. `instanceOwnerPartyId` contains the party ID of the instance owner.
+   2. `instanceId` contains the ID of the active instance.
+   3. `appId` contains the ID of the application, which the active instance belongs to.
+   
 ### Default value
 
-If a variable is not found in the data source, the path to that field in the data source is displayed. If you however want to display something other than this path,
+If a variable is not found in the data source, the path to that field in the data source is displayed. However, if you want to display something other than this path,
 you can add a `defaultValue` option to each variable.
 
-If you want the text to not be displayed at all if the field in the data source cannot be found, you can set the `defaultValue` to an empty string.
+Setting the `defaultValue` to an empty string will ensure that no text is displayed if the field in the data source cannot be found.
 
 ```json
 {
@@ -253,8 +245,7 @@ If you want the text to not be displayed at all if the field in the data source 
 
 To make variables in text work with repeating groups, you need to make a slight modification to the example above.
 
-This is achieved by adding `[{0}]` _after_ the repeating groups when you specify a field in the data model in the `key`.parameter
-Example:
+This is achieved by adding `[{0}]` _after_ the repeating group when you specify a field in the data model in the `key`-parameter. E.g:
 
 ```json {hl_lines=[6,10]}
 {
@@ -273,11 +264,11 @@ Example:
 }
 ```
 
-It is possible to combine variables from fields in repeating groups with variables from fields that are _not_ in repeating groups. It is not recommended to combine variables from fields in _different_ repeating groups, unless you are sure that the order of the items in the groups will be identical.
+It is possible to combine variables from fields in repeating groups with variables from fields that are _not_ in repeating groups. However, it is not recommended to combine variables from fields in _different_ repeating groups, unless you are sure that the order of the items in the groups will be identical.
 
 ## Adding help texts
 
-Help texts are short texts that gives a concrete description of what the end user is expected to fill in the field which the help text is connected to.
+Help texts are short texts that give a concrete description of what the end user is expected to fill in the field which the help text is connected to.
 
 The keys that define the help texts are defined in `FormLayout.json`.
 In the repository this file is located in `App/ui/`.
@@ -363,21 +354,20 @@ This is how the file looks after adding help texts:
 
 ## Change application title
 
-When you create an application you have a text resource with he label `appName`.
-This it the title of the application that will be displayed in several places in our solution, f.ex when an end user is
-filling out a form and when elements are displayed in the messagebox in altinn.no.
+When you create an application you have a text resource with the label `appName`.
+This it the title of the application that will be displayed in several places in our solution, e.g. when an end user is
+filling out a form or when elements are displayed in the message box in altinn.no.
 
 The title of the application is located in two places in the application repository:
-
 1. In the text resource with the key `appName`.
 2. In `applicationmetadata.json` in the `title` property. This file is located at `App/config/`.
 
-App owners are encouraged to add titles in bokmål, nynorsk and english. If a title is missing in the text resources the
+App owners are encouraged to add titles in Norwegian Bokmål, Norwegian Nynorsk and English. If a title is missing in the text resources the
 repository name will be used as a fallback, and may be shown to the end user.
 
-If you change `appName` from an IDE (f.ex Visual Studio Code), it is important to also update the title
-in `applicationmetadata.json`. If the title is changed from Altinn Studio on the "about" page or "languages" page,
-the `applicationmetadata.json` file is updated automatically.
+If you change `appName` from an IDE (e.g. Visual Studio Code), it is important to also update the title
+in `applicationmetadata.json`. If the title is changed from Altinn Studio on the "About" page or "Languages" page,
+the `applicationmetadata.json` file is automatically updated.
 
 ### Application title configuration example
 
@@ -401,9 +391,7 @@ In `App/config/texts/resource.nb.json`:
       "id": "appName",
       "value": "Automatisk deploy applikasjonen"
     },
-    .
-    .
-    .
+    ...
   ]
 }
 ```
@@ -418,10 +406,8 @@ In `App/config/texts/resource.nn.json`:
       "id": "appName",
       "value": "Automatisk deploy applikasjonen"
     },
-    .
-    .
-    .
-    ]
+    ...
+  ]
 }
 ```
 
@@ -435,9 +421,7 @@ I `App/config/texts/resource.en.json`:
       "id": "appName",
       "value": "Auto deploy application"
     },
-    .
-    .
-    .
+    ...
   ]
 }
 ```
@@ -446,7 +430,7 @@ I `App/config/texts/resource.en.json`:
 
 The application name and app owner is displayed at the top in the application.
 
-![Tekster i appen](app-name-app-owner.png "Appnavn og appeier tekster")
+![Tekster i appen](app-name-app-owner.png "Application name and application owner texts")
 
 The application owner is fetched by default from the texts defined
 in [altinn-orgs.json](https://github.com/Altinn/altinn-cdn/blob/master/orgs/altinn-orgs.json).
@@ -463,25 +447,23 @@ Example:
       "id": "appOwner",
       "value": "Test Ministry"
     },
-    .
-    .
-    .
+    ...
   ]
 }
 ```
 
 ## Change texts on the archive receipt page
 
-The texts on the receipt page can be overridden by the application by specifying the texts in the applications `config/texts/resource.xx.json` file.
+The texts on the receipt page can be overridden by specifying the texts in the application's `config/texts/resource.[language].json` file(s).
 
 {{%notice info%}}
-Overriding any text in the receipt will have an effect on any receipt for the given application.
-This means that forms that are already submitted will also get the updated texts on the receipt page. The generated PDF will not be affected by this.
+Overriding any of the texts in the receipt will affect all the receipts for the given application.
+This means that forms that are already submitted will also get the updated texts on their receipt page. The generated PDF will not be affected by this.
 {{% /notice%}}
 
-You can also use markdown and variables in the receipt. Currently you can only fetch variables from `Instance` (See [Data Sources](#data-sources) for details)
+You can also use markdown and variables in the receipt texts. Currently, you can only fetch variables from `Instance` (See [Data Sources](#data-sources) for details)
 
-These are the text id's that can be used to override the default platform texts:
+These are the text IDs that can be used to override the default texts for archived receipt:
 
 ```json
 receipt_platform.attachments
@@ -496,7 +478,7 @@ receipt_platform.sent_content
 
 ```
 
-For example if you want to change the help text, you can add this to the `config/texts/resource.en.json` file in your application:
+If you, for example, want to change the help text, you can add the following to the `config/texts/resource.en.json` file in your application:
 
 ```json
 {
@@ -515,8 +497,8 @@ The image below shows which key controls which text in the UI
 ![Texts and text keys](archive-receipt-texts.png "Texts and text keys")
 
 **Note:** These text changes will **not** be visible in your local test environment, they will only be visible in the test environment **TT02**.
-To see the changes you must navigate from the Archive and press the "See submitted form".
-These modified texts are only applicable to the platform receipt and will not have any effect on the receipt that is presented to a user after he or she has annswered a form. See [receipt](../../configuration/process/customize/#receipt) for information on how to customize both texts and the layout of this receipt.
+To view the changes, navigate to the "Archive" page and press the "See submitted form" button.   
+These modified texts are only applicable to the platform receipt and will not have any effect on the receipt that is presented to a user after they have completed a form. See [receipt](../../configuration/process/customize/#receipt) for information on how to customize both texts and the layout of this receipt.
 
 ![image](https://user-images.githubusercontent.com/42466346/159927471-088aab00-3e82-4851-b94f-712bdc4094c9.png)
 

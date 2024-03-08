@@ -1,6 +1,6 @@
 ---
 title: Tekster
-description: Hvordan editere og formatere tekster, bruke variabler og legge til hjelpetekster.
+description: Hvordan redigere og formatere tekster, bruke variabler og legge til hjelpetekster.
 toc: true
 weight: 40
 ---
@@ -10,6 +10,8 @@ Tekster lagres i ressursfiler i katalogen `App/config/texts`. Tekster kan være 
 Tekstressursene er tilgjengelig når man redigerer UI komponenter i skjemaet via Altinn Studio, og de vises til sluttbruker når skjemaet lastes inn i nettleser.
 
 Tekster lagres i JSON-format og det er én fil pr språk. Format på filnavn for tekster er `resource.[språk].json` f.eks: _resource.nb.json_.
+
+Tekster kan redigeres lokalt, dirkete i JSON-filene, eller via teksteditoren i Altinn Studio.
 
 ## Formatering av tekster
 
@@ -70,7 +72,8 @@ Man har to alternativer når man skal endre tekster i en app, enten gjøres det 
 #### Teksteditor
 
 I den øverste navigeringsmenyen i Altinn Studio, velg _Tekst_ for å kunne redigere tekster. En oversikt over tekstene som allerede er tilgjengelige for applikasjonen listes opp.
-På denne siden kan man redigere eksisterende tekster samt legge til nye teksressurser. Nye tekster legges til ved å trykke på _Ny tekst_.
+
+På denne siden kan man redigere eksisterende tekster samt legge til nye tekstressurser. Nye tekster legges til ved å trykke på _Ny tekst_.
 En unik tekstnøkkel genereres automatisk, og kan endres ved å trykke på blyant-ikonet ved siden av nøkkelen. Tekster som
 endres lagres automatisk og fortløpende.
 
@@ -93,16 +96,53 @@ Rediger en tekst på komponenten ved å trykke på blyant-ikonet for den teksten
 Legg til en eksisterende tekst til komponenten ved å trykke på søke-ikonet og velg blant tilgjengelige tekster.
 ![Bruk eksisterende tekst for komponent](component-text-search.png "Bruk eksisterende tekst for komponent")
 
-![Altinn Studio Designer](edit-texts-in-designer.png "Endre tekster i Altinn Studio Designer")
-
 ### Legge til og endre tekster i repository
 
-Dersom det er mange tekster som skal endres på en gang kan det være praktisk å redigere tekstene
-i JSON-struturen direkte i repoet. Enten via Altinn Studio Repos eller i en lokal klone i selvvalgt kodeeditor.
+Dersom det er mange tekster som skal endres på en gang anbefales det å redigere tekstene direkte i repoet. Enten via Altinn Studio Repos eller i en lokal klone i selvvalgt kodeeditor.
 
-Tekstene ligger lagret i `App/config/texts`
+Tekstene ligger lagret i `App/config/texts`.
 
 ![Altinn Studio Repos](edit-texts-in-repos.png "Endre tekster i Altinn Studio Repos")
+
+## Endre standardtekster og feilmeldinger i en applikasjon
+
+Det er mulig å endre standardtekster og feilmeldinger som vises i appen.
+Her er nøklene med deres standardverdi på [Engelsk](https://github.com/Altinn/app-frontend-react/blob/main/src/language/texts/en.ts), 
+[Norsk Bokmål](https://github.com/Altinn/app-frontend-react/blob/main/src/language/texts/nb.ts) og [Nynorsk](https://github.com/Altinn/app-frontend-react/blob/main/src/language/texts/nn.ts) 
+
+Standardtekster som inkluderer tall må behandles på en annen måte. For eksempel vil `file_uploader_validation_error` vise en feilmelding 
+hvis det er påkrevd å legge til minst et vedlegg. 
+Denne standardfeilmeldingen vil vises som "For å fortsette må du laste opp 1 vedlegg".
+
+![Tekster i appen](defaultErrorMessageNB.png "Standardtekst i Applikasjon")
+
+Denne standardteksten er delt inn i to strenger, en før tallet: `For å fortsette må du laste opp`, og en tekstressurs etter tallet: `vedlegg`. 
+Tallet er for øyeblikket ikke mulig å redigere, siden det, i dette tilfellet, er knyttet til maksimum og minimum antall vedlegg.
+Men teksten rundt tallet kan endres."
+
+![Tekster i appen](defaultTextsEN.png "Standardtekst og nøkler")
+
+Legg til tekst nøkkelen og den nye verdien i `App/configuration/texts/resource`. Merk at nøkkelen må henvise til den overordnede gruppen, og deretter tekstnøkkelen separert med `.`"
+
+```json
+    {
+      "id": "form_filler.file_uploader_validation_error_file_number_1",
+      "value": "For å fortsette må du laste opp"
+    },
+    {
+      "id": "form_filler.file_uploader_validation_error_file_number_2",
+      "value": "zip-fil som inneholder alle nødvendige filer."
+    }
+```
+
+Dette vil resultere i visning av en feilmelding som dette:
+![Tekster i appen](newErrorMessageNB.png "Den nye feilmeldingen")
+
+
+{{% notice warning %}} 
+Hvis du vil finne mer informasjon om hvordan du endrer standardtekster, kan du gå til
+[Tilpasse visninger av steg](https://docs.altinn.studio/nb/app/development/configuration/process/customize/)
+{{% /notice %}}
 
 ## Variabler i tekster
 
@@ -133,9 +173,9 @@ Variabler i tekster kan inkluderes ved å følge oppsettet nedenfor. Det er vikt
 
 Det er per nå mulig å hente verdier fra 3 ulike datakilder.
 
-1. Datamodel  
+1. Datamodell  
    Ved å angi `dataModel.<dataModelNavn>` som datakilde kan man hente ut verdier fra felter i skjema som brukeren fyller ut. Data kan hentes fra felter uavhengig av om de er synlige eller ikke. Hvis bruker endrer på data i et felt referert i en variabel så vil teksten bli oppdatert når brukeren stopper å skrive i feltet.
-2. Instillinger  
+2. Innstillinger  
    Ved å angi `applicationSettings` som datakilde kan man hente ut verdier fra en spesiell seksjon i `appsettings.{miljø}.json` filen(e) med navn `FrontEndSettings`. Dette er en dynamisk liste man kan utvide uten å måtte gjøre endringer i kode. Dette gjør det mulig å ha ulike verdier fra miljø til miljø ved å ha andre verdier i de ulike `appsettings.{miljø}.json` filene. Vær obs på ulik bruk av stor bokstav i starten av nøkkel mellom `FrontEndSettings` og `applicationSettings`.
    ```json
    "FrontEndSettings": {
@@ -143,16 +183,16 @@ Det er per nå mulig å hente verdier fra 3 ulike datakilder.
    },
    ```
 3. Instans  
-   Ved å angi `instanceContext` som datakilde kan man hente ut enkelte verdier fra den aktive instansen. Vi har altså ikke gitt tilgang til hele instanse objektet. Listen med egenskaper så langt er:
+   Ved å angi `instanceContext` som datakilde kan man hente ut enkelte verdier fra den aktive instansen. Vi har altså ikke gitt tilgang til hele instans objektet. Listen med egenskaper så langt er:
    1. `instanceOwnerPartyId` inneholder avgiver sin party id.
    2. `instanceId` inneholder id'en til den aktive instansen.
    3. `appId` inneholder id'en til appen instansen er knyttet til.
-
+    
 ### Standardverdi
 
 Hvis en variabel ikke finnes i datakilden, vises stien til det feltet i datakilden. Hvis du imidlertid ønsker å vise noe annet enn denne stien, kan du legge til en standardverdi-alternativ til hver variabel.
 
-Hvis du ønsker at teksten ikke skal vises i det hele tatt hvis feltet i datakilden ikke kan bli funnet, kan du sette standardverdien til en tom streng.
+Hvis du ønsker at teksten ikke skal vises i det hele tatt hvis feltet i datakilden ikke kan bli funnet, kan du sette `defaultValue` til en tom streng.
 
 ```json
 {
@@ -195,44 +235,6 @@ Hvis du ønsker at teksten ikke skal vises i det hele tatt hvis feltet i datakil
   ]
 }
 ```
-## Endre standardtekster og feilmeldinger i en applikasjon
-
-Det er mulig å endre standardtekster og feilmeldinger som vises i appen.
-Her er nøklene med deres standardverdi på [Engelsk](https://github.com/Altinn/app-frontend-react/blob/main/src/language/texts/en.ts), 
-[Norsk Bokmål](https://github.com/Altinn/app-frontend-react/blob/main/src/language/texts/nb.ts) og [Nynorsk](https://github.com/Altinn/app-frontend-react/blob/main/src/language/texts/nn.ts) 
-
-Standardtekster som inkluderer tall må behandles på en annen måte. For eksempel vil `file_uploader_validation_error` en feilmelding 
-hvis det er påkrevd å legge til minst et vedlegg. Denne standardfeilmeldingen vil vises som "For å fortsette må du laste opp 1 vedlegg".
-
-![Tekster i appen](defaultErrorMessageNB.png "Standardtekst i Applikasjon")
-
-Denne standardteksten er delt inn i to strenger, en før tallet: `For å fortsette må du laste opp`, og en tekstressurs etter tallet: `vedlegg`. 
-Tallet er for øyeblikket ikke mulig å redigere, siden det er knyttet til maksimum og minimum antall vedlegg, i dette tilfellet. 
-Men teksten rundt tallet kan endres."
-
-![Tekster i appen](defaultTextsEN.png "Standardtekst og nøkler")
-
-Legg til tekst nøkkelen og den nye verdien i `App/configuration/texts/resouce`. Merk at nøkkelen må henvise til den overordnede 
-gruppen, og deretter tekstenøkkelen separert med `.`"
-```json
-    {
-      "id": "form_filler.file_uploader_validation_error_file_number_1",
-      "value": "For å fortsette må du laste opp"
-    },
-    {
-      "id": "form_filler.file_uploader_validation_error_file_number_2",
-      "value": "zip-fil som inneholder alle nødvendige filer."
-    }
-```
-
-Dette vil resultere i visning av en feilmelding som dette:
-![Tekster i appen](newErrorMessageNB.png "Den nye feilmeldingen")
-
-
-{{% notice warning %}} 
-Hvis du vil finne mer informasjon om hvordan du endrer standardtekster, kan du gå til
-[Tilpasse visninger av steg](https://docs.altinn.studio/nb/app/development/configuration/process/customize/)
-{{% /notice %}}
 
 ### Variabler i tekst - repeterende grupper
 
@@ -263,8 +265,7 @@ Det er fullt mulig å kombinere variabler fra felter i repeterende gruppe med va
 
 ## Legge til hjelpetekst
 
-Hjelpetekster er små tekstsnutter som gir en kort og konsis beskrivelse av hva sluttbrukeren
-er forventet å fylle ut i feltet som teksten er tilknyttet.
+Hjelpetekster er små tekstsnutter som gir en kort og konsis beskrivelse av hva sluttbrukeren er forventet å fylle ut i feltet som teksten er tilknyttet.
 
 Språknøklene som peker på hjelpeteksten er definert i `FormLayout.json`.
 I app repoet finner du filen under `App/ui/`.
@@ -355,14 +356,13 @@ Dette er tittelen på applikasjonen som vil gjenspeiles flere steder i løsninge
 Blant annet når en sluttbruker fyller ut skjema, og når elementer skal vises i meldingsboksen på altinn.no.
 
 Tittelen på applikasjonen skal ligge to steder i applikasjonsrepoet:
-
 1.  I tekstressurser med nøkkelen `appName`.
-    Tjenesteeiere oppfordres til å legge inn tittel på bokmål, nynorsk og engelsk. Dersom tittel mangler i tekstressursene vil lagringsnavnet (navnet på repoet) vises til sluttbrukeren.
-
 2.  I `applicationmetadata.json` under property `title`. Denne filen ligger under `App/config/`.
 
-Dersom man gjør endrer `appName` på applikasjonen sin lokalt er det viktig at også legge til den oppdatere tittelen i
-`applicationmetadata.json` også. Dersom tittel på applikasjonen endres i Altinn Studio enten på "Om" eller "Språk"-siden bli applicationmetadata.json oppdatert automatisk.
+Tjenesteeiere oppfordres til å legge inn tittel på bokmål, nynorsk og engelsk. Dersom tittel mangler i tekstressursene vil lagringsnavnet (navnet på repoet) vises til sluttbrukeren.
+
+Dersom man endrer `appName` på applikasjonen lokalt er det viktig å legge til den oppdatere tittelen i
+`applicationmetadata.json` også. Dersom tittelen på applikasjonen endres i Altinn Studio enten på "Om"- eller "Språk"-siden blir `applicationmetadata.json` oppdatert automatisk.
 
 ### Eksempel på korrekt konfigurasjon for applikasjonstittel
 
@@ -386,9 +386,7 @@ I `App/config/texts/resource.nb.json`:
       "id": "appName",
       "value": "Automatisk deploy applikasjonen"
     },
-    .
-    .
-    .
+    ...
   ]
 }
 ```
@@ -403,10 +401,8 @@ I `App/config/texts/resource.nn.json`:
       "id": "appName",
       "value": "Automatisk deploy applikasjonen"
     },
-    .
-    .
-    .
-    ]
+    ...
+  ]
 }
 ```
 
@@ -420,20 +416,18 @@ I `App/config/texts/resource.en.json`:
       "id": "appName",
       "value": "Auto deploy application"
     },
-    .
-    .
-    .
+    ...
   ]
 }
 ```
 
 ## Endre applikasjonseier tekst
 
-I applikasjonen så vises applikasjonsnavn og applikasjonseier-tekstene øverst i skjema.
+I applikasjonen så vises applikasjonsnavn- og applikasjonseier-tekstene øverst i skjema.
 
 ![Tekster i appen](app-name-app-owner.png "Appnavn og appeier tekster")
 
-Applikasjonsnavn hentes som standard ut fra tekstene som er definert i [altinn-orgs.json](https://github.com/Altinn/altinn-cdn/blob/master/orgs/altinn-orgs.json).
+Applikasjonseier hentes som standard ut fra tekstene som er definert i [altinn-orgs.json](https://github.com/Altinn/altinn-cdn/blob/master/orgs/altinn-orgs.json).
 Om det er ønskelig å endre på dette navnet kan det gjøres ved å legge til nøkkelen `appOwner` i tekstressursene. Denne vil da overstyre det som ligger på CDN.
 
 Eksempel:
@@ -446,20 +440,18 @@ Eksempel:
       "id": "appOwner",
       "value": "Test Ministry"
     },
-    .
-    .
-    .
+    ...
   ]
 }
 ```
 
 ## Endre tekster på kvitteringssiden for arkiv
 
-Tekster på kvitteringssiden kan overstyres av applikasjonen ved å spesifisere tekster i applikasjonens `config/texts/resource.xx.json` fil.
+Tekster på kvitteringssiden kan overstyres av applikasjonen ved å spesifisere tekster i applikasjonens `config/texts/resource.[språk].json` fil(er).
 
 {{%notice info%}}
 Overstyring av tekster i kvitteringen vil ha påvirkning for alle kvitteringer for den gitte applikasjonen.
-Dette betyr at alle skjemaer som allerede er insendt vil også få det oppdaterte tekstene på kvitteringssiden. PDF filen som er generert vil ikke påvirkes av dette.
+Dette betyr at alle skjemaer som allerede er innsendt vil også få de oppdaterte tekstene på kvitteringssiden. PDF filen som er generert vil ikke påvirkes av dette.
 {{% /notice%}}
 
 Markdown og variabler kan benyttes i kvitteringstekstene. Det er kun mulig å hente variabler fra `Instance` (Se [Data Sources](#datakilder) for detaljer)
@@ -479,7 +471,7 @@ receipt_platform.sent_content
 
 ```
 
-Hvis du for eksempel vil overstyre hjelpeteksten, kan du legge dette til i `config/texts/resource.nb.json` filen i applikasjonen:
+Hvis du, for eksempel, vil overstyre hjelpeteksten, kan du legge dette til i `config/texts/resource.nb.json` filen i applikasjonen:
 
 ```json
 {
@@ -497,8 +489,8 @@ Bildet nedenfor viser hvilke tekstnøkler som styrer hvilken del av brukergrense
 
 ![Tekster og tekstnøkler](archive-receipt-texts.png "Tekster og tekstnøkler")
 
-**Merk!** Disse tekstendringene vil **ikke** være synlige når du tester appen din lokalt, de synes kun i eksternt testmiljø, f.eks.**TT02**.
-Du vil se endringene når du åpner et allerede arkivert skjema fra Arkivet ved å trykke på knappen "Se innsendt skjema".
+**Merk!** Disse tekstendringene vil **ikke** være synlige når du tester appen din lokalt, de synes kun i eksternt testmiljø, f.eks. **TT02**.
+Du vil se endringene når du åpner et allerede arkivert skjema fra Arkivet ved å trykke på knappen "Se innsendt skjema".   
 Disse modifiserte tekstene gjelder kun kvittering i arkiv og vil ikke ha noen effekt på kvitteringen som brukeren ser etter et skjema er ferdig utfylt. Se [kvittering](../../configuration/process/customize/#kvittering-receipt) for informasjon om hvordan du kan tilpasse både tekstene og layouten for denne kvitteringen.
 
 ![image](https://user-images.githubusercontent.com/42466346/159928882-e3268bd4-6057-4ca5-aaf2-f417cffcc0f9.png)

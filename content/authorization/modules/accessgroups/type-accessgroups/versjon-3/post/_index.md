@@ -1,7 +1,7 @@
 ---
 title: Post og arkiv
 linktitle:  Post og arkiv
-description: Denne tilgangspakken er relevant for alle virksomheter som mottar post fra det offentlige. skal utføre tjenester relatert til mlijø, ulykke og sikkerhet
+description: Denne tilgangspakken er relevant for alle virksomheter som mottar post fra det offentlige. 
 weight: 108
 ---
 Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-3/#oversikt-over-tilgangspakker)
@@ -16,7 +16,7 @@ Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroup
 |---|---|---|---|
 |Post og arkiv| nei|nei||
 |Ordinær post til virksomheten| ja|ja|DAGL, LEDE, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
-|Post til virksomheten med taushetsbelagt innhold| ja| ja||
+|Post til virksomheten med taushetsbelagt innhold| ja| ja|Ingen|
 
 
 {{% notice warning %}} Det er fortsatt uavklart hvilke fullmakter det vil være natulig å gi personer med rollen Forretningsførerer innenfor fullmaktsområdet "Post og arkiv" {{% /notice %}}

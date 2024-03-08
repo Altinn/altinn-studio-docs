@@ -16,7 +16,7 @@ This is work in progress
 
 The following figure gives an overview of the main building blocks.
 
-[{{< figure src="./image6.png" title="Figure 6: Altinn Broker main building blocks" alt="Alt-text">}}](https://www.vg.no)
+{{< figure src="./image6.png" title="Figure 6: Altinn Broker main building blocks" alt="Alt-text">}}
 
 This diagram expands on the context diagram of the intrudction by indicating the involved building blocks.
 <!--

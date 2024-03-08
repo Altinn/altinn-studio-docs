@@ -29,7 +29,7 @@ Cloudevent specifications TBD.
 
 The follow sequence diagram shows…
 
-[{{< figure src="./image9.png" title="Figure 9: ..." alt="Alt-text">}}](https://www.vg.no)
+{{< figure src="./image9.png" title="Figure 9: ..." alt="Alt-text">}}
 
 <span style="color: red;">Explanation: TBD, Erik: Explain each arrow (should match the online,
 clickable Archi version).</span>
