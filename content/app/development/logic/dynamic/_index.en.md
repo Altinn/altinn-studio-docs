@@ -43,10 +43,10 @@ There are two JavaScript objects in the file `RuleHandler.js`:
 - `ruleHandlerObject` - functions for calculations
 - `conditionalRuleHandlerObject` - functions for hiding/showing fields
 
-It is in these objects the functions should be defined. In addition to these there are two _help objects_ (`ruleHandlerHelper` and `conditionalRuleHandlerHelper`), where you configure what input the different functions expect. This is done in order to be able to configure up rules in Altinn Studio at a later point.
-To be able to configure dynamics in studio the functions must be defined in the JavaScript objects (`ruleHandlerObject` or `conditionalRuleHandlerObject`), and the parameters they expect in the corresponding helper object.
+It is in these objects the functions should be defined. In addition to these there are two _helper objects_ (`ruleHandlerHelper` and `conditionalRuleHandlerHelper`), where you configure what input the different functions expect. This is done in order to be able to configure rules in Altinn Studio at a later point.
+To be able to configure dynamics in Altinn Studio the functions must be defined in the JavaScript objects (`ruleHandlerObject` or `conditionalRuleHandlerObject`), and the parameters they expect in the corresponding helper object.
 
-The structure of the help object:
+The structure of the helper object:
 
 ```javascript
 var ruleHandlerHelper = {
@@ -61,7 +61,7 @@ var ruleHandlerHelper = {
 }
 ```
 
-The structure of objects containing the javascript functions: 
+The structure of objects containing the JavaScript functions: 
 
 ```javascript
 var ruleHandlerObject = {
@@ -103,7 +103,7 @@ var ruleHandlerObject = {
 }
 ```
 
-Some default methods for calculations, with help objects, are defined as part of the app template. 
+Some default methods for calculations, with helper objects, are defined as part of the app template. 
 
 | Method name          | Description                                                                | Parameters              | Defined in object/helper                                      |
 | -------------------- | -------------------------------------------------------------------------- | ----------------------- | ------------------------------------------------------------- |
@@ -112,7 +112,7 @@ Some default methods for calculations, with help objects, are defined as part of
 | `lengthGreaterThan4` | Returns `true` if the value is longer than 4 chars long.                   | `value`                 | `conditionalRuleHandlerObject`/`conditionalRuleHandlerHelper` |
 
 
- Dynamics are run if a change has occurred in the input fields connected to the rule. The functions have to handle cases where for instance only one of the two parameters have defined values.
+ Dynamics are run if a change has occurred in the input fields connected to the rule. The functions have to handle cases where, for instance, only one of the two parameters have defined values.
 
 An example of how this could be done is shown in the `sum`-function below, where missing values are corrected to the value `0`.
 
@@ -168,7 +168,7 @@ var conditionalRuleHandlerHelper = {
 3. Select the wanted rule. Or add a function, as described in the sections above. ![Select a rule](rules-select-rule.png)
 4. Configure which field(s) that should be used as _input_ for the function - this is fields in the data model. 
     ![Configure dynamics](rules-configure.png)
-5. Select which component(s) that should be affected by the rule (recieve value or be shown/hidden) - this is components in the layout.
+5. Select which component(s) should be affected by the rule (receive value or be shown/hidden) - these are components in the layout.
      - For rules for hiding/showing elements several fields can be selected for the same rule.
 6. Save the configuration.
 7. Test that the rules works as expected.
@@ -181,10 +181,10 @@ The configuration can also be seen in the file `App/ui/RuleConfiguration.json`. 
 
 Scenario:
 
-An app with a UI with several fields for input. One of these fields is a radio button with the options "Yes" and "No".
+An app with a UI has several fields for input. One of these fields is a radio button with the options "Yes" and "No".
 Depending on what the user selects, different content is to be displayed:
-- Yes: a new input field is shown, together with information on what is to be filled in.
-- No: a different information text is shown.
+- Yes: a new input field is shown, along with information about what should be entered.
+- No: a different text with information is shown.
 
 This can be solved by adding the following in `RuleHandler.js`, either through _Rediger dynamikk_ in Altinn Studio, or by manually editing the source code.
 
@@ -223,11 +223,11 @@ After this code is added, the rules can be configured in studio. The results are
 It is also possible to add dynamics within a repeating group. This requires that the rule is configured in Altinn Studio as 
 usual, and then manually doing some extra configuration in the `App/ui/RuleConfiguration.json` file as described below.
 
-- For each `inputParams`, one needs to add `{0}` after the  _group part_ of the data binding. For instance `model.group{0}.field`. The index indicator will be replaced by the index for each relevant field in the repeating group.
-- For each `selectedFields` (the fields affected by the rule), one needs to add `{0}` after the field id, for instance `layoutComponent{0}`
-- A new property must also be added to the rule, `repeatingGroup`. This object must contain the id of the relevant group in the layout file.
+- For each `inputParams`, `{0}` need to be added after the  _group part_ of the data binding. For instance `model.group{0}.field`. The index indicator will be replaced by the index for each relevant field in the repeating group.
+- For each `selectedFields` (the fields affected by the rule), `{0}` needs to be added after the field ID, for instance `layoutComponent{0}`
+- A new property must also be added to the rule, `repeatingGroup`. This object must contain the ID of the relevant group in the layout file.
 
-An example of a rule that is configured for a repeating group:
+Here is an example of a rule that is configured for a repeating group:
 
 ```json {hl_lines=[8,12-13,15-17]}
 {
@@ -255,7 +255,7 @@ An example of a rule that is configured for a repeating group:
 
 ### Nested repeating groups 
 
-It is also possible to add dynamics for nested repeating groups. The configuration resembles that of repeating group, but a second parameter `childGroupId` is added in the `repeatingGroup`object, as well as an extra index indicator.
+It is also possible to add dynamics for nested repeating groups. The configuration resembles that of a repeating group, but a second parameter `childGroupId` is added in the `repeatingGroup`object, as well as an extra index indicator.
 
 Example: 
 
@@ -288,10 +288,10 @@ Example:
 Scenario:
 An app has two sets of radiobuttons (yes/no) and a checkbox.
 
-- When the app is loaded, only the fist set of radiobuttons are visible.
-- If the user selects `Yes`, the second set of radiobuttons are shown.
+- When the app is loaded, only the first set of radiobuttons is visible.
+- If the user selects `Yes`, the second set of radiobuttons is shown.
   - If the user selects `Yes` in the second choice, the checkbox is shown.
-  - If the user goes back to the first set of radiobuttons and selects `No`, both the second set of radiobuttons and the checkbox is hidden.
+  - If the user goes back to the first set of radiobuttons and selects `No`, both the second set of radiobuttons and the checkbox are hidden.
 
 ### Alternative 1
 This can be solved by configuring two different conditions for when the fields should be displayed:
@@ -299,7 +299,7 @@ This can be solved by configuring two different conditions for when the fields s
 - One condition for the second set of radiobuttons
   - Is shown if `Yes` is selected in the first set
 - One condition for the checkbox
-  - Is shown when `Yes` is selected in both sets of radiobuttons.
+  - Is shown if `Yes` is selected in both sets of radiobuttons.
 
 Example code that can solve this case:
 
@@ -340,7 +340,7 @@ var conditionalRuleHandlerHelper = {
 ### Alternative 2
 
 This can also be configured by using the same condition to show both the second set of radiobuttons and the checkbox.
-In addition a rule that removes the value from the second set of radiobuttons if the user selects `No` in the first set:
+In addition, there needs to be a rule that removes the value from the second set of radiobuttons if the user selects `No` in the first set:
 
 ```javascript
 var ruleHandlerObject = {
@@ -382,13 +382,12 @@ var conditionalRuleHandlerHelper = {
 
 ## Dynamics in PDF
 
-From nuget versions 3.0.0 it is also possible to add dynamics for the PDF. This is done in the PDF Handler.
-The application must include the `layout/ui/Settings.json` file defined [here](../../../../app/development/ux/pages/navigation/#order).
+From Nuget versions 3.0.0 it is also possible to add dynamics for the PDF. This is done in the PDF Handler.
+The application must include the `layout/ui/Settings.json` file [defined here](../../../../app/development/ux/pages/navigation/#order).
 
 Configuring dynamics in PDF is similar to how validations are added on the server side.
 
-The example below hides a field based on if the string `some-value` exists in a given field.
-Here the code hides the component with the id `079f205b-c9ea-414d-9983-0d158e833e8a`. The id is reflected in the layout files.
+In the example below, if the string `some-value` is part of a value in the data model, the component with the ID `079f205b-c9ea-414d-9983-0d158e833e8a` is hidden. The ID is reflected in the layout files.
 
 ```C#
         public async Task<LayoutSettings> FormatPdf(LayoutSettings layoutSettings, object data)
