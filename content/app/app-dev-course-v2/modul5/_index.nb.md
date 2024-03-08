@@ -89,3 +89,4 @@ I denne modulen har du utvidet applikasjonen din med et bekreftelsessteg og lagt
 
 {{% center %}}
 [<< Forrige modul](../modul4/)
+{{% /center %}}
