@@ -1,9 +1,9 @@
 ---
-title: Modul 5
-description: Legge til flere sider, vise/skjule sider og forhåndsutfylling
-linktitle: Modul 5
+title: Modul 2
+description: Forhåndsutfylling, bygg og publisering
+linktitle: Modul 2
 tags: [apps, training, prefill, sporvalg]
-weight: 50
+weight: 20
 ---
 I denne modulen skal du sette opp forhåndsutfylling av personopplysninger. Du skal så bygge 
 og publisere applikasjonen til testmiljø for å teste at den fungerer som forventet.
@@ -162,5 +162,5 @@ I denne modulen har du satt opp preutfylling av data, bygget og publisert applik
 logget inn i Altinn med en testbruker og testet applikasjonen din.
 
 {{% center %}}
-[<< Forrige modul](../modul4/) 
+[<< Forrige modul (modul 1)](../modul1/)      [Neste modul (modul 3) >>](../modul3/)
 {{% /center %}}
