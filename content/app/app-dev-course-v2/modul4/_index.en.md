@@ -1,92 +1,160 @@
 ---
 title: Modul 4
-description: Legge til bekreftelsessteg og autorisasjon
+description: Legge til kodelister
 linktitle: Modul 4
-# tags: [apps, training, process, policy, autorisasjon, confirmation, bekreftelsessteg, validering ]
+tags: [apps, training, options, kodelister, dynamikk ]
 weight: 40
 ---
 
-I denne modulen skal du legge til et prosessteg i applikasjonen.
+I denne modulen skal du utvide applikasjonen du har laget i foregående moduler for å støtte enda fler av [kravene til Sogndal kommune](../case/#krav-fra-kommunen).
 
 **Temaer som dekkes i denne modulen:**
-- Prosess
-- Bekreftelsessteg
-- Autorisasjonsregler
+
+- Kodelister/Options
+- Dynamiske uttrykk
 
 ## Oppgaver
 
-{{% expandlarge id="prosessbeskrivelse" header="Utvide prosess med et bekreftelsessteg" %}}
+{{% expandlarge id="options-expandable" header="Innsamling av arbeidsopplysninger" %}}
 
-En Altinn-applikasjon har en prosessflyt definert av BPMN (Business Process Model and Notation) som beskriver de ulike stegene i prosessen.
-Standardflyten for en nyopprettet applikasjon består av én oppgave - et utfyllingssteg.
+I mange applikasjoner er det behov for å gi brukeren et sett med svaralternativer for et datafelt.
+Svaralternativene refereres til som _kodelister_ eller _options_.
 
-![Standard prosessflyt illustrert](default-process.png)
+I Altinn Studio er alternativer støttet av komponentene [radioknapper](/nb/app/development/ux/components/radiobuttons/), 
+[avkrysningsbokser](/nb/app/development/ux/components/checkboxes/), 
+[nedtrekkslister](/nb/app/development/ux/components/dropdown/) og 
+[flervalg](/nb/app/development/ux/components/multipleselect/).
 
-Din oppgave er å utvide standardprosessflyten med et bekreftelsessteg som illustrert nedenfor.
-Bekreftelsessiden blir lagt til automatisk når man legger til dette i BPMN-filen `App/config/process/process.bpmn`.
+{{% notice info %}}
+Det er tre måter å sette opp kodelister (legge til alternativer) i Altinn:
+ 1. Ved å legg til alternativer manuelt for komponenten via Altinn Studio.
+ 2. Ved å la komponenten hente alternativer fra en statisk json-fil.
+ 3. Ved å generere alternativer dynamisk med applikasjonslogikk.
+{{% /notice %}}
 
-![Oppdatert prosessflyt illustrert](updated-process.png)
+I denne oppgaven skal du få prøve deg de første to metodene.
 
-### Krav fra kommunen
+Sogndal kommune ønsker å samle inn opplysninger om tilflytterens arbeidsituasjon.
+Blant dataen de ønsker å samle inn er hvilken **sektor** og **bransje** tilflytter jobber i og hvor mange **år** tilflytter har vært yrkesaktiv.
 
-- Brukeren skal kunne se over utfylt data før skjemaet sendes inn.
+  
+### I Altinn Studio
 
-### Oppgaver
+1. Legg til de nye feltene i datamodellen. Husk å trykke "Generer modeller" etter at du er ferdig.
+2. Opprett en ny skjemaside for å samle inn data om arbeidsforhold.
+3. Legg til en **radioknapp**-komponent for _Sektor_ og opprett svaralternativene `Offentlig` og `Privat` manuelt.
+4. Last ned den statiske kodelisten for bransjer [industry.json](../industry.json)
+5. Last opp filen `industry.json` i applikasjonens filområde. Detaljer for hvordan dette gjøres ligger i neste avsnitt.
+6. Legg til en **avkrysningsboks** for _Bransje_. Velg "Bruk kodeliste" i konfigurasjonen, og velg `industry` fra nedtrekkslisten.
+7. Legg til en ny statisk kodeliste _manuelt_. Dette gjøres på veldig lik måte som opplasting av kodeliste-fil, se detaljer under.
+    - Bruk svaralternativene:
+        Label      | Dataverdi
+        -----------|----------
+        0 - 5 år   | `0-5`
+        5 - 10 år  | `5-10`
+        10 - 20 år | `10-20`
+        20+ år     | `20+`
+8. Legg til en **nedrekksliste** (dropdown) for _År i arbeidslivet_.
+   Legg inn _Kodeliste ID_ `years-in-work-force`. Resten av oppsettet for denne komponenten gjøres lokalt.
+9.  Last opp endringene dine i Designer og last de deretter ned (_pull_) i ditt lokale utviklingsmiljø.
 
-1. Legg til et bekreftelses-steg i prosessen og lagre den oppdaterte prosessen.
+### Nyttig info
+{{% expandsmall id="how-to-add-options" header="Legge til alternativer manuelt" %}}
+Alternativene legges direkte på skjemakomponenten. Nyttig for å få på plass komponenten, og fungerer godt for 
+komponenter der det ikke er mange alternativer, og alternativene ikke skal gjenbrukes i andre komponenter.
+- Skru av "Bruk kodeliste"-valget nederst på Tekst-seksjonen.
+- Legg til hvert alternativt manuelt. Du kan legge inn både verdi og visningstekst.
+{{% /expandsmall %}}
+
+{{% expandsmall id="how-to-add-codelist" header="Laste opp statisk kodeliste" %}}
+Kodelister er nyttige der man ønsker å hente alternativer utenfor applikasjonen (f.eks. via api) eller har:
+- mange alternativer
+- et felles sett med alternativer som skal brukes av flere komponenter
+
+En kodeliste kan defineres i kode (beskrives ikke her), eller kan legges inn som en statisk fil.
+
+For å legge til en statisk kodeliste, må man inn i applikasjonens sentrale filområde og laste opp filen som 
+inneholder kodelisten.
+{{% notice warning %}}
+Pass på at du har _lastet opp dine endringer_ fra Studio GUI før du gjør dette!
+{{% /notice %}}
+Øverst til høyre i toppmenyen ser du ditt navn/brukernavn og et sirkel-ikon. Klikk på navnet ditt for å åpne profilmenyen.
+![Profilmenyen](./profile-menu.png "Profilmenyen")
+
+I profilmenyen, velg "Åpne repository" for å åpne filområdet for applikasjonen i en ny fane.
+Naviger inn i mappen som heter `App`, og trykk på "Legg til fil/Add file" --> "Last opp fil/Upload file".
+
+![Last opp fil](./repo-add-file.png "Last opp fil")
+
+Kodelister skal ligge i en mappe som heter `options`. Du må derfor legge til dette i fil-stien øverst. Når du skriver 
+`options` og så `/` blir options opprettet som mappe, og filene som lastes opp legges i den mappen.
+
+Dra og slipp filen du har lastet ned for stadardlisten med bransjer inn i opplastingsområdet.
+
+Til slutt må du lagre alle endringer ved å trykke på "Commit endringer".
+
+![Laste opp fil og opprette ny mappe](./upload-options.png)
+
+Til slutt navigerer du tilbake til fanen med skjemaet, og trykker på "Hent endringer" til høyre i topp-menyen. 
+Du vil da få lastet inn endringene du gjorde på filområdet, og kodelisten er nå tilgjengelig for flervalgskomponentene.
+
+{{% notice info %}}
+Om du allerede har en `options`-mappe i applikasjonen din, navigerer du inn i den. Så følger du de samme stegene som over,
+men du skriver ikke inn `options` i filstien da du allerede har mappen på plass.
+
+Om du ønsker å kopiere inn/skrive inn en kodeliste direkte kan du gjøre dette på samme måte. Du velger bare da "Ny fil"
+i stedet for "Last opp fil", og du vil da komme til et redigeringsverktøy hvor du kan skrive/lime inn. Du må legge inn 
+navnet på filen (må ende med `.json`) i filstien.
+{{% /notice %}}
+
+{{% /expandsmall %}}
 
 ### Nyttig dokumentasjon
 
-- [Tilgjengelige prosessteg i en Altinn App](/nb/app/development/configuration/process/#støttede-prosess-task-typer)
-- [BPMN standard](https://en.wikipedia.org/wiki/Business_Process_Model_and_Notation)
-
-### Forståelsessjekk
-
-{{% expandsmall id="m5t1q3" header="Vil prosessflyten kunne gå begge veier? Fra utfylling til bekreftelse og fra bekreftelse til utfylling?" %}}
-_SequenceFlow_ i bpmn-filen beskriver kun at flyten går én vei, fra utfylling og til bekreftelse. Flyten vil dermed ikke kunne gå begge veier.
-{{% /expandsmall %}}
+- [Statiske kodelister](/nb/app/development/data/options/static-codelists)
 
 {{% /expandlarge %}}
 
-{{% expandlarge id="autorisasjon" header="Legge til autorisasjonsregler for bekreftelsessteget" %}}
 
-Autorisasjonsreglene til applikasjonen din er tilpasset standard prosessflyt og må oppdateres for å inkludere bekreftelsessteget.
+{{% expandlarge id="it-expandable" header="Skreddersydd tilbud for IT-kompetanse" %}}
 
 ### Krav fra kommunen
 
-- Det skal være samme rollekrav for å fylle ut og bekrefte en instans.
-- Brukeren skal kunne sende inn skjemaet.
+Dersom brukeren velger `IKT (data/it)` under bransje skal det vises en tekst og en lenke til en av våre stillingsutlysninger.
+
+Under bransje-valget skal følgende tekst presenteres:
+
+   
+   > Vi ser at du besitter kompetanse vi trenger i kommunen.
+   > Se en oversikt over våre ledige stillinger her.
+    
+
+Linje 2 i teksten skal være en hyperlenke som peker på https://sogndal.easycruit.com/index.html.
+
+Tekst og lenke skal **kun** vises om man har valgt `IKT (data/it)`. I alle andre tilfeller skal dette være skjult.
 
 ### Oppgaver
 
-1. Trykk på innstillinger-knappen i topp-menyen og velg "Tilgangsregler".
-2. Ta en titt på tilgangsreglene som er satt opp. Identifiser de ulike reglene innholdet i de.
-3. Finn regelen der bruker med rolle REGNA og DAGL har tilgang til Les, Skriv på `Task_1` (som er 
-    utfyllingssteget som fulgte med malen)
-4. Trykk på "Legg til sub-ressurs" på den aktuelle regelen, og kopier oppsettet fra `Task_1` i
-  venstre kolonne. I høyre kolonne, nederste felt, legg inn ID til den nye oppgaven (bekreftelsessteg)
-  du la til.
+1. Legg til en komponent som kan vise den aktuelle teksten.
+2. Legg til [dynamikk for komponenten](/nb/app/development/logic/expressions/) som gjør at den kun vises dersom `IKT (data/it)` er valgt (**MERK**: Teksten skal vises også når flere alternativer er valgt, så lenge ett av dem er `IKT (data/it)`).
+3. Flytt knappen 'Send inn' til siden for arbeidsforhold.
+
 
 ### Nyttig dokumentasjon
-- [Regelbibliotek](/nb/app/development/configuration/authorization/rules/)
-- [Alle roller i Altinn](https://www.altinn.no/hjelp/skjema/alle-altinn-roller/)
+- [Dynamiske uttrykk](/nb/app/development/logic/expressions/)
 
-### Forståelsessjekk
-
-{{% expandsmall id="m5t2q1" header="Hva vil skje når prosessflyten går videre til bekreftelsessteget uten at autoriasjonsreglene er blitt oppdatert?" %}}
-Applikasjonen vil vise "Ukjent feil" når brukeren trykker på "send inn"-knappen.
-{{% /expandsmall %}}
-
-{{% expandsmall id="m5t2q2" header="Hva skjer dersom du ikke spesifiserer hvilke roller som har lov til å utføre en aksjon i en autorisasjonsregel?" %}}
-Da vil alle brukere, både med og uten roller, ha tillatelse til å utføre _confirm_-operasjonen for applikasjonen.
-{{% /expandsmall %}}
 
 {{% /expandlarge %}}
 
 ## Oppsummering
 
-I denne modulen har du utvidet applikasjonen din med et bekreftelsessteg og lagt til autorisasjonsregler knyttet til prosessteget.
+I denne modulen har du lagt til nedtrekksliste, radioknapp og avkrysningsbokser og lagt inn alternativer for disse komponentene manuelt og med statiske kodelister.
+I tillegg har du lagt til dynamikk som viser ulike alternativer basert på tidligere valg.
+
+
+*Husk å laste opp dine endringer så de lagres på applikasjonens sentrale filområde.*
+
 
 {{% center %}}
-[<< Forrige modul](../modul3/)      [Neste modul >>](../modul5/)
+[<< Forrige modul](../modul3/)    [Neste modul >>](../modul5/)
 {{% /center %}}

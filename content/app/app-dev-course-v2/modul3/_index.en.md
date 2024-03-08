@@ -1,160 +1,141 @@
 ---
 title: Modul 3
-description: Legge til kodelister
+description: Kontroller og dynamikk
 linktitle: Modul 3
-tags: [apps, training, options, kodelister, dynamikk ]
+tags: [apps, training, datamodel, texts]
 weight: 30
 ---
+I denne modulen skal du videreutvikle applikasjonen du laget i [Modul 1](../modul1) med blant annet en ny side og dynamisk skjuling av felter.
 
-I denne modulen skal du utvide applikasjonen du har laget i foregående moduler for å støtte enda fler av [kravene til Sogndal kommune](../case/#krav-fra-kommunen).
+Denne modulen vil i all hovedsak foregå i Altinn Studio designer, men noen oppdateringer vil også trenge at vi oppdaterer
+filene til applikasjonen direkte i det sentrale filområdet til applikasjonen.
 
 **Temaer som dekkes i denne modulen:**
 
-- Kodelister/Options
-- Dynamiske uttrykk
+- Flere sider
+- Bildekomponent
+- Dynamisk skjuling av felter/komponenter
+- Flervalgskomponenter
 
 ## Oppgaver
 
-{{% expandlarge id="options-expandable" header="Innsamling av arbeidsopplysninger" %}}
+{{% expandlarge id="legge-til-infoside" header="Legge til infoside" %}}
 
-I mange applikasjoner er det behov for å gi brukeren et sett med svaralternativer for et datafelt.
-Svaralternativene refereres til som _kodelister_ eller _options_.
+For skjemaer der det samles inn eller gis mye informasjon
+kan det forbedre brukeropplevelsen dersom man deler applikasjonen opp i flere sider.
 
-I Altinn Studio er alternativer støttet av komponentene [radioknapper](/nb/app/development/ux/components/radiobuttons/), 
-[avkrysningsbokser](/nb/app/development/ux/components/checkboxes/), 
-[nedtrekkslister](/nb/app/development/ux/components/dropdown/) og 
-[flervalg](/nb/app/development/ux/components/multipleselect/).
+La oss se nærmere på hvordan man kan opprette en ny side i applikasjonen
+som vises _før_ brukeren kommer til første datainnsamlingsside som ble laget i Modul 1.
 
-{{% notice info %}}
-Det er tre måter å sette opp kodelister (legge til alternativer) i Altinn:
- 1. Ved å legg til alternativer manuelt for komponenten via Altinn Studio.
- 2. Ved å la komponenten hente alternativer fra en statisk json-fil.
- 3. Ved å generere alternativer dynamisk med applikasjonslogikk.
-{{% /notice %}}
-
-I denne oppgaven skal du få prøve deg de første to metodene.
-
-Sogndal kommune ønsker å samle inn opplysninger om tilflytterens arbeidsituasjon.
-Blant dataen de ønsker å samle inn er hvilken **sektor** og **bransje** tilflytter jobber i og hvor mange **år** tilflytter har vært yrkesaktiv.
-
-  
-### I Altinn Studio
-
-1. Legg til de nye feltene i datamodellen. Husk å trykke "Generer modeller" etter at du er ferdig.
-2. Opprett en ny skjemaside for å samle inn data om arbeidsforhold.
-3. Legg til en **radioknapp**-komponent for _Sektor_ og opprett svaralternativene `Offentlig` og `Privat` manuelt.
-4. Last ned den statiske kodelisten for bransjer [industry.json](../industry.json)
-5. Last opp filen `industry.json` i applikasjonens filområde. Detaljer for hvordan dette gjøres ligger i neste avsnitt.
-6. Legg til en **avkrysningsboks** for _Bransje_. Velg "Bruk kodeliste" i konfigurasjonen, og velg `industry` fra nedtrekkslisten.
-7. Legg til en ny statisk kodeliste _manuelt_. Dette gjøres på veldig lik måte som opplasting av kodeliste-fil, se detaljer under.
-    - Bruk svaralternativene:
-        Label      | Dataverdi
-        -----------|----------
-        0 - 5 år   | `0-5`
-        5 - 10 år  | `5-10`
-        10 - 20 år | `10-20`
-        20+ år     | `20+`
-8. Legg til en **nedrekksliste** (dropdown) for _År i arbeidslivet_.
-   Legg inn _Kodeliste ID_ `years-in-work-force`. Resten av oppsettet for denne komponenten gjøres lokalt.
-9.  Last opp endringene dine i Designer og last de deretter ned (_pull_) i ditt lokale utviklingsmiljø.
-
-### Nyttig info
-{{% expandsmall id="how-to-add-options" header="Legge til alternativer manuelt" %}}
-Alternativene legges direkte på skjemakomponenten. Nyttig for å få på plass komponenten, og fungerer godt for 
-komponenter der det ikke er mange alternativer, og alternativene ikke skal gjenbrukes i andre komponenter.
-- Skru av "Bruk kodeliste"-valget nederst på Tekst-seksjonen.
-- Legg til hvert alternativt manuelt. Du kan legge inn både verdi og visningstekst.
-{{% /expandsmall %}}
-
-{{% expandsmall id="how-to-add-codelist" header="Laste opp statisk kodeliste" %}}
-Kodelister er nyttige der man ønsker å hente alternativer utenfor applikasjonen (f.eks. via api) eller har:
-- mange alternativer
-- et felles sett med alternativer som skal brukes av flere komponenter
-
-En kodeliste kan defineres i kode (beskrives ikke her), eller kan legges inn som en statisk fil.
-
-For å legge til en statisk kodeliste, må man inn i applikasjonens sentrale filområde og laste opp filen som 
-inneholder kodelisten.
-{{% notice warning %}}
-Pass på at du har _lastet opp dine endringer_ fra Studio GUI før du gjør dette!
-{{% /notice %}}
-Øverst til høyre i toppmenyen ser du ditt navn/brukernavn og et sirkel-ikon. Klikk på navnet ditt for å åpne profilmenyen.
-![Profilmenyen](./profile-menu.png "Profilmenyen")
-
-I profilmenyen, velg "Åpne repository" for å åpne filområdet for applikasjonen i en ny fane.
-Naviger inn i mappen som heter `App`, og trykk på "Legg til fil/Add file" --> "Last opp fil/Upload file".
-
-![Last opp fil](./repo-add-file.png "Last opp fil")
-
-Kodelister skal ligge i en mappe som heter `options`. Du må derfor legge til dette i fil-stien øverst. Når du skriver 
-`options` og så `/` blir options opprettet som mappe, og filene som lastes opp legges i den mappen.
-
-Dra og slipp filen du har lastet ned for stadardlisten med bransjer inn i opplastingsområdet.
-
-Til slutt må du lagre alle endringer ved å trykke på "Commit endringer".
-
-![Laste opp fil og opprette ny mappe](./upload-options.png)
-
-Til slutt navigerer du tilbake til fanen med skjemaet, og trykker på "Hent endringer" til høyre i topp-menyen. 
-Du vil da få lastet inn endringene du gjorde på filområdet, og kodelisten er nå tilgjengelig for flervalgskomponentene.
-
-{{% notice info %}}
-Om du allerede har en `options`-mappe i applikasjonen din, navigerer du inn i den. Så følger du de samme stegene som over,
-men du skriver ikke inn `options` i filstien da du allerede har mappen på plass.
-
-Om du ønsker å kopiere inn/skrive inn en kodeliste direkte kan du gjøre dette på samme måte. Du velger bare da "Ny fil"
-i stedet for "Last opp fil", og du vil da komme til et redigeringsverktøy hvor du kan skrive/lime inn. Du må legge inn 
-navnet på filen (må ende med `.json`) i filstien.
-{{% /notice %}}
-
-{{% /expandsmall %}}
-
-### Nyttig dokumentasjon
-
-- [Statiske kodelister](/nb/app/development/data/options/static-codelists)
-
-{{% /expandlarge %}}
-
-
-{{% expandlarge id="it-expandable" header="Skreddersydd tilbud for IT-kompetanse" %}}
+Opprettelse og administrasjon av flere sider kan gjøres i [Altinn Studio Designer](/nb/app/getting-started/), 
+ved å trykke på "Legg til side" i skjemaoversikten.
 
 ### Krav fra kommunen
 
-Dersom brukeren velger `IKT (data/it)` under bransje skal det vises en tekst og en lenke til en av våre stillingsutlysninger.
+Siden Sogndal kommune vil samle inn en betydelig mengde data i denne tjenesten, må de klargjøre hvem skjemaet 
+er ment for og hvordan de vil bruke dataene. Noen i kommunen har laget et 
+[utkast til en informasjonsside](infoside_tilflyttere.pdf) for dette formålet.
 
-Under bransje-valget skal følgende tekst presenteres:
+Informasjonssiden bør gjenspeile følgende elementer:
+ - plassering av bilder
+ - tekststørrelser
+ - formatering av tekst
 
-   
-   > Vi ser at du besitter kompetanse vi trenger i kommunen.
-   > Se en oversikt over våre ledige stillinger her.
-    
+Du kan bruke følgende bilde av Sogndals kommunevåpen i applikasjonen:
 
-Linje 2 i teksten skal være en hyperlenke som peker på https://sogndal.easycruit.com/index.html.
-
-Tekst og lenke skal **kun** vises om man har valgt `IKT (data/it)`. I alle andre tilfeller skal dette være skjult.
+!["Sogndal kommunevåpen"](kommune-logo.png )
 
 ### Oppgaver
 
-1. Legg til en komponent som kan vise den aktuelle teksten.
-2. Legg til [dynamikk for komponenten](/nb/app/development/logic/expressions/) som gjør at den kun vises dersom `IKT (data/it)` er valgt (**MERK**: Teksten skal vises også når flere alternativer er valgt, så lenge ett av dem er `IKT (data/it)`).
-3. Flytt knappen 'Send inn' til siden for arbeidsforhold.
-
+1. Legg til en ny side. Gi den et passende navn og plasser den foran skjemasiden du opprettet i Modul 1.
+2. [Legg til bilde](/nb/app/development/ux/components/image/#legg-til-komponent) av Sogndals kommunevåpen.
+3. Legg til tekst i henhold til [skisse](infoside_tilflyttere.pdf).
 
 ### Nyttig dokumentasjon
-- [Dynamiske uttrykk](/nb/app/development/logic/expressions/)
 
+- [Formatering av tekst](/nb/app/development/ux/texts/#formatering-av-tekster)
+- [Hvordan legge til bilder i en applikasjon](/nb/app/development/ux/components/images/)
+- [Sidestilte komponenter](/nb/app/development/ux/styling/#sidestilte-komponenter-grid)
+- [Filoppsett ved flere sider](/nb/app/development/ux/pages/)
+- [Administrere rekkefølge på flere sider](/nb/app/development/ux/pages/navigation/#rekkefølge)
+
+### Forståelsessjekk
+
+{{% expandsmall id="m2t1q3" header="Hvordan kan du tvinge tekst til å bryte dersom tekststrengen ikke er lang nok til å naturlig brytes?" %}}
+Alle tekstressurser støtter Markdown og dermed HTML-notasjon. Du kan derfor benytte `<br>` for å tvinge tekstbrytning.
+{{% /expandsmall %}}
+
+{{% /expandlarge %}}
+
+{{% expandlarge id="sporvalg" header="Dynamisk vis/skjul av felter" %}}
+
+I mange tilfeller er det ønskelig å kontrollere hvilke deler av applikasjonen som er synlige basert på brukerens respons.
+For eksempel kan det være relevant å hoppe over noen av spørsmålene i et skjema hvis svaret er åpenbart eller irrelevant basert på tidligere svar.
+
+I denne oppgaven vil du sette opp dynamiske uttrykk i applikasjonen for å vise og skjule ulike felter basert på brukerens respons.
+
+### Krav fra kommunen
+
+En bruker som ikke oppfyller kravene for tjenesten, bør stoppes så tidlig som mulig i arbeidsflyten.
+Brukeren skal indikere om tjenesten gjelder dem på informasjonssiden.
+
+Måten svaret samles inn på er valgfri, men et tips er å bruke en valg-komponent som [avkrysningsbokser](/nb/app/development/ux/components/checkboxes/), [radioknapper](/nb/app/development/ux/components/radiobuttons/) eller [nedtrekksliste](/nb/app/development/ux/components/dropdown/).
+Merk at en komponent må være knyttet til et felt i datamodellen for å lagre verdier (du kan bruke feltet `Innflytter.KanBrukeSkjema` i datamodellen).
+
+Brukeren skal vises ett av følgende alternativ basert på svaret deres:
+
+*Alternativ 1*
+
+- Brukeren indikerer at tjenesten ikke gjelder deres situasjon.
+- Brukeren skal vises en info-melding med følgende tekst:
+
+    > Dette skjemaet er ikke for deg.  
+    > [Se en oversikt over andre tilbud i kommunen her](https://www.sogndal.kommune.no/).
+    
+    Linje 2 i teksten er en hyperlenke som peker på https://www.sogndal.kommune.no/
+- Navigeringsknapp til neste side i skjemaet skal skjules.
+
+*Alternativ 2*
+
+- Brukeren har svart bekreftende på at tjenesten gjelder deres situasjon.
+- Info-melding om at skjemaet ikke gjelder for brukeren skal skjules.
+- Navigeringsknapp til neste side i skjemaet skal vises.
+
+### Oppgaver
+1. Legg til et nytt felt i datamodellen som skal lagre brukerens valg om skjemaet gjelder for dem eller ikke.
+   - Husk å trykke på "Generer modeller" når du har lagt til et nytt felt, og _Last opp dine endringer_.
+2. Legg til en komponent på informasjonssiden hvor brukeren kan oppgi om skjemaet gjelder dem eller ikke.
+3. Legg til dynamikk som viser relevante skjemakomponenter basert på brukerens svar.
+
+### Nyttig informasjon
+Dynamikk på en komponent settes opp via en editor i Altinn Studio. Når man har valgt en komponent i skjemaet,
+kan man gå til "Dynamikk"-seksjonen i høyre-panelet. Der kan man legge til nye dynamiske uttrykk som f.eks. kan styre
+om et felt skjules basert på enkle regler. 
+
+For å skjule et valgt felt:
+- Åpne Dynamikk-seksjonen og velg "Lag ny logikkregel".
+- Velg "Skjul felt dersom"
+- Trykk på "Legg til underutrykk"
+- Trykk på "Endre"
+- I første del av uttrykket (første operand)
+  - I "Type"-feltet, velg "Datamodell"
+  - I "Datamodellfelt"-feltet, velg datamodell som inneholder verdien du ønsker å sjekke
+- Operator - velg det som gjelder
+- I andre del av uttrykket (andre operand)
+  - Velg det du ønsker å sammenligne mot. Det kan være et annet felt i datamodellen, eller et tall eller en tekst
+- Trykk på "Lagre og lukk"
+
+### Nyttig dokumentasjon
+- [Dynamiske uttrykk](/nb/app/development/logic/expressions)
+- [Hvordan skjule hele sider](/nb/app/development/logic/expressions/#viseskjule-hele-sider)
+- [Formatering av tekst](/nb/app/development/ux/texts/#formatering-av-tekster)
 
 {{% /expandlarge %}}
 
 ## Oppsummering
-
-I denne modulen har du lagt til nedtrekksliste, radioknapp og avkrysningsbokser og lagt inn alternativer for disse komponentene manuelt og med statiske kodelister.
-I tillegg har du lagt til dynamikk som viser ulike alternativer basert på tidligere valg.
-
-
-*Husk å laste opp dine endringer så de lagres på applikasjonens sentrale filområde.*
-
+I denne modulen har du opprettet en informasjonsside med tekster og bilde. Du har lagt inn dynamiske uttrykk
+som styrer når visse felter vises/skjules basert på brukerens valg.
 
 {{% center %}}
-[<< Forrige modul](../modul2/)    [Neste modul >>](../modul4/)
+[<< Forrige modul (modul 2)](../modul2/)      [Neste modul (modul 4) >>](../modul4/)
 {{% /center %}}
