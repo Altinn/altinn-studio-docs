@@ -17,7 +17,7 @@ This is work in progress
 
 Many-to-many transfers with brokering illustrated …
 
-[{{< figure src="./image13.png" title="Figure 13: ..." alt="Alt-text">}}](https://www.vg.no) 
+{{< figure src="./image13.png" title="Figure 13: ..." alt="Alt-text">}} 
 
 Anticipated use cases:
 

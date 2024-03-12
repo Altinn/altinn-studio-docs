@@ -6,7 +6,7 @@ toc: true
 ---
 
 {{% notice info %}}
-As of writing this documentation, the latest preview release of v8 is `8.0.0-preview.17`. Updated information
+As of writing this documentation, the latest preview release of v8 is `8.0.0`. Updated information
 [is available on GitHub](https://github.com/Altinn/app-lib-dotnet/releases).
 {{% /notice %}}
 
@@ -23,8 +23,7 @@ The Altinn Studio CLI is a command line tool for upgrading Altinn Apps. The tool
 
 If you do not have the CLI installed, you can install it by following the instructions in the [installation guide](/app/cli/install).
 
-<!-- TODO: Uncomment and update version number when a new version gets released
-Make sure you are using at least version 1.0.0 of the altinn studio cli. You can check the version by running:
+Make sure you are using at least version `1.4.0` of the Altinn Studio CLI. You can check the version by running:
 
 ```bash
 altinn-studio --version
@@ -35,8 +34,6 @@ If you have an older version, you can update it by running:
 ```bash
 dotnet tool update -g altinn.studio.cli
 ```
-
--->
 
 ### Run the upgrade command
 
@@ -66,19 +63,22 @@ The CLI will then make the necessary changes to your code to upgrade it to versi
 
 ## Migrate manually
 
-1. To migrate manually from v7 to v8, you need to upgrade the nuget packages in your `App.csproj` file to version `8.0.0-preview.17`.
+1. To migrate manually from v7 to v8, you need to upgrade the nuget packages in your `App.csproj` file to version `8.0.0`.
     <br><br>
     {{< code-title >}}
     App/App.csproj
     {{< /code-title >}}
     ```diff
     -   <PackageReference Include="Altinn.App.Api" Version="7.15.3">
-    +   <PackageReference Include="Altinn.App.Api" Version="8.0.0-preview.17">
+    +   <PackageReference Include="Altinn.App.Api" Version="8.0.0">
             <CopyToOutputDirectory>lib\$(TargetFramework)\*.xml</CopyToOutputDirectory>
         </PackageReference>
     -   <PackageReference Include="Altinn.App.Core" Version="7.15.3" />
-    +   <PackageReference Include="Altinn.App.Core" Version="8.0.0-preview.17" />
+    +   <PackageReference Include="Altinn.App.Core" Version="8.0.0" />
             <CopyToOutputDirectory>lib\$(TargetFramework)\*.xml</CopyToOutputDirectory>
         </PackageReference>
     ```
 2. Next, you need to fix the breaking changes in your code. See the [changelog for v8](/community/changelog/app-nuget/v8/#breaking-changes) for more information.
+   There may be additional breaking changes not documented in the changelog that are automatically fixed by the
+   Altinn Studio CLI tool, so it is recommended to use the CLI tool to upgrade your app to v8 instead of
+   doing it manually.

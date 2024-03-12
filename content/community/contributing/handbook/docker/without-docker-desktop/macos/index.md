@@ -126,7 +126,7 @@ sudo ln -sf $HOME/.colima/default/docker.sock /var/run/docker.sock
 ```
 
 {{<notice warning>}}
-If you stop the Colima VM, you will lose this symlink, so you need to run this command whenever you restart your computer to continue Podman Desktop.
+⚠️ If you stop the Colima VM, you will lose this symlink, so you need to run this command whenever you restart your computer to continue using Podman Desktop.
 {{</notice>}}
 
 or

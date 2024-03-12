@@ -88,7 +88,7 @@ App-policyene er retningslinjer for apper [opprettet i Altinn Studio](../../../.
 Policyen opprettes i Altinn Studio og migreres til Access Policy-komponenten når appen distribueres til et test- eller produksjonsmiljø.
 
 En apppolicy inneholder informasjon om de ulike ressursene i en app og hvem og hva slags operasjoner de har lov til å utføre.
-Hvem er identifisert ved hjelp av Altinn-roller, tilgangsgrupper eller roller/grupper fra andre kilder.
+Hvem er identifisert ved hjelp av Altinn-roller, tilgangspakker eller roller/grupper fra andre kilder.
 
 ### Retningslinjer for ressursregister
 

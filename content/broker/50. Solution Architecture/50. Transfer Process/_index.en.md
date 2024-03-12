@@ -17,7 +17,7 @@ This is work in progress
 
 The following figure… TBD
 
-[{{< figure src="./image8.png" title="Figure 8: ..." alt="Alt-text">}}](https://www.vg.no)
+{{< figure src="./image8.png" title="Figure 8: ..." alt="Alt-text">}}
 
 
 Description: TBD

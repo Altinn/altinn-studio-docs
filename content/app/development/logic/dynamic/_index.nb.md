@@ -42,10 +42,10 @@ I filen `RuleHandler.js` er det satt opp to JavaScript-objekter:
 - `ruleHandlerObject` - funksjoner for beregninger
 - `conditionalRuleHandlerObject` - funksjoner med regler for vis/skjul
 
-Det er inne i disse at de forskjellige funksjonene skal defineres. I tillegg er det satt opp to _hjelpe-objekter_  (`ruleHandlerHelper` og `conditionalRuleHandlerHelper`), hvor man skal sette opp hva slags input de forskjellige funksjonene forventer å få inn. Dette gjør det mulig å konfigurere opp reglene i Altinn Studio senere. For at en funksjon skal være tilgjengelig for å konfigureres som dynamikk, må selve funksjonen være definert i hoved-objektet 
-(`ruleHandlerObject` eller `conditionalRuleHandlerObject`), og parametrene den forventer å få inn må være satt opp i det tilhørende hjelpe-objektet.
+Det er inne i disse at de forskjellige funksjonene skal defineres. I tillegg er det satt opp to _hjelpeobjekter_  (`ruleHandlerHelper` og `conditionalRuleHandlerHelper`), hvor man skal sette opp hva slags input de forskjellige funksjonene forventer å få inn. Dette gjør det mulig å konfigurere reglene i Altinn Studio senere. For at en funksjon skal være tilgjengelig for å konfigureres som dynamikk, må selve funksjonen være definert i hovedobjektet 
+(`ruleHandlerObject` eller `conditionalRuleHandlerObject`), og parametrene den forventer å få inn må være satt opp i det tilhørende hjelpeobjektet.
 
-Strukturen på hjelpe-objektet vises under:
+Strukturen på hjelpeobjektet vises under:
 
 ```javascript
 var ruleHandlerHelper = {
@@ -60,7 +60,7 @@ var ruleHandlerHelper = {
 }
 ```
 
-Strukturen på hoved-objektet, som inneholder funksjoner som brukes i dynamikk, vises under:
+Strukturen på hovedobjektet, som inneholder funksjoner som brukes i dynamikk, vises under:
 
 ```javascript
 var ruleHandlerObject = {
@@ -102,11 +102,11 @@ var ruleHandlerObject = {
 }
 ```
 
-Noen standard-metoder for beregninger, med hjelpe-objekt, er satt opp automatisk når appen lages i Altinn Studio. Noen av disse er vist i eksempelet under.
+Noen standardmetoder for beregninger, med hjelpeobjekt, er satt opp automatisk når appen lages i Altinn Studio. Noen av disse er vist i eksempelet under.
 
 | Method name          | Description                                                      | Parameters              | Defined in object/helper                                      |
 |----------------------| ---------------------------------------------------------------- | ----------------------- | ------------------------------------------------------------- |
-| `sum`                | Returnerer summen av 2 verdier                        | `value1`, `value2`      | `ruleHandlerObject`/`ruleHandlerHelper`                       |
+| `sum`                | Returnerer summen av to verdier                        | `value1`, `value2`      | `ruleHandlerObject`/`ruleHandlerHelper`                       |
 | `fullName`           | Returnerer to tekster (fornavn og etternavn) satt sammen med mellomrom mellom. | `firstName`, `lastName` | `ruleHandlerObject`/`ruleHandlerHelper`                       |
 | `lengthBiggerThan4`  | Returnerer `true` dersom verdien den får inn er lengre enn 4 karakterer lang.  | `value`                 | `conditionalRuleHandlerObject`/`conditionalRuleHandlerHelper` |
 
@@ -160,21 +160,21 @@ var conditionalRuleHandlerHelper = {
 }
 ```
 
-## Konfigurere dynamikk for skjema-komponenter
+## Konfigurere dynamikk for skjemakomponenter
 
-1. Legg til de skjema-komponentene som ønskes i layout.
-2. I høyre-menyen, velg å legge til _Regler for beregninger_ eller _Regler for vis/skjul felt_.
+1. Legg til de skjemakomponentene som ønskes i layout.
+2. I menyen til høyre, velg å legge til _Regler for beregninger_ eller _Regler for vis/skjul felt_.
    ![Regler for vis/skjul knapp](rules-show-hide.png)
-3. Velg en tilgjengelig funksjon som gjør det du ønsker. Legg evt. til en ny funksjon, se beskrivelse over.
+3. Velg en tilgjengelig funksjon som gjør det du ønsker. Legg eventuelt til en ny funksjon, se beskrivelse over.
     ![Velg regel](rules-select-rule.png)
 4. Sett opp hvilke(t) felt som skal fungere som _input_ til funksjonen - her er det felt i datamodellen som gjelder.
     ![Konfigurere dynamikk](rules-configure.png)
 5. Sett opp hvilke(t) felt som skal påvirkes av regelen (skal motta beregnet verdi, eller skal vises/skjules) - her er det skjemakomponent som gjelder.
-   - For regler for vis/skjul felt kan man velge flere felter som skal vises/skjules basert på samme regel.
+   - For regler for vis/skjul felt, kan man velge flere felter som skal vises/skjules basert på samme regel.
 6. Lagre konfigurasjonen.
 7. Test at det fungerer som forventet.
 
-Eksisterende oppsett ligger synlig i høyre-menyen og kan redigeres/slettes.
+Eksisterende oppsett ligger synlig i menyen til høyre og kan redigeres/slettes.
 
 Konfigurasjonen legges i filen `App/ui/RuleConfiguration.json`. Denne kan også redigeres manuelt ved behov.
 
@@ -182,11 +182,11 @@ Konfigurasjonen legges i filen `App/ui/RuleConfiguration.json`. Denne kan også 
 
 Scenario:
 
-En app med skjema som har flere felter for input. En av disse er en radioknapp-gruppe, med valgene "Ja" og "Nei".
+En app med skjema har flere felter for input. Én av disse er en radioknapp-gruppe, med valgene "Ja" og "Nei".
 Avhengig av hva sluttbruker velger her, skal forskjellig innhold vises i skjemaet:
 
 - Ja: Et nytt input-felt vises, sammen med ekstra informasjon om hvordan feltet skal fylles ut.
-- Nei: En annen informasjons-tekst vises.
+- Nei: En annen informasjonstekst vises.
 
 Dette kan gjøres ved å legge inn følgende i `RuleHandler.js`, enten via _Rediger dynamikk_ i Altinn Studio, eller ved å laste ned kildekoden
 til appen og redigere lokalt.
@@ -219,16 +219,16 @@ var conditionalRuleHandlerHelper = {
 Her har to funksjoner blitt opprettet, som sjekker om verdien er henholdsvis "Ja" eller ikke.
 Etter at denne koden er lagt til, kan regelen konfigureres i Altinn Studio. Resultatet vises under. 
 
-![Test of dynamics screenshot](dynamics-test.gif "Test of dynamics example")
+![Test av dynamikk med dynamikk skjermbilde](dynamics-test.gif "Test av eksempel med dynamikk")
 
 ## Dynamikk i repeterende gruppe
 Det er også mulig å sette opp dynamikk innad i en repeterende gruppe. Dette krever at man først setter opp regelen som
-vanlig, og så redigerer på oppsettet `App/ui/RuleConfiguration.json` manuelt. Helt konkret, er det følgende som må endres:
+vanlig, og så redigerer på oppsettet i `App/ui/RuleConfiguration.json` manuelt. Helt konkret, er det følgende som må endres:
 
-- For alle `inputParams`, må man legge til `{0}` etter _gruppe-delen_ av data-modellen. F.eks. `Datamodell.gruppe{0}.felt`. Dette erstattes i koden av _indeksen_ til 
+- For alle `inputParams`, må man legge til `{0}` etter _gruppe-delen_ av datamodellen. F.eks. `Datamodell.gruppe{0}.felt`. Dette erstattes i koden av _indeksen_ til 
 hvert enkelt innslag av den repeterende gruppen.
-- For alle `selectedFields` (altså feltene som påvirkes av reglen), må man legge til `{0}` bak felt-id'en. F.eks. `skjemaFelt1{0}`
-- I tillegg må man legge enn en ny egenskap på regelen, `repeatingGroup`. Denne skal inneholde id'en til gruppen i layout-filen.
+- For alle `selectedFields` (altså feltene som påvirkes av reglen), må man legge til `{0}` bak felt-ID-en. F.eks. `skjemaFelt1{0}`
+- I tillegg må man legge enn en ny egenskap på regelen, `repeatingGroup`. Denne skal inneholde ID-en til gruppen i layout-filen.
 
 Et eksempel på en regel som er satt opp for repeterende grupper vises under:
 
@@ -287,26 +287,25 @@ Eksempel:
 ```
 
 ## Eksempel med mer kompleks dynamikk
-Example with more complex dynamics
 
 Scenario:
 Et skjema med to sett med radioknapper (ja/nei) og en avkrysningsboks.
 
 - Når skjema lastes, er kun det første settet med radioknapper synlig. 
-- Hvis brukeren velder _Ja_, vises det andre settet med radioknapper. 
+- Hvis brukeren velger _Ja_, vises det andre settet med radioknapper. 
   - Hvis brukeren velger _Ja_ i det andre settet, blir avkrysningsboksen synlig.
-  - Hvis brukeren går tilbake til det første settet med radioknapper og velger nei, blir både det andre settet med radioknapper og avkrysningsboksen ikke lenger synlig.
+  - Hvis brukeren går tilbake til det første settet med radioknapper og velger _Nei_, blir både det andre settet med radioknapper og avkrysningsboksen ikke lenger synlig.
 
 
 ### Alternativ 1
-Dette kan settes opp ved å lage 2 forskjellige betingelser for når feltene skal vises:
+Dette kan settes opp ved å lage to forskjellige betingelser for når feltene skal vises:
 
-- En betingelse for det andre settet med radioknapper
+- Én betingelse for det andre settet med radioknapper
   - Vises dersom _Ja_ er valgt i det første settet
-- En betingelse for avkrysningsboksen
-  - Vises når _Ja_ er valgt i begge sett med radioknapper.
+- Én betingelse for avkrysningsboksen
+  - Vises dersom _Ja_ er valgt i begge sett med radioknapper.
 
-Koden for å løse dette kan være:
+Kode for å oppnå dette kan se slik ut:
 
 ```javascript
 var conditionalRuleHandlerObject = {
@@ -343,7 +342,7 @@ var conditionalRuleHandlerHelper = {
 ```
 
 ### Alternativ 2
-Dette kan også settes opp ved å bruke den samme betingelsen for å vise både det andre settet med radionkapper og avkrusningsboksen. I tillegg må man 
+Dette kan også settes opp ved å bruke den samme betingelsen for å vise både det andre settet med radioknapper og avkrysningsboksen. I tillegg må man 
 da ha en regel som sletter verdien i det andre settet med radioknapper dersom verdien i det første settet settes til _Nei_:
 
 ```javascript
@@ -386,13 +385,13 @@ var conditionalRuleHandlerHelper = {
 
 ## Dynamikk i PDF
 
-Fra versjon 3.0.0 er det også mulig å legge inn dynamikk for PDF. Dette gjøres i PDF Handler. Her kan man ved hjelp av logikk velge å skjulte felter eller sider i print.
+Fra versjon 3.0.0 er det også mulig å legge inn dynamikk for PDF. Dette gjøres i _PDF Handler_. Her kan man ved hjelp av logikk velge å skjulte felter eller sider i print.
 
-Appen må inkludere `ui/Settings.json` filen som [her](../../../../app/development/ux/pages/navigation/#rekkefølge).
+Appen må inkludere `ui/Settings.json`-filen som [forklart her](../../../../app/development/ux/pages/navigation/#rekkefølge).
 
 Teknisk er det veldlig likt hvordan man gjør det for validering. 
 
-Eksempel nedenfor som skjuler et gitt felt basert på innhold. Komponentene er basert på ID som man finner i layouts filene til skjema.
+Eksempel nedenfor som skjuler et gitt felt basert på innhold. Komponentene er basert på ID som man finner i layout-filene til skjema.
 
 ```C#
         public async Task<LayoutSettings> FormatPdf(LayoutSettings layoutSettings, object data)
