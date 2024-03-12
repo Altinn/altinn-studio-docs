@@ -280,13 +280,7 @@ public async Task ValidateTask(Instance instance, string taskId, ModelStateDicti
 
 ## Single field validation
 
-If there is a need for immediate validation of a field
-that can not be covered in the client side validation,
-you can set up a trigger for validation on single fields in the component configuration.
-{{%notice warning%}}
-
-**NOTE**: Trigger for validation on single fields in Stateless apps is not currently supported.
-{{%/notice%}}
+Single field validations are shown immediately when the user fills out a field.
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="v4 (App Frontend)">}}
@@ -312,8 +306,15 @@ Where `showValidations` contains a set of validation types to check; this can be
 - `Required`
 - `AllExceptRequired`
 - `All`
+
+**Note**: `"showValidations": ["AllExceptRequired"]` is the default value if the property is not set. 
+To avoid showing any validations immediately, set `showValidations` to an empty array `[]`.
 {{</content-version-container>}}
 {{<content-version-container version-label="v3 (App Frontend)">}}
+
+{{%notice warning%}}
+**NOTE**: Trigger for validation on single fields in Stateless apps is not currently supported.
+{{%/notice%}}
 
 Note that in version 3 of app frontend, JSON schema and component specific validation is run automatically by default, adding the validation trigger causes custom backend validation to be run as well.
 

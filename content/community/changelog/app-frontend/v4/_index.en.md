@@ -567,15 +567,16 @@ Where `showValidations` contains a set of validation types to check; this can be
 - `All`
 
 This causes validations to become visible immediately when they occur.
-Because of this, you may want to make sure that any custom validation code you have written does not produce a validation error when the field is empty, as this will cause the validation to be shown immediately when the user enters the page.
+Because of this, you may want to make sure that any custom validation code you have written does not produce a validation error when the field is empty, 
+as this will cause the validation to be shown immediately when the user enters the page.
 If leaving the field empty is invalid, please mark the field as required instead of validating that with custom code.
 
-{{% /expandlarge %}}
+**Note**: `"showValidations": ["AllExceptRequired"]` is the default value if the property is not set. 
+Meaning that all validations except for `Required` valdiations will be shown immediately. 
+This also includes any custom validations implemented in the backend which previously needed `"triggers": ["validation"]` to be set on the component.
+To avoid showing certain types of validations immediately, you can override the `showValidations` property on the component.
 
-There are also some changes to the default behavior of validations.
-Previously, `Schema` and `Component` validations were implicitly triggered whenever the data changed.
-In v4, these validations are not implicitly set to be always visible. If you want to keep the old behavior,
-where these validations were shown immediatly while typing, you need to set `"showValidations": ["Schema", "Component"]` on those components.
+{{% /expandlarge %}}
 
 ## AttachmentList config changes
 
