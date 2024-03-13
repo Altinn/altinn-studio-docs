@@ -5,9 +5,7 @@ description: Høynivå roadmap og funksjonell beskrivelse for Altinn.
 weight: 900
 ---
 
-Roadmap for Altinn 3 plattformen finner du [her](https://github.com/orgs/Altinn/projects/10/views/1).
-
-All annen funksjonalitet har [en egen roadmap](https://altinn.github.io/docs/ny-funksjonalitet/roadmap/).
+Roadmap for Altinn produktene finner du her finner du [her](https://github.com/digdir/roadmap?tab=readme-ov-file).
 
 Se [diagram](productfeatures.drawio.svg) nedenfor for detaljert feature oversikt med status for Altinn 3. Hver boks har en link til nærmere forklaring på feature. 
 
