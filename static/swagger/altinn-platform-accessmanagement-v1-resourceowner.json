@@ -1,0 +1,430 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Access Management Resource Owner API",
+    "description": "Work in progress API specification for access-management operations for resource owners",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "https://platform.at22.altinn.cloud/accessmanagement/api/v1/",
+      "description": "AT22"
+    },
+    {
+      "url": "https://platform.at23.altinn.cloud/accessmanagement/api/v1/",
+      "description": "AT23"
+    },
+    {
+      "url": "https://platform.at24.altinn.cloud/accessmanagement/api/v1/",
+      "description": "AT24"
+    },
+    {
+      "url": "https://platform.tt02.altinn.no/accessmanagement/api/v1/",
+      "description": "Integration Test"
+    },
+    {
+      "url": "https://platform.altinn.no/accessmanagement/api/v1/",
+      "description": "Production"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Maskinporten",
+      "description": "API for resource owner / API-provider or Maskinporten to lookup delegations of MaskinportenSchema\n"
+    },
+    {
+      "name": "Authorized Parties",
+      "description": "API for looking up authorized parties aka 'reportees' a given subject can represent through having received roles or rights for the party.\n"
+    }
+  ],
+  "paths": {
+    "/maskinporten/delegations": {
+      "get": {
+        "tags": [
+          "Maskinporten"
+        ],
+        "parameters": [
+          {
+            "name": "supplierOrg",
+            "in": "query",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "consumerOrg",
+            "in": "query",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "scope",
+            "in": "query",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MaskinportenDelegation"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "MaskinportenDelegationsAuth": [
+              "altinn:maskinporten/delegations.read",
+              "altinn:maskinporten/delegations.admin"
+            ]
+          }
+        ]
+      }
+    },
+    "/resourceowner/authorizedparties": {
+      "post": {
+        "tags": [
+          "Authorized Parties"
+        ],
+        "description": "Query to find all authorized parties of a given subject (person or organization). An authorized party is a person or organization for which the subject have received one or more accesses, through roles or single rights delegation.\n",
+        "parameters": [
+          {
+            "name": "includeAltinn2",
+            "in": "query",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          }
+        ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/AuthorizedPartiesRequest"
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuthorizedParty"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "AuthorizedPartiesSOAuth": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AuthorizedPartiesRequest": {
+        "$ref": "#/components/schemas/Subject"
+      },
+      "MaskinportenDelegation": {
+        "type": "object",
+        "properties": {
+          "consumer_org": {
+            "type": "string",
+            "nullable": true
+          },
+          "supplier_org": {
+            "type": "string",
+            "nullable": true
+          },
+          "delegation_scheme_Id": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "scopes": {
+            "uniqueItems": true,
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "created": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "resourceid": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UrnAttribute": {
+        "required": [
+          "type",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "type": "urn:altinn:person:identifier-no",
+          "value": "01017012345"
+        }
+      },
+      "Subject": {
+        "$ref": "#/components/schemas/UrnAttribute"
+      },
+      "AuthorizedParty": {
+        "type": "object",
+        "properties": {
+          "partyUuid": {
+            "type": "string",
+            "format": "uuid",
+            "example": "8a884071-8921-4ecf-93a8-c8502df5e3f8"
+          },
+          "name": {
+            "type": "string",
+            "example": "Ola Nordmann"
+          },
+          "organizationNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "personId": {
+            "type": "string",
+            "nullable": true,
+            "example": "138155237"
+          },
+          "type": {
+            "$ref": "#/components/schemas/AuthorizedPartyType"
+          },
+          "partyId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 50001337
+          },
+          "unitType": {
+            "type": "string",
+            "nullable": true
+          },
+          "isDeleted": {
+            "type": "boolean",
+            "example": false
+          },
+          "onlyHierarchyElementWithNoAccess": {
+            "type": "boolean",
+            "example": false
+          },
+          "authorizedRoles": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "PRIV"
+            }
+          },
+          "subunits": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/AuthorizedParty"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "AuthorizedPartyType": {
+        "type": "string",
+        "enum": [
+          "Person",
+          "Organization",
+          "SelfIdentified"
+        ]
+      },
+      "ProblemDetails": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "nullable": true,
+            "example": "https://tools.ietf.org/html/rfc7231#section-6.6.1"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true,
+            "example": "One or more errors occurred."
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true,
+            "example": 500
+          },
+          "detail": {
+            "type": "string",
+            "nullable": true
+          },
+          "instance": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": {}
+      },
+      "ValidationProblemDetails": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "nullable": true,
+            "example": "https://tools.ietf.org/html/rfc7231#section-6.5.1"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true,
+            "example": "One or more validation errors occurred."
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true,
+            "example": 400
+          },
+          "traceId": {
+            "type": "string",
+            "nullable": true,
+            "example": "00-0a6466bbfecd2763315c53399d8dfb2d-d20012576660bd3f-00"
+          },
+          "errors": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "example": [
+              {
+                "id": "$.resource[1].value",
+                "value": "The resource does not exist"
+              }
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "requestBodies": {
+      "AuthorizedPartiesRequest": {
+        "description": "A JSON object containing information for a lookup request of a given party's list of authorized parties (parties where the lookup party have received roles, access groups or rights)",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/AuthorizedPartiesRequest"
+            }
+          }
+        },
+        "required": true
+      }
+    },
+    "securitySchemes": {
+      "MaskinportenDelegationsAuth": {
+        "type": "http",
+        "description": "Requires one of the following Scopes: [altinn:maskinporten/delegations.read, altinn:maskinporten/delegations.admin]",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      },
+      "AuthorizedPartiesSOAuth": {
+        "type": "http",
+        "description": "Requires one of the following Scopes: [altinn:resourceowner/authorizedparties, altinn:resourceowner/authorizedparties.admin]",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  }
+}
