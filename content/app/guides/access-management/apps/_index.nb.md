@@ -31,3 +31,4 @@ For å opprette en ny sak for å søke om tilgang trykker man først på fanen _
 * Til slutt fylles kontaktinformasjon for brukeren ut, samt hvilke roller hen skal ha tilgang til.
 
 Når rollene har blitt tildelt kan logger og/eller hemmeligheter aksesseres via [Microsoft Azure Portal](https://portal.azure.com).
+Innlogging gjøres med samme konto som til Selvbetjeningsportalen: 'brukernavn@ai-dev.brreg.no'.
