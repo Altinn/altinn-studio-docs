@@ -20,7 +20,7 @@ Description TBD.
 
 ## High-level summary of capabilities and features
 
-Description: TBD
+Description: TBD!
 
 {{< figure src="./image4.png" title="Figure 4: ..." alt="Alt-text">}}
 
