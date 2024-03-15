@@ -73,17 +73,37 @@ In order to use a custom logo, the logo must first be uploaded.
 
 Remember that each text resource file (`resource.[language].json`) must be updated for changes to apply to all languages.
 
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="Change">}}
+
+
 {{< code-title >}}
 App/config/texts/resource.nb.json
 {{< /code-title >}}
+
 ```json
 {
   "id": "appLogo.url",
   "value": "/{appID}/{logoName}.svg"
 }
 ```
-
 The `appID` here refers to the `id` property in `applicationmetadata.json`.
+
+{{</content-version-container>}}
+{{<content-version-container version-label="Example">}}
+
+{{< code-title >}}
+App/config/texts/resource.nb.json
+{{< /code-title >}}
+
+```json
+{
+  "id": "appLogo.url",
+  "value": "/digdir/bli-tjenesteeier/logo_digdir.svg"
+}
+```
+{{</content-version-container>}}
+{{</content-version-selector>}}
 
 Finally, `source` in `applicationmetadata.json` needs to be set to `resource` in order to access the logo uploaded.
 {{< code-title >}}
