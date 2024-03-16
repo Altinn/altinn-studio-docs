@@ -13,7 +13,7 @@ This is work in progress
 
 ## Value streams
 
-Description TBD!!!!!
+Description TBD?
 
 [{{< figure src="./image3.png" title="Figure 3: ..." alt="Alt-text">}}](https://altinn.github.io/ark/models/archi-all/?view=id-10895c7502b84511bb272d77e91ecb00)
 
