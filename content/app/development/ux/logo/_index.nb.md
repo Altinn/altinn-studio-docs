@@ -89,7 +89,7 @@ For å bruke din egen logo, må den først lastes opp.
 Husk at hver tekstressursfil (`resource.[language].json`) må oppdateres for at endringene skal vises i alle språk.
 
 {{<content-version-selector classes="border-box">}}
-{{<content-version-container version-label="Endring">}}
+{{<content-version-container version-label="Syntaks">}}
 
 {{< code-title >}}
 App/config/texts/resource.nb.json

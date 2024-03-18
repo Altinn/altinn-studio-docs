@@ -74,7 +74,7 @@ In order to use a custom logo, the logo must first be uploaded.
 Remember that each text resource file (`resource.[language].json`) must be updated for changes to apply to all languages.
 
 {{<content-version-selector classes="border-box">}}
-{{<content-version-container version-label="Change">}}
+{{<content-version-container version-label="Syntax">}}
 
 
 {{< code-title >}}
