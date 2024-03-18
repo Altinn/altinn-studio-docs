@@ -270,14 +270,14 @@ App/ui/layouts/innflytterPersonalia.json
 
 ```json
 
-// addressComponent
+// address
 "textResourceBindings": {
     "summaryTitle": "Adresse"
 }
 
-// AddressComponent-tidligere-bosted
+// Address-tidligere-bosted
 "textResourceBindings": {
-    "summaryTitle": "innflytterPersonalia.AddressComponent-tidligere-bosted.title"
+    "summaryTitle": "innflytterPersonalia.Address-tidligere-bosted.title"
 }
 ```
 

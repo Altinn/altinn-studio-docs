@@ -69,7 +69,7 @@ For å validere antall tegn må du også inkludere `maxLength`-egenskapen i data
 
 ## Konfigurasjon av automatisk lagring
 
-`Input`-komponenter, `TextArea`-komponenter og `AddressComponent` lagrer automatisk endringer når brukeren
+`Input`-komponenter, `TextArea`-komponenter og `Address` (`AddressComponent` i v3) lagrer automatisk endringer når brukeren
 skriver. I utgangspunktet skjer dette 400 millisekunder etter brukeren sist stoppet å skrive. Når lagring av feltet
 starter, vil også valideringer og triggere kjøres. I tilfeller hvor disse valideringene og triggere bruker mye resursser
 kan det være ønskelig å øke tiden det tar det før data i feltet lagres automatisk - eller at denne funksjonaliteten

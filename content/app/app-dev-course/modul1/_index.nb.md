@@ -422,7 +422,7 @@ App/ui/layouts/innflytterPersonalia.json
 
 ```json
 {
-  "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4//schemas/json/layout/layout.schema.v1.json",
   "data": {
     "layout": [
       {
@@ -474,8 +474,8 @@ App/ui/layouts/innflytterPersonalia.json
         }
       },
       {
-        "id": "addressComponent",
-        "type": "AddressComponent",
+        "id": "address",
+        "type": "Address",
         "dataModelBindings": {
           "address": "Innflytter.Adresse.Gateadresse",
           "zipCode": "Innflytter.Adresse.Postnr",
@@ -512,10 +512,7 @@ App/ui/layouts/innflytterPersonalia.json
       {
         "id": "NavigationButtons-yxdxMR",
         "type": "NavigationButtons",
-        "componentType": "NavigationButtons",
-        "dataModelBindings": {},
-        "showBackButton": true,
-        "textResourceBindings": {}
+        "showBackButton": true
       }
     ]
   }

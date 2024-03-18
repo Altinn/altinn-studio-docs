@@ -59,8 +59,7 @@ The **dataModelBindings** may however be safely omitted entirely if the componen
 ## A component warns about an unsupported property in textResourceBindings
 The **textResourceBindings** property now only supports a certain set of properties, and text resource bindings that
 are not implemented/handles anywhere in the app frontend will cause a validation error. The supported properties for
-each component type should now be listed in suggestions by Visual Studio Code. A common issue is setting the **title**
-property on an **AddressComponent**. The Address component does not currently support any text resource bindings.
+each component type should now be listed in suggestions by Visual Studio Code.
 
 ## A component warns about dataModelBindings
 Binding a component to the data model only makes sense for form components that can store data. The entire property
