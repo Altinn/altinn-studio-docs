@@ -1,15 +1,15 @@
 ---
-title: Email
-description: How to create custom email notifications for apps.
+title: E-post
+description: Hvordan opprette egendefinerte e-postvarslinger for apper.
 toc: true
 weight: 400
 ---
 
-## Activate generation of email notifications in your application
+## Aktiver generering av e-postvarslinger i applikasjonen din
 
-The email client is automatically added to the application. To use it, inject the "IEmailNotificationClient" interface. The interface defines a method used to order an email notification from the [Altinn Notifications](https://github.com/Altinn/altinn-notifications) API.
+E-postklienten legges automatisk til i applikasjonen. For å bruke den, injiser "IEmailNotificationClient"-interface. IEmailNotificationClient definerer en metode som brukes til å bestille en e-postvarsling fra [Altinn Notifications](https://github.com/Altinn/altinn-notifications) API.
 
-### Code example
+### Kodeeksempel
 ```csharp
 using Altinn.App.Core.Internal.Email;
 using Altinn.App.Core.Models.Email;
