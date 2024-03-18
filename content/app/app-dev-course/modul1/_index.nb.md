@@ -167,6 +167,7 @@ App/config/texts/resources.en.json
 
 ```json
 {
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/text-resources/text-resources.schema.v1.json",
   "language": "en",
   "resources": []
 }
@@ -237,7 +238,7 @@ Navnet på feltet som komponenten er koblet til finner du under `dataModelBindin
 App/ui/layouts/{page}.json
 {{< /code-title >}}
 
-```json{linenos=false,hl_lines="7"}
+```json {linenos=false,hl_lines="7"}
 {
   ...
   
@@ -269,7 +270,7 @@ Løsningen er å endre `type`-feltet fra `Input` til `TextArea` (markert).
 App/ui/layouts/{page}.json
 {{< /code-title >}}
 
-```json{linenos=false,hl_lines="3"}
+```json {linenos=false,hl_lines="3"}
 {
   "id": "mellomnavn",
   "type": "TextArea",

@@ -290,9 +290,9 @@ Merk at hvis siden er lagt til i Studio Designer vil den dukke opp under `pages`
 App/ui/Settings.json
 {{< /code-title >}}
 
-```json{hl_lines=[9,13]}
+```json {hl_lines=[9,13]}
 {
-  "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
   "pages": {
     "order": [
       "info",
@@ -316,6 +316,7 @@ App/config/texts/resources.nb.json
 
 ```json
 {
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/text-resources/text-resources.schema.v1.json",
   "language": "nb",
   "resources": [
     ...
@@ -379,7 +380,7 @@ App/ui/layout-sets.json
 
 ```json
 {
-  ...
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout-sets.schema.v1.json",
   "sets": [
     {
       "id": "stateless",
@@ -402,7 +403,7 @@ App/ui/stateless/Settings.json
 
 ```json
 {
-  ...
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
   "pages": {
     "order": [
       "info",
@@ -418,7 +419,7 @@ App/ui/statefull/Settings.json
 
 ```json
 {
-  ...
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
   "pages": {
     "order": [
       "innflytterPersonalia",
@@ -440,7 +441,7 @@ Legg til `"onEntry": { "show": "stateless" }`.
 App/config/applicationmetadata.json
 {{< /code-title >}}
 
-```json{hl_lines=10}
+```json {hl_lines=10}
 {
   "id": "ttd/flyttemelding-sogndal",
   "org": "ttd",
@@ -465,7 +466,7 @@ Vi har brukt uttrykk på knappene for å bestemme hvilken knapp som skal vises/s
 App/ui/stateless/layouts/info.json
 {{< /code-title >}}
 
-```json{hl_lines=[9,17]}
+```json {hl_lines=[9,17]}
 [
   ...
   {
@@ -505,6 +506,7 @@ App/config/texts/resource.nb.json
 
 ```json
 {
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/text-resources/text-resources.schema.v1.json",
   "language": "nb",
   "resources": [
     ...

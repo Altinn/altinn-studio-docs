@@ -166,6 +166,7 @@ App/config/texts/resources.en.json
 
 ```json
 {
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/text-resources/text-resources.schema.v1.json",
   "language": "en",
   "resources": []
 }
@@ -237,7 +238,7 @@ You will find the field name connected to the component under `dataModelBindings
 App/ui/layouts/{page}.json
 {{< /code-title >}}
 
-```json{linenos=false,hl_lines="7"}
+```json {linenos=false,hl_lines="7"}
 {
   ...
   
@@ -269,7 +270,7 @@ The solution is to change the `type` field from `Input` to `TextArea` (highlight
 App/ui/layouts/{page}.json
 {{< /code-title >}}
 
-```json{linenos=false,hl_lines="3"}
+```json {linenos=false,hl_lines="3"}
 {
   "id": "mellomnavn",
   "type": "TextArea",
@@ -323,6 +324,7 @@ App/config/texts/resource.nb.json
 
 ```json
 {
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/text-resources/text-resources.schema.v1.json",
   "language": "nb",
   "resources": [
     {
