@@ -7,7 +7,7 @@ weight: 3
 
 ## Microsoft Azure som leverandør
 
-Altinn 3 kjøres hos Microsoft Azure, som er en av de største skyleverandørene, og Altinn 3 er hovedsakelig lokalisert i datasentre i Norge.
+Altinn 3 kjøres hos Microsoft Azure, som er en av de største skyleverandørene, i datasentre i Norge.
 
 Å kjøre i skyen har både fordeler og ulemper. Hva skjer hvis forbindelsen mellom datasentrene i Norge og fjernstyringslokasjonen faller ut?
 Hvordan fungerer skytjenestene i krisespennet: fred, krise og krig?
@@ -77,12 +77,13 @@ DigDir/Altinn har akseptert denne risikoen.
 
 ## Hva med Schrems II?
 
-Schrems II-dommen fra 2020 handler om personopplysninger og overføringer av slike opplysninger
-til USA eller andre såkalte tredjeland sett i forhold til EU og EØS. 
-Vi viser til vurderingen av personvernkonsekvenser (DPIA) som er gjennomført for Altinn 3.
-Her gjøres også vurderinger om bruk av skytjenesteleverandør i kjølvannet av Schrems II-dommen.
+Dersom personopplysninger skal overføres fra EU/EØS til et tredjeland, for eksempel USA, må det finnes et overføringsgrunnlag i henhold til personvernforordningen. Et mye brukt grunnlag for å overføre personopplysninger til USA var en avtale kalt EU-US Privacy Shield. I Schrems II-dommen fra 2020 ble denne avtalen kjent ugyldig. Imidlertid kom det den 10. juli 2023 et nytt rammeverk for overføring av personopplysninger mellom EU og USA gjennom en adekvansbeslutning som trådte i kraft umiddelbart. En adekvansbeslutning er en beslutning fra EU-kommisjonen om at et område utenfor EU og EØS har regler som ivaretar personvernet på en tilsvarende måte som i land i EU og EØS. Hvis EU-kommisjonen har fattet en slik beslutning, kan man overføre personopplysninger til området i tråd med beslutningen, og overføringen vil være sammenlignbar med overføringer mellom land innenfor EØS. Herunder er det viktig å presisere at øvrige krav i personvernregelverket må følges, som for eksempel å ha behandlingsgrunnlag og databehandleravtale, om det er nødvendig. Det er også viktig å vurdere underleverandører, for å se om disse er sertifisert og om de holder til i andre tredjeland enn USA, da denne adekvansbeslutningen kun gjelder overføring til USA.
 
-Digdir har gjort sine vurderinger av Altinn i rollene som behandlingsansvarlig og databehandler for personopplysninger.
+Dette nye rammeverket, EU-U.S. Data Privacy Framework, er en selv-sertifiseringsordning hvor amerikanske virksomheter kan bli sertifiserte dersom de forplikter seg til å behandle personopplysninger i tråd med rammeverket, og forutsetter at de tilbyr gratis og uavhengige klageordninger for individer. Dersom man overfører personopplysninger til en sertifisert amerikansk virksomhet, trenger man ikke andre overføringsgrunnlag enn denne adekvansbeslutningen. Det er heller ikke nødvendig å vurdere beskyttelsesnivået i USA eller å iverksette sikkerhetstiltak. Denne konkrete tolkningen av virkningen av adekvansbeslutningen legges til grunn av Datatilsynet. 
+
+Microsoft Corporation er sertifisert etter denne ordningen, og adekvansbeslutningen er dermed et gyldig overføringsgrunnlag for eventuell overføring av personopplysninger fra EU/EØS til USA. Microsoft Azure, i likhet med andre skyleverandører, gjør omfattende bruk av underleverandører og tredjeparter, for eksempel i form av support-sentre forskjellige steder i verden. Standardvilkårene er innrettet slik at kunden forhåndssamtykker generelt til at leverandøren kan benytte slike underleverandører/underdatabehandlere. Altinn 3 kjøres som nevnt hos Azure i norske datasentre. Lagring av data relatert til kjørende tjenester og sluttbrukere gjøres i Norge. Support vil kunne gis på flere forskjellige måter. Digdir vil som klart utgangspunkt kun benytte supporttjenester som ytes innenfor Norge og EU/EØS. Det er Digdir selv som styrer når og om man velger å ta kontakt med supportpersonell, og hva supportleverandør skal se og ha tilgang til. 
+
+Vi viser for øvrig til vurderingen av personvernkonsekvenser (DPIA) som er gjennomført for Altinn 3. Digdir har gjort sine vurderinger av Altinn i rollene som behandlingsansvarlig og databehandler for personopplysninger.
 Tjenesteeierne, virksomhetene som benytter Altinn, er imidlertid behandlingsansvarlige for
 behandlingen av personopplysninger i sine tjenester – samt for sine ansatte og konsulenters bruk av Altinn og støtteverktøy.
 Det er derfor viktig å presisere at Tjenesteeierne selv må gjøre sine egne vurderinger for sin bruk,
