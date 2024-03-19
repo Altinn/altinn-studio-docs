@@ -4,7 +4,7 @@ description: By using the Figma Community file Altinn Studio Komponenter you can
 weight: 3
 ---
 
-![Prototyping in Figma](FigmaTeaser3.gif "Prototyping in Figma")
+![Prototyping in Figma](figmaPrototype.gif "Prototyping in Figma")
 
 The Altinn Studio Komponenter is a collection of examples and components that you can use to create a prototype of your app within Figma. 
 
