@@ -197,36 +197,40 @@ App/ui/layouts/oppsummering.json
 {{< /code-title >}}
 
 ```json
-[
-  ...
-  {
-    "id": "arbeidsforhold-group",
-    "type": "Group",
-    "textResourceBindings": {
-      "title": "Arbeid"
-    },
-    "children": ["summary9", "summary10", "summary11"]
-  },
-  {
-    "id": "summary9",
-    "type": "Summary",
-    "componentRef": "RadioButtons-sektor",
-    "pageRef": "Arbeidsforhold"
-  },
-  {
-    "id": "summary10",
-    "type": "Summary",
-    "componentRef": "Checkboxes-bransje",
-    "pageRef": "Arbeidsforhold"
-  },
-  {
-    "id": "summary11",
-    "type": "Summary",
-    "componentRef": "Dropdown-years-in-workforce",
-    "pageRef": "Arbeidsforhold"
-  },
-  ...
-]
+{
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
+  "data": {
+    "layout": [
+      {
+        "id": "arbeidsforhold-group",
+        "type": "Group",
+        "textResourceBindings": {
+          "title": "Arbeid"
+        },
+        "children": [
+          "summary9",
+          "summary10",
+          "summary11"
+        ]
+      },
+      {
+        "id": "summary9",
+        "type": "Summary",
+        "componentRef": "RadioButtons-sektor"
+      },
+      {
+        "id": "summary10",
+        "type": "Summary",
+        "componentRef": "Checkboxes-bransje"
+      },
+      {
+        "id": "summary11",
+        "type": "Summary",
+        "componentRef": "Dropdown-years-in-workforce"
+      }
+    ]
+  }
+}
 ```
 
 * Legg til en innsendingsknapp med teksten 'Bekreft' og fjern innsendingsknappen fra siden `Arbeidsforhold.json`.
@@ -237,27 +241,30 @@ App/ui/layouts/oppsummering.json
 {{< /code-title >}}
 
 ```json
-[
-  ...
-  {
-    "id": "panelinfo",
-    "type": "Panel",
-    "textResourceBindings": {
-      "title": "MERK",
-      "body": "preview.warning"
-    },
-    "variant": "warning",
-    "showIcon": true
-  },
-  {
-    "id": "preview-confirm",
-    "type": "Button",
-    "textResourceBindings": {
-      "title": "button.confirm"
-    }
-  },
-  ...
-]
+{
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
+  "data": {
+    "layout": [
+      {
+        "id": "panelinfo",
+        "type": "Panel",
+        "textResourceBindings": {
+          "title": "MERK",
+          "body": "preview.warning"
+        },
+        "variant": "warning",
+        "showIcon": true
+      },
+      {
+        "id": "preview-confirm",
+        "type": "Button",
+        "textResourceBindings": {
+          "title": "button.confirm"
+        }
+      }
+    ]
+  }
+}
 ```
 
 Fullstendig løsning: [oppsummering.json](https://altinn.studio/repos/tss/flyttemelding-sogndal/src/branch/modul7/App/ui/layouts/oppsummering.json)

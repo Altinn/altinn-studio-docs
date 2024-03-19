@@ -28,7 +28,7 @@ Default behaviour can be overwritten by changing the settings of the field. This
 ```json
 {
   {
-    "id": "input-felt-1",
+    "id": "input-felt1",
     "type": "Input",
     ...
     "labelSettings": {
@@ -52,7 +52,7 @@ You can now include the maxLength property in input fields to specify the maximu
 ```json
 {
   {
-    "id": "input-felt-1",
+    "id": "input-felt1",
     "type": "Input",
     ...
     "maxLength": 10
@@ -75,7 +75,7 @@ example below, data is saved 2 seconds after the user stopped typing.
 ```json {hl_lines=[6]}
 {
   {
-    "id": "input-field-1",
+    "id": "input-field1",
     "type": "Input",
     ...
     "saveWhileTyping": 2000

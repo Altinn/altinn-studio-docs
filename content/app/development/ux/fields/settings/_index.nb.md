@@ -29,7 +29,7 @@ på en komponent i form layout.
 ```json
 {
   {
-    "id": "input-felt-1",
+    "id": "input-felt1",
     "type": "Input",
     ... 
     "labelSettings": {
@@ -54,7 +54,7 @@ Dette vil gi en tellevisning som angir antall gjenværende tegn. Her er eksmpel 
 ```json
 {
   {
-    "id": "input-felt-1",
+    "id": "input-felt1",
     "type": "Input",
     ... 
     "maxLength": 10
@@ -81,7 +81,7 @@ ta 2 sekunder fra brukeren slutter å skrive i feltet til dataene lagres.
 ```json {hl_lines=[6]}
 {
   {
-    "id": "input-felt-1",
+    "id": "input-felt1",
     "type": "Input",
     ... 
     "saveWhileTyping": 2000
