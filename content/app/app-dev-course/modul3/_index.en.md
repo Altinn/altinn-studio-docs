@@ -94,7 +94,8 @@ It is in the format _{org}.apps.tt02.altinn.no/{org}/{app}_
 Unless you're already logged in with a user this link will bring you to Altinn's login page.
 Your organization should have access to a set of test users, use one of these to log in.
 
-Internal users in Digdir should use one of the test users found in [the test data set](https://pedia.altinn.cloud/testing/testdata/datasets/).
+Internal users in Digdir can use the "TestID" electronic ID, which lets you generate a random personal ID,
+or retrieve credentials from [the internal Altinn 3 testing dataset](https://pedia.altinn.cloud/altinn-3/testing/test-data/).
 
 **Test the different tracks and pages to confirm that the behaviour is as expected.**
 
