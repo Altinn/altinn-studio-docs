@@ -8,6 +8,13 @@ weight: 20
 
 {{% notice warning %}}
  Denne modulen krever at du er medlem av en organisasjon som har et etablert testmiljø for Altinn Apps. Dersom dette ikke er tilfellet kan du gå videre til [neste modul](../modul4/).
+ <br><br>
+ Hvis du har en personlig applikasjon som du vil flytte til en organisasjon, 
+ [så kan du spørre en administrator eller service desk](https://docs.altinn.studio/nb/app/getting-started/create-user/#bli-del-av-en-organisasjon).
+
+ Når du har tilgang til en organisasjon som har etablert testmiljø så kan du flytte applikasjonen til organisasjonen slik:
+ 1. Flytt repository for applikasjonen i Gitea til organisasjonen via "Instillinger" på Gitea-siden
+ 2. Oppdater `id` og `org`-feltene i `App/config/applicationmetadata.json`-filen til å peke på organisasjonen 
 {{% /notice %}}
 
 I denne modulen skal du bygge og publisere applikasjonen til [Altinns testmiljø (TT02)](https://tt02.altinn.no/) og verifisere at alt fungerer som forventet også der.
