@@ -17,20 +17,12 @@ The Altinn Studio Komponenter is a collection of examples and components that yo
 - Use the prototype as a guide/reference while the app is in development
 
 ## Get started with Figma
-Having a designer that already has experience in Figma or a similar tool would be an advantage. 
-If you don't have access to such a resource, 
-we recommend going through an [introductory course before you start](https://www.youtube.com/playlist?list=PLXDU_eVOJTx7QHLShNqIXL1Cgbxj7HlN4).
+Having a designer that already has experience in Figma or a similar tool would be an advantage. If you don't have access to such a resource, we recommend going through an introductory course before you start.
 
-1. Create a user on [https://www.figma.com/](https://www.figma.com/). Figma can be installed locally or be used from your browser.
-2. Open the Altinn prototype-kit and follow the steps as described in the introduction on the first page if the file:
+Create a user on https://www.figma.com/. Figma can be installed locally or be used from your browser.
+Open the Altinn prototype-kit and follow the steps as described in the introduction on the first page if the file:
+{{% highlighted-link src="https://www.figma.com/community/file/1344307804742953785/altinn-studio-komponenter" link="Altinn Studio Komponenter" %}}
 
-<!-- Self-closing usage without .Inner content -->
-{{< highlighted-link src="https://www.figma.com/community/file/1278649851387178020/altinn-studio-komponenter" text="Altinn Studio Components" >}}
+When the designer/professional has designed and user tested the form, it can be used as a specification for what the developers should create in Altinn Studio.
 
-When the designer/professional has designed and user tested the form, 
-it can be used as a specification for what the developers should create in Altinn Studio. 
-
-{{% panel %}}
-**NOTE:** If you are creating services for your own solution, where Altinn is invisible for the user, you should rather use 
-your agency's own design system to prototype your service.
-{{% /panel %}}
+{{% panel %}} NOTE: If you are creating services for your own solution, where Altinn is invisible for the user, you should rather use your agency's own design system to prototype your service. {{% /panel %}}
