@@ -5,7 +5,7 @@ weight: 3
 ---
 
 ![Prototyping in Figma](FigmaTeaser3.gif "Prototyping in Figma")
-
+![Alt text](content/app/guides/design/prototype/figmaPrototype.gif "Title")
 Altinn Prototype-kit er en samling av sidemaler og komponenter du kan bruke til å lage en prototype i Figma av 
 Altinn-skjemaet ditt. 
 
@@ -25,7 +25,7 @@ Dersom du ikke har tilgang på en slik ressurs anbefaler vi å gå gjennom en
 1. Opprett en bruker på [https://www.figma.com/](https://www.figma.com/). Figma kan installeres lokalt eller brukes i din nettleser.
 2. Åpne Altinn prototype-kit og følg stegene som er beskrevet i introduksjonen på første side i filen:
 
-{{% highlighted-link src="https://www.figma.com/file/wnBveAG2ikUspFsQwM3GNE/Prototyping-av-skjematjenester?node-id=47%3A4068" link="Altinn Prototype-kit" %}}
+{{% highlighted-link src="https://www.figma.com/community/file/1344307804742953785/altinn-studio-komponenter" link="Altinn Studio Komponenter" %}}
 
 Når designeren/fagpersonen har designet ferdig skjemaet, og det er [brukertestet](../usertest/), 
 kan det videre brukes som spesifikasjon til det utviklerne skal lage i Altinn Studio.  
