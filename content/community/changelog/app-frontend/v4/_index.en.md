@@ -353,7 +353,7 @@ Example of old to new config:
     "group": "Questions"
   },
   "children": [
-    "my-likert-id",
+    "my-likert-id"
   ],
   "edit": {
     "mode": "likert",
@@ -451,7 +451,7 @@ The old configuration for triggering validation on page change was the following
 
 ```json {linenos=false,hl_lines=[5]}
 {
-  "id": "nav-buttons-1",
+  "id": "nav-buttons1",
   "type": "NavigationButtons",
   "textResourceBindings": {...},
   "triggers": ["validatePage"]
@@ -464,7 +464,7 @@ To achieve the same result in v4, you instead use the new `validateOnNext` prope
 
 ```json {linenos=false,hl_lines=[5,6,7,8]}
 {
-  "id": "nav-buttons-1",
+  "id": "nav-buttons1",
   "type": "NavigationButtons",
   "textResourceBindings": {...},
   "validateOnNext": {

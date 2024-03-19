@@ -16,15 +16,21 @@ Setup must be done manually as of today. Support for setup through Altinn Studio
 Display of summary is set up in the same manner as the other form components in a form. 
 You can choose to have the summary on it's own page, or on the same page as other form components.
 
-The summary component is very simple, and refers to the _component_ that is to be summarized and the _page_ this is on. Example:
+The summary component is very simple, and refers to the _component_ that is to be summarized. Example:
 
-```json {hl_lines=[4]}
+```json {hl_lines=[8]}
 {
-    "id": "summary-1",
-    "type": "Summary",
-    "componentRef": "<komponent-id>",
-    "pageRef": "<side komponenten er definert på>"
-},
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
+  "data": {
+    "layout": [
+      {
+        "id": "summary1",
+        "type": "Summary",
+        "componentRef": "<komponent-id>"
+      }
+    ]
+  }
+}
 ```
 
 The component displays a summary of data from the specified component. In addition, the user gets the opportunity to 
@@ -32,35 +38,34 @@ return to the relevant component/page to make changes.
 
 The display differs depending on which form component the summary refers to.
 
-Note: PDF-generating does not support a summary page, so it has to be excluded by changing `ui/Settings.json`
-```json
-"pages": 
-      { 
-        "excludeFromPdf": [ "name-of-summary-page" ]
-      }
-```
-
 ### Text resources for summary
 As stated above, the summary component offers a brief summary of data from another component. 
 However, the following text resources set in the reference component will not be used in the reference component itself but rather in the summary component:
 - The `summaryTitle` field in `textResourceBindings` can be utilized to set a label/title specifically for the summary. If this field is set, it will take precedence over the `title`-field.
 - The `summaryAccessibleTitle` field in `textResourceBindings` can be used to define the aria-label for the edit button. By default, the summaryTitle (or title) field is used, but this field allows customization for accessibility purposes in the summary component.
 
-```json {hl_lines=[12, 13]}
+```json {hl_lines=[15,16]}
 {
-    "id": "summary-1",
-    "type": "Summary",
-    "componentRef": "<komponent-id>",
-    "pageRef": "<side komponenten er definert på>",
-},
-{
-    "id": "<komponent-id>",
-    "type": "Input",
-    "textResourceBindings": {
-        "title": "",
-        "summaryTitle": "Tittel i sammendrag",
-        "summaryAccessibleTitle": "Aria-label på redigerknapp i sammendrag"
-    }
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
+  "data": {
+    "layout": [
+      {
+        "id": "summary1",
+        "type": "Summary",
+        "componentRef": "<komponent-id>"
+      },
+      {
+        "id": "<komponent-id>",
+        "type": "Input",
+        "textResourceBindings": {
+          "title": "",
+          "summaryTitle": "Tittel i sammendrag",
+          "summaryAccessibleTitle": "Aria-label på redigerknapp i sammendrag"
+        },
+        ...
+      }
+    ]
+  }
 }
 ```
 
@@ -95,28 +100,33 @@ Pointing to a `Group` component will display a summary for all components in tha
 It is also possible to exclude certain (child) components from displaying in the group summary by using
 the `excludedChildren` property. This property should be set to an array with component IDs to exclude. 
 
-```json {hl_lines=[13, 21]}
+```json {hl_lines=[14, 22]}
 {
-  "id": "main-group",
-  "type": "Group",
-  "textResourceBindings": {
-    "title": "Hovedgruppe"
-  },
-  "dataModelBindings": {
-    "group": "model.mainGroup"
-  },
-  "children": [
-    "child1",
-    "child2",
-    "child3"
-  ]
-},
-{
-  "id": "summary-of-group",
-  "type": "Summary",
-  "componentRef": "main-group",
-  "pageRef": "FormLayout",
-  "excludedChildren": ["child3"]
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
+  "data": {
+    "layout": [
+      {
+        "id": "main-group",
+        "type": "Group",
+        "textResourceBindings": {
+          "title": "Hovedgruppe"
+        },
+        "children": [
+          "child1",
+          "child2",
+          "child3"
+        ]
+      },
+      {
+        "id": "summary-of-group",
+        "type": "Summary",
+        "componentRef": "main-group",
+        "excludedChildren": [
+          "child3"
+        ]
+      }
+    ]
+  }
 }
 ```
 
@@ -131,58 +141,68 @@ To support summary display of nested groups, the following setup must be done in
 - Set `"largeGroup": true` on the summary component
 
 #### Example
-With the following setup of a nested group in layout:
+With the following setup of a nested repeating group in layout:
 
 ```json
 {
-  "id": "main-group",
-  "type": "Group",
-  "textResourceBindings": {
-    "title": "Hovedgruppe"
-  },
-  "dataModelBindings": {
-    "group": "model.mainGroup"
-  },
-  "children": [
-    "nested-group-1"
-  ],
-  ... // remaining setup of component
-},
-{
-  "id": "nested-group-1",
-  "type": "Group",
-  "textResourceBindings": {
-    "title": "Undergruppe"
-  },
-  "dataModelBindings": {
-    "group": "model.mainGroup.subGroup"
-  },
-  "children": [
-    "input-field-1"
-  ],
-  ... // remaining setup of component
-},
-{
-  "id": "input-field-1",
-  "type": "Input",
-  "textResourceBindings": {
-    "title": "Skriv inn noe her"
-  },
-  "dataModelBindings": {
-    "group": "model.mainGroup.subGroup.field1"
-  },
-  ... // remaining setup of component
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
+  "data": {
+    "layout": [
+      {
+        "id": "main-group",
+        "type": "RepeatingGroup",
+        "textResourceBindings": {
+          "title": "Hovedgruppe"
+        },
+        "dataModelBindings": {
+          "group": "model.mainGroup"
+        },
+        "children": [
+          "nested-group1"
+        ]
+      },
+      {
+        "id": "nested-group1",
+        "type": "RepeatingGroup",
+        "textResourceBindings": {
+          "title": "Undergruppe"
+        },
+        "dataModelBindings": {
+          "group": "model.mainGroup.subGroup"
+        },
+        "children": [
+          "input-field1"
+        ]
+      },
+      {
+        "id": "input-field1",
+        "type": "Input",
+        "textResourceBindings": {
+          "title": "Skriv inn noe her"
+        },
+        "dataModelBindings": {
+          "group": "model.mainGroup.subGroup.field1"
+        }
+      }
+    ]
+  }
 }
 ```
 
 Set up the summary in the following manner:
-```json {hl_lines=[6]}
+```json {hl_lines=[9]}
 {
-  "id": "summary-1",
-  "type": "Summary",
-  "componentRef": "main-group",
-  "pageRef": "FormLayout",
-  "largeGroup": true,
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
+  "data": {
+    "layout": [
+      {
+        "id": "summary1",
+        "type": "Summary",
+        "componentRef": "main-group",
+        "largeGroup": true
+      }
+    ]
+  }
 }
 ```
 
@@ -200,35 +220,39 @@ the group component. See the example below.
 
 ```json
 {
-  "id": "personalia-group",
-  "type": "Group",
-  "textResourceBindings": {
-    "title": "Personalia"
-  },
-  "children": [
-    "summary-1",
-    "summary-2",
-    "summary-3"
-  ]
-},
-{
-  "id": "summary-1",
-  "type": "Summary",
-  "componentRef": "d566c79c-3e3e-445b-be25-a404508f6607",
-  "pageRef": "personalia"
-},
-{
-  "id": "summary-2",
-  "type": "Summary",
-  "componentRef": "22a60bf0-d5b7-4b45-9ac9-c266b6ad3716",
-  "pageRef": "personalia"
-},
-{
-  "id": "summary-3",
-  "type": "Summary",
-  "componentRef": "d497737b-67b2-4e03-87a9-43f58579c938",
-  "pageRef": "personalia"
-},
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
+  "data": {
+    "layout": [
+      {
+        "id": "personalia-group",
+        "type": "Group",
+        "textResourceBindings": {
+          "title": "Personalia"
+        },
+        "children": [
+          "summary1",
+          "summary2",
+          "summary3"
+        ]
+      },
+      {
+        "id": "summary1",
+        "type": "Summary",
+        "componentRef": "d566c79c-3e3e-445b-be25-a404508f6607"
+      },
+      {
+        "id": "summary2",
+        "type": "Summary",
+        "componentRef": "22a60bf0-d5b7-4b45-9ac9-c266b6ad3716"
+      },
+      {
+        "id": "summary3",
+        "type": "Summary",
+        "componentRef": "d497737b-67b2-4e03-87a9-43f58579c938"
+      }
+    ]
+  }
+}
 ```
 
 ## Example on summary page
@@ -240,7 +264,7 @@ when needed.
 
 ```json
 {
-  "$schema":  "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
   "data": {
     "layout": [
       {
@@ -257,28 +281,25 @@ when needed.
           "title": "Personalia"
         },
         "children": [
-          "summary-1",
-          "summary-2",
-          "summary-3"
+          "summary1",
+          "summary2",
+          "summary3"
         ]
       },
       {
         "id": "summary1",
         "type": "Summary",
-        "componentRef": "d566c79c-3e3e-445b-be25-a404508f6607",
-        "pageRef": "personalia"
+        "componentRef": "d566c79c-3e3e-445b-be25-a404508f6607"
       },
       {
         "id": "summary2",
         "type": "Summary",
-        "componentRef": "22a60bf0-d5b7-4b45-9ac9-c266b6ad3716",
-        "pageRef": "personalia"
+        "componentRef": "22a60bf0-d5b7-4b45-9ac9-c266b6ad3716"
       },
       {
         "id": "summary3",
         "type": "Summary",
-        "componentRef": "d497737b-67b2-4e03-87a9-43f58579c938",
-        "pageRef": "personalia"
+        "componentRef": "d497737b-67b2-4e03-87a9-43f58579c938"
       },
       {
         "id": "drugs-group",
@@ -287,47 +308,41 @@ when needed.
           "title": "Rus- og dopingmidler"
         },
         "children": [
-          "summary-4",
-          "summary-5",
-          "summary-6",
-          "summary-7"
+          "summary4",
+          "summary5",
+          "summary6",
+          "summary7"
         ]
       },
       {
         "id": "summary4",
         "type": "Summary",
-        "componentRef": "064c0033-8996-4825-85fc-2a19fe654400",
-        "pageRef": "drugs"
+        "componentRef": "064c0033-8996-4825-85fc-2a19fe654400"
       },
       {
         "id": "summary5",
         "type": "Summary",
-        "componentRef": "7f22e523-3f6d-4371-a5dd-233dc41af824",
-        "pageRef": "drugs"
+        "componentRef": "7f22e523-3f6d-4371-a5dd-233dc41af824"
       },
       {
         "id": "summary6",
         "type": "Summary",
-        "componentRef": "18a7c709-ae2f-48b3-b6f6-bd631f5d8d56",
-        "pageRef": "drugs"
+        "componentRef": "18a7c709-ae2f-48b3-b6f6-bd631f5d8d56"
       },
       {
         "id": "summary7",
         "type": "Summary",
-        "componentRef": "b7417cf9-f806-4835-a3d1-424c8d094d5f",
-        "pageRef": "drugs"
+        "componentRef": "b7417cf9-f806-4835-a3d1-424c8d094d5f"
       },
       {
         "id": "summary-group1",
         "type": "Summary",
-        "componentRef": "arbeidserfaring-group",
-        "pageRef": "work"
+        "componentRef": "arbeidserfaring-group"
       },
       {
         "id": "summary8",
         "type": "Summary",
-        "componentRef": "25f720db-5784-4c95-a530-43f0bf523466",
-        "pageRef": "attachment"
+        "componentRef": "25f720db-5784-4c95-a530-43f0bf523466"
       },
       {
         "id": "button1",
