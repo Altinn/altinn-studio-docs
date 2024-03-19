@@ -260,9 +260,9 @@ You can set the component to `readOnly` in one of two ways:
 App/ui/layouts/{page}.json
 {{< /code-title >}}
 
-```json{linenos=false,hl_lines=["12"]}
+```json {linenos=false,hl_lines=["12"]}
 {
-  "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
   "data": {
     "layout": [
       {
@@ -395,9 +395,9 @@ We have placed the image and heading side by side using the `grid` property (hig
 App/ui/layouts/info.json
 {{< /code-title >}}
 
-```json{linenos=false,hl_lines=["15-17", "28-30"]}
+```json {linenos=false,hl_lines=["15-17", "28-30"]}
 {
-  "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
   "data": {
     "layout": [
       {
@@ -437,8 +437,6 @@ App/ui/layouts/info.json
       {
         "id": "NavigationButtons-hateTR",
         "type": "NavigationButtons",
-        "componentType": "NavigationButtons",
-        "dataModelBindings": {},
         "showBackButton": true,
         "textResourceBindings": {
           "next": "navigation.next",
@@ -458,6 +456,7 @@ App/config/texts/resource.nb.json
 
 ```json
 {
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/text-resources/text-resources.schema.v1.json",
   "language": "nb",
   "resources": [
     ...
@@ -528,9 +527,9 @@ New page for *Track 1*.
 App/ui/layouts/info.json
 {{< /code-title >}}
 
-```json{linenos=false,hl_lines=["6-27"]}
+```json {linenos=false,hl_lines=["6-27"]}
 {
-  "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
   "data": {
     "layout": [
       ...
@@ -575,9 +574,9 @@ As an option, you can test the value of the field directly (`["dataModel", "Innf
 App/ui/layouts/ikke-for-deg.json
 {{< /code-title >}}
 
-```json{linenos=false,hl_lines="4-11"}
+```json {linenos=false,hl_lines="4-11"}
 {
-  "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
   "data": {
     "hidden": [
       "equals",
@@ -598,8 +597,6 @@ App/ui/layouts/ikke-for-deg.json
       {
         "id": "NavigationButtons-azt7sj",
         "type": "NavigationButtons",
-        "componentType": "NavigationButtons",
-        "dataModelBindings": {},
         "showBackButton": true,
         "textResourceBindings": {
           "back": "navigation.back"
@@ -617,9 +614,9 @@ This page will be hidden when the option for *not* meeting the service requireme
 App/ui/layouts/innflytterPersonalia.json
 {{< /code-title >}}
 
-```json{linenos=false,hl_lines=["4-11"]}
+```json {linenos=false,hl_lines=["4-11"]}
 {
-  "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
   "data": {
     "hidden": [
       "equals",
@@ -645,9 +642,9 @@ Configure the `excludeFromPdf` property in `Settings.json` to exclude pages from
 App/Settings.json
 {{< /code-title >}}
 
-```json{linenos=false,hl_lines="9"}
+```json {linenos=false,hl_lines="9"}
 {
-  "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
   "pages": {
     "order": [
       "info",
@@ -667,8 +664,9 @@ New text resources:
 App/config/texts/resource.nb.json
 {{< /code-title >}}
 
-```json{linenos=false,hl_lines=["5-20"]}
+```json {linenos=false,hl_lines=["5-20"]}
 {
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/text-resources/text-resources.schema.v1.json",
   "language": "nb",
   "resources": [
     ...
@@ -741,9 +739,9 @@ For a complete solution, please refer to the [Module 2 source code](https://alti
 App/ui/layouts/innflytterPersonalia.json
 {{< /code-title >}}
 
-```json{linenos=false,hl_lines=["20", "24-26", "35", "39-41", "45-52"]}
+```json {linenos=false,hl_lines=["20", "24-26", "35", "39-41", "45-52"]}
 {
-  "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
   "data": {
     "hidden": [
       "equals",
@@ -808,21 +806,20 @@ We have created a prefill file, `datamodel.prefill.json`, and configured prefill
 App/models/datamodel.prefill.json
 {{< /code-title >}}
 
-```json{linenos=false,hl_lines=[""]}
+```json {linenos=false,hl_lines=[""]}
 {
-    "$schema": "https://altinncdn.no/schemas/json/prefill/prefill.schema.v1.json",
-    "allowOverwrite": true,
-    "ER": {
-    },
-    "DSF": {
-        "FirstName": "Innflytter.Fornavn",
-        "MiddleName": "Innflytter.Mellomnavn",
-        "LastName": "Innflytter.Etternavn",
-        "TelephoneNumber": "Innflytter.Kontaktinformasjon.Telefonnummer"
-    },
-    "UserProfile": {
-        "Email": "Innflytter.Kontaktinformasjon.Epost"
-    }
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/prefill/prefill.schema.v1.json",
+  "allowOverwrite": true,
+  "ER": {},
+  "DSF": {
+    "FirstName": "Innflytter.Fornavn",
+    "MiddleName": "Innflytter.Mellomnavn",
+    "LastName": "Innflytter.Etternavn",
+    "TelephoneNumber": "Innflytter.Kontaktinformasjon.Telefonnummer"
+  },
+  "UserProfile": {
+    "Email": "Innflytter.Kontaktinformasjon.Epost"
+  }
 }
 ```
 
