@@ -28,7 +28,7 @@ Default behaviour can be overwritten by changing the settings of the field. This
 ```json
 {
   {
-    "id": "input-felt-1",
+    "id": "input-felt1",
     "type": "Input",
     ...
     "labelSettings": {
@@ -52,7 +52,7 @@ You can now include the maxLength property in input fields to specify the maximu
 ```json
 {
   {
-    "id": "input-felt-1",
+    "id": "input-felt1",
     "type": "Input",
     ...
     "maxLength": 10
@@ -64,7 +64,7 @@ To validate the number of characters entered, you must also include the `maxLeng
 
 ## Configuring automatic save while typing
 
-`Input` components, `TextArea` components and `AddressComponent` automatically save changes while the user
+`Input` components, `TextArea` components and `Address` (`AddressComponent` in v3) automatically save changes while the user
 is typing. By default, this happens 400 milliseconds after the user last stopped typing. At this point
 validation and triggers will execute as well. In cases where validations and triggers are resource intensive, it
 might be necessary to increase the delay before saving automatically - or disable it altogether.
@@ -75,7 +75,7 @@ example below, data is saved 2 seconds after the user stopped typing.
 ```json {hl_lines=[6]}
 {
   {
-    "id": "input-field-1",
+    "id": "input-field1",
     "type": "Input",
     ...
     "saveWhileTyping": 2000

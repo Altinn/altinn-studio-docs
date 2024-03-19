@@ -59,8 +59,7 @@ Ja, en standardkomponent med forhåndsutfylt data vil i utgangspunktet være red
 
 {{% expandsmall id="m2t2q2" header="Hvordan kan man hindre at en forhåndsutfylt verdi endres av sluttbrukeren?" %}}
 
-Komponenten kan settes til `readOnly` ved å huke av ved "Det skal ikke være mulig å svare (read only)" for den aktuelle komponenten i Altinn Studio:
-![Altinn Studio innstilling for 'read only'. Bilde](<screenshot-readonly-setting.png>)
+Komponenten kan settes til `readOnly` ved å huke av ved "Det skal ikke være mulig å svare (read only)" for den aktuelle komponenten i Altinn Studio.
 
 
 Alternativt kan man kjøre valideringer av dataen på serversiden for å verifisere at dataen i feltet matcher dataen fra forhåndsutfyllingskilden. Dette kan gjøres i prosesserings- eller valideringslogikken til applikasjonen.

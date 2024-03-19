@@ -80,12 +80,13 @@ Endre `PdfHandler.cs`-filen under `App/logic/Print`-mappen.
 
 Legg til en liste med sidenavn som skal eksluderes på `excludeFromPdf` under `pages`:
 
-```json {linenos=false,hl_lines=["3-5"]}
+```json {linenos=false,hl_lines=["5"]}
 {
-  "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
-  "pages": {
-    "excludeFromPdf": ["side2"]
-  }
+   "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
+   "pages": {
+      "order": ["side1", "side2"],
+      "excludeFromPdf": ["side2"]
+   }
 }
 ```
 
@@ -112,12 +113,15 @@ public async Task<LayoutSettings> FormatPdf(LayoutSettings layoutSettings, objec
 
 Legg til en liste over komponent-ID-er som skal ekskluderes på `excludeFromPdf` under `components`:
 
-```json {linenos=false,hl_lines=["3-5"]}
+```json {linenos=false,hl_lines=["7"]}
 {
-  "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
-  "components": {
-    "excludeFromPdf": ["bilde-komponent-id"]
-  }
+   "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
+   "pages": {
+      "order": ["side1"]
+   },
+   "components": {
+      "excludeFromPdf": ["bilde-komponent-id"]
+   }
 }
 ```
 
@@ -145,12 +149,15 @@ Formatet er: `komponentID-<rad-nummer>`.
 
 ### 1. Settings.json
 
-```json {linenos=false,hl_lines=["3-5"]}
+```json {linenos=false,hl_lines=["7"]}
 {
-  "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
-  "components": {
-    "excludeFromPdf": ["komponent-i-gruppe-1"]
-  }
+   "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
+   "pages": {
+      "order": ["side1"]
+   },
+   "components": {
+      "excludeFromPdf": ["komponent-i-gruppe-1"]
+   }
 }
 ```
 
@@ -182,12 +189,13 @@ Denne metoden er kun tilgjengelig i versjon 7.5 og høyere.
 Denne metoden lar deg spesifisere en helt egendefinert PDF ved å definere en layout-fil som bestemmer hva den skal inneholde.
 
 For å ta i bruk denne metoden må du opprette en ny layout-fil for PDF-en og sette `pdfLayoutName` i `Settings.json` til å peke til den filen:
-```json {linenos=false,hl_lines=["3-5"]}
+```json {linenos=false,hl_lines=["5"]}
 {
-  "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
-  "pages": {
-    "pdfLayoutName": "minPdfLayout"
-  }
+   "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
+   "pages": {
+      "order": ["side1"],
+      "pdfLayoutName": "minPdfLayout"
+   }
 }
 ```
 
@@ -207,25 +215,25 @@ Den automatiske PDF-layouten inkluder en forside med instans-informasjon som avs
 
 ```json {linenos=false,hl_lines=["5-17"]}
 {
-  "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
-  "data": {
-    "layout": [
-      {
-        "id": "pdf-instans",
-        "type": "InstanceInformation",
-        "elements": {
-        "dateSent": true,
-        "sender": true,
-        "receiver": true,
-        "referenceNumber": true
-        },
-        "pageBreak": {
-          "breakAfter": true
-        }
-      }
-      ...
-    ]
-  }
+   "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
+   "data": {
+      "layout": [
+         {
+            "id": "pdf-instance",
+            "type": "InstanceInformation",
+            "elements": {
+               "dateSent": true,
+               "sender": true,
+               "receiver": true,
+               "referenceNumber": true
+            },
+            "pageBreak": {
+               "breakAfter": "always"
+            }
+         },
+         ...
+      ]
+   }
 }
 ```
 
@@ -235,19 +243,25 @@ Den automatiske PDF-layouten inkluder en forside med instans-informasjon som avs
 
 Du kan spesifisere at en komponent skal starte på en ny side eller at et sideskift skal komme rett etter en komponent ved å bruke `pageBreak`-egenskapen. Denne egenskapen er tilgjengelig på alle komponenter. I eksempelet under brukes det på en overskrift for å sørge for at den starter på en ny side:
 
-```json {linenos=false,hl_lines=["9-12"]}
+```json {linenos=false,hl_lines=["12-15"]}
 {
-  "id": "pdf-overskrift",
-  "type": "Header",
-  "textResourceBindings": {
-    "title": "Dette er en ny seksjon"
-  },
-  "dataModelBindings": {},
-  "size": "L",
-  "pageBreak": {
-    "breakBefore": "always",
-    "breakAfter": "avoid"
-  }
+   "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
+   "data": {
+      "layout": [
+         {
+            "id": "pdf-header",
+            "type": "Header",
+            "textResourceBindings": {
+               "title": "Dette er en ny seksjon"
+            },
+            "size": "L",
+            "pageBreak": {
+               "breakBefore": "always",
+               "breakAfter": "avoid"
+            }
+         }
+      ]
+   }
 }
 ```
 
@@ -258,14 +272,22 @@ Du kan spesifisere at en komponent skal starte på en ny side eller at et sidesk
 
 Det er mulig å ekskludere enkeltkomponenter inne i en gruppe ved å bruke `excludedChildren`-egenskapen på en `Summary`-komponent som refererer til en `Group`-komponent. Dette gjøres ved å legge ID-en til komponenten i listen over ekskluderte komponenter som i eksempelet under:
 
-```json {linenos=false,hl_lines=["6"]}
+```json {linenos=false,hl_lines=["10"]}
 {
-  "id": "pdf-group-summary",
-  "type": "Summary",
-  "componentRef": "en-gruppe-komponent",
-  "pageRef": "Form",
-  "excludedChildren": ["en-komponent-i-gruppen"]
-},
+   "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
+   "data": {
+      "layout": [
+         {
+            "id": "pdf-group-summary",
+            "type": "Summary",
+            "componentRef": "en-gruppe-komponent",
+            "excludedChildren": [
+               "en-komponent-i-gruppen"
+            ]
+         }
+      ]
+   }
+}
 ```
 
 {{% /expandlarge %}}

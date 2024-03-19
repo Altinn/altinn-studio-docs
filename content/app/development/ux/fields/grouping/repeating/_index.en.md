@@ -27,56 +27,58 @@ Below is a form with a repeating group that:
 {{% expandlarge id="full-example" header="Show configuration for this screenshot" %}}
 
 ```json {linenos=inline}
-[
-  {
-    "id": "gruppe",
-    "type": "RepeatingGroup",
-    "children": [
-      "avkrysningsboks",
-      "adresse"
-    ],
-    "maxCount": 3,
-    "dataModelBindings": {
-      "group": "GruppeListe"
-    }
-  },
-  {
-    "id": "avkrysningsboks",
-    "type": "Checkboxes",
-    "textResourceBindings": {
-      "title": "Avkrysningsboks"
-    },
-    "dataModelBindings": {
-      "simpleBinding": "GruppeListe.Avkrysning"
-    },
-    "options": [
+{
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
+  "data": {
+    "layout": [
       {
-        "label": "Navn",
-        "value": "Verdi1"
+        "id": "gruppe",
+        "type": "RepeatingGroup",
+        "children": [
+          "avkrysningsboks",
+          "adresse"
+        ],
+        "maxCount": 3,
+        "dataModelBindings": {
+          "group": "GruppeListe"
+        }
       },
       {
-        "label": "Adresse",
-        "value": "Verdi2"
+        "id": "avkrysningsboks",
+        "type": "Checkboxes",
+        "textResourceBindings": {
+          "title": "Avkrysningsboks"
+        },
+        "dataModelBindings": {
+          "simpleBinding": "GruppeListe.Avkrysning"
+        },
+        "options": [
+          {
+            "label": "Navn",
+            "value": "Verdi1"
+          },
+          {
+            "label": "Adresse",
+            "value": "Verdi2"
+          }
+        ],
+        "required": true
+      },
+      {
+        "id": "adresse",
+        "type": "Address",
+        "dataModelBindings": {
+          "address": "GruppeListe.Adresse",
+          "zipCode": "GruppeListe.Postnr",
+          "postPlace": "GruppeListe.Poststed"
+        },
+        "simplified": true,
+        "readOnly": false,
+        "required": true
       }
-    ],
-    "required": true
-  },
-  {
-    "id": "adresse",
-    "type": "AddressComponent",
-    "textResourceBindings": {
-      "title": "Adresse" 
-    },
-    "dataModelBindings": {
-      "address": "GruppeListe.Adresse",
-      "zipCode": "GruppeListe.Postnr",
-      "postPlace": "GruppeListe.Poststed"
-    },
-    "simplified": true,
-    "readOnly": false,
-    "required": true
+    ]
   }
-]
+}
 ```
 
 {{% /expandlarge %}}
@@ -169,9 +171,6 @@ Below is a form with a repeating group that:
   {
     "id": "addresse",
     "type": "AddressComponent",
-    "textResourceBindings": {
-      "title": "Adresse" 
-    },
     "dataModelBindings": {
       "address": "GruppeListe.Adresse",
       "zipCode": "GruppeListe.Postnr",

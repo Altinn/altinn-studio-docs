@@ -193,7 +193,7 @@ Example of a calculation which populates the data model mentioned in the example
 ```c#
 public async Task<bool> ProcessDataRead(Instance instance, Guid? dataId, object data)
 {  
-    if (instance.GetType() == typeof(StatelessV1))
+    if (data.GetType() == typeof(StatelessV1))
     {
         StatelessV1 form = (StatelessV1) data;
         // Here you can do what you want, for ex. an API-call

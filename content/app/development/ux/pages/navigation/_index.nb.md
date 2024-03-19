@@ -84,7 +84,7 @@ Navigasjonsbar legges inn i alle layoutfiler der den skal brukes. Eksempel på k
 
 ```json
 {
-  "id": "navbar-page-1",
+  "id": "navbar-page1",
   "type": "NavigationBar"
 }
 ```
@@ -93,7 +93,7 @@ Det er også mulighet å konfigurere komponenten NavigationBar til å vise alle 
 
 ```json
 {
-  "id": "navbar-page-1",
+  "id": "navbar-page1",
   "type": "NavigationBar",
   "compact": true
 }
@@ -152,7 +152,7 @@ I versjon 4 av app frontend, har `NavigationButtons`-komponenten egenskapene `va
 
 ```json {linenos=false,hl_lines=[5,6,7,8]}
 {
-  "id": "nav-buttons-1",
+  "id": "nav-buttons1",
   "type": "NavigationButtons",
   "textResourceBindings": {...},
   "validateOnNext": {
@@ -176,7 +176,7 @@ Tilsvarende, har `NavigationBar`-komponenten egenskapene `validateOnForward` og 
 
 ```json {linenos=false,hl_lines=[4,5,6,7]}
 {
-  "id": "nav-1",
+  "id": "nav1",
   "type": "NavigationBar",
   "validateOnForward": {
     "page": "current",
@@ -191,7 +191,7 @@ I versjon 3 av app frontend kan du legge til en trigger på navigasjonsknappen:
 
 ```json {linenos=false,hl_lines=[7]}
 {
-  "id": "nav-buttons-1",
+  "id": "nav-buttons1",
   "type": "NavigationButtons",
   "textResourceBindings": {
     "next": "Neste",
