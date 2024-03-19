@@ -16,15 +16,21 @@ Oppsett må gjøres manuelt inntil videre. Støtte for oppsett via Altinn Studio
 Visning av oppsummering settes opp på samme måte som øvrige skjema-komponenter i et skjema.
 Man kan velge å ha oppsummeringen på en egen side, eller på samme side som andre skjema-komponenter.
 
-Oppsummerings-komponenten er meget enkel, og refererer til _komponent_ som skal oppsummeres, og _siden_ denne ligger på. Eksempel:
+Oppsummerings-komponenten er meget enkel, og refererer til _komponent_ som skal oppsummeres. Eksempel:
 
-```json {hl_lines=[4]}
+```json {hl_lines=[8]}
 {
-    "id": "summary-1",
-    "type": "Summary",
-    "componentRef": "<komponent-id>",
-    "pageRef": "<side komponenten er definert på>"
-},
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
+  "data": {
+    "layout": [
+      {
+        "id": "summary1",
+        "type": "Summary",
+        "componentRef": "<komponent-id>"
+      }
+    ]
+  }
+}
 ```
 
 Komponenten viser oppsummering av data fra den spesifiserte komponenten. I tillegg får sluttbruker mulighet
@@ -32,35 +38,34 @@ til å gå tilbake til den aktuelle komponenten/siden for å gjøre endringer.
 
 Visningen er litt forskjellig avhengig av hva slags skjemakomponent oppsummeringen refererer til.
 
-Merk: PDF-generering støtter ikke oppsummering side, så må den ekskluderes ved å endre `ui/Settings.json`
-```json
-"pages": 
-      { 
-        "excludeFromPdf": [ "navn-til-oppsummering-side" ] 
-      }
-```
-
 ### Tekstressurser
 Som nevnt tidligere, gir oppsummeringskomponenten et sammendrag over data fra en annen komponent.
 Men følgende tekstressurser som er satt i referansekomponenten er kun ment for oppsummeringskomponenten:
 - Feltet `summaryTitle` kan brukes til å angi en egen label/tittel i oppsummeringen. Hvis dette feltet er satt, vil det overstyre `title`-feltet.
 - Feltet `summaryAccessibleTitle` kan brukes til å egendefinere `aria-label` for redigeringsknappen i oppsummeringen. Hvis dette feltet er satt, vil det overstyre `summaryTitle`- og `title`-feltet.
 
-```json {hl_lines=[12, 13]}
+```json {hl_lines=[15,16]}
 {
-    "id": "summary-1",
-    "type": "Summary",
-    "componentRef": "<komponent-id>",
-    "pageRef": "<side komponenten er definert på>",
-},
-{
-    "id": "<komponent-id>",
-    "type": "Input",
-    "textResourceBindings": {
-        "title": "",
-        "summaryTitle": "Tittel i sammendrag",
-        "summaryAccessibleTitle": "Aria-label på redigerknapp i sammendrag"
-    }
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
+  "data": {
+    "layout": [
+      {
+        "id": "summary1",
+        "type": "Summary",
+        "componentRef": "<komponent-id>"
+      },
+      {
+        "id": "<komponent-id>",
+        "type": "Input",
+        "textResourceBindings": {
+          "title": "",
+          "summaryTitle": "Tittel i sammendrag",
+          "summaryAccessibleTitle": "Aria-label på redigerknapp i sammendrag"
+        },
+        ...
+      }
+    ]
+  }
 }
 ```
 
@@ -95,28 +100,33 @@ Peker man på en `Group`-komponent vil en oppsummering vises for alle under-komp
 Det er også mulig å ekskludere enkelte under-komponenter fra å vise i uppsummeringen ved å bruke
 `excludedChildren`-egenskapen. Denne egenskapen skal innholde en liste over komponent-IDer man ikke ønsker vist.
 
-```json {hl_lines=[13, 21]}
+```json {hl_lines=[14, 22]}
 {
-  "id": "main-group",
-  "type": "Group",
-  "textResourceBindings": {
-    "title": "Hovedgruppe"
-  },
-  "dataModelBindings": {
-    "group": "model.mainGroup"
-  },
-  "children": [
-    "child1",
-    "child2",
-    "child3"
-  ]
-},
-{
-  "id": "summary-of-group",
-  "type": "Summary",
-  "componentRef": "main-group",
-  "pageRef": "FormLayout",
-  "excludedChildren": ["child3"]
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
+  "data": {
+    "layout": [
+      {
+        "id": "main-group",
+        "type": "Group",
+        "textResourceBindings": {
+          "title": "Hovedgruppe"
+        },
+        "children": [
+          "child1",
+          "child2",
+          "child3"
+        ]
+      },
+      {
+        "id": "summary-of-group",
+        "type": "Summary",
+        "componentRef": "main-group",
+        "excludedChildren": [
+          "child3"
+        ]
+      }
+    ]
+  }
 }
 ```
 
@@ -135,54 +145,64 @@ Med følgende oppsett av gruppe i gruppe i layout:
 
 ```json
 {
-  "id": "main-group",
-  "type": "Group",
-  "textResourceBindings": {
-    "title": "Hovedgruppe"
-  },
-  "dataModelBindings": {
-    "group": "model.mainGroup"
-  },
-  "children": [
-    "nested-group-1"
-  ],
-  ... // resterende oppsett av komponent
-},
-{
-  "id": "nested-group-1",
-  "type": "Group",
-  "textResourceBindings": {
-    "title": "Undergruppe"
-  },
-  "dataModelBindings": {
-    "group": "model.mainGroup.subGroup"
-  },
-  "children": [
-    "input-field-1"
-  ],
-  ... // resterende oppsett av komponent
-},
-{
-  "id": "input-field-1",
-  "type": "Input",
-  "textResourceBindings": {
-    "title": "Skriv inn noe her"
-  },
-  "dataModelBindings": {
-    "group": "model.mainGroup.subGroup.field1"
-  },
-  ... // resterende oppsett av komponent
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
+  "data": {
+    "layout": [
+      {
+        "id": "main-group",
+        "type": "RepeatingGroup",
+        "textResourceBindings": {
+          "title": "Hovedgruppe"
+        },
+        "dataModelBindings": {
+          "group": "model.mainGroup"
+        },
+        "children": [
+          "nested-group1"
+        ]
+      },
+      {
+        "id": "nested-group1",
+        "type": "RepeatingGroup",
+        "textResourceBindings": {
+          "title": "Undergruppe"
+        },
+        "dataModelBindings": {
+          "group": "model.mainGroup.subGroup"
+        },
+        "children": [
+          "input-field1"
+        ]
+      },
+      {
+        "id": "input-field1",
+        "type": "Input",
+        "textResourceBindings": {
+          "title": "Skriv inn noe her"
+        },
+        "dataModelBindings": {
+          "group": "model.mainGroup.subGroup.field1"
+        }
+      }
+    ]
+  }
 }
 ```
 
 Setter man opp oppsummering på følgende måte:
-```json {hl_lines=[6]}
+```json {hl_lines=[9]}
 {
-  "id": "summary-1",
-  "type": "Summary",
-  "componentRef": "main-group",
-  "pageRef": "FormLayout",
-  "largeGroup": true,
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
+  "data": {
+    "layout": [
+      {
+        "id": "summary1",
+        "type": "Summary",
+        "componentRef": "main-group",
+        "largeGroup": true
+      }
+    ]
+  }
 }
 ```
 
@@ -200,35 +220,39 @@ gruppe-komponenten. Se eksempel under.
 
 ```json
 {
-  "id": "personalia-group",
-  "type": "Group",
-  "textResourceBindings": {
-    "title": "Personalia"
-  },
-  "children": [
-    "summary-1",
-    "summary-2",
-    "summary-3"
-  ]
-},
-{
-  "id": "summary-1",
-  "type": "Summary",
-  "componentRef": "d566c79c-3e3e-445b-be25-a404508f6607",
-  "pageRef": "personalia"
-},
-{
-  "id": "summary-2",
-  "type": "Summary",
-  "componentRef": "22a60bf0-d5b7-4b45-9ac9-c266b6ad3716",
-  "pageRef": "personalia"
-},
-{
-  "id": "summary-3",
-  "type": "Summary",
-  "componentRef": "d497737b-67b2-4e03-87a9-43f58579c938",
-  "pageRef": "personalia"
-},
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
+  "data": {
+    "layout": [
+      {
+        "id": "personalia-group",
+        "type": "Group",
+        "textResourceBindings": {
+          "title": "Personalia"
+        },
+        "children": [
+          "summary1",
+          "summary2",
+          "summary3"
+        ]
+      },
+      {
+        "id": "summary1",
+        "type": "Summary",
+        "componentRef": "d566c79c-3e3e-445b-be25-a404508f6607"
+      },
+      {
+        "id": "summary2",
+        "type": "Summary",
+        "componentRef": "22a60bf0-d5b7-4b45-9ac9-c266b6ad3716"
+      },
+      {
+        "id": "summary3",
+        "type": "Summary",
+        "componentRef": "d497737b-67b2-4e03-87a9-43f58579c938"
+      }
+    ]
+  }
+}
 ```
 
 ## Eksempel på oppsummeringsside
@@ -240,7 +264,7 @@ ved behov.
 
 ```json
 {
-  "$schema":  "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
   "data": {
     "layout": [
       {
@@ -257,28 +281,25 @@ ved behov.
           "title": "Personalia"
         },
         "children": [
-          "summary-1",
-          "summary-2",
-          "summary-3"
+          "summary1",
+          "summary2",
+          "summary3"
         ]
       },
       {
         "id": "summary1",
         "type": "Summary",
-        "componentRef": "d566c79c-3e3e-445b-be25-a404508f6607",
-        "pageRef": "personalia"
+        "componentRef": "d566c79c-3e3e-445b-be25-a404508f6607"
       },
       {
         "id": "summary2",
         "type": "Summary",
-        "componentRef": "22a60bf0-d5b7-4b45-9ac9-c266b6ad3716",
-        "pageRef": "personalia"
+        "componentRef": "22a60bf0-d5b7-4b45-9ac9-c266b6ad3716"
       },
       {
         "id": "summary3",
         "type": "Summary",
-        "componentRef": "d497737b-67b2-4e03-87a9-43f58579c938",
-        "pageRef": "personalia"
+        "componentRef": "d497737b-67b2-4e03-87a9-43f58579c938"
       },
       {
         "id": "drugs-group",
@@ -287,47 +308,41 @@ ved behov.
           "title": "Rus- og dopingmidler"
         },
         "children": [
-          "summary-4",
-          "summary-5",
-          "summary-6",
-          "summary-7"
+          "summary4",
+          "summary5",
+          "summary6",
+          "summary7"
         ]
       },
       {
         "id": "summary4",
         "type": "Summary",
-        "componentRef": "064c0033-8996-4825-85fc-2a19fe654400",
-        "pageRef": "drugs"
+        "componentRef": "064c0033-8996-4825-85fc-2a19fe654400"
       },
       {
         "id": "summary5",
         "type": "Summary",
-        "componentRef": "7f22e523-3f6d-4371-a5dd-233dc41af824",
-        "pageRef": "drugs"
+        "componentRef": "7f22e523-3f6d-4371-a5dd-233dc41af824"
       },
       {
         "id": "summary6",
         "type": "Summary",
-        "componentRef": "18a7c709-ae2f-48b3-b6f6-bd631f5d8d56",
-        "pageRef": "drugs"
+        "componentRef": "18a7c709-ae2f-48b3-b6f6-bd631f5d8d56"
       },
       {
         "id": "summary7",
         "type": "Summary",
-        "componentRef": "b7417cf9-f806-4835-a3d1-424c8d094d5f",
-        "pageRef": "drugs"
+        "componentRef": "b7417cf9-f806-4835-a3d1-424c8d094d5f"
       },
       {
         "id": "summary-group1",
         "type": "Summary",
-        "componentRef": "arbeidserfaring-group",
-        "pageRef": "work"
+        "componentRef": "arbeidserfaring-group"
       },
       {
         "id": "summary8",
         "type": "Summary",
-        "componentRef": "25f720db-5784-4c95-a530-43f0bf523466",
-        "pageRef": "attachment"
+        "componentRef": "25f720db-5784-4c95-a530-43f0bf523466"
       },
       {
         "id": "button1",

@@ -146,7 +146,7 @@ If you have a v3 application without a layout set, see [Layout-sets](../../../ux
 
 Create a new folder in `App/ui/` with a name that describes this layout set, for example, _signing_. In this folder, create the file `Settings.json` and a folder named `layouts`.
 
-In the `layouts` folder, create files that define how pages in this layout set should look. The only component that a signing layout must have is an [`ActionButton`](../../../ux/components/ActionButton/) with `"action": "sign"`, which defines that when the user presses this, they perform the sign action, advancing the process.
+In the `layouts` folder, create files that define how pages in this layout set should look. The only component that a signing layout must have is an [`ActionButton`](../../../ux/components/actionbutton/) with `"action": "sign"`, which defines that when the user presses this, they perform the sign action, advancing the process.
 
 An example of a simple layout with a read-only text field and a signing button may look like this:
 

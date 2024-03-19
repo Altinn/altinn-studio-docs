@@ -1,8 +1,7 @@
 ---
-title: Dynamiske kodelister fra repeterede grupper i datamodellen
-linktitle: Dynamiske kodelister fra repeterende grupper i datamodellen
+title: Kodelister fra repeterede grupper i datamodellen
+linktitle: Fra repeterende grupper
 description: Hvordan konfigurere kodelister som får verdiene sine basert på verdier hentet fra en repeterende gruppe i datamodellen?
-toc: true
 weight: 150
 ---
 

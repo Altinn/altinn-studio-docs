@@ -144,7 +144,7 @@ Hvis du har en v3 applikasjon uten layoutset se [Flere skjema i samme app (layou
 
 Opprett en ny mappe i `App/ui/` med navnet som beskriver denne layoutseten, f.eks. _signering_. I denne mappen oppretter du så filen `Settings.json` og en mappe med navn `layouts`. 
 
-I `layouts` mappen opprettes filer som definerer hvordan sider i dette layoutsettet skal se ut. Det eneste komponenten som en signering layout må ha er en [`ActionButton`](../../../ux/components/ActionButton/) med `"action": "sign"` som definerer at når brukeren trykker på denne så utfører han action sign når han flytter prosessen videre.
+I `layouts` mappen opprettes filer som definerer hvordan sider i dette layoutsettet skal se ut. Det eneste komponenten som en signering layout må ha er en [`ActionButton`](../../../ux/components/actionbutton/) med `"action": "sign"` som definerer at når brukeren trykker på denne så utfører han action sign når han flytter prosessen videre.
 
 Eksempel på en enkel layout med et read only tekst felt og en signerings knapp kan se sånn her ut:
 

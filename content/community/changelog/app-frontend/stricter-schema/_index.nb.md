@@ -59,8 +59,7 @@ repeterende gruppe.
 ## En komponent advarer om en ikke-støttet egenskap i textResourceBindings
 **textResourceBindings**-egenskapen støtter nå bare et visst sett med egenskaper, og tekstressursbindinger som ikke er
 implementert/håndteres noe sted i appens frontend vil føre til en valideringsfeil. De støttede egenskapene for hver
-komponenttype bør nå være oppført i forslagene fra Visual Studio Code. Et vanlig problem er å sette **title**-egenskapen
-på en **AddressComponent**. Adressekomponenten støtter for øyeblikket ikke noen tekstressursbindinger.
+komponenttype bør nå være oppført i forslagene fra Visual Studio Code.
 
 ## En komponent advarer om dataModelBindings
 Å binde en komponent til datamodellen gir bare mening for skjemakomponenter som kan lagre data. Hele egenskapen kan
