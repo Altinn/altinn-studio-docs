@@ -166,9 +166,9 @@ The service should run on your local computer with localtest and it should be po
 App/ui/layouts/Arbeidsforhold.json
 {{< /code-title >}}
 
-```json{linenos=false,hl_lines="5-23"}
+```json {linenos=false,hl_lines="5-23"}
 {
-  "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
   "data": {
     "layout": [
       {
@@ -276,7 +276,7 @@ To send a query parameter with the Industry component, we add a mapping to the c
 App/ui/layouts/arbeidsforhold.json
 {{< /code-title >}}
 
-```json{linenos=false,hl_lines="13-15"}
+```json {linenos=false,hl_lines="13-15"}
 ...
       {
         "id": "Checkboxes-bransje",
@@ -386,7 +386,7 @@ App/Program.cs
 App/ui/layouts/arbeidsforhold.json
 {{< /code-title >}}
 
-```json{hl_lines="8"}
+```json {hl_lines="8"}
 ...
 {
    "id": "info-it-kompteanse",

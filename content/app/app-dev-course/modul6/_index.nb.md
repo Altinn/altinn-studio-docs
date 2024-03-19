@@ -153,44 +153,49 @@ App/ui/layouts/innflytterPersonalia.json
 {{< /code-title >}}
 
 ```json
-...
-  {
+{
+ "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4//schemas/json/layout/layout.schema.v1.json",
+ "data": {
+  "layout": [
+   {
     "id": "tidligere-bosteder-overskrift",
     "type": "Header",
     "size": "M",
     "textResourceBindings": {
-      "title": "innflytterPersonalia.tidligere-bosteder-overskrift.title"
+     "title": "innflytterPersonalia.tidligere-bosteder-overskrift.title"
     }
-  },
-  {
+   },
+   {
     "id": "Group-tidligere-bosteder",
-    "type": "Group",
+    "type": "RepeatingGroup",
     "maxCount": 10,
     "dataModelBindings": {
-      "group": "Innflytter.TidligereBosteder"
+     "group": "Innflytter.TidligereBosteder"
     },
     "textResourceBindings": {
-      "add_button": "innflytterPersonalia.AddressComponent-adresse"
+     "add_button": "innflytterPersonalia.Address-adresse"
     },
     "children": [
-      "AddressComponent-tidligere-bosted"
+     "Address-tidligere-bosted"
     ]
-  },
-  {
-    "id": "AddressComponent-tidligere-bosted",
-    "type": "AddressComponent",
+   },
+   {
+    "id": "Address-tidligere-bosted",
+    "type": "Address",
     "dataModelBindings": {
-      "address": "Innflytter.TidligereBosteder.Gateadresse",
-      "zipCode": "Innflytter.TidligereBosteder.Postnr",
-      "postPlace": "Innflytter.TidligereBosteder.Poststed"
+     "address": "Innflytter.TidligereBosteder.Gateadresse",
+     "zipCode": "Innflytter.TidligereBosteder.Postnr",
+     "postPlace": "Innflytter.TidligereBosteder.Poststed"
     },
     "simplified": true,
     "required": true,
     "textResourceBindings": {
-      "title": "innflytterPersonalia.AddressComponent-tidligere-bosted.title"
+     "title": "innflytterPersonalia.Address-tidligere-bosted.title"
     }
-  },
-...
+   }
+  ]
+ }
+}
 ```
 
 **Følgende tekstressurser er lagt til:**
@@ -201,22 +206,22 @@ App/config/texts/resources.nb.json
 
 ```json
 {
-  "language": "nb",
-  "resources": [
-    ...
-    {
-      "id": "innflytterPersonalia.AddressComponent-adresse",
-      "value": "adresse"
-    },
-    {
-      "id": "innflytterPersonalia.AddressComponent-tidligere-bosted.title",
-      "value": "Tidligere bosted"
-    },
-    {
-      "id": "innflytterPersonalia.tidligere-bosteder-overskrift.title",
-      "value": "Tidligere bosteder"
-    }
-  ]
+ "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/text-resources/text-resources.schema.v1.json",
+ "language": "nb",
+ "resources": [
+  {
+   "id": "innflytterPersonalia.Address-adresse",
+   "value": "adresse"
+  },
+  {
+   "id": "innflytterPersonalia.Address-tidligere-bosted.title",
+   "value": "Tidligere bosted"
+  },
+  {
+   "id": "innflytterPersonalia.tidligere-bosteder-overskrift.title",
+   "value": "Tidligere bosteder"
+  }
+ ]
 }
 ```
 
@@ -227,32 +232,6 @@ App/config/texts/resources.nb.json
 ![Validering postnummer feilet. Skjermbilde](./postal-code-validation-error-screenshot.png "Validering postnummer med feilmelding")
 
 ![Validering postnummer ok. Skjermbilde](./postal-code-validation-ok-screenshot.png "Validering postnummer ok")
-
-* **Legg til en validerings-trigger på adressekomponenten:**
-
-{{< code-title >}}
-App/ui/layouts/innflytterPersonalia.json
-{{< /code-title >}}
-
-```json{hl_lines="15"}
-...
-  {
-    "id": "AddressComponent-tidligere-bosted",
-    "type": "AddressComponent",
-    "dataModelBindings": {
-      "address": "Innflytter.TidligereBosteder.Gateadresse",
-      "zipCode": "Innflytter.TidligereBosteder.Postnr",
-      "postPlace": "Innflytter.TidligereBosteder.Poststed"
-    },
-    "simplified": true,
-    "required": true,
-    "textResourceBindings": {
-      "title": "innflytterPersonalia.AddressComponent-tidligere-bosted.title"
-    },
-    "triggers": ["validation"]
-  },
-...
-```
 
 * **Legg til valideringslogikk i metoden `ValidateData` i `InstanceValidation.cs`:**
 
@@ -299,14 +278,15 @@ App/config/texts/resources.nb.json
 
 ```json
 {
-  "language": "nb",
-  "resources": [
-    ...
-    {
-      "id": "Innflytter.TidligereBosteder.validation_message",
-      "value": "Vi er beæret over å motta en '1337' innbygger til Sogndal kommune! Du må imidlertid bekrefte din uovertruffenhet ved å legge til en 🌟 i adressefeltet for å gå videre."
-    }
-  ]
+ "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/text-resources/text-resources.schema.v1.json",
+ "language": "nb",
+ "resources": [
+  ...,
+  {
+   "id": "Innflytter.TidligereBosteder.validation_message",
+   "value": "Vi er beæret over å motta en '1337' innbygger til Sogndal kommune! Du må imidlertid bekrefte din uovertruffenhet ved å legge til en 🌟 i adressefeltet for å gå videre."
+  }
+ ]
 }
 ```
 
