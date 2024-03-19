@@ -192,7 +192,7 @@ Eksempel på en kalkulering som populerer datamodellen nevnt i eksempelet over:
 ```c#
 public async Task<bool> ProcessDataRead(Instance instance, Guid? dataId, object data)
 {  
-    if (instance.GetType() == typeof(StatelessV1))
+    if (data.GetType() == typeof(StatelessV1))
     {
         StatelessV1 form = (StatelessV1) data;
         // Her kan du gjøre det du ønsker, f.eks et API-kall 

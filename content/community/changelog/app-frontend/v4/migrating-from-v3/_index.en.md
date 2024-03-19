@@ -24,8 +24,7 @@ The Altinn Studio CLI is a command line tool for upgrading Altinn Apps. The tool
 
 If you do not have the CLI installed, you can install it by following the instructions in the [installation guide](/app/cli/install).
 
-<!-- TODO: Uncomment and update version number when a new version gets released
-Make sure you are using at least version 1.0.0 of the altinn studio cli. You can check the version by running:
+Make sure you are using at least version `1.4.0` of the Altinn Studio CLI. You can check the version by running:
 
 ```bash
 altinn-studio --version
@@ -36,8 +35,6 @@ If you have an older version, you can update it by running:
 ```bash
 dotnet tool update -g altinn.studio.cli
 ```
-
--->
 
 ### Run the upgrade command
 

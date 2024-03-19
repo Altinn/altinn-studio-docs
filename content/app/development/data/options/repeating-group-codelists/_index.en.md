@@ -1,8 +1,7 @@
 ---
 title: Code lists based on repeating groups from the data model
-linktitle: Code lists based on repeating groups from the data model
+linktitle: From repeating groups
 description: How to configure code lists that gets it's values from a repeating group from the datamodel?
-toc: true
 weight: 150
 ---
 

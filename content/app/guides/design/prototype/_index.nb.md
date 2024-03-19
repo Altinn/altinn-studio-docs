@@ -4,7 +4,7 @@ description: Ved hjelp av Altinns Prototype-kit kan du lage en klikkbar prototyp
 weight: 3
 ---
 
-![Prototyping in Figma](FigmaTeaser3.gif "Prototyping in Figma")
+![Prototyping in Figma](figmaPrototype.gif "Prototyping in Figma")
 
 Altinn Prototype-kit er en samling av sidemaler og komponenter du kan bruke til å lage en prototype i Figma av 
 Altinn-skjemaet ditt. 

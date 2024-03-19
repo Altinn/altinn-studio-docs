@@ -79,12 +79,13 @@ Modify the `PdfHandler.cs` file under `App/logic/Print`.
 
 Add a list of page names to exclude called `excludeFromPdf` under `pages`:
 
-```json {linenos=false,hl_lines=["3-5"]}
+```json {linenos=false,hl_lines=["5"]}
 {
-  "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
-  "pages": {
-    "excludeFromPdf": ["page2"]
-  }
+   "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
+   "pages": {
+      "order": ["page1", "page2"],
+      "excludeFromPdf": ["page2"]
+   }
 }
 ```
 
@@ -111,12 +112,15 @@ public async Task<LayoutSettings> FormatPdf(LayoutSettings layoutSettings, objec
 
 Add a list of component IDs to exclude called `excludeFromPdf` under `components`:
 
-```json {linenos=false,hl_lines=["3-5"]}
+```json {linenos=false,hl_lines=["7"]}
 {
-  "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
-  "components": {
-    "excludeFromPdf": ["image-component-id"]
-  }
+   "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
+   "pages": {
+      "order": ["page1"]
+   },
+   "components": {
+      "excludeFromPdf": ["image-component-id"]
+   }
 }
 ```
 
@@ -144,12 +148,15 @@ The required format is: `componentId-<groupIndex>`.
 
 ### 1. Settings.json
 
-```json {linenos=false,hl_lines=["3-5"]}
+```json {linenos=false,hl_lines=["7"]}
 {
-  "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
-  "components": {
-    "excludeFromPdf": ["ownerId-1"]
-  }
+   "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
+   "pages": {
+      "order": ["page1"]
+   },
+   "components": {
+      "excludeFromPdf": ["ownerId-1"]
+   }
 }
 ```
 
@@ -181,12 +188,13 @@ This method is only available in version 7.5 and higher.
 This method lets you fully customize the generated PDF by using a layout file to specify what it should contain.
 
 To use this method you need to create a new layout file for the PDF and set `pdfLayoutName` in `Settings.json` to point to that file:
-```json {linenos=false,hl_lines=["3-5"]}
+```json {linenos=false,hl_lines=["5"]}
 {
-  "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
-  "pages": {
-    "pdfLayoutName": "myPdfLayout"
-  }
+   "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
+   "pages": {
+      "order": ["page1"],
+      "pdfLayoutName": "myPdfLayout"
+   }
 }
 ```
 
@@ -206,25 +214,25 @@ The automatic layout includes a front page with instance information like sender
 
 ```json {linenos=false,hl_lines=["5-17"]}
 {
-  "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
-  "data": {
-    "layout": [
-      {
-        "id": "pdf-instance",
-        "type": "InstanceInformation",
-        "elements": {
-        "dateSent": true,
-        "sender": true,
-        "receiver": true,
-        "referenceNumber": true
-        },
-        "pageBreak": {
-          "breakAfter": "always"
-        }
-      }
-      ...
-    ]
-  }
+   "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
+   "data": {
+      "layout": [
+         {
+            "id": "pdf-instance",
+            "type": "InstanceInformation",
+            "elements": {
+               "dateSent": true,
+               "sender": true,
+               "receiver": true,
+               "referenceNumber": true
+            },
+            "pageBreak": {
+               "breakAfter": "always"
+            }
+         },
+         ...
+      ]
+   }
 }
 ```
 
@@ -234,19 +242,25 @@ The automatic layout includes a front page with instance information like sender
 
 You can specify that a component should start on a new page or that a page break should occur immediately following a component using the `pageBreak` property. This property can be applied to any component. In the example below it is applied to a header to have a different section start on a new page:
 
-```json {linenos=false,hl_lines=["9-12"]}
+```json {linenos=false,hl_lines=["12-15"]}
 {
-  "id": "pdf-header",
-  "type": "Header",
-  "textResourceBindings": {
-    "title": "This is a new section"
-  },
-  "dataModelBindings": {},
-  "size": "L",
-  "pageBreak": {
-    "breakBefore": "always",
-    "breakAfter": "avoid"
-  }
+   "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
+   "data": {
+      "layout": [
+         {
+            "id": "pdf-header",
+            "type": "Header",
+            "textResourceBindings": {
+               "title": "This is a new section"
+            },
+            "size": "L",
+            "pageBreak": {
+               "breakBefore": "always",
+               "breakAfter": "avoid"
+            }
+         }
+      ]
+   }
 }
 ```
 
@@ -257,14 +271,22 @@ You can specify that a component should start on a new page or that a page break
 
 It is possible to exclude child components from a group by using the `excludedChildren` property on a `Summary` component pointing to a `Group` component. This is done by adding the child component ID to the list of excluded components like in the following example:
 
-```json {linenos=false,hl_lines=["6"]}
+```json {linenos=false,hl_lines=["10"]}
 {
-  "id": "pdf-group-summary",
-  "type": "Summary",
-  "componentRef": "some-group-component",
-  "pageRef": "Form",
-  "excludedChildren": ["some-child-component"]
-},
+   "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
+   "data": {
+      "layout": [
+         {
+            "id": "pdf-group-summary",
+            "type": "Summary",
+            "componentRef": "some-group-component",
+            "excludedChildren": [
+               "some-child-component"
+            ]
+         }
+      ]
+   }
+}
 ```
 
 {{% /expandlarge %}}
