@@ -269,8 +269,9 @@ These functions are available for use in expressions:
 | [`frontendSettings`](#func-frontendsettings) | [String](#strings)                                                                               | [String](#strings)                   | ✅       | ✅      |  
 | [`dataModel`](#func-datamodel)               | [String](#strings)                                                                               | [String](#strings)                   | ✅       | ✅      |  
 | [`component`](#func-component)               | [String](#strings)                                                                               | [String](#strings)                   | ✅       | ✅      |  
-| [`formatDate`](#func-formatDate)             | [String](#strings), optional [String](#strings)                                                  | [String](#strings)                   | ✅       | ✅      |  
-| [`formLink`](#func-formLink)                 | nullable [String](#strings), [String](#strings), [String](#strings), optional [String](#strings) | [String](#strings)                   | ✅       | ✅      |  
+| [`formatDate`](#func-formatDate)             | [String](#strings), optional [String](#strings)                                                  | [String](#strings)                   | ✅       | ❌      |  
+| [`linkToPage`](#func-linkToPage)                 | [String](#strings), [String](#strings) | [String](#strings)                   | ✅       | ❌      |  
+| [`linkToComponent`](#func-linkToComponent)                 | [String](#strings), [String](#strings) | [String](#strings)                   | ✅       | ❌      |  
 
 Detailed descriptions and examples
 
@@ -780,22 +781,35 @@ Would result in `14:54`
 
 {{% /expandlarge %}}
 
-{{% expandlarge id="func-formLink" header="formLink" %}}
-The formLink function can be used to create links that can be used inside text in a form. It is meant to create links 
-that point to specific pages and or components of the form.
+{{% expandlarge id="func-linkToPage" header="linkToPage" %}}
+The `linkToPage` function can be used to create links that can be used inside text in a form. It is meant to create links 
+that point to a specific page of the form. Clicking this link will navigate directly to the specified page.
 
-The function takes 4 arguments. The first argument is the link text which will be visible for the user. The second argument
-is the name of the page the link should point to. The third argument is the task id of the page. This argument is nullable. 
-This is because for stateless apps we do not have any task_id to point to, and in these cases the argument should be `null`.
-The fourth and last argument is the optional nodeId argument. This specifies the id of a node which should be focused when
-the link is clicked. This argument is optional.
+The function takes 2 arguments. The first argument is the link text which will be visible for the user. The second argument
+is the id of the page the link should point to. 
 
 
 ```json
-["formLink", "Specify your name", "page-1", "Task_2", "inputMyName"]
+["linkToPage", "Specify your name", "page1"]
 ```
-Would result in `<a href="#/instance/<party-id>/<instance-id>/Task_2/page-1?focusNodeId=inputMyName">Specify your name</a>`
-When clicked, this link will take the user to the specified page and focus on the specified component.
+Would result in `<a href="#/instance/<party-id>/<instance-id>/<TaskId>/page1">Specify your name</a>`
+When clicked, this link will take the user to the specified page.
+
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-linkToComponent" header="linkToComponent" %}}
+The `linkToComponent` function can be used to create links that can be used inside text in a form. It is meant to create links 
+that point to a specific component of the form. Clicking this link will navigate directly to the component, giving it focus.
+
+The function takes 2 arguments. The first argument is the link text which will be visible for the user. The second argument
+is the id of the component the link should point to. 
+
+
+```json
+["linkToComponent", "Specify your name", "inputMyName"]
+```
+Would result in `<a href="#/instance/<party-id>/<instance-id>/<TaskId>/<PageId>?focusNodeId=inputMyName">Specify your name</a>`
+When clicked, this link will take the user to the page the component is on and focus on the specified component.
 
 {{% /expandlarge %}}
 

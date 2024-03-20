@@ -267,6 +267,8 @@ Disse funksjonene er tilgjengelige for bruk i uttrykk:
 | [`dataModel`](#func-datamodel)               | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅       | ✅      |
 | [`component`](#func-component)               | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅       | ✅      |
 | [`formatDate`](#func-formatDate)             | [Streng](#strenger), valgfri [Streng](#strenger)   | [Streng](#strenger)                  | ✅       | ❌      |
+| [`linkToPage`](#func-linkToPage)                 | [Streng](#strenger), [Streng](#strenger) | [Streng](#strenger)                   | ✅       | ❌      |  
+| [`linkToComponent`](#func-linkToComponent)                 | [Streng](#strenger), [Streng](#strenger) | [Streng](#strenger)                   | ✅       | ❌      |  
 
 Detaljerte beskrivelser og eksempler
 
@@ -769,6 +771,38 @@ Eksempel:
 ```
 Vil resultere i `14:54`
 
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-linkToPage" header="linkToPage" %}}
+`linkToPage`-funksjonen kan brukes for å lage lenker som kan brukes inne i tekst i et skjema.
+Den er ment for å lage lenker som peker til en spesifikk side av skjemaet. Å klikke på denne linken vil navigere
+direkte til den spesifiserte siden.
+
+Funksjonen tar 2 argumenter. Det første argumentet er lenketeksten som vil være synlig for
+brukeren. Det andre argumentet er id-en til siden linken skal peke til.
+
+
+```json
+["linkToPage", "Specify your name", "page1"]
+```
+Resultatet vil bli `<a href="#/instance/<party-id>/<instance-id>/<TaskId>/page1">Oppgi navnet ditt</a>`
+Denne lenken vil ta brukeren til den spesifiserte siden når den blir klikket på.
+
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-linkToComponent" header="linkToComponent" %}}
+`linkToComponent`-funksjonen kan brukes for å lage lenker som kan brukes inne i tekst i et skjema. Den er ment for å lage lenker
+som peker til en spesifikk komponent i skjemaet. Å klikke på denne lenken vil navigere direkte til komponenten og gi den fokus.
+
+Funksjonen tar 2 argumenter. Det første argumentet er lenketeksten som vil være synlig for brukeren.
+Det andre argumentet er id-en til komponenten lenken skal peke til.
+
+
+```json
+["linkToComponent", "Specify your name", "inputMyName"]
+```
+Resultatet vil bli `<a href="#/instance/<party-id>/<instance-id>/<TaskId>/<PageId>?focusNodeId=inputMyName">Oppgi navnet ditt</a>`
+Denne lenken vil ta brukeren til siden komponenten er på og fokusere på den spesifiserte komponenten, når brukeren klikker på lenken.
 {{% /expandlarge %}}
 
 ## Datatyper
