@@ -26,7 +26,7 @@ During application development, you will need to work both in Altinn Studio and 
     you can [create a personal access token in Gitea](https://altinn.studio/repos/user/settings/applications)
     that can be used as a password when cloning:
     ```cmd
-    $ git clone https://<brukernavn>:<access-token>@altinn.studio/repos/<org>/<app-name>.git
+    $ git clone https://<username>:<access-token>@altinn.studio/repos/<org>/<app-name>.git
     ```
     - You should see an output in the terminal similar to this:
     ```cmd
