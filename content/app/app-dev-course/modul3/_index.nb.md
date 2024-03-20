@@ -120,7 +120,9 @@ Den er på formatet `<org>.apps.tt02.altinn.no/<org>/<app>`.
 
 Med mindre du er logget inn med en bruker fra før av vil denne lenken ta deg til innloggingssiden til Altinn.
 Logg inn med en testbruker fra organisasjonen din eller benytt deg av [Tenors testdata](https://www.skatteetaten.no/skjema/testdata/).
- Er du intern i Digdir kan du logge inn med en testbruker fra [testdatasettet](https://pedia.altinn.cloud/testing/testdata/datasets/).
+ 
+Er du intern i Digdir kan du bruke "TestID" innloggings-metoden og generere en tilfeldig bruker,
+eller hente innloggings-detaljer for testbruker i [det interne Altinn 3 test-datasettet](https://pedia.altinn.cloud/altinn-3/testing/test-data/).
 
 ### Oppgaver
 
@@ -129,7 +131,7 @@ Logg inn med en testbruker fra organisasjonen din eller benytt deg av [Tenors te
 
 ### Nyttig dokumentasjon
 - [Tenor testdata](https://www.skatteetaten.no/skjema/testdata/)
-- [Digdir testdatasett](https://pedia.altinn.cloud/testing/testdata/datasets/)
+- [Digdir Altinn 3 testdatasett](https://pedia.altinn.cloud/altinn-3/testing/test-data/)
 
 {{% /expandlarge %}}
 
