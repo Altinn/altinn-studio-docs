@@ -8,8 +8,7 @@ weight: 3
 
 ## Microsoft Azure as service provider
 
-Altinn 3 runs on Microsoft Azure, which is one of the largest cloud service providers,
-and Altinn 3 is primarily located in data centers in Norway.
+Altinn 3 runs on Microsoft Azure, which is one of the largest cloud service providers, in data centers in Norway.
 
 Running in the cloud has both advantages and disadvantages.
 What happens if the connection between the data centers in Norway and the remote management location goes down?
