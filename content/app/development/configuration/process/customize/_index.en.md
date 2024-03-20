@@ -78,6 +78,7 @@ An example setup of the `layout-sets.json` where `Task_1` is a data step, and `T
 
 ```json
 {
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout-sets.schema.v1.json",
   "sets": [
     {
       "id": "simple",
@@ -99,7 +100,7 @@ Example `formLayout.json` file that presents data from the data model used in th
 
 ```json
 {
-  "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
   "data": {
     "layout": [
       {
@@ -284,6 +285,7 @@ App/ui/layout-sets.json
 
 ```json {hl_lines=[4,6]}
 {
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout-sets.schema.v1.json",
   "sets": [
     {
       "id": "custom-receipt",
@@ -306,7 +308,7 @@ App/ui/custom-receipt/Settings.json
 
 ```json
 {
-  "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
   "pages": {
     "order": ["page1", "page2"]
   }
@@ -327,7 +329,7 @@ App/ui/custom-receipt/layouts/page1.json
 
 ```json
 {
-  "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
   "data": {
     "layout": [
       {
