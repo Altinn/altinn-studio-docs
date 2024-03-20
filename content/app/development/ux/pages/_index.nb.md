@@ -29,7 +29,7 @@ Dersom du bruker layout sets er det en egen fil for hvert sett.
 
 ```json
 {
-  "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
   "pages": {
     "order": [
       "Info",
@@ -70,12 +70,13 @@ De tilgjengelige innstillingene er følgende:
 
 Default verdien for en sides breddehåndtering kan settes til å være utvidet ved å legge til `expandedWidth`-egenskapen
 til en layout i `data`-egenskapen. Dette vil gjøre at siden utvider seg til å fylle hele bredden av nettleservinduet når
-den åpnes. If you set `expandedWidth` on multiple levels, the more specific value will override the general.
+den åpnes. Dersom du setter `expandedWidth` på flere nivåer, vil den spesifikke verdien overskrive de generelle.
 
-`layout-settings.json`:
+`layout-sets.json`:
 
 ```json
 {
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout-sets.schema.v1.json",
   "uiSettings": {
     "expandedWidth": true
   },
@@ -89,7 +90,7 @@ den åpnes. If you set `expandedWidth` on multiple levels, the more specific val
 
 ```json
 {
-  "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
   "pages": {
       "order": [
          ...
@@ -107,7 +108,7 @@ Layout-file:
 
 ```json
 {
-  "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
   "data": {
     "expandedWidth": true,
     "layout": [

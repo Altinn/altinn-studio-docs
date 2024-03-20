@@ -79,6 +79,7 @@ App/ui/layout-sets.json
 
 ```json {hl_lines=[4,6]}
 {
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout-sets.schema.v1.json",
   "sets": [
     {
       "id": "custom-receipt",
@@ -101,7 +102,7 @@ App/ui/custom-receipt/Settings.json
 
 ```json
 {
-  "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
   "pages": {
     "order": ["page1", "page2"]
   }
