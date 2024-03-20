@@ -24,6 +24,12 @@ Her er en oversikt over hvordan du kommer i gang med lokal utvikling.
     ```cmd
     $ git clone https://altinn.studio/repos/<org>/<app-name>.git
     ```
+    -  Hvis du har logget inn i Altinn Studio uten å lage passord (f. eks. Github login),
+    så kan du [lage et personlig access token i Gitea](https://altinn.studio/repos/user/settings/applications)
+    som kan brukes som passord ved kloning:
+    ```cmd
+    $ git clone https://<brukernavn>:<access-token>@altinn.studio/repos/<org>/<app-name>.git
+    ```
     - I terminalen skal du se en output som likner dette
     ```cmd
     Cloning into 'app-name'...
