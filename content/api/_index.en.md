@@ -17,7 +17,7 @@ This will be an overview of the primary models used in Altinn 3. The primary pur
 
 ### Instance
 
-The Instance model is the main metadata document in Altinn 3. It is used by Altinn to keep track of the state of an interaction between an end user and the owner of an app. An instance must be associated with an app and a reportee as the instance owner.
+The instance model is the main metadata document in Altinn 3. It is used by Altinn to keep track of the state of an interaction between an end user and the owner of an app. An instance must be associated with an app and a reportee as the instance owner.
 
 Instances are also a little bit like containers for all other documents; forms and unstructured data collected during an interaction between an end user and the application owner. The number of documents and files being produced will depend on the app. 
 
@@ -69,11 +69,11 @@ https://platform.altinn.no
 
 There are primarily two groups of users of the Altinn APIs. The first group consists of applications and systems used by the owners of the Apps hosted by Altinn. This group is called *Application Owners*. The second group consists of organisations and people using the Apps to communicate with the application owners. This group is called *Application Users*. 
 
-The two groups have many similar needs, but there are some differences in what type of tasks they need to perform. All new APIs is technically available to both groups, but some endpoints have authorization to allow only on of the groups.
+The two groups have many similar needs, but there are some differences in what type of tasks they need to perform. All new APIs is technically available to both groups, but some endpoints have authorization to allow only one of the groups.
 
 ### Application Owners
 
-A list of common tasks for an application owner:
+Common tasks for an application owner:
 
 - Query instances for a given application according to status or instance owners.
 - Create an application instance.
@@ -84,7 +84,7 @@ A list of common tasks for an application owner:
 
 ### Application Users
 
-A list of common tasks for an application user:
+Common tasks for an application user:
 
 - Query instances for themselves or a party they can represent (instance owner).
 - Create an application instance.
