@@ -8,6 +8,13 @@ weight: 20
 
 {{% notice warning %}}
  Denne modulen krever at du er medlem av en organisasjon som har et etablert testmiljø for Altinn Apps. Dersom dette ikke er tilfellet kan du gå videre til [neste modul](../modul4/).
+ <br><br>
+ Hvis du har en personlig applikasjon som du vil flytte til en organisasjon, 
+ [så kan du spørre en administrator eller service desk](/nb/app/getting-started/create-user/#bli-del-av-en-organisasjon).
+
+ Når du har tilgang til en organisasjon som har etablert testmiljø så kan du flytte applikasjonen til organisasjonen slik:
+ 1. Flytt repository for applikasjonen i Gitea til organisasjonen via "Instillinger" på Gitea-siden
+ 2. Oppdater `id` og `org`-feltene i `App/config/applicationmetadata.json`-filen til å peke på organisasjonen 
 {{% /notice %}}
 
 I denne modulen skal du bygge og publisere applikasjonen til [Altinns testmiljø (TT02)](https://tt02.altinn.no/) og verifisere at alt fungerer som forventet også der.
@@ -120,7 +127,9 @@ Den er på formatet `<org>.apps.tt02.altinn.no/<org>/<app>`.
 
 Med mindre du er logget inn med en bruker fra før av vil denne lenken ta deg til innloggingssiden til Altinn.
 Logg inn med en testbruker fra organisasjonen din eller benytt deg av [Tenors testdata](https://www.skatteetaten.no/skjema/testdata/).
- Er du intern i Digdir kan du logge inn med en testbruker fra [testdatasettet](https://pedia.altinn.cloud/testing/testdata/datasets/).
+ 
+Er du intern i Digdir kan du bruke "TestID" innloggings-metoden og generere en tilfeldig bruker,
+eller hente innloggings-detaljer for testbruker i [det interne Altinn 3 test-datasettet](https://pedia.altinn.cloud/altinn-3/testing/test-data/).
 
 ### Oppgaver
 
@@ -129,7 +138,7 @@ Logg inn med en testbruker fra organisasjonen din eller benytt deg av [Tenors te
 
 ### Nyttig dokumentasjon
 - [Tenor testdata](https://www.skatteetaten.no/skjema/testdata/)
-- [Digdir testdatasett](https://pedia.altinn.cloud/testing/testdata/datasets/)
+- [Digdir Altinn 3 testdatasett](https://pedia.altinn.cloud/altinn-3/testing/test-data/)
 
 {{% /expandlarge %}}
 

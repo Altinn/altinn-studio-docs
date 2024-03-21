@@ -13,5 +13,5 @@ Eksternt sikkerhetsselskap leies inn regelmessig for å utføre uavhengige penet
 Altinn kommer til å se på muligheten for å tilby denne funksjonaliteten senere.
 {{%/notice%}}
 
-Som nevnt under [sikker utvikling](/nb/app/development) benyttes flere analyseverktøy
+Som nevnt under [sikker utvikling](../development) benyttes flere analyseverktøy
 for å hindre at sikkerhetsfeil blir introdusert under utvikling. 

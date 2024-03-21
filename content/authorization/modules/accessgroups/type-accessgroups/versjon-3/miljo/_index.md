@@ -8,12 +8,12 @@ weight: 107
 Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroups/versjon-3/#oversikt-over-tilgangspakker)
 
 ![Miljø, ulykke og sikkerhet](mus3.jpg "Miljø, ulykke og sikkerhet")
-- **Miljø, ulykke og sikkerhet:** Denne fullmakten gir tilgang til alle tjenester som angår miljø, klima, renovasjon samt helse, miljø og sikkerhet. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. 
-	- **Miljø og klimarapportering:** Denne fullmakten gir tilgang til alle tjenester som angår renovasjon, miljø og klimarapportering. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. 
-		- **Renovasjon:** Denne fullmakten gir tilgang til alle tjenester knyttet til renovasjon. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. 
-        - **Miljørydding, miljørensing og lignende:** Denne fullmakten gir tilgang til alle tjenester knyttet til miljørydding, miljørensing og lignende. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. 
-        - **Bærekraft:** Denne fullmakten gir tilgang til alle tjenester knyttet til tiltak og rapportering på bærekraft. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
-	- **Ulykke og yrkesskade:** Denne fullmakten gir tilgang til alle tjenester knyttet til ulykke og yrkesskade. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. 
+- **Miljø, ulykke og sikkerhet:** Denne kategoren inneholder tilgangspakker som gir  tilgang til alle tjenester som angår miljø, klima, renovasjon samt helse, miljø og sikkerhet. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. 
+	- **Miljø og klimarapportering:** Denne underkategorien inneholder tilgangspakker som gir tilgang til alle tjenester som angår renovasjon, miljø og klimarapportering. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. 
+		- **Renovasjon:** Denne tilgangspakken gir fullmakter til tjenester knyttet til renovasjon. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  **urn:altinn:accesspackage:renovasjon**
+        - **Miljørydding, miljørensing og lignende:** Denne tilgangspakken gir fullmakter til tjenester knyttet til miljørydding, miljørensing og lignende. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  **urn:altinn:accesspackage:miljoryddingmiljorensingoglignende**
+        - **Bærekraft:** Denne tilgangspakken gir fullmakter til tjenester knyttet til tiltak og rapportering på bærekraft. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  **urn:altinn:accesspackage:baerekraft**
+	- **Ulykke og yrkesskade:** Denne tilgangspakken gir fullmakter til tjenester knyttet til ulykke og yrkesskade. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. **urn:altinn:accesspackage:ulykkeogyrkesskade**
 
 
 ## Egenskaper ved tilgangspakkene

@@ -58,7 +58,7 @@ To set up this feature, add the following line to your `App/ui/Settings.json` fi
 
 ```json {hl_lines=9}
 {
-  "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
   "pages": {
     "order": ["student-info", "school-work", "well-being"],
     "showProgress": true
