@@ -58,7 +58,7 @@ To set up this feature, add the following line to your `App/ui/Settings.json` fi
 
 ```json {hl_lines=9}
 {
-  "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
   "pages": {
     "order": ["student-info", "school-work", "well-being"],
     "showProgress": true
@@ -84,7 +84,7 @@ The Navigation Bar is added to all layout files. Configuration example:
 
 ```json
 {
-  "id": "navbar-page-1",
+  "id": "navbar-page1",
   "type": "NavigationBar"
 }
 ```
@@ -93,7 +93,7 @@ It can also be configured to display Navigation Bar mobile also in desktop viewp
 
 ```json
 {
-  "id": "navbar-page-1",
+  "id": "navbar-page1",
   "type": "NavigationBar",
   "compact": true
 }
@@ -150,7 +150,7 @@ In version 4 of app frontend, the `NavigationButtons` component have properties 
 
 ```json {linenos=false,hl_lines=[5,6,7,8]}
 {
-  "id": "nav-buttons-1",
+  "id": "nav-buttons1",
   "type": "NavigationButtons",
   "textResourceBindings": {...},
   "validateOnNext": {
@@ -174,7 +174,7 @@ Similarly, the `NavigationBar` component have the `validateOnForward` and `valid
 
 ```json {linenos=false,hl_lines=[4,5,6,7]}
 {
-  "id": "nav-1",
+  "id": "nav1",
   "type": "NavigationBar",
   "validateOnForward": {
     "page": "current",
@@ -190,7 +190,7 @@ In version 3 of app frontend, add a trigger to the navigation button component:
 
 ```json {linenos=false,hl_lines=[7]}
 {
-  "id": "nav-buttons-1",
+  "id": "nav-buttons1",
   "type": "NavigationButtons",
   "textResourceBindings": {
     "next": "Neste",

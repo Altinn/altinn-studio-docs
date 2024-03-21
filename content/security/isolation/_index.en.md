@@ -9,13 +9,13 @@ To prevent a service from one service owner from affecting other service owners,
 
 ## Separation between test and production
 
-Service owners develop their apps/services in a separate service development environment and deploy them in a production environment.
+Service owners develop and test their apps/services in a separate service development environment and deploy them in a production environment.
 
 ## Service owner environment (runtime environment)
 
-The apps of a service owner run in their own runtime environment (AKS).
+The apps of a service owner run in their own runtime environment ([AKS](https://azure.microsoft.com/en-us/products/kubernetes-service)).
 This means that the runtime environment of one service owner
-cannot affect the runtime environment of another service owner, neither during testing nor production.
+cannot affect the runtime environment of other service owners, neither during testing nor production.
 
 ## Personal data in submissions
 

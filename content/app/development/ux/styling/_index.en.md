@@ -32,7 +32,7 @@ been set to cover half the screen (some props are removed for readability):
 ```json
  {
      {
-        "id": "input-felt-1",
+        "id": "input-felt1",
         "type": "Input",
         ... 
         "grid": {
@@ -40,7 +40,7 @@ been set to cover half the screen (some props are removed for readability):
         }
       },
       {
-        "id": "input-felt-2",
+        "id": "input-felt2",
         "type": "Input",
         ...
         "grid": {
@@ -64,7 +64,7 @@ If you in the example above wanted the components to take up the whole width of 
 ```json
  {
      {
-        "id": "input-felt-1",
+        "id": "input-felt1",
         "type": "Input",
         ... 
         "grid": {
@@ -74,7 +74,7 @@ If you in the example above wanted the components to take up the whole width of 
         }
       },
       {
-        "id": "input-felt-2",
+        "id": "input-felt2",
         "type": "Input",
         ...
         "grid": {
@@ -113,7 +113,7 @@ Here, you will have the opportunity to control the width of both the outer grid 
 ```json
 {
      {
-        "id": "input-felt-1",
+        "id": "input-felt1",
         "type": "Input",
         ... 
         "grid": {
@@ -148,7 +148,7 @@ such a layout on the smallest screens, so feel free to use `md`.
 ```json
 {
      {
-        "id": "input-felt-1",
+        "id": "input-felt1",
         "type": "Input",
         ... 
         "grid": {

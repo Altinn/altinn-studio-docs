@@ -197,36 +197,40 @@ App/ui/layouts/oppsummering.json
 {{< /code-title >}}
 
 ```json
-[
-  ...
-  {
-    "id": "arbeidsforhold-group",
-    "type": "Group",
-    "textResourceBindings": {
-      "title": "Arbeid"
-    },
-    "children": ["summary9", "summary10", "summary11"]
-  },
-  {
-    "id": "summary9",
-    "type": "Summary",
-    "componentRef": "RadioButtons-sektor",
-    "pageRef": "Arbeidsforhold"
-  },
-  {
-    "id": "summary10",
-    "type": "Summary",
-    "componentRef": "Checkboxes-bransje",
-    "pageRef": "Arbeidsforhold"
-  },
-  {
-    "id": "summary11",
-    "type": "Summary",
-    "componentRef": "Dropdown-years-in-workforce",
-    "pageRef": "Arbeidsforhold"
-  },
-  ...
-]
+{
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
+  "data": {
+    "layout": [
+      {
+        "id": "arbeidsforhold-group",
+        "type": "Group",
+        "textResourceBindings": {
+          "title": "Arbeid"
+        },
+        "children": [
+          "summary9",
+          "summary10",
+          "summary11"
+        ]
+      },
+      {
+        "id": "summary9",
+        "type": "Summary",
+        "componentRef": "RadioButtons-sektor"
+      },
+      {
+        "id": "summary10",
+        "type": "Summary",
+        "componentRef": "Checkboxes-bransje"
+      },
+      {
+        "id": "summary11",
+        "type": "Summary",
+        "componentRef": "Dropdown-years-in-workforce"
+      }
+    ]
+  }
+}
 ```
 
 * Legg til en innsendingsknapp med teksten 'Bekreft' og fjern innsendingsknappen fra siden `Arbeidsforhold.json`.
@@ -237,27 +241,30 @@ App/ui/layouts/oppsummering.json
 {{< /code-title >}}
 
 ```json
-[
-  ...
-  {
-    "id": "panelinfo",
-    "type": "Panel",
-    "textResourceBindings": {
-      "title": "MERK",
-      "body": "preview.warning"
-    },
-    "variant": "warning",
-    "showIcon": true
-  },
-  {
-    "id": "preview-confirm",
-    "type": "Button",
-    "textResourceBindings": {
-      "title": "button.confirm"
-    }
-  },
-  ...
-]
+{
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
+  "data": {
+    "layout": [
+      {
+        "id": "panelinfo",
+        "type": "Panel",
+        "textResourceBindings": {
+          "title": "MERK",
+          "body": "preview.warning"
+        },
+        "variant": "warning",
+        "showIcon": true
+      },
+      {
+        "id": "preview-confirm",
+        "type": "Button",
+        "textResourceBindings": {
+          "title": "button.confirm"
+        }
+      }
+    ]
+  }
+}
 ```
 
 Fullstendig løsning: [oppsummering.json](https://altinn.studio/repos/tss/flyttemelding-sogndal/src/branch/modul7/App/ui/layouts/oppsummering.json)
@@ -270,14 +277,14 @@ App/ui/layouts/innflytterPersonalia.json
 
 ```json
 
-// addressComponent
+// address
 "textResourceBindings": {
     "summaryTitle": "Adresse"
 }
 
-// AddressComponent-tidligere-bosted
+// Address-tidligere-bosted
 "textResourceBindings": {
-    "summaryTitle": "innflytterPersonalia.AddressComponent-tidligere-bosted.title"
+    "summaryTitle": "innflytterPersonalia.Address-tidligere-bosted.title"
 }
 ```
 
@@ -290,9 +297,9 @@ Merk at hvis siden er lagt til i Studio Designer vil den dukke opp under `pages`
 App/ui/Settings.json
 {{< /code-title >}}
 
-```json{hl_lines=[9,13]}
+```json {hl_lines=[9,13]}
 {
-  "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
   "pages": {
     "order": [
       "info",
@@ -316,6 +323,7 @@ App/config/texts/resources.nb.json
 
 ```json
 {
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/text-resources/text-resources.schema.v1.json",
   "language": "nb",
   "resources": [
     ...
@@ -379,7 +387,7 @@ App/ui/layout-sets.json
 
 ```json
 {
-  ...
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout-sets.schema.v1.json",
   "sets": [
     {
       "id": "stateless",
@@ -402,7 +410,7 @@ App/ui/stateless/Settings.json
 
 ```json
 {
-  ...
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
   "pages": {
     "order": [
       "info",
@@ -418,7 +426,7 @@ App/ui/statefull/Settings.json
 
 ```json
 {
-  ...
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
   "pages": {
     "order": [
       "innflytterPersonalia",
@@ -440,7 +448,7 @@ Legg til `"onEntry": { "show": "stateless" }`.
 App/config/applicationmetadata.json
 {{< /code-title >}}
 
-```json{hl_lines=10}
+```json {hl_lines=10}
 {
   "id": "ttd/flyttemelding-sogndal",
   "org": "ttd",
@@ -465,7 +473,7 @@ Vi har brukt uttrykk på knappene for å bestemme hvilken knapp som skal vises/s
 App/ui/stateless/layouts/info.json
 {{< /code-title >}}
 
-```json{hl_lines=[9,17]}
+```json {hl_lines=[9,17]}
 [
   ...
   {
@@ -505,6 +513,7 @@ App/config/texts/resource.nb.json
 
 ```json
 {
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/text-resources/text-resources.schema.v1.json",
   "language": "nb",
   "resources": [
     ...

@@ -55,10 +55,16 @@ public class ListCases : IDataListProvider
 {
     public string Id { get; set; } = "people";
 
-    public async Task<DataList> GetDataListAsync(string language, Dictionary<string, string> keyValuePairs)
+    public Task<DataList> GetDataListAsync(string language, Dictionary<string, string> keyValuePairs)
     {
         int start = 0;
         int count = 10;
+        string search = "";
+
+        if (keyValuePairs.ContainsKey("search") )
+        {
+            search = keyValuePairs["search"];
+        }
 
         if (keyValuePairs.ContainsKey("size") && keyValuePairs.ContainsKey("page"))
         {
@@ -82,6 +88,12 @@ public class ListCases : IDataListProvider
         items.Add(new ListItem { Name = "Karl", Age = 49, Profession = "Skuespiller" });
         items.Add(new ListItem { Name = "Mette", Age = 33, Profession = "Artist" });
 
+        
+        if (!String.IsNullOrEmpty(search))
+        {
+            items = items.Where(o => (o.Name == search)).ToList();
+        }
+
         if (keyValuePairs.ContainsKey("sortDirection"))
         {
             string sortDirection = keyValuePairs["sortDirection"];
@@ -95,13 +107,14 @@ public class ListCases : IDataListProvider
                 items.Reverse();
             }
         }
-
+        
         DataListMetadata appListsMetaData = new DataListMetadata() { TotaltItemsCount = items.Count };
-
+       
         List<object> objectList = new List<object>();
         items.ForEach(o => objectList.Add(o));
 
-        return new DataList { ListItems = objectList.GetRange(start, count), _metaData = appListsMetaData };
+        int boundedCount = start + count > items.Count ? items.Count - start : count;
+        return Task.FromResult(new DataList { ListItems = objectList.GetRange(start, boundedCount), _metaData = appListsMetaData });
     }
 }
 ```

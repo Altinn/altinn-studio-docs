@@ -5,7 +5,7 @@ weight: 10
 ---
 
 Nedenfor er en tabell med layout-egenskaper for komponenter.
-Mer spesifikke egenskaper og definisjoner finner du i beskrivelsen for hver komponent og i filen [layout JSON schema](https://altinncdn.no/schemas/json/layout/layout.schema.v1.json).
+Mer spesifikke egenskaper og definisjoner finner du i beskrivelsen for hver komponent og i filen [layout JSON schema](https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json).
 
 
 {{% expandlarge id="layout-komponent-egenskaper" header="Layout-egenskaper for komponenter" %}}

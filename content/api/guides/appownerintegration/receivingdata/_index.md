@@ -52,18 +52,18 @@ Prosessen overordnet
 Utvikling av applikasjon er dekket i Guide for applikasjonsutvikling
 Aktivering av publisering av hendelser fra applikasjon er beskrevet i guide.
 
-Krav til webhook for mottak av events finner du [her](/)
+Krav til webhook for mottak av events finner du [her](/events/subscribe-to-events/developer-guides/setup-subscription/#request)
 
 Tjenesteeier må ha registert en integrasjon i Maskinporten. 
 
-Opprettelse av integrasjon er beskrevet i Guide her.
+Opprettelse av integrasjon er beskrevet i Guide [her](/api/authentication/maskinporten/#tilgang-som-tjenesteeier).
 
 ## Detaljert teknisk prosess
 
 
 ### Tjenesteeiersystem mottar Event fra Altinn Events
 
-Første steget i prosessen er at mottaksendepunkt mottar informasjon om Event fra Applikasjon kjørende i Altinn. Dette forutsetter at [abonnement er satt opp](/events/subscribe-to-events/).
+Første steget i prosessen er at mottaksendepunkt mottar informasjon om Event fra Applikasjon kjørende i Altinn. Dette forutsetter at [abonnement er satt opp](/events/subscribe-to-events/developer-guides/setup-subscription/).
 
 ```
 {

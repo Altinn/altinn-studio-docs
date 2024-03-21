@@ -61,7 +61,7 @@ In addition, the texts from the example above must be defined for the dropdown m
 
 ```json
 {
-    "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
+    "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
     "components": {
       "excludeFromPdf": [...]
     },

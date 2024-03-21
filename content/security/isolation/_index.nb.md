@@ -9,12 +9,12 @@ For å hindre at en tjeneste hos en tjenesteeier kan påvirke andre tjenesteeier
 
 ## Separasjon mellom test og produksjon
 
-Tjenesteeiere utvikler appene/tjenestene i et eget tjenesteutviklingsmiljø og produksjonssetter de i et produksjonsmiljø. 
+Tjenesteeiere utvikler og tester appene/tjenestene i et eget tjenesteutviklingsmiljø og produksjonssetter de i et produksjonsmiljø. 
 
 ## Tjenesteeier-miljø (kjøremiljø)
 
-Appene til en tjenesteeier kjører i sitt eget kjøremiljø (AKS).
-Dette medfører at kjøremiljø til en tjenesteeier ikke kan påvirke en annen tjenesteeier sitt kjøremiljø hverken under test eller produksjon.
+Appene til en tjenesteeier kjører i sitt eget kjøremiljø ([AKS](https://azure.microsoft.com/en-us/products/kubernetes-service)).
+Dette medfører at kjøremiljø til en tjenesteeier ikke kan påvirke andre tjenesteeieres kjøremiljø hverken under test eller produksjon.
 
 ## Personopplysninger i innsendinger
 

@@ -268,14 +268,7 @@ public async Task ValidateTask(Instance instance, string taskId, ModelStateDicti
 
 ## Enkeltfeltvalidering
 
-Dersom det er behov for umiddelbar validering av et felt
-som ikke kan dekkes i klientsidevalideringen, 
-så kan man sette opp en trigger for validering på enkeltfelter i komponent-konfigurasjonen.
-{{%notice warning%}}
-
-**MERK**: Det er foreløpig ikke støtte for å sette opp trigger for validering av enkeltfelter for Stateless apps.
-{{%/notice%}}
-
+Enkeltfeltvalidering vises umiddelbart når brukeren har fylt ut et felt.
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="v4 (App Frontend)">}}
@@ -301,8 +294,15 @@ Hvor `showValidations` inneholder et sett med validerings-typer som skal sjekkes
 - `Required`
 - `AllExceptRequired`
 - `All`
+
+**NB**: `"showValidations": ["AllExceptRequired"]` brukes som standard dersom egenskapen ikke er satt.
+For å unngå å vise noen valideringer umiddelbart kan `showValidations` settes til en tom liste `[]`.
 {{</content-version-container>}}
 {{<content-version-container version-label="v3 (App Frontend)">}}
+
+{{%notice warning%}}
+**MERK**: Det er foreløpig ikke støtte for å sette opp trigger for validering av enkeltfelter for Stateless apps.
+{{%/notice%}}
 
 Merk at i versjon 3 av app frontend, kjøres JSON schema og komponent-spesifikk validering automatisk som standard, å legge til en validerings-trigger fører til at custom backend validering kjøres i tillegg.
 
