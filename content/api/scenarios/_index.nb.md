@@ -1,6 +1,6 @@
 ---
 title: Scenarier
-description: Forskjellige API-bruksscenarier.
+description: Forskjellige API-bruksscenarier
 toc: false
 ---
 
