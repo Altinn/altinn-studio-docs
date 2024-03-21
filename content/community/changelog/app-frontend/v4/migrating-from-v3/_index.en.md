@@ -3,7 +3,7 @@ title: Migration from v3
 description: How to migrate from App-frontend v3 to v4
 weight: 50
 toc: true
----
+--- 
 
 ## Introduction
 
@@ -136,3 +136,40 @@ In addition to changing the version, you should also remove the links to the thi
       }
     ```
 4. Fix any [breaking changes](/community/changelog/app-frontend/v4) affecting your app, including upgrading the nuget packages to version 8.0.
+
+## Opt-in to Altinn AI for tracks migration
+
+In v3, `IPageOrder` and `calculatePageOrder`, so called tracks, could be used to define custom page order based on input 
+from the user. This functionality has been removed in v4, and the page order is now determined by the layout configuration 
+with the `hidden` property. To get pages to show/hide based on selections in the UI, you can use `hidden` together with 
+dynamic expressions. This is a somewhat different approach to a dynamic page order, and you may find it beneficial to get
+some help with the migration.
+
+You can opt-in for an automatic AI-generated Pull Request to help you migrate from the old tracks feature, as the new 
+way of handling page order is also available in v3. When you have opted-in for the AI-generated Pull Request, our 
+Altinn Ai Bot will create a Pull Request in your repository with a suggested migration from tracks to dynamic expressions.
+This PR will be generated in a nightly run.
+
+Steps to opt-in on a single repository:
+1. In gitea, go to the repository where you want to opt-in for the AI-generated Pull Request.
+2. Go to the Settings tab.
+3. Go to the Collaboration section.
+4. Add "altinn_sa_ai (Altinn AI [Bot])"
+5. Sit back and relax, and let the Altinn Ai do the work for you. The PR will be created in a nightly run if the bot finds any tracks in your repository.
+
+
+If you want to opt-in for all repositories in your organization, you can do this on a service owner level.
+Steps to opt-in on a service owner level:
+1. In gitea, go to your organization: `https://altinn.studio/repos/<orgname>`
+2. Go to the Teams tab.
+3. Click the "Devs" team.
+4. Add "altinn_sa_ai (Altinn AI [Bot])" to the team
+5. Sit back and relax, and let the Altinn Ai do the work for you. A PR will be created in a nightly run in any repository the bot finds the tracks implementation.
+
+
+{{% notice warning %}}
+**Note**: Because the dynamic expression way of handling page order differs slightly from the tracks implementation,
+the migrated result might not be a 100% match to the original behavior. The AI is not perfect at migrating the 
+code, and you should always review and test the changes made in the Pull Request before merging it. 
+{{% /notice %}}
+
