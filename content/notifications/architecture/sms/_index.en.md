@@ -35,6 +35,11 @@ has been implemented based on the SDK made available by Link to interact with th
 
 Delivery reports from Link Mobility are pushed to the delivery report endpoint in our public API.
 
+Altinn SMS integrates with Link Mobility through an SMS Gateway using their XML API. AT, YT and TT environments use the publicly 
+available test gateway, and production uses a Digdir dedicated SMS gateway.
+
+[API documentation for the Gateway is available on Link's website.](https://wiki.pswin.com/)
+
 ## Dependencies
 The microservice takes use of a range of external and Altinn services as well as .NET libraries to support the provided
 functionality. 

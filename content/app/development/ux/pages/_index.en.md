@@ -29,7 +29,7 @@ If you use layout sets there is a separate file for each layout set.
 
 ```json
 {
-  "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
   "pages": {
     "order": [
       "Info",
@@ -71,12 +71,13 @@ The available settings are the following:
 For å få en side til å automatisk utvide seg til full bredde av nettleservinduet når den åpnes, kan du legge til
 egenskapen `expandedWidth` for en layout. Dette setter standardtilstanden til siden til å være utvidet.
 Du kan sette expandedWidth på tre nivåer: i filen `layout-sets.json`, i filen `Settings.json` og i en spesifikk side sin
-layout-fil. Dersom du setter expandedWidth på flere nivåer, vil den spesifikke verdien overskrive de generelle.
+layout-fil. Dersom du setter `expandedWidth` på flere nivåer, vil den spesifikke verdien overskrive de generelle.
 
-`layout-settings.json`:
+`layout-sets.json`:
 
 ```json
 {
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout-sets.schema.v1.json",
   "uiSettings": {
     "expandedWidth": true
   },
@@ -90,7 +91,7 @@ layout-fil. Dersom du setter expandedWidth på flere nivåer, vil den spesifikke
 
 ```json
 {
-  "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
   "pages": {
       "order": [
          ...
@@ -108,7 +109,7 @@ Layout-fil:
 
 ```json
 {
-  "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
   "data": {
     "expandedWidth": true,
     "layout": [

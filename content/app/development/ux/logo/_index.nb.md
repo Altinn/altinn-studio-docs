@@ -88,9 +88,13 @@ For å bruke din egen logo, må den først lastes opp.
 
 Husk at hver tekstressursfil (`resource.[language].json`) må oppdateres for at endringene skal vises i alle språk.
 
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="Syntaks">}}
+
 {{< code-title >}}
 App/config/texts/resource.nb.json
 {{< /code-title >}}
+
 ```json
 {
   "id": "appLogo.url",
@@ -99,10 +103,27 @@ App/config/texts/resource.nb.json
 ```
 Her refererer `appID` til `id` egenskapen i `applicationmetadata.json`.
 
+{{</content-version-container>}}
+{{<content-version-container version-label="Eksempel">}}
+
+{{< code-title >}}
+App/config/texts/resource.nb.json
+{{< /code-title >}}
+
+```json
+{
+  "id": "appLogo.url",
+  "value": "/digdir/bli-tjenesteeier/logo_digdir.svg"
+}
+```
+{{</content-version-container>}}
+{{</content-version-selector>}}
+
 Til slutt så må `source` i `applicationmetadata.json` endres til å være `resource` for å hente logoen som ble lastet opp.
 {{< code-title >}}
 App/config/applicationmetadata.json
 {{< /code-title >}}
+
 ```json {hl_lines=[3]}
 "logo": {
     "displayAppOwnerNameInHeader": false,

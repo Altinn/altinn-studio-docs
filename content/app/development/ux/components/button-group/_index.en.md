@@ -9,31 +9,37 @@ weight: 10
 ## Example
 
 ```json
-...
-
 {
-  "id": "button-group-1",
-  "type": "ButtonGroup",
-  "children": ["nav-buttons", "submit-button"]
-},
-{
-  "id": "nav-buttons",
-  "type": "NavigationButtons",
-  "textResourceBindings": {
-    "next": "Next",
-    "back": "Back"
-  },
-  "showBackButton": true
-},
-{
-  "id": "submit-button",
-  "type": "Button",
-  "textResourceBindings": {
-    "title": "Submit"
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
+  "data": {
+    "layout": [
+      {
+        "id": "button-group1",
+        "type": "ButtonGroup",
+        "children": [
+          "nav-buttons",
+          "submit-button"
+        ]
+      },
+      {
+        "id": "nav-buttons",
+        "type": "NavigationButtons",
+        "textResourceBindings": {
+          "next": "Next",
+          "back": "Back"
+        },
+        "showBackButton": true
+      },
+      {
+        "id": "submit-button",
+        "type": "Button",
+        "textResourceBindings": {
+          "title": "Submit"
+        }
+      }
+    ]
   }
 }
-
-...
 ```
 
 ## Configuration

@@ -8,6 +8,7 @@ weight: 40
 
 I denne modulen skal du utvide applikasjonen du har laget i foregående moduler for å støtte enda fler av [kravene til Sogndal kommune](../case/#krav-fra-kommunen).
 
+
 **Temaer som dekkes i denne modulen:**
 
 - Kodelister/Options
