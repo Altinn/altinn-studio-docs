@@ -10,15 +10,15 @@ Altinn Studio benytter Gitea sin interne autentiseringsløsning som også kontro
 
 Multifaktor-autentisering er støttet og brukere må selv konfigurere dette.
 
-Azure AD brukes for å begrense tilgangen til utvikling og drift av Altinn Studio og Platform.
+[Microsoft Entra ID](https://www.microsoft.com/nb-no/security/business/identity-access/microsoft-entra-id)
+brukes for å begrense tilgangen til utvikling og drift av Altinn Studio og andre produkter.
 Det er kun drift og utviklere tilknyttet Altinn 3 som har tilgang til løsningen.
 
 Tjenesteeieren kan bestille tilgang til brukere til tjenestetestutviklingsmiljø (TT02) og produksjonsmiljøet.
 Dette står nærmere beskrevet [her](/nb/app/guides/access-management/apps/). 
-Merk at tjenesteeiere må melde fra til DigDir når tilganger skal fjernes. 
+Merk at tjenesteeiere må melde fra til Digdir når tilganger skal fjernes. 
 
 Autentisering for sluttbrukere er nærmere forklart [her](/nb/api/authentication/).
-
 
 Tjenesteeiere må selv spesifisere krav til autorisasjon i tjenestene de utvikler.
 Mer informasjon finnes [her](/nb/app/development/configuration/authorization/).

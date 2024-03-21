@@ -13,5 +13,5 @@ An external security company is regularly hired to perform independent penetrati
 Altinn will look into the possibility of offering this functionality later.
 {{%/notice%}}
 
-As mentioned in [secure development](/app/development), multiple analysis tools are used
+As mentioned in [secure development](../development), multiple analysis tools are used
 to prevent security flaws from being introduced during development.
