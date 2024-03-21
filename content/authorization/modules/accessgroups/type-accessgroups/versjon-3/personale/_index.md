@@ -10,10 +10,10 @@ Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroup
 ![Personale](per.jpg "Personale")
 
 - **Personale:** Denne fullmakten gir tilgang til alle tjenester som angår ansatte og personalforhold. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. 
-	- **Ansettelsesforhold:** Denne tilgangspakken gir fullmakter til tjenester knyttet til ansettelsesforhold. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. 
-	- **Lønn:** Denne tilgangspakken gir fullmakter til tjenester knyttet til lønn og honorar. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. 
-	- **Pensjon:** Denne tilgangspakken gir fullmakter til tjenester knyttet til pensjon. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. 
-	- **Permisjon og sykefravær:** Denne tilgangspakken gir fullmakter til tjenester knyttet til permisjon og sykefravær. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. 	
+	- **Ansettelsesforhold:** Denne tilgangspakken gir fullmakter til tjenester knyttet til ansettelsesforhold. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.    **urn:altinn:accesspackage:ansettelsesforhold**
+	- **Lønn:** Denne tilgangspakken gir fullmakter til tjenester knyttet til lønn og honorar. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.    **urn:altinn:accesspackage:lonn**
+	- **Pensjon:** Denne tilgangspakken gir fullmakter til tjenester knyttet til pensjon. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.    **urn:altinn:accesspackage:pensjon**
+	- **Permisjon og sykefravær:** Denne tilgangspakken gir fullmakter til tjenester knyttet til permisjon og sykefravær. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.   **urn:altinn:accesspackage:permisjonogsykefravaer**
 	- 
 ## Egenskaper ved tilgangspakkene
 |Navn tillgangspakke|Kan delegeres til ansatte?|Kan knytte tjenester til?|[ER rolle](/authorization/modules/accessgroups/register_er/#rolletyper-fra-enhetsregisteret) som får fullmakten|
