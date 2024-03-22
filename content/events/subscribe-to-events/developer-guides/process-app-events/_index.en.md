@@ -85,7 +85,7 @@ We recommend that you clone the repository before making any adaptions and deplo
 
 4. If you are the application owner and this is a part of processing a submitted instance, complete this flow by 
    calling the 
-   [complete confirm endpoint for the instance](/api/apps/spec/#/Instances/post__org___app__instances__instanceOwnerPartyId___instanceGuid__complete). 
+   [complete confirm endpoint for the instance](https://docs.altinn.studio/api/apps/spec/#/Instances/get__org___app__instances__instanceOwnerPartyId__active). 
    
    This informs Altinn that you as an application owner have downloading everything you need, meaning Altinn 
    does not need to persist the instance and related form data and attachments after the end user deletes it from their 
