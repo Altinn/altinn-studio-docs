@@ -32,7 +32,7 @@ Mer informasjon om prinsippene finnes på https://docs.altinn.studio/principles/
 
 ## Tredjepartsleverandører og leverandørkjeder
 
-!["Rammeverk og teknologier"](https://docs.altinn.studio/technology/tools/tech-map.png "Figur 3 - Rammeverk og teknologier som benyttes i Altinn 3")
+!["Rammeverk og teknologier"](/technology/tools/tech-map.png "Figur 3 - Rammeverk og teknologier som benyttes i Altinn 3")
 
 Altinn 3 er basert på åpen kildekode og benytter flere tredjepartsbiblioteker og produkter.
 Disse bibliotekene benytter andre biblioteker igjen, som igjen benytter andre biblioteker osv.

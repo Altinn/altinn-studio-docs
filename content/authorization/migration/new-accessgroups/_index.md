@@ -15,7 +15,7 @@ Altinn skal erstatte rollene som gir tilgang til tjenester i Altinn 2 når vi fl
 Foreløpig tidsplan for arbeidet ser slik ut: 
 
 1. Foreslå nye tilgangspakker (Q1 2023)
-2. Gjennomføre høring av versjon 1 av forslag til tilgangspakker (Q2/Q3 2023). Se [høringsbrev](https://docs.altinn.studio/authorization/migration/informasjon-sent/letter-accessgroupes/) sendt ut i starten av juni. Frist 1.8.2023
+2. Gjennomføre høring av versjon 1 av forslag til tilgangspakker (Q2/Q3 2023). Se [høringsbrev](/authorization/migration/informasjon-sent/letter-accessgroupes/) sendt ut i starten av juni. Frist 1.8.2023
 3. Etablere nye tilgangspakker versjon 2 (Q3 2023)
 4. Gjennomføre hørring av versjon 2 av forslag til tilgangspakker (Q3/Q4 2023).Høring er ennå ikke sendt ut men forslaget utvikles [her](). Antatt høringsfrist blir slutten av okotber 2023.
 5. Etablere endelig versjon av tilgangspakker  

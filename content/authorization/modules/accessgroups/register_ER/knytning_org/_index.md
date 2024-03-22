@@ -14,7 +14,7 @@ Altinn vil i mange tilfeller da sørge for en knytning mellom disse virksomheten
 Vi kaller dette nøsting av fullmakter. 
 
 ## Hvem får fullmakt på vegne av tilknyttet virksomhet
-Det er tilknyttet virksomhet og personer reigstrert med nøkkelroller i denne som får fullmakter på vegne av den aktuelle virksomheten. I tabeller på [denne siden](https://docs.altinn.studio/authorization/modules/accessgroups/register_er/) finner du oversikt over hvilke nøkkelroller som finnes på ulike organisasjonsformer. 
+Det er tilknyttet virksomhet og personer reigstrert med nøkkelroller i denne som får fullmakter på vegne av den aktuelle virksomheten. I tabeller på [denne siden](/authorization/modules/accessgroups/register_er/) finner du oversikt over hvilke nøkkelroller som finnes på ulike organisasjonsformer. 
 
 Eksempel 1 på hvordan det fungerer: 
 

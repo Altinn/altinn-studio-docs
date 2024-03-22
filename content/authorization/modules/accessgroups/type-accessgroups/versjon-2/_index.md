@@ -86,7 +86,7 @@ Tilbakemelding kan du sende på e-post til servicedesk@altinn.no innen 10.11.202
 1. [Skatt, avgift, regnskap og toll](/authorization/modules/accessgroups/type-accessgroups/versjon-2/skatt/)
 2. [Personale](/authorization/modules/accessgroups/type-accessgroups/versjon-2/personale/)
 3. [Miljø, ulykke og sikkerhet](/authorization/modules/accessgroups/type-accessgroups/versjon-2/miljo/)
-4. [Post/arkiv](https://docs.altinn.studio/authorization/modules/accessgroups/type-accessgroups/versjon-2/post/)
+4. [Post/arkiv](/authorization/modules/accessgroups/type-accessgroups/versjon-2/post/)
 5. [Forhold ved virksomheten](/authorization/modules/accessgroups/type-accessgroups/versjon-2/forhold/)
 6. [Integrasjoner og API-er](/authorization/modules/accessgroups/type-accessgroups/versjon-2/integrasjon/)
 7. [Administrere tilganger](/authorization/modules/accessgroups/type-accessgroups/versjon-2/tilgang/)
