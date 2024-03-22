@@ -20,7 +20,7 @@ Hvis du velger dette alternativet, får brukerne en liste over tildigere eksempl
 Dette alternativet lar deg skjule alle eksemplarer av tjenesten i innboksen og arkivet. Dette er nyttig hvis du for eksempel lager skjemaer for personlighetstester eller andre sensitive svarskjemaer, som brukeren ikke skal kunne se etterpå.
 
 ### Vis knapp for å kopiere eksemplarer av innboksen/arkivet
-Med dette alternativet tillater du at brukerne kan få lage en kopi av et eksemplar de har sendt inn, Da kan de bruke det som grunnlag for et nytt eksemplar. Dette er nyttig for brukere som rapporterer på samme skjema jevnlig og bare skal endre enkelte tall eller detaljer. 
+Med dette alternativet tillater du at brukerne kan få lage en kopi av et eksemplar de har sendt inn. Da kan de bruke det som grunnlag for et nytt eksemplar. Dette er nyttig for brukere som rapporterer på samme skjema jevnlig og bare skal endre enkelte tall eller detaljer. 
 
 ## Oppstartskontroll
 ... og så videre
