@@ -23,8 +23,8 @@ This section allows you to modify basic settings for the application.
 ## Access Rules
 Access in an app is governed by a _Policy_ file located within the app. This file is based on the XACML standard. We have developed a tool to make it easier to add and edit access rules.
 
-Learn more about how to set this up [here](https://docs.altinn.studio/app/development/configuration/authorization/). 
-We have also written a [guide for authorization rules](https://docs.altinn.studio/app/development/configuration/authorization/guidelines_authorization/) 
+Learn more about how to set this up [here](../../../development/configuration/authorization/). 
+We have also written a [guide for authorization rules](../../../development/configuration/authorization/guidelines_authorization/) 
 that may be useful to review before getting started.
 
 ## Tools for Access Rules

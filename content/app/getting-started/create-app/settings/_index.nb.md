@@ -24,8 +24,8 @@ Her kan du endre enkle innstillinger for applikasjonen.
 Tilganger i en app styres av en _Policy_-fil som ligger i appen. Denne filen baserer seg på XACML standarden. Vi har utviklet
 et verktøy for å gjøre det enklere å legge til og redigere tilgangsregler.
 
-Les mer om hvordan dette settes opp [her](https://docs.altinn.studio/nb/app/development/configuration/authorization/). Vi
-har også skrevet en [veiledning for autorisasjonsregler](https://docs.altinn.studio/nb/app/development/configuration/authorization/guidelines_authorization/)
+Les mer om hvordan dette settes opp [her](../../../development/configuration/authorization/). Vi
+har også skrevet en [veiledning for autorisasjonsregler](../../../development/configuration/authorization/guidelines_authorization/)
 som kan være nyttig å lese gjennom før man setter i gang.
 
 ## Verktøy for tilgangsregler
