@@ -9,7 +9,7 @@ tags: [architecture, plan, authorizaton]
 ---
 ## Skjema-, innsyns- og samhandlingstjenester
 ### Migreringsstrategi
-Innen juni 2025 må alle skjematjenester enten være flyttet fra Altinn 2 til Altinn 3, avvikles eller implementeres på andre løsninger.
+Innen juni 2026 må alle skjematjenester enten være flyttet fra Altinn 2 til Altinn 3, avvikles eller implementeres på andre løsninger.
 
 Tjenesteeier er selv ansvarlig for å migrere disse tjenestene fra Altinn 2 til Altinn 3. Det innebærer at man må utvikle skjematjenesten på nytt som en 3.0 app. Her finner du veiledning for å komme i gang.
 
@@ -17,11 +17,11 @@ Tjenesteeier kan allerede nå begynne å flytte sine tjenester, men det er forts
 
 Plan for gjenstående funksjonalitet fra Altinn 2 og når denne leveres i Altinn 3:
 
-- Betaling: Q3-2023
-- Parallellsignering: Q1-2024
-- Brukerstyrt signering: Q1-2024
-- Samhandlingstjenester: Q1-2024
-- Avanserte tjenester: Q1-2024
+- Betaling: Q2-2024
+- Parallellsignering: Q3-2024
+- Brukerstyrt signering: Q3-2024
+- Samhandlingstjenester: Q2-2024
+- Avanserte tjenester: TBA
 
 Skulle du finne ting som mangler fra Altinn 2 og som er kritisk å få på plass så ta kontakt med oss på servicedesk@digdir.no.
 
@@ -30,7 +30,7 @@ Vi har et åpent veikart for Altinn Studio hvor du også finner oversikt over an
 Tidsplan
 - Oppstart utvikling av løsning: Pågående
 - Klart for migrering av tjenester: Se plan over
-- Migrering tjenester avsluttet: senest Q1 2025
+- Migrering tjenester avsluttet: senest Q1 2026
 
 
 ## Lenketjenester
@@ -64,8 +64,8 @@ Det er derfor tatt en beslutning om at man ikke vil videreføre lokale roller i 
 
 ### Tidsplan
 - Oppstart utvikling: 01.01.2023
-- Klart for migrering av lenketjenester: Q4 2023
-- Migrering må være gjort innen: ikke besluttet, men senest Q1 2025
+- Klart for migrering av lenketjenester: Q2 2024
+- Migrering må være gjort innen: ikke besluttet, men senest Q1 2026
 
 ## Samtykketjenester
 ### Migreringsstrategi
@@ -80,7 +80,7 @@ Det er fortsatt ikke utredet hvilke konsekvenser dette får for API som tilhøre
 ### Tidsplan
 - Oppstart utvikling: ikke besluttet
 - Klart for migrering av samtykketjenester: ikke besluttet
-- Migrering må være gjort innen: ikke besluttet, men senest Q1 2025
+- Migrering må være gjort innen: ikke besluttet, men senest Q1 2026
 
 ## Formidlingstjenester
 ### Migreringsstrategi
@@ -93,8 +93,8 @@ Det vil i en overgangsfase være mulig å benytte de gamle API-ene.
 
 ### Tidsplan 
 - Oppstart utvikling: Q3 2023
-- Klart for migrering av tjenester: Q1 2024
-- Migrering av tjenester må være gjort innen: ikke besluttet, men senest Q1 2025
+- Klart for migrering av tjenester: Q2 2024
+- Migrering av tjenester må være gjort innen: ikke besluttet, men senest Q1 2026
 
 ## Meldingstjenester
 ### Migreringsstrategi
@@ -106,9 +106,9 @@ Fremdriftsplan for dialogporten finner du [her](https://github.com/orgs/digdir/p
 Det er ikke utredet hvilke konsekvenser dette har på tilhørende API
 
 ### Tidsplan
-- Oppstart utvikling: ikke besluttet
-- Klart for migrering av tjenester: ikke besluttet
-- Migrering av tjenester må være gjort innen: ikke besluttet, men senest Q1 2025
+- Oppstart utvikling: Q1 2024
+- Klart for migrering av tjenester: Q3 2024
+- Migrering av tjenester må være gjort innen: ikke besluttet, men senest Q1 2026
 
 ## Delegerbare API ressurser (ferdig migrert)
 ### Migreringsstrategi 
