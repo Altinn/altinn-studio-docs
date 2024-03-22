@@ -173,8 +173,9 @@ the migrated result might not be a 100% match to the original behavior. The AI i
 code, and you should always review and test the changes made in the Pull Request before merging it. 
 {{% /notice %}}
 
-The AI used is for this bot is Azure OpenAI. It is a dedicated model hosted on Digdir's internal Azure.
-The model used is `gpt-4-1106-preview`. The bot only uploads C# classes that have implemented the `IPageOrder` interface
-from your repository to the AI model.   
+The generative AI model used for this bot is 'gpt-4-1106-preview' from OpenAI, hosted as a dedicated instance on Digdir's
+internal Azure subscription. Information provided to the model is limited to a relevant subset of your repository,
+in this case the C# classes that implement the `IPageOrder` interface. Note that this information is not made available 
+to any third party for training purposes.
 
  
