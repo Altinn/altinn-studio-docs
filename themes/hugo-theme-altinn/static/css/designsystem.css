@@ -9947,7 +9947,7 @@ h2,
   font-weight: normal;
   margin-bottom: 12px;
 }
-p.a-leadText + h2 { /* ToC header */ 
+.toc-header { 
   font-family: "DIN-reg";
 }
 
