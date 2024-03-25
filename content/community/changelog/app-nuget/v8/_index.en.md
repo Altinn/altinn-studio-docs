@@ -104,6 +104,47 @@ New confirmation task:
 </bpmn:task>
 ```
 
+### New dotnet version
+The solution has been updated to use the newest LTS version of dotnet, .NET 8.0
+This needs to be updated in the project file and in the Dockerfile.
+
+Old Dockerfile:
+```Dockerfile {hl_lines=[1,11]}
+FROM mcr.microsoft.com/dotnet/sdk:6.0-alpine AS build
+WORKDIR /App
+
+COPY /App/App.csproj .
+RUN dotnet restore App.csproj
+
+COPY /App .
+
+RUN dotnet publish App.csproj --configuration Release --output /app_output
+
+FROM mcr.microsoft.com/dotnet/aspnet:6.0-alpine AS final
+EXPOSE 5005
+WORKDIR /App
+```
+
+New Dockerfile:
+```Dockerfile {hl_lines=[1,11]}
+FROM mcr.microsoft.com/dotnet/sdk:8.0-alpine AS build
+WORKDIR /App
+
+COPY /App/App.csproj .
+RUN dotnet restore App.csproj
+
+COPY /App .
+
+RUN dotnet publish App.csproj --configuration Release --output /app_output
+
+FROM mcr.microsoft.com/dotnet/aspnet:8.0-alpine AS final
+EXPOSE 5005
+WORKDIR /App
+```
+
+For a complete view of the changes in Dockerfile, see
+[diff on github](https://github.com/Altinn/app-template-dotnet/commit/d13946262286542564445779e87b75c4bbb2cdaf#diff-51767e9b1bad3f38294e90b0aaadd99ee89bb126f426b22bb8f5e199c6c69bc6).
+
 ### Changes to interfaces for clients and services
 Clients and services we provide to communicate with the core services we provide like storage and secrets have been moved and rename to make it more clearly what they interact with.
 
