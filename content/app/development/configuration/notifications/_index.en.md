@@ -1,7 +1,7 @@
 ---
 title: Publish notifications
 linktitle: Notifications
-description: Hot to publish notifications for an app.
+description: How to publish notifications for an app.
 weight: 200
 ---
 
